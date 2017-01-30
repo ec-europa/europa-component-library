@@ -1,0 +1,31 @@
+.button-group {
+  & .button {
+    margin-right: 0.4em;
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.button-group-row-two {
+  width: 100%;
+
+  & .button {
+    float: left;
+    width: 48.5%;
+    margin-left: 0 !important;
+    margin-bottom: -2px;
+    text-align: left;
+
+    &:nth-child(odd) {
+      margin-right: 3%;
+      clear: left;
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+  }
+}
