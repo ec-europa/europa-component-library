@@ -31,6 +31,12 @@ fractal.components.set('path', path.resolve(__dirname, './framework'));
 fractal.components.engine('@frctl/nunjucks'); // use Nunjucks for components
 fractal.components.set('ext', '.html');
 
+// "Assets" tab
+fractal.components.set('resources.assets', {
+  label: 'Code',
+  match: '**/*.{js,scss}',
+});
+
 // Docs config
 fractal.docs.set('path', path.resolve(__dirname, 'docs'));
 
