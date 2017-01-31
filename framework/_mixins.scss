@@ -166,7 +166,7 @@ $modifiers: (
 );
 
 @mixin icon($modifier, $char: map-get($modifiers, $modifier)) {
-  content: #{'''}#{$char}#{'''};
+  content: #{'\''}#{$char}#{'\''};
 
   &::before {
     @extend .icon--#{$modifier};
