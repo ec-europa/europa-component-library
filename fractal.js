@@ -1,6 +1,6 @@
 const path = require('path');
-const fractal = require('@frctl/fractal').create();
-const mandelbrot = require('@frctl/mandelbrot');
+const fractal = require('@frctl/fractal').create(); // eslint-disable-line import/no-extraneous-dependencies
+const mandelbrot = require('@frctl/mandelbrot'); // eslint-disable-line import/no-extraneous-dependencies
 
 const paths = {
   build: `${__dirname}/www`,

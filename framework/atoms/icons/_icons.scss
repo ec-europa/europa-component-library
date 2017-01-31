@@ -1,0 +1,144 @@
+/*
+Icon
+
+Icons using europa icons font.
+
+Markup: html/icon.html
+
+.icon--external - External link icon
+.icon--arrow-up - Arrow up icon
+.icon--arrow-down - Arrow down icon
+.icon--feedback - Feedback icon
+.icon--spinner - Spinner icon
+.icon--search - Search icon
+.icon--language - Language icon
+.icon--facebook - Facebook icon
+.icon--twitter - Twitter icon
+.icon--googleplus - G+ icon
+.icon--linkedin - Linkedin icon
+.icon--rss - RSS icon
+.icon--up - Up icon
+.icon--right - Right icon
+.icon--down - Down icon
+.icon--left - Left icon
+.icon--file - File icon
+.icon--audio - Audio icon
+.icon--brochure - Brochure icon
+.icon--edit - Edit icon
+.icon--image - Image icon
+.icon--download - Download icon
+.icon--infographic - Infographic icon
+.icon--multiple-files - Multiple files icon
+.icon--organigram - Organigram icon
+.icon--package - Package icon
+.icon--slides - Slides icon
+.icon--video - Video icon
+.icon--error - Error icon
+.icon--success - Success icon
+.icon--warning - Warning icon
+.icon--check - Check icon
+.icon--generic-lang - Generic language icon
+.icon--budget - Budget
+.icon--digital - digital
+.icon--energy - energy
+.icon--euro - euro
+.icon--global - global
+.icon--growth - growth
+.icon--regulation - regulation
+.icon--tag-close - tag close
+.icon--tag-close-hover - tag close with hover state
+.icon--calendar - Calendar icon
+.icon--location - Location icon
+.icon--livestreaming - Live streaming icon
+.icon--camera - Camera icon
+
+Style guide: icon
+*/
+
+@font-face {
+  font-family: 'EuropaIcons';
+  src: url('../fonts/europa-icons/europa-icons.eot');
+  src:
+    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
+    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
+    url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
+}
+
+.icon {
+  &::before {
+    display: inline-block;
+    font-family: 'EuropaIcons';
+    // Better Font Rendering
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin-right: 4px;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+  }
+}
+
+// Icon component and modifiers.
+@each $modifier, $char in $modifiers {
+  .icon--#{$modifier} {
+    @include icon($modifier);
+  }
+}
+
+.icon--blue-dark {
+  color: #004494;
+}
+
+.icon--tag-close-hover {
+  content: '\e82d';
+
+  &::before {
+    @extend .icon--tag-close-hover;
+  }
+}
+
+.icon--yellowbg {
+  background-color: $yellow-light;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+
+  &::before {
+    line-height: inherit;
+    margin-right: 0;
+  }
+}
+
+.icon--text-small {
+  @include text-small();
+}
+
+.icon--margin-right {
+  margin-right: 1.5em;
+}
+
+// States
+// creating spinning animation for an icon
+// in order to enable spinning apend .is-spinning class next to the .icon class
+.is-spinning::before {
+  @include animation(icon-spin-right 2s infinite linear);
+}
+
+@keyframes icon-spin-right {
+  0% {
+    @include rotate(0deg);
+  }
+
+  100% {
+    @include rotate(359deg);
+  }
+}
