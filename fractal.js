@@ -1,6 +1,6 @@
 const path = require('path');
-const fractal = require('@frctl/fractal').create();
-const mandelbrot = require('@frctl/mandelbrot');
+const fractal = require('@frctl/fractal').create(); // eslint-disable-line import/no-extraneous-dependencies
+const mandelbrot = require('@frctl/mandelbrot'); // eslint-disable-line import/no-extraneous-dependencies
 
 const paths = {
   build: `${__dirname}/www`,
@@ -30,6 +30,12 @@ fractal.components.set('default.status', null);
 fractal.components.set('path', path.resolve(__dirname, './framework'));
 fractal.components.engine('@frctl/nunjucks'); // use Nunjucks for components
 fractal.components.set('ext', '.html');
+
+// "Assets" tab
+fractal.components.set('resources.assets', {
+  label: 'Code',
+  match: '**/*.{js,scss}',
+});
 
 // Docs config
 fractal.docs.set('path', path.resolve(__dirname, 'docs'));

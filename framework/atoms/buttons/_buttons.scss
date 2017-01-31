@@ -16,23 +16,23 @@ Style guide: buttons
 */
 
 @mixin _white_space_reset_mixin() {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
   line-height: 1.667;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
   white-space: normal;
 }
 
 .btn {
   @extend .hidden-print;
 
-  min-height: 2.75em;
-  margin-bottom: 1em;
-  padding: 0.75em 1em;
-  line-height: 1;
+  border-radius: 0;
+  border-width: 2px;
   font-size: $font-size-little;
   font-weight: $font-weight-bold;
-  border-width: 2px;
-  border-radius: 0;
+  line-height: 1;
+  margin-bottom: 1em;
+  min-height: 2.75em;
+  padding: 0.75em 1em;
   text-decoration: none;
 
   @include _focus_outline_border(3px, $yellow-light, -3px);
@@ -53,14 +53,14 @@ Style guide: buttons
   }
 
   &::after {
-    position: static;
     line-height: inherit;
+    position: static;
   }
 
   &.btn-default {
     background: none;
-    color: $brand-primary;
     border-color: $brand-primary;
+    color: $brand-primary;
 
     &:hover,
     &:focus {
@@ -86,8 +86,8 @@ Style guide: buttons
 
   &.btn-secondary {
     background-color: $white;
-    color: $brand-primary;
     border-color: $white;
+    color: $brand-primary;
   }
 
   &.btn-ctn {
@@ -111,15 +111,15 @@ Style guide: buttons
       @extend .icon--after;
       @extend .icon--right;
 
-      margin-left: 10px;
       font-size: 0.8em;
+      margin-left: 10px;
     }
   }
 
   &.btn-menu {
     background-color: $brand-primary;
-    color: $white;
     border-color: $brand-primary;
+    color: $white;
 
     &:hover,
     &:active,
@@ -142,10 +142,10 @@ Style guide: buttons
       @extend .icon--after;
       @extend .icon--arrow-down;
 
+      font-size: 0.45em;
+      margin-left: 6px !important;
       position: relative;
       top: -2px;
-      margin-left: 6px !important;
-      font-size: 0.45em;
 
       @include transition(all 0.3s ease 0s);
     }
@@ -160,8 +160,8 @@ Style guide: buttons
 
 .btn-ctn--border {
   background-color: $yellow-light;
-  color: $black;
   border-color: $black;
+  color: $black;
 
   &:hover,
   &:active {
@@ -219,13 +219,12 @@ Style guide: buttons.btn-block
 */
 
 .btn-block {
-  max-width: 450px;
-  width: 100%;
   margin-bottom: -2px !important;
+  max-width: 450px;
+  text-align: left;
+  width: 100%;
 
   @include _white_space_reset_mixin();
-
-  text-align: left;
 
   &:last-child {
     margin-bottom: 10px;
@@ -248,8 +247,8 @@ Style guide: buttons.btn-search
 
 .btn.btn-search {
   background-color: $grey-light;
-  color: $blue-dark;
   border-color: $white;
+  color: $blue-dark;
 
   &:hover {
     background-color: $grey-light;
@@ -271,7 +270,7 @@ Style guide: buttons.btn-collapse
   @extend .btn-default;
 
   span.toggling-text::after {
-    content: "\00a0";
+    content: '\00a0';
   }
 
   &:hover,
@@ -318,36 +317,36 @@ Style guide: buttons.btn-collapse
   padding-right: 2.2em;
 
   &::after {
-    position: absolute;
-    margin-left: 0.5em;
     line-height: 1.4 !important;
+    margin-left: 0.5em;
+    position: absolute;
   }
 
-  // Reset for ".btn-block".
+  // Reset for '.btn-block'.
   &.btn-block {
     padding-right: 1em;
 
     &::after {
-      position: static;
       line-height: inherit;
+      position: static;
     }
   }
 
   // Call to action button.
   &.btn-ctn::after {
-    position: absolute;
     line-height: 2 !important;
+    position: absolute;
   }
 
   // Call to action button.
   &.btn-menu::after {
-    position: absolute;
     line-height: 3.5 !important;
+    position: absolute;
   }
 }
 
 a.btn {
-  &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
+  &#{'[' + $external_link_pattern + ']'}:not(.is-internal) {
     &:not(#{$ec_url_patterns}) {
       @include _btn_external_link_mixin();
     }

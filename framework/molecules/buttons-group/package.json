@@ -1,5 +1,5 @@
 {
-  "name": "@ec-europa/framework-buttons-group",
+  "name": "@ec-europa/europa-component-library-buttons-group",
   "version": "1.0.0",
   "description": "",
   "main": "buttons-group.css",
@@ -7,13 +7,7 @@
   "author": "",
   "private": true,
   "license": "EUPL-1.1",
-  "scripts": {
-    "prepublish": "mkdir -p css && postcss buttons-group.css -u postcss-cssnext -o dist/buttons-group.css"
-  },
-  "devDependencies": {
-    "postcss-cli": "^2.6.0"
-  },
   "peerDependencies": {
-    "@ec-europa/framework-buttons": "^1.0.0"
+    "@ec-europa/europa-component-library-buttons": "^1.0.0"
   }
 }

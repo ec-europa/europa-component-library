@@ -22,16 +22,16 @@ module.exports = {
       modifier: 'secondary',
     },
   }, {
-    name: 'cta',
+    name: 'ctn',
     label: 'Call to action',
     context: {
-      modifier: 'cta',
+      modifier: 'ctn',
     },
   }, {
-    name: 'cta-border',
+    name: 'ctn--border',
     label: 'Call to action with border',
     context: {
-      modifier: 'cta-border',
+      modifier: 'ctn--border',
     },
   }, {
     name: 'menu',
