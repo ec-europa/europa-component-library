@@ -1,0 +1,145 @@
+/*
+Date Block
+
+Date components
+
+Markup: html/date-block.html
+
+Style guide date-block
+*/
+
+$agenda-yellow: #fed437;
+
+.date-block {
+  position: relative;
+  display: inline-block;
+  min-width: 5.556em;
+  min-height: 5.556em;
+  margin-right: 0.75em;
+  padding: 0.9em 0.5em 0.7em;
+  background-color: $grey-lightest;
+  text-align: center;
+  border-bottom: 0.222em solid $agenda-yellow;
+
+  &::after {
+    position: absolute;
+    top: -0.667em;
+    right: -0.2em;
+    content: " ";
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+    border-right: 1em solid $white;
+
+    @include rotate(135deg);
+  }
+}
+
+.date-block__element {
+  display: block;
+  color: $grey-base;
+}
+
+.date-block__year {
+  @extend .date-block__element;
+
+  line-height: 1;
+  font-size: $font-size-little;
+}
+
+.date-block__day-text {
+  @extend .date-block__element;
+
+  line-height: 1.2;
+  font-size: $font-size-xsmall;
+}
+
+.date-block__day {
+  @extend .date-block__element;
+
+  line-height: 1.2;
+  font-size: $font-size-huge;
+  font-weight: $font-weight-bold;
+}
+
+.date-block__month {
+  @extend .date-block__element;
+
+  line-height: 1;
+  font-size: $font-size-little;
+  font-weight: $font-weight-bold;
+}
+
+/*
+Event Date Block
+
+Date components
+
+Markup: html/date-block-event.html
+
+.live-streaming - Live-streaming event date block
+.cancelled      - cancelled Event date block
+
+Style guide date-block.event
+*/
+
+.date-block.event {
+  &.live-streaming {
+    background-color: $agenda-yellow;
+  }
+
+  &.cancelled {
+    border-bottom-color: $grey-lighter;
+
+    .date-block__element {
+      text-decoration: line-through;
+    }
+  }
+}
+
+/*
+Past Event Date Block
+
+Date components
+
+Markup: html/date-block-event-past.html
+
+.past - past Event date block
+
+Style guide date-block.event.past
+*/
+
+.date-block.event.past {
+  padding: 0.8em 0.5em 0.7em;
+  background-color: $white;
+  border: 0.166em solid $grey;
+
+  .date-block__day {
+    line-height: 1;
+  }
+
+  .date-block__month {
+    line-height: 1.3;
+  }
+
+  &::before {
+    position: absolute;
+    top: -0.85em;
+    right: -0.4em;
+    content: " ";
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+    border-right: 1em solid $white;
+
+    @include rotate(135deg);
+  }
+
+  &::after {
+    top: -0.35em;
+    right: 0.45em;
+    height: 1.7em;
+    border: none;
+    border-right: 0.166em solid $grey;
+
+    @include rotate(135deg);
+  }
+}
