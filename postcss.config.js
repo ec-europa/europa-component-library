@@ -1,11 +1,11 @@
 const params = process.env.NODE_ENV === 'production' ? {
-  output: 'dist/styles/europa.css',
+  output: 'dist/framework/styles/europa.css',
   plugins: [
     'cssnano',
   ],
   map: 'file',
 } : {
-  output: 'static/build/styles/europa.css',
+  output: 'static/framework/styles/europa.css',
   plugins: [
     'autoprefixer',
   ],

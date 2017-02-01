@@ -2,12 +2,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/build/styles/europa.css' | path }}">
+    <link rel="stylesheet" href="{{ '/framework/styles/europa.css' | path }}">
     <title>Preview Layout</title>
   </head>
   <body>
     {{ yield }}
-    <script src="{{ '/build/scripts/europa.js' | path }}"></script>
+    <script src="{{ '/framework/scripts/europa.js' | path }}"></script>
     {% if _target.context._demo and _target.context._demo %}
     <script type="text/javascript">{{ _target.context._demo.scripts | safe }}</script>
     {% endif %}
