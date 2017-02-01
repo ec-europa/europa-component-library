@@ -1,3 +1,3 @@
-# horizontal-lines
+# Horizontal lines
 
 Custom hr styling.
