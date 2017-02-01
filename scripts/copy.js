@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const resolve = require('path').resolve;
 const copy = require('fs-extra').copy; // eslint-disable-line import/no-extraneous-dependencies
 

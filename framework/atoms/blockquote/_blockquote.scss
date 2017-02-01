@@ -1,0 +1,55 @@
+/*
+Text
+
+Style guide text
+*/
+
+/*
+Blockquote
+
+Markup: html/blockquote.html
+
+Style guide text.blockquote
+*/
+
+$small-quote-size: 1em;
+$small-quote-width: 0.5em;
+
+blockquote,
+.blockquote {
+  max-width: 24em;
+  border-left: 0.417em solid $yellow-light;
+  font-style: italic;
+  font-size: $font-size-mid;
+  line-height: 1.5;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.6em 0 0.6em 1.2em;
+  clear: both;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  // Drupal fix.
+  p {
+    line-height: inherit;
+    display: inline;
+  }
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}
+
+.blockquote--small {
+  padding-left: 0;
+  font-size: $font-size-little;
+  font-style: normal;
+  color: $text-color;
+  font-family: $font-family-base;
+  margin-bottom: 0;
+}
