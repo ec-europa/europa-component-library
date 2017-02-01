@@ -58,3 +58,19 @@ Build the project and run accessibility testing:
 npm run dist
 npm run test:a11y
 ```
+
+## Deploy to GitHub Pages
+
+_To be executed from the master branch only._
+
+First, make sure to have built the style guide with the framework with:
+
+```
+npm run dist
+```
+
+Then, you can type:
+
+```
+npm run gh-pages
+```

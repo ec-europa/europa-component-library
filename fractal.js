@@ -3,7 +3,7 @@ const fractal = require('@frctl/fractal').create(); // eslint-disable-line impor
 const mandelbrot = require('@frctl/mandelbrot'); // eslint-disable-line import/no-extraneous-dependencies
 
 const paths = {
-  build: `${__dirname}/www`,
+  build: `${__dirname}/dist`,
   static: `${__dirname}/static`,
 };
 
