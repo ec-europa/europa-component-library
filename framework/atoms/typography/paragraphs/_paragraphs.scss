@@ -1,0 +1,37 @@
+.paragraph {
+  display: block;
+  max-width: 32em;
+  margin-bottom: 0.8em;
+}
+
+p {
+  @extend .paragraph;
+
+  &.dashed {
+    position: relative;
+    padding-left: 0.8em;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      content: '-';
+    }
+  }
+}
+
+.paragraph--width-auto {
+  width: auto;
+}
+
+.paragraph--intro {
+  font-size: $font-size-mid;
+}
+
+.paragraph--small {
+  font-size: $font-size-little;
+}
+
+.text-small {
+  @include text-small();
+}
