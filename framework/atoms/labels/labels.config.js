@@ -2,7 +2,7 @@ module.exports = {
   title: 'Labels',
   label: 'Labels',
   status: 'wip',
-  collated: false,
+  collated: true,
   preview: '@preview-center-transparent',
   variants: [{
     name: 'default',
@@ -10,7 +10,7 @@ module.exports = {
     context: {
       label_type: 'label--default',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label default',
     },
   }, {
     name: 'status',
@@ -18,7 +18,7 @@ module.exports = {
     context: {
       label_type: 'label--status',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label status',
     },
   }, {
     name: 'highlight',
@@ -26,7 +26,7 @@ module.exports = {
     context: {
       label_type: 'label--highlight',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label highlight',
     },
   }, {
     name: 'meta',
@@ -34,7 +34,7 @@ module.exports = {
     context: {
       label_type: 'label--meta',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label meta',
     },
   }, {
     name: 'primary',
@@ -42,7 +42,7 @@ module.exports = {
     context: {
       label_type: 'label--primary',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label primary',
     },
   }, {
     name: 'success',
@@ -50,7 +50,7 @@ module.exports = {
     context: {
       label_type: 'label--success',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label success',
     },
   }, {
     name: 'info',
@@ -58,7 +58,7 @@ module.exports = {
     context: {
       label_type: 'label--info',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label info',
     },
   }, {
     name: 'warning',
@@ -66,7 +66,7 @@ module.exports = {
     context: {
       label_type: 'label--warning',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label warning',
     },
   }, {
     name: 'danger',
@@ -74,7 +74,7 @@ module.exports = {
     context: {
       label_type: 'label--danger',
       label_case: '',
-      label_content: 'Label content',
+      label_content: 'Label danger',
     },
   }],
 };
