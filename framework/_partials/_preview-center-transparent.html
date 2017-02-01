@@ -4,11 +4,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/framework/styles/europa.css' | path }}">
     <title>Preview Layout</title>
+    <style>
+      body {
+        background-image:url({{ '/assets/alpha.jpg' | path }});
+        display:flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
-  <body style="background-image:url({{ '/assets/alpha.jpg' | path }})">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+  <body>
+    <main>
       {{ yield }}
-    </div>
+    </main>
     <script src="{{ '/framework/scripts/europa.js' | path }}"></script>
     {% if _target.context._demo and _target.context._demo %}
     <script type="text/javascript">{{ _target.context._demo.scripts | safe }}</script>
