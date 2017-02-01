@@ -3,6 +3,7 @@ module.exports = {
   label: 'Buttons',
   status: 'wip',
   collated: false,
+  preview: '@preview-center-transparent',
   variants: [{
     name: 'default',
     label: 'Default',
