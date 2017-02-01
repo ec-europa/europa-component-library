@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Banner',
-  label: 'Banner',
+  title: 'Banners',
+  label: 'Banners',
   status: 'wip',
   collated: false,
   variants: [{
