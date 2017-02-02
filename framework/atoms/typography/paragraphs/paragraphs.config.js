@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Paragraphs',
   label: 'Paragraphs',
-  status: 'ready',
+  status: 'wip',
   collated: false,
   default: 'intro',
   variants: [{
