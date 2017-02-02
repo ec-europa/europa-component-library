@@ -1,0 +1,25 @@
+.highlighted-item {
+  padding: 0 0 2em;
+  background-color: $grey-lighter;
+
+  &:hover,
+  &:active,
+  &:focus {
+    .highlighted-item__content {
+      text-decoration: underline;
+    }
+  }
+}
+
+.highlighted-item__image {
+  img {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+}
+
+.highlighted-item__content {
+  margin: 0;
+  padding: 0 1em;
+  color: $brand-primary;
+}
