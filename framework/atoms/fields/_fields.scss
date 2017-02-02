@@ -1,0 +1,80 @@
+/*
+Field
+*/
+
+.field {
+  margin-bottom: 0.556em;
+
+  + .field--aligned,
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .field__item--expired {
+    text-decoration: line-through;
+  }
+
+  .label-above {
+    @extend .h3;
+  }
+
+  .field__items {
+    p:last-child,
+    ul:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .field__label {
+    font-size: $font-size-xsmall;
+    font-weight: $font-weight-bold;
+
+    h4 {
+      padding: 0;
+    }
+
+    a:focus {
+      outline-offset: 2px;
+    }
+  }
+
+  // @todo: Why do we have this html? (body field in priorities)
+  .sections .container {
+    padding: 0;
+  }
+}
+
+// Desktop and tablets breakpoint.
+@include breakpoint(screen-sm-min) {
+  .field {
+    .field__label:not(.field__label--above) {
+      display: inline-block;
+      width: 20%;
+      padding: 0.335em 0 0;
+      vertical-align: top;
+
+      & + .field__items {
+        display: inline-block;
+        width: 79%;
+      }
+    }
+  }
+}
+
+@include breakpoint(screen-sm-min) {
+  .field--aligned {
+    margin-top: -0.556em;
+
+    .field__items {
+      display: inline-block;
+      width: 79%;
+      margin-left: 20.8%;
+    }
+  }
+}
+
+@include breakpoint(screen-md-min) {
+  .field--aligned .field__items {
+    margin-left: 20.6%;
+  }
+}
