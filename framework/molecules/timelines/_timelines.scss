@@ -1,0 +1,89 @@
+/*
+Timeline
+
+Markup: html/timeline.html
+
+Style guide timeline
+*/
+
+.timeline {
+  position: relative;
+  float: left;
+  margin-bottom: 1.667em;
+  padding: 2em 0 0 1.667em;
+  border-left: 4px solid $yellow-light;
+
+  .listing__item {
+    padding: 0;
+  }
+
+  .timeline__item-title {
+    margin-bottom: 0.5em;
+    line-height: 1em;
+    font-weight: bold;
+
+    &::before {
+      position: absolute;
+      left: -0.6em;
+      width: 14px;
+      height: 14px;
+      margin-top: 0.2em;
+      content: '';
+      background-color: $white;
+      border: 3px solid $grey-dark;
+      border-radius: 50%;
+    }
+  }
+
+  .timeline__text {
+    margin-top: 0.2em;
+    margin-bottom: 1em;
+
+    ul,
+    ol {
+      list-style: none !important;
+      padding-left: 0;
+    }
+
+    ul > li {
+      color: $grey-dark !important;
+    }
+
+    & > * {
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+.btn {
+  &.btn-time-line {
+    @extend .btn-ctn;
+
+    margin-bottom: 0;
+
+    &::after {
+      content: '\e81f';
+    }
+  }
+}
+
+.timeline--nopadding {
+  padding-top: 0.5em;
+}
+
+.view-biography-timeline .view-footer {
+  float: left;
+  width: 100%;
+  margin-top: 1.667em !important;
+  margin-bottom: 1.667em;
+}
+
+@include breakpoint(screen-xs-min) {
+  .timeline {
+    .timeline__item-title {
+      &::before {
+        margin-left: 2px;
+      }
+    }
+  }
+}
