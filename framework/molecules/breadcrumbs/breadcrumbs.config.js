@@ -3,6 +3,9 @@ module.exports = {
   label: 'Breadcrumbs',
   status: 'ready',
   variants: [{
+    name: 'default',
+    label: 'Default',
+  }, {
     name: 'collapsible',
     label: 'Collapsible',
     context: {

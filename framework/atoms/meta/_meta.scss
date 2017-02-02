@@ -1,0 +1,66 @@
+/*
+Meta
+
+Meta is a component that is used for displaying meta information in single
+pages and listings.
+It could also be reused in blocks.
+
+Markup: html/meta.html
+
+.meta--header - Meta header modifier  that is currently used in the page header, it is larger than the meta component alone
+
+Style guide meta
+*/
+
+.meta {
+  line-height: 1.3;
+  font-size: $font-size-xsmall;
+  letter-spacing: 0.02777778em;
+
+  p {
+    margin: 0;
+  }
+}
+
+.meta__item {
+  white-space: nowrap;
+
+  &::after {
+    content: "|";
+    color: $grey;
+    margin: 0 0.6em 0 0.85em;
+    position: relative;
+    top: -1px;
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.meta__item--type {
+  text-transform: uppercase;
+}
+
+.meta--header {
+  font-size: $font-size-little;
+  margin: 0 0 1em;
+}
+
+// Drupal fix due to basic_html text formatter settings that are generating <p> tag.
+.meta {
+  .meta__item {
+    p {
+      font-size: inherit !important;
+      display: inline;
+      line-height: inherit;
+      max-width: none;
+    }
+  }
+
+  .label {
+    font-size: $font-size-little !important;
+  }
+}

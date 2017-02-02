@@ -1,0 +1,121 @@
+/*
+Labels
+
+Markup: html/labels.html
+
+.label--default - Default
+.label--status - Status
+.label--highlight - Highlight
+.label--meta - Meta
+.label--upper - Uppercase label
+.label--primary - Primary
+.label--success - Success
+.label--info - Info
+.label--warning - Warning
+.label--danger - Danger
+
+Style guide labels
+*/
+
+$label_text_color_light: $white;
+
+.label {
+  display: inline-block;
+  padding: 0.475em 0.5em 0.5em;
+  font-size: $font-size-xxsmall;
+  font-weight: normal;
+  letter-spacing: 0.12em;
+  color: $grey-base;
+  border-radius: 0;
+}
+
+.label--default {
+  @extend .label-default;
+
+  color: $label_text_color_light;
+}
+
+.label--primary {
+  @extend .label-primary;
+
+  color: $label_text_color_light;
+}
+
+.label--success {
+  @extend .label-success;
+
+  color: $label_text_color_light;
+}
+
+.label--info {
+  @extend .label-info;
+
+  color: $label_text_color_light;
+}
+
+.label--warning {
+  @extend .label-warning;
+
+  color: $label_text_color_light;
+}
+
+.label--next {
+  background-color: $yellow-lighter;
+}
+
+.label--danger {
+  @extend .label-danger;
+
+  color: $label_text_color_light;
+}
+
+.label--upper {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.label--highlight {
+  background-color: $yellow-light;
+  color: $grey-base;
+
+  &.label--meta {
+    &::after {
+      content: "";
+      margin: 0;
+    }
+  }
+}
+
+.label--status {
+  background-color: $grey-lighter;
+  color: $grey-base;
+}
+
+.label--block {
+  display: inline-block;
+  margin-bottom: 0.833em;
+}
+
+.label--high {
+  min-height: 2.75em;
+  padding: 0.3em 1em;
+  line-height: 2.75em;
+  font-size: $font-size-xsmall;
+}
+
+.label--no-padding-left {
+  padding-left: 0;
+}
+
+.label--meta {
+  @extend .meta__item;
+
+  margin: 0.25em 1.3em 0.3em 0;
+}
+
+.label--meta-medium {
+  @extend .label--meta;
+
+  margin: 0.35em 0.5em 0.45em 0;
+  font-size: 75%;
+}
