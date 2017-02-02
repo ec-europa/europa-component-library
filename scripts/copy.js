@@ -11,3 +11,12 @@ copy(resolve(__dirname, '../framework/fonts'), resolve(__dirname, dest, 'fonts')
 
   return console.log('Fonts copied!');
 });
+
+// Copy images
+copy(resolve(__dirname, '../framework/images'), resolve(__dirname, dest, 'images'), (err) => {
+  if (err) {
+    return console.error(err);
+  }
+
+  return console.log('Images copied!');
+});
