@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Breadcrumbs',
   label: 'Breadcrumbs',
-  status: 'ready',
+  status: 'wip',
   variants: [{
     name: 'default',
     label: 'Default',
