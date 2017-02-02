@@ -1,0 +1,122 @@
+/*
+Tags
+
+Tags component used to display tag section that is typically displayed under a content
+
+Markup: html/tags.html
+
+Style guide tags
+*/
+
+.tags {
+  width: 100%;
+  padding-top: 0.2em;
+  padding-bottom: 0.8em;
+  overflow: hidden;
+}
+
+.tags__label {
+  float: left;
+  margin-right: 0.7em;
+  margin-bottom: 0.5em;
+  padding-top: 0.15em;
+  font-size: $font-size-xsmall;
+  text-transform: uppercase;
+}
+
+.tags__items {
+  vertical-align: middle;
+}
+
+.tags__item {
+  float: left;
+  display: inline-block;
+  margin-right: 1.4em;
+  margin-bottom: 0.4em;
+  padding: 0.5em;
+  line-height: 1;
+  background-color: $grey-light;
+  font-size: $font-size-xsmall;
+  color: $text-color;
+  text-transform: lowercase;
+  border-radius: 5px;
+  outline: 3px transparent solid;
+}
+
+.tags__item a,
+a.tags__item {
+  color: $text-color;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px $yellow-light;
+  }
+}
+
+/*
+Facet tag
+
+Markup: html/facet-tag.html
+
+Style guide tags.facettag
+*/
+
+.facet-tag {
+  @extend .tags;
+
+  @include breakpoint(screen-xs-min) {
+    display: inline-block;
+    width: auto;
+  }
+}
+
+.facet-tag__label {
+  @extend .tags__label;
+
+  float: left;
+}
+
+.facet-tag__value {
+  @extend .tags__item;
+
+  text-transform: none;
+}
+
+/*
+Facet tag with close
+
+Markup: html/facet-tag--close.html
+
+Style guide tags.facet-close
+*/
+
+.facet-tag--close {
+  .facet-tag__value {
+    // Close icon.
+    &::after {
+      @extend .icon--after;
+      @extend .icon--tag-close;
+
+      vertical-align: bottom;
+    }
+
+    &:hover::after {
+      @extend .icon--after;
+      @extend .icon--tag-close-hover;
+    }
+  }
+
+  .tags__item a,
+  a.tags__item {
+    &:hover {
+      background-color: $grey-base;
+      color: $white;
+    }
+  }
+}

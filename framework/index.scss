@@ -49,27 +49,32 @@
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/utilities';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
 
-// Importing mixins and variables.
+// Importing mixins
 @import 'mixins';
 
 // Importing simple helpers.
 @import 'helpers';
 
 // Atoms
-@import 'atoms/images/images';
-@import 'atoms/icons/icons';
 @import 'atoms/buttons/buttons';
 @import 'atoms/date-blocks/date-blocks';
 @import 'atoms/horizontal-lines/horizontal-lines';
-@import 'atoms/messages/messages';
+@import 'atoms/icons/icons';
+@import 'atoms/images/images';
 @import 'atoms/labels/labels';
+@import 'atoms/messages/messages';
 @import 'atoms/meta/meta';
-@import 'atoms/link-blocks/link-blocks';
-@import 'atoms/typography/headings/headings';
-@import 'atoms/typography/lists/lists';
-@import 'atoms/typography/paragraphs/paragraphs';
+@import 'atoms/tags/tags';
+
+// Typography
+@import 'atoms/typography/blockquotes/blockquotes';
 @import 'atoms/typography/headings/headings';
 @import 'atoms/typography/links/links';
+@import 'atoms/typography/lists/lists';
+@import 'atoms/typography/paragraphs/paragraphs';
 
 // Molecules
+@import 'molecules/banners/banners';
+@import 'molecules/breadcrumbs/breadcrumbs';
 @import 'molecules/highlighted-items/highlighted-items';
+@import 'molecules/link-blocks/link-blocks';
