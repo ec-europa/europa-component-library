@@ -1,0 +1,43 @@
+/*
+Link block
+
+Markup: html/link-block.html
+
+Style guide link-block
+*/
+
+.link-block {
+  background-color: $grey-lightest;
+  padding: 1.111em;
+}
+
+.link-block__links {
+  font-size: $font-size-little;
+  list-style: none;
+  padding: 0;
+
+  & a {
+    &:link,
+    &:visited {
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  li {
+    margin-bottom: 0.688em;
+  }
+}
+
+.link-block__title {
+  font-weight: $font-weight-bold;
+  font-size: $font-size-little;
+  line-height: 1.875em;
+  color: $blue-darker;
+  margin-bottom: 0.688em;
+  padding: 0;
+}
