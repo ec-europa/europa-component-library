@@ -1,0 +1,125 @@
+// Default external link mixin.
+@mixin _external_link_mixin() {
+  @extend .is-external;
+}
+
+a {
+  @include _focus_outline_border(3px, $yellow-light, 2px);
+
+  &:link {
+    text-decoration: underline;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+    color: $grey-base;
+  }
+
+  .site-switcher &,
+  .feedback-form & {
+    @include _focus_outline_border(3px, $yellow-light, 10px);
+
+    z-index: 999;
+    text-decoration: none;
+  }
+
+  .listing & {
+    text-decoration: none;
+  }
+
+  .feedback-form {
+    outline-offset: 0;
+  }
+
+  .listing--cta &,
+  .site-switcher &,
+  .node-featured-item & {
+    &:focus {
+      outline-offset: 0;
+    }
+  }
+
+  .listing--frontpage & {
+    &:focus {
+      outline-offset: 10px;
+
+      .listing__title {
+        text-decoration: underline;
+        color: $grey-base;
+      }
+    }
+  }
+
+  &.listing__item-link {
+    &:focus {
+      .highlighted-item .highlighted-item__content {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .listing--cta & {
+    &:focus {
+      color: $white;
+    }
+  }
+
+  &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
+    &:not(#{$ec_url_patterns}) {
+      @include _external_link_mixin();
+    }
+  }
+
+  &.smaller,
+  .smaller & {
+    font-size: 0.8em;
+  }
+
+  &#{'[href^="mailto"]'} {
+    text-transform: lowercase;
+  }
+
+  @media print {
+    &::after {
+      content: none !important;
+    }
+  }
+}
+
+.is-external {
+  position: relative;
+
+  &::after {
+    @extend .icon--after;
+
+    @include icon('external');
+
+    font-size: 75%;
+    margin-left: 0.4em;
+    margin-right: 0.2em;
+    // Hack for IE to not display underline (this is on purpose).
+    // text-decoration: underline;
+  }
+}
+
+// External link specific adjustments.
+@mixin _link_external_link_mixin() {
+  &.btn {
+    padding-right: 2.1em;
+  }
+}
+
+.page-content {
+  ul,
+  p {
+    a {
+      &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
+        &:not(#{$ec_url_patterns}) {
+          @include _link_external_link_mixin();
+        }
+      }
+    }
+  }
+}
