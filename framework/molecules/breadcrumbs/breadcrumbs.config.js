@@ -13,7 +13,6 @@ module.exports = {
       _demo: {
         scripts: 'Europa.breadcrumbs();',
       },
-
     },
   }],
 };
