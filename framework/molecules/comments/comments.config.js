@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Comments',
   label: 'Comments',
-  status: 'ready',
+  status: 'wip',
   preview: '@preview-center-transparent',
 };

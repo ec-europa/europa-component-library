@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Meta',
   label: 'Meta',
-  status: 'ready',
+  status: 'wip',
   collated: false,
   preview: '@preview-center-transparent',
   variants: [{

@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Banners',
   label: 'Banners',
-  status: 'ready',
+  status: 'wip',
   collated: false,
   variants: [{
     name: 'quote',

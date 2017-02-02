@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Buttons',
   label: 'Buttons',
-  status: 'ready',
+  status: 'wip',
   collated: false,
   preview: '@preview-center-transparent',
   variants: [{

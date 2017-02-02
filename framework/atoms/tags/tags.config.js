@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Tags',
   label: 'Tags',
-  status: 'ready',
+  status: 'wip',
   collated: false,
   variants: [{
     name: 'default',
