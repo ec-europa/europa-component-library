@@ -91,6 +91,7 @@ $datepicker-color-background: #eaeaea;
 
       select {
         @include form-control();
+
         background: $datepicker-color-select;
         color: $white;
         border: none;
@@ -100,8 +101,10 @@ $datepicker-color-background: #eaeaea;
         display: inline-block;
         float: none;
         padding-right: 0;
-        padding-left: 0.750em;
+        padding-left: 0.75em;
+
         @include _focus_outline_border(3px, $yellow-light, -3px, none);
+
         position: relative;
 
         &:first-child {
@@ -175,9 +178,10 @@ $datepicker-color-background: #eaeaea;
 
   .date-picker--icon {
     @extend .icon;
+
     position: absolute;
     top: 2.35em;
-    right: .5em;
+    right: 0.5em;
     // For the icon does not interfere with the clickable area.
     pointer-events: none;
     color: $grey;
