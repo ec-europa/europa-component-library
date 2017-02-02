@@ -1,1 +1,1 @@
-!function(t){"use strict"}(this.Europa=this.Europa||{});
+!function(e){"use strict";function t(){console.error("This script needs to be rewritten without jQuery")}function r(){console.error("This script needs to be rewritten without jQuery")}e.breadcrumbs=t,e.timeline=r}(this.Europa=this.Europa||{});
