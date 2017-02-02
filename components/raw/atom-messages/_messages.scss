@@ -1,0 +1,149 @@
+/*
+Messages
+
+Markup: html/messages.html
+
+.messages--icon-center - Centralized icon
+
+Style guide messages
+*/
+
+$messages-text-color: $grey-base;
+$messages-heading-size: $font-size-little;
+$messages-text-size: $font-size-little;
+
+.messages {
+  position: relative;
+  margin: 0 0 1em;
+  padding: 1em 1em 1em 4em;
+  overflow: hidden;
+  background: url("../images/svg/messages-info.svg") no-repeat 1em 1em;
+  font-family: $font-family-sans-serif;
+  font-size: $messages-text-size;
+  color: $messages-text-color;
+  border: 2px solid $blue;
+
+  &.messages--icon-center {
+    background-position: 1em center;
+  }
+
+  &.status {
+    background-image: url("../images/svg/messages-success.svg");
+    border-color: $green;
+  }
+
+  &.warning {
+    background-image: url("../images/svg/messages-warning.svg");
+    border-color: $yellow;
+  }
+
+  &.error {
+    background-image: url("../images/svg/messages-error.svg");
+    border-color: $red;
+  }
+
+  &.live {
+    background-image: url("../images/svg/live_streaming.svg");
+    border-color: $yellow;
+  }
+
+  h3 {
+    padding-top: 0;
+    font-size: inherit;
+    font-weight: bold;
+  }
+
+  ul,
+  p {
+    max-width: 95%;
+    margin-bottom: 0;
+    font-size: $messages-text-size;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  > :last-child {
+    padding-bottom: 0;
+  }
+}
+
+.messages__list {
+  max-width: auto;
+  margin-bottom: 0;
+  padding-left: 0;
+  font-family: $font-family-sans-serif;
+}
+
+.messages__list-item {
+  margin-top: 0.5em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.no-svg {
+  .messages {
+    background-image: url("../images/png/messages-info.png");
+
+    &.status {
+      background-image: url("../images/png/messages-info.png");
+    }
+
+    &.warning {
+      background-image: url("../images/png/messages-warning.png");
+    }
+
+    &.error {
+      background-image: url("../images/png/messages-error.png");
+    }
+
+    &.live {
+      background-image: url("../images/png/live_streaming.png");
+    }
+  }
+
+  .alert {
+    .close {
+      background-image: url("../images/png/close.png");
+
+      &:hover {
+        background-image: url("../images/png/close_hover.png");
+      }
+    }
+  }
+}
+
+// Drupal overrides.
+.messages {
+  ul {
+    @extend .messages__list;
+
+    li {
+      @extend .messages__list-item;
+    }
+  }
+}
+
+// Bootstrap overrides.
+.alert {
+  margin: 1.667em 0;
+  border-radius: 0;
+
+  .close {
+    position: absolute;
+    right: 0.715em;
+    padding: 0 0 0 5px;
+    background: url("../images/svg/close.svg") no-repeat right top;
+    color: transparent;
+    text-shadow: none;
+    text-decoration: none;
+    opacity: 1;
+
+    &:hover {
+      background-image: url("../images/svg/close_hover.svg");
+    }
+  }
+}
