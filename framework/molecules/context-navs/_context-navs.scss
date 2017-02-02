@@ -1,0 +1,96 @@
+.context-nav {
+  @extend .row;
+
+  font-size: $font-size-xsmall;
+
+  &__expander {
+    display: inline-block;
+    color: $blue-dark;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__more-button {
+    text-decoration: underline;
+
+    & .icon {
+      padding-left: 2px;
+      top: 3px;
+      position: relative;
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+}
+
+.context-nav__label {
+  @extend .col-xs-12;
+  @extend .col-md-3;
+
+  display: block;
+  clear: both;
+}
+
+.context-nav__items {
+  @extend .col-xs-12;
+  @extend .col-md-9;
+
+  display: block;
+  margin-bottom: 0.556em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.context-nav__item {
+  display: inline-block;
+
+  &::after {
+    content: " |";
+    color: $grey;
+    margin-right: 4px;
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+      margin-right: 0;
+    }
+  }
+
+  a {
+    @include _focus_outline_border(3px, $yellow-light, 2px);
+
+    &:link {
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@include breakpoint(screen-md-min) {
+  .context-nav__items {
+    margin-bottom: 0;
+  }
+}
+
+// Drupal specific override for the node-person-name display mode.
+.context-nav__item {
+  .view-mode-name {
+    display: inline-block;
+  }
+
+  & > * {
+    display: inline;
+  }
+}
