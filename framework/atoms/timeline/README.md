@@ -1,3 +1,0 @@
-# Timeline
-
-Style guide timeline
