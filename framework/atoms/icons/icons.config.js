@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Icons',
   label: 'Icons',
-  status: 'ready',
+  status: 'wip',
   collated: true,
   collator(markup, item) {
     return `<!-- Start: @${item.handle} -->\n<p>\n${markup} <code>${item.context.modifier}</code>\n</p>\n<!-- End: @${item.handle} -->\n`;

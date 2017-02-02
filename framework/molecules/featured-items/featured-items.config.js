@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Featured items',
   label: 'Featured items',
-  status: 'ready',
+  status: 'wip',
   variants: [{
     name: 'default',
     label: 'Default',

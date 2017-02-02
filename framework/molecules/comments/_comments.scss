@@ -1,0 +1,114 @@
+// Local helpers.
+$ten: 0.556em;
+$fifteen: 0.833em;
+$twenty: 1.111em;
+$twenty-five: 1.389em;
+
+.comment__form-wrapper {
+  @extend .col-md-6;
+
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.comments__count {
+  padding: $twenty-five $ten;
+}
+
+.comment__image {
+  display: none;
+
+  img {
+    max-width: 6.944em;
+    padding: 1px;
+    border: 1px solid $yellow-light;
+  }
+}
+
+.comment__meta {
+  padding-bottom: $fifteen;
+  font-size: $font-size-little;
+  color: $grey-dark;
+  text-transform: uppercase;
+
+  a {
+    color: $grey-dark;
+  }
+}
+
+.comment__body {
+  position: relative;
+  padding: $twenty $twenty-five;
+  background-color: $white;
+  font-size: $font-size-little;
+}
+
+.comment__title {
+  display: block;
+  padding: $fifteen 0;
+  font-size: $font-size-medium;
+  font-weight: bold;
+  color: $grey-base;
+  border-top: 1px solid $yellow-light;
+
+  &:focus {
+    outline-offset: 0;
+  }
+}
+
+.comment__author {
+  display: inline-block;
+  margin-right: $ten;
+}
+
+.comment__date {
+  display: inline-block;
+  margin-left: 0 $ten;
+}
+
+.comment__btn-add-wrap {
+  padding-left: 0;
+}
+
+.comment__btn-add {
+  margin-top: $fifteen;
+}
+
+.comment {
+  margin-bottom: 1em;
+
+  // Drupal-specific rule.
+  .list-inline {
+    padding-left: 0;
+
+    li {
+      padding-left: 0;
+    }
+  }
+}
+
+@include breakpoint(screen-md-min) {
+  .comment__image {
+    float: left;
+    display: block;
+    width: 16.6667%;
+  }
+
+  .comment__body {
+    float: left;
+    width: 50%;
+
+    &::before {
+      position: absolute;
+      top: 15%;
+      right: 100%;
+      width: 0;
+      height: 0;
+      margin-top: -$ten;
+      content: " ";
+      border: $ten solid rgba(255, 255, 255, 0);
+      border-right-color: $white;
+      pointer-events: none;
+    }
+  }
+}
