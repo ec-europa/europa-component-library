@@ -1,0 +1,203 @@
+/*
+Datepicker
+
+This example is based on jQuery Datepicker widget. It requires both jQuery and jQuery UI libraries.<br/>
+Also, it assumes that the default CSS styles from jQuery UI are included as well.<br/>
+The CSS applied from style guide is an override over the default CSS of jQuery UI.<br/>
+
+Markup: html/datepicker.html
+
+Style guide datepicker
+*/
+
+// Local Variables.
+$datepicker-color-header: #393939;
+$datepicker-color-select: #4f4f4f;
+$datepicker-color-select-separator: #686868;
+$datepicker-color-background: #eaeaea;
+
+// Component.
+#ui-datepicker-div {
+  width: 100%;
+  border: none;
+}
+
+.ui-datepicker {
+  padding: 0;
+  font-family: $font-family-sans-serif;
+  border: none;
+  border-radius: 0;
+
+  // Datepicker header.
+  .ui-datepicker-header {
+    background-color: $datepicker-color-header;
+    border: none;
+    border-radius: 0;
+    padding: 0 !important;
+    height: 50px;
+    line-height: 50px;
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      display: block;
+      height: 100%;
+      width: 50px;
+      top: 0;
+      background: none;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .ui-icon {
+        display: block;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        margin: 0;
+        background: url('../images/svg/arrow.svg') center center no-repeat;
+        background-size: 7px;
+      }
+    }
+
+    .ui-datepicker-prev {
+      left: 0;
+
+      .ui-icon {
+        @include rotate(-180deg);
+      }
+    }
+
+    .ui-datepicker-next {
+      right: 0;
+    }
+
+    .ui-datepicker-title {
+      margin: 0 50px;
+      height: 100%;
+      font-size: $font-size-little;
+
+      span,
+      select {
+        color: $white;
+      }
+
+      span {
+        font-weight: normal;
+        font-size: 0.8em;
+      }
+
+      select {
+        @include form-control();
+        background: $datepicker-color-select;
+        color: $white;
+        border: none;
+        height: 100%;
+        width: 49% !important;
+        margin: 0;
+        display: inline-block;
+        float: none;
+        padding-right: 0;
+        padding-left: 0.750em;
+        @include _focus_outline_border(3px, $yellow-light, -3px, none);
+        position: relative;
+
+        &:first-child {
+          border-right: 2px solid $datepicker-color-select-separator;
+        }
+
+        &:focus {
+          // This might be included in the outline mixins.
+          z-index: 1;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  table.ui-datepicker-calendar {
+    background: $datepicker-color-background;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+
+    th {
+      font-size: 16px;
+      font-weight: normal;
+      background: none;
+    }
+  }
+
+  .ui-state-default {
+    border: none;
+    background-color: $white;
+    color: #404040;
+    text-align: center;
+    margin: 1px;
+    padding: 5px 10px;
+  }
+
+  .ui-state-active {
+    border: 2px solid #0b64b2;
+    padding: 3px 10px;
+  }
+
+  .ui-state-highlight {
+    background-color: #fed500;
+    color: $black;
+  }
+}
+
+.no-svg {
+  .ui-datepicker-prev {
+    .ui-icon {
+      background-image: url('../images/png/arrow-left.png');
+    }
+  }
+
+  .ui-datepicker-next {
+    .ui-icon {
+      background-image: url('../images/png/arrow.png');
+    }
+  }
+}
+
+// Positioning the calendar icon.
+.date-picker {
+  position: relative;
+
+  .date-picker--icon {
+    @extend .icon;
+    position: absolute;
+    top: 2.35em;
+    right: .5em;
+    // For the icon does not interfere with the clickable area.
+    pointer-events: none;
+    color: $grey;
+  }
+}
+
+@include breakpoint(screen-xs-min) {
+  #ui-datepicker-div {
+    width: auto;
+  }
+
+  .ui-datepicker {
+    table.ui-datepicker-calendar {
+      width: auto !important;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  #ui-datepicker-div {
+    left: 0 !important;
+  }
+}
