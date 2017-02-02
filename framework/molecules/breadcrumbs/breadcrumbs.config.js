@@ -10,9 +10,6 @@ module.exports = {
     label: 'Collapsible',
     context: {
       modifier: 'collapsible',
-      _demo: {
-        scripts: 'Europa.breadcrumbs();',
-      },
     },
   }],
 };

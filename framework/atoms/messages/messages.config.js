@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Messages',
   label: 'Messages',
-  status: 'wip',
+  status: 'ready',
   collated: true,
   preview: '@preview-center-transparent',
   variants: [{

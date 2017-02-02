@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Labels',
   label: 'Labels',
-  status: 'wip',
+  status: 'ready',
   collated: true,
   preview: '@preview-center-transparent',
   variants: [{
