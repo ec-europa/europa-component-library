@@ -1,0 +1,45 @@
+/*
+Expandable
+*/
+
+.expandable__content {
+  float: left;
+  width: 100%;
+  background-color: $grey-lightest;
+
+  @include breakpoint(screen-xs-min) {
+    & > p {
+      margin: 0.8em 0.8em 0.8em 3.2em;
+      font-size: $font-size-little;
+    }
+  }
+}
+
+.expandable__toggle {
+  float: left;
+  width: 100%;
+  background: $yellow-light;
+
+  &.collapsed {
+    background: none;
+  }
+
+  .icon {
+    margin-right: 0.833em;
+  }
+
+  h3 {
+    font-size: $font-size-mid;
+  }
+
+  &:link {
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    background: $yellow-light;
+    outline: none;
+    text-decoration: underline;
+  }
+}
