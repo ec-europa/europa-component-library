@@ -1,0 +1,25 @@
+.sidebar-field-group {
+  h2 {
+    float: left;
+    width: 100%;
+  }
+}
+
+.sidebar-field-group--important {
+  padding-top: 30px;
+}
+
+.sidebar-field-group__main {
+  @extend .col-sm-8;
+
+  margin-left: -15px;
+}
+
+.sidebar-field-group__sidebar {
+  @extend .col-sm-4;
+}
+
+// Drupal.
+.front .sidebar-field-group {
+  @extend .sidebar-field-group--important;
+}

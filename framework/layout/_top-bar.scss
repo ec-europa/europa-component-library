@@ -1,0 +1,69 @@
+.top-bar {
+  padding: 15px 0 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.site-header--homepage {
+  .top-bar {
+    height: 90px;
+    padding: 0;
+    top: 0;
+    float: right;
+
+    .lang-select-site {
+      .lang-select-site__link {
+        padding-right: 0;
+      }
+    }
+  }
+
+  @include breakpoint(screen-xs-min) {
+    .top-bar {
+      height: 156px;
+    }
+  }
+}
+
+.site-menu__toggle {
+  float: right;
+  width: 25%;
+  padding-left: 15px;
+}
+
+.block-nexteuropa-europa-search {
+  float: left;
+  width: 75%;
+}
+
+@include breakpoint(screen-md-min) {
+  .top-bar {
+    width: auto;
+    float: right;
+    position: relative;
+    padding-bottom: 10px;
+    top: 6px;
+
+    & > .region {
+      padding: 0;
+      margin: 0;
+    }
+
+    .block-nexteuropa-europa-search {
+      width: auto;
+      margin-left: 15px;
+
+      .search-form .search-form__textfield-wrapper {
+        width: 240px;
+      }
+    }
+
+    .site-menu__toggle {
+      width: auto;
+
+      .btn {
+        margin-bottom: auto;
+      }
+    }
+  }
+}
