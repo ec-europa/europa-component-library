@@ -1,0 +1,118 @@
+/*
+Pager
+*/
+
+.pager__wrapper {
+  text-align: center;
+  border-top: 2px solid $black;
+}
+
+.pager {
+  display: inline-block;
+  padding-left: 0;
+  margin: $line-height-computed 0;
+  position: relative;
+  width: 100%;
+
+  > li {
+    color: $black;
+    font-size: $font-size-little;
+    font-weight: $font-weight-bold;
+    border: 2px solid transparent;
+    margin: 0 $padding-base-horizontal/2;
+    min-width: 28px;
+    height: 28px;
+
+    &.pager__item {
+      // Prettifying.
+      list-style: none;
+      // Mobile-first hides all pager items.
+      display: none;
+
+      // Except prev, next and current.
+      &.pager__item--previous,
+      &.pager__item--next {
+        display: inline;
+      }
+
+      &.pager__item--ellipsis {
+        font-weight: $font-weight-normal;
+      }
+
+      &.pager__item--previous,
+      &.pager__item--next {
+        a {
+          font-weight: $font-weight-bold;
+        }
+      }
+
+      &.pager__item--previous {
+        float: left;
+        clear: left;
+      }
+
+      &.pager__item--next {
+        float: right;
+        clear: right;
+      }
+
+      &.pager__item--current {
+        border-radius: 14px;
+        display: block;
+        position: absolute;
+        margin: 0 auto;
+        width: inherit;
+        z-index: -1;
+      }
+
+      &--padding {
+        padding: 0 7px;
+      }
+    }
+
+    > a {
+      color: $blue-dark;
+      font-weight: $font-weight-normal;
+      text-decoration: none;
+
+      &:hover {
+        color: $black;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@include breakpoint(screen-msm-min) {
+  .pager__item__text {
+    display: none;
+  }
+
+  // Show page items.
+  .pager {
+    width: auto;
+
+    > li {
+      &.pager__item {
+        display: inline;
+        float: left !important;
+
+        &.pager__item--current {
+          border: 2px solid $black;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+// Drupal-specific hack.
+.region-content ul.pager {
+  margin: 0.938em auto;
+  padding: 0;
+
+  // The throbber should not mess up sizing.
+  .ajax-progress {
+    display: none;
+  }
+}
