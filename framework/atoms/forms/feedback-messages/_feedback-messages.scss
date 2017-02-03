@@ -1,0 +1,33 @@
+/*
+Feedback message
+
+Markup: html/feedback-message.html
+
+Style guide form.feedback-message
+*/
+
+.feedback-message {
+  @extend .messages;
+
+  border: none !important;
+  max-width: none;
+
+  &.is-disabled {
+    color: $form-control-color-disabled;
+  }
+
+  &.is-error {
+    background: $grey-lightest url('../images/svg/messages-error.svg') 1em 1.1em no-repeat;
+    background-size: 2em;
+  }
+
+  @extend .hidden-print;
+}
+
+.no-svg {
+  .feedback-message {
+    &.is-error {
+      background-image: url('../images/png/messages-error.png');
+    }
+  }
+}
