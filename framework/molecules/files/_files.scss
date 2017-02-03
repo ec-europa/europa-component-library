@@ -1,0 +1,285 @@
+/*
+File
+*/
+
+/*
+File download default
+*/
+
+.file {
+  @extend .hidden-print;
+  @extend .row;
+
+  margin: 0 0 0.944em;
+  padding: 1.333em;
+  background-color: $grey-lighter;
+}
+
+/*
+File image
+*/
+
+.file-image {
+  padding: 0;
+  background-color: transparent;
+
+  & img {
+    display: block;
+  }
+}
+
+/*
+File video
+*/
+
+.file-video {
+  padding: 0;
+  background-color: transparent;
+
+  .file__container {
+    @extend .embed-responsive;
+    @extend .embed-responsive-16by9;
+  }
+
+  iframe {
+    @extend .embed-responsive-item;
+  }
+}
+
+.file-video--with-background {
+  background-color: $grey-lighter;
+}
+
+.file__icon {
+  @extend .col-md-1;
+  @extend .col-sm-1;
+
+  float: left;
+  height: 2.556em;
+  // We remove on the left (as the image has some whitespace) as it causes
+  // a wrong looking margin. Then we add back the margin on the right, to have
+  // more spacing between those fields.
+  margin-right: 0.1em;
+  margin-left: -0.315em;
+  padding: 0;
+  text-align: center;
+
+  &::before {
+    font-size: 2.556em;
+    color: $grey;
+  }
+}
+
+.file__metadata {
+  @extend .col-md-6;
+  @extend .col-sm-6;
+  @extend .col-xs-10;
+
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 1;
+}
+
+.file__title {
+  line-height: initial;
+  font-weight: bold;
+}
+
+.file__caption {
+  @include media-caption();
+}
+
+.file__language {
+  display: block;
+  margin-top: 0.556em;
+  line-height: initial;
+  font-size: $font-size-little;
+  font-weight: bold;
+}
+
+.file__info {
+  margin-top: 0.778em;
+  line-height: initial;
+  font-size: $font-size-xsmall;
+}
+
+.file__content-language {
+  font-weight: bold;
+}
+
+.file__btn {
+  @extend .col-md-4;
+  @extend .col-sm-4;
+  @extend .col-xs-12;
+
+  margin-top: 0.778em;
+  margin-bottom: 0;
+
+  &::after {
+    @extend .icon--after;
+    @extend .icon--download;
+  }
+}
+
+// Modifications in the translations under a normal file.
+.file--bare {
+  margin: 0;
+  padding: 0.722em 0;
+  background-color: transparent;
+
+  .file__btn {
+    border: none;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  .file__icon {
+    display: none;
+  }
+}
+
+/*
+File download with translations
+*/
+
+.file__translations {
+  margin-bottom: 1em;
+  padding: 0 1.45em;
+  font-size: $font-size-little;
+  text-align: right;
+
+  .file__translations-control {
+    margin-top: 0.444em;
+    font-size: $font-size-medium;
+    text-decoration: none;
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: $black;
+      text-decoration: underline;
+
+      &::after {
+        color: $black;
+      }
+    }
+
+    // The arrow, rotating on collapse change.
+    &::after {
+      @extend .icon--after;
+      @extend .icon--down;
+      @extend .icon--blue-dark;
+
+      position: relative;
+      margin-left: 0.525em !important;
+
+      @include transition(all 0.3s ease 0s);
+    }
+
+    &.is-collapsed {
+      &::after {
+        @include rotate(180deg);
+      }
+    }
+  }
+
+  .file__translations-list {
+    list-style: none;
+    margin: 0.944em 0 0;
+    padding: 0;
+    text-align: left;
+
+    .btn--condensed {
+      margin-right: -1em;
+    }
+
+    // Make it self scaling.
+    @media (max-width: $screen-sm-min) {
+      .btn--condensed {
+        margin-left: -1em;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .file__translations-item {
+    border-top: 1px solid $grey;
+
+    &:last-child {
+      border-bottom: 1px solid $grey;
+    }
+  }
+
+  .file__metadata {
+    @extend .col-md-6;
+    @extend .col-sm-6;
+    @extend .col-xs-12;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // "Looking for another language ...".
+  .file__translations-details {
+    @extend .file__translations-item;
+
+    padding-top: 0.5em;
+    font-size: $font-size-little;
+  }
+}
+
+/*
+File Link
+*/
+.file--link {
+  background-color: transparent;
+
+  .file__metadata--link {
+    @extend .col-md-10;
+    @extend .col-sm-10;
+    @extend .col-xs-10;
+
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    line-height: 1;
+  }
+
+  .icon--file-link {
+    background: url("../images/svg/icons/link.svg") no-repeat center 10%;
+    width: 2.8em;
+  }
+}
+
+.no-svg {
+  .icon--file-link {
+    background-image: url("../images/png/icons/link.png");
+  }
+}
+
+@include breakpoint(screen-sm-min) {
+  .file__icon {
+    width: auto;
+    padding: 0;
+  }
+
+  .file__translations {
+    padding-left: 4.475em;
+  }
+
+  .file__metadata {
+    float: left;
+    overflow: hidden;
+  }
+
+  .file {
+    .file__btn {
+      float: right;
+      margin-top: 0;
+      overflow: hidden;
+    }
+  }
+}
