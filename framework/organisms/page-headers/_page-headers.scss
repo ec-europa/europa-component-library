@@ -1,0 +1,190 @@
+.page-header {
+  margin: 0;
+  padding: 0 0 1.5em;
+  background-color: $brand-primary;
+  color: $white;
+  border-bottom: none;
+
+  h1 {
+    margin: 0;
+    line-height: 1.25;
+    color: $white;
+
+    span {
+      margin-top: 0.175em;
+      line-height: 1.34;
+      font-size: 0.75em;
+      font-weight: 400;
+    }
+
+    .paragraph {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    max-width: 40em;
+    margin: 0;
+    line-height: 1.45;
+    font-size: $font-size-h3;
+    color: $white;
+  }
+
+  a {
+    color: $white;
+
+    @include _focus_outline_border(3px, $yellow-light, 2px);
+
+    &:hover:not(.breadcrumb__link, .btn) {
+      color: $yellow-light;
+    }
+
+    &#{"[" + $external_link_pattern + "]"}:not(.is-internal, .listing__title) {
+      &:not(#{$ec_url_patterns}) {
+        @include _page_header_external_link_mixin();
+      }
+    }
+  }
+
+  .page-header__top,
+  .page-header__main,
+  .page-header__bottom {
+    display: block;
+    width: 100%;
+  }
+
+  .page-header__top {
+    text-transform: uppercase;
+  }
+
+  .page-header__main {
+    line-height: $line-height-base;
+  }
+
+  .page-header__bottom {
+    font-size: 26px;
+  }
+
+  .page-header__hero-title {
+    padding-top: 2.39em;
+
+    .meta--header {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.page-header--large-intro {
+  padding-bottom: 2.39em;
+
+  p {
+    font-size: $font-size-h2;
+    line-height: $line-height-large;
+  }
+}
+
+.page-header--image {
+  background: transparent url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) center/cover no-repeat;
+}
+
+// Drupal connect.
+.node-type-info-homepage .page-header {
+  @extend .page-header--large-intro;
+}
+
+.page-header__eventinfo {
+  float: left;
+  font-size: $font-size-xsmall;
+
+  .page-header__date--cancelled {
+    text-decoration: line-through;
+  }
+
+  .icon {
+    margin: 1em 2em 1em 0;
+
+    &::before {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+.page-header--xlarge-intro {
+  min-height: 150px;
+  padding-bottom: 0;
+
+  .page-header__hero-title {
+    min-height: 75px;
+    margin: 75px 0 0;
+    padding: 16px;
+    background-color: $blue-darker;
+  }
+
+  .field__label--above {
+    padding: 0;
+    color: $white;
+    font-size: $font-size-h5;
+    font-weight: $font-weight-normal;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: $font-size-h3;
+  }
+}
+
+@include breakpoint(screen-msm-min) {
+  .page-header--xlarge-intro {
+    height: 320px;
+
+    .page-header__hero-title {
+      margin: auto;
+      padding-top: 5em;
+      background-color: transparent;
+    }
+
+    .field__label--above {
+      width: 146px;
+      height: 34px;
+      margin: 0;
+      line-height: 34px;
+      background-color: $blue-darker;
+      text-align: center;
+    }
+
+    p {
+      width: 550px;
+      padding: 22px 5px 22px 33px;
+      background-color: $white;
+      color: $blue-dark;
+    }
+  }
+}
+
+.node-info-homepage.view-mode-homepage_political {
+  .page-header {
+    @extend .page-header--xlarge-intro;
+
+    .page-header__hero-title {
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    @include breakpoint(screen-msm-min) {
+      .page-header__hero-title {
+        a {
+          color: $blue-dark;
+
+          &:hover {
+            color: $gray-base;
+          }
+        }
+      }
+    }
+  }
+}
