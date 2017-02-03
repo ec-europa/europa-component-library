@@ -1,0 +1,157 @@
+/*
+Filters
+*/
+
+.filters {
+  background: $grey-lighter;
+  margin-left: -($grid-gutter-width / 2);
+  margin-right: -($grid-gutter-width / 2);
+}
+
+// Padding goes to a wrapper added with js.
+// Twitter bootstrap's collapsible twitching issue.
+.filters__wrapper {
+  padding: ($grid-gutter-width / 2);
+}
+
+// And adding the padding back in case the wrapper is missing.
+.no-js {
+  .filters {
+    padding: ($grid-gutter-width / 2);
+  }
+}
+
+.filters__filter {
+  width: 100%;
+  clear: both;
+}
+
+.filters__title {
+  margin-bottom: 20px;
+}
+
+.filters__btn-submit {
+  width: 100%;
+}
+
+.filters__btn-reset {
+  width: 100%;
+  display: block;
+  position: relative;
+  top: 10px;
+
+  &--small {
+    float: right;
+  }
+}
+
+.filters__result-count {
+  font-weight: bold;
+  padding: 1em 0;
+  line-height: 1;
+  overflow: hidden;
+
+  .btn-group {
+    float: right;
+    margin-top: 0;
+  }
+
+  & + .filters__active-facets {
+    margin-top: -0.5em;
+  }
+}
+
+.filters__result-range {
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
+.filters__active-facets {
+  padding: 0 0 1em;
+}
+
+.filters__btn-collapse {
+  float: right;
+}
+
+.filters__close {
+  color: $brand-primary !important;
+  opacity: 1 !important;
+  font-size: 1em;
+  font-weight: $font-weight-normal;
+  padding-top: 32px;
+  margin-right: 20px;
+  text-decoration: none;
+  text-shadow: none;
+
+  &::after {
+    content: "";
+    background: url('../images/svg/arrow-up--blue.svg') no-repeat;
+    height: 8px;
+    width: 10px;
+    margin-left: 5px;
+    display: inline-block;
+    text-decoration: none !important;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.filters__items-number,
+.filters__items-name {
+  font-size: $font-size-h2;
+}
+
+.filters__items-number {
+  display: block;
+  margin-right: 0.333em;
+  float: left;
+  padding-bottom: 0.5em;
+}
+
+.filters__btn-reset--small {
+  display: inline-block;
+}
+
+// Button should be visible by default but hidden depending on breakpoint.
+html {
+  &.js {
+    .filters__btn-submit {
+      display: inline-block;
+    }
+  }
+}
+
+@include breakpoint(screen-xs-min) {
+  .filters__close {
+    &::after {
+      width: 12px;
+      height: 9px;
+    }
+  }
+}
+
+@include breakpoint(screen-md-min) {
+  .filters {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .filters__btn-reset--small,
+  .filters__btn-collapse {
+    display: none;
+  }
+
+  html {
+    &.js {
+      .filters__btn-submit {
+        display: none;
+      }
+    }
+  }
+}
