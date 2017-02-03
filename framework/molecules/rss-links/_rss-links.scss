@@ -1,0 +1,61 @@
+/*
+RSS Link
+*/
+
+$rss-link-icon-height: 40px;
+
+.rss-link {
+  float: right;
+  margin-bottom: 15px;
+  position: relative;
+
+  a {
+    float: left;
+    line-height: 40px;
+
+    &:hover {
+      .rss-link__text {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.rss-link__wrapper {
+  overflow: hidden;
+}
+
+.rss-link__label {
+  color: $grey-base;
+  font-size: $font-size-little;
+  font-weight: $font-weight-bold;
+  float: left;
+  margin-bottom: 0;
+  margin-right: 10px;
+  line-height: $rss-link-icon-height;
+}
+
+.rss-link__icon {
+  float: left;
+
+  &::before {
+    width: 100%;
+  }
+}
+
+.rss-link__text {
+  display: inline-block;
+  font-size: $font-size-xsmall;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+@include breakpoint(screen-md-min) {
+  .rss-link__wrapper {
+    float: right;
+  }
+
+  .rss-link {
+    margin-bottom: 0;
+  }
+}
