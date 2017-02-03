@@ -1,0 +1,3 @@
+# Galleries
+
+Gallery component.
