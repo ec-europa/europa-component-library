@@ -19,6 +19,8 @@ Displays the file video.
 
 Displays the download file available in several languages.
 
+TODO: stop relying on Bootstrap collapse
+
 ## File Link
 
 Displays the link for a download/page.
