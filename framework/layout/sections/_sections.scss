@@ -1,0 +1,221 @@
+// SUMMARY (Components, elements, modifiers)
+//
+// .section (component)
+//   Elements:
+//     .section__group
+//     Element modifiers:
+//       .section__group--biography-top
+//       .section__group--highlight-grey
+//       .section__group--highlight-grey-lightest
+//       .section__group--highlight-yellow
+//       .section__group--collapsible
+//       .section__group--bottom-header
+//       .section__group--no-margin
+//       .section__group--full-width
+//     .section__item
+//
+//   Component modifiers:
+//     .section--row-three
+//     .section--row-two
+//     .section--two-columns
+
+/*
+Section
+
+Section component.
+
+The section component is used to wrap block of contents.
+Its implementation ensures the correct vertical spacing between different
+groups of contents, it uses the margin collapse mechanism (css2) so that you
+don't have to worry when you place two sections one after the other, only one
+of the two margins will be applied, indeed.
+
+It can contain different set of html elements and components, but the
+predefined ones are its unique element {section group}, the {listing wrapper},
+the {sidebar-field-group}.
+
+The way it works is that the first {section group} in the section doesn't get
+any margin (the parent is already defining that) while the last doesn't get the
+margin-bottom (still for the same reason).
+When there's only one {section group} element it doesn't get any vertical margin.
+Please do not reset any of these margins.
+
+Mind that there is also a .section__group--full-width modifier which is not
+demoed here, it works when the section is not wrapped into a width limiting
+container.
+
+WHAT TO AVOID:
+Do not wrap a section component into a row element, this would break the
+collapsing margin.
+
+Markup: html/section.html
+
+Style guide sections
+*/
+
+/*
+section--row-two modifier
+
+.section--row-two
+
+Markup: html/section--row-two.html
+
+Style guide sections.1
+*/
+
+/*
+section--row-three modifier
+
+.section--row-three
+
+Markup: html/section--row-three.html
+
+Style guide sections.2
+*/
+
+/*
+Section group modifiers
+
+Markup: html/section__group.html
+
+Style guide sections.3
+*/
+
+$section-spacing: 1.667em;
+
+.section {
+  margin-bottom: $section-spacing;
+  margin-top: $section-spacing;
+
+  .section__group {
+    @extend .clearfix;
+  }
+
+  .section__group:first-child,
+  .section:first-child,
+  .listing__wrapper:first-child,
+  .sidebar-field-group__main + .sidebar-field-group__main {
+    margin-top: 0;
+  }
+
+  .section__group:last-child,
+  .section:last-child,
+  .listing__wrapper:last-child {
+    margin-bottom: 0;
+  }
+
+  .section--row-two,
+  .section--row-three {
+    @extend .row;
+  }
+}
+
+// Sidebar-field-group__main floats, it would break the collapsing margins.
+.section__group.sidebar-field-group + .section__group.sidebar-field-group__main {
+  margin-top: 0;
+}
+
+.section__group--highlight-grey,
+.section__group--highlight-yellow {
+  padding-left: 1.222em;
+}
+
+.section__group,
+.field-group-section_group {
+  margin-top: $section-spacing;
+  margin-bottom: $section-spacing;
+
+  & + .section__group--highlight-grey {
+    margin-top: 2em;
+  }
+}
+
+.section__group--collapsible {
+  padding: 0 !important;
+
+  & > * {
+    padding: $section-spacing 0 !important;
+  }
+}
+
+.section__group--full-width {
+  margin-left: -$grid-gutter-width / 2;
+  margin-right: -$grid-gutter-width / 2;
+
+  & > * {
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    @extend .container-fluid;
+  }
+}
+
+.section__group--highlight-grey {
+  background-color: $grey-lighter;
+  overflow: hidden;
+}
+
+.section__group--highlight-grey-lightest {
+  @extend .section__group--highlight-grey;
+
+  background-color: $grey-lightest;
+}
+
+.section__group--highlight-yellow {
+  background-color: $yellow-light;
+  overflow: hidden;
+}
+
+.section__group--no-margin {
+  margin-top: 0 !important;
+}
+
+.section--force-bottom {
+  margin-bottom: $section-spacing !important;
+}
+
+// It seems that this modifier is outdated, it might probably be removed.
+.section__group--bottom-header {
+  margin-top: -60px !important;
+  padding: $section-spacing 0 0 !important;
+}
+
+.section--row-two {
+  .section__item {
+    margin-top: 15px;
+
+    @extend .col-md-6;
+
+    &:nth-child(odd) {
+      clear: left;
+    }
+  }
+}
+
+.section--row-three {
+  .section__item {
+    @extend .col-md-4;
+
+    margin-top: 15px;
+
+    &:nth-child(3n+4) {
+      clear: left;
+    }
+  }
+}
+
+@include breakpoint(screen-lg-min) {
+  .section__group--full-width {
+    margin-left: -100%;
+    margin-right: -100%;
+  }
+}
+
+// That's the only reference to this modifier, could it be simply dropped?
+@include breakpoint(screen-md-min) {
+  .section {
+    .section--two-columns {
+      margin-bottom: 0;
+    }
+  }
+}
