@@ -1,0 +1,77 @@
+/*
+Radio
+
+Markup: html/radio.html
+
+Style guide form.radio
+*/
+
+/*
+ * Please
+ * @see https://github.com/flatlogic/awesome-bootstrap-checkbox
+ * @see http://flatlogic.github.io/awesome-bootstrap-checkbox/demo/
+ */
+
+// Component
+.radio {
+  padding-left: 20px;
+
+  input[type="radio"] {
+    margin-top: $form-checkbox-icon-size;
+    opacity: 0;
+    z-index: 1;
+
+    // Checked state.
+    &:checked + label::before {
+      background-image: url('../images/svg/radio-checked--blue.svg');
+    }
+
+    // Focus state, not checked.
+    &:focus + label::before {
+      border: 3px solid $form-control-border-color-focus;
+    }
+  }
+
+  label {
+    position: relative;
+    display: inline-block;
+    padding-left: 12px;
+    vertical-align: middle;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      content: "";
+      width: $form-checkbox-icon-size;
+      height: $form-checkbox-icon-size;
+      margin-left: -20px;
+      background: $white url('../images/svg/radio-unchecked.svg') no-repeat;
+      border: 3px solid transparent;
+      border-radius: 50%;
+
+      @include transition(border 0.15s ease-in-out);
+    }
+  }
+
+  &.radio--inline {
+    margin-top: 0;
+  }
+}
+
+// Turning off completely custom radios when SVG's are not available
+.no-svg {
+  .radio {
+    input[type="radio"]:checked + label::before {
+      background: none !important;
+    }
+
+    label::before {
+      border: 1px solid #ccc;
+      background: none !important;
+      -webkit-transition: border 0.15s ease-in-out;
+      -o-transition: border 0.15s ease-in-out;
+      transition: border 0.15s ease-in-out;
+    }
+  }
+}
