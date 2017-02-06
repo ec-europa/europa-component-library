@@ -1,25 +1,19 @@
-{% if modifier %}
-<nav class="breadcrumb breadcrumb--{{modifier}}" role="navigation" aria-label="breadcrumbs">
-{% else %}
-<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
-{% endif %}
+{# Define macro to make it easily accessible from elsewhere #}
+{% macro breadcrumb(segments=[], modifier="") %}
+<nav class="breadcrumb{{ " breadcrumb--" + modifier if modifier|length}}" role="navigation" aria-label="breadcrumbs">
   <span class="sr-only">You are here:</span>
   <ol class="breadcrumb__segments-wrapper">
-    <li class="breadcrumb__segment breadcrumb__segment--first">
-      <a href="#" class="breadcrumb__link is-internal">
-        <span class="breadcrumb__text">European Commission</span>
+    {% for segment in segments %}
+    <li class="breadcrumb__segment{{ " breadcrumb__segment--first" if loop.first }}{{ " breadcrumb__segment--last" if loop.last }}">
+      <a href="{{ segment.target }}" class="breadcrumb__link{{ " is-internal" if segment.isInternal }}">
+        <span class="breadcrumb__text">{{ segment.title }}</span>
       </a>
     </li>
-    <li class="breadcrumb__segment">
-      <a href="#" class="breadcrumb__link">
-        <span class="breadcrumb__text">Priorities</span>
-      </a>
-    </li>
-    <li class="easy-breadcrumb_segment easy-breadcrumb_segment-2 breadcrumb__segment breadcrumb__segment--last">
-      <a href="#" class="breadcrumb__link">
-        <span class="breadcrumb__text">Jobs, Growth and Investment</span>
-      </a>
-    </li>
+    {% endfor %}
   </ol>
   <span class="breadcrumb__btn-separator" style="display: none;">...</span>
 </nav>
+{% endmacro %}
+
+{# Render if this file is included as a template with data inherited from the context #}
+{{ breadcrumb(segments, modifier) }}
