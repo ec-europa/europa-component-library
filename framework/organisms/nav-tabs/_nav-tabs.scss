@@ -1,0 +1,154 @@
+/*
+Bootstrap: Nav tabs
+
+Implementation of bootstrap nav tabs
+
+Markup: html/nav-tabs.html
+
+Styleguide navtabs
+*/
+ul.nav-tabs,
+.nav-tabs {
+  max-width: inherit !important;
+  padding: 0;
+  margin-bottom: 2em !important;
+  border-bottom: 2px solid $grey;
+
+  @extend .hidden-print;
+
+  & > li {
+    margin-bottom: -2px;
+
+    &.active {
+      & > a {
+        border-bottom: 2px solid #fff;
+        border-top: 2px solid $grey;
+        border-right: 2px solid $grey;
+        border-left: 2px solid $grey;
+        color: $grey-base;
+
+        &:hover,
+        &:active,
+        &:focus {
+          border-bottom: 2px solid #fff;
+          border-top: 2px solid $grey;
+          border-right: 2px solid $grey;
+          border-left: 2px solid $grey;
+          color: $grey-base;
+        }
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &:focus {
+          background: $yellow-light;
+          border-bottom-color: $yellow-light;
+        }
+      }
+    }
+
+    & > a {
+      border-width: 2px;
+      border-radius: 0;
+
+      &:hover {
+        background: none;
+        border-color: transparent transparent $grey transparent;
+        text-decoration: underline;
+      }
+
+      &:focus {
+        background: $yellow-light;
+        border-bottom-color: $yellow-light;
+        outline: none;
+      }
+    }
+  }
+}
+
+.nav-tabs--with-content {
+  display: none;
+
+  & > li {
+    & > a {
+      font-weight: bold;
+      font-size: 30px;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+
+  & + .tab-content {
+    padding: 0;
+
+    & > * {
+      @extend .section__group;
+      // Margin bottom should be always there.
+      margin-bottom: 1.667em !important;
+    }
+  }
+}
+
+/*
+Bootstrap: Nav tabs right.
+
+Implementation of bootstrap nav tabs for the CWS.
+
+Markup: html/nav-tabs-right.html
+
+Styleguide navtabs.nav-tabs-right
+*/
+ul.nav-tabs-right {
+  text-align: right;
+
+  li {
+    display: inline-block;
+    float: none;
+
+    a {
+      font-size: inherit;
+
+      &:hover {
+        border-bottom: inherit;
+      }
+    }
+  }
+}
+
+@include breakpoint(screen-xs-min) {
+  .nav-tabs--with-content {
+    display: block;
+
+    & + .tab-content {
+      .tab-pane {
+        padding: 0;
+      }
+    }
+  }
+
+  .tab-title {
+    display: none;
+  }
+}
+
+// Display all content while printing on tabs.
+@media print {
+  .tab-content {
+    .tab-pane,
+    .tab-title {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  }
+}
+
+/*
+WAI-ARIA: Accessible tab panel system.
+
+Implementation of WAI-ARIA attributes on nav tabs for the CWS.
+*/
+.js-tabcontent[aria-hidden=true] {
+  display: none;
+}
