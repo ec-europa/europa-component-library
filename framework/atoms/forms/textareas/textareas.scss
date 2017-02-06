@@ -1,0 +1,26 @@
+/*
+Textarea
+
+Markup: html/textarea.html
+
+Style guide form.textarea
+*/
+
+textarea {
+  &.error {
+    border-color: $red;
+  }
+}
+
+.form-group .messages.error {
+  background-color: $grey-lighter;
+  border: none;
+
+  h3 {
+    font-size: inherit;
+  }
+
+  p {
+    font-size: $font-size-little;
+  }
+}
