@@ -66,3 +66,7 @@ import './atoms/buttons';
 @import 'organisms/page-headers/page-headers';
 
  */
+
+if (module.hot) {
+  module.hot.accept();
+}
