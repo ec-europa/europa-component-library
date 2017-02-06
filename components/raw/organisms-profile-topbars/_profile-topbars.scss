@@ -1,0 +1,23 @@
+/*
+Profile topbar
+Defines the profile topbar component
+Markup: html/profile_topbar.html
+Style guide profile_topbar
+*/
+
+.profile_topbar__column {
+  position: relative;
+  min-height: 160px;
+  height: 100%;
+
+  .btn-collapse {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.profile_topbar__expander {
+  background-color: $grey-lighter;
+  overflow: hidden;
+}
