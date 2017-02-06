@@ -6,3 +6,4 @@ export * from './molecules/datepickers/datepickers';
 export * from './molecules/files/files';
 export * from './molecules/filters/filters';
 export * from './molecules/timelines/timelines';
+export * from './organisms/profile-topbars/profile-topbars';
