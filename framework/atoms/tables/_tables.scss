@@ -1,0 +1,118 @@
+/*
+Table responsive
+
+Responsive table component.
+
+Markup: html/table-responsive.html
+
+Style guide table responsive
+*/
+
+.table-responsive {
+  width: 100%;
+  margin: 1em 0;
+  table-layout: fixed;
+  font-size: $font-size-little;
+  border-collapse: collapse;
+  border: none;
+
+  th {
+    background-color: transparent;
+    font-weight: bold;
+    color: $grey-base;
+  }
+
+  td,
+  th {
+    display: table-cell;
+    padding: 1em;
+    vertical-align: middle;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    thead {
+      display: none;
+    }
+
+    tr {
+      border-bottom: 1px solid $grey;
+
+      &:nth-of-type(2n) {
+        background-color: inherit;
+      }
+    }
+
+    tbody {
+      td {
+        display: block;
+        position: relative;
+        padding: 0.5em;
+
+        &[data-th-group] {
+          margin-top: 2.2em;
+        }
+
+        &::before {
+          display: block;
+          content: attr(data-th);
+          font-weight: bold;
+        }
+
+        &.table-responsive__heading {
+          background-color: $grey-base;
+          font-weight: bold;
+          color: $white;
+        }
+
+        &.table-responsive__group_label {
+          padding-left: 1.5em;
+          font-size: $font-size-little;
+
+          &::after {
+            display: block;
+            position: absolute;
+            top: -1.7em;
+            left: 0.5em;
+            content: attr(data-th-group);
+            font-size: $font-size-mid;
+            font-weight: bold;
+          }
+
+          ~ .table-responsive__group_element {
+            font-size: $font-size-little;
+            padding-left: 1.5em;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  table.table-responsive {
+    thead {
+      display: table-header-group;
+
+      tr:first-child th {
+        border-bottom: 1px solid $grey-base;
+        vertical-align: top;
+      }
+
+      tr:last-child:not(:first-child) {
+        border-bottom: 3px solid $grey-base;
+      }
+    }
+
+    /* Zebra striping */
+    tr:nth-of-type(even) {
+      background-color: $grey-lightest;
+    }
+  }
+}
