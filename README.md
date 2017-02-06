@@ -12,8 +12,6 @@ Requirements:
 ```
 yarn
 npm run bootstrap
-npm install -g selenium-standalone
-selenium-standalone install
 ```
 
 ## Develop
@@ -24,7 +22,14 @@ yarn start
 
 ## Test (visual regression)
 
-You'll need 3 terminal windows:
+You will need to install selenium and gemini in order to run visual regression tests.
+
+```
+npm install -g gemini selenium-standalone
+selenium-standalone install
+```
+
+Then, in 3 separate consoles:
 
 - Start the server:
 
