@@ -150,24 +150,27 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>You are here:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segments-wrapper"</span>&gt;</span>
+
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment breadcrumb__segment--first"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link is-internal"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>Priorities<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"easy-breadcrumb_segment easy-breadcrumb_segment-2 breadcrumb__segment breadcrumb__segment--last"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment breadcrumb__segment--last"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>Jobs, Growth and Investment<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
     <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__btn-separator"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></pre>
@@ -178,31 +181,25 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e32b10d6cdfeb789284a5658f1987484-panel-view">
     <code class="Code Code--lang-html">
-        <pre>{% if modifier %}
-<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb breadcrumb--{{modifier}}"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-{% else %}
-<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-{% endif %}
+        <pre>{# Define macro to make it easily accessible from elsewhere #}
+{% macro breadcrumb(segments=[], modifier="") %}
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb{{ "</span> <span class="hljs-attr">breadcrumb--</span>" + <span class="hljs-attr">modifier</span> <span class="hljs-attr">if</span> <span class="hljs-attr">modifier</span>|<span class="hljs-attr">length</span>}}" <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>You are here:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segments-wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment breadcrumb__segment--first"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link is-internal"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    {% for segment in segments %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment{{ "</span> <span class="hljs-attr">breadcrumb__segment--first</span>" <span class="hljs-attr">if</span> <span class="hljs-attr">loop.first</span> }}{{ " <span class="hljs-attr">breadcrumb__segment--last</span>" <span class="hljs-attr">if</span> <span class="hljs-attr">loop.last</span> }}"&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ segment.target }}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link{{ "</span> <span class="hljs-attr">is-internal</span>" <span class="hljs-attr">if</span> <span class="hljs-attr">segment.isInternal</span> }}"&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>{{ segment.title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>Priorities<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"easy-breadcrumb_segment easy-breadcrumb_segment-2 breadcrumb__segment breadcrumb__segment--last"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>Jobs, Growth and Investment<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    {% endfor %}
   <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__btn-separator"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span>&gt;</span>...<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+{% endmacro %}
+
+{# Render if this file is included as a template with data inherited from the context #}
+{{ breadcrumb(segments, modifier) }}</pre>
     </code>
 </div>
 
@@ -211,7 +208,25 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"segments"</span>: [
+    {
+      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"European Commission"</span>,
+      <span class="hljs-attr">"isInternal"</span>: <span class="hljs-literal">true</span>
+    },
+    {
+      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Priorities"</span>,
+      <span class="hljs-attr">"isInternal"</span>: <span class="hljs-literal">null</span>
+    },
+    {
+      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Jobs, Growth and Investment"</span>,
+      <span class="hljs-attr">"isInternal"</span>: <span class="hljs-literal">null</span>
+    }
+  ]
+}</pre>
             
         
     </code>
@@ -228,15 +243,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-82b3d06fe5d71071220ad511ecab6c9a">_breadcrumbs.scss</option>
+                <option value="file-7c1563c709cae455444e13c19f0b5401">_breadcrumbs.scss</option>
                 
-                <option value="file-51148c2b6f7cab7cc727a3ea0cd82b79">breadcrumbs.js</option>
+                <option value="file-cb6c7119ca5fb28754fe584f27e4722e">breadcrumbs.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-82b3d06fe5d71071220ad511ecab6c9a" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-7c1563c709cae455444e13c19f0b5401" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -531,7 +546,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-51148c2b6f7cab7cc727a3ea0cd82b79" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-cb6c7119ca5fb28754fe584f27e4722e" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -622,6 +637,15 @@
             <span class="Meta-value">framework/molecules/breadcrumbs/breadcrumbs.html</span>
         </li>
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(1)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="organism-page-headers-informational">@<span>organism-page-headers-informational</span></a>
+            
+            </span>
+        </li>
         
     </ul>
 </div>
