@@ -9,3 +9,4 @@ export * from './molecules/filters/filters';
 export * from './molecules/inpage-navs/inpage-navs';
 export * from './molecules/timelines/timelines';
 export * from './organisms/profile-topbars/profile-topbars';
+export * from './organisms/nav-tabs/nav-tabs';
