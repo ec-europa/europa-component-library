@@ -1,0 +1,105 @@
+/*
+Notification
+*/
+
+.notification {
+  @extend .hidden-print;
+
+  padding: 10px 0 6px;
+  background-color: $yellow-light;
+  font-size: 14px;
+
+  a {
+    color: $black;
+
+    @include _focus_outline_border(3px, $black, 2px);
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+.notification__label {
+  display: inline-block;
+  margin-right: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.notification__content {
+  display: block;
+
+  .notification__text {
+    float: left;
+    width: 100%;
+    margin-bottom: 6px;
+    margin-right: 8px;
+  }
+
+  .notification__btn {
+    float: left;
+    margin-bottom: 6px;
+    font-weight: bold;
+
+    &::after {
+      @extend .icon--after;
+      @extend .icon--right;
+
+      font-size: 12px;
+    }
+  }
+
+  p {
+    max-width: none;
+    margin: 0;
+  }
+}
+
+.notification__content__more {
+  font-weight: $font-weight-bold;
+
+  & .icon {
+    position: relative;
+    top: 2px;
+  }
+}
+
+@include breakpoint(screen-sm-min) {
+  .notification__content {
+    .notification__text {
+      width: 75%;
+    }
+
+    .notification__btn {
+      float: right;
+    }
+  }
+}
+
+@include breakpoint(screen-lg-min) {
+  .notification__content__more {
+    float: right;
+  }
+}
+
+// External link specific adjustments
+@mixin _notification_external_link_mixin() {
+  padding-right: 1.1em;
+
+  &::after {
+    position: absolute;
+    line-height: 2.2;
+  }
+}
+
+.notification {
+  a {
+    &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
+      &:not(#{$ec_url_patterns}) {
+        @include _notification_external_link_mixin();
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+/*
+Select
+
+Markup: html/select.html
+
+.hover      - Select hover
+:focus      - Select focus (select to see style applied)
+.is-down    - Select is-down
+
+Style guide form.select
+*/
+
+.select {
+  // Hide the arrow.
+  appearance: none;
+  -moz-appearance: none;    // Firefox.
+  -webkit-appearance: none; // Safari and Chrome.
+  text-indent: 0.01px;
+  text-overflow: '';
+  cursor: pointer;
+
+  // Fix for IE 10+.
+  &::-ms-expand {
+    display: none;
+  }
+
+  &.form-control {
+    // To not make it overlap.
+    padding-right: 50px;
+
+    @include select-list-arrow($form-control-border-color);
+  }
+
+  // Hover state.
+  &:hover,
+  &.hover {
+    @include select-list-arrow($form-control-border-select-color-hover);
+
+    border-color: $form-control-border-select-color-hover;
+  }
+
+  // Down state.
+  &.is-down {
+    @include select-list-arrow($white, true);
+  }
+}
+
+select {
+  @extend .select;
+}
