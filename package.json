@@ -23,7 +23,7 @@
     "precommit": "lint-staged",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
-    "test:a11y": "a11y ./www/components/preview/**/*.html",
+    "test:a11y": "a11y ./dist/components/preview/**/*.html",
     "watch:scripts": "chokidar './framework/**/*.js' -c 'eslint {path} && npm run build:scripts'",
     "watch:styles": "chokidar './framework/**/*.scss' -c 'stylelint {path} && npm run build:styles'",
     "watch": "npm-run-all --parallel watch:*"
