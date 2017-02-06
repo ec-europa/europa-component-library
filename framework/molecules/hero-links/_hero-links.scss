@@ -1,0 +1,94 @@
+/*
+Hero links
+
+Markup: html/hero-links.html
+
+Style guide hero-links
+*/
+
+.hero-links {
+  margin-bottom: 0.835em;
+
+  .container-fluid {
+    margin-top: -2.25em;
+
+    &:first-child {
+      margin-top: 0;
+      background-color: $grey-lightest;
+    }
+  }
+}
+
+.hero-links__text {
+  padding: 20px 15px 45px;
+  font-size: 1.067em;
+  text-align: center;
+}
+
+.hero-links__items {
+  @extend .row;
+
+  .hero-links__item {
+    @extend .col-sm-6;
+    @extend .col-xs-12;
+
+    margin-bottom: 30px;
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.hero-links__btn {
+  position: relative;
+  display: inline-block;
+
+  .img-responsive {
+    width: 100%;
+  }
+
+  .hero-links__caption {
+    position: absolute;
+    bottom: 1.125em;
+    left: 1.125em;
+    line-height: normal;
+    font-size: $font-size-mid;
+    font-weight: bold;
+    color: $white;
+  }
+
+  &:hover {
+    .hero-links__caption {
+      text-decoration: underline;
+    }
+  }
+}
+
+@include breakpoint(screen-xs-min) {
+  .hero-links__text {
+    padding-top: 55px;
+    padding-bottom: 80px;
+    font-size: $font-size-mid;
+  }
+
+  .hero-links__btn .hero-links__caption {
+    bottom: 0.467em;
+    left: 0.667em;
+    font-size: $font-size-huge;
+  }
+}
+
+@include breakpoint(screen-sm-min) {
+  .hero-links__items .hero-links__item {
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .hero-links__text p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+  }
+}
