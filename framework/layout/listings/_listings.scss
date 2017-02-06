@@ -1,0 +1,819 @@
+// SUMMARY (Components, elements, modifiers)
+//
+// .listing (component)
+//   Elements:
+//    .listing__wrapper
+//     Element modifiers:
+//      .listing__wrapper--maxwidth
+//      .listing__wrapper--two-columns
+//      .listing__wrapper--three-columns
+//      .listing__wrapper--row-two
+//      .listing__wrapper--row-three
+//
+//    .listing__title
+//     Element modifiers: .listing__title--arrow
+//
+//    .listing__column-main
+//     Element modifiers:
+//      .listing__column-main--sidebar-next
+//
+//    .listing__column-second
+//     Element modifiers:
+//      .listing__column-second--no-link
+//
+//    .listing__item-link
+//    .listing__date
+//
+//
+//   Component modifiers:
+//    .listing--navigation
+//    .listing--short-spaced
+//    .listing--line-left
+//    .listing--title
+//    .listing--title-medium
+//    .listing--person
+//    .listing--nostripe
+//    .listing--cta
+//    .listing--no-border
+//    .listing--no-padding
+//    .listing--agenda
+//    .listing--column-left
+//    .listing--meta
+
+/*
+Listing
+
+Component used to render list of entities, usually the landing page of a class.
+It defines the following modifiers:
+- Listing with no border;
+- Listing with no stripe;
+- Listing of persons, Listing CTA;
+- Listing line left;
+- Listing no padding;
+- Listing short spaced;
+- Listing line left.
+
+The width of the element listing__item is limited to 32em, a modifier is
+available to reset this limit, the first two examples are using that.
+
+Style guide listing
+*/
+
+/*
+Listing default
+
+Default implementation of the listing component.
+
+Markup: html/listing.html
+
+Style guide listing.1
+*/
+
+.listing {
+  padding: 0;
+}
+
+// .listing--priorities modifier.
+.listing--priorities .meta {
+  display: none;
+}
+
+/*
+Listing title
+
+Listing title is the component modifier used to style a list of titles.
+
+Markup: html/listing--title.html
+
+.listing--title-medium - Listing title medium
+
+Style guide listing.4
+*/
+
+// listing--title modifier.
+.listing--title,
+ul.listing--title {
+  padding: 0;
+
+  .listing__item {
+    // Half of the normal padding for the element.
+    padding: 0.61em 0;
+
+    .listing__title {
+      margin: 0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      a .listing__title {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .listing__item-link,
+  .listing__title {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  a.listing__title,
+  a .listing__title {
+    display: block;
+    padding-right: 2em;
+  }
+
+  a.listing__title::after {
+    line-height: 1.6;
+  }
+}
+
+.listing--title .listing__title {
+  &:hover,
+  &:focus {
+    color: $grey-base;
+    text-decoration: underline !important;
+  }
+}
+
+.listing--frontpage p {
+  line-height: 1.375em;
+}
+
+// .listing--title-medium modifier.
+.listing--title-medium .listing__title {
+  margin-top: 0.2em;
+  margin-bottom: 0.4em;
+}
+
+// .listing--title-medium modifier.
+.listing--title-medium .listing__title {
+  font-size: $font-size-h3;
+}
+
+/*
+Listing agenda
+
+Listing for event like entities.
+
+Markup: html/listing--agenda.html
+
+Style guide listing.5
+*/
+
+// .listing--agenda modifier.
+.listing--agenda {
+  p {
+    margin: 0;
+  }
+
+  .listing__item {
+    padding-top: 0.85em;
+    padding-bottom: 1em;
+  }
+
+  .meta {
+    margin-bottom: 0;
+
+    div {
+      display: inline-block;
+    }
+  }
+
+  .listing__item-link {
+    padding: 0;
+  }
+
+  h3.listing__title {
+    font-size: $font-size-medium;
+    color: $grey-base;
+  }
+
+  .listing__author {
+    margin-top: 1em;
+    font-size: $font-size-tiny;
+  }
+}
+
+// .listing--person modifier.
+.listing--person {
+  .listing__title ~ * {
+    margin-top: 0;
+    line-height: 1.3;
+  }
+
+  .listing__item:first-child {
+    border-top: none;
+  }
+}
+
+/*
+Simple listing (title + text) modifiers
+
+In this section we collect many modifiers, in the example the listing--teaser version of the component has been used.
+
+Markup: html/listing--teaser.html
+
+.listing--cta - Listing CTA
+.listing--no-padding - Listing no padding
+.listing--short-spaced - Listing short spaced
+.listing--line-left - Listing line left
+.listing--no-border - Listing with no border
+.listing--nostripe - Listing with no stripe
+.listing--meta     - Listing meta
+
+Style guide listing.3
+*/
+
+// Modifier to add line on the left.
+.listing--line-left {
+  .listing__title {
+    font-size: $font-size-h3;
+  }
+
+  .listing--teaser {
+    padding-left: 0;
+  }
+
+  .listing__item {
+    border-top: none !important;
+    border-bottom: none !important;
+    border-left: 5px solid $blue-dark;
+    padding: $font-size-mid/2 0 $font-size-mid/2 $font-size-mid;
+    margin: $font-size-mid/2 0;
+  }
+}
+
+@include breakpoint(screen-xs-min) {
+  .listing--line-left p {
+    font-size: $font-size-medium;
+  }
+}
+
+// .listing--nostripe modifier.
+.listing--nostripe {
+  padding: 30px;
+
+  .listing__item {
+    border: none;
+
+    &:first-child {
+      border: none;
+
+      .listing__item-link {
+        padding-top: 0;
+      }
+    }
+
+    &:last-child {
+      .listing__item-link {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+// .listing--cta modifier.
+.listing--cta {
+  .listing__item-link {
+    padding: $font-size-mid;
+    background-color: $brand-primary;
+
+    &:hover,
+    &:active,
+    &:focus {
+      .listing__title {
+        color: $white;
+      }
+    }
+  }
+
+  .listing__item {
+    border: none;
+
+    .listing__title,
+    a {
+      color: $white;
+    }
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:last-child {
+      padding-bottom: $font-size-mid;
+    }
+  }
+
+  .listing__title {
+    position: relative;
+    padding-right: 1.3em;
+
+    &::after {
+      @extend .listing__title--arrow;
+    }
+  }
+}
+
+// .listing--no-padding modifier.
+.listing--no-padding ul {
+  padding-left: 0 !important;
+}
+
+// .listing--no-border modifier.
+.listing--no-border .listing__item {
+  border: none !important;
+}
+
+// .listing--short-spaced modifier.
+.listing--short-spaced .listing__item {
+  padding: 0.5em 0 !important;
+}
+
+/*
+Listing navigation
+
+Navigational listing.
+The following example is a general one, using "Section" styling.
+
+Markup: html/listing--navigation.html
+
+Style guide listing.6
+*/
+
+.listing--navigation {
+  @include clearfix();
+
+  // Top of the block:
+  // - listing__section-title or
+  // - listing__item-link
+
+  // Definition for both of them.
+  .listing__item-link {
+    display: block;
+    padding: 0;
+    border-top: 3px $navigation-top-border-color solid;
+
+    &:hover {
+      border-top-color: $navigation-title-hover-color;
+
+      .listing__section-title {
+        color: $navigation-title-hover-color;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Only listing__section-title.
+  .listing__section-title {
+    padding: (12/16)+em 0 (24/16)+em 0; // 12px 0 24px 0
+    line-height: 1.2728em;
+    font-size: (16/15)+em; // 16px
+    color: $navigation-title-color;
+  }
+
+  .listing__description {
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  // Listing items.
+  .listing__item {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .listing__title {
+    font-weight: normal;
+  }
+
+  // Listing separator.
+  .listing__separator {
+    float: left;
+    max-width: 32em;
+    width: 100%;
+    // Margin bottom 0.5em of the previous item.
+    margin: (14/15 - 0.5)+em 0 0 0; // 14px
+    padding-top: (14/15 - 0.3)+em; // 14px
+    border-top: 1px solid $grey-light;
+  }
+}
+
+@include breakpoint(screen-xs-min) {
+  .listing--navigation {
+    margin-bottom: (90/18)+em; // 90px
+
+    // Top of the block:
+    // - listing__section-title or
+    // - listing__item-link
+
+    // Definition for both of them.
+    .listing__item-link {
+      padding: (20/22)+em 0 (52/22)+em 0; // 20px 0 52px 0
+    }
+
+    // Only listing__section-title.
+    .listing__section-title {
+      font-size: (22/18)+em; // 22px
+    }
+
+    // Only listing__item-link.
+    .listing__item-link {
+      padding: 0;
+    }
+
+    .listing__description {
+      font-size: $font-size-medium;
+    }
+
+    .listing__separator {
+      // Margin bottom 9px of the previous item.
+      margin-top: (20/18 - 9/18)+em; // 20-9px
+      padding-top: (20/18)+em; // 20px
+    }
+  }
+}
+
+a.listing__title {
+  color: $brand-primary;
+}
+
+// .listing__date element.
+.listing__date {
+  float: left;
+}
+
+// .listing__column-main element.
+.listing__column-main .listing__with {
+  margin-top: 0;
+}
+
+// .listing--meta
+.listing--meta .listing__title {
+  margin-bottom: 0;
+}
+
+// .listing__wrapper element.
+.listing__wrapper {
+  @include clearfix;
+
+  margin-bottom: 1.667em;
+
+  .listing {
+    max-width: inherit;
+  }
+}
+
+// .listing__item element.
+.listing__item {
+  list-style: none;
+  float: left;
+  width: 100%;
+  padding: 1.111em 0;
+  border-bottom: 1px solid $grey-lighter;
+
+  &:first-child {
+    border-top: 1px solid $grey-lighter;
+  }
+
+  // @todo: check if we can remove safely position relative that is applied
+  // in this class in the file _mixins.scss line 139, and then this can removed.
+  .listing__title {
+    position: static;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    a .listing__title,
+    a.listing__title {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  > p,
+  .listing__column-main > p,
+  .listing__item-link > p {
+    font-size: $font-size-little;
+  }
+}
+
+.listing__item-nolink {
+  display: block;
+  float: left;
+  width: 100%;
+  color: $grey-base;
+}
+
+// .listing__item-link element
+.listing__item-link {
+  @extend .listing__item-nolink;
+
+  &:active,
+  &:focus {
+    text-decoration: none;
+
+    .listing__title {
+      color: $grey-base;
+      text-decoration: underline;
+    }
+  }
+
+  &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
+    &:not(#{$ec_url_patterns}) {
+      @include _listing_external_link_mixin();
+    }
+  }
+}
+
+// For all the screens.
+.listing__column-second {
+  width: 100%;
+  margin: 0.2em 0 0.8em;
+
+  img {
+    text-align: right;
+  }
+}
+
+.listing__column-main {
+  float: left;
+  width: 100%;
+  padding-left: 0;
+}
+
+.listing__column-second--no-link {
+  margin: 0;
+  padding-bottom: 0.85em;
+
+  .btn {
+    margin-bottom: 0;
+  }
+}
+
+// Min-width: 480px.
+// The variable to use here should be $screen-phone.
+@include breakpoint(screen-xs-min) {
+  .listing__column-second {
+    float: right;
+    width: 25%;
+    margin: 0;
+    padding-left: 15px;
+
+    & + .listing__column-main {
+      width: 75%;
+    }
+  }
+
+  .listing__column-second--no-link {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+// Min-width: 622px.
+@include breakpoint(screen-msm-min) {
+  .listing__column-main--sidebar-next {
+    width: 66.6%;
+  }
+
+  .listing__column-second--no-link {
+    float: right;
+    width: 33.3%;
+    padding-top: 0.85em;
+    padding-left: 15px;
+
+    .btn {
+      margin-top: 1.667em;
+    }
+  }
+}
+
+// .listing__title element.
+//  Modifiers: .listing__title--arrow.
+.listing__title {
+  @extend .h3;
+
+  position: relative;
+  margin-bottom: 0.5em;
+  padding: 0;
+  line-height: 1.3;
+  font-family: $font-family-sans-serif;
+  font-size: 1em;
+
+  a:link &,
+  a:visited & {
+    color: $brand-primary;
+  }
+}
+
+// .listing__title--arrow.
+.listing__title--arrow::after {
+  @extend .icon--after;
+  @extend .icon--right;
+
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 10px;
+  font-size: $font-size-mid;
+}
+
+// .listing__read_more element.
+.listing__read-more {
+  display: block;
+  padding-top: 0.5em;
+  font-size: $font-size-tiny;
+  font-weight: $font-weight-bold;
+  text-align: right;
+  text-transform: uppercase;
+  clear: both;
+
+  &::after {
+    @extend .icon--after;
+    @extend .icon--right;
+
+    font-size: $font-size-xsmall;
+  }
+
+  & + .free-text {
+    margin-top: 1.5em;
+  }
+}
+
+// .listing__status-container element.
+.listing__status-container {
+  display: block;
+  margin-bottom: 0.8em;
+}
+
+@include breakpoint(screen-md-min) {
+  .listing {
+    .listing__status-container--inline {
+      display: inline-block;
+      margin-bottom: 0;
+      padding-top: 0.4em;
+    }
+
+    .listing__btn {
+      float: right;
+    }
+  }
+}
+
+/*
+Listing column left
+
+This is actually a modifier that applies changes to the listing__item element.
+
+Markup: html/listing--column-left.html
+
+Style guide listing.1.2
+*/
+
+.listing--column-left {
+  .listing__column-main {
+    width: auto;
+    float: none;
+    overflow: hidden;
+  }
+
+  .listing__column-second {
+    float: left;
+    width: auto;
+    padding-left: 0;
+    padding-right: 15px;
+  }
+}
+
+/*
+Listing layouts
+
+Listing layouts are implemented as modifiers of the listing__wrapper element
+which is actually the container of the component.
+
+Style guide listing.2
+*/
+
+/*
+Listing two columns
+
+This is a way to put two listings in two different columns.
+
+Markup: html/listing__wrapper--two-columns.html
+
+Style guide listing.2.1
+*/
+
+/*
+Listing three columns
+
+This is a way to put three listings in three different columns.
+
+Markup: html/listing__wrapper--three-columns.html
+
+Style guide listing.2.2
+*/
+
+/*
+Listing item two rows
+
+This is a way to put two listing_item in the same row.
+
+Markup: html/listing__wrapper--row-two.html
+
+Style guide listing.2.3
+*/
+
+/*
+Listing item three rows
+
+This is a way to put three listing_item in the same row.
+
+Markup: html/listing__wrapper--row-three.html
+
+Style guide listing.2.4
+*/
+
+// .listing__wrapper--maxwidth.
+.listing__wrapper--maxwidth {
+  @extend .row;
+
+  .listing {
+    @extend .col-md-8;
+  }
+
+  .listing__item {
+    max-width: none;
+  }
+}
+
+.listing__wrapper--three-columns,
+.listing__wrapper--two-columns,
+.listing__wrapper--row-three,
+.listing__wrapper--row-two {
+  .listing__title {
+    margin: 0.2em 0 0.4em;
+  }
+
+  p {
+    padding: 0;
+  }
+}
+
+.listing__wrapper--three-columns,
+.listing__wrapper--two-columns {
+  @extend .row;
+}
+
+.listing__wrapper--two-columns .listing {
+  @extend .col-sm-6;
+
+  margin-bottom: 2em;
+}
+
+.listing__wrapper--three-columns .listing {
+  @extend .col-md-4;
+}
+
+.listing__wrapper--row-three,
+.listing__wrapper--row-two {
+  .listing {
+    @extend .row;
+  }
+}
+
+.listing__wrapper--row-two {
+  .listing__item {
+    @extend .col-md-6;
+
+    &:nth-child(odd) {
+      clear: left;
+    }
+  }
+}
+
+.listing__wrapper--row-three {
+  .listing__item {
+    @extend .col-md-4;
+
+    &:nth-child(3n+4) {
+      clear: left;
+    }
+  }
+}
+
+@include breakpoint(screen-md-min) {
+  .listing__wrapper--two-columns .listing {
+    margin-bottom: 0;
+  }
+}
+
+.listing__wrapper--no-margin-bottom {
+  margin-bottom: 0;
+}
