@@ -27,7 +27,7 @@ addons:
       - $TRAVIS_BUILD_DIR/selenium.txt
 cache:
   apt: true
-  yarn: true
+  yarn: false
   directories:
     - node_modules
 
@@ -36,8 +36,8 @@ before_install:
   - export DISPLAY=:99.0
 
 install:
-  - yarn install
-  - yarn dist
+  - npm install
+  - npm run dist
 
 before_script:
   - npm install -g gemini
@@ -47,4 +47,4 @@ before_script:
   - sleep 5
 
 script:
-  - yarn $TEST_SUITE # run unit test, css regression, and css reference in parallel
+  - npm run $TEST_SUITE # run unit test, css regression, and css reference in parallel
