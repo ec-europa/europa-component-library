@@ -1,0 +1,48 @@
+// Global
+
+body {
+  min-width: 320px;
+  font-family: $font-family-base;
+  font-weight: 400;
+  line-height: 1.667;
+  overflow-x: hidden;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include breakpoint(screen-xs-min) {
+    font-size: 18px;
+  }
+}
+
+.no-js .collapse {
+  display: block;
+  visibility: visible;
+}
+
+.region-sidebar-first {
+  padding: 1.667em 0;
+}
+
+.navbar-toggle {
+  border-radius: 0;
+  border: none;
+}
+
+.navbar-collapse,
+.navbar-fixed-top,
+.navbar {
+  border: none;
+}
+
+.facetapi-facetapi-checkbox-links {
+  list-style: none;
+
+  input.facetapi-checkbox {
+    margin-right: 0.5em;
+  }
+
+  a.facetapi-checkbox {
+    text-decoration: none;
+  }
+}
