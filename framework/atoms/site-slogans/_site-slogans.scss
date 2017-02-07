@@ -1,0 +1,27 @@
+// Site slogan
+//
+// Markup: html/site-slogan.html
+//
+// Style guide siteheader.site-slogan
+
+.site-slogan {
+  color: $grey-base;
+  max-width: inherit;
+  text-align: center;
+  margin-bottom: 8px;
+  font-weight: normal;
+  font-size: 16px;
+  padding-top: 5px;
+
+  @include breakpoint(screen-xs-min) {
+    padding-top: 10px;
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  @include breakpoint(screen-sm-min) {
+    padding-top: 12px;
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+}
