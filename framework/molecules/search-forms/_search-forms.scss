@@ -1,0 +1,84 @@
+/*
+Search form
+
+Markup: html/search-form.html
+
+Style guide: siteheader.searchform
+*/
+
+.search-form {
+  @extend .hidden-print;
+
+  display: inline-block;
+  margin-bottom: 1em;
+  overflow: hidden;
+  border: 1px solid $grey;
+
+  .search-form__textfield-wrapper {
+    position: relative;
+    display: table-cell;
+    margin-bottom: 0;
+    border: 3px solid transparent;
+  }
+
+  .search-form__btn-wrapper {
+    font-size: inherit;
+  }
+}
+
+.search-form__textfield {
+  min-height: 2.325em;
+  height: 2.325em;
+  font-size: inherit;
+  border: none;
+}
+
+.search-form__btn {
+  @extend .icon;
+
+  min-height: 2.75em;
+  margin-right: -1px;
+  margin-bottom: 0;
+  padding: 0 22px;
+  text-indent: -999em;
+  overflow: visible;
+  border: none !important;
+
+  &::before {
+    @extend .icon--search;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1.5em;
+    line-height: 1.9em;
+    text-indent: 0;
+  }
+}
+
+@include breakpoint(screen-md-min) {
+  .search-form {
+    margin-bottom: 0;
+
+    .search-form__textfield-wrapper,
+    .search-form__btn-wrapper {
+      float: left;
+    }
+  }
+
+  .search-form__btn {
+    padding: 0 1em;
+    text-indent: 0;
+
+    &::before {
+      display: none !important;
+    }
+  }
+}
+
+@include breakpoint(screen-xs-min) {
+  .search-form__textfield {
+    min-height: 2.375em;
+  }
+}
