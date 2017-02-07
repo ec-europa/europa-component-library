@@ -9,12 +9,12 @@ Styleguide navtabs
 */
 ul.nav-tabs,
 .nav-tabs {
+  @extend .hidden-print;
+
   max-width: inherit !important;
   padding: 0;
   margin-bottom: 2em !important;
   border-bottom: 2px solid $grey;
-
-  @extend .hidden-print;
 
   & > li {
     margin-bottom: -2px;
