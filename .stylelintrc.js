@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    // 'stylelint-config-sass-guidelines',
+    'stylelint-config-sass-guidelines',
     'stylelint-config-standard'
   ],
   plugins: ['stylelint-selector-bem-pattern'],
