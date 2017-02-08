@@ -19,7 +19,7 @@
     "gh-pages": "gh-pages -d dist",
     "lint:js": "eslint .",
     "lint:scss": "stylelint './framework/**/*.scss'",
-    "lint": "npm-run-all --parallel lint:*",
+    "lint": "npm-run-all --parallel lint:* -c",
     "precommit": "lint-staged",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
@@ -29,7 +29,7 @@
     "watch": "npm-run-all --parallel watch:*"
   },
   "devDependencies": {
-    "@frctl/fractal": "1.1.0",
+    "@frctl/fractal": "1.1.1",
     "@frctl/mandelbrot": "1.1.0",
     "@frctl/nunjucks": "1.0.3",
     "a11y": "0.4.1",
@@ -59,6 +59,7 @@
     "stylelint": "7.8.0",
     "stylelint-config-sass-guidelines": "2.0.0",
     "stylelint-config-standard": "16.0.0",
+    "stylelint-selector-bem-pattern": "^1.0.0",
     "validate-commit-msg": "2.11.1"
   },
   "dependencies": {
