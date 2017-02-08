@@ -1,17 +1,18 @@
-# WIP
+# EC Component Library
 
-Component library based on [Fractal](http://fractal.build/) using lerna and other fancy tools.
+[![Build Status](https://travis-ci.org/ec-europa/europa-component-library.svg?branch=master)](https://travis-ci.org/ec-europa/europa-component-library)
+
+Component library based on [Fractal](http://fractal.build/).
 
 Requirements:
 -   Node.js >= 6
--   lerna 2.0.0-beta.34
 -   yarn
 
 ## Setup
 
 ```
 yarn
-npm run bootstrap
+yarn bootstrap
 ```
 
 ## Develop
@@ -31,28 +32,28 @@ selenium-standalone install
 
 Then, in 3 separate consoles:
 
-- Start the server:
+-   Start the server:
 
 ```
 yarn start
 ```
 
-- Start selenium:
+-   Start selenium:
 
 ```
 selenium-standalone start
 ```
 
-- Run the tests:
+-   Run the tests:
 
 ```
-npm run gemini:test
+yarn gemini:test
 ```
 
 If you want to update the reference screeshots:
 
 ```
-npm run gemini:update
+yarn gemini:update
 ```
 
 ## Test (accessibility)
@@ -60,8 +61,8 @@ npm run gemini:update
 Build the project and run accessibility testing:
 
 ```
-npm run dist
-npm run test:a11y
+yarn dist
+yarn test:a11y
 ```
 
 ## Deploy to GitHub Pages
