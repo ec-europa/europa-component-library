@@ -25,6 +25,8 @@ addons:
       - $TRAVIS_BUILD_DIR/screenshots.zip
       - $TRAVIS_BUILD_DIR/gemini-report/
       - $TRAVIS_BUILD_DIR/selenium.txt
+  sauce_connect: true
+
 cache:
   apt: true
   yarn: false
