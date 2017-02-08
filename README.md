@@ -21,6 +21,20 @@ yarn bootstrap
 yarn start
 ```
 
+## Lint
+
+With npm:
+
+```
+npm run lint --silent
+```
+
+Or with yarn:
+
+```
+yarn lint
+```
+
 ## Test (visual regression)
 
 You will need to install selenium and gemini in order to run visual regression tests.
