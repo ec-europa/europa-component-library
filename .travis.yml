@@ -37,9 +37,7 @@ install:
   - npm run dist
 
 before_script:
-  - npm install -g selenium-standalone
-  - selenium-standalone install
-  - sleep 5
+  - if [[ "$TEST_SUITE" == "gemini:test" ]]; then npm install -g selenium-standalone && selenium-standalone install && sleep 5; fi
 
 script:
   - npm run $TEST_SUITE # run tests in parallel
