@@ -16,16 +16,12 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - google-chrome
     packages:
       - gcc-4.8
       - g++-4.8
-      - google-chrome-stable
   artifacts:
     paths:
-      - $TRAVIS_BUILD_DIR/screenshots.zip
       - $TRAVIS_BUILD_DIR/gemini-report/
-      - $TRAVIS_BUILD_DIR/selenium.txt
   sauce_connect: true
 
 cache:
@@ -34,10 +30,6 @@ cache:
   directories:
     - node_modules
 
-before_install:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-
 install:
   - npm install
   - npm run dist
@@ -45,8 +37,7 @@ install:
 before_script:
   - npm install -g selenium-standalone
   - selenium-standalone install
-  - xvfb-run --server-args="-screen 0, 1600x1080x24" selenium-standalone start > selenium.txt &
   - sleep 5
 
 script:
-  - npm run $TEST_SUITE # run unit test, css regression, and css reference in parallel
+  - npm run $TEST_SUITE # run tests in parallel
