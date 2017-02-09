@@ -7,10 +7,6 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "build:copy": "node ./scripts/copy.js",
-    "build:scripts": "rollup --config ./rollup.config.js",
-    "build:styles": "node-sass ./framework/index.scss | postcss -c postcss.config.js",
-    "build": "npm-run-all --parallel build:*",
     "clean": "rimraf tmp build dist static/framework",
     "commitmsg": "validate-commit-msg",
     "dist": "npm run clean && fractal build && NODE_ENV=production npm run build",
@@ -23,9 +19,6 @@
     "precommit": "lint-staged",
     "start": "npm run clean && webpack-dashboard -- fractal start",
     "test:a11y": "a11y ./www/components/preview/**/*.html",
-    "watch:scripts": "chokidar './framework/**/*.js' -c 'eslint {path} && npm run build:scripts'",
-    "watch:styles": "chokidar './framework/**/*.scss' -c 'stylelint {path} && npm run build:styles'",
-    "watch": "npm-run-all --parallel watch:*",
     "webpack": "webpack -p"
   },
   "devDependencies": {
