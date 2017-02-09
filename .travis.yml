@@ -7,6 +7,7 @@ env:
   matrix:
     - TEST_SUITE=lint
     - TEST_SUITE=test:a11y
+    - TEST_SUITE=gemini:test
 
 sudo: required
 dist: trusty
@@ -42,10 +43,9 @@ install:
   - npm run dist
 
 before_script:
-  - npm install -g gemini
   - npm install -g selenium-standalone
   - selenium-standalone install
-  - xvfb-run --server-args="-screen 0, 1600x2400x24" selenium-standalone start > selenium.txt &
+  - xvfb-run --server-args="-screen 0, 1600x1080x24" selenium-standalone start > selenium.txt &
   - sleep 5
 
 script:

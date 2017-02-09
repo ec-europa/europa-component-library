@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const serveStatic = require('serve-static');
 
-const gemini = new Gemini(path.resolve(__dirname, '../.gemini.conf.yml'));
+const gemini = new Gemini(path.resolve(__dirname, '../.gemini.conf.js'));
 
 // Start local server
 const app = express();
