@@ -11,6 +11,7 @@ const gemini = new Gemini(path.resolve(__dirname, '../.gemini.conf.js'));
 const app = express();
 app.use(serveStatic(path.resolve(__dirname, '../dist')));
 
+// Create server
 const server = require('http').createServer(app);
 
 function closeServer(code) {
@@ -45,7 +46,7 @@ server.listen(3000, () => {
   }
 });
 
-// ctrl-c to trigger
+// On Ctrl-C
 process.on('SIGINT', () => {
   closeServer(1);
 });
