@@ -27,9 +27,9 @@ module.exports = {
   gridUrl: config.gridUrl,
   screenshotsDir: './test/visual/screens',
   calibrate: false,
-  tolerance: 3.5,
+  // retry: 3,
+  // tolerance: 3.5,
   windowSize: '1024x768',
   sessionsPerBrowser: 3,
   browsers: config.browsers,
-  },
 };
