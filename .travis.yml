@@ -20,7 +20,7 @@ addons:
       - gcc-4.8
       - g++-4.8
   artifacts:
-    debug: true
+    s3_region: "eu-west-2"
     paths:
       - $TRAVIS_BUILD_DIR/gemini-report/
   sauce_connect: true
