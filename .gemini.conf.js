@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const config = process.env.TRAVIS ? {
   gridUrl: 'http://ondemand.saucelabs.com/wd/hub',
   browsers: {
@@ -12,11 +14,13 @@ const config = process.env.TRAVIS ? {
     },
   },
 } : {
-  gridUrl: 'http://127.0.0.1:4444/wd/hub',
+  gridUrl: 'http://ondemand.saucelabs.com/wd/hub',
   browsers: {
     chrome: {
       desiredCapabilities: {
         browserName: 'chrome',
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY,
       },
     },
   },
