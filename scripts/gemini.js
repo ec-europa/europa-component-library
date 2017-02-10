@@ -1,24 +1,14 @@
 require('dotenv').config();
 
 const Gemini = require('gemini/api');
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const serveStatic = require('serve-static');
 const sauceConnectLauncher = require('sauce-connect-launcher');
 const http = require('http');
 
-sauceConnectLauncher({
-  username: process.env.SAUCE_USERNAME,
-  accessKey: process.env.SAUCE_ACCESS_KEY,
-}, (err, sauceConnectProcess) => {
-  if (err) {
-    console.error(err.message);
-    return;
-  }
-  console.log('Sauce Connect ready');
-
-  // Check if './dist' is present
-
+function test(cb) {
   const gemini = new Gemini(path.resolve(__dirname, '../.gemini.conf.js'));
 
   // Start local server
@@ -32,10 +22,7 @@ sauceConnectLauncher({
     console.info('Closing server...');
     server.close(() => {
       console.info('Server closed.');
-      sauceConnectProcess.close(() => {
-        console.log('Closed Sauce Connect process');
-        process.exit(code);
-      });
+      return cb(code);
     });
   }
 
@@ -67,4 +54,34 @@ sauceConnectLauncher({
   process.on('SIGINT', () => {
     closeServer(1);
   });
-});
+}
+
+if (fs.existsSync(path.resolve(__dirname, '../dist'))) {
+  if (!process.env.TRAVIS) {
+    sauceConnectLauncher({
+      username: process.env.SAUCE_USERNAME,
+      accessKey: process.env.SAUCE_ACCESS_KEY,
+    }, (err, sauceConnectProcess) => {
+      if (err) {
+        console.error(err.message);
+        process.exit(1);
+        return;
+      }
+
+      console.log('Sauce Connect ready');
+      test((code) => {
+        sauceConnectProcess.close(() => {
+          console.log('Closed Sauce Connect process');
+          process.exit(code);
+        });
+      });
+    });
+  } else {
+    test((code) => {
+      process.exit(code);
+    });
+  }
+} else {
+  console.error('Please generate the dist folder before running the tests');
+  process.exit(1);
+}

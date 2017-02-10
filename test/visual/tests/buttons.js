@@ -1,27 +1,36 @@
-const states = ['ctn', 'ctn--border', 'default', 'menu', 'primary', 'secondary'];
+const variants = ['ctn', 'ctn--border', 'default', 'menu', 'primary', 'secondary'];
 const components = ['buttons', 'inputs', 'links'];
 
 gemini.suite('buttons', () => {
   components.forEach((component) => {
-    gemini.suite(component, (suite) => {
-      suite.setUrl(`/atom-buttons-${component}.html`);
-      states.forEach((state) => {
-        gemini.suite(state, (stateSuite) => {
-          const selector = `.btn-${state}`;
-          stateSuite
+    gemini.suite(component, () => {
+      variants.forEach((variant) => {
+        gemini.suite(variant, (suite) => {
+          const selector = `.btn-${variant}`;
+          suite
+            .setUrl(`/atom-buttons-${component}--${variant}.html`)
+            .before((actions) => {
+              actions.waitForElementToShow(selector, 5000);
+              actions.focus('body');
+              actions.wait(1000);
+            })
             .setCaptureElements(selector)
-            .before(function beforeTests(actions, find) {
-              this.button = find(selector);
-            })
             .capture('plain')
-            .capture('hovered', function beforeCapture(actions) {
-              actions.mouseMove(this.button);
+            .capture('hovered', (actions, find) => {
+              actions.wait(500);
+              actions.mouseMove(find(selector));
             })
-            .capture('pressed', function beforeCapture(actions) {
-              actions.mouseDown(this.button);
+            .capture('focused', (actions, find) => {
+              actions.wait(500);
+              actions.focus(find(selector));
             })
-            .capture('clicked', function beforeCapture(actions) {
-              actions.mouseUp(this.button);
+            .capture('pressed', (actions, find) => {
+              actions.wait(500);
+              actions.mouseDown(find(selector));
+            })
+            .capture('clicked', (actions, find) => {
+              actions.wait(500);
+              actions.mouseUp(find(selector));
             });
         });
       });
