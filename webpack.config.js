@@ -1,9 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
-const extractCSS = new ExtractTextPlugin('[name].bundle.css');
+// const extractCSS = new ExtractTextPlugin('[name].bundle.css');
 
 const config = {
   // context: path.resolve(__dirname, './framework'),
@@ -20,7 +20,7 @@ const config = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, './static/framework'),
+    path: path.resolve(__dirname, './dist/framework'),
     publicPath: '/framework',
     filename: '[name].js',
   },
@@ -43,7 +43,7 @@ const config = {
       // loader: extractCSS.extract(['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']),
       use: [
         'style-loader',
-        'css-loader?sourceMap',
+        'css-loader',
         'resolve-url-loader',
         'sass-loader?sourceMap',
       ],
@@ -52,13 +52,19 @@ const config = {
       use: {
         loader: 'file-loader',
         options: {
-          name: 'fonts/[name].[ext]',
+          name: '[path][name].[ext]',
         },
+      },
+    }, {
+      test: /\.(jpg|png)$/,
+      loader: 'file-loader',
+      options: {
+        name: '[path][name].[hash].[ext]',
       },
     }],
   },
   plugins: [
-    extractCSS,
+    // extractCSS,
     // new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

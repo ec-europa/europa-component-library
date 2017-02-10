@@ -33,12 +33,29 @@ fractal.set('project.title', 'Europa Component Library');
 
 // Components config
 fractal.components.set('default.preview', '@preview');
-fractal.components.set('default.status', null);
+fractal.components.set('statuses', {
+  planned: {
+    label: 'Planned',
+    description: 'Do not implement.',
+    color: '#FF3333',
+  },
+  wip: {
+    label: 'WIP',
+    description: 'Work in progress. Implement with caution.',
+    color: '#FF9233',
+  },
+  ready: {
+    label: 'Ready',
+    description: 'Ready to implement.',
+    color: '#29CC29',
+  },
+});
+fractal.components.set('default.status', 'planned');
 fractal.components.set('path', path.resolve(__dirname, './framework'));
 fractal.components.engine('@frctl/nunjucks'); // use Nunjucks for components
 fractal.components.set('ext', '.html');
 
-// "Assets" tab
+// 'Assets' tab
 fractal.components.set('resources.assets', {
   label: 'Code',
   match: '**/*.{js,scss}',

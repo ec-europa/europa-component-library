@@ -1,29 +1,34 @@
+/**
+ * Icons
+ * @define icon
+ */
+
+@import '~@ec-europa/europa-component-library-core/core';
+
 @font-face {
   font-family: 'EuropaIcons';
-  src: url('fonts/europa-icons/europa-icons.eot');
+  src: url('./fonts/europa-icons/europa-icons.eot');
   src:
-    url('fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
     url('./fonts/europa-icons/europa-icons.woff') format('woff'),
     url('./fonts/europa-icons/europa-icons.ttf') format('truetype'),
     url('./fonts/europa-icons/europa-icons.svg#icomoon') format('svg');
 }
 
-.icon {
-  &::before {
-    display: inline-block;
-    font-family: 'EuropaIcons';
-    // Better Font Rendering
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: normal;
-    line-height: 1;
-    margin-right: 4px;
-    speak: none;
-    text-decoration: none;
-    text-transform: none;
-  }
+.icon::before {
+  display: inline-block;
+  font-family: 'EuropaIcons';
+  // Better Font Rendering
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-right: 4px;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
 }
 
 // Icon component and modifiers.

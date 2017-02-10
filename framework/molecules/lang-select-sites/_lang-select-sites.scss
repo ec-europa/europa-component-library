@@ -1,0 +1,72 @@
+/*
+Language select (Site)
+*/
+
+.lang-select-site {
+  @extend .hidden-print;
+
+  position: absolute;
+  top: 0;
+  right: $grid-gutter-width / 2;
+  text-align: center;
+
+  .lang-select-site__link {
+    display: inline-block;
+    padding: 7.5px 15px;
+    font-size: $font-size-little;
+    font-weight: bold;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    border: 3px solid transparent;
+
+    &:focus {
+      border-color: $yellow-light;
+      outline: none;
+    }
+  }
+
+  .lang-select-site__label {
+    margin-right: 0.556em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .lang-select-site__code {
+    display: inline-block;
+    position: relative;
+    width: $font-size-xsmall * 2;
+    color: $brand-primary;
+    text-transform: uppercase;
+  }
+
+  .lang-select-site__code-text {
+    position: relative;
+    top: 0;
+    left: -1px;
+    font-size: $font-size-xsmall;
+    color: $white;
+  }
+
+  .lang-select-site__icon {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    line-height: 1.4;
+    font-size: $font-size-xsmall * 2;
+    color: $brand-primary;
+
+    &::before {
+      font-weight: inherit;
+    }
+  }
+}
+
+@include breakpoint(screen-md-min) {
+  .lang-select-site {
+    float: left;
+    position: static;
+  }
+}

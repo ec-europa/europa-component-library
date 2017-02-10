@@ -1,0 +1,25 @@
+/*
+Label
+
+Markup: html/label.html
+
+Style guide form.label
+*/
+
+label,
+form .label {
+  @extend .form_label;
+}
+
+.form_label {
+  display: block;
+  margin-bottom: 0.556em;
+  padding: 0;
+  font-size: $font-size-little;
+  color: $form-control-text-color;
+  text-align: left;
+
+  &.is-disabled {
+    color: $form-control-color-disabled;
+  }
+}

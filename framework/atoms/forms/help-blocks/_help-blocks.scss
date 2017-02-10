@@ -1,0 +1,26 @@
+/*
+Help Block
+
+Markup: html/help-block.html
+
+Style guide form.help-block
+*/
+
+.help-block {
+  @extend .hidden-print;
+
+  margin-top: 0;
+  margin-bottom: 0.556em;
+  font-family: $font-family-sans-serif;
+  font-size: $font-size-xsmall;
+  color: $form-group-help-block-text-color;
+
+  .disabled & {
+    color: $form-control-color-disabled;
+  }
+
+  .has-error & {
+    // Disable settings of base Bootstrap.
+    color: $form-group-help-block-text-color-has-error;
+  }
+}

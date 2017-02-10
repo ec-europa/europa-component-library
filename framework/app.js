@@ -5,7 +5,16 @@ import './core';
 
 // Include atoms
 import './atoms/buttons';
-
+import './atoms/date-blocks';
+import './atoms/fields';
+import './atoms/horizontal-lines';
+import './atoms/icons';
+import './atoms/images';
+import './atoms/logos';
+import './atoms/messages';
+import './atoms/meta';
+import './atoms/site-slogans';
+import './atoms/site-switchers';
 /*
 // Atoms
 

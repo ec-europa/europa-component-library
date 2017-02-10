@@ -1,0 +1,29 @@
+/*
+Site user menu
+*/
+
+.site-user-menu__list {
+  list-style: none;
+  float: right;
+  margin-bottom: 0 !important;
+  padding: 0;
+  font-weight: $font-weight-bold;
+}
+
+.site-user-menu__option {
+  display: inline-block;
+  padding: 0.685em 1.333em;
+
+  a {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
