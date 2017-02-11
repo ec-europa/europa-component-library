@@ -1,5 +1,5 @@
 const resolve = require('path').resolve;
-const copy = require('fs-extra').copy; // eslint-disable-line import/no-extraneous-dependencies
+const copy = require('fs-extra').copy;
 
 const dest = process.env.NODE_ENV === 'production' ? '../dist/framework' : '../static/framework';
 

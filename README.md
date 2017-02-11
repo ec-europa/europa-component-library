@@ -37,20 +37,20 @@ yarn lint
 
 ## Test (visual regression)
 
-You will need to install selenium and gemini in order to run visual regression tests.
+You will need to install selenium in order to run visual regression tests.
 
 ```
-npm install -g gemini selenium-standalone
+npm install -g selenium-standalone
 selenium-standalone install
 ```
 
-Then, in 3 separate consoles:
-
--   Start the server:
+Then, you need a fresh build of the framework:
 
 ```
-yarn start
+yarn dist
 ```
+
+Finally, in 2 separate consoles:
 
 -   Start selenium:
 
@@ -72,7 +72,7 @@ yarn gemini:update
 
 ## Test (accessibility)
 
-Build the project and run accessibility testing:
+Build the project and run the accessibility tests:
 
 ```
 yarn dist
@@ -86,11 +86,11 @@ _To be executed from the master branch only._
 First, make sure to have built the style guide with the framework with:
 
 ```
-npm run dist
+yarn dist
 ```
 
 Then, you can type:
 
 ```
-npm run gh-pages
+yarn gh-pages
 ```
