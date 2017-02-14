@@ -1,14 +1,11 @@
 language: node_js
-node_js:
-  - "6"
+node_js: 6
+
 env:
   global:
     - CXX=g++-4.8
-  matrix:
-    - TEST_SUITE=lint
-    - TEST_SUITE=test:webdriver
 
-sudo: required
+sudo: false
 dist: trusty
 
 addons:
@@ -17,12 +14,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-      - graphicsmagick
-  artifacts:
-    paths:
-      - $TRAVIS_BUILD_DIR/test/screenshots/diff/
-      - $TRAVIS_BUILD_DIR/test/errorShots/
-  sauce_connect: true
 
 cache:
   apt: true
@@ -30,9 +21,25 @@ cache:
   directories:
     - node_modules
 
+matrix:
+  include:
+    - env: TEST_SUITE=test:webdriver
+      addons:
+        apt:
+          packages:
+            - graphicsmagick
+      artifacts:
+        paths:
+          - $TRAVIS_BUILD_DIR/test/screenshots/diff/
+          - $TRAVIS_BUILD_DIR/test/errorShots/
+      sauce_connect: true
+
+    # Node 4 without GraphicsMagick
+    - env: TEST_SUITE=lint
+
 install:
   - npm install
   - npm run dist
 
 script:
-  - npm run $TEST_SUITE # run unit test, css regression, and css reference in parallel
+  - npm run $TEST_SUITE
