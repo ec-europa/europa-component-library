@@ -1,5 +1,4 @@
 language: node_js
-node_js: 6
 
 env:
   global:
@@ -23,22 +22,27 @@ cache:
 
 matrix:
   include:
-    - env: TEST_SUITE=test:webdriver
+    # Nodejs 6 - Webdriver.io
+    - node_js: 6
+      env: TEST_SUITE=test:webdriver
       addons:
         apt:
           packages:
             - graphicsmagick
+        sauce_connect: true
       artifacts:
         paths:
           - $TRAVIS_BUILD_DIR/test/screenshots/diff/
           - $TRAVIS_BUILD_DIR/test/errorShots/
-      sauce_connect: true
 
-    # Node 4 without GraphicsMagick
-    - env: TEST_SUITE=lint
+    # Nodejs 6 - Lint
+    - node_js: 6
+      env: TEST_SUITE=lint
 
 install:
   - npm install
+
+before_script:
   - npm run dist
 
 script:
