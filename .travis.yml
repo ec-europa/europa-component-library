@@ -29,11 +29,11 @@ matrix:
         apt:
           packages:
             - graphicsmagick
+        artifacts:
+          paths:
+            - $TRAVIS_BUILD_DIR/test/screenshots/diff/
+            - $TRAVIS_BUILD_DIR/test/errorShots/
         sauce_connect: true
-      artifacts:
-        paths:
-          - $TRAVIS_BUILD_DIR/test/screenshots/diff/
-          - $TRAVIS_BUILD_DIR/test/errorShots/
 
     # Nodejs 6 - Lint
     - node_js: 6
