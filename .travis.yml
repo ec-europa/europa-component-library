@@ -22,6 +22,8 @@ addons:
     paths:
       - $TRAVIS_BUILD_DIR/test/screenshots/diff/
       - $TRAVIS_BUILD_DIR/test/errorShots/
+  sauce_connect: true
+
 cache:
   apt: true
   yarn: false
