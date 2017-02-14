@@ -16,7 +16,7 @@ addons:
 
 cache:
   apt: true
-  yarn: false
+  yarn: true
   directories:
     - node_modules
 
@@ -37,13 +37,13 @@ matrix:
 
     # Nodejs 6 - Lint
     - node_js: 6
-      env: TEST_SUITE=lint
+      env: TEST_SUITE=test:coding-conventions
 
 install:
-  - npm install
+  - yarn
 
 before_script:
-  - if [ "${TEST_SUITE}" = "test:webdriver" ]; then npm run dist; fi
+  - if [ "${TEST_SUITE}" = "test:webdriver" ]; then yarn dist; fi
 
 script:
-  - npm run $TEST_SUITE
+  - yarn $TEST_SUITE
