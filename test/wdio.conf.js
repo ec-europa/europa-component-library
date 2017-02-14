@@ -2,6 +2,8 @@ const path = require('path');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare'); // eslint-disable-line import/no-extraneous-dependencies
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
+const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
+
 function getScreenshotName(basePath) {
   return (context) => {
     const testTitle = context.test.title;
@@ -54,10 +56,14 @@ exports.config = {
     browserName: 'chrome',
     platform: 'Windows 7',
     version: '55.0',
+    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
   }, {
     version: '11.0',
     browserName: 'internet explorer',
     platform: 'Windows 7',
+    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
   }],
   //
   // ===================
@@ -96,7 +102,7 @@ exports.config = {
   // SauceLabs config
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
-  sauceConnect: !('TRAVIS' in process.env && 'CI' in process.env),
+  sauceConnect: !isTravis,
   //
   // Initialize the browser instance with a WebdriverIO plugin
   plugins: {
