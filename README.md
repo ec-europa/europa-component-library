@@ -35,48 +35,16 @@ Or with yarn:
 yarn lint
 ```
 
-## Test (visual regression)
+## Functional testing
 
-You will need to install selenium and gemini in order to run visual regression tests.
+In order to run the function tests, you need to setup 2 environment variables.
+Either create a local `.env` file from `.env.example` template or set the
+variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` manually.
 
-```
-npm install -g gemini selenium-standalone
-selenium-standalone install
-```
-
-Then, in 3 separate consoles:
-
--   Start the server:
+Then you can run:
 
 ```
-yarn start
-```
-
--   Start selenium:
-
-```
-selenium-standalone start
-```
-
--   Run the tests:
-
-```
-yarn gemini:test
-```
-
-If you want to update the reference screeshots:
-
-```
-yarn gemini:update
-```
-
-## Test (accessibility)
-
-Build the project and run accessibility testing:
-
-```
-yarn dist
-yarn test:a11y
+yarn test:functional
 ```
 
 ## Deploy to GitHub Pages

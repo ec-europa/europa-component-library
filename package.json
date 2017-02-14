@@ -22,7 +22,7 @@
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
-    "test:webdriver": "wdio test/wdio.conf.js",
+    "test:functional": "wdio test/wdio.conf.js",
     "watch:scripts": "chokidar './framework/**/*.js' -c 'eslint {path} && npm run build:scripts'",
     "watch:styles": "chokidar './framework/**/*.scss' -c 'stylelint {path} || true && npm run build:styles'",
     "watch": "npm-run-all --parallel watch:*"

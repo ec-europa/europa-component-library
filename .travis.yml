@@ -24,7 +24,7 @@ matrix:
   include:
     # Nodejs 6 - Webdriver.io
     - node_js: 6
-      env: TEST_SUITE=test:webdriver
+      env: TEST_SUITE=test:functional
       addons:
         apt:
           packages:
@@ -40,7 +40,7 @@ matrix:
       env: TEST_SUITE=test:coding-conventions
 
 before_script:
-  - if [ "${TEST_SUITE}" = "test:webdriver" ]; then npm run dist; fi
+  - if [ "${TEST_SUITE}" = "test:functional" ]; then npm run dist; fi
 
 script:
   - npm run $TEST_SUITE

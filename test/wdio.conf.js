@@ -27,7 +27,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
   //
-  specs: ['./test/**/*.js'],
+  specs: [path.resolve(__dirname, './functional/**/*.js')],
   // Patterns to exclude.
   exclude: [],
   //
@@ -83,7 +83,7 @@ exports.config = {
   coloredLogs: true,
   //
   // Saves a screenshot to a given path if a command fails.
-  screenshotPath: './test/errorShots/',
+  screenshotPath: path.resolve(__dirname, './errorShots/'),
   //
   // Set a base URL in order to shorten url command calls. If your url parameter starts
   // with "/", then the base url gets prepended.
