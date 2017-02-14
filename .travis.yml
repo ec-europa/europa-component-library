@@ -43,7 +43,7 @@ install:
   - npm install
 
 before_script:
-  - npm run dist
+  - if [ "${TEST_SUITE}" = "test:webdriver" ]; then npm run dist; fi
 
 script:
   - npm run $TEST_SUITE
