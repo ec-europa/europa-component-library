@@ -39,11 +39,8 @@ matrix:
     - node_js: 6
       env: TEST_SUITE=test:coding-conventions
 
-install:
-  - yarn
-
 before_script:
-  - if [ "${TEST_SUITE}" = "test:webdriver" ]; then yarn dist; fi
+  - if [ "${TEST_SUITE}" = "test:webdriver" ]; then npm run dist; fi
 
 script:
-  - yarn $TEST_SUITE
+  - npm run $TEST_SUITE
