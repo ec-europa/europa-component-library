@@ -1,6 +1,7 @@
 # EC Component Library
 
 [![Build Status](https://travis-ci.org/ec-europa/europa-component-library.svg?branch=master)](https://travis-ci.org/ec-europa/europa-component-library)
+[![Build Status](https://saucelabs.com/buildstatus/europa-component-library?saucy)](https://saucelabs.com/u/europa-component-library)
 
 Component library based on [Fractal](http://fractal.build/).
 
@@ -37,11 +38,14 @@ yarn lint
 
 ## Functional testing
 
-In order to run the function tests, you need to setup 2 environment variables.
-Either create a local `.env` file from `.env.example` template or set the
-variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` manually.
+In order to run the functional tests, you need a Sauce Labs account. If you
+don't have a Sauce Labs account yet, [you can sign up here](https://saucelabs.com/beta/signup/OSS/None).
 
-Be sure that you have built the framework before running the tests!
+Then, configure the 2 environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`.
+You can either create a local `.env` file from `.env.example` template or set
+the variables manually.
+
+Be sure that you have built the framework before running the tests:
 
 ```
 yarn dist
