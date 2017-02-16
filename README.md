@@ -5,8 +5,8 @@
 Component library based on [Fractal](http://fractal.build/).
 
 Requirements:
--   Node.js >= 6
--   yarn
+-   Node.js >= 6.9.5
+-   yarn >= 0.20.3
 
 Tested on:
 

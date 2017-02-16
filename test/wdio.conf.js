@@ -1,7 +1,11 @@
 /* global browser */
-const { injectAxeCore, runAxeCore } = require('./utils/a11y');
 const path = require('path');
+const chai = require('chai');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare'); // eslint-disable-line import/no-extraneous-dependencies
+const { injectAxeCore, runAxeCore } = require('./utils/commands/a11y');
+const matchReference = require('./utils/assertions/matchReference');
+const isAccessible = require('./utils/assertions/isAccessible');
+
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
@@ -74,10 +78,10 @@ exports.config = {
   // By default WebdriverIO commands are executed in a synchronous way using
   // the wdio-sync package. If you still want to run your tests in an async way
   // e.g. using promises you can set the sync option to false.
-  // sync: false,
+  sync: true,
 
   // Level of logging verbosity: silent | verbose | command | data | result | error
-  logLevel: 'silent',
+  logLevel: 'error',
 
   // Enables colors for log output.
   coloredLogs: true,
@@ -179,6 +183,12 @@ exports.config = {
   // Gets executed before test execution begins. At this point you can access all global
   // constiables, such as `browser`. It is the perfect place to define custom commands.
   before() {
+    global.expect = chai.expect;
+    // Custom assertions
+    chai.Assertion.addMethod('matchReference', matchReference);
+    chai.Assertion.addProperty('accessible', isAccessible);
+
+    // Custom commands
     browser.addCommand('injectAxeCore', injectAxeCore.bind(browser));
     browser.addCommand('runAxeCore', runAxeCore.bind(browser));
   },

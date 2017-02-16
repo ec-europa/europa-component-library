@@ -1,6 +1,3 @@
-import assert from 'assert';
-import assertDiff from '../utils/visual-regression';
-
 const variants = ['default', 'primary', 'secondary', 'ctn', 'ctn--border', 'menu'];
 
 describe('buttons', () => {
@@ -26,70 +23,66 @@ describe('buttons', () => {
       });
 
       // Normal state
-      describe('with plain state', () => {
+      context('with plain state', () => {
         it('should match the reference screenshot', () => {
-          const report = browser.checkViewport({ name: `buttons/${variant}/plain` });
-          assertDiff(report);
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/plain` });
+          expect(screenshots).to.matchReference();
         });
 
         it('should be accessible', () => {
-          const { result, err } = browser.runAxeCore('btn').value;
-          assert.equal(err, null, 'axe-core returned an error');
-          assert.deepEqual(result.violations.length, 0, 'axe-core reported violations');
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
         });
       });
 
       // Hover button
-      describe('with hover state', () => {
+      context('with hover state', () => {
         before(() => {
           browser.moveToObject('.btn');
         });
 
         it('should match the reference screenshot', () => {
-          const report = browser.checkViewport({ name: `buttons/${variant}/hover` });
-          assertDiff(report);
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/hover` });
+          expect(screenshots).to.matchReference();
         });
 
         it('should be accessible', () => {
-          const { result, err } = browser.runAxeCore('btn').value;
-          assert.equal(err, null, 'axe-core returned an error');
-          assert.deepEqual(result.violations.length, 0, 'axe-core reported violations');
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
         });
       });
 
       // Press the button
-      describe('with pressed state', () => {
+      context('with pressed state', () => {
         before(() => {
           browser.buttonDown();
         });
 
         it('should match the reference screenshot', () => {
-          const report = browser.checkViewport({ name: `buttons/${variant}/pressed` });
-          assertDiff(report);
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/pressed` });
+          expect(screenshots).to.matchReference();
         });
 
         it('should be accessible', () => {
-          const { result, err } = browser.runAxeCore('btn').value;
-          assert.equal(err, null, 'axe-core returned an error');
-          assert.deepEqual(result.violations.length, 0, 'axe-core reported violations');
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
         });
       });
 
       // Release
-      describe('with released state', () => {
+      context('with released state', () => {
         before(() => {
           browser.buttonUp();
         });
 
         it('should match the reference screenshot', () => {
-          const report = browser.checkViewport({ name: `buttons/${variant}/released` });
-          assertDiff(report);
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/released` });
+          expect(screenshots).to.matchReference();
         });
 
         it('should be accessible', () => {
-          const { result, err } = browser.runAxeCore('btn').value;
-          assert.equal(err, null, 'axe-core returned an error');
-          assert.deepEqual(result.violations.length, 0, 'axe-core reported violations');
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
         });
       });
     });
