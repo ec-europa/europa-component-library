@@ -1,22 +1,18 @@
-/* global suite, browser, test */
+const axeSource = require('axe-core').source;
 
-import assert from 'assert';
-import { source as axeSource } from 'axe-core';
-
-export function injectAxeCore() {
-  const script = `
+function injectAxeCore() {
+  return this.execute(`
 (function () {
   if (typeof axe === "object" && axe.version) { return; }
   var s = document.createElement("script");
   // stringify so that quotes are properly escaped
   s.innerHTML = ${JSON.stringify(`${axeSource};axe.configure({branding:{application:"webdriverjs"}});`)};
   document.body.appendChild(s);
-}());`;
-
-  return browser.execute(script);
+}());
+  `);
 }
 
-export async function a11yCheck(b, classname) {
+function runAxeCore(classname) {
   /* eslint-disable */
   const script = function check(cls, done) {
     var n = document.getElementsByClassName(cls);
@@ -29,10 +25,11 @@ export async function a11yCheck(b, classname) {
   };
   /* eslint-enable */
 
-  const a11yResults = await b.executeAsync(script, classname);
-
-  const { err, result } = a11yResults.value;
-
-  assert.equal(err, null, 'should not output errors');
-  assert.deepEqual(result.violations.length, 0, 'accessibility check returns violations');
+  return this
+    .executeAsync(script, classname);
 }
+
+module.exports = {
+  injectAxeCore,
+  runAxeCore,
+};
