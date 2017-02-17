@@ -1,13 +1,16 @@
 # EC Component Library
 
 [![Build Status](https://travis-ci.org/ec-europa/europa-component-library.svg?branch=master)](https://travis-ci.org/ec-europa/europa-component-library)
-[![Build Status](https://saucelabs.com/buildstatus/europa-component-library?saucy)](https://saucelabs.com/u/europa-component-library)
 
 Component library based on [Fractal](http://fractal.build/).
 
 Requirements:
--   Node.js >= 6
--   yarn
+-   Node.js >= 6.9.5
+-   yarn >= 0.20.3
+
+Tested on:
+
+[![Build Status](https://saucelabs.com/browser-matrix/europa-component-library.svg)](https://saucelabs.com/u/europa-component-library)
 
 ## Setup
 

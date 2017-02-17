@@ -1,48 +1,90 @@
-/* global suite, browser, test */
-
-import assertDiff from '../utils/visual-regression';
-import { injectAxeCore, a11yCheck } from '../utils/a11y';
-
 const variants = ['default', 'primary', 'secondary', 'ctn', 'ctn--border', 'menu'];
 
-suite('buttons', () => {
-  variants.forEach((variant) => {
-    test(`buttons-${variant}`, async () => {
-      // Go to url
-      await browser.url(`/atom-buttons-buttons--${variant}.html`);
-      await browser.pause(1000);
+describe('buttons', () => {
+  before(() => {
+    // Set viewport size
+    browser.setViewportSize({
+      width: 250,
+      height: 100,
+    });
 
-      // Set viewport size
-      browser.setViewportSize({
-        width: 250,
-        height: 100,
+    browser.pause(1000);
+  });
+
+  variants.forEach((variant) => {
+    describe(`--${variant}`, () => {
+      before(() => {
+        // Go to url
+        browser.url(`/atom-buttons-buttons--${variant}.html`);
+        // Make sure the browser has finished painting
+        browser.pause(1000);
+        // Inject axe-core (for accessibility tests)
+        browser.injectAxeCore();
       });
 
-      // Make sure the browser has finished painting
-      await browser.pause(1000);
-
-      // Inject axe-core (for accessibility tests)
-      injectAxeCore();
-
       // Normal state
-      let report = await browser.checkViewport({ name: 'plain' });
-      await a11yCheck(browser, 'btn');
+      context('with plain state', () => {
+        it('should match the reference screenshot', () => {
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/plain` });
+          expect(screenshots).to.matchReference();
+        });
+
+        it('should be accessible', () => {
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
+        });
+      });
 
       // Hover button
-      browser.moveToObject('.btn');
-      report = report.concat(await browser.checkViewport({ name: 'hover' }));
-      await a11yCheck(browser, 'btn');
+      context('with hover state', () => {
+        before(() => {
+          browser.moveToObject('.btn');
+        });
+
+        it('should match the reference screenshot', () => {
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/hover` });
+          expect(screenshots).to.matchReference();
+        });
+
+        it('should be accessible', () => {
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
+        });
+      });
 
       // Press the button
-      browser.buttonDown();
-      report = report.concat(await browser.checkViewport({ name: 'pressed' }));
-      await a11yCheck(browser, 'btn');
+      context('with pressed state', () => {
+        before(() => {
+          browser.buttonDown();
+        });
+
+        it('should match the reference screenshot', () => {
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/pressed` });
+          expect(screenshots).to.matchReference();
+        });
+
+        it('should be accessible', () => {
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
+        });
+      });
 
       // Release
-      browser.buttonUp();
-      report = report.concat(await browser.checkViewport({ name: 'released' }));
-      await a11yCheck(browser, 'btn');
-      assertDiff(report);
+      context('with released state', () => {
+        before(() => {
+          browser.buttonUp();
+        });
+
+        it('should match the reference screenshot', () => {
+          const screenshots = browser.checkViewport({ name: `buttons/${variant}/released` });
+          expect(screenshots).to.matchReference();
+        });
+
+        it('should be accessible', () => {
+          const a11yReport = browser.runAxeCore('btn').value;
+          expect(a11yReport).to.be.accessible;
+        });
+      });
     });
   });
 });
