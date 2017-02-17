@@ -28,6 +28,7 @@ export default {
     }),
     commonjs(),
     babel({
+      presets: ['es2015-rollup'],
       exclude: 'node_modules/**',
     }),
     (process.env.NODE_ENV === 'production' && uglify()),

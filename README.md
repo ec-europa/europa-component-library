@@ -5,8 +5,12 @@
 Component library based on [Fractal](http://fractal.build/).
 
 Requirements:
--   Node.js >= 6
--   yarn
+-   Node.js >= 6.9.5
+-   yarn >= 0.20.3
+
+Tested on:
+
+[![Build Status](https://saucelabs.com/browser-matrix/europa-component-library.svg)](https://saucelabs.com/u/europa-component-library)
 
 ## Setup
 
@@ -31,52 +35,29 @@ npm run lint --silent
 
 Or with yarn:
 
-```
+```bash
 yarn lint
 ```
 
-## Test (visual regression)
+## Functional testing
 
-You will need to install selenium and gemini in order to run visual regression tests.
+In order to run the functional tests, you need a Sauce Labs account. If you
+don't have a Sauce Labs account yet, [you can sign up here](https://saucelabs.com/beta/signup/OSS/None).
 
-```
-npm install -g gemini selenium-standalone
-selenium-standalone install
-```
+Then, configure the 2 environment variables `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY`.
+You can either create a local `.env` file from `.env.example` template or set
+the variables manually.
 
-Then, in 3 separate consoles:
-
--   Start the server:
-
-```
-yarn start
-```
-
--   Start selenium:
-
-```
-selenium-standalone start
-```
-
--   Run the tests:
-
-```
-yarn gemini:test
-```
-
-If you want to update the reference screeshots:
-
-```
-yarn gemini:update
-```
-
-## Test (accessibility)
-
-Build the project and run accessibility testing:
+Be sure that you have built the framework before running the tests:
 
 ```
 yarn dist
-yarn test:a11y
+```
+
+Then you can run:
+
+```
+yarn test:functional
 ```
 
 ## Deploy to GitHub Pages
@@ -86,11 +67,11 @@ _To be executed from the master branch only._
 First, make sure to have built the style guide with the framework with:
 
 ```
-npm run dist
+yarn dist
 ```
 
 Then, you can type:
 
 ```
-npm run gh-pages
+yarn gh-pages
 ```
