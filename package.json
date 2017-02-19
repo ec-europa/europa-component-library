@@ -15,7 +15,7 @@
     "lint:scss": "stylelint './framework/**/*.scss'",
     "lint": "npm-run-all --parallel lint:* -c",
     "precommit": "lint-staged",
-    "start": "npm run clean && webpack-dashboard -- fractal start",
+    "start": "npm run clean && fractal start",
     "test:coding-conventions": "npm run lint",
     "test:functional": "wdio test/wdio.conf.js",
     "webpack": "webpack -p"

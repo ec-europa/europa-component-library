@@ -71,24 +71,24 @@ a.feedback-form__trigger {
       display: block;
       padding-left: 28px;
       line-height: 23px;
-      background: url('../images/svg/checkbox-checked--blue.svg') no-repeat;
+      background: url('./images/svg/checkbox-checked--blue.svg') no-repeat;
       font-size: $font-size-little;
       font-weight: bold;
       color: $brand-primary;
       text-decoration: none;
 
       &:focus {
-        background: url('../images/svg/checkbox-highlighted.svg') no-repeat;
+        background: url('./images/svg/checkbox-highlighted.svg') no-repeat;
         outline: none;
       }
 
       &.collapsed {
-        background: url('../images/svg/checkbox-unchecked--grey.svg') no-repeat;
+        background: url('./images/svg/checkbox-unchecked--grey.svg') no-repeat;
         font-weight: $font-weight-normal;
         color: $grey-base;
 
         &:focus {
-          background: url('../images/svg/checkbox-highlighted.svg') no-repeat;
+          background: url('./images/svg/checkbox-highlighted.svg') no-repeat;
           outline: none;
         }
       }
@@ -152,7 +152,7 @@ a.feedback-form__trigger {
   #feedback-form__accordion {
     .panel {
       .panel-title {
-        background: url('../images/png/checkbox.png') no-repeat;
+        background: url('./images/png/checkbox.png') no-repeat;
 
         &.collapsed {
           background-position: 0 -21px;

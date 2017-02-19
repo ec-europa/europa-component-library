@@ -18,6 +18,11 @@ const config = {
       './framework/app.js',
       'webpack-hot-middleware/client',
     ],
+    styles: [
+      'webpack/hot/dev-server',
+      './framework/index.scss',
+      'webpack-hot-middleware/client',
+    ],
   },
   output: {
     path: path.resolve(__dirname, './dist/framework'),
@@ -39,12 +44,27 @@ const config = {
         loader: 'webpack-module-hot-accept',
       }],
     }, {
+      test: /\.css$/,
+      // loader: extractCSS.extract(['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']),
+      use: [
+        'style-loader',
+        'css-loader',
+        {
+          loader: 'resolve-url-loader',
+        },
+      ],
+    }, {
       test: /\.scss$/,
       // loader: extractCSS.extract(['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']),
       use: [
         'style-loader',
         'css-loader',
-        'resolve-url-loader',
+        {
+          loader: 'resolve-url-loader',
+          options: {
+            keepQuery: true,
+          },
+        },
         'sass-loader?sourceMap',
       ],
     }, {

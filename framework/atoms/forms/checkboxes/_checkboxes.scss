@@ -23,7 +23,7 @@ Style guide form.checkbox
 
     // Checked state.
     &:checked + label::before {
-      background-image: url('../images/svg/checkbox-checked--blue.svg');
+      background-image: url('./images/svg/checkbox-checked--blue.svg');
     }
 
     // Focus state, not checked.
@@ -46,7 +46,7 @@ Style guide form.checkbox
       width: $form-checkbox-icon-size;
       height: $form-checkbox-icon-size;
       margin-left: -20px;
-      background: $white url('../images/svg/checkbox-unchecked.svg') no-repeat;
+      background: $white url('./images/svg/checkbox-unchecked.svg') no-repeat;
       border: 3px solid transparent;
       border-radius: 6px;
 
@@ -90,8 +90,6 @@ Style guide form.checkbox
       border: 1px solid #ccc !important;
       border-radius: 5px !important;
       background: none !important;
-      -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
-      -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
       transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
     }
   }

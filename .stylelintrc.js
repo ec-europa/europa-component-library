@@ -9,7 +9,7 @@ module.exports = {
       componentName: /^[a-z][-_a-zA-Z0-9]+$/,
       componentSelectors: bemSelector
     },
-    'selector-class-pattern': 0,
+    'selector-class-pattern': 'off',
   }
 };
 

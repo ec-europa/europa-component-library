@@ -39,18 +39,18 @@
 // Select list arrow styling.
 @mixin select-list-arrow($background-color, $arrow-grey:false) {
   @if ($arrow-grey) {
-    background: url('../images/svg/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
+    background: url('./images/svg/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
 
     .no-svg & {
-      background: url('../images/png/arrow-down.png'), linear-gradient(to bottom, $background-color, $background-color);
+      background: url('./images/png/arrow-down.png'), linear-gradient(to bottom, $background-color, $background-color);
     }
   }
 
   @else {
-    background: url('../images/svg/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
+    background: url('./images/svg/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
 
     .no-svg & {
-      background: url('../images/png/arrow-down--white.png'), linear-gradient(to bottom, $background-color, $background-color);
+      background: url('./images/png/arrow-down--white.png'), linear-gradient(to bottom, $background-color, $background-color);
     }
   }
 
@@ -64,23 +64,6 @@
   // Specific size for IE10+.
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     background-size: $font-size-medium + 0.1em (20em / 32.6em) * $font-size-medium, $form-control-height 100% !important;
-  }
-}
-
-// Language generator.
-@mixin logo-background-languages($file_path, $file_extension, $logo_class: logo--logotype) {
-  @each $item in $languages {
-    .language-#{$item} {
-      .#{$logo_class} {
-        background-image: url('#{$file_path}#{$item}#{$file_extension}');
-      }
-
-      @media print {
-        .#{$logo_class}::before {
-          content: url('#{$file_path}#{$item}#{$file_extension}');
-        }
-      }
-    }
   }
 }
 
@@ -284,19 +267,6 @@ $modifiers: (
 
 @media print {
   @include hidden-print('.hidden-print');
-}
-
-// Social icons image.
-@mixin social_icon_background($selector, $social_path, $image, $image_hover, $extra: null, $extra_hover: null) {
-  #{$selector} {
-    &::before {
-      background: url($social_path + $image) no-repeat $extra;
-    }
-
-    &:hover::before {
-      background-image: url($social_path + $image_hover) $extra_hover;
-    }
-  }
 }
 
 // Media caption.

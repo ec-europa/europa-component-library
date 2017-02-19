@@ -3,7 +3,7 @@
  */
 
 // Core variables and mixins
-@import 'variables';
+@import './core/variables';
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
 // Reset and dependencies
@@ -50,10 +50,10 @@
 @import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
 
 // Importing mixins
-@import 'mixins';
+@import './core/mixins';
 
 // Importing simple helpers and Bootstrap resets
-@import 'helpers';
+@import './core/helpers';
 @import 'bootstrap-reset';
 @import 'global';
 

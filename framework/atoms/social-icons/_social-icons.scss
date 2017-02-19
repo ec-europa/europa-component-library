@@ -2,6 +2,19 @@
 Icon Social
 */
 
+// Social icons image.
+@mixin social_icon_background($selector, $social_path, $image, $image_hover, $extra: null, $extra_hover: null) {
+  #{$selector} {
+    &::before {
+      background: url($social_path + $image) no-repeat $extra;
+    }
+
+    &:hover::before {
+      background-image: url($social_path + $image_hover) $extra_hover;
+    }
+  }
+}
+
 $icon-size: 40px;
 $icon-size-small: 26px;
 
@@ -96,23 +109,24 @@ $map_social_icons:
   ('youtube', ''),
   ('print', '');
 
-$svg_social_path: "../images/svg/icons/social/";
+$svg_social_path: "./images/svg/icons/social/";
 
 @each $icon, $extra in $map_social_icons {
   @include social_icon_background(".icon-social--" + $icon, $svg_social_path, $icon + '.svg', $icon + '_hover.svg', #{$extra});
 }
 
 .no-svg {
-  $png_social_path: "../images/png/icons/social/";
-  $png_social_path_small: "../images/png/icons/social/small/";
+  $png_social_path: "./images/png/icons/social/";
+  $png_social_path_small: "./images/png/icons/social/small/";
 
   @each $icon, $extra in $map_social_icons {
     @include social_icon_background(".icon-social--" + $icon, $png_social_path, $icon + '.png', $icon + '_hover.png', #{$extra});
   }
 
-  .icon-social--smaller {
-    @each $icon, $extra in $map_social_icons {
-      @include social_icon_background(".icon-social--" + $icon, $png_social_path_small, $icon + '_small.png', $icon + '_hover_small.png', #{$extra});
-    }
-  }
+  // TODO: Provide image for every "small" icon
+  // .icon-social--smaller {
+  //   @each $icon, $extra in $map_social_icons {
+  //     @include social_icon_background(".icon-social--" + $icon, $png_social_path_small, $icon + '_small.png', $icon + '_hover_small.png', #{$extra});
+  //   }
+  // }
 }
