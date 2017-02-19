@@ -18,11 +18,6 @@ const config = {
       './framework/app.js',
       'webpack-hot-middleware/client',
     ],
-    styles: [
-      'webpack/hot/dev-server',
-      './framework/index.scss',
-      'webpack-hot-middleware/client',
-    ],
   },
   output: {
     path: path.resolve(__dirname, './dist/framework'),
@@ -35,11 +30,6 @@ const config = {
       include: path.resolve(__dirname, '/framework'),
       use: [{
         loader: 'babel-loader',
-        options: {
-          presets: [
-            ['es2015', { modules: false }],
-          ],
-        },
       }, {
         loader: 'webpack-module-hot-accept',
       }],
