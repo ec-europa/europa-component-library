@@ -25,6 +25,9 @@ cache:
     - node_modules
 
 matrix:
+  # Allow coding conventions tests to fail
+  allow_failures:
+    - env: TEST_SUITE=test:coding-conventions
   include:
     # Nodejs 6 - Webdriver.io
     - node_js: 6
