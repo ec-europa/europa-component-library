@@ -4,8 +4,8 @@ describe('buttons', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
-      width: 250,
-      height: 100,
+      width: 400,
+      height: 200,
     });
 
     browser.pause(1000);
@@ -25,7 +25,7 @@ describe('buttons', () => {
       // Normal state
       context('with plain state', () => {
         it('should match the reference screenshot', () => {
-          const screenshots = browser.checkViewport({ name: `buttons/${variant}/plain` });
+          const screenshots = browser.checkDocument({ name: `buttons/${variant}/plain` });
           expect(screenshots).to.matchReference();
         });
 
@@ -35,6 +35,12 @@ describe('buttons', () => {
         });
       });
 
+      // Stop here if browser is Safari
+      // See: https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/4136
+      if (browser.desiredCapabilities.browserName === 'safari') {
+        return;
+      }
+
       // Hover button
       context('with hover state', () => {
         before(() => {
@@ -42,7 +48,7 @@ describe('buttons', () => {
         });
 
         it('should match the reference screenshot', () => {
-          const screenshots = browser.checkViewport({ name: `buttons/${variant}/hover` });
+          const screenshots = browser.checkDocument({ name: `buttons/${variant}/hover` });
           expect(screenshots).to.matchReference();
         });
 
@@ -59,7 +65,7 @@ describe('buttons', () => {
         });
 
         it('should match the reference screenshot', () => {
-          const screenshots = browser.checkViewport({ name: `buttons/${variant}/pressed` });
+          const screenshots = browser.checkDocument({ name: `buttons/${variant}/pressed` });
           expect(screenshots).to.matchReference();
         });
 
@@ -76,7 +82,7 @@ describe('buttons', () => {
         });
 
         it('should match the reference screenshot', () => {
-          const screenshots = browser.checkViewport({ name: `buttons/${variant}/released` });
+          const screenshots = browser.checkDocument({ name: `buttons/${variant}/released` });
           expect(screenshots).to.matchReference();
         });
 
