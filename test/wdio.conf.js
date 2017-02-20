@@ -58,13 +58,25 @@ exports.config = {
   // https://docs.saucelabs.com/reference/platforms-configurator
   capabilities: [{
     browserName: 'chrome',
-    platform: 'Windows 7',
-    version: '55.0',
+    platform: 'Windows 10',
+    version: '56.0',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
   }, {
-    version: '11.0',
     browserName: 'internet explorer',
+    version: '11.0',
+    platform: 'Windows 7',
+    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+  }, {
+    browserName: 'safari',
+    version: '10.0',
+    platform: 'macOS 10.12',
+    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+  }, {
+    browserName: 'firefox',
+    version: '47.0',
     platform: 'Windows 7',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
