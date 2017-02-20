@@ -62,24 +62,32 @@ exports.config = {
     version: '56.0',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+    screenResolution: '1920x1080',
   }, {
     browserName: 'internet explorer',
     version: '11.0',
     platform: 'Windows 7',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+    screenResolution: '1920x1080',
   }, {
     browserName: 'safari',
-    version: '10.0',
-    platform: 'macOS 10.12',
+    // Version 10.0 has issues with executeAsync
+    // See: https://github.com/webdriverio/webdriverio/issues/1708
+    version: '9.0',
+    platform: 'OS X 10.11',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+    screenResolution: '1920x1440',
   }, {
     browserName: 'firefox',
-    version: '47.0',
+    // Firefox 47 and above have issues with Action API
+    // See: https://github.com/SeleniumHQ/selenium/issues/2285
+    version: '46.0',
     platform: 'Windows 7',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+    screenResolution: '1920x1080',
   }],
 
   // ===================
