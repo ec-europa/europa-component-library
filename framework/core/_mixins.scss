@@ -36,37 +36,6 @@
   }
 }
 
-// Select list arrow styling.
-@mixin select-list-arrow($background-color, $arrow-grey:false) {
-  @if ($arrow-grey) {
-    background: url('./images/svg/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
-
-    .no-svg & {
-      background: url('./images/png/arrow-down.png'), linear-gradient(to bottom, $background-color, $background-color);
-    }
-  }
-
-  @else {
-    background: url('./images/svg/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
-
-    .no-svg & {
-      background: url('./images/png/arrow-down--white.png'), linear-gradient(to bottom, $background-color, $background-color);
-    }
-  }
-
-  background-position: right (($form-control-height - $font-size-medium) / 2) - $form-border-width center, right;
-  background-repeat: no-repeat;
-
-  // Important to make the style guide not break.
-  background-size: $font-size-medium + 0.1em (20em / 32.6em) * $font-size-medium, $form-control-height 100% !important;
-  transition: none;
-
-  // Specific size for IE10+.
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    background-size: $font-size-medium + 0.1em (20em / 32.6em) * $font-size-medium, $form-control-height 100% !important;
-  }
-}
-
 // Show/hide mixin, to be applied on the element to toggle.
 @mixin show_hide() {
   max-height: 40px;

@@ -19,7 +19,7 @@ $messages-text-size: $font-size-little;
   margin: 0 0 1em;
   padding: 1em 1em 1em 4em;
   overflow: hidden;
-  background: url("./images/svg/messages-info.svg") no-repeat 1em 1em;
+  background: url('./images/svg/messages-info.svg') no-repeat 1em 1em;
   font-family: $font-family-sans-serif;
   font-size: $messages-text-size;
   color: $messages-text-color;
@@ -30,22 +30,22 @@ $messages-text-size: $font-size-little;
   }
 
   &.status {
-    background-image: url("./images/svg/messages-success.svg");
+    background-image: url('./images/svg/messages-success.svg');
     border-color: $green;
   }
 
   &.warning {
-    background-image: url("./images/svg/messages-warning.svg");
+    background-image: url('./images/svg/messages-warning.svg');
     border-color: $yellow;
   }
 
   &.error {
-    background-image: url("./images/svg/messages-error.svg");
+    background-image: url('./images/svg/messages-error.svg');
     border-color: $red;
   }
 
   &.live {
-    background-image: url("./images/svg/live_streaming.svg");
+    background-image: url('./images/svg/live_streaming.svg');
     border-color: $yellow;
   }
 
@@ -88,31 +88,31 @@ $messages-text-size: $font-size-little;
 
 .no-svg {
   .messages {
-    background-image: url("./images/png/messages-info.png");
+    background-image: url('./images/png/messages-info.png');
 
     &.status {
-      background-image: url("./images/png/messages-info.png");
+      background-image: url('./images/png/messages-info.png');
     }
 
     &.warning {
-      background-image: url("./images/png/messages-warning.png");
+      background-image: url('./images/png/messages-warning.png');
     }
 
     &.error {
-      background-image: url("./images/png/messages-error.png");
+      background-image: url('./images/png/messages-error.png');
     }
 
     &.live {
-      background-image: url("./images/png/live_streaming.png");
+      background-image: url('./images/png/live_streaming.png');
     }
   }
 
   .alert {
     .close {
-      background-image: url("./images/png/close.png");
+      background-image: url('./images/png/close.png');
 
       &:hover {
-        background-image: url("./images/png/close_hover.png");
+        background-image: url('./images/png/close_hover.png');
       }
     }
   }
@@ -138,14 +138,14 @@ $messages-text-size: $font-size-little;
     position: absolute;
     right: 0.715em;
     padding: 0 0 0 5px;
-    background: url("./images/svg/close.svg") no-repeat right top;
+    background: url('./images/svg/close.svg') no-repeat right top;
     color: transparent;
     text-shadow: none;
     text-decoration: none;
     opacity: 1;
 
     &:hover {
-      background-image: url("./images/svg/close_hover.svg");
+      background-image: url('./images/svg/close_hover.svg');
     }
   }
 }

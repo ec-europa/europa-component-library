@@ -7,8 +7,6 @@ const webpackDevMiddleware = require('webpack-dev-middleware'); // eslint-disabl
 const webpackHotMiddleware = require('webpack-hot-middleware'); // eslint-disable-line import/no-extraneous-dependencies
 const webpackConfig = require('./webpack.config');
 
-const bundler = webpack(webpackConfig);
-
 const paths = {
   build: `${__dirname}/dist`,
   static: `${__dirname}/static`,
@@ -71,22 +69,24 @@ fractal.web.set('builder.dest', paths.build);
 fractal.web.set('builder.urls.ext', '.html');
 
 // Dev server
-fractal.web.set('server.sync', true);
-fractal.web.set('server.syncOptions', {
-  middleware: [
-    webpackDevMiddleware(bundler, {
-      publicPath: webpackConfig.output.publicPath,
-      stats: { colors: true },
-    }),
-    webpackHotMiddleware(bundler),
-  ],
-  // logLevel: 'debug',
-  // files: false,
-  watchOptions: {
-    ignoreInitial: true,
-    ignored: ['**/*.scss'],
-  },
-});
+if (process.env.NODE_ENV !== 'production') {
+  const bundler = webpack(webpackConfig);
+
+  fractal.web.set('server.sync', true);
+  fractal.web.set('server.syncOptions', {
+    middleware: [
+      webpackDevMiddleware(bundler, {
+        publicPath: webpackConfig.output.publicPath,
+        stats: { colors: true },
+      }),
+      webpackHotMiddleware(bundler),
+    ],
+    watchOptions: {
+      ignoreInitial: true,
+      ignored: ['**/*.scss'],
+    },
+  });
+}
 
 // Export config
 module.exports = fractal;
