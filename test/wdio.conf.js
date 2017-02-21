@@ -3,8 +3,10 @@ const path = require('path');
 const chai = require('chai');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare'); // eslint-disable-line import/no-extraneous-dependencies
 const { injectAxeCore, runAxeCore } = require('./utils/commands/a11y');
+const { injectHTMLInspector, runHTMLInspector } = require('./utils/commands/html-inspector');
 const matchReference = require('./utils/assertions/matchReference');
 const isAccessible = require('./utils/assertions/isAccessible');
+const isWellFormatted = require('./utils/assertions/isWellFormatted');
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -182,7 +184,7 @@ exports.config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: 30000,
+    timeout: 60000,
   },
 
   // =====
@@ -204,10 +206,13 @@ exports.config = {
     // Custom assertions
     chai.Assertion.addMethod('matchReference', matchReference);
     chai.Assertion.addProperty('accessible', isAccessible);
+    chai.Assertion.addProperty('wellFormatted', isWellFormatted);
 
     // Custom commands
     browser.addCommand('injectAxeCore', injectAxeCore.bind(browser));
     browser.addCommand('runAxeCore', runAxeCore.bind(browser));
+    browser.addCommand('injectHTMLInspector', injectHTMLInspector.bind(browser));
+    browser.addCommand('runHTMLInspector', runHTMLInspector.bind(browser));
   },
 
   // Hook that gets executed before the suite starts
