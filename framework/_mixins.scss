@@ -268,8 +268,17 @@ $modifiers: (
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-transform: none;
-  text-decoration: none;
+  text-decoration: underline;
   speak: none;
+}
+
+// Remove the underline from a::after
+// There is a bug in IE8-11, so using display:inline-block; alone won't
+// work. The solution is by explicitly setting text-decoration:underline;
+// for the ::after-content and then overwrite this rule again with
+// text-decoration:none;
+.icon--after {
+  text-decoration: none;
 }
 
 // [converter] $parent hack.
@@ -298,6 +307,7 @@ $modifiers: (
 
 // Media caption.
 @mixin media-caption() {
+  display: block;
   padding: 0.715em 1em;
   line-height: 1.5715;
   background-color: $grey-lighter;
