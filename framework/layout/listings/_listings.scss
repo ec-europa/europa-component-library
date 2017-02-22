@@ -615,8 +615,8 @@ a.listing__title {
 
 // .listing__title--arrow.
 .listing__title--arrow::after {
-  @extend .icon--after;
-  @extend .icon--right;
+  @extend %icon--after;
+  @extend %icon--right;
 
   position: absolute;
   margin-top: 2px;
@@ -635,8 +635,8 @@ a.listing__title {
   clear: both;
 
   &::after {
-    @extend .icon--after;
-    @extend .icon--right;
+    @extend %icon--after;
+    @extend %icon--right;
 
     font-size: $font-size-xsmall;
   }

@@ -3,7 +3,7 @@ Notification
 */
 
 .notification {
-  @extend .hidden-print;
+  @extend %hidden-print;
 
   padding: 10px 0 6px;
   background-color: $yellow-light;
@@ -44,8 +44,8 @@ Notification
     font-weight: bold;
 
     &::after {
-      @extend .icon--after;
-      @extend .icon--right;
+      @extend %icon--after;
+      @extend %icon--right;
 
       font-size: 12px;
     }

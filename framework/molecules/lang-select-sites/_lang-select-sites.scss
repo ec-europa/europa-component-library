@@ -1,24 +1,30 @@
-/*
-Language select (Site)
-*/
+/**
+ * Language select (Site)
+ * @define lang-select-site
+ */
 
 .lang-select-site {
-  @extend .hidden-print;
+  @extend %hidden-print;
 
   position: absolute;
-  top: 0;
   right: $grid-gutter-width / 2;
   text-align: center;
+  top: 0;
+
+  @include breakpoint(screen-md-min) {
+    float: left;
+    position: static;
+  }
 
   .lang-select-site__link {
+    border: 3px solid transparent;
+    color: inherit;
     display: inline-block;
-    padding: 7.5px 15px;
     font-size: $font-size-little;
     font-weight: bold;
-    color: inherit;
+    padding: 7.5px 15px;
     text-align: center;
     text-decoration: none;
-    border: 3px solid transparent;
 
     &:focus {
       border-color: $yellow-light;
@@ -35,38 +41,31 @@ Language select (Site)
   }
 
   .lang-select-site__code {
+    color: $brand-primary;
     display: inline-block;
     position: relative;
-    width: $font-size-xsmall * 2;
-    color: $brand-primary;
     text-transform: uppercase;
+    width: $font-size-xsmall * 2;
   }
 
   .lang-select-site__code-text {
+    color: $white;
+    font-size: $font-size-xsmall;
+    left: -1px;
     position: relative;
     top: 0;
-    left: -1px;
-    font-size: $font-size-xsmall;
-    color: $white;
   }
 
   .lang-select-site__icon {
-    position: absolute;
-    top: -1px;
+    color: $brand-primary;
+    font-size: $font-size-xsmall * 2;
     left: -1px;
     line-height: 1.4;
-    font-size: $font-size-xsmall * 2;
-    color: $brand-primary;
+    position: absolute;
+    top: -1px;
 
     &::before {
       font-weight: inherit;
     }
-  }
-}
-
-@include breakpoint(screen-md-min) {
-  .lang-select-site {
-    float: left;
-    position: static;
   }
 }
