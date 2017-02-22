@@ -1,21 +1,7 @@
-/*
-Labels
-
-Markup: html/labels.html
-
-.label--default - Default
-.label--status - Status
-.label--highlight - Highlight
-.label--meta - Meta
-.label--upper - Uppercase label
-.label--primary - Primary
-.label--success - Success
-.label--info - Info
-.label--warning - Warning
-.label--danger - Danger
-
-Style guide labels
-*/
+/**
+ * Labels component
+ * @define label
+ */
 
 $label_text_color_light: $white;
 
@@ -78,11 +64,10 @@ $label_text_color_light: $white;
   background-color: $yellow-light;
   color: $grey-base;
 
-  &.label--meta {
-    &::after {
-      content: "";
-      margin: 0;
-    }
+  /* postcss-bem-linter: ignore */
+  &.label--meta::after {
+    content: "";
+    margin: 0;
   }
 }
 
