@@ -1,5 +1,13 @@
+{# Define macro to make it easily accessible from elsewhere #}
+{% macro logoType(to="", title="", externalClass="") %}
+<a href="{{ to }}" class="logo logo--logotype {{ externalClass }}" title="{{ title }}">
+  <span class="sr-only">{{ title }}</span>
+</a>
+{% endmacro %}
+
+{# Render if this file is included as a template with data inherited from the context #}
 <div class="clearfix"> <!-- only required for the style guide -->
   <div class="{{modifier_class}}">
-    <a href="link-to-homepage" class="logo--logotype" title="Home"><span class="sr-only">Home</span></a>
+    {{ logoType("#top", "Home") }}
   </div>
 </div>
