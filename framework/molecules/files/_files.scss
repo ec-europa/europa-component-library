@@ -15,41 +15,6 @@ File download default
   background-color: $grey-lighter;
 }
 
-/*
-File image
-*/
-
-.file-image {
-  padding: 0;
-  background-color: transparent;
-
-  & img {
-    display: block;
-  }
-}
-
-/*
-File video
-*/
-
-.file-video {
-  padding: 0;
-  background-color: transparent;
-
-  .file__container {
-    @extend .embed-responsive;
-    @extend .embed-responsive-16by9;
-  }
-
-  iframe {
-    @extend .embed-responsive-item;
-  }
-}
-
-.file-video--with-background {
-  background-color: $grey-lighter;
-}
-
 .file__icon {
   @extend .col-md-1;
   @extend .col-sm-1;
@@ -232,7 +197,7 @@ File download with translations
 }
 
 /*
-File Link
+File link
 */
 .file--link {
   background-color: transparent;
@@ -281,5 +246,45 @@ File Link
       margin-top: 0;
       overflow: hidden;
     }
+  }
+}
+
+/*
+File image
+
+Displays the file image.
+
+Markup: html/file--image.html
+
+Style guide: file.4
+*/
+
+.file--image {
+  display: block;
+  padding: 0;
+  background-color: transparent;
+}
+
+/*
+File video
+
+Displays the file video.
+
+Markup: html/file--video.html
+
+Style guide: file.5
+*/
+
+.file--video {
+  padding: 0;
+  background-color: transparent;
+
+  .file__container {
+    @extend .embed-responsive;
+    @extend .embed-responsive-16by9;
+  }
+
+  iframe {
+    @extend .embed-responsive-item;
   }
 }
