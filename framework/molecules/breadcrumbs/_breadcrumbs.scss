@@ -11,7 +11,7 @@ $breadcrumb-heigth: 2.778em;
   border-radius: 0;
   line-height: normal;
 
-  @extend .hidden-print;
+  @extend %hidden-print;
 
   ol,
   ul {
@@ -57,7 +57,7 @@ a.breadcrumb__link {
 }
 
 .breadcrumb__link-arrow {
-  @extend .icon--after;
+  @extend %icon--after;
 
   @include icon('breadcrumb');
 

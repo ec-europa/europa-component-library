@@ -7,7 +7,7 @@ File download default
 */
 
 .file {
-  @extend .hidden-print;
+  @extend %hidden-print;
   @extend .row;
 
   margin: 0 0 0.944em;
@@ -82,8 +82,8 @@ File download default
   margin-bottom: 0;
 
   &::after {
-    @extend .icon--after;
-    @extend .icon--download;
+    @extend %icon--after;
+    @extend %icon--download;
   }
 }
 
@@ -134,9 +134,9 @@ File download with translations
 
     // The arrow, rotating on collapse change.
     &::after {
-      @extend .icon--after;
-      @extend .icon--down;
-      @extend .icon--blue-dark;
+      @extend %icon--after;
+      @extend %icon--down;
+      @extend %icon--blue-dark;
 
       position: relative;
       margin-left: 0.525em !important;
