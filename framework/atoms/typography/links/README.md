@@ -6,7 +6,7 @@ Should the external icon be underlined or not? This is not clear.
 
 ```scss
 &::after {
-  @extend .icon--after;
+  @extend %icon--after;
 
   @include icon('external');
 

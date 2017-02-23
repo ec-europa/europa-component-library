@@ -1,35 +1,36 @@
-/*
-Site header
-*/
+/**
+ * Site header
+ * @define site-header
+ */
 
 .site-header {
-  overflow: hidden;
   color: $brand-primary;
+  overflow: hidden;
   padding: 14px 0 0;
   position: relative;
 
   @include breakpoint(screen-md-min) {
-    .site-header__logo {
-      position: relative;
-      top: 15px;
-      margin-bottom: 1em;
-    }
-
-    & {
-      padding: 14px 0;
-    }
+    padding: 14px 0;
   }
 
   @media print {
     -webkit-print-color-adjust: exact;
   }
 
-  & > .container-fluid {
-    position: relative;
-  }
-
   a {
     @include _focus_outline_border(3px, $yellow-light, 5px);
+  }
+}
+
+.site-header__container {
+  position: relative;
+}
+
+@include breakpoint(screen-md-min) {
+  .site-header__logo {
+    margin-bottom: 1em;
+    position: relative;
+    top: 15px;
   }
 }
 
@@ -41,8 +42,16 @@ Site Header for Homepage
 
   .site-header__logo {
     float: none;
+    margin: 0 auto;
     position: relative;
     top: 38px;
-    margin: 0 auto;
+  }
+}
+
+// If the logo is linking to an external page do not show the external icon.
+.site-header__logo {
+  &::before,
+  &::after {
+    display: none !important;
   }
 }

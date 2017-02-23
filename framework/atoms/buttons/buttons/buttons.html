@@ -1,7 +1,7 @@
 {# Define macro to make it easily accessible from elsewhere #}
-{% macro button(modifier="") %}
-<button class="btn btn-{{ modifier }}">Button element</button>
+{% macro button(label="", modifier="") %}
+<button class="btn btn-{{ modifier }}">{{ label }}</button>
 {% endmacro %}
 
 {# Render if this file is included as a template with data inherited from the context #}
-{{ button(modifier) }}
+{{ button("Button element", modifier) }}

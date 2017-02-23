@@ -1,14 +1,8 @@
-@font-face {
-  font-family: 'EuropaIcons';
-  src: url('../fonts/europa-icons/europa-icons.eot');
-  src:
-    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
-    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
-    url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
-}
+/**
+ * Icons
+ */
 
-.icon {
+%icon {
   &::before {
     display: inline-block;
     font-family: 'EuropaIcons';
@@ -26,23 +20,71 @@
   }
 }
 
+// Should be used only with @extend.
+%icon--after {
+  display: inline-block;
+  font-family: 'EuropaIcons';
+  // Better Font Rendering
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-left: 4px;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
+}
+
+%icon--blue-dark {
+  color: #004494;
+}
+
+%icon--tag-close-hover {
+  content: '\e82d';
+
+  &::before {
+    @extend %icon--tag-close-hover;
+  }
+}
+
+/**
+ * @define icon
+ */
+
+@font-face {
+  font-family: 'EuropaIcons';
+  src: url('../fonts/europa-icons/europa-icons.eot');
+  src:
+    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
+    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
+    url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
+}
+
+.icon {
+  @extend %icon;
+}
+
+.icon--after {
+  @extend %icon--after;
+}
+
 // Icon component and modifiers.
 @each $modifier, $char in $modifiers {
+  %icon--#{$modifier},
   .icon--#{$modifier} {
     @include icon($modifier);
   }
 }
 
 .icon--blue-dark {
-  color: #004494;
+  @extend %icon--blue-dark;
 }
 
 .icon--tag-close-hover {
-  content: '\e82d';
-
-  &::before {
-    @extend .icon--tag-close-hover;
-  }
+  @extend %icon--tag-close-hover;
 }
 
 .icon--yellowbg {

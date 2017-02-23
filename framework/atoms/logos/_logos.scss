@@ -1,21 +1,29 @@
-// EC logo
-//
-// Default EC logo.
+/**
+ * EC logo
+ */
 
-.logo {
+%logo {
+  background: url('../images/svg/logo.svg') no-repeat;
   display: block;
   float: left;
-  width: 140px;
   height: 72px;
-  background: url('../images/svg/logo.svg') no-repeat;
+  width: 140px;
 }
 
-// EC logo no-svg
-//
-// Default EC logo with no-svg.
+/**
+ * @define logo
+ */
 
-.no-svg {
-  .logo {
+// Default EC logo.
+.logo {
+  @extend %logo;
+
+  // EC logo no-svg
+  //
+  // Default EC logo with no-svg.
+
+  /* postcss-bem-linter: ignore */
+  .no-svg & {
     background-image: url('../images/png/logo.png');
   }
 }
@@ -29,7 +37,7 @@
 @include logo-background-languages('../images/svg/logo/logo--', '.svg');
 
 .logo--logotype {
-  @extend .logo;
+  @extend %logo;
 
   width: 190px;
 }
@@ -37,6 +45,7 @@
 .no-svg {
   @include logo-background-languages('../images/png/logo/logo--', '.png');
 
+  /* postcss-bem-linter: ignore */
   .logo--logotype {
     width: 190px;
   }
@@ -55,10 +64,10 @@
 }
 
 .logo--logotypebelow {
-  @extend .logo;
+  @extend %logo;
 
-  width: 198px;
   height: 72px;
+  width: 198px;
 }
 
 @include breakpoint(screen-xs-min) {
@@ -67,15 +76,7 @@
   }
 
   .logo--logotypebelow {
-    width: 324px;
     height: 118px;
-  }
-}
-
-// If the logo is linking to an external page do not show the external icon.
-.site-header__logo {
-  &::before,
-  &::after {
-    display: none !important;
+    width: 324px;
   }
 }
