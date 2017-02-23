@@ -33,8 +33,17 @@
   line-height: 1;
   margin-left: 4px;
   speak: none;
-  text-decoration: none;
+  text-decoration: underline;
   text-transform: none;
+}
+
+// Remove the underline from a::after
+// There is a bug in IE8-11, so using display:inline-block; alone won't
+// work. The solution is by explicitly setting text-decoration:underline;
+// for the ::after-content and then overwrite this rule again with
+// text-decoration:none;
+%icon--after {
+  text-decoration: none;
 }
 
 %icon--blue-dark {
