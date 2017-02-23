@@ -3,8 +3,6 @@ Buttons
 
 Custom bootstrap buttons styling.
 
-Markup: html/btn.html
-
 .btn-default     - Button default
 .btn-primary     - Button primary
 .btn-secondary   - Button secondary
@@ -15,15 +13,27 @@ Markup: html/btn.html
 Style guide: buttons
 */
 
-@mixin _white_space_reset_mixin() {
+@mixin whitespace-reset() {
   line-height: 1.667;
   padding-bottom: 0.5em;
   padding-top: 0.5em;
   white-space: normal;
 }
 
+%btn-default {
+  background: none;
+  border-color: $brand-primary;
+  color: $brand-primary;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-primary;
+    color: $white;
+  }
+}
+
 .btn {
-  @extend .hidden-print;
+  @extend %hidden-print;
 
   border-radius: 0;
   border-width: 2px;
@@ -58,15 +68,7 @@ Style guide: buttons
   }
 
   &.btn-default {
-    background: none;
-    border-color: $brand-primary;
-    color: $brand-primary;
-
-    &:hover,
-    &:focus {
-      background-color: $brand-primary;
-      color: $white;
-    }
+    @extend %btn-default;
   }
 
   &.btn-primary {
@@ -91,7 +93,7 @@ Style guide: buttons
   }
 
   &.btn-ctn {
-    @include _white_space_reset_mixin();
+    @include whitespace-reset();
 
     background-color: $yellow-light;
     color: $black;
@@ -108,8 +110,8 @@ Style guide: buttons
     }
 
     &::after {
-      @extend .icon--after;
-      @extend .icon--right;
+      @extend %icon--after;
+      @extend %icon--right;
 
       font-size: 0.8em;
       margin-left: 10px;
@@ -139,8 +141,8 @@ Style guide: buttons
     }
 
     &::after {
-      @extend .icon--after;
-      @extend .icon--arrow-down;
+      @extend %icon--after;
+      @extend %icon--arrow-down;
 
       font-size: 0.45em;
       margin-left: 6px !important;
@@ -186,7 +188,7 @@ Style guide: buttons
 // Class that can be also used on a button wrapper since there are sometimes
 // situations where button is wrapped in unnecessary markup coming from a CMS.
 .btn--no-margin-bottom {
-  & * {
+  * {
     margin-bottom: 0 !important;
   }
 
@@ -204,8 +206,8 @@ Style guide: buttons.btn--condensed
 */
 
 .btn.btn--condensed {
-  width: auto;
   font-weight: normal;
+  width: auto;
 }
 
 /*
@@ -224,13 +226,13 @@ Style guide: buttons.btn-block
   text-align: left;
   width: 100%;
 
-  @include _white_space_reset_mixin();
+  @include whitespace-reset();
 
   &:last-child {
     margin-bottom: 10px;
   }
 
-  & + .btn-block {
+  + .btn-block {
     margin-top: 0;
   }
 }
@@ -267,16 +269,16 @@ Style guide: buttons.btn-collapse
 */
 
 .btn-collapse {
-  @extend .btn-default;
+  @extend %btn-default;
 
-  span.toggling-text::after {
+  .toggling-text::after {
     content: '\00a0';
   }
 
   &:hover,
   &:focus {
-    span.toggling-text,
-    span.toggling-text::after {
+    .toggling-text,
+    .toggling-text::after {
       text-decoration: underline;
     }
   }
@@ -313,7 +315,7 @@ Style guide: buttons.btn-collapse
 }
 
 // External link specific adjustments.
-@mixin _btn_external_link_mixin() {
+@mixin btn-external-link() {
   padding-right: 2.2em;
 
   &::after {
@@ -345,10 +347,10 @@ Style guide: buttons.btn-collapse
   }
 }
 
-a.btn {
+.btn {
   &#{'[' + $external_link_pattern + ']'}:not(.is-internal) {
     &:not(#{$ec_url_patterns}) {
-      @include _btn_external_link_mixin();
+      @include btn-external-link();
     }
   }
 }

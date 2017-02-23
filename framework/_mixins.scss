@@ -174,7 +174,7 @@ $modifiers: (
 }
 
 @mixin form-control() {
-  @extend .hidden-print;
+  @extend %hidden-print;
 
   color: $form-control-text-color;
   background-color: $form-control-background-color;
@@ -253,34 +253,6 @@ $modifiers: (
     outline-offset: $offset;
     text-decoration: $text-decoration;
   }
-}
-
-// Should be used only with @extend.
-.icon--after {
-  display: inline-block;
-  margin-left: 4px;
-  line-height: 1;
-  font-family: 'EuropaIcons';
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  // Better Font Rendering
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-transform: none;
-  text-decoration: none;
-  speak: none;
-}
-
-// [converter] $parent hack.
-@mixin hidden-print($selector) {
-  #{$selector} {
-    display: none !important;
-  }
-}
-
-@media print {
-  @include hidden-print('.hidden-print');
 }
 
 // Social icons image.

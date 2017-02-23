@@ -5,124 +5,124 @@ module.exports = {
   preview: '@preview-center-transparent',
   order: 3,
   collated: true,
-  default: 'English',
+  default: 'english',
   variants: [{
-    name: 'Bulgarian',
+    name: 'bulgarian',
     context: {
       modifier_class: 'language-bg',
     },
   }, {
-    name: 'Czech',
+    name: 'czech',
     context: {
       modifier_class: 'language-cs',
     },
   }, {
-    name: 'Danish',
+    name: 'danish',
     context: {
       modifier_class: 'language-da',
     },
   }, {
-    name: 'German',
+    name: 'german',
     context: {
       modifier_class: 'language-de',
     },
   }, {
-    name: 'Estonian',
+    name: 'estonian',
     context: {
       modifier_class: 'language-et',
     },
   }, {
-    name: 'Greek',
+    name: 'greek',
     context: {
       modifier_class: 'language-el',
     },
   }, {
-    name: 'English',
+    name: 'english',
     context: {
       modifier_class: 'language-en',
     },
   }, {
-    name: 'Spanish',
+    name: 'spanish',
     context: {
       modifier_class: 'language-es',
     },
   }, {
-    name: 'French',
+    name: 'french',
     context: {
       modifier_class: 'language-fr',
     },
   }, {
-    name: 'Irish/Gaeilge',
+    name: 'irish-gaeilge',
     context: {
       modifier_class: 'language-ga',
     },
   }, {
-    name: 'Croatian',
+    name: 'croatian',
     context: {
       modifier_class: 'language-hr',
     },
   }, {
-    name: 'Italian',
+    name: 'italian',
     context: {
       modifier_class: 'language-it',
     },
   }, {
-    name: 'Latvian',
+    name: 'latvian',
     context: {
       modifier_class: 'language-lv',
     },
   }, {
-    name: 'Lithuanian',
+    name: 'lithuanian',
     context: {
       modifier_class: 'language-lt',
     },
   }, {
-    name: 'Hungarian',
+    name: 'hungarian',
     context: {
       modifier_class: 'language-hu',
     },
   }, {
-    name: 'Maltese',
+    name: 'maltese',
     context: {
       modifier_class: 'language-mt',
     },
   }, {
-    name: 'Dutch',
+    name: 'dutch',
     context: {
       modifier_class: 'language-nl',
     },
   }, {
-    name: 'Polish',
+    name: 'polish',
     context: {
       modifier_class: 'language-pl',
     },
   }, {
-    name: 'Portuguese',
+    name: 'portuguese',
     context: {
       modifier_class: 'language-pt',
     },
   }, {
-    name: 'Romanian',
+    name: 'romanian',
     context: {
       modifier_class: 'language-ro',
     },
   }, {
-    name: 'Slovak',
+    name: 'slovak',
     context: {
       modifier_class: 'language-sk',
     },
   }, {
-    name: 'Slovene',
+    name: 'slovene',
     context: {
       modifier_class: 'language-sl',
     },
   }, {
-    name: 'Finnish',
+    name: 'finnish',
     context: {
       modifier_class: 'language-fi',
     },
   }, {
-    name: 'Swedish',
+    name: 'swedish',
     context: {
       modifier_class: 'language-sv',
     },
