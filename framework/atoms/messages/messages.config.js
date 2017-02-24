@@ -3,24 +3,14 @@ module.exports = {
   label: 'Messages',
   status: 'wip',
   collated: true,
+  default: 'info',
   preview: '@preview-center-transparent',
   variants: [{
-    name: 'default',
-    label: 'Default',
-    context: {
-      utility: '',
-      messages_type: '',
-      messages_sr_only: 'Info message',
-      messages_title: 'Some title',
-      messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
-    },
-  }, {
     name: 'info',
     label: 'Info',
     context: {
-      utility: 'messages--icon-center',
-      messages_type: 'info',
-      messages_sr_only: 'Info message',
+      messages_type: '',
+      messages_sr_only: 'Informative message',
       messages_title: 'Some info title',
       messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
     },
@@ -28,7 +18,6 @@ module.exports = {
     name: 'warning',
     label: 'Warning',
     context: {
-      utility: 'messages--icon-center',
       messages_type: 'warning',
       messages_sr_only: 'Warning message',
       messages_title: 'Some warning title',
@@ -36,11 +25,10 @@ module.exports = {
     },
   }, {
     name: 'status',
-    label: 'Status',
+    label: 'Success',
     context: {
-      utility: 'messages--icon-center',
       messages_type: 'status',
-      messages_sr_only: 'Status message',
+      messages_sr_only: 'Success message',
       messages_title: 'Some status title',
       messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
     },
@@ -48,7 +36,6 @@ module.exports = {
     name: 'error',
     label: 'Error',
     context: {
-      utility: 'messages--icon-center',
       messages_type: 'error',
       messages_sr_only: 'Error message',
       messages_title: 'Some error title',
@@ -58,7 +45,6 @@ module.exports = {
     name: 'livestream',
     label: 'Livestream',
     context: {
-      utility: 'messages--icon-center',
       messages_type: 'live',
       messages_sr_only: 'Livestream message',
       messages_title: 'Some livestream title',
