@@ -7,46 +7,11 @@ File download default
 */
 
 .file {
-  @extend .hidden-print;
+  @extend %hidden-print;
   @extend .row;
 
   margin: 0 0 0.944em;
   padding: 1.333em;
-  background-color: $grey-lighter;
-}
-
-/*
-File image
-*/
-
-.file-image {
-  padding: 0;
-  background-color: transparent;
-
-  & img {
-    display: block;
-  }
-}
-
-/*
-File video
-*/
-
-.file-video {
-  padding: 0;
-  background-color: transparent;
-
-  .file__container {
-    @extend .embed-responsive;
-    @extend .embed-responsive-16by9;
-  }
-
-  iframe {
-    @extend .embed-responsive-item;
-  }
-}
-
-.file-video--with-background {
   background-color: $grey-lighter;
 }
 
@@ -117,8 +82,8 @@ File video
   margin-bottom: 0;
 
   &::after {
-    @extend .icon--after;
-    @extend .icon--download;
+    @extend %icon--after;
+    @extend %icon--download;
   }
 }
 
@@ -169,9 +134,9 @@ File download with translations
 
     // The arrow, rotating on collapse change.
     &::after {
-      @extend .icon--after;
-      @extend .icon--down;
-      @extend .icon--blue-dark;
+      @extend %icon--after;
+      @extend %icon--down;
+      @extend %icon--blue-dark;
 
       position: relative;
       margin-left: 0.525em !important;
@@ -232,7 +197,7 @@ File download with translations
 }
 
 /*
-File Link
+File link
 */
 .file--link {
   background-color: transparent;
@@ -281,5 +246,45 @@ File Link
       margin-top: 0;
       overflow: hidden;
     }
+  }
+}
+
+/*
+File image
+
+Displays the file image.
+
+Markup: html/file--image.html
+
+Style guide: file.4
+*/
+
+.file--image {
+  display: block;
+  padding: 0;
+  background-color: transparent;
+}
+
+/*
+File video
+
+Displays the file video.
+
+Markup: html/file--video.html
+
+Style guide: file.5
+*/
+
+.file--video {
+  padding: 0;
+  background-color: transparent;
+
+  .file__container {
+    @extend .embed-responsive;
+    @extend .embed-responsive-16by9;
+  }
+
+  iframe {
+    @extend .embed-responsive-item;
   }
 }

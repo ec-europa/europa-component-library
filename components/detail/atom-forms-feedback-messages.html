@@ -101,13 +101,7 @@
     <ul class="Browser-tabs">
         
         
-        <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-6fdba0daf2dae772f66ee355846574ae-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
+        <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
             <a href="#browser-6fdba0daf2dae772f66ee355846574ae-panel-view">View</a>
         </li>
         
@@ -115,6 +109,12 @@
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
             <a href="#browser-6fdba0daf2dae772f66ee355846574ae-panel-context">Context</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-6fdba0daf2dae772f66ee355846574ae-panel-html">HTML</a>
         </li>
         
         
@@ -145,19 +145,6 @@
 
 
     
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-6fdba0daf2dae772f66ee355846574ae-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"feedback-message is-error"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-6fdba0daf2dae772f66ee355846574ae-panel-view">
     <code class="Code Code--lang-html">
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"feedback-message is-error"</span>&gt;</span>
@@ -174,6 +161,19 @@
             
             <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
+        
+    </code>
+</div>
+
+    
+    
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-6fdba0daf2dae772f66ee355846574ae-panel-html">
+    <code class="Code Code--lang-html">
+        
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"feedback-message is-error"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -214,19 +214,17 @@ Style guide form.feedback-message
 <span class="hljs-selector-class">.feedback-message</span> {
   @<span class="hljs-keyword">extend</span> .messages;
 
-  <span class="hljs-attribute">border</span>: none <span class="hljs-meta">!important</span>;
-  <span class="hljs-attribute">max-width</span>: none;
+  <span class="hljs-attribute">border</span>: none;
 
   &amp;<span class="hljs-selector-class">.is-disabled</span> {
     <span class="hljs-attribute">color</span>: <span class="hljs-variable">$form-control-color-disabled</span>;
   }
 
   &amp;<span class="hljs-selector-class">.is-error</span> {
-    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$grey-lightest</span> url(<span class="hljs-string">'../images/svg/messages-error.svg'</span>) <span class="hljs-number">1em</span> <span class="hljs-number">1.1em</span> no-repeat;
-    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">2em</span>;
+    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$grey-lightest</span> url(<span class="hljs-string">'../images/svg/messages-error.svg'</span>) no-repeat <span class="hljs-number">1.375em</span> <span class="hljs-number">1.375em</span>;
   }
 
-  @<span class="hljs-keyword">extend</span> .hidden-print;
+  @<span class="hljs-keyword">extend</span> %hidden-print;
 }
 
 <span class="hljs-selector-class">.no-svg</span> {
@@ -252,7 +250,7 @@ Style guide form.feedback-message
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">540 Bytes</span>
+                    <span class="Meta-value">490 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1025,7 +1023,7 @@ Style guide form.feedback-message
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-default" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -1049,7 +1047,7 @@ Style guide form.feedback-message
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-no-svg" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-no-svg" data-pjax>
                 <span>No SVG</span>
                 
 
@@ -1073,7 +1071,7 @@ Style guide form.feedback-message
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotype" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotype" data-pjax>
                 <span>Logotype</span>
                 
 
@@ -1097,7 +1095,7 @@ Style guide form.feedback-message
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotypebelow" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotypebelow" data-pjax>
                 <span>Logotype below</span>
                 
 
@@ -2870,7 +2868,7 @@ Style guide form.feedback-message
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Headers</span>
+                <span>Site headers</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -2881,7 +2879,7 @@ Style guide form.feedback-message
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-default" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -2905,7 +2903,7 @@ Style guide form.feedback-message
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-homepage" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-homepage" data-pjax>
                 <span>Homepage</span>
                 
 

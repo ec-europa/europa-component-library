@@ -101,13 +101,7 @@
     <ul class="Browser-tabs">
         
         
-        <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-47adf305225535c17adc746dbca64fc1-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
+        <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
             <a href="#browser-47adf305225535c17adc746dbca64fc1-panel-view">View</a>
         </li>
         
@@ -115,6 +109,12 @@
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
             <a href="#browser-47adf305225535c17adc746dbca64fc1-panel-context">Context</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-47adf305225535c17adc746dbca64fc1-panel-html">HTML</a>
         </li>
         
         
@@ -145,25 +145,11 @@
 
 
     
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-47adf305225535c17adc746dbca64fc1-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"alert alert-block messages warning messages--icon-center"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>×<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Warning message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Some warning title<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum lor sit amet, consectetur adipi<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-47adf305225535c17adc746dbca64fc1-panel-view">
     <code class="Code Code--lang-html">
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"alert alert-block messages {{messages_type}} {{utility}}"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>×<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>{{messages_sr_only}}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>{{messages_title}}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"messages alert {{messages_type}}"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>{{messages_sr_only}}:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>{{messages_title}}<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{messages_data}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
     </code>
@@ -175,13 +161,26 @@
         
             
             <pre>{
-  <span class="hljs-attr">"utility"</span>: <span class="hljs-string">"messages--icon-center"</span>,
   <span class="hljs-attr">"messages_type"</span>: <span class="hljs-string">"warning"</span>,
   <span class="hljs-attr">"messages_sr_only"</span>: <span class="hljs-string">"Warning message"</span>,
   <span class="hljs-attr">"messages_title"</span>: <span class="hljs-string">"Some warning title"</span>,
   <span class="hljs-attr">"messages_data"</span>: <span class="hljs-string">"Lorem ipsum lor sit amet, consectetur adipi"</span>
 }</pre>
             
+        
+    </code>
+</div>
+
+    
+    
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-47adf305225535c17adc746dbca64fc1-panel-html">
+    <code class="Code Code--lang-html">
+        
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"messages alert warning"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Warning message:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Some warning title<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum lor sit amet, consectetur adipi<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -216,8 +215,6 @@ Messages
 
 Markup: html/messages.html
 
-.messages--icon-center - Centralized icon
-
 Style guide messages
 */</span>
 
@@ -227,36 +224,33 @@ Style guide messages
 
 <span class="hljs-selector-class">.messages</span> {
   <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">5.375em</span>;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1em</span> <span class="hljs-number">1em</span> <span class="hljs-number">1em</span> <span class="hljs-number">4em</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1.315em</span> <span class="hljs-number">0</span> <span class="hljs-number">1.315em</span> <span class="hljs-number">5em</span>;
   <span class="hljs-attribute">overflow</span>: hidden;
-  <span class="hljs-attribute">background</span>: url(<span class="hljs-string">"../images/svg/messages-info.svg"</span>) no-repeat <span class="hljs-number">1em</span> <span class="hljs-number">1em</span>;
+  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.375em</span> <span class="hljs-number">1.375em</span>;
   <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$font-family-sans-serif</span>;
   <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$messages-text-size</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$messages-text-color</span>;
   <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$blue</span>;
 
-  &amp;<span class="hljs-selector-class">.messages--icon-center</span> {
-    <span class="hljs-attribute">background-position</span>: <span class="hljs-number">1em</span> center;
-  }
-
   &amp;<span class="hljs-selector-class">.status</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/svg/messages-success.svg"</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-success.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$green</span>;
   }
 
   &amp;<span class="hljs-selector-class">.warning</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/svg/messages-warning.svg"</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-warning.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$yellow</span>;
   }
 
   &amp;<span class="hljs-selector-class">.error</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/svg/messages-error.svg"</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-error.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$red</span>;
   }
 
   &amp;<span class="hljs-selector-class">.live</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/svg/live_streaming.svg"</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/live_streaming.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$yellow</span>;
   }
 
@@ -266,77 +260,18 @@ Style guide messages
     <span class="hljs-attribute">font-weight</span>: bold;
   }
 
-  <span class="hljs-selector-tag">ul</span>,
   <span class="hljs-selector-tag">p</span> {
     <span class="hljs-attribute">max-width</span>: <span class="hljs-number">95%</span>;
     <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$messages-text-size</span>;
   }
 
-  <span class="hljs-selector-tag">li</span> {
-    <span class="hljs-attribute">list-style-type</span>: none;
-  }
-
   &gt; :last-child {
     <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
   }
-}
 
-<span class="hljs-selector-class">.messages__list</span> {
-  <span class="hljs-attribute">max-width</span>: auto;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$font-family-sans-serif</span>;
-}
-
-<span class="hljs-selector-class">.messages__list-item</span> {
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.5em</span>;
-
-  &amp;:first-child {
-    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
-  }
-}
-
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-selector-class">.messages</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/messages-info.png"</span>);
-
-    &amp;<span class="hljs-selector-class">.status</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/messages-info.png"</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.warning</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/messages-warning.png"</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.error</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/messages-error.png"</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.live</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/live_streaming.png"</span>);
-    }
-  }
-
-  <span class="hljs-selector-class">.alert</span> {
-    <span class="hljs-selector-class">.close</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/close.png"</span>);
-
-      &amp;:hover {
-        <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/close_hover.png"</span>);
-      }
-    }
-  }
-}
-
-<span class="hljs-comment">// Drupal overrides.</span>
-<span class="hljs-selector-class">.messages</span> {
-  <span class="hljs-selector-tag">ul</span> {
-    @<span class="hljs-keyword">extend</span> .messages__list;
-
-    <span class="hljs-selector-tag">li</span> {
-      @<span class="hljs-keyword">extend</span> .messages__list-item;
-    }
+  <span class="hljs-selector-class">.close</span> {
+    <span class="hljs-attribute">display</span>: none;
   }
 }
 
@@ -346,17 +281,52 @@ Style guide messages
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
 
   <span class="hljs-selector-class">.close</span> {
+    <span class="hljs-attribute">display</span>: block;
     <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">right</span>: <span class="hljs-number">0.715em</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0.465em</span>;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0.465em</span>;
     <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span>;
-    <span class="hljs-attribute">background</span>: url(<span class="hljs-string">"../images/svg/close.svg"</span>) no-repeat right top;
+    <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/close.svg'</span>) no-repeat right top;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.625em</span>;
     <span class="hljs-attribute">color</span>: transparent;
     <span class="hljs-attribute">text-shadow</span>: none;
     <span class="hljs-attribute">text-decoration</span>: none;
     <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
 
     &amp;:hover {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/svg/close_hover.svg"</span>);
+      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/close_hover.svg'</span>);
+    }
+  }
+}
+
+<span class="hljs-selector-class">.no-svg</span> {
+  <span class="hljs-selector-class">.messages</span> {
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-info.png'</span>);
+
+    &amp;<span class="hljs-selector-class">.status</span> {
+      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-info.png'</span>);
+    }
+
+    &amp;<span class="hljs-selector-class">.warning</span> {
+      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-warning.png'</span>);
+    }
+
+    &amp;<span class="hljs-selector-class">.error</span> {
+      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-error.png'</span>);
+    }
+
+    &amp;<span class="hljs-selector-class">.live</span> {
+      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/live_streaming.png'</span>);
+    }
+  }
+
+  <span class="hljs-selector-class">.alert</span> {
+    <span class="hljs-selector-class">.close</span> {
+      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/close.png'</span>);
+
+      &amp;:hover {
+        <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/close_hover.png'</span>);
+      }
     }
   }
 }
@@ -376,7 +346,7 @@ Style guide messages
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.7 KB</span>
+                    <span class="Meta-value">2.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -399,12 +369,8 @@ Style guide messages
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(6)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(5)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
-            
-                <a href="atom-messages--default">
-                    <span>Default</span>
-                </a>, 
             
                 <a href="atom-messages--info">
                     <span>Info</span>
@@ -415,7 +381,7 @@ Style guide messages
                 </a>, 
             
                 <a href="atom-messages--status">
-                    <span>Status</span>
+                    <span>Success</span>
                 </a>, 
             
                 <a href="atom-messages--error">
@@ -460,7 +426,18 @@ Style guide messages
     <div class="Prose Prose--condensed">
         
         <h1 id="messages">Messages</h1>
-<p>.messages–icon-center - Centralized icon</p>
+<p>Messages is a component that is used for displaying different types of messages
+like:</p>
+<ul>
+<li>info (by default)</li>
+<li>status</li>
+<li>warning</li>
+<li>error</li>
+<li>live</li>
+</ul>
+<p>The component messages is defined “info” by default, the “info” type doesn’t
+exist as class. The “live” type is meant to be used in cases like live streaming
+for events.</p>
 
         
     </div>
@@ -1181,7 +1158,7 @@ Style guide messages
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-default" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -1205,7 +1182,7 @@ Style guide messages
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-no-svg" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-no-svg" data-pjax>
                 <span>No SVG</span>
                 
 
@@ -1229,7 +1206,7 @@ Style guide messages
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotype" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotype" data-pjax>
                 <span>Logotype</span>
                 
 
@@ -1253,7 +1230,7 @@ Style guide messages
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotypebelow" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotypebelow" data-pjax>
                 <span>Logotype below</span>
                 
 
@@ -3026,7 +3003,7 @@ Style guide messages
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Headers</span>
+                <span>Site headers</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -3037,7 +3014,7 @@ Style guide messages
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-default" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -3061,7 +3038,7 @@ Style guide messages
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-homepage" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-homepage" data-pjax>
                 <span>Homepage</span>
                 
 

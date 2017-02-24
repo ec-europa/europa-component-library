@@ -101,13 +101,7 @@
     <ul class="Browser-tabs">
         
         
-        <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-760662cff72e31bac3436f8cf6feec32-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
+        <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
             <a href="#browser-760662cff72e31bac3436f8cf6feec32-panel-view">View</a>
         </li>
         
@@ -115,6 +109,12 @@
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
             <a href="#browser-760662cff72e31bac3436f8cf6feec32-panel-context">Context</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-760662cff72e31bac3436f8cf6feec32-panel-html">HTML</a>
         </li>
         
         
@@ -145,6 +145,43 @@
 
 
     
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-760662cff72e31bac3436f8cf6feec32-panel-view">
+    <code class="Code Code--lang-html">
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comments__wrapper"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__image"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{{ '/framework/images/png/default_profile_image.png' | path }}"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Martin's photo"</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__body"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__author"</span>&gt;</span>Martin (Not verified)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> |
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__date"</span>&gt;</span>26 March 2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Nice article<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__text"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem eius enim eos error esse fugiat incidunt iste laudantium nemo, numquam quam quasi repudiandae sapiente soluta sunt tempore ullam voluptatem.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__operations"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__reply"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Reply<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__edit"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Edit<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__delete"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+    </code>
+</div>
+
+    
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-760662cff72e31bac3436f8cf6feec32-panel-context">
+    <code class="Code Code--lang-json">
+        
+            
+            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            
+        
+    </code>
+</div>
+
+    
     
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-760662cff72e31bac3436f8cf6feec32-panel-html">
     <code class="Code Code--lang-html">
@@ -169,41 +206,6 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-760662cff72e31bac3436f8cf6feec32-panel-view">
-    <code class="Code Code--lang-html">
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comments__wrapper"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__image"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{{ '/framework/images/png/default_profile_image.png' | path }}"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Martin's photo"</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__body"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__author"</span>&gt;</span>Martin (Not verified)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> |
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__date"</span>&gt;</span>26 March 2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Nice article<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem eius enim eos error esse fugiat incidunt iste laudantium nemo, numquam quam quasi repudiandae sapiente soluta sunt tempore ullam voluptatem.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__operations"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__reply"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Reply<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__edit"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Edit<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"comment__delete"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-    </code>
-</div>
-
-    
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-760662cff72e31bac3436f8cf6feec32-panel-context">
-    <code class="Code Code--lang-json">
-        
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
         
     </code>
 </div>
@@ -1136,7 +1138,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-default" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -1160,7 +1162,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-no-svg" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-no-svg" data-pjax>
                 <span>No SVG</span>
                 
 
@@ -1184,7 +1186,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotype" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotype" data-pjax>
                 <span>Logotype</span>
                 
 
@@ -1208,7 +1210,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotypebelow" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotypebelow" data-pjax>
                 <span>Logotype below</span>
                 
 
@@ -2981,7 +2983,7 @@
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Headers</span>
+                <span>Site headers</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -2992,7 +2994,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-default" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -3016,7 +3018,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-homepage" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-homepage" data-pjax>
                 <span>Homepage</span>
                 
 

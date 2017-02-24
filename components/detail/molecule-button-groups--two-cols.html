@@ -101,13 +101,7 @@
     <ul class="Browser-tabs">
         
         
-        <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-709c2122c27b000aba271f6516c61ed8-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
+        <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
             <a href="#browser-709c2122c27b000aba271f6516c61ed8-panel-view">View</a>
         </li>
         
@@ -115,6 +109,12 @@
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
             <a href="#browser-709c2122c27b000aba271f6516c61ed8-panel-context">Context</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-709c2122c27b000aba271f6516c61ed8-panel-html">HTML</a>
         </li>
         
         
@@ -145,26 +145,6 @@
 
 
     
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-709c2122c27b000aba271f6516c61ed8-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group btn-group-row-two"</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>Button primary<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Button default<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Button default<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Button default<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-709c2122c27b000aba271f6516c61ed8-panel-view">
     <code class="Code Code--lang-html">
         <pre>{% from '<a href="atom-buttons-links">@atom-buttons-links</a>' import link %}
@@ -186,6 +166,26 @@
   <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"btn-group-row-two"</span>
 }</pre>
             
+        
+    </code>
+</div>
+
+    
+    
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-709c2122c27b000aba271f6516c61ed8-panel-html">
+    <code class="Code Code--lang-html">
+        
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group btn-group-row-two"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>Button primary<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Button default<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Button default<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Button default<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -220,7 +220,7 @@ Button group
 */</span>
 
 <span class="hljs-selector-class">.btn-group</span> {
-  @<span class="hljs-keyword">extend</span> .hidden-print;
+  @<span class="hljs-keyword">extend</span> %hidden-print;
 
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1em</span>;
 
@@ -1068,7 +1068,7 @@ Button group
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-default" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -1092,7 +1092,7 @@ Button group
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-no-svg" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-no-svg" data-pjax>
                 <span>No SVG</span>
                 
 
@@ -1116,7 +1116,7 @@ Button group
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotype" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotype" data-pjax>
                 <span>Logotype</span>
                 
 
@@ -1140,7 +1140,7 @@ Button group
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotypebelow" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotypebelow" data-pjax>
                 <span>Logotype below</span>
                 
 
@@ -2913,7 +2913,7 @@ Button group
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Headers</span>
+                <span>Site headers</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -2924,7 +2924,7 @@ Button group
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-default" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -2948,7 +2948,7 @@ Button group
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-homepage" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-homepage" data-pjax>
                 <span>Homepage</span>
                 
 

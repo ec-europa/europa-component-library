@@ -101,13 +101,7 @@
     <ul class="Browser-tabs">
         
         
-        <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-6c5dcbd15e3176b9727a9f8a3ef5f3d7-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
+        <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
             <a href="#browser-6c5dcbd15e3176b9727a9f8a3ef5f3d7-panel-view">View</a>
         </li>
         
@@ -115,6 +109,12 @@
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
             <a href="#browser-6c5dcbd15e3176b9727a9f8a3ef5f3d7-panel-context">Context</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-6c5dcbd15e3176b9727a9f8a3ef5f3d7-panel-html">HTML</a>
         </li>
         
         
@@ -145,23 +145,6 @@
 
 
     
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-6c5dcbd15e3176b9727a9f8a3ef5f3d7-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--link"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__icon icon icon--file-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata--link"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ext.link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"file title"</span>&gt;</span>
-      Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-        
-    </code>
-</div>
-
-    
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-6c5dcbd15e3176b9727a9f8a3ef5f3d7-panel-view">
     <code class="Code Code--lang-html">
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--link"</span>&gt;</span>
@@ -182,6 +165,23 @@
             
             <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
+        
+    </code>
+</div>
+
+    
+    
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-6c5dcbd15e3176b9727a9f8a3ef5f3d7-panel-html">
+    <code class="Code Code--lang-html">
+        
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--link"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__icon icon icon--file-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata--link"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ext.link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"file title"</span>&gt;</span>
+      Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
+    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -222,46 +222,11 @@ File download default
 */</span>
 
 <span class="hljs-selector-class">.file</span> {
-  @<span class="hljs-keyword">extend</span> .hidden-print;
+  @<span class="hljs-keyword">extend</span> %hidden-print;
   @<span class="hljs-keyword">extend</span> .row;
 
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0.944em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">1.333em</span>;
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$grey-lighter</span>;
-}
-
-<span class="hljs-comment">/*
-File image
-*/</span>
-
-<span class="hljs-selector-class">.file-image</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">background-color</span>: transparent;
-
-  &amp; <span class="hljs-selector-tag">img</span> {
-    <span class="hljs-attribute">display</span>: block;
-  }
-}
-
-<span class="hljs-comment">/*
-File video
-*/</span>
-
-<span class="hljs-selector-class">.file-video</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">background-color</span>: transparent;
-
-  <span class="hljs-selector-class">.file__container</span> {
-    @<span class="hljs-keyword">extend</span> .embed-responsive;
-    @<span class="hljs-keyword">extend</span> .embed-responsive-16by9;
-  }
-
-  <span class="hljs-selector-tag">iframe</span> {
-    @<span class="hljs-keyword">extend</span> .embed-responsive-item;
-  }
-}
-
-<span class="hljs-selector-class">.file-video--with-background</span> {
   <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$grey-lighter</span>;
 }
 
@@ -332,8 +297,8 @@ File video
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
 
   &amp;::after {
-    @<span class="hljs-keyword">extend</span> .icon--after;
-    @<span class="hljs-keyword">extend</span> .icon--download;
+    @<span class="hljs-keyword">extend</span> %icon--after;
+    @<span class="hljs-keyword">extend</span> %icon--download;
   }
 }
 
@@ -384,9 +349,9 @@ File download with translations
 
     <span class="hljs-comment">// The arrow, rotating on collapse change.</span>
     &amp;::after {
-      @<span class="hljs-keyword">extend</span> .icon--after;
-      @<span class="hljs-keyword">extend</span> .icon--down;
-      @<span class="hljs-keyword">extend</span> .icon--blue-dark;
+      @<span class="hljs-keyword">extend</span> %icon--after;
+      @<span class="hljs-keyword">extend</span> %icon--down;
+      @<span class="hljs-keyword">extend</span> %icon--blue-dark;
 
       <span class="hljs-attribute">position</span>: relative;
       <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.525em</span> <span class="hljs-meta">!important</span>;
@@ -447,7 +412,7 @@ File download with translations
 }
 
 <span class="hljs-comment">/*
-File Link
+File link
 */</span>
 <span class="hljs-selector-class">.file--link</span> {
   <span class="hljs-attribute">background-color</span>: transparent;
@@ -498,6 +463,46 @@ File Link
     }
   }
 }
+
+<span class="hljs-comment">/*
+File image
+
+Displays the file image.
+
+Markup: html/file--image.html
+
+Style guide: file.4
+*/</span>
+
+<span class="hljs-selector-class">.file--image</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">background-color</span>: transparent;
+}
+
+<span class="hljs-comment">/*
+File video
+
+Displays the file video.
+
+Markup: html/file--video.html
+
+Style guide: file.5
+*/</span>
+
+<span class="hljs-selector-class">.file--video</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">background-color</span>: transparent;
+
+  <span class="hljs-selector-class">.file__container</span> {
+    @<span class="hljs-keyword">extend</span> .embed-responsive;
+    @<span class="hljs-keyword">extend</span> .embed-responsive-16by9;
+  }
+
+  <span class="hljs-selector-tag">iframe</span> {
+    @<span class="hljs-keyword">extend</span> .embed-responsive-item;
+  }
+}
 </pre>
                             </code>
                             
@@ -514,7 +519,7 @@ File Link
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.4 KB</span>
+                    <span class="Meta-value">4.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -1365,7 +1370,7 @@ is displayed multimedia files (image and video).</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-default" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -1389,7 +1394,7 @@ is displayed multimedia files (image and video).</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-no-svg" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-no-svg" data-pjax>
                 <span>No SVG</span>
                 
 
@@ -1413,7 +1418,7 @@ is displayed multimedia files (image and video).</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotype" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotype" data-pjax>
                 <span>Logotype</span>
                 
 
@@ -1437,7 +1442,7 @@ is displayed multimedia files (image and video).</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotypebelow" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotypebelow" data-pjax>
                 <span>Logotype below</span>
                 
 
@@ -3210,7 +3215,7 @@ is displayed multimedia files (image and video).</p>
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Headers</span>
+                <span>Site headers</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -3221,7 +3226,7 @@ is displayed multimedia files (image and video).</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-default" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -3245,7 +3250,7 @@ is displayed multimedia files (image and video).</p>
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-homepage" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-homepage" data-pjax>
                 <span>Homepage</span>
                 
 

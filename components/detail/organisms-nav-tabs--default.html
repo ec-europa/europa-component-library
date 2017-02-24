@@ -101,13 +101,7 @@
     <ul class="Browser-tabs">
         
         
-        <li class="Browser-tab Browser-tab--html is-active " data-role="tab">
-            <a href="#browser-7b070bf673c3fde9041aa444faab3eba-panel-html">HTML</a>
-        </li>
-        
-        
-        
-        <li class="Browser-tab Browser-tab--view" data-role="tab">
+        <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
             <a href="#browser-7b070bf673c3fde9041aa444faab3eba-panel-view">View</a>
         </li>
         
@@ -115,6 +109,12 @@
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
             <a href="#browser-7b070bf673c3fde9041aa444faab3eba-panel-context">Context</a>
+        </li>
+        
+        
+        
+        <li class="Browser-tab Browser-tab--html" data-role="tab">
+            <a href="#browser-7b070bf673c3fde9041aa444faab3eba-panel-html">HTML</a>
         </li>
         
         
@@ -143,38 +143,6 @@
     </ul>
 </div>
 
-
-    
-    
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-7b070bf673c3fde9041aa444faab3eba-panel-html">
-    <code class="Code Code--lang-html">
-        
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabs bootstrap-nav-wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist nav nav-tabs nav-tabs--with-content nav-tabs-processed"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__item active"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#bootstrap-fieldgroup-nav-item--actions"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__link"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>Actions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#bootstrap-fieldgroup-nav-item--latest"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__link"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>Latest<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#bootstrap-fieldgroup-nav-item--details"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__link"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>Details<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bootstrap-fieldgroup-nav-item--actions"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabcontent"</span>&gt;</span>
-        Content of Actions tab
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bootstrap-fieldgroup-nav-item--latest"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabcontent"</span>&gt;</span>
-        Content of Latest tab
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bootstrap-fieldgroup-nav-item--details"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabcontent"</span>&gt;</span>
-        Content of Details tab
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
-        
-    </code>
-</div>
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-7b070bf673c3fde9041aa444faab3eba-panel-view">
@@ -218,6 +186,38 @@
 
     
     
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-7b070bf673c3fde9041aa444faab3eba-panel-html">
+    <code class="Code Code--lang-html">
+        
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabs bootstrap-nav-wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist nav nav-tabs nav-tabs--with-content nav-tabs-processed"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__item active"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#bootstrap-fieldgroup-nav-item--actions"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__link"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>Actions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__item"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#bootstrap-fieldgroup-nav-item--latest"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__link"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>Latest<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__item"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#bootstrap-fieldgroup-nav-item--details"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tablist__link"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>Details<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bootstrap-fieldgroup-nav-item--actions"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabcontent"</span>&gt;</span>
+        Content of Actions tab
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bootstrap-fieldgroup-nav-item--latest"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabcontent"</span>&gt;</span>
+        Content of Latest tab
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bootstrap-fieldgroup-nav-item--details"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-tabcontent"</span>&gt;</span>
+        Content of Details tab
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        
+    </code>
+</div>
+
+    
+    
 
 
 <div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-7b070bf673c3fde9041aa444faab3eba-panel-assets">
@@ -254,19 +254,19 @@ Styleguide navtabs
 */</span>
 <span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.nav-tabs</span>,
 <span class="hljs-selector-class">.nav-tabs</span> {
-  @<span class="hljs-keyword">extend</span> .hidden-print;
+  @<span class="hljs-keyword">extend</span> %hidden-print;
 
   <span class="hljs-attribute">max-width</span>: inherit <span class="hljs-meta">!important</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">2em</span> <span class="hljs-meta">!important</span>;
   <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$grey</span>;
 
-  &amp; &gt; <span class="hljs-selector-tag">li</span> {
+  &gt; <span class="hljs-selector-tag">li</span> {
     <span class="hljs-attribute">margin-bottom</span>: -<span class="hljs-number">2px</span>;
 
     &amp;<span class="hljs-selector-class">.active</span> {
-      &amp; &gt; <span class="hljs-selector-tag">a</span> {
-        <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#fff</span>;
+      &gt; <span class="hljs-selector-tag">a</span> {
+        <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$white</span>;
         <span class="hljs-attribute">border-top</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$grey</span>;
         <span class="hljs-attribute">border-right</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$grey</span>;
         <span class="hljs-attribute">border-left</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$grey</span>;
@@ -275,7 +275,7 @@ Styleguide navtabs
         &amp;:hover,
         &amp;:active,
         &amp;:focus {
-          <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#fff</span>;
+          <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$white</span>;
           <span class="hljs-attribute">border-top</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$grey</span>;
           <span class="hljs-attribute">border-right</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$grey</span>;
           <span class="hljs-attribute">border-left</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$grey</span>;
@@ -293,7 +293,7 @@ Styleguide navtabs
       }
     }
 
-    &amp; &gt; <span class="hljs-selector-tag">a</span> {
+    &gt; <span class="hljs-selector-tag">a</span> {
       <span class="hljs-attribute">border-width</span>: <span class="hljs-number">2px</span>;
       <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
 
@@ -313,21 +313,14 @@ Styleguide navtabs
 }
 
 <span class="hljs-selector-class">.nav-tabs--with-content</span> {
-  <span class="hljs-attribute">display</span>: none;
-
-  &amp; &gt; <span class="hljs-selector-tag">li</span> {
-    &amp; &gt; <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">font-weight</span>: bold;
-      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">30px</span>;
-      <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">1em</span>;
-      <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">1em</span>;
-    }
+  <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">1em</span>;
+    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">1em</span>;
   }
 
-  &amp; + <span class="hljs-selector-class">.tab-content</span> {
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-
-    &amp; &gt; * {
+  + <span class="hljs-selector-class">.tab-content</span> {
+    &gt; * {
       @<span class="hljs-keyword">extend</span> .section__group;
       <span class="hljs-comment">// Margin bottom should be always there.</span>
       <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1.667em</span> <span class="hljs-meta">!important</span>;
@@ -358,22 +351,6 @@ Styleguide navtabs.nav-tabs-right
         <span class="hljs-attribute">border-bottom</span>: inherit;
       }
     }
-  }
-}
-
-@<span class="hljs-keyword">include</span> breakpoint(screen-xs-min) {
-  <span class="hljs-selector-class">.nav-tabs--with-content</span> {
-    <span class="hljs-attribute">display</span>: block;
-
-    &amp; + <span class="hljs-selector-class">.tab-content</span> {
-      <span class="hljs-selector-class">.tab-pane</span> {
-        <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-      }
-    }
-  }
-
-  <span class="hljs-selector-class">.tab-title</span> {
-    <span class="hljs-attribute">display</span>: none;
   }
 }
 
@@ -413,7 +390,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.6 KB</span>
+                    <span class="Meta-value">2.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -1240,7 +1217,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-default" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -1264,7 +1241,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-no-svg" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-no-svg" data-pjax>
                 <span>No SVG</span>
                 
 
@@ -1288,7 +1265,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotype" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotype" data-pjax>
                 <span>Logotype</span>
                 
 
@@ -1312,7 +1289,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atom-logotypebelow" data-pjax>
+            <a class="Tree-entityLink" href="atom-logos-logotypebelow" data-pjax>
                 <span>Logotype below</span>
                 
 
@@ -3085,7 +3062,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-site-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>Site Headers</span>
+                <span>Site headers</span>
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             
@@ -3096,7 +3073,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-default" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-default" data-pjax>
                 <span>Default</span>
                 
 
@@ -3120,7 +3097,7 @@ Implementation of WAI-ARIA attributes on nav tabs for the CWS.
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="organisms-homepage" data-pjax>
+            <a class="Tree-entityLink" href="organism-site-headers-homepage" data-pjax>
                 <span>Homepage</span>
                 
 
