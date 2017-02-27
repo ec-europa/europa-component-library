@@ -150,7 +150,7 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ '/framework/styles/europa.css' | path }}"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Preview Layout<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body{%</span> <span class="hljs-attr">if</span> <span class="hljs-attr">_target.context</span> <span class="hljs-attr">and</span> <span class="hljs-attr">_target.context.global</span> <span class="hljs-attr">and</span> <span class="hljs-attr">_target.context.global.language</span> %} <span class="hljs-attr">class</span>=<span class="hljs-string">"language-{{ _target.context.global.language }}"</span>{% <span class="hljs-attr">endif</span> %}&gt;</span>
     {{ yield }}
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{{ '/framework/scripts/europa.js' | path }}"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     {% if _target.context._demo and _target.context._demo %}
