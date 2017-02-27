@@ -16,10 +16,10 @@ const theme = mandelbrot({
     'default',
     '/assets/custom-styles.css',
   ],
-  "scripts": [
-    "default",
-    "/assets/custom-js.js"
-  ]
+  scripts: [
+    'default',
+    '/assets/custom-js.js',
+  ],
 });
 
 // Add overrides
