@@ -6,7 +6,7 @@
     const $contentBody = $('.Document');
     const initialContent = $contentBody.html();
 
-    data.then(function(data){
+    data.then((data) => {
       store = data.store;
       index = lunr.Index.load(data.index);
     });
@@ -23,12 +23,11 @@
           $contentBody.empty().append(
             results.length ?
               results.map(function(result){
-                const el = $('<p>')
-                  .append($('<a>')
-                    .attr('href', result.ref)
-                    .text(store[result.ref].title)
-                  );
-                return el;
+                console.log(store[result.ref]);
+                return `<p>
+                          <h2><a href="${store[result.ref].href}">${store[result.ref].name}</a></h2>
+                          <p>${store[result.ref].notes}</p>
+                        </p>`;
               }) : $('<p><strong>No results found</strong></p>')
           );
         });
