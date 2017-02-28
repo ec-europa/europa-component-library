@@ -16,7 +16,7 @@ const paths = {
 const theme = mandelbrot({
   skin: 'blue',
   nav: ['docs', 'components'],
-  panels: ['html', 'view', 'context', 'resources', 'info', 'notes'],
+  panels: ['view', 'context', 'html', 'resources', 'info', 'notes'],
   styles: [
     'default',
     '/assets/custom-styles.css',

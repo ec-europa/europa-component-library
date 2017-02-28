@@ -3,8 +3,6 @@ Messages
 
 Markup: html/messages.html
 
-.messages--icon-center - Centralized icon
-
 Style guide messages
 */
 
@@ -16,18 +14,15 @@ $messages-text-size: $font-size-little;
 
 .messages {
   position: relative;
+  min-height: 5.375em;
   margin: 0 0 1em;
-  padding: 1em 1em 1em 4em;
+  padding: 1.315em 0 1.315em 5em;
   overflow: hidden;
-  background: url('./images/svg/messages-info.svg') no-repeat 1em 1em;
+  background: transparent url('./images/svg/messages-info.svg') no-repeat 1.375em 1.375em;
   font-family: $font-family-sans-serif;
   font-size: $messages-text-size;
   color: $messages-text-color;
   border: 2px solid $blue;
-
-  &.messages--icon-center {
-    background-position: 1em center;
-  }
 
   &.status {
     background-image: url('./images/svg/messages-success.svg');
@@ -55,34 +50,42 @@ $messages-text-size: $font-size-little;
     font-weight: bold;
   }
 
-  ul,
   p {
     max-width: 95%;
     margin-bottom: 0;
     font-size: $messages-text-size;
   }
 
-  li {
-    list-style-type: none;
-  }
-
   > :last-child {
     padding-bottom: 0;
   }
+
+  .close {
+    display: none;
+  }
 }
 
-.messages__list {
-  max-width: auto;
-  margin-bottom: 0;
-  padding-left: 0;
-  font-family: $font-family-sans-serif;
-}
+// Bootstrap overrides.
+.alert {
+  margin: 1.667em 0;
+  border-radius: 0;
 
-.messages__list-item {
-  margin-top: 0.5em;
+  .close {
+    display: block;
+    position: absolute;
+    top: 0.465em;
+    right: 0.465em;
+    padding: 0 0 0 5px;
+    background: transparent url('./images/svg/close.svg') no-repeat right top;
+    font-size: 1.625em;
+    color: transparent;
+    text-shadow: none;
+    text-decoration: none;
+    opacity: 1;
 
-  &:first-child {
-    margin-top: 0;
+    &:hover {
+      background-image: url('./images/svg/close_hover.svg');
+    }
   }
 }
 
@@ -114,38 +117,6 @@ $messages-text-size: $font-size-little;
       &:hover {
         background-image: url('./images/png/close_hover.png');
       }
-    }
-  }
-}
-
-// Drupal overrides.
-.messages {
-  ul {
-    @extend .messages__list;
-
-    li {
-      @extend .messages__list-item;
-    }
-  }
-}
-
-// Bootstrap overrides.
-.alert {
-  margin: 1.667em 0;
-  border-radius: 0;
-
-  .close {
-    position: absolute;
-    right: 0.715em;
-    padding: 0 0 0 5px;
-    background: url('./images/svg/close.svg') no-repeat right top;
-    color: transparent;
-    text-shadow: none;
-    text-decoration: none;
-    opacity: 1;
-
-    &:hover {
-      background-image: url('./images/svg/close_hover.svg');
     }
   }
 }

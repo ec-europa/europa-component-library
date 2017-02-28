@@ -9,25 +9,23 @@ Style guide form.feedback-message
 .feedback-message {
   @extend .messages;
 
-  border: none !important;
-  max-width: none;
+  border: none;
 
   &.is-disabled {
     color: $form-control-color-disabled;
   }
 
   &.is-error {
-    background: $grey-lightest url('./images/svg/messages-error.svg') 1em 1.1em no-repeat;
-    background-size: 2em;
+    background: $grey-lightest url('../images/svg/messages-error.svg') no-repeat 1.375em 1.375em;
   }
 
-  @extend .hidden-print;
+  @extend %hidden-print;
 }
 
 .no-svg {
   .feedback-message {
     &.is-error {
-      background-image: url('./images/png/messages-error.png');
+      background-image: url('../images/png/messages-error.png');
     }
   }
 }

@@ -8,7 +8,7 @@
     -->
     <title>Preview Layout</title>
   </head>
-  <body>
+  <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
     {{ yield }}
     <script src="{{ '/framework/vendors.js' | path }}"></script>
     <script src="{{ '/framework/europa.js' | path }}"></script>

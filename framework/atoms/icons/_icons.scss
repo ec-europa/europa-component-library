@@ -1,21 +1,29 @@
 /**
  * Icons
- * @define icon
  */
 
 @import '~@ec-europa/europa-component-library-core/core';
 
-@font-face {
-  font-family: 'EuropaIcons';
-  src: url('./fonts/europa-icons/europa-icons.eot');
-  src:
-    url('./fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
-    url('./fonts/europa-icons/europa-icons.woff') format('woff'),
-    url('./fonts/europa-icons/europa-icons.ttf') format('truetype'),
-    url('./fonts/europa-icons/europa-icons.svg#icomoon') format('svg');
+%icon {
+  &::before {
+    display: inline-block;
+    font-family: 'EuropaIcons';
+    // Better Font Rendering
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin-right: 4px;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+  }
 }
 
-.icon::before {
+// Should be used only with @extend.
+%icon--after {
   display: inline-block;
   font-family: 'EuropaIcons';
   // Better Font Rendering
@@ -25,29 +33,69 @@
   font-variant: normal;
   font-weight: normal;
   line-height: 1;
-  margin-right: 4px;
+  margin-left: 4px;
   speak: none;
-  text-decoration: none;
+  text-decoration: underline;
   text-transform: none;
+}
+
+// Remove the underline from a::after
+// There is a bug in IE8-11, so using display:inline-block; alone won't
+// work. The solution is by explicitly setting text-decoration:underline;
+// for the ::after-content and then overwrite this rule again with
+// text-decoration:none;
+%icon--after {
+  text-decoration: none;
+}
+
+%icon--blue-dark {
+  color: #004494;
+}
+
+%icon--tag-close-hover {
+  content: '\e82d';
+
+  &::before {
+    @extend %icon--tag-close-hover;
+  }
+}
+
+/**
+ * @define icon
+ */
+
+@font-face {
+  font-family: 'EuropaIcons';
+  src: url('./fonts/europa-icons/europa-icons.eot');
+  src:
+    url('./fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/europa-icons/europa-icons.woff') format('woff'),
+    url('./fonts/europa-icons/europa-icons.ttf') format('truetype'),
+    url('./fonts/europa-icons/europa-icons.svg?#icon') format('svg');
+}
+
+.icon {
+  @extend %icon;
+}
+
+.icon--after {
+  @extend %icon--after;
 }
 
 // Icon component and modifiers.
 @each $modifier, $char in $modifiers {
+  %icon--#{$modifier},
   .icon--#{$modifier} {
     @include icon($modifier);
   }
 }
 
 .icon--blue-dark {
-  color: #004494;
+  @extend %icon--blue-dark;
 }
 
 .icon--tag-close-hover {
-  content: '\e82d';
-
-  &::before {
-    @extend .icon--tag-close-hover;
-  }
+  @extend %icon--tag-close-hover;
 }
 
 .icon--yellowbg {

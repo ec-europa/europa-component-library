@@ -6,10 +6,10 @@ module.exports = {
   plugins: ['stylelint-selector-bem-pattern'],
   rules: {
     'plugin/selector-bem-pattern': {
-      componentName: /^[a-z][-_a-zA-Z0-9]+$/,
+      componentName: /^[a-z][-a-zA-Z0-9]+$/,
       componentSelectors: bemSelector
     },
-    'selector-class-pattern': 'off',
+    'selector-class-pattern': null,
   }
 };
 

@@ -129,7 +129,7 @@ $modifiers: (
 }
 
 @mixin form-control() {
-  @extend .hidden-print;
+  @extend %hidden-print;
 
   color: $form-control-text-color;
   background-color: $form-control-background-color;
@@ -210,36 +210,22 @@ $modifiers: (
   }
 }
 
-// Should be used only with @extend.
-.icon--after {
-  display: inline-block;
-  margin-left: 4px;
-  line-height: 1;
-  font-family: 'EuropaIcons';
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  // Better Font Rendering
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-transform: none;
-  text-decoration: none;
-  speak: none;
-}
-
-// [converter] $parent hack.
-@mixin hidden-print($selector) {
+// Social icons image.
+@mixin social_icon_background($selector, $social_path, $image, $image_hover, $extra: null, $extra_hover: null) {
   #{$selector} {
-    display: none !important;
-  }
-}
+    &::before {
+      background: url($social_path + $image) no-repeat $extra;
+    }
 
-@media print {
-  @include hidden-print('.hidden-print');
+    &:hover::before {
+      background-image: url($social_path + $image_hover) $extra_hover;
+    }
+  }
 }
 
 // Media caption.
 @mixin media-caption() {
+  display: block;
   padding: 0.715em 1em;
   line-height: 1.5715;
   background-color: $grey-lighter;
