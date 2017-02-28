@@ -1,3 +1,3 @@
 # Footers
 
-Site-wide footer component
+Site-wide footers component
