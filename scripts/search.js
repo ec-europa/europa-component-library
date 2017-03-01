@@ -11,6 +11,7 @@ const lunarIndex = lunr(function buildSchema() {
   this.field('handle');
   this.field('href');
   this.field('notes');
+  this.pipeline.remove(lunr.stopWordFilter);
 });
 
 fractal.components.load().then((components) => {
