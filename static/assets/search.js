@@ -33,7 +33,7 @@
               const resultItem = $(`
                 <li class="Tree-item">
                     <h4 class="Tree-collectionLabel">
-                      <a href="${store[result.ref].href}">${store[result.ref].name}</a>
+                      <a class="Tree-entityLink" href="${store[result.ref].href}">${store[result.ref].name}</a>
                     </h4>
                 </li>
               `);
