@@ -1,7 +1,6 @@
 const path = require('path');
 const fractal = require('@frctl/fractal').create(); // eslint-disable-line import/no-extraneous-dependencies
 const mandelbrot = require('@frctl/mandelbrot'); // eslint-disable-line import/no-extraneous-dependencies
-const lunr = require('lunr');
 
 const paths = {
   build: `${__dirname}/dist`,
@@ -11,7 +10,7 @@ const paths = {
 // Create a new theme instance with custom config options
 const theme = mandelbrot({
   skin: 'blue',
-  nav: ['docs', 'components'],
+  nav: ['docs', 'search', 'components'],
   panels: ['view', 'context', 'html', 'resources', 'info', 'notes'],
   styles: [
     'default',
