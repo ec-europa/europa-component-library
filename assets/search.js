@@ -1,9 +1,12 @@
 (function ($) {
+  const searchIndexPath = JSON.parse($('#searchIndexPath').html());
+  const data = $.getJSON(searchIndexPath.path);
+
   // pjax because mandelbrot.js uses it.
   $(document).on('ready pjax:success', () => {
     let store = '';
     let index = '';
-    const data = $.getJSON('/assets/searchIndex.json');
+
     const $searchInput = $('#search-components');
     const $resultsArea = $('#tree-components').find('.Tree-items');
     const initialContent = $resultsArea.html();
