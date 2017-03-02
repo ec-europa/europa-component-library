@@ -31,6 +31,12 @@ Style guide footer
       text-decoration: none;
     }
   }
+  // Inline listings need more padding-right on the footer.
+  .list-inline {
+    .footer__menu-item {
+      padding-right: 15px;
+    }
+  }
 }
 
 .footer__label {
@@ -127,12 +133,6 @@ Style guide footer
       &:not(#{$ec_url_patterns}) {
         @include _footer_external_link_mixin();
       }
-    }
-  }
-
-  .list-inline {
-    .footer__icon--social {
-      padding-right: 15px;
     }
   }
 
