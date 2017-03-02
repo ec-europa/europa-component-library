@@ -30,13 +30,18 @@
           // Clear area for results to prepare for results.
           $resultsArea.empty();
 
+          let prefix = '';
+          if (window.location.href.indexOf('components/detail/') <= 0) {
+            prefix = 'components/detail/';
+          }
+
           if (results.length) {
             const $resultsDom = $('<ul class="Tree-items"></ul>');
             results.map((result) => {
               const resultItem = $(`
                 <li class="Tree-item">
                     <h4 class="Tree-collectionLabel">
-                      <a class="Tree-entityLink" data-pjax href="${store[result.ref].href}">${store[result.ref].name}</a>
+                      <a class="Tree-entityLink" data-pjax href="${prefix + store[result.ref].href}">${store[result.ref].name}</a>
                     </h4>
                 </li>
               `);
