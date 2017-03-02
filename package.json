@@ -9,6 +9,7 @@
     "bootstrap": "lerna bootstrap",
     "build:copy": "node ./scripts/copy.js",
     "build:scripts": "rollup --config ./rollup.config.js",
+    "build:search": "node ./scripts/search.js",
     "build:styles": "node-sass ./framework/index.scss | postcss -c postcss.config.js",
     "build": "npm-run-all --parallel build:*",
     "clean": "rimraf tmp build dist static/framework",
@@ -72,7 +73,8 @@
     "webdriverio": "4.6.2"
   },
   "dependencies": {
-    "bootstrap-sass": "3.3.7"
+    "bootstrap-sass": "3.3.7",
+    "lunr": "^1.0.0"
   },
   "engines": {
     "node": ">=6.9.5",
