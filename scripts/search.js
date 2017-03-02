@@ -9,7 +9,6 @@ const lunarIndex = lunr(function buildSchema() {
   this.field('title', { boost: 10 });
   this.field('name');
   this.field('handle');
-  this.field('href');
   this.field('notes');
   this.pipeline.remove(lunr.stopWordFilter);
 });
@@ -24,7 +23,6 @@ fractal.components.load().then((components) => {
       handle: c.handle,
       title: c.title,
       notes: c.notes ? `${c.notes.substring(0, 50)} ...` : '',
-      href: `/components/detail/${c.handle}`,
     }));
 
   // eslint-disable-next-line no-restricted-syntax
