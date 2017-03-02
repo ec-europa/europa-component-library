@@ -1,9 +1,12 @@
 (function ($) {
+  const searchIndexPath = JSON.parse($('#searchIndexPath').html());
+  const data = $.getJSON(searchIndexPath.path);
+
   // pjax because mandelbrot.js uses it.
   $(document).on('ready pjax:success', () => {
     let store = '';
     let index = '';
-    const data = $.getJSON('/assets/searchIndex.json');
+
     const $searchInput = $('#search-components');
     const $resultsArea = $('#tree-components').find('.Tree-items');
     const initialContent = $resultsArea.html();
@@ -27,13 +30,18 @@
           // Clear area for results to prepare for results.
           $resultsArea.empty();
 
+          let prefix = '';
+          if (window.location.href.indexOf('components/detail/') <= 0) {
+            prefix = 'components/detail/';
+          }
+
           if (results.length) {
             const $resultsDom = $('<ul class="Tree-items"></ul>');
             results.map((result) => {
               const resultItem = $(`
                 <li class="Tree-item">
                     <h4 class="Tree-collectionLabel">
-                      <a class="Tree-entityLink" data-pjax href="${store[result.ref].href}">${store[result.ref].name}</a>
+                      <a class="Tree-entityLink" data-pjax href="${prefix + store[result.ref].handle}">${store[result.ref].title}</a>
                     </h4>
                 </li>
               `);
