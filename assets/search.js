@@ -38,10 +38,12 @@
           if (results.length) {
             const $resultsDom = $('<ul class="Tree-items"></ul>');
             results.map((result) => {
+              console.log(store[result.ref]);
+
               const resultItem = $(`
                 <li class="Tree-item">
                     <h4 class="Tree-collectionLabel">
-                      <a class="Tree-entityLink" data-pjax href="${prefix + store[result.ref].href}">${store[result.ref].name}</a>
+                      <a class="Tree-entityLink" data-pjax href="${prefix + store[result.ref].handle}">${store[result.ref].title}</a>
                     </h4>
                 </li>
               `);
