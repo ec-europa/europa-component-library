@@ -38,8 +38,6 @@
           if (results.length) {
             const $resultsDom = $('<ul class="Tree-items"></ul>');
             results.map((result) => {
-              console.log(store[result.ref]);
-
               const resultItem = $(`
                 <li class="Tree-item">
                     <h4 class="Tree-collectionLabel">
