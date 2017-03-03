@@ -51,8 +51,8 @@ fractal.components.set('statuses', {
 });
 fractal.components.set('default.status', 'planned');
 fractal.components.set('path', path.resolve(__dirname, './framework'));
-fractal.components.engine('@frctl/nunjucks'); // use Nunjucks for components
-fractal.components.set('ext', '.html');
+fractal.components.engine('@frctl/twig'); // use Twig for components
+fractal.components.set('ext', '.twig');
 
 // 'Assets' tab
 fractal.components.set('resources.assets', {
