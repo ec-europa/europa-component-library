@@ -30,6 +30,7 @@ theme.addLoadPath(path.resolve(__dirname, './static/theme-overrides'));
 fractal.set('project.title', 'Europa Component Library');
 
 // Components config
+fractal.components.set('label', 'library');
 fractal.components.set('default.preview', '@preview');
 fractal.components.set('statuses', {
   planned: {
