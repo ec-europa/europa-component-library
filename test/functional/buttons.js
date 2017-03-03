@@ -52,7 +52,7 @@ describe('buttons', () => {
       context('with hover state', () => {
         before(() => {
           // Reload
-          browser.url(`/atom-buttons-buttons--${variant}.html`);
+          browser.url(`/buttons-buttons--${variant}.html`);
           browser.pause(1000);
           browser.injectAxeCore();
 
