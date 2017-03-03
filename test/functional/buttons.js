@@ -15,7 +15,7 @@ describe('buttons', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`/atom-buttons-buttons--${variant}.html`);
+        browser.url(`/buttons-buttons--${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(1000);
         // Inject axe-core (for accessibility tests)

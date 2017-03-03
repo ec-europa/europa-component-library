@@ -15,7 +15,7 @@ describe('site-headers', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`/organism-site-headers-${variant}.html`);
+        browser.url(`/site-headers-${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(1000);
         // Inject axe-core (for accessibility tests)
