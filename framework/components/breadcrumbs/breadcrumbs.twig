@@ -1,11 +1,9 @@
-{# Define macro to make it easily accessible from elsewhere #}
-{% macro breadcrumb(segments=[], modifier="") %}
-<nav class="breadcrumb{{ " breadcrumb--" + modifier if modifier|length}}" role="navigation" aria-label="breadcrumbs">
+<nav class="breadcrumb{{ " breadcrumb--" + modifier|length ? modifier : "" }}" role="navigation" aria-label="breadcrumbs">
   <span class="sr-only">You are here:</span>
   <ol class="breadcrumb__segments-wrapper">
     {% for segment in segments %}
-    <li class="breadcrumb__segment{{ " breadcrumb__segment--first" if loop.first }}{{ " breadcrumb__segment--last" if loop.last }}">
-      <a href="{{ segment.target }}" class="breadcrumb__link{{ " is-internal" if segment.isInternal }}">
+    <li class="breadcrumb__segment{{ loop.first ? " breadcrumb__segment--first" : "" }}{{ loop.last ? " breadcrumb__segment--last" : "" }}">
+      <a href="{{ segment.target }}" class="breadcrumb__link{{ segment.isInternal ? " is-internal" : "" }}">
         <span class="breadcrumb__text">{{ segment.title }}</span>
       </a>
     </li>
@@ -13,7 +11,3 @@
   </ol>
   <span class="breadcrumb__btn-separator" style="display: none;">...</span>
 </nav>
-{% endmacro %}
-
-{# Render if this file is included as a template with data inherited from the context #}
-{{ breadcrumb(segments, modifier) }}
