@@ -3,6 +3,7 @@ module.exports = {
   label: 'Breadcrumbs',
   status: 'wip',
   tags: ['molecule'],
+  preview: '@preview-breadcrumbs',
   context: {
     segments: [{
       target: '#',

@@ -12,7 +12,7 @@
 
   <script src="{{ '/framework/scripts/europa.js' | path }}"></script>
   {% if _target.context._demo and _target.context._demo %}
-  <script type="text/javascript">{{ _target.context._demo.scripts | safe }}</script>
+  <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
   {% endif %}
 </body>
 </html>

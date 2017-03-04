@@ -1,11 +1,3 @@
-{# Define macro to make it easily accessible from elsewhere #}
-{% macro logo(to="", title="") %}
 <a href="{{ to }}" class="logo" title="{{ title }}">
   <span class="sr-only">{{ title }}</span>
 </a>
-{% endmacro %}
-
-{# Render if this file is included as a template with data inherited from the context #}
-<div class="clearfix"> <!-- only required for the style guide -->
-  {{ logo("link-to-homepage", "Home") }}
-</div>
