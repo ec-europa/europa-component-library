@@ -26,11 +26,11 @@ Style guide hero-links
 }
 
 .hero-links__items {
-  @extend .row;
+  @include make-row();
 
   .hero-links__item {
-    @extend .col-sm-6;
-    @extend .col-xs-12;
+    @include make-xs-column(12);
+    @include make-sm-column(6);
 
     margin-bottom: 30px;
     text-align: center;

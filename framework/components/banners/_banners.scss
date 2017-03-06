@@ -15,7 +15,7 @@ Markup: html/banner-quote.html
 Style guide banner.quote
 */
 
-$quote_border_offset: 0.556em;
+$quoteBorderOffset: 0.556em;
 
 .banner {
   @include clearfix();
@@ -24,21 +24,21 @@ $quote_border_offset: 0.556em;
 .banner--quote {
   @include make-md-column(8);
 
-  padding-left: $quote_border_offset;
-  border-left: $quote_border_offset solid $yellow-light;
+  border-left: $quoteBorderOffset solid $yellow-light;
+  padding-left: $quoteBorderOffset;
 
   blockquote {
-    max-width: none;
+    border-left: 0;
     margin-bottom: 0;
+    max-width: none;
     padding-left: 0;
-    border-left: none;
   }
 }
 
 .banner__author {
-  padding-bottom: 0.6em;
   font-size: $font-size-xsmall;
   font-weight: $font-weight-bold;
+  padding-bottom: 0.6em;
 
   &::before {
     content: ' - ';
@@ -54,7 +54,7 @@ Style guide banner.video
 */
 
 .banner--video {
-  @extend .row;
+  @include make-row();
 }
 
 .banner__video {
@@ -64,14 +64,14 @@ Style guide banner.video
 }
 
 .banner__left {
-  @extend .col-md-6;
+  @include make-md-column(6);
 }
 
 .banner__paragraph {
-  @extend .col-md-6;
+  @include make-md-column(6);
 
-  margin-top: 1em;
   font-size: $font-size-little;
+  margin-top: 1em;
 }
 
 .banner__caption {

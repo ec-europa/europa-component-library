@@ -20,7 +20,7 @@
 }
 
 .featured-item__image {
-  @extend .col-md-5;
+  @include make-md-column(5);
 
   margin-bottom: 1em;
 
@@ -32,7 +32,7 @@
 }
 
 .featured-item__content {
-  @extend .col-md-7;
+  @include make-md-column(7);
 
   p {
     font-size: $font-size-little;
@@ -48,7 +48,7 @@
 .featured-item__image,
 .featured-item__content {
   .listing__wrapper--three-columns & {
-    @extend .col-md-12;
+    @include make-md-column(12);
 
     clear: left;
   }

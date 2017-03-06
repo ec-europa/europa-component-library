@@ -88,7 +88,7 @@ $section-spacing: 1.667em;
   margin-top: $section-spacing;
 
   .section__group {
-    @extend .clearfix;
+    @include clearfix();
   }
 
   .section__group:first-child,
@@ -106,7 +106,7 @@ $section-spacing: 1.667em;
 
   .section--row-two,
   .section--row-three {
-    @extend .row;
+    @include make-row();
   }
 }
 
@@ -184,7 +184,7 @@ $section-spacing: 1.667em;
   .section__item {
     margin-top: 15px;
 
-    @extend .col-md-6;
+    @include make-md-column(6);
 
     &:nth-child(odd) {
       clear: left;
@@ -194,7 +194,7 @@ $section-spacing: 1.667em;
 
 .section--row-three {
   .section__item {
-    @extend .col-md-4;
+    @include make-md-column(4);
 
     margin-top: 15px;
 

@@ -760,10 +760,10 @@ Style guide listing.2.4
 
 // .listing__wrapper--maxwidth.
 .listing__wrapper--maxwidth {
-  @extend .row;
+  @include make-row();
 
   .listing {
-    @extend .col-md-8;
+    @include make-md-column(8);
   }
 
   .listing__item {
@@ -786,29 +786,29 @@ Style guide listing.2.4
 
 .listing__wrapper--three-columns,
 .listing__wrapper--two-columns {
-  @extend .row;
+  @include make-row();
 }
 
 .listing__wrapper--two-columns .listing {
-  @extend .col-sm-6;
+  @include make-sm-column(6);
 
   margin-bottom: 2em;
 }
 
 .listing__wrapper--three-columns .listing {
-  @extend .col-md-4;
+  @include make-md-column(4);
 }
 
 .listing__wrapper--row-three,
 .listing__wrapper--row-two {
   .listing {
-    @extend .row;
+    @include make-row();
   }
 }
 
 .listing__wrapper--row-two {
   .listing__item {
-    @extend .col-md-6;
+    @include make-md-column(6);
 
     &:nth-child(odd) {
       clear: left;
@@ -818,7 +818,7 @@ Style guide listing.2.4
 
 .listing__wrapper--row-three {
   .listing__item {
-    @extend .col-md-4;
+    @include make-md-column(4);
 
     &:nth-child(3n+4) {
       clear: left;
