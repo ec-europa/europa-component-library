@@ -5,5 +5,8 @@ module.exports = {
   label: 'Buttons',
   status: 'wip',
   collated: true,
+  context: {
+    label: 'Button element',
+  },
   variants,
 };
