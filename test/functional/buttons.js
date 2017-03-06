@@ -15,11 +15,13 @@ describe('buttons', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`/atom-buttons-buttons--${variant}.html`);
+        browser.url(`/buttons-buttons--${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(1000);
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
+        // Inject HTMLInspector (for markup tests)
+        browser.injectHTMLInspector();
       });
 
       // Normal state
@@ -33,6 +35,11 @@ describe('buttons', () => {
           const a11yReport = browser.runAxeCore('btn').value;
           expect(a11yReport).to.be.accessible;
         });
+
+        it('should be well formatted', () => {
+          const markup = browser.runHTMLInspector();
+          expect(markup).to.be.wellFormatted;
+        });
       });
 
       // Stop here if browser is Safari
@@ -44,6 +51,12 @@ describe('buttons', () => {
       // Hover button
       context('with hover state', () => {
         before(() => {
+          // Reload
+          browser.url(`/buttons-buttons--${variant}.html`);
+          browser.pause(1000);
+          browser.injectAxeCore();
+
+          // Hover the button
           browser.moveToObject('.btn');
         });
 

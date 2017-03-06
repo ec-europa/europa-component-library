@@ -1,0 +1,41 @@
+{% set bodyClass = '' %}
+{% if _target.context is defined and _target.context.global is defined %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = 'no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = global.language %}
+  {% endif %}
+{% endif %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+      <link rel="stylesheet" href="{{ '/framework/vendors.bundle.css' | path }}">
+      <link rel="stylesheet" href="{{ '/framework/europa.bundle.css' | path }}">
+    -->
+    <title>Preview Layout</title>
+    <style>
+      body {
+        background-image:url({{ '/assets/alpha.jpg' | path }});
+        margin: 15px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body class="{{ bodyClass }}">
+    <main>
+      {{ yield }}
+    </main>
+    <script src="{{ '/framework/vendors.js' | path }}"></script>
+    <script src="{{ '/framework/europa.js' | path }}"></script>
+    {% if _target.context._demo and _target.context._demo %}
+    <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
+    {% endif %}
+  </body>
+</html>

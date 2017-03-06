@@ -1,3 +1,21 @@
+@mixin _listing_external_link_mixin() {
+  &::after {
+    display: none !important;
+  }
+
+  .listing__title,
+  .highlighted-item h3 {
+    @extend .is-external;
+
+    padding-right: 1.2em;
+
+    &::after {
+      position: absolute;
+      line-height: 1.6;
+    }
+  }
+}
+
 // SUMMARY (Components, elements, modifiers)
 //
 // .listing (component)

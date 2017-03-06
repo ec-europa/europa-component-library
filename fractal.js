@@ -15,11 +15,16 @@ const paths = {
 // Create a new theme instance with custom config options
 const theme = mandelbrot({
   skin: 'blue',
-  nav: ['docs', 'components'],
+  nav: ['docs', 'search', 'components'],
   panels: ['view', 'context', 'html', 'resources', 'info', 'notes'],
   styles: [
     'default',
     '/assets/custom-styles.css',
+  ],
+  scripts: [
+    'https://cdnjs.cloudflare.com/ajax/libs/lunr.js/1.0.0/lunr.min.js',
+    'default',
+    '/assets/search.js',
   ],
 });
 
@@ -30,6 +35,7 @@ theme.addLoadPath(path.resolve(__dirname, './static/theme-overrides'));
 fractal.set('project.title', 'Europa Component Library');
 
 // Components config
+fractal.components.set('label', 'library');
 fractal.components.set('default.preview', '@preview');
 fractal.components.set('statuses', {
   planned: {
@@ -50,8 +56,8 @@ fractal.components.set('statuses', {
 });
 fractal.components.set('default.status', 'planned');
 fractal.components.set('path', path.resolve(__dirname, './framework'));
-fractal.components.engine('@frctl/nunjucks'); // use Nunjucks for components
-fractal.components.set('ext', '.html');
+fractal.components.engine('@frctl/twig'); // use Twig for components
+fractal.components.set('ext', '.twig');
 
 // 'Assets' tab
 fractal.components.set('resources.assets', {
@@ -69,7 +75,7 @@ fractal.web.set('builder.dest', paths.build);
 fractal.web.set('builder.urls.ext', '.html');
 
 // Dev server
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.server) {
   const bundler = webpack(webpackConfig);
 
   fractal.web.set('server.sync', true);
