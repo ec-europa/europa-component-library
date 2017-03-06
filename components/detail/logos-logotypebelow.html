@@ -142,20 +142,10 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-621f292784e2aab7e6d68431e2376b3f-panel-view">
-    <code class="Code Code--lang-html">
-        <pre>{# Define macro to make it easily accessible from elsewhere #}
-{% macro logoTypeBelow(to="", title="", externalClass="") %}
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ to }}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow {{ externalClass }}"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{ title }}"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>{{ title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-{% endmacro %}
-
-{# Render if this file is included as a template with data inherited from the context #}
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span> <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"{{ modifier_class }}"</span>&gt;</span>
-    {{ logoTypeBelow("#top", "Home") }}
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+    <code class="Code Code--lang-twig">
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ to }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow </span></span></span><span class="hljs-template-variable">{{ externalClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -167,7 +157,12 @@
             <pre>
 <span class="hljs-comment">/* Bulgarian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-bg"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"bg"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -175,7 +170,12 @@
             <pre>
 <span class="hljs-comment">/* English */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-en"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"en"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -183,7 +183,12 @@
             <pre>
 <span class="hljs-comment">/* Czech */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-cs"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"cs"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -191,7 +196,12 @@
             <pre>
 <span class="hljs-comment">/* Danish */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-da"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"da"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -199,7 +209,12 @@
             <pre>
 <span class="hljs-comment">/* German */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-de"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"de"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -207,7 +222,12 @@
             <pre>
 <span class="hljs-comment">/* Estonian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-et"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"et"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -215,7 +235,12 @@
             <pre>
 <span class="hljs-comment">/* Greek */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-el"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"el"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -223,7 +248,12 @@
             <pre>
 <span class="hljs-comment">/* Spanish */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-es"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"es"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -231,7 +261,12 @@
             <pre>
 <span class="hljs-comment">/* French */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-fr"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fr"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -239,7 +274,12 @@
             <pre>
 <span class="hljs-comment">/* Irish Gaeilge */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-ga"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ga"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -247,7 +287,12 @@
             <pre>
 <span class="hljs-comment">/* Croatian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-hr"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"hr"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -255,7 +300,12 @@
             <pre>
 <span class="hljs-comment">/* Italian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-it"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"it"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -263,7 +313,12 @@
             <pre>
 <span class="hljs-comment">/* Latvian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-lv"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"lv"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -271,7 +326,12 @@
             <pre>
 <span class="hljs-comment">/* Lithuanian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-lt"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"lt"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -279,7 +339,12 @@
             <pre>
 <span class="hljs-comment">/* Hungarian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-hu"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"hu"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -287,7 +352,12 @@
             <pre>
 <span class="hljs-comment">/* Maltese */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-mt"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"mt"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -295,7 +365,12 @@
             <pre>
 <span class="hljs-comment">/* Dutch */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-nl"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"nl"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -303,7 +378,12 @@
             <pre>
 <span class="hljs-comment">/* Polish */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-pl"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"pl"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -311,7 +391,12 @@
             <pre>
 <span class="hljs-comment">/* Portuguese */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-pt"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"pt"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -319,7 +404,12 @@
             <pre>
 <span class="hljs-comment">/* Romanian */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-ro"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ro"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -327,7 +417,12 @@
             <pre>
 <span class="hljs-comment">/* Slovak */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-sk"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sk"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -335,7 +430,12 @@
             <pre>
 <span class="hljs-comment">/* Slovene */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-sl"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sl"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -343,7 +443,12 @@
             <pre>
 <span class="hljs-comment">/* Finnish */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-fi"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fi"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -351,7 +456,12 @@
             <pre>
 <span class="hljs-comment">/* Swedish */</span>
 {
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-sv"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sv"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }
 
 </pre>
@@ -367,338 +477,170 @@
         
         
             <pre><span class="hljs-comment">&lt;!-- Bulgarian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-bg"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- English --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-en"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Czech --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-cs"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Danish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-da"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- German --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-de"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Estonian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-et"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Greek --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-el"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Spanish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-es"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- French --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-fr"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Irish Gaeilge --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-ga"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Croatian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-hr"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Italian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-it"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Latvian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-lv"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Lithuanian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-lt"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Hungarian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-hu"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Maltese --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-mt"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Dutch --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-nl"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Polish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-pl"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Portuguese --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-pt"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Romanian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-ro"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Slovak --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-sk"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Slovene --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-sl"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Finnish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-fi"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Swedish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-sv"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
@@ -846,7 +788,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/content/logos/logotypebelow/logotypebelow.html</span>
+            <span class="Meta-value">framework/content/logos/logotypebelow/logotypebelow.twig</span>
         </li>
         
         
@@ -1027,9 +969,20 @@
             
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-logos-default">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Default</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default" data-pjax>
+            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
                 <span>Default</span>
                 
 
@@ -1053,8 +1006,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-no-svg" data-pjax>
-                <span>No SVG</span>
+            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
+                <span>No Svg</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1071,6 +1024,11 @@
 
 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3541,30 +3499,6 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-agenda" data-pjax>
-                <span>Agenda</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-agendas" data-pjax>
                 <span>Agendas</span>
                 
@@ -3615,30 +3549,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-default" data-pjax>
                 <span>Default</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-navigation" data-pjax>
-                <span>Navigation</span>
                 
 
 <div class="Status Status--unlabelled">

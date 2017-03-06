@@ -142,15 +142,8 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-8815650e5c4438c81c014c4783282a70-panel-view">
-    <code class="Code Code--lang-html">
-        <pre>{# Define macro to make it easily accessible from elsewhere #}
-{% macro link(to="#", label="Link", modifier="") %}
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ to }}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-{{ modifier }}"</span>&gt;</span>{{ label }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-{% endmacro %}
-
-{# Render if this file is included as a template with data inherited from the context #}
-{{ link("#", "Link button", modifier) }}
-{{ link("http://example.com", "External link button", modifier) }}</pre>
+    <code class="Code Code--lang-twig">
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ to }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -160,17 +153,11 @@
         
         
             <pre>
-<span class="hljs-comment">/* Call to action */</span>
+<span class="hljs-comment">/* Default */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ctn"</span>
-}
-
-</pre>
-        
-            <pre>
-<span class="hljs-comment">/* Call to action with border */</span>
-{
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ctn--border"</span>
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"default"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>
 }
 
 </pre>
@@ -178,15 +165,9 @@
             <pre>
 <span class="hljs-comment">/* Default */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"default"</span>
-}
-
-</pre>
-        
-            <pre>
-<span class="hljs-comment">/* Menu */</span>
-{
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"menu"</span>
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"default"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"External link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"http://example.com"</span>
 }
 
 </pre>
@@ -194,7 +175,19 @@
             <pre>
 <span class="hljs-comment">/* Primary */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"primary"</span>
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"primary"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Primary */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"primary"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"External link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"http://example.com"</span>
 }
 
 </pre>
@@ -202,7 +195,79 @@
             <pre>
 <span class="hljs-comment">/* Secondary */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"secondary"</span>
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"secondary"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Secondary */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"secondary"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"External link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"http://example.com"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Call to action */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ctn"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Call to action */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ctn"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"External link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"http://example.com"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Call to action with border */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ctn--border"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Call to action with border */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ctn--border"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"External link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"http://example.com"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Menu */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"menu"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Menu */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"menu"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"External link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"http://example.com"</span>
 }
 
 </pre>
@@ -217,42 +282,22 @@
     <code class="Code Code--lang-html">
         
         
-            <pre><span class="hljs-comment">&lt;!-- Call to action --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-</pre>
-        
-            <pre><span class="hljs-comment">&lt;!-- Call to action with border --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn--border"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn--border"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-</pre>
-        
-            <pre><span class="hljs-comment">&lt;!-- Menu --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-menu"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-menu"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Primary --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
-
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Primary --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
@@ -260,8 +305,40 @@
             <pre><span class="hljs-comment">&lt;!-- Secondary --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
-
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Secondary --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Call to action --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Call to action --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Call to action with border --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn--border"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Call to action with border --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn--border"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Menu --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-menu"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Menu --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-menu"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
@@ -299,8 +376,36 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(6)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(12)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
+            
+                <a href="buttons-links--default">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="buttons-links--default">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="buttons-links--primary">
+                    <span>Primary</span>
+                </a>, 
+            
+                <a href="buttons-links--primary">
+                    <span>Primary</span>
+                </a>, 
+            
+                <a href="buttons-links--secondary">
+                    <span>Secondary</span>
+                </a>, 
+            
+                <a href="buttons-links--secondary">
+                    <span>Secondary</span>
+                </a>, 
+            
+                <a href="buttons-links--ctn">
+                    <span>Call to action</span>
+                </a>, 
             
                 <a href="buttons-links--ctn">
                     <span>Call to action</span>
@@ -310,20 +415,16 @@
                     <span>Call to action with border</span>
                 </a>, 
             
-                <a href="buttons-links--default">
-                    <span>Default</span>
+                <a href="buttons-links--ctn--border">
+                    <span>Call to action with border</span>
                 </a>, 
             
                 <a href="buttons-links--menu">
                     <span>Menu</span>
                 </a>, 
             
-                <a href="buttons-links--primary">
-                    <span>Primary</span>
-                </a>, 
-            
-                <a href="buttons-links--secondary">
-                    <span>Secondary</span>
+                <a href="buttons-links--menu">
+                    <span>Menu</span>
                 </a>
             
             </span>
@@ -348,7 +449,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/buttons/links/links.html</span>
+            <span class="Meta-value">framework/components/buttons/links/links.twig</span>
         </li>
         
         
@@ -529,9 +630,20 @@
             
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-logos-default">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Default</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default" data-pjax>
+            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
                 <span>Default</span>
                 
 
@@ -555,8 +667,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-no-svg" data-pjax>
-                <span>No SVG</span>
+            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
+                <span>No Svg</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -573,6 +685,11 @@
 
 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3043,30 +3160,6 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-agenda" data-pjax>
-                <span>Agenda</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-agendas" data-pjax>
                 <span>Agendas</span>
                 
@@ -3117,30 +3210,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-default" data-pjax>
                 <span>Default</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-navigation" data-pjax>
-                <span>Navigation</span>
                 
 
 <div class="Status Status--unlabelled">

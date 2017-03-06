@@ -146,8 +146,8 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-77ee89e6901578296dc72050add32c05-panel-view">
-    <code class="Code Code--lang-html">
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links {{modifier}}"</span>&gt;</span>
+    <code class="Code Code--lang-twig">
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links </span></span></span><span class="hljs-template-variable">{{modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Follow the latest progress and learn more about getting involved.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__label"</span>&gt;</span>Share this blog post:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__list"</span>&gt;</span>
@@ -155,7 +155,7 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://twitter.com"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Twitter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--twitter"</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item social-media-links__item--noicon"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Other social networks.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -456,7 +456,7 @@ Social Media
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/social-media-links/social-media-links.html</span>
+            <span class="Meta-value">framework/components/social-media-links/social-media-links.twig</span>
         </li>
         
         
@@ -627,9 +627,20 @@ Social Media
             
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-logos-default">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Default</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default" data-pjax>
+            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
                 <span>Default</span>
                 
 
@@ -653,8 +664,8 @@ Social Media
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-no-svg" data-pjax>
-                <span>No SVG</span>
+            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
+                <span>No Svg</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -671,6 +682,11 @@ Social Media
 
 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3141,30 +3157,6 @@ Social Media
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-agenda" data-pjax>
-                <span>Agenda</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-agendas" data-pjax>
                 <span>Agendas</span>
                 
@@ -3215,30 +3207,6 @@ Social Media
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-default" data-pjax>
                 <span>Default</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-navigation" data-pjax>
-                <span>Navigation</span>
                 
 
 <div class="Status Status--unlabelled">

@@ -140,20 +140,10 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-3ce2b6dac334e6464531ca210026d16c-panel-view">
-    <code class="Code Code--lang-html">
-        <pre>{# Define macro to make it easily accessible from elsewhere #}
-{% macro logoTypeBelow(to="", title="", externalClass="") %}
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ to }}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow {{ externalClass }}"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{ title }}"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>{{ title }}<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-{% endmacro %}
-
-{# Render if this file is included as a template with data inherited from the context #}
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span> <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"{{ modifier_class }}"</span>&gt;</span>
-    {{ logoTypeBelow("#top", "Home") }}
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+    <code class="Code Code--lang-twig">
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ to }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow </span></span></span><span class="hljs-template-variable">{{ externalClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -163,7 +153,12 @@
         
             
             <pre>{
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"language-sl"</span>
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sl"</span>
+  },
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"externalClass"</span>: <span class="hljs-literal">null</span>
 }</pre>
             
         
@@ -175,16 +170,9 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-3ce2b6dac334e6464531ca210026d16c-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-sl"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow "</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -327,7 +315,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/content/logos/logotypebelow/logotypebelow.html</span>
+            <span class="Meta-value">framework/content/logos/logotypebelow/logotypebelow.twig</span>
         </li>
         
         
@@ -499,9 +487,20 @@
             
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-logos-default">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Default</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default" data-pjax>
+            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
                 <span>Default</span>
                 
 
@@ -525,8 +524,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-no-svg" data-pjax>
-                <span>No SVG</span>
+            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
+                <span>No Svg</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -543,6 +542,11 @@
 
 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3013,30 +3017,6 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-agenda" data-pjax>
-                <span>Agenda</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-agendas" data-pjax>
                 <span>Agendas</span>
                 
@@ -3087,30 +3067,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-default" data-pjax>
                 <span>Default</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-navigation" data-pjax>
-                <span>Navigation</span>
                 
 
 <div class="Status Status--unlabelled">

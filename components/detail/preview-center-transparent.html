@@ -43,6 +43,10 @@
 
     
     
+        
+        
+        
+    
 
 <div class="Pen" data-behaviour="pen" id="pen-88510c5a308a56914d02896d6eac1364">
 
@@ -75,14 +79,16 @@
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             
-             <iframe
-                class="Preview-iframe"
-                data-role="window"
-                src="../preview/preview-center-transparent"
-                sandbox="allow-same-origin allow-scripts allow-forms"
-                 style=""
-                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
-            </iframe>
+<div class="Error Error--render">
+    <h4 class="Error-title">Error rendering component</h4>
+    <div class="Error-message Prose">
+        <p>Error: Template @_preview-twig not found</p>
+
+    </div>
+    
+</div>
+
+            
         </div>
         <div class="Preview-handle" data-role="resize-handle"></div>
         <div class="Preview-overlay"></div>
@@ -142,33 +148,43 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-88510c5a308a56914d02896d6eac1364-panel-view">
-    <code class="Code Code--lang-html">
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+    <code class="Code Code--lang-twig">
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> bodyClass = '' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _target.context is defined and _target.context.global is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> global = _target.context.global %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> global.svg is defined %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> bodyClass = 'no-svg' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> global.language is defined %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> bodyClass = global.language %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ '/framework/styles/europa.css' | path }}"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ '/framework/styles/europa.css' | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Preview Layout<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
       <span class="hljs-selector-tag">body</span> {
-        <span class="hljs-attribute">background-image</span>:<span class="hljs-built_in">url</span>({{ <span class="hljs-string">'/assets/alpha.jpg'</span> | path }});
-        <span class="hljs-attribute">margin</span>: <span class="hljs-number">15px</span>;
-        <span class="hljs-attribute">display</span>:flex;
-        <span class="hljs-attribute">justify-content</span>: center;
-        <span class="hljs-attribute">align-items</span>: center;
+        <span class="hljs-attribute">background-image</span>:<span class="hljs-built_in">url</span>(</span></span><span class="hljs-template-variable">{{ '/assets/alpha.jpg' | path }}</span><span class="xml"><span class="css">);
+        <span class="hljs-selector-tag">margin</span>: 15<span class="hljs-selector-tag">px</span>;
+        <span class="hljs-selector-tag">display</span><span class="hljs-selector-pseudo">:flex</span>;
+        <span class="hljs-selector-tag">justify-content</span>: <span class="hljs-selector-tag">center</span>;
+        <span class="hljs-selector-tag">align-items</span>: <span class="hljs-selector-tag">center</span>;
       }
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ bodyClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
-      {{ yield }}
+      </span><span class="hljs-template-variable">{{ yield }}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{{ '/framework/scripts/europa.js' | path }}"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-    {% if _target.context._demo and _target.context._demo %}
-    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="handlebars"><span class="xml"></span><span class="hljs-template-variable">{{ _target.context._demo.scripts | safe }}</span><span class="xml"></span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-    {% endif %}
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ '/framework/scripts/europa.js' | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _target.context._demo and _target.context._demo %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><span class="hljs-template-variable">{{ _target.context._demo.scripts | raw }}</span><span class="xml"><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -206,12 +222,11 @@
     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
 
     <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../framework/scripts/europa.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></pre>
@@ -256,7 +271,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/_partials/_preview-center-transparent.html</span>
+            <span class="Meta-value">framework/_partials/_preview-center-transparent.twig</span>
         </li>
         
         
@@ -426,9 +441,20 @@
             
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-logos-default">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Default</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default" data-pjax>
+            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
                 <span>Default</span>
                 
 
@@ -452,8 +478,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-no-svg" data-pjax>
-                <span>No SVG</span>
+            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
+                <span>No Svg</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -470,6 +496,11 @@
 
 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2940,30 +2971,6 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-agenda" data-pjax>
-                <span>Agenda</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-agendas" data-pjax>
                 <span>Agendas</span>
                 
@@ -3014,30 +3021,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-default" data-pjax>
                 <span>Default</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-navigation" data-pjax>
-                <span>Navigation</span>
                 
 
 <div class="Status Status--unlabelled">

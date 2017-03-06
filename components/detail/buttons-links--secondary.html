@@ -140,15 +140,8 @@
 
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-3b87b417acee00065ff064694c93f123-panel-view">
-    <code class="Code Code--lang-html">
-        <pre>{# Define macro to make it easily accessible from elsewhere #}
-{% macro link(to="#", label="Link", modifier="") %}
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ to }}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-{{ modifier }}"</span>&gt;</span>{{ label }}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-{% endmacro %}
-
-{# Render if this file is included as a template with data inherited from the context #}
-{{ link("#", "Link button", modifier) }}
-{{ link("http://example.com", "External link button", modifier) }}</pre>
+    <code class="Code Code--lang-twig">
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ to }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -158,7 +151,9 @@
         
             
             <pre>{
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"secondary"</span>
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"secondary"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Link button"</span>,
+  <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>
 }</pre>
             
         
@@ -170,10 +165,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-3b87b417acee00065ff064694c93f123-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-
-
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span>&gt;</span>External link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span>&gt;</span>Link button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -206,8 +198,36 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(6)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(12)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
+            
+                <a href="buttons-links--default">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="buttons-links--default">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="buttons-links--primary">
+                    <span>Primary</span>
+                </a>, 
+            
+                <a href="buttons-links--primary">
+                    <span>Primary</span>
+                </a>, 
+            
+                <a href="">
+                    <span>Secondary</span>
+                </a>, 
+            
+                <a href="">
+                    <span>Secondary</span>
+                </a>, 
+            
+                <a href="buttons-links--ctn">
+                    <span>Call to action</span>
+                </a>, 
             
                 <a href="buttons-links--ctn">
                     <span>Call to action</span>
@@ -217,20 +237,16 @@
                     <span>Call to action with border</span>
                 </a>, 
             
-                <a href="buttons-links--default">
-                    <span>Default</span>
+                <a href="buttons-links--ctn--border">
+                    <span>Call to action with border</span>
                 </a>, 
             
                 <a href="buttons-links--menu">
                     <span>Menu</span>
                 </a>, 
             
-                <a href="buttons-links--primary">
-                    <span>Primary</span>
-                </a>, 
-            
-                <a href="">
-                    <span>Secondary</span>
+                <a href="buttons-links--menu">
+                    <span>Menu</span>
                 </a>
             
             </span>
@@ -255,7 +271,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/buttons/buttons/buttons.html</span>
+            <span class="Meta-value">framework/components/buttons/links/links.twig</span>
         </li>
         
         
@@ -425,9 +441,20 @@
             
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-logos-default">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Default</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default" data-pjax>
+            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
                 <span>Default</span>
                 
 
@@ -451,8 +478,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-no-svg" data-pjax>
-                <span>No SVG</span>
+            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
+                <span>No Svg</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -469,6 +496,11 @@
 
 
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2939,30 +2971,6 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-agenda" data-pjax>
-                <span>Agenda</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-agendas" data-pjax>
                 <span>Agendas</span>
                 
@@ -3013,30 +3021,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="layout-listings-default" data-pjax>
                 <span>Default</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="layout-listings-navigation" data-pjax>
-                <span>Navigation</span>
                 
 
 <div class="Status Status--unlabelled">
