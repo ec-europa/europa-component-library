@@ -1,8 +1,0 @@
-{# Define macro to make it easily accessible from elsewhere #}
-{% macro link(to="#", label="Link", modifier="") %}
-<a href="{{ to }}" class="btn btn-{{ modifier }}">{{ label }}</a>
-{% endmacro %}
-
-{# Render if this file is included as a template with data inherited from the context #}
-{{ link("#", "Link button", modifier) }}
-{{ link("http://example.com", "External link button", modifier) }}

@@ -1,0 +1,13 @@
+<nav class="breadcrumb{{ " breadcrumb--" + modifier|length ? modifier : "" }}" role="navigation" aria-label="breadcrumbs">
+  <span class="sr-only">You are here:</span>
+  <ol class="breadcrumb__segments-wrapper">
+    {% for segment in segments %}
+    <li class="breadcrumb__segment{{ loop.first ? " breadcrumb__segment--first" : "" }}{{ loop.last ? " breadcrumb__segment--last" : "" }}">
+      <a href="{{ segment.target }}" class="breadcrumb__link{{ segment.isInternal ? " is-internal" : "" }}">
+        <span class="breadcrumb__text">{{ segment.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+  <span class="breadcrumb__btn-separator" style="display: none;">...</span>
+</nav>

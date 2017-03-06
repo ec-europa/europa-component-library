@@ -1,8 +1,7 @@
 <div class="page-header">
   <nav class="page-navigation" role="navigation">
     <div class="container-fluid">
-      {% from '@breadcrumbs' import breadcrumb %}
-      {{ breadcrumb(data.breadcrumb.segments, 'collapsible') }}
+      {% include '@breadcrumbs' with { 'segments': data.breadcrumb.segments, 'modifier': 'collapsible' } %}
     </div>
   </nav>
   <div class="container-fluid page-header__hero-title">
