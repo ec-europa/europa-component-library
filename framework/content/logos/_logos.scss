@@ -28,13 +28,30 @@
   }
 }
 
+// Language generator.
+@mixin logo-background-languages($file_path, $file_extension, $logo_class: logo--logotype) {
+  @each $item in $languages {
+    .language-#{$item} {
+      .#{$logo_class} {
+        background-image: url('#{$file_path}#{$item}#{$file_extension}');
+      }
+
+      @media print {
+        .#{$logo_class}::before {
+          content: url('#{$file_path}#{$item}#{$file_extension}');
+        }
+      }
+    }
+  }
+}
+
 // EC logotype
 //
 // EC logo with text.
 
 // Sets language-specific background image on .logo--logotype element nested
 // in {{modifier_class}} modifier.
-@include logo-background-languages('../images/svg/logo/logo--', '.svg');
+@include logo-background-languages('./images/svg/logo/logo--', '.svg');
 
 .logo--logotype {
   @extend %logo;
@@ -43,7 +60,7 @@
 }
 
 .no-svg {
-  @include logo-background-languages('../images/png/logo/logo--', '.png');
+  @include logo-background-languages('./images/png/logo/logo--', '.png');
 
   /* postcss-bem-linter: ignore */
   .logo--logotype {
@@ -57,10 +74,10 @@
 
 // Sets language-specific background image on .logo--logotypebelow element nested
 // in {{modifier_class}} modifier.
-@include logo-background-languages('../images/svg/logo/logotypebelow--', '.svg', 'logo--logotypebelow');
+@include logo-background-languages('./images/svg/logo/logotypebelow--', '.svg', 'logo--logotypebelow');
 
 .no-svg {
-  @include logo-background-languages('../images/png/logo/logotypebelow--', '.png', 'logo--logotypebelow');
+  @include logo-background-languages('./images/png/logo/logotypebelow--', '.png', 'logo--logotypebelow');
 }
 
 .logo--logotypebelow {

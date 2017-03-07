@@ -1,13 +1,13 @@
 .context-nav {
-  @extend .row;
+  @include make-row();
 
   font-size: $font-size-xsmall;
 
   &__expander {
-    display: inline-block;
+    border: 0;
     color: $blue-dark;
-    border: none;
     cursor: pointer;
+    display: inline-block;
 
     &:hover {
       text-decoration: underline;
@@ -19,8 +19,8 @@
 
     & .icon {
       padding-left: 2px;
-      top: 3px;
       position: relative;
+      top: 3px;
     }
   }
 
@@ -30,16 +30,16 @@
 }
 
 .context-nav__label {
-  @extend .col-xs-12;
-  @extend .col-md-3;
+  @include make-xs-column(12);
+  @include make-md-column(3);
 
   display: block;
   clear: both;
 }
 
 .context-nav__items {
-  @extend .col-xs-12;
-  @extend .col-md-9;
+  @include make-xs-column(12);
+  @include make-md-column(9);
 
   display: block;
   margin-bottom: 0.556em;
@@ -53,8 +53,8 @@
   display: inline-block;
 
   &::after {
-    content: " |";
     color: $grey;
+    content: ' |';
     margin-right: 4px;
   }
 

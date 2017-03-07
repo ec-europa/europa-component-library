@@ -2,7 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link media="all" rel="stylesheet" href="{{ '/framework/styles/europa.css' | path }}">
+  <!--
+    <link rel="stylesheet" href="{{ '/framework/vendors.bundle.css' | path }}">
+    <link rel="stylesheet" href="{{ '/framework/europa.bundle.css' | path }}">
+  -->
   <title>Preview Layout</title>
 </head>
 <body>
@@ -10,7 +13,8 @@
     {{ yield }}
   </div>
 
-  <script src="{{ '/framework/scripts/europa.js' | path }}"></script>
+  <script src="{{ '/framework/vendors.js' | path }}"></script>
+  <script src="{{ '/framework/europa.js' | path }}"></script>
   {% if _target.context._demo and _target.context._demo %}
   <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
   {% endif %}

@@ -1,0 +1,130 @@
+// Bootstrap's mixins
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+// Custom mixins.
+
+// Breakpoints.
+@mixin breakpoint($point) {
+  @if $point == screen-lg-min {
+    @media (min-width: $screen-lg-min) {
+      @content;
+    }
+  }
+
+  @else if $point == screen-md-min {
+    @media (min-width: $screen-md-min) {
+      @content;
+    }
+  }
+
+  @else if $point == screen-sm-min {
+    @media (min-width: $screen-sm-min) {
+      @content;
+    }
+  }
+
+  @else if $point == screen-msm-min {
+    @media (min-width: $screen-msm-min) {
+      @content;
+    }
+  }
+
+  @else if $point == screen-xs-min {
+    @media (min-width: $screen-xs-min) {
+      @content;
+    }
+  }
+}
+
+// Show/hide mixin, to be applied on the element to toggle.
+@mixin show_hide() {
+  max-height: 40px;
+  overflow: hidden;
+  position: relative;
+  visibility: hidden;
+
+  &::before {
+    background-color: $grey-base;
+    clear: both;
+    color: $white;
+    content: 'Show html markup';
+    cursor: pointer;
+    font-weight: $font-weight-bold;
+    padding: 0.2em 1em;
+    position: absolute;
+    right: 0;
+    visibility: visible;
+  }
+
+  &:hover {
+    max-height: none;
+    visibility: visible;
+
+    &::before {
+      background-color: transparent;
+      font-size: 0;
+    }
+  }
+}
+
+@mixin text-small() {
+  font-size: $font-size-xsmall;
+}
+
+@mixin form-control() {
+  @extend %hidden-print;
+
+  color: $form-control-text-color;
+  background-color: $form-control-background-color;
+  border: 1px solid $form-control-border-color;
+  border-radius: 0;
+  margin-bottom: 1.1em;
+  min-height: $form-control-height;
+  font-size: $font-size-little;
+
+  @include box-shadow(none);
+
+  &.has-error {
+    border-width: 2px;
+    padding: 5px 11px;
+  }
+
+  // Focus state.
+  &:focus,
+  &.is-focused,
+  .has-error &:focus {
+    color: $form-control-text-color-focus;
+
+    @include box-shadow(none);
+  }
+
+  @include _focus_outline_border(3px, $yellow-light, 0, none);
+
+  // Disabled modifier.
+  &.is-disabled {
+    color: $form-control-color-disabled;
+    background-color: $form-control-background-color-disabled;
+  }
+
+  &.select {
+    border-width: 1px;
+  }
+}
+
+// Focus outline border.
+@mixin _focus_outline_border($thicknes:3px, $color:$yellow-light, $offset:0, $text-decoration:underline) {
+  &:focus {
+    outline: $thicknes solid $color;
+    outline-offset: $offset;
+    text-decoration: $text-decoration;
+  }
+}
+
+// Media caption.
+@mixin media-caption() {
+  display: block;
+  padding: 0.715em 1em;
+  line-height: 1.5715;
+  background-color: $grey-lighter;
+  font-size: $font-size-xsmall;
+}

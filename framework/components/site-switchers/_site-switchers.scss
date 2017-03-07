@@ -1,15 +1,18 @@
-/*
-Site switcher
+/**
+ * Site switcher
+ * @define site-switcher
+ *
+ * Helps the user choose between political and informational websites.
+ *
+ * Markup: html/site-switcher.html
+ *
+ * .site-switcher--header - Header modifier
+ * .site-switcher--footer - Footer modifier
+ *
+ * Style guide: siteswitcher
+ */
 
-Helps the user choose between political and informational websites.
-
-Markup: html/site-switcher.html
-
-.site-switcher--header - Header modifier
-.site-switcher--footer - Footer modifier
-
-Style guide: siteswitcher
-*/
+@import '~@ec-europa/ecl-core/core';
 
 .site-switcher {
   @extend %hidden-print;

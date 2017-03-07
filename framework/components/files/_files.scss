@@ -1,3 +1,5 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed';
+
 /*
 File
 */
@@ -8,7 +10,7 @@ File download default
 
 .file {
   @extend %hidden-print;
-  @extend .row;
+  @include make-row();
 
   margin: 0 0 0.944em;
   padding: 1.333em;
@@ -16,8 +18,8 @@ File download default
 }
 
 .file__icon {
-  @extend .col-md-1;
-  @extend .col-sm-1;
+  @include make-sm-column(1);
+  @include make-md-column(1);
 
   float: left;
   height: 2.556em;
@@ -36,19 +38,19 @@ File download default
 }
 
 .file__metadata {
-  @extend .col-md-6;
-  @extend .col-sm-6;
-  @extend .col-xs-10;
+  @include make-xs-column(10);
+  @include make-sm-column(6);
+  @include make-md-column(6);
 
+  line-height: 1;
   margin-bottom: 0;
   padding-left: 0;
   padding-right: 0;
-  line-height: 1;
 }
 
 .file__title {
-  line-height: initial;
   font-weight: bold;
+  line-height: initial;
 }
 
 .file__caption {
@@ -57,16 +59,16 @@ File download default
 
 .file__language {
   display: block;
-  margin-top: 0.556em;
-  line-height: initial;
   font-size: $font-size-little;
   font-weight: bold;
+  line-height: initial;
+  margin-top: 0.556em;
 }
 
 .file__info {
-  margin-top: 0.778em;
-  line-height: initial;
   font-size: $font-size-xsmall;
+  line-height: initial;
+  margin-top: 0.778em;
 }
 
 .file__content-language {
@@ -74,12 +76,12 @@ File download default
 }
 
 .file__btn {
-  @extend .col-md-4;
-  @extend .col-sm-4;
-  @extend .col-xs-12;
+  @include make-xs-column(12);
+  @include make-sm-column(4);
+  @include make-md-column(4);
 
-  margin-top: 0.778em;
   margin-bottom: 0;
+  margin-top: 0.778em;
 
   &::after {
     @extend %icon--after;
@@ -89,12 +91,12 @@ File download default
 
 // Modifications in the translations under a normal file.
 .file--bare {
+  background-color: transparent;
   margin: 0;
   padding: 0.722em 0;
-  background-color: transparent;
 
   .file__btn {
-    border: none;
+    border: 0;
 
     &:hover {
       color: $text-color;
@@ -111,14 +113,14 @@ File download with translations
 */
 
 .file__translations {
+  font-size: $font-size-little;
   margin-bottom: 1em;
   padding: 0 1.45em;
-  font-size: $font-size-little;
   text-align: right;
 
   .file__translations-control {
-    margin-top: 0.444em;
     font-size: $font-size-medium;
+    margin-top: 0.444em;
     text-decoration: none;
 
     &:active,
@@ -138,8 +140,8 @@ File download with translations
       @extend %icon--down;
       @extend %icon--blue-dark;
 
-      position: relative;
       margin-left: 0.525em !important;
+      position: relative;
 
       @include transition(all 0.3s ease 0s);
     }
@@ -179,9 +181,9 @@ File download with translations
   }
 
   .file__metadata {
-    @extend .col-md-6;
-    @extend .col-sm-6;
-    @extend .col-xs-12;
+    @include make-xs-column(12);
+    @include make-sm-column(6);
+    @include make-md-column(6);
 
     padding-left: 0;
     padding-right: 0;
@@ -203,32 +205,32 @@ File link
   background-color: transparent;
 
   .file__metadata--link {
-    @extend .col-md-10;
-    @extend .col-sm-10;
-    @extend .col-xs-10;
+    @include make-xs-column(10);
+    @include make-sm-column(10);
+    @include make-md-column(10);
 
+    line-height: 1;
     margin-bottom: 0;
     padding-left: 0;
     padding-right: 0;
-    line-height: 1;
   }
 
   .icon--file-link {
-    background: url("../images/svg/icons/link.svg") no-repeat center 10%;
+    background: url('./images/svg/icons/link.svg') no-repeat center 10%;
     width: 2.8em;
   }
 }
 
 .no-svg {
   .icon--file-link {
-    background-image: url("../images/png/icons/link.png");
+    background-image: url('./images/png/icons/link.png');
   }
 }
 
 @include breakpoint(screen-sm-min) {
   .file__icon {
-    width: auto;
     padding: 0;
+    width: auto;
   }
 
   .file__translations {
@@ -260,9 +262,9 @@ Style guide: file.4
 */
 
 .file--image {
+  background-color: transparent;
   display: block;
   padding: 0;
-  background-color: transparent;
 }
 
 /*
@@ -276,8 +278,8 @@ Style guide: file.5
 */
 
 .file--video {
-  padding: 0;
   background-color: transparent;
+  padding: 0;
 
   .file__container {
     @extend .embed-responsive;
