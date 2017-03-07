@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "build:fractal": "cross-env server=true webpack-dashboard -- fractal start",
     "build:search": "node ./scripts/search.js",
     "build": "npm-run-all --parallel build:*",
     "dist:fractal": "fractal build",
@@ -19,7 +20,7 @@
     "lint:scss": "stylelint './framework/**/*.scss'",
     "lint": "npm-run-all --parallel lint:* -c",
     "precommit": "lint-staged",
-    "start": "npm run clean && npm run build && cross-env server=true webpack-dashboard -- fractal start",
+    "start": "npm run clean && npm run build",
     "test:coding-conventions": "npm run lint",
     "test:functional": "wdio test/wdio.conf.js",
     "test": "npm-run-all --parallel test:* -c"
