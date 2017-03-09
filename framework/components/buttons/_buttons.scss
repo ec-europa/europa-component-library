@@ -1,18 +1,137 @@
+/**
+ * Buttons component
+ * @define button
+ */
+
+.ecl-button {
+  background: none;
+  border: 2px solid $brand-primary;
+  color: $brand-primary;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $brand-primary;
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 3px solid $yellow-light;
+  }
+}
+
+.ecl-button:link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ecl-button--primary {
+  background-color: $brand-primary;
+  color: #fff;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #fff;
+    color: $brand-primary;
+  }
+
+  &:focus {
+    background-color: $brand-primary;
+    color: #fff;
+  }
+}
+
+.ecl-button--secondary {
+  background-color: #fff;
+  border-color: #fff;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #fff;
+    color: $brand-primary;
+  }
+}
+
+.ecl-button--call {
+  background-color: $yellow-light;
+  border-color: $yellow-light;
+  color: #000;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $yellow-light;
+    border-color: #000;
+    color: #000;
+  }
+
+  &:focus {
+    outline-color: #000;
+  }
+}
+
+.ecl-button--call {
+  &::after {
+    @extend %icon--after;
+    @extend %icon--right;
+
+    font-size: 0.8em;
+    margin-left: 0.8em;
+  }
+}
+
+.ecl-button--call-border {
+  @extend %ecl-button--call;
+
+  border-color: #000;
+
+  &:focus {
+    outline-width: 2px;
+  }
+}
+
+.ecl-button--menu {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  color: $white;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+  }
+
+  &::after {
+    @extend %icon--after;
+    @extend %icon--arrow-down;
+
+    font-size: 0.45em;
+    margin-left: 1em;
+    position: relative;
+    top: -2px;
+
+    @include transition(all 0.3s ease 0s);
+  }
+
+  &.is-collapsed::after {
+    @include rotate(180deg);
+  }
+}
+
+@import 'buttons-ph';
+
 /*
-Buttons
-
-Custom bootstrap buttons styling.
-
-.btn-default     - Button default
-.btn-primary     - Button primary
-.btn-secondary   - Button secondary
-.btn-ctn         - Button call to action
-.btn-ctn--border - Button call to action with border
-.btn-menu        - Button menu
-
-Style guide: buttons
-*/
-
 @mixin whitespace-reset() {
   line-height: 1.667;
   padding-bottom: 0.5em;
@@ -66,97 +185,95 @@ Style guide: buttons
     line-height: inherit;
     position: static;
   }
+}
 
-  &.btn-default {
-    @extend %btn-default;
-  }
+.btn.btn-default {
+  @extend %btn-default;
+}
 
-  &.btn-primary {
-    border-color: $brand-primary;
+.btn.btn-primary {
+  border-color: $brand-primary;
 
-    &:hover,
-    &:active {
-      background-color: $white;
-      color: $brand-primary;
-    }
-
-    &:focus {
-      background-color: $brand-primary;
-      color: $white;
-    }
-  }
-
-  &.btn-secondary {
+  &:hover,
+  &:active {
     background-color: $white;
-    border-color: $white;
     color: $brand-primary;
   }
 
-  &.btn-ctn {
-    @include whitespace-reset();
+  &:focus {
+    background-color: $brand-primary;
+    color: $white;
+  }
+}
 
+.btn.btn-secondary {
+  background-color: $white;
+  border-color: $white;
+  color: $brand-primary;
+}
+
+.btn.btn-ctn {
+  @include whitespace-reset();
+
+  background-color: $yellow-light;
+  color: $black;
+
+  &:hover,
+  &:active {
     background-color: $yellow-light;
-    color: $black;
-
-    &:hover,
-    &:active {
-      background-color: $yellow-light;
-      border-color: $text-color;
-    }
-
-    &:focus {
-      border-color: $text-color;
-      outline-color: $text-color;
-    }
-
-    &::after {
-      @extend %icon--after;
-      @extend %icon--right;
-
-      font-size: 0.8em;
-      margin-left: 10px;
-    }
+    border-color: $text-color;
   }
 
-  &.btn-menu {
-    background-color: $brand-primary;
-    border-color: $brand-primary;
+  &:focus {
+    border-color: $text-color;
+    outline-color: $text-color;
+  }
+
+  &::after {
+    @extend %icon--after;
+    @extend %icon--right;
+
+    font-size: 0.8em;
+    margin-left: 10px;
+  }
+}
+
+.btn.btn-menu {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  color: $white;
+
+  &:hover,
+  &:active,
+  &:focus {
     color: $white;
+  }
 
-    &:hover,
-    &:active,
-    &:focus {
-      color: $white;
-    }
+  &:active,
+  &:focus {
+    outline: 3px solid $yellow-light;
+    outline-offset: -3px;
+  }
 
-    &:active,
-    &:focus {
-      outline: 3px solid $yellow-light;
-      outline-offset: -3px;
-    }
+  &:focus {
+    border-color: $yellow-light;
+    outline-color: $yellow-light;
+  }
 
-    &:focus {
-      border-color: $yellow-light;
-      outline-color: $yellow-light;
-    }
+  &::after {
+    @extend %icon--after;
+    @extend %icon--arrow-down;
 
-    &::after {
-      @extend %icon--after;
-      @extend %icon--arrow-down;
+    font-size: 0.45em;
+    margin-left: 6px !important;
+    position: relative;
+    top: -2px;
 
-      font-size: 0.45em;
-      margin-left: 6px !important;
-      position: relative;
-      top: -2px;
+    @include transition(all 0.3s ease 0s);
+  }
 
-      @include transition(all 0.3s ease 0s);
-    }
-
-    &.is-collapsed {
-      &::after {
-        @include rotate(180deg);
-      }
-    }
+  &.is-collapsed::after {
+    @include rotate(180deg);
   }
 }
 
@@ -194,6 +311,7 @@ Style guide: buttons
 
   margin-bottom: 0 !important;
 }
+*/
 
 /*
 Button Condensed
@@ -205,10 +323,12 @@ Markup: html/btn-condensed.html
 Style guide: buttons.btn--condensed
 */
 
+/*
 .btn.btn--condensed {
   font-weight: normal;
   width: auto;
 }
+*/
 
 /*
 Button block
@@ -220,6 +340,7 @@ Markup: html/btn-block.html
 Style guide: buttons.btn-block
 */
 
+/*
 .btn-block {
   margin-bottom: -2px !important;
   max-width: 450px;
@@ -236,6 +357,7 @@ Style guide: buttons.btn-block
     margin-top: 0;
   }
 }
+*/
 
 /*
 Button Search
@@ -247,6 +369,7 @@ Markup: html/btn-search.html
 Style guide: buttons.btn-search
 */
 
+/*
 .btn.btn-search {
   background-color: $grey-light;
   border-color: $white;
@@ -257,6 +380,7 @@ Style guide: buttons.btn-search
     color: $grey-base;
   }
 }
+*/
 
 /*
 Button Collapse
@@ -268,42 +392,40 @@ Markup: html/btn-collapse.html
 Style guide: buttons.btn-collapse
 */
 
+/*
 .btn-collapse {
   @extend %btn-default;
 
   .toggling-text::after {
     content: '\00a0';
   }
+}
 
-  &:hover,
-  &:focus {
-    .toggling-text,
-    .toggling-text::after {
-      text-decoration: underline;
-    }
+.btn-collapse.icon {
+  margin-left: 0.3em;
+
+  &::before {
+    vertical-align: bottom;
+
+    @include transition(all 0.3s ease 0s);
+  }
+}
+
+.btn-collapse:hover,
+.btn-collapse:focus {
+  .toggling-text,
+  .toggling-text::after {
+    text-decoration: underline;
   }
 
-  .icon {
-    margin-left: 0.3em;
-
-    &::before {
-      vertical-align: bottom;
-
-      @include transition(all 0.3s ease 0s);
-    }
+  .icon::before {
+    color: $white;
   }
+}
 
-  &:hover,
-  &:focus {
-    .icon::before {
-      color: $white;
-    }
-  }
-
-  &.collapsed {
-    .icon::before {
-      @include rotate(180deg);
-    }
+.btn-collapse.collapsed {
+  .icon::before {
+    @include rotate(180deg);
   }
 }
 
@@ -348,9 +470,8 @@ Style guide: buttons.btn-collapse
 }
 
 .btn {
-  &#{'[' + $external_link_pattern + ']'}:not(.is-internal) {
-    &:not(#{$ec_url_patterns}) {
-      @include btn-external-link();
-    }
+  &#{'[' + $external_link_pattern + ']'}:not(.is-internal):not(#{$ec_url_patterns}) {
+    @include btn-external-link();
   }
 }
+*/
