@@ -1,0 +1,2 @@
+- HTML element "button" should be used instead of input type="button", when possible
+- Icons can be added to input items too, by using same classes as on buttons examples
