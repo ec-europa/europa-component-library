@@ -7,8 +7,7 @@
 
 .ecl-button {
   background: none;
-  border: 2px solid $brand-primary;
-  color: $brand-primary;
+  border: 2px solid transparent;
   display: inline-block;
   font-size: 0.9em;
   font-weight: 600;
@@ -19,13 +18,12 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: $brand-primary;
-    color: #fff;
     text-decoration: underline;
   }
 
   &:focus {
     outline: 3px solid $yellow-light;
+    outline-offset: 0;
   }
 }
 
@@ -37,8 +35,21 @@
   }
 }
 
+.ecl-button--default {
+  border-color: $brand-primary;
+  color: $brand-primary;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $brand-primary;
+    color: #fff;
+  }
+}
+
 .ecl-button--primary {
   background-color: $brand-primary;
+  border-color: $brand-primary;
   color: #fff;
 
   &:hover,
@@ -47,23 +58,12 @@
     background-color: #fff;
     color: $brand-primary;
   }
-
-  &:focus {
-    background-color: $brand-primary;
-    color: #fff;
-  }
 }
 
 .ecl-button--secondary {
   background-color: #fff;
   border-color: #fff;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: #fff;
-    color: $brand-primary;
-  }
+  color: $brand-primary;
 }
 
 .ecl-button--call {
@@ -74,9 +74,7 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: $yellow-light;
     border-color: #000;
-    color: #000;
   }
 
   &:focus {
@@ -94,21 +92,28 @@
   }
 }
 
+.ecl-button--form {
+  background-color: $grey-light;
+  border-color: $grey-light;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $grey-base;
+  }
+}
+
+.ecl-button--light {
+  @include ecl-button--default();
+
+  font-weight: 500;
+}
+
 .ecl-button--block {
   display: block;
   max-width: 30em;
   text-align: left;
   width: 100%;
-}
-
-.ecl-button--form {
-  background-color: $grey-light;
-  border-color: $grey-light;
-
-  &:hover {
-    background-color: $grey-light;
-    color: $grey-base;
-  }
 }
 
 .ecl-button--arrow-up {
@@ -163,8 +168,4 @@
 
     @include ecl-button--caret();
   }
-}
-
-.ecl-button--light {
-  font-weight: 500;
 }

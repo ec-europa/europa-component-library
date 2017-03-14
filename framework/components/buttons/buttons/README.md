@@ -1,1 +1,0 @@
-- Class "ecl-button--default" is optional. You may just use class "ecl-button"

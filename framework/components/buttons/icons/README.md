@@ -1,0 +1,1 @@
+- Icons can be added to any kind of button (primary, call to action, etc.)

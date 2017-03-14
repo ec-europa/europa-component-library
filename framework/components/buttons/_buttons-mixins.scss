@@ -1,3 +1,15 @@
+@mixin ecl-button--default() {
+  border-color: $brand-primary;
+  color: $brand-primary;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $brand-primary;
+    color: #fff;
+  }
+}
+
 @mixin ecl-button--call() {
   background-color: $yellow-light;
   border-color: $yellow-light;
@@ -6,9 +18,7 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: $yellow-light;
     border-color: #000;
-    color: #000;
   }
 
   &:focus {
