@@ -33,7 +33,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
 
-  specs: [path.resolve(__dirname, './functional/**/*.js')],
+  specs: [path.resolve(__dirname, './functional/**/*.spec.js')],
 
   // Patterns to exclude.
   exclude: [],
@@ -120,7 +120,7 @@ exports.config = {
 
   // Default timeout in milliseconds for request
   // if Selenium Grid doesn't send response
-  connectionRetryTimeout: 90000,
+  connectionRetryTimeout: 120000,
 
   // Default request retries count
   connectionRetryCount: 3,
@@ -129,6 +129,17 @@ exports.config = {
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
   sauceConnect: !isTravis,
+  sauceConnectOpts: {
+    // tunnelIdentifier: isTravis ? process.env.TRAVIS_JOB_NUMBER : null,
+    verbose: true,
+    verboseDebugging: true,
+    vv: true,
+    connectRetries: 3,
+    connectRetryTimeout: 120000,
+    downloadRetries: 3,
+    downloadRetryTimeout: 6000,
+    connectVersion: '4.4.2',
+  },
 
   // Initialize the browser instance with a WebdriverIO plugin
   plugins: {
