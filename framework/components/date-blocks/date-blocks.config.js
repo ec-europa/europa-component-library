@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Date blocks',
   label: 'Date blocks',
-  status: 'wip',
+  status: 'planned',
   collated: false,
   preview: '@preview-center-transparent',
   tags: ['atom'],

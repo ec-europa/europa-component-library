@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Titles',
   label: 'Titles',
-  status: 'wip',
+  status: 'planned',
   collated: false,
   variants: [{
     name: 'medium',

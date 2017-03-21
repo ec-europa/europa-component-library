@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Hero links',
   label: 'Hero links',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
 };

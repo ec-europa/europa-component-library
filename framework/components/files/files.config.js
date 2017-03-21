@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Files',
   label: 'Files',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
   variants: [{
     name: 'bare',

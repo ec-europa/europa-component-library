@@ -15,7 +15,7 @@ const variants = languages.map(({ id, name }) => ({
 module.exports = {
   title: 'Logos - Logotype',
   label: 'Logotype',
-  status: 'wip',
+  status: 'planned',
   preview: '@preview-center-transparent',
   order: 3,
   collated: true,

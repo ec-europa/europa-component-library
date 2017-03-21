@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Headings',
   label: 'Headings',
-  status: 'wip',
+  status: 'planned',
   collated: true,
   collator(markup, item) {
     return `<!-- Start: @${item.handle} -->\n<p>\n${markup}\n</p>\n<!-- End: @${item.handle} -->\n`;
