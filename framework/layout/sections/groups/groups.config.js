@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Groups',
   label: 'Groups',
-  status: 'wip',
+  status: 'planned',
   default: 'grey',
   order: 4,
   variants: [{

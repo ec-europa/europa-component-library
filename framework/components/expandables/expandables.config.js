@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Expandables',
   label: 'Expandables',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
 };

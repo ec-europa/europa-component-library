@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Social Media Links',
   label: 'Social Media Links',
-  status: 'ready',
+  status: 'planned',
   tags: ['molecule'],
   variants: [{
     name: 'default',

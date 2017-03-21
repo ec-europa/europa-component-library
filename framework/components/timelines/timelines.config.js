@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Timelines',
   label: 'Timelines',
-  status: 'wip',
+  status: 'planned',
   collated: true,
   preview: '@preview-center-transparent',
   tags: ['molecule'],

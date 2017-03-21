@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Breadcrumbs',
   label: 'Breadcrumbs',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
   preview: '@preview-breadcrumbs',
   context: {

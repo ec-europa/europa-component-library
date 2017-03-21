@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Button groups',
   label: 'Button groups',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
   collated: true,
   collator(markup, item) {

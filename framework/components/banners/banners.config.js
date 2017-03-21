@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Banners',
   label: 'Banners',
-  status: 'wip',
+  status: 'planned',
   collated: false,
   tags: ['molecule'],
   variants: [{

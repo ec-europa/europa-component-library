@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Default',
   label: 'Default',
-  status: 'wip',
+  status: 'planned',
   default: 'image',
   variants: [{
     name: 'image',
