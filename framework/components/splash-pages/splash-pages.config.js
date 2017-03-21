@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Splash pages',
   label: 'Splash pages',
-  status: 'wip',
+  status: 'planned',
   tags: ['organism'],
 };

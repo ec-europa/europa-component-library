@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Site switchers',
   label: 'Site switchers',
-  status: 'wip',
+  status: 'planned',
   preview: '@preview-center-transparent',
   tags: ['atom'],
   variants: [{

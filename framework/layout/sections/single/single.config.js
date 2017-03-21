@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Single',
   label: 'Single',
-  status: 'wip',
+  status: 'planned',
   order: 1,
 };

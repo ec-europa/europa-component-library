@@ -1,5 +1,5 @@
 module.exports = {
   title: 'Images',
   label: 'Images',
-  status: 'wip',
+  status: 'planned',
 };

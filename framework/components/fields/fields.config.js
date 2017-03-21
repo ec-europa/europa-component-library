@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Fields',
   label: 'Fields',
-  status: 'ready',
+  status: 'planned',
   collated: false,
   tags: ['atom'],
   variants: [{

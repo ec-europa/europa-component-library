@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Notifications',
   label: 'Notifications',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
 };

@@ -1,7 +1,7 @@
 module.exports = {
   title: 'File uploads',
   label: 'File uploads',
-  status: 'wip',
+  status: 'planned',
   context: {
     _demo: {
       scripts: 'Europa.fileUpload();',

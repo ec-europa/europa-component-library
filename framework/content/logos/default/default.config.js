@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Logos - Default',
   label: 'Default',
-  status: 'wip',
+  status: 'planned',
   preview: '@preview-center-transparent',
   order: 1,
   context: {

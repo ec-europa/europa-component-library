@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Search forms',
   label: 'Search forms',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
 };

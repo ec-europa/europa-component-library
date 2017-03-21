@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Tags',
   label: 'Tags',
-  status: 'wip',
+  status: 'planned',
   collated: false,
   variants: [{
     tags: ['atom'],
