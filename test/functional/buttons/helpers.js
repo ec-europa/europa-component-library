@@ -1,11 +1,5 @@
 function generateTest(variants = [], componentUrl = '/buttons', name = '') {
   describe(`${name}`, () => {
-    before(() => {
-      // Set viewport size
-      browser.setViewportSize({ width: 400, height: 200 });
-      browser.pause(1000);
-    });
-
     variants.forEach((variant) => {
       describe(`--${variant}`, () => {
         before(() => {
@@ -21,13 +15,6 @@ function generateTest(variants = [], componentUrl = '/buttons', name = '') {
 
         // Normal state
         context('with plain state', () => {
-          it('should match the reference screenshot', () => {
-            const screenshots = browser.checkDocument({ name: `buttons/${name}/${variant}/plain` });
-            expect(screenshots)
-              .to
-              .matchReference();
-          });
-
           it('should be accessible', () => {
             const a11yReport = browser
               .runAxeCore('ecl-button')
@@ -59,13 +46,6 @@ function generateTest(variants = [], componentUrl = '/buttons', name = '') {
             browser.moveToObject('.ecl-button');
           });
 
-          it('should match the reference screenshot', () => {
-            const screenshots = browser.checkDocument({ name: `buttons/${name}/${variant}/hover ` });
-            expect(screenshots)
-              .to
-              .matchReference();
-          });
-
           it('should be accessible', () => {
             const a11yReport = browser
               .runAxeCore('ecl-button')
@@ -80,40 +60,12 @@ function generateTest(variants = [], componentUrl = '/buttons', name = '') {
             browser.buttonDown();
           });
 
-          it('should match the reference screenshot', () => {
-            const screenshots = browser.checkDocument({ name: `buttons/${name}/${variant}/pressed` });
-            expect(screenshots)
-              .to
-              .matchReference();
-          });
-
           it('should be accessible', () => {
             const a11yReport = browser
               .runAxeCore('ecl-button')
               .value;
             expect(a11yReport).to.be.accessible;
           });
-        });
-
-        // Release
-        context('with released state', () => {
-          before(() => {
-            browser.buttonUp();
-          });
-
-          it('should match the reference screenshot', () => {
-            const screenshots = browser.checkDocument({ name: `buttons/${name}/${variant}/released` });
-            expect(screenshots)
-              .to
-              .matchReference();
-          });
-
-          /* it('should be accessible', () => {
-            const a11yReport = browser
-              .runAxeCore('ecl-button')
-              .value;
-            expect(a11yReport).to.be.accessible;
-          }); */
         });
       });
     });
