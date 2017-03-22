@@ -2,11 +2,9 @@
 
 body {
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  min-width: 320px;
-  overflow-x: hidden;
-  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
+  min-width: 320px;
+  text-rendering: optimizelegibility;
 }
 
 @media print {
@@ -20,29 +18,13 @@ body {
   visibility: visible;
 }
 
-.region-sidebar-first {
-  padding: 1.667em 0;
-}
-
 .navbar-toggle {
   border-radius: 0;
-  border: none;
+  border-width: 0;
 }
 
 .navbar-collapse,
 .navbar-fixed-top,
 .navbar {
-  border: none;
-}
-
-.facetapi-facetapi-checkbox-links {
-  list-style: none;
-
-  input.facetapi-checkbox {
-    margin-right: 0.5em;
-  }
-
-  a.facetapi-checkbox {
-    text-decoration: none;
-  }
+  border-width: 0;
 }
