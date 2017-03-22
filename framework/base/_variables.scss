@@ -2,3 +2,20 @@
 @import 'variables/colors';
 @import 'variables/font-scale';
 @import 'variables/spacing';
+
+$font-family-sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif !default;
+$font-family-monospace: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace !default;
+$font-family-base: $font-family-sans-serif;
+
+// Attribute selector for external links.
+$external_link_pattern: 'href^="http"';
+$ec_url_patterns: '[href*="ec.europa.eu"]';
+
+// Used languages.
+$languages: (
+  'bg', 'cs', 'da', 'de', 'el',
+  'en', 'es', 'et', 'fi', 'fr', 'ga',
+  'hr', 'hu', 'it', 'lt', 'lv', 'mt',
+  'nl', 'pl', 'pt', 'ro', 'sk', 'sl',
+  'sv'
+);

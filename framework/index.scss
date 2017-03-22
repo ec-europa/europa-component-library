@@ -3,18 +3,13 @@
  */
 
 // Core variables and mixins
-@import 'variables';
+@import 'base/variables';
+@import 'base/mixins';
 
 // Reset and dependencies
 @import 'base/reset';
 @import 'base/fluid-type';
 @import 'base/print';
-
-// Importing mixins
-@import 'mixins';
-
-// Importing simple helpers and Bootstrap resets
-@import 'helpers';
 
 // Typography
 @import 'content/typography/blockquotes/blockquotes';
@@ -111,6 +106,7 @@
 @import 'components/splash-pages/splash-pages';
 
 // Utilities
+@import 'utilities/helpers';
 @import 'utilities/font-size/font-size' ;
 @import 'utilities/margin/margin' ;
 @import 'utilities/padding/padding' ;
