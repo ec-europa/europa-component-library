@@ -2,8 +2,8 @@
 // More information: https://websemantics.uk/tools/responsive-font-calculator/
 
 // Default 1rem(16px) @ 30rem(480px) increasing to 1.5rem(24px) @ 120rem(1920px)
-$fluid-type-font-size-min: $font-size-m !default;
-$fluid-type-font-size-max: $font-size-xl !default;
+$fluid-type-font-size-min: map-get($font-size, 'm') !default;
+$fluid-type-font-size-max: map-get($font-size, 'xl') !default;
 $fluid-type-viewport-min: 30rem !default;
 $fluid-type-viewport-max: 120rem !default;
 
