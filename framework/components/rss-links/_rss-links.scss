@@ -27,8 +27,8 @@ $rss-link-icon-height: 40px;
 
 .rss-link__label {
   color: $grey-base;
-  font-size: $font-size-little;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 's');
+  font-weight: 600;
   float: left;
   margin-bottom: 0;
   margin-right: 10px;
@@ -45,7 +45,7 @@ $rss-link-icon-height: 40px;
 
 .rss-link__text {
   display: inline-block;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
   font-weight: normal;
   text-decoration: none;
 }

@@ -64,7 +64,7 @@ a.breadcrumb__link {
   line-height: inherit !important;
   margin-left: 8px !important;
   font-weight: normal;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
   // Width has to be defined, otherwise javascript has issues with calculating
   // the breadcrumb segment width.
   width: 11px;
@@ -103,8 +103,7 @@ a.breadcrumb__link {
 
     &::after {
       position: static;
-
-      @include translate(0, 0);
+      transform: translate(0, 0);
     }
   }
 
@@ -205,8 +204,7 @@ a.breadcrumb__link {
 
     .breadcrumb__segment--last {
       padding-left: 0;
-
-      @include transition(all 0.3s ease 0s);
+      transition: all 0.3s ease 0s;
     }
   }
 
@@ -237,7 +235,7 @@ a.breadcrumb__link {
           margin-right: 4px;
           line-height: inherit !important;
           font-family: 'EuropaIcons';
-          font-size: $font-size-xsmall;
+          font-size: map-get($font-size, 'xs');
           font-style: normal;
           font-weight: normal;
           font-variant: normal;

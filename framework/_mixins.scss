@@ -51,16 +51,16 @@
     }
   }
 
-  background-position: right (($form-control-height - $font-size-medium) / 2) - $form-border-width center, right;
+  background-position: right (($form-control-height - map-get($font-size, 'm')) / 2) - $form-border-width center, right;
   background-repeat: no-repeat;
 
   // Important to make the style guide not break.
-  background-size: $font-size-medium + 0.1em (20em / 32.6em) * $font-size-medium, $form-control-height 100% !important;
+  background-size: map-get($font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($font-size, 'm'), $form-control-height 100% !important;
   transition: none;
 
   // Specific size for IE10+.
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    background-size: $font-size-medium + 0.1em (20em / 32.6em) * $font-size-medium, $form-control-height 100% !important;
+    background-size: map-get($font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($font-size, 'm'), $form-control-height 100% !important;
   }
 }
 
@@ -94,7 +94,7 @@
     color: $white;
     content: 'Show html markup';
     cursor: pointer;
-    font-weight: $font-weight-bold;
+    font-weight: 600;
     padding: 0.2em 1em;
     position: absolute;
     right: 0;
@@ -113,7 +113,7 @@
 }
 
 @mixin text-small() {
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
 }
 
 $modifiers: (
@@ -182,9 +182,8 @@ $modifiers: (
   border-radius: 0;
   margin-bottom: 1.1em;
   min-height: $form-control-height;
-  font-size: $font-size-little;
-
-  @include box-shadow(none);
+  font-size: map-get($font-size, 's');
+  box-shadow: none;
 
   &.has-error {
     border-width: 2px;
@@ -196,8 +195,7 @@ $modifiers: (
   &.is-focused,
   .has-error &:focus {
     color: $form-control-text-color-focus;
-
-    @include box-shadow(none);
+    box-shadow: none;
   }
 
   @include _focus_outline_border(3px, $yellow-light, 0, none);
@@ -274,5 +272,16 @@ $modifiers: (
   padding: 0.715em 1em;
   line-height: 1.5715;
   background-color: $grey-lighter;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
 }

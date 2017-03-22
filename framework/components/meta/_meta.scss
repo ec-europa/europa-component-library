@@ -14,7 +14,7 @@ Style guide meta
 
 .meta {
   line-height: 1.3;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
   letter-spacing: 0.02777778em;
 
   p {
@@ -45,7 +45,7 @@ Style guide meta
 }
 
 .meta--header {
-  font-size: $font-size-little;
+  font-size: map-get($font-size, 's');
   margin: 0 0 1em;
 }
 
@@ -61,6 +61,6 @@ Style guide meta
   }
 
   .label {
-    font-size: $font-size-little !important;
+    font-size: map-get($font-size, 's') !important;
   }
 }
