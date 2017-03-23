@@ -31,13 +31,11 @@
   margin-left: 1em;
   position: relative;
   top: -2px;
-
-  @include transition(rotate 0.3s ease 0s);
+  transition: rotate 0.3s ease 0s;
 }
 
 @mixin ecl-button--caret() {
   font-size: 0.8em;
   margin-left: 0.8em;
-
-  @include transition(rotate 0.3s ease 0s);
+  transition: rotate 0.3s ease 0s;
 }

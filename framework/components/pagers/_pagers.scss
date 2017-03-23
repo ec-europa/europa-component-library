@@ -10,16 +10,16 @@ Pager
 .pager {
   display: inline-block;
   padding-left: 0;
-  margin: $line-height-computed 0;
+  margin: 1.25rem 0;
   position: relative;
   width: 100%;
 
   > li {
     color: $black;
-    font-size: $font-size-little;
-    font-weight: $font-weight-bold;
+    font-size: map-get($font-size, 's');
+    font-weight: 600;
     border: 2px solid transparent;
-    margin: 0 $padding-base-horizontal/2;
+    margin: 0 0.5rem;
     min-width: 28px;
     height: 28px;
 
@@ -36,13 +36,13 @@ Pager
       }
 
       &.pager__item--ellipsis {
-        font-weight: $font-weight-normal;
+        font-weight: 400;
       }
 
       &.pager__item--previous,
       &.pager__item--next {
         a {
-          font-weight: $font-weight-bold;
+          font-weight: 600;
         }
       }
 
@@ -72,7 +72,7 @@ Pager
 
     > a {
       color: $blue-dark;
-      font-weight: $font-weight-normal;
+      font-weight: 400;
       text-decoration: none;
 
       &:hover {

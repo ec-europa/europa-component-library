@@ -22,7 +22,7 @@ $quote_border_offset: 0.556em;
 }
 
 .banner--quote {
-  @include make-md-column(8);
+  // @include make-md-column(8);
 
   padding-left: $quote_border_offset;
   border-left: $quote_border_offset solid $yellow-light;
@@ -37,8 +37,8 @@ $quote_border_offset: 0.556em;
 
 .banner__author {
   padding-bottom: 0.6em;
-  font-size: $font-size-xsmall;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 'xs');
+  font-weight: 600;
 
   &::before {
     content: ' - ';
@@ -54,7 +54,7 @@ Style guide banner.video
 */
 
 .banner--video {
-  @extend .row;
+  @extend .row !optional;
 }
 
 .banner__video {
@@ -64,14 +64,14 @@ Style guide banner.video
 }
 
 .banner__left {
-  @extend .col-md-6;
+  @extend .col-md-6 !optional;
 }
 
 .banner__paragraph {
-  @extend .col-md-6;
+  @extend .col-md-6 !optional;
 
   margin-top: 1em;
-  font-size: $font-size-little;
+  font-size: map-get($font-size, 's');
 }
 
 .banner__caption {

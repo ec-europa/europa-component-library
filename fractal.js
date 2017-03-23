@@ -10,7 +10,7 @@ const paths = {
 // Create a new theme instance with custom config options
 const theme = mandelbrot({
   skin: 'blue',
-  nav: ['docs', 'search', 'components'],
+  nav: ['search', 'docs', 'components'],
   panels: ['view', 'context', 'html', 'resources', 'info', 'notes'],
   styles: [
     'default',

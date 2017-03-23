@@ -26,8 +26,8 @@ Field
   }
 
   .field__label {
-    font-size: $font-size-xsmall;
-    font-weight: $font-weight-bold;
+    font-size: map-get($font-size, 'xs');
+    font-weight: 600;
 
     h4 {
       padding: 0;
