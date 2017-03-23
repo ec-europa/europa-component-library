@@ -1,10 +1,11 @@
 /*
 Help Block
-
-Markup: html/help-block.html
-
-Style guide form.help-block
 */
+
+// Help block.
+$form-group-help-block-text-color: $grey-dark;
+$form-group-help-block-text-color-disabled: $form-control-color-disabled;
+$form-group-help-block-text-color-has-error: $form-group-help-block-text-color;
 
 .help-block {
   @extend %hidden-print;
@@ -12,7 +13,7 @@ Style guide form.help-block
   margin-top: 0;
   margin-bottom: 0.556em;
   font-family: $font-family-sans-serif;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
   color: $form-group-help-block-text-color;
 
   .disabled & {

@@ -1,0 +1,76 @@
+/*
+  ECL Margin
+  ===========
+
+  Base:
+    m = margin
+  Modifiers:
+    a = all
+    h = horizontal
+    v = vertical
+    t = top
+    r = right
+    b = bottom
+    l = left
+*/
+
+@each $key, $value in $spacing {
+  .ecl-ma-#{$key} {
+    margin: $value;
+  }
+
+  .ecl-mh-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+
+  .ecl-mv-#{$key} {
+    margin-bottom: $value;
+    margin-top: $value;
+  }
+
+  .ecl-mt-#{$key} {
+    margin-top: $value;
+  }
+
+  .ecl-mr-#{$key} {
+    margin-right: $value;
+  }
+
+  .ecl-mb-#{$key} {
+    margin-bottom: $value;
+  }
+
+  .ecl-ml-#{$key} {
+    margin-left: $value;
+  }
+}
+
+/*
+  ECL Margin auto
+  ===============
+  Base:
+    m = margin
+  Modifiers:
+    a = all
+    h = horizontal
+    r = right
+    l = left
+*/
+
+.ecl-ma-auto {
+  margin: auto;
+}
+
+.ecl-mh-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ecl-mr-auto {
+  margin-right: auto;
+}
+
+.ecl-ml-auto {
+  margin-left: auto;
+}

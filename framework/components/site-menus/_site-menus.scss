@@ -9,7 +9,7 @@
   }
 
   .listing__item {
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
     border-color: #dcb812;
 
     &:first-child {
@@ -53,7 +53,7 @@
   }
 
   p {
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
     color: $black;
   }
 
@@ -85,7 +85,7 @@
 
 .front {
   .site-menu p {
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
   }
 }
 

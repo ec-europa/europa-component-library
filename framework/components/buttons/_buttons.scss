@@ -37,8 +37,8 @@ Style guide: buttons
 
   border-radius: 0;
   border-width: 2px;
-  font-size: $font-size-little;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 's');
+  font-weight: 600;
   line-height: 1;
   margin-bottom: 1em;
   min-height: 2.75em;
@@ -54,11 +54,9 @@ Style guide: buttons
   &:hover,
   &:active,
   &:focus {
+    box-shadow: none;
     position: relative;
     text-decoration: underline;
-
-    @include box-shadow(none);
-
     z-index: 999;
   }
 
@@ -149,12 +147,12 @@ Style guide: buttons
       position: relative;
       top: -2px;
 
-      @include transition(all 0.3s ease 0s);
+      transition: all 0.3s ease 0s;
     }
 
     &.is-collapsed {
       &::after {
-        @include rotate(180deg);
+        transform: rotate(180deg);
       }
     }
   }
@@ -289,7 +287,7 @@ Style guide: buttons.btn-collapse
     &::before {
       vertical-align: bottom;
 
-      @include transition(all 0.3s ease 0s);
+      transition: all 0.3s ease 0s;
     }
   }
 
@@ -302,7 +300,7 @@ Style guide: buttons.btn-collapse
 
   &.collapsed {
     .icon::before {
-      @include rotate(180deg);
+      transform: rotate(180deg);
     }
   }
 }

@@ -17,10 +17,38 @@ body {
 
 .Frame-panel--sidebar {
   background-color: #fafafa;
+  padding: 2rem 0;
 }
 
 [dir="ltr"] .Frame-panel--sidebar {
   border-right: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.Navigation-group + .Navigation-group {
+  margin-top: 3rem;
+}
+
+.Tree-items {
+  border-top: 1px solid #e0e6ed;
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.Tree-items > li + li {
+  border-top: 1px solid #e0e6ed;
+}
+
+.Tree-collectionItems {
+  border-top: 1px solid #e5ebf4;
+}
+
+.Tree-depth-1 li {
+  line-height: 2.5;
+  font-size: 1rem;
+}
+
+.Tree-depth-1 > li {
+  line-height: 3;
+  font-size: 1.05rem;
 }
 
 .Tree-item {
@@ -62,7 +90,8 @@ body {
 .Tree-collectionLabel span::after {
   display: inline-block;
   position: absolute;
-  top: 0.25rem;
+  top: 50%;
+  transform: translateY(-50%);
   width: 0.75rem;
   height: 0.75rem;
   background-image: url(../themes/mandelbrot/img/icon-navigation-opened.svg);
@@ -83,6 +112,20 @@ body {
 
 /* Components search */
 #search-components {
-  left: 1em;
-  position: relative;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.Tree-search {
+  padding: 0 1rem;
+}
+
+.Document {
+  margin: auto;
+  max-width: 70rem;
+  padding: 3rem 2rem;
+}
+
+.Prose {
+  max-width: 60rem;
 }

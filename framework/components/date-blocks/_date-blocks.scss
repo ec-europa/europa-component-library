@@ -30,7 +30,7 @@ $agenda-yellow: #fed437;
     border-bottom: 1em solid transparent;
     border-right: 1em solid $white;
 
-    @include rotate(135deg);
+    transform: rotate(135deg);
   }
 }
 
@@ -43,30 +43,30 @@ $agenda-yellow: #fed437;
   @extend .date-block__element;
 
   line-height: 1;
-  font-size: $font-size-little;
+  font-size: map-get($font-size, 's');
 }
 
 .date-block__day-text {
   @extend .date-block__element;
 
   line-height: 1.2;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
 }
 
 .date-block__day {
   @extend .date-block__element;
 
   line-height: 1.2;
-  font-size: $font-size-huge;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 'xxl');
+  font-weight: 600;
 }
 
 .date-block__month {
   @extend .date-block__element;
 
   line-height: 1;
-  font-size: $font-size-little;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 's');
+  font-weight: 600;
 }
 
 /*
@@ -130,7 +130,7 @@ Style guide date-block.event.past
     border-bottom: 1em solid transparent;
     border-right: 1em solid $white;
 
-    @include rotate(135deg);
+    transform: rotate(135deg);
   }
 
   &::after {
@@ -140,6 +140,6 @@ Style guide date-block.event.past
     border: none;
     border-right: 0.166em solid $grey;
 
-    @include rotate(135deg);
+    transform: rotate(135deg);
   }
 }

@@ -1,0 +1,31 @@
+// Implement fluid type
+// More information: https://websemantics.uk/tools/responsive-font-calculator/
+
+// Default 1rem(16px) @ 30rem(480px) increasing to 1.5rem(24px) @ 120rem(1920px)
+$fluid-type-font-size-min: map-get($font-size, 'm') !default;
+$fluid-type-font-size-max: map-get($font-size, 'xl') !default;
+$fluid-type-viewport-min: 30rem !default;
+$fluid-type-viewport-max: 120rem !default;
+
+// Internal variables
+$_font-size-diff: $fluid-type-font-size-max - $fluid-type-font-size-min;
+$_viewport-diff: $fluid-type-viewport-max - $fluid-type-viewport-min;
+
+// Set minimal font-size
+:root {
+  font-size: $fluid-type-font-size-min;
+}
+
+// Scale between the 2 breakpoints
+@media (min-width: $fluid-type-viewport-min) and (max-width: $fluid-type-viewport-max) {
+  :root {
+    font-size: calc(#{$fluid-type-font-size-min} + (1vw - #{$fluid-type-viewport-min / 100}) * #{100 * $_font-size-diff / $_viewport-diff});
+  }
+}
+
+// Prevent font scaling beyond this breakpoint
+@media (min-width: $fluid-type-viewport-max) {
+  :root {
+    font-size: $fluid-type-font-size-max;
+  }
+}

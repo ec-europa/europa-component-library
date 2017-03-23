@@ -12,7 +12,7 @@ Style guide link-block
 }
 
 .link-block__links {
-  font-size: $font-size-little;
+  font-size: map-get($font-size, 's');
   list-style: none;
   padding: 0;
 
@@ -34,8 +34,8 @@ Style guide link-block
 }
 
 .link-block__title {
-  font-weight: $font-weight-bold;
-  font-size: $font-size-little;
+  font-weight: 600;
+  font-size: map-get($font-size, 's');
   line-height: 1.875em;
   color: $blue-darker;
   margin-bottom: 0.688em;

@@ -69,6 +69,11 @@ Markup: html/listing.html
 Style guide listing.1
 */
 
+// Navigation block color settings.
+$navigation-title-color: $blue-darker;
+$navigation-title-hover-color: $black;
+$navigation-top-border-color: $yellow-light;
+
 .listing {
   padding: 0;
 }
@@ -150,7 +155,7 @@ ul.listing--title {
 
 // .listing--title-medium modifier.
 .listing--title-medium .listing__title {
-  font-size: $font-size-h3;
+  font-size: map-get($font-size, 'l');
 }
 
 /*
@@ -187,13 +192,13 @@ Style guide listing.5
   }
 
   h3.listing__title {
-    font-size: $font-size-medium;
+    font-size: map-get($font-size, 'm');
     color: $grey-base;
   }
 
   .listing__author {
     margin-top: 1em;
-    font-size: $font-size-tiny;
+    font-size: map-get($font-size, 's');
   }
 }
 
@@ -230,7 +235,7 @@ Style guide listing.3
 // Modifier to add line on the left.
 .listing--line-left {
   .listing__title {
-    font-size: $font-size-h3;
+    font-size: map-get($font-size, 'l');
   }
 
   .listing--teaser {
@@ -241,14 +246,14 @@ Style guide listing.3
     border-top: none !important;
     border-bottom: none !important;
     border-left: 5px solid $blue-dark;
-    padding: $font-size-mid/2 0 $font-size-mid/2 $font-size-mid;
-    margin: $font-size-mid/2 0;
+    padding: map-get($font-size, 'l')/2 0 map-get($font-size, 'l')/2 map-get($font-size, 'l');
+    margin: map-get($font-size, 'l')/2 0;
   }
 }
 
 @include breakpoint(screen-xs-min) {
   .listing--line-left p {
-    font-size: $font-size-medium;
+    font-size: map-get($font-size, 'm');
   }
 }
 
@@ -278,7 +283,7 @@ Style guide listing.3
 // .listing--cta modifier.
 .listing--cta {
   .listing__item-link {
-    padding: $font-size-mid;
+    padding: map-get($font-size, 'l');
     background-color: $brand-primary;
 
     &:hover,
@@ -303,7 +308,7 @@ Style guide listing.3
     }
 
     &:last-child {
-      padding-bottom: $font-size-mid;
+      padding-bottom: map-get($font-size, 'l');
     }
   }
 
@@ -425,7 +430,7 @@ Style guide listing.6
     }
 
     .listing__description {
-      font-size: $font-size-medium;
+      font-size: map-get($font-size, 'm');
     }
 
     .listing__separator {
@@ -500,7 +505,7 @@ a.listing__title {
   > p,
   .listing__column-main > p,
   .listing__item-link > p {
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
   }
 }
 
@@ -621,15 +626,15 @@ a.listing__title {
   position: absolute;
   margin-top: 2px;
   margin-left: 10px;
-  font-size: $font-size-mid;
+  font-size: map-get($font-size, 'l');
 }
 
 // .listing__read_more element.
 .listing__read-more {
   display: block;
   padding-top: 0.5em;
-  font-size: $font-size-tiny;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 's');
+  font-weight: 600;
   text-align: right;
   text-transform: uppercase;
   clear: both;
@@ -638,7 +643,7 @@ a.listing__title {
     @extend %icon--after;
     @extend %icon--right;
 
-    font-size: $font-size-xsmall;
+    font-size: map-get($font-size, 'xs');
   }
 
   & + .free-text {
@@ -742,10 +747,10 @@ Style guide listing.2.4
 
 // .listing__wrapper--maxwidth.
 .listing__wrapper--maxwidth {
-  @extend .row;
+  @extend .row !optional;
 
   .listing {
-    @extend .col-md-8;
+    @extend .col-md-8 !optional;
   }
 
   .listing__item {
@@ -768,29 +773,29 @@ Style guide listing.2.4
 
 .listing__wrapper--three-columns,
 .listing__wrapper--two-columns {
-  @extend .row;
+  @extend .row !optional;
 }
 
 .listing__wrapper--two-columns .listing {
-  @extend .col-sm-6;
+  @extend .col-sm-6 !optional;
 
   margin-bottom: 2em;
 }
 
 .listing__wrapper--three-columns .listing {
-  @extend .col-md-4;
+  @extend .col-md-4 !optional;
 }
 
 .listing__wrapper--row-three,
 .listing__wrapper--row-two {
   .listing {
-    @extend .row;
+    @extend .row !optional;
   }
 }
 
 .listing__wrapper--row-two {
   .listing__item {
-    @extend .col-md-6;
+    @extend .col-md-6 !optional;
 
     &:nth-child(odd) {
       clear: left;
@@ -800,7 +805,7 @@ Style guide listing.2.4
 
 .listing__wrapper--row-three {
   .listing__item {
-    @extend .col-md-4;
+    @extend .col-md-4 !optional;
 
     &:nth-child(3n+4) {
       clear: left;

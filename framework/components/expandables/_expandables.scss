@@ -10,7 +10,7 @@ Expandable
   @include breakpoint(screen-xs-min) {
     & > p {
       margin: 0.8em 0.8em 0.8em 3.2em;
-      font-size: $font-size-little;
+      font-size: map-get($font-size, 's');
     }
   }
 }
@@ -29,7 +29,7 @@ Expandable
   }
 
   h3 {
-    font-size: $font-size-mid;
+    font-size: map-get($font-size, 'l');
   }
 
   &:link {

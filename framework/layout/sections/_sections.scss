@@ -88,7 +88,7 @@ $section-spacing: 1.667em;
   margin-top: $section-spacing;
 
   .section__group {
-    @extend .clearfix;
+    @extend .clearfix !optional;
   }
 
   .section__group:first-child,
@@ -106,7 +106,7 @@ $section-spacing: 1.667em;
 
   .section--row-two,
   .section--row-three {
-    @extend .row;
+    @extend .row !optional;
   }
 }
 
@@ -146,7 +146,7 @@ $section-spacing: 1.667em;
     margin-left: auto !important;
     margin-right: auto !important;
 
-    @extend .container-fluid;
+    @extend .container-fluid !optional;
   }
 }
 
@@ -184,7 +184,7 @@ $section-spacing: 1.667em;
   .section__item {
     margin-top: 15px;
 
-    @extend .col-md-6;
+    @extend .col-md-6 !optional;
 
     &:nth-child(odd) {
       clear: left;
@@ -194,7 +194,7 @@ $section-spacing: 1.667em;
 
 .section--row-three {
   .section__item {
-    @extend .col-md-4;
+    @extend .col-md-4 !optional;
 
     margin-top: 15px;
 

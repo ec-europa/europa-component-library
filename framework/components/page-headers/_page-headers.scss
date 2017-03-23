@@ -26,7 +26,7 @@
     max-width: 40em;
     margin: 0;
     line-height: 1.45;
-    font-size: $font-size-h3;
+    font-size: map-get($font-size, 'l');
     color: $white;
   }
 
@@ -58,7 +58,7 @@
   }
 
   .page-header__main {
-    line-height: $line-height-base;
+    line-height: 1.15;
   }
 
   .page-header__bottom {
@@ -78,8 +78,8 @@
   padding-bottom: 2.39em;
 
   p {
-    font-size: $font-size-h2;
-    line-height: $line-height-large;
+    font-size: map-get($font-size, 'xl');
+    line-height: 1.5;
   }
 }
 
@@ -94,7 +94,7 @@
 
 .page-header__eventinfo {
   float: left;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
 
   .page-header__date--cancelled {
     text-decoration: line-through;
@@ -123,13 +123,13 @@
   .field__label--above {
     padding: 0;
     color: $white;
-    font-size: $font-size-h5;
-    font-weight: $font-weight-normal;
+    font-size: map-get($font-size, 's');
+    font-weight: 400;
     text-transform: uppercase;
   }
 
   p {
-    font-size: $font-size-h3;
+    font-size: map-get($font-size, 'l');
   }
 }
 
@@ -181,7 +181,7 @@
           color: $blue-dark;
 
           &:hover {
-            color: $gray-base;
+            color: $grey-base;
           }
         }
       }
