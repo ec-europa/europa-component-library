@@ -22,7 +22,8 @@
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
-    "test:functional": "wdio test/wdio.conf.js",
+    "test:functional": "node ./scripts/mocha.js",
+    "test:visual": "wdio test/visual/wdio.conf.js",
     "watch:scripts": "chokidar './framework/**/*.js' -c 'eslint {path} && npm run build:scripts'",
     "watch:styles": "chokidar './framework/**/*.scss' -c 'stylelint {path} || true && npm run build:styles'",
     "watch": "npm-run-all --parallel watch:*"
@@ -46,6 +47,7 @@
     "express": "^4.15.2",
     "fs-extra": "2.1.1",
     "gh-pages": "0.12.0",
+    "glob": "^7.1.1",
     "html-inspector": "0.8.2",
     "husky": "0.13.2",
     "lerna": "2.0.0-beta.38",

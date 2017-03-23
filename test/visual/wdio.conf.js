@@ -2,11 +2,7 @@
 const path = require('path');
 const chai = require('chai');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare'); // eslint-disable-line import/no-extraneous-dependencies
-const { injectAxeCore, runAxeCore } = require('./utils/commands/a11y');
-const { injectHTMLInspector, runHTMLInspector } = require('./utils/commands/html-inspector');
 const matchReference = require('./utils/assertions/matchReference');
-const isAccessible = require('./utils/assertions/isAccessible');
-const isWellFormatted = require('./utils/assertions/isWellFormatted');
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -34,8 +30,7 @@ exports.config = {
   // directory is where your package.json resides, so `wdio` will be called from there.
 
   specs: [
-    // path.resolve(__dirname, './functional/**/*.spec.js'),
-    path.resolve(__dirname, './visual/**/*.spec.js'),
+    path.resolve(__dirname, './**/*.spec.js'),
   ],
 
   // Patterns to exclude.
@@ -160,9 +155,9 @@ exports.config = {
   // Visual regression config
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getScreenshotName(path.resolve(__dirname, './visual/screenshots/reference')),
-      screenshotName: getScreenshotName(path.resolve(__dirname, './visual/screenshots/captured')),
-      diffName: getScreenshotName(path.resolve(__dirname, './visual/screenshots/diff')),
+      referenceName: getScreenshotName(path.resolve(__dirname, './screenshots/reference')),
+      screenshotName: getScreenshotName(path.resolve(__dirname, './screenshots/captured')),
+      diffName: getScreenshotName(path.resolve(__dirname, './screenshots/diff')),
       misMatchTolerance: 0.02,
     }),
   },
@@ -219,14 +214,6 @@ exports.config = {
     global.expect = chai.expect;
     // Custom assertions
     chai.Assertion.addMethod('matchReference', matchReference);
-    chai.Assertion.addProperty('accessible', isAccessible);
-    chai.Assertion.addProperty('wellFormatted', isWellFormatted);
-
-    // Custom commands
-    browser.addCommand('injectAxeCore', injectAxeCore.bind(browser));
-    browser.addCommand('runAxeCore', runAxeCore.bind(browser));
-    browser.addCommand('injectHTMLInspector', injectHTMLInspector.bind(browser));
-    browser.addCommand('runHTMLInspector', runHTMLInspector.bind(browser));
   },
 
   // Hook that gets executed before the suite starts
