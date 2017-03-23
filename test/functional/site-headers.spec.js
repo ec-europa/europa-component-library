@@ -14,7 +14,6 @@ const errorHandler = done => (error) => {
 describe('site-headers', () => {
   variants.forEach((variant) => {
     describe(`--${variant}`, () => {
-      const browser = new Nightmare();
       const url = `http://localhost:3000/components/preview/site-headers-${variant}.html`;
 
       before(() => {
@@ -49,7 +48,6 @@ describe('site-headers', () => {
               onComplete: err => cb(null, err),
             });
           })
-          .end()
           .then((result) => {
             expect(result).to.be.wellFormatted;
             done();

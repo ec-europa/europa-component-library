@@ -1,5 +1,6 @@
 const Mocha = require('mocha');
 const path = require('path');
+const Nightmare = require('nightmare');
 const express = require('express');
 const serveStatic = require('serve-static');
 const fs = require('fs');
@@ -22,9 +23,14 @@ const mocha = new Mocha({
 });
 
 const expect = chai.expect;
+const browser = new Nightmare({ show: false });
+
 chai.Assertion.addProperty('accessible', isAccessible);
 chai.Assertion.addProperty('wellFormatted', isWellFormatted);
+
+// Set globals
 global.expect = expect;
+global.browser = browser;
 
 // Add test files
 const testFiles = glob.sync(path.resolve(__dirname, '../test/functional/**/*.spec.js'));
@@ -43,5 +49,6 @@ const runner = mocha.run((failures) => {
 });
 
 runner.on('end', () => {
+  browser.halt();
   server.close();
 });

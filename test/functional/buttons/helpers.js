@@ -1,5 +1,3 @@
-const Nightmare = require('nightmare');
-
 const errorHandler = done => (error) => {
   if (error instanceof Error) {
     return done(error);
@@ -8,24 +6,22 @@ const errorHandler = done => (error) => {
   return done(new Error(error));
 };
 
-function generateTest(variants = [], componentUrl = '/buttons', name = '') {
+
+function generateTest(variants = [], componentUrl = 'buttons', name = '') {
   describe(`${name}`, () => {
     variants.forEach((variant) => {
       describe(`--${variant}`, () => {
-        const url = `http://localhost:3000/components/preview/${componentUrl}--${variant}.html`;
-        const browser = new Nightmare();
+        const url = `http://localhost:3000/components/preview${componentUrl}--${variant}.html`;
 
         before(() => {
-          browser
-            .goto(url)
-            .inject('js', require.resolve('axe-core/axe.min.js'))
-            .inject('js', require.resolve('html-inspector/html-inspector'));
+          browser.goto(url);
         });
 
         // Normal state
         context('with plain state', () => {
           it('should be accessible', (done) => {
             browser
+              .inject('js', require.resolve('axe-core/axe.min.js'))
               .evaluate(() => axe.run(document.getElementsByClassName('ecl-button')[0]))
               .then((result) => {
                 expect(result).to.be.accessible;
@@ -36,6 +32,7 @@ function generateTest(variants = [], componentUrl = '/buttons', name = '') {
 
           it('should be well formatted', (done) => {
             browser
+              .inject('js', require.resolve('html-inspector/html-inspector'))
               .evaluate((cb) => {
                 HTMLInspector.inspect({
                   domRoot: 'body',
@@ -49,7 +46,7 @@ function generateTest(variants = [], componentUrl = '/buttons', name = '') {
                   onComplete: err => cb(null, err),
                 });
               })
-              .end()
+              // .end()
               .then((result) => {
                 expect(result).to.be.wellFormatted;
                 done();
