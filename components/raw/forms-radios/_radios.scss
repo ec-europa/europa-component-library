@@ -49,8 +49,7 @@ Style guide form.radio
       background: $white url('../images/svg/radio-unchecked.svg') no-repeat;
       border: 3px solid transparent;
       border-radius: 50%;
-
-      @include transition(border 0.15s ease-in-out);
+      transition: border 0.15s ease-in-out;
     }
   }
 

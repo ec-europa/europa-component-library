@@ -1,10 +1,28 @@
 /*
 Checkbox
-
-Markup: html/checkbox.html
-
-Style guide form.checkbox
 */
+
+// Checkbox and radio.
+// Unchecked.
+$form-checkbox-color-unchecked: $grey-dark;
+$form-checkbox-background-color-unchecked: $grey-lighter;
+
+// Unchecked, hover.
+$form-checkbox-color-unchecked-hover: $grey-dark;
+$form-checkbox-border-color-unchecked-hover: $brand-primary;
+$form-checkbox-background-color-unchecked-hover: $white;
+
+// Checked.
+$form-checkbox-color-checked: $white;
+$form-checkbox-background-color-checked: $brand-primary;
+
+// Checked, hover.
+$form-checkbox-color-checked-hover: $white;
+$form-checkbox-border-color-checked-hover: $yellow-light;
+$form-checkbox-background-color-checked-hover: $brand-primary;
+
+// Icon size.
+$form-checkbox-icon-size: 1.5em; // 24px
 
 /*
  * Please
@@ -50,7 +68,7 @@ Style guide form.checkbox
       border: 3px solid transparent;
       border-radius: 6px;
 
-      @include transition(border 0.15s ease-in-out, color 0.15s ease-in-out);
+      transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
     }
   }
 

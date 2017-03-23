@@ -17,42 +17,42 @@ h6,
 
 h1,
 .h1 {
-  font-size: $font-size-h1;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 'xxl');
+  font-weight: 600;
   color: $black;
 }
 
 h2,
 .h2 {
-  font-size: $font-size-h2;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 'xl');
+  font-weight: 600;
   color: $black;
 }
 
 h3,
 .h3 {
-  font-size: $font-size-h3;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 'l');
+  font-weight: 600;
   color: $grey-base;
 }
 
 h4,
 .h4 {
-  font-size: $font-size-h4;
-  font-weight: $font-weight-bold;
+  font-size: map-get($font-size, 'm');
+  font-weight: 600;
   color: $grey-base;
 }
 
 h5,
 .h5 {
-  font-size: $font-size-h5;
+  font-size: map-get($font-size, 's');
   color: $grey-base;
   text-transform: uppercase;
 }
 
 h6,
 .h6 {
-  font-size: $font-size-h6;
+  font-size: map-get($font-size, 'xs');
   color: $grey-base;
   text-transform: uppercase;
 }

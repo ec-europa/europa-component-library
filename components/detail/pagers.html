@@ -341,16 +341,16 @@ Pager
 <span class="hljs-selector-class">.pager</span> {
   <span class="hljs-attribute">display</span>: inline-block;
   <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-variable">$line-height-computed</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">1.25rem</span> <span class="hljs-number">0</span>;
   <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 
   &gt; <span class="hljs-selector-tag">li</span> {
     <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$font-size-little</span>;
-    <span class="hljs-attribute">font-weight</span>: <span class="hljs-variable">$font-weight-bold</span>;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
     <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid transparent;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-variable">$padding-base-horizontal</span>/<span class="hljs-number">2</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.5rem</span>;
     <span class="hljs-attribute">min-width</span>: <span class="hljs-number">28px</span>;
     <span class="hljs-attribute">height</span>: <span class="hljs-number">28px</span>;
 
@@ -367,13 +367,13 @@ Pager
       }
 
       &amp;<span class="hljs-selector-class">.pager__item--ellipsis</span> {
-        <span class="hljs-attribute">font-weight</span>: <span class="hljs-variable">$font-weight-normal</span>;
+        <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
       }
 
       &amp;<span class="hljs-selector-class">.pager__item--previous</span>,
       &amp;<span class="hljs-selector-class">.pager__item--next</span> {
         <span class="hljs-selector-tag">a</span> {
-          <span class="hljs-attribute">font-weight</span>: <span class="hljs-variable">$font-weight-bold</span>;
+          <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
         }
       }
 
@@ -403,7 +403,7 @@ Pager
 
     &gt; <span class="hljs-selector-tag">a</span> {
       <span class="hljs-attribute">color</span>: <span class="hljs-variable">$blue-dark</span>;
-      <span class="hljs-attribute">font-weight</span>: <span class="hljs-variable">$font-weight-normal</span>;
+      <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
       <span class="hljs-attribute">text-decoration</span>: none;
 
       &amp;:hover {
@@ -463,7 +463,7 @@ Pager
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.1 KB</span>
+                    <span class="Meta-value">2 KB</span>
                 </li>
             </ul>
         </div>
@@ -553,6 +553,14 @@ Pager
         <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
             <nav class="Navigation">
 
+    <div class="Navigation-group">
+  <div class="Tree Tree-search" data-behaviour="tree">
+    <input id="search-components" type="text" placeholder="Search" aria-label="Search among components" tabindex="1">
+    <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
+  </div>
+</div>
+
+
     
 <div class="Navigation-group">
 
@@ -597,15 +605,6 @@ Pager
 
 </div>
 
-
-
-    <div class="Navigation-group">
-  <div class="Tree" data-behaviour="tree">
-    <h3 class="Tree-title">Search</h3>
-    <input id="search-components" type="text" placeholder="Search" aria-label="Search among components" tabindex="1">
-    <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
-  </div>
-</div>
 
 
     
@@ -3896,6 +3895,94 @@ Pager
     
 
             </ul>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-utilities">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Utilities</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="font-size" data-pjax>
+                <span>Font size</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="margin" data-pjax>
+                <span>Margin</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="padding" data-pjax>
+                <span>Padding</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
         </li>
         
     

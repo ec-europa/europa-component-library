@@ -25,11 +25,11 @@ p {
 }
 
 .paragraph--intro {
-  font-size: $font-size-mid;
+  font-size: map-get($font-size, 'l');
 }
 
 .paragraph--small {
-  font-size: $font-size-little;
+  font-size: map-get($font-size, 's');
 }
 
 .text-small {

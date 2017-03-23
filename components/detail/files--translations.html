@@ -310,7 +310,7 @@ File download default
 
 <span class="hljs-selector-class">.file</span> {
   @<span class="hljs-keyword">extend</span> %hidden-print;
-  @<span class="hljs-keyword">extend</span> .row;
+  @<span class="hljs-keyword">extend</span> .row !optional;
 
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0.944em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">1.333em</span>;
@@ -318,8 +318,8 @@ File download default
 }
 
 <span class="hljs-selector-class">.file__icon</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-1;
-  @<span class="hljs-keyword">extend</span> .col-sm-1;
+  @<span class="hljs-keyword">extend</span> .col-md-1 !optional;
+  @<span class="hljs-keyword">extend</span> .col-sm-1 !optional;
 
   <span class="hljs-attribute">float</span>: left;
   <span class="hljs-attribute">height</span>: <span class="hljs-number">2.556em</span>;
@@ -338,9 +338,9 @@ File download default
 }
 
 <span class="hljs-selector-class">.file__metadata</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-6;
-  @<span class="hljs-keyword">extend</span> .col-sm-6;
-  @<span class="hljs-keyword">extend</span> .col-xs-10;
+  @<span class="hljs-keyword">extend</span> .col-md-6 !optional;
+  @<span class="hljs-keyword">extend</span> .col-sm-6 !optional;
+  @<span class="hljs-keyword">extend</span> .col-xs-10 !optional;
 
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
@@ -361,14 +361,14 @@ File download default
   <span class="hljs-attribute">display</span>: block;
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.556em</span>;
   <span class="hljs-attribute">line-height</span>: initial;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$font-size-little</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">font-weight</span>: bold;
 }
 
 <span class="hljs-selector-class">.file__info</span> {
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.778em</span>;
   <span class="hljs-attribute">line-height</span>: initial;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$font-size-xsmall</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xs'</span>);
 }
 
 <span class="hljs-selector-class">.file__content-language</span> {
@@ -376,9 +376,9 @@ File download default
 }
 
 <span class="hljs-selector-class">.file__btn</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-4;
-  @<span class="hljs-keyword">extend</span> .col-sm-4;
-  @<span class="hljs-keyword">extend</span> .col-xs-12;
+  @<span class="hljs-keyword">extend</span> .col-md-4 !optional;
+  @<span class="hljs-keyword">extend</span> .col-sm-4 !optional;
+  @<span class="hljs-keyword">extend</span> .col-xs-12 !optional;
 
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.778em</span>;
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
@@ -415,12 +415,12 @@ File download with translations
 <span class="hljs-selector-class">.file__translations</span> {
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">1.45em</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$font-size-little</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">text-align</span>: right;
 
   <span class="hljs-selector-class">.file__translations-control</span> {
     <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.444em</span>;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$font-size-medium</span>;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'m'</span>);
     <span class="hljs-attribute">text-decoration</span>: none;
 
     &amp;:active,
@@ -443,12 +443,12 @@ File download with translations
       <span class="hljs-attribute">position</span>: relative;
       <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.525em</span> <span class="hljs-meta">!important</span>;
 
-      @<span class="hljs-keyword">include</span> transition(all 0.3s ease 0s);
+      <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span> ease <span class="hljs-number">0s</span>;
     }
 
     &amp;<span class="hljs-selector-class">.is-collapsed</span> {
       &amp;::after {
-        @<span class="hljs-keyword">include</span> rotate(<span class="hljs-number">180deg</span>);
+        <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">180deg</span>);
       }
     }
   }
@@ -481,9 +481,9 @@ File download with translations
   }
 
   <span class="hljs-selector-class">.file__metadata</span> {
-    @<span class="hljs-keyword">extend</span> .col-md-6;
-    @<span class="hljs-keyword">extend</span> .col-sm-6;
-    @<span class="hljs-keyword">extend</span> .col-xs-12;
+    @<span class="hljs-keyword">extend</span> .col-md-6 !optional;
+    @<span class="hljs-keyword">extend</span> .col-sm-6 !optional;
+    @<span class="hljs-keyword">extend</span> .col-xs-12 !optional;
 
     <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
@@ -494,7 +494,7 @@ File download with translations
     @<span class="hljs-keyword">extend</span> .file__translations-item;
 
     <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0.5em</span>;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$font-size-little</span>;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
   }
 }
 
@@ -505,9 +505,9 @@ File link
   <span class="hljs-attribute">background-color</span>: transparent;
 
   <span class="hljs-selector-class">.file__metadata--link</span> {
-    @<span class="hljs-keyword">extend</span> .col-md-10;
-    @<span class="hljs-keyword">extend</span> .col-sm-10;
-    @<span class="hljs-keyword">extend</span> .col-xs-10;
+    @<span class="hljs-keyword">extend</span> .col-md-10 !optional;
+    @<span class="hljs-keyword">extend</span> .col-sm-10 !optional;
+    @<span class="hljs-keyword">extend</span> .col-xs-10 !optional;
 
     <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
@@ -582,12 +582,12 @@ Style guide: file.5
   <span class="hljs-attribute">background-color</span>: transparent;
 
   <span class="hljs-selector-class">.file__container</span> {
-    @<span class="hljs-keyword">extend</span> .embed-responsive;
-    @<span class="hljs-keyword">extend</span> .embed-responsive-16by9;
+    @<span class="hljs-keyword">extend</span> .embed-responsive !optional;
+    @<span class="hljs-keyword">extend</span> .embed-responsive-16by9 !optional;
   }
 
   <span class="hljs-selector-tag">iframe</span> {
-    @<span class="hljs-keyword">extend</span> .embed-responsive-item;
+    @<span class="hljs-keyword">extend</span> .embed-responsive-item !optional;
   }
 }
 </pre>
@@ -606,7 +606,7 @@ Style guide: file.5
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.5 KB</span>
+                    <span class="Meta-value">4.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -773,6 +773,14 @@ is displayed multimedia files (image and video).</p>
         <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
             <nav class="Navigation">
 
+    <div class="Navigation-group">
+  <div class="Tree Tree-search" data-behaviour="tree">
+    <input id="search-components" type="text" placeholder="Search" aria-label="Search among components" tabindex="1">
+    <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
+  </div>
+</div>
+
+
     
 <div class="Navigation-group">
 
@@ -817,15 +825,6 @@ is displayed multimedia files (image and video).</p>
 
 </div>
 
-
-
-    <div class="Navigation-group">
-  <div class="Tree" data-behaviour="tree">
-    <h3 class="Tree-title">Search</h3>
-    <input id="search-components" type="text" placeholder="Search" aria-label="Search among components" tabindex="1">
-    <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
-  </div>
-</div>
 
 
     
@@ -4116,6 +4115,94 @@ is displayed multimedia files (image and video).</p>
     
 
             </ul>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-components-collection-utilities">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Utilities</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="font-size" data-pjax>
+                <span>Font size</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="margin" data-pjax>
+                <span>Margin</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="padding" data-pjax>
+                <span>Padding</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
         </li>
         
     

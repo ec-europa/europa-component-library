@@ -78,7 +78,7 @@ Filters
   color: $brand-primary !important;
   opacity: 1 !important;
   font-size: 1em;
-  font-weight: $font-weight-normal;
+  font-weight: 400;
   padding-top: 32px;
   margin-right: 20px;
   text-decoration: none;
@@ -103,7 +103,7 @@ Filters
 
 .filters__items-number,
 .filters__items-name {
-  font-size: $font-size-h2;
+  font-size: map-get($font-size, 'xl');
 }
 
 .filters__items-number {
