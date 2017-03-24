@@ -23,7 +23,7 @@
   }
 
   .listing__item-link {
-    @include _focus_outline_border(3px, $grey-base, 8px);
+    @include focus-outline-border(3px, $grey-base, 8px);
   }
 
   .smaller {
@@ -43,7 +43,7 @@
       }
 
       &:focus {
-        @include _focus_outline_border(3px, $grey-base, 2px, none);
+        @include focus-outline-border(3px, $grey-base, 2px, none);
       }
     }
   }

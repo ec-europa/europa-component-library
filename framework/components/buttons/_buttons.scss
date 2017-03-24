@@ -45,7 +45,7 @@ Style guide: buttons
   padding: 0.75em 1em;
   text-decoration: none;
 
-  @include _focus_outline_border(3px, $yellow-light, -3px);
+  @include focus-outline-border(3px, $yellow-light, -3px);
 
   &:link {
     text-decoration: none;
@@ -346,8 +346,8 @@ Style guide: buttons.btn-collapse
 }
 
 .btn {
-  &#{'[' + $external_link_pattern + ']'}:not(.is-internal) {
-    &:not(#{$ec_url_patterns}) {
+  &#{'[' + $external-link-pattern + ']'}:not(.is-internal) {
+    &:not(#{$ec-url-patterns}) {
       @include btn-external-link();
     }
   }

@@ -1,3 +1,18 @@
+// External link specific adjustments.
+@mixin _page_header_external_link_mixin() {
+  display: inline-block;
+  padding-right: 1.1em;
+
+  &::after {
+    position: absolute;
+    line-height: 2.2;
+  }
+
+  &.btn {
+    padding-right: 2.1em;
+  }
+}
+
 .page-header {
   margin: 0;
   padding: 0 0 1.5em;
@@ -33,14 +48,14 @@
   a {
     color: $white;
 
-    @include _focus_outline_border(3px, $yellow-light, 2px);
+    @include focus-outline-border(3px, $yellow-light, 2px);
 
     &:hover:not(.breadcrumb__link, .btn) {
       color: $yellow-light;
     }
 
-    &#{"[" + $external_link_pattern + "]"}:not(.is-internal, .listing__title) {
-      &:not(#{$ec_url_patterns}) {
+    &#{"[" + $external-link-pattern + "]"}:not(.is-internal, .listing__title) {
+      &:not(#{$ec-url-patterns}) {
         @include _page_header_external_link_mixin();
       }
     }

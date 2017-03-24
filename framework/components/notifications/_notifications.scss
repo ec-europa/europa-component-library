@@ -12,7 +12,7 @@ Notification
   a {
     color: $black;
 
-    @include _focus_outline_border(3px, $black, 2px);
+    @include focus-outline-border(3px, $black, 2px);
 
     &:hover,
     &:focus {
@@ -96,8 +96,8 @@ Notification
 
 .notification {
   a {
-    &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec_url_patterns}) {
+    &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+      &:not(#{$ec-url-patterns}) {
         @include _notification_external_link_mixin();
       }
     }

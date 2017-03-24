@@ -74,6 +74,24 @@ $navigation-title-color: $blue-darker;
 $navigation-title-hover-color: $black;
 $navigation-top-border-color: $yellow-light;
 
+@mixin _listing_external_link_mixin() {
+  &::after {
+    display: none !important;
+  }
+
+  .listing__title,
+  .highlighted-item h3 {
+    @extend .is-external;
+
+    padding-right: 1.2em;
+
+    &::after {
+      position: absolute;
+      line-height: 1.6;
+    }
+  }
+}
+
 .listing {
   padding: 0;
 }
@@ -530,8 +548,8 @@ a.listing__title {
     }
   }
 
-  &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-    &:not(#{$ec_url_patterns}) {
+  &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+    &:not(#{$ec-url-patterns}) {
       @include _listing_external_link_mixin();
     }
   }
