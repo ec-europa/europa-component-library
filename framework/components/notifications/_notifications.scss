@@ -66,7 +66,7 @@ Notification
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .notification__content {
     .notification__text {
       width: 75%;
@@ -78,7 +78,7 @@ Notification
   }
 }
 
-@include breakpoint(screen-lg-min) {
+@include media-breakpoint-up(lg) {
   .notification__content__more {
     float: right;
   }

@@ -251,7 +251,7 @@ Style guide listing.3
   }
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .listing--line-left p {
     font-size: map-get($font-size, 'm');
   }
@@ -406,7 +406,7 @@ Style guide listing.6
   }
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .listing--navigation {
     margin-bottom: (90/18)+em; // 90px
 
@@ -564,7 +564,7 @@ a.listing__title {
 
 // Min-width: 480px.
 // The variable to use here should be $screen-phone.
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .listing__column-second {
     float: right;
     width: 25%;
@@ -583,7 +583,7 @@ a.listing__title {
 }
 
 // Min-width: 622px.
-@include breakpoint(screen-msm-min) {
+@include media-breakpoint-up(msm) {
   .listing__column-main--sidebar-next {
     width: 66.6%;
   }
@@ -657,7 +657,7 @@ a.listing__title {
   margin-bottom: 0.8em;
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .listing {
     .listing__status-container--inline {
       display: inline-block;
@@ -813,7 +813,7 @@ Style guide listing.2.4
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .listing__wrapper--two-columns .listing {
     margin-bottom: 0;
   }

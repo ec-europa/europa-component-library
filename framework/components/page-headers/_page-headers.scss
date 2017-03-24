@@ -133,7 +133,7 @@
   }
 }
 
-@include breakpoint(screen-msm-min) {
+@include media-breakpoint-up(msm) {
   .page-header--xlarge-intro {
     height: 320px;
 
@@ -175,7 +175,7 @@
       }
     }
 
-    @include breakpoint(screen-msm-min) {
+    @include media-breakpoint-up(msm) {
       .page-header__hero-title {
         a {
           color: $blue-dark;

@@ -13,13 +13,13 @@
   font-size: 16px;
   padding-top: 5px;
 
-  @include breakpoint(screen-xs-min) {
+  @include media-breakpoint-up(xs) {
     padding-top: 10px;
     font-size: 20px;
     margin-bottom: 25px;
   }
 
-  @include breakpoint(screen-sm-min) {
+  @include media-breakpoint-up(sm) {
     padding-top: 12px;
     font-size: 26px;
     margin-bottom: 40px;

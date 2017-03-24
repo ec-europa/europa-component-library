@@ -116,7 +116,7 @@
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .site-menu {
     .listing__wrapper--two-columns .listing {
       width: 100%;
@@ -128,7 +128,7 @@
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .site-menu {
     .listing__wrapper--two-columns .listing,
     .listing__wrapper {

@@ -1,0 +1,48 @@
+// Flex variation
+//
+// Custom styles for additional flex alignment options.
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .ecl-order#{$infix}-first { order: -1; }
+    .ecl-order#{$infix}-last { order: 1; }
+    .ecl-order#{$infix}-0 { order: 0; }
+
+    .ecl-flex#{$infix}-row { flex-direction: row; }
+    .ecl-flex#{$infix}-column { flex-direction: column; }
+    .ecl-flex#{$infix}-row-reverse { flex-direction: row-reverse; }
+    .ecl-flex#{$infix}-column-reverse { flex-direction: column-reverse; }
+
+    .ecl-flex#{$infix}-wrap { flex-wrap: wrap; }
+    .ecl-flex#{$infix}-nowrap { flex-wrap: nowrap; }
+    .ecl-flex#{$infix}-wrap-reverse { flex-wrap: wrap-reverse; }
+
+    .ecl-justify-content#{$infix}-start { justify-content: flex-start; }
+    .ecl-justify-content#{$infix}-end { justify-content: flex-end; }
+    .ecl-justify-content#{$infix}-center { justify-content: center; }
+    .ecl-justify-content#{$infix}-between { justify-content: space-between; }
+    .ecl-justify-content#{$infix}-around { justify-content: space-around; }
+
+    .ecl-align-items#{$infix}-start { align-items: flex-start; }
+    .ecl-align-items#{$infix}-end { align-items: flex-end; }
+    .ecl-align-items#{$infix}-center { align-items: center; }
+    .ecl-align-items#{$infix}-baseline { align-items: baseline; }
+    .ecl-align-items#{$infix}-stretch { align-items: stretch; }
+
+    .ecl-align-content#{$infix}-start { align-content: flex-start; }
+    .ecl-align-content#{$infix}-end { align-content: flex-end; }
+    .ecl-align-content#{$infix}-center { align-content: center; }
+    .ecl-align-content#{$infix}-between { align-content: space-between; }
+    .ecl-align-content#{$infix}-around { align-content: space-around; }
+    .ecl-align-content#{$infix}-stretch { align-content: stretch; }
+
+    .ecl-align-self#{$infix}-auto { align-self: auto; }
+    .ecl-align-self#{$infix}-start { align-self: flex-start; }
+    .ecl-align-self#{$infix}-end { align-self: flex-end; }
+    .ecl-align-self#{$infix}-center { align-self: center; }
+    .ecl-align-self#{$infix}-baseline { align-self: baseline; }
+    .ecl-align-self#{$infix}-stretch { align-self: stretch; }
+  }
+}

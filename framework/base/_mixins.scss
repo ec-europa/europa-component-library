@@ -1,37 +1,5 @@
 // Custom mixins.
-
-// Breakpoints.
-@mixin breakpoint($point) {
-  @if $point == screen-lg-min {
-    @media (min-width: $screen-lg-min) {
-      @content;
-    }
-  }
-
-  @else if $point == screen-md-min {
-    @media (min-width: $screen-md-min) {
-      @content;
-    }
-  }
-
-  @else if $point == screen-sm-min {
-    @media (min-width: $screen-sm-min) {
-      @content;
-    }
-  }
-
-  @else if $point == screen-msm-min {
-    @media (min-width: $screen-msm-min) {
-      @content;
-    }
-  }
-
-  @else if $point == screen-xs-min {
-    @media (min-width: $screen-xs-min) {
-      @content;
-    }
-  }
-}
+@import './mixins/breakpoints';
 
 // Select list arrow styling.
 @mixin select-list-arrow($background-color, $arrow-grey:false) {
