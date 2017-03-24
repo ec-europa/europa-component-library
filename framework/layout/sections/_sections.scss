@@ -88,7 +88,7 @@ $section-spacing: 1.667em;
   margin-top: $section-spacing;
 
   .section__group {
-    @extend .clearfix !optional;
+    @include clearfix();
   }
 
   .section__group:first-child,

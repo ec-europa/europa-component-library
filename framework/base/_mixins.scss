@@ -1,5 +1,6 @@
 // Custom mixins.
 @import './mixins/breakpoints';
+@import './mixins/clearfix';
 
 // Select list arrow styling.
 @mixin select-list-arrow($background-color, $arrow-grey:false) {
@@ -241,15 +242,4 @@ $modifiers: (
   line-height: 1.5715;
   background-color: $grey-lighter;
   font-size: map-get($font-size, 'xs');
-}
-
-@mixin clearfix() {
-  &:before,
-  &:after {
-    content: " "; // 1
-    display: table; // 2
-  }
-  &:after {
-    clear: both;
-  }
 }
