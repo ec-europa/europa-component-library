@@ -8,7 +8,7 @@
     let index = '';
 
     const $searchInput = $('#search-components');
-    const $resultsArea = $('#tree-components').find('.Tree-items');
+    const $resultsArea = $('.Frame-inner');
     const initialContent = $resultsArea.html();
 
     // Fetch data from searchIndex.json for lunr front-end implementation.
@@ -35,19 +35,18 @@
             prefix = 'components/detail/';
           }
 
+          if (window.location.href.indexOf('docs/') >= 0) {
+            prefix = '../components/detail/';
+          }
+
           if (results.length) {
-            const $resultsDom = $('<ul class="Tree-items"></ul>');
-            results.map((result) => {
-              const resultItem = $(`
-                <li class="Tree-item">
-                    <h4 class="Tree-collectionLabel">
-                      <a class="Tree-entityLink" data-pjax href="${prefix + store[result.ref].handle}">${store[result.ref].title}</a>
-                    </h4>
-                </li>
-              `);
-              return $resultsDom.append(resultItem);
-            });
-            $resultsArea.append($resultsDom);
+            let $resultsDom = '<div class="Document"><div class="Document-header"><h1 class="Document-title">Search results</h1></div><div class="Document-content"><div class="Prose"><ul>';
+            const lll = results.map(result => (`
+              <li><h4><a data-pjax href="${prefix + store[result.ref].handle}">${store[result.ref].title}</a></h4></li>
+            `));
+            $resultsDom += lll.join('');
+            $resultsDom += '</ul></div></div></div>';
+            $resultsArea.append($($resultsDom));
           } else {
             const resultString = $(`
                 <li class="Tree-item">
