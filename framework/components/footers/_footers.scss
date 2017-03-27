@@ -65,7 +65,7 @@ Style guide footer
 
     a {
       padding: 0;
-      @include _focus_outline_border(3px, $yellow-light, 5px);
+      @include focus-outline-border(3px, $yellow-light, 5px);
       &:hover,
       &:active,
       &:focus {
@@ -129,8 +129,8 @@ Style guide footer
 
 .footer {
   a {
-    &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec_url_patterns}) {
+    &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+      &:not(#{$ec-url-patterns}) {
         @include _footer_external_link_mixin();
       }
     }

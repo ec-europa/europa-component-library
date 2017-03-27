@@ -7,11 +7,11 @@
   @extend %hidden-print;
 
   position: absolute;
-  right: $grid-gutter-width / 2;
+  right: $grid-gutter-width-base / 2;
   text-align: center;
   top: 0;
 
-  @include breakpoint(screen-md-min) {
+  @include media-breakpoint-up(md) {
     float: left;
     position: static;
   }

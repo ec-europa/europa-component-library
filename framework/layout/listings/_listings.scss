@@ -74,6 +74,24 @@ $navigation-title-color: $blue-darker;
 $navigation-title-hover-color: $black;
 $navigation-top-border-color: $yellow-light;
 
+@mixin _listing_external_link_mixin() {
+  &::after {
+    display: none !important;
+  }
+
+  .listing__title,
+  .highlighted-item h3 {
+    @extend .is-external;
+
+    padding-right: 1.2em;
+
+    &::after {
+      position: absolute;
+      line-height: 1.6;
+    }
+  }
+}
+
 .listing {
   padding: 0;
 }
@@ -251,7 +269,7 @@ Style guide listing.3
   }
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .listing--line-left p {
     font-size: map-get($font-size, 'm');
   }
@@ -406,7 +424,7 @@ Style guide listing.6
   }
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .listing--navigation {
     margin-bottom: (90/18)+em; // 90px
 
@@ -530,8 +548,8 @@ a.listing__title {
     }
   }
 
-  &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-    &:not(#{$ec_url_patterns}) {
+  &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+    &:not(#{$ec-url-patterns}) {
       @include _listing_external_link_mixin();
     }
   }
@@ -564,7 +582,7 @@ a.listing__title {
 
 // Min-width: 480px.
 // The variable to use here should be $screen-phone.
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .listing__column-second {
     float: right;
     width: 25%;
@@ -583,7 +601,7 @@ a.listing__title {
 }
 
 // Min-width: 622px.
-@include breakpoint(screen-msm-min) {
+@include media-breakpoint-up(msm) {
   .listing__column-main--sidebar-next {
     width: 66.6%;
   }
@@ -657,7 +675,7 @@ a.listing__title {
   margin-bottom: 0.8em;
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .listing {
     .listing__status-container--inline {
       display: inline-block;
@@ -813,7 +831,7 @@ Style guide listing.2.4
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .listing__wrapper--two-columns .listing {
     margin-bottom: 0;
   }

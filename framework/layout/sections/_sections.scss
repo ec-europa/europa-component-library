@@ -88,7 +88,7 @@ $section-spacing: 1.667em;
   margin-top: $section-spacing;
 
   .section__group {
-    @extend .clearfix !optional;
+    @include clearfix();
   }
 
   .section__group:first-child,
@@ -139,8 +139,8 @@ $section-spacing: 1.667em;
 }
 
 .section__group--full-width {
-  margin-left: -$grid-gutter-width / 2;
-  margin-right: -$grid-gutter-width / 2;
+  margin-left: -$grid-gutter-width-base / 2;
+  margin-right: -$grid-gutter-width-base / 2;
 
   & > * {
     margin-left: auto !important;
@@ -204,7 +204,7 @@ $section-spacing: 1.667em;
   }
 }
 
-@include breakpoint(screen-lg-min) {
+@include media-breakpoint-up(lg) {
   .section__group--full-width {
     margin-left: -100%;
     margin-right: -100%;
@@ -212,7 +212,7 @@ $section-spacing: 1.667em;
 }
 
 // That's the only reference to this modifier, could it be simply dropped?
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .section {
     .section--two-columns {
       margin-bottom: 0;

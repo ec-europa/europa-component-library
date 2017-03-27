@@ -110,7 +110,7 @@ Style guide timeline
   width: 100%;
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .timeline .timeline__item-title::before {
     margin-left: 2px;
   }
