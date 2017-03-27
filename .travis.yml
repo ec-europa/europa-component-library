@@ -31,23 +31,32 @@ matrix:
   include:
     # Nodejs 6 - Webdriver.io
     - node_js: 6
-      env: TEST_SUITE=test:functional
+      env: TEST_SUITE=test:visual
       addons:
         apt:
           packages:
             - graphicsmagick
         artifacts:
           paths:
-            - $TRAVIS_BUILD_DIR/test/screenshots/diff/
-            - $TRAVIS_BUILD_DIR/test/errorShots/
+            - $TRAVIS_BUILD_DIR/test/visual/screenshots/diff/
+            - $TRAVIS_BUILD_DIR/test/visual/errorShots/
         sauce_connect: true
-
+    # Nodejs 6 - Nightmare.js
+    - node_js: 6
+      env: TEST_SUITE=test:functional
+      addons:
+        apt:
+          packages:
+            - xvfb
+      before_install:
+        - export DISPLAY=':99.0'
+        - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
     # Nodejs 6 - Lint
     - node_js: 6
       env: TEST_SUITE=test:coding-conventions
 
 before_script:
-  - if [ "${TEST_SUITE}" = "test:functional" ]; then npm run dist; fi
+  - if [ "${TEST_SUITE}" != "test:coding-conventions" ]; then npm run dist; fi
 
 script:
   - npm run $TEST_SUITE

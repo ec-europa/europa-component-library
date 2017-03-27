@@ -1,0 +1,1 @@
+- Icons can be added to links items too, by using same classes as on buttons examples

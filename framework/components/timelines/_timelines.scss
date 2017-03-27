@@ -6,64 +6,96 @@ Markup: html/timeline.html
 Style guide timeline
 */
 
+/* Cross dependency from Buttons */
+@mixin whitespace-reset() {
+  line-height: 1.667;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  white-space: normal;
+}
+
+%btn-ctn {
+  @include whitespace-reset();
+
+  background-color: $yellow-light;
+  color: $black;
+
+  &:hover,
+  &:active {
+    background-color: $yellow-light;
+    border-color: $text-color;
+  }
+
+  &:focus {
+    border-color: $text-color;
+    outline-color: $text-color;
+  }
+
+  &::after {
+    @extend %icon--after;
+    @extend %icon--right;
+
+    font-size: 0.8em;
+    margin-left: 10px;
+  }
+}
+
 .timeline {
-  position: relative;
+  border-left: 4px solid $yellow-light;
   float: left;
   margin-bottom: 1.667em;
   padding: 2em 0 0 1.667em;
-  border-left: 4px solid $yellow-light;
+  position: relative;
 
   .listing__item {
     padding: 0;
   }
 
   .timeline__item-title {
-    margin-bottom: 0.5em;
-    line-height: 1em;
     font-weight: bold;
-
-    &::before {
-      position: absolute;
-      left: -0.6em;
-      width: 14px;
-      height: 14px;
-      margin-top: 0.2em;
-      content: '';
-      background-color: $white;
-      border: 3px solid $grey-dark;
-      border-radius: 50%;
-    }
+    line-height: 1em;
+    margin-bottom: 0.5em;
   }
 
-  .timeline__text {
+  .timeline__item-title::before {
+    background-color: $white;
+    border: 3px solid $grey-dark;
+    border-radius: 50%;
+    content: '';
+    height: 14px;
+    left: -0.6em;
     margin-top: 0.2em;
-    margin-bottom: 1em;
-
-    ul,
-    ol {
-      list-style: none !important;
-      padding-left: 0;
-    }
-
-    ul > li {
-      color: $grey-dark !important;
-    }
-
-    & > * {
-      margin-bottom: 0 !important;
-    }
+    position: absolute;
+    width: 14px;
   }
 }
 
-.btn {
-  &.btn-time-line {
-    @extend .btn-ctn;
+.timeline__text {
+  margin-bottom: 1em;
+  margin-top: 0.2em;
+}
 
-    margin-bottom: 0;
+.timeline__text ul,
+.timeline__text ol {
+  list-style: none !important;
+  padding-left: 0;
+}
 
-    &::after {
-      content: '\e81f';
-    }
+.timeline__text ul > li {
+  color: $grey-dark !important;
+}
+
+.timeline__text > * {
+  margin-bottom: 0 !important;
+}
+
+.btn.btn-time-line {
+  @extend %btn-ctn;
+
+  margin-bottom: 0;
+
+  &::after {
+    content: '\e81f';
   }
 }
 
@@ -73,17 +105,13 @@ Style guide timeline
 
 .view-biography-timeline .view-footer {
   float: left;
-  width: 100%;
-  margin-top: 1.667em !important;
   margin-bottom: 1.667em;
+  margin-top: 1.667em !important;
+  width: 100%;
 }
 
 @include media-breakpoint-up(xs) {
-  .timeline {
-    .timeline__item-title {
-      &::before {
-        margin-left: 2px;
-      }
-    }
+  .timeline .timeline__item-title::before {
+    margin-left: 2px;
   }
 }

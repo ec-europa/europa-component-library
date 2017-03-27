@@ -1,0 +1,2 @@
+- Button blocks take full width of container, with a max-width limit
+- Icons can be added to button blocks too, by using same classes as on buttons examples

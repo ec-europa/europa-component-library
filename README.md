@@ -39,7 +39,21 @@ Or with yarn:
 yarn lint
 ```
 
-## Functional testing
+## Functional testing (a11y, HTML Inspector)
+
+Be sure that you have built the framework before running the tests:
+
+```
+yarn dist
+```
+
+Then you can run:
+
+```
+yarn test:functional
+```
+
+## Visual regression testing
 
 In order to run the functional tests, you need a Sauce Labs account. If you
 don't have a Sauce Labs account yet, [you can sign up here](https://saucelabs.com/beta/signup/OSS/None).
@@ -57,7 +71,7 @@ yarn dist
 Then you can run:
 
 ```
-yarn test:functional
+yarn test:visual
 ```
 
 ## Deploy to GitHub Pages

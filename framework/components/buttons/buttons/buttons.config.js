@@ -1,12 +1,12 @@
 const variants = require('../variants.json');
 
 module.exports = {
-  title: 'Buttons',
-  label: 'Buttons',
+  title: 'Button items',
+  label: 'Button items',
   status: 'wip',
   collated: true,
   context: {
-    label: 'Button element',
+    label: 'Button',
   },
   variants,
 };
