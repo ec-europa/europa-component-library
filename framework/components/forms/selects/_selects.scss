@@ -1,14 +1,42 @@
 /*
 Select
 
-Markup: html/select.html
-
 .hover      - Select hover
 :focus      - Select focus (select to see style applied)
 .is-down    - Select is-down
 
-Style guide form.select
 */
+
+// Select list arrow styling.
+@mixin select-list-arrow($background-color, $arrow-grey:false) {
+  @if ($arrow-grey) {
+    background: url('../images/svg/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
+
+    .no-svg & {
+      background: url('../images/png/arrow-down.png'), linear-gradient(to bottom, $background-color, $background-color);
+    }
+  }
+
+  @else {
+    background: url('../images/svg/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
+
+    .no-svg & {
+      background: url('../images/png/arrow-down--white.png'), linear-gradient(to bottom, $background-color, $background-color);
+    }
+  }
+
+  background-position: right (($form-control-height - map-get($font-size, 'm')) / 2) - $form-border-width center, right;
+  background-repeat: no-repeat;
+
+  // Important to make the style guide not break.
+  background-size: map-get($font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($font-size, 'm'), $form-control-height 100% !important;
+  transition: none;
+
+  // Specific size for IE10+.
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    background-size: map-get($font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($font-size, 'm'), $form-control-height 100% !important;
+  }
+}
 
 .select {
   // Hide the arrow.

@@ -11,7 +11,7 @@ const paths = {
 const theme = mandelbrot({
   skin: 'blue',
   nav: ['search', 'docs', 'components'],
-  panels: ['view', 'context', 'html', 'resources', 'info', 'notes'],
+  panels: ['view', 'context', 'html', 'resources', 'info'],
   styles: [
     'default',
     '/assets/custom-styles.css',
@@ -25,6 +25,28 @@ const theme = mandelbrot({
 
 // Add overrides
 theme.addLoadPath(path.resolve(__dirname, './static/theme-overrides'));
+
+// Rewrite routes
+theme._routes.set('overview', {
+  view: 'pages/home.nunj',
+  path: '/',
+  handle: 'overview',
+  matcher: theme._routes.get('overview').matcher,
+});
+
+theme._routes.set('/docs', {
+  view: 'pages/intro.nunj',
+  path: '/docs',
+  handle: '/docs',
+  matcher: theme._routes.get('/docs').matcher,
+});
+
+theme._routes.set('/components', {
+  view: 'pages/components/intro.nunj',
+  path: '/components',
+  handle: '/components',
+  matcher: theme._routes.get('/components').matcher,
+});
 
 // Project config
 fractal.set('project.title', 'Europa Component Library');

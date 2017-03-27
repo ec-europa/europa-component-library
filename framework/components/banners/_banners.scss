@@ -78,7 +78,7 @@ Style guide banner.video
   @include media-caption();
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .banner__paragraph {
     margin-top: 0;
   }

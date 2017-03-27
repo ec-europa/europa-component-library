@@ -4,7 +4,7 @@
 }
 
 a {
-  @include _focus_outline_border(3px, $yellow-light, 2px);
+  @include focus-outline-border(3px, $yellow-light, 2px);
 
   &:link {
     text-decoration: underline;
@@ -19,7 +19,7 @@ a {
 
   .site-switcher &,
   .feedback-form & {
-    @include _focus_outline_border(3px, $yellow-light, 10px);
+    @include focus-outline-border(3px, $yellow-light, 10px);
 
     z-index: 999;
     text-decoration: none;
@@ -66,8 +66,8 @@ a {
     }
   }
 
-  &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-    &:not(#{$ec_url_patterns}) {
+  &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+    &:not(#{$ec-url-patterns}) {
       @include _external_link_mixin();
     }
   }
@@ -113,8 +113,8 @@ a {
   ul,
   p {
     a {
-      &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-        &:not(#{$ec_url_patterns}) {
+      &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+        &:not(#{$ec-url-patterns}) {
           @include _link_external_link_mixin();
         }
       }

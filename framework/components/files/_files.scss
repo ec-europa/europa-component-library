@@ -162,7 +162,7 @@ File download with translations
     }
 
     // Make it self scaling.
-    @media (max-width: $screen-sm-min) {
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
       .btn--condensed {
         margin-left: -1em;
         margin-right: 0;
@@ -225,7 +225,7 @@ File link
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .file__icon {
     width: auto;
     padding: 0;

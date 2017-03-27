@@ -1,0 +1,37 @@
+@mixin form-control() {
+  @extend %hidden-print;
+
+  background-color: $form-control-background-color;
+  border: 1px solid $form-control-border-color;
+  border-radius: 0;
+  box-shadow: none;
+  color: $form-control-text-color;
+  font-size: map-get($font-size, 's');
+  margin-bottom: 1.1em;
+  min-height: $form-control-height;
+
+  &.has-error {
+    border-width: 2px;
+    padding: 5px 11px;
+  }
+
+  // Focus state.
+  &:focus,
+  &.is-focused,
+  .has-error &:focus {
+    box-shadow: none;
+    color: $form-control-text-color-focus;
+  }
+
+  @include focus-outline-border(3px, $yellow-light, 0, none);
+
+  // Disabled modifier.
+  &.is-disabled {
+    background-color: $form-control-background-color-disabled;
+    color: $form-control-color-disabled;
+  }
+
+  &.select {
+    border-width: 1px;
+  }
+}

@@ -23,7 +23,7 @@
   }
 
   .listing__item-link {
-    @include _focus_outline_border(3px, $grey-base, 8px);
+    @include focus-outline-border(3px, $grey-base, 8px);
   }
 
   .smaller {
@@ -43,7 +43,7 @@
       }
 
       &:focus {
-        @include _focus_outline_border(3px, $grey-base, 2px, none);
+        @include focus-outline-border(3px, $grey-base, 2px, none);
       }
     }
   }
@@ -116,7 +116,7 @@
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .site-menu {
     .listing__wrapper--two-columns .listing {
       width: 100%;
@@ -128,7 +128,7 @@
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .site-menu {
     .listing__wrapper--two-columns .listing,
     .listing__wrapper {

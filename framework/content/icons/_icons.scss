@@ -81,7 +81,7 @@
 }
 
 // Icon component and modifiers.
-@each $modifier, $char in $modifiers {
+@each $modifier, $char in $icons {
   %icon--#{$modifier},
   .icon--#{$modifier} {
     @include icon($modifier);
@@ -113,7 +113,7 @@
 }
 
 .icon--text-small {
-  @include text-small();
+  font-size: map-get($font-size, 'xs');
 }
 
 .icon--margin-right {

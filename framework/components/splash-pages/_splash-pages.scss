@@ -21,7 +21,7 @@ $padding-splash-xl: 2em; // 52px
       }
     }
 
-    @include breakpoint(screen-xs-min) {
+    @include media-breakpoint-up(xs) {
       .logo {
         width: 290px;
         height: 153px;
@@ -176,7 +176,7 @@ body {
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .splash-page__btn-language {
     &:hover {
       color: $black;

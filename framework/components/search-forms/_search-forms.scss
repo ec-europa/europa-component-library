@@ -29,7 +29,7 @@
   height: 2.325em;
   min-height: 2.325em;
 
-  @include breakpoint(screen-xs-min) {
+  @include media-breakpoint-up(xs) {
     min-height: 2.375em;
   }
 }
@@ -58,7 +58,7 @@
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .search-form {
     margin-bottom: 0;
 

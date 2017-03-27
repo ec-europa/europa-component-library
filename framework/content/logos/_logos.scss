@@ -10,6 +10,23 @@
   width: 140px;
 }
 
+// Language generator.
+@mixin logo-background-languages($file_path, $file_extension, $logo_class: logo--logotype) {
+  @each $item in $languages {
+    .language-#{$item} {
+      .#{$logo_class} {
+        background-image: url('#{$file_path}#{$item}#{$file_extension}');
+      }
+
+      @media print {
+        .#{$logo_class}::before {
+          content: url('#{$file_path}#{$item}#{$file_extension}');
+        }
+      }
+    }
+  }
+}
+
 /**
  * @define logo
  */
@@ -70,7 +87,7 @@
   width: 198px;
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .logo--logotype {
     width: 290px;
   }
