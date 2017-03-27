@@ -49,9 +49,9 @@
             $resultsArea.append($($resultsDom));
           } else {
             const resultString = $(`
-                <li class="Tree-item">
-                    <h4 class="Tree-collectionLabel">No components found</h4>
-                </li>
+                <div class="Document"><div class="Document-header"><h1 class="Document-title">Search results</h1></div><div class="Document-content"><div class="Prose">
+                    <h4>No components found</h4>
+                </div></div></div>
             `);
             $resultsArea.append(resultString);
           }
