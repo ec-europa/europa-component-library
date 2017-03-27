@@ -7,7 +7,7 @@ Expandable
   width: 100%;
   background-color: $grey-lightest;
 
-  @include breakpoint(screen-xs-min) {
+  @include media-breakpoint-up(xs) {
     & > p {
       margin: 0.8em 0.8em 0.8em 3.2em;
       font-size: map-get($font-size, 's');

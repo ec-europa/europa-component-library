@@ -12,7 +12,7 @@ Notification
   a {
     color: $black;
 
-    @include _focus_outline_border(3px, $black, 2px);
+    @include focus-outline-border(3px, $black, 2px);
 
     &:hover,
     &:focus {
@@ -66,7 +66,7 @@ Notification
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .notification__content {
     .notification__text {
       width: 75%;
@@ -78,7 +78,7 @@ Notification
   }
 }
 
-@include breakpoint(screen-lg-min) {
+@include media-breakpoint-up(lg) {
   .notification__content__more {
     float: right;
   }
@@ -96,8 +96,8 @@ Notification
 
 .notification {
   a {
-    &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec_url_patterns}) {
+    &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+      &:not(#{$ec-url-patterns}) {
         @include _notification_external_link_mixin();
       }
     }

@@ -70,7 +70,7 @@ Style guide tags.facettag
 .facet-tag {
   @extend .tags;
 
-  @include breakpoint(screen-xs-min) {
+  @include media-breakpoint-up(xs) {
     display: inline-block;
     width: auto;
   }
