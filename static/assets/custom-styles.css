@@ -25,7 +25,7 @@ body {
 }
 
 .Navigation-group + .Navigation-group {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .Tree-items {
@@ -131,7 +131,7 @@ body {
 }
 
 .Pen-header {
-  padding: 2.5rem 3rem 2rem;
+  padding: 2.5rem 1rem 2rem;
 }
 
 .Pen-previewLink {
@@ -181,4 +181,62 @@ body {
 
 .Pen-tabs > div:not(.active) {
   display: none;
+}
+
+.Header-title {
+  line-height: 2.5;
+}
+
+[dir='ltr'] .Tree-entityLink .Status,
+[dir='ltr'] .Tree-collectionLabel .Status {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir='ltr'] .Tree-collectionLabel {
+  display: flex;
+  padding-left: 1rem;
+  align-items: center;
+}
+
+[dir='ltr'] .Tree-collectionLabel > span {
+  flex-grow: 1;
+}
+
+.Tree-collectionLabel span {
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  padding-inline-start: 0;
+  -webkit-margin-start: 0;
+  -moz-margin-start: 0;
+  margin-inline-start: 0;
+  display: block;
+  position: relative;
+}
+
+.Tree-collectionLabel .Status span {
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+  padding-inline-start: 0;
+  -webkit-margin-start: 0;
+  -moz-margin-start: 0;
+  margin-inline-start: 0;
+  display: block;
+  position: relative;
+}
+
+.Tree-collectionLabel .Status span::after {
+  display: none;
+}
+
+[dir="ltr"] .Tree-collectionLabel span {
+  margin-left: 0;
+}
+
+[dir="ltr"] .Tree-collectionLabel span {
+  padding-left: 0;
+}
+
+.Tree-title {
+  font-size: 0.85rem;
 }
