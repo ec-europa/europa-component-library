@@ -1,58 +1,46 @@
 // Headers
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
+.ecl-h1,
+.ecl-h2,
+.ecl-h3,
+.ecl-h4,
+.ecl-h5,
+.ecl-h6 {
   margin: 0;
   padding: 0.5em 0;
 }
 
-h1,
-.h1 {
+.ecl-h1 {
+  color: $black;
   font-size: map-get($font-size, 'xxl');
   font-weight: 600;
-  color: $black;
 }
 
-h2,
-.h2 {
+.ecl-h2 {
+  color: $black;
   font-size: map-get($font-size, 'xl');
   font-weight: 600;
-  color: $black;
 }
 
-h3,
-.h3 {
+.ecl-h3 {
+  color: $grey-base;
   font-size: map-get($font-size, 'l');
   font-weight: 600;
-  color: $grey-base;
 }
 
-h4,
-.h4 {
+.ecl-h4 {
+  color: $grey-base;
   font-size: map-get($font-size, 'm');
   font-weight: 600;
-  color: $grey-base;
 }
 
-h5,
-.h5 {
-  font-size: map-get($font-size, 's');
+.ecl-h5 {
   color: $grey-base;
+  font-size: map-get($font-size, 's');
   text-transform: uppercase;
 }
 
-h6,
-.h6 {
-  font-size: map-get($font-size, 'xs');
+.ecl-h6 {
   color: $grey-base;
+  font-size: map-get($font-size, 'xs');
   text-transform: uppercase;
 }

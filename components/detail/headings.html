@@ -68,7 +68,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #FF3333; border-color: #FF3333;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -161,7 +161,7 @@ the heading tag.</p>
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-46d1fc3986fadb91f72632af3b8ed5cb-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>Heading </span><span class="hljs-template-variable">{{modifier}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span></pre>
+        <pre><span class="xml"><span class="hljs-tag">&lt;</span></span><span class="hljs-template-variable">{{ element }}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ text|<span class="hljs-keyword">escape</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/</span></span><span class="hljs-template-variable">{{ element }}</span><span class="xml"><span class="hljs-tag">&gt;</span></span></pre>
     </code>
 </div>
 
@@ -173,7 +173,9 @@ the heading tag.</p>
             <pre>
 <span class="hljs-comment">/* h1 */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"h1"</span>
+  <span class="hljs-attr">"element"</span>: <span class="hljs-string">"h1"</span>,
+  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"ecl-h1"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Heading &lt;h1&gt; with class .ecl-h1"</span>
 }
 
 </pre>
@@ -181,7 +183,9 @@ the heading tag.</p>
             <pre>
 <span class="hljs-comment">/* h2 */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"h2"</span>
+  <span class="hljs-attr">"element"</span>: <span class="hljs-string">"h2"</span>,
+  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"ecl-h2"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Heading &lt;h2&gt; with class .ecl-h2"</span>
 }
 
 </pre>
@@ -189,7 +193,9 @@ the heading tag.</p>
             <pre>
 <span class="hljs-comment">/* h3 */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"h3"</span>
+  <span class="hljs-attr">"element"</span>: <span class="hljs-string">"h3"</span>,
+  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"ecl-h3"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Heading &lt;h3&gt; with class .ecl-h3"</span>
 }
 
 </pre>
@@ -197,7 +203,9 @@ the heading tag.</p>
             <pre>
 <span class="hljs-comment">/* h4 */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"h4"</span>
+  <span class="hljs-attr">"element"</span>: <span class="hljs-string">"h4"</span>,
+  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"ecl-h4"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Heading &lt;h4&gt; with class .ecl-h4"</span>
 }
 
 </pre>
@@ -205,7 +213,9 @@ the heading tag.</p>
             <pre>
 <span class="hljs-comment">/* h5 */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"h5"</span>
+  <span class="hljs-attr">"element"</span>: <span class="hljs-string">"h5"</span>,
+  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"ecl-h5"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Heading &lt;h5&gt; with class .ecl-h5"</span>
 }
 
 </pre>
@@ -213,7 +223,9 @@ the heading tag.</p>
             <pre>
 <span class="hljs-comment">/* h6 */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"h6"</span>
+  <span class="hljs-attr">"element"</span>: <span class="hljs-string">"h6"</span>,
+  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"ecl-h6"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Heading &lt;h6&gt; with class .ecl-h6"</span>
 }
 
 </pre>
@@ -229,32 +241,32 @@ the heading tag.</p>
         
         
             <pre><span class="hljs-comment">&lt;!-- h1 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h1"</span>&gt;</span>Heading h1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h1"</span>&gt;</span>Heading &amp;lt;h1&amp;gt; with class .ecl-h1<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- h2 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h2"</span>&gt;</span>Heading h2<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h2"</span>&gt;</span>Heading &amp;lt;h2&amp;gt; with class .ecl-h2<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- h3 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h3"</span>&gt;</span>Heading h3<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h3"</span>&gt;</span>Heading &amp;lt;h3&amp;gt; with class .ecl-h3<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- h4 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h4"</span>&gt;</span>Heading h4<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4"</span>&gt;</span>Heading &amp;lt;h4&amp;gt; with class .ecl-h4<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- h5 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h5"</span>&gt;</span>Heading h5<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h5"</span>&gt;</span>Heading &amp;lt;h5&amp;gt; with class .ecl-h5<span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- h6 --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"h6"</span>&gt;</span>Heading h6<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h6</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h6"</span>&gt;</span>Heading &amp;lt;h6&amp;gt; with class .ecl-h6<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
 
 </pre>
         
@@ -288,61 +300,49 @@ the heading tag.</p>
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">// Headers</span>
-<span class="hljs-selector-tag">h1</span>,
-<span class="hljs-selector-tag">h2</span>,
-<span class="hljs-selector-tag">h3</span>,
-<span class="hljs-selector-tag">h4</span>,
-<span class="hljs-selector-tag">h5</span>,
-<span class="hljs-selector-tag">h6</span>,
-<span class="hljs-selector-class">.h1</span>,
-<span class="hljs-selector-class">.h2</span>,
-<span class="hljs-selector-class">.h3</span>,
-<span class="hljs-selector-class">.h4</span>,
-<span class="hljs-selector-class">.h5</span>,
-<span class="hljs-selector-class">.h6</span> {
+<span class="hljs-selector-class">.ecl-h1</span>,
+<span class="hljs-selector-class">.ecl-h2</span>,
+<span class="hljs-selector-class">.ecl-h3</span>,
+<span class="hljs-selector-class">.ecl-h4</span>,
+<span class="hljs-selector-class">.ecl-h5</span>,
+<span class="hljs-selector-class">.ecl-h6</span> {
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.5em</span> <span class="hljs-number">0</span>;
 }
 
-<span class="hljs-selector-tag">h1</span>,
-<span class="hljs-selector-class">.h1</span> {
+<span class="hljs-selector-class">.ecl-h1</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xxl'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
 }
 
-<span class="hljs-selector-tag">h2</span>,
-<span class="hljs-selector-class">.h2</span> {
+<span class="hljs-selector-class">.ecl-h2</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xl'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
 }
 
-<span class="hljs-selector-tag">h3</span>,
-<span class="hljs-selector-class">.h3</span> {
+<span class="hljs-selector-class">.ecl-h3</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-base</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'l'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-base</span>;
 }
 
-<span class="hljs-selector-tag">h4</span>,
-<span class="hljs-selector-class">.h4</span> {
+<span class="hljs-selector-class">.ecl-h4</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-base</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-base</span>;
 }
 
-<span class="hljs-selector-tag">h5</span>,
-<span class="hljs-selector-class">.h5</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+<span class="hljs-selector-class">.ecl-h5</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-base</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">text-transform</span>: uppercase;
 }
 
-<span class="hljs-selector-tag">h6</span>,
-<span class="hljs-selector-class">.h6</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xs'</span>);
+<span class="hljs-selector-class">.ecl-h6</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-base</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xs'</span>);
   <span class="hljs-attribute">text-transform</span>: uppercase;
 }
 </pre>
@@ -469,21 +469,22 @@ function getSiblings(n) {
   return getChildren(n.parentNode.firstChild, n);
 }
 
-function activateTab(element) {
-  var link = element.target || element.srcElement;
+function activateTab(event) {
+  event.preventDefault();
+  var link = event.target || event.srcElement;
   var tab = document.querySelector(link.getAttribute('href'));
   [link, tab].forEach(function (el) {
     el.classList.add('active');
 
     var siblings = getSiblings(el);
-    siblings.forEach(function(sibling) {
+    [].forEach.call(siblings, function(sibling) {
       sibling.classList.remove('active');
     });
   });
 }
 
 var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
-tabsLinks.forEach(function (tabLink) {
+[].forEach.call(tabsLinks, function(tabLink) {
   tabLink.addEventListener('click', activateTab);
 });
 
@@ -523,7 +524,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -547,7 +548,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -561,8 +562,9 @@ tabsLinks.forEach(function (tabLink) {
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-logos">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="logos" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -570,7 +572,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -579,142 +581,7 @@ tabsLinks.forEach(function (tabLink) {
 
 
                 <span>Logos</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-logos-default">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>No Svg</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-logotype" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Logotype</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-logotypebelow" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Logotype below</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -752,7 +619,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
 
 
 </div>
@@ -779,7 +646,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -803,7 +670,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -3408,7 +3275,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4231,7 +4098,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4255,7 +4122,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4279,7 +4146,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

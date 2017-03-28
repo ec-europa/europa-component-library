@@ -470,21 +470,22 @@ function getSiblings(n) {
   return getChildren(n.parentNode.firstChild, n);
 }
 
-function activateTab(element) {
-  var link = element.target || element.srcElement;
+function activateTab(event) {
+  event.preventDefault();
+  var link = event.target || event.srcElement;
   var tab = document.querySelector(link.getAttribute('href'));
   [link, tab].forEach(function (el) {
     el.classList.add('active');
 
     var siblings = getSiblings(el);
-    siblings.forEach(function(sibling) {
+    [].forEach.call(siblings, function(sibling) {
       sibling.classList.remove('active');
     });
   });
 }
 
 var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
-tabsLinks.forEach(function (tabLink) {
+[].forEach.call(tabsLinks, function(tabLink) {
   tabLink.addEventListener('click', activateTab);
 });
 
@@ -524,7 +525,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -548,7 +549,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -562,8 +563,9 @@ tabsLinks.forEach(function (tabLink) {
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-logos">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="logos" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -571,7 +573,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -580,142 +582,7 @@ tabsLinks.forEach(function (tabLink) {
 
 
                 <span>Logos</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-logos-default">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>No Svg</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-logotype" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Logotype</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-logotypebelow" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Logotype below</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -753,7 +620,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
 
 
 </div>
@@ -780,7 +647,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -804,7 +671,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -3409,7 +3276,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4232,7 +4099,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4256,7 +4123,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4280,7 +4147,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

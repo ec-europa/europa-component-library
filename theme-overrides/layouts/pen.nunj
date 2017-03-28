@@ -70,21 +70,22 @@ function getSiblings(n) {
   return getChildren(n.parentNode.firstChild, n);
 }
 
-function activateTab(element) {
-  var link = element.target || element.srcElement;
+function activateTab(event) {
+  event.preventDefault();
+  var link = event.target || event.srcElement;
   var tab = document.querySelector(link.getAttribute('href'));
   [link, tab].forEach(function (el) {
     el.classList.add('active');
 
     var siblings = getSiblings(el);
-    siblings.forEach(function(sibling) {
+    [].forEach.call(siblings, function(sibling) {
       sibling.classList.remove('active');
     });
   });
 }
 
 var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
-tabsLinks.forEach(function (tabLink) {
+[].forEach.call(tabsLinks, function(tabLink) {
   tabLink.addEventListener('click', activateTab);
 });
 

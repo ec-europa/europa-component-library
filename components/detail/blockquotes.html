@@ -68,7 +68,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #FF3333; border-color: #FF3333;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -83,7 +83,7 @@
               <div class="Prose">
                 
                 <h1 id="blockquotes">Blockquotes</h1>
-<p>Applies simple styles on <code>blockquote</code> class.</p>
+<p>Applies simple styles on <code>ecl-blockquote</code> class.</p>
 
                 
               </div>
@@ -160,7 +160,9 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-0bc93df7655ba494e97e2da35ab920d8-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Blockquote element<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span></span></pre>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Blockquote element<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -180,7 +182,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-0bc93df7655ba494e97e2da35ab920d8-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Blockquote element<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span></pre>
         
@@ -212,41 +214,28 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Text
-
-Style guide text
-*/</span>
-
-<span class="hljs-comment">/*
-Blockquote
-
-Markup: html/blockquote.html
-
-Style guide text.blockquote
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * Blockquotes
+ * @define blockquote
+ */</span>
 
 <span class="hljs-variable">$small-quote-size</span>: <span class="hljs-number">1em</span>;
 <span class="hljs-variable">$small-quote-width</span>: <span class="hljs-number">0.5em</span>;
 
-<span class="hljs-selector-tag">blockquote</span>,
-<span class="hljs-selector-class">.blockquote</span> {
-  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">24em</span>;
-  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">0.417em</span> solid <span class="hljs-variable">$yellow-light</span>;
-  <span class="hljs-attribute">font-style</span>: italic;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'l'</span>);
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5</span>;
-  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.6em</span> <span class="hljs-number">0</span> <span class="hljs-number">0.6em</span> <span class="hljs-number">1.2em</span>;
+<span class="hljs-selector-class">.ecl-blockquote</span> {
+  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">0.5rem</span> solid <span class="hljs-variable">$yellow-light</span>;
   <span class="hljs-attribute">clear</span>: both;
-  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">font-style</span>: italic;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">24em</span>;
   <span class="hljs-attribute">overflow</span>: hidden;
-  <span class="hljs-attribute">display</span>: inline-block;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$spacing</span>, <span class="hljs-string">'s'</span>) <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$spacing</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">position</span>: relative;
 
-  <span class="hljs-comment">// Drupal fix.</span>
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
   <span class="hljs-selector-tag">p</span> {
-    <span class="hljs-attribute">line-height</span>: inherit;
     <span class="hljs-attribute">display</span>: inline;
   }
 
@@ -259,13 +248,13 @@ Style guide text.blockquote
   }
 }
 
-<span class="hljs-selector-class">.blockquote--small</span> {
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
-  <span class="hljs-attribute">font-style</span>: normal;
+<span class="hljs-selector-class">.ecl-blockquote--small</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$text-color</span>;
   <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$font-family-base</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">font-style</span>: normal;
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
 }
 </pre>
                             </code>
@@ -283,7 +272,7 @@ Style guide text.blockquote
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">825 Bytes</span>
+                    <span class="Meta-value">782 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -360,21 +349,22 @@ function getSiblings(n) {
   return getChildren(n.parentNode.firstChild, n);
 }
 
-function activateTab(element) {
-  var link = element.target || element.srcElement;
+function activateTab(event) {
+  event.preventDefault();
+  var link = event.target || event.srcElement;
   var tab = document.querySelector(link.getAttribute('href'));
   [link, tab].forEach(function (el) {
     el.classList.add('active');
 
     var siblings = getSiblings(el);
-    siblings.forEach(function(sibling) {
+    [].forEach.call(siblings, function(sibling) {
       sibling.classList.remove('active');
     });
   });
 }
 
 var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
-tabsLinks.forEach(function (tabLink) {
+[].forEach.call(tabsLinks, function(tabLink) {
   tabLink.addEventListener('click', activateTab);
 });
 
@@ -414,7 +404,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -438,7 +428,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -452,8 +442,9 @@ tabsLinks.forEach(function (tabLink) {
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-logos">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="logos" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -461,7 +452,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -470,142 +461,7 @@ tabsLinks.forEach(function (tabLink) {
 
 
                 <span>Logos</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-logos-default">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-default--no-svg" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>No Svg</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-logotype" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Logotype</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="logos-logotypebelow" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Logotype below</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -643,7 +499,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
 
 
 </div>
@@ -670,7 +526,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -694,7 +550,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF3333;" title="Planned"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -3299,7 +3155,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4122,7 +3978,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4146,7 +4002,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4170,7 +4026,7 @@ tabsLinks.forEach(function (tabLink) {
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

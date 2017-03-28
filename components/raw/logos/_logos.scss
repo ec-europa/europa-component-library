@@ -1,0 +1,103 @@
+/**
+ * EC logo
+ */
+
+%logo {
+  background: url('../images/svg/logo.svg') no-repeat;
+  display: block;
+  float: left;
+  height: 72px;
+  width: 140px;
+}
+
+// Language generator.
+@mixin logo-background-languages($file_path, $file_extension, $logo_class: ecl-logo--logotype) {
+  @each $item in $languages {
+    /* stylelint-disable max-nesting-depth */
+    .language-#{$item} {
+      .#{$logo_class} {
+        background-image: url('#{$file_path}#{$item}#{$file_extension}');
+      }
+
+      @media print {
+        .#{$logo_class}::before {
+          content: url('#{$file_path}#{$item}#{$file_extension}');
+        }
+      }
+    }
+    /* stylelint-enable */
+  }
+}
+
+/**
+ * Logos
+ * @define logo
+ */
+
+// Default EC logo.
+.ecl-logo {
+  @extend %logo;
+
+  // EC logo no-svg
+  //
+  // Default EC logo with no-svg.
+
+  /* postcss-bem-linter: ignore */
+  .no-svg & {
+    background-image: url('../images/png/logo.png');
+  }
+}
+
+// EC logotype
+//
+// EC logo with text.
+
+// Sets language-specific background image on .ecl-logo--logotype element nested
+// in {{modifier_class}} modifier.
+@include logo-background-languages('../images/svg/logo/logo--', '.svg');
+
+.ecl-logo--logotype {
+  @extend %logo;
+
+  width: 190px;
+}
+
+.no-svg {
+  @include logo-background-languages('../images/png/logo/logo--', '.png');
+
+  /* postcss-bem-linter: ignore */
+  .ecl-logo--logotype {
+    width: 190px;
+  }
+}
+
+// EC logotype with text below the logo
+//
+// EC logo with text below.
+
+// Sets language-specific background image on .ecl-logo--logotypebelow element nested
+// in {{modifier_class}} modifier.
+@include logo-background-languages('../images/svg/logo/logotypebelow--', '.svg', 'ecl-logo--logotypebelow');
+
+.no-svg {
+  @include logo-background-languages('../images/png/logo/logotypebelow--', '.png', 'ecl-logo--logotypebelow');
+}
+
+.ecl-logo--logotypebelow {
+  @extend %logo;
+
+  // TODO: replace those hardcoded values by the real image size (easy with Webpack)
+  height: 72px;
+  width: 198px;
+}
+
+@include media-breakpoint-up(xs) {
+  .ecl-logo--logotype {
+    width: 290px;
+  }
+
+  .ecl-logo--logotypebelow {
+    height: 118px;
+    width: 324px;
+  }
+}
