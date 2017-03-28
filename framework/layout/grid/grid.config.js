@@ -1,5 +1,5 @@
 module.exports = {
   title: 'Grid',
   label: 'Grid',
-  status: 'wip',
+  status: 'ready',
 };
