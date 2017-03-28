@@ -1,0 +1,17 @@
+{% set class = "" %}
+
+{% if type is defined %}
+  {% if type == "below" %}
+    {% set class = " ecl-logo--logotypebelow" %}
+  {% elseif type == "right" %}
+    {% set class = " ecl-logo--logotype" %}
+  {% endif %}
+{% endif %}
+
+{% if externalClass %}
+  {% set class = class ~ " " ~ externalClass %}
+{% endif %}
+
+<a href="{{ to }}" class="ecl-logo{{ class }}" title="{{ title }}">
+  <span class="ecl-sr-only">{{ title }}</span>
+</a>
