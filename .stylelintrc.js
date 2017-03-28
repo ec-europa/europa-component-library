@@ -15,7 +15,7 @@ module.exports = {
 
 // Check selectors against BEM syntax
 function bemSelector(block, presetOptions) {
-  var ns = (presetOptions && presetOptions.namespace) ? presetOptions.namespace + '-': '';
+  var ns = 'ecl-';
   var WORD = '[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*';
   var element = '(?:__' + WORD + ')?';
   var modifier = '(?:--' + WORD + '){0,2}';

@@ -281,7 +281,7 @@ Style guide: buttons.btn-collapse
     }
   }
 
-  .icon {
+  .ecl-icon {
     margin-left: 0.3em;
 
     &::before {
@@ -293,13 +293,13 @@ Style guide: buttons.btn-collapse
 
   &:hover,
   &:focus {
-    .icon::before {
+    .ecl-icon::before {
       color: $white;
     }
   }
 
   &.collapsed {
-    .icon::before {
+    .ecl-icon::before {
       transform: rotate(180deg);
     }
   }

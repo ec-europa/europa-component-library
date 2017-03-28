@@ -10,7 +10,7 @@ $padding-splash-xl: 2em; // 52px
   &__site-header {
     background-color: $white;
 
-    .logo {
+    .ecl-logo {
       float: none;
       margin: 16px auto 40px;
       background: url("../images/svg/logo.svg") center center no-repeat;
@@ -22,7 +22,7 @@ $padding-splash-xl: 2em; // 52px
     }
 
     @include media-breakpoint-up(xs) {
-      .logo {
+      .ecl-logo {
         width: 290px;
         height: 153px;
       }
@@ -68,7 +68,7 @@ $padding-splash-xl: 2em; // 52px
       background-color: $yellow-light;
     }
 
-    &.icon--check::before {
+    &.ecl-icon--check::before {
       display: none;
     }
   }
@@ -123,7 +123,7 @@ $padding-splash-xl: 2em; // 52px
         box-shadow: none;
       }
 
-      &.icon--check::before {
+      &.ecl-icon--check::before {
         float: right;
         display: block;
       }
