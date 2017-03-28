@@ -17,5 +17,5 @@ RUN yarn bootstrap
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 8080
-CMD [ "yarn", "start" ]
+EXPOSE 3000
+CMD [ "npm", "start" ]

@@ -80,4 +80,7 @@ yarn gh-pages
 - Install docker
 - `cd` to `europa-component-library` project folder
 - Build: `docker build -t {username}/europa-component-library .`
-- Run: `docker run -p 49160:8080 -d {username}/europa-component-library
+- Run: `docker run -p 49160:3000 -d {username}/europa-component-library`
+- Open `http://localhost:49160` in the browser
+
+
