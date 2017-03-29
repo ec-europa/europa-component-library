@@ -79,8 +79,11 @@ yarn gh-pages
 ## Docker
 - Install docker
 - `cd` to `europa-component-library` project folder
-- Build: `docker build -t {username}/europa-component-library .`
-- Run: `docker run -p 49160:3000 -d {username}/europa-component-library`
-- Open `http://localhost:49160` in the browser
+- Build: `docker build -v $PWD:/usr/src/app -t {username}/europa-component-library .`
+- Run: `docker run -p 8080:3000 -d {username}/europa-component-library`
+- Run: `docker run -p 8080:3000 --rm -v $PWD:/usr/src/app -it {username}/europa-component-library /bin/bash`
+- Run: `npm start`
+- Open `http://localhost:8080` in the browser
+- Now you can to work on the folder, outside of the container.
 
 
