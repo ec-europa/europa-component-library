@@ -19,7 +19,7 @@
     "lint:scss": "stylelint './framework/**/*.scss'",
     "lint": "npm-run-all --parallel lint:* -c",
     "precommit": "lint-staged",
-    "serve": "fractal start --sync",
+    "serve": "fractal start --sync --port 8080",
     "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
     "test:functional": "wdio test/wdio.conf.js",
