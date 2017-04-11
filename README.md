@@ -88,19 +88,19 @@ Debug mode:
 
   - Run: 
   ```
-  docker run -p 8080:3000 --rm -v $PWD:/usr/src/app -it {username}/europa-component-library /bin/bash
+  docker run -p 8080:8080 --rm -v $PWD:/usr/src/app -it {username}/europa-component-library /bin/bash
   ```
   
   - Run: 
   ```
-  yarn && yarn bootstrap && npm start
+  yarn && yarn bootstrap && npm rebuild node-sass && npm start
   ```
   
 Deamon mode:
 
   - Run: 
   ```
-  docker run -p 8080:3000 -v $PWD:/usr/src/app -d {username}/europa-component-library /bin/bash -c "yarn; yarn bootstrap; npm start"
+  docker run -p 8080:8080 -v $PWD:/usr/src/app -d {username}/europa-component-library /bin/bash -c "yarn; yarn bootstrap; npm rebuild node-sass; npm start"
   ```
   
 - Open `http://localhost:8080` in the browser
