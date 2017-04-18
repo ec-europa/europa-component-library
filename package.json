@@ -1,10 +1,8 @@
 {
-  "name": "@ec-europa/europa-component-library",
+  "private": true,
   "author": "ec-europa",
   "license": "EUPL-1.1",
-  "version": "0.0.1",
   "description": "Europa Component Library",
-  "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "build:copy": "ecl-builder copy",
@@ -18,12 +16,13 @@
     "lint:scss": "stylelint ./framework/**/*.scss",
     "lint": "npm-run-all --parallel lint:* -c",
     "precommit": "lint-staged",
+    "publish": "scripts/release.sh",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
     "test:functional": "wdio test/wdio.conf.js",
-    "watch:scripts": "chokidar ./framework/**/*.js -c \"eslint {path} && npm run build:scripts\"",
-    "watch:styles": "chokidar ./framework/**/*.scss -c \"stylelint {path} || true && npm run build:styles\"",
+    "watch:scripts": "chokidar \"./framework/**/*.js\" -c \"eslint {path} & npm run build:scripts\"",
+    "watch:styles": "chokidar \"./framework/**/*.scss\" -c \"stylelint {path} & npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:*"
   },
   "devDependencies": {
@@ -42,6 +41,7 @@
     "gh-pages": "0.12.0",
     "husky": "0.13.3",
     "lerna": "2.0.0-rc.2",
+    "lerna-changelog": "0.4.0",
     "lint-staged": "3.4.0",
     "npm-run-all": "4.0.2",
     "rimraf": "2.6.1",
