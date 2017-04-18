@@ -15,15 +15,15 @@
     "dist": "npm run clean && fractal build && cross-env NODE_ENV=production npm run build",
     "gh-pages": "gh-pages -d dist",
     "lint:js": "eslint .",
-    "lint:scss": "stylelint './framework/**/*.scss'",
+    "lint:scss": "stylelint ./framework/**/*.scss",
     "lint": "npm-run-all --parallel lint:* -c",
     "precommit": "lint-staged",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
     "test:functional": "wdio test/wdio.conf.js",
-    "watch:scripts": "chokidar './framework/**/*.js' -c 'eslint {path} && npm run build:scripts'",
-    "watch:styles": "chokidar './framework/**/*.scss' -c 'stylelint {path} || true && npm run build:styles'",
+    "watch:scripts": "chokidar ./framework/**/*.js -c 'eslint {path} && npm run build:scripts'",
+    "watch:styles": "chokidar ./framework/**/*.scss -c 'stylelint {path} || true && npm run build:styles'",
     "watch": "npm-run-all --parallel watch:*"
   },
   "devDependencies": {
