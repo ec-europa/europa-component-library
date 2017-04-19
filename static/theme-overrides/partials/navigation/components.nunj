@@ -1,7 +1,0 @@
-{% if frctl.components.size %}
-  {% for item in frctl.components.filter('isHidden', false).items() %}
-    <div class="Navigation-group">
-    {{ nav.tree(item, entity, request) }}
-    </div>
-  {% endfor %}
-{% endif %}
