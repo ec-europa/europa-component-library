@@ -10,7 +10,7 @@
     "build:styles": "ecl-builder styles",
     "build": "npm-run-all --parallel build:*",
     "clean": "rimraf tmp build dist static/framework",
-    "dist": "npm run clean && fractal build && cross-env NODE_ENV=production npm run build",
+    "dist": "npm run clean && ./node_modules/.bin/fractal build && cross-env NODE_ENV=production npm run build",
     "gh-pages": "gh-pages -d dist",
     "lint:js": "eslint .",
     "lint:scss": "stylelint ./framework/**/*.scss",
