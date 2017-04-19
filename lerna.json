@@ -1,9 +1,9 @@
 {
-  "lerna": "2.0.0-rc.2",
+  "lerna": "2.0.0-rc.3",
   "version": "independent",
   "npmClient": "yarn",
   "changelog": {
-    "repo": "ec-europa/ecl-toolkit",
+    "repo": "ec-europa/europa-component-library",
     "labels": {
       "tag: new feature": ":rocket: New Feature",
       "tag: breaking change": ":boom: Breaking Change",
@@ -14,19 +14,10 @@
     },
     "cacheDir": ".changelog"
   },
-  "commands": {
-    "bootstrap": {
-      "concurrency": 1
-    },
-    "publish": {
-      "ignore": [
-        "*.md"
-      ]
-    }
-  },
   "packages": [
     "framework/content/**",
     "framework/components/**",
-    "framework/layout/**"
+    "framework/layout/**",
+    "framework/utilities/**"
   ]
 }
