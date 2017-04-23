@@ -10,7 +10,7 @@ $padding-splash-xl: 2em; // 52px
   &__site-header {
     background-color: $white;
 
-    .logo {
+    .ecl-logo {
       float: none;
       margin: 16px auto 40px;
       background: url("../images/svg/logo.svg") center center no-repeat;
@@ -21,8 +21,8 @@ $padding-splash-xl: 2em; // 52px
       }
     }
 
-    @include breakpoint(screen-xs-min) {
-      .logo {
+    @include media-breakpoint-up(xs) {
+      .ecl-logo {
         width: 290px;
         height: 153px;
       }
@@ -40,7 +40,7 @@ $padding-splash-xl: 2em; // 52px
       display: none;
       padding-top: $padding-splash-xl;
       padding-bottom: $padding-splash-xl;
-      font-size: $font-size-mid;
+      font-size: map-get($font-size, 'l');
       color: $white;
       clear: both;
     }
@@ -49,7 +49,7 @@ $padding-splash-xl: 2em; // 52px
   &__helper-text {
     margin-top: $padding-splash-xl;
     color: $white;
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
     clear: both;
 
     p {
@@ -68,7 +68,7 @@ $padding-splash-xl: 2em; // 52px
       background-color: $yellow-light;
     }
 
-    &.icon--check::before {
+    &.ecl-icon--check::before {
       display: none;
     }
   }
@@ -79,7 +79,7 @@ $padding-splash-xl: 2em; // 52px
     top: -15px;
     right: 0;
     padding: 0.5em 0 0.5em 1em;
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
     font-weight: normal;
     color: $white;
 
@@ -123,7 +123,7 @@ $padding-splash-xl: 2em; // 52px
         box-shadow: none;
       }
 
-      &.icon--check::before {
+      &.ecl-icon--check::before {
         float: right;
         display: block;
       }
@@ -176,7 +176,7 @@ body {
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .splash-page__btn-language {
     &:hover {
       color: $black;

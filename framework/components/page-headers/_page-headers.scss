@@ -1,3 +1,18 @@
+// External link specific adjustments.
+@mixin _page_header_external_link_mixin() {
+  display: inline-block;
+  padding-right: 1.1em;
+
+  &::after {
+    position: absolute;
+    line-height: 2.2;
+  }
+
+  &.btn {
+    padding-right: 2.1em;
+  }
+}
+
 .page-header {
   margin: 0;
   padding: 0 0 1.5em;
@@ -26,21 +41,21 @@
     max-width: 40em;
     margin: 0;
     line-height: 1.45;
-    font-size: $font-size-h3;
+    font-size: map-get($font-size, 'l');
     color: $white;
   }
 
   a {
     color: $white;
 
-    @include _focus_outline_border(3px, $yellow-light, 2px);
+    @include focus-outline-border(3px, $yellow-light, 2px);
 
     &:hover:not(.breadcrumb__link, .btn) {
       color: $yellow-light;
     }
 
-    &#{"[" + $external_link_pattern + "]"}:not(.is-internal, .listing__title) {
-      &:not(#{$ec_url_patterns}) {
+    &#{"[" + $external-link-pattern + "]"}:not(.is-internal, .listing__title) {
+      &:not(#{$ec-url-patterns}) {
         @include _page_header_external_link_mixin();
       }
     }
@@ -58,7 +73,7 @@
   }
 
   .page-header__main {
-    line-height: $line-height-base;
+    line-height: 1.15;
   }
 
   .page-header__bottom {
@@ -78,8 +93,8 @@
   padding-bottom: 2.39em;
 
   p {
-    font-size: $font-size-h2;
-    line-height: $line-height-large;
+    font-size: map-get($font-size, 'xl');
+    line-height: 1.5;
   }
 }
 
@@ -94,13 +109,13 @@
 
 .page-header__eventinfo {
   float: left;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
 
   .page-header__date--cancelled {
     text-decoration: line-through;
   }
 
-  .icon {
+  .ecl-icon {
     margin: 1em 2em 1em 0;
 
     &::before {
@@ -123,17 +138,17 @@
   .field__label--above {
     padding: 0;
     color: $white;
-    font-size: $font-size-h5;
-    font-weight: $font-weight-normal;
+    font-size: map-get($font-size, 's');
+    font-weight: 400;
     text-transform: uppercase;
   }
 
   p {
-    font-size: $font-size-h3;
+    font-size: map-get($font-size, 'l');
   }
 }
 
-@include breakpoint(screen-msm-min) {
+@include media-breakpoint-up(msm) {
   .page-header--xlarge-intro {
     height: 320px;
 
@@ -175,13 +190,13 @@
       }
     }
 
-    @include breakpoint(screen-msm-min) {
+    @include media-breakpoint-up(msm) {
       .page-header__hero-title {
         a {
           color: $blue-dark;
 
           &:hover {
-            color: $gray-base;
+            color: $grey-base;
           }
         }
       }

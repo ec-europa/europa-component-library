@@ -1,6 +1,6 @@
 const path = require('path');
 const fractal = require('@frctl/fractal').create(); // eslint-disable-line import/no-extraneous-dependencies
-const mandelbrot = require('@frctl/mandelbrot'); // eslint-disable-line import/no-extraneous-dependencies
+const eclTheme = require('@ec-europa/ecl-fractal-theme'); // eslint-disable-line import/no-extraneous-dependencies
 
 const paths = {
   build: `${__dirname}/dist`,
@@ -8,20 +8,7 @@ const paths = {
 };
 
 // Create a new theme instance with custom config options
-const theme = mandelbrot({
-  skin: 'blue',
-  nav: ['docs', 'search', 'components'],
-  panels: ['view', 'context', 'html', 'resources', 'info', 'notes'],
-  styles: [
-    'default',
-    '/assets/custom-styles.css',
-  ],
-  scripts: [
-    'https://cdnjs.cloudflare.com/ajax/libs/lunr.js/1.0.0/lunr.min.js',
-    'default',
-    '/assets/search.js',
-  ],
-});
+const theme = eclTheme({ skin: 'blue' });
 
 // Add overrides
 theme.addLoadPath(path.resolve(__dirname, './static/theme-overrides'));

@@ -1,0 +1,13 @@
+/*
+  ECL Font size
+  ===========
+
+  Base:
+    fs = font size
+*/
+
+@each $key, $value in $font-size {
+  .ecl-fs-#{$key} {
+    font-size: $value;
+  }
+}

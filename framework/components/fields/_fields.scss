@@ -15,7 +15,7 @@ Field
   }
 
   .label-above {
-    @extend .h3;
+    @extend .ecl-h3;
   }
 
   .field__items {
@@ -26,8 +26,8 @@ Field
   }
 
   .field__label {
-    font-size: $font-size-xsmall;
-    font-weight: $font-weight-bold;
+    font-size: map-get($font-size, 'xs');
+    font-weight: 600;
 
     h4 {
       padding: 0;
@@ -45,7 +45,7 @@ Field
 }
 
 // Desktop and tablets breakpoint.
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .field {
     .field__label:not(.field__label--above) {
       display: inline-block;
@@ -61,7 +61,7 @@ Field
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .field--aligned {
     margin-top: -0.556em;
 
@@ -73,7 +73,7 @@ Field
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .field--aligned .field__items {
     margin-left: 20.6%;
   }

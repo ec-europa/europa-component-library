@@ -20,7 +20,7 @@
 }
 
 .featured-item__image {
-  @extend .col-md-5;
+  @extend .col-md-5 !optional;
 
   margin-bottom: 1em;
 
@@ -32,10 +32,10 @@
 }
 
 .featured-item__content {
-  @extend .col-md-7;
+  @extend .col-md-7 !optional;
 
   p {
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
   }
 
   h3 {
@@ -48,7 +48,7 @@
 .featured-item__image,
 .featured-item__content {
   .listing__wrapper--three-columns & {
-    @extend .col-md-12;
+    @extend .col-md-12 !optional;
 
     clear: left;
   }

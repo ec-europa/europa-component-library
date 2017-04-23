@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Nav tabs',
   label: 'Nav tabs',
-  status: 'wip',
+  status: 'planned',
   collated: false,
   tags: ['organism'],
   variants: [{

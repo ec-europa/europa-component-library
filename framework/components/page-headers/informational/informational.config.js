@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Informational',
   label: 'Informational',
-  status: 'wip',
+  status: 'planned',
   context: {
     data: {
       breadcrumb: {

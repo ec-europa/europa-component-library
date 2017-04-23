@@ -8,11 +8,11 @@ Language select (Page)
   width: 100%;
   overflow: hidden;
   background-color: $grey-lightest;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
   border-bottom: 1px solid $grey;
 }
 
-.icon.lang-select-page__icon {
+.ecl-icon.lang-select-page__icon {
   @extend %hidden-print;
 
   float: left;
@@ -117,7 +117,7 @@ select.lang-select-page__list {
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .lang-select-page__option {
     display: inline-block;
   }

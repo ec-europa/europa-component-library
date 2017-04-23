@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Inpage navigations',
   label: 'Inpage navigations',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
   context: {
     _demo: {

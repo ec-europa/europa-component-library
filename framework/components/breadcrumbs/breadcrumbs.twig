@@ -1,5 +1,5 @@
 <nav class="breadcrumb{{ " breadcrumb--" + modifier|length ? modifier : "" }}" role="navigation" aria-label="breadcrumbs">
-  <span class="sr-only">You are here:</span>
+  <span class="ecl-sr-only">You are here:</span>
   <ol class="breadcrumb__segments-wrapper">
     {% for segment in segments %}
     <li class="breadcrumb__segment{{ loop.first ? " breadcrumb__segment--first" : "" }}{{ loop.last ? " breadcrumb__segment--last" : "" }}">

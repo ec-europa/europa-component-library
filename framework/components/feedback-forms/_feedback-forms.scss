@@ -21,7 +21,7 @@ a.feedback-form__trigger {
   display: inline-block;
   margin-left: 1em;
   padding: 0.5em 0;
-  font-size: $font-size-little;
+  font-size: map-get($font-size, 's');
   color: $brand-primary;
   text-decoration: none;
 
@@ -48,8 +48,8 @@ a.feedback-form__trigger {
   width: 12em;
   margin-left: 2.5em;
 
-  .icon {
-    font-size: $font-size-xsmall;
+  .ecl-icon {
+    font-size: map-get($font-size, 'xs');
   }
 }
 
@@ -72,7 +72,7 @@ a.feedback-form__trigger {
       padding-left: 28px;
       line-height: 23px;
       background: url('../images/svg/checkbox-checked--blue.svg') no-repeat;
-      font-size: $font-size-little;
+      font-size: map-get($font-size, 's');
       font-weight: bold;
       color: $brand-primary;
       text-decoration: none;
@@ -84,7 +84,7 @@ a.feedback-form__trigger {
 
       &.collapsed {
         background: url('../images/svg/checkbox-unchecked--grey.svg') no-repeat;
-        font-weight: $font-weight-normal;
+        font-weight: 400;
         color: $grey-base;
 
         &:focus {
@@ -120,7 +120,7 @@ a.feedback-form__trigger {
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .feedback-form__text {
     float: left;
     width: 10.111em;
@@ -129,7 +129,7 @@ a.feedback-form__trigger {
 
   .feedback-form__btn {
     margin-left: 12.055em;
-    font-size: $font-size-medium; // @todo: until buttons have styling.
+    font-size: map-get($font-size, 'm'); // @todo: until buttons have styling.
   }
 
   #feedback-form__accordion {
@@ -141,7 +141,7 @@ a.feedback-form__trigger {
   }
 }
 
-@include breakpoint(screen-lg-min) {
+@include media-breakpoint-up(lg) {
   a.feedback-form__trigger {
     margin-left: 0;
   }

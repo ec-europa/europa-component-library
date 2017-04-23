@@ -1,5 +1,7 @@
 # EC Component Library
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ec-europa/europa-component-library.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/ec-europa/europa-component-library.svg?branch=master)](https://travis-ci.org/ec-europa/europa-component-library)
 
 Component library based on [Fractal](http://fractal.build/).

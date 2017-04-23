@@ -2,60 +2,8 @@
  * Import files
  */
 
-// Core variables and mixins
-@import 'variables';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/mixins';
-
-// Reset and dependencies
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/normalize';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/print';
-
-// Core CSS
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/scaffolding';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/type';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/code';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/grid';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/tables';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/forms';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/buttons';
-
-// Components
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/component-animations';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/dropdowns';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/button-groups';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/input-groups';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/navs';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/navbar';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/pagination';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/labels';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/badges';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/jumbotron';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/thumbnails';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/alerts';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/progress-bars';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/media';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/list-group';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/wells';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/close';
-
-// Components w/ JavaScript
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/modals';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/tooltip';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/popovers';
-
-// Utility classes
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/utilities';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities';
-
-// Importing mixins
-@import 'mixins';
-
-// Importing simple helpers and Bootstrap resets
-@import 'helpers';
-@import 'bootstrap-reset';
-@import 'global';
+// Core variables, mixins and reset
+@import 'base/index';
 
 // Typography
 @import 'content/typography/blockquotes/blockquotes';
@@ -73,8 +21,8 @@
 @import 'content/tables/tables';
 
 // Forms
-@import 'components/forms/checkboxes/checkboxes';
 @import 'components/forms/controls/controls';
+@import 'components/forms/checkboxes/checkboxes';
 @import 'components/forms/feedback-messages/feedback-messages';
 @import 'components/forms/file-uploads/file-uploads';
 @import 'components/forms/form-groups/form-groups';
@@ -100,8 +48,8 @@
 @import 'components/top-images/top-images';
 
 // Layout
+@import 'layout/grid/grid';
 @import 'layout/blocks/blocks';
-@import 'layout/container-fluid';
 @import 'layout/top-bar';
 @import 'layout/page-content';
 @import 'layout/page-navigation';
@@ -150,3 +98,10 @@
 @import 'components/site-headers/site-headers';
 @import 'components/site-menus/site-menus';
 @import 'components/splash-pages/splash-pages';
+
+// Utilities
+@import 'utilities/flex/flex';
+@import 'utilities/font-size/font-size' ;
+@import 'utilities/margin/margin' ;
+@import 'utilities/padding/padding' ;
+@import 'utilities/screen-reader/screen-reader' ;

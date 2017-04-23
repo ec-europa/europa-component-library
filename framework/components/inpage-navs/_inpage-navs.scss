@@ -43,7 +43,7 @@ Style guide inpagenav
     padding-bottom: 7px;
     padding-left: 8px;
     color: $black;
-    font-size: $font-size-little;
+    font-size: map-get($font-size, 's');
     font-weight: bold;
     border-left: 3px solid transparent;
     text-decoration: none;
@@ -79,7 +79,7 @@ Style guide inpagenav
     width: 100%;
     padding-top: 1em;
     overflow: hidden;
-    font-size: $font-size-medium;
+    font-size: map-get($font-size, 'm');
     font-weight: bold;
     color: $white;
     text-overflow: ellipsis;
@@ -95,7 +95,7 @@ Style guide inpagenav
     display: none;
     padding-top: 1.35em;
     background-color: $grey-lighter;
-    font-size: $font-size-xsmall;
+    font-size: map-get($font-size, 'xs');
     color: $grey-dark;
     text-transform: uppercase;
   }
@@ -104,7 +104,7 @@ Style guide inpagenav
     display: block;
     padding: 1em;
     line-height: 1;
-    font-size: $font-size-medium;
+    font-size: map-get($font-size, 'm');
     font-weight: bold;
   }
 
@@ -131,7 +131,7 @@ Style guide inpagenav
     font-size: 10px;
     color: $white;
 
-    @include transition(all 0.3s ease 0s);
+    transition: all 0.3s ease 0s;
 
     transform-origin: 50% 50%;
 
@@ -142,8 +142,8 @@ Style guide inpagenav
 
   .inpage-nav__close-text {
     display: none;
-    font-size: $font-size-base;
-    line-height: $line-height-computed;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 
   .inpage-nav__header {
@@ -172,7 +172,7 @@ Style guide inpagenav
 
       .inpage_nav__list-item {
         padding: 0.8em 0 0.8em 1em;
-        font-size: $font-size-little;
+        font-size: map-get($font-size, 's');
         color: $white;
         border-top: 1px solid $blue-darkest;
 
@@ -220,7 +220,7 @@ Style guide inpagenav
       .inpage-nav__icon-arrow {
         color: $grey-dark;
 
-        @include rotate(180deg);
+        transform: rotate(180deg);
       }
     }
   }
@@ -228,7 +228,7 @@ Style guide inpagenav
 
 .inpage-nav__block-title {
   display: inherit;
-  font-size: $font-size-base;
+  font-size: 1rem;
   font-weight: normal;
   color: $grey-dark;
   text-transform: uppercase;
@@ -242,7 +242,7 @@ Style guide inpagenav
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .inpage-nav__wrapper {
     &.affix,
     &.affix-top {

@@ -20,7 +20,7 @@ Style guide tags
   margin-right: 0.7em;
   margin-bottom: 0.5em;
   padding-top: 0.15em;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
   text-transform: uppercase;
 }
 
@@ -36,7 +36,7 @@ Style guide tags
   padding: 0.5em;
   line-height: 1;
   background-color: $grey-light;
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
   color: $text-color;
   text-transform: lowercase;
   border-radius: 5px;
@@ -70,7 +70,7 @@ Style guide tags.facettag
 .facet-tag {
   @extend .tags;
 
-  @include breakpoint(screen-xs-min) {
+  @include media-breakpoint-up(xs) {
     display: inline-block;
     width: auto;
   }

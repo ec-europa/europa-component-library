@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Contextual navigations',
   label: 'Contextual navigations',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
   context: {
     _demo: {

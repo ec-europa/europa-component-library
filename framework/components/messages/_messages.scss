@@ -7,8 +7,8 @@ Style guide messages
 */
 
 $messages-text-color: $grey-base;
-$messages-heading-size: $font-size-little;
-$messages-text-size: $font-size-little;
+$messages-heading-size: map-get($font-size, 's');
+$messages-text-size: map-get($font-size, 's');
 
 .messages {
   position: relative;

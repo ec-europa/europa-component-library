@@ -91,16 +91,16 @@ Gallery
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 
-    .icon {
+    .ecl-icon {
       line-height: 2.667em;
-      font-size: $font-size-medium;
+      font-size: map-get($font-size, 'm');
 
       &::before {
         margin-right: 0;
       }
     }
 
-    .icon--camera {
+    .ecl-icon--camera {
       line-height: 4em;
       font-size: 0.667em;
     }
@@ -123,13 +123,13 @@ Gallery
   }
 }
 
-@media (max-width: $screen-xs-min) {
+@media (max-width: map-get($grid-breakpoints, 'xs')) {
   .mediagallery__item_container {
     margin-left: 0 !important;
   }
 }
 
-@media (min-width: $screen-xs-min) and (max-width: $screen-xs-max) {
+@media (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: breakpoint-max(xs)) {
   .mediagallery__item {
     float: left;
     width: 50%;
@@ -140,7 +140,7 @@ Gallery
   }
 }
 
-@media (max-width: $screen-sm-max) {
+@media (max-width: breakpoint-max(sm)) {
   .mediagallery {
     .row {
       margin-left: -20px;

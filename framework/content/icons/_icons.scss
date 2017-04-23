@@ -58,10 +58,6 @@
   }
 }
 
-/**
- * @define icon
- */
-
 @font-face {
   font-family: 'EuropaIcons';
   src: url('../fonts/europa-icons/europa-icons.eot');
@@ -72,31 +68,36 @@
     url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
 }
 
-.icon {
+/**
+ * Icon classes
+ * @define icon
+ */
+
+.ecl-icon {
   @extend %icon;
 }
 
-.icon--after {
+.ecl-icon--after {
   @extend %icon--after;
 }
 
 // Icon component and modifiers.
-@each $modifier, $char in $modifiers {
+@each $modifier, $char in $icons {
   %icon--#{$modifier},
-  .icon--#{$modifier} {
+  .ecl-icon--#{$modifier} {
     @include icon($modifier);
   }
 }
 
-.icon--blue-dark {
+.ecl-icon--blue-dark {
   @extend %icon--blue-dark;
 }
 
-.icon--tag-close-hover {
+.ecl-icon--tag-close-hover {
   @extend %icon--tag-close-hover;
 }
 
-.icon--yellowbg {
+.ecl-icon--yellowbg {
   background-color: $yellow-light;
   border-radius: 50%;
   display: inline-block;
@@ -112,27 +113,10 @@
   }
 }
 
-.icon--text-small {
-  @include text-small();
+.ecl-icon--text-small {
+  font-size: map-get($font-size, 'xs');
 }
 
-.icon--margin-right {
+.ecl-icon--margin-right {
   margin-right: 1.5em;
-}
-
-// States
-// creating spinning animation for an icon
-// in order to enable spinning apend .is-spinning class next to the .icon class
-.is-spinning::before {
-  @include animation(icon-spin-right 2s infinite linear);
-}
-
-@keyframes icon-spin-right {
-  0% {
-    @include rotate(0deg);
-  }
-
-  100% {
-    @include rotate(359deg);
-  }
 }

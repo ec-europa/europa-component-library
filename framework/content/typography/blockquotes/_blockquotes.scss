@@ -1,38 +1,25 @@
-/*
-Text
-
-Style guide text
-*/
-
-/*
-Blockquote
-
-Markup: html/blockquote.html
-
-Style guide text.blockquote
-*/
+/**
+ * Blockquotes
+ * @define blockquote
+ */
 
 $small-quote-size: 1em;
 $small-quote-width: 0.5em;
 
-blockquote,
-.blockquote {
-  max-width: 24em;
-  border-left: 0.417em solid $yellow-light;
-  font-style: italic;
-  font-size: $font-size-mid;
-  line-height: 1.5;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0.6em 0 0.6em 1.2em;
+.ecl-blockquote {
+  border-left: 0.5rem solid $yellow-light;
   clear: both;
-  position: relative;
+  font-size: map-get($font-size, 'l');
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 24em;
   overflow: hidden;
-  display: inline-block;
+  padding: map-get($spacing, 's') 0 map-get($spacing, 's') map-get($spacing, 'm');
+  position: relative;
 
-  // Drupal fix.
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
   p {
-    line-height: inherit;
     display: inline;
   }
 
@@ -45,11 +32,11 @@ blockquote,
   }
 }
 
-.blockquote--small {
-  padding-left: 0;
-  font-size: $font-size-little;
-  font-style: normal;
+.ecl-blockquote--small {
   color: $text-color;
   font-family: $font-family-base;
+  font-size: map-get($font-size, 's');
+  font-style: normal;
   margin-bottom: 0;
+  padding-left: 0;
 }

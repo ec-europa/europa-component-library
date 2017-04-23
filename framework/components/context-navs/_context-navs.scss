@@ -1,7 +1,7 @@
 .context-nav {
-  @extend .row;
+  @extend .row !optional;
 
-  font-size: $font-size-xsmall;
+  font-size: map-get($font-size, 'xs');
 
   &__expander {
     display: inline-block;
@@ -17,7 +17,7 @@
   &__more-button {
     text-decoration: underline;
 
-    & .icon {
+    & .ecl-icon {
       padding-left: 2px;
       top: 3px;
       position: relative;
@@ -30,16 +30,16 @@
 }
 
 .context-nav__label {
-  @extend .col-xs-12;
-  @extend .col-md-3;
+  @extend .col-xs-12 !optional;
+  @extend .col-md-3 !optional;
 
   display: block;
   clear: both;
 }
 
 .context-nav__items {
-  @extend .col-xs-12;
-  @extend .col-md-9;
+  @extend .col-xs-12 !optional;
+  @extend .col-md-9 !optional;
 
   display: block;
   margin-bottom: 0.556em;
@@ -66,7 +66,7 @@
   }
 
   a {
-    @include _focus_outline_border(3px, $yellow-light, 2px);
+    @include focus-outline-border(3px, $yellow-light, 2px);
 
     &:link {
       text-decoration: none;
@@ -78,7 +78,7 @@
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .context-nav__items {
     margin-bottom: 0;
   }

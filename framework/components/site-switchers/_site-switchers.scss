@@ -16,7 +16,7 @@ Style guide: siteswitcher
 
   display: block;
   background-color: $grey-lightest;
-  font-size: $font-size-little;
+  font-size: map-get($font-size, 's');
 }
 
 .site-switcher__list {
@@ -116,7 +116,7 @@ Style guide: siteswitcher
   }
 }
 
-@include breakpoint(screen-md-min) {
+@include media-breakpoint-up(md) {
   .site-switcher__option {
     width: auto;
   }

@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Pagers',
   label: 'Pagers',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
 };

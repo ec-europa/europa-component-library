@@ -10,12 +10,32 @@
   width: 140px;
 }
 
+// Language generator.
+@mixin logo-background-languages($file_path, $file_extension, $logo_class: ecl-logo--logotype) {
+  @each $item in $languages {
+    /* stylelint-disable max-nesting-depth */
+    .language-#{$item} {
+      .#{$logo_class} {
+        background-image: url('#{$file_path}#{$item}#{$file_extension}');
+      }
+
+      @media print {
+        .#{$logo_class}::before {
+          content: url('#{$file_path}#{$item}#{$file_extension}');
+        }
+      }
+    }
+    /* stylelint-enable */
+  }
+}
+
 /**
+ * Logos
  * @define logo
  */
 
 // Default EC logo.
-.logo {
+.ecl-logo {
   @extend %logo;
 
   // EC logo no-svg
@@ -32,11 +52,11 @@
 //
 // EC logo with text.
 
-// Sets language-specific background image on .logo--logotype element nested
+// Sets language-specific background image on .ecl-logo--logotype element nested
 // in {{modifier_class}} modifier.
 @include logo-background-languages('../images/svg/logo/logo--', '.svg');
 
-.logo--logotype {
+.ecl-logo--logotype {
   @extend %logo;
 
   width: 190px;
@@ -46,7 +66,7 @@
   @include logo-background-languages('../images/png/logo/logo--', '.png');
 
   /* postcss-bem-linter: ignore */
-  .logo--logotype {
+  .ecl-logo--logotype {
     width: 190px;
   }
 }
@@ -55,27 +75,28 @@
 //
 // EC logo with text below.
 
-// Sets language-specific background image on .logo--logotypebelow element nested
+// Sets language-specific background image on .ecl-logo--logotypebelow element nested
 // in {{modifier_class}} modifier.
-@include logo-background-languages('../images/svg/logo/logotypebelow--', '.svg', 'logo--logotypebelow');
+@include logo-background-languages('../images/svg/logo/logotypebelow--', '.svg', 'ecl-logo--logotypebelow');
 
 .no-svg {
-  @include logo-background-languages('../images/png/logo/logotypebelow--', '.png', 'logo--logotypebelow');
+  @include logo-background-languages('../images/png/logo/logotypebelow--', '.png', 'ecl-logo--logotypebelow');
 }
 
-.logo--logotypebelow {
+.ecl-logo--logotypebelow {
   @extend %logo;
 
+  // TODO: replace those hardcoded values by the real image size (easy with Webpack)
   height: 72px;
   width: 198px;
 }
 
-@include breakpoint(screen-xs-min) {
-  .logo--logotype {
+@include media-breakpoint-up(xs) {
+  .ecl-logo--logotype {
     width: 290px;
   }
 
-  .logo--logotypebelow {
+  .ecl-logo--logotypebelow {
     height: 118px;
     width: 324px;
   }

@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Meta',
   label: 'Meta',
-  status: 'wip',
+  status: 'planned',
   collated: false,
   preview: '@preview-center-transparent',
   tags: ['atom'],

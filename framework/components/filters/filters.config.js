@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Filters',
   label: 'Filters',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
   context: {
     _demo: {

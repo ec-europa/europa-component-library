@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Teasers',
   label: 'Teasers',
-  status: 'wip',
+  status: 'planned',
   collated: false,
   variants: [{
     name: 'cta',

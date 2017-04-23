@@ -1,5 +1,5 @@
 module.exports = {
   title: 'Form groups',
   label: 'Form groups',
-  status: 'wip',
+  status: 'planned',
 };

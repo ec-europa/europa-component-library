@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Datepickers',
   label: 'Datepickers',
-  status: 'wip',
+  status: 'planned',
   tags: ['molecule'],
   context: {
     _demo: {

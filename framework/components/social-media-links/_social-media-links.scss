@@ -15,7 +15,7 @@ Social Media
     height: 40px;
     line-height: 40px;
 
-    &.icon-social {
+    &.ecl-icon-social {
       padding-top: 0;
     }
   }
@@ -57,7 +57,7 @@ Social Media
     width: 100%;
     display: block;
 
-    @include _focus_outline_border(3px, $yellow-light, -1px);
+    @include focus-outline-border(3px, $yellow-light, -1px);
 
     &::before {
       margin-bottom: 0;
@@ -133,7 +133,7 @@ Social Media
     .wtShareLink {
       @extend .social-media-links__item;
 
-      font-size: $font-size-medium;
+      font-size: map-get($font-size, 'm');
     }
   }
 }
@@ -145,7 +145,7 @@ Social Media
   margin-bottom: 0.1em;
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .field ul.social-media-links__horizontal {
     vertical-align: top;
 

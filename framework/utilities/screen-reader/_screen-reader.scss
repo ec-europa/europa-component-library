@@ -1,0 +1,12 @@
+/**
+ * Screen readers utilities
+ * @define sr-only
+ */
+
+.ecl-sr-only {
+  @include sr-only();
+}
+
+.ecl-sr-only--focusable {
+  @include sr-only-focusable();
+}

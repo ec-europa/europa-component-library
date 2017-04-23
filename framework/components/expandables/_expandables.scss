@@ -7,10 +7,10 @@ Expandable
   width: 100%;
   background-color: $grey-lightest;
 
-  @include breakpoint(screen-xs-min) {
+  @include media-breakpoint-up(xs) {
     & > p {
       margin: 0.8em 0.8em 0.8em 3.2em;
-      font-size: $font-size-little;
+      font-size: map-get($font-size, 's');
     }
   }
 }
@@ -24,12 +24,12 @@ Expandable
     background: none;
   }
 
-  .icon {
+  .ecl-icon {
     margin-right: 0.833em;
   }
 
   h3 {
-    font-size: $font-size-mid;
+    font-size: map-get($font-size, 'l');
   }
 
   &:link {

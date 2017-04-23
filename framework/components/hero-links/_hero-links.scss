@@ -26,11 +26,11 @@ Style guide hero-links
 }
 
 .hero-links__items {
-  @extend .row;
+  @extend .row !optional;
 
   .hero-links__item {
-    @extend .col-sm-6;
-    @extend .col-xs-12;
+    @extend .col-sm-6 !optional;
+    @extend .col-xs-12 !optional;
 
     margin-bottom: 30px;
     text-align: center;
@@ -54,7 +54,7 @@ Style guide hero-links
     bottom: 1.125em;
     left: 1.125em;
     line-height: normal;
-    font-size: $font-size-mid;
+    font-size: map-get($font-size, 'l');
     font-weight: bold;
     color: $white;
   }
@@ -66,21 +66,21 @@ Style guide hero-links
   }
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   .hero-links__text {
     padding-top: 55px;
     padding-bottom: 80px;
-    font-size: $font-size-mid;
+    font-size: map-get($font-size, 'l');
   }
 
   .hero-links__btn .hero-links__caption {
     bottom: 0.467em;
     left: 0.667em;
-    font-size: $font-size-huge;
+    font-size: map-get($font-size, 'xxl');
   }
 }
 
-@include breakpoint(screen-sm-min) {
+@include media-breakpoint-up(sm) {
   .hero-links__items .hero-links__item {
     margin-bottom: 0;
     text-align: left;

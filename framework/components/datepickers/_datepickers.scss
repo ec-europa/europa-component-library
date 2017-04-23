@@ -66,7 +66,7 @@ $datepicker-color-background: #eaeaea;
       left: 0;
 
       .ui-icon {
-        @include rotate(-180deg);
+        transform: rotate(-180deg);
       }
     }
 
@@ -77,7 +77,7 @@ $datepicker-color-background: #eaeaea;
     .ui-datepicker-title {
       margin: 0 50px;
       height: 100%;
-      font-size: $font-size-little;
+      font-size: map-get($font-size, 's');
 
       span,
       select {
@@ -103,7 +103,7 @@ $datepicker-color-background: #eaeaea;
         padding-right: 0;
         padding-left: 0.75em;
 
-        @include _focus_outline_border(3px, $yellow-light, -3px, none);
+        @include focus-outline-border(3px, $yellow-light, -3px, none);
 
         position: relative;
 
@@ -188,7 +188,7 @@ $datepicker-color-background: #eaeaea;
   }
 }
 
-@include breakpoint(screen-xs-min) {
+@include media-breakpoint-up(xs) {
   #ui-datepicker-div {
     width: auto;
   }

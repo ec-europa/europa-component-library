@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Tables',
   label: 'Tables',
-  status: 'wip',
+  status: 'planned',
   tags: ['atom'],
 };
