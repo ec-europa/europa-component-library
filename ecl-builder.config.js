@@ -20,8 +20,17 @@ module.exports = {
     },
   }],
   copy: [{
-    from: path.resolve(__dirname, 'framework/fonts'),
+    from: path.resolve(__dirname, 'framework/components/forms/selects/images'),
+    to: path.resolve(__dirname, outputFolder, 'images'),
+  }, {
+    from: path.resolve(__dirname, 'framework/components/social-icons/images'),
+    to: path.resolve(__dirname, outputFolder, 'images'),
+  }, {
+    from: path.resolve(__dirname, 'framework/content/icons/fonts'),
     to: path.resolve(__dirname, outputFolder, 'fonts'),
+  }, {
+    from: path.resolve(__dirname, 'framework/content/logos/images'),
+    to: path.resolve(__dirname, outputFolder, 'images'),
   }, {
     from: path.resolve(__dirname, 'framework/images'),
     to: path.resolve(__dirname, outputFolder, 'images'),
