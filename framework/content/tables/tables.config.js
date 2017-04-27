@@ -3,4 +3,5 @@ module.exports = {
   label: 'Tables',
   status: 'planned',
   tags: ['atom'],
+  preview: '@preview-tables',
 };
