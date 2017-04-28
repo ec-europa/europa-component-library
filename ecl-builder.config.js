@@ -18,6 +18,12 @@ module.exports = {
     options: {
       sourceMap: isProd ? 'file' : true,
     },
+  }, {
+    entry: path.resolve(__dirname, 'framework/index_clean.scss'),
+    dest: path.resolve(__dirname, outputFolder, 'styles/europa_clean.css'),
+    options: {
+      sourceMap: isProd ? 'file' : true,
+    },
   }],
   copy: [{
     from: path.resolve(__dirname, 'framework/components/forms/selects/images'),

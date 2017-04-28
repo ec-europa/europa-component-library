@@ -1,0 +1,24 @@
+// Lists
+ecl-ul:not(.listing, .social-media-links__list, .file__translations-list, .site-switcher__list, .menu, .site-user-menu__list, #admin-menu-wrapper ul){
+  max-width: 32em;
+  padding-left: 18px;
+}
+
+ecl-ul:not(.social-media-links__list, .file__translations-list) {
+  list-style: disc outside;
+  padding-left: 1em;
+}
+
+// links
+.page-content {
+  ul,
+  p {
+    a {
+      &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
+        &:not(#{$ec-url-patterns}) {
+          @include _link_external_link_mixin();
+        }
+      }
+    }
+  }
+}
