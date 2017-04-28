@@ -1,7 +1,8 @@
 module.exports = {
   title: 'Links',
   label: 'Links',
-  status: 'wip',
+  status: 'ready',
+  preview: '@preview-links',
   collated: true,
   default: 'default',
   variants: [{
