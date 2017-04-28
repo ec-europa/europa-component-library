@@ -1,20 +1,32 @@
 module.exports = {
   title: 'Paragraphs',
   label: 'Paragraphs',
-  status: 'planned',
-  collated: false,
+  status: 'ready',
+  collated: true,
   default: 'intro',
   variants: [{
     name: 'intro',
     label: 'Intro',
     context: {
-      modifier: 'paragraph--intro',
+      modifier: 'ecl-paragraph--intro',
+    },
+  }, {
+    name: 'default',
+    label: 'Default',
+    context: {
+      modifier: '',
     },
   }, {
     name: 'small',
     label: 'Small body text',
     context: {
-      modifier: 'paragraph--small',
+      modifier: 'ecl-paragraph--small',
+    },
+  }, {
+    name: 'small',
+    label: 'Extra Small body text',
+    context: {
+      modifier: 'ecl-text-small',
     },
   }],
 };

@@ -1,11 +1,11 @@
-.paragraph {
+.ecl-paragraph {
   display: block;
   max-width: 32em;
   margin-bottom: 0.8em;
 }
 
-p {
-  @extend .paragraph;
+.ecl-p {
+  @extend .ecl-paragraph;
 
   &.dashed {
     position: relative;
@@ -20,18 +20,18 @@ p {
   }
 }
 
-.paragraph--width-auto {
+.ecl-paragraph--width-auto {
   width: auto;
 }
 
-.paragraph--intro {
+.ecl-paragraph--intro {
   font-size: map-get($font-size, 'l');
 }
 
-.paragraph--small {
+.ecl-paragraph--small {
   font-size: map-get($font-size, 's');
 }
 
-.text-small {
+.ecl-text-small {
   font-size: map-get($font-size, 'xs');
 }
