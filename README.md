@@ -22,15 +22,21 @@ Tested on:
 
 | Package | Version |
 |-------- |-------- |
-| [@ec-europa/ecl-icons](framework/icons) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-icons.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-icons) |
-| [@ec-europa/ecl-images](framework/images) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-images.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-images) |
-| [@ec-europa/ecl-logos](framework/logos) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-logos.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-logos) |
-| [@ec-europa/ecl-tables](framework/tables) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-tables.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-tables) |
-| [@ec-europa/ecl-typography-blockquotes](framework/typography-blockquotes) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-blockquotes.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-blockquotes) |
-| [@ec-europa/ecl-typography-headings](framework/typography-headings) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings) |
-| [@ec-europa/ecl-typography-links](framework/typography-links) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-links.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-links) |
-| [@ec-europa/ecl-typography-lists](framework/typography-lists) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists) |
-| [@ec-europa/ecl-typography-paragraphs](framework/typography-paragraphs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs) |
+| [@ec-europa/ecl-icons](framework/content/icons) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-icons.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-icons) |
+| [@ec-europa/ecl-images](framework/content/images) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-images.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-images) |
+| [@ec-europa/ecl-logos](framework/content/logos) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-logos.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-logos) |
+| [@ec-europa/ecl-tables](framework/content/tables) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-tables.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-tables) |
+| [@ec-europa/ecl-typography-blockquotes](framework/content/typography/blockquotes) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-blockquotes.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-blockquotes) |
+| [@ec-europa/ecl-typography-headings](framework/content/typography/headings) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings) |
+| [@ec-europa/ecl-typography-links](framework/content/typography/links) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-links.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-links) |
+| [@ec-europa/ecl-typography-lists](framework/content/typography/lists) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists) |
+| [@ec-europa/ecl-typography-paragraphs](framework/content/ypography/paragraphs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs) |
+
+### Layout
+
+| Package | Version |
+|-------- |-------- |
+| [@ec-europa/ecl-grid](framework/layout/grid) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-grid.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-grid) |
 
 ### Utilities
 
@@ -39,7 +45,6 @@ Tested on:
 | [@ec-europa/ecl-clearfix](framework/utilities/clearfix) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-clearfix.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-clearfix) |
 | [@ec-europa/ecl-flex](framework/utilities/flex) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-flex.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-flex) |
 | [@ec-europa/ecl-font-size](framework/utilities/font-size) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-font-size.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-font-size) |
-| [@ec-europa/ecl-grid](framework/utilities/grid) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-grid.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-grid) |
 | [@ec-europa/ecl-margin](framework/utilities/margin) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-margin.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-margin) |
 | [@ec-europa/ecl-padding](framework/utilities/padding) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-padding.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-padding) |
 | [@ec-europa/ecl-screen-reader](framework/utilities/screen-reader) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-screen-reader.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-screen-reader) |
