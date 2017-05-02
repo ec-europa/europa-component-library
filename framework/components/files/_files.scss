@@ -10,7 +10,7 @@ File download default
   @extend %hidden-print;
   @extend .row !optional;
 
-  margin: 0 0 0.944em;
+  margin: 0 0 0.944em 0;
   padding: 1.333em;
   background-color: $grey-lighter;
 }
@@ -47,7 +47,9 @@ File download default
 }
 
 .file__title {
-  line-height: initial;
+  display: inline-block;
+  margin: -0.225em 0 0.5em;
+  line-height: 1.225;
   font-weight: bold;
 }
 
@@ -55,22 +57,20 @@ File download default
   @include media-caption();
 }
 
-.file__language {
-  display: block;
-  margin-top: 0.556em;
-  line-height: initial;
-  font-size: map-get($font-size, 's');
-  font-weight: bold;
-}
-
 .file__info {
-  margin-top: 0.778em;
-  line-height: initial;
+  line-height: 1.225;
   font-size: map-get($font-size, 'xs');
 }
 
 .file__content-language {
+  display: inline-block;
+  margin-bottom: 0.5em;
   font-weight: bold;
+}
+
+.file__properties {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .file__btn {
@@ -108,11 +108,14 @@ File download default
 
 /*
 File download with translations
+Displays the download file available in several languages.
+Markup: html/file-translations.html
+Style guide: file.2
 */
 
 .file__translations {
   margin-bottom: 1em;
-  padding: 0 1.45em;
+  padding: 0 1.450em;
   font-size: map-get($font-size, 's');
   text-align: right;
 
@@ -152,9 +155,9 @@ File download with translations
   }
 
   .file__translations-list {
-    list-style: none;
-    margin: 0.944em 0 0;
-    padding: 0;
+    @extend .reset-lists !optional;
+
+    margin-top: 0.944em;
     text-align: left;
 
     .btn--condensed {
@@ -198,6 +201,9 @@ File download with translations
 
 /*
 File link
+Displays the link for a download/page.
+Markup: html/file--link.html
+Style guide: file.3
 */
 .file--link {
   background-color: transparent;
@@ -251,11 +257,8 @@ File link
 
 /*
 File image
-
 Displays the file image.
-
 Markup: html/file--image.html
-
 Style guide: file.4
 */
 
@@ -267,11 +270,8 @@ Style guide: file.4
 
 /*
 File video
-
 Displays the file video.
-
 Markup: html/file--video.html
-
 Style guide: file.5
 */
 

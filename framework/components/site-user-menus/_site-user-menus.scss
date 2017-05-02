@@ -3,10 +3,9 @@ Site user menu
 */
 
 .site-user-menu__list {
-  list-style: none;
+  @extend .reset-lists !optional;
+
   float: right;
-  margin-bottom: 0 !important;
-  padding: 0;
   font-weight: 600;
 }
 
