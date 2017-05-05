@@ -5,8 +5,6 @@ module.exports = {
   label: 'Buttons',
   status: 'wip',
   collated: true,
-  context: {
-    label: 'Button element',
-  },
+  preview: '@preview-buttons',
   variants,
 };
