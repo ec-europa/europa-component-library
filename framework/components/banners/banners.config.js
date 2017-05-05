@@ -16,5 +16,11 @@ module.exports = {
     context: {
       modifier: 'video',
     },
+  }, {
+    name: 'background',
+    label: 'Background',
+    context: {
+      modifier: 'background',
+    },
   }],
 };

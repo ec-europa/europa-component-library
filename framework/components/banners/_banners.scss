@@ -83,3 +83,70 @@ Style guide banner.video
     margin-top: 0;
   }
 }
+
+/*
+Background Banner
+Markup: html/banner--background.html
+Style guide: banner.background
+*/
+
+.banner--background {
+  position: relative;
+  overflow: hidden;
+
+  h3 {
+    padding-top: 1.365em;
+    color: $blue-dark;
+  }
+
+  p {
+    line-height: 1.45;
+  }
+}
+
+.banner__image {
+  img {
+    max-width: 200%;
+  }
+}
+
+.banner__content {
+  @extend .col-md-12 !optional;
+
+  padding: 0 24px 6px !important;
+  background-color: #fff;
+  border-top: 3px solid $blue-dark;
+}
+
+@include media-breakpoint-up(md) {
+  .banner__image {
+    padding: 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .banner--background {
+    min-height: 370px;
+    max-height: 370px;
+  }
+
+  .banner__image {
+    position: absolute;
+    z-index: 1;
+
+    img {
+      max-width: none;
+    }
+  }
+
+  .banner__content {
+    // @include make-md-column(6);
+
+    position: relative;
+    float: right !important;
+    max-height: 250px;
+    margin: 3.35em 3.35em 0 0;
+    overflow: hidden;
+    z-index: 2;
+  }
+}
