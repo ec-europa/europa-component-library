@@ -2,11 +2,11 @@
 const path = require('path');
 const chai = require('chai');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare'); // eslint-disable-line import/no-extraneous-dependencies
-const { injectAxeCore, runAxeCore } = require('./utils/commands/a11y');
-const { injectHTMLInspector, runHTMLInspector } = require('./utils/commands/html-inspector');
-const matchReference = require('./utils/assertions/matchReference');
-const isAccessible = require('./utils/assertions/isAccessible');
-const isWellFormatted = require('./utils/assertions/isWellFormatted');
+const { injectAxeCore, runAxeCore } = require('@ec-europa/ecl-qa/wdio/commands/a11y');
+const { injectHTMLInspector, runHTMLInspector } = require('@ec-europa/ecl-qa/wdio/commands/html-inspector');
+const matchReference = require('@ec-europa/ecl-qa/wdio/assertions/matchReference');
+const isAccessible = require('@ec-europa/ecl-qa/wdio/assertions/isAccessible');
+const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatted');
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -113,7 +113,7 @@ exports.config = {
 
   // Set a base URL in order to shorten url command calls. If your url parameter starts
   // with "/", then the base url gets prepended.
-  baseUrl: 'http://localhost:3000/components/preview',
+  baseUrl: 'http://localhost:3000/components/preview/',
 
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,

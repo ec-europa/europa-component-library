@@ -1,0 +1,23 @@
+version: 2
+
+always_pending:
+  labels:
+    - wip
+  explanation: 'This PR is a work in progress'
+
+groups:
+  code-review:
+    github_reviews:
+      enabled: true
+    approve_by_comment:
+      enabled: false
+    author_approval:
+      ignored: true
+    reset_on_push:
+      enabled: true
+    required: 1
+    teams:
+      - inno
+    conditions:
+      branches:
+          - master # only need to review if merging into master
