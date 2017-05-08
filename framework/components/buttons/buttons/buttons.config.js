@@ -5,6 +5,11 @@ module.exports = {
   label: 'Buttons',
   status: 'wip',
   collated: true,
-  preview: '@preview-buttons',
+  collator(markup, item) {
+    return `<!-- Start: @${item.handle} -->\n<h2>${item.label}\n</h2>\n${markup}\n<!-- End: @${item.handle} -->\n`;
+  },
+  context: {
+    label: 'Button element',
+  },
   variants,
 };
