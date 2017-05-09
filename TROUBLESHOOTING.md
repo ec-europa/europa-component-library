@@ -1,6 +1,6 @@
 # Troubleshooting
 
-** Run `yarn` or `npm update` twice and ensure no errors *before* creating an issue!**
+**Run `yarn` or `npm update` twice and ensure no errors *before* creating an issue!**
 
 This document will help you check for common issues and make sure your issue has not already been reported.
 
