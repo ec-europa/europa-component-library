@@ -12,6 +12,9 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf tmp build dist static/framework",
     "dist": "npm run clean && ./node_modules/.bin/fractal build && cross-env NODE_ENV=production npm run build",
+    "fix:js": "prettier-eslint --write \"**/*.js\"",
+    "fix:scss": "stylefmt -r \"framework/**/*.scss\" -c \".stylelintrc.js\"",
+    "fix": "npm-run-all --parallel fix:*",
     "gh-pages": "gh-pages -d dist",
     "lint:js": "eslint .",
     "lint:scss": "stylelint ./framework/**/*.scss",
@@ -67,9 +70,7 @@
       "git add"
     ],
     "*.scss": [
-      "stylefmt",
-      "stylelint",
-      "git add"
+      "stylelint"
     ]
   }
 }
