@@ -2839,16 +2839,6 @@ fs-extra@1.0.0:
     jsonfile "^2.1.0"
     klaw "^1.0.0"
 
-fs-extra@^0.26.5:
-  version "0.26.7"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.26.7.tgz#9ae1fdd94897798edab76d0918cf42d0c3184fa9"
-  dependencies:
-    graceful-fs "^4.1.2"
-    jsonfile "^2.1.0"
-    klaw "^1.0.0"
-    path-is-absolute "^1.0.0"
-    rimraf "^2.2.8"
-
 fs-extra@^0.30.0:
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
@@ -2873,15 +2863,6 @@ fs-extra@^3.0.1:
     graceful-fs "^4.1.2"
     jsonfile "^3.0.0"
     universalify "^0.1.0"
-
-fs-promise@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/fs-promise/-/fs-promise-0.5.0.tgz#4347d6bf624655a7061a4319213c393276ad3ef3"
-  dependencies:
-    any-promise "^1.0.0"
-    fs-extra "^0.26.5"
-    mz "^2.3.1"
-    thenify-all "^1.6.0"
 
 fs-promise@^2.0.2:
   version "2.0.2"
@@ -4672,7 +4653,7 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-mz@^2.3.1, mz@^2.6.0:
+mz@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/mz/-/mz-2.6.0.tgz#c8b8521d958df0a4f2768025db69c719ee4ef1ce"
   dependencies:
@@ -7316,21 +7297,7 @@ wdio-sauce-service@0.4.0:
     request "2.81.0"
     sauce-connect-launcher "1.2.2"
 
-wdio-screenshot@0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/wdio-screenshot/-/wdio-screenshot-0.5.2.tgz#f98ae84c39f1f2de96b5f01c29c4d008f322222d"
-  dependencies:
-    babel-runtime "^6.9.0"
-    debug "^2.2.0"
-    fs-promise "^0.5.0"
-    gm "^1.22.0"
-    image-size "^0.5.0"
-    jimp "^0.2.24"
-    lodash "^4.16.1"
-    uuid "^3.0.0"
-    which "^1.2.10"
-
-wdio-screenshot@^0.6.0:
+wdio-screenshot@0.6.0, wdio-screenshot@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/wdio-screenshot/-/wdio-screenshot-0.6.0.tgz#fb326b1a6b9751a13c2cea511fd7062e05b73a4d"
   dependencies:
