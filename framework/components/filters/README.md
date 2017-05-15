@@ -1,5 +1,14 @@
 # Filters
 
-Filter components on content filtering pages.
+Allows user to narrow the scope of displayed items.
 
-TODO: this component needs to be rewritten without jQuery nor Drupal.
+## When should this be used?
+
+When the collection of content items is too large and all items share characteristics varying across common dimensions.
+
+## Implementation
+
+https://ec.europa.eu/info/topics_en
+
+## TODO
+This component needs to be rewritten without jQuery nor Drupal.
