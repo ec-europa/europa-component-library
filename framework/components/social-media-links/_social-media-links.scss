@@ -3,12 +3,12 @@ Social Media
 */
 
 .social-media-links {
-  @extend %hidden-print;
-
   width: 100%;
   float: left;
   padding: 30px;
-  background-color: $grey-lighter;
+  background-color: $ec-grey10;
+
+  @extend %hidden-print;
 
   a {
     font-size: 0.778em;
@@ -22,9 +22,9 @@ Social Media
 }
 
 .social-media-links--field {
-  @extend %hidden-print;
-
   width: 100%;
+
+  @extend %hidden-print;
 }
 
 .social-media-links__list {
@@ -55,7 +55,7 @@ Social Media
     width: 100%;
     display: block;
 
-    @include focus-outline-border(3px, $yellow-light, -1px);
+    @include focus-outline-border(3px, $ec-yellow, -1px);
 
     &::before {
       margin-bottom: 0;

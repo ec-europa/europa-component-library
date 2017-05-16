@@ -9,32 +9,28 @@ Styleguide navtabs
 */
 ul.nav-tabs,
 .nav-tabs {
-  @extend %hidden-print;
-
   max-width: inherit !important;
   padding: 0;
   margin-bottom: 2em !important;
-  border-bottom: 2px solid $grey;
+  border-bottom: 2px solid $ec-grey50;
+
+  @extend %hidden-print;
 
   > li {
     margin-bottom: -2px;
 
     &.active {
       > a {
-        border-bottom: 2px solid $white;
-        border-top: 2px solid $grey;
-        border-right: 2px solid $grey;
-        border-left: 2px solid $grey;
-        color: $grey-base;
+        color: $ec-grey;
+        border: 2px solid $ec-grey50;
+        border-bottom: 2px solid #fff;
 
         &:hover,
         &:active,
         &:focus {
-          border-bottom: 2px solid $white;
-          border-top: 2px solid $grey;
-          border-right: 2px solid $grey;
-          border-left: 2px solid $grey;
-          color: $grey-base;
+          color: $ec-grey;
+          border: 2px solid $ec-grey50;
+          border-bottom: 2px solid #fff;
         }
 
         &:hover {
@@ -42,8 +38,8 @@ ul.nav-tabs,
         }
 
         &:focus {
-          background: $yellow-light;
-          border-bottom-color: $yellow-light;
+          background-color: $ec-yellow;
+          border-bottom-color: $ec-yellow;
         }
       }
     }
@@ -54,13 +50,13 @@ ul.nav-tabs,
 
       &:hover {
         background: none;
-        border-color: transparent transparent $grey transparent;
+        border-color: transparent transparent $ec-grey50 transparent;
         text-decoration: underline;
       }
 
       &:focus {
-        background: $yellow-light;
-        border-bottom-color: $yellow-light;
+        background-color: $ec-yellow;
+        border-bottom-color: $ec-yellow;
         outline: none;
       }
     }

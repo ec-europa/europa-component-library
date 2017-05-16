@@ -1,5 +1,3 @@
-$breadcrumb-heigth: 2.778em;
-
 .breadcrumb {
   position: relative;
   margin: 0;
@@ -7,7 +5,7 @@ $breadcrumb-heigth: 2.778em;
   background: none;
   font-size: 0.833em;
   font-weight: 600;
-  border-bottom: 1px solid $white;
+  border-bottom: 1px solid #fff;
   border-radius: 0;
   line-height: normal;
 
@@ -34,7 +32,7 @@ a.breadcrumb__link {
   max-width: 100%;
   margin-right: 8px;
   font-weight: bold;
-  color: $white;
+  color: #fff;
   text-decoration: none;
 
   &::after {
@@ -48,7 +46,7 @@ a.breadcrumb__link {
   &:hover,
   &:active,
   &:focus {
-    color: $white;
+    color: #fff;
 
     .breadcrumb__text {
       text-decoration: underline;
@@ -68,7 +66,7 @@ a.breadcrumb__link {
   // Width has to be defined, otherwise javascript has issues with calculating
   // the breadcrumb segment width.
   width: 11px;
-  color: $white;
+  color: #fff;
 }
 
 .breadcrumb__segment--last,
@@ -132,15 +130,15 @@ a.breadcrumb__link {
   .breadcrumb__btn-separator {
     display: inline-block;
     padding: 0 10px;
-    line-height: $breadcrumb-heigth;
-    background-color: $blue-darkest;
-    color: $white;
+    line-height: 2.778em;
+    background-color: $ec-blue120;
+    color: #fff;
     cursor: pointer;
 
     &:hover,
     &:active,
     &:focus {
-      background-color: $white;
+      background-color: #fff;
       color: $brand-primary;
 
       &::after {
@@ -222,7 +220,7 @@ a.breadcrumb__link {
           display: inline-block !important;
           position: relative;
           top: -4px;
-          color: $white;
+          color: #fff;
         }
 
         &::before {
@@ -239,7 +237,7 @@ a.breadcrumb__link {
           font-style: normal;
           font-weight: normal;
           font-variant: normal;
-          color: $white;
+          color: #fff;
           text-transform: none;
           text-decoration: none;
           -webkit-font-smoothing: antialiased;

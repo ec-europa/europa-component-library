@@ -4,19 +4,20 @@
  */
 
 .lang-select-site {
-  @extend %hidden-print;
-
   position: absolute;
   right: $grid-gutter-width-base / 2;
   text-align: center;
   top: 0;
+
+  @extend %hidden-print;
 
   @include media-breakpoint-up(md) {
     float: left;
     position: static;
   }
 
-  .lang-select-site__link {
+  .lang-select-site__link,
+  .lang-select-site__placeholder {
     border: 3px solid transparent;
     color: inherit;
     display: inline-block;
@@ -27,16 +28,20 @@
     text-decoration: none;
 
     &:focus {
-      border-color: $yellow-light;
+      border-color: $ec-yellow;
       outline: none;
     }
   }
 
   .lang-select-site__label {
     margin-right: 0.556em;
+  }
 
-    &:hover {
-      text-decoration: underline;
+  .lang-select-site__link {
+    .lang-select-site__label {
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -50,7 +55,7 @@
 
   .lang-select-site__code-text {
     background-color: $brand-primary;
-    color: $white;
+    color: #fff;
     font-size: map-get($font-size, 'xs');
     left: -1px;
     position: relative;

@@ -12,11 +12,11 @@ Style guide: siteswitcher
 */
 
 .site-switcher {
-  @extend %hidden-print;
-
   display: block;
-  background-color: $grey-lightest;
+  background-color: $ec-grey5;
   font-size: map-get($font-size, 's');
+
+  @extend %hidden-print;
 }
 
 .site-switcher__list {
@@ -53,11 +53,11 @@ Style guide: siteswitcher
   }
 
   &.is-selected {
-    background-color: $blue-dark;
+    background-color: $ec-blue;
     border-left: none;
 
     & > a {
-      color: $white;
+      color: #fff;
     }
   }
 }
@@ -65,7 +65,7 @@ Style guide: siteswitcher
 .site-switcher--header {
   .site-switcher__list {
     &:first-child {
-      border-left: 1px solid $grey;
+      border-left: 1px solid $ec-grey50;
     }
   }
 
@@ -73,7 +73,7 @@ Style guide: siteswitcher
     position: relative;
 
     &.is-selected::after {
-      content: " " !important;
+      content: ' ' !important;
       position: absolute;
       top: 95%;
       left: 50%;
@@ -81,14 +81,14 @@ Style guide: siteswitcher
       height: 0;
       margin-left: -10px;
       border: 10px solid rgba(0, 68, 148, 0);
-      border-top-color: $blue-dark;
+      border-top-color: $ec-blue;
       pointer-events: none;
     }
   }
 }
 
 .site-switcher--footer {
-  border-bottom: 1px solid $grey-lightest;
+  border-bottom: 1px solid $ec-grey5;
 
   .site-switcher__list {
     &:first-child {
@@ -100,7 +100,7 @@ Style guide: siteswitcher
     position: relative;
 
     &.is-selected::after {
-      content: " " !important;
+      content: ' ' !important;
       position: absolute;
       left: 50%;
       bottom: 95%;
@@ -108,7 +108,7 @@ Style guide: siteswitcher
       height: 0;
       margin-left: -10px;
       border: 10px solid rgba(0, 68, 148, 0);
-      border-bottom-color: $blue-dark;
+      border-bottom-color: $ec-blue;
       pointer-events: none;
     }
   }

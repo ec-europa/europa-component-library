@@ -15,8 +15,6 @@ Markup: html/banner-quote.html
 Style guide banner.quote
 */
 
-$quote_border_offset: 0.556em;
-
 .banner {
   @include clearfix();
 }
@@ -24,8 +22,8 @@ $quote_border_offset: 0.556em;
 .banner--quote {
   // @include make-md-column(8);
 
-  padding-left: $quote_border_offset;
-  border-left: $quote_border_offset solid $yellow-light;
+  padding-left: 0.556em;
+  border-left: 0.556em solid $ec-yellow;
 
   blockquote {
     max-width: none;
@@ -96,7 +94,7 @@ Style guide: banner.background
 
   h3 {
     padding-top: 1.365em;
-    color: $blue-dark;
+    color: $ec-blue;
   }
 
   p {
@@ -115,7 +113,7 @@ Style guide: banner.background
 
   padding: 0 24px 6px !important;
   background-color: #fff;
-  border-top: 3px solid $blue-dark;
+  border-top: 3px solid $ec-blue;
 }
 
 @include media-breakpoint-up(md) {

@@ -15,20 +15,20 @@
 
 .page-header {
   margin: 0;
-  padding: 0 0 1.5em;
+  padding: 0 0 1.25em;
   background-color: $brand-primary;
-  color: $white;
+  color: #fff;
   border-bottom: none;
 
   h1 {
     margin: 0;
     line-height: 1.25;
-    color: $white;
+    color: #fff;
 
     span {
       margin-top: 0.175em;
       line-height: 1.34;
-      font-size: 0.75em;
+      font-size: 0.750em;
       font-weight: 400;
     }
 
@@ -37,25 +37,51 @@
     }
   }
 
+  .page-header__site-identification {
+    margin-top: 1em;
+
+    h3 {
+      font-size: map-get($font-size, 'l');
+      color: $ec-blue25;
+      font-weight: normal;
+    }
+
+    + .page-header__hero-title {
+      padding-top: 1em;
+
+      .col-lg-9 {
+        h1 {
+          padding-top: 0;
+        }
+
+        > .meta {
+          + h1,
+          + * h1 {
+            padding-top: 0.5em;
+          }
+        }
+      }
+    }
+  }
+
   p {
     max-width: 40em;
     margin: 0;
     line-height: 1.45;
     font-size: map-get($font-size, 'l');
-    color: $white;
+    color: #fff;
   }
 
   a {
-    color: $white;
-
-    @include focus-outline-border(3px, $yellow-light, 2px);
+    color: #fff;
+    @include focus-outline-border(3px, $ec-yellow, 2px);
 
     &:hover:not(.breadcrumb__link, .btn) {
-      color: $yellow-light;
+      color: $ec-yellow;
     }
 
-    &#{"[" + $external-link-pattern + "]"}:not(.is-internal, .listing__title) {
-      &:not(#{$ec-url-patterns}) {
+    &#{"[" + $external_link_pattern + "]"}:not(.is-internal, .listing__title) {
+      &:not(#{$ec_url_patterns}) {
         @include _page_header_external_link_mixin();
       }
     }
@@ -82,10 +108,6 @@
 
   .page-header__hero-title {
     padding-top: 2.39em;
-
-    .meta--header {
-      margin-bottom: 0;
-    }
   }
 }
 
@@ -115,7 +137,7 @@
     text-decoration: line-through;
   }
 
-  .ecl-icon {
+  .icon {
     margin: 1em 2em 1em 0;
 
     &::before {
@@ -132,12 +154,12 @@
     min-height: 75px;
     margin: 75px 0 0;
     padding: 16px;
-    background-color: $blue-darker;
+    background-color: $ec-blue120;
   }
 
   .field__label--above {
     padding: 0;
-    color: $white;
+    color: #fff;
     font-size: map-get($font-size, 's');
     font-weight: 400;
     text-transform: uppercase;
@@ -163,15 +185,15 @@
       height: 34px;
       margin: 0;
       line-height: 34px;
-      background-color: $blue-darker;
+      background-color: $ec-blue120;
       text-align: center;
     }
 
     p {
       width: 550px;
       padding: 22px 5px 22px 33px;
-      background-color: $white;
-      color: $blue-dark;
+      background-color: #fff;
+      color: $ec-blue;
     }
   }
 }
@@ -193,10 +215,10 @@
     @include media-breakpoint-up(msm) {
       .page-header__hero-title {
         a {
-          color: $blue-dark;
+          color: $ec-blue;
 
           &:hover {
-            color: $grey-base;
+            color: $ec-grey;
           }
         }
       }

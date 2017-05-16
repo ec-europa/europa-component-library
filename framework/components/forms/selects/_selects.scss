@@ -62,14 +62,14 @@ Select
   // Hover state.
   &:hover,
   &.hover {
-    @include select-list-arrow($form-control-border-select-color-hover);
-
     border-color: $form-control-border-select-color-hover;
+
+    @include select-list-arrow($form-control-border-select-color-hover);
   }
 
   // Down state.
   &.is-down {
-    @include select-list-arrow($white, true);
+    @include select-list-arrow(#fff, true);
   }
 }
 

@@ -1,12 +1,36 @@
 /*
 Site user menu
+
+User menu in two variants
+
+Markup: html/site-user-menu.html
+
+.site-user-menu--header - Header modifier
+
+Style guide: site-user-menu
 */
 
-.site-user-menu__list {
-  @extend .reset-lists !optional;
+.site-user-menu {
+  text-align: right;
 
-  float: right;
-  font-weight: 600;
+  a {
+    text-decoration: none;
+  }
+}
+
+a.site-user-menu__list {
+  display: inline-block;
+}
+
+ .site-user-menu__list {
+   font-weight: 600;
+   padding: 0.5em;
+
+   .site-user-menu--header & {
+     background-color: $ec-grey5;
+     font-size: map-get($font-size, 's');
+     padding: 0.3em;
+   }
 }
 
 .site-user-menu__option {

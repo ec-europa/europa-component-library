@@ -3,56 +3,54 @@
  * @define label
  */
 
-$label_text_color_light: $white;
-
 .label {
   display: inline-block;
   padding: 0.475em 0.5em 0.5em;
   font-size: map-get($font-size, 'xs');
   font-weight: normal;
   letter-spacing: 0.12em;
-  color: $grey-base;
+  color: $ec-grey;
   border-radius: 0;
 }
 
 .label--default {
   @extend .label-default !optional;
 
-  color: $label_text_color_light;
+  color: #fff;
 }
 
 .label--primary {
   @extend .label-primary !optional;
 
-  color: $label_text_color_light;
+  color: #fff;
 }
 
 .label--success {
   @extend .label-success !optional;
 
-  color: $label_text_color_light;
+  color: #fff;
 }
 
 .label--info {
   @extend .label-info !optional;
 
-  color: $label_text_color_light;
+  color: #fff;
 }
 
 .label--warning {
   @extend .label-warning !optional;
 
-  color: $label_text_color_light;
+  color: #fff;
 }
 
 .label--next {
-  background-color: $yellow-lighter;
+  background-color: $ec-yellow75;
 }
 
 .label--danger {
   @extend .label-danger !optional;
 
-  color: $label_text_color_light;
+  color: #fff;
 }
 
 .label--upper {
@@ -61,8 +59,8 @@ $label_text_color_light: $white;
 }
 
 .label--highlight {
-  background-color: $yellow-light;
-  color: $grey-base;
+  background-color: $ec-yellow;
+  color: $ec-grey;
 
   /* postcss-bem-linter: ignore */
   &.label--meta::after {
@@ -72,8 +70,8 @@ $label_text_color_light: $white;
 }
 
 .label--status {
-  background-color: $grey-lighter;
-  color: $grey-base;
+  background-color: $ec-grey10;
+  color: $ec-grey;
 }
 
 .label--block {

@@ -1,17 +1,17 @@
 .skip-link,
 #skip-link {
-  @extend %hidden-print;
-
   position: fixed;
   top: 1.5em;
   left: 1.5em;
   z-index: 999;
 
+  @extend %hidden-print;
+
   a {
     padding: 8px;
-    background-color: $blue;
-    color: $white;
-    outline: 4px solid $yellow-light;
+    background-color: $ec-blue-n;
+    color: #fff;
+    outline: 4px solid $ec-yellow;
     outline-offset: 0;
   }
 }

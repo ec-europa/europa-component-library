@@ -28,12 +28,11 @@ Style guide: buttons
   &:hover,
   &:focus {
     background-color: $brand-primary;
-    color: $white;
+    color: #fff;
   }
 }
 
 .btn {
-  @extend %hidden-print;
 
   border-radius: 0;
   border-width: 2px;
@@ -45,7 +44,8 @@ Style guide: buttons
   padding: 0.75em 1em;
   text-decoration: none;
 
-  @include focus-outline-border(3px, $yellow-light, -3px);
+  @include focus-outline-border(3px, $ec-yellow, -3px);
+  @extend %hidden-print;
 
   &:link {
     text-decoration: none;
@@ -74,31 +74,31 @@ Style guide: buttons
 
     &:hover,
     &:active {
-      background-color: $white;
+      background-color: #fff;
       color: $brand-primary;
     }
 
     &:focus {
       background-color: $brand-primary;
-      color: $white;
+      color: #fff;
     }
   }
 
   &.btn-secondary {
-    background-color: $white;
-    border-color: $white;
+    background-color: #fff;
+    border-color: #fff;
     color: $brand-primary;
   }
 
   &.btn-ctn {
     @include whitespace-reset();
 
-    background-color: $yellow-light;
-    color: $black;
+    background-color: $ec-yellow;
+    color: #000;
 
     &:hover,
     &:active {
-      background-color: $yellow-light;
+      background-color: $ec-yellow;
       border-color: $text-color;
     }
 
@@ -119,23 +119,23 @@ Style guide: buttons
   &.btn-menu {
     background-color: $brand-primary;
     border-color: $brand-primary;
-    color: $white;
+    color: #fff;
 
     &:hover,
     &:active,
     &:focus {
-      color: $white;
+      color: #fff;
     }
 
     &:active,
     &:focus {
-      outline: 3px solid $yellow-light;
+      outline: 3px solid $ec-yellow;
       outline-offset: -3px;
     }
 
     &:focus {
-      border-color: $yellow-light;
-      outline-color: $yellow-light;
+      border-color: $ec-yellow;
+      outline-color: $ec-yellow;
     }
 
     &::after {
@@ -159,13 +159,13 @@ Style guide: buttons
 }
 
 .btn-ctn--border {
-  background-color: $yellow-light;
-  border-color: $black;
-  color: $black;
+  background-color: $ec-yellow;
+  border-color: #000;
+  color: #000;
 
   &:hover,
   &:active {
-    border-color: $black;
+    border-color: #000;
   }
 
   &:focus {
@@ -246,13 +246,13 @@ Style guide: buttons.btn-search
 */
 
 .btn.btn-search {
-  background-color: $grey-light;
-  border-color: $white;
-  color: $blue-dark;
+  background-color: $ec-grey15;
+  border-color: #fff;
+  color: $ec-blue;
 
   &:hover {
-    background-color: $grey-light;
-    color: $grey-base;
+    background-color: $ec-grey15;
+    color: $ec-grey;
   }
 }
 
@@ -294,7 +294,7 @@ Style guide: buttons.btn-collapse
   &:hover,
   &:focus {
     .ecl-icon::before {
-      color: $white;
+      color: #fff;
     }
   }
 

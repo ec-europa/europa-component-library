@@ -70,9 +70,9 @@ Style guide listing.1
 */
 
 // Navigation block color settings.
-$navigation-title-color: $blue-darker;
-$navigation-title-hover-color: $black;
-$navigation-top-border-color: $yellow-light;
+$navigation-title-color:        $ec-blue120;
+$navigation-title-hover-color:  #000;
+$navigation-top-border-color:   $ec-yellow;
 
 @mixin _listing_external_link_mixin() {
   &::after {
@@ -157,7 +157,7 @@ Style guide listing.4
 .listing--title .listing__title {
   &:hover,
   &:focus {
-    color: $grey-base;
+    color: $ec-grey;
     text-decoration: underline !important;
   }
 }
@@ -212,7 +212,7 @@ Style guide listing.5
 
   h3.listing__title {
     font-size: map-get($font-size, 'm');
-    color: $grey-base;
+    color: $ec-grey;
   }
 
   .listing__author {
@@ -264,7 +264,7 @@ Style guide listing.3
   .listing__item {
     border-top: none !important;
     border-bottom: none !important;
-    border-left: 5px solid $blue-dark;
+    border-left: 5px solid $ec-blue;
     padding: map-get($font-size, 'l')/2 0 map-get($font-size, 'l')/2 map-get($font-size, 'l');
     margin: map-get($font-size, 'l')/2 0;
   }
@@ -309,7 +309,7 @@ Style guide listing.3
     &:active,
     &:focus {
       .listing__title {
-        color: $white;
+        color: #fff;
       }
     }
   }
@@ -319,7 +319,7 @@ Style guide listing.3
 
     .listing__title,
     a {
-      color: $white;
+      color: #fff;
     }
 
     &:first-child {
@@ -421,7 +421,7 @@ Style guide listing.6
     // Margin bottom 0.5em of the previous item.
     margin: (14/15 - 0.5)+em 0 0 0; // 14px
     padding-top: (14/15 - 0.3)+em; // 14px
-    border-top: 1px solid $grey-light;
+    border-top: 1px solid $ec-grey15;
   }
 }
 
@@ -496,10 +496,10 @@ a.listing__title {
   float: left;
   width: 100%;
   padding: 1.111em 0;
-  border-bottom: 1px solid $grey-lighter;
+  border-bottom: 1px solid $ec-grey10;
 
   &:first-child {
-    border-top: 1px solid $grey-lighter;
+    border-top: 1px solid $ec-grey10;
   }
 
   // @todo: check if we can remove safely position relative that is applied
@@ -532,7 +532,7 @@ a.listing__title {
   display: block;
   float: left;
   width: 100%;
-  color: $grey-base;
+  color: $ec-grey;
 }
 
 // .listing__item-link element
@@ -544,7 +544,7 @@ a.listing__title {
     text-decoration: none;
 
     .listing__title {
-      color: $grey-base;
+      color: $ec-grey;
       text-decoration: underline;
     }
   }

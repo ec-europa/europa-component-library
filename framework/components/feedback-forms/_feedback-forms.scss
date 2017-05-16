@@ -5,14 +5,14 @@
 .feedback-form__wrapper {
   @extend %hidden-print;
 
-  background-color: $white;
+  background-color: #fff;
   border-top: 1px solid $brand-primary;
 
   &:hover,
   &:active,
   &:focus,
   &.is-open {
-    background-color: $grey-lightest;
+    background-color: $ec-grey5;
   }
 }
 
@@ -56,12 +56,12 @@ a.feedback-form__trigger {
 // Bootstrap accordion.
 #feedback-form__accordion {
   margin-bottom: 1em;
-  border: 1px solid $grey-dark;
+  border: 1px solid $ec-grey75;
 
   .panel {
     padding: 10px;
     line-height: 1;
-    border-top: 1px solid $grey-dark;
+    border-top: 1px solid $ec-grey75;
 
     &:first-child {
       border-top: none;
@@ -85,7 +85,7 @@ a.feedback-form__trigger {
       &.collapsed {
         background: url('../images/svg/checkbox-unchecked--grey.svg') no-repeat;
         font-weight: 400;
-        color: $grey-base;
+        color: $ec-grey;
 
         &:focus {
           background: url('../images/svg/checkbox-highlighted.svg') no-repeat;

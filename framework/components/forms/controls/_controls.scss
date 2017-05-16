@@ -6,22 +6,22 @@ Form controls
 $form-control-height: 2.75rem; //44px basing on form control base font size.
 
 // Form colors.
-$form-control-color-disabled: $grey;
+$form-control-color-disabled:                     $ec-grey50;
 
-$form-control-text-color: $grey-base;
-$form-control-text-color-focus: $black;
-$form-control-border-color: $grey-base;
-$form-control-border-color-focus: $yellow-light;
-$form-control-background-color: $white;
-$form-control-background-color-disabled: $grey-light;
-$state-danger-text: $brand-danger;
+$form-control-text-color:                         $ec-grey;
+$form-control-text-color-focus:                   #000;
+$form-control-border-color:                       $ec-grey;
+$form-control-border-color-focus:                 $ec-yellow;
+$form-control-background-color:                   #fff;
+$form-control-background-color-disabled:          $ec-grey15;
+$state-danger-text:                               $brand-danger;
 
 // Form border width.
 $form-border-width: 0.111rem;
 
 // Select.
-$form-control-border-select-color-hover: $brand-primary;
-$form-control-border-select-color-down: $grey-base;
+$form-control-border-select-color-hover:          $brand-primary;
+$form-control-border-select-color-down:           $ec-grey;
 
 .form-control {
   @include form-control();

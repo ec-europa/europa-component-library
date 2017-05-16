@@ -7,12 +7,13 @@ File download default
 */
 
 .file {
-  @extend %hidden-print;
   @extend .row !optional;
 
   margin: 0 0 0.944em 0;
   padding: 1.333em;
-  background-color: $grey-lighter;
+  background-color: $ec-grey10;
+
+  @extend %hidden-print;
 }
 
 .file__icon {
@@ -31,7 +32,7 @@ File download default
 
   &::before {
     font-size: 2.556em;
-    color: $grey;
+    color: $ec-grey50;
   }
 }
 
@@ -127,11 +128,11 @@ Style guide: file.2
     &:active,
     &:hover,
     &:focus {
-      color: $black;
+      color: #000;
       text-decoration: underline;
 
       &::after {
-        color: $black;
+        color: #000;
       }
     }
 
@@ -174,10 +175,10 @@ Style guide: file.2
   }
 
   .file__translations-item {
-    border-top: 1px solid $grey;
+    border-top: 1px solid $ec-grey50;
 
     &:last-child {
-      border-bottom: 1px solid $grey;
+      border-bottom: 1px solid $ec-grey50;
     }
   }
 
