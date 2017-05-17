@@ -2,7 +2,7 @@
 //
 // Generate semantic grid columns with these mixins.
 
-@mixin make-container($gutters: $grid-gutter-widths) {
+@mixin ecl-make-container($gutters: $grid-gutter-widths) {
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -18,7 +18,7 @@
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+@mixin ecl-make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
   @each $breakpoint, $container-max-width in $max-widths {
     @include media-breakpoint-up($breakpoint, $breakpoints) {
       max-width: 100%;
@@ -27,7 +27,7 @@
   }
 }
 
-@mixin make-gutters($gutters: $grid-gutter-widths) {
+@mixin ecl-make-gutters($gutters: $grid-gutter-widths) {
   @each $breakpoint in map-keys($gutters) {
     @include media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
@@ -38,7 +38,7 @@
   }
 }
 
-@mixin make-row($gutters: $grid-gutter-widths) {
+@mixin ecl-make-row($gutters: $grid-gutter-widths) {
   display: flex;
   flex-wrap: wrap;
 
@@ -52,7 +52,7 @@
   }
 }
 
-@mixin make-col-ready($gutters: $grid-gutter-widths) {
+@mixin ecl-make-col-ready($gutters: $grid-gutter-widths) {
   min-height: 1px; // Prevent collapsing
   position: relative;
   // Prevent columns from becoming too narrow when at smaller grid tiers by
@@ -70,7 +70,7 @@
   }
 }
 
-@mixin make-col($size, $columns: $grid-columns) {
+@mixin ecl-make-col($size, $columns: $grid-columns) {
   flex: 0 0 percentage($size / $columns);
   // width: percentage($size / $columns);
   // Add a `max-width` to ensure content within each column does not blow out
@@ -79,27 +79,27 @@
   max-width: percentage($size / $columns);
 }
 
-@mixin make-col-offset($size, $columns: $grid-columns) {
+@mixin ecl-make-col-offset($size, $columns: $grid-columns) {
   margin-left: percentage($size / $columns);
 }
 
-@mixin make-col-push($size, $columns: $grid-columns) {
+@mixin ecl-make-col-push($size, $columns: $grid-columns) {
   left: if($size > 0, percentage($size / $columns), auto);
 }
 
-@mixin make-col-pull($size, $columns: $grid-columns) {
+@mixin ecl-make-col-pull($size, $columns: $grid-columns) {
   right: if($size > 0, percentage($size / $columns), auto);
 }
 
-@mixin make-col-modifier($type, $size, $columns) {
+@mixin ecl-make-col-modifier($type, $size, $columns) {
   // Work around the lack of dynamic mixin @include support (https://github.com/sass/sass/issues/626)
   @if $type == push {
-    @include make-col-push($size, $columns);
+    @include ecl-make-col-push($size, $columns);
   } @else if $type == pull {
 
-    @include make-col-pull($size, $columns);
+    @include ecl-make-col-pull($size, $columns);
   } @else if $type == offset {
 
-    @include make-col-offset($size, $columns);
+    @include ecl-make-col-offset($size, $columns);
   }
 }
