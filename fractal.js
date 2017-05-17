@@ -23,7 +23,7 @@ fractal.components.set('statuses', {
   planned: {
     label: 'Planned',
     description: 'Do not implement.',
-    color: '#FF3333',
+    color: '#337ab7',
   },
   wip: {
     label: 'WIP',
@@ -34,6 +34,11 @@ fractal.components.set('statuses', {
     label: 'Ready',
     description: 'Ready to implement.',
     color: '#29CC29',
+  },
+  legacy: {
+    label: 'Legacy',
+    description: 'Not to be used on new applications. Kept temporarily.',
+    color: '#FF3333',
   },
 });
 fractal.components.set('default.status', 'planned');
