@@ -96,8 +96,10 @@
   @if $type == push {
     @include make-col-push($size, $columns);
   } @else if $type == pull {
+
     @include make-col-pull($size, $columns);
   } @else if $type == offset {
+
     @include make-col-offset($size, $columns);
   }
 }
