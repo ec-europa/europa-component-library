@@ -1,0 +1,17 @@
+<header class="ecl-site-header ecl-site-header--homepage" role="banner">
+  <div class="ecl-site-header__container">
+    <section class="ecl-top-bar" aria-label="Site tools">
+      <div class="ecl-top-bar__wrapper">
+        {% include '@lang-select-sites' %}
+      </div>
+    </section>
+    {% include '@logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'below', 'externalClass': 'site-header__logo' } %}
+  </div>
+  <section class="ecl-header-search-bar" aria-label="Site tools">
+    <div class="ecl-header-search-bar__wrapper">
+      <section class="ecl-block-nexteuropa-europa-search clearfix">
+        {% include '@search-forms' %}
+      </section>
+    </div>
+  </section>
+</header>

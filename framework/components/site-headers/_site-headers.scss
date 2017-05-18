@@ -1,9 +1,9 @@
 /**
  * Site header
- * @define site-header
+ * @define ecl-site-header
  */
 
-.site-header {
+.ecl-site-header {
   color: $brand-primary;
   overflow: hidden;
   padding: 14px 0 0;
@@ -22,12 +22,12 @@
   }
 }
 
-.site-header__container {
+.ecl-site-header__container {
   position: relative;
 }
 
 @include media-breakpoint-up(md) {
-  .site-header__logo {
+  .ecl-site-header__logo {
     margin-bottom: 1em;
     position: relative;
     top: 15px;
@@ -37,10 +37,10 @@
 /*
 Site Header for Homepage
 */
-.site-header--homepage {
+.ecl-site-header--homepage {
   padding: 0;
 
-  .site-header__logo {
+  .ecl-site-header__logo {
     float: none;
     margin: 0 auto;
     position: relative;
@@ -49,7 +49,7 @@ Site Header for Homepage
 }
 
 // If the logo is linking to an external page do not show the external icon.
-.site-header__logo {
+.ecl-site-header__logo {
   &::before,
   &::after {
     display: none !important;

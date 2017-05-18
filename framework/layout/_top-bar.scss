@@ -1,5 +1,5 @@
 .top-bar {
-  padding: 15px 0 0;
+  padding: 15px 0 0 0;
   overflow: hidden;
   width: 100%;
 }
@@ -11,8 +11,8 @@
     top: 0;
     float: right;
 
-    .lang-select-site {
-      .lang-select-site__link {
+    .ecl-lang-select-site {
+      .ecl-lang-select-site__link {
         padding-right: 0;
       }
     }
@@ -23,17 +23,6 @@
       height: 156px;
     }
   }
-}
-
-.site-menu__toggle {
-  float: right;
-  width: 25%;
-  padding-left: 15px;
-}
-
-.block-nexteuropa-europa-search {
-  float: left;
-  width: 75%;
 }
 
 @include media-breakpoint-up(md) {
@@ -49,20 +38,11 @@
       margin: 0;
     }
 
-    .block-nexteuropa-europa-search {
-      width: auto;
-      margin-left: 15px;
+    .ecl-block-nexteuropa-europa-search {
+      float: left;
 
-      .search-form .search-form__textfield-wrapper {
+      .ecl-search-form .ecl-search-form__textfield-wrapper {
         width: 240px;
-      }
-    }
-
-    .site-menu__toggle {
-      width: auto;
-
-      .btn {
-        margin-bottom: auto;
       }
     }
   }

@@ -3,7 +3,7 @@
   @extend .is-external;
 }
 
-a {
+.ecl-a {
   @include focus-outline-border(3px, $yellow-light, 2px);
 
   &:link {
@@ -106,18 +106,5 @@ a {
 @mixin _link_external_link_mixin() {
   &.btn {
     padding-right: 2.1em;
-  }
-}
-
-.page-content {
-  ul,
-  p {
-    a {
-      &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
-        &:not(#{$ec-url-patterns}) {
-          @include _link_external_link_mixin();
-        }
-      }
-    }
   }
 }

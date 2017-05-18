@@ -3,7 +3,7 @@
  * @define lang-select-site
  */
 
-.lang-select-site {
+.ecl-lang-select-site {
   @extend %hidden-print;
 
   position: absolute;
@@ -16,7 +16,7 @@
     position: static;
   }
 
-  .lang-select-site__link {
+  .ecl-lang-select-site__link {
     border: 3px solid transparent;
     color: inherit;
     display: inline-block;
@@ -32,7 +32,7 @@
     }
   }
 
-  .lang-select-site__label {
+  .ecl-lang-select-site__label {
     margin-right: 0.556em;
 
     &:hover {
@@ -40,7 +40,7 @@
     }
   }
 
-  .lang-select-site__code {
+  .ecl-lang-select-site__code {
     color: $brand-primary;
     display: inline-block;
     position: relative;
@@ -48,7 +48,7 @@
     width: map-get($font-size, 'xs') * 2;
   }
 
-  .lang-select-site__code-text {
+  .ecl-lang-select-site__code-text {
     background-color: $brand-primary;
     color: $white;
     font-size: map-get($font-size, 'xs');
@@ -57,7 +57,7 @@
     top: 0;
   }
 
-  .lang-select-site__icon {
+  .ecl-lang-select-site__icon {
     color: $brand-primary;
     font-size: map-get($font-size, 'xs') * 2;
     left: -1px;

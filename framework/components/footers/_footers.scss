@@ -8,17 +8,17 @@ Markup: html/footer.html
 Style guide footer
 */
 
-.footer {
+.ecl-footer {
   background-color: $blue-medium;
 }
 
-.footer-bottom {
+.ecl-footer-bottom {
   background-color: $brand-primary;
   padding: 0.9em 0;
 }
 
-.footer,
-.footer-bottom {
+.ecl-footer,
+.ecl-footer-bottom {
   @extend %hidden-print;
   color: $white;
 
@@ -32,29 +32,29 @@ Style guide footer
     }
   }
   // Inline listings need more padding-right on the footer.
-  .list-inline {
-    .footer__menu-item {
+  .ecl-list-inline {
+    .ecl-footer__menu-item {
       padding-right: 15px;
     }
   }
 }
 
-.footer__label {
+.ecl-footer__label {
   display: block;
   margin-right: 20px;
 }
 
-.footer__title {
+.ecl-footer__title {
   color: $white;
   padding-bottom: 0;
 }
 
 // Menus.
-.footer__menu {
+.ecl-footer__menu {
   margin: 0;
   padding-left: 0;
 
-  .footer__menu-item {
+  .ecl-footer__menu-item {
     margin-right: 15px;
     margin-bottom: 0.5em;
     padding: 0;
@@ -75,13 +75,13 @@ Style guide footer
     }
   }
 
-  .footer__menu-item-right {
-    @extend .footer__menu-item;
+  .ecl-footer__menu-item-right {
+    @extend .ecl-footer__menu-item;
     float: right;
   }
 }
 
-.footer__menu--separator {
+.ecl-footer__menu--separator {
   width: 100%;
   margin-top: 0.6em;
   margin-bottom: 1.7em;
@@ -90,7 +90,7 @@ Style guide footer
 }
 
 // Icons.
-.footer__icon--social {
+.ecl-footer__icon--social {
   &::before {
     position: relative;
     top: 4px;
@@ -102,20 +102,20 @@ Style guide footer
   }
 }
 
-.footer__icon--facebook {
+.ecl-footer__icon--facebook {
   &::before {
     font-size: 20px;
   }
 }
 
-.footer__icon--twitter {
+.ecl-footer__icon--twitter {
   &::before {
     font-size: 18px;
   }
 }
 
 // Columns.
-.footer__column-main {
+.ecl-footer__column-main {
   padding-top: 2em;
 }
 
@@ -127,7 +127,7 @@ Style guide footer
   }
 }
 
-.footer {
+.ecl-footer {
   a {
     &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
       &:not(#{$ec-url-patterns}) {
@@ -136,7 +136,7 @@ Style guide footer
     }
   }
 
-  a.footer__site-switcher {
+  a.ecl-footer__site-switcher {
     padding-right: 30px !important;
   }
 }

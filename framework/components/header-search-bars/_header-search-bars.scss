@@ -11,27 +11,27 @@ Style guide: siteheader.header-search-bar
   padding: 9px 0;
   background-color: $brand-primary;
 
-  .block-nexteuropa-europa-search {
+  .ecl-block-nexteuropa-europa-search {
     float: right;
     width: auto;
 
-    .search-form {
+    .ecl-search-form {
       float: right;
       margin-bottom: 0;
       border: none;
 
-      .search-form__textfield-wrapper,
-      .search-form__btn-wrapper {
+      .ecl-search-form__textfield-wrapper,
+      .ecl-search-form__btn-wrapper {
         float: none;
       }
 
-      .search-form__textfield-wrapper {
+      .ecl-search-form__textfield-wrapper {
         background-color: $form-control-background-color;
       }
     }
 
     @include media-breakpoint-up(xs) {
-      .search-form {
+      .ecl-search-form {
         width: 320px;
       }
     }
