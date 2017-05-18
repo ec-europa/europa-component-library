@@ -10,12 +10,6 @@ Markup: html/datepicker.html
 Style guide datepicker
 */
 
-// Local Variables.
-$datepicker-color-header: #393939;
-$datepicker-color-select: #4f4f4f;
-$datepicker-color-select-separator: #686868;
-$datepicker-color-background: #eaeaea;
-
 // Component.
 #ui-datepicker-div {
   width: 100%;
@@ -30,7 +24,7 @@ $datepicker-color-background: #eaeaea;
 
   // Datepicker header.
   .ui-datepicker-header {
-    background-color: $datepicker-color-header;
+    background-color: $ec-grey;
     border: none;
     border-radius: 0;
     padding: 0 !important;
@@ -43,7 +37,7 @@ $datepicker-color-background: #eaeaea;
       height: 100%;
       width: 50px;
       top: 0;
-      background: none;
+      background-color: transparent;
       border: none;
 
       &:hover {
@@ -81,7 +75,7 @@ $datepicker-color-background: #eaeaea;
 
       span,
       select {
-        color: $white;
+        color: #fff;
       }
 
       span {
@@ -92,8 +86,9 @@ $datepicker-color-background: #eaeaea;
       select {
         @include form-control();
 
-        background: $datepicker-color-select;
-        color: $white;
+        position: relative;
+        background-color: $ec-grey75;
+        color: #fff;
         border: none;
         height: 100%;
         width: 49% !important;
@@ -103,12 +98,10 @@ $datepicker-color-background: #eaeaea;
         padding-right: 0;
         padding-left: 0.75em;
 
-        @include focus-outline-border(3px, $yellow-light, -3px, none);
-
-        position: relative;
+        @include focus-outline-border(3px, $ec-yellow, -3px, none);
 
         &:first-child {
-          border-right: 2px solid $datepicker-color-select-separator;
+          border-right: 2px solid $ec-grey50;
         }
 
         &:focus {
@@ -119,20 +112,20 @@ $datepicker-color-background: #eaeaea;
         &:hover,
         &:active,
         &:focus {
-          color: $white;
+          color: #fff;
         }
       }
     }
   }
 
   table.ui-datepicker-calendar {
-    background: $datepicker-color-background;
+    background-color: $ec-grey15;
     border-right: 10px solid transparent;
     border-left: 10px solid transparent;
     border-bottom: 10px solid transparent;
 
     th {
-      font-size: 16px;
+      font-size: map-get($font-size, 's');
       font-weight: normal;
       background: none;
     }
@@ -140,21 +133,21 @@ $datepicker-color-background: #eaeaea;
 
   .ui-state-default {
     border: none;
-    background-color: $white;
-    color: #404040;
+    background-color: #fff;
+    color: $ec-grey;
     text-align: center;
     margin: 1px;
     padding: 5px 10px;
   }
 
   .ui-state-active {
-    border: 2px solid #0b64b2;
+    border: 2px solid $ec-blue;
     padding: 3px 10px;
   }
 
   .ui-state-highlight {
-    background-color: #fed500;
-    color: $black;
+    background-color: $ec-yellow;
+    color: #000;
   }
 }
 
@@ -184,7 +177,7 @@ $datepicker-color-background: #eaeaea;
     right: 0.5em;
     // For the icon does not interfere with the clickable area.
     pointer-events: none;
-    color: $grey;
+    color: $ec-grey50;
   }
 }
 

@@ -5,7 +5,6 @@ It allow users to go through a list that they might be somewhat unfamiliar with 
 ## Listing default: teaser
 
 The horizontal teaser view mode consist of (in order of appearance):
-
 - Meta information: on or multiple types.
 - Title
 - Short description
@@ -23,10 +22,10 @@ When referring to announcements, events.
 
 http://ec.europa.eu/index_en.htm
 
+
 ## Listing layouts
 
 The content of this view mode is mostly a block consisting out of 4 elements:
-
 - Meta information: on or multiple types.
 - Title
 - Short description
@@ -36,7 +35,7 @@ The content of this view mode is mostly a block consisting out of 4 elements:
 
 http://ecfpfisdev.devcloud.acquia-sites.com/sites/all/themes/europa/styleguide/assets/section-listing.html#kssref-listing-1-1
 
-## Listing item three columns
+### Listing item three columns
 
 The content of this view mode is mostly a block consisting out of 2 elements:
 - A title
@@ -51,6 +50,7 @@ http://ecfpfisdev.devcloud.acquia-sites.com/sites/all/themes/europa/styleguide/a
 On the homepages or landing pages.
 
 ### Example
+
 https://ec.europa.eu/info/index_en
 
 
@@ -70,6 +70,7 @@ http://ecfpfisdev.devcloud.acquia-sites.com/sites/all/themes/europa/styleguide/a
 On homepages, to highlight content.
 
 ### Example
+
 https://ec.europa.eu/info/index_en
 
 
@@ -88,6 +89,7 @@ http://ecfpfisdev.devcloud.acquia-sites.com/sites/all/themes/europa/styleguide/a
 List of titles that need description.
 
 ### Example
+
 https://ec.europa.eu/info/strategy/energy_en
 
 
@@ -114,7 +116,6 @@ http://ec.europa.eu/commission/2014-2019/sefcovic_en#agenda
 
 
 ## Listing title
-
 The simplest way to reference to other content, by showing only the title.
 It allows to make quick scannable lists and is ideal to display lists with a unique set of content. Use of this view mode should be limited to a list that is either introduced or on pages where a task is very straightforward, for example when listing a number of topics.
 
@@ -152,7 +153,6 @@ https://ec.europa.eu/info/topics/agriculture_en
 
 
 ## Listing announcements
-
 The content of this view mode is mostly a block consisting out of 3 elements:
 - A title
 - Description
@@ -182,3 +182,37 @@ To present featured items more visually.
 ### Example
 
 https://ec.europa.eu/info/index_en
+
+---
+
+## Labeled list
+
+The field is used to represent structured information. It consists of number of labels in the left column and their corresponding values in the right column.
+
+### Implementation
+
+IN PROGRESS
+
+### When should this be used?
+
+To display structured information like characteristics of a feedback, an event, contact information.
+
+### Example
+
+https://ec.europa.eu/info/events/translatingeurope-forum_en
+
+
+## Navigation page
+
+This page provides a means to drill down into the architecture. The concept relies on seeing all content page as having the possibility of being both a parent and a child page.
+It provides the necessary back-end options so that an automatically generated configurable navigational block is created.
+
+### Implementation
+
+http://ecfpfisdev.devcloud.acquia-sites.com/sites/all/themes/europa/styleguide/assets/section-listing.html#kssref-listing-6
+
+### Example
+
+### When should this be used?
+
+To drill down to specific content.

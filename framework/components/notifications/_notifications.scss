@@ -3,16 +3,16 @@ Notification
 */
 
 .notification {
+  padding: 10px 0 6px;
+  background-color: $ec-yellow;
+  font-size: map-get($font-size, 'xs');
+
   @extend %hidden-print;
 
-  padding: 10px 0 6px;
-  background-color: $yellow-light;
-  font-size: 14px;
-
   a {
-    color: $black;
+    color: #000;
 
-    @include focus-outline-border(3px, $black, 2px);
+    @include focus-outline-border(3px, #000, 2px);
 
     &:hover,
     &:focus {
@@ -47,7 +47,7 @@ Notification
       @extend %icon--after;
       @extend %icon--right;
 
-      font-size: 12px;
+      font-size: map-get($font-size, 'xxs');
     }
   }
 

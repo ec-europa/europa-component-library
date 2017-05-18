@@ -10,13 +10,17 @@
   .listing__wrapper--three-columns & {
     padding-top: 15px;
   }
+
+  .section--row-three & {
+    padding-top: 0;
+  }
 }
 
 .featured-item__extended {
   margin-bottom: 1.667em;
   padding: 15px 0;
-  background-color: $grey-lighter;
-  border-left: 0.556em solid $yellow-light;
+  background-color: $ec-grey10;
+  border-left: 0.556em solid $ec-yellow;
 }
 
 .featured-item__image {
@@ -40,16 +44,16 @@
 
   h3 {
     a {
-      color: $grey-base;
+      color: $ec-grey;
     }
   }
 }
 
-.featured-item__image,
-.featured-item__content {
-  .listing__wrapper--three-columns & {
+.listing__wrapper--three-columns,
+.section--row-three {
+  .featured-item__image,
+  .featured-item__content {
     @extend .col-md-12 !optional;
-
     clear: left;
   }
 }

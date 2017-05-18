@@ -4,13 +4,8 @@
     <section class="top-bar" aria-label="Site tools">
       <div class="top-bar__wrapper">
         {% include '@lang-select-sites' %}
-        <section class="block-nexteuropa-europa-search clearfix">
-          <div class="block__content">
-            {% include '@search-forms' %}
-          </div>
-        </section>
-        <section class="site-menu__toggle">
-          {% include '@buttons-buttons' with { 'label': 'Menu', 'modifier': 'menu' } %}
+        <section class="block-nexteuropa-europa-search">
+          {% include '@search-forms' %}
         </section>
       </div>
     </section>

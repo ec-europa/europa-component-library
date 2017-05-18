@@ -1,21 +1,22 @@
-/**
- * Search form
- * @define search-form
- */
+/*
+Search form
+Markup: html/search-form.html
+Style guide: searchform
+*/
 
 .search-form {
-  @extend %hidden-print;
-
-  border: 1px solid $grey;
   display: inline-block;
   margin-bottom: 1em;
   overflow: hidden;
+  border: 1px solid $ec-grey50;
+
+  @extend %hidden-print;
 
   .search-form__textfield-wrapper {
-    border: 3px solid transparent;
+    position: relative;
     display: table-cell;
     margin-bottom: 0;
-    position: relative;
+    border: 3px solid transparent;
   }
 
   .search-form__btn-wrapper {
@@ -24,37 +25,33 @@
 }
 
 .search-form__textfield {
-  border: 0;
-  font-size: inherit;
-  height: 2.325em;
   min-height: 2.325em;
-
-  @include media-breakpoint-up(xs) {
-    min-height: 2.375em;
-  }
+  height: 2.325em;
+  font-size: inherit;
+  border: none;
 }
 
 .search-form__btn {
   @extend %icon;
 
-  border: 0 !important;
-  margin-bottom: 0;
-  margin-right: -1px;
   min-height: 2.75em;
-  overflow: visible;
+  margin-right: -1px;
+  margin-bottom: 0;
   padding: 0 22px;
   text-indent: -999em;
+  overflow: visible;
+  border: none !important;
 
   &::before {
     @extend %icon--search;
 
-    font-size: 1.5em;
-    left: 0;
-    line-height: 1.9em;
     position: absolute;
-    text-indent: 0;
     top: 0;
+    left: 0;
     width: 100%;
+    font-size: 1.5em;
+    line-height: 1.9em;
+    text-indent: 0;
   }
 }
 
@@ -75,5 +72,66 @@
     &::before {
       display: none !important;
     }
+  }
+}
+
+@include media-breakpoint-up(xs) {
+  .search-form__textfield {
+    min-height: 2.375em;
+  }
+}
+
+/*
+Search form for internal search
+Markup: html/search-form-improved.html
+.search-form--improved
+Style guide: searchform.search-form--improved
+*/
+
+.search-form--improved {
+  background-color: $ec-grey5;
+  padding: 1.2em 1.5em;
+
+  h5 {
+    font-size: map-get($font-size, 'm');
+    text-transform: none;
+    padding-bottom: 1.2em;
+  }
+
+  .search-form__textfield-wrapper {
+    @extend %icon;
+
+    float: none;
+    width: 100%;
+    background: #fff;
+    border: 3px solid #fff;
+    border-bottom: none;
+
+    &::before {
+      @extend %icon--search;
+
+      position: absolute;
+      top: 25%;
+      left: 1%;
+      z-index: 3;
+      color: $ec-grey50;
+    }
+  }
+
+  .search-form__textfield {
+    text-indent: 1.4em;
+    bottom: 0;
+  }
+
+  button[type="submit"] {
+    background: $brand-primary;
+    color: #fff;
+    min-height: 2.78em;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .search-form--improved .search-form__textfield {
+    bottom: 3px;
   }
 }

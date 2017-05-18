@@ -6,66 +6,152 @@ Site-wide footer component
 Markup: html/footer.html
 
 Style guide footer
+
 */
 
-.footer {
-  background-color: $blue-medium;
-}
-
-.footer-bottom {
-  background-color: $brand-primary;
-  padding: 0.9em 0;
-}
-
-.footer,
-.footer-bottom {
+.footer__improved,
+.footer__top,
+.footer__bottom {
   @extend %hidden-print;
-  color: $white;
+}
+
+/*
+Footer for improved websites
+Markup: html/footer-improved.html
+Style guide footer.footer-improved
+*/
+
+// Footer improved.
+.footer__improved {
+  background-color: $ec-blue25;
+  color: $ec-blue120;
+
+  .footer__column {
+    padding-top: 0.8em;
+
+    &:last-child {
+      padding-top: 0;
+      padding-bottom: 0.8em;
+    }
+  }
+
+  .footer__menu {
+    display: inline;
+  }
+
+  .footer__menu-item {
+    font-size: map-get($font-size, 's');
+    display: inline-block;
+  }
 
   a {
-    color: $white;
-    text-decoration: underline;
-    &:hover,
-    &:active,
-    &:focus {
+    color: $ec-blue120;
+  }
+
+  h4 {
+    padding: .4em 0;
+
+    a {
       text-decoration: none;
     }
   }
-  // Inline listings need more padding-right on the footer.
-  .list-inline {
+
+  // Footer improved desktop styles.
+  @include media-breakpoint-up(md) {
     .footer__menu-item {
-      padding-right: 15px;
+      font-size: map-get($font-size, 's');
     }
+
+    .footer__column {
+      padding-bottom: 1em;
+
+      &:last-child {
+        padding-top: 1em;
+
+        .footer__menu-item {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Footer top.
+.footer__top {
+  background-color: $ec-blue75;
+  color: #fff;
+
+  a {
+    color: #fff;
+  }
+
+  .footer__menu-item {
+    font-size: map-get($font-size, 's');
+  }
+}
+
+// Footer bottom.
+.footer__bottom {
+  background-color: $brand-primary;
+  padding: 0.9em 0;
+  color: #fff;
+
+  .footer__menu-item {
+    font-size: map-get($font-size, 's');
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+.footer__title {
+  color: #fff;
+  border-bottom: 2px solid $ec-blue50;
+  margin-bottom: 0.2em;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 1.1em;
+    // Make titles same height on mobile breakpoint.
+    min-height: 3.2em;
+  }
+
+  // Make titles height auto on large screens.
+  @media (min-width: 1291px) {
+    min-height: auto;
   }
 }
 
 .footer__label {
-  display: block;
-  margin-right: 20px;
-}
-
-.footer__title {
-  color: $white;
-  padding-bottom: 0;
+  display: inline;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 // Menus.
 .footer__menu {
   margin: 0;
   padding-left: 0;
+  max-width: none;
+  list-style: none;
 
   .footer__menu-item {
     margin-right: 15px;
-    margin-bottom: 0.5em;
-    padding: 0;
-    font-size: map-get($font-size, 's');
-    &:first-child > a {
-      padding-left: 0;
+    padding-left: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(md) {
+      .footer__top & {
+        margin-bottom: 0.4em;
+      }
     }
 
     a {
       padding: 0;
-      @include focus-outline-border(3px, $yellow-light, 5px);
+
       &:hover,
       &:active,
       &:focus {
@@ -75,48 +161,39 @@ Style guide footer
     }
   }
 
-  .footer__menu-item-right {
-    @extend .footer__menu-item;
-    float: right;
+  &.ul-list-inline .footer__menu-item {
+    line-height: 0.75em;
   }
-}
-
-.footer__menu--separator {
-  width: 100%;
-  margin-top: 0.6em;
-  margin-bottom: 1.7em;
-  padding-top: 1.2em;
-  border-top: 2px solid $blue-lighter;
 }
 
 // Icons.
 .footer__icon--social {
   &::before {
-    position: relative;
-    top: 4px;
     margin-right: 8px !important;
   }
+
   &::after {
     content: none !important;
     display: none !important;
   }
 }
 
-.footer__icon--facebook {
-  &::before {
-    font-size: 20px;
-  }
-}
+// Footer columns.
+.footer__column {
+  padding-top: 1.6em;
 
-.footer__icon--twitter {
-  &::before {
-    font-size: 18px;
+  &:last-child {
+    padding-bottom: 1.6em;
   }
-}
 
-// Columns.
-.footer__column-main {
-  padding-top: 2em;
+  @include media-breakpoint-up(md) {
+    padding-top: 2em;
+    padding-bottom: 2em;
+
+    &:last-child {
+      padding-bottom: 2em;
+    }
+  }
 }
 
 // External link specific adjustments.
@@ -129,8 +206,8 @@ Style guide footer
 
 .footer {
   a {
-    &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec-url-patterns}) {
+    &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
+      &:not(#{$ec_url_patterns}) {
         @include _footer_external_link_mixin();
       }
     }

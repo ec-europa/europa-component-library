@@ -2,22 +2,18 @@
 Splash Page
 */
 
-// Local variables
-$table-border: 1px solid #245898;
-$padding-splash-xl: 2em; // 52px
-
 .splash-page {
   &__site-header {
-    background-color: $white;
+    background-color: #fff;
 
     .ecl-logo {
       float: none;
       margin: 16px auto 40px;
-      background: url("../images/svg/logo.svg") center center no-repeat;
+      background: url('../images/svg/logo.svg') center center no-repeat;
       background-origin: content-box;
 
       .no-svg & {
-        background: url("../images/png/logo--big.png") center center no-repeat;
+        background: url('../images/png/logo--big.png') center center no-repeat;
       }
     }
 
@@ -38,17 +34,17 @@ $padding-splash-xl: 2em; // 52px
 
     h2 {
       display: none;
-      padding-top: $padding-splash-xl;
-      padding-bottom: $padding-splash-xl;
+      padding-top: 2em;
+      padding-bottom: 2em;
       font-size: map-get($font-size, 'l');
-      color: $white;
+      color: #fff;
       clear: both;
     }
   }
 
   &__helper-text {
-    margin-top: $padding-splash-xl;
-    color: $white;
+    margin-top: 2em;
+    color: #fff;
     font-size: map-get($font-size, 's');
     clear: both;
 
@@ -60,12 +56,12 @@ $padding-splash-xl: 2em; // 52px
   &__btn-language {
     width: 100%;
     margin-bottom: 4px;
-    background-color: $white;
+    background-color: #fff;
     text-align: left; // overriding bootstrap btn class
 
     &:hover {
-      color: $black;
-      background-color: $yellow-light;
+      color: #000;
+      background-color: $ec-yellow;
     }
 
     &.ecl-icon--check::before {
@@ -81,20 +77,20 @@ $padding-splash-xl: 2em; // 52px
     padding: 0.5em 0 0.5em 1em;
     font-size: map-get($font-size, 's');
     font-weight: normal;
-    color: $white;
+    color: #fff;
 
     &:hover {
-      color: $white;
+      color: #fff;
     }
 
     &::after {
-      content: "X";
+      content: 'X';
       float: right;
       display: inline-block;
       width: 1.6em;
       height: 1.6em;
       margin-left: 0.5em;
-      border: 1px solid $white;
+      border: 1px solid #fff;
       border-radius: 1.1em;
       text-align: center;
     }
@@ -118,8 +114,8 @@ $padding-splash-xl: 2em; // 52px
 
     .splash-page__btn-language {
       &.is-active {
-        background-color: $yellow-light;
-        color: $black;
+        background-color: $ec-yellow;
+        color: #000;
         box-shadow: none;
       }
 
@@ -154,10 +150,10 @@ body {
     }
 
     tbody {
-      border-bottom: $table-border;
+      border-bottom: 1px solid #245898;
 
       tr {
-        border-top: $table-border;
+        border-top: 1px solid #245898;
         clear: both;
 
         th {
@@ -179,8 +175,8 @@ body {
 @include media-breakpoint-up(md) {
   .splash-page__btn-language {
     &:hover {
-      color: $black;
-      background-color: $yellow-light;
+      color: #000;
+      background-color: $ec-yellow;
     }
   }
 }

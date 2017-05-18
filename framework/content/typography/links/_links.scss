@@ -4,7 +4,7 @@
 }
 
 a {
-  @include focus-outline-border(3px, $yellow-light, 2px);
+  @include focus-outline-border(3px, $ec-yellow, 2px);
 
   &:link {
     text-decoration: underline;
@@ -14,12 +14,12 @@ a {
   &:active,
   &:focus {
     text-decoration: underline;
-    color: $grey-base;
+    color: $ec-grey;
   }
 
   .site-switcher &,
   .feedback-form & {
-    @include focus-outline-border(3px, $yellow-light, 10px);
+    @include focus-outline-border(3px, $ec-yellow, 10px);
 
     z-index: 999;
     text-decoration: none;
@@ -47,7 +47,7 @@ a {
 
       .listing__title {
         text-decoration: underline;
-        color: $grey-base;
+        color: $ec-grey;
       }
     }
   }
@@ -62,7 +62,7 @@ a {
 
   .listing--cta & {
     &:focus {
-      color: $white;
+      color: #fff;
     }
   }
 

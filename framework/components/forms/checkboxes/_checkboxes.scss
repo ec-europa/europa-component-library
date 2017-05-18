@@ -4,22 +4,22 @@ Checkbox
 
 // Checkbox and radio.
 // Unchecked.
-$form-checkbox-color-unchecked: $grey-dark;
-$form-checkbox-background-color-unchecked: $grey-lighter;
+$form-checkbox-color-unchecked:                   $ec-grey75;
+$form-checkbox-background-color-unchecked:        $ec-grey10;
 
 // Unchecked, hover.
-$form-checkbox-color-unchecked-hover: $grey-dark;
-$form-checkbox-border-color-unchecked-hover: $brand-primary;
-$form-checkbox-background-color-unchecked-hover: $white;
+$form-checkbox-color-unchecked-hover:             $ec-grey75;
+$form-checkbox-border-color-unchecked-hover:      $brand-primary;
+$form-checkbox-background-color-unchecked-hover:  #fff;
 
 // Checked.
-$form-checkbox-color-checked: $white;
-$form-checkbox-background-color-checked: $brand-primary;
+$form-checkbox-color-checked:                     #fff;
+$form-checkbox-background-color-checked:          $brand-primary;
 
 // Checked, hover.
-$form-checkbox-color-checked-hover: $white;
-$form-checkbox-border-color-checked-hover: $yellow-light;
-$form-checkbox-background-color-checked-hover: $brand-primary;
+$form-checkbox-color-checked-hover:               #fff;
+$form-checkbox-border-color-checked-hover:        $ec-yellow;
+$form-checkbox-background-color-checked-hover:    $brand-primary;
 
 // Icon size.
 $form-checkbox-icon-size: 1.5em; // 24px
@@ -60,11 +60,11 @@ $form-checkbox-icon-size: 1.5em; // 24px
       position: absolute;
       left: 0;
       display: inline-block;
-      content: "";
+      content: '';
       width: $form-checkbox-icon-size;
       height: $form-checkbox-icon-size;
       margin-left: -20px;
-      background: $white url('../images/svg/checkbox-unchecked.svg') no-repeat;
+      background: #fff url('../images/svg/checkbox-unchecked.svg') no-repeat;
       border: 3px solid transparent;
       border-radius: 6px;
 
@@ -86,7 +86,7 @@ $form-checkbox-icon-size: 1.5em; // 24px
       & + label {
         & + a {
           position: relative;
-          color: $grey-base;
+          color: $ec-grey;
           text-decoration: none;
           top: 0.25em;
         }

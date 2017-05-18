@@ -6,10 +6,6 @@ Markup: html/messages.html
 Style guide messages
 */
 
-$messages-text-color: $grey-base;
-$messages-heading-size: map-get($font-size, 's');
-$messages-text-size: map-get($font-size, 's');
-
 .messages {
   position: relative;
   min-height: 5.375em;
@@ -18,28 +14,33 @@ $messages-text-size: map-get($font-size, 's');
   overflow: hidden;
   background: transparent url('../images/svg/messages-info.svg') no-repeat 1.375em 1.375em;
   font-family: $font-family-sans-serif;
-  font-size: $messages-text-size;
-  color: $messages-text-color;
-  border: 2px solid $blue;
+  font-size: map-get($font-size, 's');
+  color: $ec-grey;
+  border: 2px solid transparent;
+
+  &.info {
+    background-image: url('../images/svg/messages-info.svg');
+    border-color: $ec-blue-n;
+  }
 
   &.status {
     background-image: url('../images/svg/messages-success.svg');
-    border-color: $green;
+    border-color: $ec-green-n;
   }
 
   &.warning {
     background-image: url('../images/svg/messages-warning.svg');
-    border-color: $yellow;
+    border-color: $ec-orange-n;
   }
 
   &.error {
     background-image: url('../images/svg/messages-error.svg');
-    border-color: $red;
+    border-color: $ec-red-n;
   }
 
   &.live {
     background-image: url('../images/svg/live_streaming.svg');
-    border-color: $yellow;
+    border-color: $ec-orange-n;
   }
 
   h3 {
@@ -51,7 +52,7 @@ $messages-text-size: map-get($font-size, 's');
   p {
     max-width: 95%;
     margin-bottom: 0;
-    font-size: $messages-text-size;
+    font-size: map-get($font-size, 's');
   }
 
   > :last-child {
