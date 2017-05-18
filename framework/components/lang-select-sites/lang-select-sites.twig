@@ -1,18 +1,10 @@
-<section class="lang-select-site clearfix">
-<?php if (theme_get_setting('ec_europa_multilingual', 'europa')): ?>
-  <a href="#" class="lang-select-site__link">
-<?php else: ?>
-  <span class="lang-select-site__placeholder">
-<?php endif; ?>
-    <span class="lang-select-site__label">English</span>
-    <span class="lang-select-site__code">
-      <span class="icon ecl-icon--language lang-select-site__icon"></span>
-      <span class="lang-select-site__code-text">en</span>
+<section class="ecl-lang-select-site clearfix">
+  <a href="#" class="ecl-lang-select-site__link">
+    <span class="ecl-lang-select-site__label">English</span>
+    <span class="ecl-lang-select-site__code">
+      <span class="ecl-icon ecl-icon--language ecl-lang-select-site__icon"></span>
+      <span class="ecl-lang-select-site__code-text">en</span>
     </span>
-<?php if (theme_get_setting('ec_europa_multilingual', 'europa')): ?>
   </a>
-<?php else: ?>
-  </span>
-<?php endif; ?>
   <div class="splash-page splash-page--overlay"></div>
 </section>
