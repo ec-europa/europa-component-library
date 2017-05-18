@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.2.1" type="text/css">
+
+
+<title>SCSS coding conventions | Europa Component Library</title>
+
+</head>
+<body>
+
+
+
+<div class="Frame" id="frame">
+
+    <div class="Frame-header">
+        <div class="Header">
+    <strong><a href="https://ec-europa.github.io/europa-component-library/" class="Header-title">Europa Component Library</a></strong>
+    <a href="../../docs" class="Header-title">Documentation</a>
+    <a href="../../components" class="Header-title">Components</a>
+    <a href="https://github.com/ec-europa/europa-component-library" class="Header-title">GitHub</a>
+</div>
+
+    </div>
+
+    <div class="Frame-body" data-role="body">
+
+        <div class="Frame-panel Frame-panel--main" data-role="main">
+            <div class="Frame-inner" id="pjax-container">
+            
+
+<div class="Document">
+
+    <div class="Document-header">
+        
+        <h1 class="Document-title">SCSS coding conventions</h1>
+        
+
+
+        
+    </div>
+
+    <div class="Document-content">
+
+    
+
+<div class="Prose">
+
+
+
+    
+    
+    <h1 id="rules">Rules</h1>
+<h2 id="presets">Presets</h2>
+<p>In order to enforce consistent conventions and avoid errors in our stylesheets, we use the mighty <a href="https://stylelint.io/">stylelint</a> linter with the following presets:</p>
+<ul>
+<li><a href="https://github.com/bjankord/stylelint-config-sass-guidelines">stylelint-config-sass-guidelines</a>, a config based on <a href="https://sass-guidelin.es/">Sass Guidelines</a></li>
+<li><a href="https://github.com/stylelint/stylelint-config-standard">stylelint-config-standard</a>, a standard config derived from the common rules found within a handful of CSS styleguides, including: <a href="https://github.com/necolas/idiomatic-css">The Idiomatic CSS Principles</a>,
+<a href="http://primercss.io/guidelines/#scss">GitHub’s PrimerCSS Guidelines</a>,
+<a href="https://google.github.io/styleguide/htmlcssguide.html#CSS_Formatting_Rules">Google’s CSS Style Guide</a>, <a href="https://github.com/airbnb/css#css">Airbnb’s Styleguide</a>, and <a href="http://codeguide.co/#css">@mdo’s Code Guide</a></li>
+</ul>
+<h2 id="plugins">Plugins</h2>
+<p>Furthermore, we added the <a href="https://github.com/davidtheclark/stylelint-selector-bem-pattern">stylelint-selector-bem-pattern</a> plugin to check the validity of selectors against our BEM-style conventions. All the classes we provide should follow the <code>.ecl-block__element--modifier</code> pattern.</p>
+<p>In order to enable the BEM-style validation, you have to define a component with a comment.</p>
+<code class="lang-scss"><pre><span class="hljs-comment">/** @define label */</span>
+<span class="hljs-selector-class">.ecl-label</span> {}
+<span class="hljs-selector-class">.ecl-label--primary</span> {}</pre></code><p>More information can be found on <a href="https://github.com/postcss/postcss-bem-linter#defining-a-component-and-utilities">postcss-bem-linter</a>‘s project.</p>
+<h2 id="configuration">Configuration</h2>
+<p>All the rules are made availble through our <a href="https://github.com/ec-europa/ecl-toolkit/tree/master/packages/stylelint-config-ecl">stylelint-config-ecl</a> config. You are not supposed to override this configuration.</p>
+<h1 id="automatically-formats-stylesheets">Automatically formats stylesheets</h1>
+<p>You can try to use <a href="https://github.com/morishitter/stylefmt">stylefmt</a> to format your stylesheets automatically. It can save you a lot of time but it can also introduce new errors.</p>
+<p>For this reason, we don’t officially support it. Use it at your own risk.</p>
+<h1 id="ide-integration">IDE integration</h1>
+<p>Plugins for both stylelint and stylefmt are available for major editors like Atom and Sublime Text.</p>
+
+    
+
+
+</div>
+
+
+
+    </div>
+
+</div>
+
+
+            </div>
+        </div>
+
+        <div class="Frame-handle" data-role="frame-resize-handle"></div>
+
+        <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
+            <nav class="Navigation">
+                
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-docs">
+    <h3 class="Tree-title">documentation</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../overview" data-pjax>
+                
+                <span>Overview</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../atomic" data-pjax>
+                
+                <span>Atomic</span>
+            </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-docs-collection-coding-conventions">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+                <span>Coding Conventions</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="javascript" data-pjax>
+                
+                <span>JavaScript</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                
+                <span>SCSS</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../git" data-pjax>
+                
+                <span>Git</span>
+            </a>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.2.1"></script>
+
+
+
+</body>
+</html>
