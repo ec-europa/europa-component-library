@@ -28,7 +28,7 @@ fractal.components.set('statuses', {
   wip: {
     label: 'WIP',
     description: 'Work in progress. Implement with caution.',
-    color: '#FF9233',
+    color: '#ffc107',
   },
   ready: {
     label: 'Ready',
@@ -38,6 +38,11 @@ fractal.components.set('statuses', {
   legacy: {
     label: 'Legacy',
     description: 'Not to be used on new applications. Kept temporarily.',
+    color: '#FF9233',
+  },
+  broken: {
+    label: 'Broken',
+    description: 'Cannot be used.',
     color: '#FF3333',
   },
 });

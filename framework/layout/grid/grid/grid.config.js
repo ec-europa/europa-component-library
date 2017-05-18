@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Grid - ECL',
-  label: 'Grid - ECL',
+  title: 'ECL Grid',
+  label: 'ECL Grid',
   status: 'ready',
 };
