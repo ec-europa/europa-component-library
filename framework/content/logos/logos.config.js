@@ -14,10 +14,11 @@ const variants = languages.map(({ id, name }) => ({
 module.exports = {
   title: 'Logos',
   label: 'Logos',
-  prefix: 'logos',
+  handle: 'logos',
   status: 'ready',
   preview: '@preview-center-transparent',
   collated: true,
+  hide: true,
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
