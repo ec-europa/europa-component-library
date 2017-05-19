@@ -3,7 +3,7 @@ const path = require('path');
 const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ec-europa/ecl-fractal-theme');
 const twigAdapter = require('@frctl/twig')({
-  handlePrefix: '@ec-europa/ecl-',
+  handlePrefix: '@ec-europa/',
 });
 
 const paths = {

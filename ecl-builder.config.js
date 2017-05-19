@@ -27,20 +27,23 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        'framework/components/forms/selects/images'
+        'framework/components/__forms/selects/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(__dirname, 'framework/components/social-icons/images'),
+      from: path.resolve(
+        __dirname,
+        'framework/components/ecl-social-icons/images'
+      ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(__dirname, 'framework/content/icons/fonts'),
+      from: path.resolve(__dirname, 'framework/content/ecl-icons/fonts'),
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(__dirname, 'framework/content/logos/images'),
+      from: path.resolve(__dirname, 'framework/content/ecl-logos/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
