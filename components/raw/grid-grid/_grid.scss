@@ -9,8 +9,8 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 .ecl-container {
-  @include make-container();
-  @include make-container-max-widths();
+  @include ecl-make-container();
+  @include ecl-make-container-max-widths();
 }
 
 // Fluid container
@@ -18,14 +18,14 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
 .ecl-container-fluid {
-  @include make-container();
+  @include ecl-make-container();
 }
 
 // Row
 //
 // Rows contain and clear the floats of your columns.
 .ecl-row {
-  @include make-row();
+  @include ecl-make-row();
 }
 
 // Remove the negative margin from default .row, then the horizontal padding
@@ -44,4 +44,4 @@
 // Columns
 //
 // Common styles for small and large grid columns
-@include make-grid-columns();
+@include ecl-make-grid-columns();
