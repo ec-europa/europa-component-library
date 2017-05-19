@@ -1,6 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
-const fractal = require('@frctl/fractal').create(); // eslint-disable-line import/no-extraneous-dependencies
-const eclTheme = require('@ec-europa/ecl-fractal-theme'); // eslint-disable-line import/no-extraneous-dependencies
+const fractal = require('@frctl/fractal').create();
+const eclTheme = require('@ec-europa/ecl-fractal-theme');
+const twigAdapter = require('@frctl/twig')({
+  handlePrefix: '@ec-europa/',
+});
 
 const paths = {
   build: `${__dirname}/dist`,
@@ -15,25 +19,33 @@ theme.addLoadPath(path.resolve(__dirname, './static/theme-overrides'));
 
 // Project config
 fractal.set('project.title', 'Europa Component Library');
+fractal.set(
+  'project.url',
+  'https://ec-europa.github.io/europa-component-library/'
+);
+fractal.set(
+  'project.repo',
+  'https://github.com/ec-europa/europa-component-library'
+);
 
 // Components config
 fractal.components.set('label', 'library');
 fractal.components.set('default.preview', '@preview');
 fractal.components.set('statuses', {
+  ready: {
+    label: 'Ready',
+    description: 'Can be used in production.',
+    color: '#29CC29',
+  },
   planned: {
     label: 'Planned',
-    description: 'Do not implement.',
+    description: 'Still under discussion.',
     color: '#337ab7',
   },
   wip: {
     label: 'WIP',
     description: 'Work in progress. Implement with caution.',
-    color: '#ffc107',
-  },
-  ready: {
-    label: 'Ready',
-    description: 'Ready to implement.',
-    color: '#29CC29',
+    color: '#fbca04',
   },
   legacy: {
     label: 'Legacy',
@@ -48,7 +60,7 @@ fractal.components.set('statuses', {
 });
 fractal.components.set('default.status', 'planned');
 fractal.components.set('path', path.resolve(__dirname, './framework'));
-fractal.components.engine('@frctl/twig'); // use Twig for components
+fractal.components.engine(twigAdapter); // use Twig for components
 fractal.components.set('ext', '.twig');
 
 // 'Assets' tab
