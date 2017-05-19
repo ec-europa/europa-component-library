@@ -22,7 +22,7 @@
     "postinstall": "npm run bootstrap",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
-    "serve": "fractal start --sync",
+    "serve": "fractal start --sync --port 8080",
     "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
     "test:functional": "wdio test/wdio.conf.js",
