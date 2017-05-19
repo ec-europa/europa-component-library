@@ -29,12 +29,12 @@
     rollup-plugin-node-resolve "3.0.0"
     rollup-plugin-uglify "1.0.2"
 
-"@ec-europa/ecl-fractal-theme@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@ec-europa/ecl-fractal-theme/-/ecl-fractal-theme-0.2.1.tgz#61b4392eb32aca663f7b1cdcf2fda6d32db0f6f2"
+"@ec-europa/ecl-fractal-theme@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@ec-europa/ecl-fractal-theme/-/ecl-fractal-theme-0.3.0.tgz#d26a21cc59220349a7008f5badd49cad980894ee"
   dependencies:
     "@frctl/fractal" "1.1.4"
-    js-beautify "1.6.12"
+    js-beautify "1.6.14"
     lodash "4.17.4"
     lunr "1.0.0"
 
@@ -46,14 +46,14 @@
     chai "3.5.0"
     html-inspector "0.8.2"
 
-"@ec-europa/eslint-config-ecl@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@ec-europa/eslint-config-ecl/-/eslint-config-ecl-0.2.1.tgz#142dc354c2e8012f4d8fdb9eda9061d2ecd4f3da"
+"@ec-europa/eslint-config-ecl@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@ec-europa/eslint-config-ecl/-/eslint-config-ecl-0.2.2.tgz#2096427fd6ff8a2c6232c8dd247ab1ea4d9acac7"
   dependencies:
     eslint-config-airbnb-base "11.2.0"
     eslint-config-prettier "2.1.0"
     eslint-plugin-import "2.2.0"
-    eslint-plugin-prettier "2.0.1"
+    eslint-plugin-prettier "2.1.1"
 
 "@ec-europa/stylelint-config-ecl@0.2.1":
   version "0.2.1"
@@ -2398,11 +2398,12 @@ eslint-plugin-import@2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint-plugin-prettier@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.0.1.tgz#2ae1216cf053dd728360ca8560bf1aabc8af3fa9"
+eslint-plugin-prettier@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.1.1.tgz#2fb7e2ab961f2b61d2c8cf91bc17716ca8c53868"
   dependencies:
-    requireindex "~1.1.0"
+    fast-diff "^1.1.1"
+    jest-docblock "^20.0.1"
 
 eslint@3.19.0, eslint@^3.19.0:
   version "3.19.0"
@@ -2638,6 +2639,10 @@ extglob@^0.3.1:
 extsprintf@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.0.2.tgz#e1080e0658e300b06294990cc70e1502235fd550"
+
+fast-diff@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.1.1.tgz#0aea0e4e605b6a2189f0e936d4b7fbaf1b7cfd9b"
 
 fast-levenshtein@~2.0.4:
   version "2.0.6"
@@ -3804,6 +3809,10 @@ jade@0.26.3:
     commander "0.6.1"
     mkdirp "0.3.0"
 
+jest-docblock@^20.0.1:
+  version "20.0.3"
+  resolved "https://registry.yarnpkg.com/jest-docblock/-/jest-docblock-20.0.3.tgz#17bea984342cc33d83c50fbe1545ea0efaa44712"
+
 jest-matcher-utils@^19.0.0:
   version "19.0.0"
   resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-19.0.0.tgz#5ecd9b63565d2b001f61fbf7ec4c7f537964564d"
@@ -3862,7 +3871,16 @@ js-beautify@1.4.2:
     mkdirp "0.3.5"
     nopt "~2.1.1"
 
-js-beautify@1.6.12, js-beautify@^1.6.2:
+js-beautify@1.6.14:
+  version "1.6.14"
+  resolved "https://registry.yarnpkg.com/js-beautify/-/js-beautify-1.6.14.tgz#d3b8f7322d02b9277d58bd238264c327e58044cd"
+  dependencies:
+    config-chain "~1.1.5"
+    editorconfig "^0.13.2"
+    mkdirp "~0.5.0"
+    nopt "~3.0.1"
+
+js-beautify@^1.6.2:
   version "1.6.12"
   resolved "https://registry.yarnpkg.com/js-beautify/-/js-beautify-1.6.12.tgz#78b75933505d376da6e5a28e9b7887e0094db8b5"
   dependencies:
@@ -5572,9 +5590,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint-cli@3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-3.4.4.tgz#82c2d8bdfecf1519682a93cc77898cddc4bada99"
+prettier-eslint-cli@3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-3.6.0.tgz#1cd51b01508e3b9c015e44533947041007e46922"
   dependencies:
     arrify "^1.0.1"
     babel-runtime "^6.23.0"
@@ -6048,10 +6066,6 @@ require-uncached@^1.0.2:
   dependencies:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
-
-requireindex@~1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.1.0.tgz#e5404b81557ef75db6e49c5a72004893fe03e162"
 
 requires-port@1.x.x:
   version "1.0.0"
