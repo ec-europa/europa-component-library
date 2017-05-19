@@ -27,7 +27,7 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        'framework/components/__forms/selects/images'
+        'framework/components/ecl-forms/ecl-forms-selects/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },

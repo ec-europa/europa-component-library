@@ -11,11 +11,11 @@ describe('site-headers', () => {
     browser.pause(1000);
   });
 
-  variants.forEach((variant) => {
+  variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`site-headers-${variant}.html`);
+        browser.url(`ecl-site-headers-${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(1000);
         // Inject axe-core (for accessibility tests)
@@ -25,7 +25,9 @@ describe('site-headers', () => {
       // Normal state
       context('with plain state', () => {
         it('should match the reference screenshot', () => {
-          const screenshots = browser.checkDocument({ name: `site-headers/${variant}` });
+          const screenshots = browser.checkDocument({
+            name: `site-headers/${variant}`,
+          });
           expect(screenshots).to.matchReference();
         });
 
