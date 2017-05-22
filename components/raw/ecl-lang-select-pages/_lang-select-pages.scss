@@ -1,0 +1,142 @@
+/*
+Language select (Page)
+*/
+
+.lang-select-page {
+  @extend %hidden-print;
+
+  width: 100%;
+  overflow: hidden;
+  background-color: $grey-lightest;
+  font-size: map-get($font-size, 'xs');
+  border-bottom: 1px solid $grey;
+}
+
+.ecl-icon.lang-select-page__icon {
+  @extend %hidden-print;
+
+  float: left;
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+
+  &::before {
+    float: left;
+    padding-top: 30%;
+  }
+}
+
+.lang-select-page__unavailable {
+  text-decoration: line-through;
+}
+
+ul.lang-select-page__list {
+  float: left;
+  margin-bottom: 0 !important;
+  padding-left: 0 !important;
+
+  .lang-select-page__option {
+    list-style: none;
+    float: left;
+    padding: 0.85em;
+
+    a {
+      display: block;
+    }
+
+    &.is-selected {
+      background-color: $yellow-light;
+      font-weight: bold;
+      color: $black;
+    }
+  }
+}
+
+select.lang-select-page__list {
+  @extend %hidden-print;
+
+  width: 10em;
+  height: 3.4em;
+  padding-left: 1.2em;
+  line-height: 3.4em;
+  background: transparent url("../images/png/arrow-thick-down.png") no-repeat 8em center;
+  font-weight: bold;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+
+  &:hover {
+    // select component is using a font icon with too much specificity that has to be overridden.
+    background-size: unset !important;
+  }
+}
+
+.lang-select-page--transparent {
+  background: transparent;
+  border-bottom: 1px solid $white;
+  color: $white;
+
+  select.lang-select-page__list {
+    background-color: $blue-darker;
+    color: $white;
+    // firefox hide arrow
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+
+    &:hover,
+    &:active {
+      border: 0;
+    }
+
+    & > option {
+      background-color: $blue-darker;
+    }
+
+    &::after {
+      @extend %icon--after;
+      @extend %icon--arrow-down;
+    }
+  }
+
+  @-moz-document url-prefix() {
+    select.lang-select-page__list {
+      height: 3.4em;
+    }
+  }
+
+  .lang-select-page__option {
+    &.is-selected,
+    &.is-selected a {
+      color: $black;
+    }
+
+    a {
+      color: $white;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .lang-select-page__option {
+    display: inline-block;
+  }
+
+  .lang-select-page__unavailable {
+    margin-right: 3em;
+  }
+}
+
+// Drupal specifics
+
+// Dynamic header image now being DS.
+.region-content .page-header ul.lang-select-page__list {
+  max-width: inherit;
+}
+
+// Front page should never have secondary language switcher.
+.lang-select-page {
+  .front & {
+    display: none;
+  }
+}

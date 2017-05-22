@@ -1,0 +1,57 @@
+/**
+ * Site header
+ * @define site-header
+ */
+
+.site-header {
+  color: $brand-primary;
+  overflow: hidden;
+  padding: 14px 0 0;
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    padding: 14px 0;
+  }
+
+  @media print {
+    -webkit-print-color-adjust: exact;
+  }
+
+  a {
+    @include focus-outline-border(3px, $yellow-light, 5px);
+  }
+}
+
+.site-header__container {
+  position: relative;
+}
+
+@include media-breakpoint-up(md) {
+  .site-header__logo {
+    margin-bottom: 1em;
+    position: relative;
+    top: 15px;
+  }
+}
+
+/*
+Site Header for Homepage
+*/
+.site-header--homepage {
+  padding: 0;
+
+  .site-header__logo {
+    float: none;
+    margin: 0 auto;
+    position: relative;
+    top: 38px;
+  }
+}
+
+// If the logo is linking to an external page do not show the external icon.
+.site-header__logo {
+  &::before,
+  &::after {
+    display: none !important;
+  }
+}

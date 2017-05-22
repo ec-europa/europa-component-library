@@ -1,0 +1,85 @@
+/*
+Banner
+
+The banner itself is not a standalone component, the banner subcomponents should
+always be used.
+
+Style guide banner
+*/
+
+/*
+Quote Banner
+
+Markup: html/banner-quote.html
+
+Style guide banner.quote
+*/
+
+$quote_border_offset: 0.556em;
+
+.banner {
+  @include clearfix();
+}
+
+.banner--quote {
+  // @include make-md-column(8);
+
+  padding-left: $quote_border_offset;
+  border-left: $quote_border_offset solid $yellow-light;
+
+  blockquote {
+    max-width: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    border-left: none;
+  }
+}
+
+.banner__author {
+  padding-bottom: 0.6em;
+  font-size: map-get($font-size, 'xs');
+  font-weight: 600;
+
+  &::before {
+    content: ' - ';
+  }
+}
+
+/*
+Video Banner
+
+Markup: html/banner-video.html
+
+Style guide banner.video
+*/
+
+.banner--video {
+  @extend .row !optional;
+}
+
+.banner__video {
+  .file {
+    margin-bottom: 0;
+  }
+}
+
+.banner__left {
+  @extend .col-md-6 !optional;
+}
+
+.banner__paragraph {
+  @extend .col-md-6 !optional;
+
+  margin-top: 1em;
+  font-size: map-get($font-size, 's');
+}
+
+.banner__caption {
+  @include media-caption();
+}
+
+@include media-breakpoint-up(md) {
+  .banner__paragraph {
+    margin-top: 0;
+  }
+}
