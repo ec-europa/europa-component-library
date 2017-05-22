@@ -11,13 +11,9 @@ The footer offers access to copyright information, disclaimer and terms of use, 
 | v1.0 | Site footer v1.0 | https://webgate.ec.europa.eu/CITnet/confluence/display/NEXTEUROPA/Site+footer+v1.0 |
 | v2.0 | Site footer | https://webgate.ec.europa.eu/CITnet/confluence/display/NEXTEUROPA/Site+footer |
 
-## New version in the make
-
-This component is currently being reworked. Version 2 will be released soon and look like this:
-
 ## Implementation
 
-http://ecfpfisdev.devcloud.acquia-sites.com/sites/all/themes/europa/styleguide/assets/section-footer.html
+https://ec-europa.github.io/ec-europa-theme/section-footer.html
 
 ## When should this be used?
 
