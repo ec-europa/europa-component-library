@@ -2,37 +2,26 @@
 Footer
 
 Site-wide footer component
-
-Markup: html/footer.html
-
-Style guide footer
-
 */
 
-.footer__improved,
+.footer__custom,
 .footer__top,
 .footer__bottom {
   @extend %hidden-print;
 }
 
-/*
-Footer for improved websites
-Markup: html/footer-improved.html
-Style guide footer.footer-improved
-*/
-
-// Footer improved.
-.footer__improved {
+// Footer for improved websites
+.footer__custom {
   background-color: $ec-blue25;
   color: $ec-blue120;
 
   .footer__column {
-    padding-top: 0.8em;
+    padding-top: 0.8rem;
+  }
 
-    &:last-child {
-      padding-top: 0;
-      padding-bottom: 0.8em;
-    }
+  .footer__column:last-child {
+    padding-bottom: 0.8rem;
+    padding-top: 0;
   }
 
   .footer__menu {
@@ -40,8 +29,8 @@ Style guide footer.footer-improved
   }
 
   .footer__menu-item {
-    font-size: map-get($font-size, 's');
     display: inline-block;
+    font-size: map-get($font-size, 's');
   }
 
   a {
@@ -49,29 +38,31 @@ Style guide footer.footer-improved
   }
 
   h4 {
-    padding: .4em 0;
-
-    a {
-      text-decoration: none;
-    }
+    padding: 0.4rem 0;
   }
 
-  // Footer improved desktop styles.
-  @include media-breakpoint-up(md) {
+  h4 a {
+    text-decoration: none;
+  }
+}
+
+// Footer improved desktop styles.
+@include media-breakpoint-up(md) {
+  .footer__custom {
     .footer__menu-item {
       font-size: map-get($font-size, 's');
     }
 
     .footer__column {
-      padding-bottom: 1em;
+      padding-bottom: 1rem;
+    }
 
-      &:last-child {
-        padding-top: 1em;
+    .footer__column:last-child {
+      padding-top: 1rem;
+    }
 
-        .footer__menu-item {
-          display: block;
-        }
-      }
+    .footer__column:last-child .footer__menu-item {
+      display: block;
     }
   }
 }
@@ -93,10 +84,11 @@ Style guide footer.footer-improved
 // Footer bottom.
 .footer__bottom {
   background-color: $brand-primary;
-  padding: 0.9em 0;
   color: #fff;
+  padding: 0.9rem 0;
 
   .footer__menu-item {
+    display: inline-block;
     font-size: map-get($font-size, 's');
   }
 
@@ -106,14 +98,14 @@ Style guide footer.footer-improved
 }
 
 .footer__title {
-  color: #fff;
   border-bottom: 2px solid $ec-blue50;
-  margin-bottom: 0.2em;
+  color: #fff;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.5rem;
 
-  @include media-breakpoint-up(md) {
-    margin-bottom: 1.1em;
+  @include media-breakpoint-between(md, lg) {
     // Make titles same height on mobile breakpoint.
-    min-height: 3.2em;
+    min-height: 3.2rem;
   }
 
   // Make titles height auto on large screens.
@@ -130,39 +122,35 @@ Style guide footer.footer-improved
 
 // Menus.
 .footer__menu {
-  margin: 0;
-  padding-left: 0;
-  max-width: none;
   list-style: none;
+  margin: 0;
+  max-width: none;
+  padding-left: 0;
 
   .footer__menu-item {
     margin-right: 15px;
     padding-left: 0;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    @include media-breakpoint-up(md) {
-      .footer__top & {
-        margin-bottom: 0.4em;
-      }
-    }
-
-    a {
-      padding: 0;
-
-      &:hover,
-      &:active,
-      &:focus {
-        background: none;
-        text-decoration: none;
-      }
-    }
   }
 
-  &.ul-list-inline .footer__menu-item {
-    line-height: 0.75em;
+  .footer__menu-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .footer__top .footer__menu .footer__menu-item {
+    margin-bottom: 0.4rem;
+  }
+
+  .footer__menu .footer__menu-item a {
+    padding: 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: none;
+      text-decoration: none;
+    }
   }
 }
 
@@ -180,40 +168,31 @@ Style guide footer.footer-improved
 
 // Footer columns.
 .footer__column {
-  padding-top: 1.6em;
+  padding-top: 1.6rem;
 
   &:last-child {
-    padding-bottom: 1.6em;
-  }
-
-  @include media-breakpoint-up(md) {
-    padding-top: 2em;
-    padding-bottom: 2em;
-
-    &:last-child {
-      padding-bottom: 2em;
-    }
+    padding-bottom: 1.6rem;
   }
 }
 
-// External link specific adjustments.
-@mixin _footer_external_link_mixin() {
-  &::after {
-    position: absolute;
-    line-height: 2.2;
+@include media-breakpoint-up(md) {
+  .footer__column {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+
+    &:last-child {
+      padding-bottom: 2rem;
+    }
   }
 }
 
 .footer {
-  a {
-    &#{"[" + $external_link_pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec_url_patterns}) {
-        @include _footer_external_link_mixin();
-      }
-    }
+  a[#{$external_link_pattern}]:not(.is-internal):not(#{$ec_url_patterns})::after {
+    line-height: 2.2;
+    position: absolute;
   }
 
-  a.footer__site-switcher {
+  .footer__site-switcher {
     padding-right: 30px !important;
   }
 }

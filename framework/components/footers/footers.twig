@@ -1,86 +1,112 @@
-<footer class="footer">
-  <div class="container-fluid">
-    <div class="row">
+<footer class="footer {{modifier}}">
 
-      <section class="footer__column-main clearfix"">
+{% if custom %}
 
-        <div class="col-md-4">
-          <h4 class="footer__title">European Commission</h4>
-          <ul class="footer__menu footer__menu--separator menu nav">
-            <li class="footer__menu-item">
-              <a href="#">Commission and it's priorities</a>
+  <div class="footer__custom">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        
+        <div class="{{elements.column}} ecl-col-md-4">
+          <h4><a href="#">{{site_name}}</a></h4>
+        </div>
+
+        <div class="{{elements.column}} ecl-col-md-4">
+          <p class="{{ elements.label }}">Follow us:</p>
+          <ul class="{{ elements.menu }} ul-list-inline">
+          {% for sn in ec_default_sn  %}
+            <li class="{{ elements.menu_item }}">
+              <a href="#" class="ecl-icon ecl-icon--{{sn}} footer__icon--social" target="_blank">{{ sn|capitalize }}</a>
             </li>
-            <li class="footer__menu-item">
-              <a href="#">Policies information and services</a>
-            </li>
+          {% endfor %}
           </ul>
         </div>
 
-        <div class="col-md-4">
-          <h4 class="footer__title">Follow the European Commission</h4>
-          <ul class="footer__menu footer__menu--separator menu nav list-inline">
-            <li class="footer__menu-item">
-              <a href="https://www.facebook.com/EuropeanCommission"
-                class="icon icon--facebook footer__icon--facebook footer__icon--social"
-                target="_blank">Facebook</a>
+        <div class="{{elements.column}} ecl-col-md-4">
+          <ul class="{{ elements.menu }}">
+          {% set labels = ["Contact", "Site map"] %}
+
+          {% for label in labels  %}
+            <li class="{{ elements.menu_item }}">
+              <a href="#">{{ label }}</a>
             </li>
-            <li class="footer__menu-item">
-              <a href="https://twitter.com/eu_commission"
-                 class="icon icon--twitter footer__icon--twitter footer__icon--social">Twitter</a>
-            </li>
-            <li class="footer__menu-item">
-              <a href="#" class="is-internal">Other social media</a>
-            </li>
+          {% endfor %}
           </ul>
         </div>
 
-        <div class="col-md-4">
-          <h4 class="footer__title">European Union</h4>
-          <ul class="footer__menu footer__menu--separator menu nav">
-            <li class="footer__menu-item">
-             <a href="http://europa.eu/about-eu/institutions-bodies/index_en.htm#30?" class="is-external">EU institutions</a>
+      </div>
+    </div>
+  </div>
+  
+{% endif %}
+
+  <div class="footer__top">
+    <div class="ecl-container">
+      <div class="ecl-row">
+
+        <div class="{{elements.column}} ecl-col-md-4">
+          <h4 class="{{ elements.title }}">{{ ec_name }}</h4>
+          <ul class="{{ elements.menu }}">
+          {% set labels = [ec_political_name, ec_info_name] %}
+
+          {% for label in labels  %}
+            <li class="{{ elements.menu_item }}">
+              <a href="#">{{ label }}</a>
             </li>
-            <li class="footer__menu-item">
-              <a href="http://europa.eu/" class="is-external">European Union</a>
-            </li>
+          {% endfor %}
           </ul>
         </div>
 
-      </section>
+        <div class="{{elements.column}} ecl-col-md-4">
+          <h4 class="{{ elements.title }}">{{ ec_footer_sn_title }} {{ ec_name }}</h4>
+          <ul class="{{ elements.menu }} ul-list-inline">
+          {% for sn in ec_default_sn  %}
+            <li class="{{ elements.menu_item }}">
+              <a href="#" class="ecl-icon ecl-icon--{{sn}} footer__icon--social" target="_blank">{{ sn|capitalize }}</a>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
 
+        <div class="{{ elements.column }} ecl-col-md-4">
+          <h4 class="{{ elements.title }}">{{ eu_name }}</h4>
+          <ul class="{{ elements.menu }}">
+          {% set labels = ["EU institutions", eu_name] %}
+
+          {% for label in labels  %}
+            <li class="{{ elements.menu_item }}">
+              <a href="#">{{ label }}</a>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-12">
+          <ul class="{{ elements.menu }} ul-list-inline">
+          {% set labels = [
+            "About the Commission's new web presence",
+            "Resources for partners",
+            "Cookies",
+            "Legal notice",
+            "Contact",
+            "Europa Analytics",
+            ]
+          %}
+
+          {% for label in labels  %}
+            <li class="{{ elements.menu_item }}">
+              <a href="#">{{ label }}</a>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
-
-<section class="footer-bottom">
-  <div class="container-fluid">
-    <div class="row">
-
-      <div class="col-sm-12">
-
-        <ul class="footer__menu menu nav list-inline">
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en">About the Commission's new web presence</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="#">Resources for partners</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/cookies_en">Cookies</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/legal-notice_en">Legal notice</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/contact_en">Contact</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/europa-analytics_en">Europa Analytics</a>
-          </li>
-        </ul>
-
-      </div>
-
-    </div>
-  </div>
-</section>
