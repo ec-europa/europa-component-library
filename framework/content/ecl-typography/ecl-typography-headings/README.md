@@ -1,4 +1,4 @@
 # Headings
 
-Site headings. They also can be applied by adding a class with the name of
-the heading tag.
+Site headings. 
+They also can be applied by adding a class with the name of the heading tag.

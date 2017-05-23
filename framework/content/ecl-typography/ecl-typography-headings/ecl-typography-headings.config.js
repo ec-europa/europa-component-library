@@ -3,18 +3,8 @@ module.exports = {
   label: 'Headings',
   status: 'ready',
   collated: true,
-  default: 'headline',
+  default: 'h1',
   variants: [
-    {
-      name: 'headline',
-      label: 'headline',
-      context: {
-        element: 'div',
-        class: 'ecl-h ecl-h--headline',
-        style: 'background-color: #004494',
-        text: 'Headline with class .ecl-headline and background',
-      },
-    },
     {
       name: 'h1',
       label: 'h1',
@@ -58,6 +48,16 @@ module.exports = {
         element: 'h5',
         class: 'ecl-h ecl-h--h5',
         text: 'Heading <h5> with class .ecl-h5',
+      },
+    },
+    {
+      name: 'headline',
+      label: 'headline',
+      context: {
+        element: 'div',
+        class: 'ecl-h ecl-h--headline',
+        style: 'background-color: #004494',
+        text: 'Headline with class .ecl-headline and background',
       },
     },
   ],
