@@ -10,7 +10,7 @@ module.exports = {
       label: 'headline',
       context: {
         element: 'div',
-        class: 'ecl-headline',
+        class: 'ecl-h ecl-h--headline',
         style: 'background-color: #004494',
         text: 'Headline with class .ecl-headline and background',
       },
@@ -20,7 +20,7 @@ module.exports = {
       label: 'h1',
       context: {
         element: 'h1',
-        class: 'ecl-h1',
+        class: 'ecl-h ecl-h--h1',
         text: 'Heading <h1> with class .ecl-h1',
       },
     },
@@ -29,7 +29,7 @@ module.exports = {
       label: 'h2',
       context: {
         element: 'h2',
-        class: 'ecl-h2',
+        class: 'ecl-h ecl-h--h2',
         text: 'Heading <h2> with class .ecl-h2',
       },
     },
@@ -38,7 +38,7 @@ module.exports = {
       label: 'h3',
       context: {
         element: 'h3',
-        class: 'ecl-h3',
+        class: 'ecl-h ecl-h--h3',
         text: 'Heading <h3> with class .ecl-h3',
       },
     },
@@ -47,7 +47,7 @@ module.exports = {
       label: 'h4',
       context: {
         element: 'h4',
-        class: 'ecl-h4',
+        class: 'ecl-h ecl-h--h4',
         text: 'Heading <h4> with class .ecl-h4',
       },
     },
@@ -56,7 +56,7 @@ module.exports = {
       label: 'h5',
       context: {
         element: 'h5',
-        class: 'ecl-h5',
+        class: 'ecl-h ecl-h--h5',
         text: 'Heading <h5> with class .ecl-h5',
       },
     },

@@ -4,7 +4,7 @@ module.exports = {
   status: 'ready',
   collated: true,
   collator(markup, item) {
-    return `<!-- Start: @${item.handle} -->\n<h3 class="ecl-h3">${item.label}</h3>\n${markup}\n<!-- End: @${item.handle} -->\n`;
+    return `<!-- Start: @${item.handle} -->\n<h3 class="ecl-h ecl-h--h3">${item.label}</h3>\n${markup}\n<!-- End: @${item.handle} -->\n`;
   },
   default: 'l',
   variants: [
