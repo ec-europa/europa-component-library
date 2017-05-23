@@ -1,0 +1,35 @@
+/*
+  ECL Colorize
+  ===========
+*/
+
+@each $key, $value in $colors {
+  .ecl-bg-#{$key} {
+    background-color: $value;
+  }
+
+  .ecl-text-#{$key} {
+    color: $value;
+  }
+}
+
+.ecl-bg-primary { background-color: $ecl-primary; }
+.ecl-text-primary { color: $ecl-primary; }
+
+.ecl-bg-secondary { background-color: $ecl-secondary; }
+.ecl-text-secondary { color: $ecl-secondary; }
+
+.ecl-bg-shade { background-color: $ecl-shade; }
+.ecl-text-shade { color: $ecl-shade; }
+
+.ecl-bg-info { background-color: $ecl-info; }
+.ecl-text-info { color: $ecl-info; }
+
+.ecl-bg-warning { background-color: $ecl-warning; }
+.ecl-text-warning { color: $ecl-warning; }
+
+.ecl-bg-success { background-color: $ecl-success; }
+.ecl-text-success { color: $ecl-success; }
+
+.ecl-bg-error { background-color: $ecl-error; }
+.ecl-text-error { color: $ecl-error; }
