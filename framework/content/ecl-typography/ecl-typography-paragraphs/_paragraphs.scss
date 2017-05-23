@@ -1,35 +1,26 @@
-.paragraph {
-  display: block;
+.ecl-p {
+  line-height: 1.66;
   max-width: 32em;
-  margin-bottom: 0.8em;
 }
 
-p {
-  @extend .paragraph;
-
-  &.dashed {
-    position: relative;
-    padding-left: 0.8em;
-
-    &::before {
-      position: absolute;
-      left: 0;
-      display: inline-block;
-      content: '-';
-    }
-  }
-}
-
-.paragraph--width-auto {
-  width: auto;
-}
-
-.paragraph--intro {
+.ecl-p--l {
   font-size: map-get($font-size, 'l');
 }
 
-.paragraph--small {
+.ecl-p--m {
+  font-size: map-get($font-size, 'm');
+}
+
+.ecl-p--s {
   font-size: map-get($font-size, 's');
+}
+
+.ecl-p--xs {
+  font-size: map-get($font-size, 'xs');
+}
+
+.ecl-p--xxs {
+  font-size: map-get($font-size, 'xxs');
 }
 
 .text-small {
