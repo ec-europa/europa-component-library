@@ -1,3 +1,22 @@
+// Namespaced classes for inlined lists.
+
+.ecl-list--unstyled {
+  @include list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.ecl-list-inline {
+  @include list-unstyled;
+}
+
+.ecl-list-inline__item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: $list-inline-padding;
+  }
+}
+
 ul:not(.listing, .social-media-links__list, .file__translations-list, .site-switcher__list, .menu, .site-user-menu__list, #admin-menu-wrapper ul),
 ol {
   max-width: 32em;
@@ -6,10 +25,10 @@ ol {
 
 li > ul,
 li > ol {
-  margin-left: 5px;
-  margin-bottom: 5px;
-  line-height: 1.625;
   font-size: map-get($font-size, 's');
+  line-height: 1.625;
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 li > ul {
