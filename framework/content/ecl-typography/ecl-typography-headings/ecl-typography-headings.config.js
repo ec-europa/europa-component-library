@@ -3,8 +3,18 @@ module.exports = {
   label: 'Headings',
   status: 'ready',
   collated: true,
-  default: 'h1',
+  default: 'headline',
   variants: [
+    {
+      name: 'headline',
+      label: 'headline',
+      context: {
+        element: 'div',
+        class: 'ecl-headline',
+        style: 'background-color: #004494',
+        text: 'Headline with class .ecl-headline and background',
+      },
+    },
     {
       name: 'h1',
       label: 'h1',
