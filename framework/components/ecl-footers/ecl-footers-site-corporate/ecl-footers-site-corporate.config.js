@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Footers - corporate',
-  label: 'Footers - corporate',
+  title: 'Footers - Corporate',
+  label: 'Footers - Corporate',
   status: 'ready',
   tags: ['organism'],
 };
