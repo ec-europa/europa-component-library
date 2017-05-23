@@ -50,14 +50,5 @@ module.exports = {
         text: 'Heading <h5> with class .ecl-h5',
       },
     },
-    {
-      name: 'h6',
-      label: 'h6',
-      context: {
-        element: 'h6',
-        class: 'ecl-h6',
-        text: 'Heading <h6> with class .ecl-h6',
-      },
-    },
   ],
 };

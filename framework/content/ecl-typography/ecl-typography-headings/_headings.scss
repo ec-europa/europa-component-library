@@ -3,10 +3,10 @@
 .ecl-h2,
 .ecl-h3,
 .ecl-h4,
-.ecl-h5,
-.ecl-h6 {
+.ecl-h5 {
+  line-height: 1.1;
   margin: 0;
-  padding: 0.5em 0;
+  padding: 0;
 }
 
 .ecl-h1 {
@@ -22,25 +22,19 @@
 }
 
 .ecl-h3 {
-  color: $grey-base;
+  color: $ecl-grey;
   font-size: map-get($font-size, 'l');
   font-weight: 600;
 }
 
 .ecl-h4 {
-  color: $grey-base;
+  color: $ecl-grey;
   font-size: map-get($font-size, 'm');
   font-weight: 600;
 }
 
 .ecl-h5 {
-  color: $grey-base;
+  color: $ecl-grey;
   font-size: map-get($font-size, 's');
-  text-transform: uppercase;
-}
-
-.ecl-h6 {
-  color: $grey-base;
-  font-size: map-get($font-size, 'xs');
   text-transform: uppercase;
 }
