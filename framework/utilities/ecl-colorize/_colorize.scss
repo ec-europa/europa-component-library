@@ -4,35 +4,35 @@
 */
 
 @each $key, $value in $colors {
-  .ecl-bg-#{$key} {
+  .ecl-u-bg-#{$key} {
     background-color: $value;
   }
 
-  .ecl-text-#{$key} {
+  .ecl-u-color-#{$key} {
     color: $value;
   }
 }
 
-.ecl-bg-primary { background-color: $ecl-primary; }
-.ecl-text-primary { color: $ecl-primary; }
+.ecl-u-bg-primary { background-color: $ecl-primary; }
+.ecl-u-color-primary { color: $ecl-primary; }
 
-.ecl-bg-secondary { background-color: $ecl-secondary; }
-.ecl-text-secondary { color: $ecl-secondary; }
+.ecl-u-bg-secondary { background-color: $ecl-secondary; }
+.ecl-u-color-secondary { color: $ecl-secondary; }
 
-.ecl-bg-shade { background-color: $ecl-shade; }
-.ecl-text-shade { color: $ecl-shade; }
+.ecl-u-bg-shade { background-color: $ecl-shade; }
+.ecl-u-color-shade { color: $ecl-shade; }
 
-.ecl-bg-info { background-color: $ecl-info; }
-.ecl-text-info { color: $ecl-info; }
+.ecl-u-bg-info { background-color: $ecl-info; }
+.ecl-u-color-info { color: $ecl-info; }
 
-.ecl-bg-warning { background-color: $ecl-warning; }
-.ecl-text-warning { color: $ecl-warning; }
+.ecl-u-bg-warning { background-color: $ecl-warning; }
+.ecl-u-color-warning { color: $ecl-warning; }
 
-.ecl-bg-success { background-color: $ecl-success; }
-.ecl-text-success { color: $ecl-success; }
+.ecl-u-bg-success { background-color: $ecl-success; }
+.ecl-u-color-success { color: $ecl-success; }
 
-.ecl-bg-error { background-color: $ecl-error; }
-.ecl-text-error { color: $ecl-error; }
+.ecl-u-bg-error { background-color: $ecl-error; }
+.ecl-u-color-error { color: $ecl-error; }
 
-.ecl-bg-white { background-color: #fff; }
-.ecl-text-white { color: #fff; }
+.ecl-u-bg-white { background-color: #fff; }
+.ecl-u-color-white { color: #fff; }

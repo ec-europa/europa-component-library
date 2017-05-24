@@ -1,45 +1,45 @@
 // Headers
-.ecl-h {
+.ecl-heading {
   margin: 0;
   padding: 0;
 }
 
-.ecl-h--h1 {
+.ecl-heading--h1 {
   color: #000;
   font-size: map-get($font-size, 'xxl');
   font-weight: 600;
   line-height: 1.1;
 }
 
-.ecl-h--h2 {
+.ecl-heading--h2 {
   color: #000;
   font-size: map-get($font-size, 'xl');
   font-weight: 600;
   line-height: 1.1;
 }
 
-.ecl-h--h3 {
+.ecl-heading--h3 {
   color: $ecl-shade;
   font-size: map-get($font-size, 'l');
   font-weight: 600;
   line-height: 1.1;
 }
 
-.ecl-h--h4 {
+.ecl-heading--h4 {
   color: $ecl-shade;
   font-size: map-get($font-size, 'm');
   font-weight: 600;
   line-height: 1.1;
 }
 
-.ecl-h--h5 {
+.ecl-heading--h5 {
   color: $ecl-shade;
   font-size: map-get($font-size, 's');
   line-height: 1.1;
   text-transform: uppercase;
 }
 
-.ecl-h--headline {
+.ecl-heading--headline {
   color: #fff;
   font-size: map-get($font-size, 'm');
   font-weight: 600;
@@ -47,19 +47,19 @@
 }
 
 // Spacing
-.ecl-h + * {
+.ecl-heading + * {
   margin-top: map-get($spacing, 'm');
 }
 
-* + .ecl-h--h1 {
+* + .ecl-heading--h1 {
   margin-top: map-get($spacing, 'xxl');
 }
 
-* + .ecl-h--h2 {
+* + .ecl-heading--h2 {
   margin-top: map-get($spacing, 'xl');
 }
 
-* + .ecl-h--h3 {
+* + .ecl-heading--h3 {
   margin-top: map-get($spacing, 'l');
 }
 

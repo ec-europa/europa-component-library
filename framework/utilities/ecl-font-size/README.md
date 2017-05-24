@@ -1,10 +1,10 @@
 # Font size utilities
 
 Use the following classes to quickly set a font size:
-* **ecl-fs-xxl**: Extra extra large text
-* **ecl-fs-xl**: Extra large text
-* **ecl-fs-l**: Large text
-* **ecl-fs-m**: Medium text
-* **ecl-fs-s**: Small text
-* **ecl-fs-xs**: Extra small text
-* **ecl-fs-xxs**: Extra extra small text
+* **ecl-u-fs-xxl**: Extra extra large text
+* **ecl-u-fs-xl**: Extra large text
+* **ecl-u-fs-l**: Large text
+* **ecl-u-fs-m**: Medium text
+* **ecl-u-fs-s**: Small text
+* **ecl-u-fs-xs**: Extra small text
+* **ecl-u-fs-xxs**: Extra extra small text
