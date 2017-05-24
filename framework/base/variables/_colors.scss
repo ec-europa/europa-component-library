@@ -1,34 +1,34 @@
 // ECL Colors
-$ecl-blue-120: #003776;
-$ecl-blue-110: #003776;
-$ecl-blue-100: #004494;
-$ecl-blue-75: #4073af;
-$ecl-blue-50: #7fa1c9;
-$ecl-blue-25: #bfd0e4;
+$colors: (
+  blue-120: #003776,
+  blue-110: #003776,
+  blue-100: #004494,
+  blue-75: #4073af,
+  blue-50: #7fa1c9,
+  blue-25: #bfd0e4,
+  yellow-120: #f8ae21,
+  yellow-110: #ffd617,
+  yellow-100: #ffd617,
+  yellow-75: #ffde39,
+  yellow-50: #ffe879,
+  yellow-25: #fff4bb,
+  grey-100: #404040,
+  grey-75: #707070,
+  grey-50: #9f9f9f,
+  grey-25: #cfcfcf,
+  grey-15: #e3e3e3,
+  grey-10: #ebebeb,
+  grey-5: #f5f5f5
+) !default;
 
-$ecl-yellow-120: #f8ae21;
-$ecl-yellow-110: #fbc11d;
-$ecl-yellow-100: #ffd617;
-$ecl-yellow-75: #ffde39;
-$ecl-yellow-50: #ffe879;
-$ecl-yellow-25: #fff4bb;
+$ecl-color-primary: map-get($colors, 'blue-100');
+$ecl-color-secondary: map-get($colors, 'yellow-100');
+$ecl-color-shade: map-get($colors, 'grey-100');
 
-$ecl-grey-100: #404040;
-$ecl-grey-75: #707070;
-$ecl-grey-50: #9f9f9f;
-$ecl-grey-25: #cfcfcf;
-$ecl-grey-15: #e3e3e3;
-$ecl-grey-10: #ebebeb;
-$ecl-grey-5: #f5f5f5;
-
-$ecl-info: #006fb4;
-$ecl-warning: #f29527;
-$ecl-success: #467a39;
-$ecl-error: #da2130;
-
-$ecl-primary: $ecl-blue-100;
-$ecl-secondary: $ecl-yellow-100;
-$ecl-accent: $ecl-grey-100;
+$ecl-color-info: #006fb4;
+$ecl-color-warning: #f29527;
+$ecl-color-success: #467a39;
+$ecl-color-error: #da2130;
 
 // Deprecated
 $white: #fff;
