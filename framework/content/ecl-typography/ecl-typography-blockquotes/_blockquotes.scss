@@ -4,20 +4,24 @@
  */
 
 .ecl-blockquote {
-  border-left: 0.5rem solid $ecl-color-secondary;
+  border-left: 0.417em solid $ecl-color-secondary;
   clear: both;
+  display: inline-block;
   font-size: map-get($font-size, 'l');
   font-style: italic;
-  line-height: 1.66;
-  margin: 0;
+  line-height: 1.5;
+  margin-left: 0;
+  margin-right: 0;
   max-width: 24em;
   overflow: hidden;
-  padding: map-get($spacing, 's') 0 map-get($spacing, 's') map-get($spacing, 'm');
+  padding: 0.6em 0 0.6em 1.2em;
   position: relative;
 
+  // Drupal fix.
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   p {
     display: inline;
+    line-height: inherit;
   }
 
   &::before {
