@@ -3,3 +3,24 @@
 .ecl-footers__site-identity {
   @extend %hidden-print;
 }
+
+.ecl-footers__ec {
+  background-color: $ecl-color-primary;
+  color: #fff;
+  font-size: map-get($font-size, 's');
+  padding: 0.9rem 0;
+
+  ul {
+    margin: 0;
+    max-width: none;
+  }
+
+  ul li {
+    font-size: map-get($font-size, 'xs');
+    line-height: 0.75em;
+  }
+
+  a {
+    color: #fff;
+  }
+}
