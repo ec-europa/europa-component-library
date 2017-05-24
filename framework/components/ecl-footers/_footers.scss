@@ -1,26 +1,177 @@
-.ecl-footers__ec,
+.ecl-footers__site-identity,
 .ecl-footers__site-corporate,
-.ecl-footers__site-identity {
+.ecl-footers__ec {
   @extend %hidden-print;
 }
 
+.ecl-footers__site-identity {
+  background-color: map-get($colors, 'blue-25');
+  color: map-get($colors, 'blue-120');
+
+  .ecl-footers__column {
+    padding-top: 0.8rem;
+  }
+
+  .ecl-footers__column:last-child {
+    padding-bottom: 0.8rem;
+    padding-top: 0;
+  }
+
+  .ecl-footers__menu {
+    display: inline;
+  }
+
+  .ecl-footers__menu-item {
+    display: inline-block;
+    font-size: map-get($font-size, 's');
+  }
+
+  a {
+    color: map-get($colors, 'blue-120');
+  }
+
+  h4 {
+    padding: 0.4rem 0;
+  }
+
+  h4 a {
+    text-decoration: none;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .ecl-footers__site-identity {
+    .ecl-footers__menu-item {
+      font-size: map-get($font-size, 's');
+    }
+
+    .ecl-footers__column {
+      padding-bottom: 1rem;
+    }
+
+    .ecl-footers__column:last-child {
+      padding-top: 1rem;
+    }
+
+    .ecl-footers__column:last-child .ecl-footers__menu-item {
+      display: block;
+    }
+  }
+}
+
+// Footer top.
+.ecl-footers__site-corporate {
+  background-color: map-get($colors, 'blue-75');
+  color: #fff;
+
+  a {
+    color: #fff;
+  }
+
+  .ecl-footers__menu-item {
+    font-size: map-get($font-size, 's');
+  }
+}
+
+// Footer bottom.
 .ecl-footers__ec {
   background-color: $ecl-color-primary;
   color: #fff;
-  font-size: map-get($font-size, 's');
   padding: 0.9rem 0;
 
-  ul {
-    margin: 0;
-    max-width: none;
-  }
-
-  ul li {
-    font-size: map-get($font-size, 'xs');
-    line-height: 0.75em;
+  .ecl-footers__menu-item {
+    display: inline-block;
+    font-size: map-get($font-size, 's');
   }
 
   a {
     color: #fff;
+  }
+}
+
+.ecl-footers__title {
+  border-bottom: 2px solid map-get($colors, 'blue-50');
+  color: #fff;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.5rem;
+
+  @include media-breakpoint-between(md, lg) {
+    // Make titles same height on mobile breakpoint.
+    min-height: 3.2rem;
+  }
+
+  // Make titles height auto on large screens.
+  @media (min-width: 1291px) {
+    min-height: auto;
+  }
+}
+
+.ecl-footers__label {
+  display: inline;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.ecl-footers__menu {
+  list-style: none;
+  margin: 0;
+  max-width: none;
+  padding-left: 0;
+
+  .ecl-footers__menu-item {
+    margin-right: 15px;
+    padding-left: 0;
+  }
+
+  .ecl-footers__menu-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .ecl-footers__site-corporate .ecl-footers__menu .ecl-footers__menu-item {
+    margin-bottom: 0.4rem;
+  }
+
+  .ecl-footers__menu .ecl-footers__menu-item a {
+    padding: 0;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: none;
+      text-decoration: none;
+    }
+  }
+}
+
+.ecl-footers__social-icon {
+  &::before {
+    margin-right: 8px !important;
+  }
+
+  &::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+// Footer columns.
+.ecl-footers__column {
+  padding-top: 1.6rem;
+
+  &:last-child {
+    padding-bottom: 1.6rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .ecl-footers__column {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+
+    &:last-child {
+      padding-bottom: 2rem;
+    }
   }
 }
