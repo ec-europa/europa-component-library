@@ -2,8 +2,14 @@
 const path = require('path');
 const chai = require('chai');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare'); // eslint-disable-line import/no-extraneous-dependencies
-const { injectAxeCore, runAxeCore } = require('@ec-europa/ecl-qa/wdio/commands/a11y');
-const { injectHTMLInspector, runHTMLInspector } = require('@ec-europa/ecl-qa/wdio/commands/html-inspector');
+const {
+  injectAxeCore,
+  runAxeCore,
+} = require('@ec-europa/ecl-qa/wdio/commands/a11y');
+const {
+  injectHTMLInspector,
+  runHTMLInspector,
+} = require('@ec-europa/ecl-qa/wdio/commands/html-inspector');
 const matchReference = require('@ec-europa/ecl-qa/wdio/assertions/matchReference');
 const isAccessible = require('@ec-europa/ecl-qa/wdio/assertions/isAccessible');
 const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatted');
@@ -13,18 +19,20 @@ require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependen
 const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
 
 function getScreenshotName(basePath) {
-  return (context) => {
+  return context => {
     const testName = context.options.name;
     const browserVersion = parseInt(/\d+/.exec(context.browser.version)[0], 10);
     const browserName = context.browser.name;
     const platform = context.desiredCapabilities.platform;
 
-    return path.join(basePath, `${testName}/${platform}_${browserName}_v${browserVersion}.png`);
+    return path.join(
+      basePath,
+      `${testName}/${platform}_${browserName}_v${browserVersion}.png`
+    );
   };
 }
 
 exports.config = {
-
   // ==================
   // Specify Test Files
   // ==================
@@ -58,39 +66,44 @@ exports.config = {
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://docs.saucelabs.com/reference/platforms-configurator
-  capabilities: [{
-    browserName: 'chrome',
-    platform: 'Windows 10',
-    version: '56.0',
-    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-    screenResolution: '1920x1080',
-  }, {
-    browserName: 'internet explorer',
-    version: '11.0',
-    platform: 'Windows 7',
-    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-    screenResolution: '1920x1080',
-  }, {
-    browserName: 'safari',
-    // Version 10.0 has issues with executeAsync
-    // See: https://github.com/webdriverio/webdriverio/issues/1708
-    version: '9.0',
-    platform: 'OS X 10.11',
-    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-    screenResolution: '1920x1440',
-  }, {
-    browserName: 'firefox',
-    // Firefox 47 and above have issues with Action API
-    // See: https://github.com/SeleniumHQ/selenium/issues/2285
-    version: '46.0',
-    platform: 'Windows 7',
-    build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-    'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-    screenResolution: '1920x1080',
-  }],
+  capabilities: [
+    {
+      browserName: 'chrome',
+      platform: 'Windows 10',
+      version: '56.0',
+      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+      screenResolution: '1920x1080',
+    },
+    {
+      browserName: 'internet explorer',
+      version: '11.0',
+      platform: 'Windows 7',
+      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+      screenResolution: '1920x1080',
+    },
+    {
+      browserName: 'safari',
+      // Version 10.0 has issues with executeAsync
+      // See: https://github.com/webdriverio/webdriverio/issues/1708
+      version: '9.0',
+      platform: 'OS X 10.11',
+      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+      screenResolution: '1920x1440',
+    },
+    {
+      browserName: 'firefox',
+      // Firefox 47 and above have issues with Action API
+      // See: https://github.com/SeleniumHQ/selenium/issues/2285
+      version: '46.0',
+      platform: 'Windows 7',
+      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
+      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
+      screenResolution: '1920x1080',
+    },
+  ],
 
   // ===================
   // Test Configurations
@@ -146,19 +159,27 @@ exports.config = {
   // Visual regression config
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getScreenshotName(path.resolve(__dirname, './screenshots/reference')),
-      screenshotName: getScreenshotName(path.resolve(__dirname, './screenshots/captured')),
-      diffName: getScreenshotName(path.resolve(__dirname, './screenshots/diff')),
+      referenceName: getScreenshotName(
+        path.resolve(__dirname, './screenshots/reference')
+      ),
+      screenshotName: getScreenshotName(
+        path.resolve(__dirname, './screenshots/captured')
+      ),
+      diffName: getScreenshotName(
+        path.resolve(__dirname, './screenshots/diff')
+      ),
       misMatchTolerance: 0.02,
     }),
   },
 
   // Static server service
   // Array of folder paths and mount points.
-  staticServerFolders: [{
-    mount: '/',
-    path: './dist',
-  }],
+  staticServerFolders: [
+    {
+      mount: '/',
+      path: './dist',
+    },
+  ],
   staticServerPort: 3000,
 
   // Options for selenium-standalone
@@ -211,7 +232,10 @@ exports.config = {
     // Custom commands
     browser.addCommand('injectAxeCore', injectAxeCore.bind(browser));
     browser.addCommand('runAxeCore', runAxeCore.bind(browser));
-    browser.addCommand('injectHTMLInspector', injectHTMLInspector.bind(browser));
+    browser.addCommand(
+      'injectHTMLInspector',
+      injectHTMLInspector.bind(browser)
+    );
     browser.addCommand('runHTMLInspector', runHTMLInspector.bind(browser));
   },
 
