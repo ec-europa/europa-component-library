@@ -2,6 +2,6 @@
 
 Icons using europa icons font.
 
-You can optionnaly change the look of the icon by adding one of the following modifiers:
--   `ecl-icon--yellowbg` adds a yellow, circle background
--   `ecl-icon--blue-dark` uses the corporate dark blue
+You can change icon color and display by using color utilities and additional modifiers:
+- **ecl-text-primary**: blue icon
+- **ecl-icon--rounded ecl-bg-secondary**: adds a yellow circle background

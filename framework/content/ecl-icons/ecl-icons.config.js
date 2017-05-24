@@ -8,8 +8,8 @@ module.exports = {
       <!-- Start: @${item.handle} -->\n
       <p>\n
         <span class="ecl-icon ${item.context.modifier}"></span>\n
-        <span class="ecl-icon ecl-icon--yellowbg ${item.context.modifier}"></span>\n
-        <span class="ecl-icon ecl-icon--blue-dark ${item.context.modifier}"></span>\n
+        <span class="ecl-icon ecl-icon--rounded ecl-bg-secondary ${item.context.modifier}"></span>\n
+        <span class="ecl-icon ecl-text-primary ${item.context.modifier}"></span>\n
         <code>${item.context.modifier}</code>\n
       </p>\n
       <!-- End: @${item.handle} -->\n

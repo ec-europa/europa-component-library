@@ -42,12 +42,19 @@
 // work. The solution is by explicitly setting text-decoration:underline;
 // for the ::after-content and then overwrite this rule again with
 // text-decoration:none;
-%icon--after {
-  text-decoration: none;
-}
 
+// Deprecated
 %icon--blue-dark {
   color: #004494;
+}
+
+.ecl-icon--blue-dark {
+  @extend %icon--blue-dark;
+}
+// End deprecated
+
+%icon--after {
+  text-decoration: none;
 }
 
 %icon--tag-close-hover {
@@ -89,16 +96,11 @@
   }
 }
 
-.ecl-icon--blue-dark {
-  @extend %icon--blue-dark;
-}
-
 .ecl-icon--tag-close-hover {
   @extend %icon--tag-close-hover;
 }
 
-.ecl-icon--yellowbg {
-  background-color: $yellow-light;
+.ecl-icon--rounded {
   border-radius: 50%;
   display: inline-block;
   font-size: 14px;
@@ -111,12 +113,4 @@
     line-height: inherit;
     margin-right: 0;
   }
-}
-
-.ecl-icon--text-small {
-  font-size: map-get($font-size, 'xs');
-}
-
-.ecl-icon--margin-right {
-  margin-right: 1.5em;
 }
