@@ -2,7 +2,7 @@
 
 Colors available in ECL
 
-The primary colors are blue ($ecl-primary), yellow ($ecl-secondary) and grey ($ecl-accent).
+The primary colors are blue ($ecl-primary), yellow ($ecl-secondary) and grey ($ecl-shade).
 Only use colors to highlight important content or actions. Use sparingly.
 
 - **blue**: Used for navigational elements like links and buttons, but also as a background color (page header) to give the page more contrast.

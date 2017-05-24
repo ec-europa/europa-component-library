@@ -103,11 +103,11 @@
 .ecl-icon--rounded {
   border-radius: 50%;
   display: inline-block;
-  font-size: 14px;
-  height: 40px;
-  line-height: 40px;
+  font-size: map-get($font-size, 'xs');
+  height: map-get($spacing, 'l');
+  line-height: map-get($spacing, 'l');
   text-align: center;
-  width: 40px;
+  width: map-get($spacing, 'l');
 
   &::before {
     line-height: inherit;
