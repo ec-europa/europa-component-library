@@ -12,35 +12,35 @@ module.exports = {
       name: 'l',
       label: 'Leading paragraph',
       context: {
-        modifier: 'ecl-p ecl-p--l',
+        modifier: 'ecl-paragraph ecl-paragraph--l',
       },
     },
     {
       name: 'm',
       label: 'Medium paragraph',
       context: {
-        modifier: 'ecl-p ecl-p--m',
+        modifier: 'ecl-paragraph ecl-paragraph--m',
       },
     },
     {
       name: 's',
       label: 'Small paragraph',
       context: {
-        modifier: 'ecl-p ecl-p--s',
+        modifier: 'ecl-paragraph ecl-paragraph--s',
       },
     },
     {
       name: 'xs',
       label: 'Extra small paragraph',
       context: {
-        modifier: 'ecl-p ecl-p--xs',
+        modifier: 'ecl-paragraph ecl-paragraph--xs',
       },
     },
     {
       name: 'xxs',
       label: 'Extra extra small paragraph',
       context: {
-        modifier: 'ecl-p ecl-p--xxs',
+        modifier: 'ecl-paragraph ecl-paragraph--xxs',
       },
     },
   ],
