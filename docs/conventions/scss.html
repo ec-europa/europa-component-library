@@ -11,7 +11,7 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.0" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.1" type="text/css">
 
 
 <title>SCSS coding conventions | Europa Component Library</title>
@@ -60,27 +60,28 @@
 
     
     
-    <h1 id="rules">Rules</h1>
-<h2 id="presets">Presets</h2>
-<p>In order to enforce consistent conventions and avoid errors in our stylesheets, we use the mighty <a href="https://stylelint.io/">stylelint</a> linter with the following presets:</p>
+    <p>In order to enforce consistent conventions and avoid errors in our stylesheets, we use the mighty <a href="https://stylelint.io/">stylelint</a> linter.</p>
+<h2 id="rules">Rules</h2>
+<h3 id="presets">Presets</h3>
+<p>We use the following presets:</p>
 <ul>
 <li><a href="https://github.com/bjankord/stylelint-config-sass-guidelines">stylelint-config-sass-guidelines</a>, a config based on <a href="https://sass-guidelin.es/">Sass Guidelines</a></li>
 <li><a href="https://github.com/stylelint/stylelint-config-standard">stylelint-config-standard</a>, a standard config derived from the common rules found within a handful of CSS styleguides, including: <a href="https://github.com/necolas/idiomatic-css">The Idiomatic CSS Principles</a>,
 <a href="http://primercss.io/guidelines/#scss">GitHub’s PrimerCSS Guidelines</a>,
 <a href="https://google.github.io/styleguide/htmlcssguide.html#CSS_Formatting_Rules">Google’s CSS Style Guide</a>, <a href="https://github.com/airbnb/css#css">Airbnb’s Styleguide</a>, and <a href="http://codeguide.co/#css">@mdo’s Code Guide</a></li>
 </ul>
-<h2 id="plugins">Plugins</h2>
+<h3 id="plugins">Plugins</h3>
 <p>Furthermore, we added the <a href="https://github.com/davidtheclark/stylelint-selector-bem-pattern">stylelint-selector-bem-pattern</a> plugin to check the validity of selectors against our BEM-style conventions. All the classes we provide should follow the <code>.ecl-block__element--modifier</code> pattern.</p>
 <p>In order to enable the BEM-style validation, you have to define a component with a comment.</p>
 <code class="lang-scss"><pre><span class="hljs-comment">/** @define label */</span>
 <span class="hljs-selector-class">.ecl-label</span> {}
 <span class="hljs-selector-class">.ecl-label--primary</span> {}</pre></code><p>More information can be found on <a href="https://github.com/postcss/postcss-bem-linter#defining-a-component-and-utilities">postcss-bem-linter</a>‘s project.</p>
-<h2 id="configuration">Configuration</h2>
+<h3 id="configuration">Configuration</h3>
 <p>All the rules are made availble through our <a href="https://github.com/ec-europa/ecl-toolkit/tree/master/packages/stylelint-config-ecl">stylelint-config-ecl</a> config. You are not supposed to override this configuration.</p>
-<h1 id="automatically-formats-stylesheets">Automatically formats stylesheets</h1>
+<h2 id="automatically-formats-stylesheets">Automatically formats stylesheets</h2>
 <p>You can try to use <a href="https://github.com/morishitter/stylefmt">stylefmt</a> to format your stylesheets automatically. It can save you a lot of time but it can also introduce new errors.</p>
 <p>For this reason, we don’t officially support it. Use it at your own risk.</p>
-<h1 id="ide-integration">IDE integration</h1>
+<h2 id="ide-integration">IDE integration</h2>
 <p>Plugins for both stylelint and stylefmt are available for major editors like Atom and Sublime Text.</p>
 
     
@@ -131,16 +132,26 @@
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-docs-collection-coding-conventions">
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-docs-collection-conventions">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
-                <span>Coding Conventions</span>
+                <span>Conventions</span>
             </h4>
             <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
             
             
             
             
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="git" data-pjax>
+                
+                <span>Git Commit</span>
+            </a>
+        </li>
+        
     
         
         
@@ -168,12 +179,29 @@
         
     
         
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-docs-collection-testing">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+                <span>Testing</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../git" data-pjax>
+            <a class="Tree-entityLink" href="../testing/visual" data-pjax>
                 
-                <span>Git</span>
+                <span>Visual regression</span>
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -192,7 +220,7 @@
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.1"></script>
 
 
 
