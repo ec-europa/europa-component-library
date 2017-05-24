@@ -1,354 +1,171 @@
-/*
-Buttons
+/**
+ * Buttons component
+ * @define button
+ */
 
-Custom bootstrap buttons styling.
+@import 'buttons-mixins';
 
-.btn-default     - Button default
-.btn-primary     - Button primary
-.btn-secondary   - Button secondary
-.btn-ctn         - Button call to action
-.btn-ctn--border - Button call to action with border
-.btn-menu        - Button menu
+.ecl-button {
+  background: none;
+  border: 2px solid transparent;
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
 
-Style guide: buttons
-*/
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
 
-@mixin whitespace-reset() {
-  line-height: 1.667;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
-  white-space: normal;
+  &:focus {
+    outline: 3px solid $yellow-light;
+    outline-offset: 0;
+  }
 }
 
-%btn-default {
-  background: none;
+.ecl-button:link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ecl-button--default {
   border-color: $brand-primary;
   color: $brand-primary;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: $brand-primary;
-    color: $white;
+    color: #fff;
   }
 }
 
-.btn {
-  @extend %hidden-print;
-
-  border-radius: 0;
-  border-width: 2px;
-  font-size: map-get($font-size, 's');
-  font-weight: 600;
-  line-height: 1;
-  margin-bottom: 1em;
-  min-height: 2.75em;
-  padding: 0.75em 1em;
-  text-decoration: none;
-
-  @include focus-outline-border(3px, $yellow-light, -3px);
-
-  &:link {
-    text-decoration: none;
-  }
+.ecl-button--primary {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  color: #fff;
 
   &:hover,
-  &:active,
-  &:focus {
-    box-shadow: none;
-    position: relative;
-    text-decoration: underline;
-    z-index: 999;
-  }
-
-  &::after {
-    line-height: inherit;
-    position: static;
-  }
-
-  &.btn-default {
-    @extend %btn-default;
-  }
-
-  &.btn-primary {
-    border-color: $brand-primary;
-
-    &:hover,
-    &:active {
-      background-color: $white;
-      color: $brand-primary;
-    }
-
-    &:focus {
-      background-color: $brand-primary;
-      color: $white;
-    }
-  }
-
-  &.btn-secondary {
-    background-color: $white;
-    border-color: $white;
+  &:focus,
+  &:active {
+    background-color: #fff;
     color: $brand-primary;
   }
-
-  &.btn-ctn {
-    @include whitespace-reset();
-
-    background-color: $yellow-light;
-    color: $black;
-
-    &:hover,
-    &:active {
-      background-color: $yellow-light;
-      border-color: $text-color;
-    }
-
-    &:focus {
-      border-color: $text-color;
-      outline-color: $text-color;
-    }
-
-    &::after {
-      @extend %icon--after;
-      @extend %icon--right;
-
-      font-size: 0.8em;
-      margin-left: 10px;
-    }
-  }
-
-  &.btn-menu {
-    background-color: $brand-primary;
-    border-color: $brand-primary;
-    color: $white;
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: $white;
-    }
-
-    &:active,
-    &:focus {
-      outline: 3px solid $yellow-light;
-      outline-offset: -3px;
-    }
-
-    &:focus {
-      border-color: $yellow-light;
-      outline-color: $yellow-light;
-    }
-
-    &::after {
-      @extend %icon--after;
-      @extend %icon--arrow-down;
-
-      font-size: 0.45em;
-      margin-left: 6px !important;
-      position: relative;
-      top: -2px;
-
-      transition: all 0.3s ease 0s;
-    }
-
-    &.is-collapsed {
-      &::after {
-        transform: rotate(180deg);
-      }
-    }
-  }
 }
 
-.btn-ctn--border {
+.ecl-button--secondary {
+  background-color: #fff;
+  border-color: #fff;
+  color: $brand-primary;
+}
+
+.ecl-button--call {
   background-color: $yellow-light;
-  border-color: $black;
-  color: $black;
+  border-color: $yellow-light;
+  color: #000;
 
   &:hover,
+  &:focus,
   &:active {
-    border-color: $black;
+    border-color: #000;
   }
 
   &:focus {
-    border-color: $text-color;
-    outline-color: $text-color;
-  }
-
-  &::after {
-    display: none;
+    outline-color: #000;
   }
 }
 
-// Button modifier to add space between the button and the element above.
-.btn--margin-top {
-  margin-top: 0.556em;
-}
+.ecl-button--call-border {
+  @include ecl-button--call();
 
-// Class that can be also used on a button wrapper since there are sometimes
-// situations where button is wrapped in unnecessary markup coming from a CMS.
-.btn--no-margin-bottom {
-  * {
-    margin-bottom: 0 !important;
-  }
+  border-color: #000;
 
-  margin-bottom: 0 !important;
-}
-
-/*
-Button Condensed
-
-Button condensed element.
-
-Markup: html/btn-condensed.html
-
-Style guide: buttons.btn--condensed
-*/
-
-.btn.btn--condensed {
-  font-weight: normal;
-  width: auto;
-}
-
-/*
-Button block
-
-Button block component.
-
-Markup: html/btn-block.html
-
-Style guide: buttons.btn-block
-*/
-
-.btn-block {
-  margin-bottom: -2px !important;
-  max-width: 450px;
-  text-align: left;
-  width: 100%;
-
-  @include whitespace-reset();
-
-  &:last-child {
-    margin-bottom: 10px;
-  }
-
-  + .btn-block {
-    margin-top: 0;
+  &:focus {
+    outline-width: 2px;
   }
 }
 
-/*
-Button Search
-
-Button search component.
-
-Markup: html/btn-search.html
-
-Style guide: buttons.btn-search
-*/
-
-.btn.btn-search {
+.ecl-button--form {
   background-color: $grey-light;
-  border-color: $white;
-  color: $blue-dark;
+  border-color: $grey-light;
 
-  &:hover {
-    background-color: $grey-light;
+  &:hover,
+  &:focus,
+  &:active {
     color: $grey-base;
   }
 }
 
-/*
-Button Collapse
+.ecl-button--light {
+  @include ecl-button--default();
 
-Button collapse element.
-
-Markup: html/btn-collapse.html
-
-Style guide: buttons.btn-collapse
-*/
-
-.btn-collapse {
-  @extend %btn-default;
-
-  .toggling-text::after {
-    content: '\00a0';
-  }
-
-  &:hover,
-  &:focus {
-    .toggling-text,
-    .toggling-text::after {
-      text-decoration: underline;
-    }
-  }
-
-  .ecl-icon {
-    margin-left: 0.3em;
-
-    &::before {
-      vertical-align: bottom;
-
-      transition: all 0.3s ease 0s;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    .ecl-icon::before {
-      color: $white;
-    }
-  }
-
-  &.collapsed {
-    .ecl-icon::before {
-      transform: rotate(180deg);
-    }
-  }
+  font-weight: 500;
 }
 
-.no-js {
-  .btn-collapse {
-    display: none;
-    visibility: hidden;
-  }
+.ecl-button--block {
+  display: block;
+  max-width: 30em;
+  text-align: left;
+  width: 100%;
 }
 
-// External link specific adjustments.
-@mixin btn-external-link() {
-  padding-right: 2.2em;
-
+.ecl-button--arrow-up {
   &::after {
-    line-height: 1.4 !important;
-    margin-left: 0.5em;
-    position: absolute;
-  }
+    @extend %icon--after;
+    @extend %icon--arrow-up;
 
-  // Reset for '.btn-block'.
-  &.btn-block {
-    padding-right: 1em;
-
-    &::after {
-      line-height: inherit;
-      position: static;
-    }
-  }
-
-  // Call to action button.
-  &.btn-ctn::after {
-    line-height: 2 !important;
-    position: absolute;
-  }
-
-  // Call to action button.
-  &.btn-menu::after {
-    line-height: 3.5 !important;
-    position: absolute;
+    @include ecl-button--arrow();
   }
 }
 
-.btn {
-  &#{'[' + $external-link-pattern + ']'}:not(.is-internal) {
-    &:not(#{$ec-url-patterns}) {
-      @include btn-external-link();
-    }
+.ecl-button--arrow-down {
+  &::after {
+    @extend %icon--after;
+    @extend %icon--arrow-down;
+
+    @include ecl-button--arrow();
+  }
+}
+
+.ecl-button--caret-up {
+  &::after {
+    @extend %icon--after;
+    @extend %icon--up;
+
+    @include ecl-button--caret();
+  }
+}
+
+.ecl-button--caret-right {
+  &::after {
+    @extend %icon--after;
+    @extend %icon--right;
+
+    @include ecl-button--caret();
+  }
+}
+
+.ecl-button--caret-down {
+  &::after {
+    @extend %icon--after;
+    @extend %icon--down;
+
+    @include ecl-button--caret();
+  }
+}
+
+.ecl-button--caret-left {
+  &::after {
+    @extend %icon--after;
+    @extend %icon--left;
+
+    @include ecl-button--caret();
   }
 }

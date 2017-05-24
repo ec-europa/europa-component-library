@@ -1,0 +1,10 @@
+{% set type = type|default('button') %}
+{% set modifier = modifier|default('default') %}
+
+{% if type == 'link' %}
+  <a href="{{ to|default('#') }}" class="ecl-button ecl-button--{{ modifier }}">{{ label }}</a>
+{% elseif type == 'input' %}
+  <input type="button" class="ecl-button ecl-button--{{ modifier }}" value="{{ label }}">
+{% else %}
+  <button class="ecl-button ecl-button--{{ modifier }}">{{ label }}</button>
+{% endif %}
