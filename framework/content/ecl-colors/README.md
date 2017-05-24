@@ -14,3 +14,5 @@ Notification colors should be used as follow:
 - $ecl-warning: for warnings
 - $ecl-success: for success messages
 - $ecl-error: for errors
+
+For more information, see [the wiki page](https://webgate.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=650250290#Typography..-Fontcolour)
