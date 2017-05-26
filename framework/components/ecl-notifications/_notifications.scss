@@ -6,13 +6,13 @@ Notification
   @extend %hidden-print;
 
   padding: 10px 0 6px;
-  background-color: $yellow-light;
+  background-color: map-get($ecl-colors, 'yellow-100');
   font-size: 14px;
 
   a {
-    color: $black;
+    color: #000;
 
-    @include focus-outline-border(3px, $black, 2px);
+    @include focus-outline-border(3px, #000, 2px);
 
     &:hover,
     &:focus {

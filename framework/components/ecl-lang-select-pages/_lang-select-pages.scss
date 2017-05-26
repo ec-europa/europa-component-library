@@ -7,9 +7,9 @@ Language select (Page)
 
   width: 100%;
   overflow: hidden;
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
   font-size: map-get($font-size, 'xs');
-  border-bottom: 1px solid $grey;
+  border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
 }
 
 .ecl-icon.lang-select-page__icon {
@@ -45,9 +45,9 @@ ul.lang-select-page__list {
     }
 
     &.is-selected {
-      background-color: $yellow-light;
+      background-color: map-get($ecl-colors, 'yellow-100');
       font-weight: bold;
-      color: $black;
+      color: #000;
     }
   }
 }
@@ -73,12 +73,12 @@ select.lang-select-page__list {
 
 .lang-select-page--transparent {
   background: transparent;
-  border-bottom: 1px solid $white;
-  color: $white;
+  border-bottom: 1px solid #fff;
+  color: #fff;
 
   select.lang-select-page__list {
-    background-color: $blue-darker;
-    color: $white;
+    background-color: map-get($ecl-colors, 'blue-110');
+    color: #fff;
     // firefox hide arrow
     -moz-appearance: none;
     text-indent: 0.01px;
@@ -90,7 +90,7 @@ select.lang-select-page__list {
     }
 
     & > option {
-      background-color: $blue-darker;
+      background-color: map-get($ecl-colors, 'blue-110');
     }
 
     &::after {
@@ -108,11 +108,11 @@ select.lang-select-page__list {
   .lang-select-page__option {
     &.is-selected,
     &.is-selected a {
-      color: $black;
+      color: #000;
     }
 
     a {
-      color: $white;
+      color: #fff;
     }
   }
 }

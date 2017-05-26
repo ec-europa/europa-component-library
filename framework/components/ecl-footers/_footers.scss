@@ -9,21 +9,21 @@ Style guide footer
 */
 
 .footer {
-  background-color: $blue-medium;
+  background-color: map-get($ecl-colors, 'blue-50');
 }
 
 .footer-bottom {
-  background-color: $brand-primary;
+  background-color: $ecl-color-primary;
   padding: 0.9em 0;
 }
 
 .footer,
 .footer-bottom {
   @extend %hidden-print;
-  color: $white;
+  color: #fff;
 
   a {
-    color: $white;
+    color: #fff;
     text-decoration: underline;
     &:hover,
     &:active,
@@ -45,7 +45,7 @@ Style guide footer
 }
 
 .footer__title {
-  color: $white;
+  color: #fff;
   padding-bottom: 0;
 }
 
@@ -65,7 +65,7 @@ Style guide footer
 
     a {
       padding: 0;
-      @include focus-outline-border(3px, $yellow-light, 5px);
+      @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
       &:hover,
       &:active,
       &:focus {
@@ -86,7 +86,7 @@ Style guide footer
   margin-top: 0.6em;
   margin-bottom: 1.7em;
   padding-top: 1.2em;
-  border-top: 2px solid $blue-lighter;
+  border-top: 2px solid map-get($ecl-colors, 'blue-25');
 }
 
 // Icons.

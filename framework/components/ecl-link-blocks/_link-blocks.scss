@@ -7,7 +7,7 @@ Style guide link-block
 */
 
 .link-block {
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
   padding: 1.111em;
 }
 
@@ -37,7 +37,7 @@ Style guide link-block
   font-weight: 600;
   font-size: map-get($font-size, 's');
   line-height: 1.875em;
-  color: $blue-darker;
+  color: map-get($ecl-colors, 'blue-110');
   margin-bottom: 0.688em;
   padding: 0;
 }

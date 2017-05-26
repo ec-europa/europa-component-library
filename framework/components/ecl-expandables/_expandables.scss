@@ -5,7 +5,7 @@ Expandable
 .expandable__content {
   float: left;
   width: 100%;
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
 
   @include media-breakpoint-up(xs) {
     & > p {
@@ -18,7 +18,7 @@ Expandable
 .expandable__toggle {
   float: left;
   width: 100%;
-  background: $yellow-light;
+  background: map-get($ecl-colors, 'yellow-100');
 
   &.collapsed {
     background: none;
@@ -38,7 +38,7 @@ Expandable
 
   &:hover,
   &:focus {
-    background: $yellow-light;
+    background: map-get($ecl-colors, 'yellow-100');
     outline: none;
     text-decoration: underline;
   }

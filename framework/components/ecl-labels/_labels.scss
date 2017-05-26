@@ -3,7 +3,7 @@
  * @define label
  */
 
-$label_text_color_light: $white;
+$label_text_color_light: #fff;
 
 .label {
   display: inline-block;
@@ -11,7 +11,7 @@ $label_text_color_light: $white;
   font-size: map-get($font-size, 'xs');
   font-weight: normal;
   letter-spacing: 0.12em;
-  color: $grey-base;
+  color: $ecl-color-shade;
   border-radius: 0;
 }
 
@@ -46,7 +46,7 @@ $label_text_color_light: $white;
 }
 
 .label--next {
-  background-color: $yellow-lighter;
+  background-color: map-get($ecl-colors, 'yellow-50');
 }
 
 .label--danger {
@@ -61,8 +61,8 @@ $label_text_color_light: $white;
 }
 
 .label--highlight {
-  background-color: $yellow-light;
-  color: $grey-base;
+  background-color: map-get($ecl-colors, 'yellow-100');
+  color: $ecl-color-shade;
 
   /* postcss-bem-linter: ignore */
   &.label--meta::after {
@@ -72,8 +72,8 @@ $label_text_color_light: $white;
 }
 
 .label--status {
-  background-color: $grey-lighter;
-  color: $grey-base;
+  background-color: map-get($ecl-colors, 'grey-10');
+  color: $ecl-color-shade;
 }
 
 .label--block {

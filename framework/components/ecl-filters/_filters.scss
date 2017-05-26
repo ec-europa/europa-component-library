@@ -3,7 +3,7 @@ Filters
 */
 
 .filters {
-  background: $grey-lighter;
+  background: map-get($ecl-colors, 'grey-10');
   margin-left: -($grid-gutter-width-base / 2);
   margin-right: -($grid-gutter-width-base / 2);
 }
@@ -75,7 +75,7 @@ Filters
 }
 
 .filters__close {
-  color: $brand-primary !important;
+  color: $ecl-color-primary !important;
   opacity: 1 !important;
   font-size: 1em;
   font-weight: 400;

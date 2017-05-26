@@ -35,9 +35,9 @@ Style guide tags
   margin-bottom: 0.4em;
   padding: 0.5em;
   line-height: 1;
-  background-color: $grey-light;
+  background-color: map-get($ecl-colors, 'grey-15');
   font-size: map-get($font-size, 'xs');
-  color: $text-color;
+  color: $ecl-color-shade;
   text-transform: lowercase;
   border-radius: 5px;
   outline: 3px transparent solid;
@@ -45,7 +45,7 @@ Style guide tags
 
 .tags__item a,
 a.tags__item {
-  color: $text-color;
+  color: $ecl-color-shade;
 
   &:hover,
   &:active,
@@ -55,7 +55,7 @@ a.tags__item {
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px $yellow-light;
+    box-shadow: 0 0 0 3px map-get($ecl-colors, 'yellow-100');
   }
 }
 
@@ -115,8 +115,8 @@ Style guide tags.facet-close
   .tags__item a,
   a.tags__item {
     &:hover {
-      background-color: $grey-base;
-      color: $white;
+      background-color: $ecl-color-shade;
+      color: #fff;
     }
   }
 }

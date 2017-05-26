@@ -70,9 +70,9 @@ Style guide listing.1
 */
 
 // Navigation block color settings.
-$navigation-title-color: $blue-darker;
-$navigation-title-hover-color: $black;
-$navigation-top-border-color: $yellow-light;
+$navigation-title-color: map-get($ecl-colors, 'blue-110');
+$navigation-title-hover-color: #000;
+$navigation-top-border-color: map-get($ecl-colors, 'yellow-100');
 
 @mixin _listing_external_link_mixin() {
   &::after {
@@ -156,7 +156,7 @@ ul.listing--title {
 .listing--title .listing__title {
   &:hover,
   &:focus {
-    color: $grey-base;
+    color: $ecl-color-shade;
     text-decoration: underline !important;
   }
 }
@@ -211,7 +211,7 @@ Style guide listing.5
 
   h3.listing__title {
     font-size: map-get($font-size, 'm');
-    color: $grey-base;
+    color: $ecl-color-shade;
   }
 
   .listing__author {
@@ -263,7 +263,7 @@ Style guide listing.3
   .listing__item {
     border-top: none !important;
     border-bottom: none !important;
-    border-left: 5px solid $blue-dark;
+    border-left: 5px solid map-get($ecl-colors, 'blue-100');
     padding: map-get($font-size, 'l')/2 0 map-get($font-size, 'l')/2 map-get($font-size, 'l');
     margin: map-get($font-size, 'l')/2 0;
   }
@@ -302,13 +302,13 @@ Style guide listing.3
 .listing--cta {
   .listing__item-link {
     padding: map-get($font-size, 'l');
-    background-color: $brand-primary;
+    background-color: $ecl-color-primary;
 
     &:hover,
     &:active,
     &:focus {
       .listing__title {
-        color: $white;
+        color: #fff;
       }
     }
   }
@@ -318,7 +318,7 @@ Style guide listing.3
 
     .listing__title,
     a {
-      color: $white;
+      color: #fff;
     }
 
     &:first-child {
@@ -398,7 +398,7 @@ Style guide listing.6
   }
 
   .listing__description {
-    color: $text-color;
+    color: $ecl-color-shade;
     text-decoration: none;
   }
 
@@ -420,7 +420,7 @@ Style guide listing.6
     // Margin bottom 0.5em of the previous item.
     margin: (14/15 - 0.5)+em 0 0 0; // 14px
     padding-top: (14/15 - 0.3)+em; // 14px
-    border-top: 1px solid $grey-light;
+    border-top: 1px solid map-get($ecl-colors, 'grey-15');
   }
 }
 
@@ -460,7 +460,7 @@ Style guide listing.6
 }
 
 a.listing__title {
-  color: $brand-primary;
+  color: $ecl-color-primary;
 }
 
 // .listing__date element.
@@ -495,10 +495,10 @@ a.listing__title {
   float: left;
   width: 100%;
   padding: 1.111em 0;
-  border-bottom: 1px solid $grey-lighter;
+  border-bottom: 1px solid map-get($ecl-colors, 'grey-10');
 
   &:first-child {
-    border-top: 1px solid $grey-lighter;
+    border-top: 1px solid map-get($ecl-colors, 'grey-10');
   }
 
   // @todo: check if we can remove safely position relative that is applied
@@ -531,7 +531,7 @@ a.listing__title {
   display: block;
   float: left;
   width: 100%;
-  color: $grey-base;
+  color: $ecl-color-shade;
 }
 
 // .listing__item-link element
@@ -543,7 +543,7 @@ a.listing__title {
     text-decoration: none;
 
     .listing__title {
-      color: $grey-base;
+      color: $ecl-color-shade;
       text-decoration: underline;
     }
   }
@@ -632,7 +632,7 @@ a.listing__title {
 
   a:link &,
   a:visited & {
-    color: $brand-primary;
+    color: $ecl-color-primary;
   }
 }
 

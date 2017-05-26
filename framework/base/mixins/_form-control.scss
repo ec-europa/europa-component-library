@@ -23,7 +23,7 @@
     color: $form-control-text-color-focus;
   }
 
-  @include focus-outline-border(3px, $yellow-light, 0, none);
+  @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
 
   // Disabled modifier.
   &.is-disabled {

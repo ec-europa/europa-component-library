@@ -4,7 +4,7 @@ Pager
 
 .pager__wrapper {
   text-align: center;
-  border-top: 2px solid $black;
+  border-top: 2px solid #000;
 }
 
 .pager {
@@ -15,7 +15,7 @@ Pager
   width: 100%;
 
   > li {
-    color: $black;
+    color: #000;
     font-size: map-get($font-size, 's');
     font-weight: 600;
     border: 2px solid transparent;
@@ -71,12 +71,12 @@ Pager
     }
 
     > a {
-      color: $blue-dark;
+      color: map-get($ecl-colors, 'blue-100');
       font-weight: 400;
       text-decoration: none;
 
       &:hover {
-        color: $black;
+        color: #000;
         text-decoration: underline;
       }
     }
@@ -98,7 +98,7 @@ Pager
         float: left !important;
 
         &.pager__item--current {
-          border: 2px solid $black;
+          border: 2px solid #000;
           position: relative;
         }
       }

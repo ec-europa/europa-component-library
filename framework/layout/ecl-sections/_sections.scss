@@ -151,18 +151,18 @@ $section-spacing: 1.667em;
 }
 
 .section__group--highlight-grey {
-  background-color: $grey-lighter;
+  background-color: map-get($ecl-colors, 'grey-10');
   overflow: hidden;
 }
 
 .section__group--highlight-grey-lightest {
   @extend .section__group--highlight-grey;
 
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
 }
 
 .section__group--highlight-yellow {
-  background-color: $yellow-light;
+  background-color: map-get($ecl-colors, 'yellow-100');
   overflow: hidden;
 }
 

@@ -15,7 +15,7 @@ Style guide: siteswitcher
   @extend %hidden-print;
 
   display: block;
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
   font-size: map-get($font-size, 's');
 }
 
@@ -55,11 +55,11 @@ Style guide: siteswitcher
   }
 
   &.is-selected {
-    background-color: $blue-dark;
+    background-color: map-get($ecl-colors, 'blue-100');
     border-left: none;
 
     & > a {
-      color: $white;
+      color: #fff;
     }
   }
 }
@@ -67,7 +67,7 @@ Style guide: siteswitcher
 .site-switcher--header {
   .site-switcher__list {
     &:first-child {
-      border-left: 1px solid $grey;
+      border-left: 1px solid map-get($ecl-colors, 'grey-50');
     }
   }
 
@@ -83,14 +83,14 @@ Style guide: siteswitcher
       height: 0;
       margin-left: -10px;
       border: 10px solid rgba(0, 68, 148, 0);
-      border-top-color: $blue-dark;
+      border-top-color: map-get($ecl-colors, 'blue-100');
       pointer-events: none;
     }
   }
 }
 
 .site-switcher--footer {
-  border-bottom: 1px solid $grey-lightest;
+  border-bottom: 1px solid map-get($ecl-colors, 'grey-5');
 
   .site-switcher__list {
     &:first-child {
@@ -110,7 +110,7 @@ Style guide: siteswitcher
       height: 0;
       margin-left: -10px;
       border: 10px solid rgba(0, 68, 148, 0);
-      border-bottom-color: $blue-dark;
+      border-bottom-color: map-get($ecl-colors, 'blue-100');
       pointer-events: none;
     }
   }

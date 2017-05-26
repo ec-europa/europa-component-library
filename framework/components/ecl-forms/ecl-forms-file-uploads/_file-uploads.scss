@@ -14,9 +14,9 @@ Style guide: form.file-upload
     white-space: nowrap;
 
     &:focus {
-      border-color: $yellow-light;
+      border-color: map-get($ecl-colors, 'yellow-100');
 
-      @include focus-outline-border(3px, $yellow-light, 0, none);
+      @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
     }
   }
 
@@ -43,24 +43,24 @@ Style guide: form.file-upload
   .file-upload__label {
     display: inline-block;
     max-width: none;
-    background-color: $grey-base;
-    color: $white;
+    background-color: $ecl-color-shade;
+    color: #fff;
     text-align: center;
     vertical-align: middle;
-    border: 2px solid $grey-base;
+    border: 2px solid $ecl-color-shade;
     text-decoration: none;
     cursor: pointer;
 
     &:hover,
     &:focus {
-      border-color: $yellow-light;
+      border-color: map-get($ecl-colors, 'yellow-100');
     }
   }
 
   .has-error & {
     .file-upload__label {
-      border-color: $red;
-      background-color: $red;
+      border-color: $ecl-color-error;
+      background-color: $ecl-color-error;
     }
   }
 

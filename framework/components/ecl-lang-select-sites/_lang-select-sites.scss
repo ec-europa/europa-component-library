@@ -27,7 +27,7 @@
     text-decoration: none;
 
     &:focus {
-      border-color: $yellow-light;
+      border-color: map-get($ecl-colors, 'yellow-100');
       outline: none;
     }
   }
@@ -41,7 +41,7 @@
   }
 
   .lang-select-site__code {
-    color: $brand-primary;
+    color: $ecl-color-primary;
     display: inline-block;
     position: relative;
     text-transform: uppercase;
@@ -49,8 +49,8 @@
   }
 
   .lang-select-site__code-text {
-    background-color: $brand-primary;
-    color: $white;
+    background-color: $ecl-color-primary;
+    color: #fff;
     font-size: map-get($font-size, 'xs');
     left: -1px;
     position: relative;
@@ -58,7 +58,7 @@
   }
 
   .lang-select-site__icon {
-    color: $brand-primary;
+    color: $ecl-color-primary;
     font-size: map-get($font-size, 'xs') * 2;
     left: -1px;
     line-height: 1.4;

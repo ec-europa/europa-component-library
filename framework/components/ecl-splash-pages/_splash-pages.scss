@@ -8,7 +8,7 @@ $padding-splash-xl: 2em; // 52px
 
 .splash-page {
   &__site-header {
-    background-color: $white;
+    background-color: #fff;
 
     .ecl-logo {
       float: none;
@@ -41,14 +41,14 @@ $padding-splash-xl: 2em; // 52px
       padding-top: $padding-splash-xl;
       padding-bottom: $padding-splash-xl;
       font-size: map-get($font-size, 'l');
-      color: $white;
+      color: #fff;
       clear: both;
     }
   }
 
   &__helper-text {
     margin-top: $padding-splash-xl;
-    color: $white;
+    color: #fff;
     font-size: map-get($font-size, 's');
     clear: both;
 
@@ -60,12 +60,12 @@ $padding-splash-xl: 2em; // 52px
   &__btn-language {
     width: 100%;
     margin-bottom: 4px;
-    background-color: $white;
+    background-color: #fff;
     text-align: left; // overriding bootstrap btn class
 
     &:hover {
-      color: $black;
-      background-color: $yellow-light;
+      color: #000;
+      background-color: map-get($ecl-colors, 'yellow-100');
     }
 
     &.ecl-icon--check::before {
@@ -81,10 +81,10 @@ $padding-splash-xl: 2em; // 52px
     padding: 0.5em 0 0.5em 1em;
     font-size: map-get($font-size, 's');
     font-weight: normal;
-    color: $white;
+    color: #fff;
 
     &:hover {
-      color: $white;
+      color: #fff;
     }
 
     &::after {
@@ -94,7 +94,7 @@ $padding-splash-xl: 2em; // 52px
       width: 1.6em;
       height: 1.6em;
       margin-left: 0.5em;
-      border: 1px solid $white;
+      border: 1px solid #fff;
       border-radius: 1.1em;
       text-align: center;
     }
@@ -118,8 +118,8 @@ $padding-splash-xl: 2em; // 52px
 
     .splash-page__btn-language {
       &.is-active {
-        background-color: $yellow-light;
-        color: $black;
+        background-color: map-get($ecl-colors, 'yellow-100');
+        color: #000;
         box-shadow: none;
       }
 
@@ -179,8 +179,8 @@ body {
 @include media-breakpoint-up(md) {
   .splash-page__btn-language {
     &:hover {
-      color: $black;
-      background-color: $yellow-light;
+      color: #000;
+      background-color: map-get($ecl-colors, 'yellow-100');
     }
   }
 }

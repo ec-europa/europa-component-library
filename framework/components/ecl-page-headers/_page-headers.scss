@@ -16,14 +16,14 @@
 .page-header {
   margin: 0;
   padding: 0 0 1.5em;
-  background-color: $brand-primary;
-  color: $white;
+  background-color: $ecl-color-primary;
+  color: #fff;
   border-bottom: none;
 
   h1 {
     margin: 0;
     line-height: 1.25;
-    color: $white;
+    color: #fff;
 
     span {
       margin-top: 0.175em;
@@ -42,16 +42,16 @@
     margin: 0;
     line-height: 1.45;
     font-size: map-get($font-size, 'l');
-    color: $white;
+    color: #fff;
   }
 
   a {
-    color: $white;
+    color: #fff;
 
-    @include focus-outline-border(3px, $yellow-light, 2px);
+    @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 2px);
 
     &:hover:not(.breadcrumb__link, .btn) {
-      color: $yellow-light;
+      color: map-get($ecl-colors, 'yellow-100');
     }
 
     &#{"[" + $external-link-pattern + "]"}:not(.is-internal, .listing__title) {
@@ -132,12 +132,12 @@
     min-height: 75px;
     margin: 75px 0 0;
     padding: 16px;
-    background-color: $blue-darker;
+    background-color: map-get($ecl-colors, 'blue-110');
   }
 
   .field__label--above {
     padding: 0;
-    color: $white;
+    color: #fff;
     font-size: map-get($font-size, 's');
     font-weight: 400;
     text-transform: uppercase;
@@ -163,15 +163,15 @@
       height: 34px;
       margin: 0;
       line-height: 34px;
-      background-color: $blue-darker;
+      background-color: map-get($ecl-colors, 'blue-110');
       text-align: center;
     }
 
     p {
       width: 550px;
       padding: 22px 5px 22px 33px;
-      background-color: $white;
-      color: $blue-dark;
+      background-color: #fff;
+      color: map-get($ecl-colors, 'blue-100');
     }
   }
 }
@@ -193,10 +193,10 @@
     @include media-breakpoint-up(msm) {
       .page-header__hero-title {
         a {
-          color: $blue-dark;
+          color: map-get($ecl-colors, 'blue-100');
 
           &:hover {
-            color: $grey-base;
+            color: $ecl-color-shade;
           }
         }
       }

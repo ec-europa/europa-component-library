@@ -19,7 +19,7 @@ Style guide table responsive
   th {
     background-color: transparent;
     font-weight: bold;
-    color: $grey-base;
+    color: $ecl-color-shade;
   }
 
   td,
@@ -41,7 +41,7 @@ Style guide table responsive
     }
 
     tr {
-      border-bottom: 1px solid $grey;
+      border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
 
       &:nth-of-type(2n) {
         background-color: inherit;
@@ -65,9 +65,9 @@ Style guide table responsive
         }
 
         &.table-responsive__heading {
-          background-color: $grey-base;
+          background-color: $ecl-color-shade;
           font-weight: bold;
-          color: $white;
+          color: #fff;
         }
 
         &.table-responsive__group_label {
@@ -101,18 +101,18 @@ Style guide table responsive
       display: table-header-group;
 
       tr:first-child th {
-        border-bottom: 1px solid $grey-base;
+        border-bottom: 1px solid $ecl-color-shade;
         vertical-align: top;
       }
 
       tr:last-child:not(:first-child) {
-        border-bottom: 3px solid $grey-base;
+        border-bottom: 3px solid $ecl-color-shade;
       }
     }
 
     /* Zebra striping */
     tr:nth-of-type(even) {
-      background-color: $grey-lightest;
+      background-color: map-get($ecl-colors, 'grey-5');
     }
   }
 }

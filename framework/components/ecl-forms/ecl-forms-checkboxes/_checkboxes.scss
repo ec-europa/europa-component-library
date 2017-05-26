@@ -4,22 +4,22 @@ Checkbox
 
 // Checkbox and radio.
 // Unchecked.
-$form-checkbox-color-unchecked: $grey-dark;
-$form-checkbox-background-color-unchecked: $grey-lighter;
+$form-checkbox-color-unchecked: map-get($ecl-colors, 'grey-100');
+$form-checkbox-background-color-unchecked: map-get($ecl-colors, 'grey-10');
 
 // Unchecked, hover.
-$form-checkbox-color-unchecked-hover: $grey-dark;
-$form-checkbox-border-color-unchecked-hover: $brand-primary;
-$form-checkbox-background-color-unchecked-hover: $white;
+$form-checkbox-color-unchecked-hover: map-get($ecl-colors, 'grey-100');
+$form-checkbox-border-color-unchecked-hover: $ecl-color-primary;
+$form-checkbox-background-color-unchecked-hover: #fff;
 
 // Checked.
-$form-checkbox-color-checked: $white;
-$form-checkbox-background-color-checked: $brand-primary;
+$form-checkbox-color-checked: #fff;
+$form-checkbox-background-color-checked: $ecl-color-primary;
 
 // Checked, hover.
-$form-checkbox-color-checked-hover: $white;
-$form-checkbox-border-color-checked-hover: $yellow-light;
-$form-checkbox-background-color-checked-hover: $brand-primary;
+$form-checkbox-color-checked-hover: #fff;
+$form-checkbox-border-color-checked-hover: map-get($ecl-colors, 'yellow-100');
+$form-checkbox-background-color-checked-hover: $ecl-color-primary;
 
 // Icon size.
 $form-checkbox-icon-size: 1.5em; // 24px
@@ -64,7 +64,7 @@ $form-checkbox-icon-size: 1.5em; // 24px
       width: $form-checkbox-icon-size;
       height: $form-checkbox-icon-size;
       margin-left: -20px;
-      background: $white url('../images/svg/checkbox-unchecked.svg') no-repeat;
+      background: #fff url('../images/svg/checkbox-unchecked.svg') no-repeat;
       border: 3px solid transparent;
       border-radius: 6px;
 
@@ -86,7 +86,7 @@ $form-checkbox-icon-size: 1.5em; // 24px
       & + label {
         & + a {
           position: relative;
-          color: $grey-base;
+          color: $ecl-color-shade;
           text-decoration: none;
           top: 0.25em;
         }

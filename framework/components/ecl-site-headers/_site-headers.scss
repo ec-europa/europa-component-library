@@ -4,7 +4,7 @@
  */
 
 .site-header {
-  color: $brand-primary;
+  color: $ecl-color-primary;
   overflow: hidden;
   padding: 14px 0 0;
   position: relative;
@@ -18,7 +18,7 @@
   }
 
   a {
-    @include focus-outline-border(3px, $yellow-light, 5px);
+    @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
   }
 }
 

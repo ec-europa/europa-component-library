@@ -18,12 +18,12 @@
 
     .listing__title {
       padding: 0;
-      color: $black;
+      color: #000;
     }
   }
 
   .listing__item-link {
-    @include focus-outline-border(3px, $grey-base, 8px);
+    @include focus-outline-border(3px, $ecl-color-shade, 8px);
   }
 
   .smaller {
@@ -34,16 +34,16 @@
       float: left;
       width: 100%;
       margin-top: 2em;
-      color: $black;
+      color: #000;
       text-decoration: underline;
 
       &:hover {
-        color: $black;
+        color: #000;
         text-decoration: none;
       }
 
       &:focus {
-        @include focus-outline-border(3px, $grey-base, 2px, none);
+        @include focus-outline-border(3px, $ecl-color-shade, 2px, none);
       }
     }
   }
@@ -54,7 +54,7 @@
 
   p {
     font-size: map-get($font-size, 's');
-    color: $black;
+    color: #000;
   }
 
   .field--field-site-menu-links {
@@ -72,11 +72,11 @@
         }
 
         &:hover {
-          color: $grey-base;
+          color: $ecl-color-shade;
         }
 
         &:focus {
-          outline: 3px solid $grey-base;
+          outline: 3px solid $ecl-color-shade;
         }
       }
     }
@@ -104,7 +104,7 @@
 
   .btn {
     width: 100%;
-    border: 3px solid $brand-primary;
+    border: 3px solid $ecl-color-primary;
   }
 }
 

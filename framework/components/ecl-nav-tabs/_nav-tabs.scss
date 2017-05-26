@@ -14,27 +14,27 @@ ul.nav-tabs,
   max-width: inherit !important;
   padding: 0;
   margin-bottom: 2em !important;
-  border-bottom: 2px solid $grey;
+  border-bottom: 2px solid map-get($ecl-colors, 'grey-50');
 
   > li {
     margin-bottom: -2px;
 
     &.active {
       > a {
-        border-bottom: 2px solid $white;
-        border-top: 2px solid $grey;
-        border-right: 2px solid $grey;
-        border-left: 2px solid $grey;
-        color: $grey-base;
+        border-bottom: 2px solid #fff;
+        border-top: 2px solid map-get($ecl-colors, 'grey-50');
+        border-right: 2px solid map-get($ecl-colors, 'grey-50');
+        border-left: 2px solid map-get($ecl-colors, 'grey-50');
+        color: $ecl-color-shade;
 
         &:hover,
         &:active,
         &:focus {
-          border-bottom: 2px solid $white;
-          border-top: 2px solid $grey;
-          border-right: 2px solid $grey;
-          border-left: 2px solid $grey;
-          color: $grey-base;
+          border-bottom: 2px solid #fff;
+          border-top: 2px solid map-get($ecl-colors, 'grey-50');
+          border-right: 2px solid map-get($ecl-colors, 'grey-50');
+          border-left: 2px solid map-get($ecl-colors, 'grey-50');
+          color: $ecl-color-shade;
         }
 
         &:hover {
@@ -42,8 +42,8 @@ ul.nav-tabs,
         }
 
         &:focus {
-          background: $yellow-light;
-          border-bottom-color: $yellow-light;
+          background: map-get($ecl-colors, 'yellow-100');
+          border-bottom-color: map-get($ecl-colors, 'yellow-100');
         }
       }
     }
@@ -54,13 +54,13 @@ ul.nav-tabs,
 
       &:hover {
         background: none;
-        border-color: transparent transparent $grey transparent;
+        border-color: transparent transparent map-get($ecl-colors, 'grey-50') transparent;
         text-decoration: underline;
       }
 
       &:focus {
-        background: $yellow-light;
-        border-bottom-color: $yellow-light;
+        background: map-get($ecl-colors, 'yellow-100');
+        border-bottom-color: map-get($ecl-colors, 'yellow-100');
         outline: none;
       }
     }

@@ -81,7 +81,7 @@ $datepicker-color-background: #eaeaea;
 
       span,
       select {
-        color: $white;
+        color: #fff;
       }
 
       span {
@@ -93,7 +93,7 @@ $datepicker-color-background: #eaeaea;
         @include form-control();
 
         background: $datepicker-color-select;
-        color: $white;
+        color: #fff;
         border: none;
         height: 100%;
         width: 49% !important;
@@ -103,7 +103,7 @@ $datepicker-color-background: #eaeaea;
         padding-right: 0;
         padding-left: 0.75em;
 
-        @include focus-outline-border(3px, $yellow-light, -3px, none);
+        @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
 
         position: relative;
 
@@ -119,7 +119,7 @@ $datepicker-color-background: #eaeaea;
         &:hover,
         &:active,
         &:focus {
-          color: $white;
+          color: #fff;
         }
       }
     }
@@ -140,7 +140,7 @@ $datepicker-color-background: #eaeaea;
 
   .ui-state-default {
     border: none;
-    background-color: $white;
+    background-color: #fff;
     color: #404040;
     text-align: center;
     margin: 1px;
@@ -154,7 +154,7 @@ $datepicker-color-background: #eaeaea;
 
   .ui-state-highlight {
     background-color: #fed500;
-    color: $black;
+    color: #000;
   }
 }
 
@@ -184,7 +184,7 @@ $datepicker-color-background: #eaeaea;
     right: 0.5em;
     // For the icon does not interfere with the clickable area.
     pointer-events: none;
-    color: $grey;
+    color: map-get($ecl-colors, 'grey-50');
   }
 }
 
