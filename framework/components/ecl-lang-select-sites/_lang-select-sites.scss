@@ -4,14 +4,14 @@
  */
 
 .lang-select-site {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   position: absolute;
   right: $ecl-grid-gutter-width-base / 2;
   text-align: center;
   top: 0;
 
-  @include media-breakpoint-up(md) {
+  @include ecl-media-breakpoint-up(md) {
     float: left;
     position: static;
   }

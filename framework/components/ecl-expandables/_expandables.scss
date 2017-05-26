@@ -7,7 +7,7 @@ Expandable
   width: 100%;
   background-color: map-get($ecl-colors, 'grey-5');
 
-  @include media-breakpoint-up(xs) {
+  @include ecl-media-breakpoint-up(xs) {
     & > p {
       margin: 0.8em 0.8em 0.8em 3.2em;
       font-size: map-get($ecl-font-size, 's');

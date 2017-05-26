@@ -3,7 +3,7 @@ Notification
 */
 
 .notification {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   padding: 10px 0 6px;
   background-color: map-get($ecl-colors, 'yellow-100');
@@ -12,7 +12,7 @@ Notification
   a {
     color: #000;
 
-    @include focus-outline-border(3px, #000, 2px);
+    @include ecl-focus-outline-border(3px, #000, 2px);
 
     &:hover,
     &:focus {
@@ -66,7 +66,7 @@ Notification
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .notification__content {
     .notification__text {
       width: 75%;
@@ -78,7 +78,7 @@ Notification
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include ecl-media-breakpoint-up(lg) {
   .notification__content__more {
     float: right;
   }

@@ -66,7 +66,7 @@
   }
 
   a {
-    @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 2px);
+    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 2px);
 
     &:link {
       text-decoration: none;
@@ -78,7 +78,7 @@
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .context-nav__items {
     margin-bottom: 0;
   }

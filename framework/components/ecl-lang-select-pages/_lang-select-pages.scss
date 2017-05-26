@@ -3,7 +3,7 @@ Language select (Page)
 */
 
 .lang-select-page {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   width: 100%;
   overflow: hidden;
@@ -13,7 +13,7 @@ Language select (Page)
 }
 
 .ecl-icon.lang-select-page__icon {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   float: left;
   margin: 0;
@@ -53,7 +53,7 @@ ul.lang-select-page__list {
 }
 
 select.lang-select-page__list {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   width: 10em;
   height: 3.4em;
@@ -117,7 +117,7 @@ select.lang-select-page__list {
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .lang-select-page__option {
     display: inline-block;
   }

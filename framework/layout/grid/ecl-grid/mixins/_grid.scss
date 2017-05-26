@@ -8,7 +8,7 @@
   position: relative;
 
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -20,7 +20,7 @@
 // For each breakpoint, define the maximum width of the container in a media query
 @mixin ecl-make-container-max-widths($max-widths: $ecl-container-max-widths, $breakpoints: $ecl-grid-breakpoints) {
   @each $breakpoint, $container-max-width in $max-widths {
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint, $breakpoints) {
       max-width: 100%;
       width: $container-max-width;
     }
@@ -29,7 +29,7 @@
 
 @mixin ecl-make-gutters($gutters: $ecl-grid-gutter-widths) {
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -43,7 +43,7 @@
   flex-wrap: wrap;
 
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       margin-left: ($gutter / -2);
@@ -61,7 +61,7 @@
   width: 100%;
 
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);

@@ -11,7 +11,7 @@ $breadcrumb-heigth: 2.778em;
   border-radius: 0;
   line-height: normal;
 
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   ol,
   ul {
@@ -59,7 +59,7 @@ a.breadcrumb__link {
 .breadcrumb__link-arrow {
   @extend %icon--after;
 
-  @include icon('breadcrumb');
+  @include ecl-icon('breadcrumb');
 
   line-height: inherit !important;
   margin-left: 8px !important;
@@ -97,7 +97,7 @@ a.breadcrumb__link {
   }
 }
 
-@include media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(xs) {
   .breadcrumb__link {
     width: auto;
 
@@ -122,7 +122,7 @@ a.breadcrumb__link {
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .breadcrumb {
     margin: 0;
   }
@@ -208,7 +208,7 @@ a.breadcrumb__link {
     }
   }
 
-  @include media-breakpoint-up(xs) {
+  @include ecl-media-breakpoint-up(xs) {
     .breadcrumb__segment {
       &.is-hidden {
         display: none;

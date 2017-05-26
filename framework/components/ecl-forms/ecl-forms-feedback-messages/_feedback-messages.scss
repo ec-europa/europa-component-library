@@ -19,7 +19,7 @@ Style guide form.feedback-message
     background: map-get($ecl-colors, 'grey-5') url('../images/svg/messages-error.svg') no-repeat 1.375em 1.375em;
   }
 
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 }
 
 .no-svg {

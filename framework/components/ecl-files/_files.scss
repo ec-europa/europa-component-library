@@ -7,7 +7,7 @@ File download default
 */
 
 .file {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
   @extend .row !optional;
 
   margin: 0 0 0.944em;
@@ -52,7 +52,7 @@ File download default
 }
 
 .file__caption {
-  @include media-caption();
+  @include ecl-media-caption();
 }
 
 .file__language {
@@ -225,7 +225,7 @@ File link
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .file__icon {
     width: auto;
     padding: 0;

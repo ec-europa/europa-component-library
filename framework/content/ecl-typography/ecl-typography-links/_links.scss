@@ -17,7 +17,7 @@
   &::after {
     @extend %icon--after;
 
-    @include icon('external');
+    @include ecl-icon('external');
 
     font-size: 75%;
     margin-left: 0.4em;
@@ -52,7 +52,7 @@
   &::after {
     @extend %icon--after;
 
-    @include icon('arrow-down');
+    @include ecl-icon('arrow-down');
 
     font-size: 60%;
     margin-left: 0.4em;
@@ -62,6 +62,6 @@
   }
 
   &.is-expanded::after {
-    @include icon('arrow-up');
+    @include ecl-icon('arrow-up');
   }
 }

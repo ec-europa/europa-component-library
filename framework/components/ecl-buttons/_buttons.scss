@@ -33,7 +33,7 @@ Style guide: buttons
 }
 
 .btn {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   border-radius: 0;
   border-width: 2px;
@@ -45,7 +45,7 @@ Style guide: buttons
   padding: 0.75em 1em;
   text-decoration: none;
 
-  @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px);
+  @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px);
 
   &:link {
     text-decoration: none;

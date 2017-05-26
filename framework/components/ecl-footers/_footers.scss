@@ -19,7 +19,7 @@ Style guide footer
 
 .footer,
 .footer-bottom {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
   color: #fff;
 
   a {
@@ -65,7 +65,7 @@ Style guide footer
 
     a {
       padding: 0;
-      @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
+      @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
       &:hover,
       &:active,
       &:focus {

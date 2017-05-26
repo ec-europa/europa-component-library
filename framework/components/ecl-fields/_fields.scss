@@ -45,7 +45,7 @@ Field
 }
 
 // Desktop and tablets breakpoint.
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .field {
     .field__label:not(.field__label--above) {
       display: inline-block;
@@ -61,7 +61,7 @@ Field
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .field--aligned {
     margin-top: -0.556em;
 
@@ -73,7 +73,7 @@ Field
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .field--aligned .field__items {
     margin-left: 20.6%;
   }

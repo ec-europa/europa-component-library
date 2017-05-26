@@ -8,7 +8,7 @@ $form-group-help-block-text-color-disabled: $form-control-color-disabled;
 $form-group-help-block-text-color-has-error: $form-group-help-block-text-color;
 
 .help-block {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   margin-top: 0;
   margin-bottom: 0.556em;

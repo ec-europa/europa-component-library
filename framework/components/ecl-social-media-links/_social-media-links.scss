@@ -3,7 +3,7 @@ Social Media
 */
 
 .social-media-links {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   width: 100%;
   float: left;
@@ -22,7 +22,7 @@ Social Media
 }
 
 .social-media-links--field {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   width: 100%;
 }
@@ -57,7 +57,7 @@ Social Media
     width: 100%;
     display: block;
 
-    @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -1px);
+    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -1px);
 
     &::before {
       margin-bottom: 0;
@@ -145,7 +145,7 @@ Social Media
   margin-bottom: 0.1em;
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .field ul.social-media-links__horizontal {
     vertical-align: top;
 

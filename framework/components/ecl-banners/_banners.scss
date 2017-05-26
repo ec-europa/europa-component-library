@@ -18,7 +18,7 @@ Style guide banner.quote
 $quote_border_offset: 0.556em;
 
 .banner {
-  @include clearfix();
+  @include ecl-clearfix();
 }
 
 .banner--quote {
@@ -75,10 +75,10 @@ Style guide banner.video
 }
 
 .banner__caption {
-  @include media-caption();
+  @include ecl-media-caption();
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .banner__paragraph {
     margin-top: 0;
   }

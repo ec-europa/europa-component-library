@@ -129,7 +129,7 @@ Gallery
   }
 }
 
-@media (min-width: map-get($ecl-grid-breakpoints, 'xs')) and (max-width: breakpoint-max(xs)) {
+@media (min-width: map-get($ecl-grid-breakpoints, 'xs')) and (max-width: ecl-breakpoint-max(xs)) {
   .mediagallery__item {
     float: left;
     width: 50%;
@@ -140,7 +140,7 @@ Gallery
   }
 }
 
-@media (max-width: breakpoint-max(sm)) {
+@media (max-width: ecl-breakpoint-max(sm)) {
   .mediagallery {
     .row {
       margin-left: -20px;

@@ -9,7 +9,7 @@
   padding: 14px 0 0;
   position: relative;
 
-  @include media-breakpoint-up(md) {
+  @include ecl-media-breakpoint-up(md) {
     padding: 14px 0;
   }
 
@@ -18,7 +18,7 @@
   }
 
   a {
-    @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
+    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
   }
 }
 
@@ -26,7 +26,7 @@
   position: relative;
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .site-header__logo {
     margin-bottom: 1em;
     position: relative;

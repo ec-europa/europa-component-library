@@ -9,7 +9,7 @@ Styleguide navtabs
 */
 ul.nav-tabs,
 .nav-tabs {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   max-width: inherit !important;
   padding: 0;

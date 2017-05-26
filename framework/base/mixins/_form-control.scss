@@ -1,5 +1,5 @@
-@mixin form-control() {
-  @extend %hidden-print;
+@mixin ecl-form-control() {
+  @include ecl-hidden-print();
 
   background-color: $form-control-background-color;
   border: 1px solid $form-control-border-color;
@@ -23,7 +23,7 @@
     color: $form-control-text-color-focus;
   }
 
-  @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
+  @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
 
   // Disabled modifier.
   &.is-disabled {

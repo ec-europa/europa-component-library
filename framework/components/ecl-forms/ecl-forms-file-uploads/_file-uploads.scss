@@ -16,7 +16,7 @@ Style guide: form.file-upload
     &:focus {
       border-color: map-get($ecl-colors, 'yellow-100');
 
-      @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
+      @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
     }
   }
 
@@ -79,7 +79,7 @@ Style guide: form.file-upload
     }
   }
 
-  @include media-breakpoint-up(xs) {
+  @include ecl-media-breakpoint-up(xs) {
     .file-upload__message {
       line-height: 1.9;
     }

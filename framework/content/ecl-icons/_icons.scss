@@ -2,6 +2,8 @@
  * Icons
  */
 
+@import './mixins';
+
 %icon {
   &::before {
     display: inline-block;
@@ -92,7 +94,7 @@
 @each $modifier, $char in $ecl-icons {
   %icon--#{$modifier},
   .ecl-icon--#{$modifier} {
-    @include icon($modifier);
+    @include ecl-icon($modifier);
   }
 }
 

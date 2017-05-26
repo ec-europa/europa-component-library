@@ -3,7 +3,7 @@
 }
 
 .feedback-form__wrapper {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   background-color: #fff;
   border-top: 1px solid $ecl-color-primary;
@@ -120,7 +120,7 @@ a.feedback-form__trigger {
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .feedback-form__text {
     float: left;
     width: 10.111em;
@@ -141,7 +141,7 @@ a.feedback-form__trigger {
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include ecl-media-breakpoint-up(lg) {
   a.feedback-form__trigger {
     margin-left: 0;
   }

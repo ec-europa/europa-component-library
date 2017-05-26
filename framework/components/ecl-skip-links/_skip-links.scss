@@ -1,6 +1,6 @@
 .skip-link,
 #skip-link {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   position: fixed;
   top: 1.5em;

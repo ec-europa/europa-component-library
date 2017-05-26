@@ -11,7 +11,7 @@ Style guide inpagenav
 */
 
 .inpage-nav__wrapper {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   margin-bottom: 1.667em;
 
@@ -242,7 +242,7 @@ Style guide inpagenav
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .inpage-nav__wrapper {
     &.affix,
     &.affix-top {

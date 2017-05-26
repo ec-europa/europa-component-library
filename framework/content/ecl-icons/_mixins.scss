@@ -1,4 +1,4 @@
-@mixin icon($modifier, $char: map-get($ecl-icons, $modifier)) {
+@mixin ecl-icon($modifier, $char: map-get($ecl-icons, $modifier)) {
   content: #{'\''}#{$char}#{'\''};
 
   &::before {

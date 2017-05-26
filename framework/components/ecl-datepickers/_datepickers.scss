@@ -90,7 +90,7 @@ $datepicker-color-background: #eaeaea;
       }
 
       select {
-        @include form-control();
+        @include ecl-form-control();
 
         background: $datepicker-color-select;
         color: #fff;
@@ -103,7 +103,7 @@ $datepicker-color-background: #eaeaea;
         padding-right: 0;
         padding-left: 0.75em;
 
-        @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
+        @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
 
         position: relative;
 
@@ -188,7 +188,7 @@ $datepicker-color-background: #eaeaea;
   }
 }
 
-@include media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(xs) {
   #ui-datepicker-div {
     width: auto;
   }

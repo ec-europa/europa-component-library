@@ -48,7 +48,7 @@
   a {
     color: #fff;
 
-    @include focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 2px);
+    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 2px);
 
     &:hover:not(.breadcrumb__link, .btn) {
       color: map-get($ecl-colors, 'yellow-100');
@@ -148,7 +148,7 @@
   }
 }
 
-@include media-breakpoint-up(msm) {
+@include ecl-media-breakpoint-up(msm) {
   .page-header--xlarge-intro {
     height: 320px;
 
@@ -190,7 +190,7 @@
       }
     }
 
-    @include media-breakpoint-up(msm) {
+    @include ecl-media-breakpoint-up(msm) {
       .page-header__hero-title {
         a {
           color: map-get($ecl-colors, 'blue-100');

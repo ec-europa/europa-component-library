@@ -12,7 +12,7 @@ Style guide: siteswitcher
 */
 
 .site-switcher {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   display: block;
   background-color: map-get($ecl-colors, 'grey-5');
@@ -116,7 +116,7 @@ Style guide: siteswitcher
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .site-switcher__option {
     width: auto;
   }

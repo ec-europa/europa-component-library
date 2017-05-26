@@ -4,7 +4,7 @@ Placeholder for adding the user menu .site-user-menu
 */
 
 .utility {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   background-color: map-get($ecl-colors, 'grey-5');
   font-size: map-get($ecl-font-size, 's');

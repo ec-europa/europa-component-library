@@ -1,5 +1,5 @@
 .site-menu {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   margin-bottom: 0;
 
@@ -23,7 +23,7 @@
   }
 
   .listing__item-link {
-    @include focus-outline-border(3px, $ecl-color-shade, 8px);
+    @include ecl-focus-outline-border(3px, $ecl-color-shade, 8px);
   }
 
   .smaller {
@@ -43,7 +43,7 @@
       }
 
       &:focus {
-        @include focus-outline-border(3px, $ecl-color-shade, 2px, none);
+        @include ecl-focus-outline-border(3px, $ecl-color-shade, 2px, none);
       }
     }
   }
@@ -100,7 +100,7 @@
 }
 
 .site-menu__toggle {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   .btn {
     width: 100%;
@@ -116,7 +116,7 @@
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .site-menu {
     .listing__wrapper--two-columns .listing {
       width: 100%;
@@ -128,7 +128,7 @@
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .site-menu {
     .listing__wrapper--two-columns .listing,
     .listing__wrapper {
