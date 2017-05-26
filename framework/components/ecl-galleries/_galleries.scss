@@ -93,7 +93,7 @@ Gallery
 
     .ecl-icon {
       line-height: 2.667em;
-      font-size: map-get($font-size, 'm');
+      font-size: map-get($ecl-font-size, 'm');
 
       &::before {
         margin-right: 0;
@@ -123,13 +123,13 @@ Gallery
   }
 }
 
-@media (max-width: map-get($grid-breakpoints, 'xs')) {
+@media (max-width: map-get($ecl-grid-breakpoints, 'xs')) {
   .mediagallery__item_container {
     margin-left: 0 !important;
   }
 }
 
-@media (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: breakpoint-max(xs)) {
+@media (min-width: map-get($ecl-grid-breakpoints, 'xs')) and (max-width: breakpoint-max(xs)) {
   .mediagallery__item {
     float: left;
     width: 50%;

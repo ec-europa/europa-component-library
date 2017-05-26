@@ -12,7 +12,7 @@ Style guide table responsive
   width: 100%;
   margin: 1em 0;
   table-layout: fixed;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   border-collapse: collapse;
   border: none;
 
@@ -72,7 +72,7 @@ Style guide table responsive
 
         &.table-responsive__group_label {
           padding-left: 1.5em;
-          font-size: map-get($font-size, 's');
+          font-size: map-get($ecl-font-size, 's');
 
           &::after {
             display: block;
@@ -80,12 +80,12 @@ Style guide table responsive
             top: -1.7em;
             left: 0.5em;
             content: attr(data-th-group);
-            font-size: map-get($font-size, 'l');
+            font-size: map-get($ecl-font-size, 'l');
             font-weight: bold;
           }
 
           ~ .table-responsive__group_element {
-            font-size: map-get($font-size, 's');
+            font-size: map-get($ecl-font-size, 's');
             padding-left: 1.5em;
             margin: 0;
           }

@@ -89,7 +89,7 @@
 }
 
 // Icon component and modifiers.
-@each $modifier, $char in $icons {
+@each $modifier, $char in $ecl-icons {
   %icon--#{$modifier},
   .ecl-icon--#{$modifier} {
     @include icon($modifier);
@@ -103,11 +103,11 @@
 .ecl-icon--rounded {
   border-radius: 50%;
   display: inline-block;
-  font-size: map-get($font-size, 'xs');
-  height: map-get($spacing, 'l');
-  line-height: map-get($spacing, 'l');
+  font-size: map-get($ecl-font-size, 'xs');
+  height: map-get($ecl-spacing, 'l');
+  line-height: map-get($ecl-spacing, 'l');
   text-align: center;
-  width: map-get($spacing, 'l');
+  width: map-get($ecl-spacing, 'l');
 
   &::before {
     line-height: inherit;

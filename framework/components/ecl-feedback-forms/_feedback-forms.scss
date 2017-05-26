@@ -21,7 +21,7 @@ a.feedback-form__trigger {
   display: inline-block;
   margin-left: 1em;
   padding: 0.5em 0;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   color: $ecl-color-primary;
   text-decoration: none;
 
@@ -49,7 +49,7 @@ a.feedback-form__trigger {
   margin-left: 2.5em;
 
   .ecl-icon {
-    font-size: map-get($font-size, 'xs');
+    font-size: map-get($ecl-font-size, 'xs');
   }
 }
 
@@ -72,7 +72,7 @@ a.feedback-form__trigger {
       padding-left: 28px;
       line-height: 23px;
       background: url('../images/svg/checkbox-checked--blue.svg') no-repeat;
-      font-size: map-get($font-size, 's');
+      font-size: map-get($ecl-font-size, 's');
       font-weight: bold;
       color: $ecl-color-primary;
       text-decoration: none;
@@ -129,7 +129,7 @@ a.feedback-form__trigger {
 
   .feedback-form__btn {
     margin-left: 12.055em;
-    font-size: map-get($font-size, 'm'); // @todo: until buttons have styling.
+    font-size: map-get($ecl-font-size, 'm'); // @todo: until buttons have styling.
   }
 
   #feedback-form__accordion {

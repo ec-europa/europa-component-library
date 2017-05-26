@@ -59,14 +59,14 @@ File download default
   display: block;
   margin-top: 0.556em;
   line-height: initial;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
 }
 
 .file__info {
   margin-top: 0.778em;
   line-height: initial;
-  font-size: map-get($font-size, 'xs');
+  font-size: map-get($ecl-font-size, 'xs');
 }
 
 .file__content-language {
@@ -113,12 +113,12 @@ File download with translations
 .file__translations {
   margin-bottom: 1em;
   padding: 0 1.45em;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   text-align: right;
 
   .file__translations-control {
     margin-top: 0.444em;
-    font-size: map-get($font-size, 'm');
+    font-size: map-get($ecl-font-size, 'm');
     text-decoration: none;
 
     &:active,
@@ -162,7 +162,7 @@ File download with translations
     }
 
     // Make it self scaling.
-    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+    @media (max-width: map-get($ecl-grid-breakpoints, 'sm')) {
       .btn--condensed {
         margin-left: -1em;
         margin-right: 0;
@@ -192,7 +192,7 @@ File download with translations
     @extend .file__translations-item;
 
     padding-top: 0.5em;
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
   }
 }
 

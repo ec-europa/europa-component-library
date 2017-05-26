@@ -10,7 +10,7 @@ Expandable
   @include media-breakpoint-up(xs) {
     & > p {
       margin: 0.8em 0.8em 0.8em 3.2em;
-      font-size: map-get($font-size, 's');
+      font-size: map-get($ecl-font-size, 's');
     }
   }
 }
@@ -29,7 +29,7 @@ Expandable
   }
 
   h3 {
-    font-size: map-get($font-size, 'l');
+    font-size: map-get($ecl-font-size, 'l');
   }
 
   &:link {

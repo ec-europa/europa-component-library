@@ -27,7 +27,7 @@ $twenty-five: 1.389em;
 
 .comment__meta {
   padding-bottom: $fifteen;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   color: map-get($ecl-colors, 'grey-100');
   text-transform: uppercase;
 
@@ -40,13 +40,13 @@ $twenty-five: 1.389em;
   position: relative;
   padding: $twenty $twenty-five;
   background-color: #fff;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
 }
 
 .comment__title {
   display: block;
   padding: $fifteen 0;
-  font-size: map-get($font-size, 'm');
+  font-size: map-get($ecl-font-size, 'm');
   font-weight: bold;
   color: $ecl-color-shade;
   border-top: 1px solid map-get($ecl-colors, 'yellow-100');

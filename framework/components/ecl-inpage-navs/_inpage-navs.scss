@@ -43,7 +43,7 @@ Style guide inpagenav
     padding-bottom: 7px;
     padding-left: 8px;
     color: #000;
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
     font-weight: bold;
     border-left: 3px solid transparent;
     text-decoration: none;
@@ -79,7 +79,7 @@ Style guide inpagenav
     width: 100%;
     padding-top: 1em;
     overflow: hidden;
-    font-size: map-get($font-size, 'm');
+    font-size: map-get($ecl-font-size, 'm');
     font-weight: bold;
     color: #fff;
     text-overflow: ellipsis;
@@ -95,7 +95,7 @@ Style guide inpagenav
     display: none;
     padding-top: 1.35em;
     background-color: map-get($ecl-colors, 'grey-10');
-    font-size: map-get($font-size, 'xs');
+    font-size: map-get($ecl-font-size, 'xs');
     color: map-get($ecl-colors, 'grey-100');
     text-transform: uppercase;
   }
@@ -104,7 +104,7 @@ Style guide inpagenav
     display: block;
     padding: 1em;
     line-height: 1;
-    font-size: map-get($font-size, 'm');
+    font-size: map-get($ecl-font-size, 'm');
     font-weight: bold;
   }
 
@@ -172,7 +172,7 @@ Style guide inpagenav
 
       .inpage_nav__list-item {
         padding: 0.8em 0 0.8em 1em;
-        font-size: map-get($font-size, 's');
+        font-size: map-get($ecl-font-size, 's');
         color: #fff;
         border-top: 1px solid map-get($ecl-colors, 'blue-120');
 

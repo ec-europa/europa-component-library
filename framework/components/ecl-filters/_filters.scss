@@ -4,20 +4,20 @@ Filters
 
 .filters {
   background: map-get($ecl-colors, 'grey-10');
-  margin-left: -($grid-gutter-width-base / 2);
-  margin-right: -($grid-gutter-width-base / 2);
+  margin-left: -($ecl-grid-gutter-width-base / 2);
+  margin-right: -($ecl-grid-gutter-width-base / 2);
 }
 
 // Padding goes to a wrapper added with js.
 // Twitter bootstrap's collapsible twitching issue.
 .filters__wrapper {
-  padding: ($grid-gutter-width-base / 2);
+  padding: ($ecl-grid-gutter-width-base / 2);
 }
 
 // And adding the padding back in case the wrapper is missing.
 .no-js {
   .filters {
-    padding: ($grid-gutter-width-base / 2);
+    padding: ($ecl-grid-gutter-width-base / 2);
   }
 }
 
@@ -103,7 +103,7 @@ Filters
 
 .filters__items-number,
 .filters__items-name {
-  font-size: map-get($font-size, 'xl');
+  font-size: map-get($ecl-font-size, 'xl');
 }
 
 .filters__items-number {

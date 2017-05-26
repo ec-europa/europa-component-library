@@ -96,8 +96,8 @@ Notification
 
 .notification {
   a {
-    &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec-url-patterns}) {
+    &#{"[" + $ecl-external-link-pattern + "]"}:not(.is-internal) {
+      &:not(#{$ecl-ec-link-patterns}) {
         @include _notification_external_link_mixin();
       }
     }

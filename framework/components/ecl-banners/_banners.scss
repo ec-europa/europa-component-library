@@ -37,7 +37,7 @@ $quote_border_offset: 0.556em;
 
 .banner__author {
   padding-bottom: 0.6em;
-  font-size: map-get($font-size, 'xs');
+  font-size: map-get($ecl-font-size, 'xs');
   font-weight: 600;
 
   &::before {
@@ -71,7 +71,7 @@ Style guide banner.video
   @extend .col-md-6 !optional;
 
   margin-top: 1em;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
 }
 
 .banner__caption {

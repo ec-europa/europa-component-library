@@ -37,7 +37,7 @@ Style guide: buttons
 
   border-radius: 0;
   border-width: 2px;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   font-weight: 600;
   line-height: 1;
   margin-bottom: 1em;
@@ -346,8 +346,8 @@ Style guide: buttons.btn-collapse
 }
 
 .btn {
-  &#{'[' + $external-link-pattern + ']'}:not(.is-internal) {
-    &:not(#{$ec-url-patterns}) {
+  &#{'[' + $ecl-external-link-pattern + ']'}:not(.is-internal) {
+    &:not(#{$ecl-ec-link-patterns}) {
       @include btn-external-link();
     }
   }

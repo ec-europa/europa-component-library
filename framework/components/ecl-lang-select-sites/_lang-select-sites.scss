@@ -7,7 +7,7 @@
   @extend %hidden-print;
 
   position: absolute;
-  right: $grid-gutter-width-base / 2;
+  right: $ecl-grid-gutter-width-base / 2;
   text-align: center;
   top: 0;
 
@@ -20,7 +20,7 @@
     border: 3px solid transparent;
     color: inherit;
     display: inline-block;
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
     font-weight: bold;
     padding: 7.5px 15px;
     text-align: center;
@@ -45,13 +45,13 @@
     display: inline-block;
     position: relative;
     text-transform: uppercase;
-    width: map-get($font-size, 'xs') * 2;
+    width: map-get($ecl-font-size, 'xs') * 2;
   }
 
   .lang-select-site__code-text {
     background-color: $ecl-color-primary;
     color: #fff;
-    font-size: map-get($font-size, 'xs');
+    font-size: map-get($ecl-font-size, 'xs');
     left: -1px;
     position: relative;
     top: 0;
@@ -59,7 +59,7 @@
 
   .lang-select-site__icon {
     color: $ecl-color-primary;
-    font-size: map-get($font-size, 'xs') * 2;
+    font-size: map-get($ecl-font-size, 'xs') * 2;
     left: -1px;
     line-height: 1.4;
     position: absolute;
