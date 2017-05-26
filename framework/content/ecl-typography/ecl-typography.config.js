@@ -1,5 +1,5 @@
 module.exports = {
   title: 'Typography',
   label: 'Typography',
-  status: 'ready',
+  status: 'wip',
 };
