@@ -305,13 +305,6 @@ module.exports = {
       },
     },
     {
-      name: 'tag-close-hover',
-      label: 'Tag close with hover state',
-      context: {
-        modifier: 'ecl-icon--tag-close-hover',
-      },
-    },
-    {
       name: 'calendar',
       label: 'Calendar icon',
       context: {

@@ -82,8 +82,8 @@ File download default
   margin-bottom: 0;
 
   &::after {
-    @extend %icon--after;
-    @extend %icon--download;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--download;
   }
 }
 
@@ -134,13 +134,12 @@ File download with translations
 
     // The arrow, rotating on collapse change.
     &::after {
-      @extend %icon--after;
-      @extend %icon--down;
-      @extend %icon--blue-dark;
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--down;
 
-      position: relative;
+      color: $ecl-color-primary;
       margin-left: 0.525em !important;
-
+      position: relative;
       transition: all 0.3s ease 0s;
     }
 

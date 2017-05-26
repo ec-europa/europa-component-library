@@ -100,15 +100,15 @@ Style guide tags.facet-close
   .facet-tag__value {
     // Close icon.
     &::after {
-      @extend %icon--after;
-      @extend %icon--tag-close;
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--tag-close;
 
       vertical-align: bottom;
     }
 
     &:hover::after {
-      @extend %icon--after;
-      @extend %icon--tag-close-hover;
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--tag-close;
     }
   }
 

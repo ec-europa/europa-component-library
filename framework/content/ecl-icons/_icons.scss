@@ -2,9 +2,20 @@
  * Icons
  */
 
+@import './variables';
 @import './mixins';
 
-%icon {
+@font-face {
+  font-family: 'EuropaIcons';
+  src: url('../fonts/europa-icons/europa-icons.eot');
+  src:
+    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
+    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
+    url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
+}
+
+%ecl-icon {
   &::before {
     display: inline-block;
     font-family: 'EuropaIcons';
@@ -23,7 +34,7 @@
 }
 
 // Should be used only with @extend.
-%icon--after {
+%ecl-icon--after {
   display: inline-block;
   font-family: 'EuropaIcons';
   // Better Font Rendering
@@ -45,36 +56,14 @@
 // for the ::after-content and then overwrite this rule again with
 // text-decoration:none;
 
-// Deprecated
-%icon--blue-dark {
-  color: #004494;
-}
-
-.ecl-icon--blue-dark {
-  @extend %icon--blue-dark;
-}
-// End deprecated
-
-%icon--after {
+%ecl-icon--after {
   text-decoration: none;
 }
 
-%icon--tag-close-hover {
-  content: '\e82d';
-
-  &::before {
-    @extend %icon--tag-close-hover;
+@each $modifier, $char in $ecl-icons {
+  %ecl-icon--#{$modifier} {
+    @include ecl-icon($modifier);
   }
-}
-
-@font-face {
-  font-family: 'EuropaIcons';
-  src: url('../fonts/europa-icons/europa-icons.eot');
-  src:
-    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
-    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
-    url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
 }
 
 /**
@@ -83,23 +72,18 @@
  */
 
 .ecl-icon {
-  @extend %icon;
+  @extend %ecl-icon;
 }
 
 .ecl-icon--after {
-  @extend %icon--after;
+  @extend %ecl-icon--after;
 }
 
 // Icon component and modifiers.
 @each $modifier, $char in $ecl-icons {
-  %icon--#{$modifier},
   .ecl-icon--#{$modifier} {
-    @include ecl-icon($modifier);
+    @extend %ecl-icon--#{$modifier};
   }
-}
-
-.ecl-icon--tag-close-hover {
-  @extend %icon--tag-close-hover;
 }
 
 .ecl-icon--rounded {
