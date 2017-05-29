@@ -13,18 +13,13 @@
   &::before {
     margin-right: 8px !important;
   }
-
-  &::after {
-    content: none !important;
-    display: none !important;
-  }
 }
 
 .ecl-footers__title {
   border-bottom: 2px solid map-get($ecl-colors, 'blue-50');
   color: #fff;
-  margin-bottom: 1.1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
 
   @include ecl-media-breakpoint-between(md, lg) {
     // Make titles same height on mobile breakpoint.
@@ -68,17 +63,22 @@
   background-color: map-get($ecl-colors, 'blue-25');
   color: map-get($ecl-colors, 'blue-120');
 
-  .ecl-footers__column {
-    padding-bottom: 0.8rem;
-    padding-top: 0.8rem;
-  }
-
   a {
     color: map-get($ecl-colors, 'blue-120');
   }
 
   h4 a {
     text-decoration: none;
+  }
+
+  .ecl-footers__column {
+    padding-bottom: 0;
+    padding-top: 0.8em;
+  }
+
+  .ecl-footers__column:last-child {
+    padding-bottom: 0.8em;
+    padding-top: 0;
   }
 }
 
