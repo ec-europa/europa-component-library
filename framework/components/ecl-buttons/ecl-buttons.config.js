@@ -5,7 +5,7 @@ module.exports = {
   label: 'Buttons',
   preview: '@preview-center-transparent',
   tags: ['atom'],
-  status: 'wip',
+  status: 'ready',
   collated: true,
   collator(markup, item) {
     return `

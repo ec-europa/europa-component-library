@@ -59,8 +59,6 @@ a.breadcrumb__link {
 .breadcrumb__link-arrow {
   @extend %ecl-icon--after;
 
-  @include ecl-icon('breadcrumb');
-
   line-height: inherit !important;
   margin-left: 8px !important;
   font-weight: normal;
@@ -69,6 +67,10 @@ a.breadcrumb__link {
   // the breadcrumb segment width.
   width: 11px;
   color: #fff;
+
+  &::before {
+    @include ecl-icon('breadcrumb');
+  }
 }
 
 .breadcrumb__segment--last,

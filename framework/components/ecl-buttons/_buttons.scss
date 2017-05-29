@@ -9,10 +9,10 @@
   background: none;
   border: 2px solid transparent;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: map-get($ecl-font-size, 's');
   font-weight: 600;
   line-height: 1;
-  padding: 0.75em 1em;
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
   text-decoration: none;
 
   &:hover,
@@ -119,8 +119,8 @@
 .ecl-button--arrow-up {
   &::after {
     @extend %ecl-icon--after;
-    @extend %ecl-icon--arrow-up;
 
+    @include ecl-icon('arrow-up');
     @include ecl-button--arrow();
   }
 }
@@ -128,8 +128,8 @@
 .ecl-button--arrow-down {
   &::after {
     @extend %ecl-icon--after;
-    @extend %ecl-icon--arrow-down;
 
+    @include ecl-icon('arrow-down');
     @include ecl-button--arrow();
   }
 }
@@ -137,8 +137,8 @@
 .ecl-button--caret-up {
   &::after {
     @extend %ecl-icon--after;
-    @extend %ecl-icon--up;
 
+    @include ecl-icon('up');
     @include ecl-button--caret();
   }
 }
@@ -146,8 +146,8 @@
 .ecl-button--caret-right {
   &::after {
     @extend %ecl-icon--after;
-    @extend %ecl-icon--right;
 
+    @include ecl-icon('right');
     @include ecl-button--caret();
   }
 }
@@ -155,8 +155,8 @@
 .ecl-button--caret-down {
   &::after {
     @extend %ecl-icon--after;
-    @extend %ecl-icon--down;
 
+    @include ecl-icon('down');
     @include ecl-button--caret();
   }
 }
@@ -164,8 +164,8 @@
 .ecl-button--caret-left {
   &::after {
     @extend %ecl-icon--after;
-    @extend %ecl-icon--left;
 
+    @include ecl-icon('left');
     @include ecl-button--caret();
   }
 }
