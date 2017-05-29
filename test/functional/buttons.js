@@ -36,7 +36,7 @@ describe('buttons', () => {
         });
 
         it('should be accessible', () => {
-          const a11yReport = browser.runAxeCore('btn').value;
+          const a11yReport = browser.runAxeCore('ecl-button').value;
           expect(a11yReport).to.be.accessible;
         });
 
@@ -61,7 +61,7 @@ describe('buttons', () => {
           browser.injectAxeCore();
 
           // Hover the button
-          browser.moveToObject('.btn');
+          browser.moveToObject('.ecl-button');
         });
 
         it('should match the reference screenshot', () => {
@@ -72,7 +72,7 @@ describe('buttons', () => {
         });
 
         it('should be accessible', () => {
-          const a11yReport = browser.runAxeCore('btn').value;
+          const a11yReport = browser.runAxeCore('ecl-button').value;
           expect(a11yReport).to.be.accessible;
         });
       });
@@ -91,7 +91,7 @@ describe('buttons', () => {
         });
 
         it('should be accessible', () => {
-          const a11yReport = browser.runAxeCore('btn').value;
+          const a11yReport = browser.runAxeCore('ecl-button').value;
           expect(a11yReport).to.be.accessible;
         });
       });
@@ -110,7 +110,7 @@ describe('buttons', () => {
         });
 
         it('should be accessible', () => {
-          const a11yReport = browser.runAxeCore('btn').value;
+          const a11yReport = browser.runAxeCore('ecl-button').value;
           expect(a11yReport).to.be.accessible;
         });
       });
