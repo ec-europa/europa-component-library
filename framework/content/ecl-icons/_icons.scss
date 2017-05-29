@@ -60,9 +60,13 @@
   text-decoration: none;
 }
 
+// DEPRECATED: you should use @include ecl-icon('icon') when you want to include an icon
 @each $modifier, $char in $ecl-icons {
   %ecl-icon--#{$modifier} {
-    @include ecl-icon($modifier);
+    /* stylelint-disable-next-line */
+    &::before {
+      @include ecl-icon($modifier);
+    }
   }
 }
 
@@ -82,7 +86,9 @@
 // Icon component and modifiers.
 @each $modifier, $char in $ecl-icons {
   .ecl-icon--#{$modifier} {
-    @extend %ecl-icon--#{$modifier};
+    &::before {
+      @include ecl-icon($modifier);
+    }
   }
 }
 

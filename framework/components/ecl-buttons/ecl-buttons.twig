@@ -1,0 +1,19 @@
+{% set type = type|default('button') %}
+{% set modifier = modifier|default('default') %}
+{% set extraClass = '' %}
+
+{% if isBlock is defined and isBlock == true %}
+  {% set extraClass = ' ecl-button--block' %}
+{% endif %}
+
+{% if icon is defined %}
+  {% set extraClass = extraClass ~ ' ecl-button--' ~ icon %}
+{% endif %}
+
+{% if type == 'link' %}
+  <a href="{{ to|default('#') }}" class="ecl-button ecl-button--{{ modifier }}{{ extraClass }}">{{ label }}</a>
+{% elseif type == 'input' %}
+  <input type="button" class="ecl-button ecl-button--{{ modifier }}{{ extraClass }}" value="{{ label }}">
+{% else %}
+  <button class="ecl-button ecl-button--{{ modifier }}{{ extraClass }}">{{ label }}</button>
+{% endif %}

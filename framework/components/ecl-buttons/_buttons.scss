@@ -1,354 +1,161 @@
-/*
-Buttons
+/**
+ * Buttons component
+ * @define button
+ */
 
-Custom bootstrap buttons styling.
+@import 'buttons-mixins';
 
-.btn-default     - Button default
-.btn-primary     - Button primary
-.btn-secondary   - Button secondary
-.btn-ctn         - Button call to action
-.btn-ctn--border - Button call to action with border
-.btn-menu        - Button menu
+.ecl-button {
+  background: none;
+  border: 2px solid transparent;
+  display: inline-block;
+  font-size: map-get($ecl-font-size, 's');
+  font-weight: 600;
+  line-height: 1;
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
+  text-decoration: none;
 
-Style guide: buttons
-*/
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
 
-@mixin whitespace-reset() {
-  line-height: 1.667;
-  padding-bottom: 0.5em;
-  padding-top: 0.5em;
-  white-space: normal;
+  &:focus {
+    outline: 3px solid map-get($ecl-colors, 'yellow-100');
+    outline-offset: 0;
+  }
 }
 
-%btn-default {
-  background: none;
+.ecl-button:link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ecl-button--default {
   border-color: $ecl-color-primary;
   color: $ecl-color-primary;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: $ecl-color-primary;
     color: #fff;
   }
 }
 
-.btn {
-  @include ecl-hidden-print();
-
-  border-radius: 0;
-  border-width: 2px;
-  font-size: map-get($ecl-font-size, 's');
-  font-weight: 600;
-  line-height: 1;
-  margin-bottom: 1em;
-  min-height: 2.75em;
-  padding: 0.75em 1em;
-  text-decoration: none;
-
-  @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px);
-
-  &:link {
-    text-decoration: none;
-  }
+.ecl-button--primary {
+  background-color: $ecl-color-primary;
+  border-color: $ecl-color-primary;
+  color: #fff;
 
   &:hover,
-  &:active,
-  &:focus {
-    box-shadow: none;
-    position: relative;
-    text-decoration: underline;
-    z-index: 999;
-  }
-
-  &::after {
-    line-height: inherit;
-    position: static;
-  }
-
-  &.btn-default {
-    @extend %btn-default;
-  }
-
-  &.btn-primary {
-    border-color: $ecl-color-primary;
-
-    &:hover,
-    &:active {
-      background-color: #fff;
-      color: $ecl-color-primary;
-    }
-
-    &:focus {
-      background-color: $ecl-color-primary;
-      color: #fff;
-    }
-  }
-
-  &.btn-secondary {
+  &:focus,
+  &:active {
     background-color: #fff;
-    border-color: #fff;
     color: $ecl-color-primary;
-  }
-
-  &.btn-ctn {
-    @include whitespace-reset();
-
-    background-color: map-get($ecl-colors, 'yellow-100');
-    color: #000;
-
-    &:hover,
-    &:active {
-      background-color: map-get($ecl-colors, 'yellow-100');
-      border-color: $ecl-color-shade;
-    }
-
-    &:focus {
-      border-color: $ecl-color-shade;
-      outline-color: $ecl-color-shade;
-    }
-
-    &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--right;
-
-      font-size: 0.8em;
-      margin-left: 10px;
-    }
-  }
-
-  &.btn-menu {
-    background-color: $ecl-color-primary;
-    border-color: $ecl-color-primary;
-    color: #fff;
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: #fff;
-    }
-
-    &:active,
-    &:focus {
-      outline: 3px solid map-get($ecl-colors, 'yellow-100');
-      outline-offset: -3px;
-    }
-
-    &:focus {
-      border-color: map-get($ecl-colors, 'yellow-100');
-      outline-color: map-get($ecl-colors, 'yellow-100');
-    }
-
-    &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--arrow-down;
-
-      font-size: 0.45em;
-      margin-left: 6px !important;
-      position: relative;
-      top: -2px;
-
-      transition: all 0.3s ease 0s;
-    }
-
-    &.is-collapsed {
-      &::after {
-        transform: rotate(180deg);
-      }
-    }
   }
 }
 
-.btn-ctn--border {
+.ecl-button--secondary {
+  background-color: #fff;
+  border-color: #fff;
+  color: $ecl-color-primary;
+}
+
+.ecl-button--call {
   background-color: map-get($ecl-colors, 'yellow-100');
-  border-color: #000;
+  border-color: map-get($ecl-colors, 'yellow-100');
   color: #000;
 
   &:hover,
+  &:focus,
   &:active {
     border-color: #000;
   }
 
   &:focus {
-    border-color: $ecl-color-shade;
-    outline-color: $ecl-color-shade;
-  }
-
-  &::after {
-    display: none;
+    outline-color: #000;
   }
 }
 
-// Button modifier to add space between the button and the element above.
-.btn--margin-top {
-  margin-top: 0.556em;
-}
-
-// Class that can be also used on a button wrapper since there are sometimes
-// situations where button is wrapped in unnecessary markup coming from a CMS.
-.btn--no-margin-bottom {
-  * {
-    margin-bottom: 0 !important;
-  }
-
-  margin-bottom: 0 !important;
-}
-
-/*
-Button Condensed
-
-Button condensed element.
-
-Markup: html/btn-condensed.html
-
-Style guide: buttons.btn--condensed
-*/
-
-.btn.btn--condensed {
-  font-weight: normal;
-  width: auto;
-}
-
-/*
-Button block
-
-Button block component.
-
-Markup: html/btn-block.html
-
-Style guide: buttons.btn-block
-*/
-
-.btn-block {
-  margin-bottom: -2px !important;
-  max-width: 450px;
-  text-align: left;
-  width: 100%;
-
-  @include whitespace-reset();
-
-  &:last-child {
-    margin-bottom: 10px;
-  }
-
-  + .btn-block {
-    margin-top: 0;
-  }
-}
-
-/*
-Button Search
-
-Button search component.
-
-Markup: html/btn-search.html
-
-Style guide: buttons.btn-search
-*/
-
-.btn.btn-search {
+.ecl-button--form {
   background-color: map-get($ecl-colors, 'grey-15');
-  border-color: #fff;
-  color: map-get($ecl-colors, 'blue-100');
+  border-color: map-get($ecl-colors, 'grey-15');
 
-  &:hover {
-    background-color: map-get($ecl-colors, 'grey-15');
+  &:hover,
+  &:focus,
+  &:active {
     color: $ecl-color-shade;
   }
 }
 
-/*
-Button Collapse
+.ecl-button--light {
+  @include ecl-button--default();
 
-Button collapse element.
-
-Markup: html/btn-collapse.html
-
-Style guide: buttons.btn-collapse
-*/
-
-.btn-collapse {
-  @extend %btn-default;
-
-  .toggling-text::after {
-    content: '\00a0';
-  }
-
-  &:hover,
-  &:focus {
-    .toggling-text,
-    .toggling-text::after {
-      text-decoration: underline;
-    }
-  }
-
-  .ecl-icon {
-    margin-left: 0.3em;
-
-    &::before {
-      vertical-align: bottom;
-
-      transition: all 0.3s ease 0s;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    .ecl-icon::before {
-      color: #fff;
-    }
-  }
-
-  &.collapsed {
-    .ecl-icon::before {
-      transform: rotate(180deg);
-    }
-  }
+  font-weight: 500;
 }
 
-.no-js {
-  .btn-collapse {
-    display: none;
-    visibility: hidden;
-  }
+.ecl-button--block {
+  display: block;
+  max-width: 30em;
+  text-align: left;
+  width: 100%;
 }
 
-// External link specific adjustments.
-@mixin btn-external-link() {
-  padding-right: 2.2em;
-
+.ecl-button--arrow-up {
   &::after {
-    line-height: 1.4 !important;
-    margin-left: 0.5em;
-    position: absolute;
-  }
+    @extend %ecl-icon--after;
 
-  // Reset for '.btn-block'.
-  &.btn-block {
-    padding-right: 1em;
-
-    &::after {
-      line-height: inherit;
-      position: static;
-    }
-  }
-
-  // Call to action button.
-  &.btn-ctn::after {
-    line-height: 2 !important;
-    position: absolute;
-  }
-
-  // Call to action button.
-  &.btn-menu::after {
-    line-height: 3.5 !important;
-    position: absolute;
+    @include ecl-icon('arrow-up');
+    @include ecl-button--arrow();
   }
 }
 
-.btn {
-  &#{'[' + $ecl-external-link-pattern + ']'}:not(.is-internal) {
-    &:not(#{$ecl-ec-link-patterns}) {
-      @include btn-external-link();
-    }
+.ecl-button--arrow-down {
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('arrow-down');
+    @include ecl-button--arrow();
+  }
+}
+
+.ecl-button--caret-up {
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('up');
+    @include ecl-button--caret();
+  }
+}
+
+.ecl-button--caret-right {
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('right');
+    @include ecl-button--caret();
+  }
+}
+
+.ecl-button--caret-down {
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('down');
+    @include ecl-button--caret();
+  }
+}
+
+.ecl-button--caret-left {
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('left');
+    @include ecl-button--caret();
   }
 }
