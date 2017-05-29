@@ -82,16 +82,6 @@
   }
 }
 
-.ecl-button--call-border {
-  @include ecl-button--call();
-
-  border-color: #000;
-
-  &:focus {
-    outline-width: 2px;
-  }
-}
-
 .ecl-button--form {
   background-color: map-get($ecl-colors, 'grey-15');
   border-color: map-get($ecl-colors, 'grey-15');

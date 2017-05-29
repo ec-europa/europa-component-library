@@ -1,11 +1,6 @@
-const variants = [
-  'default',
-  'primary',
-  'secondary',
-  'ctn',
-  'ctn--border',
-  'menu',
-];
+const buttonVariants = require('../../framework/components/ecl-buttons/variants.json');
+
+const variants = buttonVariants.map(variant => variant.name);
 
 describe('buttons', () => {
   before(() => {
@@ -22,7 +17,7 @@ describe('buttons', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-buttons-buttons--${variant}.html`);
+        browser.url(`ecl-buttons--${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(1000);
         // Inject axe-core (for accessibility tests)
@@ -61,7 +56,7 @@ describe('buttons', () => {
       context('with hover state', () => {
         before(() => {
           // Reload
-          browser.url(`ecl-buttons-buttons--${variant}.html`);
+          browser.url(`ecl-buttons--${variant}.html`);
           browser.pause(1000);
           browser.injectAxeCore();
 
