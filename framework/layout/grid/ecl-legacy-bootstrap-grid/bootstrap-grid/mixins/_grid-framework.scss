@@ -1,11 +1,11 @@
 // Framework grid generation
 //
 // Used only by Bootstrap to generate the correct number of grid classes given
-// any value of `$grid-columns`.
+// any value of `$ecl-grid-columns`.
 
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 @mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
-  @for $i from (1 + 1) through $grid-columns {
+  @for $i from (1 + 1) through $ecl-grid-columns {
     $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
   }
   #{$list} {
@@ -13,15 +13,15 @@
     // Prevent columns from collapsing when empty
     min-height: 1px;
     // Inner gutter via padding
-    padding-left:  ceil(($grid-gutter-width / 2));
-    padding-right: floor(($grid-gutter-width / 2));
+    padding-left:  ceil(($ecl-grid-gutter-width / 2));
+    padding-right: floor(($ecl-grid-gutter-width / 2));
   }
 }
 
 
 // [converter] This is defined recursively in LESS, but Sass supports real loops
 @mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
-  @for $i from (1 + 1) through $grid-columns {
+  @for $i from (1 + 1) through $ecl-grid-columns {
     $list: "#{$list}, .col-#{$class}-#{$i}";
   }
   #{$list} {
@@ -33,12 +33,12 @@
 @mixin calc-grid-column($index, $class, $type) {
   @if ($type == width) and ($index > 0) {
     .col-#{$class}-#{$index} {
-      width: percentage(($index / $grid-columns));
+      width: percentage(($index / $ecl-grid-columns));
     }
   }
   @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
-      left: percentage(($index / $grid-columns));
+      left: percentage(($index / $ecl-grid-columns));
     }
   }
   @if ($type == push) and ($index == 0) {
@@ -48,7 +48,7 @@
   }
   @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
-      right: percentage(($index / $grid-columns));
+      right: percentage(($index / $ecl-grid-columns));
     }
   }
   @if ($type == pull) and ($index == 0) {
@@ -58,7 +58,7 @@
   }
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
-      margin-left: percentage(($index / $grid-columns));
+      margin-left: percentage(($index / $ecl-grid-columns));
     }
   }
 }
@@ -74,8 +74,8 @@
 // Create grid for specific class
 @mixin make-grid($class) {
   @include float-grid-columns($class);
-  @include loop-grid-columns($grid-columns, $class, width);
-  @include loop-grid-columns($grid-columns, $class, pull);
-  @include loop-grid-columns($grid-columns, $class, push);
-  @include loop-grid-columns($grid-columns, $class, offset);
+  @include loop-grid-columns($ecl-grid-columns, $class, width);
+  @include loop-grid-columns($ecl-grid-columns, $class, pull);
+  @include loop-grid-columns($ecl-grid-columns, $class, push);
+  @include loop-grid-columns($ecl-grid-columns, $class, offset);
 }

@@ -6,8 +6,8 @@
     fs = font size
 */
 
-@each $key, $value in $font-size {
-  .ecl-fs-#{$key} {
+@each $key, $value in $ecl-font-size {
+  .ecl-u-fs-#{$key} {
     font-size: $value;
   }
 }

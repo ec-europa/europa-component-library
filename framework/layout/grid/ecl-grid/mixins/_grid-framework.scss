@@ -1,9 +1,9 @@
 // Framework grid generation
 //
 // Used only by Bootstrap to generate the correct number of grid classes given
-// any value of `$grid-columns`.
+// any value of `$ecl-grid-columns`.
 
-@mixin ecl-make-grid-columns($columns: $grid-columns, $gutters: $grid-gutter-widths, $breakpoints: $grid-breakpoints) {
+@mixin ecl-make-grid-columns($columns: $ecl-grid-columns, $gutters: $ecl-grid-gutter-widths, $breakpoints: $ecl-grid-breakpoints) {
   // Common properties for all breakpoints
   %ecl-grid-column {
     min-height: 1px; // Prevent columns from collapsing when empty
@@ -26,7 +26,7 @@
       @extend %ecl-grid-column;
     }
 
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .ecl-col#{$infix} {
         flex-basis: 0;

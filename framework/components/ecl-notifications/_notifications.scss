@@ -3,16 +3,16 @@ Notification
 */
 
 .notification {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   padding: 10px 0 6px;
-  background-color: $yellow-light;
+  background-color: map-get($ecl-colors, 'yellow-100');
   font-size: 14px;
 
   a {
-    color: $black;
+    color: #000;
 
-    @include focus-outline-border(3px, $black, 2px);
+    @include ecl-focus-outline-border(3px, #000, 2px);
 
     &:hover,
     &:focus {
@@ -44,8 +44,8 @@ Notification
     font-weight: bold;
 
     &::after {
-      @extend %icon--after;
-      @extend %icon--right;
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--right;
 
       font-size: 12px;
     }
@@ -66,7 +66,7 @@ Notification
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .notification__content {
     .notification__text {
       width: 75%;
@@ -78,7 +78,7 @@ Notification
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include ecl-media-breakpoint-up(lg) {
   .notification__content__more {
     float: right;
   }
@@ -96,8 +96,8 @@ Notification
 
 .notification {
   a {
-    &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec-url-patterns}) {
+    &#{"[" + $ecl-external-link-pattern + "]"}:not(.is-internal) {
+      &:not(#{$ecl-ec-link-patterns}) {
         @include _notification_external_link_mixin();
       }
     }

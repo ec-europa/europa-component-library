@@ -12,7 +12,7 @@
 
 // Language generator.
 @mixin logo-background-languages($file_path, $file_extension, $logo_class: ecl-logo--logotype) {
-  @each $item in $languages {
+  @each $item in $ecl-languages {
     /* stylelint-disable max-nesting-depth */
     .language-#{$item} {
       .#{$logo_class} {
@@ -91,7 +91,7 @@
   width: 198px;
 }
 
-@include media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(xs) {
   .ecl-logo--logotype {
     width: 290px;
   }
