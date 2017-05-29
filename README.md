@@ -30,7 +30,7 @@ Tested on:
 | [@ec-europa/ecl-typography-headings](framework/content/ecl-typography/ecl-typography-headings) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings) |
 | [@ec-europa/ecl-typography-links](framework/content/ecl-typography/ecl-typography-links) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-links.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-links) |
 | [@ec-europa/ecl-typography-lists](framework/content/ecl-typography/ecl-typography-lists) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists) |
-| [@ec-europa/ecl-typography-paragraphs](framework/content/ecl-ypography/paragraphs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs) |
+| [@ec-europa/ecl-typography-paragraphs](framework/content/ecl-typography/ecl-typography-paragraphs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs) |
 
 ### Layout
 
