@@ -281,9 +281,13 @@
   <span class="hljs-attribute">text-decoration</span>: none;
 }
 
+<span class="hljs-comment">// DEPRECATED: you should use @include ecl-icon('icon') when you want to include an icon</span>
 @<span class="hljs-keyword">each</span> <span class="hljs-variable">$modifier</span>, <span class="hljs-variable">$char</span> in <span class="hljs-variable">$ecl-icons</span> {
   %ecl-<span class="hljs-attribute">icon</span>--#{<span class="hljs-variable">$modifier</span>} {
-    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-variable">$modifier</span>);
+    <span class="hljs-comment">/* stylelint-disable-next-line */</span>
+    &amp;::before {
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-variable">$modifier</span>);
+    }
   }
 }
 
@@ -303,7 +307,9 @@
 <span class="hljs-comment">// Icon component and modifiers.</span>
 @<span class="hljs-keyword">each</span> <span class="hljs-variable">$modifier</span>, <span class="hljs-variable">$char</span> in <span class="hljs-variable">$ecl-icons</span> {
   <span class="hljs-selector-class">.ecl-icon--</span>#{<span class="hljs-variable">$modifier</span>} {
-    @<span class="hljs-keyword">extend</span> %ecl-icon--#{<span class="hljs-variable">$modifier</span>};
+    &amp;::before {
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-variable">$modifier</span>);
+    }
   }
 }
 
@@ -337,7 +343,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.3 KB</span>
+                    <span class="Meta-value">2.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -351,9 +357,7 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre>@<span class="hljs-keyword">mixin</span> ecl-icon(<span class="hljs-variable">$modifier</span>, <span class="hljs-variable">$char</span>: map-get(<span class="hljs-variable">$ecl-icons</span>, <span class="hljs-variable">$modifier</span>)) {
-  &amp;::before {
-    <span class="hljs-attribute">content</span>: #{<span class="hljs-string">'\''</span>}#{<span class="hljs-variable">$char</span>}#{<span class="hljs-string">'\''</span>};
-  }
+  <span class="hljs-attribute">content</span>: #{<span class="hljs-string">'\''</span>}#{<span class="hljs-variable">$char</span>}#{<span class="hljs-string">'\''</span>};
 }
 </pre>
                             </code>
@@ -371,7 +375,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">125 Bytes</span>
+                    <span class="Meta-value">105 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -961,7 +965,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-button-groups" data-pjax>
+            <a class="Tree-entityLink" href="ecl-buttons" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -969,57 +973,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Button groups</span>
-            </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-buttons">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #FF3333; border-color: #FF3333;" title="Broken"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Buttons</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons-buttons" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #FF3333; border-color: #FF3333;" title="Broken"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1029,59 +983,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
                 <span>Buttons</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons-inputs" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #FF3333; border-color: #FF3333;" title="Broken"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Inputs</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons-links" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #FF3333; border-color: #FF3333;" title="Broken"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Links</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
