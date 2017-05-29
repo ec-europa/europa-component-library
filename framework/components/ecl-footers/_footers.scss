@@ -22,12 +22,13 @@
   padding-bottom: 0.3rem;
 
   @include ecl-media-breakpoint-between(md, lg) {
-    // Make titles same height on mobile breakpoint.
     min-height: 3.2rem;
+    padding-bottom: 0;
   }
 
   // Make titles height auto on large screens.
   @include ecl-media-breakpoint-up(xl) {
+    margin-bottom: 1.1em;
     min-height: auto;
   }
 }
@@ -58,7 +59,7 @@
   padding-top: 1.6rem;
 
   &:last-child {
-    padding-bottom: 1.6em;
+    padding-bottom: 1.6rem;
   }
 }
 
@@ -104,16 +105,24 @@
   }
 }
 
-@include ecl-media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(sm) {
   .ecl-footers__column {
     padding-bottom: 2rem;
     padding-top: 2rem;
   }
 
+  /* Specifics for this type of footer when non-mobile */
   .ecl-footers__site-identity {
     .ecl-footers__column {
       padding-bottom: 1rem;
+    }
+
+    .ecl-footers__column:last-child {
       padding-top: 1rem;
+    }
+
+    .ecl-footers__column:last-child .ecl-list-inline__item {
+      display: block;
     }
   }
 
