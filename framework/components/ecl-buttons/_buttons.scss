@@ -22,7 +22,7 @@
   }
 
   &:focus {
-    outline: 3px solid $yellow-light;
+    outline: 3px solid map-get($ecl-colors, 'yellow-100');
     outline-offset: 0;
   }
 }
@@ -36,39 +36,39 @@
 }
 
 .ecl-button--default {
-  border-color: $brand-primary;
-  color: $brand-primary;
+  border-color: $ecl-color-primary;
+  color: $ecl-color-primary;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: $brand-primary;
+    background-color: $ecl-color-primary;
     color: #fff;
   }
 }
 
 .ecl-button--primary {
-  background-color: $brand-primary;
-  border-color: $brand-primary;
+  background-color: $ecl-color-primary;
+  border-color: $ecl-color-primary;
   color: #fff;
 
   &:hover,
   &:focus,
   &:active {
     background-color: #fff;
-    color: $brand-primary;
+    color: $ecl-color-primary;
   }
 }
 
 .ecl-button--secondary {
   background-color: #fff;
   border-color: #fff;
-  color: $brand-primary;
+  color: $ecl-color-primary;
 }
 
 .ecl-button--call {
-  background-color: $yellow-light;
-  border-color: $yellow-light;
+  background-color: map-get($ecl-colors, 'yellow-100');
+  border-color: map-get($ecl-colors, 'yellow-100');
   color: #000;
 
   &:hover,
@@ -93,13 +93,13 @@
 }
 
 .ecl-button--form {
-  background-color: $grey-light;
-  border-color: $grey-light;
+  background-color: map-get($ecl-colors, 'grey-15');
+  border-color: map-get($ecl-colors, 'grey-15');
 
   &:hover,
   &:focus,
   &:active {
-    color: $grey-base;
+    color: $ecl-color-shade;
   }
 }
 
@@ -118,8 +118,8 @@
 
 .ecl-button--arrow-up {
   &::after {
-    @extend %icon--after;
-    @extend %icon--arrow-up;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--arrow-up;
 
     @include ecl-button--arrow();
   }
@@ -127,8 +127,8 @@
 
 .ecl-button--arrow-down {
   &::after {
-    @extend %icon--after;
-    @extend %icon--arrow-down;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--arrow-down;
 
     @include ecl-button--arrow();
   }
@@ -136,8 +136,8 @@
 
 .ecl-button--caret-up {
   &::after {
-    @extend %icon--after;
-    @extend %icon--up;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--up;
 
     @include ecl-button--caret();
   }
@@ -145,8 +145,8 @@
 
 .ecl-button--caret-right {
   &::after {
-    @extend %icon--after;
-    @extend %icon--right;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--right;
 
     @include ecl-button--caret();
   }
@@ -154,8 +154,8 @@
 
 .ecl-button--caret-down {
   &::after {
-    @extend %icon--after;
-    @extend %icon--down;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--down;
 
     @include ecl-button--caret();
   }
@@ -163,8 +163,8 @@
 
 .ecl-button--caret-left {
   &::after {
-    @extend %icon--after;
-    @extend %icon--left;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--left;
 
     @include ecl-button--caret();
   }

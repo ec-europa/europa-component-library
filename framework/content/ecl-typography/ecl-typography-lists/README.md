@@ -1,5 +1,5 @@
 # Lists
 
-## TODO
+Display items as ordered or unordered list.
 
-The list component needs a review and a refinement.
+Ordered list may use numbers or characters.

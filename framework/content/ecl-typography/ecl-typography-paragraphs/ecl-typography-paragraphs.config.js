@@ -1,22 +1,46 @@
 module.exports = {
   title: 'Paragraphs',
   label: 'Paragraphs',
-  status: 'planned',
-  collated: false,
-  default: 'intro',
+  status: 'ready',
+  collated: true,
+  collator(markup, item) {
+    return `<!-- Start: @${item.handle} -->\n<h3 class="ecl-heading ecl-heading--h3">${item.label}</h3>\n${markup}\n<!-- End: @${item.handle} -->\n`;
+  },
+  default: 'l',
   variants: [
     {
-      name: 'intro',
-      label: 'Intro',
+      name: 'l',
+      label: 'Leading paragraph',
       context: {
-        modifier: 'paragraph--intro',
+        modifier: 'ecl-paragraph ecl-paragraph--l',
       },
     },
     {
-      name: 'small',
-      label: 'Small body text',
+      name: 'm',
+      label: 'Medium paragraph',
       context: {
-        modifier: 'paragraph--small',
+        modifier: 'ecl-paragraph ecl-paragraph--m',
+      },
+    },
+    {
+      name: 's',
+      label: 'Small paragraph',
+      context: {
+        modifier: 'ecl-paragraph ecl-paragraph--s',
+      },
+    },
+    {
+      name: 'xs',
+      label: 'Extra small paragraph',
+      context: {
+        modifier: 'ecl-paragraph ecl-paragraph--xs',
+      },
+    },
+    {
+      name: 'xxs',
+      label: 'Extra extra small paragraph',
+      context: {
+        modifier: 'ecl-paragraph ecl-paragraph--xxs',
       },
     },
   ],

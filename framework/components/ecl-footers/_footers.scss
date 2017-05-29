@@ -9,21 +9,21 @@ Style guide footer
 */
 
 .footer {
-  background-color: $blue-medium;
+  background-color: map-get($ecl-colors, 'blue-50');
 }
 
 .footer-bottom {
-  background-color: $brand-primary;
+  background-color: $ecl-color-primary;
   padding: 0.9em 0;
 }
 
 .footer,
 .footer-bottom {
-  @extend %hidden-print;
-  color: $white;
+  @include ecl-hidden-print();
+  color: #fff;
 
   a {
-    color: $white;
+    color: #fff;
     text-decoration: underline;
     &:hover,
     &:active,
@@ -45,7 +45,7 @@ Style guide footer
 }
 
 .footer__title {
-  color: $white;
+  color: #fff;
   padding-bottom: 0;
 }
 
@@ -58,14 +58,14 @@ Style guide footer
     margin-right: 15px;
     margin-bottom: 0.5em;
     padding: 0;
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
     &:first-child > a {
       padding-left: 0;
     }
 
     a {
       padding: 0;
-      @include focus-outline-border(3px, $yellow-light, 5px);
+      @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
       &:hover,
       &:active,
       &:focus {
@@ -86,7 +86,7 @@ Style guide footer
   margin-top: 0.6em;
   margin-bottom: 1.7em;
   padding-top: 1.2em;
-  border-top: 2px solid $blue-lighter;
+  border-top: 2px solid map-get($ecl-colors, 'blue-25');
 }
 
 // Icons.
@@ -129,8 +129,8 @@ Style guide footer
 
 .footer {
   a {
-    &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
-      &:not(#{$ec-url-patterns}) {
+    &#{"[" + $ecl-external-link-pattern + "]"}:not(.is-internal) {
+      &:not(#{$ecl-ec-link-patterns}) {
         @include _footer_external_link_mixin();
       }
     }

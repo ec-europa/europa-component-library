@@ -1,123 +1,67 @@
-// Default external link mixin.
-@mixin _external_link_mixin() {
-  @extend .is-external;
-}
+// ECL links
 
-a {
-  @include focus-outline-border(3px, $yellow-light, 2px);
-
-  &:link {
-    text-decoration: underline;
-  }
+.ecl-link {
+  color: $ecl-color-primary;
+  line-height: 1.66;
+  text-decoration: underline;
 
   &:hover,
-  &:active,
   &:focus {
-    text-decoration: underline;
-    color: $grey-base;
-  }
-
-  .site-switcher &,
-  .feedback-form & {
-    @include focus-outline-border(3px, $yellow-light, 10px);
-
-    z-index: 999;
-    text-decoration: none;
-  }
-
-  .listing & {
-    text-decoration: none;
-  }
-
-  .feedback-form {
-    outline-offset: 0;
-  }
-
-  .listing--cta &,
-  .site-switcher &,
-  .node-featured-item & {
-    &:focus {
-      outline-offset: 0;
-    }
-  }
-
-  .listing--frontpage & {
-    &:focus {
-      outline-offset: 10px;
-
-      .listing__title {
-        text-decoration: underline;
-        color: $grey-base;
-      }
-    }
-  }
-
-  &.listing__item-link {
-    &:focus {
-      .highlighted-item .highlighted-item__content {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .listing--cta & {
-    &:focus {
-      color: $white;
-    }
-  }
-
-  &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
-    &:not(#{$ec-url-patterns}) {
-      @include _external_link_mixin();
-    }
-  }
-
-  &.smaller,
-  .smaller & {
-    font-size: 0.8em;
-  }
-
-  &#{'[href^="mailto"]'} {
-    text-transform: lowercase;
-  }
-
-  @media print {
-    &::after {
-      content: none !important;
-    }
+    color: $ecl-color-shade;
   }
 }
 
-.is-external {
+.ecl-link--external {
   position: relative;
 
   &::after {
-    @extend %icon--after;
+    @extend %ecl-icon--after;
 
-    @include icon('external');
+    @include ecl-icon('external');
 
     font-size: 75%;
     margin-left: 0.4em;
     margin-right: 0.2em;
+    // Hack for IE to not display underline (this is on purpose).
+    text-decoration: underline;
   }
 }
 
-// External link specific adjustments.
-@mixin _link_external_link_mixin() {
-  &.btn {
-    padding-right: 2.1em;
+.ecl-link--standalone {
+  text-decoration: none;
+}
+
+.ecl-link--inverted {
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    color: map-get($ecl-colors, 'grey-25');
   }
 }
 
-.page-content {
-  ul,
-  p {
-    a {
-      &#{"[" + $external-link-pattern + "]"}:not(.is-internal) {
-        &:not(#{$ec-url-patterns}) {
-          @include _link_external_link_mixin();
-        }
-      }
-    }
+.ecl-link--all {
+  clear: right;
+  float: right;
+  text-transform: uppercase;
+}
+
+.ecl-link--expand {
+  position: relative;
+
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('arrow-down');
+
+    font-size: 60%;
+    margin-left: 0.4em;
+    margin-right: 0.2em;
+    // Hack for IE to not display underline (this is on purpose).
+    text-decoration: underline;
+  }
+
+  &.is-expanded::after {
+    @include ecl-icon('arrow-up');
   }
 }

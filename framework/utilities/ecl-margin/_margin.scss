@@ -14,34 +14,34 @@
     l = left
 */
 
-@each $key, $value in $spacing {
-  .ecl-ma-#{$key} {
+@each $key, $value in $ecl-spacing {
+  .ecl-u-ma-#{$key} {
     margin: $value;
   }
 
-  .ecl-mh-#{$key} {
+  .ecl-u-mh-#{$key} {
     margin-left: $value;
     margin-right: $value;
   }
 
-  .ecl-mv-#{$key} {
+  .ecl-u-mv-#{$key} {
     margin-bottom: $value;
     margin-top: $value;
   }
 
-  .ecl-mt-#{$key} {
+  .ecl-u-mt-#{$key} {
     margin-top: $value;
   }
 
-  .ecl-mr-#{$key} {
+  .ecl-u-mr-#{$key} {
     margin-right: $value;
   }
 
-  .ecl-mb-#{$key} {
+  .ecl-u-mb-#{$key} {
     margin-bottom: $value;
   }
 
-  .ecl-ml-#{$key} {
+  .ecl-u-ml-#{$key} {
     margin-left: $value;
   }
 }
@@ -58,19 +58,19 @@
     l = left
 */
 
-.ecl-ma-auto {
+.ecl-u-ma-auto {
   margin: auto;
 }
 
-.ecl-mh-auto {
+.ecl-u-mh-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
-.ecl-mr-auto {
+.ecl-u-mr-auto {
   margin-right: auto;
 }
 
-.ecl-ml-auto {
+.ecl-u-ml-auto {
   margin-left: auto;
 }

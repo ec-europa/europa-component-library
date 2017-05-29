@@ -88,7 +88,7 @@ $section-spacing: 1.667em;
   margin-top: $section-spacing;
 
   .section__group {
-    @include clearfix();
+    @include ecl-clearfix();
   }
 
   .section__group:first-child,
@@ -139,8 +139,8 @@ $section-spacing: 1.667em;
 }
 
 .section__group--full-width {
-  margin-left: -$grid-gutter-width-base / 2;
-  margin-right: -$grid-gutter-width-base / 2;
+  margin-left: -$ecl-grid-gutter-width-base / 2;
+  margin-right: -$ecl-grid-gutter-width-base / 2;
 
   & > * {
     margin-left: auto !important;
@@ -151,18 +151,18 @@ $section-spacing: 1.667em;
 }
 
 .section__group--highlight-grey {
-  background-color: $grey-lighter;
+  background-color: map-get($ecl-colors, 'grey-10');
   overflow: hidden;
 }
 
 .section__group--highlight-grey-lightest {
   @extend .section__group--highlight-grey;
 
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
 }
 
 .section__group--highlight-yellow {
-  background-color: $yellow-light;
+  background-color: map-get($ecl-colors, 'yellow-100');
   overflow: hidden;
 }
 
@@ -204,7 +204,7 @@ $section-spacing: 1.667em;
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include ecl-media-breakpoint-up(lg) {
   .section__group--full-width {
     margin-left: -100%;
     margin-right: -100%;
@@ -212,7 +212,7 @@ $section-spacing: 1.667em;
 }
 
 // That's the only reference to this modifier, could it be simply dropped?
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .section {
     .section--two-columns {
       margin-bottom: 0;

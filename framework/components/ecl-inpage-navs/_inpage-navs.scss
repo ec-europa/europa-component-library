@@ -11,7 +11,7 @@ Style guide inpagenav
 */
 
 .inpage-nav__wrapper {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   margin-bottom: 1.667em;
 
@@ -30,8 +30,8 @@ Style guide inpagenav
     li {
       &.active {
         .inpage_nav__list-item {
-          background-color: $grey-lighter;
-          border-color: $brand-primary;
+          background-color: map-get($ecl-colors, 'grey-10');
+          border-color: $ecl-color-primary;
         }
       }
     }
@@ -42,8 +42,8 @@ Style guide inpagenav
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 8px;
-    color: $black;
-    font-size: map-get($font-size, 's');
+    color: #000;
+    font-size: map-get($ecl-font-size, 's');
     font-weight: bold;
     border-left: 3px solid transparent;
     text-decoration: none;
@@ -54,7 +54,7 @@ Style guide inpagenav
     }
 
     &:focus {
-      background-color: $yellow-light !important;
+      background-color: map-get($ecl-colors, 'yellow-100') !important;
       outline: none;
       text-decoration: underline;
     }
@@ -62,8 +62,8 @@ Style guide inpagenav
 }
 
 .inpage-nav__navbar {
-  background-color: $white;
-  color: $white;
+  background-color: #fff;
+  color: #fff;
 
   .inpage-nav__current-wrapper {
     overflow: hidden;
@@ -79,24 +79,24 @@ Style guide inpagenav
     width: 100%;
     padding-top: 1em;
     overflow: hidden;
-    font-size: map-get($font-size, 'm');
+    font-size: map-get($ecl-font-size, 'm');
     font-weight: bold;
-    color: $white;
+    color: #fff;
     text-overflow: ellipsis;
     white-space: nowrap;
     cursor: pointer;
 
     &:hover {
-      color: $white;
+      color: #fff;
     }
   }
 
   .inpage-nav__help {
     display: none;
     padding-top: 1.35em;
-    background-color: $grey-lighter;
-    font-size: map-get($font-size, 'xs');
-    color: $grey-dark;
+    background-color: map-get($ecl-colors, 'grey-10');
+    font-size: map-get($ecl-font-size, 'xs');
+    color: map-get($ecl-colors, 'grey-100');
     text-transform: uppercase;
   }
 
@@ -104,7 +104,7 @@ Style guide inpagenav
     display: block;
     padding: 1em;
     line-height: 1;
-    font-size: map-get($font-size, 'm');
+    font-size: map-get($ecl-font-size, 'm');
     font-weight: bold;
   }
 
@@ -113,14 +113,14 @@ Style guide inpagenav
 
     margin: 0;
     padding: 1em;
-    background-color: $blue-darkest;
-    border-color: $blue-darkest;
+    background-color: map-get($ecl-colors, 'blue-120');
+    border-color: map-get($ecl-colors, 'blue-120');
 
     &:hover,
     &:active,
     &:focus {
-      background-color: $blue-darkest;
-      color: $white;
+      background-color: map-get($ecl-colors, 'blue-120');
+      color: #fff;
       text-decoration: none;
     }
   }
@@ -129,7 +129,7 @@ Style guide inpagenav
     display: block;
     margin: 5px 4px;
     font-size: 10px;
-    color: $white;
+    color: #fff;
 
     transition: all 0.3s ease 0s;
 
@@ -153,7 +153,7 @@ Style guide inpagenav
   .inpage-nav__container {
     width: auto;
     padding: 0;
-    background-color: $blue-dark;
+    background-color: map-get($ecl-colors, 'blue-100');
 
     .navbar-collapse {
       max-height: none;
@@ -172,9 +172,9 @@ Style guide inpagenav
 
       .inpage_nav__list-item {
         padding: 0.8em 0 0.8em 1em;
-        font-size: map-get($font-size, 's');
-        color: $white;
-        border-top: 1px solid $blue-darkest;
+        font-size: map-get($ecl-font-size, 's');
+        color: #fff;
+        border-top: 1px solid map-get($ecl-colors, 'blue-120');
 
         &:hover,
         &:focus {
@@ -209,16 +209,16 @@ Style guide inpagenav
     }
 
     .inpage-nav__header {
-      background-color: $grey-lighter;
+      background-color: map-get($ecl-colors, 'grey-10');
       font-weight: normal;
     }
 
     .inpage-nav__toggle {
-      background-color: $grey;
-      border-color: $grey;
+      background-color: map-get($ecl-colors, 'grey-50');
+      border-color: map-get($ecl-colors, 'grey-50');
 
       .inpage-nav__icon-arrow {
-        color: $grey-dark;
+        color: map-get($ecl-colors, 'grey-100');
 
         transform: rotate(180deg);
       }
@@ -230,7 +230,7 @@ Style guide inpagenav
   display: inherit;
   font-size: 1rem;
   font-weight: normal;
-  color: $grey-dark;
+  color: map-get($ecl-colors, 'grey-100');
   text-transform: uppercase;
 }
 
@@ -242,7 +242,7 @@ Style guide inpagenav
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .inpage-nav__wrapper {
     &.affix,
     &.affix-top {

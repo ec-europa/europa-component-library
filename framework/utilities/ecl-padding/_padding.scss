@@ -14,34 +14,34 @@
     l = left
 */
 
-@each $key, $value in $spacing {
-  .ecl-pa-#{$key} {
+@each $key, $value in $ecl-spacing {
+  .ecl-u-pa-#{$key} {
     padding: $value;
   }
 
-  .ecl-ph-#{$key} {
+  .ecl-u-ph-#{$key} {
     padding-left: $value;
     padding-right: $value;
   }
 
-  .ecl-pv-#{$key} {
+  .ecl-u-pv-#{$key} {
     padding-bottom: $value;
     padding-top: $value;
   }
 
-  .ecl-pt-#{$key} {
+  .ecl-u-pt-#{$key} {
     padding-top: $value;
   }
 
-  .ecl-pr-#{$key} {
+  .ecl-u-pr-#{$key} {
     padding-right: $value;
   }
 
-  .ecl-pb-#{$key} {
+  .ecl-u-pb-#{$key} {
     padding-bottom: $value;
   }
 
-  .ecl-pl-#{$key} {
+  .ecl-u-pl-#{$key} {
     padding-left: $value;
   }
 }

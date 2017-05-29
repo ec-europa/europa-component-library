@@ -3,21 +3,21 @@ Filters
 */
 
 .filters {
-  background: $grey-lighter;
-  margin-left: -($grid-gutter-width-base / 2);
-  margin-right: -($grid-gutter-width-base / 2);
+  background: map-get($ecl-colors, 'grey-10');
+  margin-left: -($ecl-grid-gutter-width-base / 2);
+  margin-right: -($ecl-grid-gutter-width-base / 2);
 }
 
 // Padding goes to a wrapper added with js.
 // Twitter bootstrap's collapsible twitching issue.
 .filters__wrapper {
-  padding: ($grid-gutter-width-base / 2);
+  padding: ($ecl-grid-gutter-width-base / 2);
 }
 
 // And adding the padding back in case the wrapper is missing.
 .no-js {
   .filters {
-    padding: ($grid-gutter-width-base / 2);
+    padding: ($ecl-grid-gutter-width-base / 2);
   }
 }
 
@@ -75,7 +75,7 @@ Filters
 }
 
 .filters__close {
-  color: $brand-primary !important;
+  color: $ecl-color-primary !important;
   opacity: 1 !important;
   font-size: 1em;
   font-weight: 400;
@@ -103,7 +103,7 @@ Filters
 
 .filters__items-number,
 .filters__items-name {
-  font-size: map-get($font-size, 'xl');
+  font-size: map-get($ecl-font-size, 'xl');
 }
 
 .filters__items-number {
@@ -126,7 +126,7 @@ html {
   }
 }
 
-@include media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(xs) {
   .filters__close {
     &::after {
       width: 12px;
@@ -135,7 +135,7 @@ html {
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .filters {
     margin: 0;
     padding: 0;

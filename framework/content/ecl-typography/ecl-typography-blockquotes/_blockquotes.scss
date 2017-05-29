@@ -3,24 +3,25 @@
  * @define blockquote
  */
 
-$small-quote-size: 1em;
-$small-quote-width: 0.5em;
-
 .ecl-blockquote {
-  border-left: 0.5rem solid $yellow-light;
+  border-left: 0.417em solid $ecl-color-secondary;
   clear: both;
-  font-size: map-get($font-size, 'l');
+  display: inline-block;
+  font-size: map-get($ecl-font-size, 'l');
   font-style: italic;
   line-height: 1.5;
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
   max-width: 24em;
   overflow: hidden;
-  padding: map-get($spacing, 's') 0 map-get($spacing, 's') map-get($spacing, 'm');
+  padding: 0.6em 0 0.6em 1.2em;
   position: relative;
 
+  // Drupal fix.
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   p {
     display: inline;
+    line-height: inherit;
   }
 
   &::before {
@@ -33,9 +34,8 @@ $small-quote-width: 0.5em;
 }
 
 .ecl-blockquote--small {
-  color: $text-color;
-  font-family: $font-family-base;
-  font-size: map-get($font-size, 's');
+  color: $ecl-color-shade;
+  font-size: map-get($ecl-font-size, 's');
   font-style: normal;
   margin-bottom: 0;
   padding-left: 0;

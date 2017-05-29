@@ -15,8 +15,8 @@
 .featured-item__extended {
   margin-bottom: 1.667em;
   padding: 15px 0;
-  background-color: $grey-lighter;
-  border-left: 0.556em solid $yellow-light;
+  background-color: map-get($ecl-colors, 'grey-10');
+  border-left: 0.556em solid map-get($ecl-colors, 'yellow-100');
 }
 
 .featured-item__image {
@@ -35,12 +35,12 @@
   @extend .col-md-7 !optional;
 
   p {
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
   }
 
   h3 {
     a {
-      color: $grey-base;
+      color: $ecl-color-shade;
     }
   }
 }

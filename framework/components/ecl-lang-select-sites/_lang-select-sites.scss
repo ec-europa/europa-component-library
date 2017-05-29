@@ -4,14 +4,14 @@
  */
 
 .lang-select-site {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   position: absolute;
-  right: $grid-gutter-width-base / 2;
+  right: $ecl-grid-gutter-width-base / 2;
   text-align: center;
   top: 0;
 
-  @include media-breakpoint-up(md) {
+  @include ecl-media-breakpoint-up(md) {
     float: left;
     position: static;
   }
@@ -20,14 +20,14 @@
     border: 3px solid transparent;
     color: inherit;
     display: inline-block;
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
     font-weight: bold;
     padding: 7.5px 15px;
     text-align: center;
     text-decoration: none;
 
     &:focus {
-      border-color: $yellow-light;
+      border-color: map-get($ecl-colors, 'yellow-100');
       outline: none;
     }
   }
@@ -41,25 +41,25 @@
   }
 
   .lang-select-site__code {
-    color: $brand-primary;
+    color: $ecl-color-primary;
     display: inline-block;
     position: relative;
     text-transform: uppercase;
-    width: map-get($font-size, 'xs') * 2;
+    width: map-get($ecl-font-size, 'xs') * 2;
   }
 
   .lang-select-site__code-text {
-    background-color: $brand-primary;
-    color: $white;
-    font-size: map-get($font-size, 'xs');
+    background-color: $ecl-color-primary;
+    color: #fff;
+    font-size: map-get($ecl-font-size, 'xs');
     left: -1px;
     position: relative;
     top: 0;
   }
 
   .lang-select-site__icon {
-    color: $brand-primary;
-    font-size: map-get($font-size, 'xs') * 2;
+    color: $ecl-color-primary;
+    font-size: map-get($ecl-font-size, 'xs') * 2;
     left: -1px;
     line-height: 1.4;
     position: absolute;

@@ -17,7 +17,7 @@ $agenda-yellow: #fed437;
   min-height: 5.556em;
   margin-right: 0.75em;
   padding: 0.9em 0.5em 0.7em;
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
   text-align: center;
   border-bottom: 0.222em solid $agenda-yellow;
 
@@ -28,7 +28,7 @@ $agenda-yellow: #fed437;
     content: " ";
     border-top: 1em solid transparent;
     border-bottom: 1em solid transparent;
-    border-right: 1em solid $white;
+    border-right: 1em solid #fff;
 
     transform: rotate(135deg);
   }
@@ -36,28 +36,28 @@ $agenda-yellow: #fed437;
 
 .date-block__element {
   display: block;
-  color: $grey-base;
+  color: $ecl-color-shade;
 }
 
 .date-block__year {
   @extend .date-block__element;
 
   line-height: 1;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
 }
 
 .date-block__day-text {
   @extend .date-block__element;
 
   line-height: 1.2;
-  font-size: map-get($font-size, 'xs');
+  font-size: map-get($ecl-font-size, 'xs');
 }
 
 .date-block__day {
   @extend .date-block__element;
 
   line-height: 1.2;
-  font-size: map-get($font-size, 'xxl');
+  font-size: map-get($ecl-font-size, 'xxl');
   font-weight: 600;
 }
 
@@ -65,7 +65,7 @@ $agenda-yellow: #fed437;
   @extend .date-block__element;
 
   line-height: 1;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   font-weight: 600;
 }
 
@@ -88,7 +88,7 @@ Style guide date-block.event
   }
 
   &.cancelled {
-    border-bottom-color: $grey-lighter;
+    border-bottom-color: map-get($ecl-colors, 'grey-10');
 
     .date-block__element {
       text-decoration: line-through;
@@ -110,8 +110,8 @@ Style guide date-block.event.past
 
 .date-block.event.past {
   padding: 0.8em 0.5em 0.7em;
-  background-color: $white;
-  border: 0.166em solid $grey;
+  background-color: #fff;
+  border: 0.166em solid map-get($ecl-colors, 'grey-50');
 
   .date-block__day {
     line-height: 1;
@@ -128,7 +128,7 @@ Style guide date-block.event.past
     content: " ";
     border-top: 1em solid transparent;
     border-bottom: 1em solid transparent;
-    border-right: 1em solid $white;
+    border-right: 1em solid #fff;
 
     transform: rotate(135deg);
   }
@@ -138,7 +138,7 @@ Style guide date-block.event.past
     right: 0.45em;
     height: 1.7em;
     border: none;
-    border-right: 0.166em solid $grey;
+    border-right: 0.166em solid map-get($ecl-colors, 'grey-50');
 
     transform: rotate(135deg);
   }

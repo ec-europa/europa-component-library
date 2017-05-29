@@ -1,6 +1,6 @@
 .highlighted-item {
   padding: 0 0 2em;
-  background-color: $grey-lighter;
+  background-color: map-get($ecl-colors, 'grey-10');
 
   &:hover,
   &:active,
@@ -21,5 +21,5 @@
 .highlighted-item__content {
   margin: 0;
   padding: 0 1em;
-  color: $brand-primary;
+  color: $ecl-color-primary;
 }
