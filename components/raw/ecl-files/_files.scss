@@ -7,12 +7,12 @@ File download default
 */
 
 .file {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
   @extend .row !optional;
 
   margin: 0 0 0.944em;
   padding: 1.333em;
-  background-color: $grey-lighter;
+  background-color: map-get($ecl-colors, 'grey-10');
 }
 
 .file__icon {
@@ -31,7 +31,7 @@ File download default
 
   &::before {
     font-size: 2.556em;
-    color: $grey;
+    color: map-get($ecl-colors, 'grey-50');
   }
 }
 
@@ -52,21 +52,21 @@ File download default
 }
 
 .file__caption {
-  @include media-caption();
+  @include ecl-media-caption();
 }
 
 .file__language {
   display: block;
   margin-top: 0.556em;
   line-height: initial;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
 }
 
 .file__info {
   margin-top: 0.778em;
   line-height: initial;
-  font-size: map-get($font-size, 'xs');
+  font-size: map-get($ecl-font-size, 'xs');
 }
 
 .file__content-language {
@@ -82,8 +82,8 @@ File download default
   margin-bottom: 0;
 
   &::after {
-    @extend %icon--after;
-    @extend %icon--download;
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--download;
   }
 }
 
@@ -97,7 +97,7 @@ File download default
     border: none;
 
     &:hover {
-      color: $text-color;
+      color: $ecl-color-shade;
     }
   }
 
@@ -113,34 +113,33 @@ File download with translations
 .file__translations {
   margin-bottom: 1em;
   padding: 0 1.45em;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   text-align: right;
 
   .file__translations-control {
     margin-top: 0.444em;
-    font-size: map-get($font-size, 'm');
+    font-size: map-get($ecl-font-size, 'm');
     text-decoration: none;
 
     &:active,
     &:hover,
     &:focus {
-      color: $black;
+      color: #000;
       text-decoration: underline;
 
       &::after {
-        color: $black;
+        color: #000;
       }
     }
 
     // The arrow, rotating on collapse change.
     &::after {
-      @extend %icon--after;
-      @extend %icon--down;
-      @extend %icon--blue-dark;
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--down;
 
-      position: relative;
+      color: $ecl-color-primary;
       margin-left: 0.525em !important;
-
+      position: relative;
       transition: all 0.3s ease 0s;
     }
 
@@ -162,7 +161,7 @@ File download with translations
     }
 
     // Make it self scaling.
-    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+    @media (max-width: map-get($ecl-grid-breakpoints, 'sm')) {
       .btn--condensed {
         margin-left: -1em;
         margin-right: 0;
@@ -171,10 +170,10 @@ File download with translations
   }
 
   .file__translations-item {
-    border-top: 1px solid $grey;
+    border-top: 1px solid map-get($ecl-colors, 'grey-50');
 
     &:last-child {
-      border-bottom: 1px solid $grey;
+      border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
     }
   }
 
@@ -192,7 +191,7 @@ File download with translations
     @extend .file__translations-item;
 
     padding-top: 0.5em;
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
   }
 }
 
@@ -225,7 +224,7 @@ File link
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .file__icon {
     width: auto;
     padding: 0;

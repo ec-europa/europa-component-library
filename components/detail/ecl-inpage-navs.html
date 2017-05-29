@@ -11,7 +11,7 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
 
 
 <title>Inpage navigations | Europa Component Library</title>
@@ -303,7 +303,7 @@ Style guide inpagenav
 */</span>
 
 <span class="hljs-selector-class">.inpage-nav__wrapper</span> {
-  @<span class="hljs-keyword">extend</span> %hidden-print;
+  @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1.667em</span>;
 
@@ -322,8 +322,8 @@ Style guide inpagenav
     <span class="hljs-selector-tag">li</span> {
       &amp;<span class="hljs-selector-class">.active</span> {
         <span class="hljs-selector-class">.inpage_nav__list-item</span> {
-          <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$grey-lighter</span>;
-          <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$brand-primary</span>;
+          <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+          <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
         }
       }
     }
@@ -334,8 +334,8 @@ Style guide inpagenav
     <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">7px</span>;
     <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">7px</span>;
     <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">8px</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$black</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
     <span class="hljs-attribute">font-weight</span>: bold;
     <span class="hljs-attribute">border-left</span>: <span class="hljs-number">3px</span> solid transparent;
     <span class="hljs-attribute">text-decoration</span>: none;
@@ -346,7 +346,7 @@ Style guide inpagenav
     }
 
     &amp;:focus {
-      <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$yellow-light</span> <span class="hljs-meta">!important</span>;
+      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>) <span class="hljs-meta">!important</span>;
       <span class="hljs-attribute">outline</span>: none;
       <span class="hljs-attribute">text-decoration</span>: underline;
     }
@@ -354,8 +354,8 @@ Style guide inpagenav
 }
 
 <span class="hljs-selector-class">.inpage-nav__navbar</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$white</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 
   <span class="hljs-selector-class">.inpage-nav__current-wrapper</span> {
     <span class="hljs-attribute">overflow</span>: hidden;
@@ -371,24 +371,24 @@ Style guide inpagenav
     <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
     <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">1em</span>;
     <span class="hljs-attribute">overflow</span>: hidden;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
     <span class="hljs-attribute">font-weight</span>: bold;
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
     <span class="hljs-attribute">text-overflow</span>: ellipsis;
     <span class="hljs-attribute">white-space</span>: nowrap;
     <span class="hljs-attribute">cursor</span>: pointer;
 
     &amp;:hover {
-      <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
     }
   }
 
   <span class="hljs-selector-class">.inpage-nav__help</span> {
     <span class="hljs-attribute">display</span>: none;
     <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">1.35em</span>;
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$grey-lighter</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xs'</span>);
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-dark</span>;
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
     <span class="hljs-attribute">text-transform</span>: uppercase;
   }
 
@@ -396,7 +396,7 @@ Style guide inpagenav
     <span class="hljs-attribute">display</span>: block;
     <span class="hljs-attribute">padding</span>: <span class="hljs-number">1em</span>;
     <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
     <span class="hljs-attribute">font-weight</span>: bold;
   }
 
@@ -405,14 +405,14 @@ Style guide inpagenav
 
     <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">padding</span>: <span class="hljs-number">1em</span>;
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$blue-darkest</span>;
-    <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$blue-darkest</span>;
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
+    <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
 
     &amp;:hover,
     &amp;:active,
     &amp;:focus {
-      <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$blue-darkest</span>;
-      <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
       <span class="hljs-attribute">text-decoration</span>: none;
     }
   }
@@ -421,7 +421,7 @@ Style guide inpagenav
     <span class="hljs-attribute">display</span>: block;
     <span class="hljs-attribute">margin</span>: <span class="hljs-number">5px</span> <span class="hljs-number">4px</span>;
     <span class="hljs-attribute">font-size</span>: <span class="hljs-number">10px</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 
     <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span> ease <span class="hljs-number">0s</span>;
 
@@ -445,7 +445,7 @@ Style guide inpagenav
   <span class="hljs-selector-class">.inpage-nav__container</span> {
     <span class="hljs-attribute">width</span>: auto;
     <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$blue-dark</span>;
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
 
     <span class="hljs-selector-class">.navbar-collapse</span> {
       <span class="hljs-attribute">max-height</span>: none;
@@ -464,9 +464,9 @@ Style guide inpagenav
 
       <span class="hljs-selector-class">.inpage_nav__list-item</span> {
         <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.8em</span> <span class="hljs-number">0</span> <span class="hljs-number">0.8em</span> <span class="hljs-number">1em</span>;
-        <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
-        <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
-        <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid <span class="hljs-variable">$blue-darkest</span>;
+        <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+        <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+        <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
 
         &amp;:hover,
         &amp;:focus {
@@ -501,16 +501,16 @@ Style guide inpagenav
     }
 
     <span class="hljs-selector-class">.inpage-nav__header</span> {
-      <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$grey-lighter</span>;
+      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
       <span class="hljs-attribute">font-weight</span>: normal;
     }
 
     <span class="hljs-selector-class">.inpage-nav__toggle</span> {
-      <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$grey</span>;
-      <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$grey</span>;
+      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+      <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
 
       <span class="hljs-selector-class">.inpage-nav__icon-arrow</span> {
-        <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-dark</span>;
+        <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
 
         <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">180deg</span>);
       }
@@ -522,7 +522,7 @@ Style guide inpagenav
   <span class="hljs-attribute">display</span>: inherit;
   <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;
   <span class="hljs-attribute">font-weight</span>: normal;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-dark</span>;
+  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
   <span class="hljs-attribute">text-transform</span>: uppercase;
 }
 
@@ -534,7 +534,7 @@ Style guide inpagenav
   }
 }
 
-@<span class="hljs-keyword">include</span> media-breakpoint-up(md) {
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
   <span class="hljs-selector-class">.inpage-nav__wrapper</span> {
     &amp;<span class="hljs-selector-class">.affix</span>,
     &amp;<span class="hljs-selector-class">.affix-top</span> {
@@ -572,7 +572,7 @@ Style guide inpagenav
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.5 KB</span>
+                    <span class="Meta-value">4.8 KB</span>
                 </li>
             </ul>
         </div>
@@ -739,6 +739,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Tree" data-behaviour="tree" id="tree-content">
     <h3 class="Tree-title">Content</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colors" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colors</span>
+            </a>
+        </li>
         
     
         
@@ -922,7 +946,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -946,7 +970,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -960,8 +984,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-ecl-typography-paragraphs">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-typography-paragraphs" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -969,7 +994,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -978,63 +1003,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Paragraphs</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--intro" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Intro</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--small" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Small body text</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -3978,6 +3947,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-font-size" data-pjax>
                 
 
@@ -4100,7 +4093,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.2"></script>
 
 
 

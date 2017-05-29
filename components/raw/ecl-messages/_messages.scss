@@ -6,9 +6,9 @@ Markup: html/messages.html
 Style guide messages
 */
 
-$messages-text-color: $grey-base;
-$messages-heading-size: map-get($font-size, 's');
-$messages-text-size: map-get($font-size, 's');
+$messages-text-color: $ecl-color-shade;
+$messages-heading-size: map-get($ecl-font-size, 's');
+$messages-text-size: map-get($ecl-font-size, 's');
 
 .messages {
   position: relative;
@@ -17,29 +17,29 @@ $messages-text-size: map-get($font-size, 's');
   padding: 1.315em 0 1.315em 5em;
   overflow: hidden;
   background: transparent url('../images/svg/messages-info.svg') no-repeat 1.375em 1.375em;
-  font-family: $font-family-sans-serif;
+  font-family: $ecl-font-family-sans-serif;
   font-size: $messages-text-size;
   color: $messages-text-color;
-  border: 2px solid $blue;
+  border: 2px solid map-get($ecl-colors, 'blue-75');
 
   &.status {
     background-image: url('../images/svg/messages-success.svg');
-    border-color: $green;
+    border-color: $ecl-color-success;
   }
 
   &.warning {
     background-image: url('../images/svg/messages-warning.svg');
-    border-color: $yellow;
+    border-color: map-get($ecl-colors, 'yellow-110');
   }
 
   &.error {
     background-image: url('../images/svg/messages-error.svg');
-    border-color: $red;
+    border-color: $ecl-color-error;
   }
 
   &.live {
     background-image: url('../images/svg/live_streaming.svg');
-    border-color: $yellow;
+    border-color: map-get($ecl-colors, 'yellow-110');
   }
 
   h3 {

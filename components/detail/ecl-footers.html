@@ -11,7 +11,7 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
 
 
 <title>Footers | Europa Component Library</title>
@@ -389,21 +389,21 @@ Style guide footer
 */</span>
 
 <span class="hljs-selector-class">.footer</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$blue-medium</span>;
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-50'</span>);
 }
 
 <span class="hljs-selector-class">.footer-bottom</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$brand-primary</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.9em</span> <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.footer</span>,
 <span class="hljs-selector-class">.footer-bottom</span> {
-  @<span class="hljs-keyword">extend</span> %hidden-print;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+  @<span class="hljs-keyword">include</span> ecl-hidden-print();
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 
   <span class="hljs-selector-tag">a</span> {
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
     <span class="hljs-attribute">text-decoration</span>: underline;
     &amp;:hover,
     &amp;:active,
@@ -425,7 +425,7 @@ Style guide footer
 }
 
 <span class="hljs-selector-class">.footer__title</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
 }
 
@@ -438,14 +438,14 @@ Style guide footer
     <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">15px</span>;
     <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.5em</span>;
     <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
     &amp;:first-child &gt; <span class="hljs-selector-tag">a</span> {
       <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
     }
 
     <span class="hljs-selector-tag">a</span> {
       <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-      @<span class="hljs-keyword">include</span> focus-outline-border(<span class="hljs-number">3px</span>, <span class="hljs-variable">$yellow-light</span>, 5px);
+      @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), 5px);
       &amp;:hover,
       &amp;:active,
       &amp;:focus {
@@ -466,7 +466,7 @@ Style guide footer
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.6em</span>;
   <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1.7em</span>;
   <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">1.2em</span>;
-  <span class="hljs-attribute">border-top</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$blue-lighter</span>;
+  <span class="hljs-attribute">border-top</span>: <span class="hljs-number">2px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-25'</span>);
 }
 
 <span class="hljs-comment">// Icons.</span>
@@ -509,8 +509,8 @@ Style guide footer
 
 <span class="hljs-selector-class">.footer</span> {
   <span class="hljs-selector-tag">a</span> {
-    &amp;#{"<span class="hljs-selector-attr">[" + $external-link-pattern + "]</span>"}:not(<span class="hljs-selector-class">.is-internal</span>) {
-      &amp;:not(#{<span class="hljs-variable">$ec-url-patterns</span>}) {
+    &amp;#{"<span class="hljs-selector-attr">[" + $ecl-external-link-pattern + "]</span>"}:not(<span class="hljs-selector-class">.is-internal</span>) {
+      &amp;:not(#{<span class="hljs-variable">$ecl-ec-link-patterns</span>}) {
         @<span class="hljs-keyword">include</span> _footer_external_link_mixin();
       }
     }
@@ -666,6 +666,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Tree" data-behaviour="tree" id="tree-content">
     <h3 class="Tree-title">Content</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colors" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colors</span>
+            </a>
+        </li>
         
     
         
@@ -849,7 +873,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -873,7 +897,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -887,8 +911,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-ecl-typography-paragraphs">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-typography-paragraphs" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -896,7 +921,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -905,63 +930,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Paragraphs</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--intro" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Intro</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--small" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Small body text</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -3905,6 +3874,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-font-size" data-pjax>
                 
 
@@ -4027,7 +4020,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.2"></script>
 
 
 

@@ -12,14 +12,14 @@ Style guide table responsive
   width: 100%;
   margin: 1em 0;
   table-layout: fixed;
-  font-size: map-get($font-size, 's');
+  font-size: map-get($ecl-font-size, 's');
   border-collapse: collapse;
   border: none;
 
   th {
     background-color: transparent;
     font-weight: bold;
-    color: $grey-base;
+    color: $ecl-color-shade;
   }
 
   td,
@@ -41,7 +41,7 @@ Style guide table responsive
     }
 
     tr {
-      border-bottom: 1px solid $grey;
+      border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
 
       &:nth-of-type(2n) {
         background-color: inherit;
@@ -65,14 +65,14 @@ Style guide table responsive
         }
 
         &.table-responsive__heading {
-          background-color: $grey-base;
+          background-color: $ecl-color-shade;
           font-weight: bold;
-          color: $white;
+          color: #fff;
         }
 
         &.table-responsive__group_label {
           padding-left: 1.5em;
-          font-size: map-get($font-size, 's');
+          font-size: map-get($ecl-font-size, 's');
 
           &::after {
             display: block;
@@ -80,12 +80,12 @@ Style guide table responsive
             top: -1.7em;
             left: 0.5em;
             content: attr(data-th-group);
-            font-size: map-get($font-size, 'l');
+            font-size: map-get($ecl-font-size, 'l');
             font-weight: bold;
           }
 
           ~ .table-responsive__group_element {
-            font-size: map-get($font-size, 's');
+            font-size: map-get($ecl-font-size, 's');
             padding-left: 1.5em;
             margin: 0;
           }
@@ -101,18 +101,18 @@ Style guide table responsive
       display: table-header-group;
 
       tr:first-child th {
-        border-bottom: 1px solid $grey-base;
+        border-bottom: 1px solid $ecl-color-shade;
         vertical-align: top;
       }
 
       tr:last-child:not(:first-child) {
-        border-bottom: 3px solid $grey-base;
+        border-bottom: 3px solid $ecl-color-shade;
       }
     }
 
     /* Zebra striping */
     tr:nth-of-type(even) {
-      background-color: $grey-lightest;
+      background-color: map-get($ecl-colors, 'grey-5');
     }
   }
 }

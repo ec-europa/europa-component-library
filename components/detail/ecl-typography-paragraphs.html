@@ -11,7 +11,7 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
 
 
 <title>Paragraphs | Europa Component Library</title>
@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -81,6 +81,8 @@
               <div class="Prose">
                 
                 <h1 id="paragraphs">Paragraphs</h1>
+<p>Text paragraphs. 
+Different sizes are available, by using specific modifiers.</p>
 
                 
               </div>
@@ -166,9 +168,47 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-57b06a4f7a8d200de3f49c00d7c8e709-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Leading paragraph */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-paragraph ecl-paragraph--l"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Medium paragraph */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-paragraph ecl-paragraph--m"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Small paragraph */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-paragraph ecl-paragraph--s"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Extra small paragraph */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-paragraph ecl-paragraph--xs"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Extra extra small paragraph */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-paragraph ecl-paragraph--xxs"</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -178,10 +218,47 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-57b06a4f7a8d200de3f49c00d7c8e709-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"paragraph--intro"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at dictum mi. Donec leo ipsum, dictum quis libero vitae, aliquet fermentum tellus. Curabitur vitae enim commodo diam scelerisque commodo. Cum sociis natoque penatibus et magnis dis parturient
+        
+            <pre><span class="hljs-comment">&lt;!-- Leading paragraph --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--l"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at dictum mi. Donec leo ipsum, dictum quis libero vitae, aliquet fermentum tellus. Curabitur vitae enim commodo diam scelerisque commodo. Cum sociis natoque penatibus et magnis dis parturient
     montes, nascetur ridiculus mus. Etiam euismod metus est, a sollicitudin lacus suscipit et. Nunc dignissim tincidunt urna, eget convallis diam facilisis at.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"paragraph--intro"</span>&gt;</span>Ac tincidunt vut nisi placerat mattis turpis, cum lacus. Urna elementum tortor enim montes, dignissim ac dapibus est, aliquet rhoncus non pid sagittis platea ridiculus, integer. Montes turpis, velit montes? Aenean, et in massa magnis adipiscing, natoque
-    enim! Ac, scelerisque. Dignissim? Mauris? Nincidunt amet, lacus enim eros penatibus, cum hac?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--l"</span>&gt;</span>Ac tincidunt vut nisi placerat mattis turpis, cum lacus. Urna elementum tortor enim montes, dignissim ac dapibus est, aliquet rhoncus non pid sagittis platea ridiculus, integer. Montes turpis, velit montes? Aenean, et in massa magnis adipiscing, natoque
+    enim! Ac, scelerisque. Dignissim? Mauris? Nincidunt amet, lacus enim eros penatibus, cum hac?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Medium paragraph --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--m"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at dictum mi. Donec leo ipsum, dictum quis libero vitae, aliquet fermentum tellus. Curabitur vitae enim commodo diam scelerisque commodo. Cum sociis natoque penatibus et magnis dis parturient
+    montes, nascetur ridiculus mus. Etiam euismod metus est, a sollicitudin lacus suscipit et. Nunc dignissim tincidunt urna, eget convallis diam facilisis at.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--m"</span>&gt;</span>Ac tincidunt vut nisi placerat mattis turpis, cum lacus. Urna elementum tortor enim montes, dignissim ac dapibus est, aliquet rhoncus non pid sagittis platea ridiculus, integer. Montes turpis, velit montes? Aenean, et in massa magnis adipiscing, natoque
+    enim! Ac, scelerisque. Dignissim? Mauris? Nincidunt amet, lacus enim eros penatibus, cum hac?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Small paragraph --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--s"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at dictum mi. Donec leo ipsum, dictum quis libero vitae, aliquet fermentum tellus. Curabitur vitae enim commodo diam scelerisque commodo. Cum sociis natoque penatibus et magnis dis parturient
+    montes, nascetur ridiculus mus. Etiam euismod metus est, a sollicitudin lacus suscipit et. Nunc dignissim tincidunt urna, eget convallis diam facilisis at.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--s"</span>&gt;</span>Ac tincidunt vut nisi placerat mattis turpis, cum lacus. Urna elementum tortor enim montes, dignissim ac dapibus est, aliquet rhoncus non pid sagittis platea ridiculus, integer. Montes turpis, velit montes? Aenean, et in massa magnis adipiscing, natoque
+    enim! Ac, scelerisque. Dignissim? Mauris? Nincidunt amet, lacus enim eros penatibus, cum hac?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Extra small paragraph --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--xs"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at dictum mi. Donec leo ipsum, dictum quis libero vitae, aliquet fermentum tellus. Curabitur vitae enim commodo diam scelerisque commodo. Cum sociis natoque penatibus et magnis dis parturient
+    montes, nascetur ridiculus mus. Etiam euismod metus est, a sollicitudin lacus suscipit et. Nunc dignissim tincidunt urna, eget convallis diam facilisis at.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--xs"</span>&gt;</span>Ac tincidunt vut nisi placerat mattis turpis, cum lacus. Urna elementum tortor enim montes, dignissim ac dapibus est, aliquet rhoncus non pid sagittis platea ridiculus, integer. Montes turpis, velit montes? Aenean, et in massa magnis adipiscing, natoque
+    enim! Ac, scelerisque. Dignissim? Mauris? Nincidunt amet, lacus enim eros penatibus, cum hac?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Extra extra small paragraph --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--xxs"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at dictum mi. Donec leo ipsum, dictum quis libero vitae, aliquet fermentum tellus. Curabitur vitae enim commodo diam scelerisque commodo. Cum sociis natoque penatibus et magnis dis parturient
+    montes, nascetur ridiculus mus. Etiam euismod metus est, a sollicitudin lacus suscipit et. Nunc dignissim tincidunt urna, eget convallis diam facilisis at.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--xxs"</span>&gt;</span>Ac tincidunt vut nisi placerat mattis turpis, cum lacus. Urna elementum tortor enim montes, dignissim ac dapibus est, aliquet rhoncus non pid sagittis platea ridiculus, integer. Montes turpis, velit montes? Aenean, et in massa magnis adipiscing, natoque
+    enim! Ac, scelerisque. Dignissim? Mauris? Nincidunt amet, lacus enim eros penatibus, cum hac?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -211,42 +288,33 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-selector-class">.paragraph</span> {
-  <span class="hljs-attribute">display</span>: block;
+                                <pre><span class="hljs-selector-class">.ecl-paragraph</span> {
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.66</span>;
   <span class="hljs-attribute">max-width</span>: <span class="hljs-number">32em</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.8em</span>;
 }
 
-<span class="hljs-selector-tag">p</span> {
-  @<span class="hljs-keyword">extend</span> .paragraph;
-
-  &amp;<span class="hljs-selector-class">.dashed</span> {
-    <span class="hljs-attribute">position</span>: relative;
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0.8em</span>;
-
-    &amp;::before {
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">display</span>: inline-block;
-      <span class="hljs-attribute">content</span>: <span class="hljs-string">'-'</span>;
-    }
-  }
+<span class="hljs-selector-class">.ecl-paragraph--l</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
 }
 
-<span class="hljs-selector-class">.paragraph--width-auto</span> {
-  <span class="hljs-attribute">width</span>: auto;
+<span class="hljs-selector-class">.ecl-paragraph--m</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
 }
 
-<span class="hljs-selector-class">.paragraph--intro</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'l'</span>);
+<span class="hljs-selector-class">.ecl-paragraph--s</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
 }
 
-<span class="hljs-selector-class">.paragraph--small</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+<span class="hljs-selector-class">.ecl-paragraph--xs</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-paragraph--xxs</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxs'</span>);
 }
 
 <span class="hljs-selector-class">.text-small</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
 }
 </pre>
                             </code>
@@ -264,7 +332,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">509 Bytes</span>
+                    <span class="Meta-value">456 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -285,21 +353,6 @@
         
         
         
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="ecl-typography-paragraphs--intro">
-                    <span>Intro</span>
-                </a>, 
-            
-                <a href="ecl-typography-paragraphs--small">
-                    <span>Small body text</span>
-                </a>
-            
-            </span>
-        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -398,6 +451,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Tree" data-behaviour="tree" id="tree-content">
     <h3 class="Tree-title">Content</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colors" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colors</span>
+            </a>
+        </li>
         
     
         
@@ -581,7 +658,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -605,7 +682,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -619,8 +696,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-ecl-typography-paragraphs">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -628,7 +706,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -637,63 +715,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Paragraphs</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--intro" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Intro</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--small" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Small body text</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -3637,6 +3659,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-font-size" data-pjax>
                 
 
@@ -3759,7 +3805,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.2"></script>
 
 
 

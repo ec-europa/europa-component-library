@@ -11,7 +11,7 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
 
 
 <title>Date blocks | Europa Component Library</title>
@@ -251,7 +251,7 @@ Style guide date-block
   <span class="hljs-attribute">min-height</span>: <span class="hljs-number">5.556em</span>;
   <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.75em</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.9em</span> <span class="hljs-number">0.5em</span> <span class="hljs-number">0.7em</span>;
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$grey-lightest</span>;
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
   <span class="hljs-attribute">text-align</span>: center;
   <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">0.222em</span> solid <span class="hljs-variable">$agenda-yellow</span>;
 
@@ -262,7 +262,7 @@ Style guide date-block
     <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
     <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1em</span> solid transparent;
     <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1em</span> solid transparent;
-    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">1em</span> solid <span class="hljs-variable">$white</span>;
+    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">1em</span> solid <span class="hljs-number">#fff</span>;
 
     <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">135deg</span>);
   }
@@ -270,28 +270,28 @@ Style guide date-block
 
 <span class="hljs-selector-class">.date-block__element</span> {
   <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$grey-base</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
 }
 
 <span class="hljs-selector-class">.date-block__year</span> {
   @<span class="hljs-keyword">extend</span> .date-block__element;
 
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
 }
 
 <span class="hljs-selector-class">.date-block__day-text</span> {
   @<span class="hljs-keyword">extend</span> .date-block__element;
 
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
 }
 
 <span class="hljs-selector-class">.date-block__day</span> {
   @<span class="hljs-keyword">extend</span> .date-block__element;
 
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'xxl'</span>);
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxl'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
 }
 
@@ -299,7 +299,7 @@ Style guide date-block
   @<span class="hljs-keyword">extend</span> .date-block__element;
 
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
 }
 
@@ -322,7 +322,7 @@ Style guide date-block.event
   }
 
   &amp;<span class="hljs-selector-class">.cancelled</span> {
-    <span class="hljs-attribute">border-bottom-color</span>: <span class="hljs-variable">$grey-lighter</span>;
+    <span class="hljs-attribute">border-bottom-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
 
     <span class="hljs-selector-class">.date-block__element</span> {
       <span class="hljs-attribute">text-decoration</span>: line-through;
@@ -344,8 +344,8 @@ Style guide date-block.event.past
 
 <span class="hljs-selector-class">.date-block</span><span class="hljs-selector-class">.event</span><span class="hljs-selector-class">.past</span> {
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.8em</span> <span class="hljs-number">0.5em</span> <span class="hljs-number">0.7em</span>;
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$white</span>;
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">0.166em</span> solid <span class="hljs-variable">$grey</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">0.166em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
 
   <span class="hljs-selector-class">.date-block__day</span> {
     <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
@@ -362,7 +362,7 @@ Style guide date-block.event.past
     <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
     <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1em</span> solid transparent;
     <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1em</span> solid transparent;
-    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">1em</span> solid <span class="hljs-variable">$white</span>;
+    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">1em</span> solid <span class="hljs-number">#fff</span>;
 
     <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">135deg</span>);
   }
@@ -372,7 +372,7 @@ Style guide date-block.event.past
     <span class="hljs-attribute">right</span>: <span class="hljs-number">0.45em</span>;
     <span class="hljs-attribute">height</span>: <span class="hljs-number">1.7em</span>;
     <span class="hljs-attribute">border</span>: none;
-    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">0.166em</span> solid <span class="hljs-variable">$grey</span>;
+    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">0.166em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
 
     <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">135deg</span>);
   }
@@ -393,7 +393,7 @@ Style guide date-block.event.past
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.4 KB</span>
+                    <span class="Meta-value">2.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -542,6 +542,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Tree" data-behaviour="tree" id="tree-content">
     <h3 class="Tree-title">Content</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colors" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colors</span>
+            </a>
+        </li>
         
     
         
@@ -725,7 +749,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -749,7 +773,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -763,8 +787,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-content-collection-ecl-typography-paragraphs">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-typography-paragraphs" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -772,7 +797,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -781,63 +806,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Paragraphs</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--intro" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Intro</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs--small" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Small body text</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -3781,6 +3750,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-font-size" data-pjax>
                 
 
@@ -3903,7 +3896,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.2"></script>
 
 
 

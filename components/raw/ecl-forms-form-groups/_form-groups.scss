@@ -7,7 +7,7 @@ Style guide form.form-group
 */
 
 .form-group {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   margin-bottom: 1.7em;
 }

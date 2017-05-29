@@ -5,12 +5,12 @@ Expandable
 .expandable__content {
   float: left;
   width: 100%;
-  background-color: $grey-lightest;
+  background-color: map-get($ecl-colors, 'grey-5');
 
-  @include media-breakpoint-up(xs) {
+  @include ecl-media-breakpoint-up(xs) {
     & > p {
       margin: 0.8em 0.8em 0.8em 3.2em;
-      font-size: map-get($font-size, 's');
+      font-size: map-get($ecl-font-size, 's');
     }
   }
 }
@@ -18,7 +18,7 @@ Expandable
 .expandable__toggle {
   float: left;
   width: 100%;
-  background: $yellow-light;
+  background: map-get($ecl-colors, 'yellow-100');
 
   &.collapsed {
     background: none;
@@ -29,7 +29,7 @@ Expandable
   }
 
   h3 {
-    font-size: map-get($font-size, 'l');
+    font-size: map-get($ecl-font-size, 'l');
   }
 
   &:link {
@@ -38,7 +38,7 @@ Expandable
 
   &:hover,
   &:focus {
-    background: $yellow-light;
+    background: map-get($ecl-colors, 'yellow-100');
     outline: none;
     text-decoration: underline;
   }
