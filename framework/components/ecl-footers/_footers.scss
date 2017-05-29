@@ -6,7 +6,7 @@
 .ecl-footers__site-identity,
 .ecl-footers__site-corporate,
 .ecl-footers__ec {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 }
 
 .ecl-footers__social-icon {
@@ -21,12 +21,12 @@
 }
 
 .ecl-footers__title {
-  border-bottom: 2px solid map-get($colors, 'blue-50');
+  border-bottom: 2px solid map-get($ecl-colors, 'blue-50');
   color: #fff;
   margin-bottom: 1.1rem;
   padding-bottom: 0.5rem;
 
-  @include media-breakpoint-between(md, lg) {
+  @include ecl-media-breakpoint-between(md, lg) {
     // Make titles same height on mobile breakpoint.
     min-height: 3.2rem;
   }
@@ -49,7 +49,7 @@
   padding-left: 0;
 
   .ecl-footers__menu-item {
-    font-size: map-get($font-size, 'xs');
+    font-size: map-get($ecl-font-size, 'xs');
     margin-bottom: 0.4rem;
   }
 }
@@ -60,8 +60,8 @@
 }
 
 .ecl-footers__site-identity {
-  background-color: map-get($colors, 'blue-25');
-  color: map-get($colors, 'blue-120');
+  background-color: map-get($ecl-colors, 'blue-25');
+  color: map-get($ecl-colors, 'blue-120');
 
   .ecl-footers__column {
     padding-bottom: 0.8rem;
@@ -69,7 +69,7 @@
   }
 
   a {
-    color: map-get($colors, 'blue-120');
+    color: map-get($ecl-colors, 'blue-120');
   }
 
   h4 a {
@@ -78,7 +78,7 @@
 }
 
 .ecl-footers__site-corporate {
-  background-color: map-get($colors, 'blue-75');
+  background-color: map-get($ecl-colors, 'blue-75');
   color: #fff;
 
   a {
@@ -96,7 +96,7 @@
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .ecl-footers__column {
     padding-bottom: 2rem;
     padding-top: 2rem;

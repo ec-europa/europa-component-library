@@ -3,15 +3,15 @@
  * @define label
  */
 
-$label_text_color_light: $white;
+$label_text_color_light: #fff;
 
 .label {
   display: inline-block;
   padding: 0.475em 0.5em 0.5em;
-  font-size: map-get($font-size, 'xs');
+  font-size: map-get($ecl-font-size, 'xs');
   font-weight: normal;
   letter-spacing: 0.12em;
-  color: $grey-base;
+  color: $ecl-color-shade;
   border-radius: 0;
 }
 
@@ -46,7 +46,7 @@ $label_text_color_light: $white;
 }
 
 .label--next {
-  background-color: $yellow-lighter;
+  background-color: map-get($ecl-colors, 'yellow-50');
 }
 
 .label--danger {
@@ -61,8 +61,8 @@ $label_text_color_light: $white;
 }
 
 .label--highlight {
-  background-color: $yellow-light;
-  color: $grey-base;
+  background-color: map-get($ecl-colors, 'yellow-100');
+  color: $ecl-color-shade;
 
   /* postcss-bem-linter: ignore */
   &.label--meta::after {
@@ -72,8 +72,8 @@ $label_text_color_light: $white;
 }
 
 .label--status {
-  background-color: $grey-lighter;
-  color: $grey-base;
+  background-color: map-get($ecl-colors, 'grey-10');
+  color: $ecl-color-shade;
 }
 
 .label--block {
@@ -85,7 +85,7 @@ $label_text_color_light: $white;
   min-height: 2.75em;
   padding: 0.3em 1em;
   line-height: 2.75em;
-  font-size: map-get($font-size, 'xs');
+  font-size: map-get($ecl-font-size, 'xs');
 }
 
 .label--no-padding-left {

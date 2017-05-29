@@ -1,6 +1,6 @@
 // Focus outline border
 
-@mixin focus-outline-border($thicknes:3px, $color:$yellow-light, $offset:0, $text-decoration:underline) {
+@mixin ecl-focus-outline-border($thicknes: 3px, $color: map-get($ecl-colors, 'yellow-100'), $offset: 0, $text-decoration: underline) {
   &:focus {
     outline: $thicknes solid $color;
     outline-offset: $offset;

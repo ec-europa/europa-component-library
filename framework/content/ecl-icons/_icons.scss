@@ -2,7 +2,20 @@
  * Icons
  */
 
-%icon {
+@import './variables';
+@import './mixins';
+
+@font-face {
+  font-family: 'EuropaIcons';
+  src: url('../fonts/europa-icons/europa-icons.eot');
+  src:
+    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
+    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
+    url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
+}
+
+%ecl-icon {
   &::before {
     display: inline-block;
     font-family: 'EuropaIcons';
@@ -21,7 +34,7 @@
 }
 
 // Should be used only with @extend.
-%icon--after {
+%ecl-icon--after {
   display: inline-block;
   font-family: 'EuropaIcons';
   // Better Font Rendering
@@ -42,30 +55,15 @@
 // work. The solution is by explicitly setting text-decoration:underline;
 // for the ::after-content and then overwrite this rule again with
 // text-decoration:none;
-%icon--after {
+
+%ecl-icon--after {
   text-decoration: none;
 }
 
-%icon--blue-dark {
-  color: #004494;
-}
-
-%icon--tag-close-hover {
-  content: '\e82d';
-
-  &::before {
-    @extend %icon--tag-close-hover;
+@each $modifier, $char in $ecl-icons {
+  %ecl-icon--#{$modifier} {
+    @include ecl-icon($modifier);
   }
-}
-
-@font-face {
-  font-family: 'EuropaIcons';
-  src: url('../fonts/europa-icons/europa-icons.eot');
-  src:
-    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
-    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
-    url('../fonts/europa-icons/icomoon.svg#icomoon') format('svg');
 }
 
 /**
@@ -74,49 +72,31 @@
  */
 
 .ecl-icon {
-  @extend %icon;
+  @extend %ecl-icon;
 }
 
 .ecl-icon--after {
-  @extend %icon--after;
+  @extend %ecl-icon--after;
 }
 
 // Icon component and modifiers.
-@each $modifier, $char in $icons {
-  %icon--#{$modifier},
+@each $modifier, $char in $ecl-icons {
   .ecl-icon--#{$modifier} {
-    @include icon($modifier);
+    @extend %ecl-icon--#{$modifier};
   }
 }
 
-.ecl-icon--blue-dark {
-  @extend %icon--blue-dark;
-}
-
-.ecl-icon--tag-close-hover {
-  @extend %icon--tag-close-hover;
-}
-
-.ecl-icon--yellowbg {
-  background-color: $yellow-light;
+.ecl-icon--rounded {
   border-radius: 50%;
   display: inline-block;
-  font-size: 14px;
-  height: 40px;
-  line-height: 40px;
+  font-size: map-get($ecl-font-size, 'xs');
+  height: map-get($ecl-spacing, 'l');
+  line-height: map-get($ecl-spacing, 'l');
   text-align: center;
-  width: 40px;
+  width: map-get($ecl-spacing, 'l');
 
   &::before {
     line-height: inherit;
     margin-right: 0;
   }
-}
-
-.ecl-icon--text-small {
-  font-size: map-get($font-size, 'xs');
-}
-
-.ecl-icon--margin-right {
-  margin-right: 1.5em;
 }

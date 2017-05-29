@@ -9,7 +9,7 @@ Style guide: siteheader.header-search-bar
 .header-search-bar {
   margin: 38px 0 0;
   padding: 9px 0;
-  background-color: $brand-primary;
+  background-color: $ecl-color-primary;
 
   .block-nexteuropa-europa-search {
     float: right;
@@ -30,7 +30,7 @@ Style guide: siteheader.header-search-bar
       }
     }
 
-    @include media-breakpoint-up(xs) {
+    @include ecl-media-breakpoint-up(xs) {
       .search-form {
         width: 320px;
       }

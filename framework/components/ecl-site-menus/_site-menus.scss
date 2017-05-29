@@ -1,5 +1,5 @@
 .site-menu {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   margin-bottom: 0;
 
@@ -9,7 +9,7 @@
   }
 
   .listing__item {
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
     border-color: #dcb812;
 
     &:first-child {
@@ -18,12 +18,12 @@
 
     .listing__title {
       padding: 0;
-      color: $black;
+      color: #000;
     }
   }
 
   .listing__item-link {
-    @include focus-outline-border(3px, $grey-base, 8px);
+    @include ecl-focus-outline-border(3px, $ecl-color-shade, 8px);
   }
 
   .smaller {
@@ -34,16 +34,16 @@
       float: left;
       width: 100%;
       margin-top: 2em;
-      color: $black;
+      color: #000;
       text-decoration: underline;
 
       &:hover {
-        color: $black;
+        color: #000;
         text-decoration: none;
       }
 
       &:focus {
-        @include focus-outline-border(3px, $grey-base, 2px, none);
+        @include ecl-focus-outline-border(3px, $ecl-color-shade, 2px, none);
       }
     }
   }
@@ -53,8 +53,8 @@
   }
 
   p {
-    font-size: map-get($font-size, 's');
-    color: $black;
+    font-size: map-get($ecl-font-size, 's');
+    color: #000;
   }
 
   .field--field-site-menu-links {
@@ -72,11 +72,11 @@
         }
 
         &:hover {
-          color: $grey-base;
+          color: $ecl-color-shade;
         }
 
         &:focus {
-          outline: 3px solid $grey-base;
+          outline: 3px solid $ecl-color-shade;
         }
       }
     }
@@ -85,7 +85,7 @@
 
 .front {
   .site-menu p {
-    font-size: map-get($font-size, 's');
+    font-size: map-get($ecl-font-size, 's');
   }
 }
 
@@ -100,11 +100,11 @@
 }
 
 .site-menu__toggle {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   .btn {
     width: 100%;
-    border: 3px solid $brand-primary;
+    border: 3px solid $ecl-color-primary;
   }
 }
 
@@ -116,7 +116,7 @@
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .site-menu {
     .listing__wrapper--two-columns .listing {
       width: 100%;
@@ -128,7 +128,7 @@
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .site-menu {
     .listing__wrapper--two-columns .listing,
     .listing__wrapper {

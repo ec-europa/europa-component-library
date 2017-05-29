@@ -1,5 +1,6 @@
 // ECL Colors
-$colors: (
+
+$ecl-colors: (
   blue-120: #003776,
   blue-110: #003776,
   blue-100: #004494,
@@ -7,7 +8,7 @@ $colors: (
   blue-50: #7fa1c9,
   blue-25: #bfd0e4,
   yellow-120: #f8ae21,
-  yellow-110: #ffd617,
+  yellow-110: #fbc11d,
   yellow-100: #ffd617,
   yellow-75: #ffde39,
   yellow-50: #ffe879,
@@ -21,49 +22,11 @@ $colors: (
   grey-5: #f5f5f5
 ) !default;
 
-$ecl-color-primary: map-get($colors, 'blue-100');
-$ecl-color-secondary: map-get($colors, 'yellow-100');
-$ecl-color-shade: map-get($colors, 'grey-100');
+$ecl-color-primary: map-get($ecl-colors, 'blue-100') !default;
+$ecl-color-secondary: map-get($ecl-colors, 'yellow-100') !default;
+$ecl-color-shade: map-get($ecl-colors, 'grey-100') !default;
 
-$ecl-color-info: #006fb4;
-$ecl-color-warning: #f29527;
-$ecl-color-success: #467a39;
-$ecl-color-error: #da2130;
-
-// Deprecated
-$white: #fff;
-
-$black: #000;
-
-$grey-dark: #575757;
-$grey-base: #404040;
-$grey: #b3b4b5;
-$grey-light: #e2e2e2;
-$grey-lighter: #ececec;
-$grey-lightest: #f2f2f2;
-
-$blue-darkest: #023066;
-$blue-darker: #012b58;
-$blue-dark: #004494;
-$blue: #006fb4;
-$blue-medium: #3066a6;
-$blue-light: #b0c5de;
-$blue-lighter: #e0eaf2;
-
-$yellow-dark: #f2a615;
-$yellow: #ffc412;
-$yellow-light: #ffd617;
-$yellow-lighter: #ffe574;
-
-$green: #467a39;
-
-$red: #da2131;
-
-$brand-primary: $blue-dark;
-$brand-political: $blue-darker;
-$brand-success: $green;
-$brand-info: $grey-dark;
-$brand-warning: $yellow-dark;
-$brand-danger: $red;
-
-$text-color: $grey-base;
+$ecl-color-info: #006fb4 !default;
+$ecl-color-warning: #f29527 !default;
+$ecl-color-success: #467a39 !default;
+$ecl-color-error: #da2130 !default;

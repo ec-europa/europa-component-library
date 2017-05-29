@@ -25,16 +25,16 @@ Select
     }
   }
 
-  background-position: right (($form-control-height - map-get($font-size, 'm')) / 2) - $form-border-width center, right;
+  background-position: right (($form-control-height - map-get($ecl-font-size, 'm')) / 2) - $form-border-width center, right;
   background-repeat: no-repeat;
 
   // Important to make the style guide not break.
-  background-size: map-get($font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($font-size, 'm'), $form-control-height 100% !important;
+  background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), $form-control-height 100% !important;
   transition: none;
 
   // Specific size for IE10+.
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    background-size: map-get($font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($font-size, 'm'), $form-control-height 100% !important;
+    background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), $form-control-height 100% !important;
   }
 }
 
@@ -69,7 +69,7 @@ Select
 
   // Down state.
   &.is-down {
-    @include select-list-arrow($white, true);
+    @include select-list-arrow(#fff, true);
   }
 }
 

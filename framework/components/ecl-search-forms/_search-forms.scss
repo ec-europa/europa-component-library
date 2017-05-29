@@ -4,9 +4,9 @@
  */
 
 .search-form {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
-  border: 1px solid $grey;
+  border: 1px solid map-get($ecl-colors, 'grey-50');
   display: inline-block;
   margin-bottom: 1em;
   overflow: hidden;
@@ -29,13 +29,13 @@
   height: 2.325em;
   min-height: 2.325em;
 
-  @include media-breakpoint-up(xs) {
+  @include ecl-media-breakpoint-up(xs) {
     min-height: 2.375em;
   }
 }
 
 .search-form__btn {
-  @extend %icon;
+  @extend %ecl-icon;
 
   border: 0 !important;
   margin-bottom: 0;
@@ -46,7 +46,7 @@
   text-indent: -999em;
 
   &::before {
-    @extend %icon--search;
+    @extend %ecl-icon--search;
 
     font-size: 1.5em;
     left: 0;
@@ -58,7 +58,7 @@
   }
 }
 
-@include media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(md) {
   .search-form {
     margin-bottom: 0;
 

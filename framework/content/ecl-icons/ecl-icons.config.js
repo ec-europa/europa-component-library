@@ -8,8 +8,8 @@ module.exports = {
       <!-- Start: @${item.handle} -->\n
       <p>\n
         <span class="ecl-icon ${item.context.modifier}"></span>\n
-        <span class="ecl-icon ecl-icon--yellowbg ${item.context.modifier}"></span>\n
-        <span class="ecl-icon ecl-icon--blue-dark ${item.context.modifier}"></span>\n
+        <span class="ecl-icon ecl-icon--rounded ecl-u-bg-secondary ${item.context.modifier}"></span>\n
+        <span class="ecl-icon ecl-u-color-primary ${item.context.modifier}"></span>\n
         <code>${item.context.modifier}</code>\n
       </p>\n
       <!-- End: @${item.handle} -->\n
@@ -302,13 +302,6 @@ module.exports = {
       label: 'Tag-close icon',
       context: {
         modifier: 'ecl-icon--tag-close',
-      },
-    },
-    {
-      name: 'tag-close-hover',
-      label: 'Tag close with hover state',
-      context: {
-        modifier: 'ecl-icon--tag-close-hover',
       },
     },
     {

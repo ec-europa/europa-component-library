@@ -14,7 +14,7 @@ Style guide hero-links
 
     &:first-child {
       margin-top: 0;
-      background-color: $grey-lightest;
+      background-color: map-get($ecl-colors, 'grey-5');
     }
   }
 }
@@ -54,9 +54,9 @@ Style guide hero-links
     bottom: 1.125em;
     left: 1.125em;
     line-height: normal;
-    font-size: map-get($font-size, 'l');
+    font-size: map-get($ecl-font-size, 'l');
     font-weight: bold;
-    color: $white;
+    color: #fff;
   }
 
   &:hover {
@@ -66,21 +66,21 @@ Style guide hero-links
   }
 }
 
-@include media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(xs) {
   .hero-links__text {
     padding-top: 55px;
     padding-bottom: 80px;
-    font-size: map-get($font-size, 'l');
+    font-size: map-get($ecl-font-size, 'l');
   }
 
   .hero-links__btn .hero-links__caption {
     bottom: 0.467em;
     left: 0.667em;
-    font-size: map-get($font-size, 'xxl');
+    font-size: map-get($ecl-font-size, 'xxl');
   }
 }
 
-@include media-breakpoint-up(sm) {
+@include ecl-media-breakpoint-up(sm) {
   .hero-links__items .hero-links__item {
     margin-bottom: 0;
     text-align: left;

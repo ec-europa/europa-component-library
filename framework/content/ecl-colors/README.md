@@ -1,8 +1,8 @@
 # Colors
 
-Colors available in ECL
+Colors available in ECL.
 
-The primary colors are blue ($ecl-primary), yellow ($ecl-secondary) and grey ($ecl-accent).
+The primary colors are blue ($ecl-primary), yellow ($ecl-secondary) and grey ($ecl-shade).
 Only use colors to highlight important content or actions. Use sparingly.
 
 - **blue**: Used for navigational elements like links and buttons, but also as a background color (page header) to give the page more contrast.
@@ -14,3 +14,5 @@ Notification colors should be used as follow:
 - $ecl-warning: for warnings
 - $ecl-success: for success messages
 - $ecl-error: for errors
+
+For more information, see [the wiki page](https://webgate.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=650250290#Typography..-Fontcolour)

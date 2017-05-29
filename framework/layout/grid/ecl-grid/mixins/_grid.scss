@@ -2,13 +2,13 @@
 //
 // Generate semantic grid columns with these mixins.
 
-@mixin ecl-make-container($gutters: $grid-gutter-widths) {
+@mixin ecl-make-container($gutters: $ecl-grid-gutter-widths) {
   margin-left: auto;
   margin-right: auto;
   position: relative;
 
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -18,18 +18,18 @@
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin ecl-make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+@mixin ecl-make-container-max-widths($max-widths: $ecl-container-max-widths, $breakpoints: $ecl-grid-breakpoints) {
   @each $breakpoint, $container-max-width in $max-widths {
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint, $breakpoints) {
       max-width: 100%;
       width: $container-max-width;
     }
   }
 }
 
-@mixin ecl-make-gutters($gutters: $grid-gutter-widths) {
+@mixin ecl-make-gutters($gutters: $ecl-grid-gutter-widths) {
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -38,12 +38,12 @@
   }
 }
 
-@mixin ecl-make-row($gutters: $grid-gutter-widths) {
+@mixin ecl-make-row($gutters: $ecl-grid-gutter-widths) {
   display: flex;
   flex-wrap: wrap;
 
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       margin-left: ($gutter / -2);
@@ -52,7 +52,7 @@
   }
 }
 
-@mixin ecl-make-col-ready($gutters: $grid-gutter-widths) {
+@mixin ecl-make-col-ready($gutters: $ecl-grid-gutter-widths) {
   min-height: 1px; // Prevent collapsing
   position: relative;
   // Prevent columns from becoming too narrow when at smaller grid tiers by
@@ -61,7 +61,7 @@
   width: 100%;
 
   @each $breakpoint in map-keys($gutters) {
-    @include media-breakpoint-up($breakpoint) {
+    @include ecl-media-breakpoint-up($breakpoint) {
       $gutter: map-get($gutters, $breakpoint);
 
       padding-left: ($gutter / 2);
@@ -70,7 +70,7 @@
   }
 }
 
-@mixin ecl-make-col($size, $columns: $grid-columns) {
+@mixin ecl-make-col($size, $columns: $ecl-grid-columns) {
   flex: 0 0 percentage($size / $columns);
   // width: percentage($size / $columns);
   // Add a `max-width` to ensure content within each column does not blow out
@@ -79,15 +79,15 @@
   max-width: percentage($size / $columns);
 }
 
-@mixin ecl-make-col-offset($size, $columns: $grid-columns) {
+@mixin ecl-make-col-offset($size, $columns: $ecl-grid-columns) {
   margin-left: percentage($size / $columns);
 }
 
-@mixin ecl-make-col-push($size, $columns: $grid-columns) {
+@mixin ecl-make-col-push($size, $columns: $ecl-grid-columns) {
   left: if($size > 0, percentage($size / $columns), auto);
 }
 
-@mixin ecl-make-col-pull($size, $columns: $grid-columns) {
+@mixin ecl-make-col-pull($size, $columns: $ecl-grid-columns) {
   right: if($size > 0, percentage($size / $columns), auto);
 }
 

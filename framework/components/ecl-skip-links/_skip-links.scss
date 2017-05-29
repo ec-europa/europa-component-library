@@ -1,6 +1,6 @@
 .skip-link,
 #skip-link {
-  @extend %hidden-print;
+  @include ecl-hidden-print();
 
   position: fixed;
   top: 1.5em;
@@ -9,9 +9,9 @@
 
   a {
     padding: 8px;
-    background-color: $blue;
-    color: $white;
-    outline: 4px solid $yellow-light;
+    background-color: map-get($ecl-colors, 'blue-75');
+    color: #fff;
+    outline: 4px solid map-get($ecl-colors, 'yellow-100');
     outline-offset: 0;
   }
 }
