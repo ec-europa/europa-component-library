@@ -32,7 +32,7 @@
   }
 
   // Make titles height auto on large screens.
-  @media (min-width: 1291px) {
+  @include ecl-media-breakpoint-up(xl) {
     min-height: auto;
   }
 }
@@ -40,6 +40,11 @@
 .ecl-footers__label {
   display: inline;
   font-weight: bold;
+
+  /* Any adjusent unordered list to be inlined */
+  + ul {
+    display: inline;
+  }
 }
 
 .ecl-footers__menu {
