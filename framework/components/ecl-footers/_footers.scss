@@ -7,6 +7,11 @@
 .ecl-footers__site-corporate,
 .ecl-footers__ec {
   @include ecl-hidden-print();
+
+  a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-ec-link-patterns})::after {
+    line-height: 2.2;
+    position: absolute;
+  }
 }
 
 .ecl-footers__social-icon {
