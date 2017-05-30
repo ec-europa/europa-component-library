@@ -1,1 +1,0 @@
-# Informational site page header
