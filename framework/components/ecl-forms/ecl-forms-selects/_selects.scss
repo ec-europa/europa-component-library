@@ -25,16 +25,16 @@ Select
     }
   }
 
-  background-position: right (($form-control-height - map-get($ecl-font-size, 'm')) / 2) - $form-border-width center, right;
+  background-position: right ((2.75rem - map-get($ecl-font-size, 'm')) / 2) - 0.111rem center, right;
   background-repeat: no-repeat;
 
   // Important to make the style guide not break.
-  background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), $form-control-height 100% !important;
+  background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), 2.75rem 100% !important;
   transition: none;
 
   // Specific size for IE10+.
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), $form-control-height 100% !important;
+    background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), 2.75rem 100% !important;
   }
 }
 
@@ -56,15 +56,15 @@ Select
     // To not make it overlap.
     padding-right: 50px;
 
-    @include select-list-arrow($form-control-border-color);
+    @include select-list-arrow($ecl-color-shade);
   }
 
   // Hover state.
   &:hover,
   &.hover {
-    @include select-list-arrow($form-control-border-select-color-hover);
+    @include select-list-arrow($ecl-color-primary);
 
-    border-color: $form-control-border-select-color-hover;
+    border-color: $ecl-color-primary;
   }
 
   // Down state.
