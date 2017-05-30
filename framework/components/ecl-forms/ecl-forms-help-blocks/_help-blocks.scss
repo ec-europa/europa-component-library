@@ -1,27 +1,25 @@
 /*
-Help Block
-*/
+ * Help Block
+ * @define help-block
+ */
 
-// Help block.
-$form-group-help-block-text-color: map-get($ecl-colors, 'grey-100');
-$form-group-help-block-text-color-disabled: $form-control-color-disabled;
-$form-group-help-block-text-color-has-error: $form-group-help-block-text-color;
+$ecl-forms-help-block-text-color: map-get($ecl-colors, 'grey-100') !default;
+$ecl-forms-help-block-text-color-disabled: map-get($ecl-colors, 'grey-75') !default;
+$ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color !default;
 
-.help-block {
+.ecl-help-block {
   @include ecl-hidden-print();
 
-  margin-top: 0;
-  margin-bottom: 0.556em;
-  font-family: $ecl-font-family-sans-serif;
+  color: $ecl-forms-help-block-text-color;
   font-size: map-get($ecl-font-size, 'xs');
-  color: $form-group-help-block-text-color;
+  margin-bottom: map-get($ecl-spacing, 'xxs');
+  margin-top: 0;
+}
 
-  .disabled & {
-    color: $form-control-color-disabled;
-  }
+.ecl-help-block--disabled {
+  color: $ecl-forms-help-block-text-color-disabled;
+}
 
-  .has-error & {
-    // Disable settings of base Bootstrap.
-    color: $form-group-help-block-text-color-has-error;
-  }
+.ecl-help-block--has-error {
+  color: $ecl-forms-help-block-text-color-has-error;
 }
