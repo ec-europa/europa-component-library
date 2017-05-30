@@ -1,6 +1,6 @@
 # Colors
 
-Colors available in ECL
+Colors available in ECL.
 
 The primary colors are blue ($ecl-primary), yellow ($ecl-secondary) and grey ($ecl-shade).
 Only use colors to highlight important content or actions. Use sparingly.
