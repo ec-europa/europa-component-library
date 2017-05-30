@@ -32,11 +32,18 @@ Tested on:
 | [@ec-europa/ecl-typography-lists](framework/content/ecl-typography/ecl-typography-lists) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists) |
 | [@ec-europa/ecl-typography-paragraphs](framework/content/ecl-typography/ecl-typography-paragraphs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs) |
 
+### Components
+
+| Package | Version |
+|-------- |-------- |
+| [@ec-europa/ecl-buttons](framework/components/ecl-buttons) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-buttons.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-buttons) |
+
 ### Layout
 
 | Package | Version |
 |-------- |-------- |
 | [@ec-europa/ecl-grid](framework/layout/grid/ecl-grid) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-grid.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-grid) |
+| [@ec-europa/ecl-legacy-bootstrap-grid](framework/layout/grid/ecl-legacy-bootstrap-grid) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-legacy-bootstrap-grid.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-legacy-bootstrap-grid) |
 
 ### Utilities
 
