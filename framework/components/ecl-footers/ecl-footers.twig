@@ -1,86 +1,107 @@
-<footer class="footer">
-  <div class="container-fluid">
-    <div class="row">
-
-      <section class="footer__column-main clearfix"">
-
-        <div class="col-md-4">
-          <h4 class="footer__title">European Commission</h4>
-          <ul class="footer__menu footer__menu--separator menu nav">
-            <li class="footer__menu-item">
+<footer class="ecl-footer">
+  {% if variant is defined and variant == "custom" %}
+  <div class="ecl-footers__site-identity">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm ecl-footers__column">
+          <h4 class="ecl-h4"><a href="#">Digital single market</a></h4>
+        </div>
+        <div class="ecl-col-sm ecl-footers__column">
+          <p class="ecl-footers__label">Follow us:</p>
+          <ul class="ecl-footers__menu ecl-list-inline">
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
+            </li>
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
+            </li>
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a class="ecl-link--external" href="#">Other social media</a>
+            </li>
+          </ul>
+        </div>
+        <div class="ecl-col-sm ecl-footers__column">
+          <ul class="ecl-footers__menu ecl-list-inline">
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a href="#">Site map</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="ecl-footers__site-corporate">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm ecl-footers__column">
+          <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
+          <ul class="ecl-footers__menu">
+            <li class="ecl-footers__menu-item">
               <a href="#">Commission and it's priorities</a>
             </li>
-            <li class="footer__menu-item">
+            <li class="ecl-footers__menu-item">
               <a href="#">Policies information and services</a>
             </li>
           </ul>
         </div>
-
-        <div class="col-md-4">
-          <h4 class="footer__title">Follow the European Commission</h4>
-          <ul class="footer__menu footer__menu--separator menu nav list-inline">
-            <li class="footer__menu-item">
-              <a href="https://www.facebook.com/EuropeanCommission"
-                class="icon icon--facebook footer__icon--facebook footer__icon--social"
-                target="_blank">Facebook</a>
+        <div class="ecl-col-sm ecl-footers__column">
+          <h4 class="ecl-h4 ecl-footers__title">Follow the European Commission</h4>
+          <ul class="ecl-footers__menu ecl-list-inline">
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
             </li>
-            <li class="footer__menu-item">
-              <a href="https://twitter.com/eu_commission"
-                 class="icon icon--twitter footer__icon--twitter footer__icon--social">Twitter</a>
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
             </li>
-            <li class="footer__menu-item">
-              <a href="#" class="is-internal">Other social media</a>
+            <li class="ecl-footers__menu-item ecl-list-inline__item">
+              <a href="#">Other social media</a>
             </li>
           </ul>
         </div>
-
-        <div class="col-md-4">
-          <h4 class="footer__title">European Union</h4>
-          <ul class="footer__menu footer__menu--separator menu nav">
-            <li class="footer__menu-item">
-             <a href="http://europa.eu/about-eu/institutions-bodies/index_en.htm#30?" class="is-external">EU institutions</a>
+        <div class="ecl-col-sm ecl-footers__column">
+          <h4 class="ecl-h4 ecl-footers__title">European Union</h4>
+          <ul class="ecl-footers__menu">
+            <li class="ecl-footers__menu-item">
+              <a class="ecl-link--external" href="#">EU institutions</a>
             </li>
-            <li class="footer__menu-item">
-              <a href="http://europa.eu/" class="is-external">European Union</a>
+            <li class="ecl-footers__menu-item">
+              <a class="ecl-link--external" href="#">European Union</a>
             </li>
           </ul>
         </div>
-
-      </section>
-
+      </div>
+    </div>
+  </div>
+  <div class="ecl-footers__ec">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm">
+          <ul class="ecl-list-inline ecl-footers__menu">
+            <li class="ecl-list-inline__item ecl-footers__menu-item">
+              <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footers__menu-item">
+              <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footers__menu-item">
+              <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footers__menu-item">
+              <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footers__menu-item">
+              <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footers__menu-item">
+              <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
-
-<section class="footer-bottom">
-  <div class="container-fluid">
-    <div class="row">
-
-      <div class="col-sm-12">
-
-        <ul class="footer__menu menu nav list-inline">
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en">About the Commission's new web presence</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="#">Resources for partners</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/cookies_en">Cookies</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/legal-notice_en">Legal notice</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/contact_en">Contact</a>
-          </li>
-          <li class="footer__menu-item">
-            <a href="http://ec.europa.eu/info/europa-analytics_en">Europa Analytics</a>
-          </li>
-        </ul>
-
-      </div>
-
-    </div>
-  </div>
-</section>
