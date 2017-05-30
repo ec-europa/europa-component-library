@@ -46,7 +46,7 @@ $form-checkbox-icon-size: 1.5em; // 24px
 
     // Focus state, not checked.
     &:focus + label::before {
-      border: 3px solid $form-control-border-color-focus;
+      border: 3px solid map-get($ecl-colors, 'yellow-100');
     }
   }
 
