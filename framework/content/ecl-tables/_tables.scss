@@ -1,110 +1,99 @@
 /*
-Table responsive
-
-Responsive table component.
-
-Markup: html/table-responsive.html
-
-Style guide table responsive
+ECL tables
 */
 
-.table-responsive {
-  width: 100%;
-  margin: 1em 0;
-  table-layout: fixed;
-  font-size: map-get($ecl-font-size, 's');
+.ecl-table {
   border-collapse: collapse;
-  border: none;
+  border-width: 0;
+  font-size: map-get($ecl-font-size, 's');
+  margin: map-get($ecl-spacing, 'xs') 0;
+  table-layout: fixed;
+  width: 100%;
 
   th {
     background-color: transparent;
-    font-weight: bold;
     color: $ecl-color-shade;
+    font-weight: bold;
   }
 
   td,
   th {
     display: table-cell;
-    padding: 1em;
+    padding: map-get($ecl-spacing, 'xs');
     vertical-align: middle;
-
-    p {
-      margin: 0;
-    }
   }
 }
 
-@media (max-width: 768px) {
-  .table-responsive {
+@media (max-width: map-get($ecl-grid-breakpoints, 'md')) {
+  .ecl-table {
     thead {
       display: none;
     }
 
     tr {
       border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
-
-      &:nth-of-type(2n) {
-        background-color: inherit;
-      }
     }
 
-    tbody {
-      td {
+    tr:nth-of-type(2n) {
+      background-color: inherit;
+    }
+
+    td {
+      display: block;
+      padding: map-get($ecl-spacing, 'xxs');
+      position: relative;
+    }
+
+    /* stylelint-disable-next-line selector-no-qualifying-type */
+    td[data-th-group] {
+      margin-top: map-get($ecl-spacing, 'l');
+      padding-left: map-get($ecl-spacing, 'm');
+    }
+
+    td::before {
+      content: attr(data-th);
+      display: block;
+      font-weight: bold;
+    }
+
+    .ecl-table__heading {
+      background-color: $ecl-color-shade;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .ecl-table__group_label {
+      /* stylelint-disable-next-line max-nesting-depth */
+      &::after {
+        content: attr(data-th-group);
         display: block;
-        position: relative;
-        padding: 0.5em;
+        font-weight: bold;
+        left: map-get($ecl-spacing, 'xxs');
+        position: absolute;
+        top: -(map-get($ecl-spacing, 'm'));
+      }
 
-        &[data-th-group] {
-          margin-top: 2.2em;
-        }
-
-        &::before {
-          display: block;
-          content: attr(data-th);
-          font-weight: bold;
-        }
-
-        &.table-responsive__heading {
-          background-color: $ecl-color-shade;
-          font-weight: bold;
-          color: #fff;
-        }
-
-        &.table-responsive__group_label {
-          padding-left: 1.5em;
-          font-size: map-get($ecl-font-size, 's');
-
-          &::after {
-            display: block;
-            position: absolute;
-            top: -1.7em;
-            left: 0.5em;
-            content: attr(data-th-group);
-            font-size: map-get($ecl-font-size, 'l');
-            font-weight: bold;
-          }
-
-          ~ .table-responsive__group_element {
-            font-size: map-get($ecl-font-size, 's');
-            padding-left: 1.5em;
-            margin: 0;
-          }
-        }
+      /* stylelint-disable-next-line max-nesting-depth */
+      ~ .ecl-table__group_element {
+        margin: 0;
+        padding-left: map-get($ecl-spacing, 'm');
       }
     }
   }
 }
 
-@media (min-width: 769px) {
-  table.table-responsive {
+@media (min-width: map-get($ecl-grid-breakpoints, 'md') + 1) {
+  .ecl-table {
     thead {
       display: table-header-group;
 
+      /* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */
       tr:first-child th {
         border-bottom: 1px solid $ecl-color-shade;
         vertical-align: top;
       }
 
+      /* stylelint-disable-next-line max-nesting-depth */
       tr:last-child:not(:first-child) {
         border-bottom: 3px solid $ecl-color-shade;
       }
@@ -113,6 +102,14 @@ Style guide table responsive
     /* Zebra striping */
     tr:nth-of-type(even) {
       background-color: map-get($ecl-colors, 'grey-5');
+    }
+
+    tbody {
+      /* Hover */
+      /* stylelint-disable-next-line max-nesting-depth */
+      tr:hover {
+        background-color: map-get($ecl-colors, 'grey-10');
+      }
     }
   }
 }

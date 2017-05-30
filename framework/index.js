@@ -1,5 +1,6 @@
 // Export
 
+export * from './content/ecl-tables/ecl-tables';
 export * from './components/ecl-breadcrumbs/breadcrumbs';
 export * from './components/ecl-context-navs/context-navs';
 export * from './components/ecl-datepickers/datepickers';
