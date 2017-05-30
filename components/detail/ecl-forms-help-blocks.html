@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -157,7 +157,9 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-017f513d11cf391e3747538e80ef04ce-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></pre>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--disabled"</span>&gt;</span>Disabled: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--has-error"</span>&gt;</span>On error: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -177,7 +179,9 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-017f513d11cf391e3747538e80ef04ce-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--disabled"</span>&gt;</span>Disabled: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--has-error"</span>&gt;</span>On error: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -208,31 +212,29 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/*
-Help Block
-*/</span>
+ * Help Block
+ * @define help-block
+ */</span>
 
-<span class="hljs-comment">// Help block.</span>
-<span class="hljs-variable">$form-group-help-block-text-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
-<span class="hljs-variable">$form-group-help-block-text-color-disabled</span>: <span class="hljs-variable">$form-control-color-disabled</span>;
-<span class="hljs-variable">$form-group-help-block-text-color-has-error</span>: <span class="hljs-variable">$form-group-help-block-text-color</span>;
+<span class="hljs-variable">$ecl-forms-help-block-text-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>) !default;
+<span class="hljs-variable">$ecl-forms-help-block-text-color-disabled</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-75'</span>) !default;
+<span class="hljs-variable">$ecl-forms-help-block-text-color-has-error</span>: <span class="hljs-variable">$ecl-forms-help-block-text-color</span> !default;
 
-<span class="hljs-selector-class">.help-block</span> {
+<span class="hljs-selector-class">.ecl-help-block</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.556em</span>;
-  <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$ecl-font-family-sans-serif</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-forms-help-block-text-color</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$form-group-help-block-text-color</span>;
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+}
 
-  <span class="hljs-selector-class">.disabled</span> &amp; {
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$form-control-color-disabled</span>;
-  }
+<span class="hljs-selector-class">.ecl-help-block--disabled</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-forms-help-block-text-color-disabled</span>;
+}
 
-  <span class="hljs-selector-class">.has-error</span> &amp; {
-    <span class="hljs-comment">// Disable settings of base Bootstrap.</span>
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$form-group-help-block-text-color-has-error</span>;
-  }
+<span class="hljs-selector-class">.ecl-help-block--has-error</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-forms-help-block-text-color-has-error</span>;
 }
 </pre>
                             </code>
@@ -250,7 +252,7 @@ Help Block
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">663 Bytes</span>
+                    <span class="Meta-value">665 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1335,7 +1337,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -1434,7 +1436,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1458,7 +1460,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1578,7 +1580,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -137,6 +137,10 @@
         
         
         
+        <li class="Browser-tab Browser-tab--resources" data-role="tab">
+            <a href="#browser-ec5a74e145c78fe9479d3700457053f5-panel-assets">Code</a>
+        </li>
+        
         
         
         
@@ -153,35 +157,14 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ec5a74e145c78fe9479d3700457053f5-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-1"</span>&gt;</span>Text Input - default with placeholder<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-1"</span>&gt;</span>Normal input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group focus"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-2"</span>&gt;</span>Text Input - active + focus<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-2"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control is-focused"</span>
-           <span class="hljs-attr">value</span>=<span class="hljs-string">"Some entered text"</span>/&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-2"</span>&gt;</span>Disabled input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-3"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group is-disabled"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-3"</span>&gt;</span>Text Input - disabled<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">disabled</span>
-           <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group has-error"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-4"</span>&gt;</span>Text Input - error on a field<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-4"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-4"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control has-error"</span>
-           <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-field-feedback"</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-3"</span>&gt;</span>Input with error<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input ecl-text-input--has-error"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-4"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span></span></pre>
     </code>
 </div>
 
@@ -201,32 +184,14 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-ec5a74e145c78fe9479d3700457053f5-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-1"</span>&gt;</span>Text Input - default with placeholder<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-1"</span>&gt;</span>Normal input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group focus"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-2"</span>&gt;</span>Text Input - active + focus<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-2"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control is-focused"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Some entered text"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-2"</span>&gt;</span>Disabled input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-3"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group is-disabled"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-3"</span>&gt;</span>Text Input - disabled<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-3"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group has-error"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-4"</span>&gt;</span>Text Input - error on a field<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-4"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-4"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control has-error"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-field-feedback"</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-3"</span>&gt;</span>Input with error<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input ecl-text-input--has-error"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-4"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span></pre>
         
     </code>
 </div>
@@ -234,6 +199,90 @@
     
     
 
+
+<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-ec5a74e145c78fe9479d3700457053f5-panel-assets">
+    <div class="FileBrowser">
+
+        <div class="FileBrowser-selectWrapper">
+            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
+            <select class="FileBrowser-select" id="filebrowser-select">
+                
+                <option value="file-e695b9c2e11df8cc50a1e8c7647ab137">_text-inputs.scss</option>
+                
+            </select>
+        </div>
+
+        
+        <div class="FileBrowser-item is-active" id="file-e695b9c2e11df8cc50a1e8c7647ab137" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">/**
+ * Text input component
+ * @define text-input
+ */</span>
+
+<span class="hljs-selector-class">.ecl-text-input</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">background-image</span>: none;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.6</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+  &amp;:focus {
+    <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
+    <span class="hljs-attribute">outline</span>: <span class="hljs-number">3px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
+    <span class="hljs-attribute">outline-offset</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">text-decoration</span>: none;
+  }
+
+  &amp;<span class="hljs-selector-attr">[disabled]</span>,
+  &amp;<span class="hljs-selector-attr">[readonly]</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#eee</span>;
+    <span class="hljs-attribute">cursor</span>: not-allowed;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-text-input--has-error</span> {
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-error</span>;
+
+  &amp;:focus {
+    <span class="hljs-attribute">border-color</span>: darken(<span class="hljs-variable">$ecl-color-error</span>, <span class="hljs-number">10%</span>);
+    <span class="hljs-attribute">outline-color</span>: darken(<span class="hljs-variable">$ecl-color-error</span>, <span class="hljs-number">10%</span>);
+  }
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-forms-text-inputs/_text-inputs.scss"><span>/components/raw/ecl-forms-text-inputs/_text-inputs.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-forms/ecl-forms-text-inputs/_text-inputs.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">824 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
 
 
 
@@ -1312,7 +1361,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -1411,7 +1460,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1435,7 +1484,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1555,7 +1604,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

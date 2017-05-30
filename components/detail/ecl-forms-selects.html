@@ -262,16 +262,16 @@ Select
     }
   }
 
-  <span class="hljs-attribute">background-position</span>: right ((<span class="hljs-variable">$form-control-height</span> - map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>)) / <span class="hljs-number">2</span>) - <span class="hljs-variable">$form-border-width</span> center, right;
+  <span class="hljs-attribute">background-position</span>: right ((<span class="hljs-number">2.75rem</span> - map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>)) / <span class="hljs-number">2</span>) - <span class="hljs-number">0.111rem</span> center, right;
   <span class="hljs-attribute">background-repeat</span>: no-repeat;
 
   <span class="hljs-comment">// Important to make the style guide not break.</span>
-  <span class="hljs-attribute">background-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>) + <span class="hljs-number">0.1rem</span> (<span class="hljs-number">20rem</span> / <span class="hljs-number">32.6rem</span>) * map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>), <span class="hljs-variable">$form-control-height</span> <span class="hljs-number">100%</span> <span class="hljs-meta">!important</span>;
+  <span class="hljs-attribute">background-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>) + <span class="hljs-number">0.1rem</span> (<span class="hljs-number">20rem</span> / <span class="hljs-number">32.6rem</span>) * map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>), <span class="hljs-number">2.75rem</span> <span class="hljs-number">100%</span> <span class="hljs-meta">!important</span>;
   <span class="hljs-attribute">transition</span>: none;
 
   <span class="hljs-comment">// Specific size for IE10+.</span>
   @<span class="hljs-keyword">media</span> screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    <span class="hljs-attribute">background-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>) + <span class="hljs-number">0.1rem</span> (<span class="hljs-number">20rem</span> / <span class="hljs-number">32.6rem</span>) * map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>), <span class="hljs-variable">$form-control-height</span> <span class="hljs-number">100%</span> <span class="hljs-meta">!important</span>;
+    <span class="hljs-attribute">background-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>) + <span class="hljs-number">0.1rem</span> (<span class="hljs-number">20rem</span> / <span class="hljs-number">32.6rem</span>) * map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>), <span class="hljs-number">2.75rem</span> <span class="hljs-number">100%</span> <span class="hljs-meta">!important</span>;
   }
 }
 
@@ -293,15 +293,15 @@ Select
     <span class="hljs-comment">// To not make it overlap.</span>
     <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">50px</span>;
 
-    @<span class="hljs-keyword">include</span> select-list-arrow(<span class="hljs-variable">$form-control-border-color</span>);
+    @<span class="hljs-keyword">include</span> select-list-arrow(<span class="hljs-variable">$ecl-color-shade</span>);
   }
 
   <span class="hljs-comment">// Hover state.</span>
   &amp;:hover,
   &amp;<span class="hljs-selector-class">.hover</span> {
-    @<span class="hljs-keyword">include</span> select-list-arrow(<span class="hljs-variable">$form-control-border-select-color-hover</span>);
+    @<span class="hljs-keyword">include</span> select-list-arrow(<span class="hljs-variable">$ecl-color-primary</span>);
 
-    <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$form-control-border-select-color-hover</span>;
+    <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   }
 
   <span class="hljs-comment">// Down state.</span>
@@ -329,7 +329,7 @@ Select
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.1 KB</span>
+                    <span class="Meta-value">2 KB</span>
                 </li>
             </ul>
         </div>
@@ -1414,7 +1414,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -1513,7 +1513,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1537,7 +1537,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1657,7 +1657,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
