@@ -6,20 +6,17 @@
 .ecl-text-input {
   background-color: #fff;
   background-image: none;
-  border: 1px solid #404040;
-  color: #404040;
+  border: 1px solid $ecl-color-shade;
+  color: $ecl-color-shade;
   display: block;
-  font-size: 15px;
-  font-size: 0.889em;
-  line-height: 1.428571429;
-  margin-bottom: 1.1em;
-  min-height: 2.75em;
-  padding: 6px 12px;
+  font-size: map-get($ecl-font-size, 's');
+  line-height: 1.6;
+  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
   width: 100%;
 
   &:focus {
-    border-color: #ffd617;
-    outline: 3px solid #ffd617;
+    border-color: map-get($ecl-colors, 'yellow-110');
+    outline: 3px solid map-get($ecl-colors, 'yellow-110');
     outline-offset: 0;
     text-decoration: none;
   }
@@ -33,10 +30,10 @@
 }
 
 .ecl-text-input--has-error {
-  border-color: #da2131;
+  border-color: $ecl-color-error;
 
   &:focus {
-    border-color: #ae1a27;
-    outline-color: #ae1a27;
+    border-color: darken($ecl-color-error, 10%);
+    outline-color: darken($ecl-color-error, 10%);
   }
 }
