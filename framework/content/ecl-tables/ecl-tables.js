@@ -67,7 +67,7 @@ export function eclTables() {
 
         if (colspanIndex !== -1) {
           const cell = row.querySelectorAll('td')[colspanIndex];
-          cell.setAttribute('class', 'ecl-table__group_label');
+          cell.setAttribute('class', 'ecl-table__group-label');
           cell.setAttribute('data-th-group', textColspan);
 
           for (let c = 1; c < cn; c += 1) {
