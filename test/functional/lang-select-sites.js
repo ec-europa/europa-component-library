@@ -1,4 +1,4 @@
-describe('ecl-lang-select-sites', () => {
+describe('lang-select-sites', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -19,7 +19,7 @@ describe('ecl-lang-select-sites', () => {
   context('with plain state', () => {
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'ecl-lang-select-sites',
+        name: 'lang-select-sites',
       });
       expect(screenshots).to.matchReference();
     });
