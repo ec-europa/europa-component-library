@@ -11,7 +11,7 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.1" type="text/css">
 
 
 <title>Footers | Europa Component Library</title>
@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #fbca04; border-color: #fbca04;">WIP</label>
 
 </div>
 
@@ -81,7 +81,59 @@
               <div class="Prose">
                 
                 <h1 id="footers">Footers</h1>
-<p>Site-wide footers component</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>The footer offers access to copyright information, disclaimer and terms of use, privacy and cookies policy and It allows the user to navigate to corporate social media profiles.</p>
+<h3 id="corporate-footer">Corporate footer</h3>
+<ul>
+<li>Information about European Commission and European Union: To Political/Information section: links to easily navigate between sites</li>
+<li>Social: information on how to connect to social platforms of the European Commission</li>
+<li>External links to European Union sites</li>
+<li>About the Commission’s new web presence</li>
+<li>Resources for partners</li>
+<li>Cookies</li>
+<li>Legal notice: a text area notifying the end user of some legal information with an inline link for more information     </li>
+<li>Contact</li>
+<li>Europa analytics</li>
+</ul>
+<h3 id="custom-footer-non-mandatory-">Custom footer (non mandatory)</h3>
+<p>In exceptional circumstances, a custom footer can be added.</p>
+<p>A custom footer should be used only if the corporate footer does not satisfy all the page’s requirements.</p>
+<p>There can be no overlap with other links in the corporate footer.</p>
+<ul>
+<li>Site identification</li>
+<li>Social: information on how to connect to social platforms of the improved site</li>
+<li>Contact</li>
+<li>Other information relevant</li>
+</ul>
+<h3 id="when-to-use-this-component">When to use this component</h3>
+<table>
+<thead>
+<tr>
+<th>Corporate footer</th>
+<th>Custom footer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transformed sites + Improved sites</td>
+<td>Improved sites</td>
+</tr>
+<tr>
+<td>Mandatory component</td>
+<td>Optional component</td>
+</tr>
+<tr>
+<td>On every page of every Commission website.</td>
+<td><ul><li>Consistent on all pages</li><li>Should be approved by DTT before implementation</li><li>On every page of every Commission website.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<h3 id="do-not-use-this-component">Do not use this component</h3>
+<p><strong>Custom footer</strong></p>
+<ul>
+<li>Never add navigation to the custom footer</li>
+<li>Keep it short as possible</li>
+</ul>
 
                 
               </div>
@@ -158,92 +210,113 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-cc069b8427ed30146ca296c0b1e737ec-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__column-main clearfix"</span>"&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__title"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu footer__menu--separator menu nav"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "custom" %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__site-identity"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Digital single market<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__label"</span>&gt;</span>Follow us:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu ecl-list-inline"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--facebook ecl-footers__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--twitter ecl-footers__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link--external"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Other social media<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu ecl-list-inline"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Site map<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__site-corporate"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4 ecl-footers__title"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Commission and it's priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Policies information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__title"</span>&gt;</span>Follow the European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu footer__menu--separator menu nav list-inline"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.facebook.com/EuropeanCommission"</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--facebook footer__icon--facebook footer__icon--social"</span>
-                <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4 ecl-footers__title"</span>&gt;</span>Follow the European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu ecl-list-inline"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--facebook ecl-footers__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://twitter.com/eu_commission"</span>
-                 <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--twitter footer__icon--twitter footer__icon--social"</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--twitter ecl-footers__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"is-internal"</span>&gt;</span>Other social media<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Other social media<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__title"</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu footer__menu--separator menu nav"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://europa.eu/about-eu/institutions-bodies/index_en.htm#30?"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"is-external"</span>&gt;</span>EU institutions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4 ecl-footers__title"</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link--external"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>EU institutions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://europa.eu/"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"is-external"</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link--external"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer-bottom"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-12"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu menu nav list-inline"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/about-commissions-new-web-presence_en"</span>&gt;</span>About the Commission's new web presence<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Resources for partners<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/cookies_en"</span>&gt;</span>Cookies<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/legal-notice_en"</span>&gt;</span>Legal notice<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/contact_en"</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/europa-analytics_en"</span>&gt;</span>Europa Analytics<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span></pre>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__ec"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline ecl-footers__menu"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/about-commissions-new-web-presence_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>About the Commission's new web presence<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/resources-partners_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Resources for partners<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/cookies_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Cookies<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/legal-notice_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Legal notice<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/contact_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/europa-analytics_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Europa Analytics<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -263,92 +336,78 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-cc069b8427ed30146ca296c0b1e737ec-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-
-            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__column-main clearfix"</span> "&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4 "</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__title "</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu footer__menu--separator menu nav "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"# "</span>&gt;</span>Commission and it's priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"# "</span>&gt;</span>Policies information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__site-corporate"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4 ecl-footers__title"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Commission and it's priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Policies information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4 ecl-footers__title"</span>&gt;</span>Follow the European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu ecl-list-inline"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--facebook ecl-footers__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--twitter ecl-footers__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item ecl-list-inline__item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Other social media<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm ecl-footers__column"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-h4 ecl-footers__title"</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link--external"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>EU institutions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link--external"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4 "</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__title "</span>&gt;</span>Follow the European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu footer__menu--separator menu nav list-inline "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.facebook.com/EuropeanCommission "</span>
-                <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--facebook footer__icon--facebook footer__icon--social "</span>
-                <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank "</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://twitter.com/eu_commission "</span>
-                 <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--twitter footer__icon--twitter footer__icon--social "</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"# "</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"is-internal "</span>&gt;</span>Other social media<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4 "</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__title "</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu footer__menu--separator menu nav "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://europa.eu/about-eu/institutions-bodies/index_en.htm#30? "</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"is-external "</span>&gt;</span>EU institutions<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://europa.eu/ "</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"is-external "</span>&gt;</span>European Union<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer-bottom "</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid "</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row "</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-12 "</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu menu nav list-inline "</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/about-commissions-new-web-presence_en "</span>&gt;</span>About the Commission's new web presence<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"# "</span>&gt;</span>Resources for partners<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/cookies_en "</span>&gt;</span>Cookies<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/legal-notice_en "</span>&gt;</span>Legal notice<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/contact_en "</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer__menu-item "</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/europa-analytics_en "</span>&gt;</span>Europa Analytics<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footers__ec"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-sm"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline ecl-footers__menu"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/about-commissions-new-web-presence_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>About the Commission's new web presence<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/resources-partners_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Resources for partners<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/cookies_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Cookies<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/legal-notice_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Legal notice<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/contact_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-inline__item ecl-footers__menu-item"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ec.europa.eu/info/europa-analytics_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>Europa Analytics<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -364,13 +423,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-8e0db5bcdf7cf397f648f9e2854462d1">_footers.scss</option>
+                <option value="file-e9373ba764ec8b048ae791bb611b9d2d">_footers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-8e0db5bcdf7cf397f648f9e2854462d1" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-e9373ba764ec8b048ae791bb611b9d2d" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -378,146 +437,148 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Footer
+                                <pre><span class="hljs-comment">/**
+ * Footers component
+ * @define footers ; weak
+ */</span>
 
-Site-wide footer component
-
-Markup: html/footer.html
-
-Style guide footer
-*/</span>
-
-<span class="hljs-selector-class">.footer</span> {
-  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-50'</span>);
-}
-
-<span class="hljs-selector-class">.footer-bottom</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.9em</span> <span class="hljs-number">0</span>;
-}
-
-<span class="hljs-selector-class">.footer</span>,
-<span class="hljs-selector-class">.footer-bottom</span> {
+<span class="hljs-selector-class">.ecl-footers__site-identity</span>,
+<span class="hljs-selector-class">.ecl-footers__site-corporate</span>,
+<span class="hljs-selector-class">.ecl-footers__ec</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
+
+  <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[#{$ecl-external-link-pattern}]</span>:not(<span class="hljs-selector-class">.is-internal</span>):not(#{<span class="hljs-variable">$ecl-ec-link-patterns</span>})::after {
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">2.2</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__social-icon</span> {
+  &amp;::before {
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">8px</span> <span class="hljs-meta">!important</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__title</span> {
+  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">2px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, blue-<span class="hljs-number">50</span>);
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, xxxs);
+  <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, xxxs);
+
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-between(md, lg) {
+    <span class="hljs-attribute">min-height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, xl);
+    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-comment">// Make titles height auto on large screens.</span>
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xl) {
+    <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, s);
+    <span class="hljs-attribute">min-height</span>: auto;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__label</span> {
+  <span class="hljs-attribute">display</span>: inline;
+  <span class="hljs-attribute">font-weight</span>: bold;
+
+  <span class="hljs-comment">/* Any adjusent unordered list to be inlined */</span>
+  + <span class="hljs-selector-tag">ul</span> {
+    <span class="hljs-attribute">display</span>: inline;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__menu</span> {
+  <span class="hljs-attribute">list-style</span>: none;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">max-width</span>: none;
+  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+
+  <span class="hljs-selector-class">.ecl-footers__menu-item</span> {
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, xs);
+    <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, xxxs);
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__column</span> {
+  <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, m);
+
+  &amp;:last-child {
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, m);
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__site-identity</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, blue-<span class="hljs-number">25</span>);
+  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, blue-<span class="hljs-number">120</span>);
+
+  <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, blue-<span class="hljs-number">120</span>);
+  }
+
+  <span class="hljs-selector-tag">h4</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">text-decoration</span>: none;
+  }
+
+  <span class="hljs-selector-class">.ecl-footers__column</span> {
+    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, s);
+  }
+
+  <span class="hljs-selector-class">.ecl-footers__column</span>:last-child {
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, s);
+    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__site-corporate</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, blue-<span class="hljs-number">75</span>);
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 
   <span class="hljs-selector-tag">a</span> {
     <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    <span class="hljs-attribute">text-decoration</span>: underline;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-footers__ec</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, s) <span class="hljs-number">0</span>;
+
+  <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  }
+}
+
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
+  <span class="hljs-selector-class">.ecl-footers__column</span> {
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, l);
+    <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, l);
+  }
+
+  <span class="hljs-comment">/* Specifics for this type of footer when non-mobile */</span>
+  <span class="hljs-selector-class">.ecl-footers__site-identity</span> {
+    <span class="hljs-selector-class">.ecl-footers__column</span> {
+      <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, s);
+    }
+
+    <span class="hljs-selector-class">.ecl-footers__column</span>:last-child {
+      <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, s);
+    }
+
+    <span class="hljs-selector-class">.ecl-footers__column</span>:last-child <span class="hljs-selector-class">.ecl-list-inline__item</span> {
+      <span class="hljs-attribute">display</span>: block;
+    }
+  }
+
+  <span class="hljs-selector-class">.ecl-footers__menu</span> <span class="hljs-selector-class">.ecl-footers__menu-item</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+
     &amp;:hover,
     &amp;:active,
     &amp;:focus {
+      <span class="hljs-attribute">background</span>: none;
       <span class="hljs-attribute">text-decoration</span>: none;
     }
-  }
-  <span class="hljs-comment">// Inline listings need more padding-right on the footer.</span>
-  <span class="hljs-selector-class">.list-inline</span> {
-    <span class="hljs-selector-class">.footer__menu-item</span> {
-      <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">15px</span>;
-    }
-  }
-}
-
-<span class="hljs-selector-class">.footer__label</span> {
-  <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">20px</span>;
-}
-
-<span class="hljs-selector-class">.footer__title</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
-}
-
-<span class="hljs-comment">// Menus.</span>
-<span class="hljs-selector-class">.footer__menu</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-
-  <span class="hljs-selector-class">.footer__menu-item</span> {
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">15px</span>;
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.5em</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-    &amp;:first-child &gt; <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-    }
-
-    <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-      @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), 5px);
-      &amp;:hover,
-      &amp;:active,
-      &amp;:focus {
-        <span class="hljs-attribute">background</span>: none;
-        <span class="hljs-attribute">text-decoration</span>: none;
-      }
-    }
-  }
-
-  <span class="hljs-selector-class">.footer__menu-item-right</span> {
-    @<span class="hljs-keyword">extend</span> .footer__menu-item;
-    <span class="hljs-attribute">float</span>: right;
-  }
-}
-
-<span class="hljs-selector-class">.footer__menu--separator</span> {
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.6em</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1.7em</span>;
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">1.2em</span>;
-  <span class="hljs-attribute">border-top</span>: <span class="hljs-number">2px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-25'</span>);
-}
-
-<span class="hljs-comment">// Icons.</span>
-<span class="hljs-selector-class">.footer__icon--social</span> {
-  &amp;::before {
-    <span class="hljs-attribute">position</span>: relative;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">4px</span>;
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">8px</span> <span class="hljs-meta">!important</span>;
-  }
-  &amp;::after {
-    <span class="hljs-attribute">content</span>: none <span class="hljs-meta">!important</span>;
-    <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
-  }
-}
-
-<span class="hljs-selector-class">.footer__icon--facebook</span> {
-  &amp;::before {
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;
-  }
-}
-
-<span class="hljs-selector-class">.footer__icon--twitter</span> {
-  &amp;::before {
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
-  }
-}
-
-<span class="hljs-comment">// Columns.</span>
-<span class="hljs-selector-class">.footer__column-main</span> {
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">2em</span>;
-}
-
-<span class="hljs-comment">// External link specific adjustments.</span>
-@<span class="hljs-keyword">mixin</span> _footer_external_link_mixin() {
-  &amp;::after {
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">2.2</span>;
-  }
-}
-
-<span class="hljs-selector-class">.footer</span> {
-  <span class="hljs-selector-tag">a</span> {
-    &amp;#{"<span class="hljs-selector-attr">[" + $ecl-external-link-pattern + "]</span>"}:not(<span class="hljs-selector-class">.is-internal</span>) {
-      &amp;:not(#{<span class="hljs-variable">$ecl-ec-link-patterns</span>}) {
-        @<span class="hljs-keyword">include</span> _footer_external_link_mixin();
-      }
-    }
-  }
-
-  <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.footer__site-switcher</span> {
-    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">30px</span> <span class="hljs-meta">!important</span>;
   }
 }
 </pre>
@@ -536,7 +597,7 @@ Style guide footer
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.2 KB</span>
+                    <span class="Meta-value">2.8 KB</span>
                 </li>
             </ul>
         </div>
@@ -568,6 +629,21 @@ Style guide footer
         
         
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="ecl-footers--default">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="ecl-footers--custom">
+                    <span>Custom</span>
+                </a>
+            
+            </span>
+        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -1430,9 +1506,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-footers">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -1440,7 +1515,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
 
 
 </div>
@@ -1449,7 +1524,63 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Footers</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-footers--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-footers--custom" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Custom</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3917,7 +4048,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.1"></script>
 
 
 

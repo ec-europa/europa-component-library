@@ -1,142 +1,144 @@
-/*
-Footer
+/**
+ * Footers component
+ * @define footers ; weak
+ */
 
-Site-wide footer component
-
-Markup: html/footer.html
-
-Style guide footer
-*/
-
-.footer {
-  background-color: map-get($ecl-colors, 'blue-50');
-}
-
-.footer-bottom {
-  background-color: $ecl-color-primary;
-  padding: 0.9em 0;
-}
-
-.footer,
-.footer-bottom {
+.ecl-footers__site-identity,
+.ecl-footers__site-corporate,
+.ecl-footers__ec {
   @include ecl-hidden-print();
+
+  a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-ec-link-patterns})::after {
+    line-height: 2.2;
+    position: absolute;
+  }
+}
+
+.ecl-footers__social-icon {
+  &::before {
+    margin-right: 8px !important;
+  }
+}
+
+.ecl-footers__title {
+  border-bottom: 2px solid map-get($ecl-colors, blue-50);
+  color: #fff;
+  margin-bottom: map-get($ecl-spacing, xxxs);
+  padding-bottom: map-get($ecl-spacing, xxxs);
+
+  @include ecl-media-breakpoint-between(md, lg) {
+    min-height: map-get($ecl-spacing, xl);
+    padding-bottom: 0;
+  }
+
+  // Make titles height auto on large screens.
+  @include ecl-media-breakpoint-up(xl) {
+    margin-bottom: map-get($ecl-spacing, s);
+    min-height: auto;
+  }
+}
+
+.ecl-footers__label {
+  display: inline;
+  font-weight: bold;
+
+  /* Any adjusent unordered list to be inlined */
+  + ul {
+    display: inline;
+  }
+}
+
+.ecl-footers__menu {
+  list-style: none;
+  margin: 0;
+  max-width: none;
+  padding-left: 0;
+
+  .ecl-footers__menu-item {
+    font-size: map-get($ecl-font-size, xs);
+    margin-bottom: map-get($ecl-spacing, xxxs);
+  }
+}
+
+.ecl-footers__column {
+  padding-top: map-get($ecl-spacing, m);
+
+  &:last-child {
+    padding-bottom: map-get($ecl-spacing, m);
+  }
+}
+
+.ecl-footers__site-identity {
+  background-color: map-get($ecl-colors, blue-25);
+  color: map-get($ecl-colors, blue-120);
+
+  a {
+    color: map-get($ecl-colors, blue-120);
+  }
+
+  h4 a {
+    text-decoration: none;
+  }
+
+  .ecl-footers__column {
+    padding-bottom: 0;
+    padding-top: map-get($ecl-spacing, s);
+  }
+
+  .ecl-footers__column:last-child {
+    padding-bottom: map-get($ecl-spacing, s);
+    padding-top: 0;
+  }
+}
+
+.ecl-footers__site-corporate {
+  background-color: map-get($ecl-colors, blue-75);
   color: #fff;
 
   a {
     color: #fff;
-    text-decoration: underline;
+  }
+}
+
+.ecl-footers__ec {
+  background-color: $ecl-color-primary;
+  color: #fff;
+  padding: map-get($ecl-spacing, s) 0;
+
+  a {
+    color: #fff;
+  }
+}
+
+@include ecl-media-breakpoint-up(sm) {
+  .ecl-footers__column {
+    padding-bottom: map-get($ecl-spacing, l);
+    padding-top: map-get($ecl-spacing, l);
+  }
+
+  /* Specifics for this type of footer when non-mobile */
+  .ecl-footers__site-identity {
+    .ecl-footers__column {
+      padding-bottom: map-get($ecl-spacing, s);
+    }
+
+    .ecl-footers__column:last-child {
+      padding-top: map-get($ecl-spacing, s);
+    }
+
+    .ecl-footers__column:last-child .ecl-list-inline__item {
+      display: block;
+    }
+  }
+
+  .ecl-footers__menu .ecl-footers__menu-item a {
+    padding: 0;
+
     &:hover,
     &:active,
     &:focus {
+      background: none;
       text-decoration: none;
     }
-  }
-  // Inline listings need more padding-right on the footer.
-  .list-inline {
-    .footer__menu-item {
-      padding-right: 15px;
-    }
-  }
-}
-
-.footer__label {
-  display: block;
-  margin-right: 20px;
-}
-
-.footer__title {
-  color: #fff;
-  padding-bottom: 0;
-}
-
-// Menus.
-.footer__menu {
-  margin: 0;
-  padding-left: 0;
-
-  .footer__menu-item {
-    margin-right: 15px;
-    margin-bottom: 0.5em;
-    padding: 0;
-    font-size: map-get($ecl-font-size, 's');
-    &:first-child > a {
-      padding-left: 0;
-    }
-
-    a {
-      padding: 0;
-      @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
-      &:hover,
-      &:active,
-      &:focus {
-        background: none;
-        text-decoration: none;
-      }
-    }
-  }
-
-  .footer__menu-item-right {
-    @extend .footer__menu-item;
-    float: right;
-  }
-}
-
-.footer__menu--separator {
-  width: 100%;
-  margin-top: 0.6em;
-  margin-bottom: 1.7em;
-  padding-top: 1.2em;
-  border-top: 2px solid map-get($ecl-colors, 'blue-25');
-}
-
-// Icons.
-.footer__icon--social {
-  &::before {
-    position: relative;
-    top: 4px;
-    margin-right: 8px !important;
-  }
-  &::after {
-    content: none !important;
-    display: none !important;
-  }
-}
-
-.footer__icon--facebook {
-  &::before {
-    font-size: 20px;
-  }
-}
-
-.footer__icon--twitter {
-  &::before {
-    font-size: 18px;
-  }
-}
-
-// Columns.
-.footer__column-main {
-  padding-top: 2em;
-}
-
-// External link specific adjustments.
-@mixin _footer_external_link_mixin() {
-  &::after {
-    position: absolute;
-    line-height: 2.2;
-  }
-}
-
-.footer {
-  a {
-    &#{"[" + $ecl-external-link-pattern + "]"}:not(.is-internal) {
-      &:not(#{$ecl-ec-link-patterns}) {
-        @include _footer_external_link_mixin();
-      }
-    }
-  }
-
-  a.footer__site-switcher {
-    padding-right: 30px !important;
   }
 }
