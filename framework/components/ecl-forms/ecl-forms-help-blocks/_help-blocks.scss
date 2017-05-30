@@ -4,14 +4,13 @@
  */
 
 $ecl-forms-help-block-text-color: map-get($ecl-colors, 'grey-100') !default;
-$ecl-forms-help-block-text-color-disabled: map-get($ecl-colors, 'grey-50') !default;
+$ecl-forms-help-block-text-color-disabled: map-get($ecl-colors, 'grey-75') !default;
 $ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color !default;
 
 .ecl-help-block {
   @include ecl-hidden-print();
 
   color: $ecl-forms-help-block-text-color;
-  font-family: $ecl-font-family-sans-serif;
   font-size: map-get($ecl-font-size, 'xs');
   margin-bottom: map-get($ecl-spacing, 'xxs');
   margin-top: 0;
@@ -22,6 +21,5 @@ $ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color !de
 }
 
 .ecl-help-block--has-error {
-  // Disable settings of base Bootstrap.
   color: $ecl-forms-help-block-text-color-has-error;
 }
