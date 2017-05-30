@@ -6,3 +6,20 @@
 .ecl-list--alpha {
   list-style-type: lower-latin;
 }
+
+.ecl-list--unstyled {
+  @include ecl-list-unstyled;
+}
+
+// Inline turns list items into inline-block
+.ecl-list-inline {
+  @include ecl-list-unstyled;
+}
+
+.ecl-list-inline__item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: $ecl-list-inline-margin;
+  }
+}
