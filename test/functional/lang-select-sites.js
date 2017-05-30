@@ -2,17 +2,17 @@ describe('lang-select-sites', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
-      width: 300,
-      height: 90,
+      width: 1400,
+      height: 600,
     });
 
-    browser.pause(1000);
+    browser.pause(1500);
 
     // Go to url
     browser.url('ecl-lang-select-sites.html');
 
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(1500);
   });
 
   // Normal state
