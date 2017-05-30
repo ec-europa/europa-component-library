@@ -1,3 +1,4 @@
+/* stylelint-disable */
 $breadcrumb-heigth: 2.778em;
 
 .breadcrumb {
@@ -40,6 +41,7 @@ a.breadcrumb__link {
   &::after {
     @extend .breadcrumb__link-arrow;
 
+    content: '\e828';
     vertical-align: middle;
     position: relative;
     top: 1px;

@@ -1,1 +1,0 @@
-# Political page header
