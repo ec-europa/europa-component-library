@@ -3,73 +3,43 @@
  * @define search-form
  */
 
-.search-form {
+.ecl-search-form {
   @include ecl-hidden-print();
 
   border: 1px solid map-get($ecl-colors, 'grey-50');
-  display: inline-block;
-  margin-bottom: 1em;
-  overflow: hidden;
-
-  .search-form__textfield-wrapper {
-    border: 3px solid transparent;
-    display: table-cell;
-    margin-bottom: 0;
-    position: relative;
-  }
-
-  .search-form__btn-wrapper {
-    font-size: inherit;
-  }
+  display: inline-flex;
 }
 
-.search-form__textfield {
+.ecl-search-form__textfield-wrapper {
+  border: 3px solid transparent; // Keeps the focus in the container
+}
+
+.ecl-search-form__textfield {
   border: 0;
-  font-size: inherit;
-  height: 2.325em;
-  min-height: 2.325em;
-
-  @include ecl-media-breakpoint-up(xs) {
-    min-height: 2.375em;
-  }
 }
 
-.search-form__btn {
+.ecl-search-form__button {
   @extend %ecl-icon;
 
-  border: 0 !important;
-  margin-bottom: 0;
-  margin-right: -1px;
-  min-height: 2.75em;
-  overflow: visible;
-  padding: 0 22px;
+  padding: 0 map-get($ecl-spacing, 'm');
+  position: relative;
   text-indent: -999em;
 
   &::before {
-    @extend %ecl-icon--search;
+    @include ecl-icon('search');
 
-    font-size: 1.5em;
-    left: 0;
-    line-height: 1.9em;
+    font-size: map-get($ecl-font-size, 'l');
+    left: 50%;
     position: absolute;
     text-indent: 0;
-    top: 0;
-    width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
-@include ecl-media-breakpoint-up(md) {
-  .search-form {
-    margin-bottom: 0;
-
-    .search-form__textfield-wrapper,
-    .search-form__btn-wrapper {
-      float: left;
-    }
-  }
-
-  .search-form__btn {
-    padding: 0 1em;
+@include ecl-media-breakpoint-up(lg) {
+  .ecl-search-form__button {
+    padding: 0 map-get($ecl-spacing, 's');
     text-indent: 0;
 
     &::before {
