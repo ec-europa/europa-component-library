@@ -1,3 +1,3 @@
 # Header search bar
 
-Style guide: siteheader.header-search-bar
+Used in the site header (homepage variant).

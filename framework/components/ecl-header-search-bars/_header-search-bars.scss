@@ -5,18 +5,12 @@
 
 .ecl-header-search-bar {
   background-color: $ecl-color-primary;
-  margin: 38px 0 0;
-  padding: 9px 0;
+  padding: 0.5rem 0;
 
   .ecl-search-form {
-    border: none;
+    border-width: 0;
     float: right;
     margin-bottom: 0;
-  }
-
-  .ecl-search-form__textfield-wrapper,
-  .ecl-search-form__button-wrapper {
-    float: none;
   }
 
   .ecl-search-form__textfield-wrapper {
@@ -24,8 +18,9 @@
   }
 
   @include ecl-media-breakpoint-up(s) {
+    /* stylelint-disable-next-line */
     .ecl-search-form {
-      width: 320px;
+      width: 18rem; // 324px if the root font-size is 18px
     }
   }
 }
