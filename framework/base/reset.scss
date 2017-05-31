@@ -2,8 +2,16 @@
 
 :root {
   box-sizing: border-box;
-  font-family: $ecl-font-family-base; /* 2 */
-  font-size: 1.125rem;
+  font-family: $ecl-font-family-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  overflow-x: hidden;
+  text-rendering: optimizelegibility;
+
+  @include ecl-media-breakpoint-up(xs) {
+    font-size: 1.125rem;
+  }
 }
 
 img {

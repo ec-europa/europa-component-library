@@ -1,6 +1,6 @@
 /**
  * Site header
- * @define site-header
+ * @define site-header ; weak
  */
 
 .ecl-site-header {
@@ -53,5 +53,50 @@ Site Header for Homepage
   &::before,
   &::after {
     display: none !important;
+  }
+}
+
+.ecl-site-header__top-bar {
+  overflow: hidden;
+  padding: 15px 0 0;
+  width: 100%;
+}
+
+.ecl-site-header--homepage {
+  .ecl-site-header__top-bar {
+    float: right;
+    height: 90px;
+    padding: 0;
+    top: 0;
+  }
+
+  .ecl-lang-select-site__link {
+    padding-right: 0;
+  }
+
+  // Yeah, I know, it's bad...
+  .ecl-site-header__top-bar__wrapper {
+    float: right;
+  }
+
+  @include ecl-media-breakpoint-up(sm) {
+    /* stylelint-disable-next-line */
+    .ecl-site-header__top-bar {
+      height: 156px;
+    }
+  }
+}
+
+@include ecl-media-breakpoint-up(lg) {
+  .ecl-site-header__top-bar {
+    float: right;
+    padding-bottom: 10px;
+    position: relative;
+    top: 6px;
+    width: auto;
+
+    .ecl-search-form__textfield-wrapper {
+      width: 240px;
+    }
   }
 }
