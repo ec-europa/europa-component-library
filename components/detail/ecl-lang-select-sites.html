@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -81,7 +81,14 @@
               <div class="Prose">
                 
                 <h1 id="language-select-site-">Language select (Site)</h1>
-<p>Language selector that is used across the whole site</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>The language selector allows users to switch from one language to another one.</p>
+<p>By clicking on the language selector, a list of available languages is displayed. The user can then select the language of their choice (splash page).</p>
+<p>If the site is only in one language, the corporate language selector must be implemented, but without any link (only indicating the current language).</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>on the site header</li>
+</ul>
 
                 
               </div>
@@ -158,12 +165,12 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-d3d9b2f20a5492316bfe7d2c60adf364-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site clearfix"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__link"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__label"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__code"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--language lang-select-site__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__code-text"</span>&gt;</span>en<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__link"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__label"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__code"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--language ecl-lang-select-sites__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__code-text"</span>&gt;</span>en<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
@@ -186,12 +193,12 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-d3d9b2f20a5492316bfe7d2c60adf364-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site clearfix"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__link"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__label"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__code"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--language lang-select-site__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-site__code-text"</span>&gt;</span>en<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__link"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__label"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__code"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--language ecl-lang-select-sites__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__code-text"</span>&gt;</span>en<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
@@ -210,13 +217,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-d5fedd271dc5adc8353bdfa83bd911cd">_lang-select-sites.scss</option>
+                <option value="file-95b3d961801fe42b90f92f4073f6584c">_lang-select-sites.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-d5fedd271dc5adc8353bdfa83bd911cd" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-95b3d961801fe42b90f92f4073f6584c" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -226,10 +233,12 @@
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/**
  * Language select (Site)
- * @define lang-select-site
+ * @define lang-select-sites
  */</span>
 
-<span class="hljs-selector-class">.lang-select-site</span> {
+<span class="hljs-variable">$ecl-lang-select-sites-icon-width</span>: <span class="hljs-number">1.4rem</span>;
+
+<span class="hljs-selector-class">.ecl-lang-select-sites</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
   <span class="hljs-attribute">position</span>: absolute;
@@ -242,58 +251,57 @@
     <span class="hljs-attribute">position</span>: static;
   }
 
-  <span class="hljs-selector-class">.lang-select-site__link</span> {
+  <span class="hljs-selector-class">.ecl-lang-select-sites__link</span> {
     <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid transparent;
     <span class="hljs-attribute">color</span>: inherit;
     <span class="hljs-attribute">display</span>: inline-block;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, s);
     <span class="hljs-attribute">font-weight</span>: bold;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">7.5px</span> <span class="hljs-number">15px</span>;
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, xxs) map-get(<span class="hljs-variable">$ecl-spacing</span>, xs);
     <span class="hljs-attribute">text-align</span>: center;
     <span class="hljs-attribute">text-decoration</span>: none;
-
-    &amp;:focus {
-      <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-      <span class="hljs-attribute">outline</span>: none;
-    }
   }
 
-  <span class="hljs-selector-class">.lang-select-site__label</span> {
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.556em</span>;
-
-    &amp;:hover {
-      <span class="hljs-attribute">text-decoration</span>: underline;
-    }
+  <span class="hljs-selector-class">.ecl-lang-select-sites__link</span>:focus {
+    <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, yellow-<span class="hljs-number">100</span>);
+    <span class="hljs-attribute">outline</span>: none;
   }
 
-  <span class="hljs-selector-class">.lang-select-site__code</span> {
+  <span class="hljs-selector-class">.ecl-lang-select-sites__label</span> {
+    <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, xxs);
+  }
+
+  <span class="hljs-selector-class">.ecl-lang-select-sites__label</span>:hover {
+    <span class="hljs-attribute">text-decoration</span>: underline;
+  }
+
+  <span class="hljs-selector-class">.ecl-lang-select-sites__code</span> {
     <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
     <span class="hljs-attribute">display</span>: inline-block;
     <span class="hljs-attribute">position</span>: relative;
     <span class="hljs-attribute">text-transform</span>: uppercase;
-    <span class="hljs-attribute">width</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-variable">$ecl-lang-select-sites-icon-width</span>;
   }
 
-  <span class="hljs-selector-class">.lang-select-site__code-text</span> {
+  <span class="hljs-selector-class">.ecl-lang-select-sites__code-text</span> {
     <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
     <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, xxs);
     <span class="hljs-attribute">left</span>: -<span class="hljs-number">1px</span>;
     <span class="hljs-attribute">position</span>: relative;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">1px</span>;
   }
 
-  <span class="hljs-selector-class">.lang-select-site__icon</span> {
+  <span class="hljs-selector-class">.ecl-lang-select-sites__icon</span> {
     <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>) * <span class="hljs-number">2</span>;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$ecl-lang-select-sites-icon-width</span>;
     <span class="hljs-attribute">left</span>: -<span class="hljs-number">1px</span>;
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.4</span>;
     <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: -<span class="hljs-number">1px</span>;
+    <span class="hljs-attribute">top</span>: -<span class="hljs-number">2px</span>;
+  }
 
-    &amp;::before {
-      <span class="hljs-attribute">font-weight</span>: inherit;
-    }
+  <span class="hljs-selector-class">.ecl-lang-select-sites__icon</span>::before {
+    <span class="hljs-attribute">font-weight</span>: inherit;
   }
 }
 </pre>
@@ -312,7 +320,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.4 KB</span>
+                    <span class="Meta-value">1.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -1318,7 +1326,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1345,7 +1353,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1369,7 +1377,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1940,7 +1948,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
