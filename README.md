@@ -37,6 +37,16 @@ Tested on:
 | Package | Version |
 |-------- |-------- |
 | [@ec-europa/ecl-buttons](framework/components/ecl-buttons) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-buttons.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-buttons) |
+| [@ec-europa/ecl-footers](framework/components/ecl-footers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-footers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-footers) |
+| [@ec-europa/ecl-forms-form-groups](framework/components/ecl-forms/ecl-forms-form-groups) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-form-groups.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-form-groups) |
+| [@ec-europa/ecl-forms-form-groups](framework/components/ecl-forms/ecl-forms-form-groups) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-form-groups.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-form-groups) |
+| [@ec-europa/ecl-forms-help-blocks](framework/components/ecl-forms/ecl-forms-help-blocks) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-help-blocks.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-help-blocks) |
+| [@ec-europa/ecl-forms-text-inputs](framework/components/ecl-forms/ecl-forms-text-inputs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-text-inputs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-text-inputs) |
+| [@ec-europa/ecl-header-search-bars](framework/components/ecl-header-search-bars) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-header-search-bars.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-header-search-bars) |
+| [@ec-europa/ecl-lang-select-sites](framework/components/ecl-lang-select-sites) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-sites.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-sites) |
+| [@ec-europa/ecl-ecl-page-headers](framework/components/ecl-ecl-page-headers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-ecl-page-headers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-ecl-page-headers) |
+| [@ec-europa/ecl-search-forms](framework/components/ecl-search-forms) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-search-forms.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-search-forms) |
+| [@ec-europa/ecl-site-headers](framework/components/ecl-site-headers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-site-headers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-site-headers) |
 
 ### Layout
 
