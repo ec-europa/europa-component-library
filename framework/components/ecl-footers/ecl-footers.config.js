@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Footers',
   label: 'Footers',
-  status: 'wip',
+  status: 'ready',
   tags: ['organism'],
   variants: [
     {
