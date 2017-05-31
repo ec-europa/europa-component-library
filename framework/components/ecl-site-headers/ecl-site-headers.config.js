@@ -2,7 +2,7 @@ module.exports = {
   title: 'Site headers',
   label: 'Site headers',
   tags: ['organism'],
-  status: 'planned',
+  status: 'wip',
   context: {
     global: {
       language: 'en',
