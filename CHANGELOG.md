@@ -1,3 +1,34 @@
+## 0.5.0 (2017-05-31)
+
+#### :bug: Bug Fix
+
+*   Other
+    *   [#155](https://github.com/ec-europa/europa-component-library/pull/155) fix(breakpoint): fix xs breakpoint - INNO-528. ([@yhuard](https://github.com/yhuard))
+    *   [#152](https://github.com/ec-europa/europa-component-library/pull/152) fix(tables): align content to the left -INNO-527. ([@degliwe](https://github.com/degliwe))
+
+#### :nail_care: Enhancement
+
+*   Other
+    *   [#158](https://github.com/ec-europa/europa-component-library/pull/158) feat(site-headers): add basic styles for site-headers - INNO-440. ([@yhuard](https://github.com/yhuard))
+    *   [#157](https://github.com/ec-europa/europa-component-library/pull/157) refactor(meta): upgrade meta component - INNO-533. ([@emeryro](https://github.com/emeryro))
+    *   [#153](https://github.com/ec-europa/europa-component-library/pull/153) refactor(page-header): update page header according to DT spec - INNO-441. ([@emeryro](https://github.com/emeryro))
+    *   [#156](https://github.com/ec-europa/europa-component-library/pull/156) feat(search-form): provide styles for the search forms - INNO-530. ([@yhuard](https://github.com/yhuard))
+    *   [#151](https://github.com/ec-europa/europa-component-library/pull/151) feat(lang-select-sites): refactoring the component - INNO-529. ([@kalinchernev](https://github.com/kalinchernev))
+    *   [#150](https://github.com/ec-europa/europa-component-library/pull/150) feat(text-input): provide ecl-text-input class - INNO-520. ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+*   Other
+    *   [#154](https://github.com/ec-europa/europa-component-library/pull/154) chore(deps): update @ec-europa/ecl-fractal-theme to the latest version 🚀 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 5
+
+-   Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+-   Yannick Huard ([yhuard](https://github.com/yhuard))
+-   [emeryro](https://github.com/emeryro)
+-   [greenkeeper[bot]](https://github.com/integration/greenkeeper)
+-   wesley deglise ([degliwe](https://github.com/degliwe))
+
 ## 0.4.0  (2017-05-30)
 
 #### :nail_care: Enhancement
