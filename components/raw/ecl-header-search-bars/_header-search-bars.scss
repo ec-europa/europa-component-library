@@ -1,39 +1,27 @@
-/*
-Site header search bar
+/**
+ * Site header search bar
+ * @define header-search-bar ; weak
+ */
 
-Markup: html/header-search-bar.html
-
-Style guide: siteheader.header-search-bar
-*/
-
-.header-search-bar {
-  margin: 38px 0 0;
-  padding: 9px 0;
+.ecl-header-search-bar {
   background-color: $ecl-color-primary;
+  margin-top: map-get($ecl-spacing, 'l');
+  padding: 0.5rem 0;
 
-  .block-nexteuropa-europa-search {
+  .ecl-search-form {
+    border-width: 0;
     float: right;
-    width: auto;
+    margin-bottom: 0;
+  }
 
-    .search-form {
-      float: right;
-      margin-bottom: 0;
-      border: none;
+  .ecl-search-form__textfield-wrapper {
+    background-color: #fff;
+  }
 
-      .search-form__textfield-wrapper,
-      .search-form__btn-wrapper {
-        float: none;
-      }
-
-      .search-form__textfield-wrapper {
-        background-color: #fff;
-      }
-    }
-
-    @include ecl-media-breakpoint-up(xs) {
-      .search-form {
-        width: 320px;
-      }
+  @include ecl-media-breakpoint-up(s) {
+    /* stylelint-disable-next-line */
+    .ecl-search-form {
+      width: 18rem; // 324px if the root font-size is 18px
     }
   }
 }

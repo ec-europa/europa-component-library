@@ -23,7 +23,7 @@
 
   &:focus {
     outline: 3px solid map-get($ecl-colors, 'yellow-100');
-    outline-offset: 0;
+    outline-offset: -3px;
   }
 }
 
@@ -85,11 +85,16 @@
 .ecl-button--form {
   background-color: map-get($ecl-colors, 'grey-15');
   border-color: map-get($ecl-colors, 'grey-15');
+  color: $ecl-color-primary;
 
-  &:hover,
+  &:hover {
+    color: $ecl-color-shade;
+  }
+
   &:focus,
   &:active {
-    color: $ecl-color-shade;
+    background-color: $ecl-color-primary;
+    color: #fff;
   }
 }
 

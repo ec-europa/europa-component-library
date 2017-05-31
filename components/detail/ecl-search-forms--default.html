@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
 
 
-<title>Political | Europa Component Library</title>
+<title>Search forms: Default | Europa Component Library</title>
 
 </head>
 <body>
@@ -43,14 +43,14 @@
     
     
 
-<div class="Pen" id="pen-f54effc12fd9a524a8292572069e6a75">
+<div class="Pen" id="pen-ce4f7797681e55bcdb2673b57da79a2c">
 
     
 
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/political" title="Component preview">
-            Political
+        <a class="Pen-previewLink" href="../preview/ecl-search-forms--default" title="Component preview">
+            Search forms: Default
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -80,7 +80,15 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="political-page-header">Political page header</h1>
+                <h1 id="search-form">Search form</h1>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>The search box allow user to search within all EC websites. The search box allows user to search in all European Commission websites through the EC search engine.</p>
+<p>The search results are displayed in a separate page.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>It is located on the the site header.</li>
+<li>If a site/section search is required, it can be implemented below the page header.</li>
+</ul>
 
                 
               </div>
@@ -89,14 +97,14 @@
         </div>
 
         <div class="Pen-playground" data-behaviour="pen" id="playground">
-          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-f54effc12fd9a524a8292572069e6a75">
+          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-ce4f7797681e55bcdb2673b57da79a2c">
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             
              <iframe
                 class="Preview-iframe"
                 data-role="window"
-                src="../preview/political"
+                src="../preview/ecl-search-forms--default"
                 sandbox="allow-same-origin allow-scripts allow-forms"
                  style=""
                 marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
@@ -109,7 +117,7 @@
 
           <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
           <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-f54effc12fd9a524a8292572069e6a75">
+    <div class="Browser" data-behaviour="browser" id="browser-ce4f7797681e55bcdb2673b57da79a2c">
 
     
 
@@ -118,31 +126,35 @@
         
         
         <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
-            <a href="#browser-f54effc12fd9a524a8292572069e6a75-panel-view">View</a>
+            <a href="#browser-ce4f7797681e55bcdb2673b57da79a2c-panel-view">View</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-f54effc12fd9a524a8292572069e6a75-panel-context">Context</a>
+            <a href="#browser-ce4f7797681e55bcdb2673b57da79a2c-panel-context">Context</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-f54effc12fd9a524a8292572069e6a75-panel-html">HTML</a>
+            <a href="#browser-ce4f7797681e55bcdb2673b57da79a2c-panel-html">HTML</a>
         </li>
         
         
         
         
+        
+        <li class="Browser-tab Browser-tab--resources" data-role="tab">
+            <a href="#browser-ce4f7797681e55bcdb2673b57da79a2c-panel-assets">Code</a>
+        </li>
         
         
         
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-f54effc12fd9a524a8292572069e6a75-panel-info">Info</a>
+            <a href="#browser-ce4f7797681e55bcdb2673b57da79a2c-panel-info">Info</a>
         </li>
         
         
@@ -151,62 +163,20 @@
 
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f54effc12fd9a524a8292572069e6a75-panel-view">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ce4f7797681e55bcdb2673b57da79a2c-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page-header page-header--image"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page-navigation"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb breadcrumb-processed breadcrumb--collapsible"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segments-wrapper"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment breadcrumb__segment--first"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link is-internal"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"home"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment breadcrumb__segment--last"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>Announcements<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid page-header__hero-title"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row padding-reset"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-lg-9 "</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta meta--header"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item meta__item--type"</span>&gt;</span>News article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-display-single"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"dc:date"</span> <span class="hljs-attr">datatype</span>=<span class="hljs-string">"xsd:dateTime"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"2015-07-06T17:44:28+02:00"</span>&gt;</span>6 July 2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item"</span>&gt;</span>Brussels<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field field--title"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Business, Economy, Euro<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-          EU economy, finance and the euro, and practical information for EU
-          businesses and entrepreneurs on product safety, environmental
-          regulations, trade with non-EU countries and competition rules.
-        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- This is only an example image, please use the solution with css and better quality. --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
-  <span class="hljs-selector-class">.page-header--image</span> {
-    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(data:image/jpeg;base64,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);
-  }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span></pre>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield ecl-text-input"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"60"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"ecl-search"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__button ecl-button ecl-button--form"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></pre>
     </code>
 </div>
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f54effc12fd9a524a8292572069e6a75-panel-context">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ce4f7797681e55bcdb2673b57da79a2c-panel-context">
     <code class="Code Code--lang-json">
         
             
@@ -218,56 +188,16 @@
 
     
     
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-f54effc12fd9a524a8292572069e6a75-panel-html">
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-ce4f7797681e55bcdb2673b57da79a2c-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page-header page-header--image"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page-navigation"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb breadcrumb-processed breadcrumb--collapsible"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segments-wrapper"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment breadcrumb__segment--first"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link is-internal"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"home"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__segment breadcrumb__segment--last"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__link"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"breadcrumb__text"</span>&gt;</span>Announcements<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid page-header__hero-title"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row padding-reset"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-lg-9 "</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta meta--header"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item meta__item--type"</span>&gt;</span>News article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-display-single"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"dc:date"</span> <span class="hljs-attr">datatype</span>=<span class="hljs-string">"xsd:dateTime"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"2015-07-06T17:44:28+02:00"</span>&gt;</span>6 July 2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item"</span>&gt;</span>Brussels<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field field--title"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Business, Economy, Euro<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-                    EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.
-                <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- This is only an example image, please use the solution with css and better quality. --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
-    <span class="hljs-selector-class">.page-header--image</span> {
-        <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(data:image/jpeg;base64,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);
-    }
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield ecl-text-input"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"60"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"ecl-search"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__button ecl-button ecl-button--form"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -276,14 +206,112 @@
     
 
 
+<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-ce4f7797681e55bcdb2673b57da79a2c-panel-assets">
+    <div class="FileBrowser">
+
+        <div class="FileBrowser-selectWrapper">
+            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
+            <select class="FileBrowser-select" id="filebrowser-select">
+                
+                <option value="file-5aaeaa3bcba41e361eca094d5db1a1e9">_search-forms.scss</option>
+                
+            </select>
+        </div>
+
+        
+        <div class="FileBrowser-item is-active" id="file-5aaeaa3bcba41e361eca094d5db1a1e9" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">/**
+ * Search form
+ * @define search-form
+ */</span>
+
+<span class="hljs-selector-class">.ecl-search-form</span> {
+  @<span class="hljs-keyword">include</span> ecl-hidden-print();
+
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+  <span class="hljs-attribute">display</span>: inline-flex;
+}
+
+<span class="hljs-selector-class">.ecl-search-form__textfield-wrapper</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid transparent; <span class="hljs-comment">// Keeps the focus in the container</span>
+}
+
+<span class="hljs-selector-class">.ecl-search-form__textfield</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">2.2rem</span>;
+  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.ecl-search-form__button</span> {
+  @<span class="hljs-keyword">extend</span> %ecl-icon;
+
+  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">text-indent</span>: -<span class="hljs-number">999em</span>;
+
+  &amp;::before {
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'search'</span>);
+
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">transform</span>: translate(-<span class="hljs-number">50%</span>, -<span class="hljs-number">50%</span>);
+  }
+}
+
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(lg) {
+  <span class="hljs-selector-class">.ecl-search-form__button</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">0</span>;
+
+    &amp;::before {
+      <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
+    }
+  }
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-search-forms/_search-forms.scss"><span>/components/raw/ecl-search-forms/_search-forms.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-search-forms/_search-forms.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">948 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
+
 
 
     
-    <div class="Browser-panel" data-role="tab-panel" id="browser-f54effc12fd9a524a8292572069e6a75-panel-info">
+    <div class="Browser-panel" data-role="tab-panel" id="browser-ce4f7797681e55bcdb2673b57da79a2c-panel-info">
     <ul class="Meta">
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@ec-europa/political</span>
+            <span class="Meta-value">@ec-europa/ecl-search-forms--default</span>
         </li>
         
         <li class="Meta-item">
@@ -292,7 +320,7 @@
                 
                     <span>
                 
-                    <span>organism</span>
+                    <span>molecule</span>
                 
             </span>
         </li>
@@ -302,15 +330,30 @@
         
         
         <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="ecl-search-forms--internal">
+                    <span>Internal</span>
+                </a>
+            
+            </span>
+        </li>
+        
+        <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
             <span class="Meta-value">
                 <ul>
-                    <li><a data-no-pjax href="../preview/political"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../preview/ecl-search-forms--default"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
 </a></li>
-                    <li><a data-no-pjax href="../render/political"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../render/ecl-search-forms--default"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
@@ -320,7 +363,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/ecl-page-headers/political/political.twig</span>
+            <span class="Meta-value">framework/components/ecl-search-forms/ecl-search-forms.twig</span>
         </li>
         
         
@@ -1673,7 +1716,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1958,8 +2001,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-meta">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1967,7 +2011,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1976,63 +2020,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Meta</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--header" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Header</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2094,7 +2082,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2111,8 +2099,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-default">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="corporate" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2120,7 +2109,31 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Corporate</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2129,33 +2142,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Default</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="default--image" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Image</span>
             </a>
         </li>
         
@@ -2163,7 +2149,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="default--large-intro" data-pjax>
+            <a class="Tree-entityLink" href="highlight" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2171,7 +2157,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2179,60 +2165,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Large intro</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="informational" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Informational</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Political</span>
+                <span>Highlight</span>
             </a>
         </li>
         
@@ -2240,7 +2173,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="xlarge-intro" data-pjax>
+            <a class="Tree-entityLink" href="improved-basic" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2248,7 +2181,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2256,7 +2189,31 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>X Large Intro</span>
+                <span>Improved basic</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="improved-complete" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Improved complete</span>
             </a>
         </li>
         
@@ -2339,9 +2296,59 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-search-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search forms</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
+            </a>
+        </li>
+        
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-search-forms" data-pjax>
+            <a class="Tree-entityLink" href="ecl-search-forms--internal" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2357,8 +2364,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Search forms</span>
+                <span>Internal</span>
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2372,7 +2384,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2399,7 +2411,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2423,7 +2435,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

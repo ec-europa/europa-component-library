@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
 
 
-<title>Header with larger intro text | Europa Component Library</title>
+<title>Default: Default page header | Europa Component Library</title>
 
 </head>
 <body>
@@ -43,14 +43,14 @@
     
     
 
-<div class="Pen" id="pen-fa4e2beaea0881b17e2b21dd1fda0330">
+<div class="Pen" id="pen-120a2e6f8d577549fd3e94b8b4ab4562">
 
     
 
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/default--large-intro" title="Component preview">
-            Header with larger intro text
+        <a class="Pen-previewLink" href="../preview/default--default" title="Component preview">
+            Default: Default page header
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -80,8 +80,9 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="page-header">Page header</h1>
-<p>Page header default component.</p>
+                <h1 id="default-page-header">Default page header</h1>
+<p>Simple page header displaying page introduction.</p>
+<p>It can be displayed with a background image by using modifier <strong>ecl-page-header–image</strong>.</p>
 
                 
               </div>
@@ -90,14 +91,14 @@
         </div>
 
         <div class="Pen-playground" data-behaviour="pen" id="playground">
-          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-fa4e2beaea0881b17e2b21dd1fda0330">
+          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-120a2e6f8d577549fd3e94b8b4ab4562">
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             
              <iframe
                 class="Preview-iframe"
                 data-role="window"
-                src="../preview/default--large-intro"
+                src="../preview/default--default"
                 sandbox="allow-same-origin allow-scripts allow-forms"
                  style=""
                 marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
@@ -110,7 +111,7 @@
 
           <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
           <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-fa4e2beaea0881b17e2b21dd1fda0330">
+    <div class="Browser" data-behaviour="browser" id="browser-120a2e6f8d577549fd3e94b8b4ab4562">
 
     
 
@@ -119,19 +120,19 @@
         
         
         <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
-            <a href="#browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-view">View</a>
+            <a href="#browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-view">View</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-context">Context</a>
+            <a href="#browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-context">Context</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-html">HTML</a>
+            <a href="#browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-html">HTML</a>
         </li>
         
         
@@ -141,7 +142,7 @@
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-info">Info</a>
+            <a href="#browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-info">Info</a>
         </li>
         
         
@@ -150,24 +151,25 @@
 
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-view">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page-header </span></span></span><span class="hljs-template-variable">{{modifier_class}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid page-header__hero-title"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> is the European Union’s executive body. It represents the interests of the European Union as a whole.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header </span></span></span><span class="hljs-template-variable">{{modifier_class}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{style}}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Page introduction (mandatory) --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro </span></span></span><span class="hljs-template-variable">{{intro_class}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-context">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-context">
     <code class="Code Code--lang-json">
         
             
-            <pre>{
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"page-header--large-intro"</span>
-}</pre>
+            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
         
     </code>
@@ -175,12 +177,15 @@
 
     
     
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-html">
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"page-header page-header--large-intro"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid page-header__hero-title"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> is the European Union’s executive body. It represents the interests of the European Union as a whole.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header "</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- Page introduction (mandatory) --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro "</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
@@ -192,11 +197,11 @@
 
 
     
-    <div class="Browser-panel" data-role="tab-panel" id="browser-fa4e2beaea0881b17e2b21dd1fda0330-panel-info">
+    <div class="Browser-panel" data-role="tab-panel" id="browser-120a2e6f8d577549fd3e94b8b4ab4562-panel-info">
     <ul class="Meta">
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@ec-europa/default--large-intro</span>
+            <span class="Meta-value">@ec-europa/default--default</span>
         </li>
         
         <li class="Meta-item">
@@ -215,30 +220,15 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="default--image">
-                    <span>Image</span>
-                </a>, 
-            
-                <a href="">
-                    <span>Large intro</span>
-                </a>
-            
-            </span>
-        </li>
-        
-        <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
             <span class="Meta-value">
                 <ul>
-                    <li><a data-no-pjax href="../preview/default--large-intro"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../preview/default--default"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
 </a></li>
-                    <li><a data-no-pjax href="../render/default--large-intro"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../render/default--default"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
@@ -1601,7 +1591,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1886,8 +1876,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-meta">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1895,7 +1886,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1904,63 +1895,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Meta</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--header" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Header</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2022,7 +1957,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2039,8 +1974,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-default">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="corporate" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2048,7 +1984,31 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Corporate</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2057,86 +2017,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Default</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="default--image" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Image</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Large intro</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="informational" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Informational</span>
             </a>
         </li>
         
@@ -2144,7 +2024,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="political" data-pjax>
+            <a class="Tree-entityLink" href="highlight" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2152,7 +2032,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2160,7 +2040,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Political</span>
+                <span>Highlight</span>
             </a>
         </li>
         
@@ -2168,7 +2048,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="xlarge-intro" data-pjax>
+            <a class="Tree-entityLink" href="improved-basic" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2176,7 +2056,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2184,7 +2064,31 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>X Large Intro</span>
+                <span>Improved basic</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="improved-complete" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Improved complete</span>
             </a>
         </li>
         
@@ -2267,9 +2171,59 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-search-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search forms</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-search-forms" data-pjax>
+            <a class="Tree-entityLink" href="ecl-search-forms--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-search-forms--internal" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2285,8 +2239,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Search forms</span>
+                <span>Internal</span>
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2300,7 +2259,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2327,7 +2286,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2351,7 +2310,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

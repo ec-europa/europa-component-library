@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -81,7 +81,7 @@
               <div class="Prose">
                 
                 <h1 id="header-search-bar">Header search bar</h1>
-<p>Style guide: siteheader.header-search-bar</p>
+<p>Used in the site header (homepage variant).</p>
 
                 
               </div>
@@ -158,24 +158,10 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-432ac5f2abd4ddfa7fdb806286288951-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-search-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-search-bar__wrapper1 container-fluid"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block-nexteuropa-europa-search clearfix"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block__content"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__textfield-wrapper"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__textfield form-control"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Search"</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group-btn search-form__btn-wrapper"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary btn-search search-form__btn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Search"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-header-search-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container-fluid ecl-clearfix"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-search-forms' %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -196,24 +182,16 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-432ac5f2abd4ddfa7fdb806286288951-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-search-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-search-bar__wrapper1 container-fluid"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block-nexteuropa-europa-search clearfix"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block__content"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__textfield-wrapper"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__textfield form-control"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Search"</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group-btn search-form__btn-wrapper"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary btn-search search-form__btn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Search"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-header-search-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container-fluid ecl-clearfix"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield ecl-text-input"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"60"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"ecl-search"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__button ecl-button ecl-button--form"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></pre>
         
     </code>
@@ -230,13 +208,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-a4a7dcb058068c48f3e3e23daad69376">_header-search-bars.scss</option>
+                <option value="file-08f1bbb798d337c5c5f3c771c405677a">_header-search-bars.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-a4a7dcb058068c48f3e3e23daad69376" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-08f1bbb798d337c5c5f3c771c405677a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -244,42 +222,30 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Site header search bar
+                                <pre><span class="hljs-comment">/**
+ * Site header search bar
+ * @define header-search-bar ; weak
+ */</span>
 
-Markup: html/header-search-bar.html
-
-Style guide: siteheader.header-search-bar
-*/</span>
-
-<span class="hljs-selector-class">.header-search-bar</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">38px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">9px</span> <span class="hljs-number">0</span>;
+<span class="hljs-selector-class">.ecl-header-search-bar</span> {
   <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
+  <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.5rem</span> <span class="hljs-number">0</span>;
 
-  <span class="hljs-selector-class">.block-nexteuropa-europa-search</span> {
+  <span class="hljs-selector-class">.ecl-search-form</span> {
+    <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">float</span>: right;
-    <span class="hljs-attribute">width</span>: auto;
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+  }
 
-    <span class="hljs-selector-class">.search-form</span> {
-      <span class="hljs-attribute">float</span>: right;
-      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">border</span>: none;
+  <span class="hljs-selector-class">.ecl-search-form__textfield-wrapper</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+  }
 
-      <span class="hljs-selector-class">.search-form__textfield-wrapper</span>,
-      <span class="hljs-selector-class">.search-form__btn-wrapper</span> {
-        <span class="hljs-attribute">float</span>: none;
-      }
-
-      <span class="hljs-selector-class">.search-form__textfield-wrapper</span> {
-        <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
-      }
-    }
-
-    @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
-      <span class="hljs-selector-class">.search-form</span> {
-        <span class="hljs-attribute">width</span>: <span class="hljs-number">320px</span>;
-      }
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(s) {
+    <span class="hljs-comment">/* stylelint-disable-next-line */</span>
+    <span class="hljs-selector-class">.ecl-search-form</span> {
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">18rem</span>; <span class="hljs-comment">// 324px if the root font-size is 18px</span>
     }
   }
 }
@@ -299,7 +265,7 @@ Style guide: siteheader.header-search-bar
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">662 Bytes</span>
+                    <span class="Meta-value">532 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1704,7 +1670,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1989,8 +1955,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-meta">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1998,7 +1965,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2007,63 +1974,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Meta</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--header" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Header</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2125,7 +2036,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2142,8 +2053,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-default">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="corporate" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2151,7 +2063,31 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Corporate</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2160,33 +2096,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Default</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="default--image" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Image</span>
             </a>
         </li>
         
@@ -2194,7 +2103,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="default--large-intro" data-pjax>
+            <a class="Tree-entityLink" href="highlight" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2202,7 +2111,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2210,36 +2119,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Large intro</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="informational" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Informational</span>
+                <span>Highlight</span>
             </a>
         </li>
         
@@ -2247,7 +2127,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="political" data-pjax>
+            <a class="Tree-entityLink" href="improved-basic" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2255,7 +2135,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2263,7 +2143,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Political</span>
+                <span>Improved basic</span>
             </a>
         </li>
         
@@ -2271,7 +2151,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="xlarge-intro" data-pjax>
+            <a class="Tree-entityLink" href="improved-complete" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2279,7 +2159,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2287,7 +2167,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>X Large Intro</span>
+                <span>Improved complete</span>
             </a>
         </li>
         
@@ -2370,9 +2250,59 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-search-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search forms</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-search-forms" data-pjax>
+            <a class="Tree-entityLink" href="ecl-search-forms--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-search-forms--internal" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2388,8 +2318,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Search forms</span>
+                <span>Internal</span>
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2403,7 +2338,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2430,7 +2365,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2454,7 +2389,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>

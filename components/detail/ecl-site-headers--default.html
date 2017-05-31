@@ -66,7 +66,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -161,38 +161,25 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-dfc06da206ec8807114de7f506c2373d-panel-view">
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "homepage" %}</span><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-header site-header--homepage"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid site-header__container"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"top-bar__wrapper"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header ecl-site-header--homepage"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid ecl-site-header__container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-top-bar__wrapper"</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-lang-select-sites' %}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'below', 'externalClass': 'site-header__logo' } %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'below', 'externalClass': 'ecl-site-header__logo' } %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-search-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"header-search-bar__wrapper container-fluid"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block-nexteuropa-europa-search clearfix"</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-search-forms' %}</span><span class="xml">
-      <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-header-search-bars' %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid site-header__container"</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'externalClass': 'site-header__logo' } %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"top-bar__wrapper"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid ecl-site-header__container"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'externalClass': 'ecl-site-header__logo' } %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-top-bar__wrapper"</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-lang-select-sites' %}</span><span class="xml">
-        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block-nexteuropa-europa-search clearfix"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block__content"</span>&gt;</span>
-            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-search-forms' %}</span><span class="xml">
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-menu__toggle"</span>&gt;</span>
-          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with { 'label': 'Menu', 'modifier': 'menu' } %}</span><span class="xml">
-        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-search-forms' %}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -221,14 +208,14 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-dfc06da206ec8807114de7f506c2373d-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid site-header__container"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid ecl-site-header__container"</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype site-header__logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home - European Commission"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype ecl-site-header__logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home - European Commission"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Home - European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"top-bar__wrapper"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-top-bar__wrapper"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__link"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__label"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -238,25 +225,13 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block-nexteuropa-europa-search clearfix"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block__content"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form"</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group"</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__textfield-wrapper"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__textfield form-control"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"60"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Search"</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__btn-wrapper input-group-btn"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search-form__btn btn btn-primary btn-search"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Search"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-menu__toggle"</span>&gt;</span>
-
-                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--menu"</span>&gt;</span>Menu<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield ecl-text-input"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"60"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"128"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"ecl-search"</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__button ecl-button ecl-button--form"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ecl-search"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -276,13 +251,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-cb347cc3f9bae6d117cb0f151eee6c1c">_site-headers.scss</option>
+                <option value="file-423f603f63de18e9a6ac1374b64d3bec">_site-headers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-cb347cc3f9bae6d117cb0f151eee6c1c" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-423f603f63de18e9a6ac1374b64d3bec" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -295,13 +270,13 @@
  * @define site-header
  */</span>
 
-<span class="hljs-selector-class">.site-header</span> {
+<span class="hljs-selector-class">.ecl-site-header</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   <span class="hljs-attribute">overflow</span>: hidden;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">14px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
   <span class="hljs-attribute">position</span>: relative;
 
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(lg) {
     <span class="hljs-attribute">padding</span>: <span class="hljs-number">14px</span> <span class="hljs-number">0</span>;
   }
 
@@ -314,12 +289,12 @@
   }
 }
 
-<span class="hljs-selector-class">.site-header__container</span> {
+<span class="hljs-selector-class">.ecl-site-header__container</span> {
   <span class="hljs-attribute">position</span>: relative;
 }
 
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-  <span class="hljs-selector-class">.site-header__logo</span> {
+  <span class="hljs-selector-class">.ecl-site-header__logo</span> {
     <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1em</span>;
     <span class="hljs-attribute">position</span>: relative;
     <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
@@ -329,10 +304,10 @@
 <span class="hljs-comment">/*
 Site Header for Homepage
 */</span>
-<span class="hljs-selector-class">.site-header--homepage</span> {
+<span class="hljs-selector-class">.ecl-site-header--homepage</span> {
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
 
-  <span class="hljs-selector-class">.site-header__logo</span> {
+  <span class="hljs-selector-class">.ecl-site-header__logo</span> {
     <span class="hljs-attribute">float</span>: none;
     <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
     <span class="hljs-attribute">position</span>: relative;
@@ -341,7 +316,7 @@ Site Header for Homepage
 }
 
 <span class="hljs-comment">// If the logo is linking to an external page do not show the external icon.</span>
-<span class="hljs-selector-class">.site-header__logo</span> {
+<span class="hljs-selector-class">.ecl-site-header__logo</span> {
   &amp;::before,
   &amp;::after {
     <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
@@ -363,7 +338,7 @@ Site Header for Homepage
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">901 Bytes</span>
+                    <span class="Meta-value">925 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1783,7 +1758,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2068,8 +2043,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-meta">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2077,7 +2053,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2086,63 +2062,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Meta</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta--header" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Header</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2204,7 +2124,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2221,8 +2141,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-default">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="corporate" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2230,7 +2151,31 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Corporate</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2239,33 +2184,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Default</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="default--image" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Image</span>
             </a>
         </li>
         
@@ -2273,7 +2191,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="default--large-intro" data-pjax>
+            <a class="Tree-entityLink" href="highlight" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2281,7 +2199,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2289,36 +2207,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Large intro</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="informational" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Informational</span>
+                <span>Highlight</span>
             </a>
         </li>
         
@@ -2326,7 +2215,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="political" data-pjax>
+            <a class="Tree-entityLink" href="improved-basic" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2334,7 +2223,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2342,7 +2231,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Political</span>
+                <span>Improved basic</span>
             </a>
         </li>
         
@@ -2350,7 +2239,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="xlarge-intro" data-pjax>
+            <a class="Tree-entityLink" href="improved-complete" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2358,7 +2247,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2366,7 +2255,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>X Large Intro</span>
+                <span>Improved complete</span>
             </a>
         </li>
         
@@ -2449,9 +2338,59 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-search-forms">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbca04; border-color: #fbca04;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search forms</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-search-forms" data-pjax>
+            <a class="Tree-entityLink" href="ecl-search-forms--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-search-forms--internal" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2467,8 +2406,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Search forms</span>
+                <span>Internal</span>
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2482,7 +2426,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2509,7 +2453,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2533,7 +2477,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
