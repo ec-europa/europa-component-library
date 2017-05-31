@@ -1,6 +1,7 @@
 /*
-ECL tables
-*/
+ *ECL tables
+ * @define table ; weak
+ */
 
 .ecl-table {
   border-collapse: collapse;
@@ -14,6 +15,7 @@ ECL tables
     background-color: transparent;
     color: $ecl-color-shade;
     font-weight: bold;
+    text-align: left;
   }
 
   td,
@@ -55,29 +57,27 @@ ECL tables
       display: block;
       font-weight: bold;
     }
+  }
 
-    .ecl-table__heading {
-      background-color: $ecl-color-shade;
-      color: #fff;
+  .ecl-table__heading {
+    background-color: $ecl-color-shade;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .ecl-table__group-label {
+    &::after {
+      content: attr(data-th-group);
+      display: block;
       font-weight: bold;
+      left: map-get($ecl-spacing, 'xxs');
+      position: absolute;
+      top: -(map-get($ecl-spacing, 'm'));
     }
 
-    .ecl-table__group_label {
-      /* stylelint-disable-next-line max-nesting-depth */
-      &::after {
-        content: attr(data-th-group);
-        display: block;
-        font-weight: bold;
-        left: map-get($ecl-spacing, 'xxs');
-        position: absolute;
-        top: -(map-get($ecl-spacing, 'm'));
-      }
-
-      /* stylelint-disable-next-line max-nesting-depth */
-      ~ .ecl-table__group_element {
-        margin: 0;
-        padding-left: map-get($ecl-spacing, 'm');
-      }
+    ~ .ecl-table__group_element {
+      margin: 0;
+      padding-left: map-get($ecl-spacing, 'm');
     }
   }
 }
