@@ -1,25 +1,27 @@
 module.exports = {
   title: 'Meta',
   label: 'Meta',
-  status: 'planned',
-  collated: false,
-  preview: '@preview-center-transparent',
+  status: 'ready',
   tags: ['atom'],
+  collator(markup, item) {
+    return `<!-- Start: @${item.handle} -->\n<h3 class="ecl-heading ecl-heading--h3">${item.label}</h3>\n${markup}\n<!-- End: @${item.handle} -->\n`;
+  },
+  collated: true,
+  default: 'default',
   variants: [
     {
       name: 'default',
-      label: 'Default',
+      label: 'Default meta',
       context: {
-        modifier: '',
         meta_item_type_data: 'news article',
         meta_item_data: '17 September 2014',
       },
     },
     {
       name: 'header',
-      label: 'Header',
+      label: 'Header meta',
       context: {
-        modifier: 'meta--header',
+        modifier: 'ecl-meta--header',
         meta_item_type_data: 'news article',
         meta_item_data: '17 September 2014',
       },
