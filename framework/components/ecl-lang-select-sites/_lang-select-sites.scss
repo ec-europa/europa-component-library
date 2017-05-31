@@ -1,9 +1,11 @@
 /**
  * Language select (Site)
- * @define lang-select-site
+ * @define lang-select-sites
  */
 
-.lang-select-site {
+$ecl-lang-select-sites-icon-width: 1.4rem;
+
+.ecl-lang-select-sites {
   @include ecl-hidden-print();
 
   position: absolute;
@@ -16,57 +18,56 @@
     position: static;
   }
 
-  .lang-select-site__link {
+  .ecl-lang-select-sites__link {
     border: 3px solid transparent;
     color: inherit;
     display: inline-block;
-    font-size: map-get($ecl-font-size, 's');
+    font-size: map-get($ecl-font-size, s);
     font-weight: bold;
-    padding: 7.5px 15px;
+    padding: map-get($ecl-spacing, xxs) map-get($ecl-spacing, xs);
     text-align: center;
     text-decoration: none;
-
-    &:focus {
-      border-color: map-get($ecl-colors, 'yellow-100');
-      outline: none;
-    }
   }
 
-  .lang-select-site__label {
-    margin-right: 0.556em;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  .ecl-lang-select-sites__link:focus {
+    border-color: map-get($ecl-colors, yellow-100);
+    outline: none;
   }
 
-  .lang-select-site__code {
+  .ecl-lang-select-sites__label {
+    margin-right: map-get($ecl-spacing, xxs);
+  }
+
+  .ecl-lang-select-sites__label:hover {
+    text-decoration: underline;
+  }
+
+  .ecl-lang-select-sites__code {
     color: $ecl-color-primary;
     display: inline-block;
     position: relative;
     text-transform: uppercase;
-    width: map-get($ecl-font-size, 'xs') * 2;
+    width: $ecl-lang-select-sites-icon-width;
   }
 
-  .lang-select-site__code-text {
+  .ecl-lang-select-sites__code-text {
     background-color: $ecl-color-primary;
     color: #fff;
-    font-size: map-get($ecl-font-size, 'xs');
+    font-size: map-get($ecl-font-size, xxs);
     left: -1px;
     position: relative;
-    top: 0;
+    top: 1px;
   }
 
-  .lang-select-site__icon {
+  .ecl-lang-select-sites__icon {
     color: $ecl-color-primary;
-    font-size: map-get($ecl-font-size, 'xs') * 2;
+    font-size: $ecl-lang-select-sites-icon-width;
     left: -1px;
-    line-height: 1.4;
     position: absolute;
-    top: -1px;
+    top: -2px;
+  }
 
-    &::before {
-      font-weight: inherit;
-    }
+  .ecl-lang-select-sites__icon::before {
+    font-weight: inherit;
   }
 }
