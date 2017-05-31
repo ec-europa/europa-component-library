@@ -32,7 +32,7 @@ describe('site-headers', () => {
         });
 
         it('should be accessible', () => {
-          const a11yReport = browser.runAxeCore('site-header').value;
+          const a11yReport = browser.runAxeCore('ecl-site-header').value;
           expect(a11yReport).to.be.accessible;
         });
       });
