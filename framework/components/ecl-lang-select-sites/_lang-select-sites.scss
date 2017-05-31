@@ -3,6 +3,8 @@
  * @define lang-select-sites
  */
 
+$ecl-lang-select-sites-icon-width: 1.4rem;
+
 .ecl-lang-select-sites {
   @include ecl-hidden-print();
 
@@ -22,7 +24,7 @@
     display: inline-block;
     font-size: map-get($ecl-font-size, s);
     font-weight: bold;
-    padding: 7.5px 15px;
+    padding: map-get($ecl-spacing, xxs) map-get($ecl-spacing, xs);
     text-align: center;
     text-decoration: none;
   }
@@ -45,23 +47,22 @@
     display: inline-block;
     position: relative;
     text-transform: uppercase;
-    width: map-get($ecl-font-size, xs) * 2;
+    width: $ecl-lang-select-sites-icon-width;
   }
 
   .ecl-lang-select-sites__code-text {
     background-color: $ecl-color-primary;
     color: #fff;
-    font-size: map-get($ecl-font-size, xs);
+    font-size: map-get($ecl-font-size, xxs);
     left: -1px;
     position: relative;
-    top: 0;
+    top: 1px;
   }
 
   .ecl-lang-select-sites__icon {
     color: $ecl-color-primary;
-    font-size: map-get($ecl-font-size, xs) * 2;
+    font-size: $ecl-lang-select-sites-icon-width;
     left: -1px;
-    line-height: 1.4;
     position: absolute;
     top: -2px;
   }
