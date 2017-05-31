@@ -1,69 +1,43 @@
-.top-bar {
-  padding: 15px 0 0;
+/**
+ * Top bar layout
+ * @define top-bar ; weak
+ */
+
+.ecl-top-bar {
   overflow: hidden;
+  padding: 15px 0 0;
   width: 100%;
 }
 
-.site-header--homepage {
-  .top-bar {
+.ecl-site-header--homepage {
+  .ecl-top-bar {
+    float: right;
     height: 90px;
     padding: 0;
     top: 0;
-    float: right;
 
-    .lang-select-site {
-      .lang-select-site__link {
-        padding-right: 0;
-      }
+    .ecl-lang-select-site__link {
+      padding-right: 0;
     }
   }
 
-  @include ecl-media-breakpoint-up(xs) {
-    .top-bar {
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-top-bar {
       height: 156px;
     }
   }
 }
 
-.site-menu__toggle {
-  float: right;
-  width: 25%;
-  padding-left: 15px;
-}
-
-.block-nexteuropa-europa-search {
-  float: left;
-  width: 75%;
-}
-
-@include ecl-media-breakpoint-up(md) {
-  .top-bar {
-    width: auto;
+@include ecl-media-breakpoint-up(lg) {
+  .ecl-top-bar {
     float: right;
-    position: relative;
     padding-bottom: 10px;
+    position: relative;
     top: 6px;
+    width: auto;
 
-    & > .region {
-      padding: 0;
-      margin: 0;
-    }
-
-    .block-nexteuropa-europa-search {
-      width: auto;
-      margin-left: 15px;
-
-      .search-form .search-form__textfield-wrapper {
-        width: 240px;
-      }
-    }
-
-    .site-menu__toggle {
-      width: auto;
-
-      .btn {
-        margin-bottom: auto;
-      }
+    .ecl-search-form__textfield-wrapper {
+      width: 240px;
     }
   }
 }

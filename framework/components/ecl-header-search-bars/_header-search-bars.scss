@@ -1,39 +1,31 @@
-/*
-Site header search bar
+/**
+ * Site header search bar
+ * @define header-search-bar ; weak
+ */
 
-Markup: html/header-search-bar.html
-
-Style guide: siteheader.header-search-bar
-*/
-
-.header-search-bar {
+.ecl-header-search-bar {
+  background-color: $ecl-color-primary;
   margin: 38px 0 0;
   padding: 9px 0;
-  background-color: $ecl-color-primary;
 
-  .block-nexteuropa-europa-search {
+  .ecl-search-form {
+    border: none;
     float: right;
-    width: auto;
+    margin-bottom: 0;
+  }
 
-    .search-form {
-      float: right;
-      margin-bottom: 0;
-      border: none;
+  .ecl-search-form__textfield-wrapper,
+  .ecl-search-form__button-wrapper {
+    float: none;
+  }
 
-      .search-form__textfield-wrapper,
-      .search-form__btn-wrapper {
-        float: none;
-      }
+  .ecl-search-form__textfield-wrapper {
+    background-color: #fff;
+  }
 
-      .search-form__textfield-wrapper {
-        background-color: #fff;
-      }
-    }
-
-    @include ecl-media-breakpoint-up(xs) {
-      .search-form {
-        width: 320px;
-      }
+  @include ecl-media-breakpoint-up(s) {
+    .ecl-search-form {
+      width: 320px;
     }
   }
 }
