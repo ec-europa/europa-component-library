@@ -1,66 +1,29 @@
 /*
-Meta
+ * ECL meta
+ */
 
-Meta is a component that is used for displaying meta information in single
-pages and listings.
-It could also be reused in blocks.
-
-Markup: html/meta.html
-
-.meta--header - Meta header modifier  that is currently used in the page header, it is larger than the meta component alone
-
-Style guide meta
-*/
-
-.meta {
-  line-height: 1.3;
+.ecl-meta {
   font-size: map-get($ecl-font-size, 'xs');
-  letter-spacing: 0.02777778em;
-
-  p {
-    margin: 0;
-  }
+  letter-spacing: 0.03rem;
+  line-height: 1.3;
 }
 
-.meta__item {
+.ecl-meta__item {
   white-space: nowrap;
 
   &::after {
-    content: "|";
     color: map-get($ecl-colors, 'grey-50');
-    margin: 0 0.6em 0 0.85em;
+    content: '|';
+    margin: 0 map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'xs');
     position: relative;
     top: -1px;
   }
 
-  &:last-child {
-    &::after {
-      display: none;
-    }
+  &:last-child::after {
+    display: none;
   }
 }
 
-.meta__item--type {
-  text-transform: uppercase;
-}
-
-.meta--header {
+.ecl-meta--header {
   font-size: map-get($ecl-font-size, 's');
-  margin: 0 0 1em;
-}
-
-// Drupal fix due to basic_html text formatter settings that are generating <p> tag.
-.meta {
-  .meta__item {
-    p {
-      font-size: inherit !important;
-      display: inline;
-      line-height: inherit;
-      max-width: none;
-    }
-  }
-
-  .label {
-    font-size: map-get($ecl-font-size, 's') !important;
-  }
 }
