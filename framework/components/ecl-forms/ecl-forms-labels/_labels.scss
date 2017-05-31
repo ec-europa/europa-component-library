@@ -16,10 +16,10 @@ form .label {
   margin-bottom: 0.556em;
   padding: 0;
   font-size: map-get($ecl-font-size, 's');
-  color: $form-control-text-color;
+  color: $ecl-color-shade;
   text-align: left;
 
   &.is-disabled {
-    color: $form-control-color-disabled;
+    color: map-get($ecl-colors, 'grey-50');
   }
 }

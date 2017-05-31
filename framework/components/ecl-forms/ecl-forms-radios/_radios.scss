@@ -28,7 +28,7 @@ Style guide form.radio
 
     // Focus state, not checked.
     &:focus + label::before {
-      border: 3px solid $form-control-border-color-focus;
+      border: 3px solid map-get($ecl-colors, 'yellow-100');
     }
   }
 

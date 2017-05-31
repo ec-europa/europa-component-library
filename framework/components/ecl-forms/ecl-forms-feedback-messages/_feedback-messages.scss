@@ -12,7 +12,7 @@ Style guide form.feedback-message
   border: none;
 
   &.is-disabled {
-    color: $form-control-color-disabled;
+    color: map-get($ecl-colors, 'grey-50');
   }
 
   &.is-error {
