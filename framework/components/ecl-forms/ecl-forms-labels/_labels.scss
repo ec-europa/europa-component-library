@@ -6,17 +6,12 @@ Markup: html/label.html
 Style guide form.label
 */
 
-label,
-form .label {
-  @extend .form_label;
-}
-
 .form_label {
+  color: $ecl-color-shade;
   display: block;
+  font-size: map-get($ecl-font-size, 's');
   margin-bottom: 0.556em;
   padding: 0;
-  font-size: map-get($ecl-font-size, 's');
-  color: $ecl-color-shade;
   text-align: left;
 
   &.is-disabled {
