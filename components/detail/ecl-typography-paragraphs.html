@@ -11,17 +11,50 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.3.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.0" type="text/css">
 
+<link rel="stylesheet" href="/themes/ecl-fractal-theme/ecl/ecl.css" type="text/css">
 
 <title>Paragraphs | Europa Component Library</title>
 
 </head>
-<body>
+<body class="language-en">
 
 
 
-<div class="Frame" id="frame">
+<header class="ecl-site-header" role="banner">
+  <div class="container-fluid ecl-site-header__container">
+    <a href="https://ec.europa.eu" class="ecl-logo ecl-logo--logotype ecl-site-header__logo" title="Home - European Commission">
+      <span class="ecl-sr-only">Home - European Commission</span>
+    </a>
+
+    <section class="ecl-site-header__top-bar" aria-label="Site tools">
+      <div class="ecl-site-header__top-bar__wrapper">
+        <div class="ecl-lang-select-sites">
+          <a href="#" class="ecl-lang-select-sites__link">
+            <span class="ecl-lang-select-sites__label">English</span>
+            <span class="ecl-lang-select-sites__code">
+              <span class="ecl-icon ecl-icon--language ecl-lang-select-sites__icon"></span>
+              <span class="ecl-lang-select-sites__code-text">en</span>
+            </span>
+          </a>
+        </div>
+
+        <form class="ecl-search-form">
+          <label class="ecl-search-form__textfield-wrapper">
+            <span class="ecl-sr-only">Search this website</span>
+            <input type="ecl-search" id="search-components" class="ecl-search-form__textfield ecl-text-input" size="60" maxlength="128" title="ecl-search">
+            <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
+          </label>
+
+          <button class="ecl-search-form__button ecl-button ecl-button--form" value="ecl-search" type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+  </div>
+</header>
+
+<div id="frame">
 
     <div class="Frame-header">
         <div class="Header">
@@ -274,13 +307,13 @@ Different sizes are available, by using specific modifiers.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-87aa00ed641974c8a6e9f59db577c488">_paragraphs.scss</option>
+                <option value="file-3c614427923aaa23ebe35585396800f4">_paragraphs.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-87aa00ed641974c8a6e9f59db577c488" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-3c614427923aaa23ebe35585396800f4" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -437,13 +470,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
         <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
             <nav class="Navigation">
-                <div class="Navigation-group">
-  <div class="Tree Tree-search" data-behaviour="tree">
-    <input id="search-components" type="text" placeholder="Search" aria-label="Search among components" tabindex="1">
-    <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
-  </div>
-</div>
-
                 
   
     <div class="Navigation-group">
@@ -3824,12 +3850,88 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             </nav>
         </div>
     </div>
+
+    <div class="Frame-footer">
+        <footer class="ecl-footer">
+    <div class="ecl-footers__site-corporate">
+        <div class="ecl-container">
+            <div class="ecl-row">
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
+                            <a href="#">Commission and it's priorities</a>
+                        </li>
+                        <li class="ecl-footers__menu-item">
+                            <a href="#">Policies information and services</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">Follow the European Commission</h4>
+                    <ul class="ecl-footers__menu ecl-list-inline">
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
+                        </li>
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
+                        </li>
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#">Other social media</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Union</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
+                            <a class="ecl-link--external" href="#">EU institutions</a>
+                        </li>
+                        <li class="ecl-footers__menu-item">
+                            <a class="ecl-link--external" href="#">European Union</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ecl-footers__ec">
+        <div class="ecl-container">
+            <div class="ecl-row">
+                <div class="ecl-col-sm">
+                    <ul class="ecl-list-inline ecl-footers__menu">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
+                            <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
+                        </li>
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
+                            <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
+                        </li>
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
+                            <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
+                        </li>
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
+                            <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
+                        </li>
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
+                            <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
+                        </li>
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
+                            <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
 </div>
 
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.3.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.5.0"></script>
 
 
 

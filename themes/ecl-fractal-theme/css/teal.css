@@ -543,8 +543,8 @@ html {
   background: #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font: 16px/1.5 "Open Sans", Helvetica, Arial, sans-serif;
-  color: #535363;
+  font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  color: #404040;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased; }
 
@@ -620,15 +620,15 @@ svg {
   width: 0; }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(83, 83, 99, 0.1);
+  background: rgba(64, 64, 64, 0.1);
   border: 0 none transparent;
   border-radius: 0; }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(83, 83, 99, 0.2); }
+  background: rgba(64, 64, 64, 0.2); }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgba(83, 83, 99, 0.3); }
+  background: rgba(64, 64, 64, 0.3); }
 
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -650,29 +650,29 @@ h3,
 h4,
 h5,
 h6 {
-  color: #444;
+  color: #404040;
   font-weight: bold; }
 
 h1 {
-  font: bold 1.75rem/1.14286 "Open Sans", Helvetica, Arial, sans-serif;
+  font: bold 1.75rem/1.14286 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-feature-settings: "dlig" 1;
           font-feature-settings: "dlig" 1;
   letter-spacing: -0.025em; }
 
 h2 {
-  font: bold 1.3125rem/1.14286 "Open Sans", Helvetica, Arial, sans-serif;
+  font: bold 1.3125rem/1.14286 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-feature-settings: "dlig" 1;
           font-feature-settings: "dlig" 1; }
 
 h3 {
-  font: bold 1.125rem/1.33333 "Open Sans", Helvetica, Arial, sans-serif;
+  font: bold 1.125rem/1.33333 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-feature-settings: "dlig" 1;
           font-feature-settings: "dlig" 1; }
 
 h4,
 h5,
 h6 {
-  font: normal 1rem/1.5 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 1rem/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: bold; }
 
 .AssetList {
@@ -685,7 +685,7 @@ h6 {
   width: 100%; }
 
 .AssetList-name {
-  color: rgba(83, 83, 99, 0.5); }
+  color: rgba(64, 64, 64, 0.5); }
   .AssetList-name strong {
     color: #066;
     font-weight: normal; }
@@ -701,7 +701,7 @@ h6 {
   padding: 0.5rem 0;
   text-decoration: none; }
   .AssetList-link:hover .AssetList-path {
-    color: rgba(83, 83, 99, 0.75); }
+    color: rgba(64, 64, 64, 0.75); }
   .AssetList-link:hover .AssetList-icon svg {
     fill: #999; }
 
@@ -1285,8 +1285,8 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  -webkit-box-shadow: inset 0 -1px 0 0 rgba(83, 83, 99, 0.25);
-          box-shadow: inset 0 -1px 0 0 rgba(83, 83, 99, 0.25); }
+  -webkit-box-shadow: inset 0 -1px 0 0 rgba(64, 64, 64, 0.25);
+          box-shadow: inset 0 -1px 0 0 rgba(64, 64, 64, 0.25); }
 
 .Browser-tabs {
   width: 100%;
@@ -1314,13 +1314,13 @@ h6 {
           flex: auto;
   white-space: nowrap; }
   .Browser-tab a {
-    font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+    font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
     width: 100%;
     padding: 0.75rem 0.75rem 0.875rem;
     border-bottom: 0.125rem solid transparent;
     text-align: center; }
     .Browser-tab a:link, .Browser-tab a:visited, .Browser-tab a:hover, .Browser-tab a:active {
-      color: #535363;
+      color: #404040;
       text-decoration: none; }
     .Browser-tab a:hover {
       border-bottom-color: #ccc; }
@@ -1337,16 +1337,16 @@ h6 {
   display: none;
   overflow: auto;
   width: 100%;
-  background-color: #f6f6f6;
+  background-color: #f5f5f5;
   padding: 0.75rem; }
   .Browser-panel.is-active {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
   .Browser-panel .Code {
-    background-color: #f6f6f6; }
+    background-color: #f5f5f5; }
     .Browser-panel .Code pre {
-      background-color: #f6f6f6;
+      background-color: #f5f5f5;
       padding: 0; }
   .Browser-panel > .Meta {
     -ms-flex-preferred-size: 100%;
@@ -1354,12 +1354,12 @@ h6 {
 
 .Browser-isEmptyNote {
   font-style: italic;
-  color: #535363;
+  color: #404040;
   opacity: 0.6; }
 
 .Code {
   display: block;
-  background-color: #f6f6f6;
+  background-color: #f5f5f5;
   -webkit-overflow-scrolling: touch; }
   .Code pre {
     padding: 0.75rem;
@@ -1382,7 +1382,7 @@ h6 {
   display: flex;
   width: 100%;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(83, 83, 99, 0.25);
+  border-bottom: 1px solid rgba(64, 64, 64, 0.25);
   padding-bottom: 0.5rem; }
   .Document-header .Status {
     -webkit-margin-start: auto;
@@ -1393,29 +1393,23 @@ h6 {
     [dir="rtl"] .Document-header .Status {
       margin-right: auto; }
 
-.Document-title {
-  font: bold 1.75rem/1.14286 "Open Sans", Helvetica, Arial, sans-serif;
-  -webkit-font-feature-settings: "dlig" 1;
-          font-feature-settings: "dlig" 1;
-  letter-spacing: -0.025em; }
-
 .Error-stack {
   margin-top: 1.5rem; }
   .Error-stack pre {
     font: normal 0.875rem/1.71429 Hack, Consolas, Monaco, "Andale Mono", monospace;
-    color: rgba(83, 83, 99, 0.75); }
+    color: rgba(64, 64, 64, 0.75); }
 
 .Error--render {
   background-color: rgba(187, 0, 0, 0.05);
   border: 1px solid rgba(187, 0, 0, 0.25);
   padding: 0.75rem; }
   .Error--render .Error-title {
-    font: normal 0.75rem/1.66667 "Open Sans", Helvetica, Arial, sans-serif;
+    font: normal 0.75rem/1.66667 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
     letter-spacing: 0.075em;
     text-transform: uppercase;
     color: #b00; }
   .Error--render .Error-message {
-    font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif; }
+    font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif; }
   .Error--render .Error-stack pre,
   .Error--render .Error-stack code {
     background-color: #fff !important; }
@@ -1428,9 +1422,9 @@ h6 {
 .FileBrowser-selectWrapper {
   margin: -0.75rem -0.75rem 0.75rem -0.75rem;
   padding: 0.5rem 0.75rem;
-  background-color: rgba(83, 83, 99, 0.05); }
+  background-color: rgba(64, 64, 64, 0.05); }
   .FileBrowser-selectWrapper .select2-container {
-    font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+    font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
     -webkit-margin-start: -0.25rem;
        -moz-margin-start: -0.25rem;
             margin-inline-start: -0.25rem;
@@ -1445,7 +1439,7 @@ h6 {
     outline: none; }
 
 .FileBrowser-select-label {
-  font: normal 0.75rem/1.66667 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 0.75rem/1.66667 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.075em;
   text-transform: uppercase;
   display: block;
@@ -1454,16 +1448,16 @@ h6 {
   font-weight: bold; }
 
 .select2-selection.select2-selection--single {
-  border-color: rgba(83, 83, 99, 0.25); }
+  border-color: rgba(64, 64, 64, 0.25); }
   .select2-container--focus .select2-selection.select2-selection--single {
     outline: none;
     border-color: #066; }
 
 .select2-results__option {
-  font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   min-width: 15em; }
   .select2-results__option[aria-selected=true] {
-    background-color: rgba(83, 83, 99, 0.1) !important; }
+    background-color: rgba(64, 64, 64, 0.1) !important; }
 
 .select2-results__option--highlighted[aria-selected] {
   background-color: #3dd !important;
@@ -1562,21 +1556,21 @@ h6 {
   -webkit-overflow-scrolling: touch; }
 
 .Frame-panel--sidebar {
-  -webkit-border-end: 1px solid rgba(83, 83, 99, 0.25);
-     -moz-border-end: 1px solid rgba(83, 83, 99, 0.25);
-          border-inline-end: 1px solid rgba(83, 83, 99, 0.25);
+  -webkit-border-end: 1px solid rgba(64, 64, 64, 0.25);
+     -moz-border-end: 1px solid rgba(64, 64, 64, 0.25);
+          border-inline-end: 1px solid rgba(64, 64, 64, 0.25);
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 240px;
   min-width: 240px;
   max-width: 480px;
-  background-color: #f6f6f6;
+  background-color: #f5f5f5;
   padding: 1rem 0; }
   [dir="ltr"] .Frame-panel--sidebar {
-    border-right: 1px solid rgba(83, 83, 99, 0.25); }
+    border-right: 1px solid rgba(64, 64, 64, 0.25); }
   [dir="rtl"] .Frame-panel--sidebar {
-    border-left: 1px solid rgba(83, 83, 99, 0.25); }
+    border-left: 1px solid rgba(64, 64, 64, 0.25); }
   @media (max-width: 31.24em) {
     .Frame-panel--sidebar {
       max-width: 240px; } }
@@ -1612,9 +1606,9 @@ h6 {
   background-size: 3px 16px;
   cursor: ew-resize; }
   .Frame-handle:hover {
-    background-color: rgba(83, 83, 99, 0.05); }
+    background-color: rgba(64, 64, 64, 0.05); }
   .Frame-handle:active {
-    background-color: rgba(83, 83, 99, 0.075); }
+    background-color: rgba(64, 64, 64, 0.075); }
   .Frame-handle.is-disabled {
     pointer-events: none;
     visibility: hidden; }
@@ -1636,16 +1630,15 @@ h6 {
           align-items: center;
   position: relative;
   z-index: 10;
-  background-color: #3dd;
+  background-color: #004494;
   -webkit-box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.25), 0 2px 0 rgba(0, 0, 0, 0.1);
           box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.25), 0 2px 0 rgba(0, 0, 0, 0.1);
   text-overflow: ellipsis;
   color: #033; }
 
 .Header-title {
+  line-height: 2;
   padding: 0.75rem 1rem;
-  font-size: 1.125rem;
-  line-height: 1.33333;
   white-space: nowrap; }
   .Header-title:link, .Header-title:visited, .Header-title:hover, .Header-title:active {
     color: inherit;
@@ -1696,19 +1689,19 @@ h6 {
   margin-bottom: 0.5rem;
   padding-bottom: 1rem; }
   .Meta-item:not(:last-child) {
-    border-bottom: 1px solid rgba(83, 83, 99, 0.15); }
+    border-bottom: 1px solid rgba(64, 64, 64, 0.15); }
 
 .Meta-key {
-  font: normal 0.75rem/1.66667 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 0.75rem/1.66667 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.075em;
   text-transform: uppercase;
   display: block;
   padding-right: 0.5rem;
   padding-bottom: 0.25rem;
-  color: rgba(83, 83, 99, 0.75); }
+  color: rgba(64, 64, 64, 0.75); }
 
 .Meta-value {
-  font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   display: block;
   min-width: 10rem;
   padding-bottom: 0.25rem; }
@@ -1836,7 +1829,7 @@ h6 {
   @media (max-width: 31.24em) {
     .Pen-header {
       margin: 0;
-      border-bottom: 1px solid rgba(83, 83, 99, 0.25);
+      border-bottom: 1px solid rgba(64, 64, 64, 0.25);
       padding: 0.75rem; }
       .Pen-header .Status .Status-label {
         position: relative;
@@ -1851,7 +1844,7 @@ h6 {
         color: transparent !important; } }
 
 .Pen-title {
-  font: bold 1.125rem/1.33333 "Open Sans", Helvetica, Arial, sans-serif;
+  font: bold 1.125rem/1.33333 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-feature-settings: "dlig" 1;
           font-feature-settings: "dlig" 1;
   overflow: hidden;
@@ -1859,7 +1852,7 @@ h6 {
   white-space: nowrap; }
 
 .Pen-previewLink:link, .Pen-previewLink:visited, .Pen-previewLink:hover, .Pen-previewLink:active {
-  color: #444;
+  color: #404040;
   text-decoration: none; }
 
 .Pen-previewLink svg {
@@ -1897,9 +1890,9 @@ h6 {
   background-size: 16px 3px;
   cursor: ns-resize; }
   .Pen-handle:hover {
-    background-color: rgba(83, 83, 99, 0.05); }
+    background-color: rgba(64, 64, 64, 0.05); }
   .Pen-handle:active {
-    background-color: rgba(83, 83, 99, 0.075); }
+    background-color: rgba(64, 64, 64, 0.075); }
   .Pen-handle.is-disabled {
     pointer-events: none;
     visibility: hidden; }
@@ -1924,7 +1917,7 @@ h6 {
   overflow: hidden;
   margin: 0.625rem;
   margin-top: 0;
-  border: 1px solid rgba(83, 83, 99, 0.25); }
+  border: 1px solid rgba(64, 64, 64, 0.25); }
   @media (max-width: 31.24em) {
     .Pen-info {
       display: none; } }
@@ -1941,8 +1934,8 @@ h6 {
       cursor: grabbing !important; }
   @media (min-width: 31.25em) {
     .Preview {
-      background-color: #f6f6f6;
-      border: 1px solid rgba(83, 83, 99, 0.25); } }
+      background-color: #f5f5f5;
+      border: 1px solid rgba(64, 64, 64, 0.25); } }
 
 .Preview-wrapper {
   offset-inline-start: 0;
@@ -2006,9 +1999,9 @@ h6 {
   opacity: 0; }
 
 .Preview-handle {
-  -webkit-border-start: 1px solid rgba(83, 83, 99, 0.25);
-     -moz-border-start: 1px solid rgba(83, 83, 99, 0.25);
-          border-inline-start: 1px solid rgba(83, 83, 99, 0.25);
+  -webkit-border-start: 1px solid rgba(64, 64, 64, 0.25);
+     -moz-border-start: 1px solid rgba(64, 64, 64, 0.25);
+          border-inline-start: 1px solid rgba(64, 64, 64, 0.25);
   -webkit-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
   offset-inline-end: 0;
@@ -2022,13 +2015,13 @@ h6 {
   background-size: 3px 16px;
   cursor: ew-resize; }
   [dir="ltr"] .Preview-handle {
-    border-left: 1px solid rgba(83, 83, 99, 0.25); }
+    border-left: 1px solid rgba(64, 64, 64, 0.25); }
   [dir="rtl"] .Preview-handle {
-    border-right: 1px solid rgba(83, 83, 99, 0.25); }
+    border-right: 1px solid rgba(64, 64, 64, 0.25); }
   .Preview-handle:hover {
-    background-color: rgba(83, 83, 99, 0.05); }
+    background-color: rgba(64, 64, 64, 0.05); }
   .Preview-handle:active {
-    background-color: rgba(83, 83, 99, 0.075); }
+    background-color: rgba(64, 64, 64, 0.075); }
   .Preview-handle.is-disabled {
     pointer-events: none;
     visibility: hidden; }
@@ -2045,7 +2038,6 @@ h6 {
       display: none; } }
 
 .Prose {
-  font: normal 1rem/1.5 "Open Sans", Helvetica, Arial, sans-serif;
   max-width: 44em;
   -webkit-font-feature-settings: "liga", "dlig", "kern", "onum";
           font-feature-settings: "liga", "dlig", "kern", "onum";
@@ -2071,23 +2063,12 @@ h6 {
     list-style-type: square; }
   .Prose ol > li {
     list-style-type: decimal; }
-  .Prose h1 {
-    font: bold 1.75rem/1.14286 "Open Sans", Helvetica, Arial, sans-serif;
-    -webkit-font-feature-settings: "dlig" 1;
-            font-feature-settings: "dlig" 1;
-    letter-spacing: -0.025em; }
   .Prose h2 {
-    font: bold 1.3125rem/1.14286 "Open Sans", Helvetica, Arial, sans-serif;
-    -webkit-font-feature-settings: "dlig" 1;
-            font-feature-settings: "dlig" 1;
     margin-bottom: 1em;
-    color: #444; }
+    color: #404040; }
   .Prose *:not(hr) + h2 {
     margin-top: 2em; }
   .Prose h3 {
-    font: bold 1.125rem/1.33333 "Open Sans", Helvetica, Arial, sans-serif;
-    -webkit-font-feature-settings: "dlig" 1;
-            font-feature-settings: "dlig" 1;
     margin-bottom: 0.75em;
     opacity: 0.8; }
   .Prose * + h3 {
@@ -2095,30 +2076,30 @@ h6 {
   .Prose hr {
     height: 0;
     border: 0;
-    border-top: 0.125rem solid rgba(83, 83, 99, 0.25);
+    border-top: 0.125rem solid rgba(64, 64, 64, 0.25);
     margin: 2em 0; }
   .Prose abbr {
     -webkit-font-feature-settings: "c2sc";
             font-feature-settings: "c2sc"; }
   .Prose blockquote {
-    -webkit-border-start: solid rgba(83, 83, 99, 0.25);
-       -moz-border-start: solid rgba(83, 83, 99, 0.25);
-            border-inline-start: solid rgba(83, 83, 99, 0.25);
+    -webkit-border-start: solid rgba(64, 64, 64, 0.25);
+       -moz-border-start: solid rgba(64, 64, 64, 0.25);
+            border-inline-start: solid rgba(64, 64, 64, 0.25);
     -webkit-padding-start: 1em;
        -moz-padding-start: 1em;
             padding-inline-start: 1em;
     opacity: 0.75; }
     [dir="ltr"] .Prose blockquote {
-      border-left: solid rgba(83, 83, 99, 0.25); }
+      border-left: solid rgba(64, 64, 64, 0.25); }
     [dir="rtl"] .Prose blockquote {
-      border-right: solid rgba(83, 83, 99, 0.25); }
+      border-right: solid rgba(64, 64, 64, 0.25); }
     [dir="ltr"] .Prose blockquote {
       padding-left: 1em; }
     [dir="rtl"] .Prose blockquote {
       padding-right: 1em; }
   .Prose code,
   .Prose code pre {
-    background-color: rgba(83, 83, 99, 0.075); }
+    background-color: rgba(64, 64, 64, 0.075); }
   .Prose p code,
   .Prose li code {
     padding: 0.125rem; }
@@ -2134,11 +2115,11 @@ h6 {
     -webkit-font-feature-settings: "lnum" 1, "tnum" 1;
             font-feature-settings: "lnum" 1, "tnum" 1; }
   .Prose caption {
-    font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+    font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
     padding: 0 0.5rem;
     font-style: italic;
     text-align: start;
-    color: rgba(83, 83, 99, 0.75);
+    color: rgba(64, 64, 64, 0.75);
     opacity: 0.8; }
   .Prose td,
   .Prose th {
@@ -2151,10 +2132,10 @@ h6 {
     .Prose th {
       text-align: right; }
   .Prose tr:nth-child(even) {
-    background-color: rgba(83, 83, 99, 0.05); }
+    background-color: rgba(64, 64, 64, 0.05); }
   .Prose th {
-    background-color: rgba(83, 83, 99, 0.075);
-    border-bottom: 1px solid rgba(83, 83, 99, 0.1); }
+    background-color: rgba(64, 64, 64, 0.075);
+    border-bottom: 1px solid rgba(64, 64, 64, 0.1); }
 
 .Prose--condensed > * {
   margin-bottom: 0.50em; }
@@ -2203,7 +2184,7 @@ h6 {
     margin-right: 3px; }
 
 .Status-label {
-  font: normal 0.75rem/1.66667 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 0.75rem/1.66667 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.075em;
   text-transform: uppercase;
   display: inline-block;
@@ -2234,14 +2215,14 @@ h6 {
   white-space: nowrap; }
 
 .Tree-title {
-  font: normal 0.75rem/1.66667 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 0.75rem/1.66667 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.075em;
   text-transform: uppercase;
   -webkit-padding-start: 1rem;
      -moz-padding-start: 1rem;
           padding-inline-start: 1rem;
   margin-bottom: 0.5rem;
-  color: rgba(83, 83, 99, 0.75); }
+  color: rgba(64, 64, 64, 0.75); }
   [dir="ltr"] .Tree-title {
     padding-left: 1rem; }
   [dir="rtl"] .Tree-title {
@@ -2257,7 +2238,7 @@ h6 {
     background-image: url("../img/icon-navigation-closed-rtl.svg"); }
 
 .Tree-collectionLabel {
-  font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+  font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
   cursor: pointer;
@@ -2267,9 +2248,9 @@ h6 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  color: #535363; }
+  color: #404040; }
   .Tree-collectionLabel:hover {
-    background-color: rgba(83, 83, 99, 0.05); }
+    background-color: rgba(64, 64, 64, 0.05); }
   .Tree-collectionLabel span {
     -webkit-padding-start: 0.75rem;
        -moz-padding-start: 0.75rem;
@@ -2306,7 +2287,7 @@ h6 {
       right: 0; }
 
 .Tree-item {
-  font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif; }
+  font: normal 0.875rem/1.71429 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif; }
 
 .Tree-entityLink {
   display: -webkit-box;
@@ -2319,9 +2300,9 @@ h6 {
   padding-bottom: 0.375rem;
   text-decoration: none; }
   .Tree-entityLink:hover {
-    background-color: rgba(83, 83, 99, 0.05); }
+    background-color: rgba(64, 64, 64, 0.05); }
   .is-current .Tree-entityLink {
-    background-color: rgba(83, 83, 99, 0.075); }
+    background-color: rgba(64, 64, 64, 0.075); }
   .Tree-entityLink .Status {
     -webkit-margin-start: 0.25rem;
        -moz-margin-start: 0.25rem;
@@ -2428,70 +2409,67 @@ h6 {
     padding-right: 8rem; }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.2px; }
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem; }
 
-body {
-  text-rendering: optimizeLegibility;
-  font-smoothing: antialiased;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%; }
+img {
+  height: auto;
+  max-width: 100%; }
 
-.Header {
-  background-color: #004494; }
+.Frame-panel,
+.Frame {
+  overflow: visible; }
+
+.Frame-header {
+  clear: both; }
+
+.Frame-inner {
+  position: relative; }
 
 .Frame-panel--sidebar {
-  background-color: #fafafa;
-  padding: 2rem 0; }
+  background-color: #f5f5f5;
+  padding: 1rem 0; }
 
 [dir="ltr"] .Frame-panel--sidebar {
   border-right: 1px solid rgba(0, 0, 0, 0.07); }
 
-.Navigation-group + .Navigation-group {
-  margin-top: 2rem; }
-
 .Tree-items {
-  border-top: 1px solid #e0e6ed;
-  border-bottom: 1px solid #e0e6ed; }
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3; }
 
 .Tree-items > li + li {
-  border-top: 1px solid #e0e6ed; }
+  border-top: 1px solid #e3e3e3; }
 
 .Tree-collectionItems {
-  border-top: 1px solid #e5ebf4; }
+  border-top: 1px solid #e3e3e3; }
 
 .Tree-depth-1 li {
   line-height: 2.5;
-  font-size: 1rem; }
-
-.Tree-depth-1 > li {
-  line-height: 3;
-  font-size: 1.05rem; }
-
-.Tree-item {
-  font: inherit; }
+  font-size: 0.89rem; }
 
 .Tree-entityLink {
-  color: #364149; }
+  color: #404040;
+  padding-bottom: 0;
+  padding-top: 0; }
 
 .is-current .Tree-entityLink {
-  color: #008cff; }
+  color: #004494; }
 
 .Tree-collectionItems {
   background-color: #f5f5f5; }
 
 .Tree-collectionItems .Tree-collectionItems {
-  background-color: #f2f2f2; }
+  background-color: #ebebeb; }
 
 .Tree-collectionItems .Tree-collectionItems .Tree-collectionItems {
-  background-color: #efefef; }
+  background-color: #e3e3e3; }
 
 .Tree-collectionLabel {
-  font: inherit; }
-
-.Tree-collectionLabel:hover {
-  background-color: rgba(83, 83, 99, 0.12); }
+  font: inherit;
+  padding-top: 0;
+  padding-bottom: 0; }
 
 .Tree-collectionLabel span::before {
   display: none; }
@@ -2517,31 +2495,34 @@ body {
 [dir="ltr"] .Tree-collection.is-closed .Tree-collectionLabel span::after {
   background-image: url(../img/icon-navigation-closed-ltr.svg); }
 
-/* Components search */
-#search-components {
-  width: 100%;
-  padding: 0.5em; }
-
 .Tree-search {
-  padding: 0 1rem; }
+  padding: 0 0.89rem; }
 
 .Document {
   margin: auto;
-  max-width: 70rem;
-  padding: 3rem 2rem; }
+  max-width: 70rem; }
 
 .Prose {
   max-width: 60rem; }
 
 .Pen-header {
-  padding: 2.5rem 1rem 2rem; }
+  padding: 1.66rem 1rem; }
+
+.Pen-title {
+  font: inherit; }
 
 .Pen-previewLink {
-  font-size: 1.5rem; }
+  font-size: 1.22rem; }
 
 .Pen-tabs-nav {
-  margin: 0 1rem;
-  font-size: 1.1rem; }
+  margin: 0 1rem; }
+  .Pen-tabs-nav a,
+  .Pen-tabs-nav a:link {
+    color: #004494; }
+    .Pen-tabs-nav a:hover, .Pen-tabs-nav a:focus,
+    .Pen-tabs-nav a:link:hover,
+    .Pen-tabs-nav a:link:focus {
+      color: #404040; }
 
 .Pen-tabs-nav .active {
   font-weight: 600; }
@@ -2571,7 +2552,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
-  padding: 0 0.625rem; }
+  padding: 0 0.66rem; }
 
 .Pen-playground {
   display: -webkit-box;
@@ -2596,13 +2577,10 @@ body {
 .Pen-tabs > div:not(.active) {
   display: none; }
 
-.Header-title {
-  line-height: 2.5; }
-
 [dir='ltr'] .Tree-entityLink .Status,
 [dir='ltr'] .Tree-collectionLabel .Status {
   margin-left: 0;
-  margin-right: 0.5rem; }
+  margin-right: 0.66rem; }
 
 [dir='ltr'] .Tree-collectionLabel {
   display: -webkit-box;
@@ -2648,4 +2626,5 @@ body {
   padding-left: 0; }
 
 .Tree-title {
-  font-size: 0.85rem; }
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.89rem; }
