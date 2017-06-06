@@ -44,6 +44,8 @@ Tested on:
 | [@ec-europa/ecl-forms-text-inputs](framework/components/ecl-forms/ecl-forms-text-inputs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-text-inputs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-text-inputs) |
 | [@ec-europa/ecl-header-search-bars](framework/components/ecl-header-search-bars) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-header-search-bars.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-header-search-bars) |
 | [@ec-europa/ecl-lang-select-sites](framework/components/ecl-lang-select-sites) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-sites.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-sites) |
+| [@ec-europa/ecl-meta](framework/components/ecl-meta) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-meta.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-meta) |
+| [@ec-europa/ecl-page-headers](framework/components/ecl-page-headers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-page-headers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-page-headers) |
 | [@ec-europa/ecl-search-forms](framework/components/ecl-search-forms) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-search-forms.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-search-forms) |
 | [@ec-europa/ecl-site-headers](framework/components/ecl-site-headers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-site-headers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-site-headers) |
 
