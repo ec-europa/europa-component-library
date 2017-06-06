@@ -10,7 +10,10 @@ module.exports = {
     },
     {
       name: 'internal',
-      status: 'planned',
+      status: 'ready',
+      context: {
+        variant: 'internal',
+      },
     },
   ],
 };
