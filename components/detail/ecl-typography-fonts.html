@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.5" type="text/css">
 
 
-<title>Colour: Ecl Color Shade | Europa Component Library</title>
+<title>Font | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -77,14 +77,14 @@
     
     
 
-<div class="Pen" id="pen-5a74fec518d091ec3bf19810cb383133">
+<div class="Pen" id="pen-e61df1921074a523d171b1a8475a7299">
 
     
 
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/ecl-colors--ecl-color-shade" title="Component preview">
-            Colour: Ecl Color Shade
+        <a class="Pen-previewLink" href="../preview/ecl-typography-fonts" title="Component preview">
+            Font
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -114,23 +114,72 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="colour">Colour</h1>
-<p>Colors available in ECL.</p>
-<p>The primary colors are blue ($ecl-primary), yellow ($ecl-secondary) and grey ($ecl-shade).
-Only use colors to highlight important content or actions. Use sparingly.</p>
-<ul>
-<li><strong>blue</strong>: Used for navigational elements like links and buttons, but also as a background color (page header) to give the page more contrast.</li>
-<li><strong>yellow</strong>: Used in elements to get attention, primary buttons, call-to-action buttons and focus states. Is used only as a background color in buttons never as a text color. Use sparingly.</li>
-<li><strong>grey</strong>: Grey is used for static text, soft backgrounds and dividers. We provide a grey color palette.</li>
-</ul>
-<p>Notification colors should be used as follow:</p>
-<ul>
-<li>$ecl-info: for informative messages</li>
-<li>$ecl-warning: for warnings</li>
-<li>$ecl-success: for success messages</li>
-<li>$ecl-error: for errors</li>
-</ul>
-<p>For more information, see <a href="https://webgate.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=650250290#Typography..-Fontcolour">the wiki page</a></p>
+                <h1 id="font">Font</h1>
+<h2 id="font-family">Font family</h2>
+<p>Arial is the standard typeface we use. We chose Arial because it is a system font that is suited for multilingual use.</p>
+<h2 id="font-style">Font style</h2>
+<table class="ecl-table">
+  <tr>
+    <td>A</td>
+    <td><strong>A</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Regular</strong> <br/> This is the default font weight we use for text.</td>
+    <td><strong>Bold or 600</strong> <br/> The bold font weight is used to put emphasis on important words and to add visual emphasis on headings.</td>
+  </tr>
+  <tr>
+    <td><i>A</i></td>
+    <td><u>A</u></td>
+  </tr>
+  <tr>
+    <td><strong>Italic</strong> <br/> We use italic for quotes</td>
+    <td><strong>Underline</strong> <br/> We use underline to indicate text is clickable. This is not needed in buttons or in other components that are clearly clickable by nature.</td>
+  </tr>
+</table>
+
+<h2 id="font-size">Font size</h2>
+<table class="ecl-table">
+  <tr>
+    <th>XXL</th>
+    <th>XL</th>
+    <th>L</th>
+    <th>M</th>
+    <th>S</th>
+    <th>XS</th>
+    <th>XXS</th>
+  </tr>
+  <tr>
+    <td>40px - 2.22em</td>
+    <td>30px - 1.67em</td>
+    <td>22px - 1.22em</td>
+    <td>18px - 1.00em</td>
+    <td>16px - 0.89em</td>
+    <td>14px - 0.78em</td>
+    <td>12px - 0.67em</td>
+  </tr>
+</table>
+
+
+
+<h2 id="font-colour">Font colour</h2>
+<p>Pay attention to the contrast if you give a background colour to text.</p>
+<p>WCAG (Web Content Accessibility Guidelines) ensure that content is accessible by everyone, regardless of disability or user device. To meet WCAG standards, text and interactive elements should have a colour contrast ratio of at least WCAG 2 AA Compliant (18pt+). This ensures that viewers who cannot see the full colour spectrum are able to read the text. The options below offer colour palette combinations that fall within the range of Section 508 compliant foreground/background colour contrast ratios. To ensure that text remains accessible, use only these permitted colour combinations.</p>
+<p>There are a number of online colour contrast checkers.</p>
+<p>We recommend using only the following font colours:</p>
+<table class="ecl-table">
+  <tr>
+    <th>Black <br/> #000000</th>
+    <th>EC Dark Grey <br/> #404040</th>
+    <th>EC Blue <br/> #004494</th>
+    <th>White <br/> #ffffff</th>
+  </tr>
+  <tr>
+    <td>Headers <br/> H1, H2</td>
+    <td>Headers <br/> H3,H4</td>
+    <td>Default font color</td>
+    <td>For text links    On blue backgrounds</td>
+  </tr>
+</table>
 
                 
               </div>
@@ -139,14 +188,14 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
         </div>
 
         <div class="Pen-playground" data-behaviour="pen" id="playground">
-          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-5a74fec518d091ec3bf19810cb383133">
+          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-e61df1921074a523d171b1a8475a7299">
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             
              <iframe
                 class="Preview-iframe"
                 data-role="window"
-                src="../preview/ecl-colors--ecl-color-shade"
+                src="../preview/ecl-typography-fonts"
                 sandbox="allow-same-origin allow-scripts allow-forms"
                  style=""
                 marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
@@ -159,7 +208,7 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
 
           <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
           <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-5a74fec518d091ec3bf19810cb383133">
+    <div class="Browser" data-behaviour="browser" id="browser-e61df1921074a523d171b1a8475a7299">
 
     
 
@@ -168,20 +217,22 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
         
         
         <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
-            <a href="#browser-5a74fec518d091ec3bf19810cb383133-panel-view">View</a>
+            <a href="#browser-e61df1921074a523d171b1a8475a7299-panel-view">View</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-5a74fec518d091ec3bf19810cb383133-panel-context">Context</a>
+            <a href="#browser-e61df1921074a523d171b1a8475a7299-panel-context">Context</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-5a74fec518d091ec3bf19810cb383133-panel-html">HTML</a>
+            <a href="#browser-e61df1921074a523d171b1a8475a7299-panel-html">HTML</a>
         </li>
+        
+        
         
         
         
@@ -190,7 +241,7 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-5a74fec518d091ec3bf19810cb383133-panel-info">Info</a>
+            <a href="#browser-e61df1921074a523d171b1a8475a7299-panel-info">Info</a>
         </li>
         
         
@@ -199,26 +250,18 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
 
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-5a74fec518d091ec3bf19810cb383133-panel-view">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e61df1921074a523d171b1a8475a7299-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: </span></span></span><span class="hljs-template-variable">{{ code }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color__content"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color__name"</span>&gt;</span>$</span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color__code"</span>&gt;</span></span><span class="hljs-template-variable">{{ code }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+        <pre><span class="xml"></span></pre>
     </code>
 </div>
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-5a74fec518d091ec3bf19810cb383133-panel-context">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e61df1921074a523d171b1a8475a7299-panel-context">
     <code class="Code Code--lang-json">
         
             
-            <pre>{
-  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"#404040"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"ecl-color-shade"</span>,
-  <span class="hljs-attr">"category"</span>: <span class="hljs-string">"primary"</span>
-}</pre>
+            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
         
     </code>
@@ -226,14 +269,10 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
 
     
     
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-5a74fec518d091ec3bf19810cb383133-panel-html">
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-e61df1921074a523d171b1a8475a7299-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #404040"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color__content"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color__name"</span>&gt;</span>$ecl-color-shade<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"palette-color__code"</span>&gt;</span>#404040<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        <pre></pre>
         
     </code>
 </div>
@@ -242,12 +281,14 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
     
 
 
+
+
     
-    <div class="Browser-panel" data-role="tab-panel" id="browser-5a74fec518d091ec3bf19810cb383133-panel-info">
+    <div class="Browser-panel" data-role="tab-panel" id="browser-e61df1921074a523d171b1a8475a7299-panel-info">
     <ul class="Meta">
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@ec-europa/ecl-colors--ecl-color-shade</span>
+            <span class="Meta-value">@ec-europa/ecl-typography-fonts</span>
         </li>
         
         
@@ -258,12 +299,12 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
             <strong class="Meta-key">Preview:</strong>
             <span class="Meta-value">
                 <ul>
-                    <li><a data-no-pjax href="../preview/ecl-colors--ecl-color-shade"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../preview/ecl-typography-fonts"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
 </a></li>
-                    <li><a data-no-pjax href="../render/ecl-colors--ecl-color-shade"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../render/ecl-typography-fonts"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
@@ -273,7 +314,7 @@ Only use colors to highlight important content or actions. Use sparingly.</p>
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/content/ecl-colors/ecl-colors.twig</span>
+            <span class="Meta-value">framework/content/ecl-typography/ecl-typography-fonts/ecl-typography-fonts.twig</span>
         </li>
         
         
@@ -372,8 +413,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-fonts" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
