@@ -1,118 +1,87 @@
 /*
-Pager
+ECL Pager
 */
 
-.pager__wrapper {
-  text-align: center;
+.ecl-pager__wrapper {
   border-top: 2px solid #000;
+  text-align: center;
 }
 
-.pager {
-  display: inline-block;
+.ecl-pager {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  margin: map-get($ecl-spacing, 's') 0;
   padding-left: 0;
-  margin: 1.25rem 0;
-  position: relative;
   width: 100%;
+}
 
-  > li {
+.ecl-pager__item {
+  border: 2px solid transparent;
+  color: #000;
+  display: none;
+  font-size: map-get($ecl-font-size, 's');
+  height: map-get($ecl-spacing, 's');
+  line-height: map-get($ecl-spacing, 's');
+  list-style: none;
+  margin: 0 map-get($ecl-spacing, 'xxxs');
+  min-width: map-get($ecl-spacing, 's');
+  padding: map-get($ecl-spacing, 'xxxs');
+
+  &--padding {
+    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+  }
+}
+
+.ecl-pager__link {
+  color: map-get($ecl-colors, 'blue-100');
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
     color: #000;
-    font-size: map-get($ecl-font-size, 's');
+    text-decoration: underline;
+  }
+}
+
+.ecl-pager__item--previous,
+.ecl-pager__item--next {
+  display: block;
+}
+
+.ecl-pager__item--ellipsis {
+  font-weight: 400;
+}
+
+.ecl-pager__item--previous,
+.ecl-pager__item--next {
+  .ecl-pager__link {
     font-weight: 600;
-    border: 2px solid transparent;
-    margin: 0 0.5rem;
-    min-width: 28px;
-    height: 28px;
-
-    &.pager__item {
-      // Prettifying.
-      list-style: none;
-      // Mobile-first hides all pager items.
-      display: none;
-
-      // Except prev, next and current.
-      &.pager__item--previous,
-      &.pager__item--next {
-        display: inline;
-      }
-
-      &.pager__item--ellipsis {
-        font-weight: 400;
-      }
-
-      &.pager__item--previous,
-      &.pager__item--next {
-        a {
-          font-weight: 600;
-        }
-      }
-
-      &.pager__item--previous {
-        float: left;
-        clear: left;
-      }
-
-      &.pager__item--next {
-        float: right;
-        clear: right;
-      }
-
-      &.pager__item--current {
-        border-radius: 14px;
-        display: block;
-        position: absolute;
-        margin: 0 auto;
-        width: inherit;
-        z-index: -1;
-      }
-
-      &--padding {
-        padding: 0 7px;
-      }
-    }
-
-    > a {
-      color: map-get($ecl-colors, 'blue-100');
-      font-weight: 400;
-      text-decoration: none;
-
-      &:hover {
-        color: #000;
-        text-decoration: underline;
-      }
-    }
   }
 }
 
-@include ecl-media-breakpoint-up(msm) {
-  .pager__item__text {
-    display: none;
-  }
+.ecl-pager__item--current {
+  border-radius: 50%;
+  display: block;
+  flex-grow: 1;
+  font-weight: 600;
+}
 
-  // Show page items.
-  .pager {
+@include ecl-media-breakpoint-up(md) {
+  .ecl-pager {
     width: auto;
-
-    > li {
-      &.pager__item {
-        display: inline;
-        float: left !important;
-
-        &.pager__item--current {
-          border: 2px solid #000;
-          position: relative;
-        }
-      }
-    }
   }
-}
 
-// Drupal-specific hack.
-.region-content ul.pager {
-  margin: 0.938em auto;
-  padding: 0;
+  .ecl-pager__item {
+    display: block;
+  }
 
-  // The throbber should not mess up sizing.
-  .ajax-progress {
+  .ecl-pager__item--current {
+    border: 2px solid #000;
+    flex-grow: 0;
+  }
+
+  .ecl-pager__item__text {
     display: none;
   }
 }
