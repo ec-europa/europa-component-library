@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Content',
-  label: 'Content',
+  title: 'Style',
+  label: 'Style',
   order: 1,
 };

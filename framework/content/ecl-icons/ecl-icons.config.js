@@ -2,14 +2,17 @@ module.exports = {
   title: 'Icons',
   label: 'Icons',
   status: 'ready',
+  order: 3,
   collated: true,
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
       <p>\n
         <span class="ecl-icon ${item.context.modifier}"></span>\n
-        <span class="ecl-icon ecl-icon--rounded ecl-u-bg-secondary ${item.context.modifier}"></span>\n
-        <span class="ecl-icon ecl-u-color-primary ${item.context.modifier}"></span>\n
+        <span class="ecl-icon ecl-icon--rounded ecl-u-bg-secondary ${item
+          .context.modifier}"></span>\n
+        <span class="ecl-icon ecl-u-color-primary ${item.context
+          .modifier}"></span>\n
         <code>${item.context.modifier}</code>\n
       </p>\n
       <!-- End: @${item.handle} -->\n
