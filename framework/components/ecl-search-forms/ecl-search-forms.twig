@@ -6,9 +6,17 @@
   <form class="ecl-search-form ecl-search-form--internal">
     <label class="ecl-search-form__textfield-wrapper">
       <span class="ecl-sr-only">Search this website</span>
-      <input type="ecl-search" class="ecl-search-form__textfield ecl-text-input" title="Search">
+      <input type="search" class="ecl-search-form__textfield ecl-text-input" title="Search" />
     </label>
-    <button class="ecl-search-form__button ecl-button ecl-button--form-primary" value="ecl-search" type="submit">Search</button>
+    {% include '@ec-europa/ecl-buttons' with {
+      'modifier': 'form-primary',
+      'label': 'Search',
+      'extraClass': 'ecl-search-form__button',
+      'extraAttributes': [
+        { 'name': 'value', 'value': 'Search'},
+        { 'name': 'type', 'value': 'submit'}
+      ]
+    } %}
   </form>
 </div>
 
@@ -17,9 +25,17 @@
 <form class="ecl-search-form">
   <label class="ecl-search-form__textfield-wrapper">
     <span class="ecl-sr-only">Search this website</span>
-    <input type="ecl-search" class="ecl-search-form__textfield ecl-text-input" size="60" maxlength="128" title="Search">
+    <input type="search" class="ecl-search-form__textfield ecl-text-input" size="60" maxlength="128" title="Search" />
   </label>
-  <button class="ecl-search-form__button ecl-button ecl-button--form" value="ecl-search" type="submit">Search</button>
+  {% include '@ec-europa/ecl-buttons' with {
+    'modifier': 'form-primary',
+    'label': 'Search',
+    'extraClass': 'ecl-search-form__button',
+    'extraAttributes': [
+      { 'name': 'value', 'value': 'Search'},
+      { 'name': 'type', 'value': 'submit'}
+    ]
+  } %}
 </form>
 
 {% endif %}
