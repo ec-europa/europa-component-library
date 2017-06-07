@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Search forms',
   label: 'Search forms',
-  status: 'wip',
+  status: 'ready',
   tags: ['molecule'],
   variants: [
     {
@@ -10,7 +10,10 @@ module.exports = {
     },
     {
       name: 'internal',
-      status: 'planned',
+      status: 'ready',
+      context: {
+        variant: 'internal',
+      },
     },
   ],
 };

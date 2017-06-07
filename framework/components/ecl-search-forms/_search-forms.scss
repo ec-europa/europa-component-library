@@ -3,6 +3,11 @@
  * @define search-form
  */
 
+.ecl-search-form__wrapper {
+  background-color: map-get($ecl-colors, 'grey-5');
+  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 's');
+}
+
 .ecl-search-form {
   @include ecl-hidden-print();
 
@@ -49,5 +54,32 @@
     &::before {
       display: none !important;
     }
+  }
+}
+
+.ecl-search-form--internal {
+  display: flex;
+
+  .ecl-search-form__textfield-wrapper {
+    @extend %ecl-icon;
+
+    border-color: #fff;
+    flex-grow: 1;
+    position: relative;
+
+    /* stylelint-disable-next-line */
+    &::before {
+      @include ecl-icon('search');
+
+      color: map-get($ecl-colors, 'grey-25');
+      font-size: map-get($ecl-font-size, 'm');
+      left: map-get($ecl-spacing, 'xxxs');
+      position: absolute;
+      top: 25%;
+    }
+  }
+
+  .ecl-search-form__textfield {
+    padding-left: map-get($ecl-spacing, 'm');
   }
 }
