@@ -98,6 +98,24 @@
   }
 }
 
+.ecl-button--form-primary {
+  background-color: $ecl-color-primary;
+  border-color: $ecl-color-primary;
+  color: #fff;
+
+  &:hover {
+    background-color: map-get($ecl-colors, 'grey-15');
+    border-color: map-get($ecl-colors, 'grey-15');
+    color: $ecl-color-shade;
+  }
+
+  &:focus,
+  &:active {
+    background-color: $ecl-color-primary;
+    color: #fff;
+  }
+}
+
 .ecl-button--light {
   @include ecl-button--default();
 
