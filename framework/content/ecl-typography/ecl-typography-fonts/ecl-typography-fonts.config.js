@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Typography',
-  label: 'Typography',
+  title: 'Font',
+  label: 'Font',
   status: 'ready',
   order: 1,
 };

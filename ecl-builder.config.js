@@ -44,7 +44,7 @@ module.exports = {
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(__dirname, 'framework/content/ecl-logos/images'),
+      from: path.resolve(__dirname, 'framework/components/ecl-logos/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {

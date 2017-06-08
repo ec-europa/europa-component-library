@@ -1,5 +1,5 @@
 module.exports = {
   title: 'Components',
   label: 'Components',
-  order: 2,
+  order: 3,
 };

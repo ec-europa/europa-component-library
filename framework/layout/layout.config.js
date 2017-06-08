@@ -1,5 +1,5 @@
 module.exports = {
   title: 'Layout',
   label: 'Layout',
-  order: 3,
+  order: 2,
 };
