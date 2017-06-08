@@ -1,7 +1,7 @@
 /* stylelint-disable */
 $breadcrumb-heigth: 2.778em;
 
-.breadcrumb {
+.ecl-breadcrumb {
   position: relative;
   margin: 0;
   padding: 0;
@@ -23,14 +23,14 @@ $breadcrumb-heigth: 2.778em;
   }
 }
 
-.breadcrumb__segment {
+.ecl-breadcrumb__segment {
   display: none;
   position: relative;
   width: 100%;
   margin: 1em 0 0.8em;
 }
 
-a.breadcrumb__link {
+a.ecl-breadcrumb__link {
   display: inline-block;
   max-width: 100%;
   margin-right: 8px;
@@ -39,7 +39,7 @@ a.breadcrumb__link {
   text-decoration: none;
 
   &::after {
-    @extend .breadcrumb__link-arrow;
+    @extend .ecl-breadcrumb__link-arrow;
 
     content: '\e828';
     vertical-align: middle;
@@ -52,13 +52,13 @@ a.breadcrumb__link {
   &:focus {
     color: #fff;
 
-    .breadcrumb__text {
+    .ecl-breadcrumb__text {
       text-decoration: underline;
     }
   }
 }
 
-.breadcrumb__link-arrow {
+.ecl-breadcrumb__link-arrow {
   @extend %ecl-icon--after;
 
   line-height: inherit !important;
@@ -75,13 +75,13 @@ a.breadcrumb__link {
   }
 }
 
-.breadcrumb__segment--last,
-.breadcrumb__segment--first {
+.ecl-breadcrumb__segment--last,
+.ecl-breadcrumb__segment--first {
   display: inline-block;
 }
 
 .no-js {
-  .breadcrumb__segment--first {
+  .ecl-breadcrumb__segment--first {
     padding-right: 25px;
 
     &::after {
@@ -92,7 +92,7 @@ a.breadcrumb__link {
     }
 
     &::before {
-      @extend .breadcrumb__link-arrow;
+      @extend .ecl-breadcrumb__link-arrow;
 
       position: absolute;
       top: 16%;
@@ -102,7 +102,7 @@ a.breadcrumb__link {
 }
 
 @include ecl-media-breakpoint-up(xs) {
-  .breadcrumb__link {
+  .ecl-breadcrumb__link {
     width: auto;
 
     &::after {
@@ -111,12 +111,12 @@ a.breadcrumb__link {
     }
   }
 
-  .breadcrumb__segment {
+  .ecl-breadcrumb__segment {
     display: inline-block;
     width: auto;
   }
 
-  .breadcrumb__segment--first {
+  .ecl-breadcrumb__segment--first {
     padding-right: 0;
 
     &::before,
@@ -127,13 +127,13 @@ a.breadcrumb__link {
 }
 
 @include ecl-media-breakpoint-up(md) {
-  .breadcrumb {
+  .ecl-breadcrumb {
     margin: 0;
   }
 }
 
-.breadcrumb--collapsible {
-  .breadcrumb__btn-separator {
+.ecl-breadcrumb--collapsible {
+  .ecl-breadcrumb__btn-separator {
     display: inline-block;
     padding: 0 10px;
     line-height: $breadcrumb-heigth;
@@ -153,24 +153,24 @@ a.breadcrumb__link {
     }
 
     &::after {
-      @extend .breadcrumb__link-arrow;
+      @extend .ecl-breadcrumb__link-arrow;
     }
   }
 
-  .breadcrumb__link {
+  .ecl-breadcrumb__link {
     span {
       vertical-align: middle;
     }
   }
 
-  .breadcrumb__text {
+  .ecl-breadcrumb__text {
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .breadcrumb__segment--first {
+  .ecl-breadcrumb__segment--first {
     padding-right: 0;
 
     &::before,
@@ -179,46 +179,46 @@ a.breadcrumb__link {
     }
   }
 
-  // Indent the last segment, leaving space for .breadcrumb__btn-separator
-  .breadcrumb__segment--last {
+  // Indent the last segment, leaving space for .ecl-breadcrumb__btn-separator
+  .ecl-breadcrumb__segment--last {
     padding-left: 60px;
   }
 
-  // In case of 2 .breadcrumb__segment-s, don't indent the second one.
-  .breadcrumb__segment:first-child:nth-last-child(2),
-  .breadcrumb__segment:first-child:nth-last-child(2) ~ .breadcrumb__segment {
+  // In case of 2 .ecl-breadcrumb__segment-s, don't indent the second one.
+  .ecl-breadcrumb__segment:first-child:nth-last-child(2),
+  .ecl-breadcrumb__segment:first-child:nth-last-child(2) ~ .ecl-breadcrumb__segment {
     padding-left: 0;
   }
 
   // List of breadcrumbs is open.
   &.is-open {
-    .breadcrumb__link {
+    .ecl-breadcrumb__link {
       display: block;
     }
 
-    .breadcrumb__text {
+    .ecl-breadcrumb__text {
       max-width: none;
       white-space: normal;
       overflow: visible;
     }
 
-    .breadcrumb__segment {
+    .ecl-breadcrumb__segment {
       display: block;
     }
 
-    .breadcrumb__segment--last {
+    .ecl-breadcrumb__segment--last {
       padding-left: 0;
       transition: all 0.3s ease 0s;
     }
   }
 
   @include ecl-media-breakpoint-up(xs) {
-    .breadcrumb__segment {
+    .ecl-breadcrumb__segment {
       &.is-hidden {
         display: none;
       }
 
-      &.breadcrumb__segment--next-hidden {
+      &.ecl-breadcrumb__segment--next-hidden {
         padding-right: 25px;
 
         &::after {
@@ -253,15 +253,15 @@ a.breadcrumb__link {
       }
     }
 
-    .breadcrumb__btn-separator {
+    .ecl-breadcrumb__btn-separator {
       display: none;
     }
 
-    .breadcrumb__segment--first {
+    .ecl-breadcrumb__segment--first {
       width: auto;
     }
 
-    .breadcrumb__segment--last {
+    .ecl-breadcrumb__segment--last {
       padding-left: 0;
     }
   }
