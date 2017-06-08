@@ -1,8 +1,38 @@
-<label for="example-input-id-1">Normal input</label>
-<input type="text" class="ecl-text-input" id="example-input-id-1" placeholder="Some placeholder text."/>
+{% set type = type|default('text') %}
+{% set id = id|default('default-id') %}
+{% set name = name|default('default-name') %}
 
-<label for="example-input-id-2">Disabled input</label>
-<input type="text" class="ecl-text-input" id="example-input-id-2" name="field-name-3" disabled placeholder="Some placeholder text."/>
+{# Internal properties #}
 
-<label for="example-input-id-3">Input with error</label>
-<input type="text" class="ecl-text-input ecl-text-input--has-error" id="example-input-id-3" name="field-name-4" placeholder="Some placeholder text."/>
+{% set _cssClass = 'ecl-text-input' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if hasError is defined and hasError == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-text-input--has-error' %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if isDisabled is defined and isDisabled == true %}
+  {% set _extraAttributes = _extraAttributes ~ ' disabled' %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<input
+  type="{{ type }}"
+  class="{{ _cssClass }}"
+  id="{{ id }}"
+  name="{{ name }}"
+  {{ _extraAttributes }}
+/>

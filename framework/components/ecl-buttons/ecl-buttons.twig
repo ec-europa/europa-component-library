@@ -1,19 +1,51 @@
 {% set type = type|default('button') %}
 {% set modifier = modifier|default('default') %}
-{% set extraClass = '' %}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-button ecl-button--' ~ modifier %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
 
 {% if isBlock is defined and isBlock == true %}
-  {% set extraClass = ' ecl-button--block' %}
+  {% set _cssClass = _cssClass ~ ' ecl-button--block' %}
 {% endif %}
 
 {% if icon is defined %}
-  {% set extraClass = extraClass ~ ' ecl-button--' ~ icon %}
+  {% set _cssClass = _cssClass ~ ' ecl-button--' ~ icon %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
 {% endif %}
 
 {% if type == 'link' %}
-  <a href="{{ to|default('#') }}" class="ecl-button ecl-button--{{ modifier }}{{ extraClass }}">{{ label }}</a>
+  <a
+    href="{{ to|default('#') }}"
+    class="{{ _cssClass }}"
+    {{ _extraAttributes }}
+  >
+    {{- label -}}
+  </a>
 {% elseif type == 'input' %}
-  <input type="button" class="ecl-button ecl-button--{{ modifier }}{{ extraClass }}" value="{{ label }}">
+  <input
+    type="button"
+    class="{{ _cssClass }}"
+    value="{{ label }}"
+    {{ _extraAttributes }}
+  />
 {% else %}
-  <button class="ecl-button ecl-button--{{ modifier }}{{ extraClass }}">{{ label }}</button>
+  <button
+    class="{{ _cssClass }}"
+    {{ _extraAttributes }}
+  >
+    {{- label -}}
+  </button>
 {% endif %}
