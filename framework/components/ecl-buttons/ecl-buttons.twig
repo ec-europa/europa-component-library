@@ -27,9 +27,24 @@
 {% endif %}
 
 {% if type == 'link' %}
-  <a href="{{ to|default('#') }}" class="{{ _cssClass }}"{{ _extraAttributes }}>{{ label }}</a>
+  <a
+    href="{{ to|default('#') }}"
+    class="{{ _cssClass }}"
+    {{ _extraAttributes }}
+  >
+    {{ label }}
+  </a>
 {% elseif type == 'input' %}
-  <input type="button" class="{{ _cssClass }}" value="{{ label }}"{{ _extraAttributes }} />
+  <input
+    type="button"
+    class="{{ _cssClass }}"
+    value="{{ label }}"
+    {{ _extraAttributes }} />
 {% else %}
-  <button class="{{ _cssClass }}"{{ _extraAttributes }}>{{ label }}</button>
+  <button
+    class="{{ _cssClass }}"
+    {{ _extraAttributes }}
+  >
+    {{ label }}
+  </button>
 {% endif %}
