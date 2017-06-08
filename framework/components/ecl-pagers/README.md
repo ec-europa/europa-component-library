@@ -1,3 +1,4 @@
 # Pager
 
-Note: Resize the width of the page to see the responsive layout.
+Responsive pager.
+Design adapt automatically to number of pages.
