@@ -1,3 +1,34 @@
+## 0.6.0 (2017-06-08)
+
+#### :rocket: New Feature
+
+*   [#169](https://github.com/ec-europa/europa-component-library/pull/169) refactor(search-form): add internal search form - INNO-572. ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+*   [#175](https://github.com/ec-europa/europa-component-library/pull/175) fix(buttons): fix incorrect default variant - INNO-591. ([@yhuard](https://github.com/yhuard))
+*   [#164](https://github.com/ec-europa/europa-component-library/pull/164) feat(footers): correct a typo - INNO-569. ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :nail_care: Enhancement
+
+*   [#174](https://github.com/ec-europa/europa-component-library/pull/174) refactor(pagers): upgrade pager - INNO-574. ([@emeryro](https://github.com/emeryro))
+*   [#172](https://github.com/ec-europa/europa-component-library/pull/172) refactor(buttons): make proper use of composition - INNO-590. ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+*   [#171](https://github.com/ec-europa/europa-component-library/pull/171) refactor(order): order components - INNO-509. ([@yhuard](https://github.com/yhuard))
+*   [#170](https://github.com/ec-europa/europa-component-library/pull/170) chore(deps): update @ec-europa/ecl-fractal-theme to the latest version 🚀 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+*   [#168](https://github.com/ec-europa/europa-component-library/pull/168) chore(deps): update @ec-europa/ecl-fractal-theme to the latest version 🚀 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+*   [#163](https://github.com/ec-europa/europa-component-library/pull/163) chore(deps): publish ready packages - noissue. ([@kalinchernev](https://github.com/kalinchernev))
+*   [#162](https://github.com/ec-europa/europa-component-library/pull/162) fix(tests): update reference screenshots - INNO-568. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 4
+
+-   Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+-   Yannick Huard ([yhuard](https://github.com/yhuard))
+-   [emeryro](https://github.com/emeryro)
+-   [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.5.0 (2017-05-31)
 
 #### :bug: Bug Fix
