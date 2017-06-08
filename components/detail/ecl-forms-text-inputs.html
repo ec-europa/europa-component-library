@@ -11,9 +11,9 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.5.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.5.5" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.5" type="text/css">
 
 
 <title>Text inputs | Europa Component Library</title>
@@ -191,14 +191,44 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ec5a74e145c78fe9479d3700457053f5-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-1"</span>&gt;</span>Normal input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> type = type|<span class="hljs-keyword">default</span>('text') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> id = id|<span class="hljs-keyword">default</span>('default-id') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> name = name|<span class="hljs-keyword">default</span>('default-name') %}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-2"</span>&gt;</span>Disabled input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-3"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span>
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-3"</span>&gt;</span>Input with error<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input ecl-text-input--has-error"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-4"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span>/&gt;</span></span></pre>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-text-input' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> hasError is defined and hasError == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-text-input--has-error' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isDisabled is defined and isDisabled == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' disabled' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print the result  #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+  <span class="hljs-attr">type</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ type }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+  <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+  <span class="hljs-attr">name</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+  </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">
+/&gt;</span></span></pre>
     </code>
 </div>
 
@@ -206,9 +236,51 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ec5a74e145c78fe9479d3700457053f5-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Normal input */</span>
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"example-input-id-1"</span>,
+  <span class="hljs-attr">"extraAttributes"</span>: [
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"placeholder"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Some placeholder text."</span>
+    }
+  ]
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Disabled input */</span>
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"example-input-id-2"</span>,
+  <span class="hljs-attr">"isDisabled"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"extraAttributes"</span>: [
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"placeholder"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Some placeholder text."</span>
+    }
+  ]
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Input with error */</span>
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"example-input-id-3"</span>,
+  <span class="hljs-attr">"hasError"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"extraAttributes"</span>: [
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"placeholder"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Some placeholder text."</span>
+    }
+  ]
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -218,14 +290,22 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-ec5a74e145c78fe9479d3700457053f5-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-1"</span>&gt;</span>Normal input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-1"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
+        
+            <pre><span class="hljs-comment">&lt;!-- Normal input --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-1"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"default-name"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-2"</span>&gt;</span>Disabled input<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-3"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Disabled input --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"default-name"</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-3"</span>&gt;</span>Input with error<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input ecl-text-input--has-error"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"field-name-4"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span></pre>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Input with error --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input ecl-text-input--has-error"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"default-name"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Some placeholder text."</span> /&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -241,13 +321,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-8ea933867ed8163b327b02dbb9d6c892">_text-inputs.scss</option>
+                <option value="file-e695b9c2e11df8cc50a1e8c7647ab137">_text-inputs.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-8ea933867ed8163b327b02dbb9d6c892" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-e695b9c2e11df8cc50a1e8c7647ab137" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -2999,7 +3079,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -3838,7 +3918,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
                     <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
                     <ul class="ecl-footers__menu">
                         <li class="ecl-footers__menu-item">
-                            <a href="#">Commission and it's priorities</a>
+                            <a href="#">Commission and its priorities</a>
                         </li>
                         <li class="ecl-footers__menu-item">
                             <a href="#">Policies information and services</a>
@@ -3909,7 +3989,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.5.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.5.5"></script>
 
 
 

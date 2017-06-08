@@ -11,9 +11,9 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.5.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.5.5" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.5" type="text/css">
 
 
 <title>Buttons: Caret Right | Europa Component Library</title>
@@ -229,22 +229,54 @@ Do not use this component in the header or the footer component.</p>
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> type = type|<span class="hljs-keyword">default</span>('button') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> modifier = modifier|<span class="hljs-keyword">default</span>('default') %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> extraClass = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-button ecl-button--' ~ modifier %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isBlock is defined and isBlock == true %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> extraClass = ' ecl-button--<span class="hljs-name">block</span>' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-button--<span class="hljs-name">block</span>' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> icon is defined %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> extraClass = extraClass ~ ' ecl-button--' ~ icon %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-button--' ~ icon %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> type == 'link' %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ to|<span class="hljs-keyword">default</span>('#') }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ extraClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+    <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ to|<span class="hljs-keyword">default</span>('#') }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+    </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">
+  &gt;</span>
+    </span><span class="hljs-template-variable">{{- label -}}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> type == 'input' %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ extraClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
+    <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+    <span class="hljs-attr">value</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+    </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">
+  /&gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ extraClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+    </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">
+  &gt;</span>
+    </span><span class="hljs-template-variable">{{- label -}}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
@@ -284,15 +316,15 @@ Do not use this component in the header or the footer component.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-5a5184c18cb5adfc8356e8f709c4f029">_buttons-mixins.scss</option>
+                <option value="file-84aed9f938069515693ce0a88605758e">_buttons-mixins.scss</option>
                 
-                <option value="file-a01cc5f35781176472b9cb52bde5e58b">_buttons.scss</option>
+                <option value="file-74f913e6b6665e75f473363c1b59d7cf">_buttons.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-5a5184c18cb5adfc8356e8f709c4f029" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-84aed9f938069515693ce0a88605758e" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -362,7 +394,7 @@ Do not use this component in the header or the footer component.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-a01cc5f35781176472b9cb52bde5e58b" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-74f913e6b6665e75f473363c1b59d7cf" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -3259,7 +3291,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4098,7 +4130,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
                     <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
                     <ul class="ecl-footers__menu">
                         <li class="ecl-footers__menu-item">
-                            <a href="#">Commission and it's priorities</a>
+                            <a href="#">Commission and its priorities</a>
                         </li>
                         <li class="ecl-footers__menu-item">
                             <a href="#">Policies information and services</a>
@@ -4169,7 +4201,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.5.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.5.5"></script>
 
 
 

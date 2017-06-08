@@ -11,9 +11,9 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.5.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.5.5" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/blue.css?cachebust=0.5.5" type="text/css">
 
 
 <title>Pagers | Europa Component Library</title>
@@ -100,7 +100,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #337ab7; border-color: #337ab7;">Planned</label>
+<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
 
 </div>
 
@@ -115,7 +115,8 @@
               <div class="Prose">
                 
                 <h1 id="pager">Pager</h1>
-<p>Note: Resize the width of the page to see the responsive layout.</p>
+<p>Responsive pager.
+Design adapt automatically to number of pages.</p>
 
                 
               </div>
@@ -192,73 +193,73 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-2ea484909e7ba1f2652d6d1103e80cb9-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--previous"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to previous page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=9"</span>&gt;</span>‹ Previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--first"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 9"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=8"</span>&gt;</span>9<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 10"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=9"</span>&gt;</span>10<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--current"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item__text"</span>&gt;</span>Page<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 11
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 12"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=11"</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 13"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=12"</span>&gt;</span>13<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--last"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 22"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=21"</span>&gt;</span>22<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--next"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to next page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=11"</span>&gt;</span>Next ›<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage is defined and maxPage is defined and maxPage &gt;= currentPage %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager </span></span></span><span class="hljs-template-variable">{{pagerClass}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage &gt; 1 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--previous"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to previous page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=</span></span></span><span class="hljs-template-variable">{{currentPage - 1}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>‹ Previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--previous"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to previous page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=229"</span>&gt;</span>‹ Previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--first"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 209"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=208"</span>&gt;</span>209<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 210"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=209"</span>&gt;</span>210<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--current pager__item--padding"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item__text"</span>&gt;</span>Page <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>211
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 212"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=211"</span>&gt;</span>212<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 213"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=212"</span>&gt;</span>213<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--last"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 222"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=221"</span>&gt;</span>222<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--next"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to next page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=211"</span>&gt;</span>Next ›<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage &gt; 1 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--first"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=1"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage &gt; 4 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage &gt; 3 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page </span></span></span><span class="hljs-template-variable">{{currentPage - 2}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=</span></span></span><span class="hljs-template-variable">{{currentPage - 2}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{currentPage - 2}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage &gt; 2 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page </span></span></span><span class="hljs-template-variable">{{currentPage - 1}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{fragmentUrl}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">=</span></span></span><span class="hljs-template-variable">{{currentPage - 1}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{currentPage - 1}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--current"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item-text"</span>&gt;</span>Page<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> </span><span class="hljs-template-variable">{{currentPage}}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> maxPage - currentPage &gt; 1 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page </span></span></span><span class="hljs-template-variable">{{currentPage + 1}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{fragmentUrl}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">=</span></span></span><span class="hljs-template-variable">{{currentPage + 1}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{currentPage + 1}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> maxPage - currentPage &gt; 2 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page </span></span></span><span class="hljs-template-variable">{{currentPage + 2}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{fragmentUrl}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">=</span></span></span><span class="hljs-template-variable">{{currentPage + 2}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{currentPage + 2}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> maxPage - currentPage &gt; 3 %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage != maxPage %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--last"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page </span></span></span><span class="hljs-template-variable">{{maxPage}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{fragmentUrl}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">=</span></span></span><span class="hljs-template-variable">{{maxPage}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{maxPage}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> currentPage != maxPage %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--next"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to next page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{fragmentUrl}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">=</span></span></span><span class="hljs-template-variable">{{currentPage + 1}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>Next ›<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-u-color-error"</span>&gt;</span>Invalide data provided to pager<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -267,7 +268,11 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"currentPage"</span>: <span class="hljs-number">7</span>,
+  <span class="hljs-attr">"maxPage"</span>: <span class="hljs-number">20</span>,
+  <span class="hljs-attr">"fragmentUrl"</span>: <span class="hljs-string">"/page"</span>
+}</pre>
             
         
     </code>
@@ -278,72 +283,48 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-2ea484909e7ba1f2652d6d1103e80cb9-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--previous"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to previous page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=9"</span>&gt;</span>‹ Previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--first"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 9"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=8"</span>&gt;</span>9<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 10"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=9"</span>&gt;</span>10<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--current"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item__text"</span>&gt;</span>Page<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 11
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 12"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=11"</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 13"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=12"</span>&gt;</span>13<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--last"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 22"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=21"</span>&gt;</span>22<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--next"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to next page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=11"</span>&gt;</span>Next ›<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__wrapper"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager "</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--previous"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to previous page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=6"</span>&gt;</span>‹ Previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--previous"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to previous page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=229"</span>&gt;</span>‹ Previous<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--first"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 209"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=208"</span>&gt;</span>209<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 210"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=209"</span>&gt;</span>210<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--current pager__item--padding"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item__text"</span>&gt;</span>Page <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>211
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 212"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=211"</span>&gt;</span>212<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 213"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=212"</span>&gt;</span>213<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--last"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 222"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=221"</span>&gt;</span>222<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager__item pager__item--next"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to next page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=211"</span>&gt;</span>Next ›<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--first"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=1"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 5"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=5"</span>&gt;</span>5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 6"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=6"</span>&gt;</span>6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--current"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item-text"</span>&gt;</span>Page<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 7
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 8"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=8"</span>&gt;</span>8<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 9"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=9"</span>&gt;</span>9<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--last"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 20"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=20"</span>&gt;</span>20<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--next"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to next page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=8"</span>&gt;</span>Next ›<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -360,13 +341,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-850f3f041640aa32cc2e30fc126b8908">_pagers.scss</option>
+                <option value="file-e9f26b6bc1ccf421395db495efecb24f">_pagers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-850f3f041640aa32cc2e30fc126b8908" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-e9f26b6bc1ccf421395db495efecb24f" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -374,121 +355,91 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Pager
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * ECL Pager
+ * @define pager
+ */</span>
 
-<span class="hljs-selector-class">.pager__wrapper</span> {
-  <span class="hljs-attribute">text-align</span>: center;
+<span class="hljs-selector-class">.ecl-pager__wrapper</span> {
   <span class="hljs-attribute">border-top</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#000</span>;
+  <span class="hljs-attribute">text-align</span>: center;
 }
 
-<span class="hljs-selector-class">.pager</span> {
-  <span class="hljs-attribute">display</span>: inline-block;
+<span class="hljs-selector-class">.ecl-pager</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">display</span>: inline-flex;
+  <span class="hljs-attribute">justify-content</span>: center;
+  <span class="hljs-attribute">margin</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">1.25rem</span> <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
 
-  &gt; <span class="hljs-selector-tag">li</span> {
+<span class="hljs-selector-class">.ecl-pager__item</span> {
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid transparent;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
+  <span class="hljs-attribute">display</span>: none;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">line-height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">list-style</span>: none;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+  <span class="hljs-attribute">min-width</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+
+  &amp;--<span class="hljs-attribute">padding</span> {
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  }
+}
+
+<span class="hljs-selector-class">.ecl-pager__link</span> {
+  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">500</span>;
+  <span class="hljs-attribute">text-decoration</span>: none;
+
+  &amp;:hover {
     <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">text-decoration</span>: underline;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-pager__item--previous</span>,
+<span class="hljs-selector-class">.ecl-pager__item--next</span> {
+  <span class="hljs-attribute">display</span>: block;
+}
+
+<span class="hljs-selector-class">.ecl-pager__item--ellipsis</span> {
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
+}
+
+<span class="hljs-selector-class">.ecl-pager__item--previous</span>,
+<span class="hljs-selector-class">.ecl-pager__item--next</span> {
+  <span class="hljs-selector-class">.ecl-pager__link</span> {
     <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid transparent;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0.5rem</span>;
-    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">28px</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">28px</span>;
-
-    &amp;<span class="hljs-selector-class">.pager__item</span> {
-      <span class="hljs-comment">// Prettifying.</span>
-      <span class="hljs-attribute">list-style</span>: none;
-      <span class="hljs-comment">// Mobile-first hides all pager items.</span>
-      <span class="hljs-attribute">display</span>: none;
-
-      <span class="hljs-comment">// Except prev, next and current.</span>
-      &amp;<span class="hljs-selector-class">.pager__item--previous</span>,
-      &amp;<span class="hljs-selector-class">.pager__item--next</span> {
-        <span class="hljs-attribute">display</span>: inline;
-      }
-
-      &amp;<span class="hljs-selector-class">.pager__item--ellipsis</span> {
-        <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
-      }
-
-      &amp;<span class="hljs-selector-class">.pager__item--previous</span>,
-      &amp;<span class="hljs-selector-class">.pager__item--next</span> {
-        <span class="hljs-selector-tag">a</span> {
-          <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-        }
-      }
-
-      &amp;<span class="hljs-selector-class">.pager__item--previous</span> {
-        <span class="hljs-attribute">float</span>: left;
-        <span class="hljs-attribute">clear</span>: left;
-      }
-
-      &amp;<span class="hljs-selector-class">.pager__item--next</span> {
-        <span class="hljs-attribute">float</span>: right;
-        <span class="hljs-attribute">clear</span>: right;
-      }
-
-      &amp;<span class="hljs-selector-class">.pager__item--current</span> {
-        <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">14px</span>;
-        <span class="hljs-attribute">display</span>: block;
-        <span class="hljs-attribute">position</span>: absolute;
-        <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
-        <span class="hljs-attribute">width</span>: inherit;
-        <span class="hljs-attribute">z-index</span>: -<span class="hljs-number">1</span>;
-      }
-
-      &amp;--<span class="hljs-attribute">padding</span> {
-        <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">7px</span>;
-      }
-    }
-
-    &gt; <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
-      <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
-      <span class="hljs-attribute">text-decoration</span>: none;
-
-      &amp;:hover {
-        <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-        <span class="hljs-attribute">text-decoration</span>: underline;
-      }
-    }
   }
 }
 
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(msm) {
-  <span class="hljs-selector-class">.pager__item__text</span> {
-    <span class="hljs-attribute">display</span>: none;
-  }
+<span class="hljs-selector-class">.ecl-pager__item--current</span> {
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
+}
 
-  <span class="hljs-comment">// Show page items.</span>
-  <span class="hljs-selector-class">.pager</span> {
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  <span class="hljs-selector-class">.ecl-pager</span> {
     <span class="hljs-attribute">width</span>: auto;
-
-    &gt; <span class="hljs-selector-tag">li</span> {
-      &amp;<span class="hljs-selector-class">.pager__item</span> {
-        <span class="hljs-attribute">display</span>: inline;
-        <span class="hljs-attribute">float</span>: left <span class="hljs-meta">!important</span>;
-
-        &amp;<span class="hljs-selector-class">.pager__item--current</span> {
-          <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#000</span>;
-          <span class="hljs-attribute">position</span>: relative;
-        }
-      }
-    }
   }
-}
 
-<span class="hljs-comment">// Drupal-specific hack.</span>
-<span class="hljs-selector-class">.region-content</span> <span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.pager</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0.938em</span> auto;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-selector-class">.ecl-pager__item</span> {
+    <span class="hljs-attribute">display</span>: block;
+  }
 
-  <span class="hljs-comment">// The throbber should not mess up sizing.</span>
-  <span class="hljs-selector-class">.ajax-progress</span> {
+  <span class="hljs-selector-class">.ecl-pager__item--current</span> {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#000</span>;
+    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-pager__item-text</span> {
     <span class="hljs-attribute">display</span>: none;
   }
 }
@@ -508,7 +459,7 @@ Pager
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2 KB</span>
+                    <span class="Meta-value">1.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -3197,7 +3148,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #337ab7; border-color: #337ab7;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #29CC29; border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4036,7 +3987,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
                     <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
                     <ul class="ecl-footers__menu">
                         <li class="ecl-footers__menu-item">
-                            <a href="#">Commission and it's priorities</a>
+                            <a href="#">Commission and its priorities</a>
                         </li>
                         <li class="ecl-footers__menu-item">
                             <a href="#">Policies information and services</a>
@@ -4107,7 +4058,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.5.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.5.5"></script>
 
 
 
