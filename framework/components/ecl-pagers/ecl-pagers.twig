@@ -1,70 +1,67 @@
 {% if currentPage is defined and maxPage is defined and maxPage >= currentPage %}
-<div class="ecl-pager__wrapper">
-  <ul class="ecl-pager {{pagerClass}}">
-    {% if currentPage > 1 %}
-    <li class="ecl-pager__item ecl-pager__item--previous">
-      <a class="ecl-pager__link" title="Go to previous page" href="/page={{currentPage - 1}}">‹ Previous</a>
-    </li>
-    {% endif %}
+  <div class="ecl-pager__wrapper">
+    <ul class="ecl-pager {{pagerClass}}">
+      {% if currentPage > 1 %}
+      <li class="ecl-pager__item ecl-pager__item--previous">
+        <a class="ecl-pager__link" title="Go to previous page" href="/page={{currentPage - 1}}">‹ Previous</a>
+      </li>
+      {% endif %}
 
-    {% if currentPage > 1 %}
-    <li class="ecl-pager__item ecl-pager__item--first">
-      <a class="ecl-pager__link" title="Go to page 1" href="/page=1">1</a>
-    </li>
-    {% endif %}
+      {% if currentPage > 1 %}
+      <li class="ecl-pager__item ecl-pager__item--first">
+        <a class="ecl-pager__link" title="Go to page 1" href="/page=1">1</a>
+      </li>
+      {% endif %}
 
-    {% if currentPage > 4 %}
-    <li class="ecl-pager__item ecl-pager__item--ellipsis">…</li>
-    {% endif %}
+      {% if currentPage > 4 %}
+      <li class="ecl-pager__item ecl-pager__item--ellipsis">…</li>
+      {% endif %}
 
-    {% if currentPage > 3 %}
-    <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="Go to page {{currentPage - 2}}" href="/page={{currentPage - 2}}">{{currentPage - 2}}</a>
-    </li>
-    {% endif %}
+      {% if currentPage > 3 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="Go to page {{currentPage - 2}}" href="/page={{currentPage - 2}}">{{currentPage - 2}}</a>
+      </li>
+      {% endif %}
 
-    {% if currentPage > 2 %}
-    <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="Go to page {{currentPage - 1}}" href="{{fragmentUrl}}={{currentPage - 1}}">{{currentPage - 1}}</a>
-    </li>
-    {% endif %}
+      {% if currentPage > 2 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="Go to page {{currentPage - 1}}" href="{{fragmentUrl}}={{currentPage - 1}}">{{currentPage - 1}}</a>
+      </li>
+      {% endif %}
 
-    <li class="ecl-pager__item ecl-pager__item--current">
-      <span class="ecl-pager__item__text">Page</span> {{currentPage}}
-    </li>
+      <li class="ecl-pager__item ecl-pager__item--current">
+        <span class="ecl-pager__item-text">Page</span> {{currentPage}}
+      </li>
 
-    {% if maxPage - currentPage > 1 %}
-    <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="Go to page {{currentPage + 1}}" href="{{fragmentUrl}}={{currentPage + 1}}">{{currentPage + 1}}</a>
-    </li>
-    {% endif %}
+      {% if maxPage - currentPage > 1 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="Go to page {{currentPage + 1}}" href="{{fragmentUrl}}={{currentPage + 1}}">{{currentPage + 1}}</a>
+      </li>
+      {% endif %}
 
-    {% if maxPage - currentPage > 2 %}
-    <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="Go to page {{currentPage + 2}}" href="{{fragmentUrl}}={{currentPage + 2}}">{{currentPage + 2}}</a>
-    </li>
-    {% endif %}
+      {% if maxPage - currentPage > 2 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="Go to page {{currentPage + 2}}" href="{{fragmentUrl}}={{currentPage + 2}}">{{currentPage + 2}}</a>
+      </li>
+      {% endif %}
 
-    {% if maxPage - currentPage > 3 %}
-    <li class="ecl-pager__item ecl-pager__item--ellipsis">…</li>
-    {% endif %}
+      {% if maxPage - currentPage > 3 %}
+      <li class="ecl-pager__item ecl-pager__item--ellipsis">…</li>
+      {% endif %}
 
-    {% if currentPage != maxPage %}
-    <li class="ecl-pager__item ecl-pager__item--last">
-      <a class="ecl-pager__link" title="Go to page {{maxPage}}" href="{{fragmentUrl}}={{maxPage}}">{{maxPage}}</a>
-    </li>
-    {% endif %}
+      {% if currentPage != maxPage %}
+      <li class="ecl-pager__item ecl-pager__item--last">
+        <a class="ecl-pager__link" title="Go to page {{maxPage}}" href="{{fragmentUrl}}={{maxPage}}">{{maxPage}}</a>
+      </li>
+      {% endif %}
 
-    {% if currentPage != maxPage %}
-    <li class="ecl-pager__item ecl-pager__item--next">
-      <a class="ecl-pager__link" title="Go to next page" href="{{fragmentUrl}}={{currentPage + 1}}">Next ›</a>
-    </li>
-    {% endif %}
-  </ul>
-</div>
-
+      {% if currentPage != maxPage %}
+      <li class="ecl-pager__item ecl-pager__item--next">
+        <a class="ecl-pager__link" title="Go to next page" href="{{fragmentUrl}}={{currentPage + 1}}">Next ›</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
 {% else %}
-
-<p class="ecl-paragraph ecl-u-color-error">Invalide data provided to pager</p>
-
+  <p class="ecl-paragraph ecl-u-color-error">Invalide data provided to pager</p>
 {% endif %}
