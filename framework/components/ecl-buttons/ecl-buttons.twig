@@ -22,7 +22,7 @@
 
 {% if extraAttributes is defined %}
   {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
@@ -32,19 +32,20 @@
     class="{{ _cssClass }}"
     {{ _extraAttributes }}
   >
-    {{ label }}
+    {{- label -}}
   </a>
 {% elseif type == 'input' %}
   <input
     type="button"
     class="{{ _cssClass }}"
     value="{{ label }}"
-    {{ _extraAttributes }} />
+    {{ _extraAttributes }}
+  />
 {% else %}
   <button
     class="{{ _cssClass }}"
     {{ _extraAttributes }}
   >
-    {{ label }}
+    {{- label -}}
   </button>
 {% endif %}
