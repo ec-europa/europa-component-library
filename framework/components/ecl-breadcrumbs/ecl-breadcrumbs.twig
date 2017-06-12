@@ -1,10 +1,10 @@
-<nav class="ecl-breadcrumb aria-label="breadcrumbs">
+<nav class="ecl-breadcrumbs aria-label="breadcrumbs">
   <span class="ecl-sr-only">You are here:</span>
-  <ol class="ecl-breadcrumb__segments-wrapper">
+  <ol class="ecl-breadcrumbs__segments-wrapper">
     {% for segment in segments %}
-    <li class="ecl-breadcrumb__segment{{ loop.first ? " ecl-breadcrumb__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumb__segment--last" : "" }}">
-      <a href="{{ segment.target }}" class="ecl-breadcrumb__link{{ segment.isInternal ? " is-internal" : "" }}">
-        <span class="ecl-breadcrumb__text">{{ segment.title }}</span>
+    <li class="ecl-breadcrumbs__segment{{ loop.first ? " ecl-breadcrumbs__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumbs__segment--last" : "" }}">
+      <a href="{{ segment.target }}" class="ecl-breadcrumbs__link{{ segment.isInternal ? " is-internal" : "" }}">
+        <span class="ecl-breadcrumbs__text">{{ segment.title }}</span>
       </a>
     </li>
     {% endfor %}
