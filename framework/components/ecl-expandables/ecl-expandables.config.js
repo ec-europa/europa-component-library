@@ -1,6 +1,16 @@
 module.exports = {
   title: 'Expandables',
   label: 'Expandables',
-  status: 'planned',
+  status: 'ready',
   tags: ['molecule'],
+  context: {
+    _demo: {
+      scripts: `
+        document.getElementById('example-expandable-button-0').addEventListener(
+          'click',
+          function() { Europa.toggleExandable(this); }
+        );
+      `,
+    },
+  },
 };
