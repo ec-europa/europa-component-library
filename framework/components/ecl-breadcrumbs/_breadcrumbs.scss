@@ -1,103 +1,54 @@
-/* stylelint-disable */
 $breadcrumb-heigth: 2.778em;
 
 .ecl-breadcrumb {
-  position: relative;
+  @include ecl-hidden-print();
+
+  border-bottom: 1px solid #fff;
+  font-size: map-get($ecl-font-size, 's');
+  line-height: normal;
   margin: 0;
   padding: 0;
-  background: none;
-  font-size: map-get($ecl-font-size, 's');
-  font-weight: 600;
-  border-bottom: 1px solid #fff;
-  border-radius: 0;
-  line-height: normal;
-
-  @include ecl-hidden-print();
 
   ol,
   ul {
     list-style: none;
-    max-width: none;
     margin: 0;
+    max-width: none;
     padding: 0;
   }
 }
 
 .ecl-breadcrumb__segment {
-  display: none;
-  position: relative;
-  width: 100%;
+  display: inline-block;
   margin: map-get($ecl-font-size, 's') 0 map-get($ecl-font-size, 'xs');
+  width: auto;
 }
 
-a.ecl-breadcrumb__link {
-  display: inline-block;
-  max-width: 100%;
-  margin-right: 8px;
-  font-weight: bold;
+.ecl-breadcrumb__link {
   color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 8px;
+  max-width: 100%;
   text-decoration: none;
 
+  // Add the ">" icon
   &::after {
-    @extend .ecl-breadcrumb__link-arrow;
+    @extend %ecl-icon--after;
 
-    content: '\e828';
-    vertical-align: middle;
-    position: relative;
-    top: -2px;
+    @include ecl-icon('right');
   }
 
   &:hover,
   &:active,
   &:focus {
     color: #fff;
-
-    .ecl-breadcrumb__text {
-      text-decoration: underline;
-    }
   }
-}
 
-.ecl-breadcrumb__link-arrow {
-  @extend %ecl-icon--after;
-
-  line-height: inherit !important;
-  margin-left: 8px !important;
-  font-weight: normal;
-  font-size: map-get($ecl-font-size, 'xs');
-  // Width has to be defined, otherwise javascript has issues with calculating
-  // the breadcrumb segment width.
-  width: 11px;
-  color: #fff;
-
-  &::before {
-    @include ecl-icon('breadcrumb');
-  }
-}
-
-.ecl-breadcrumb__segment--last,
-.ecl-breadcrumb__segment--first {
-  display: inline-block;
-}
-
-.no-js {
-  .ecl-breadcrumb__segment--first {
-    padding-right: 25px;
-
-    &::after {
-      content: '...';
-      display: inline-block;
-      position: relative;
-      top: -4px;
-    }
-
-    &::before {
-      @extend .ecl-breadcrumb__link-arrow;
-
-      position: absolute;
-      top: 16%;
-      right: 7px;
-    }
+  &:hover .ecl-breadcrumb__text,
+  &:active .ecl-breadcrumb__text,
+  &:focus .ecl-breadcrumb__text {
+    text-decoration: underline;
   }
 }
 
@@ -111,11 +62,6 @@ a.ecl-breadcrumb__link {
     }
   }
 
-  .ecl-breadcrumb__segment {
-    display: inline-block;
-    width: auto;
-  }
-
   .ecl-breadcrumb__segment--first {
     padding-right: 0;
 
@@ -126,57 +72,53 @@ a.ecl-breadcrumb__link {
   }
 }
 
-@include ecl-media-breakpoint-up(md) {
-  .ecl-breadcrumb {
-    margin: 0;
-  }
-}
-
 .ecl-breadcrumb--collapsible {
   .ecl-breadcrumb__btn-separator {
-    display: inline-block;
-    padding: 0 10px;
-    line-height: $breadcrumb-heigth;
     background-color: map-get($ecl-colors, 'blue-120');
     color: #fff;
     cursor: pointer;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: #fff;
-      color: $ecl-color-primary;
-
-      &::after {
-        color: $ecl-color-primary;
-      }
-    }
-
-    &::after {
-      @extend .ecl-breadcrumb__link-arrow;
-    }
+    display: inline-block;
+    line-height: $breadcrumb-heigth;
+    padding: 0 10px;
   }
 
-  .ecl-breadcrumb__link {
-    span {
-      vertical-align: middle;
-    }
+  .ecl-breadcrumb__btn-separator:hover,
+  .ecl-breadcrumb__btn-separator:active,
+  .ecl-breadcrumb__btn-separator:focus {
+    background-color: #fff;
+    color: $ecl-color-primary;
+  }
+
+  .ecl-breadcrumb__btn-separator:hover::after,
+  .ecl-breadcrumb__btn-separator:active::after,
+  .ecl-breadcrumb__btn-separator:focus::after {
+    color: $ecl-color-primary;
+  }
+
+  .ecl-breadcrumb__btn-separator::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('right');
+  }
+
+  .ecl-breadcrumb__link span {
+    vertical-align: middle;
   }
 
   .ecl-breadcrumb__text {
     display: inline-block;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .ecl-breadcrumb__segment--first {
     padding-right: 0;
+  }
 
-    &::before,
-    &::after {
-      display: none;
-    }
+  .ecl-breadcrumb__segment--first::before,
+  .ecl-breadcrumb__segment--first::after {
+    display: none;
   }
 
   // Indent the last segment, leaving space for .ecl-breadcrumb__btn-separator
@@ -188,81 +130,5 @@ a.ecl-breadcrumb__link {
   .ecl-breadcrumb__segment:first-child:nth-last-child(2),
   .ecl-breadcrumb__segment:first-child:nth-last-child(2) ~ .ecl-breadcrumb__segment {
     padding-left: 0;
-  }
-
-  // List of breadcrumbs is open.
-  &.is-open {
-    .ecl-breadcrumb__link {
-      display: block;
-    }
-
-    .ecl-breadcrumb__text {
-      max-width: none;
-      white-space: normal;
-      overflow: visible;
-    }
-
-    .ecl-breadcrumb__segment {
-      display: block;
-    }
-
-    .ecl-breadcrumb__segment--last {
-      padding-left: 0;
-      transition: all 0.3s ease 0s;
-    }
-  }
-
-  @include ecl-media-breakpoint-up(xs) {
-    .ecl-breadcrumb__segment {
-      &.is-hidden {
-        display: none;
-      }
-
-      &.ecl-breadcrumb__segment--next-hidden {
-        padding-right: 25px;
-
-        &::after {
-          content: '...';
-          display: inline-block !important;
-          position: relative;
-          top: -4px;
-          color: #fff;
-        }
-
-        &::before {
-          content: '\e828' !important;
-          display: inline-block !important;
-          position: absolute;
-          top: 30%;
-          right: 0;
-          margin-left: 8px !important;
-          margin-right: 4px;
-          line-height: inherit !important;
-          font-family: 'EuropaIcons';
-          font-size: map-get($ecl-font-size, 'xs');
-          font-style: normal;
-          font-weight: normal;
-          font-variant: normal;
-          color: #fff;
-          text-transform: none;
-          text-decoration: none;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          speak: none;
-        }
-      }
-    }
-
-    .ecl-breadcrumb__btn-separator {
-      display: none;
-    }
-
-    .ecl-breadcrumb__segment--first {
-      width: auto;
-    }
-
-    .ecl-breadcrumb__segment--last {
-      padding-left: 0;
-    }
   }
 }
