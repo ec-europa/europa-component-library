@@ -10,4 +10,3 @@ export * from './components/ecl-inpage-navs/inpage-navs';
 export * from './components/ecl-tables/ecl-tables';
 export * from './components/ecl-timelines/timelines';
 export * from './components/ecl-profile-topbars/profile-topbars';
-export * from './components/ecl-nav-tabs/nav-tabs';

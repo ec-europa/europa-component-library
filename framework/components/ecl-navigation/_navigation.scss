@@ -1,0 +1,62 @@
+/**
+ * ECL Navigation
+ * @define navigation
+ */
+
+.ecl-navigation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+.ecl-navigation--tabs {
+  border-bottom: 2px solid #9f9f9f;
+}
+
+.ecl-navigation__item {
+  flex-shrink: 0;
+
+  .ecl-navigation--tabs & {
+    margin-bottom: -2px;
+  }
+}
+
+.ecl-navigation__item-link {
+  border-bottom: 2px solid transparent;
+  display: block;
+  font-weight: bold;
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  /* stylelint-disable-next-line */
+  &:focus {
+    background-color: #ffd617;
+    border-bottom-color: #ffd617;
+  }
+}
+
+.ecl-navigation__item-link--active {
+  color: #404040;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  .ecl-navigation--tabs & {
+    border: 2px solid #9f9f9f;
+    border-bottom-color: #fff;
+    text-decoration: none;
+
+    /* stylelint-disable-next-line */
+    &:focus {
+      background-color: #ffd617;
+      border-bottom-color: transparent;
+    }
+  }
+}
