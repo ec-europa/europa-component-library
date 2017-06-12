@@ -3,6 +3,8 @@
  * @define navigation
  */
 
+$ecl-navigation-border-width: $ecl-navigation-border-width;
+
 .ecl-navigation {
   display: flex;
   flex-direction: row;
@@ -12,19 +14,19 @@
 }
 
 .ecl-navigation--tabs {
-  border-bottom: 2px solid #9f9f9f;
+  border-bottom: $ecl-navigation-border-width solid map-get($ecl-colors, 'grey-50');
 }
 
 .ecl-navigation__item {
   flex-shrink: 0;
 
   .ecl-navigation--tabs & {
-    margin-bottom: -2px;
+    margin-bottom: -$ecl-navigation-border-width;
   }
 }
 
 .ecl-navigation__item-link {
-  border-bottom: 2px solid transparent;
+  border-bottom: $ecl-navigation-border-width solid transparent;
   display: block;
   font-weight: bold;
   padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
@@ -36,26 +38,26 @@
 
   /* stylelint-disable-next-line */
   &:focus {
-    background-color: #ffd617;
-    border-bottom-color: #ffd617;
+    background-color: $ecl-color-secondary;
+    border-bottom-color: $ecl-color-secondary;
   }
 }
 
 .ecl-navigation__item-link--active {
-  color: #404040;
+  color: $ecl-color-shade;
 
   &:hover {
     text-decoration: none;
   }
 
   .ecl-navigation--tabs & {
-    border: 2px solid #9f9f9f;
+    border: $ecl-navigation-border-width solid map-get($ecl-colors, 'grey-50');
     border-bottom-color: #fff;
     text-decoration: none;
 
     /* stylelint-disable-next-line */
     &:focus {
-      background-color: #ffd617;
+      background-color: $ecl-color-secondary;
       border-bottom-color: transparent;
     }
   }
