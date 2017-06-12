@@ -26,3 +26,7 @@ __Example__: European Commission  >  Strategy  >  Digital single Market
 
 ### Do not use this component
 - if there is no second level to show
+
+### Accessibility
+
+If you do not use a `<nav>` element, you need to add `role="navigation"` to the markup. Note: this role is implied when you use the `<nav>` element so it is a bit redundant to use both at the same time.

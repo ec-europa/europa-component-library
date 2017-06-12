@@ -6,7 +6,7 @@ $breadcrumb-heigth: 2.778em;
   margin: 0;
   padding: 0;
   background: none;
-  font-size: 0.833em;
+  font-size: map-get($ecl-font-size, 's');
   font-weight: 600;
   border-bottom: 1px solid #fff;
   border-radius: 0;
@@ -27,7 +27,7 @@ $breadcrumb-heigth: 2.778em;
   display: none;
   position: relative;
   width: 100%;
-  margin: 1em 0 0.8em;
+  margin: map-get($ecl-font-size, 's') 0 map-get($ecl-font-size, 'xs');
 }
 
 a.ecl-breadcrumb__link {
@@ -44,7 +44,7 @@ a.ecl-breadcrumb__link {
     content: '\e828';
     vertical-align: middle;
     position: relative;
-    top: 1px;
+    top: -2px;
   }
 
   &:hover,

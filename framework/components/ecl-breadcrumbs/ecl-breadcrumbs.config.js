@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Breadcrumbs',
   label: 'Breadcrumbs',
-  status: 'planned',
+  status: 'wip',
   tags: ['molecule'],
   preview: '@preview-breadcrumbs',
   context: {
@@ -23,16 +23,4 @@ module.exports = {
       },
     ],
   },
-  variants: [
-    {
-      name: 'collapsible',
-      label: 'Collapsible',
-      context: {
-        modifier: 'collapsible',
-        _demo: {
-          scripts: 'Europa.breadcrumbs();',
-        },
-      },
-    },
-  ],
 };
