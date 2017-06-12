@@ -1,0 +1,61 @@
+{% if navigationTree is defined %}
+<nav class="ecl-horizontal-menu">
+  <a href="#" class="ecl-horizontal-menu__toggle">Menu</a>
+  <ul class="ecl-horizontal-menu__group">
+    <li class="ecl-horizontal-menu__item">
+      <a href="#" class="ecl-horizontal-menu__link">Item 1</a>
+      <ul class="ecl-horizontal-menu__group">
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.1</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.2</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.3</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.4</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.5</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.6</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.7</a></li>
+      </ul>
+    </li>
+    <li class="ecl-horizontal-menu__item">
+      <a href="#" class="ecl-horizontal-menu__link">Item 2</a>
+      <ul class="ecl-horizontal-menu__group">
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.1</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.2</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.3</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.4</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.5</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.6</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.7</a></li>
+      </ul>
+    </li>
+    <li class="ecl-horizontal-menu__item">
+      <a href="#" class="ecl-horizontal-menu__link">Item 3</a>
+      <ul class="ecl-horizontal-menu__group">
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.1</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.2</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.3</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.4</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.5</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.6</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.7</a></li>
+      </ul>
+    </li>
+    <li class="ecl-horizontal-menu__item">
+      <a href="#" class="ecl-horizontal-menu__link">Item 4</a>
+      <ul class="ecl-horizontal-menu__group">
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.1</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.2</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.3</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.4</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.5</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.6</a></li>
+        <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.7</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+{% else %}
+<p class="ecl-paragraph ecl-u-color-error">Invalid data provided to horizontal menu</p>
+{% endif %}

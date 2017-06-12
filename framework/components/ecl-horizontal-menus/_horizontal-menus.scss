@@ -1,0 +1,66 @@
+/**
+ * ECL Horizontal menus
+ * @define horizontal-menu
+ */
+
+.ecl-horizontal-menu__toggle {
+  align-items: center;
+  background-color: map-get($ecl-colors, 'blue-50');
+  color: #fff;
+  display: flex;
+  font-size: map-get($ecl-font-size, 's');
+  font-weight: bold;
+  min-height: map-get($ecl-spacing, 'xl');
+  padding: 0 map-get($ecl-spacing, 'm');
+  position: relative;
+  text-decoration: none;
+}
+
+.ecl-horizontal-menu__group {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.ecl-horizontal-menu__item {
+  background-color: map-get($ecl-colors, 'blue-25');
+  border-top: 1px solid map-get($ecl-colors, 'blue-50');
+
+  &:first-child {
+    border-top-width: 0;
+  }
+}
+
+.ecl-horizontal-menu__item .ecl-horizontal-menu__item {
+  background-color: map-get($ecl-colors, 'grey-5');
+  border-top-width: 0;
+}
+
+.ecl-horizontal-menu__link {
+  align-items: center;
+  color: map-get($ecl-colors, 'blue-120');
+  display: flex;
+  font-size: map-get($ecl-font-size, 'xs');
+  font-weight: bold;
+  min-height: map-get($ecl-spacing, 'l');
+  padding: 0 map-get($ecl-spacing, 'm');
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('up');
+
+    position: absolute;
+    right: map-get($ecl-spacing, 'm');
+  }
+}
+
+.ecl-horizontal-menu__link ~ .ecl-horizontal-menu__group .ecl-horizontal-menu__link {
+  font-weight: normal;
+
+  &::after {
+    display: none;
+  }
+}
