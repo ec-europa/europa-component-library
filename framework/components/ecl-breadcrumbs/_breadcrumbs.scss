@@ -20,7 +20,7 @@ $breadcrumb-heigth: 2.778em;
 
 .ecl-breadcrumb__segment {
   display: inline-block;
-  margin: map-get($ecl-font-size, 's') 0 map-get($ecl-font-size, 'xs');
+  margin: map-get($ecl-spacing, 's') 0 map-get($ecl-spacing, 'xxs');
   width: auto;
 }
 
@@ -29,8 +29,8 @@ $breadcrumb-heigth: 2.778em;
   display: inline-block;
   font-weight: bold;
   margin-right: 8px;
-  max-width: 100%;
   text-decoration: none;
+  width: auto;
 
   // Add the ">" icon
   &::after {
@@ -53,22 +53,8 @@ $breadcrumb-heigth: 2.778em;
 }
 
 @include ecl-media-breakpoint-up(xs) {
-  .ecl-breadcrumb__link {
-    width: auto;
-
-    &::after {
-      position: static;
-      transform: translate(0, 0);
-    }
-  }
-
   .ecl-breadcrumb__segment--first {
     padding-right: 0;
-
-    &::before,
-    &::after {
-      display: none !important;
-    }
   }
 }
 
@@ -99,36 +85,5 @@ $breadcrumb-heigth: 2.778em;
     @extend %ecl-icon--after;
 
     @include ecl-icon('right');
-  }
-
-  .ecl-breadcrumb__link span {
-    vertical-align: middle;
-  }
-
-  .ecl-breadcrumb__text {
-    display: inline-block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .ecl-breadcrumb__segment--first {
-    padding-right: 0;
-  }
-
-  .ecl-breadcrumb__segment--first::before,
-  .ecl-breadcrumb__segment--first::after {
-    display: none;
-  }
-
-  // Indent the last segment, leaving space for .ecl-breadcrumb__btn-separator
-  .ecl-breadcrumb__segment--last {
-    padding-left: 60px;
-  }
-
-  // In case of 2 .ecl-breadcrumb__segment-s, don't indent the second one.
-  .ecl-breadcrumb__segment:first-child:nth-last-child(2),
-  .ecl-breadcrumb__segment:first-child:nth-last-child(2) ~ .ecl-breadcrumb__segment {
-    padding-left: 0;
   }
 }
