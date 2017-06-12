@@ -21,7 +21,7 @@ const links = [
 module.exports = {
   title: 'Navigation',
   label: 'Navigation',
-  status: 'wip',
+  status: 'ready',
   tags: ['organism'],
   variants: [
     {
