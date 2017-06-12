@@ -25,16 +25,14 @@ $breadcrumb-heigth: 2.778em;
 .ecl-breadcrumbs__segment {
   display: inline-block;
   margin: map-get($ecl-spacing, 's') 0 map-get($ecl-spacing, 'xxs');
-  width: auto;
 }
 
 .ecl-breadcrumbs__link {
   color: #fff;
   display: inline-block;
   font-weight: bold;
-  margin-right: 8px;
+  margin-right: map-get($ecl-spacing, 'xxxs');
   text-decoration: none;
-  width: auto;
 
   // Add the ">" icon
   &::after {
@@ -53,41 +51,5 @@ $breadcrumb-heigth: 2.778em;
   &:active .ecl-breadcrumbs__text,
   &:focus .ecl-breadcrumbs__text {
     text-decoration: underline;
-  }
-}
-
-@include ecl-media-breakpoint-up(xs) {
-  .ecl-breadcrumbs__segment--first {
-    padding-right: 0;
-  }
-}
-
-.ecl-breadcrumbs--collapsible {
-  .ecl-breadcrumbs__btn-separator {
-    background-color: map-get($ecl-colors, 'blue-120');
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    line-height: $breadcrumb-heigth;
-    padding: 0 10px;
-  }
-
-  .ecl-breadcrumbs__btn-separator:hover,
-  .ecl-breadcrumbs__btn-separator:active,
-  .ecl-breadcrumbs__btn-separator:focus {
-    background-color: #fff;
-    color: $ecl-color-primary;
-  }
-
-  .ecl-breadcrumbs__btn-separator:hover::after,
-  .ecl-breadcrumbs__btn-separator:active::after,
-  .ecl-breadcrumbs__btn-separator:focus::after {
-    color: $ecl-color-primary;
-  }
-
-  .ecl-breadcrumbs__btn-separator::after {
-    @extend %ecl-icon--after;
-
-    @include ecl-icon('right');
   }
 }
