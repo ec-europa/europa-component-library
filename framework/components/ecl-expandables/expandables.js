@@ -1,4 +1,4 @@
-export const toggleExandable = toggleElement => {
+export const toggleExpandable = toggleElement => {
   if (!toggleElement) {
     return;
   }
@@ -21,11 +21,11 @@ export const toggleExandable = toggleElement => {
   target.setAttribute('aria-hidden', isExpanded);
 };
 
-// Helper method to automatically attach the event listener to all the exandables on page load
+// Helper method to automatically attach the event listener to all the expandables on page load
 export const initExpandables = (
   selector = '[aria-controls][aria-expanded]',
   context = document
 ) =>
   [...context.querySelectorAll(selector)].forEach(el =>
-    el.addEventListener('click', () => toggleExandable(el))
+    el.addEventListener('click', () => toggleExpandable(el))
   );
