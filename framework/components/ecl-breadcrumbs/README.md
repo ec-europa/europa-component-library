@@ -29,4 +29,4 @@ __Example__: European Commission  >  Strategy  >  Digital single Market
 
 ### Accessibility
 
-If you do not use a `<nav>` element, you need to add `role="navigation"` to the markup. Note: this role is implied when you use the `<nav>` element so it is a bit redundant to use both at the same time. Red [more guidelines](http://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-breadcrumbs).
+If you do not use a `<nav>` element, you need to add `role="navigation"` to the markup. Note: this role is implied when you use the `<nav>` element so it is a bit redundant to use both at the same time. Read [more guidelines](http://a11y-style-guide.com/style-guide/section-navigation.html#kssref-navigation-breadcrumbs).
