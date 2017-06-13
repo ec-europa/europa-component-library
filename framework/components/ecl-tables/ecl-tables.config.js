@@ -11,7 +11,7 @@ module.exports = {
       label: 'Default table',
       context: {
         _demo: {
-          scripts: 'Europa.eclTables();',
+          scripts: 'ECL.eclTables();',
         },
       },
     },
@@ -20,7 +20,7 @@ module.exports = {
       label: 'Table with empty heading',
       context: {
         _demo: {
-          scripts: 'Europa.eclTables();',
+          scripts: 'ECL.eclTables();',
         },
       },
     },
@@ -29,7 +29,7 @@ module.exports = {
       label: 'Table with colspan',
       context: {
         _demo: {
-          scripts: 'Europa.eclTables();',
+          scripts: 'ECL.eclTables();',
         },
       },
     },
@@ -38,7 +38,7 @@ module.exports = {
       label: 'Table with colspan and empty heading',
       context: {
         _demo: {
-          scripts: 'Europa.eclTables();',
+          scripts: 'ECL.eclTables();',
         },
       },
     },

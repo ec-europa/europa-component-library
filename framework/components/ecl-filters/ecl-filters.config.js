@@ -5,7 +5,7 @@ module.exports = {
   tags: ['molecule'],
   context: {
     _demo: {
-      scripts: 'Europa.filters();',
+      scripts: 'ECL.filters();',
     },
   },
 };

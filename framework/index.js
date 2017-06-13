@@ -2,6 +2,7 @@
 
 export * from './components/ecl-context-navs/context-navs';
 export * from './components/ecl-datepickers/datepickers';
+export * from './components/ecl-expandables/expandables';
 export * from './components/ecl-files/files';
 export * from './components/ecl-filters/filters';
 export * from './components/ecl-forms/ecl-forms-file-uploads/file-uploads';

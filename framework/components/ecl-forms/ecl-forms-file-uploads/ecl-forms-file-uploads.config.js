@@ -4,7 +4,7 @@ module.exports = {
   status: 'planned',
   context: {
     _demo: {
-      scripts: 'Europa.fileUpload();',
+      scripts: 'ECL.fileUpload();',
     },
   },
 };
