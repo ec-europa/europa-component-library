@@ -43,23 +43,3 @@
   float: right;
   text-transform: uppercase;
 }
-
-.ecl-link--expand {
-  position: relative;
-
-  &::after {
-    @extend %ecl-icon--after;
-
-    @include ecl-icon('arrow-down');
-
-    font-size: 60%;
-    margin-left: 0.4em;
-    margin-right: 0.2em;
-    // Hack for IE to not display underline (this is on purpose).
-    text-decoration: underline;
-  }
-
-  &.is-expanded::after {
-    @include ecl-icon('arrow-up');
-  }
-}

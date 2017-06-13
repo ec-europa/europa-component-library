@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,7 +135,27 @@
               <div class="Prose">
                 
                 <h1 id="expandables">Expandables</h1>
-<p>For now, it uses Bootstrap collapse JS. Needs to be rewritten.</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Users need a way to manage an overabundance of content in a structure way.</p>
+<p>The expandable component is a list of headers that can be clicked to hide or reveal additional content. It is also possible to add an icon.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>when you have a large amount of information.</li>
+<li>on FAQ pages.</li>
+</ul>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<ul>
+<li>as a rule. We avoid to hide information as much as possible.</li>
+</ul>
+<h2 id="implementation">Implementation</h2>
+<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  ECL.initExpandables();
+});</pre></code><h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.w3.org/WAI/GL/wiki/Using_the_WAI-ARIA_aria-expanded_state_to_mark_expandable_and_collapsible_regions">Using the WAI-ARIA aria-expanded state to mark expandable and collapsible regions, WCAG Working Group</a></li>
+<li><a href="http://heydonworks.com/practical_aria_examples/#progressive-collapsibles">Progressive collapsibles, ARIA Examples, Heydon Pickering</a></li>
+<li><a href="https://edenspiekermann.github.io/a11y-toggle/">A11y Toggle, Edenspiekermann</a></li>
+</ul>
 
                 
               </div>
@@ -212,36 +232,75 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e0fff77e4650c4b92269c6d92a6c18f4-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#jobs-growth-investment-and-competitiveness"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapsed expandable__toggle"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--yellowbg icon--growth"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Jobs, Growth, Investment and Competitiveness
-      <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jobs-growth-investment-and-competitiveness"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__content collapse"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative sportsmanship. In other words, one has to rig the game.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  The following snippets are examples.
+  The template should not be reused direclty.
+#}</span><span class="xml">
+
+<span class="hljs-comment">&lt;!-- Simple example --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+    'label': 'What is this all about?',
+    'extraAttributes': [
+      { 'name': 'aria-controls', 'value': 'example-expandable-0'},
+      { 'name': 'aria-expanded', 'value': 'false'},
+      { 'name': 'id', 'value': 'example-expandable-button-0' },
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button-0"</span>
+    <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-0"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum with a <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>link thrown in<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> etc.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>etc.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#energy-union"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapsed pseudo-class-hover expandable__toggle"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--yellowbg icon--energy"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Energy Union
-      <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"energy-union"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__content collapse"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative sportsmanship. In other words, one has to rig the game.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Button collapse --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin-top:1rem"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+    'label': 'What is this all about?',
+    'extraClass': 'ecl-expandable__button',
+    'extraAttributes': [
+      { 'name': 'aria-controls', 'value': 'example-expandable-1'},
+      { 'name': 'aria-expanded', 'value': 'false'},
+      { 'name': 'id', 'value': 'example-expandable-button-1' },
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button-1"</span>
+    <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-1"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#digital-single-market"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapsed expandable__toggle"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--yellowbg icon--digital"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Digital Single Market
-      <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"digital-single-market"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__content"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative sportsmanship. In other words, one has to rig the game.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Expandable link --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin-top:1rem"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+    <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-expandable-2"</span>
+    <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>
+    <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-expandable__button"</span>
+    <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
+    <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button-2"</span>
+  &gt;</span>
+    Expandable link
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>
+    <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button-2"</span>
+    <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-2"</span>
+  &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
@@ -252,7 +311,11 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"_demo"</span>: {
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });"</span>
+  }
+}</pre>
             
         
     </code>
@@ -263,39 +326,39 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-e0fff77e4650c4b92269c6d92a6c18f4-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#jobs-growth-investment-and-competitiveness"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapsed expandable__toggle"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--yellowbg icon--growth"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Jobs, Growth, Investment and Competitiveness
-      <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"jobs-growth-investment-and-competitiveness"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__content collapse"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative
-        sportsmanship. In other words, one has to rig the game.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-comment">&lt;!-- Simple example --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-expandable-0"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button-0"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>What is this all about?<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button-0"</span>
+    <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum with a <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://example.com"</span>&gt;</span>link thrown in<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> etc.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>etc.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#energy-union"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapsed pseudo-class-hover expandable__toggle"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--yellowbg icon--energy"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Energy Union
-      <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"energy-union"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__content collapse"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative
-        sportsmanship. In other words, one has to rig the game.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Button collapse --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin-top:1rem"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-expandable-1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button-1"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>What is this all about?<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button-1"</span>
+    <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-1"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__group"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#digital-single-market"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"collapsed expandable__toggle"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--yellowbg icon--digital"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Digital Single Market
-      <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"digital-single-market"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expandable__content"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative
-        sportsmanship. In other words, one has to rig the game.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- Expandable link --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin-top:1rem"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-expandable-2"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-expandable__button"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button-2"</span>&gt;</span>
+    Expandable link
+  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button-2"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-2"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
@@ -315,6 +378,8 @@
                 
                 <option value="file-2d20364631d543249e65f27ab9b602e3">_expandables.scss</option>
                 
+                <option value="file-0e302d0d9bc3cb47798c347dc39c0583">expandables.js</option>
+                
             </select>
         </div>
 
@@ -327,49 +392,24 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Expandable
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * ECL Expandable
+ * @define expandable
+ */</span>
 
-<span class="hljs-selector-class">.expandable__content</span> {
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+<span class="hljs-selector-class">.ecl-expandable__button</span> {
+  &amp;::after {
+    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
 
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
-    &amp; &gt; <span class="hljs-selector-tag">p</span> {
-      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0.8em</span> <span class="hljs-number">0.8em</span> <span class="hljs-number">0.8em</span> <span class="hljs-number">3.2em</span>;
-      <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-    }
-  }
-}
-
-<span class="hljs-selector-class">.expandable__toggle</span> {
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">background</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-
-  &amp;<span class="hljs-selector-class">.collapsed</span> {
-    <span class="hljs-attribute">background</span>: none;
+    @<span class="hljs-keyword">include</span> ecl-button--caret();
   }
 
-  <span class="hljs-selector-class">.ecl-icon</span> {
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.833em</span>;
+  &amp;<span class="hljs-selector-attr">[aria-expanded='false']</span>::after {
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'down'</span>);
   }
 
-  <span class="hljs-selector-tag">h3</span> {
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
-  }
-
-  &amp;:link {
-    <span class="hljs-attribute">text-decoration</span>: none;
-  }
-
-  &amp;:hover,
-  &amp;:focus {
-    <span class="hljs-attribute">background</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-    <span class="hljs-attribute">outline</span>: none;
-    <span class="hljs-attribute">text-decoration</span>: underline;
+  &amp;<span class="hljs-selector-attr">[aria-expanded='true']</span>::after {
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'up'</span>);
   }
 }
 </pre>
@@ -388,7 +428,67 @@ Expandable
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">700 Bytes</span>
+                    <span class="Meta-value">300 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-0e302d0d9bc3cb47798c347dc39c0583" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-JavaScript FileBrowser-code">
+                                <pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toggleExpandable = <span class="hljs-function"><span class="hljs-params">toggleElement</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (!toggleElement) {
+    <span class="hljs-keyword">return</span>;
+  }
+
+  <span class="hljs-comment">// Get target element</span>
+  <span class="hljs-keyword">const</span> target = <span class="hljs-built_in">document</span>.getElementById(
+    toggleElement.getAttribute(<span class="hljs-string">'aria-controls'</span>)
+  );
+
+  <span class="hljs-comment">// Exit if no target found</span>
+  <span class="hljs-keyword">if</span> (!target) {
+    <span class="hljs-keyword">return</span>;
+  }
+
+  <span class="hljs-comment">// Get current status</span>
+  <span class="hljs-keyword">const</span> isExpanded = toggleElement.getAttribute(<span class="hljs-string">'aria-expanded'</span>) === <span class="hljs-string">'true'</span>;
+
+  <span class="hljs-comment">// Toggle the expandable/collapsible</span>
+  toggleElement.setAttribute(<span class="hljs-string">'aria-expanded'</span>, !isExpanded);
+  target.setAttribute(<span class="hljs-string">'aria-hidden'</span>, isExpanded);
+};
+
+<span class="hljs-comment">// Helper method to automatically attach the event listener to all the expandables on page load</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> initExpandables = (
+  selector = <span class="hljs-string">'[aria-controls][aria-expanded]'</span>,
+  context = <span class="hljs-built_in">document</span>
+) =&gt;
+  [...context.querySelectorAll(selector)].forEach(<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span>
+    el.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; toggleExpandable(el))
+  );
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-expandables/expandables.js"><span>/components/raw/ecl-expandables/expandables.js</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-expandables/expandables.js</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">854 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1650,8 +1750,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-breadcrumbs">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-breadcrumbs" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1659,7 +1760,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
 
 
 </div>
@@ -1668,63 +1769,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Breadcrumbs</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-breadcrumbs--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-breadcrumbs--collapsible" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Collapsible</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -1938,7 +1983,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2868,9 +2913,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-nav-tabs" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-navigation">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -2878,7 +2922,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2886,8 +2930,64 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Nav tabs</span>
+                <span>Navigation</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation--tabs" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Tabs</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     

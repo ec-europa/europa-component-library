@@ -1,268 +1,46 @@
-/* stylelint-disable */
+/*
+ * Breadcrumbs
+ * @define breadcrumbs
+ */
+
 $breadcrumb-heigth: 2.778em;
 
-.breadcrumb {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  background: none;
-  font-size: 0.833em;
-  font-weight: 600;
-  border-bottom: 1px solid #fff;
-  border-radius: 0;
-  line-height: normal;
-
+.ecl-breadcrumbs {
   @include ecl-hidden-print();
 
-  ol,
-  ul {
-    list-style: none;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-  }
+  border-bottom: 1px solid #fff;
+  font-size: map-get($ecl-font-size, 's');
 }
 
-.breadcrumb__segment {
-  display: none;
-  position: relative;
-  width: 100%;
-  margin: 1em 0 0.8em;
+.ecl-breadcrumbs__segments-wrapper {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-a.breadcrumb__link {
+.ecl-breadcrumbs__segment {
   display: inline-block;
-  max-width: 100%;
-  margin-right: 8px;
-  font-weight: bold;
+  margin: map-get($ecl-spacing, 's') 0 map-get($ecl-spacing, 'xxs');
+}
+
+.ecl-breadcrumbs__link {
   color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: map-get($ecl-spacing, 'xxxs');
   text-decoration: none;
 
+  // Add the ">" icon
   &::after {
-    @extend .breadcrumb__link-arrow;
+    @extend %ecl-icon--after;
 
-    content: '\e828';
-    vertical-align: middle;
-    position: relative;
-    top: 1px;
+    @include ecl-icon('right');
   }
 
   &:hover,
   &:active,
   &:focus {
     color: #fff;
-
-    .breadcrumb__text {
-      text-decoration: underline;
-    }
-  }
-}
-
-.breadcrumb__link-arrow {
-  @extend %ecl-icon--after;
-
-  line-height: inherit !important;
-  margin-left: 8px !important;
-  font-weight: normal;
-  font-size: map-get($ecl-font-size, 'xs');
-  // Width has to be defined, otherwise javascript has issues with calculating
-  // the breadcrumb segment width.
-  width: 11px;
-  color: #fff;
-
-  &::before {
-    @include ecl-icon('breadcrumb');
-  }
-}
-
-.breadcrumb__segment--last,
-.breadcrumb__segment--first {
-  display: inline-block;
-}
-
-.no-js {
-  .breadcrumb__segment--first {
-    padding-right: 25px;
-
-    &::after {
-      content: '...';
-      display: inline-block;
-      position: relative;
-      top: -4px;
-    }
-
-    &::before {
-      @extend .breadcrumb__link-arrow;
-
-      position: absolute;
-      top: 16%;
-      right: 7px;
-    }
-  }
-}
-
-@include ecl-media-breakpoint-up(xs) {
-  .breadcrumb__link {
-    width: auto;
-
-    &::after {
-      position: static;
-      transform: translate(0, 0);
-    }
-  }
-
-  .breadcrumb__segment {
-    display: inline-block;
-    width: auto;
-  }
-
-  .breadcrumb__segment--first {
-    padding-right: 0;
-
-    &::before,
-    &::after {
-      display: none !important;
-    }
-  }
-}
-
-@include ecl-media-breakpoint-up(md) {
-  .breadcrumb {
-    margin: 0;
-  }
-}
-
-.breadcrumb--collapsible {
-  .breadcrumb__btn-separator {
-    display: inline-block;
-    padding: 0 10px;
-    line-height: $breadcrumb-heigth;
-    background-color: map-get($ecl-colors, 'blue-120');
-    color: #fff;
-    cursor: pointer;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: #fff;
-      color: $ecl-color-primary;
-
-      &::after {
-        color: $ecl-color-primary;
-      }
-    }
-
-    &::after {
-      @extend .breadcrumb__link-arrow;
-    }
-  }
-
-  .breadcrumb__link {
-    span {
-      vertical-align: middle;
-    }
-  }
-
-  .breadcrumb__text {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .breadcrumb__segment--first {
-    padding-right: 0;
-
-    &::before,
-    &::after {
-      display: none;
-    }
-  }
-
-  // Indent the last segment, leaving space for .breadcrumb__btn-separator
-  .breadcrumb__segment--last {
-    padding-left: 60px;
-  }
-
-  // In case of 2 .breadcrumb__segment-s, don't indent the second one.
-  .breadcrumb__segment:first-child:nth-last-child(2),
-  .breadcrumb__segment:first-child:nth-last-child(2) ~ .breadcrumb__segment {
-    padding-left: 0;
-  }
-
-  // List of breadcrumbs is open.
-  &.is-open {
-    .breadcrumb__link {
-      display: block;
-    }
-
-    .breadcrumb__text {
-      max-width: none;
-      white-space: normal;
-      overflow: visible;
-    }
-
-    .breadcrumb__segment {
-      display: block;
-    }
-
-    .breadcrumb__segment--last {
-      padding-left: 0;
-      transition: all 0.3s ease 0s;
-    }
-  }
-
-  @include ecl-media-breakpoint-up(xs) {
-    .breadcrumb__segment {
-      &.is-hidden {
-        display: none;
-      }
-
-      &.breadcrumb__segment--next-hidden {
-        padding-right: 25px;
-
-        &::after {
-          content: '...';
-          display: inline-block !important;
-          position: relative;
-          top: -4px;
-          color: #fff;
-        }
-
-        &::before {
-          content: '\e828' !important;
-          display: inline-block !important;
-          position: absolute;
-          top: 30%;
-          right: 0;
-          margin-left: 8px !important;
-          margin-right: 4px;
-          line-height: inherit !important;
-          font-family: 'EuropaIcons';
-          font-size: map-get($ecl-font-size, 'xs');
-          font-style: normal;
-          font-weight: normal;
-          font-variant: normal;
-          color: #fff;
-          text-transform: none;
-          text-decoration: none;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          speak: none;
-        }
-      }
-    }
-
-    .breadcrumb__btn-separator {
-      display: none;
-    }
-
-    .breadcrumb__segment--first {
-      width: auto;
-    }
-
-    .breadcrumb__segment--last {
-      padding-left: 0;
-    }
+    text-decoration: underline;
   }
 }
