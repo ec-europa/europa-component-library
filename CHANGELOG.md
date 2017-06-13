@@ -1,3 +1,25 @@
+## 0.7.0 (2017-06-13)
+
+#### :rocket: New Feature
+
+*   [#184](https://github.com/ec-europa/europa-component-library/pull/184) feat(tabs): provide first version of navigation tabs - INNO-600. ([@yhuard](https://github.com/yhuard))
+*   [#185](https://github.com/ec-europa/europa-component-library/pull/185) feat(expandable): refactor basic collapse/expand functionality - INNO-580. ([@yhuard](https://github.com/yhuard))
+*   [#183](https://github.com/ec-europa/europa-component-library/pull/183) feat(breadcrumbs): upgrade - INNO-573. ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :memo: Documentation
+
+*   [#177](https://github.com/ec-europa/europa-component-library/pull/177) fix(colors): use the same colors as in the color palette - INNO-596. ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+*   [#181](https://github.com/ec-europa/europa-component-library/pull/181) chore(deps): update all dependencies to the latest version 🚀 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 3
+
+-   Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+-   Yannick Huard ([yhuard](https://github.com/yhuard))
+-   [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.6.0 (2017-06-08)
 
 #### :rocket: New Feature
