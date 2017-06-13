@@ -5,12 +5,8 @@ module.exports = {
   tags: ['molecule'],
   context: {
     _demo: {
-      scripts: `
-        document.getElementById('example-expandable-button-0').addEventListener(
-          'click',
-          function() { Europa.toggleExandable(this); }
-        );
-      `,
+      scripts:
+        "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
     },
   },
 };

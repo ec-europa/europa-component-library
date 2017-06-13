@@ -15,6 +15,14 @@ The expandable component is a list of headers that can be clicked to hide or rev
 
 -   as a rule. We avoid to hide information as much as possible.
 
+## Implementation
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+  ECL.initExpandables();
+});
+```
+
 ## Resources
 
 -   [Using the WAI-ARIA aria-expanded state to mark expandable and collapsible regions, WCAG Working Group](https://www.w3.org/WAI/GL/wiki/Using_the_WAI-ARIA_aria-expanded_state_to_mark_expandable_and_collapsible_regions)

@@ -30,7 +30,7 @@ module.exports = {
       context: {
         modifier: 'collapsible',
         _demo: {
-          scripts: 'Europa.breadcrumbs();',
+          scripts: 'ECL.breadcrumbs();',
         },
       },
     },
