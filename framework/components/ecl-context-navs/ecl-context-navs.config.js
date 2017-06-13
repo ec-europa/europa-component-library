@@ -5,7 +5,7 @@ module.exports = {
   tags: ['molecule'],
   context: {
     _demo: {
-      scripts: 'Europa.contextualNav();',
+      scripts: 'ECL.contextualNav();',
     },
   },
 };
