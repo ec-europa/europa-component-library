@@ -10,15 +10,11 @@ $breadcrumb-heigth: 2.778em;
 
   border-bottom: 1px solid #fff;
   font-size: map-get($ecl-font-size, 's');
-  line-height: normal;
-  margin: 0;
-  padding: 0;
 }
 
 .ecl-breadcrumbs__segments-wrapper {
   list-style: none;
   margin: 0;
-  max-width: none;
   padding: 0;
 }
 
@@ -45,11 +41,6 @@ $breadcrumb-heigth: 2.778em;
   &:active,
   &:focus {
     color: #fff;
-  }
-
-  &:hover .ecl-breadcrumbs__text,
-  &:active .ecl-breadcrumbs__text,
-  &:focus .ecl-breadcrumbs__text {
     text-decoration: underline;
   }
 }
