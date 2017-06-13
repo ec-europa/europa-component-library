@@ -13,6 +13,8 @@ describe('breadcrumbs', () => {
 
     // Make sure the browser has finished painting
     browser.pause(1000);
+    // Inject axe-core (for accessibility tests)
+    browser.injectAxeCore();
   });
 
   // Normal state
