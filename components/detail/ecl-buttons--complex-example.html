@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.1" type="text/css">
 
 
-<title>Buttons: Primary button, block-wide, with arrow-down | Europa Component Library</title>
+<title>Buttons: Primary button, block-wide, with caret-down | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -104,7 +104,7 @@
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
         <a class="Pen-previewLink" href="../preview/ecl-buttons--complex-example" title="Component preview">
-            Buttons: Primary button, block-wide, with arrow-down
+            Buttons: Primary button, block-wide, with caret-down
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -307,10 +307,10 @@ Do not use this component in the header or the footer component.</p>
         
             
             <pre>{
-  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Primary button, block-wide, with arrow-down"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Primary button, block-wide, with caret-down"</span>,
   <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"primary"</span>,
   <span class="hljs-attr">"isBlock"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"arrow-down"</span>
+  <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"caret-down"</span>
 }</pre>
             
         
@@ -322,7 +322,7 @@ Do not use this component in the header or the footer component.</p>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-1989ff82657f7fbfbfcc49513c8ebd7c-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-button--block ecl-button--arrow-down"</span>&gt;</span>Primary button, block-wide, with arrow-down<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-button--block ecl-button--caret-down"</span>&gt;</span>Primary button, block-wide, with caret-down<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -382,14 +382,6 @@ Do not use this component in the header or the footer component.</p>
   }
 }
 
-@<span class="hljs-keyword">mixin</span> ecl-button--arrow() {
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.45em</span>;
-  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">top</span>: -<span class="hljs-number">2px</span>;
-  <span class="hljs-attribute">transition</span>: rotate <span class="hljs-number">0.3s</span> ease <span class="hljs-number">0s</span>;
-}
-
 @<span class="hljs-keyword">mixin</span> ecl-button--caret() {
   <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.8em</span>;
   <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.8em</span>;
@@ -411,7 +403,7 @@ Do not use this component in the header or the footer component.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">709 Bytes</span>
+                    <span class="Meta-value">566 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -555,24 +547,6 @@ Do not use this component in the header or the footer component.</p>
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 }
 
-<span class="hljs-selector-class">.ecl-button--arrow-up</span> {
-  &amp;::after {
-    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-
-    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'arrow-up'</span>);
-    @<span class="hljs-keyword">include</span> ecl-button--arrow();
-  }
-}
-
-<span class="hljs-selector-class">.ecl-button--arrow-down</span> {
-  &amp;::after {
-    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-
-    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'arrow-down'</span>);
-    @<span class="hljs-keyword">include</span> ecl-button--arrow();
-  }
-}
-
 <span class="hljs-selector-class">.ecl-button--caret-up</span> {
   &amp;::after {
     @<span class="hljs-keyword">extend</span> %ecl-icon--after;
@@ -624,7 +598,7 @@ Do not use this component in the header or the footer component.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3.1 KB</span>
+                    <span class="Meta-value">2.8 KB</span>
                 </li>
             </ul>
         </div>

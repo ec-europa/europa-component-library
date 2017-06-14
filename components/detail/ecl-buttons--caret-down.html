@@ -380,14 +380,6 @@ Do not use this component in the header or the footer component.</p>
   }
 }
 
-@<span class="hljs-keyword">mixin</span> ecl-button--arrow() {
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.45em</span>;
-  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">top</span>: -<span class="hljs-number">2px</span>;
-  <span class="hljs-attribute">transition</span>: rotate <span class="hljs-number">0.3s</span> ease <span class="hljs-number">0s</span>;
-}
-
 @<span class="hljs-keyword">mixin</span> ecl-button--caret() {
   <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.8em</span>;
   <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.8em</span>;
@@ -409,7 +401,7 @@ Do not use this component in the header or the footer component.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">709 Bytes</span>
+                    <span class="Meta-value">566 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -553,24 +545,6 @@ Do not use this component in the header or the footer component.</p>
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 }
 
-<span class="hljs-selector-class">.ecl-button--arrow-up</span> {
-  &amp;::after {
-    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-
-    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'arrow-up'</span>);
-    @<span class="hljs-keyword">include</span> ecl-button--arrow();
-  }
-}
-
-<span class="hljs-selector-class">.ecl-button--arrow-down</span> {
-  &amp;::after {
-    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-
-    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'arrow-down'</span>);
-    @<span class="hljs-keyword">include</span> ecl-button--arrow();
-  }
-}
-
 <span class="hljs-selector-class">.ecl-button--caret-up</span> {
   &amp;::after {
     @<span class="hljs-keyword">extend</span> %ecl-icon--after;
@@ -622,7 +596,7 @@ Do not use this component in the header or the footer component.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3.1 KB</span>
+                    <span class="Meta-value">2.8 KB</span>
                 </li>
             </ul>
         </div>
