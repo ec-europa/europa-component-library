@@ -10,7 +10,7 @@ module.exports = {
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
-        moduleName: 'Europa',
+        moduleName: 'ECL',
       },
     },
   ],
