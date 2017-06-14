@@ -6,18 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../framework/styles/europa.css">
     <title>Preview Layout</title>
+    <style>
+      body {
+        background-image:url(../../assets/alpha.jpg);
+        margin: 15px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
   </head>
-  <body>
-    <div class="rss-link__wrapper">
-  <div class="rss-link">
-    <span class="rss-link__label">Get updates:</span>
-    <a href="#">
-      <span class="rss-link__icon icon-social icon-social--rss"></span>
-      <span class="rss-link__text">RSS</span>
-    </a>
-  </div>
+  <body class="">
+    <main>
+      <div class="ecl-rss-links">
+  <span class="ecl-rss-links__label">Get updates:</span>
+  <a class="ecl-rss-links__link ecl-link" href="#">
+    <span class="ecl-rss-links__icon ecl-icon-social ecl-icon-social--rss"></span>
+    <span class="ecl-rss-links__text">RSS</span>
+  </a>
 </div>
 
+    </main>
     <script src="../../framework/scripts/europa.js"></script>
       </body>
 </html>
