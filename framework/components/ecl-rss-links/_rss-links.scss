@@ -1,61 +1,41 @@
-/*
-RSS Link
-*/
+/**
+ * Blockquotes
+ * @define rss-links
+ */
 
-$rss-link-icon-height: 40px;
-
-.rss-link {
-  float: right;
-  margin-bottom: 15px;
-  position: relative;
-
-  a {
-    float: left;
-    line-height: 40px;
-
-    &:hover {
-      .rss-link__text {
-        text-decoration: underline;
-      }
-    }
-  }
+.ecl-rss-links {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: map-get($ecl-spacing, 'xs');
 }
 
-.rss-link__wrapper {
-  overflow: hidden;
-}
-
-.rss-link__label {
+.ecl-rss-links__label {
   color: $ecl-color-shade;
   font-size: map-get($ecl-font-size, 's');
-  font-weight: 600;
-  float: left;
-  margin-bottom: 0;
-  margin-right: 10px;
-  line-height: $rss-link-icon-height;
+  font-weight: bold;
+  margin: 0 map-get($ecl-font-size, 'xxs') 0 0;
 }
 
-.rss-link__icon {
-  float: left;
-
-  &::before {
-    width: 100%;
-  }
-}
-
-.rss-link__text {
-  display: inline-block;
-  font-size: map-get($ecl-font-size, 'xs');
-  font-weight: normal;
+.ecl-rss-links__link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   text-decoration: none;
 }
 
-@include ecl-media-breakpoint-up(md) {
-  .rss-link__wrapper {
-    float: right;
+.ecl-rss-links__link:hover {
+  .ecl-rss-links__text {
+    text-decoration: underline;
   }
+}
 
-  .rss-link {
-    margin-bottom: 0;
-  }
+// Correcting .ecl-icon-social adding 5px on top.
+.ecl-rss-links__icon {
+  padding-top: 0;
+}
+
+.ecl-rss-links__text {
+  font-size: map-get($ecl-font-size, 'xs');
+  text-decoration: none;
 }
