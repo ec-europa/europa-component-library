@@ -4,13 +4,11 @@
  */
 
 /* Mobile-first display */
-.ecl-horizontal-menu {
-  background-color: map-get($ecl-colors, 'blue-25');
-}
-
 .ecl-horizontal-menu__root {
+  background-color: map-get($ecl-colors, 'blue-25');
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -21,6 +19,7 @@
   background-color: map-get($ecl-colors, 'blue-50');
   color: #fff;
   display: flex;
+  flex-grow: 1;
   font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
   min-height: map-get($ecl-spacing, 'xl');
@@ -30,14 +29,11 @@
 }
 
 .ecl-horizontal-menu__group {
+  background-color: map-get($ecl-colors, 'grey-5');
+  display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
-}
-
-.ecl-horizontal-menu__group:not(.ecl-horizontal-menu__root) {
-  background-color: map-get($ecl-colors, 'grey-5');
-  display: none;
 }
 
 .ecl-horizontal-menu__link {
@@ -55,6 +51,13 @@
 
 .ecl-horizontal-menu__item:last-child .ecl-horizontal-menu__link {
   border-bottom-width: 0;
+}
+
+.ecl-horizontal-menu__group .ecl-horizontal-menu__link {
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 /* Icon display */
@@ -89,12 +92,17 @@
   &::after {
     display: none;
   }
+
+  &--active {
+    font-weight: bold;
+  }
 }
 
 .ecl-horizontal-menu__item--active {
   background-color: map-get($ecl-colors, 'blue-75');
 
   .ecl-horizontal-menu__link {
+    border-bottom-width: 0;
     color: #fff;
   }
 }
@@ -106,15 +114,21 @@
 
 /* Desktop display */
 @include ecl-media-breakpoint-up(md) {
+  .ecl-horizontal-menu {
+    background-color: map-get($ecl-colors, 'blue-25');
+  }
+
   .ecl-horizontal-menu__toggle {
     display: none;
   }
 
   .ecl-horizontal-menu__root {
+    background-color: transparent;
     flex-direction: row;
   }
 
   .ecl-horizontal-menu__link[aria-expanded='true'] ~ .ecl-horizontal-menu__group {
+    align-items: baseline;
     display: inline-flex;
   }
 
@@ -134,8 +148,9 @@
 
   .ecl-horizontal-menu__link {
     border-bottom-width: 0;
-    margin: 0 map-get($ecl-spacing, 's');
+    margin: 0;
     min-height: map-get($ecl-spacing, 'xl');
+    padding: 0 map-get($ecl-spacing, 's');
   }
 
   .ecl-horizontal-menu__group .ecl-horizontal-menu__link {
@@ -145,5 +160,9 @@
   .ecl-horizontal-menu__link[aria-expanded]::after {
     position: relative;
     right: 0;
+  }
+
+  .ecl-horizontal-menu__link[aria-expanded='true'] {
+    background-color: map-get($ecl-colors, 'grey-5');
   }
 }
