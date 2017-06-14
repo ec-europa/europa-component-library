@@ -129,24 +129,6 @@
   width: 100%;
 }
 
-.ecl-button--arrow-up {
-  &::after {
-    @extend %ecl-icon--after;
-
-    @include ecl-icon('arrow-up');
-    @include ecl-button--arrow();
-  }
-}
-
-.ecl-button--arrow-down {
-  &::after {
-    @extend %ecl-icon--after;
-
-    @include ecl-icon('arrow-down');
-    @include ecl-button--arrow();
-  }
-}
-
 .ecl-button--caret-up {
   &::after {
     @extend %ecl-icon--after;
