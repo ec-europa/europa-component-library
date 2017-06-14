@@ -1,21 +1,25 @@
-{% if navigationTree is defined %}
 <nav class="ecl-horizontal-menu">
   <div class="ecl-container">
     <div class="ecl-row">
-      <a href="#" class="ecl-horizontal-menu__toggle">
-        Menu
+      <a href="#" class="ecl-horizontal-menu__toggle ecl-horizontal-menu__hamburger ecl-horizontal-menu__hamburger--squeeze" aria-controls="hm-expandable-root" aria-expanded="true" id="hm-expandable-toggle">
+        <span class="ecl-horizontal-menu__hamburger-box">
+          <span class="ecl-horizontal-menu__hamburger-inner"></span>
+        </span>
+        <span class="ecl-horizontal-menu__hamburger-label">{{ menuLabel }}</span>
       </a>
 
-      <ul class="ecl-horizontal-menu__root">
+      <ul class="ecl-horizontal-menu__root" id="hm-expandable-root">
         <li class="ecl-horizontal-menu__item ecl-horizontal-menu__item--active">
-          <a href="#" class="ecl-horizontal-menu__link">Home</a>
+          <a href="#" class="ecl-horizontal-menu__link">{{ homeLabel }}</a>
         </li>
 
+        {% block navigationTree %}
+
         <li class="ecl-horizontal-menu__item">
-          <a href="#" class="ecl-horizontal-menu__link" aria-expanded="true">Item 1</a>
-          <ul class="ecl-horizontal-menu__group">
+          <a href="#" class="ecl-horizontal-menu__link" aria-controls="hm-expandable-group-1" aria-expanded="true" id="hm-expandable-label-1">Item 1</a>
+          <ul class="ecl-horizontal-menu__group" id="hm-expandable-group-1">
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1</a></li>
-            <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.1 which has a slightly longer label on multiple lines</a></li>
+            <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.1 which has a longer label on multiple lines</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.2</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.3</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 1.4</a></li>
@@ -26,8 +30,8 @@
         </li>
 
         <li class="ecl-horizontal-menu__item">
-          <a href="#" class="ecl-horizontal-menu__link" aria-expanded="false">Item 2</a>
-          <ul class="ecl-horizontal-menu__group">
+          <a href="#" class="ecl-horizontal-menu__link" aria-controls="hm-expandable-group-2" aria-expanded="false" id="hm-expandable-label-2">Item 2</a>
+          <ul class="ecl-horizontal-menu__group" id="hm-expandable-group-2">
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.1</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 2.2</a></li>
@@ -40,8 +44,8 @@
         </li>
 
         <li class="ecl-horizontal-menu__item">
-          <a href="#" class="ecl-horizontal-menu__link" aria-expanded="false">Item 3</a>
-          <ul class="ecl-horizontal-menu__group">
+          <a href="#" class="ecl-horizontal-menu__link" aria-controls="hm-expandable-group-3" aria-expanded="false" id="hm-expandable-label-3">Item 3</a>
+          <ul class="ecl-horizontal-menu__group" id="hm-expandable-group-3">
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.1</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 3.2</a></li>
@@ -54,8 +58,8 @@
         </li>
 
         <li class="ecl-horizontal-menu__item">
-          <a href="#" class="ecl-horizontal-menu__link" aria-expanded="false">Item 4</a>
-          <ul class="ecl-horizontal-menu__group">
+          <a href="#" class="ecl-horizontal-menu__link" aria-controls="hm-expandable-group-4" aria-expanded="false" id="hm-expandable-label-4">Item 4</a>
+          <ul class="ecl-horizontal-menu__group" id="hm-expandable-group-4">
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.1</a></li>
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.2</a></li>
@@ -66,13 +70,9 @@
             <li class="ecl-horizontal-menu__item"><a href="#" class="ecl-horizontal-menu__link">Item 4.7</a></li>
           </ul>
         </li>
+
+        {% endblock %}
       </ul>
     </div>
   </div>
 </nav>
-
-{% else %}
-
-<p class="ecl-paragraph ecl-u-color-error">Invalid data provided to horizontal menu</p>
-
-{% endif %}

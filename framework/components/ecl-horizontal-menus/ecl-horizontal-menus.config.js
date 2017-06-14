@@ -1,11 +1,13 @@
-const navigation = 'test';
-
 module.exports = {
   title: 'Horizontal menus',
   label: 'Horizontal menus',
   status: 'ready',
   tags: ['organism'],
   context: {
-    navigationTree: navigation,
+    homeLabel: 'Home',
+    menuLabel: 'Menu',
+    _demo: {
+      scripts: "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
+    },
   },
 };
