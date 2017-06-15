@@ -3,7 +3,7 @@
 Messages is a component that is used for displaying different types of messages
 like:
 * info (by default)
-* status
+* success
 * warning
 * error
 * live

@@ -10,7 +10,7 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
-      <h4>${item.label}\n</h4>\n
+      <h3 class="ecl-heading ecl-heading--h3">${item.label}\n</h3>\n
       ${markup}\n
       <!-- End: @${item.handle} -->\n
     `;
