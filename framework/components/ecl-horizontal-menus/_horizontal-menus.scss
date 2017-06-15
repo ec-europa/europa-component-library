@@ -43,15 +43,18 @@
 
 .ecl-horizontal-menu__link {
   align-items: center;
-  border-bottom: 1px solid map-get($ecl-colors, 'blue-50');
+  background-color: transparent;
+  border-width: 0;
+  box-sizing: border-box;
   color: map-get($ecl-colors, 'blue-120');
   display: flex;
   font-size: map-get($ecl-font-size, 'xs');
   font-weight: bold;
   height: map-get($ecl-spacing, 'l'); // need to use height and not min-height, for IE
-  margin: 0 map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'm');
+  padding: 0 map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'm');
   position: relative;
   text-decoration: none;
+  width: 100%;
 }
 
 .ecl-horizontal-menu__item:last-child .ecl-horizontal-menu__link {
@@ -206,11 +209,19 @@
   .ecl-horizontal-menu__group {
     flex-wrap: wrap;
     left: 0;
-    // Ugly hack to spread background-color
-    margin: 0 -1000em;
-    padding: 0 1000em;
     position: absolute;
+    top: 100%;
     width: 100%;
+
+    &::before {
+      background-color: #f5f5f5;
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, 0);
+      width: 100vw;
+    }
   }
 
   .ecl-horizontal-menu__group .ecl-horizontal-menu__item {
