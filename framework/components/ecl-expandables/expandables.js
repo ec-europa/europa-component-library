@@ -25,7 +25,12 @@ export const toggleExpandable = toggleElement => {
 export const initExpandables = (
   selector = '[aria-controls][aria-expanded]',
   context = document
-) =>
-  [...context.querySelectorAll(selector)].forEach(el =>
-    el.addEventListener('click', () => toggleExpandable(el))
+) => {
+  const nodesArray = Array.prototype.slice.call(
+    context.querySelectorAll(selector)
   );
+
+  nodesArray.forEach(node =>
+    node.addEventListener('click', () => toggleExpandable(node))
+  );
+};
