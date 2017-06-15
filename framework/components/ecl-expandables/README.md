@@ -17,6 +17,8 @@ The expandable component is a list of headers that can be clicked to hide or rev
 
 ## Implementation
 
+In order to automatically attach event listeners on your expandables, add the follwoing script to your page:
+
 ```js
 document.addEventListener('DOMContentLoaded', function () {
   ECL.initExpandables();
