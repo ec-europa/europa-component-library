@@ -1,4 +1,18 @@
 /*
- * Breadcrumbs
- * @define date
- */
+* Breadcrumbs
+* @define datepickers
+*/
+
+// Positioning the calendar icon.
+.ecl-datepickers {
+  position: relative;
+
+  &__icon {
+    color: map-get($ecl-colors, 'grey-50');
+    // For the icon does not interfere with the clickable area.
+    pointer-events: none;
+    position: absolute;
+    right: 0.7em;
+    top: 0.8em;
+  }
+}
