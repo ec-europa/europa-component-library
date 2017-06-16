@@ -39,6 +39,8 @@ $ecl-datepickers-week-color: #999 !default;
 }
 
 // Styling specific to Pikaday.
+
+/* postcss-bem-linter: ignore */
 .pika-single {
   background: $ecl-datepickers-picker-bg;
   color: $ecl-datepickers-text-color;
@@ -87,7 +89,7 @@ $ecl-datepickers-week-color: #999 !default;
   display: inline-block;
   *display: inline;
   position: relative;
-  text-indent: -9999px;
+  width: 49%;
 }
 
 .pika-label select {
@@ -97,7 +99,6 @@ $ecl-datepickers-week-color: #999 !default;
   border: none;
   color: #fff;
   cursor: pointer;
-  display: inline-block;
   float: none;
   height: 100%;
   margin: 0;
