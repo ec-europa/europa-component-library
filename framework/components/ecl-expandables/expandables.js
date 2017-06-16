@@ -1,4 +1,12 @@
-export const toggleExpandable = toggleElement => {
+export const toggleExpandable = (
+  toggleElement,
+  {
+    context = document,
+    forceClose = false,
+    closeSiblings = false,
+    siblingsSelector = '[aria-controls][aria-expanded]',
+  } = {}
+) => {
   if (!toggleElement) {
     return;
   }
@@ -14,11 +22,36 @@ export const toggleExpandable = toggleElement => {
   }
 
   // Get current status
-  const isExpanded = toggleElement.getAttribute('aria-expanded') === 'true';
+  const isExpanded =
+    forceClose === true ||
+    toggleElement.getAttribute('aria-expanded') === 'true';
 
   // Toggle the expandable/collapsible
   toggleElement.setAttribute('aria-expanded', !isExpanded);
   target.setAttribute('aria-hidden', isExpanded);
+
+  console.log({
+    context,
+    forceClose,
+    closeSiblings,
+    siblingsSelector,
+  });
+
+  // Close siblings if requested
+  if (closeSiblings === true) {
+    const siblingsArray = Array.prototype.slice
+      .call(context.querySelectorAll(siblingsSelector))
+      .filter(sibling => sibling !== toggleElement);
+
+    console.log('siblingsArray', siblingsArray);
+
+    siblingsArray.forEach(sibling => {
+      toggleExpandable(sibling, {
+        context,
+        forceClose: true,
+      });
+    });
+  }
 };
 
 // Helper method to automatically attach the event listener to all the expandables on page load
@@ -31,6 +64,6 @@ export const initExpandables = (
   );
 
   nodesArray.forEach(node =>
-    node.addEventListener('click', () => toggleExpandable(node))
+    node.addEventListener('click', () => toggleExpandable(node, { context }))
   );
 };

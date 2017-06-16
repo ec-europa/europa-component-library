@@ -22,6 +22,7 @@
 .ecl-horizontal-menu__toggle {
   align-items: center;
   background-color: map-get($ecl-colors, 'blue-50');
+  border-width: 0;
   color: #fff;
   display: flex;
   font-size: map-get($ecl-font-size, 's');
@@ -199,6 +200,11 @@
   .ecl-horizontal-menu__root {
     background-color: transparent;
     flex-direction: row;
+  }
+
+  // Force display
+  .ecl-horizontal-menu__root[aria-hidden='true'] {
+    display: flex;
   }
 
   .ecl-horizontal-menu__link[aria-expanded='true'] ~ .ecl-horizontal-menu__group {

@@ -21,12 +21,20 @@ of items on the first level of the menu be somewhere between 3-5.
 
 Labels on the first level of the menu should be simple and straightforward and optimally composed
 of between 1 to 3 words (for the English language version).
+
 Using 3 words should be an exception when you want to refer to two related topics and (e.g. News
 and events / Contracts and funding)
-* https://ux.stackexchange.com/questions/5124/what-are-good-rules-for-naming-menu-items/5126
-* https://thrivehive.com/navigation-menu-best-practices
+
+-   https://ux.stackexchange.com/questions/5124/what-are-good-rules-for-naming-menu-items/5126
+-   https://thrivehive.com/navigation-menu-best-practices
 
 ### Drop down Arrows
 
 The dropdown arrows visible next to each item that has sub-items provide the user with an
 immediate visual indication that more items are available on hover/click.
+
+## Resources
+
+-   https://www.w3.org/WAI/GL/wiki/Using_ARIA_menus
+-   https://dequeuniversity.com/library/aria/menus/megamenu
+-   https://github.com/adobe-accessibility/Accessible-Mega-Menu
