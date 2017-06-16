@@ -30,20 +30,11 @@ export const toggleExpandable = (
   toggleElement.setAttribute('aria-expanded', !isExpanded);
   target.setAttribute('aria-hidden', isExpanded);
 
-  console.log({
-    context,
-    forceClose,
-    closeSiblings,
-    siblingsSelector,
-  });
-
   // Close siblings if requested
   if (closeSiblings === true) {
     const siblingsArray = Array.prototype.slice
       .call(context.querySelectorAll(siblingsSelector))
       .filter(sibling => sibling !== toggleElement);
-
-    console.log('siblingsArray', siblingsArray);
 
     siblingsArray.forEach(sibling => {
       toggleExpandable(sibling, {
