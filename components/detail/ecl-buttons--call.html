@@ -31,12 +31,12 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.1" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.1" type="text/css">
 
 
-<title>Buttons: Call | Europa Component Library</title>
+<title>Buttons: Call-to-action | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -104,7 +104,7 @@
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
         <a class="Pen-previewLink" href="../preview/ecl-buttons--call" title="Component preview">
-            Buttons: Call
+            Buttons: Call-to-action
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -307,8 +307,9 @@ Do not use this component in the header or the footer component.</p>
         
             
             <pre>{
-  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Call to action"</span>,
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"call"</span>
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Call-to-action"</span>,
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"call"</span>,
+  <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"caret-right"</span>
 }</pre>
             
         
@@ -320,7 +321,7 @@ Do not use this component in the header or the footer component.</p>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-8bad77900116adbfc1f51e210251e3f5-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call"</span>&gt;</span>Call to action<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-right"</span>&gt;</span>Call-to-action<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -336,15 +337,15 @@ Do not use this component in the header or the footer component.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-84aed9f938069515693ce0a88605758e">_buttons-mixins.scss</option>
+                <option value="file-3335fbd3868a97cb583f6c4e999769b5">_buttons-mixins.scss</option>
                 
-                <option value="file-74f913e6b6665e75f473363c1b59d7cf">_buttons.scss</option>
+                <option value="file-50ac5b4ccd7fdfca6e6bab78bad8d4eb">_buttons.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-84aed9f938069515693ce0a88605758e" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-3335fbd3868a97cb583f6c4e999769b5" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -352,35 +353,7 @@ Do not use this component in the header or the footer component.</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre>@<span class="hljs-keyword">mixin</span> ecl-button--default() {
-  <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
-
-  &amp;:hover,
-  &amp;:focus,
-  &amp;:active {
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-  }
-}
-
-@<span class="hljs-keyword">mixin</span> ecl-button--call() {
-  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-  <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-  <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-
-  &amp;:hover,
-  &amp;:focus,
-  &amp;:active {
-    <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#000</span>;
-  }
-
-  &amp;:focus {
-    <span class="hljs-attribute">outline-color</span>: <span class="hljs-number">#000</span>;
-  }
-}
-
-@<span class="hljs-keyword">mixin</span> ecl-button--caret() {
+                                <pre>@<span class="hljs-keyword">mixin</span> ecl-button--caret() {
   <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.8em</span>;
   <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.8em</span>;
   <span class="hljs-attribute">transition</span>: rotate <span class="hljs-number">0.3s</span> ease <span class="hljs-number">0s</span>;
@@ -401,12 +374,12 @@ Do not use this component in the header or the footer component.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">566 Bytes</span>
+                    <span class="Meta-value">108 Bytes</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-74f913e6b6665e75f473363c1b59d7cf" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-50ac5b4ccd7fdfca6e6bab78bad8d4eb" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -452,6 +425,7 @@ Do not use this component in the header or the footer component.</p>
 }
 
 <span class="hljs-selector-class">.ecl-button--default</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
   <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
 
@@ -487,13 +461,8 @@ Do not use this component in the header or the footer component.</p>
   <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
 
-  &amp;:hover,
-  &amp;:focus,
-  &amp;:active {
-    <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#000</span>;
-  }
-
   &amp;:focus {
+    <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#000</span>;
     <span class="hljs-attribute">outline-color</span>: <span class="hljs-number">#000</span>;
   }
 }
@@ -530,12 +499,6 @@ Do not use this component in the header or the footer component.</p>
     <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
     <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   }
-}
-
-<span class="hljs-selector-class">.ecl-button--light</span> {
-  @<span class="hljs-keyword">include</span> ecl-button--default();
-
-  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">500</span>;
 }
 
 <span class="hljs-selector-class">.ecl-button--block</span> {
@@ -596,7 +559,7 @@ Do not use this component in the header or the footer component.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.8 KB</span>
+                    <span class="Meta-value">2.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -4195,7 +4158,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.1"></script>
 
 
 
