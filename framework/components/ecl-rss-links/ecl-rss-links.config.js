@@ -1,6 +1,7 @@
 module.exports = {
   title: 'RSS Links',
   label: 'RSS Links',
-  status: 'planned',
+  status: 'ready',
+  preview: '@preview-center-transparent',
   tags: ['molecule'],
 };

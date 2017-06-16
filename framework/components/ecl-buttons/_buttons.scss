@@ -36,6 +36,7 @@
 }
 
 .ecl-button--default {
+  background-color: #fff;
   border-color: $ecl-color-primary;
   color: $ecl-color-primary;
 
@@ -71,13 +72,8 @@
   border-color: map-get($ecl-colors, 'yellow-100');
   color: #000;
 
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: #000;
-  }
-
   &:focus {
+    border-color: #000;
     outline-color: #000;
   }
 }
@@ -114,12 +110,6 @@
     background-color: $ecl-color-primary;
     color: #fff;
   }
-}
-
-.ecl-button--light {
-  @include ecl-button--default();
-
-  font-weight: 500;
 }
 
 .ecl-button--block {
