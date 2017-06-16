@@ -1,31 +1,3 @@
-@mixin ecl-button--default() {
-  border-color: $ecl-color-primary;
-  color: $ecl-color-primary;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $ecl-color-primary;
-    color: #fff;
-  }
-}
-
-@mixin ecl-button--call() {
-  background-color: map-get($ecl-colors, 'yellow-100');
-  border-color: map-get($ecl-colors, 'yellow-100');
-  color: #000;
-
-  &:hover,
-  &:focus,
-  &:active {
-    border-color: #000;
-  }
-
-  &:focus {
-    outline-color: #000;
-  }
-}
-
 @mixin ecl-button--caret() {
   font-size: 0.8em;
   margin-left: 0.8em;
