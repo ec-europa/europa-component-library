@@ -1,6 +1,6 @@
 const variants = ['default', 'tabs'];
 
-describe('navigation', () => {
+describe('navigation-lists', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -15,7 +15,7 @@ describe('navigation', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-navigation--${variant}.html`);
+        browser.url(`ecl-navigation-lists--${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(1000);
         // Inject axe-core (for accessibility tests)
@@ -25,13 +25,14 @@ describe('navigation', () => {
       // Normal state
       it('should match the reference screenshot', () => {
         const screenshots = browser.checkDocument({
-          name: `navigation/${variant}`,
+          name: `navigation/lists/${variant}`,
         });
         expect(screenshots).to.matchReference();
       });
 
       it('should be accessible', () => {
-        const a11yReport = browser.runAxeCore('ecl-navigation-wrapper').value;
+        const a11yReport = browser.runAxeCore('ecl-navigation-list-wrapper')
+          .value;
         expect(a11yReport).to.be.accessible;
       });
     });
