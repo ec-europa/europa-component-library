@@ -24,30 +24,5 @@ cache:
   directories:
     - node_modules
 
-matrix:
-  # Allow coding conventions tests to fail
-  allow_failures:
-    - env: TEST_SUITE=test:coding-conventions
-  include:
-    # Nodejs 6 - Webdriver.io
-    - node_js: 6
-      env: TEST_SUITE=test:functional
-      addons:
-        apt:
-          packages:
-            - graphicsmagick
-        artifacts:
-          paths:
-            - $TRAVIS_BUILD_DIR/test/screenshots/diff/
-            - $TRAVIS_BUILD_DIR/test/errorShots/
-        sauce_connect: true
-
-    # Nodejs 6 - Lint
-    - node_js: 6
-      env: TEST_SUITE=test:coding-conventions
-
-before_script:
-  - if [ "${TEST_SUITE}" = "test:functional" ]; then npm run dist; fi
-
-script:
-  - npm run $TEST_SUITE
+after_success:
+  - echo $TRAVIS_BRANCH
