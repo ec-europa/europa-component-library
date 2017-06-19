@@ -1,8 +1,8 @@
-<div class="ecl-message {% if modifier is defined %} ecl-message--{{ modifier }} {% endif %}">
+<div class="ecl-message {% if modifier is defined %} ecl-message--{{ modifier }} {% endif %}" role="alert">
   <span class="ecl-sr-only">{{ srOnly }}</span>
 
   {% if dismiss is defined and dismiss %}
-  <button type="button" class="ecl-message__close" data-dismiss="ecl-message">&times;</button>
+  <button type="button" class="ecl-message__dismiss" aria-label="Dismiss this alert">&times;</button>
   {% endif %}
 
   {% if title is defined %}

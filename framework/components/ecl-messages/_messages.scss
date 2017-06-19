@@ -1,10 +1,7 @@
-/*
-Messages
-
-Markup: html/messages.html
-
-Style guide messages
-*/
+/**
+ * Messages
+ * @define message
+ */
 
 .ecl-message {
   background: transparent url('../images/svg/messages-info.svg') no-repeat 1.2rem 1.2rem;
@@ -46,7 +43,7 @@ Style guide messages
   margin: 0;
 }
 
-.ecl-message__close {
+.ecl-message__dismiss {
   background: transparent url('../images/svg/close.svg') no-repeat center center;
   border-width: 0;
   color: transparent;
@@ -62,35 +59,5 @@ Style guide messages
 
   &:hover {
     background-image: url('../images/svg/close_hover.svg');
-  }
-}
-
-.no-svg {
-  .ecl-message {
-    background-image: url('../images/png/messages-info.png');
-  }
-
-  .ecl-message--success {
-    background-image: url('../images/png/messages-info.png');
-  }
-
-  .ecl-message--warning {
-    background-image: url('../images/png/messages-warning.png');
-  }
-
-  .ecl-message--error {
-    background-image: url('../images/png/messages-error.png');
-  }
-
-  .ecl-message--live {
-    background-image: url('../images/png/live_streaming.png');
-  }
-
-  .ecl-message__close {
-    background-image: url('../images/png/close.png');
-  }
-
-  .ecl-message__close:hover {
-    background-image: url('../images/png/close_hover.png');
   }
 }
