@@ -1,6 +1,5 @@
 /*
 * Datepicker styles based on Pikaday.
-* @define datepickers
 */
 
 $ecl-datepickers-color-header: #393939;
@@ -40,7 +39,6 @@ $ecl-datepickers-week-color: #999 !default;
 
 // Styling specific to Pikaday.
 
-/* postcss-bem-linter: ignore */
 .pika-single {
   background: $ecl-datepickers-picker-bg;
   color: $ecl-datepickers-text-color;
@@ -89,14 +87,13 @@ $ecl-datepickers-week-color: #999 !default;
   display: inline-block;
   *display: inline;
   position: relative;
-  width: 49%;
 }
 
 .pika-label select {
   @include ecl-form-control();
 
   background: $ecl-datepickers-color-select;
-  border: none;
+  border: 0;
   color: #fff;
   cursor: pointer;
   float: none;
@@ -124,24 +121,23 @@ $ecl-datepickers-week-color: #999 !default;
 
 .pika-prev,
 .pika-next {
-  display: block;
-  cursor: pointer;
-  position: relative;
-  outline: none;
-  border: 0;
-  padding: 0;
-  width: 20px;
-  height: 30px;
-  text-indent: 20px; // hide text using text-indent trick, using width value (it's enough)
-  white-space: nowrap;
-  overflow: hidden;
   background-color: transparent;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 75% 75%;
-  opacity: .5;
-  *position: absolute;
-  *top: 0;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  opacity: 0.5;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-indent: 50px; // hide text
+  top: 0;
+  white-space: nowrap;
+  width: 50px;
 
   &:hover {
     opacity: 1;
@@ -149,22 +145,22 @@ $ecl-datepickers-week-color: #999 !default;
 
   &.is-disabled {
     cursor: default;
-    opacity: .2;
+    opacity: 0.2;
   }
 }
 
 .pika-prev,
 .is-rtl .pika-next {
-  float: left;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==');
-  *left: 0;
+  float: left;
+  left: 0;
 }
 
 .pika-next,
 .is-rtl .pika-prev {
-  float: right;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=');
-  *right: 0;
+  float: right;
+  right: 0;
 }
 
 .pika-select {
@@ -173,46 +169,45 @@ $ecl-datepickers-week-color: #999 !default;
 }
 
 .pika-table {
-  width: 100%;
+  border: 0;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 0;
+  width: 100%;
 
   th,
   td {
-    width: 14.285714285714286%;
     padding: 0;
+    width: 15%;
   }
 
   th {
     color: $ecl-datepickers-th-color;
     font-size: 12px;
-    line-height: 25px;
     font-weight: bold;
+    line-height: 25px;
     text-align: center;
   }
 
   abbr {
-    border-bottom: none;
+    border-bottom: 0;
     cursor: help;
   }
 }
 
 .pika-button {
+  background: $ecl-datepickers-day-bg;
+  border: 0;
+  box-sizing: border-box;
+  color: $ecl-datepickers-day-color;
   cursor: pointer;
   display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none;
-  border: 0;
-  margin: 0;
-  width: 100%;
-  padding: 5px;
-  color: $ecl-datepickers-day-color;
   font-size: 12px;
   line-height: 15px;
+  margin: 0;
+  outline: none;
+  padding: 5px;
   text-align: right;
-  background: $ecl-datepickers-day-bg;
+  width: 100%;
 
   .is-today & {
     color: $ecl-datepickers-day-today-color;
@@ -220,246 +215,56 @@ $ecl-datepickers-week-color: #999 !default;
   }
 
   .is-selected & {
+    background: $ecl-datepickers-day-selected-bg;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px $ecl-datepickers-day-selected-shadow;
     color: $ecl-datepickers-day-selected-color;
     font-weight: bold;
-    background: $ecl-datepickers-day-selected-bg;
-    box-shadow: inset 0 1px 3px $ecl-datepickers-day-selected-shadow;
-    border-radius: 3px;
   }
 
   .is-disabled &,
   .is-outside-current-month & {
     color: $ecl-datepickers-day-disabled-color;
-    opacity: .3;
+    opacity: 0.3;
   }
 
   .is-disabled & {
-    pointer-events: none;
     cursor: default;
+    pointer-events: none;
   }
 
   &:hover {
-    color: $ecl-datepickers-day-hover-color;
     background: $ecl-datepickers-day-hover-bg;
-    box-shadow: none;
     border-radius: 3px;
+    box-shadow: none;
+    color: $ecl-datepickers-day-hover-color;
   }
 
   .is-selection-disabled {
-    pointer-events: none;
     cursor: default;
+    pointer-events: none;
   }
 }
 
 .pika-week {
-  font-size: 11px;
   color: $ecl-datepickers-week-color;
+  font-size: 11px;
 }
 
 .is-inrange .pika-button {
-  background: #D5E9F7;
+  background: #d5e9f7;
 }
 
 .is-startrange .pika-button {
-  color: #fff;
-  background: #6CB31D;
-  box-shadow: none;
+  background: #6cb31d;
   border-radius: 3px;
+  box-shadow: none;
+  color: #fff;
 }
 
 .is-endrange .pika-button {
-  color: #fff;
-  background: #33aaff;
-  box-shadow: none;
+  background: #3af;
   border-radius: 3px;
+  box-shadow: none;
+  color: #fff;
 }
-//
-// // Component.
-// .pika-lendar {
-//   width: 100%;
-//   border: none;
-// }
-//
-// .ui-datepicker {
-//   padding: 0;
-//   font-family: $ecl-font-family-sans-serif;
-//   border: none;
-//   border-radius: 0;
-//
-//   // Datepicker header.
-//   .ui-datepicker-header {
-//     background-color: $ecl-datepickers-color-header;
-//     border: none;
-//     border-radius: 0;
-//     padding: 0 !important;
-//     height: 50px;
-//     line-height: 50px;
-//
-//     .ui-datepicker-prev,
-//     .ui-datepicker-next {
-//       display: block;
-//       height: 100%;
-//       width: 50px;
-//       top: 0;
-//       background: none;
-//       border: none;
-//
-//       &:hover {
-//         cursor: pointer;
-//       }
-//
-//       .ui-icon {
-//         display: block;
-//         height: 100%;
-//         width: 100%;
-//         left: 0;
-//         top: 0;
-//         margin: 0;
-//         background: url('../images/svg/arrow.svg') center center no-repeat;
-//         background-size: 7px;
-//       }
-//     }
-//
-//     .ui-datepicker-prev {
-//       left: 0;
-//
-//       .ui-icon {
-//         transform: rotate(-180deg);
-//       }
-//     }
-//
-//     .ui-datepicker-next {
-//       right: 0;
-//     }
-//
-//     .ui-datepicker-title {
-//       margin: 0 50px;
-//       height: 100%;
-//       font-size: map-get($ecl-font-size, 's');
-//
-//       span,
-//       select {
-//         color: #fff;
-//       }
-//
-//       span {
-//         font-weight: normal;
-//         font-size: 0.8em;
-//       }
-//
-// select {
-//   @include ecl-form-control();
-//
-//   background: $ecl-datepickers-color-select;
-//   color: #fff;
-//   border: none;
-//   height: 100%;
-//   width: 49% !important;
-//   margin: 0;
-//   display: inline-block;
-//   float: none;
-//   padding-right: 0;
-//   padding-left: 0.75em;
-//
-//   @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
-//
-//   position: relative;
-//
-//   &:first-child {
-//     border-right: 2px solid $ecl-datepickers-color-select-separator;
-//   }
-//
-//   &:focus {
-//     // This might be included in the outline mixins.
-//     z-index: 1;
-//   }
-//
-//   &:hover,
-//   &:active,
-//   &:focus {
-//     color: #fff;
-//   }
-// }
-//     }
-//   }
-//
-//   table.ui-datepicker-calendar {
-//     background: $ecl-datepickers-color-background;
-//     border-right: 10px solid transparent;
-//     border-left: 10px solid transparent;
-//     border-bottom: 10px solid transparent;
-//
-//     th {
-//       font-size: 16px;
-//       font-weight: normal;
-//       background: none;
-//     }
-//   }
-//
-//   .ui-state-default {
-//     border: none;
-//     background-color: #fff;
-//     color: #404040;
-//     text-align: center;
-//     margin: 1px;
-//     padding: 5px 10px;
-//   }
-//
-//   .ui-state-active {
-//     border: 2px solid #0b64b2;
-//     padding: 3px 10px;
-//   }
-//
-//   .ui-state-highlight {
-//     background-color: #fed500;
-//     color: #000;
-//   }
-// }
-//
-// .no-svg {
-//   .ui-datepicker-prev {
-//     .ui-icon {
-//       background-image: url('../images/png/arrow-left.png');
-//     }
-//   }
-//
-//   .ui-datepicker-next {
-//     .ui-icon {
-//       background-image: url('../images/png/arrow.png');
-//     }
-//   }
-// }
-//
-// // Positioning the calendar icon.
-// .date-picker {
-//   position: relative;
-//
-//   .date-picker--icon {
-//     @extend %ecl-icon;
-//
-//     position: absolute;
-//     top: 2.35em;
-//     right: 0.5em;
-//     // For the icon does not interfere with the clickable area.
-//     pointer-events: none;
-//     color: map-get($ecl-colors, 'grey-50');
-//   }
-// }
-//
-// @include ecl-media-breakpoint-up(xs) {
-//   .pika-lendar {
-//     width: auto;
-//   }
-//
-//   .ui-datepicker {
-//     table.ui-datepicker-calendar {
-//       width: auto !important;
-//     }
-//   }
-// }
-//
-// @media (max-width: 479px) {
-//   .pika-lendar {
-//     left: 0 !important;
-//   }
-// }
