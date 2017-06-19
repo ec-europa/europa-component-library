@@ -1,0 +1,16 @@
+{#
+  - title: the title of the navigation (default: 'Navigation')
+  - variant: the variant. Can be 'default' or 'tabs' (default: 'default')
+  - links: array of links { to, title, isActive } (default: [])
+#}
+<nav class="ecl-navigation-list-wrapper">
+  <h2 class="ecl-sr-only">{{ title|default('Navigation') }}</h2>
+  <ul class="ecl-navigation-list ecl-navigation-list--{{ variant|default('default') }}">
+    {% for link in links %}
+      {% set activeClass = link.isActive is defined and link.isActive == true? ' ecl-navigation-list__link--active' : '' %}
+      <li class="ecl-navigation-list__item">
+        <a class="ecl-navigation-list__link{{ activeClass }} ecl-link" href="{{ link.to }}">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
