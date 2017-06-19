@@ -63,6 +63,7 @@ $ecl-datepickers-week-color: #999 !default;
 
 .pika-title {
   background-color: $ecl-datepickers-title-bg;
+  display: flex;
   height: 2.5rem;
   line-height: 2.5rem;
   position: relative;
@@ -73,7 +74,7 @@ $ecl-datepickers-week-color: #999 !default;
   background-color: $ecl-datepickers-title-bg;
   color: $ecl-datepickers-title-color;
   display: inline-block;
-  min-width: 40%;
+  flex-grow: 1;
   position: relative;
 }
 
@@ -150,6 +151,7 @@ $ecl-datepickers-week-color: #999 !default;
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==');
   float: left;
   left: 0;
+  order: -1;
 }
 
 .pika-next,
