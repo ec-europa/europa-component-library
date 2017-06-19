@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.2" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
 
 
 <title>Expandables | Europa Component Library</title>
@@ -377,15 +377,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-cad54a513f2f22e7a7f93b7abc4d5422">_expandables.scss</option>
+                <option value="file-2d20364631d543249e65f27ab9b602e3">_expandables.scss</option>
                 
-                <option value="file-78d2008ddfb94f83c353c4f54a0e1ff5">expandables.js</option>
+                <option value="file-0e302d0d9bc3cb47798c347dc39c0583">expandables.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-cad54a513f2f22e7a7f93b7abc4d5422" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-2d20364631d543249e65f27ab9b602e3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -434,7 +434,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-78d2008ddfb94f83c353c4f54a0e1ff5" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-0e302d0d9bc3cb47798c347dc39c0583" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -442,7 +442,15 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toggleExpandable = <span class="hljs-function"><span class="hljs-params">toggleElement</span> =&gt;</span> {
+                                <pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toggleExpandable = (
+  toggleElement,
+  {
+    context = <span class="hljs-built_in">document</span>,
+    forceClose = <span class="hljs-literal">false</span>,
+    closeSiblings = <span class="hljs-literal">false</span>,
+    siblingsSelector = <span class="hljs-string">'[aria-controls][aria-expanded]'</span>,
+  } = {}
+) =&gt; {
   <span class="hljs-keyword">if</span> (!toggleElement) {
     <span class="hljs-keyword">return</span>;
   }
@@ -458,11 +466,27 @@
   }
 
   <span class="hljs-comment">// Get current status</span>
-  <span class="hljs-keyword">const</span> isExpanded = toggleElement.getAttribute(<span class="hljs-string">'aria-expanded'</span>) === <span class="hljs-string">'true'</span>;
+  <span class="hljs-keyword">const</span> isExpanded =
+    forceClose === <span class="hljs-literal">true</span> ||
+    toggleElement.getAttribute(<span class="hljs-string">'aria-expanded'</span>) === <span class="hljs-string">'true'</span>;
 
   <span class="hljs-comment">// Toggle the expandable/collapsible</span>
   toggleElement.setAttribute(<span class="hljs-string">'aria-expanded'</span>, !isExpanded);
   target.setAttribute(<span class="hljs-string">'aria-hidden'</span>, isExpanded);
+
+  <span class="hljs-comment">// Close siblings if requested</span>
+  <span class="hljs-keyword">if</span> (closeSiblings === <span class="hljs-literal">true</span>) {
+    <span class="hljs-keyword">const</span> siblingsArray = <span class="hljs-built_in">Array</span>.prototype.slice
+      .call(context.querySelectorAll(siblingsSelector))
+      .filter(<span class="hljs-function"><span class="hljs-params">sibling</span> =&gt;</span> sibling !== toggleElement);
+
+    siblingsArray.forEach(<span class="hljs-function"><span class="hljs-params">sibling</span> =&gt;</span> {
+      toggleExpandable(sibling, {
+        context,
+        <span class="hljs-attr">forceClose</span>: <span class="hljs-literal">true</span>,
+      });
+    });
+  }
 };
 
 <span class="hljs-comment">// Helper method to automatically attach the event listener to all the expandables on page load</span>
@@ -475,7 +499,7 @@
   );
 
   nodesArray.forEach(<span class="hljs-function"><span class="hljs-params">node</span> =&gt;</span>
-    node.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; toggleExpandable(node))
+    node.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; toggleExpandable(node, { context }))
   );
 };
 </pre>
@@ -494,7 +518,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">930 Bytes</span>
+                    <span class="Meta-value">1.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -2928,7 +2952,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
 
 
 </div>
@@ -2945,9 +2969,35 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             
     
         
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-navigation-lists">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Lists</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-navigation--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-navigation-lists--default" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2971,7 +3021,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-navigation--tabs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-navigation-lists--tabs" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2988,6 +3038,35 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Tabs</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation-menus" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Menus</span>
             </a>
         </li>
         
@@ -4093,7 +4172,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.2"></script>
 
 
 

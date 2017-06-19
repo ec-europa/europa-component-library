@@ -1,11 +1,11 @@
 /**
  * ECL Navigation
- * @define navigation
+ * @define navigation-list
  */
 
 $ecl-navigation-border-width: 2px !default;
 
-.ecl-navigation {
+.ecl-navigation-list {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -13,11 +13,11 @@ $ecl-navigation-border-width: 2px !default;
   padding: 0;
 }
 
-.ecl-navigation__item {
+.ecl-navigation-list__item {
   flex-shrink: 0;
 }
 
-.ecl-navigation__link {
+.ecl-navigation-list__link {
   border-bottom: $ecl-navigation-border-width solid transparent;
   display: block;
   font-weight: bold;
@@ -34,7 +34,7 @@ $ecl-navigation-border-width: 2px !default;
   }
 }
 
-.ecl-navigation__link--active {
+.ecl-navigation-list__link--active {
   color: $ecl-color-shade;
 
   &:hover {
@@ -48,15 +48,15 @@ $ecl-navigation-border-width: 2px !default;
 
 // Tabs
 
-.ecl-navigation--tabs {
+.ecl-navigation-list--tabs {
   border-bottom: $ecl-navigation-border-width solid map-get($ecl-colors, 'grey-50');
 }
 
-.ecl-navigation--tabs .ecl-navigation__item {
+.ecl-navigation-list--tabs .ecl-navigation-list__item {
   margin-bottom: -$ecl-navigation-border-width;
 }
 
-.ecl-navigation--tabs .ecl-navigation__link--active {
+.ecl-navigation-list--tabs .ecl-navigation-list__link--active {
   border: $ecl-navigation-border-width solid map-get($ecl-colors, 'grey-50');
   border-bottom-color: #fff;
   text-decoration: none;
