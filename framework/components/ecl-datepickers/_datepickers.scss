@@ -4,21 +4,21 @@
 
 $ecl-datepickers-color-header: #393939;
 $ecl-datepickers-color-select: #4f4f4f;
-$ecl-datepickers-color-select-separator: #686868;
+$ecl-datepickers-color-select-separator: #9f9f9f;
 $ecl-datepickers-color-background: #eaeaea;
 
 $ecl-datepickers-text-color: #333 !default;
-$ecl-datepickers-title-color: #333 !default;
 $ecl-datepickers-title-bg: #404040 !default;
+$ecl-datepickers-title-color: $ecl-datepickers-title-bg !default;
+$ecl-datepickers-arrow-size: 50px;
 $ecl-datepickers-picker-bg: #eaeaea !default;
 $ecl-datepickers-th-color: #999 !default;
 $ecl-datepickers-day-color: #666 !default;
 $ecl-datepickers-day-bg: #f5f5f5 !default;
 $ecl-datepickers-day-hover-color: #fff !default;
 $ecl-datepickers-day-hover-bg: #ff8000 !default;
-$ecl-datepickers-day-today-color: #3af !default;
 $ecl-datepickers-day-selected-color: #fff !default;
-$ecl-datepickers-day-selected-bg: #3af !default;
+$ecl-datepickers-day-selected-bg: #ffd617 !default;
 $ecl-datepickers-day-selected-shadow: #178fe5 !default;
 $ecl-datepickers-day-disabled-color: #999 !default;
 $ecl-datepickers-week-color: #999 !default;
@@ -59,7 +59,7 @@ $ecl-datepickers-week-color: #999 !default;
 // clear child float (pika-lendar), using the famous micro clearfix hack
 // http://nicolasgallagher.com/micro-clearfix-hack/
 .pika-single {
-  *zoom: 1;
+  zoom: 1;
 
   &::before,
   &::after {
@@ -74,9 +74,8 @@ $ecl-datepickers-week-color: #999 !default;
 
 .pika-title {
   background-color: $ecl-datepickers-title-bg;
-  height: 2rem;
-  line-height: 2rem;
-  overflow: hidden;
+  height: 2.5rem;
+  line-height: 2.5rem;
   position: relative;
   text-align: center;
 }
@@ -85,7 +84,7 @@ $ecl-datepickers-week-color: #999 !default;
   background-color: $ecl-datepickers-title-bg;
   color: $ecl-datepickers-title-color;
   display: inline-block;
-  *display: inline;
+  min-width: 40%;
   position: relative;
 }
 
@@ -100,13 +99,12 @@ $ecl-datepickers-week-color: #999 !default;
   height: 100%;
   margin: 0;
   min-height: auto;
+  padding: 0 1em;
+  position: absolute;
+  width: 100%;
   z-index: 9998;
 
   @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
-
-  &:first-child {
-    border-right: 2px solid $ecl-datepickers-color-select-separator;
-  }
 
   &:focus {
     z-index: 1;
@@ -117,6 +115,17 @@ $ecl-datepickers-week-color: #999 !default;
   &:focus {
     color: #fff;
   }
+}
+
+// The left select to the left.
+.pika-label:nth-child(1) select {
+  border-right: 2px solid $ecl-datepickers-color-select-separator;
+  left: 0;
+}
+
+// The right select to the right.
+.pika-label:nth-child(2) select {
+  right: 0;
 }
 
 .pika-prev,
@@ -134,10 +143,10 @@ $ecl-datepickers-week-color: #999 !default;
   overflow: hidden;
   padding: 0;
   position: relative;
-  text-indent: 50px; // hide text
+  text-indent: $ecl-datepickers-arrow-size; // hide text
   top: 0;
   white-space: nowrap;
-  width: 50px;
+  width: $ecl-datepickers-arrow-size;
 
   &:hover {
     opacity: 1;
@@ -165,32 +174,33 @@ $ecl-datepickers-week-color: #999 !default;
 
 .pika-select {
   display: inline-block;
-  *display: inline;
 }
 
 .pika-table {
-  border: 0;
+  background-color: #e3e3e3;
+  border-bottom: 10px solid transparent;
   border-collapse: collapse;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
   border-spacing: 0;
   width: 100%;
 
   th,
   td {
-    padding: 0;
-    width: 15%;
+    padding: 1px;
   }
 
   th {
-    color: $ecl-datepickers-th-color;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 25px;
+    font-size: map-get($ecl-font-size, 'xs');
+    padding: 0.7em 0.3em;
     text-align: center;
   }
 
   abbr {
     border-bottom: 0;
     cursor: help;
+    font-weight: normal;
+    text-decoration: none;
   }
 }
 
@@ -201,25 +211,18 @@ $ecl-datepickers-week-color: #999 !default;
   color: $ecl-datepickers-day-color;
   cursor: pointer;
   display: block;
-  font-size: 12px;
-  line-height: 15px;
-  margin: 0;
+  margin: 1px;
   outline: none;
-  padding: 5px;
-  text-align: right;
+  padding: 5px 10px;
+  text-align: center;
   width: 100%;
 
   .is-today & {
-    color: $ecl-datepickers-day-today-color;
-    font-weight: bold;
+    background: $ecl-datepickers-day-selected-bg;
   }
 
   .is-selected & {
     background: $ecl-datepickers-day-selected-bg;
-    border-radius: 3px;
-    box-shadow: inset 0 1px 3px $ecl-datepickers-day-selected-shadow;
-    color: $ecl-datepickers-day-selected-color;
-    font-weight: bold;
   }
 
   .is-disabled &,
@@ -231,13 +234,6 @@ $ecl-datepickers-week-color: #999 !default;
   .is-disabled & {
     cursor: default;
     pointer-events: none;
-  }
-
-  &:hover {
-    background: $ecl-datepickers-day-hover-bg;
-    border-radius: 3px;
-    box-shadow: none;
-    color: $ecl-datepickers-day-hover-color;
   }
 
   .is-selection-disabled {
@@ -267,4 +263,12 @@ $ecl-datepickers-week-color: #999 !default;
   border-radius: 3px;
   box-shadow: none;
   color: #fff;
+}
+
+@include ecl-media-breakpoint-up(xs) {
+  .pika-lendar,
+  .pika-single,
+  .pika-table {
+    width: auto;
+  }
 }
