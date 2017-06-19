@@ -19,7 +19,8 @@ don't use more than 3 tabs
 ## Resources
 
 -   https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs.html
+-   https://w3c.github.io/aria-practices/examples/tabs/tabs-1/tabs.html
+-   http://oaa-accessibility.org/example/34/
 -   https://frend.co/components/tabs/
 -   http://heydonworks.com/practical_aria_examples/#tab-interface
--   http://oaa-accessibility.org/example/34/
 -   https://dequeuniversity.com/library/aria/tabpanels-accordions/tabpanel
