@@ -1,6 +1,5 @@
 // 1. Import polyfills (if needed)
 
-export * from './components/ecl-context-navs/context-navs';
 // 1.a Either import the whole polyfills library (not recommended):
 // import 'core-js';
 

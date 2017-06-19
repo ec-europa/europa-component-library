@@ -125,6 +125,7 @@ $ecl-datepickers-week-color: #999 !default;
   background-repeat: no-repeat;
   background-size: 75% 75%;
   border: 0;
+  color: $ecl-datepickers-title-bg; // hide text
   cursor: pointer;
   display: block;
   height: 100%;
@@ -132,7 +133,6 @@ $ecl-datepickers-week-color: #999 !default;
   overflow: hidden;
   padding: 0;
   position: relative;
-  text-indent: $ecl-datepickers-arrow-size; // hide text
   top: 0;
   white-space: nowrap;
   width: $ecl-datepickers-arrow-size;
@@ -148,17 +148,38 @@ $ecl-datepickers-week-color: #999 !default;
 
 .pika-prev,
 .is-rtl .pika-next {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==');
   float: left;
   left: 0;
   order: -1;
+
+  &::after {
+    color: #fff;
+    left: 15px;
+    position: absolute;
+    transform: rotate(180deg);
+
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--right;
+
+    @include ecl-icon('right');
+  }
 }
 
 .pika-next,
 .is-rtl .pika-prev {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=');
   float: right;
   right: 0;
+
+  &::after {
+    color: #fff;
+    position: absolute;
+    right: 15px;
+
+    @extend %ecl-icon--after;
+    @extend %ecl-icon--right;
+
+    @include ecl-icon('right');
+  }
 }
 
 .pika-select {
