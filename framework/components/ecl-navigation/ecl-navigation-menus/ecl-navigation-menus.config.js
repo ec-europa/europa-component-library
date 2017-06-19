@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Horizontal menus',
-  label: 'Horizontal menus',
+  title: 'Navigation menus',
+  label: 'Menus',
   status: 'ready',
   tags: ['organism'],
   context: {
@@ -8,8 +8,8 @@ module.exports = {
     menuLabel: 'Menu',
     _demo: {
       scripts: `document.addEventListener('DOMContentLoaded', function () {
-        ECL.megamenu('.ecl-horizontal-menu__root');
-        ECL.initExpandables('.ecl-horizontal-menu__toggle');
+        ECL.megamenu('.ecl-navigation-menu__root');
+        ECL.initExpandables('.ecl-navigation-menu__toggle');
       });`,
     },
   },
