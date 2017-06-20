@@ -1,289 +1,193 @@
-/*
-File
-*/
+/**
+ * File
+ * @define file
+ */
 
-/*
-File download default
-*/
-
-.file {
-  @include ecl-hidden-print();
-  @extend .row !optional;
-
-  margin: 0 0 0.944em;
-  padding: 1.333em;
-  background-color: map-get($ecl-colors, 'grey-10');
+// Temporary hack, to be integrated in reset
+/* stylelint-disable-next-line */
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-.file__icon {
-  @extend .col-md-1 !optional;
-  @extend .col-sm-1 !optional;
+// Default display
 
+.ecl-file {
+  @include ecl-hidden-print();
+}
+
+.ecl-file__body {
+  background-color: map-get($ecl-colors, 'grey-10');
+  padding: map-get($ecl-spacing, 's');
+}
+
+.ecl-file__icon {
   float: left;
-  height: 2.556em;
-  // We remove on the left (as the image has some whitespace) as it causes
-  // a wrong looking margin. Then we add back the margin on the right, to have
-  // more spacing between those fields.
-  margin-right: 0.1em;
-  margin-left: -0.315em;
-  padding: 0;
-  text-align: center;
+  margin-top: map-get($ecl-spacing, 'xxxs');
 
   &::before {
-    font-size: 2.556em;
     color: map-get($ecl-colors, 'grey-50');
+    font-size: map-get($ecl-font-size, 'xxl');
   }
 }
 
-.file__metadata {
-  @extend .col-md-6 !optional;
-  @extend .col-sm-6 !optional;
-  @extend .col-xs-10 !optional;
-
-  margin-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  line-height: 1;
-}
-
-.file__title {
-  line-height: initial;
+.ecl-file__title {
   font-weight: bold;
 }
 
-.file__caption {
-  @include ecl-media-caption();
-}
-
-.file__language {
-  display: block;
-  margin-top: 0.556em;
-  line-height: initial;
-  font-size: map-get($ecl-font-size, 's');
-  font-weight: bold;
-}
-
-.file__info {
-  margin-top: 0.778em;
-  line-height: initial;
+.ecl-file__info {
   font-size: map-get($ecl-font-size, 'xs');
+  margin-top: map-get($ecl-spacing, 'xxs');
 }
 
-.file__content-language {
+.ecl-file__language {
   font-weight: bold;
 }
 
-.file__btn {
-  @extend .col-md-4 !optional;
-  @extend .col-sm-4 !optional;
-  @extend .col-xs-12 !optional;
-
-  margin-top: 0.778em;
-  margin-bottom: 0;
+.ecl-file__download {
+  margin: map-get($ecl-font-size, 'xs') auto 0;
+  text-align: center;
 
   &::after {
     @extend %ecl-icon--after;
-    @extend %ecl-icon--download;
+
+    @include ecl-icon('download');
   }
 }
 
-// Modifications in the translations under a normal file.
-.file--bare {
-  margin: 0;
-  padding: 0.722em 0;
-  background-color: transparent;
-
-  .file__btn {
-    border: none;
-
-    &:hover {
-      color: $ecl-color-shade;
-    }
-  }
-
-  .file__icon {
-    display: none;
+@include ecl-media-breakpoint-up(md) {
+  .ecl-file__download {
+    margin-top: 0;
   }
 }
 
-/*
-File download with translations
-*/
+// With translations
 
-.file__translations {
-  margin-bottom: 1em;
-  padding: 0 1.45em;
-  font-size: map-get($ecl-font-size, 's');
+.ecl-file__translations {
   text-align: right;
+}
 
-  .file__translations-control {
-    margin-top: 0.444em;
-    font-size: map-get($ecl-font-size, 'm');
-    text-decoration: none;
+.ecl-file__translations-toggle {
+  font-weight: normal;
+}
 
-    &:active,
-    &:hover,
-    &:focus {
-      color: #000;
-      text-decoration: underline;
+.ecl-file__translations-toggle[aria-expanded='false'] {
+  &::after {
+    @extend %ecl-icon--after;
 
-      &::after {
-        color: #000;
-      }
-    }
-
-    // The arrow, rotating on collapse change.
-    &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--down;
-
-      color: $ecl-color-primary;
-      margin-left: 0.525em !important;
-      position: relative;
-      transition: all 0.3s ease 0s;
-    }
-
-    &.is-collapsed {
-      &::after {
-        transform: rotate(180deg);
-      }
-    }
-  }
-
-  .file__translations-list {
-    list-style: none;
-    margin: 0.944em 0 0;
-    padding: 0;
-    text-align: left;
-
-    .btn--condensed {
-      margin-right: -1em;
-    }
-
-    // Make it self scaling.
-    @media (max-width: map-get($ecl-grid-breakpoints, 'sm')) {
-      .btn--condensed {
-        margin-left: -1em;
-        margin-right: 0;
-      }
-    }
-  }
-
-  .file__translations-item {
-    border-top: 1px solid map-get($ecl-colors, 'grey-50');
-
-    &:last-child {
-      border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
-    }
-  }
-
-  .file__metadata {
-    @extend .col-md-6 !optional;
-    @extend .col-sm-6 !optional;
-    @extend .col-xs-12 !optional;
-
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  // "Looking for another language ...".
-  .file__translations-details {
-    @extend .file__translations-item;
-
-    padding-top: 0.5em;
-    font-size: map-get($ecl-font-size, 's');
+    @include ecl-icon('down');
   }
 }
 
-/*
-File link
-*/
-.file--link {
-  background-color: transparent;
+.ecl-file__translations-toggle[aria-expanded='true'] {
+  &::after {
+    @extend %ecl-icon--after;
 
-  .file__metadata--link {
-    @extend .col-md-10 !optional;
-    @extend .col-sm-10 !optional;
-    @extend .col-xs-10 !optional;
-
-    margin-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    line-height: 1;
-  }
-
-  .ecl-icon--file-link {
-    background: url("../images/svg/icons/link.svg") no-repeat center 10%;
-    width: 2.8em;
+    @include ecl-icon('up');
   }
 }
 
-.no-svg {
-  .ecl-icon--file-link {
-    background-image: url("../images/png/icons/link.png");
+.ecl-file__translations-list {
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: left;
+}
+
+.ecl-file__translations-item {
+  border-top: 1px solid map-get($ecl-colors, 'grey-50');
+  display: flex;
+  flex-direction: column;
+  padding-bottom: map-get($ecl-spacing, 'xxs');
+  padding-top: map-get($ecl-spacing, 'xxs');
+
+  &:last-child {
+    border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
   }
 }
 
-@include ecl-media-breakpoint-up(sm) {
-  .file__icon {
-    width: auto;
-    padding: 0;
-  }
+.ecl-file__translations-metadata {
+  flex-grow: 1;
+}
 
-  .file__translations {
-    padding-left: 4.475em;
-  }
+.ecl-file__translations-title {
+  font-size: map-get($ecl-font-size, 's');
+  font-weight: bold;
+}
 
-  .file__metadata {
-    float: left;
-    overflow: hidden;
-  }
+.ecl-file__translations-info {
+  font-size: map-get($ecl-font-size, 'xs');
+  margin-top: map-get($ecl-spacing, 'xxs');
+}
 
-  .file {
-    .file__btn {
-      float: right;
-      margin-top: 0;
-      overflow: hidden;
-    }
+.ecl-file__translations-download {
+  align-self: flex-start;
+  font-weight: normal;
+  margin-left: -1rem;
+
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('download');
   }
 }
 
-/*
-File image
+@include ecl-media-breakpoint-up(md) {
+  .ecl-file__translations-item {
+    flex-direction: row;
+  }
 
-Displays the file image.
+  .ecl-file__translations-download {
+    align-self: flex-end;
+    margin-left: 0;
+  }
+}
 
-Markup: html/file--image.html
+// Link file
 
-Style guide: file.4
-*/
+.ecl-file__link {
+  align-items: center;
+  border-top: 1px solid map-get($ecl-colors, 'grey-15');
+  display: flex;
+  flex-direction: row;
+  padding: map-get($ecl-spacing, 's') 0;
+  text-decoration: none;
 
-.file--image {
+  &:last-child {
+    border-bottom: 1px solid map-get($ecl-colors, 'grey-15');
+  }
+
+  .ecl-file__title {
+    margin-left: map-get($ecl-spacing, 'xxxs');
+    text-decoration: underline;
+  }
+}
+
+/* stylelint-disable-next-line */
+.ecl-file__link.ecl-link--external::after,
+.ecl-file__type {
+  border-left: 2px solid map-get($ecl-colors, 'grey-50');
+  color: map-get($ecl-colors, 'grey-100');
+  font-weight: bold;
+  margin-left: map-get($ecl-spacing, 'xxxs');
+  padding-left: map-get($ecl-spacing, 'xxxs');
+  text-transform: uppercase;
+}
+
+// Image and video file
+
+.ecl-file--image,
+.ecl-file--video {
+  display: table;
+  width: 1%; // hack to adapt width to image size
+}
+
+.ecl-file__image {
+  max-width: inherit;
+}
+
+.ecl-file__caption {
+  background-color: map-get($ecl-colors, 'grey-10');
   display: block;
-  padding: 0;
-  background-color: transparent;
-}
-
-/*
-File video
-
-Displays the file video.
-
-Markup: html/file--video.html
-
-Style guide: file.5
-*/
-
-.file--video {
-  padding: 0;
-  background-color: transparent;
-
-  .file__container {
-    @extend .embed-responsive !optional;
-    @extend .embed-responsive-16by9 !optional;
-  }
-
-  iframe {
-    @extend .embed-responsive-item !optional;
-  }
+  font-size: map-get($ecl-font-size, 'xs');
+  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
 }

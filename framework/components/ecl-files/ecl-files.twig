@@ -1,112 +1,147 @@
-<!-- Default -->
-<div class="file">
-  <span class="icon icon--file file__icon"></span>
-  <div class="file__metadata">
-    <span class="file__title">File title example</span>
-    <div class="file__info">
-      <span class="file__content-language">English</span> (213.25 kB - PDF - 4 pages)
-    </div>
-  </div>
-  <a href="#" class="btn btn-default file__btn">
-    Download<span class="ecl-sr-only">(213.25 kB - PDF - 4 pages)</span>
-  </a>
-</div>
+{% if variant is defined %}
 
-<!-- Bare -->
-<div class="file file--bare">
-  <span class="icon icon--file file__icon"></span>
-  <div class="file__metadata">
-    <span class="file__title">File title example</span>
-    <div class="file__info">
-      <span class="file__content-language">English</span> (213.25 kB - PDF - 4 pages)
-    </div>
-  </div>
-  <a href="#" class="btn file__btn btn--condensed is-internal">
-    Download<span class="ecl-sr-only">(213.25 kB - PDF - 4 pages)</span>
-  </a>
-</div>
-
-<!-- Image -->
-<div style="width: 450px;"> <!-- only required for the style guide -->
-  <div class="file file--image">
-    <img src="http://placehold.it/450x250" alt="">
-    <span class="file__caption">
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-    </span>
-  </div>
-</div>
-
-<!-- Link -->
-<div class="file file--link">
-  <span class="file__icon icon icon--file-link"></span>
-  <div class="file__metadata--link">
-    <a class="file__title" href="http://ext.link" title="file title">
-      Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-    </a>
-  </div>
-</div>
+  {% if variant == "translations" %}
 
 <!-- Translations -->
-<div class="file">
-  <span class="icon icon--file file__icon"></span>
-  <div class="file__metadata">
-    <span class="file__title">Belgium - Country factsheets</span>
-    <div class="file__info">
-      <span class="file__content-language">English</span> (392.23 KB - PDF - 2 pages)
+<div class="ecl-file">
+  <div class="ecl-file__body">
+    <div class="ecl-row">
+      <div class=" ecl-col ecl-col-md-8">
+        <span class="ecl-icon ecl-icon--{{ icon }} ecl-file__icon"></span>
+        <div class="ecl-file__metadata">
+          <div class="ecl-file__title">{{ title }}</div>
+          <div class="ecl-file__info">
+            <span class="ecl-file__language">{{ language }}</span> ({{ meta }})
+          </div>
+        </div>
+      </div>
+
+      <div class="ecl-col-12 ecl-col-md-4">
+        {% include '@ec-europa/ecl-buttons' with {
+          'label': buttonLabel ~ '<span class="ecl-sr-only">(' ~ meta ~ ')',
+          'isBlock': true,
+          'extraClass': 'ecl-file__download',
+          'extraAttributes': [
+            { 'name': 'type', 'value': 'button' },
+          ]
+        } %}
+      </div>
     </div>
   </div>
-  <a href="#" class="btn btn-default file__btn">
-    Download<span class="ecl-sr-only">(392.23 KB - PDF - 2 pages)</span>
-  </a>
-</div>
 
-<div class="file__translations" id="file-translations">
-  <a href="#file" class="file__translations-control" title="Click to see translations" data-toggle="collapse" data-parent="#file-translations" aria-expanded="false" aria-controls="file">Available languages (3)</a>
-  <ul id="file" class="file__translations-list collapse in"><!-- Class .in is just for the style guide -->
-    <li class="file__translations-item">
-      <div class="file file--bare">
-        <div class="file__metadata">
-          <span class="file__title">Name language</span>
-          <div class="file__info">(392.23 KB - PDF - 2 pages)</div>
-        </div>
-        <a href="#" class="btn file__btn btn--condensed is-internal">
-          Download<span class="ecl-sr-only">(392.23 KB - PDF - 2 pages)</span>
-        </a>
-      </div>
-    </li>
-    <li class="file__translations-item">
-      <div class="file file--bare">
-        <div class="file__metadata">
-          <span class="file__title">Name language</span>
-          <div class="file__info">(392.23 KB - PDF - 2 pages)</div>
-        </div>
-        <a href="#" class="btn file__btn btn--condensed is-internal">
-          Download<span class="ecl-sr-only">(392.23 KB - PDF - 2 pages)</span>
-        </a>
-      </div>
-    </li>
-    <li class="file__translations-item">
-      <div class="file file--bare">
-        <div class="file__metadata">
-          <span class="file__title">Name language</span>
-          <div class="file__info">(392.23 KB - PDF - 2 pages)</div>
-        </div>
-        <a href="#" class="btn file__btn btn--condensed is-internal">
-          Download<span class="ecl-sr-only">(392.23 KB - PDF - 2 pages)</span>
-        </a>
-      </div>
-    </li>
-  </ul>
-</div>
+  <div class="ecl-file__translations">
+    {% include '@ec-europa/ecl-buttons' with {
+      'label': translationsLabel,
+      'modifier': 'secondary',
+      'extraClass': 'ecl-file__translations-toggle',
+      'extraAttributes': [
+        { 'name': 'aria-controls', 'value': 'translations-expand' },
+        { 'name': 'aria-expanded', 'value': 'true' },
+        { 'name': 'id', 'value': 'translations-expand-button' },
+        { 'name': 'type', 'value': 'button' },
+        { 'name': 'title', 'value': translationsTooltip }
+      ]
+    } %}
 
-<!-- Video -->
-<div style="width: 50%;"> <!-- only required for the style guide -->
-  <div class="file file--video">
-    <div class="file__container">
-      <iframe src="http://ec.europa.eu/avservices/play.cfm?ref=I101631" allowfullscreen="allowfullscreen" scrolling="no"></iframe>
+    <div aria-hidden="false" aria-labelledby="translations-expand-button" id="translations-expand">
+      <ul class="ecl-file__translations-list">
+        {% if translations is defined %}
+          {% for translation in translations %}
+        <li class="ecl-file__translations-item">
+          <div class="ecl-file__translations-metadata">
+            <span class="ecl-file__translations-title">{{ translation.title }}</span>
+            <div class="ecl-file__translations-info">({{ translation.meta }})</div>
+          </div>
+          {% include '@ec-europa/ecl-buttons' with {
+          'label': buttonLabel ~ '<span class="ecl-sr-only">(' ~ translation.meta ~ ')',
+          'modifier': 'secondary',
+          'extraClass': 'ecl-file__translations-download',
+          'extraAttributes': [
+          { 'name': 'type', 'value': 'button' },
+          ]
+          } %}
+        </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
     </div>
-    <span class="file__caption">
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-    </span>
   </div>
 </div>
+
+  {% elseif variant == "links" %}
+
+<!-- Links -->
+<div class="ecl-file ecl-file--link">
+  {% if links is defined %}
+    {% for link in links %}
+      <a
+        href="{{ link.href }}"
+        class="ecl-link ecl-file__link {% if link.external is defined and link.external %}ecl-link--external{% endif %}">
+        <span class="ecl-icon ecl-icon--{{ link.icon }} ecl-file__icon"></span>
+        <span class="ecl-file__title">{{ link.title }}</span>
+        {% if link.type is defined %}
+        <span class="ecl-file__type">{{ link.type }}</span>
+        {% endif %}
+      </a>
+    {% endfor %}
+  {% endif %}
+</div>
+
+  {% elseif variant == "images" %}
+
+<!-- Images -->
+<div class="ecl-file ecl-file--image">
+  <img class="ecl-file__image" src="{{ src }}" alt="{{ alt }}">
+  <span class="ecl-file__caption">{{ caption }}</span>
+</div>
+
+  {% elseif variant == "Videos" %}
+
+<!-- Videos -->
+  <div class="ecl-file ecl-file--video">
+    <div class="ecl-file__container">
+      {% if src is defined %}
+        {% if iframe is defined and iframe %}
+      <iframe src="{{ src }}" allowfullscreen="allowfullscreen" scrolling="no"></iframe>
+        {% else %}
+      <video src="{{ src }}" type="video/mp4" controls="controls"></video>
+        {% endif %}
+      {% endif %}
+    </div>
+    <span class="ecl-file__caption">{{ caption }}</span>
+  </div>
+</div>
+
+  {% endif %}
+
+{% else %}
+
+<!-- Default -->
+<div class="ecl-file">
+  <div class="ecl-file__body">
+    <div class="ecl-row">
+      <div class=" ecl-col ecl-col-md-8">
+        <span class="ecl-icon ecl-icon--{{ icon }} ecl-file__icon"></span>
+        <div class="ecl-file__metadata">
+          <div class="ecl-file__title">{{ title }}</div>
+          <div class="ecl-file__info">
+            <span class="ecl-file__language">{{ language }}</span> ({{ meta }})
+          </div>
+        </div>
+      </div>
+
+      <div class="ecl-col-12 ecl-col-md-4">
+        {% include '@ec-europa/ecl-buttons' with {
+          'label': buttonLabel ~ '<span class="ecl-sr-only">(' ~ meta ~ ')',
+          'isBlock': true,
+          'extraClass': 'ecl-file__download',
+          'extraAttributes': [
+            { 'name': 'type', 'value': 'button' },
+          ]
+        } %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}

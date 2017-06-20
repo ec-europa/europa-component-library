@@ -1,26 +1,24 @@
 # Files
 
-File component used to show info about the file that can be downloaded or how
-is displayed multimedia files (image and video).
+File component is used to show info about the file that can be downloaded or how
+are displayed multimedia files (image and video).
 
-## Default
+## Default file download
 
 Default implementation of the file download component.
-
-## Image
-
-Displays the file image.
-
-## Video
-
-Displays the file video.
 
 ## File download with translations
 
 Displays the download file available in several languages.
 
-TODO: stop relying on Bootstrap collapse
+## Links to files
 
-## File Link
+Displays the links for a download page.
 
-Displays the link for a download/page.
+## Image file
+
+Displays the file image.
+
+## Video file
+
+Displays the file video (in an iframe or video tag).
