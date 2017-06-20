@@ -1,21 +1,4 @@
-// Polyfill matches as per https://github.com/jonathantneal/closest
-Element.prototype.matches =
-  Element.prototype.matches ||
-  Element.prototype.mozMatchesSelector ||
-  Element.prototype.msMatchesSelector ||
-  Element.prototype.oMatchesSelector ||
-  Element.prototype.webkitMatchesSelector;
-
-// UTILS
-
-// Closest selector
-function closest(el, selector) {
-  while (el) {
-    if (el.matches(selector)) break;
-    el = el.parentElement;
-  }
-  return el;
-}
+// Heavily inspired by the tab component from https://github.com/frend/frend.co
 
 // Query helper
 const q = (el, ctx = document) => [].slice.call(ctx.querySelectorAll(el));
@@ -28,6 +11,7 @@ export const tabs = (
     selector: selector = '.ecl-tabs',
     tablistSelector: tablistSelector = '.ecl-tabs__tablist',
     tabpanelSelector: tabpanelSelector = '.ecl-tabs__tabpanel',
+    tabelementsSelector: tabelementsSelector = `${tablistSelector} li`,
   } = {}
 ) => {
   // SUPPORTS
@@ -44,16 +28,21 @@ export const tabs = (
 
   // ACTIONS
   function showTab(target, giveFocus = true) {
-    // get context of tab container
-    const thisContainer = closest(target, selector);
-    const siblingTabs = q(`${tablistSelector} li`, thisContainer);
-    const siblingTabpanels = q(tabpanelSelector, thisContainer);
+    const siblingTabs = q(
+      `${tablistSelector} li`,
+      target.parentElement.parentElement
+    );
+    const siblingTabpanels = q(
+      tabpanelSelector,
+      target.parentElement.parentElement
+    );
 
     // set inactives
     siblingTabs.forEach(tab => {
       tab.setAttribute('tabindex', -1);
       tab.removeAttribute('aria-selected');
     });
+
     siblingTabpanels.forEach(tabpanel => {
       tabpanel.setAttribute('aria-hidden', 'true');
     });
@@ -76,11 +65,12 @@ export const tabs = (
   function eventTabKeydown(e) {
     // collect tab targets, and their parents' prev/next (or first/last)
     const currentTab = e.currentTarget;
-    const tablist = closest(currentTab, tablistSelector);
     const previousTabItem =
-      currentTab.parentNode.previousElementSibling || tablist.lastElementChild;
+      currentTab.previousElementSibling ||
+      currentTab.parentElement.lastElementChild;
     const nextTabItem =
-      currentTab.parentNode.nextElementSibling || tablist.firstElementChild;
+      currentTab.nextElementSibling ||
+      currentTab.parentElement.firstElementChild;
 
     // don't catch key events when ⌘ or Alt modifier is present
     if (e.metaKey || e.altKey) return;
@@ -90,12 +80,12 @@ export const tabs = (
     switch (e.keyCode) {
       case 37:
       case 38:
-        showTab(q('[role="tab"]', previousTabItem)[0]);
+        showTab(previousTabItem);
         e.preventDefault();
         break;
       case 39:
       case 40:
-        showTab(q('[role="tab"]', nextTabItem)[0]);
+        showTab(nextTabItem);
         e.preventDefault();
         break;
       default:
@@ -105,7 +95,7 @@ export const tabs = (
 
   // BINDINGS
   function bindTabsEvents(tabContainer) {
-    const tabsElements = q(`${tablistSelector} li`, tabContainer);
+    const tabsElements = q(tabelementsSelector, tabContainer);
     // bind all tab click and keydown events
     tabsElements.forEach(tab => {
       tab.addEventListener('click', eventTabClick);
@@ -114,7 +104,7 @@ export const tabs = (
   }
 
   function unbindTabsEvents(tabContainer) {
-    const tabsElements = q(`${tablistSelector} li`, tabContainer);
+    const tabsElements = q(tabelementsSelector, tabContainer);
     // unbind all tab click and keydown events
     tabsElements.forEach(tab => {
       tab.removeEventListener('click', eventTabClick);
@@ -124,22 +114,15 @@ export const tabs = (
 
   // DESTROY
   function destroy() {
-    tabContainers.forEach(tabContainer => {
-      unbindTabsEvents(tabContainer);
-    });
+    tabContainers.forEach(unbindTabsEvents);
   }
 
   // INIT
   function init() {
-    if (tabContainers.length) {
-      tabContainers.forEach(tabContainer => {
-        bindTabsEvents(tabContainer);
-        // set all first tabs active on init
-        showTab(q(`${tablistSelector} li`, tabContainer)[0], false);
-      });
-    }
+    tabContainers.forEach(bindTabsEvents);
   }
 
+  // Automatically init
   init();
 
   // REVEAL API
