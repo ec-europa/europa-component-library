@@ -2,8 +2,8 @@ describe('datepickers', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
-      width: 550,
-      height: 360,
+      width: 420,
+      height: 420,
     });
 
     browser.pause(1000);
@@ -29,6 +29,32 @@ describe('datepickers', () => {
     it('should be accessible', () => {
       const a11yReport = browser.runAxeCore('ecl-datepickers').value;
       expect(a11yReport).to.be.accessible;
+    });
+  });
+
+  // Stop here if browser is Safari
+  // See: https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/4136
+  if (browser.desiredCapabilities.browserName === 'safari') {
+    return;
+  }
+
+  context('click open state', () => {
+    before(() => {
+      // Reload
+      browser.url(`ecl-datepickers.html`);
+      browser.pause(1000);
+      browser.injectAxeCore();
+
+      // Click the input
+      browser.moveToObject('.ecl-text-input');
+      browser.buttonDown();
+    });
+
+    it('should match the reference screenshot', () => {
+      const screenshots = browser.checkDocument({
+        name: `datepickers/open`,
+      });
+      expect(screenshots).to.matchReference();
     });
   });
 });
