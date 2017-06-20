@@ -151,14 +151,13 @@ $ecl-datepickers-week-color: #999 !default;
   float: left;
   left: 0;
   order: -1;
-  visibility: hidden;
 
   &::after {
     color: #fff;
     left: 15px;
     position: absolute;
+    top: 15px;
     transform: rotate(180deg);
-    visibility: visible;
 
     @extend %ecl-icon--after;
     @extend %ecl-icon--right;
@@ -171,13 +170,12 @@ $ecl-datepickers-week-color: #999 !default;
 .is-rtl .pika-prev {
   float: right;
   right: 0;
-  visibility: hidden;
 
   &::after {
     color: #fff;
     position: absolute;
     right: 15px;
-    visibility: visible;
+    top: 15px;
 
     @extend %ecl-icon--after;
     @extend %ecl-icon--right;
