@@ -1,17 +1,24 @@
 // ECL Reset
 
-:root {
+html {
   box-sizing: border-box;
+
+  @include ecl-media-breakpoint-up(xs) {
+    font-size: 112.5%;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
   font-family: $ecl-font-family-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 320px;
-  overflow-x: hidden;
   text-rendering: optimizelegibility;
-
-  @include ecl-media-breakpoint-up(xs) {
-    font-size: 1.125rem;
-  }
 }
 
 [aria-hidden='true'] {
