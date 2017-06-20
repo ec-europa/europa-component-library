@@ -1,7 +1,6 @@
 // Heavily inspired by the tab component from https://github.com/frend/frend.co
 
-// Query helper
-const q = (el, ctx = document) => [].slice.call(ctx.querySelectorAll(el));
+import { queryAll } from '../../base/helpers/dom';
 
 /**
  * @param {object} options Object containing configuration overrides
@@ -24,15 +23,15 @@ export const tabs = (
 
   // SETUP
   // set tab element NodeList
-  const tabContainers = q(selector);
+  const tabContainers = queryAll(selector);
 
   // ACTIONS
   function showTab(target, giveFocus = true) {
-    const siblingTabs = q(
+    const siblingTabs = queryAll(
       `${tablistSelector} li`,
       target.parentElement.parentElement
     );
-    const siblingTabpanels = q(
+    const siblingTabpanels = queryAll(
       tabpanelSelector,
       target.parentElement.parentElement
     );
@@ -95,7 +94,7 @@ export const tabs = (
 
   // BINDINGS
   function bindTabsEvents(tabContainer) {
-    const tabsElements = q(tabelementsSelector, tabContainer);
+    const tabsElements = queryAll(tabelementsSelector, tabContainer);
     // bind all tab click and keydown events
     tabsElements.forEach(tab => {
       tab.addEventListener('click', eventTabClick);
@@ -104,7 +103,7 @@ export const tabs = (
   }
 
   function unbindTabsEvents(tabContainer) {
-    const tabsElements = q(tabelementsSelector, tabContainer);
+    const tabsElements = queryAll(tabelementsSelector, tabContainer);
     // unbind all tab click and keydown events
     tabsElements.forEach(tab => {
       tab.removeEventListener('click', eventTabClick);
