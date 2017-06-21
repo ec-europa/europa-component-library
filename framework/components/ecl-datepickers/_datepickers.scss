@@ -1,5 +1,6 @@
 /*
 * Datepicker styles based on Pikaday.
+* @define datepickers
 */
 
 $ecl-datepickers-color-select: #4f4f4f;
@@ -28,28 +29,32 @@ $ecl-datepickers-week-color: #999 !default;
   }
 }
 
-.pika-single {
+/*
+ * @define pika-theme ; weak
+ */
+
+/* stylelint-disable max-nesting-depth */
+
+.ecl-pika-theme {
   background: $ecl-datepickers-picker-bg;
   color: $ecl-datepickers-text-color;
   display: block;
   position: relative;
-  width: 100%;
   z-index: 9999;
+  zoom: 1;
 
+  /* postcss-bem-linter: ignore */
   &.is-hidden {
     display: none;
   }
 
+  /* postcss-bem-linter: ignore */
   &.is-bound {
     position: absolute;
   }
-}
 
-// clear child float (pika-lendar), using the famous micro clearfix hack
-// http://nicolasgallagher.com/micro-clearfix-hack/
-.pika-single {
-  zoom: 1;
-
+  // clear child float (pika-lendar), using the famous micro clearfix hack
+  // http://nicolasgallagher.com/micro-clearfix-hack/
   &::before,
   &::after {
     content: " ";
@@ -59,212 +64,212 @@ $ecl-datepickers-week-color: #999 !default;
   &::after {
     clear: both;
   }
-}
 
-.pika-title {
-  background-color: $ecl-datepickers-title-bg;
-  display: flex;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  position: relative;
-  text-align: center;
-}
-
-.pika-label {
-  background-color: $ecl-datepickers-title-bg;
-  color: $ecl-datepickers-title-color;
-  display: inline-block;
-  flex-grow: 1;
-  position: relative;
-}
-
-.pika-label select {
-  @include ecl-form-control();
-
-  background: $ecl-datepickers-color-select;
-  border: 0;
-  color: #fff;
-  cursor: pointer;
-  float: none;
-  height: 100%;
-  margin: 0;
-  min-height: auto;
-  padding: 0 1em;
-  position: absolute;
-  width: 100%;
-  z-index: 9998;
-
-  @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
-
-  &:focus {
-    z-index: 1;
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
-    color: #fff;
-  }
-}
-
-// The left select to the left.
-.pika-label:nth-child(1) select {
-  border-right: 2px solid $ecl-datepickers-color-select-separator;
-  left: 0;
-}
-
-// The right select to the right.
-.pika-label:nth-child(2) select {
-  right: 0;
-}
-
-.pika-prev,
-.pika-next {
-  background-color: transparent;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 75% 75%;
-  border: 0;
-  color: $ecl-datepickers-title-bg; // hide text
-  cursor: pointer;
-  display: block;
-  height: 100%;
-  outline: none;
-  overflow: hidden;
-  padding: 0;
-  position: relative;
-  top: 0;
-  white-space: nowrap;
-  width: $ecl-datepickers-arrow-size;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  &.is-disabled {
-    cursor: default;
-  }
-}
-
-.pika-prev,
-.is-rtl .pika-next {
-  float: left;
-  left: 0;
-  order: -1;
-
-  &::after {
-    color: #fff;
-    left: 15px;
-    position: absolute;
-    top: 15px;
-    transform: rotate(180deg);
-
-    @extend %ecl-icon--after;
-    @extend %ecl-icon--right;
-
-    @include ecl-icon('right');
-  }
-}
-
-.pika-next,
-.is-rtl .pika-prev {
-  float: right;
-  right: 0;
-
-  &::after {
-    color: #fff;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-
-    @extend %ecl-icon--after;
-    @extend %ecl-icon--right;
-
-    @include ecl-icon('right');
-  }
-}
-
-.pika-select {
-  display: inline-block;
-}
-
-.pika-table {
-  background-color: map-get($ecl-colors, 'grey-15');
-  border-bottom: map-get($ecl-spacing, 'xxs') solid transparent;
-  border-collapse: collapse;
-  border-left: map-get($ecl-spacing, 'xxs') solid transparent;
-  border-right: map-get($ecl-spacing, 'xxs') solid transparent;
-  border-spacing: 0;
-  width: 100%;
-
-  th,
-  td {
-    padding: 1px;
-  }
-
-  th {
-    padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xxxs');
+  .pika-title {
+    background-color: $ecl-datepickers-title-bg;
+    display: flex;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    position: relative;
     text-align: center;
   }
 
-  abbr {
-    border-bottom: 0;
-    cursor: help;
-    font-weight: normal;
-    text-decoration: none;
+  .pika-label {
+    background-color: $ecl-datepickers-title-bg;
+    color: $ecl-datepickers-title-color;
+    display: inline-block;
+    flex-grow: 1;
+    position: relative;
   }
-}
 
-.pika-button {
-  background: $ecl-datepickers-day-bg;
-  border: 0;
-  box-sizing: border-box;
-  cursor: pointer;
-  display: block;
-  font-size: map-get($ecl-font-size, 'm');
-  margin: 1px;
-  outline: none;
-  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
-  text-align: center;
-  width: 100%;
+  .pika-label select {
+    @include ecl-form-control();
 
-  .is-today & {
+    background: $ecl-datepickers-color-select;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    float: none;
+    height: 100%;
+    margin: 0;
+    min-height: auto;
+    padding: 0 1em;
+    position: absolute;
+    width: 100%;
+    z-index: 9998;
+
+    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
+
+    &:focus {
+      z-index: 1;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+    }
+  }
+
+  // The left select to the left.
+  .pika-label:nth-child(1) select {
+    border-right: 2px solid $ecl-datepickers-color-select-separator;
+    left: 0;
+  }
+
+  // The right select to the right.
+  .pika-label:nth-child(2) select {
+    right: 0;
+  }
+
+  .pika-prev,
+  .pika-next {
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 75% 75%;
+    border: 0;
+    color: $ecl-datepickers-title-bg; // hide text
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    top: 0;
+    white-space: nowrap;
+    width: $ecl-datepickers-arrow-size;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.is-disabled {
+      cursor: default;
+    }
+  }
+
+  .pika-prev,
+  .is-rtl .pika-next {
+    float: left;
+    left: 0;
+    order: -1;
+
+    &::after {
+      color: #fff;
+      left: 15px;
+      position: absolute;
+      top: 15px;
+      transform: rotate(180deg);
+
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--right;
+
+      @include ecl-icon('right');
+    }
+  }
+
+  .pika-next,
+  .is-rtl .pika-prev {
+    float: right;
+    right: 0;
+
+    &::after {
+      color: #fff;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--right;
+
+      @include ecl-icon('right');
+    }
+  }
+
+  .pika-select {
+    display: inline-block;
+  }
+
+  .pika-table {
+    background-color: map-get($ecl-colors, 'grey-15');
+    border-bottom: map-get($ecl-spacing, 'xxs') solid transparent;
+    border-collapse: collapse;
+    border-left: map-get($ecl-spacing, 'xxs') solid transparent;
+    border-right: map-get($ecl-spacing, 'xxs') solid transparent;
+    border-spacing: 0;
+    width: 100%;
+
+    th,
+    td {
+      padding: 1px;
+    }
+
+    th {
+      padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xxxs');
+      text-align: center;
+    }
+
+    abbr {
+      border-bottom: 0;
+      cursor: help;
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+
+  .pika-button {
+    background: $ecl-datepickers-day-bg;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    font-size: map-get($ecl-font-size, 'm');
+    margin: 1px;
+    outline: none;
+    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+    text-align: center;
+    width: 100%;
+
+    .is-selection-disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  .is-today .pika-button {
     background: $ecl-datepickers-day-selected-bg;
   }
 
-  .is-selected & {
+  .is-selected .pika-button {
     background: $ecl-datepickers-day-selected-bg;
   }
 
-  .is-disabled &,
-  .is-outside-current-month & {
+  .is-disabled .pika-button,
+  .is-outside-current-month .pika-button {
     color: $ecl-datepickers-day-disabled-color;
     opacity: 0.3;
   }
 
-  .is-disabled & {
+  .is-disabled .pika-button {
     cursor: default;
     pointer-events: none;
   }
 
-  .is-selection-disabled {
-    cursor: default;
-    pointer-events: none;
+  .pika-week {
+    color: $ecl-datepickers-week-color;
   }
-}
 
-.pika-week {
-  color: $ecl-datepickers-week-color;
-}
+  .is-inrange .pika-button {
+    background: #fff;
+  }
 
-.is-inrange .pika-button {
-  background: #fff;
-}
-
-@include ecl-media-breakpoint-up(xs) {
-  .pika-lendar,
-  .pika-single,
-  .pika-table {
-    width: auto;
+  @include ecl-media-breakpoint-up(xs) {
+    .pika-lendar,
+    .pika-single,
+    .pika-table {
+      width: auto;
+    }
   }
 }
