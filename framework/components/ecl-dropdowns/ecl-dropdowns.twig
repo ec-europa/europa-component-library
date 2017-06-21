@@ -1,0 +1,19 @@
+<!-- Button dropdown -->
+
+<div class="ecl-dropdowns">
+  {% include '@ec-europa/ecl-buttons' with {
+    'label': 'Create',
+    'extraClass': 'ecl-expandable__button',
+    'extraAttributes': [
+      { 'name': 'aria-controls', 'value': 'example-expandable-1'},
+      { 'name': 'aria-expanded', 'value': 'false'},
+      { 'name': 'id', 'value': 'example-expandable-button-1' },
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}
+  <ul class="ecl-dropdowns__body" id="example-expandable-1" aria-labelledby="example-expandable-button-1" aria-hidden="true">
+    <li><a href="#">Article</a></li>
+    <li><a href="#">Page</a></li>
+    <li><a href="#">Community</a></li>
+  </ul>
+</div>
