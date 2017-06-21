@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
 
 
-<title>Messages: Success | Europa Component Library</title>
+<title>Tabs | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -97,14 +97,14 @@
     
     
 
-<div class="Pen" id="pen-fdd5e80fc0e03ac4d313dd204780fc13">
+<div class="Pen" id="pen-18422c36f947a203ae7d9525f18d4759">
 
     
 
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/ecl-messages--status" title="Component preview">
-            Messages: Success
+        <a class="Pen-previewLink" href="../preview/ecl-tabs" title="Component preview">
+            Tabs
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -134,19 +134,30 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="messages">Messages</h1>
-<p>Messages is a component that is used for displaying different types of messages
-like:</p>
+                <h1 id="tabs">Tabs</h1>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Tabs make it easy to explore and switch between different, often equally important, views or to browse categorized data sets.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
-<li>info (by default)</li>
-<li>status</li>
-<li>warning</li>
-<li>error</li>
-<li>live</li>
+<li>when there are multiple sets of information that need to be shown in the same area</li>
+<li>when quick navigation between views is needed, while the rest of the page stays the same</li>
+<li>use tabs sparingly though. Often in-page navigation can be used instead</li>
 </ul>
-<p>The component messages is defined “info” by default, the “info” type doesn’t
-exist as class. The “live” type is meant to be used in cases like live streaming
-for events.</p>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<ul>
+<li>in small viewports and some languages long tab labels make very difficult or almost impossible to use tabs</li>
+<li>if tab labels start getting long, it’s an indication that tabs are probably not the right way to present the content
+don’t use more than 3 tabs</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs.html">https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs.html</a></li>
+<li><a href="https://w3c.github.io/aria-practices/examples/tabs/tabs-1/tabs.html">https://w3c.github.io/aria-practices/examples/tabs/tabs-1/tabs.html</a></li>
+<li><a href="http://oaa-accessibility.org/example/34/">http://oaa-accessibility.org/example/34/</a></li>
+<li><a href="https://frend.co/components/tabs/">https://frend.co/components/tabs/</a></li>
+<li><a href="http://heydonworks.com/practical_aria_examples/#tab-interface">http://heydonworks.com/practical_aria_examples/#tab-interface</a></li>
+<li><a href="https://dequeuniversity.com/library/aria/tabpanels-accordions/tabpanel">https://dequeuniversity.com/library/aria/tabpanels-accordions/tabpanel</a></li>
+</ul>
 
                 
               </div>
@@ -155,14 +166,14 @@ for events.</p>
         </div>
 
         <div class="Pen-playground" data-behaviour="pen" id="playground">
-          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-fdd5e80fc0e03ac4d313dd204780fc13">
+          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-18422c36f947a203ae7d9525f18d4759">
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             
              <iframe
                 class="Preview-iframe"
                 data-role="window"
-                src="../preview/ecl-messages--status"
+                src="../preview/ecl-tabs"
                 sandbox="allow-same-origin allow-scripts allow-forms"
                  style=""
                 marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
@@ -175,7 +186,7 @@ for events.</p>
 
           <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
           <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-fdd5e80fc0e03ac4d313dd204780fc13">
+    <div class="Browser" data-behaviour="browser" id="browser-18422c36f947a203ae7d9525f18d4759">
 
     
 
@@ -184,19 +195,19 @@ for events.</p>
         
         
         <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
-            <a href="#browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-view">View</a>
+            <a href="#browser-18422c36f947a203ae7d9525f18d4759-panel-view">View</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-context">Context</a>
+            <a href="#browser-18422c36f947a203ae7d9525f18d4759-panel-context">Context</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-html">HTML</a>
+            <a href="#browser-18422c36f947a203ae7d9525f18d4759-panel-html">HTML</a>
         </li>
         
         
@@ -204,7 +215,7 @@ for events.</p>
         
         
         <li class="Browser-tab Browser-tab--resources" data-role="tab">
-            <a href="#browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-assets">Code</a>
+            <a href="#browser-18422c36f947a203ae7d9525f18d4759-panel-assets">Code</a>
         </li>
         
         
@@ -212,7 +223,7 @@ for events.</p>
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-info">Info</a>
+            <a href="#browser-18422c36f947a203ae7d9525f18d4759-panel-info">Info</a>
         </li>
         
         
@@ -221,26 +232,40 @@ for events.</p>
 
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-view">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-18422c36f947a203ae7d9525f18d4759-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"messages alert </span></span></span><span class="hljs-template-variable">{{messages_type}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{messages_sr_only}}</span><span class="xml">:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">{{messages_title}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="hljs-template-variable">{{messages_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tablist ecl-navigation-list ecl-navigation-list--tabs"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nils-tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nils"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item ecl-navigation-list__link"</span>&gt;</span>Nils Frahm<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"helios-tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"helios"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item ecl-navigation-list__link"</span>&gt;</span>Helios<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"complexcomplex"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"complex"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item ecl-navigation-list__link"</span>&gt;</span>Joke<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nils-tab"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"nils"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tabpanel"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nils Frahm is a German musician, composer and record producer based in Berlin. He is known for combining classical and electronic music and for an unconventional approach to the piano in which he mixes a grand piano, upright piano, Roland Juno-60, Rhodes piano, drum machine, and Moog Taurus.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"helios-tab"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"helios"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tabpanel"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Helios (Keith Kenniff) is an American composer, multi-instrumentalist, and electronic music producer. He composes ambient/electronic music under the moniker Helios and post-classical piano music under Goldmund. He is also one half of the indie band Mint Julep, and ambient project "A Pale Fire". Keith is also a composer for film, television, dance and performance art. In 2010 he created the record label Unseen.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"complexcomplex"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"complex"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tabpanel"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Fear of complicated buildings:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A complex complex complex.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-context">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-18422c36f947a203ae7d9525f18d4759-panel-context">
     <code class="Code Code--lang-json">
         
             
             <pre>{
-  <span class="hljs-attr">"messages_type"</span>: <span class="hljs-string">"status"</span>,
-  <span class="hljs-attr">"messages_sr_only"</span>: <span class="hljs-string">"Success message"</span>,
-  <span class="hljs-attr">"messages_title"</span>: <span class="hljs-string">"Some status title"</span>,
-  <span class="hljs-attr">"messages_data"</span>: <span class="hljs-string">"Lorem ipsum lor sit amet, consectetur adipi"</span>
+  <span class="hljs-attr">"_demo"</span>: {
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n        ECL.tabs();\n      });"</span>
+  }
 }</pre>
             
         
@@ -249,13 +274,30 @@ for events.</p>
 
     
     
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-html">
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-18422c36f947a203ae7d9525f18d4759-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"messages alert status"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Success message:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Some status title<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum lor sit amet, consectetur adipi<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tablist ecl-navigation-list ecl-navigation-list--tabs"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nils-tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nils"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item ecl-navigation-list__link"</span>&gt;</span>Nils Frahm<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"helios-tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"helios"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item ecl-navigation-list__link"</span>&gt;</span>Helios<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">aria-selected</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"complexcomplex"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"complex"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item ecl-navigation-list__link"</span>&gt;</span>Joke<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nils-tab"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"nils"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tabpanel"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nils Frahm is a German musician, composer and record producer based in Berlin. He is known for combining classical and electronic music and for an unconventional approach to the piano in which he mixes a grand piano, upright piano, Roland Juno-60,
+      Rhodes piano, drum machine, and Moog Taurus.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"helios-tab"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"helios"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tabpanel"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Helios (Keith Kenniff) is an American composer, multi-instrumentalist, and electronic music producer. He composes ambient/electronic music under the moniker Helios and post-classical piano music under Goldmund. He is also one half of the indie band
+      Mint Julep, and ambient project "A Pale Fire". Keith is also a composer for film, television, dance and performance art. In 2010 he created the record label Unseen.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"complexcomplex"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"complex"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tabs__tabpanel"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Fear of complicated buildings:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A complex complex complex.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -265,20 +307,22 @@ for events.</p>
     
 
 
-<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-assets">
+<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-18422c36f947a203ae7d9525f18d4759-panel-assets">
     <div class="FileBrowser">
 
         <div class="FileBrowser-selectWrapper">
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-cd01e342b27ad392f3a91b35eadd4ff0">_messages.scss</option>
+                <option value="file-6dc9943d039251f84cac8dae9aecde41">_ecl-tabs.scss</option>
+                
+                <option value="file-55fb4b253f2cfd68558c2136a0142c05">tabs.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-cd01e342b27ad392f3a91b35eadd4ff0" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-6dc9943d039251f84cac8dae9aecde41" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -286,126 +330,10 @@ for events.</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Messages
-
-Markup: html/messages.html
-
-Style guide messages
-*/</span>
-
-<span class="hljs-variable">$messages-text-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-<span class="hljs-variable">$messages-heading-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-<span class="hljs-variable">$messages-text-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-
-<span class="hljs-selector-class">.messages</span> {
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">5.375em</span>;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1.315em</span> <span class="hljs-number">0</span> <span class="hljs-number">1.315em</span> <span class="hljs-number">5em</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
-  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.375em</span> <span class="hljs-number">1.375em</span>;
-  <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$ecl-font-family-sans-serif</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$messages-text-size</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$messages-text-color</span>;
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-75'</span>);
-
-  &amp;<span class="hljs-selector-class">.status</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-success.svg'</span>);
-    <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-success</span>;
-  }
-
-  &amp;<span class="hljs-selector-class">.warning</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-warning.svg'</span>);
-    <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
-  }
-
-  &amp;<span class="hljs-selector-class">.error</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-error.svg'</span>);
-    <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-error</span>;
-  }
-
-  &amp;<span class="hljs-selector-class">.live</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/live_streaming.svg'</span>);
-    <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
-  }
-
-  <span class="hljs-selector-tag">h3</span> {
-    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">font-size</span>: inherit;
-    <span class="hljs-attribute">font-weight</span>: bold;
-  }
-
-  <span class="hljs-selector-tag">p</span> {
-    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">95%</span>;
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$messages-text-size</span>;
-  }
-
-  &gt; :last-child {
-    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-selector-class">.close</span> {
-    <span class="hljs-attribute">display</span>: none;
-  }
-}
-
-<span class="hljs-comment">// Bootstrap overrides.</span>
-<span class="hljs-selector-class">.alert</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">1.667em</span> <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
-
-  <span class="hljs-selector-class">.close</span> {
-    <span class="hljs-attribute">display</span>: block;
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">0.465em</span>;
-    <span class="hljs-attribute">right</span>: <span class="hljs-number">0.465em</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span>;
-    <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/close.svg'</span>) no-repeat right top;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.625em</span>;
-    <span class="hljs-attribute">color</span>: transparent;
-    <span class="hljs-attribute">text-shadow</span>: none;
-    <span class="hljs-attribute">text-decoration</span>: none;
-    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
-
-    &amp;:hover {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/close_hover.svg'</span>);
-    }
-  }
-}
-
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-selector-class">.messages</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-info.png'</span>);
-
-    &amp;<span class="hljs-selector-class">.status</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-info.png'</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.warning</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-warning.png'</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.error</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-error.png'</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.live</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/live_streaming.png'</span>);
-    }
-  }
-
-  <span class="hljs-selector-class">.alert</span> {
-    <span class="hljs-selector-class">.close</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/close.png'</span>);
-
-      &amp;:hover {
-        <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/close_hover.png'</span>);
-      }
-    }
-  }
-}
+                                <pre><span class="hljs-comment">/**
+ * Tabs
+ * @define tab
+ */</span>
 </pre>
                             </code>
                             
@@ -414,15 +342,179 @@ Style guide messages
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-messages/_messages.scss"><span>/components/raw/ecl-messages/_messages.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-tabs/_ecl-tabs.scss"><span>/components/raw/ecl-tabs/_ecl-tabs.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-messages/_messages.scss</span>
+                    <span class="Meta-value">framework/components/ecl-tabs/_ecl-tabs.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.5 KB</span>
+                    <span class="Meta-value">31 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-55fb4b253f2cfd68558c2136a0142c05" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-JavaScript FileBrowser-code">
+                                <pre><span class="hljs-comment">// Heavily inspired by the tab component from https://github.com/frend/frend.co</span>
+
+<span class="hljs-keyword">import</span> { queryAll } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../base/helpers/dom'</span>;
+
+<span class="hljs-comment">/**
+ * @param {object} options Object containing configuration overrides
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> tabs = (
+  {
+    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-tabs'</span>,
+    <span class="hljs-attr">tablistSelector</span>: tablistSelector = <span class="hljs-string">'.ecl-tabs__tablist'</span>,
+    <span class="hljs-attr">tabpanelSelector</span>: tabpanelSelector = <span class="hljs-string">'.ecl-tabs__tabpanel'</span>,
+    <span class="hljs-attr">tabelementsSelector</span>: tabelementsSelector = <span class="hljs-string">`<span class="hljs-subst">${tablistSelector}</span> li`</span>,
+  } = {}
+) =&gt; {
+  <span class="hljs-comment">// SUPPORTS</span>
+  <span class="hljs-keyword">if</span> (
+    !(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) ||
+    !(<span class="hljs-string">'addEventListener'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">window</span>) ||
+    !<span class="hljs-built_in">document</span>.documentElement.classList
+  )
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+
+  <span class="hljs-comment">// SETUP</span>
+  <span class="hljs-comment">// set tab element NodeList</span>
+  <span class="hljs-keyword">const</span> tabContainers = queryAll(selector);
+
+  <span class="hljs-comment">// ACTIONS</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showTab</span>(<span class="hljs-params">target, giveFocus = true</span>) </span>{
+    <span class="hljs-keyword">const</span> siblingTabs = queryAll(
+      <span class="hljs-string">`<span class="hljs-subst">${tablistSelector}</span> li`</span>,
+      target.parentElement.parentElement
+    );
+    <span class="hljs-keyword">const</span> siblingTabpanels = queryAll(
+      tabpanelSelector,
+      target.parentElement.parentElement
+    );
+
+    <span class="hljs-comment">// set inactives</span>
+    siblingTabs.forEach(<span class="hljs-function"><span class="hljs-params">tab</span> =&gt;</span> {
+      tab.setAttribute(<span class="hljs-string">'tabindex'</span>, <span class="hljs-number">-1</span>);
+      tab.removeAttribute(<span class="hljs-string">'aria-selected'</span>);
+    });
+
+    siblingTabpanels.forEach(<span class="hljs-function"><span class="hljs-params">tabpanel</span> =&gt;</span> {
+      tabpanel.setAttribute(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-string">'true'</span>);
+    });
+
+    <span class="hljs-comment">// set actives and focus</span>
+    target.setAttribute(<span class="hljs-string">'tabindex'</span>, <span class="hljs-number">0</span>);
+    target.setAttribute(<span class="hljs-string">'aria-selected'</span>, <span class="hljs-string">'true'</span>);
+    <span class="hljs-keyword">if</span> (giveFocus) target.focus();
+    <span class="hljs-built_in">document</span>
+      .getElementById(target.getAttribute(<span class="hljs-string">'aria-controls'</span>))
+      .removeAttribute(<span class="hljs-string">'aria-hidden'</span>);
+  }
+
+  <span class="hljs-comment">// EVENTS</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eventTabClick</span>(<span class="hljs-params">e</span>) </span>{
+    showTab(e.currentTarget);
+    e.preventDefault(); <span class="hljs-comment">// look into remove id/settimeout/reinstate id as an alternative to preventDefault</span>
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eventTabKeydown</span>(<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-comment">// collect tab targets, and their parents' prev/next (or first/last)</span>
+    <span class="hljs-keyword">const</span> currentTab = e.currentTarget;
+    <span class="hljs-keyword">const</span> previousTabItem =
+      currentTab.previousElementSibling ||
+      currentTab.parentElement.lastElementChild;
+    <span class="hljs-keyword">const</span> nextTabItem =
+      currentTab.nextElementSibling ||
+      currentTab.parentElement.firstElementChild;
+
+    <span class="hljs-comment">// don't catch key events when ⌘ or Alt modifier is present</span>
+    <span class="hljs-keyword">if</span> (e.metaKey || e.altKey) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-comment">// catch left/right and up/down arrow key events</span>
+    <span class="hljs-comment">// if new next/prev tab available, show it by passing tab anchor to showTab method</span>
+    <span class="hljs-keyword">switch</span> (e.keyCode) {
+      <span class="hljs-keyword">case</span> <span class="hljs-number">37</span>:
+      <span class="hljs-keyword">case</span> <span class="hljs-number">38</span>:
+        showTab(previousTabItem);
+        e.preventDefault();
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> <span class="hljs-number">39</span>:
+      <span class="hljs-keyword">case</span> <span class="hljs-number">40</span>:
+        showTab(nextTabItem);
+        e.preventDefault();
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">default</span>:
+        <span class="hljs-keyword">break</span>;
+    }
+  }
+
+  <span class="hljs-comment">// BINDINGS</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bindTabsEvents</span>(<span class="hljs-params">tabContainer</span>) </span>{
+    <span class="hljs-keyword">const</span> tabsElements = queryAll(tabelementsSelector, tabContainer);
+    <span class="hljs-comment">// bind all tab click and keydown events</span>
+    tabsElements.forEach(<span class="hljs-function"><span class="hljs-params">tab</span> =&gt;</span> {
+      tab.addEventListener(<span class="hljs-string">'click'</span>, eventTabClick);
+      tab.addEventListener(<span class="hljs-string">'keydown'</span>, eventTabKeydown);
+    });
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unbindTabsEvents</span>(<span class="hljs-params">tabContainer</span>) </span>{
+    <span class="hljs-keyword">const</span> tabsElements = queryAll(tabelementsSelector, tabContainer);
+    <span class="hljs-comment">// unbind all tab click and keydown events</span>
+    tabsElements.forEach(<span class="hljs-function"><span class="hljs-params">tab</span> =&gt;</span> {
+      tab.removeEventListener(<span class="hljs-string">'click'</span>, eventTabClick);
+      tab.removeEventListener(<span class="hljs-string">'keydown'</span>, eventTabKeydown);
+    });
+  }
+
+  <span class="hljs-comment">// DESTROY</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">destroy</span>(<span class="hljs-params"></span>) </span>{
+    tabContainers.forEach(unbindTabsEvents);
+  }
+
+  <span class="hljs-comment">// INIT</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+    tabContainers.forEach(bindTabsEvents);
+  }
+
+  <span class="hljs-comment">// Automatically init</span>
+  init();
+
+  <span class="hljs-comment">// REVEAL API</span>
+  <span class="hljs-keyword">return</span> {
+    init,
+    destroy,
+  };
+};
+
+<span class="hljs-comment">// module exports</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> tabs;
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-tabs/tabs.js"><span>/components/raw/ecl-tabs/tabs.js</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-tabs/tabs.js</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">3.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -433,11 +525,11 @@ Style guide messages
 
 
     
-    <div class="Browser-panel" data-role="tab-panel" id="browser-fdd5e80fc0e03ac4d313dd204780fc13-panel-info">
+    <div class="Browser-panel" data-role="tab-panel" id="browser-18422c36f947a203ae7d9525f18d4759-panel-info">
     <ul class="Meta">
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@ec-europa/ecl-messages--status</span>
+            <span class="Meta-value">@ec-europa/ecl-tabs</span>
         </li>
         
         <li class="Meta-item">
@@ -446,7 +538,7 @@ Style guide messages
                 
                     <span>
                 
-                    <span>atom</span>
+                    <span>organism</span>
                 
             </span>
         </li>
@@ -459,12 +551,12 @@ Style guide messages
             <strong class="Meta-key">Preview:</strong>
             <span class="Meta-value">
                 <ul>
-                    <li><a data-no-pjax href="../preview/ecl-messages--status"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../preview/ecl-tabs"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
 </a></li>
-                    <li><a data-no-pjax href="../render/ecl-messages--status"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../render/ecl-tabs"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
@@ -474,7 +566,7 @@ Style guide messages
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/ecl-messages/ecl-messages.twig</span>
+            <span class="Meta-value">framework/components/ecl-tabs/ecl-tabs.twig</span>
         </li>
         
         
@@ -1893,7 +1985,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2799,9 +2891,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-messages">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -2809,7 +2900,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2818,7 +2909,135 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Messages</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--info" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Info</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--warning" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Warning</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--success" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Success</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--error" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Error</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--livestream" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Livestream</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3763,6 +3982,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Tabs</span>
+            </a>
         </li>
         
     

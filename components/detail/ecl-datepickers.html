@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,9 +135,18 @@
               <div class="Prose">
                 
                 <h1 id="datepickers">Datepickers</h1>
-<p>This example is based on jQuery Datepicker widget. It requires both jQuery and jQuery UI libraries.</p>
-<p>Also, it assumes that the default CSS styles from jQuery UI are included as well.</p>
-<p>The CSS applied from style guide is an override over the default CSS of jQuery UI.</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Users need a way to scan quickly a date related to an event.</p>
+<p>This component appears when you need to enter a date.</p>
+<p>By clicking in the date field a pop-up displays a calendar. It allows the user to select a time or a date value instead of typing it. This greatly reduces the likelihood of mistakes.</p>
+<h3 id="when-to-use-this-component">When to use this component</h3>
+<ul>
+<li>on the filter component, date field</li>
+</ul>
+<h3 id="do-not-use-this-component">Do not use this component</h3>
+<ul>
+<li>outside of the filter component</li>
+</ul>
 
                 
               </div>
@@ -215,9 +224,9 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-0a444c1c750f56fce577b0b2d83b075f-panel-view">
     <code class="Code Code--lang-twig">
         <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"datepicker"</span>&gt;</span>Date:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-picker"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"04/01/2017"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Use the arrow keys to pick a date"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers__icon ecl-icon ecl-icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -227,11 +236,7 @@
     <code class="Code Code--lang-json">
         
             
-            <pre>{
-  <span class="hljs-attr">"_demo"</span>: {
-    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"ECL.datepicker();"</span>
-  }
-}</pre>
+            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
         
     </code>
@@ -243,9 +248,9 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"datepicker"</span>&gt;</span>Date:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-picker"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"04/01/2017"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Use the arrow keys to pick a date"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers__icon ecl-icon ecl-icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -264,8 +269,6 @@
                 
                 <option value="file-29d1309feb1bfaa8f06c71e85ac6f6c3">_datepickers.scss</option>
                 
-                <option value="file-941606401cbb8f40f2f943e6aa5c61db">datepickers.js</option>
-                
             </select>
         </div>
 
@@ -279,210 +282,278 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/*
-Datepicker
-
-This example is based on jQuery Datepicker widget. It requires both jQuery and jQuery UI libraries.&lt;br/&gt;
-Also, it assumes that the default CSS styles from jQuery UI are included as well.&lt;br/&gt;
-The CSS applied from style guide is an override over the default CSS of jQuery UI.&lt;br/&gt;
-
-Markup: html/datepicker.html
-
-Style guide datepicker
+* Datepicker styles based on Pikaday.
+* @define datepickers
 */</span>
 
-<span class="hljs-comment">// Local Variables.</span>
-<span class="hljs-variable">$datepicker-color-header</span>: <span class="hljs-number">#393939</span>;
-<span class="hljs-variable">$datepicker-color-select</span>: <span class="hljs-number">#4f4f4f</span>;
-<span class="hljs-variable">$datepicker-color-select-separator</span>: <span class="hljs-number">#686868</span>;
-<span class="hljs-variable">$datepicker-color-background</span>: <span class="hljs-number">#eaeaea</span>;
-
-<span class="hljs-comment">// Component.</span>
-<span class="hljs-selector-id">#ui-datepicker-div</span> {
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">border</span>: none;
-}
-
-<span class="hljs-selector-class">.ui-datepicker</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$ecl-font-family-sans-serif</span>;
-  <span class="hljs-attribute">border</span>: none;
-  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
-
-  <span class="hljs-comment">// Datepicker header.</span>
-  <span class="hljs-selector-class">.ui-datepicker-header</span> {
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$datepicker-color-header</span>;
-    <span class="hljs-attribute">border</span>: none;
-    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">50px</span>;
-
-    <span class="hljs-selector-class">.ui-datepicker-prev</span>,
-    <span class="hljs-selector-class">.ui-datepicker-next</span> {
-      <span class="hljs-attribute">display</span>: block;
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;
-      <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">background</span>: none;
-      <span class="hljs-attribute">border</span>: none;
-
-      &amp;:hover {
-        <span class="hljs-attribute">cursor</span>: pointer;
-      }
-
-      <span class="hljs-selector-class">.ui-icon</span> {
-        <span class="hljs-attribute">display</span>: block;
-        <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-        <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-        <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-        <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
-        <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-        <span class="hljs-attribute">background</span>: url(<span class="hljs-string">'../images/svg/arrow.svg'</span>) center center no-repeat;
-        <span class="hljs-attribute">background-size</span>: <span class="hljs-number">7px</span>;
-      }
-    }
-
-    <span class="hljs-selector-class">.ui-datepicker-prev</span> {
-      <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-
-      <span class="hljs-selector-class">.ui-icon</span> {
-        <span class="hljs-attribute">transform</span>: rotate(-<span class="hljs-number">180deg</span>);
-      }
-    }
-
-    <span class="hljs-selector-class">.ui-datepicker-next</span> {
-      <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
-    }
-
-    <span class="hljs-selector-class">.ui-datepicker-title</span> {
-      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">50px</span>;
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-      <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-
-      <span class="hljs-selector-tag">span</span>,
-      <span class="hljs-selector-tag">select</span> {
-        <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-      }
-
-      <span class="hljs-selector-tag">span</span> {
-        <span class="hljs-attribute">font-weight</span>: normal;
-        <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.8em</span>;
-      }
-
-      <span class="hljs-selector-tag">select</span> {
-        @<span class="hljs-keyword">include</span> ecl-form-control();
-
-        <span class="hljs-attribute">background</span>: <span class="hljs-variable">$datepicker-color-select</span>;
-        <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-        <span class="hljs-attribute">border</span>: none;
-        <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-        <span class="hljs-attribute">width</span>: <span class="hljs-number">49%</span> <span class="hljs-meta">!important</span>;
-        <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-        <span class="hljs-attribute">display</span>: inline-block;
-        <span class="hljs-attribute">float</span>: none;
-        <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
-        <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0.75em</span>;
-
-        @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), -3px, none);
-
-        <span class="hljs-attribute">position</span>: relative;
-
-        &amp;:first-child {
-          <span class="hljs-attribute">border-right</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$datepicker-color-select-separator</span>;
-        }
-
-        &amp;:focus {
-          <span class="hljs-comment">// This might be included in the outline mixins.</span>
-          <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
-        }
-
-        &amp;:hover,
-        &amp;:active,
-        &amp;:focus {
-          <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-        }
-      }
-    }
-  }
-
-  <span class="hljs-selector-tag">table</span><span class="hljs-selector-class">.ui-datepicker-calendar</span> {
-    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$datepicker-color-background</span>;
-    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">10px</span> solid transparent;
-    <span class="hljs-attribute">border-left</span>: <span class="hljs-number">10px</span> solid transparent;
-    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">10px</span> solid transparent;
-
-    <span class="hljs-selector-tag">th</span> {
-      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
-      <span class="hljs-attribute">font-weight</span>: normal;
-      <span class="hljs-attribute">background</span>: none;
-    }
-  }
-
-  <span class="hljs-selector-class">.ui-state-default</span> {
-    <span class="hljs-attribute">border</span>: none;
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-number">#404040</span>;
-    <span class="hljs-attribute">text-align</span>: center;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">1px</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">10px</span>;
-  }
-
-  <span class="hljs-selector-class">.ui-state-active</span> {
-    <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid <span class="hljs-number">#0b64b2</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">3px</span> <span class="hljs-number">10px</span>;
-  }
-
-  <span class="hljs-selector-class">.ui-state-highlight</span> {
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fed500</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-  }
-}
-
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-selector-class">.ui-datepicker-prev</span> {
-    <span class="hljs-selector-class">.ui-icon</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/arrow-left.png'</span>);
-    }
-  }
-
-  <span class="hljs-selector-class">.ui-datepicker-next</span> {
-    <span class="hljs-selector-class">.ui-icon</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/arrow.png'</span>);
-    }
-  }
-}
+<span class="hljs-variable">$ecl-datepickers-color-select</span>: <span class="hljs-number">#4f4f4f</span>;
+<span class="hljs-variable">$ecl-datepickers-color-select-separator</span>: <span class="hljs-number">#9f9f9f</span>;
+<span class="hljs-variable">$ecl-datepickers-text-color</span>: <span class="hljs-number">#333</span> !default;
+<span class="hljs-variable">$ecl-datepickers-title-bg</span>: <span class="hljs-number">#404040</span> !default;
+<span class="hljs-variable">$ecl-datepickers-title-color</span>: <span class="hljs-variable">$ecl-datepickers-title-bg</span> !default;
+<span class="hljs-variable">$ecl-datepickers-arrow-size</span>: <span class="hljs-number">50px</span>;
+<span class="hljs-variable">$ecl-datepickers-picker-bg</span>: <span class="hljs-number">#eaeaea</span> !default;
+<span class="hljs-variable">$ecl-datepickers-day-bg</span>: <span class="hljs-number">#f5f5f5</span> !default;
+<span class="hljs-variable">$ecl-datepickers-day-selected-bg</span>: <span class="hljs-number">#ffd617</span> !default;
+<span class="hljs-variable">$ecl-datepickers-day-disabled-color</span>: <span class="hljs-number">#999</span> !default;
+<span class="hljs-variable">$ecl-datepickers-week-color</span>: <span class="hljs-number">#999</span> !default;
 
 <span class="hljs-comment">// Positioning the calendar icon.</span>
-<span class="hljs-selector-class">.date-picker</span> {
+<span class="hljs-selector-class">.ecl-datepickers</span> {
   <span class="hljs-attribute">position</span>: relative;
 
-  <span class="hljs-selector-class">.date-picker--icon</span> {
-    @<span class="hljs-keyword">extend</span> %ecl-icon;
-
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">2.35em</span>;
-    <span class="hljs-attribute">right</span>: <span class="hljs-number">0.5em</span>;
+  &amp;__icon {
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
     <span class="hljs-comment">// For the icon does not interfere with the clickable area.</span>
     <span class="hljs-attribute">pointer-events</span>: none;
-    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0.7em</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0.8em</span>;
   }
 }
 
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
-  <span class="hljs-selector-id">#ui-datepicker-div</span> {
-    <span class="hljs-attribute">width</span>: auto;
+<span class="hljs-comment">/*
+ * @define pika-theme ; weak
+ */</span>
+
+<span class="hljs-comment">/* stylelint-disable max-nesting-depth */</span>
+
+<span class="hljs-selector-class">.ecl-pika-theme</span> {
+  <span class="hljs-attribute">background</span>: <span class="hljs-variable">$ecl-datepickers-picker-bg</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-datepickers-text-color</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">9999</span>;
+  zoom: <span class="hljs-number">1</span>;
+
+  <span class="hljs-comment">/* postcss-bem-linter: ignore */</span>
+  &amp;<span class="hljs-selector-class">.is-hidden</span> {
+    <span class="hljs-attribute">display</span>: none;
   }
 
-  <span class="hljs-selector-class">.ui-datepicker</span> {
-    <span class="hljs-selector-tag">table</span><span class="hljs-selector-class">.ui-datepicker-calendar</span> {
-      <span class="hljs-attribute">width</span>: auto <span class="hljs-meta">!important</span>;
+  <span class="hljs-comment">/* postcss-bem-linter: ignore */</span>
+  &amp;<span class="hljs-selector-class">.is-bound</span> {
+    <span class="hljs-attribute">position</span>: absolute;
+  }
+
+  <span class="hljs-comment">// clear child float (pika-lendar), using the famous micro clearfix hack</span>
+  <span class="hljs-comment">// http://nicolasgallagher.com/micro-clearfix-hack/</span>
+  &amp;::before,
+  &amp;::after {
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
+    <span class="hljs-attribute">display</span>: table;
+  }
+
+  &amp;::after {
+    <span class="hljs-attribute">clear</span>: both;
+  }
+
+  <span class="hljs-selector-class">.pika-title</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-datepickers-title-bg</span>;
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">2.5rem</span>;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">2.5rem</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">text-align</span>: center;
+  }
+
+  <span class="hljs-selector-class">.pika-label</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-datepickers-title-bg</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-datepickers-title-color</span>;
+    <span class="hljs-attribute">display</span>: inline-block;
+    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
+    <span class="hljs-attribute">position</span>: relative;
+  }
+
+  <span class="hljs-selector-class">.pika-label</span> <span class="hljs-selector-tag">select</span> {
+    @<span class="hljs-keyword">include</span> ecl-form-control();
+
+    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$ecl-datepickers-color-select</span>;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">cursor</span>: pointer;
+    <span class="hljs-attribute">float</span>: none;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">min-height</span>: auto;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">9998</span>;
+
+    @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), -3px, none);
+
+    &amp;:focus {
+      <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+    }
+
+    &amp;:hover,
+    &amp;:active,
+    &amp;:focus {
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
     }
   }
-}
 
-@<span class="hljs-keyword">media</span> (max-width: 479px) {
-  <span class="hljs-selector-id">#ui-datepicker-div</span> {
-    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
+  <span class="hljs-comment">// The left select to the left.</span>
+  <span class="hljs-selector-class">.pika-label</span>:nth-child(1) <span class="hljs-selector-tag">select</span> {
+    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">2px</span> solid <span class="hljs-variable">$ecl-datepickers-color-select-separator</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-comment">// The right select to the right.</span>
+  <span class="hljs-selector-class">.pika-label</span>:nth-child(2) <span class="hljs-selector-tag">select</span> {
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-selector-class">.pika-prev</span>,
+  <span class="hljs-selector-class">.pika-next</span> {
+    <span class="hljs-attribute">background-color</span>: transparent;
+    <span class="hljs-attribute">background-position</span>: center center;
+    <span class="hljs-attribute">background-repeat</span>: no-repeat;
+    <span class="hljs-attribute">background-size</span>: <span class="hljs-number">75%</span> <span class="hljs-number">75%</span>;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-datepickers-title-bg</span>; <span class="hljs-comment">// hide text</span>
+    <span class="hljs-attribute">cursor</span>: pointer;
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">outline</span>: none;
+    <span class="hljs-attribute">overflow</span>: hidden;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">white-space</span>: nowrap;
+    <span class="hljs-attribute">width</span>: <span class="hljs-variable">$ecl-datepickers-arrow-size</span>;
+
+    &amp;:hover {
+      <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+    }
+
+    &amp;<span class="hljs-selector-class">.is-disabled</span> {
+      <span class="hljs-attribute">cursor</span>: default;
+    }
+  }
+
+  <span class="hljs-selector-class">.pika-prev</span>,
+  <span class="hljs-selector-class">.is-rtl</span> <span class="hljs-selector-class">.pika-next</span> {
+    <span class="hljs-attribute">float</span>: left;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">order</span>: -<span class="hljs-number">1</span>;
+
+    &amp;::after {
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+      <span class="hljs-attribute">left</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">180deg</span>);
+
+      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
+
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
+    }
+  }
+
+  <span class="hljs-selector-class">.pika-next</span>,
+  <span class="hljs-selector-class">.is-rtl</span> <span class="hljs-selector-class">.pika-prev</span> {
+    <span class="hljs-attribute">float</span>: right;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+
+    &amp;::after {
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">right</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
+
+      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
+
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
+    }
+  }
+
+  <span class="hljs-selector-class">.pika-select</span> {
+    <span class="hljs-attribute">display</span>: inline-block;
+  }
+
+  <span class="hljs-selector-class">.pika-table</span> {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-15'</span>);
+    <span class="hljs-attribute">border-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) solid transparent;
+    <span class="hljs-attribute">border-collapse</span>: collapse;
+    <span class="hljs-attribute">border-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) solid transparent;
+    <span class="hljs-attribute">border-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) solid transparent;
+    <span class="hljs-attribute">border-spacing</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+    <span class="hljs-selector-tag">th</span>,
+    <span class="hljs-selector-tag">td</span> {
+      <span class="hljs-attribute">padding</span>: <span class="hljs-number">1px</span>;
+    }
+
+    <span class="hljs-selector-tag">th</span> {
+      <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+      <span class="hljs-attribute">text-align</span>: center;
+    }
+
+    <span class="hljs-selector-tag">abbr</span> {
+      <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">cursor</span>: help;
+      <span class="hljs-attribute">font-weight</span>: normal;
+      <span class="hljs-attribute">text-decoration</span>: none;
+    }
+  }
+
+  <span class="hljs-selector-class">.pika-button</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$ecl-datepickers-day-bg</span>;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">box-sizing</span>: border-box;
+    <span class="hljs-attribute">cursor</span>: pointer;
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">1px</span>;
+    <span class="hljs-attribute">outline</span>: none;
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+    <span class="hljs-selector-class">.is-selection-disabled</span> {
+      <span class="hljs-attribute">cursor</span>: default;
+      <span class="hljs-attribute">pointer-events</span>: none;
+    }
+  }
+
+  <span class="hljs-selector-class">.is-today</span> <span class="hljs-selector-class">.pika-button</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$ecl-datepickers-day-selected-bg</span>;
+  }
+
+  <span class="hljs-selector-class">.is-selected</span> <span class="hljs-selector-class">.pika-button</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-variable">$ecl-datepickers-day-selected-bg</span>;
+  }
+
+  <span class="hljs-selector-class">.is-disabled</span> <span class="hljs-selector-class">.pika-button</span>,
+  <span class="hljs-selector-class">.is-outside-current-month</span> <span class="hljs-selector-class">.pika-button</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-datepickers-day-disabled-color</span>;
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.3</span>;
+  }
+
+  <span class="hljs-selector-class">.is-disabled</span> <span class="hljs-selector-class">.pika-button</span> {
+    <span class="hljs-attribute">cursor</span>: default;
+    <span class="hljs-attribute">pointer-events</span>: none;
+  }
+
+  <span class="hljs-selector-class">.pika-week</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-datepickers-week-color</span>;
+  }
+
+  <span class="hljs-selector-class">.is-inrange</span> <span class="hljs-selector-class">.pika-button</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;
+  }
+
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
+    <span class="hljs-selector-class">.pika-lendar</span>,
+    <span class="hljs-selector-class">.pika-single</span>,
+    <span class="hljs-selector-class">.pika-table</span> {
+      <span class="hljs-attribute">width</span>: auto;
+    }
   }
 }
 </pre>
@@ -501,44 +572,7 @@ Style guide datepicker
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4 KB</span>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="FileBrowser-item" id="file-941606401cbb8f40f2f943e6aa5c61db" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-comment">/**
- * Datepickers
- */</span>
-
-<span class="hljs-comment">// eslint-disable-next-line import/prefer-default-export</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">datepicker</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'This script needs to be rewritten without jQuery'</span>);
-}
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-datepickers/datepickers.js"><span>/components/raw/ecl-datepickers/datepickers.js</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-datepickers/datepickers.js</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">183 Bytes</span>
+                    <span class="Meta-value">5.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -2009,7 +2043,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2915,9 +2949,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-messages">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -2925,7 +2958,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2934,7 +2967,135 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Messages</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--info" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Info</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--warning" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Warning</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--success" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Success</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--error" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Error</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--livestream" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Livestream</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3879,6 +4040,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-tabs" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Tabs</span>
+            </a>
         </li>
         
     

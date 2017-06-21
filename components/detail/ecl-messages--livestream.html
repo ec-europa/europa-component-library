@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,18 +135,15 @@
               <div class="Prose">
                 
                 <h1 id="messages">Messages</h1>
-<p>Messages is a component that is used for displaying different types of messages
-like:</p>
+<p>Messages is a component that is used for displaying different types of messages like:</p>
 <ul>
 <li>info (by default)</li>
-<li>status</li>
+<li>success</li>
 <li>warning</li>
 <li>error</li>
 <li>live</li>
 </ul>
-<p>The component messages is defined “info” by default, the “info” type doesn’t
-exist as class. The “live” type is meant to be used in cases like live streaming
-for events.</p>
+<p>The component messages is defined “info” by default, the “info” type doesn’t exist as class. The “live” type is meant to be used in cases like live streaming for events.</p>
 
                 
               </div>
@@ -223,10 +220,20 @@ for events.</p>
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-9a31bf7a880ad4d45b54e6f8f3fb2b6b-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"messages alert </span></span></span><span class="hljs-template-variable">{{messages_type}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{messages_sr_only}}</span><span class="xml">:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">{{messages_title}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="hljs-template-variable">{{messages_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier is defined %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-message--</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{ srOnly }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> dismiss is defined and dismiss %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Dismiss this alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> title is defined %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> body is defined %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__body"</span>&gt;</span></span><span class="hljs-template-variable">{{ body }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -237,10 +244,14 @@ for events.</p>
         
             
             <pre>{
-  <span class="hljs-attr">"messages_type"</span>: <span class="hljs-string">"live"</span>,
-  <span class="hljs-attr">"messages_sr_only"</span>: <span class="hljs-string">"Livestream message"</span>,
-  <span class="hljs-attr">"messages_title"</span>: <span class="hljs-string">"Some livestream title"</span>,
-  <span class="hljs-attr">"messages_data"</span>: <span class="hljs-string">"Lorem ipsum lor sit amet, consectetur adipi"</span>
+  <span class="hljs-attr">"_demo"</span>: {
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () { ECL.initMessages(); });"</span>
+  },
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"live"</span>,
+  <span class="hljs-attr">"dismiss"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"srOnly"</span>: <span class="hljs-string">"Livestream message"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Some livestream title"</span>,
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"Lorem ipsum lor sit amet, consectetur adipi"</span>
 }</pre>
             
         
@@ -252,10 +263,14 @@ for events.</p>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-9a31bf7a880ad4d45b54e6f8f3fb2b6b-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"messages alert live"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Livestream message:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Some livestream title<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum lor sit amet, consectetur adipi<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message  ecl-message--live "</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Livestream message<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Dismiss this alert"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__title"</span>&gt;</span>Some livestream title<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__body"</span>&gt;</span>Lorem ipsum lor sit amet, consectetur adipi<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -274,6 +289,8 @@ for events.</p>
                 
                 <option value="file-cd01e342b27ad392f3a91b35eadd4ff0">_messages.scss</option>
                 
+                <option value="file-130ecc9e6d5f971c2e9f8734105c9494">messages.js</option>
+                
             </select>
         </div>
 
@@ -286,124 +303,67 @@ for events.</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Messages
+                                <pre><span class="hljs-comment">/**
+ * Messages
+ * @define message
+ */</span>
 
-Markup: html/messages.html
-
-Style guide messages
-*/</span>
-
-<span class="hljs-variable">$messages-text-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-<span class="hljs-variable">$messages-heading-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-<span class="hljs-variable">$messages-text-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-
-<span class="hljs-selector-class">.messages</span> {
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">5.375em</span>;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1.315em</span> <span class="hljs-number">0</span> <span class="hljs-number">1.315em</span> <span class="hljs-number">5em</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
-  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.375em</span> <span class="hljs-number">1.375em</span>;
-  <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$ecl-font-family-sans-serif</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$messages-text-size</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$messages-text-color</span>;
+<span class="hljs-selector-class">.ecl-message</span> {
+  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.2rem</span> <span class="hljs-number">1.2rem</span>;
   <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-75'</span>);
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">min-height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
+  <span class="hljs-attribute">position</span>: relative;
 
-  &amp;<span class="hljs-selector-class">.status</span> {
+  &amp;--success {
     <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-success.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-success</span>;
   }
 
-  &amp;<span class="hljs-selector-class">.warning</span> {
+  &amp;--warning {
     <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-warning.svg'</span>);
     <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
   }
 
-  &amp;<span class="hljs-selector-class">.error</span> {
+  &amp;--error {
     <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-error.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-error</span>;
   }
 
-  &amp;<span class="hljs-selector-class">.live</span> {
+  &amp;--live {
     <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/live_streaming.svg'</span>);
     <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
   }
-
-  <span class="hljs-selector-tag">h3</span> {
-    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">font-size</span>: inherit;
-    <span class="hljs-attribute">font-weight</span>: bold;
-  }
-
-  <span class="hljs-selector-tag">p</span> {
-    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">95%</span>;
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$messages-text-size</span>;
-  }
-
-  &gt; :last-child {
-    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-selector-class">.close</span> {
-    <span class="hljs-attribute">display</span>: none;
-  }
 }
 
-<span class="hljs-comment">// Bootstrap overrides.</span>
-<span class="hljs-selector-class">.alert</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">1.667em</span> <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
-
-  <span class="hljs-selector-class">.close</span> {
-    <span class="hljs-attribute">display</span>: block;
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">0.465em</span>;
-    <span class="hljs-attribute">right</span>: <span class="hljs-number">0.465em</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">5px</span>;
-    <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/close.svg'</span>) no-repeat right top;
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.625em</span>;
-    <span class="hljs-attribute">color</span>: transparent;
-    <span class="hljs-attribute">text-shadow</span>: none;
-    <span class="hljs-attribute">text-decoration</span>: none;
-    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
-
-    &amp;:hover {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/close_hover.svg'</span>);
-    }
-  }
+<span class="hljs-selector-class">.ecl-message__title</span> {
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
 }
 
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-selector-class">.messages</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-info.png'</span>);
+<span class="hljs-selector-class">.ecl-message__body</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+}
 
-    &amp;<span class="hljs-selector-class">.status</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-info.png'</span>);
-    }
+<span class="hljs-selector-class">.ecl-message__dismiss</span> {
+  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/close.svg'</span>) no-repeat center center;
+  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">color</span>: transparent;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxl'</span>);
+  <span class="hljs-attribute">line-height</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  <span class="hljs-attribute">text-decoration</span>: none;
+  <span class="hljs-attribute">text-shadow</span>: none;
+  <span class="hljs-attribute">top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
 
-    &amp;<span class="hljs-selector-class">.warning</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-warning.png'</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.error</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-error.png'</span>);
-    }
-
-    &amp;<span class="hljs-selector-class">.live</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/live_streaming.png'</span>);
-    }
-  }
-
-  <span class="hljs-selector-class">.alert</span> {
-    <span class="hljs-selector-class">.close</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/close.png'</span>);
-
-      &amp;:hover {
-        <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/close_hover.png'</span>);
-      }
-    }
+  &amp;:hover {
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/close_hover.svg'</span>);
   }
 }
 </pre>
@@ -422,7 +382,61 @@ Style guide messages
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.5 KB</span>
+                    <span class="Meta-value">1.6 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-130ecc9e6d5f971c2e9f8734105c9494" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-JavaScript FileBrowser-code">
+                                <pre><span class="hljs-comment">/*
+ * Messages behavior
+ */</span>
+
+<span class="hljs-comment">// Dismiss a selected message.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dismissMessage</span>(<span class="hljs-params">message</span>) </span>{
+  message.setAttribute(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-literal">true</span>);
+}
+
+<span class="hljs-comment">// Helper method to automatically attach the event listener to all the messages on page load</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initMessages</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> selectorClass = <span class="hljs-string">'ecl-message__dismiss'</span>;
+
+  <span class="hljs-keyword">const</span> messages = <span class="hljs-built_in">Array</span>.prototype.slice.call(
+    <span class="hljs-built_in">document</span>.getElementsByClassName(selectorClass)
+  );
+
+  messages.forEach(<span class="hljs-function"><span class="hljs-params">message</span> =&gt;</span>
+    message.addEventListener(<span class="hljs-string">'click'</span>, () =&gt;
+      dismissMessage(message.parentElement)
+    )
+  );
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> initMessages;
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-messages/messages.js"><span>/components/raw/ecl-messages/messages.js</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-messages/messages.js</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">583 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -454,6 +468,33 @@ Style guide messages
         
         
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(5)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="ecl-messages--info">
+                    <span>Info</span>
+                </a>, 
+            
+                <a href="ecl-messages--warning">
+                    <span>Warning</span>
+                </a>, 
+            
+                <a href="ecl-messages--success">
+                    <span>Success</span>
+                </a>, 
+            
+                <a href="ecl-messages--error">
+                    <span>Error</span>
+                </a>, 
+            
+                <a href="">
+                    <span>Livestream</span>
+                </a>
+            
+            </span>
+        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -1893,7 +1934,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2799,9 +2840,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-messages">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -2809,7 +2849,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2818,7 +2858,135 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Messages</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--info" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Info</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--warning" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Warning</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--success" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Success</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-messages--error" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Error</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Livestream</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3763,6 +3931,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-tabs" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Tabs</span>
+            </a>
         </li>
         
     

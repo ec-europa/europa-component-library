@@ -5,17 +5,29 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../framework/styles/europa.css">
-    <title>Preview Layout</title>
+
+    <title>Preview Layout for datepickers</title>
   </head>
   <body>
     <label for="datepicker">Date:</label>
-<div class="date-picker">
-  <input class="form-control" type="text" id="datepicker">
-  <span class="icon icon--calendar"></span>
+<div class="ecl-datepickers">
+  <input class="ecl-text-input" type="text" id="datepicker" value="04/01/2017" aria-label="Use the arrow keys to pick a date">
+  <span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span>
 </div>
 
     <script src="../../framework/scripts/europa.js"></script>
-        <script type="text/javascript">ECL.datepicker();</script>
-      </body>
+    
+    <!-- Specific scripts included in this preview template -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script type="text/javascript">
+      var picker = new Pikaday({
+        field: document.getElementById('datepicker'),
+        firstDay: 1,
+        maxDate: new Date(2020, 12, 31),
+        theme: 'ecl-pika-theme',
+        yearRange: [2000, 2020],
+      });
+    </script>
+  </body>
 </html>
 
