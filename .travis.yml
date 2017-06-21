@@ -11,6 +11,8 @@ cache:
 before_script:
   - npm install -g s3-website
 after_success:
+  - yarn remove node-sass
+  - yarn add node-sass
   - npm run dist
   # AWS_ACCESS_Id and AWS_ACCESS_KEY are set in the travis repo settings as they are private-private!
   # - npm run create-preview
