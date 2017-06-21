@@ -1,0 +1,31 @@
+/**
+ * Accordions
+ * @define accordions
+ */
+
+.ecl-accordions__header {
+  align-items: center;
+  display: flex;
+  margin: 0;
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l');
+}
+
+.ecl-accordions__header-icon {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: map-get($ecl-spacing, 'xs');
+}
+
+.ecl-accordions__header:active,
+.ecl-accordions__header:focus,
+.ecl-accordions__header:hover,
+.ecl-accordions__header[aria-selected='true'] {
+  background-color: $ecl-color-secondary;
+}
+
+.ecl-accordions__panel {
+  background-color: #f5f5f5;
+  font-size: map-get($ecl-font-size, 's');
+  margin: 0;
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l');
+}
