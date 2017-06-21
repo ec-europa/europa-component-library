@@ -8,13 +8,8 @@ cache:
   directories:
     - node_modules
 
-script:
-   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then printenv fi'
-   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printenv fi'
-
 before_script:
   - npm install -g s3-website
-after_script:
-  - echo 'after_script hook ran ....'
 after_success:
-  - echo 'after_success hook ran ....'
+  # AWS_ACCESS_Id and AWS_ACCESS_KEY are set in the travis repo settings as they are private-private!
+  - 'AWS_ACCESS_ID=$AWS_ACCESS_ID AWS_ACCESS_KEY=$AWS_ACCESS_KEY npm run create-preview'
