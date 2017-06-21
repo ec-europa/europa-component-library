@@ -1,60 +1,77 @@
 module.exports = {
   title: 'Messages',
   label: 'Messages',
-  status: 'planned',
-  collated: true,
+  status: 'ready',
+  collated: false,
+  collator(markup, item) {
+    return `
+      <!-- Start: @${item.handle} -->\n
+      <h3 class="ecl-heading ecl-heading--h3">${item.label}\n</h3>\n
+      ${markup}\n
+      <!-- End: @${item.handle} -->\n
+    `;
+  },
   default: 'info',
-  preview: '@preview-center-transparent',
   tags: ['atom'],
+  context: {
+    _demo: {
+      scripts:
+        "document.addEventListener('DOMContentLoaded', function () { ECL.initMessages(); });",
+    },
+  },
   variants: [
     {
       name: 'info',
       label: 'Info',
       context: {
-        messages_type: '',
-        messages_sr_only: 'Informative message',
-        messages_title: 'Some info title',
-        messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
+        dismiss: true,
+        srOnly: 'Informative message',
+        title: 'Some info title',
+        body: 'Lorem ipsum lor sit amet, consectetur adipi',
       },
     },
     {
       name: 'warning',
       label: 'Warning',
       context: {
-        messages_type: 'warning',
-        messages_sr_only: 'Warning message',
-        messages_title: 'Some warning title',
-        messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
+        modifier: 'warning',
+        dismiss: true,
+        srOnly: 'Warning message',
+        title: 'Some warning title',
+        body: 'Lorem ipsum lor sit amet, consectetur adipi',
       },
     },
     {
-      name: 'status',
+      name: 'success',
       label: 'Success',
       context: {
-        messages_type: 'status',
-        messages_sr_only: 'Success message',
-        messages_title: 'Some status title',
-        messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
+        modifier: 'success',
+        dismiss: true,
+        srOnly: 'Success message',
+        title: 'Some success title',
+        body: 'Lorem ipsum lor sit amet, consectetur adipi',
       },
     },
     {
       name: 'error',
       label: 'Error',
       context: {
-        messages_type: 'error',
-        messages_sr_only: 'Error message',
-        messages_title: 'Some error title',
-        messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
+        modifier: 'error',
+        dismiss: true,
+        srOnly: 'Error message',
+        title: 'Some error title',
+        body: 'Lorem ipsum lor sit amet, consectetur adipi',
       },
     },
     {
       name: 'livestream',
       label: 'Livestream',
       context: {
-        messages_type: 'live',
-        messages_sr_only: 'Livestream message',
-        messages_title: 'Some livestream title',
-        messages_data: 'Lorem ipsum lor sit amet, consectetur adipi',
+        modifier: 'live',
+        dismiss: true,
+        srOnly: 'Livestream message',
+        title: 'Some livestream title',
+        body: 'Lorem ipsum lor sit amet, consectetur adipi',
       },
     },
   ],
