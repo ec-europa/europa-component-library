@@ -1,7 +1,16 @@
 # Datepickers
 
-This example is based on jQuery Datepicker widget. It requires both jQuery and jQuery UI libraries.
+## Why and how to use this component
+Users need a way to scan quickly a date related to an event.
 
-Also, it assumes that the default CSS styles from jQuery UI are included as well.
+This component appears when you need to enter a date.
 
-The CSS applied from style guide is an override over the default CSS of jQuery UI.
+By clicking in the date field a pop-up displays a calendar. It allows the user to select a time or a date value instead of typing it. This greatly reduces the likelihood of mistakes.
+
+### When to use this component
+
+- on the filter component, date field
+
+### Do not use this component
+
+- outside of the filter component

@@ -1,11 +1,7 @@
 module.exports = {
   title: 'Datepickers',
   label: 'Datepickers',
-  status: 'planned',
+  preview: '@preview-datepickers',
+  status: 'ready',
   tags: ['molecule'],
-  context: {
-    _demo: {
-      scripts: 'ECL.datepicker();',
-    },
-  },
 };
