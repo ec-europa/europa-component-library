@@ -1,20 +1,13 @@
-<dl class="ecl-accordion" role="presentation" aria-multiselectable="true">
-  <dt role="heading" aria-level="3">
-    <button id="accordion-header-1" class="ecl-accordion__header" aria-controls="accordion-panel-1" aria-expanded="true">
-      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--growth"></span>
-      Jobs, Growth, Investment and Competitiveness with an additional quite long string
+<dl class="ecl-accordion" role="presentation">
+  {% for panel in panels %}
+  <dt role="heading"{{ panel.heading.level is defined ? 'aria-level="' ~ panel.heading.level ~ '"' : '' }} >
+    <button id="ecl-accordion-header-{{ panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ panel.id }}" aria-expanded="{{ panel.isExpanded ? 'true' : 'false' }}">
+      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--{{ panel.heading.icon }}"></span>
+      {{ panel.heading.title }}
     </button>
   </dt>
-  <dd id="accordion-panel-1" class="ecl-accordion__panel" role="region" aria-labelledby="accordion-header-1" aria-hidden="false">
-    <p>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative sportsmanship. In other words, one has to rig the game.</p>
+  <dd id="ecl-accordion-panel-{{ panel.id }}" class="ecl-accordion__panel" role="region" aria-labelledby="ecl-accordion-header-{{ panel.id }}" aria-hidden="{{ panel.isExpanded ? 'false' : 'true' }}">
+    {{ panel.body }}
   </dd>
-  <dt role="heading" aria-level="3">
-    <button id="accordion-header-2" class="ecl-accordion__header" aria-controls="accordion-panel-2" aria-expanded="false">
-      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--energy"></span>
-      Energy Union
-    </button>
-  </dt>
-  <dd id="accordion-panel-2" class="ecl-accordion__panel" role="region" aria-labelledby="accordion-header-2" aria-hidden="true">
-    <p>Bullfights. Bull hockey. Do you like this? The bull is stabbed, prodded, beaten. The bull is wounded. The bull is tired before the matador ever steps into the ring. Now, is that victory? Of course it is. Wanna know the secret to winning? Creative sportsmanship. In other words, one has to rig the game.</p>
-  </dd>
+  {% endfor %}
 </dl>
