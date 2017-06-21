@@ -7,8 +7,8 @@ import { queryAll } from '../../base/helpers/dom';
  */
 export const accordions = (
   {
-    selector: selector = '.ecl-accordions',
-    headerSelector: headerSelector = '.ecl-accordions__header',
+    selector: selector = '.ecl-accordion',
+    headerSelector: headerSelector = '.ecl-accordion__header',
   } = {}
 ) => {
   // SUPPORTS
@@ -30,7 +30,6 @@ export const accordions = (
       target.getAttribute('aria-controls')
     );
 
-    target.setAttribute('aria-selected', 'false');
     target.setAttribute('aria-expanded', 'false');
 
     // toggle aria-hidden
@@ -45,7 +44,6 @@ export const accordions = (
 
     // set attributes on header
     target.setAttribute('tabindex', 0);
-    target.setAttribute('aria-selected', 'true');
     target.setAttribute('aria-expanded', 'true');
 
     // toggle aria-hidden and set height on panel
@@ -54,7 +52,7 @@ export const accordions = (
 
   function togglePanel(target) {
     // close target panel if already active
-    if (target.getAttribute('aria-selected') === 'true') {
+    if (target.getAttribute('aria-expanded') === 'true') {
       hidePanel(target);
       return;
     }
@@ -63,12 +61,7 @@ export const accordions = (
   }
 
   function giveHeaderFocus(headerSet, i) {
-    // remove focusability from inactives
-    headerSet.forEach(header => {
-      header.setAttribute('tabindex', -1);
-    });
     // set active focus
-    headerSet[i].setAttribute('tabindex', 0);
     headerSet[i].focus();
   }
 
@@ -82,7 +75,7 @@ export const accordions = (
     const currentHeader = e.currentTarget;
     const isModifierKey = e.metaKey || e.altKey;
     // get context of accordion container and its children
-    const thisContainer = currentHeader.parentNode;
+    const thisContainer = currentHeader.parentNode.parentNode;
     const theseHeaders = queryAll(headerSelector, thisContainer);
     const currentHeaderIndex = [].indexOf.call(theseHeaders, currentHeader);
 

@@ -24,7 +24,7 @@ describe('accordions', () => {
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-accordions').value;
+    const a11yReport = browser.runAxeCore('ecl-accordion').value;
     expect(a11yReport).to.be.accessible;
   });
 });
