@@ -11,5 +11,9 @@ cache:
 before_script:
   - npm install -g s3-website
 after_success:
+  - npm run dist
   # AWS_ACCESS_Id and AWS_ACCESS_KEY are set in the travis repo settings as they are private-private!
-  - 'AWS_ACCESS_ID=$AWS_ACCESS_ID AWS_ACCESS_KEY=$AWS_ACCESS_KEY npm run create-preview'
+  # - npm run create-preview
+  # User the pull request number to create a new domain name
+  - s3-website create ecl-$TRAVIS_PULL_REQUEST -u dist/
+  - s3-website deploy
