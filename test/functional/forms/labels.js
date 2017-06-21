@@ -25,7 +25,7 @@ describe('forms-labels', () => {
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-forms-labels').value;
+    const a11yReport = browser.runAxeCore('ecl-form-label').value;
     expect(a11yReport).to.be.accessible;
   });
 });
