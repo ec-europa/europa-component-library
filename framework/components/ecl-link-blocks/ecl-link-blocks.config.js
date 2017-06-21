@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Link blocks',
   label: 'Link blocks',
-  status: 'planned',
+  status: 'wip',
   tags: ['molecule'],
 };

@@ -1,43 +1,38 @@
-/*
-Link block
+/**
+ * ECL Link blocks
+ * @define link-blocks ; weak
+ */
 
-Markup: html/link-block.html
-
-Style guide link-block
-*/
-
-.link-block {
+.ecl-link-blocks {
   background-color: map-get($ecl-colors, 'grey-5');
-  padding: 1.111em;
+  padding: map-get($ecl-spacing, 's') !important;
 }
 
-.link-block__links {
+.ecl-link-blocks__links {
   font-size: map-get($ecl-font-size, 's');
   list-style: none;
-  padding: 0;
-
-  & a {
-    &:link,
-    &:visited {
-      text-decoration: none;
-    }
-
-    &:hover,
-    &:active {
-      text-decoration: underline;
-    }
-  }
+  padding-left: 0;
 
   li {
-    margin-bottom: 0.688em;
+    margin-bottom: map-get($ecl-spacing, 'xxs');
+  }
+
+  a:link,
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active {
+    text-decoration: underline;
   }
 }
 
-.link-block__title {
-  font-weight: 600;
-  font-size: map-get($ecl-font-size, 's');
-  line-height: 1.875em;
+.ecl-link-blocks__title {
   color: map-get($ecl-colors, 'blue-110');
-  margin-bottom: 0.688em;
+  font-size: map-get($ecl-font-size, 's');
+  font-weight: 600;
+  line-height: map-get($ecl-spacing, 'm');
+  margin-bottom: map-get($ecl-spacing, 'xxs');
   padding: 0;
 }
