@@ -1,22 +1,6 @@
 language: node_js
-
-# Disable email notifications
-notifications:
-  email: false
-
-env:
-  global:
-    - CXX=g++-4.8
-
-sudo: false
-dist: trusty
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
+node_js:
+  - "7"
 
 cache:
   apt: true
@@ -24,30 +8,14 @@ cache:
   directories:
     - node_modules
 
-matrix:
-  # Allow coding conventions tests to fail
-  allow_failures:
-    - env: TEST_SUITE=test:coding-conventions
-  include:
-    # Nodejs 6 - Webdriver.io
-    - node_js: 6
-      env: TEST_SUITE=test:functional
-      addons:
-        apt:
-          packages:
-            - graphicsmagick
-        artifacts:
-          paths:
-            - $TRAVIS_BUILD_DIR/test/screenshots/diff/
-            - $TRAVIS_BUILD_DIR/test/errorShots/
-        sauce_connect: true
-
-    # Nodejs 6 - Lint
-    - node_js: 6
-      env: TEST_SUITE=test:coding-conventions
-
 before_script:
-  - if [ "${TEST_SUITE}" = "test:functional" ]; then npm run dist; fi
-
-script:
-  - npm run $TEST_SUITE
+  - npm install -g s3-website
+after_success:
+  - yarn remove node-sass
+  - yarn add node-sass
+  - npm run dist
+  # AWS_ACCESS_Id and AWS_ACCESS_KEY are set in the travis repo settings as they are private-private!
+  # - npm run create-preview
+  # User the pull request number to create a new domain name
+  - s3-website create ecl-$TRAVIS_PULL_REQUEST -u dist/
+  - s3-website deploy
