@@ -11,8 +11,8 @@ describe('files', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
-      width: 1400,
-      height: 600,
+      width: 600,
+      height: 400,
     });
 
     browser.pause(1000);
@@ -39,7 +39,7 @@ describe('files', () => {
         });
 
         it('should be accessible', () => {
-          const a11yReport = browser.runAxeCore('ecl-files').value;
+          const a11yReport = browser.runAxeCore('ecl-file').value;
           expect(a11yReport).to.be.accessible;
         });
       });
