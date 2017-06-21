@@ -115,6 +115,8 @@ Then you can run:
 yarn test:functional
 ```
 
+For more details, [see the testing documentation](docs/testing/visual.md)
+
 ## Deploy to GitHub Pages
 
 _To be executed from the master branch only._
