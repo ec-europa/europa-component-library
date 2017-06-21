@@ -1,28 +1,18 @@
 language: node_js
 
-# Disable email notifications
-notifications:
-  email: false
-
-env:
-  global:
-    - CXX=g++-4.8
-
-sudo: false
-dist: trusty
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
-
 cache:
   apt: true
   yarn: true
   directories:
     - node_modules
 
+script:
+   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then printenv fi'
+   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printenv fi'
+
+before_script:
+  - npm install -g s3-website
+after_script:
+  - echo 'after_script hook ran ....'
 after_success:
-  - echo $TRAVIS_BRANCH
+  - echo 'after_success hook ran ....'
