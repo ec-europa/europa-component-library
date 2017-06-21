@@ -3,7 +3,7 @@
   {% if variant == "translations" %}
 
 <!-- Translations -->
-<div class="ecl-file">
+<section class="ecl-file">
   <div class="ecl-file__body">
     <div class="ecl-row">
       <div class=" ecl-col ecl-col-md-8">
@@ -66,12 +66,12 @@
       </ul>
     </div>
   </div>
-</div>
+</section>
 
   {% elseif variant == "links" %}
 
 <!-- Links -->
-<div class="ecl-file ecl-file--link">
+<section class="ecl-file ecl-file--link">
   {% if links is defined %}
     {% for link in links %}
       <a
@@ -85,39 +85,36 @@
       </a>
     {% endfor %}
   {% endif %}
-</div>
+</section>
 
   {% elseif variant == "images" %}
 
 <!-- Images -->
-<div class="ecl-file ecl-file--image">
+<section class="ecl-file ecl-file--image">
   <img class="ecl-file__image" src="{{ src }}" alt="{{ alt }}">
-  <span class="ecl-file__caption">{{ caption }}</span>
-</div>
+  <div class="ecl-file__caption">{{ caption }}</div>
+</section>
 
   {% elseif variant == "Videos" %}
 
 <!-- Videos -->
-  <div class="ecl-file ecl-file--video">
-    <div class="ecl-file__container">
-      {% if src is defined %}
-        {% if iframe is defined and iframe %}
-      <iframe src="{{ src }}" allowfullscreen="allowfullscreen" scrolling="no"></iframe>
-        {% else %}
-      <video src="{{ src }}" type="video/mp4" controls="controls"></video>
-        {% endif %}
-      {% endif %}
-    </div>
-    <span class="ecl-file__caption">{{ caption }}</span>
-  </div>
-</div>
+<section class="ecl-file ecl-file--video">
+  {% if src is defined %}
+    {% if iframe is defined and iframe %}
+  <iframe class="ecl-file__video" src="{{ src }}" allowfullscreen="allowfullscreen" scrolling="no"></iframe>
+    {% else %}
+  <video class="ecl-file__video" src="{{ src }}" type="video/mp4" controls="controls"></video>
+    {% endif %}
+  {% endif %}
+  <div class="ecl-file__caption">{{ caption }}</div>
+</section>
 
   {% endif %}
 
 {% else %}
 
 <!-- Default -->
-<div class="ecl-file">
+<section class="ecl-file">
   <div class="ecl-file__body">
     <div class="ecl-row">
       <div class=" ecl-col ecl-col-md-8">
@@ -142,6 +139,6 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 {% endif %}

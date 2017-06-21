@@ -3,12 +3,6 @@
  * @define file
  */
 
-// Temporary hack, to be integrated in reset
-/* stylelint-disable-next-line */
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
 // Default display
 
 .ecl-file {
@@ -51,6 +45,8 @@
     @extend %ecl-icon--after;
 
     @include ecl-icon('download');
+
+    margin-left: 0.8em;
   }
 }
 
@@ -75,6 +71,8 @@
     @extend %ecl-icon--after;
 
     @include ecl-icon('down');
+
+    margin-left: 0.8em;
   }
 }
 
@@ -83,6 +81,8 @@
     @extend %ecl-icon--after;
 
     @include ecl-icon('up');
+
+    margin-left: 0.8em;
   }
 }
 
@@ -128,6 +128,8 @@
     @extend %ecl-icon--after;
 
     @include ecl-icon('download');
+
+    margin-left: 0.8em;
   }
 }
 
@@ -174,15 +176,10 @@
 }
 
 // Image and video file
-
-.ecl-file--image,
-.ecl-file--video {
-  display: table;
-  width: 1%; // hack to adapt width to image size
-}
-
-.ecl-file__image {
-  max-width: inherit;
+.ecl-file__image,
+.ecl-file__video {
+  height: auto;
+  width: 100%;
 }
 
 .ecl-file__caption {
