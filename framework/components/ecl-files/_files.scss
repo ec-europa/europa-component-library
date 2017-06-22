@@ -188,3 +188,13 @@
   font-size: map-get($ecl-font-size, 'xs');
   padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
 }
+
+/* stylelint-disable */
+[class^='ecl-u-ratio'] iframe.ecl-file__video,
+[class*=' ecl-u-ratio'] iframe.ecl-file__video {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}

@@ -101,9 +101,13 @@
 <section class="ecl-file ecl-file--video">
   {% if src is defined %}
     {% if iframe is defined and iframe %}
-  <iframe class="ecl-file__video" src="{{ src }}" allowfullscreen="allowfullscreen" scrolling="no"></iframe>
+  <div {% if ratio is defined %} class="ecl-u-ratio-{{ ratio }}" {% endif %}>
+    <iframe class="ecl-file__video" src="{{ src }}" allowfullscreen="allowfullscreen" scrolling="no"></iframe>
+  </div>
     {% else %}
-  <video class="ecl-file__video" src="{{ src }}" type="video/mp4" controls="controls"></video>
+  <div {% if ratio is defined %} class="ecl-u-ratio-{{ ratio }}" {% endif %}>
+    <video class="ecl-file__video" src="{{ src }}" type="video/mp4" controls="controls"></video>
+  </div>
     {% endif %}
   {% endif %}
   <div class="ecl-file__caption">{{ caption }}</div>
