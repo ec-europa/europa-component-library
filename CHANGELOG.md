@@ -1,3 +1,39 @@
+## 0.8.0 (2017-06-22)
+
+#### :rocket: New Feature
+
+*   [#207](https://github.com/ec-europa/europa-component-library/pull/207) feat(accordions): provide accordions component - INNO-615. ([@yhuard](https://github.com/yhuard))
+*   [#200](https://github.com/ec-europa/europa-component-library/pull/200) feat(datepickers): add new way - INNO-592. ([@kalinchernev](https://github.com/kalinchernev))
+*   [#201](https://github.com/ec-europa/europa-component-library/pull/201) feat(tabs): add tabs component - INNO-617. ([@yhuard](https://github.com/yhuard))
+*   [#190](https://github.com/ec-europa/europa-component-library/pull/190) feat(horizontal-menu): add component - INNO-595. ([@emeryro](https://github.com/emeryro))
+*   [#188](https://github.com/ec-europa/europa-component-library/pull/188) feat(rss-links): refactor - INNO-585. ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :bug: Bug Fix
+
+*   [#202](https://github.com/ec-europa/europa-component-library/pull/202) fix(reset): fix box-sizing and remove other rules - INNO-416. ([@yhuard](https://github.com/yhuard))
+*   [#189](https://github.com/ec-europa/europa-component-library/pull/189) refactor(buttons): align with the specs - INNO-610. ([@yhuard](https://github.com/yhuard))
+*   [#192](https://github.com/ec-europa/europa-component-library/pull/192) fix(expandabe): update ecl-builder and fix the expandable on IE - INNO-621. ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+*   [#205](https://github.com/ec-europa/europa-component-library/pull/205) refactor(select): upgrade component - INNO-589. ([@emeryro](https://github.com/emeryro))
+*   [#204](https://github.com/ec-europa/europa-component-library/pull/204) feat(forms-labels): upgrade component -INNO-612. ([@degliwe](https://github.com/degliwe))
+*   [#203](https://github.com/ec-europa/europa-component-library/pull/203) refactor(files): upgrade component - INNO-588. ([@emeryro](https://github.com/emeryro))
+*   [#206](https://github.com/ec-europa/europa-component-library/pull/206) feat(legends): legends INNO-630. ([@degliwe](https://github.com/degliwe))
+*   [#197](https://github.com/ec-europa/europa-component-library/pull/197) refactor(messages): upgrade component - INNO-587. ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+*   [#186](https://github.com/ec-europa/europa-component-library/pull/186) refactor(buttons): remove unused variants - INNO-610. ([@yhuard](https://github.com/yhuard))
+*   [#187](https://github.com/ec-europa/europa-component-library/pull/187) chore(deps): update dependencies - no issue. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 4
+
+-   Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+-   Yannick Huard ([yhuard](https://github.com/yhuard))
+-   [emeryro](https://github.com/emeryro)
+-   wesley deglise ([degliwe](https://github.com/degliwe))
+
 ## 0.7.0 (2017-06-13)
 
 #### :rocket: New Feature
