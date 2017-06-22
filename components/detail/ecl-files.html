@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,19 +135,19 @@
               <div class="Prose">
                 
                 <h1 id="files">Files</h1>
-<p>File component used to show info about the file that can be downloaded or how
-is displayed multimedia files (image and video).</p>
-<h2 id="default">Default</h2>
+<p>File component is used to show info about the file that can be downloaded or how
+are displayed multimedia files (image and video).</p>
+<h2 id="default-file-download">Default file download</h2>
 <p>Default implementation of the file download component.</p>
-<h2 id="image">Image</h2>
-<p>Displays the file image.</p>
-<h2 id="video">Video</h2>
-<p>Displays the file video.</p>
 <h2 id="file-download-with-translations">File download with translations</h2>
 <p>Displays the download file available in several languages.</p>
-<p>TODO: stop relying on Bootstrap collapse</p>
-<h2 id="file-link">File Link</h2>
-<p>Displays the link for a download/page.</p>
+<h2 id="links-to-files">Links to files</h2>
+<p>Displays the links for a download page.</p>
+<h2 id="image-file">Image file</h2>
+<p>Displays the file image.</p>
+<h2 id="video-file">Video file</h2>
+<p>Displays the file video (in an iframe or video tag).
+It is recommended to use the ratio utility to enforce correct display.</p>
 
                 
               </div>
@@ -224,118 +224,154 @@ is displayed multimedia files (image and video).</p>
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-af38f2e14ef8aadc84e5e310e07e1d75-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-comment">&lt;!-- Default --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--file file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>File title example<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__content-language"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (213.25 kB - PDF - 4 pages)
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default file__btn"</span>&gt;</span>
-    Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(213.25 kB - PDF - 4 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined %}</span><span class="xml">
 
-<span class="hljs-comment">&lt;!-- Bare --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--file file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>File title example<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__content-language"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (213.25 kB - PDF - 4 pages)
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-    Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(213.25 kB - PDF - 4 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Image --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 450px;"</span>&gt;</span> <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--image"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/450x250"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__caption"</span>&gt;</span>
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Link --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--link"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__icon icon icon--file-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata--link"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ext.link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"file title"</span>&gt;</span>
-      Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == "translations" %}</span><span class="xml">
 
 <span class="hljs-comment">&lt;!-- Translations --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--file file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Belgium - Country factsheets<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__content-language"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (392.23 KB - PDF - 2 pages)
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" ecl-col ecl-col-md-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--</span></span></span><span class="hljs-template-variable">{{ icon }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__metadata"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__info"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__language"</span>&gt;</span></span><span class="hljs-template-variable">{{ language }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (</span><span class="hljs-template-variable">{{ meta }}</span><span class="xml">)
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-12 ecl-col-md-4"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+          'label': buttonLabel ~ '&lt;span class="ecl-sr-only"&gt;(' ~ meta ~ ')',
+          'isBlock': true,
+          'extraClass': 'ecl-file__download',
+          'extraAttributes': [
+            { 'name': 'type', 'value': 'button' },
+          ]
+        } %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default file__btn"</span>&gt;</span>
-    Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file-translations"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#file"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-control"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Click to see translations"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">data-parent</span>=<span class="hljs-string">"#file-translations"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"file"</span>&gt;</span>Available languages (3)<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-list collapse in"</span>&gt;</span><span class="hljs-comment">&lt;!-- Class .in is just for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Name language<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-          Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Name language<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-          Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Name language<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-          Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+      'label': translationsLabel,
+      'modifier': 'secondary',
+      'extraClass': 'ecl-file__translations-toggle',
+      'extraAttributes': [
+        { 'name': 'aria-controls', 'value': 'translations-expand' },
+        { 'name': 'aria-expanded', 'value': 'true' },
+        { 'name': 'id', 'value': 'translations-expand-button' },
+        { 'name': 'type', 'value': 'button' },
+        { 'name': 'title', 'value': translationsTooltip }
+      ]
+    } %}</span><span class="xml">
 
-<span class="hljs-comment">&lt;!-- Video --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 50%;"</span>&gt;</span> <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--video"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__container"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://ec.europa.eu/avservices/play.cfm?ref=I101631"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"allowfullscreen"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"translations-expand-button"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"translations-expand"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations-list"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> translations is defined %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> translation in translations %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations-item"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations-metadata"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations-title"</span>&gt;</span></span><span class="hljs-template-variable">{{ translation.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations-info"</span>&gt;</span>(</span><span class="hljs-template-variable">{{ translation.meta }}</span><span class="xml">)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+          'label': buttonLabel ~ '&lt;span class="ecl-sr-only"&gt;(' ~ translation.meta ~ ')',
+          'modifier': 'secondary',
+          'extraClass': 'ecl-file__translations-download',
+          'extraAttributes': [
+          { 'name': 'type', 'value': 'button' },
+          ]
+          } %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__caption"</span>&gt;</span>
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "links" %}</span><span class="xml">
+
+<span class="hljs-comment">&lt;!-- Links --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file ecl-file--link"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> links is defined %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> link in links %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+        <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-file__link </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> link.external is defined and link.external %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">ecl-link--external</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--</span></span></span><span class="hljs-template-variable">{{ link.icon }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ link.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> link.type is defined %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__type"</span>&gt;</span></span><span class="hljs-template-variable">{{ link.type }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "images" %}</span><span class="xml">
+
+<span class="hljs-comment">&lt;!-- Images --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file ecl-file--image"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__caption"</span>&gt;</span></span><span class="hljs-template-variable">{{ caption }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "Videos" %}</span><span class="xml">
+
+<span class="hljs-comment">&lt;!-- Videos --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file ecl-file--video"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> src is defined %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> iframe is defined and iframe %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> ratio is defined %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-ratio-</span></span></span><span class="hljs-template-variable">{{ ratio }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__video"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"allowfullscreen"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> ratio is defined %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-ratio-</span></span></span><span class="hljs-template-variable">{{ ratio }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__video"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"video/mp4"</span> <span class="hljs-attr">controls</span>=<span class="hljs-string">"controls"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__caption"</span>&gt;</span></span><span class="hljs-template-variable">{{ caption }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+
+<span class="hljs-comment">&lt;!-- Default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" ecl-col ecl-col-md-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--</span></span></span><span class="hljs-template-variable">{{ icon }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__metadata"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__info"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__language"</span>&gt;</span></span><span class="hljs-template-variable">{{ language }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (</span><span class="hljs-template-variable">{{ meta }}</span><span class="xml">)
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-12 ecl-col-md-4"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+          'label': buttonLabel ~ '&lt;span class="ecl-sr-only"&gt;(' ~ meta ~ ')',
+          'isBlock': true,
+          'extraClass': 'ecl-file__download',
+          'extraAttributes': [
+            { 'name': 'type', 'value': 'button' },
+          ]
+        } %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -356,120 +392,25 @@ is displayed multimedia files (image and video).</p>
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--file file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>File title example<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__content-language"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (213.25 kB - PDF - 4 pages)
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default file__btn"</span>&gt;</span>
-    Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(213.25 kB - PDF - 4 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Bare --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--file file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>File title example<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__content-language"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (213.25 kB - PDF - 4 pages)
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-    Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(213.25 kB - PDF - 4 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Image --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 450px;"</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--image"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/450x250"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__caption"</span>&gt;</span>
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Link --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--link"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__icon icon icon--file-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata--link"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://ext.link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"file title"</span>&gt;</span>
-      Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-comment">&lt;!-- Translations --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--file file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Belgium - Country factsheets<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__content-language"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (392.23 KB - PDF - 2 pages)
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default file__btn"</span>&gt;</span>
-    Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file-translations"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#file"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-control"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Click to see translations"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">data-parent</span>=<span class="hljs-string">"#file-translations"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"file"</span>&gt;</span>Available languages (3)<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-list collapse in"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Class .in is just for the style guide --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Name language<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" ecl-col ecl-col-md-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--file ecl-file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__metadata"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__title"</span>&gt;</span>File title example<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__info"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__language"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> (213.25 kB - PDF - 4 pages)
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-          Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Name language<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-          Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__translations-item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--bare"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__metadata"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__title"</span>&gt;</span>Name language<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__info"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn file__btn btn--condensed is-internal"</span>&gt;</span>
-          Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(392.23 KB - PDF - 2 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-comment">&lt;!-- Video --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 50%;"</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- only required for the style guide --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--video"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__container"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://ec.europa.eu/avservices/play.cfm?ref=I101631"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"allowfullscreen"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-12 ecl-col-md-4"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-button--file ecl-file__download"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>Download<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>(213.25 kB - PDF - 4 pages)<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__caption"</span>&gt;</span>
-      Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -485,15 +426,13 @@ is displayed multimedia files (image and video).</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-1f1165dd09043e4d8fba8303d3895020">_files.scss</option>
-                
-                <option value="file-6f78c6294138ba54441f7c1413915198">files.js</option>
+                <option value="file-738bbf9a2c3ab5ba6945387e82b668bf">_files.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-1f1165dd09043e4d8fba8303d3895020" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-738bbf9a2c3ab5ba6945387e82b668bf" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -501,294 +440,205 @@ is displayed multimedia files (image and video).</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-File
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * File
+ * @define file
+ */</span>
 
-<span class="hljs-comment">/*
-File download default
-*/</span>
+<span class="hljs-comment">// Default display</span>
 
-<span class="hljs-selector-class">.file</span> {
+<span class="hljs-selector-class">.ecl-file</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
-  @<span class="hljs-keyword">extend</span> .row !optional;
-
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0.944em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1.333em</span>;
-  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
 }
 
-<span class="hljs-selector-class">.file__icon</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-1 !optional;
-  @<span class="hljs-keyword">extend</span> .col-sm-1 !optional;
+<span class="hljs-selector-class">.ecl-file__body</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+}
 
+<span class="hljs-selector-class">.ecl-file__icon</span> {
   <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">2.556em</span>;
-  <span class="hljs-comment">// We remove on the left (as the image has some whitespace) as it causes</span>
-  <span class="hljs-comment">// a wrong looking margin. Then we add back the margin on the right, to have</span>
-  <span class="hljs-comment">// more spacing between those fields.</span>
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.1em</span>;
-  <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">0.315em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
 
   &amp;::before {
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2.556em</span>;
     <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxl'</span>);
   }
 }
 
-<span class="hljs-selector-class">.file__metadata</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-6 !optional;
-  @<span class="hljs-keyword">extend</span> .col-sm-6 !optional;
-  @<span class="hljs-keyword">extend</span> .col-xs-10 !optional;
-
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-}
-
-<span class="hljs-selector-class">.file__title</span> {
-  <span class="hljs-attribute">line-height</span>: initial;
+<span class="hljs-selector-class">.ecl-file__title</span> {
   <span class="hljs-attribute">font-weight</span>: bold;
 }
 
-<span class="hljs-selector-class">.file__caption</span> {
-  @<span class="hljs-keyword">include</span> ecl-media-caption();
-}
-
-<span class="hljs-selector-class">.file__language</span> {
-  <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.556em</span>;
-  <span class="hljs-attribute">line-height</span>: initial;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-  <span class="hljs-attribute">font-weight</span>: bold;
-}
-
-<span class="hljs-selector-class">.file__info</span> {
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.778em</span>;
-  <span class="hljs-attribute">line-height</span>: initial;
+<span class="hljs-selector-class">.ecl-file__info</span> {
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
 }
 
-<span class="hljs-selector-class">.file__content-language</span> {
+<span class="hljs-selector-class">.ecl-file__language</span> {
   <span class="hljs-attribute">font-weight</span>: bold;
 }
 
-<span class="hljs-selector-class">.file__btn</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-4 !optional;
-  @<span class="hljs-keyword">extend</span> .col-sm-4 !optional;
-  @<span class="hljs-keyword">extend</span> .col-xs-12 !optional;
-
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.778em</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+<span class="hljs-selector-class">.ecl-file__download</span> {
+  <span class="hljs-attribute">margin</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>) auto <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">text-align</span>: center;
 
   &amp;::after {
     @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-    @<span class="hljs-keyword">extend</span> %ecl-icon--download;
+
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'download'</span>);
+
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.8em</span>;
   }
 }
 
-<span class="hljs-comment">// Modifications in the translations under a normal file.</span>
-<span class="hljs-selector-class">.file--bare</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.722em</span> <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">background-color</span>: transparent;
-
-  <span class="hljs-selector-class">.file__btn</span> {
-    <span class="hljs-attribute">border</span>: none;
-
-    &amp;:hover {
-      <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-    }
-  }
-
-  <span class="hljs-selector-class">.file__icon</span> {
-    <span class="hljs-attribute">display</span>: none;
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  <span class="hljs-selector-class">.ecl-file__download</span> {
+    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
   }
 }
 
-<span class="hljs-comment">/*
-File download with translations
-*/</span>
+<span class="hljs-comment">// With translations</span>
 
-<span class="hljs-selector-class">.file__translations</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">1.45em</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+<span class="hljs-selector-class">.ecl-file__translations</span> {
   <span class="hljs-attribute">text-align</span>: right;
+}
 
-  <span class="hljs-selector-class">.file__translations-control</span> {
-    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.444em</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
-    <span class="hljs-attribute">text-decoration</span>: none;
+<span class="hljs-selector-class">.ecl-file__translations-toggle</span> {
+  <span class="hljs-attribute">font-weight</span>: normal;
+}
 
-    &amp;:active,
-    &amp;:hover,
-    &amp;:focus {
-      <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-      <span class="hljs-attribute">text-decoration</span>: underline;
+<span class="hljs-selector-class">.ecl-file__translations-toggle</span><span class="hljs-selector-attr">[aria-expanded='false']</span> {
+  &amp;::after {
+    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
 
-      &amp;::after {
-        <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-      }
-    }
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'down'</span>);
 
-    <span class="hljs-comment">// The arrow, rotating on collapse change.</span>
-    &amp;::after {
-      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-      @<span class="hljs-keyword">extend</span> %ecl-icon--down;
-
-      <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
-      <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.525em</span> <span class="hljs-meta">!important</span>;
-      <span class="hljs-attribute">position</span>: relative;
-      <span class="hljs-attribute">transition</span>: all <span class="hljs-number">0.3s</span> ease <span class="hljs-number">0s</span>;
-    }
-
-    &amp;<span class="hljs-selector-class">.is-collapsed</span> {
-      &amp;::after {
-        <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">180deg</span>);
-      }
-    }
-  }
-
-  <span class="hljs-selector-class">.file__translations-list</span> {
-    <span class="hljs-attribute">list-style</span>: none;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0.944em</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">text-align</span>: left;
-
-    <span class="hljs-selector-class">.btn--condensed</span> {
-      <span class="hljs-attribute">margin-right</span>: -<span class="hljs-number">1em</span>;
-    }
-
-    <span class="hljs-comment">// Make it self scaling.</span>
-    @<span class="hljs-keyword">media</span> (max-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'sm'</span>)) {
-      <span class="hljs-selector-class">.btn--condensed</span> {
-        <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">1em</span>;
-        <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
-      }
-    }
-  }
-
-  <span class="hljs-selector-class">.file__translations-item</span> {
-    <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-
-    &amp;:last-child {
-      <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-    }
-  }
-
-  <span class="hljs-selector-class">.file__metadata</span> {
-    @<span class="hljs-keyword">extend</span> .col-md-6 !optional;
-    @<span class="hljs-keyword">extend</span> .col-sm-6 !optional;
-    @<span class="hljs-keyword">extend</span> .col-xs-12 !optional;
-
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-comment">// "Looking for another language ...".</span>
-  <span class="hljs-selector-class">.file__translations-details</span> {
-    @<span class="hljs-keyword">extend</span> .file__translations-item;
-
-    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0.5em</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.8em</span>;
   }
 }
 
-<span class="hljs-comment">/*
-File link
-*/</span>
-<span class="hljs-selector-class">.file--link</span> {
-  <span class="hljs-attribute">background-color</span>: transparent;
+<span class="hljs-selector-class">.ecl-file__translations-toggle</span><span class="hljs-selector-attr">[aria-expanded='true']</span> {
+  &amp;::after {
+    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
 
-  <span class="hljs-selector-class">.file__metadata--link</span> {
-    @<span class="hljs-keyword">extend</span> .col-md-10 !optional;
-    @<span class="hljs-keyword">extend</span> .col-sm-10 !optional;
-    @<span class="hljs-keyword">extend</span> .col-xs-10 !optional;
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'up'</span>);
 
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-  }
-
-  <span class="hljs-selector-class">.ecl-icon--file-link</span> {
-    <span class="hljs-attribute">background</span>: url(<span class="hljs-string">"../images/svg/icons/link.svg"</span>) no-repeat center <span class="hljs-number">10%</span>;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">2.8em</span>;
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.8em</span>;
   }
 }
 
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-selector-class">.ecl-icon--file-link</span> {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">"../images/png/icons/link.png"</span>);
+<span class="hljs-selector-class">.ecl-file__translations-list</span> {
+  <span class="hljs-attribute">list-style</span>: none;
+  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">text-align</span>: left;
+}
+
+<span class="hljs-selector-class">.ecl-file__translations-item</span> {
+  <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+
+  &amp;:last-child {
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
   }
 }
 
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
-  <span class="hljs-selector-class">.file__icon</span> {
-    <span class="hljs-attribute">width</span>: auto;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  }
+<span class="hljs-selector-class">.ecl-file__translations-metadata</span> {
+  <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
+}
 
-  <span class="hljs-selector-class">.file__translations</span> {
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">4.475em</span>;
-  }
+<span class="hljs-selector-class">.ecl-file__translations-title</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">font-weight</span>: bold;
+}
 
-  <span class="hljs-selector-class">.file__metadata</span> {
-    <span class="hljs-attribute">float</span>: left;
-    <span class="hljs-attribute">overflow</span>: hidden;
-  }
+<span class="hljs-selector-class">.ecl-file__translations-info</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+}
 
-  <span class="hljs-selector-class">.file</span> {
-    <span class="hljs-selector-class">.file__btn</span> {
-      <span class="hljs-attribute">float</span>: right;
-      <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">overflow</span>: hidden;
-    }
+<span class="hljs-selector-class">.ecl-file__translations-download</span> {
+  <span class="hljs-attribute">align-self</span>: flex-start;
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">1rem</span>;
+
+  &amp;::after {
+    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'download'</span>);
+
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.8em</span>;
   }
 }
 
-<span class="hljs-comment">/*
-File image
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  <span class="hljs-selector-class">.ecl-file__translations-item</span> {
+    <span class="hljs-attribute">flex-direction</span>: row;
+  }
 
-Displays the file image.
+  <span class="hljs-selector-class">.ecl-file__translations-download</span> {
+    <span class="hljs-attribute">align-self</span>: flex-end;
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
+  }
+}
 
-Markup: html/file--image.html
+<span class="hljs-comment">// Link file</span>
 
-Style guide: file.4
-*/</span>
+<span class="hljs-selector-class">.ecl-file__link</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-15'</span>);
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: row;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">text-decoration</span>: none;
 
-<span class="hljs-selector-class">.file--image</span> {
+  &amp;:last-child {
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-15'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-file__title</span> {
+    <span class="hljs-attribute">margin-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+    <span class="hljs-attribute">text-decoration</span>: underline;
+  }
+}
+
+<span class="hljs-comment">/* stylelint-disable-next-line */</span>
+<span class="hljs-selector-class">.ecl-file__link</span><span class="hljs-selector-class">.ecl-link--external</span>::after,
+<span class="hljs-selector-class">.ecl-file__type</span> {
+  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">2px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">margin-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+  <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+  <span class="hljs-attribute">text-transform</span>: uppercase;
+}
+
+<span class="hljs-comment">// Image and video file</span>
+<span class="hljs-selector-class">.ecl-file__image</span>,
+<span class="hljs-selector-class">.ecl-file__video</span> {
+  <span class="hljs-attribute">height</span>: auto;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.ecl-file__caption</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
   <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">background-color</span>: transparent;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
 }
 
-<span class="hljs-comment">/*
-File video
-
-Displays the file video.
-
-Markup: html/file--video.html
-
-Style guide: file.5
-*/</span>
-
-<span class="hljs-selector-class">.file--video</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">background-color</span>: transparent;
-
-  <span class="hljs-selector-class">.file__container</span> {
-    @<span class="hljs-keyword">extend</span> .embed-responsive !optional;
-    @<span class="hljs-keyword">extend</span> .embed-responsive-16by9 !optional;
-  }
-
-  <span class="hljs-selector-tag">iframe</span> {
-    @<span class="hljs-keyword">extend</span> .embed-responsive-item !optional;
-  }
+<span class="hljs-comment">/* stylelint-disable */</span>
+<span class="hljs-selector-attr">[class^='ecl-u-ratio']</span> <span class="hljs-selector-tag">iframe</span><span class="hljs-selector-class">.ecl-file__video</span>,
+<span class="hljs-selector-attr">[class*=' ecl-u-ratio']</span> <span class="hljs-selector-tag">iframe</span><span class="hljs-selector-class">.ecl-file__video</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 }
 </pre>
                             </code>
@@ -806,41 +656,7 @@ Style guide: file.5
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.9 KB</span>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="FileBrowser-item" id="file-6f78c6294138ba54441f7c1413915198" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'.file__translations-control'</span>).forEach(<span class="hljs-function"><span class="hljs-params">button</span> =&gt;</span>
-  button.addEventListener(<span class="hljs-string">'click'</span>, event =&gt; {
-    event.target.classList.toggle(<span class="hljs-string">'is-collapsed'</span>);
-  })
-);
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-files/files.js"><span>/components/raw/ecl-files/files.js</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-files/files.js</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">180 Bytes</span>
+                    <span class="Meta-value">3.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -872,6 +688,37 @@ Style guide: file.5
         
         
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(6)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="ecl-files--default">
+                    <span>Default file download</span>
+                </a>, 
+            
+                <a href="ecl-files--translations">
+                    <span>File download with translations</span>
+                </a>, 
+            
+                <a href="ecl-files--links">
+                    <span>Links to files</span>
+                </a>, 
+            
+                <a href="ecl-files--images">
+                    <span>Image file</span>
+                </a>, 
+            
+                <a href="ecl-files--videos-iframe">
+                    <span>Video file (with iframe)</span>
+                </a>, 
+            
+                <a href="ecl-files--videos-tag">
+                    <span>Video file (with video tag)</span>
+                </a>
+            
+            </span>
+        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -2476,9 +2323,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-files">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -2486,7 +2332,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2495,7 +2341,159 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Files</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-files--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default file download</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-files--translations" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>File download with translations</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-files--links" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Links to files</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-files--images" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Image file</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-files--videos-iframe" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Video file (with iframe)</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-files--videos-tag" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Video file (with video tag)</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2759,7 +2757,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4536,6 +4534,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Padding</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-ratio" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Ratio</span>
             </a>
         </li>
         
