@@ -10,12 +10,5 @@ module.exports = {
         label: 'Some label',
       },
     },
-    {
-      name: 'disabled',
-      context: {
-        label: 'Some disabled label',
-        isDisabled: true,
-      },
-    },
   ],
 };
