@@ -1,0 +1,13 @@
+<dl class="ecl-accordion" role="presentation">
+  {% for panel in panels %}
+  <dt role="heading"{{ panel.heading.level is defined ? 'aria-level="' ~ panel.heading.level ~ '"' : '' }} >
+    <button id="ecl-accordion-header-{{ panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ panel.id }}" aria-expanded="{{ panel.isExpanded ? 'true' : 'false' }}">
+      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--{{ panel.heading.icon }}"></span>
+      {{ panel.heading.title }}
+    </button>
+  </dt>
+  <dd id="ecl-accordion-panel-{{ panel.id }}" class="ecl-accordion__panel" role="region" aria-labelledby="ecl-accordion-header-{{ panel.id }}" aria-hidden="{{ panel.isExpanded ? 'false' : 'true' }}">
+    {{ panel.body }}
+  </dd>
+  {% endfor %}
+</dl>
