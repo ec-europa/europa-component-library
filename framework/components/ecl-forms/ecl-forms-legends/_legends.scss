@@ -1,13 +1,10 @@
-/*
-Legend
+/**
+* Legend component
+* @define form-legend
 */
 
 $form-item-legend-font-size: map-get($ecl-font-size, 'xs');
 
-.legend {
+.ecl-form-legend {
   font-size: $form-item-legend-font-size;
-}
-
-legend {
-  @extend .legend;
 }
