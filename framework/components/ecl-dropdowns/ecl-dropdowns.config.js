@@ -12,15 +12,15 @@ module.exports = {
     links: [
       {
         target: '#',
-        title: 'European Commission',
+        title: 'Article',
       },
       {
         target: '#',
-        title: 'Priorities',
+        title: 'Page',
       },
       {
         target: '#',
-        title: 'Jobs, Growth and Investment',
+        title: 'Community',
       },
     ],
   },
