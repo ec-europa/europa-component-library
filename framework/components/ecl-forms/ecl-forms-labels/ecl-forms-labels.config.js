@@ -1,5 +1,14 @@
 module.exports = {
   title: 'Labels',
   label: 'Labels',
-  status: 'planned',
+  status: 'ready',
+  collated: true,
+  variants: [
+    {
+      name: 'default',
+      context: {
+        label: 'Some label',
+      },
+    },
+  ],
 };
