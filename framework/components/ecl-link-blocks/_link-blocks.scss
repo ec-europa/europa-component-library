@@ -1,20 +1,22 @@
 /**
  * ECL Link blocks
- * @define link-blocks ; weak
+ * @define link-block ; weak
  */
 
-.ecl-link-blocks {
+.ecl-link-block {
   background-color: map-get($ecl-colors, 'grey-5');
-  padding: map-get($ecl-spacing, 's') !important;
+  margin: 0;
+  padding: map-get($ecl-spacing, 's');
 }
 
-.ecl-link-blocks__links {
+.ecl-link-block__links {
   font-size: map-get($ecl-font-size, 's');
   list-style: none;
   padding-left: 0;
 
   li {
     margin-bottom: map-get($ecl-spacing, 'xxs');
+    white-space: nowrap;
   }
 
   a:link,
@@ -28,7 +30,7 @@
   }
 }
 
-.ecl-link-blocks__title {
+.ecl-link-block__title {
   color: map-get($ecl-colors, 'blue-110');
   font-size: map-get($ecl-font-size, 's');
   font-weight: 600;

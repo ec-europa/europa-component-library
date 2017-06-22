@@ -1,8 +1,51 @@
-<div class="ecl-link-blocks">
-  <h3 class="ecl-link-blocks__title">Link block title</h3>
-  <ul class="ecl-link-blocks__links">
-    <li><a href="test1.html">Link one</a></li>
-    <li><a href="test2.html">Link two</a></li>
-    <li><a href="test3.html">Link three</a></li>
+{# Internal properties #}
+
+{% set _cssClassMain = 'ecl-link-block' %}
+{% set _cssClassLiks = 'ecl-link-block__links' %}
+{% set _extraAttributes = '' %}
+{% set _skipWrapper = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if skipWrapper is defined %}
+  {% set _skipWrapper = skipWrapper %}
+{% endif %}
+
+{% if extraClassMain is defined %}
+  {% set _cssClassMain = _cssClassMain ~ ' ' ~ extraClassMain %}
+{% endif %}
+
+{% if extraClassLinks is defined %}
+  {% set _cssClassLiks = _cssClassLiks ~ ' ' ~ extraClassLinks %}
+{% endif %}
+
+{% if extraAttributesLinks is defined %}
+  {% for attr in extraAttributesLinks %}
+    {% set extraAttributesLinks = extraAttributesLinks ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% if _skipWrapper == true %}
+  <ul
+    class="{{ _cssClassMain }} {{ _cssClassLiks }}"
+    {{ extraAttributesLinks }}
+  >
+    {% for link in links %}
+      <li><a href="{{ link.target }}">{{ link.title }}</a></li>
+    {% endfor %}
   </ul>
-</div>
+{% else %}
+  <div class="{{ _cssClassMain }}">
+    {% if linkBlockTitle is defined %}
+      <h3 class="ecl-link-block__title">{{ linkBlockTitle }}</h3>
+    {% endif %}
+      <ul
+        class="{{ _cssClassLiks }}"
+        {{ extraAttributesLinks }}
+      >
+        {% for link in links %}
+          <li><a href="{{ link.target }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+  </div>
+{% endif %}

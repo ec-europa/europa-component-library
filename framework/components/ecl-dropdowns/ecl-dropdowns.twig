@@ -1,6 +1,6 @@
 <!-- Button dropdown -->
 
-<div class="ecl-dropdowns">
+<div class="ecl-dropdown">
   {% include '@ec-europa/ecl-buttons' with {
     'label': 'Create',
     'extraClass': 'ecl-expandable__button',
@@ -11,9 +11,13 @@
       { 'name': 'type', 'value': 'button'},
     ]
   } %}
-  <ul class="ecl-dropdowns__body ecl-link-blocks ecl-link-blocks__links" id="example-button-dropdown" aria-labelledby="example-expandable-button" aria-hidden="true">
-    <li><a href="#">Article</a></li>
-    <li><a href="#">Page</a></li>
-    <li><a href="#">Community</a></li>
-  </ul>
+  {% include '@ec-europa/ecl-link-blocks' with {
+    'skipWrapper': true,
+    'extraClassLinks': 'ecl-dropdown__body ecl-dropdown__link-blocks',
+    'extraAttributesLinks': [
+      { 'name': 'id', 'value': 'example-button-dropdown'},
+      { 'name': 'aria-labelledby', 'value': 'example-expandable-button'},
+      { 'name': 'aria-hidden', 'value': 'true'},
+    ]
+  } %}
 </div>

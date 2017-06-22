@@ -9,5 +9,19 @@ module.exports = {
       scripts:
         "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
     },
+    links: [
+      {
+        target: '#',
+        title: 'European Commission',
+      },
+      {
+        target: '#',
+        title: 'Priorities',
+      },
+      {
+        target: '#',
+        title: 'Jobs, Growth and Investment',
+      },
+    ],
   },
 };

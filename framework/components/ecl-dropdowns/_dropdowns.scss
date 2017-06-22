@@ -1,22 +1,26 @@
 /**
  * ECL Dropdowns
- * @define dropdowns
+ * @define dropdown
  */
 
-.ecl-dropdowns {
+.ecl-dropdown {
+  margin: 0;
   position: relative;
+}
 
-  // collapsed/open part of the dropdown
-  &__body {
-    background: #fff;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    list-style: none;
-    margin: 2px 0 0;
-    padding: 5px 0;
-    position: absolute;
-    text-align: left;
-    z-index: 1000;
-  }
+// BEM mix b/n dropdown and link-block
+.ecl-dropdown__link-blocks {
+  padding-left: map-get($ecl-spacing, 'xxs') !important;
+}
+
+// collapsed/open part of the dropdown
+.ecl-dropdown__body {
+  background: #fff;
+  border: 1px solid #ccc rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  list-style: none;
+  padding: map-get($ecl-spacing, 'xxxs') 0;
+  position: absolute;
+  text-align: left;
+  z-index: 1000;
 }
