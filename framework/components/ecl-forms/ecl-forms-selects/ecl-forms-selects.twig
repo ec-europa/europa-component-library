@@ -1,15 +1,62 @@
-<div class="form-group">
-  <label for="example-select-id">Default</label>
-  <p class="help-block">This is some placeholder help text.</p>
-  <div class="form-select">
-    <select class="form-control" id="example-select-id">
-      <option>option 1</option>
-      <option>option 2</option>
-      <option>option 3</option>
-      <option>option 4</option>
-      <option>option 5</option>
-      <option>option 6</option>
-    </select>
-  </div>
-  <p class="form-field-feedback">Some feedback message</p>
-</div>
+{% set id = id|default('default-id') %}
+{% set name = name|default('default-name') %}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-select' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if hasError is defined and hasError == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-select--has-error' %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if isDisabled is defined and isDisabled == true %}
+  {% set _extraAttributes = _extraAttributes ~ ' disabled' %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<select
+  class="{{ _cssClass }}"
+  id="{{ id }}"
+  name="{{ name }}"
+  {{ _extraAttributes }}
+>
+
+{% block options %}
+
+  <optgroup label="Asia">
+    <option value="3">Delhi</option>
+    <option value="4">Hong Kong</option>
+    <option value="8">Mumbai</option>
+    <option value="11">Tokyo</option>
+  </optgroup>
+  <optgroup label="Europe">
+    <option value="1">Amsterdam</option>
+    <option value="5">London</option>
+    <option value="7">Moscow</option>
+  </optgroup>
+  <optgroup label="North America">
+    <option value="6">Los Angeles</option>
+    <option value="9">New York</option>
+  </optgroup>
+  <optgroup label="South America">
+    <option value="2">Buenos Aires</option>
+    <option value="10">Sao Paulo</option>
+  </optgroup>
+
+{% endblock %}
+
+</select>

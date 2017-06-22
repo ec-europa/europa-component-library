@@ -85,7 +85,8 @@ $ecl-datepickers-week-color: #999 !default;
   .pika-label select {
     @include ecl-form-control();
 
-    background: $ecl-datepickers-color-select;
+    appearance: none;
+    background-color: $ecl-datepickers-color-select;
     border: 0;
     color: #fff;
     cursor: pointer;
@@ -95,8 +96,15 @@ $ecl-datepickers-week-color: #999 !default;
     min-height: auto;
     padding: 0 1em;
     position: absolute;
+    text-indent: 0.01px;
+    text-overflow: '';
     width: 100%;
     z-index: 9998;
+
+    // Fix for IE 10+.
+    &::-ms-expand {
+      display: none;
+    }
 
     @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
 
@@ -107,6 +115,7 @@ $ecl-datepickers-week-color: #999 !default;
     &:hover,
     &:active,
     &:focus {
+      border-color: $ecl-color-primary;
       color: #fff;
     }
   }

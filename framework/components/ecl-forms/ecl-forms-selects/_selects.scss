@@ -1,78 +1,71 @@
-/*
-Select
-
-.hover      - Select hover
-:focus      - Select focus (select to see style applied)
-.is-down    - Select is-down
-
-*/
+/**
+ * Select
+ * @define select
+ */
 
 // Select list arrow styling.
-@mixin select-list-arrow($background-color, $arrow-grey:false) {
+@mixin ecl-select-list-arrow($background-color, $arrow-grey:false) {
   @if ($arrow-grey) {
     background: url('../images/svg/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
-
-    .no-svg & {
-      background: url('../images/png/arrow-down.png'), linear-gradient(to bottom, $background-color, $background-color);
-    }
   }
 
   @else {
     background: url('../images/svg/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
-
-    .no-svg & {
-      background: url('../images/png/arrow-down--white.png'), linear-gradient(to bottom, $background-color, $background-color);
-    }
   }
 
-  background-position: right ((2.75rem - map-get($ecl-font-size, 'm')) / 2) - 0.111rem center, right;
+  background-position: right map-get($ecl-font-size, 'xs') center, right;
   background-repeat: no-repeat;
-
-  // Important to make the style guide not break.
-  background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), 2.75rem 100% !important;
-  transition: none;
-
-  // Specific size for IE10+.
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    background-size: map-get($ecl-font-size, 'm') + 0.1rem (20rem / 32.6rem) * map-get($ecl-font-size, 'm'), 2.75rem 100% !important;
-  }
+  background-size: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxs'), 2.5rem 100%;
 }
 
-.select {
-  // Hide the arrow.
+.ecl-select {
   appearance: none;
-  -moz-appearance: none;    // Firefox.
-  -webkit-appearance: none; // Safari and Chrome.
-  text-indent: 0.01px;
-  text-overflow: '';
-  cursor: pointer;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid $ecl-color-shade;
+  border-radius: 0;
+  color: $ecl-color-shade;
+  display: block;
+  font-size: map-get($ecl-font-size, 's');
+  line-height: 1.6;
+  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+  width: 100%;
+
+  @include ecl-select-list-arrow($ecl-color-shade);
+
+  &:not([disabled]):not([readonly]):hover {
+    @include ecl-select-list-arrow($ecl-color-primary);
+
+    border-color: $ecl-color-primary;
+  }
+
+  &:focus {
+    border-color: map-get($ecl-colors, 'yellow-110');
+    outline: 3px solid map-get($ecl-colors, 'yellow-110');
+    outline-offset: 0;
+    text-decoration: none;
+  }
+
+  &[disabled],
+  &[readonly] {
+    background-color: #eee;
+    cursor: not-allowed;
+    opacity: 1;
+  }
 
   // Fix for IE 10+.
   &::-ms-expand {
     display: none;
   }
-
-  &.form-control {
-    // To not make it overlap.
-    padding-right: 50px;
-
-    @include select-list-arrow($ecl-color-shade);
-  }
-
-  // Hover state.
-  &:hover,
-  &.hover {
-    @include select-list-arrow($ecl-color-primary);
-
-    border-color: $ecl-color-primary;
-  }
-
-  // Down state.
-  &.is-down {
-    @include select-list-arrow(#fff, true);
-  }
 }
 
-select {
-  @extend .select;
+.ecl-select--has-error {
+  border-color: $ecl-color-error;
+
+  @include ecl-select-list-arrow($ecl-color-error);
+
+  &:focus {
+    border-color: darken($ecl-color-error, 10%);
+    outline-color: darken($ecl-color-error, 10%);
+  }
 }
