@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -134,7 +134,10 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="legends">Legends</h1>
+                <h1 id="forms-legends">Forms Legends</h1>
+<p>Legends are used to add a caption to a group of related form elements that have been grouped together into a fieldset.</p>
+<h1 id="when-to-use-this-component">When to use this component</h1>
+<p>When there is a need to name a group of related input elements in a form.</p>
 
                 
               </div>
@@ -211,7 +214,7 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-6ebdd8d43834c6ddcb02dbef6ccd4e79-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Legend text comes here<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span></span></pre>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-legend"</span>&gt;</span></span><span class="hljs-template-variable">{{content}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -231,7 +234,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-6ebdd8d43834c6ddcb02dbef6ccd4e79-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Legend text comes here<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-legend"</span>&gt;</span>Legend text comes here<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -247,13 +250,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-3313869758c88bc3f9cabc24619a62ed">_legends.scss</option>
+                <option value="file-d2f84e1d5f1b1c8270e056a5be96fb65">_legends.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-3313869758c88bc3f9cabc24619a62ed" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-d2f84e1d5f1b1c8270e056a5be96fb65" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -261,18 +264,15 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Legend
+                                <pre><span class="hljs-comment">/**
+* Legend component
+* @define form-legend
 */</span>
 
 <span class="hljs-variable">$form-item-legend-font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
 
-<span class="hljs-selector-class">.legend</span> {
+<span class="hljs-selector-class">.ecl-form-legend</span> {
   <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$form-item-legend-font-size</span>;
-}
-
-<span class="hljs-selector-tag">legend</span> {
-  @<span class="hljs-keyword">extend</span> .legend;
 }
 </pre>
                             </code>
@@ -290,7 +290,7 @@ Legend
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">160 Bytes</span>
+                    <span class="Meta-value">173 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1506,7 +1506,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-blockquotes" data-pjax>
+            <a class="Tree-entityLink" href="ecl-accordions" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1522,7 +1522,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Blockquotes</span>
+                <span>Accordions</span>
             </a>
         </li>
         
@@ -1547,6 +1547,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Banners</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-blockquotes" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Blockquotes</span>
             </a>
         </li>
         
@@ -2209,7 +2233,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
