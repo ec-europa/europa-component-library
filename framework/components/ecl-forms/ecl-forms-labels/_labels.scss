@@ -1,20 +1,13 @@
-/*
-Label
+/**
+ * Buttons component
+ * @define form-label
+ */
 
-Markup: html/label.html
-
-Style guide form.label
-*/
-
-.form_label {
+.ecl-form-label {
   color: $ecl-color-shade;
   display: block;
   font-size: map-get($ecl-font-size, 's');
-  margin-bottom: 0.556em;
-  padding: 0;
+  margin-bottom: map-get($ecl-spacing, 'xxs');
+  padding: map-get($ecl-spacing, 'none');
   text-align: left;
-
-  &.is-disabled {
-    color: map-get($ecl-colors, 'grey-50');
-  }
 }
