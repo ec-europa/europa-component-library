@@ -6,8 +6,10 @@ module.exports = {
   tags: ['molecule'],
   context: {
     _demo: {
-      scripts:
-        "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
+      scripts: `
+        document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });
+        ECL.dropdown('.ecl-dropdown');
+        `,
     },
     links: [
       {
