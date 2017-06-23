@@ -1,3 +1,19 @@
+/**
+ * `Node#contains()` polyfill.
+ *
+ * See: http://compatibility.shwups-cms.ch/en/polyfills/?&id=1
+ *
+ * @param {Node} node
+ * @param {Node} other
+ * @return {Boolean}
+ * @public
+ */
+
+function contains(node, other) {
+  // eslint-disable-next-line no-bitwise
+  return node === other || !!(node.compareDocumentPosition(other) & 16);
+}
+
 export const dropdown = selector => {
   const dropdownsArray = Array.prototype.slice.call(
     document.querySelectorAll(selector)
@@ -5,7 +21,7 @@ export const dropdown = selector => {
 
   document.addEventListener('click', event => {
     dropdownsArray.forEach(dropdownSelection => {
-      const isInside = dropdownSelection.contains(event.target);
+      const isInside = contains(dropdownSelection, event.target);
 
       if (!isInside) {
         const dropdownButton = document.querySelector(
