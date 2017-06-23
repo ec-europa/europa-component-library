@@ -13,8 +13,6 @@ describe('link blocks', () => {
 
     // Make sure the browser has finished painting
     browser.pause(1000);
-    // Inject axe-core (for accessibility tests)
-    browser.injectAxeCore();
   });
 
   context('normal display', () => {
@@ -23,11 +21,6 @@ describe('link blocks', () => {
         name: 'link-blocks',
       });
       expect(screenshots).to.matchReference();
-    });
-
-    it('should be accessible', () => {
-      const a11yReport = browser.runAxeCore('ecl-link-blocks').value;
-      expect(a11yReport).to.be.accessible;
     });
   });
 });
