@@ -26,16 +26,8 @@ module.exports = {
               classes: 'ecl-h4',
               target: '#',
             },
-            label: '',
-            classes: '',
-            items: [],
           },
           {
-            title: {
-              value: '',
-              classes: '',
-              target: '',
-            },
             label: 'Follow us:',
             classes: 'ecl-footers__menu ecl-list-inline',
             items: [
@@ -71,12 +63,6 @@ module.exports = {
             ],
           },
           {
-            title: {
-              value: '',
-              classes: '',
-              target: '',
-            },
-            label: '',
             classes: 'ecl-footers__menu ecl-list-inline',
             items: [
               {

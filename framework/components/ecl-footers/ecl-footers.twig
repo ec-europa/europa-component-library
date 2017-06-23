@@ -8,15 +8,16 @@
         {% for menu in FooterMenu.menus %}
         <div class="ecl-col-sm ecl-footers__column">
 
-          {% if menu.label is defined and not empty %}
-          <p class="ecl-footers__label">{{ menu.label }}</p>
-
-          {% elseif menu.title.target is defined %}
+          {# If there is any sort of title #}
+          {% if menu.title.target is defined %}
           <h4 class="{{ menu.title.classes }}">
             <a href="{{ menu.title.target }}">{{ menu.title.value }}</a>
           </h4>
-          {% else %}
+          {% elseif menu.title is defined %}
           <h4 class="{{ menu.title.classes }}">{{ menu.title.value }}</h4>
+          {# Show a label if there is no title #}
+          {% elseif menu.label is defined %}
+          <p class="ecl-footers__label">{{ menu.label }}</p>
           {% endif %}
 
           {% if menu.items is defined and is not empty %}
