@@ -3,21 +3,10 @@ module.exports = {
   label: 'Footers',
   status: 'ready',
   tags: ['organism'],
-  variants: [
-    {
-      name: 'default',
-    },
-    {
-      name: 'custom',
-      context: {
-        variant: 'custom',
-      },
-    },
-  ],
   context: {
     ecFooterMenus: [
       {
-        type: 'custom',
+        type: 'branded',
         wrapperClass: 'ecl-footers__site-identity',
         menus: [
           {
@@ -46,7 +35,7 @@ module.exports = {
                 link: {
                   target: '#',
                   classes: '',
-                  title: 'Facebook',
+                  title: 'Twitter',
                   titleWrapperClass:
                     'ecl-icon ecl-icon--twitter ecl-footers__social-icon',
                 },
@@ -94,9 +83,8 @@ module.exports = {
           {
             title: {
               value: 'European Commission',
-              classes: '',
+              classes: 'ecl-h4 ecl-footers__title',
             },
-            label: '',
             classes: 'ecl-footers__menu',
             items: [
               {
@@ -105,7 +93,6 @@ module.exports = {
                   target: 'https://ec.europa.eu/commission/index_en',
                   classes: '',
                   title: 'Commission and its priorities',
-                  titleWrapperClass: '',
                 },
               },
               {
@@ -120,8 +107,10 @@ module.exports = {
             ],
           },
           {
-            title: 'Follow the European Commission',
-            label: '',
+            title: {
+              value: 'Follow the European Commission',
+              classes: 'ecl-h4 ecl-footers__title',
+            },
             classes: 'ecl-footers__menu ecl-list-inline',
             items: [
               {
@@ -139,7 +128,7 @@ module.exports = {
                 link: {
                   target: '#',
                   classes: '',
-                  title: 'Facebook',
+                  title: 'Twitter',
                   titleWrapperClass:
                     'ecl-icon ecl-icon--twitter ecl-footers__social-icon',
                 },
@@ -156,8 +145,10 @@ module.exports = {
             ],
           },
           {
-            title: 'European Union',
-            label: '',
+            title: {
+              value: 'European Union',
+              classes: 'ecl-h4 ecl-footers__title',
+            },
             classes: 'ecl-footers__menu',
             items: [
               {
@@ -174,7 +165,7 @@ module.exports = {
                 link: {
                   target: '#',
                   classes: 'ecl-link--external',
-                  title: 'Site map',
+                  title: 'European Union',
                   titleWrapperClass: '',
                 },
               },
@@ -183,12 +174,10 @@ module.exports = {
         ],
       },
       {
-        type: 'normal',
+        type: 'plain',
         wrapperClass: 'ecl-footers__ec',
         menus: [
           {
-            title: '',
-            label: '',
             classes: 'ecl-list-inline ecl-footers__menu',
             items: [
               {

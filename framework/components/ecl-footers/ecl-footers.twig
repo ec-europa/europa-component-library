@@ -1,12 +1,11 @@
 <footer class="ecl-footers">
   {% if ecFooterMenus is defined and ecFooterMenus is iterable %}
   {% for FooterMenu in ecFooterMenus %}
-  {% if FooterMenu.type == 'custom' and variant is defined and variant == "custom"  %}
   <div class="{{ FooterMenu.wrapperClass }}">
     <div class="ecl-container">
       <div class="ecl-row">
         {% for menu in FooterMenu.menus %}
-        <div class="ecl-col-sm ecl-footers__column">
+        <div class="ecl-col-sm {{ (FooterMenu.type != 'plain') ? 'ecl-footers__column' : '' }}">
 
           {# If there is any sort of title #}
           {% if menu.title.target is defined %}
@@ -40,7 +39,6 @@
       </div>
     </div>
   </div>
-  {% endif %}
   {% endfor %}
   {% endif %}
 </footer>
