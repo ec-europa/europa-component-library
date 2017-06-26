@@ -1,45 +1,28 @@
 // Headers
+@import '_headings-mixins.scss';
+
 .ecl-heading {
-  margin: 0;
-  padding: 0;
+  @include heading();
 }
 
 .ecl-heading--h1 {
-  color: #000;
-  font-size: map-get($ecl-font-size, 'xxl');
-  font-weight: 600;
-  line-height: 1.1;
+  @include heading-1();
 }
 
 .ecl-heading--h2 {
-  color: #000;
-  font-size: map-get($ecl-font-size, 'xl');
-  font-weight: 600;
-  line-height: 1.1;
+  @include heading-2();
 }
 
 .ecl-heading--h3 {
-  color: $ecl-color-shade;
-  font-size: map-get($ecl-font-size, 'l');
-  font-weight: 600;
-  line-height: 1.1;
-  max-width: 32em;
+  @include heading-3();
 }
 
 .ecl-heading--h4 {
-  color: $ecl-color-shade;
-  font-size: map-get($ecl-font-size, 'm');
-  font-weight: 600;
-  line-height: 1.1;
-  max-width: 32em;
+  @include heading-4();
 }
 
 .ecl-heading--h5 {
-  color: $ecl-color-shade;
-  font-size: map-get($ecl-font-size, 's');
-  line-height: 1.1;
-  max-width: 32em;
-  text-transform: uppercase;
+  @include heading-5();
 }
 
 .ecl-heading--headline {
