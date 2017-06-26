@@ -1,11 +1,11 @@
-<footer class="ecl-footers">
+<footer class="ecl-footer">
   {% if ecFooterMenus is defined and ecFooterMenus is iterable %}
   {% for FooterMenu in ecFooterMenus %}
   <div class="{{ FooterMenu.wrapperClass }}">
     <div class="ecl-container">
       <div class="ecl-row">
         {% for menu in FooterMenu.menus %}
-        <div class="ecl-col-sm {{ (FooterMenu.type != 'plain') ? 'ecl-footers__column' : '' }}">
+        <div class="ecl-col-sm {{ (FooterMenu.type != 'plain') ? 'ecl-footer__column' : '' }}">
 
           {# If there is any sort of title #}
           {% if menu.title.target is defined %}
@@ -16,7 +16,7 @@
           <h4 class="{{ menu.title.classes }}">{{ menu.title.value }}</h4>
           {# Show a label if there is no title #}
           {% elseif menu.label is defined %}
-          <p class="ecl-footers__label">{{ menu.label }}</p>
+          <p class="ecl-footer__label">{{ menu.label }}</p>
           {% endif %}
 
           {% if menu.items is defined and is not empty %}

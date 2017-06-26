@@ -7,7 +7,7 @@ module.exports = {
     ecFooterMenus: [
       {
         type: 'branded',
-        wrapperClass: 'ecl-footers__site-identity',
+        wrapperClass: 'ecl-footer__site-identity',
         menus: [
           {
             title: {
@@ -18,30 +18,30 @@ module.exports = {
           },
           {
             label: 'Follow us:',
-            classes: 'ecl-footers__menu ecl-list-inline',
+            classes: 'ecl-footer__menu ecl-list-inline',
             items: [
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: '',
                   title: 'Facebook',
                   titleWrapperClass:
-                    'ecl-icon ecl-icon--facebook ecl-footers__social-icon',
+                    'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
                 },
               },
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: '',
                   title: 'Twitter',
                   titleWrapperClass:
-                    'ecl-icon ecl-icon--twitter ecl-footers__social-icon',
+                    'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
                 },
               },
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: 'ecl-link--external',
@@ -52,10 +52,10 @@ module.exports = {
             ],
           },
           {
-            classes: 'ecl-footers__menu ecl-list-inline',
+            classes: 'ecl-footer__menu ecl-list-inline',
             items: [
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: '',
@@ -64,7 +64,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: '',
@@ -78,17 +78,17 @@ module.exports = {
       },
       {
         type: 'normal',
-        wrapperClass: 'ecl-footers__site-corporate',
+        wrapperClass: 'ecl-footer__site-corporate',
         menus: [
           {
             title: {
               value: 'European Commission',
-              classes: 'ecl-h4 ecl-footers__title',
+              classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footers__menu',
+            classes: 'ecl-footer__menu',
             items: [
               {
-                classes: 'ecl-footers__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'https://ec.europa.eu/commission/index_en',
                   classes: '',
@@ -96,7 +96,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footers__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'https://ec.europa.eu/info/index_en',
                   classes: '',
@@ -109,32 +109,32 @@ module.exports = {
           {
             title: {
               value: 'Follow the European Commission',
-              classes: 'ecl-h4 ecl-footers__title',
+              classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footers__menu ecl-list-inline',
+            classes: 'ecl-footer__menu ecl-list-inline',
             items: [
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: '',
                   title: 'Facebook',
                   titleWrapperClass:
-                    'ecl-icon ecl-icon--facebook ecl-footers__social-icon',
+                    'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
                 },
               },
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: '',
                   title: 'Twitter',
                   titleWrapperClass:
-                    'ecl-icon ecl-icon--twitter ecl-footers__social-icon',
+                    'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
                 },
               },
               {
-                classes: 'ecl-footers__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
                   classes: 'ecl-link--external',
@@ -147,12 +147,12 @@ module.exports = {
           {
             title: {
               value: 'European Union',
-              classes: 'ecl-h4 ecl-footers__title',
+              classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footers__menu',
+            classes: 'ecl-footer__menu',
             items: [
               {
-                classes: 'ecl-footers__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link--external',
@@ -161,7 +161,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footers__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link--external',
@@ -175,13 +175,13 @@ module.exports = {
       },
       {
         type: 'plain',
-        wrapperClass: 'ecl-footers__ec',
+        wrapperClass: 'ecl-footer__ec',
         menus: [
           {
-            classes: 'ecl-list-inline ecl-footers__menu',
+            classes: 'ecl-list-inline ecl-footer__menu',
             items: [
               {
-                classes: 'ecl-list-inline__item ecl-footers__menu-item',
+                classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target:
                     'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
@@ -191,7 +191,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footers__menu-item',
+                classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/resources-partners_en',
                   classes: '',
@@ -200,7 +200,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footers__menu-item',
+                classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/cookies_en',
                   classes: '',
@@ -209,7 +209,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footers__menu-item',
+                classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/legal-notice_en',
                   classes: '',
@@ -218,7 +218,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footers__menu-item',
+                classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/contact_en',
                   classes: '',
@@ -227,7 +227,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footers__menu-item',
+                classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/europa-analytics_en',
                   classes: '',
