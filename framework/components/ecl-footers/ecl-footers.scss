@@ -1,11 +1,15 @@
 /**
  * Footers component
- * @define footers ; weak
+ * @define footer ; weak
  */
 
-.ecl-footers__site-identity,
-.ecl-footers__site-corporate,
-.ecl-footers__ec {
+.ecl-footer {
+  margin: 0;
+}
+
+.ecl-footer__site-identity,
+.ecl-footer__site-corporate,
+.ecl-footer__ec {
   @include ecl-hidden-print();
 
   a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-ec-link-patterns})::after {
@@ -14,13 +18,13 @@
   }
 }
 
-.ecl-footers__social-icon {
+.ecl-footer__social-icon {
   &::before {
     margin-right: 8px !important;
   }
 }
 
-.ecl-footers__title {
+.ecl-footer__title {
   border-bottom: 2px solid map-get($ecl-colors, blue-50);
   color: #fff;
   margin-bottom: map-get($ecl-spacing, xxxs);
@@ -38,7 +42,7 @@
   }
 }
 
-.ecl-footers__label {
+.ecl-footer__label {
   display: inline;
   font-weight: bold;
 
@@ -48,19 +52,19 @@
   }
 }
 
-.ecl-footers__menu {
+.ecl-footer__menu {
   list-style: none;
   margin: 0;
   max-width: none;
   padding-left: 0;
 
-  .ecl-footers__menu-item {
+  .ecl-footer__menu-item {
     font-size: map-get($ecl-font-size, xs);
     margin-bottom: map-get($ecl-spacing, xxxs);
   }
 }
 
-.ecl-footers__column {
+.ecl-footer__column {
   padding-top: map-get($ecl-spacing, m);
 
   &:last-child {
@@ -68,7 +72,7 @@
   }
 }
 
-.ecl-footers__site-identity {
+.ecl-footer__site-identity {
   background-color: map-get($ecl-colors, blue-25);
   color: map-get($ecl-colors, blue-120);
 
@@ -80,18 +84,18 @@
     text-decoration: none;
   }
 
-  .ecl-footers__column {
+  .ecl-footer__column {
     padding-bottom: 0;
     padding-top: map-get($ecl-spacing, s);
   }
 
-  .ecl-footers__column:last-child {
+  .ecl-footer__column:last-child {
     padding-bottom: map-get($ecl-spacing, s);
     padding-top: 0;
   }
 }
 
-.ecl-footers__site-corporate {
+.ecl-footer__site-corporate {
   background-color: map-get($ecl-colors, blue-75);
   color: #fff;
 
@@ -100,7 +104,7 @@
   }
 }
 
-.ecl-footers__ec {
+.ecl-footer__ec {
   background-color: $ecl-color-primary;
   color: #fff;
   padding: map-get($ecl-spacing, s) 0;
@@ -111,27 +115,27 @@
 }
 
 @include ecl-media-breakpoint-up(sm) {
-  .ecl-footers__column {
+  .ecl-footer__column {
     padding-bottom: map-get($ecl-spacing, l);
     padding-top: map-get($ecl-spacing, l);
   }
 
   /* Specifics for this type of footer when non-mobile */
-  .ecl-footers__site-identity {
-    .ecl-footers__column {
+  .ecl-footer__site-identity {
+    .ecl-footer__column {
       padding-bottom: map-get($ecl-spacing, s);
     }
 
-    .ecl-footers__column:last-child {
+    .ecl-footer__column:last-child {
       padding-top: map-get($ecl-spacing, s);
     }
 
-    .ecl-footers__column:last-child .ecl-list-inline__item {
+    .ecl-footer__column:last-child .ecl-list-inline__item {
       display: block;
     }
   }
 
-  .ecl-footers__menu .ecl-footers__menu-item a {
+  .ecl-footer__menu .ecl-footer__menu-item a {
     padding: 0;
 
     &:hover,
