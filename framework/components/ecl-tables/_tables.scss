@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: map-get($ecl-grid-breakpoints, 'md') + 1) {
+@include ecl-media-breakpoint-up('md') {
   .ecl-table {
     @include table-min-width-md();
   }

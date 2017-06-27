@@ -27,6 +27,7 @@ module.exports = {
       entry: path.resolve(__dirname, 'framework/editor-index.scss'),
       dest: path.resolve(__dirname, outputFolder, 'styles/editor-europa.css'),
       options: {
+        normalize: true,
         sourceMap: isProd ? 'file' : true,
       },
     },
