@@ -10,19 +10,13 @@
   font-size: map-get($ecl-font-size, 'l');
   font-style: italic;
   line-height: 1.5;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
   max-width: 24em;
-  overflow: hidden;
   padding: 0.6em 0 0.6em 1.2em;
-  position: relative;
+}
 
-  // Drupal fix.
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  p {
-    display: inline;
-    line-height: inherit;
-  }
+.ecl-blockquote__quote {
+  margin: 0;
 
   &::before {
     content: open-quote;
@@ -33,10 +27,25 @@
   }
 }
 
-.ecl-blockquote--small {
-  color: $ecl-color-shade;
+.ecl-blockquote__body {
+  display: inline;
+  line-height: inherit;
+}
+
+.ecl-blockquote__author {
   font-size: map-get($ecl-font-size, 's');
-  font-style: normal;
-  margin-bottom: 0;
-  padding-left: 0;
+  font-weight: 600;
+  padding-top: 0.6em;
+
+  &::before {
+    content: ' - ';
+  }
+}
+
+.ecl-blockquote--small {
+  font-size: map-get($ecl-font-size, 'm');
+
+  .ecl-blockquote__author {
+    font-size: map-get($ecl-font-size, 'xs');
+  }
 }

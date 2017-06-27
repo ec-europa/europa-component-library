@@ -90,7 +90,7 @@ module.exports = {
       name: 'videos-iframe',
       label: 'Video file (with iframe)',
       context: {
-        variant: 'Videos',
+        variant: 'videos',
         src: 'http://ec.europa.eu/avservices/play.cfm?ref=I101631',
         iframe: true,
         ratio: '16-9',
@@ -102,7 +102,7 @@ module.exports = {
       name: 'videos-tag',
       label: 'Video file (with video tag)',
       context: {
-        variant: 'Videos',
+        variant: 'videos',
         src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
         caption:
           'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
