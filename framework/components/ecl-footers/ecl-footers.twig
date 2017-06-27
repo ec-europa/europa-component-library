@@ -1,107 +1,44 @@
 <footer class="ecl-footer">
-  {% if variant is defined and variant == "custom" %}
-  <div class="ecl-footers__site-identity">
+  {% if ecFooterMenus is defined and ecFooterMenus is iterable %}
+  {% for FooterMenu in ecFooterMenus %}
+  <div class="{{ FooterMenu.wrapperClass }}">
     <div class="ecl-container">
       <div class="ecl-row">
-        <div class="ecl-col-sm ecl-footers__column">
-          <h4 class="ecl-h4"><a href="#">Digital single market</a></h4>
-        </div>
-        <div class="ecl-col-sm ecl-footers__column">
-          <p class="ecl-footers__label">Follow us:</p>
-          <ul class="ecl-footers__menu ecl-list-inline">
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
+        {% for menu in FooterMenu.menus %}
+        <div class="ecl-col-sm {{ (FooterMenu.type != 'plain') ? 'ecl-footer__column' : '' }}">
+
+          {# If there is any sort of title #}
+          {% if menu.title.target is defined %}
+          <h4 class="{{ menu.title.classes }}">
+            <a href="{{ menu.title.target }}">{{ menu.title.value }}</a>
+          </h4>
+          {% elseif menu.title is defined %}
+          <h4 class="{{ menu.title.classes }}">{{ menu.title.value }}</h4>
+          {# Show a label if there is no title #}
+          {% elseif menu.label is defined %}
+          <p class="ecl-footer__label">{{ menu.label }}</p>
+          {% endif %}
+
+          {% if menu.items is defined and is not empty %}
+          <ul class="{{ menu.classes }}">
+            {% for menuItem in menu.items %}
+            {% if menuItem.link.titleWrapperClass is defined %}
+            <li class="{{ menuItem.classes }}">
+              <a class="{{ menuItem.link.classes }}" href="{{ menuItem.link.target }}"><span class="{{menuItem.link.titleWrapperClass}}"></span>{{ menuItem.link.title }}</a>
             </li>
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
+            {% else %}
+            <li class="{{ menuItem.classes }}">
+              <a class="{{ menuItem.link.classes }}" href="{{ menuItem.link.target }}">{{ menuItem.link.title }}</a>
             </li>
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a class="ecl-link--external" href="#">Other social media</a>
-            </li>
+            {% endif %}
+            {% endfor %}
           </ul>
+          {% endif %}
         </div>
-        <div class="ecl-col-sm ecl-footers__column">
-          <ul class="ecl-footers__menu ecl-list-inline">
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a href="#">Contact</a>
-            </li>
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a href="#">Site map</a>
-            </li>
-          </ul>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
+  {% endfor %}
   {% endif %}
-  <div class="ecl-footers__site-corporate">
-    <div class="ecl-container">
-      <div class="ecl-row">
-        <div class="ecl-col-sm ecl-footers__column">
-          <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
-          <ul class="ecl-footers__menu">
-            <li class="ecl-footers__menu-item">
-              <a href="#">Commission and its priorities</a>
-            </li>
-            <li class="ecl-footers__menu-item">
-              <a href="#">Policies information and services</a>
-            </li>
-          </ul>
-        </div>
-        <div class="ecl-col-sm ecl-footers__column">
-          <h4 class="ecl-h4 ecl-footers__title">Follow the European Commission</h4>
-          <ul class="ecl-footers__menu ecl-list-inline">
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
-            </li>
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
-            </li>
-            <li class="ecl-footers__menu-item ecl-list-inline__item">
-              <a href="#">Other social media</a>
-            </li>
-          </ul>
-        </div>
-        <div class="ecl-col-sm ecl-footers__column">
-          <h4 class="ecl-h4 ecl-footers__title">European Union</h4>
-          <ul class="ecl-footers__menu">
-            <li class="ecl-footers__menu-item">
-              <a class="ecl-link--external" href="#">EU institutions</a>
-            </li>
-            <li class="ecl-footers__menu-item">
-              <a class="ecl-link--external" href="#">European Union</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="ecl-footers__ec">
-    <div class="ecl-container">
-      <div class="ecl-row">
-        <div class="ecl-col-sm">
-          <ul class="ecl-list-inline ecl-footers__menu">
-            <li class="ecl-list-inline__item ecl-footers__menu-item">
-              <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
-            </li>
-            <li class="ecl-list-inline__item ecl-footers__menu-item">
-              <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
-            </li>
-            <li class="ecl-list-inline__item ecl-footers__menu-item">
-              <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
-            </li>
-            <li class="ecl-list-inline__item ecl-footers__menu-item">
-              <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
-            </li>
-            <li class="ecl-list-inline__item ecl-footers__menu-item">
-              <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
-            </li>
-            <li class="ecl-list-inline__item ecl-footers__menu-item">
-              <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 </footer>
