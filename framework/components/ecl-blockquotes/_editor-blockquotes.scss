@@ -1,11 +1,6 @@
-/**
- * Blockquotes
- * @define blockquote
- */
-
 @import 'blockquotes-mixins';
 
-.ecl-blockquote {
+.ecl-editor blockquote {
   @include blockquotes();
 
   // Drupal fix.
@@ -22,12 +17,4 @@
   &::after {
     @include blockquotes-after();
   }
-}
-
-.ecl-blockquote--small {
-  color: $ecl-color-shade;
-  font-size: map-get($ecl-font-size, 's');
-  font-style: normal;
-  margin-bottom: 0;
-  padding-left: 0;
 }

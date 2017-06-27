@@ -3,60 +3,15 @@
  * @define table ; weak
  */
 
+@import 'tables-mixins';
+
 .ecl-table {
-  border-collapse: collapse;
-  border-width: 0;
-  font-size: map-get($ecl-font-size, 's');
-  margin: map-get($ecl-spacing, 'xs') 0;
-  table-layout: fixed;
-  width: 100%;
-
-  th {
-    background-color: transparent;
-    color: $ecl-color-shade;
-    font-weight: bold;
-    text-align: left;
-  }
-
-  td,
-  th {
-    display: table-cell;
-    padding: map-get($ecl-spacing, 'xs');
-    vertical-align: middle;
-  }
+  @include table();
 }
 
 @media (max-width: map-get($ecl-grid-breakpoints, 'md')) {
   .ecl-table {
-    thead {
-      display: none;
-    }
-
-    tr {
-      border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
-    }
-
-    tr:nth-of-type(2n) {
-      background-color: inherit;
-    }
-
-    td {
-      display: block;
-      padding: map-get($ecl-spacing, 'xxs');
-      position: relative;
-    }
-
-    /* stylelint-disable-next-line selector-no-qualifying-type */
-    td[data-th-group] {
-      margin-top: map-get($ecl-spacing, 'l');
-      padding-left: map-get($ecl-spacing, 'm');
-    }
-
-    td::before {
-      content: attr(data-th);
-      display: block;
-      font-weight: bold;
-    }
+    @include table-max-width-md();
   }
 
   .ecl-table__heading {
@@ -84,32 +39,6 @@
 
 @media (min-width: map-get($ecl-grid-breakpoints, 'md') + 1) {
   .ecl-table {
-    thead {
-      display: table-header-group;
-
-      /* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */
-      tr:first-child th {
-        border-bottom: 1px solid $ecl-color-shade;
-        vertical-align: top;
-      }
-
-      /* stylelint-disable-next-line max-nesting-depth */
-      tr:last-child:not(:first-child) {
-        border-bottom: 3px solid $ecl-color-shade;
-      }
-    }
-
-    /* Zebra striping */
-    tr:nth-of-type(even) {
-      background-color: map-get($ecl-colors, 'grey-5');
-    }
-
-    tbody {
-      /* Hover */
-      /* stylelint-disable-next-line max-nesting-depth */
-      tr:hover {
-        background-color: map-get($ecl-colors, 'grey-10');
-      }
-    }
+    @include table-min-width-md();
   }
 }
