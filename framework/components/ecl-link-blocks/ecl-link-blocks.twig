@@ -1,51 +1,44 @@
 {# Internal properties #}
 
-{% set _cssClassMain = 'ecl-link-block' %}
-{% set _cssClassLiks = 'ecl-link-block__links' %}
+{% set _cssClass = 'ecl-link-block' %}
 {% set _extraAttributes = '' %}
-{% set _skipWrapper = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if skipWrapper is defined %}
-  {% set _skipWrapper = skipWrapper %}
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
 {% endif %}
 
-{% if extraClassMain is defined %}
-  {% set _cssClassMain = _cssClassMain ~ ' ' ~ extraClassMain %}
-{% endif %}
-
-{% if extraClassLinks is defined %}
-  {% set _cssClassLiks = _cssClassLiks ~ ' ' ~ extraClassLinks %}
-{% endif %}
-
-{% if extraAttributesLinks is defined %}
-  {% for attr in extraAttributesLinks %}
-    {% set extraAttributesLinks = extraAttributesLinks ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-{% if _skipWrapper == true %}
-  <ul
-    class="{{ _cssClassMain }} {{ _cssClassLiks }}"
-    {{ extraAttributesLinks }}
-  >
+{% if wrapper is defined and wrapper == true %}
+
+<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+  {% if title is defined %}
+    <div class="ecl-link-block__title">{{ title }}</div>
+  {% endif %}
+
+  <ul class="ecl-link-block__list">
     {% for link in links %}
-      <li><a href="{{ link.target }}">{{ link.title }}</a></li>
+    <li class="ecl-link-block__item">
+      <a class="ecl-link ecl-link--standalone ecl-link-block__link" href="{{ link.href }}">{{ link.label }}</a>
+    </li>
     {% endfor %}
   </ul>
+</div>
+
 {% else %}
-  <div class="{{ _cssClassMain }}">
-    {% if linkBlockTitle is defined %}
-      <h3 class="ecl-link-block__title">{{ linkBlockTitle }}</h3>
-    {% endif %}
-      <ul
-        class="{{ _cssClassLiks }}"
-        {{ extraAttributesLinks }}
-      >
-        {% for link in links %}
-          <li><a href="{{ link.target }}">{{ link.title }}</a></li>
-        {% endfor %}
-      </ul>
-  </div>
+
+<ul class="{{ _cssClass }} ecl-link-block__list" {{ _extraAttributes }}>
+  {% for link in links %}
+    <li class="ecl-link-block__item">
+      <a class="ecl-link ecl-link--standalone ecl-link-block__link" href="{{ link.href }}">{{ link.label }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
 {% endif %}

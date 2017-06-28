@@ -12,12 +12,16 @@
     ]
   } %}
   {% include '@ec-europa/ecl-link-blocks' with {
-    'skipWrapper': true,
-    'extraClassLinks': 'ecl-dropdown__body ecl-dropdown__link-block',
-    'extraAttributesLinks': [
+    'extraClass': 'ecl-dropdown__body',
+    'extraAttributes': [
       { 'name': 'id', 'value': 'example-button-dropdown'},
       { 'name': 'aria-labelledby', 'value': 'example-expandable-button'},
       { 'name': 'aria-hidden', 'value': 'true'},
-    ]
+    ],
+    'links': [
+      { 'href': '#', 'label': 'European Commission' },
+      { 'href': '#', 'label': 'Priorities' },
+      { 'href': '#', 'label': 'Jobs, Growth and Investment' },
+    ],
   } %}
 </div>
