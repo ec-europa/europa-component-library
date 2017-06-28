@@ -1,6 +1,7 @@
+@import 'paragraphs-mixins';
+
 .ecl-paragraph {
-  line-height: 1.66;
-  max-width: 32em;
+  @include paragraph();
 }
 
 .ecl-paragraph--l {

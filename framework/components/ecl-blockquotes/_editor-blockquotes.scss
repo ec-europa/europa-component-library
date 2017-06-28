@@ -1,11 +1,6 @@
-/**
- * Blockquotes
- * @define blockquote
- */
-
 @import 'blockquotes-mixins';
 
-.ecl-blockquote {
+.ecl-editor blockquote {
   @include blockquotes();
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
@@ -21,12 +16,4 @@
   &::after {
     @include blockquotes-after();
   }
-}
-
-.ecl-blockquote--small {
-  color: $ecl-color-shade;
-  font-size: map-get($ecl-font-size, 's');
-  font-style: normal;
-  margin-bottom: 0;
-  padding-left: 0;
 }

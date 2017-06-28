@@ -1,28 +1,13 @@
 // ECL links
 
-.ecl-link {
-  color: $ecl-color-primary;
-  line-height: 1.66;
-  text-decoration: underline;
+@import 'links-mixins';
 
-  &:hover,
-  &:focus {
-    color: $ecl-color-shade;
-  }
+.ecl-link {
+  @include link();
 }
 
 .ecl-link--external {
-  position: relative;
-
-  &::after {
-    @extend %ecl-icon--after;
-
-    @include ecl-icon('external');
-
-    font-size: 75%;
-    margin-left: 0.4em;
-    margin-right: 0.2em;
-  }
+  @include link-external();
 }
 
 .ecl-link--standalone {
