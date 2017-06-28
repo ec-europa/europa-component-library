@@ -1,6 +1,7 @@
+@import 'lists-mixins';
+
 .ecl-list {
-  line-height: 1.66;
-  max-width: 32em;
+  @include list();
 }
 
 .ecl-list--alpha {

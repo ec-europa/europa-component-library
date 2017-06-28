@@ -1,0 +1,24 @@
+@mixin link() {
+  color: $ecl-color-primary;
+  line-height: 1.66;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $ecl-color-shade;
+  }
+}
+
+@mixin link-external {
+  position: relative;
+
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('external');
+
+    font-size: 75%;
+    margin-left: 0.4em;
+    margin-right: 0.2em;
+  }
+}
