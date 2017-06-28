@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -212,21 +212,35 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-1ea17b77d04522fc63c43bf0523b77ae-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__label"</span>&gt;</span>
-    containing
-  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__value"</span>&gt;</span>
-    Words that the facet is containing
-  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier is defined %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">ecl-tag--</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> label is defined %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
-<span class="hljs-comment">&lt;!-- Facet with close --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag facet-tag--close"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__label"</span>&gt;</span>Type<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__value"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item 1.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__label"</span>&gt;</span>Department<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__value"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item 2.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tags is defined %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> tag in tags %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> tag.label is defined %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ tag.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier is defined %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier == 'facet' %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__item"</span>&gt;</span></span><span class="hljs-template-variable">{{ tag.value }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> modifier == 'facet-close' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+    'label': tag.value,
+    'extraClass': 'ecl-tag__item',
+    'extraAttributes': [
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__item"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ tag.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ tag.value }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -235,9 +249,65 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-1ea17b77d04522fc63c43bf0523b77ae-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Default tags */</span>
+{
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"tags"</span>,
+  <span class="hljs-attr">"tags"</span>: [
+    {
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"apple"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>
+    },
+    {
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"orange"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>
+    },
+    {
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"lime"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>
+    },
+    {
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"strawberry"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>
+    }
+  ]
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Facet tags */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"facet"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"containing"</span>,
+  <span class="hljs-attr">"tags"</span>: [
+    {
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Words that the facet is containing"</span>
+    }
+  ]
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Facet tag with close */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"facet-close"</span>,
+  <span class="hljs-attr">"tags"</span>: [
+    {
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"type"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"atom"</span>
+    },
+    {
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"status"</span>,
+      <span class="hljs-attr">"value"</span>: <span class="hljs-string">"wip"</span>
+    }
+  ]
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -247,22 +317,46 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-1ea17b77d04522fc63c43bf0523b77ae-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__label"</span>&gt;</span>
-    containing
-  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__value"</span>&gt;</span>
-    Words that the facet is containing
-  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        
+            <pre><span class="hljs-comment">&lt;!-- Default tags --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag "</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__label"</span>&gt;</span>tags<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__item"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>apple<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__item"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>orange<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__item"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>lime<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__item"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>strawberry<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-comment">&lt;!-- Facet with close --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag facet-tag--close"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__label"</span>&gt;</span>Type<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__value"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item 1.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__label"</span>&gt;</span>Department<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"facet-tag__value"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item 2.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Facet tags --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag ecl-tag--facet"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__label"</span>&gt;</span>containing<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__item"</span>&gt;</span>Words that the facet is containing<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Facet tag with close --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag ecl-tag--facet-close"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__label"</span>&gt;</span>type<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--facet-close ecl-tag__item"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>atom<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__label"</span>&gt;</span>status<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--facet-close ecl-tag__item"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>wip<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -278,13 +372,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-914f8a94ea8549ebcbc97dd993665dd9">_tags.scss</option>
+                <option value="file-0ae2fdb8f1333499ada95e38e0b0cb1d">ecl-tags.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-914f8a94ea8549ebcbc97dd993665dd9" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-0ae2fdb8f1333499ada95e38e0b0cb1d" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -292,54 +386,34 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Tags
+                                <pre><span class="hljs-comment">/**
+ * Tags
+ * @define tag
+ */</span>
 
-Tags component used to display tag section that is typically displayed under a content
-
-Markup: html/tags.html
-
-Style guide tags
-*/</span>
-
-<span class="hljs-selector-class">.tags</span> {
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0.2em</span>;
-  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0.8em</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
+<span class="hljs-selector-class">.ecl-tag</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 
-<span class="hljs-selector-class">.tags__label</span> {
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.7em</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.5em</span>;
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0.15em</span>;
+<span class="hljs-selector-class">.ecl-tag__label</span> {
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
   <span class="hljs-attribute">text-transform</span>: uppercase;
 }
 
-<span class="hljs-selector-class">.tags__items</span> {
-  <span class="hljs-attribute">vertical-align</span>: middle;
-}
-
-<span class="hljs-selector-class">.tags__item</span> {
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">display</span>: inline-block;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">1.4em</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.4em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.5em</span>;
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
+<span class="hljs-selector-class">.ecl-tag__item</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-15'</span>);
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-  <span class="hljs-attribute">text-transform</span>: lowercase;
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
-  <span class="hljs-attribute">outline</span>: <span class="hljs-number">3px</span> transparent solid;
-}
-
-<span class="hljs-selector-class">.tags__item</span> <span class="hljs-selector-tag">a</span>,
-<span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.tags__item</span> {
+  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$ecl-font-family-base</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
+  <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
 
   &amp;:hover,
   &amp;:active,
@@ -348,70 +422,31 @@ Style guide tags
   }
 
   &amp;:focus {
-    <span class="hljs-attribute">outline</span>: none;
     <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
+    <span class="hljs-attribute">outline</span>: none;
   }
 }
 
-<span class="hljs-comment">/*
-Facet tag
-
-Markup: html/facet-tag.html
-
-Style guide tags.facettag
-*/</span>
-
-<span class="hljs-selector-class">.facet-tag</span> {
-  @<span class="hljs-keyword">extend</span> .tags;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
-    <span class="hljs-attribute">display</span>: inline-block;
-    <span class="hljs-attribute">width</span>: auto;
-  }
-}
-
-<span class="hljs-selector-class">.facet-tag__label</span> {
-  @<span class="hljs-keyword">extend</span> .tags__label;
-
-  <span class="hljs-attribute">float</span>: left;
-}
-
-<span class="hljs-selector-class">.facet-tag__value</span> {
-  @<span class="hljs-keyword">extend</span> .tags__item;
-
-  <span class="hljs-attribute">text-transform</span>: none;
-}
-
-<span class="hljs-comment">/*
-Facet tag with close
-
-Markup: html/facet-tag--close.html
-
-Style guide tags.facet-close
-*/</span>
-
-<span class="hljs-selector-class">.facet-tag--close</span> {
-  <span class="hljs-selector-class">.facet-tag__value</span> {
-    <span class="hljs-comment">// Close icon.</span>
-    &amp;::after {
-      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-      @<span class="hljs-keyword">extend</span> %ecl-icon--tag-close;
-
-      <span class="hljs-attribute">vertical-align</span>: bottom;
-    }
-
-    &amp;:hover::after {
-      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-      @<span class="hljs-keyword">extend</span> %ecl-icon--tag-close;
-    }
+<span class="hljs-selector-class">.ecl-tag--facet-close</span> {
+  <span class="hljs-selector-class">.ecl-tag__item</span>:hover {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   }
 
-  <span class="hljs-selector-class">.tags__item</span> <span class="hljs-selector-tag">a</span>,
-  <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.tags__item</span> {
-    &amp;:hover {
-      <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    }
+  <span class="hljs-selector-class">.ecl-tag__item</span>::after {
+    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'tag-close'</span>);
+
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.6em</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-tag__item</span>:hover::after {
+    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'tag-close-hover'</span>);
+
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.6em</span>;
   }
 }
 </pre>
@@ -422,15 +457,15 @@ Style guide tags.facet-close
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-tags/_tags.scss"><span>/components/raw/ecl-tags/_tags.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-tags/ecl-tags.scss"><span>/components/raw/ecl-tags/ecl-tags.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-tags/_tags.scss</span>
+                    <span class="Meta-value">framework/components/ecl-tags/ecl-tags.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.9 KB</span>
+                    <span class="Meta-value">1.1 KB</span>
                 </li>
             </ul>
         </div>
@@ -446,6 +481,17 @@ Style guide tags.facet-close
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
             <span class="Meta-value">@ec-europa/ecl-tags</span>
+        </li>
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Tags:</strong>
+            <span class="Meta-value">
+                
+                    <span>
+                
+                    <span>atom</span>
+                
+            </span>
         </li>
         
         
@@ -1930,6 +1976,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-dropdowns" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Dropdowns</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-expandables" data-pjax>
                 
 
@@ -2254,8 +2324,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-footers">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-footers" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2272,63 +2343,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Footers</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-footers--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-footers--custom" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Custom</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2654,30 +2669,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-header-search-bars" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Header search bars</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-hero-links" data-pjax>
                 
 
@@ -2909,7 +2900,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3155,7 +3146,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4100,7 +4091,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>

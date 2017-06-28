@@ -465,15 +465,19 @@ On small screen, display switches to a list, to prevent overflow.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-3386b02b8694509903b8078eb94f0512">_tables.scss</option>
+                <option value="file-660fc6b4aaef5caffcaf504dfcccf388">_editor-tables.scss</option>
                 
-                <option value="file-ad267a8a5a75250e33a2ea377f5cd4a8">ecl-tables.js</option>
+                <option value="file-79feceae6060ec59bba39a2bcc8798d3">_tables-mixins.scss</option>
+                
+                <option value="file-bd22a79dace6fc341ad2c1547d6b97ba">_tables.scss</option>
+                
+                <option value="file-63c4a5f3fc4367ef12e290d6318554fd">ecl-tables.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-3386b02b8694509903b8078eb94f0512" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-660fc6b4aaef5caffcaf504dfcccf388" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -481,12 +485,53 @@ On small screen, display switches to a list, to prevent overflow.</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
- *ECL tables
- * @define table ; weak
- */</span>
+                                <pre>@<span class="hljs-keyword">import</span> <span class="hljs-string">'tables-mixins'</span>;
 
-<span class="hljs-selector-class">.ecl-table</span> {
+<span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">table</span> {
+  @<span class="hljs-keyword">include</span> table();
+}
+
+@<span class="hljs-keyword">media</span> (max-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'md'</span>)) {
+  <span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">table</span> {
+    @<span class="hljs-keyword">include</span> table-max-width-md();
+  }
+}
+
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'md'</span>) {
+  <span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">table</span> {
+    @<span class="hljs-keyword">include</span> table-min-width-md();
+  }
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-tables/_editor-tables.scss"><span>/components/raw/ecl-tables/_editor-tables.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-tables/_editor-tables.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">296 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-79feceae6060ec59bba39a2bcc8798d3" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre>@<span class="hljs-keyword">mixin</span> table() {
   <span class="hljs-attribute">border-collapse</span>: collapse;
   <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
@@ -509,37 +554,110 @@ On small screen, display switches to a list, to prevent overflow.</p>
   }
 }
 
+@<span class="hljs-keyword">mixin</span> table-max-width-md() {
+  <span class="hljs-selector-tag">thead</span> {
+    <span class="hljs-attribute">display</span>: none;
+  }
+
+  <span class="hljs-selector-tag">tr</span> {
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+  }
+
+  <span class="hljs-selector-tag">tr</span>:nth-of-type(2n) {
+    <span class="hljs-attribute">background-color</span>: inherit;
+  }
+
+  <span class="hljs-selector-tag">td</span> {
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+    <span class="hljs-attribute">position</span>: relative;
+  }
+
+  <span class="hljs-comment">/* stylelint-disable-next-line selector-no-qualifying-type */</span>
+  <span class="hljs-selector-tag">td</span><span class="hljs-selector-attr">[data-th-group]</span> {
+    <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
+    <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  }
+
+  <span class="hljs-selector-tag">td</span>::before {
+    <span class="hljs-attribute">content</span>: attr(data-th);
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">font-weight</span>: bold;
+  }
+}
+
+@<span class="hljs-keyword">mixin</span> table-min-width-md() {
+  <span class="hljs-selector-tag">thead</span> {
+    <span class="hljs-attribute">display</span>: table-header-group;
+
+    <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */</span>
+    <span class="hljs-selector-tag">tr</span>:first-child <span class="hljs-selector-tag">th</span> {
+      <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-variable">$ecl-color-shade</span>;
+      <span class="hljs-attribute">vertical-align</span>: top;
+    }
+
+    <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth */</span>
+    <span class="hljs-selector-tag">tr</span>:last-child:not(:first-child) {
+      <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">3px</span> solid <span class="hljs-variable">$ecl-color-shade</span>;
+    }
+  }
+
+  <span class="hljs-comment">/* Zebra striping */</span>
+  <span class="hljs-selector-tag">tr</span>:nth-of-type(even) {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+  }
+
+  <span class="hljs-selector-tag">tbody</span> {
+    <span class="hljs-comment">/* Hover */</span>
+    <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth */</span>
+    <span class="hljs-selector-tag">tr</span>:hover {
+      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+    }
+  }
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-tables/_tables-mixins.scss"><span>/components/raw/ecl-tables/_tables-mixins.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-tables/_tables-mixins.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">1.7 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-bd22a79dace6fc341ad2c1547d6b97ba" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">/*
+ *ECL tables
+ * @define table ; weak
+ */</span>
+
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'tables-mixins'</span>;
+
+<span class="hljs-selector-class">.ecl-table</span> {
+  @<span class="hljs-keyword">include</span> table();
+}
+
 @<span class="hljs-keyword">media</span> (max-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'md'</span>)) {
   <span class="hljs-selector-class">.ecl-table</span> {
-    <span class="hljs-selector-tag">thead</span> {
-      <span class="hljs-attribute">display</span>: none;
-    }
-
-    <span class="hljs-selector-tag">tr</span> {
-      <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-    }
-
-    <span class="hljs-selector-tag">tr</span>:nth-of-type(2n) {
-      <span class="hljs-attribute">background-color</span>: inherit;
-    }
-
-    <span class="hljs-selector-tag">td</span> {
-      <span class="hljs-attribute">display</span>: block;
-      <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
-      <span class="hljs-attribute">position</span>: relative;
-    }
-
-    <span class="hljs-comment">/* stylelint-disable-next-line selector-no-qualifying-type */</span>
-    <span class="hljs-selector-tag">td</span><span class="hljs-selector-attr">[data-th-group]</span> {
-      <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
-      <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
-    }
-
-    <span class="hljs-selector-tag">td</span>::before {
-      <span class="hljs-attribute">content</span>: attr(data-th);
-      <span class="hljs-attribute">display</span>: block;
-      <span class="hljs-attribute">font-weight</span>: bold;
-    }
+    @<span class="hljs-keyword">include</span> table-max-width-md();
   }
 
   <span class="hljs-selector-class">.ecl-table__heading</span> {
@@ -565,35 +683,9 @@ On small screen, display switches to a list, to prevent overflow.</p>
   }
 }
 
-@<span class="hljs-keyword">media</span> (min-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'md'</span>) + 1) {
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'md'</span>) {
   <span class="hljs-selector-class">.ecl-table</span> {
-    <span class="hljs-selector-tag">thead</span> {
-      <span class="hljs-attribute">display</span>: table-header-group;
-
-      <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */</span>
-      <span class="hljs-selector-tag">tr</span>:first-child <span class="hljs-selector-tag">th</span> {
-        <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-variable">$ecl-color-shade</span>;
-        <span class="hljs-attribute">vertical-align</span>: top;
-      }
-
-      <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth */</span>
-      <span class="hljs-selector-tag">tr</span>:last-child:not(:first-child) {
-        <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">3px</span> solid <span class="hljs-variable">$ecl-color-shade</span>;
-      }
-    }
-
-    <span class="hljs-comment">/* Zebra striping */</span>
-    <span class="hljs-selector-tag">tr</span>:nth-of-type(even) {
-      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
-    }
-
-    <span class="hljs-selector-tag">tbody</span> {
-      <span class="hljs-comment">/* Hover */</span>
-      <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth */</span>
-      <span class="hljs-selector-tag">tr</span>:hover {
-        <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
-      }
-    }
+    @<span class="hljs-keyword">include</span> table-min-width-md();
   }
 }
 </pre>
@@ -612,12 +704,12 @@ On small screen, display switches to a list, to prevent overflow.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.4 KB</span>
+                    <span class="Meta-value">782 Bytes</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-ad267a8a5a75250e33a2ea377f5cd4a8" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-63c4a5f3fc4367ef12e290d6318554fd" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -2246,6 +2338,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-dropdowns" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Dropdowns</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-expandables" data-pjax>
                 
 
@@ -2570,8 +2686,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-footers">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-footers" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2588,63 +2705,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Footers</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-footers--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-footers--custom" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Custom</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2970,30 +3031,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-header-search-bars" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Header search bars</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-hero-links" data-pjax>
                 
 
@@ -3225,7 +3262,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3471,7 +3508,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4416,7 +4453,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>

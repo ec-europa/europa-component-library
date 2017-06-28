@@ -339,13 +339,17 @@ They also can be applied by adding a class with the name of the heading tag.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-b083c72d39de6c7ec5cba41f95f4684a">_headings.scss</option>
+                <option value="file-10685a2bb5344d7a3d7f0bbaaa06114f">_editor-headings.scss</option>
+                
+                <option value="file-dde496458c24aae285e59dc0e27867a9">_headings-mixins.scss</option>
+                
+                <option value="file-84678a7de04834ad3af1adf1dff60723">_headings.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-b083c72d39de6c7ec5cba41f95f4684a" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-10685a2bb5344d7a3d7f0bbaaa06114f" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -354,26 +358,81 @@ They also can be applied by adding a class with the name of the heading tag.</p>
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">// Headers</span>
-<span class="hljs-selector-class">.ecl-heading</span> {
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'headings-mixins'</span>;
+
+<span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">h1</span> {
+  @<span class="hljs-keyword">include</span> heading();
+  @<span class="hljs-keyword">include</span> heading-1();
+}
+
+<span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">h2</span> {
+  @<span class="hljs-keyword">include</span> heading();
+  @<span class="hljs-keyword">include</span> heading-2();
+}
+
+<span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">h3</span> {
+  @<span class="hljs-keyword">include</span> heading();
+  @<span class="hljs-keyword">include</span> heading-3();
+}
+
+<span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">h4</span> {
+  @<span class="hljs-keyword">include</span> heading();
+  @<span class="hljs-keyword">include</span> heading-4();
+}
+
+<span class="hljs-selector-class">.ecl-editor</span> <span class="hljs-selector-tag">h5</span> {
+  @<span class="hljs-keyword">include</span> heading();
+  @<span class="hljs-keyword">include</span> heading-5();
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-typography-headings/_editor-headings.scss"><span>/components/raw/ecl-typography-headings/_editor-headings.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/content/ecl-typography/ecl-typography-headings/_editor-headings.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">368 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-dde496458c24aae285e59dc0e27867a9" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre>@<span class="hljs-keyword">mixin</span> heading() {
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
 }
 
-<span class="hljs-selector-class">.ecl-heading--h1</span> {
+@<span class="hljs-keyword">mixin</span> heading-1() {
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxl'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.1</span>;
 }
 
-<span class="hljs-selector-class">.ecl-heading--h2</span> {
+@<span class="hljs-keyword">mixin</span> heading-2() {
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xl'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.1</span>;
 }
 
-<span class="hljs-selector-class">.ecl-heading--h3</span> {
+@<span class="hljs-keyword">mixin</span> heading-3() {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
@@ -381,7 +440,7 @@ They also can be applied by adding a class with the name of the heading tag.</p>
   <span class="hljs-attribute">max-width</span>: <span class="hljs-number">32em</span>;
 }
 
-<span class="hljs-selector-class">.ecl-heading--h4</span> {
+@<span class="hljs-keyword">mixin</span> heading-4() {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
@@ -389,12 +448,67 @@ They also can be applied by adding a class with the name of the heading tag.</p>
   <span class="hljs-attribute">max-width</span>: <span class="hljs-number">32em</span>;
 }
 
-<span class="hljs-selector-class">.ecl-heading--h5</span> {
+@<span class="hljs-keyword">mixin</span> heading-5() {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.1</span>;
   <span class="hljs-attribute">max-width</span>: <span class="hljs-number">32em</span>;
   <span class="hljs-attribute">text-transform</span>: uppercase;
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-typography-headings/_headings-mixins.scss"><span>/components/raw/ecl-typography-headings/_headings-mixins.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/content/ecl-typography/ecl-typography-headings/_headings-mixins.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">763 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-84678a7de04834ad3af1adf1dff60723" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">// Headers</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'headings-mixins'</span>;
+
+<span class="hljs-selector-class">.ecl-heading</span> {
+  @<span class="hljs-keyword">include</span> heading();
+}
+
+<span class="hljs-selector-class">.ecl-heading--h1</span> {
+  @<span class="hljs-keyword">include</span> heading-1();
+}
+
+<span class="hljs-selector-class">.ecl-heading--h2</span> {
+  @<span class="hljs-keyword">include</span> heading-2();
+}
+
+<span class="hljs-selector-class">.ecl-heading--h3</span> {
+  @<span class="hljs-keyword">include</span> heading-3();
+}
+
+<span class="hljs-selector-class">.ecl-heading--h4</span> {
+  @<span class="hljs-keyword">include</span> heading-4();
+}
+
+<span class="hljs-selector-class">.ecl-heading--h5</span> {
+  @<span class="hljs-keyword">include</span> heading-5();
 }
 
 <span class="hljs-selector-class">.ecl-heading--headline</span> {
@@ -447,7 +561,7 @@ They also can be applied by adding a class with the name of the heading tag.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.3 KB</span>
+                    <span class="Meta-value">815 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1947,6 +2061,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-dropdowns" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Dropdowns</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-expandables" data-pjax>
                 
 
@@ -2271,8 +2409,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-footers">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-footers" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2289,63 +2428,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Footers</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-footers--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-footers--custom" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Custom</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2671,30 +2754,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-header-search-bars" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Header search bars</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-hero-links" data-pjax>
                 
 
@@ -2926,7 +2985,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3172,7 +3231,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4117,7 +4176,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
