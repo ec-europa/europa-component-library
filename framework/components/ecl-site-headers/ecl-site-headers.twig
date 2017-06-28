@@ -8,7 +8,11 @@
     </section>
     {% include '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'below', 'externalClass': 'ecl-site-header__logo' } %}
   </div>
-  {% include '@ec-europa/ecl-header-search-bars' %}
+  <section class="ecl-header-search-bar" aria-label="Site tools">
+    <section class="ecl-container-fluid ecl-clearfix">
+      {% include '@ec-europa/ecl-search-forms' %}
+    </section>
+  </section>
 </header>
 {% else %}
 <header class="ecl-site-header" role="banner">
