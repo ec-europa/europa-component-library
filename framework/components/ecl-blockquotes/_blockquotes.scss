@@ -7,12 +7,10 @@
 
 .ecl-blockquote {
   @include blockquotes();
+}
 
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  p {
-    display: inline;
-    line-height: inherit;
-  }
+.ecl-blockquote__quote {
+  margin: 0;
 
   &::before {
     @include blockquotes-before();
@@ -23,10 +21,25 @@
   }
 }
 
-.ecl-blockquote--small {
-  color: $ecl-color-shade;
+.ecl-blockquote__body {
+  display: inline;
+  line-height: inherit;
+}
+
+.ecl-blockquote__author {
   font-size: map-get($ecl-font-size, 's');
-  font-style: normal;
-  margin-bottom: 0;
-  padding-left: 0;
+  font-weight: 600;
+  padding-top: 0.6em;
+
+  &::before {
+    content: ' - ';
+  }
+}
+
+.ecl-blockquote--small {
+  font-size: map-get($ecl-font-size, 'm');
+
+  .ecl-blockquote__author {
+    font-size: map-get($ecl-font-size, 'xs');
+  }
 }
