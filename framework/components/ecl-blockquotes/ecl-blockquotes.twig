@@ -1,3 +1,26 @@
-<blockquote class="ecl-blockquote">
-  <p>Blockquote element</p>
-</blockquote>
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-blockquote' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+  <blockquote class="ecl-blockquote__quote">
+    <p class="ecl-blockquote__body">{{ body }}</p>
+  </blockquote>
+
+  {% if author is defined %}
+  <div class="ecl-blockquote__author">{{ author }}</div>
+  {% endif %}
+</div>
