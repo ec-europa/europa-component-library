@@ -1,16 +1,30 @@
-<div class="facet-tag">
-  <span class="facet-tag__label">
-    containing
-  </span>
-  <span class="facet-tag__value">
-    Words that the facet is containing
-  </span>
-</div>
+<div class="ecl-tag {% if modifier is defined %}ecl-tag--{{ modifier }}{% endif %}">
+  {% if label is defined %}
+  <span class="ecl-tag__label">{{ label }}</span>
+  {% endif %}
 
-<!-- Facet with close -->
-<div class="facet-tag facet-tag--close">
-  <span class="facet-tag__label">Type</span>
-  <a class="facet-tag__value" href="#">Item 1.</a>
-  <span class="facet-tag__label">Department</span>
-  <a class="facet-tag__value" href="#">Item 2.</a>
+  {% if tags is defined %}
+    {% for tag in tags %}
+      {% if tag.label is defined %}
+  <span class="ecl-tag__label">{{ tag.label }}</span>
+      {% endif %}
+
+      {% if modifier is defined %}
+        {% if modifier == 'facet' %}
+  <span class="ecl-tag__item">{{ tag.value }}</span>
+        {% elseif modifier == 'facet-close' %}
+  {% include '@ec-europa/ecl-buttons' with {
+    'label': tag.value,
+    'extraClass': 'ecl-tag__item',
+    'extraAttributes': [
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}
+        {% endif %}
+      {% else %}
+  <a class="ecl-tag__item" href="{{ tag.href }}">{{ tag.value }}</a>
+      {% endif %}
+
+    {% endfor %}
+  {% endif %}
 </div>
