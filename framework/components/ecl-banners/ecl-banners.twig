@@ -1,38 +1,48 @@
-<div class="banner banner--quote">
-  <div class="banner__quote">
-    <blockquote class="blockquote blockquote--small">
-      <span class="blockquote__open"></span>
-      Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis.
-      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-      Pellentesque in volutpat eros, ut fringilla tortor.
-      <span class="blockquote__close"></span>
-    </blockquote>
-  </div>
-  <span class="banner__author">
-    President Juncker
-  </span>
-</div>
+<div class="ecl-banner {% if modifier is defined %}ecl-banner--{{ modifier }}{% endif %}">
 
-<div class="banner banner--video">
-  <div class="banner__left">
-    <div class="banner__video">
-      <div class="file file--video">
-        <div class="file__container">
-          <iframe src="http://ec.europa.eu/avservices/play.cfm?ref=I101631" allowfullscreen="allowfullscreen" scrolling="no"></iframe>
-        </div>
-        <span class="banner__caption">
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-        </span>
-      </div>
+  {% if modifier is defined %}
+    {% if modifier == 'background' %}
+
+  <div class="ecl-banner__image" style="background-image: url('{{ src }}')"></div>
+  <div class="ecl-banner__body">
+    <a class="ecl-banner__title" href="{{ title.href }}">{{ title.label }}</a>
+    <p class="ecl-paragraph ecl-banner__description">{{ description }}</p>
+  </div>
+
+    {% elseif modifier == 'quote' %}
+
+  {% include '@ec-europa/ecl-blockquotes' with {
+    'body':
+      'Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis.
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+      Pellentesque in volutpat eros, ut fringilla tortor.',
+    'author': 'President Juncker',
+    'extraClass': 'ecl-blockquote--small ecl-banner__quote',
+  } %}
+
+    {% elseif modifier == 'video' %}
+
+  <div class="ecl-row">
+    <div class="ecl-col-md-6">
+  {% include '@ec-europa/ecl-files' with {
+    'variant': 'videos',
+    'src': 'http://ec.europa.eu/avservices/play.cfm?ref=I101631',
+    'iframe': true,
+    'ratio': '16-9',
+    'caption':
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+  } %}
+    </div>
+
+    <div class="ecl-col-md-6">
+      {% block videoDescription %}
+      <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p class="ecl-paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <p class="ecl-paragraph">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      {% endblock %}
     </div>
   </div>
-  <div class="banner__paragraph">
-    <div class="field">
-      <div class="field__items">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-    </div>
-  </div>
+
+    {% endif %}
+  {% endif %}
 </div>

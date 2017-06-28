@@ -1,13 +1,24 @@
 {
-  "private": true,
   "name": "@ec-europa/ecl-banners",
-  "version": "0.3.1",
-  "description": "",
-  "main": "_banners.scss",
-  "style": "_banners.scss",
   "author": "European Commission",
   "license": "EUPL-1.1",
+  "version": "0.3.1",
+  "description": "ECL Banners",
+  "main": "ecl-banners.scss",
+  "style": "ecl-banners.scss",
   "peerDependencies": {
-    "@ec-europa/ecl-blockquotes": "^0.1.0"
-  }
+    "@ec-europa/ecl-blockquotes": "^0.1.0",
+    "@ec-europa/ecl-files": "^0.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library#readme"
 }

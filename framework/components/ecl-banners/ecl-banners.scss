@@ -1,0 +1,49 @@
+/**
+ * Banners component
+ * @define banner
+ */
+
+// Background banner
+.ecl-banner--background {
+  position: relative;
+}
+
+.ecl-banner__image {
+  background-color: map-get($ecl-colors, 'grey-10');
+  background-size: cover;
+  height: 21rem;
+}
+
+.ecl-banner__body {
+  background-color: #fff;
+  border-top: 3px solid $ecl-color-primary;
+  padding: map-get($ecl-spacing, 's');
+}
+
+.ecl-banner__title {
+  color: $ecl-color-primary;
+  font-size: map-get($ecl-font-size, 'l');
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ecl-banner__description {
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .ecl-banner__body {
+    max-height: 14rem;
+    overflow: hidden;
+    position: absolute;
+    right: map-get($ecl-spacing, 'xl');
+    top: map-get($ecl-spacing, 'xl');
+    width: 50%;
+  }
+}
+
+// Quote banner
+.ecl-banner__quote {
+  max-width: none;
+}
