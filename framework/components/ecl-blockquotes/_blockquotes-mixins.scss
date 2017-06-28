@@ -1,0 +1,22 @@
+@mixin blockquotes() {
+  border-left: 6px solid $ecl-color-secondary;
+  clear: both;
+  display: inline-block;
+  font-size: map-get($ecl-font-size, 'l');
+  font-style: italic;
+  line-height: 1.5;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 24em;
+  overflow: hidden;
+  padding: 0.6em 0 0.6em 1.2em;
+  position: relative;
+}
+
+@mixin blockquotes-before() {
+  content: open-quote;
+}
+
+@mixin blockquotes-after() {
+  content: close-quote;
+}
