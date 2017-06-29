@@ -4,6 +4,8 @@ module.exports = {
   status: 'ready',
   context: {
     name: 'radio-example',
+    id: 'example-1',
+    desc: 'Small description',
     options: [
       {
         id: 'opt-1',

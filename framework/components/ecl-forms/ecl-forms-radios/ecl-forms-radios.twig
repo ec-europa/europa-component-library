@@ -1,10 +1,15 @@
+{% set id = name|default('ecl-radio-1') %}
 {% set name = name|default('ecl-radio') %}
+{% set desc = desc|default('Description') %}
 
-<div role="radiogroup">
+<div role="radiogroup" aria-labelledby="{{ id }}_label" id="{{ id }}">
+  <p id="{{ id }}_label" class="ecl-sr-only">{{ desc }}</p>
   {% for option in options %}
     <div class="ecl-radio">
-      <input class="ecl-radio--input" type="radio" id="{{ option.id }}" value="{{ option.value }}" name="{{ name }}"{{ option.checked ? ' checked' : '' }}>
-      <label class="ecl-radio--label" for="{{ option.id }}">{{ option.label }}</label>
+      <label for={{ option.id }}>
+        <input class="ecl-radio__input ecl-sr-only" type="radio" id="{{ option.id }}" value="{{ option.value }}" name="{{ name }}"{{ option.checked ? ' checked' : '' }} />
+        <span class="ecl-radio__label">{{ option.label }}</span>
+      </label>
     </div>
   {% endfor %}
 </div>
