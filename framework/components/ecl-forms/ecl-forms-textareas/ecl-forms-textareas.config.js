@@ -7,7 +7,6 @@ module.exports = {
     return `
       <!-- Start: @${item.handle} -->\n
       <div class="ecl-form-group">\n
-      <label for="${item.context.id}">${item.label}\n</label>\n
       ${markup}\n
       </div>\n
       <!-- End: @${item.handle} -->\n
@@ -17,8 +16,8 @@ module.exports = {
   variants: [
     {
       name: 'default',
-      label: 'Normal textarea',
       context: {
+        label: 'Normal textarea',
         id: 'example-textarea-id-1',
         extraAttributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
@@ -26,9 +25,9 @@ module.exports = {
       },
     },
     {
-      name: 'disabled',
-      label: 'Disabled textarea',
+      name: 'is-disabled',
       context: {
+        label: 'Disabled textarea',
         id: 'example-textarea-id-2',
         isDisabled: true,
         extraAttributes: [
@@ -37,9 +36,9 @@ module.exports = {
       },
     },
     {
-      name: 'with-error',
-      label: 'Textarea with error',
+      name: 'has-error',
       context: {
+        label: 'Textarea with error',
         id: 'example-textarea-id-3',
         hasError: true,
         extraAttributes: [

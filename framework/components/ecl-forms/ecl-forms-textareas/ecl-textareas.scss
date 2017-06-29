@@ -24,7 +24,9 @@
   }
 
   &[disabled],
-  &[readonly] {
+  &--is-disabled,
+  &[readonly],
+  &--is-readonly {
     background-color: #eee;
     cursor: not-allowed;
     opacity: 1;
