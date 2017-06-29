@@ -1,15 +1,39 @@
-<div class="form-group">
-  <label for="field-ID-1">Field label</label>
-  <p class="help-block">This is some placeholder help text.</p>
-  <textarea name="field-name" id="field-ID-1" rows="4" class="form-textarea form-control"></textarea>
-</div>
+{% set id = id|default('default-id') %}
+{% set name = name|default('default-name') %}
+{% set rows = rows|default('4') %}
 
-<div class="form-group">
-  <label for="field-ID-2">Field label - error</label>
-  <p class="help-block">This is some placeholder help text.</p>
-  <textarea name="field-name" id="field-ID-2" rows="4" class="form-control form-textarea error"></textarea>
-  <div class="messages error">
-    <h3><span class="ecl-sr-only">Error message:</span>Some feedback title</h3>
-    <p>Some feedback message</p>
-  </div>
-</div>
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-textarea' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if hasError is defined and hasError == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-textarea--has-error' %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if isDisabled is defined and isDisabled == true %}
+  {% set _extraAttributes = _extraAttributes ~ ' disabled' %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<textarea
+  name="{{ name }}"
+  id="{{ id }}"
+  rows="{{ rows }}"
+  class="{{ _cssClass }}"
+  {{ _extraAttributes }}
+>
+</textarea>
