@@ -1,30 +1,39 @@
 /*
+ * Radio group
+ * @define radio-group
+ */
+
+.ecl-radio-group {
+  margin: 0;
+  padding: 0;
+}
+
+/*
  * Radio
  * @define radio
  */
 
+$ecl-radio-icon-size: 1.5rem;
+
 .ecl-radio {
-  line-height: 2;
+  display: block;
   margin: 0;
+  padding: map-get($ecl-spacing, 'xxxs') 0;
 }
 
 .ecl-radio__label {
-  display: inline-block;
-  padding-left: 34px;
-  position: relative;
+  align-items: center;
+  display: inline-flex;
 
   &::before {
     background: #fff url('../images/svg/radio-unchecked.svg') no-repeat;
     border: 3px solid transparent;
     border-radius: 50%;
     content: '';
-    display: inline-block;
-    height: 1.5em;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1.5em;
+    flex-shrink: 0;
+    height: $ecl-radio-icon-size;
+    margin-right: map-get($ecl-spacing, 'xxs');
+    width: $ecl-radio-icon-size;
   }
 }
 
@@ -33,5 +42,5 @@
 }
 
 .ecl-radio__input:focus + .ecl-radio__label::before {
-  border: 3px solid map-get($ecl-colors, 'yellow-100');
+  border-color: map-get($ecl-colors, 'yellow-100');
 }
