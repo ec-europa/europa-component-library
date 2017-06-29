@@ -1,4 +1,29 @@
-<div class="feedback-message is-error">
-  <h3>Some feedback message</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis</p>
+{#
+  Accepts:
+    - "title" (string): message title (mandatory)
+    - "body" (string): message body (mandatory)
+    - "isDisabled" (boolean): is disabled (optional, default: false)
+    - "hasError" (boolean): has error (optional, default: false)
+    - "extraClass" (string): extra CSS classes (optional, default: '')
+#}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-feedback-message' %}
+
+{% if isDisabled is defined and isDisabled == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-feedback-message--disabled' %}
+{% endif %}
+
+{% if hasError is defined and hasError == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-feedback-message--error' %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+<div class="{{ _cssClass }}">
+  <div class="ecl-feedback-message__title">{{ title }}</div>
+  <p class="ecl-feedback-message__body">{{ body }}</p>
 </div>
