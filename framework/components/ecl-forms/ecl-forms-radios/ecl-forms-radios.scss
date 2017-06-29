@@ -1,14 +1,4 @@
 /*
- * Radio group
- * @define radio-group
- */
-
-.ecl-radio-group {
-  margin: 0;
-  padding: 0;
-}
-
-/*
  * Radio
  * @define radio
  */
@@ -19,6 +9,11 @@ $ecl-radio-icon-size: 1.5rem;
   display: block;
   margin: 0;
   padding: map-get($ecl-spacing, 'xxxs') 0;
+}
+
+.ecl-radio--is-disabled {
+  color: map-get($ecl-colors, 'grey-50');
+  cursor: not-allowed;
 }
 
 .ecl-radio__label {
@@ -43,4 +38,8 @@ $ecl-radio-icon-size: 1.5rem;
 
 .ecl-radio__input:focus + .ecl-radio__label::before {
   border-color: map-get($ecl-colors, 'yellow-100');
+}
+
+.ecl-radio--has-error .ecl-radio__label::before {
+  border-color: $ecl-color-error;
 }
