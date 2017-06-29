@@ -1,18 +1,43 @@
-<div class="form-group">
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-1" value="">
-    <label for="cb-example-1"></label>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-2" value="" checked="checked">
-    <label for="cb-example-2"></label>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-3" value="">
-    <label for="cb-example-3">Unchecked with label</label>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-4" value="" checked="checked">
-    <label for="cb-example-4">Checked with label</label>
-  </div>
-</div>
+{% set id = id|default('default-id') %}
+{% set name = name|default('default-name') %}
+{% set checked = checked|default(false) %}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-checkbox' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if hasError is defined and hasError == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-checkbox--has-error' %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if isDisabled is defined and isDisabled == true %}
+  {% set _extraAttributes = _extraAttributes ~ ' disabled' %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<input
+  type="checkbox"
+  class="{{ _cssClass }}"
+  id="{{ id }}"
+  name="{{ name }}"
+  value="{{ value }}"
+  ckecked="{{ checked }}"
+  {{ _extraAttributes }}
+>
+{% if label is defined %}
+<label class="ecl-checkbox__label" for="{{ id }}">{{ label }}</label>
+{% endif %}
