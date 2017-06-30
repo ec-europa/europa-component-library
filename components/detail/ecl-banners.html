@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
 
 
 <title>Banners | Europa Component Library</title>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,8 +135,12 @@
               <div class="Prose">
                 
                 <h1 id="banners">Banners</h1>
-<p>The banner itself is not a standalone component, the banner subcomponents should always be used.</p>
-<p>For security reasons, the video display in the preview is disallowed with <code>sandbox=&quot;allow-same-origin allow-scripts allow-forms&quot;</code>.</p>
+<p>The banner itself is not a standalone component, one of the following modifiers should always be used:</p>
+<ul>
+<li><strong>ecl-banner–background</strong>: banner with background-image.</li>
+<li><strong>ecl-banner–quote</strong>: banner with a quote. Based on ecl-blockquotes component.</li>
+<li><strong>ecl-banner–video</strong>: banner with video and description. Based on ecl-files component.</li>
+</ul>
 
                 
               </div>
@@ -213,43 +217,53 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-d894cf7dc7a4d4ad0c2f299e2d84b4f1-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner banner--quote"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__quote"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote blockquote--small"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote__open"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis.
-      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-      Pellentesque in volutpat eros, ut fringilla tortor.
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote__close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__author"</span>&gt;</span>
-    President Juncker
-  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier is defined %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">ecl-banner--</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner banner--video"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__left"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__video"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--video"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__container"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://ec.europa.eu/avservices/play.cfm?ref=I101631"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"allowfullscreen"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__caption"</span>&gt;</span>
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier is defined %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier == 'background' %}</span><span class="xml">
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner__image"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-image: url('</span></span></span><span class="hljs-template-variable">{{ src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">')"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ title.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ title.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-banner__description"</span>&gt;</span></span><span class="hljs-template-variable">{{ description }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> modifier == 'quote' %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-blockquotes' with {
+    'body':
+      'Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis.
+      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+      Pellentesque in volutpat eros, ut fringilla tortor.',
+    'author': 'President Juncker',
+    'extraClass': 'ecl-blockquote--small ecl-banner__quote',
+  } %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> modifier == 'video' %}</span><span class="xml">
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-files' with {
+    'variant': 'videos',
+    'src': 'http://ec.europa.eu/avservices/play.cfm?ref=I101631',
+    'iframe': true,
+    'ratio': '16-9',
+    'caption':
+      'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+  } %}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> videoDescription %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__paragraph"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -258,9 +272,37 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-d894cf7dc7a4d4ad0c2f299e2d84b4f1-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Background banner */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"background"</span>,
+  <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://lorempixel.com/1600/370/abstract/8"</span>,
+  <span class="hljs-attr">"title"</span>: {
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"White Paper on the future of Europe"</span>,
+    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>
+  },
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Quote banner */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"quote"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Video banner */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"video"</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -270,42 +312,62 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-d894cf7dc7a4d4ad0c2f299e2d84b4f1-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner banner--quote"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__quote"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote blockquote--small"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote__open"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque in volutpat eros,
-      ut fringilla tortor.
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote__close"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+        
+            <pre><span class="hljs-comment">&lt;!-- Background banner --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner ecl-banner--background"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner__image"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-image: url('http://lorempixel.com/1600/370/abstract/8')"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>White Paper on the future of Europe<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-banner__description"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__author"</span>&gt;</span>
-    President Juncker
-  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner banner--video"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__left"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__video"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file file--video"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file__container"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://ec.europa.eu/avservices/play.cfm?ref=I101631"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"allowfullscreen"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Quote banner --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner ecl-banner--quote"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote ecl-blockquote--small ecl-banner__quote"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__quote"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__body"</span>&gt;</span>Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque in volutpat eros, ut fringilla tortor.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__author"</span>&gt;</span>President Juncker<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Video banner --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-banner ecl-banner--video"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
+
+      <span class="hljs-comment">&lt;!-- Videos --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file ecl-file--video"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-ratio-16-9"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__video"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://ec.europa.eu/avservices/play.cfm?ref=I101631"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"allowfullscreen"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__caption"</span>&gt;</span>
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__caption"</span>&gt;</span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"banner__paragraph"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -321,13 +383,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-accace4319f6127e594ef93da89ff960">_banners.scss</option>
+                <option value="file-947acaf48343bb8326b65c01aeaf1a5f">ecl-banners.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-accace4319f6127e594ef93da89ff960" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-947acaf48343bb8326b65c01aeaf1a5f" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -335,90 +397,54 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Banner
+                                <pre><span class="hljs-comment">/**
+ * Banners component
+ * @define banner
+ */</span>
 
-The banner itself is not a standalone component, the banner subcomponents should
-always be used.
-
-Style guide banner
-*/</span>
-
-<span class="hljs-comment">/*
-Quote Banner
-
-Markup: html/banner-quote.html
-
-Style guide banner.quote
-*/</span>
-
-<span class="hljs-variable">$quote_border_offset</span>: <span class="hljs-number">0.556em</span>;
-
-<span class="hljs-selector-class">.banner</span> {
-  @<span class="hljs-keyword">include</span> ecl-clearfix();
+<span class="hljs-comment">// Background banner</span>
+<span class="hljs-selector-class">.ecl-banner--background</span> {
+  <span class="hljs-attribute">position</span>: relative;
 }
 
-<span class="hljs-selector-class">.banner--quote</span> {
-  <span class="hljs-comment">// @include make-md-column(8);</span>
-
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-variable">$quote_border_offset</span>;
-  <span class="hljs-attribute">border-left</span>: <span class="hljs-variable">$quote_border_offset</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-
-  <span class="hljs-selector-tag">blockquote</span> {
-    <span class="hljs-attribute">max-width</span>: none;
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">border-left</span>: none;
-  }
+<span class="hljs-selector-class">.ecl-banner__image</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+  <span class="hljs-attribute">background-size</span>: cover;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">21rem</span>;
 }
 
-<span class="hljs-selector-class">.banner__author</span> {
-  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0.6em</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+<span class="hljs-selector-class">.ecl-banner__body</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">border-top</span>: <span class="hljs-number">3px</span> solid <span class="hljs-variable">$ecl-color-primary</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-banner__title</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
   <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-
-  &amp;::before {
-    <span class="hljs-attribute">content</span>: <span class="hljs-string">' - '</span>;
-  }
+  <span class="hljs-attribute">text-decoration</span>: none;
 }
 
-<span class="hljs-comment">/*
-Video Banner
-
-Markup: html/banner-video.html
-
-Style guide banner.video
-*/</span>
-
-<span class="hljs-selector-class">.banner--video</span> {
-  @<span class="hljs-keyword">extend</span> .row !optional;
-}
-
-<span class="hljs-selector-class">.banner__video</span> {
-  <span class="hljs-selector-class">.file</span> {
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  }
-}
-
-<span class="hljs-selector-class">.banner__left</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-6 !optional;
-}
-
-<span class="hljs-selector-class">.banner__paragraph</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-6 !optional;
-
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-}
-
-<span class="hljs-selector-class">.banner__caption</span> {
-  @<span class="hljs-keyword">include</span> ecl-media-caption();
+<span class="hljs-selector-class">.ecl-banner__description</span> {
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.45</span>;
+  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
 }
 
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-  <span class="hljs-selector-class">.banner__paragraph</span> {
-    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-selector-class">.ecl-banner__body</span> {
+    <span class="hljs-attribute">max-height</span>: <span class="hljs-number">14rem</span>;
+    <span class="hljs-attribute">overflow</span>: hidden;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xl'</span>);
+    <span class="hljs-attribute">top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xl'</span>);
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
   }
+}
+
+<span class="hljs-comment">// Quote banner</span>
+<span class="hljs-selector-class">.ecl-banner__quote</span> {
+  <span class="hljs-attribute">max-width</span>: none;
 }
 </pre>
                             </code>
@@ -428,15 +454,15 @@ Style guide banner.video
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-banners/_banners.scss"><span>/components/raw/ecl-banners/_banners.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-banners/ecl-banners.scss"><span>/components/raw/ecl-banners/ecl-banners.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-banners/_banners.scss</span>
+                    <span class="Meta-value">framework/components/ecl-banners/ecl-banners.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.2 KB</span>
+                    <span class="Meta-value">873 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1684,7 +1710,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2355,7 +2381,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2379,7 +2405,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2595,7 +2621,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4385,7 +4411,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
 
 
 

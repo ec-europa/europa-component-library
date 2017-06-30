@@ -9,25 +9,69 @@
     <title>Preview Layout</title>
   </head>
   <body>
-    <div class="form-group">
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-1" value="">
-    <label for="cb-example-1"></label>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-2" value="" checked="checked">
-    <label for="cb-example-2"></label>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-3" value="">
-    <label for="cb-example-3">Unchecked with label</label>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" id="cb-example-4" value="" checked="checked">
-    <label for="cb-example-4">Checked with label</label>
-  </div>
-</div>
+    
+      <!-- Start: @ecl-forms-checkboxes--default -->
 
+      <div class="ecl-u-mv-s">
+
+      <input
+  type="checkbox"
+  class="ecl-checkbox"
+  id="example-checkbox-id-1"
+  name="example-checkbox-name-1"
+  value=""
+  ckecked="false"
+  
+>
+<label class="ecl-checkbox__label" for="example-checkbox-id-1">Normal checkbox</label>
+
+      </div>
+
+      <!-- End: @ecl-forms-checkboxes--default -->
+
+    
+
+      <!-- Start: @ecl-forms-checkboxes--disabled -->
+
+      <div class="ecl-u-mv-s">
+
+      <input
+  type="checkbox"
+  class="ecl-checkbox"
+  id="example-checkbox-id-2"
+  name="example-checkbox-name-2"
+  value=""
+  ckecked="false"
+   disabled
+>
+<label class="ecl-checkbox__label" for="example-checkbox-id-2">Disabled checkbox</label>
+
+      </div>
+
+      <!-- End: @ecl-forms-checkboxes--disabled -->
+
+    
+
+      <!-- Start: @ecl-forms-checkboxes--with-error -->
+
+      <div class="ecl-u-mv-s">
+
+      <input
+  type="checkbox"
+  class="ecl-checkbox ecl-checkbox--has-error"
+  id="example-checkbox-id-3"
+  name="example-checkbox-name-3"
+  value=""
+  ckecked="false"
+  
+>
+<label class="ecl-checkbox__label" for="example-checkbox-id-3">Checkbox with error</label>
+
+      </div>
+
+      <!-- End: @ecl-forms-checkboxes--with-error -->
+
+    
     <script src="../../framework/scripts/europa.js"></script>
       </body>
 </html>

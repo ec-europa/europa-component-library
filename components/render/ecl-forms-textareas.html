@@ -1,18 +1,71 @@
 
 
-<div class="form-group">
-  <label for="field-ID-1">Field label</label>
-  <p class="help-block">This is some placeholder help text.</p>
-  <textarea name="field-name" id="field-ID-1" rows="4" class="form-textarea form-control"></textarea>
-</div>
 
-<div class="form-group">
-  <label for="field-ID-2">Field label - error</label>
-  <p class="help-block">This is some placeholder help text.</p>
-  <textarea name="field-name" id="field-ID-2" rows="4" class="form-control form-textarea error"></textarea>
-  <div class="messages error">
-    <h3><span class="ecl-sr-only">Error message:</span>Some feedback title</h3>
-    <p>Some feedback message</p>
-  </div>
-</div>
+      <!-- Start: @ecl-forms-textareas--default -->
 
+      <div class="ecl-form-group">
+
+      <label for="example-textarea-id-1" id="example-textarea-id-1_label" aria-label="example-textarea-id-1">Normal textarea</label>
+<textarea
+  name="default-name"
+  id="example-textarea-id-1"
+  rows="4"
+  class="ecl-textarea"
+  role="textbox"
+  aria-multiline="true"
+  aria-labelledby="example-textarea-id-1_label"
+   placeholder="Some placeholder text."
+>
+</textarea>
+
+      </div>
+
+      <!-- End: @ecl-forms-textareas--default -->
+
+    
+
+      <!-- Start: @ecl-forms-textareas--is-disabled -->
+
+      <div class="ecl-form-group">
+
+      <label for="example-textarea-id-2" id="example-textarea-id-2_label" aria-label="example-textarea-id-2">Disabled textarea</label>
+<textarea
+  name="default-name"
+  id="example-textarea-id-2"
+  rows="4"
+  class="ecl-textarea"
+  role="textbox"
+  aria-multiline="true"
+  aria-labelledby="example-textarea-id-2_label"
+   disabled placeholder="Some placeholder text."
+>
+</textarea>
+
+      </div>
+
+      <!-- End: @ecl-forms-textareas--is-disabled -->
+
+    
+
+      <!-- Start: @ecl-forms-textareas--has-error -->
+
+      <div class="ecl-form-group">
+
+      <label for="example-textarea-id-3" id="example-textarea-id-3_label" aria-label="example-textarea-id-3">Textarea with error</label>
+<textarea
+  name="default-name"
+  id="example-textarea-id-3"
+  rows="4"
+  class="ecl-textarea ecl-textarea--has-error"
+  role="textbox"
+  aria-multiline="true"
+  aria-labelledby="example-textarea-id-3_label"
+   placeholder="Some placeholder text."
+>
+</textarea>
+
+      </div>
+
+      <!-- End: @ecl-forms-textareas--has-error -->
+
+    

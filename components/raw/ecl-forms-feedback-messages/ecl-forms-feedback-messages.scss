@@ -1,0 +1,33 @@
+/*
+ * Feedback message
+ * @define feedback-message
+ */
+
+.ecl-feedback-message {
+  @include ecl-hidden-print();
+
+  background: transparent url('../images/svg/messages-info.svg') no-repeat 1.2rem 1.2rem;
+  color: $ecl-color-shade;
+  font-size: map-get($ecl-font-size, 's');
+  margin: 0;
+  min-height: map-get($ecl-spacing, 'l');
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+}
+
+.ecl-feedback-message--disabled {
+  color: map-get($ecl-colors, 'grey-50');
+}
+
+.ecl-feedback-message--error {
+  background-color: map-get($ecl-colors, 'grey-5');
+  background-image: url('../images/svg/messages-error.svg');
+}
+
+.ecl-feedback-message__title {
+  font-weight: bold;
+  margin-bottom: map-get($ecl-spacing, 'xs');
+}
+
+.ecl-feedback-message__body {
+  margin: 0;
+}

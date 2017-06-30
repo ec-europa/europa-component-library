@@ -1,0 +1,57 @@
+/**
+ * Checkbox component
+ * @define checkbox
+ */
+
+// checkbox related variables
+$form-checkbox-icon-size: 1.5em;
+
+.ecl-checkbox {
+  opacity: 0;
+
+  // Checked state.
+  &:checked + .ecl-checkbox__label::before {
+    background-image: url('../images/svg/checkbox-checked--blue.svg');
+  }
+
+  // Focus state, not checked.
+  &:focus + .ecl-checkbox__label::before {
+    border-color: map-get($ecl-colors, 'yellow-100');
+  }
+
+  &[disabled] + .ecl-checkbox__label,
+  &[readonly] + .ecl-checkbox__label {
+    cursor: not-allowed;
+  }
+
+  &[disabled] + .ecl-checkbox__label::before,
+  &[readonly] + .ecl-checkbox__label::before {
+    box-shadow: 0 0 $form-checkbox-icon-size map-get($ecl-colors, 'grey-15') inset;
+    cursor: not-allowed;
+  }
+}
+
+.ecl-checkbox__label {
+  display: inline-block;
+  line-height: $form-checkbox-icon-size;
+  padding-left: map-get($ecl-spacing, 'xs');
+  position: relative;
+
+  &::before {
+    background: #fff url('../images/svg/checkbox-unchecked.svg') no-repeat;
+    border: 3px solid transparent;
+    border-radius: 25%;
+    content: '';
+    display: inline-block;
+    height: $form-checkbox-icon-size;
+    left: 0;
+    margin-left: -(map-get($ecl-spacing, 's'));
+    position: absolute;
+    transition: border 0.15s ease-in-out;
+    width: $form-checkbox-icon-size;
+  }
+}
+
+.ecl-checkbox--has-error + .ecl-checkbox__label::before {
+  border-color: $ecl-color-error;
+}

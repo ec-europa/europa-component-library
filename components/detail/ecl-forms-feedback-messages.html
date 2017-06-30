@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
 
 
 <title>Feedback messages | Europa Component Library</title>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,6 +135,12 @@
               <div class="Prose">
                 
                 <h1 id="feedback-messages">Feedback messages</h1>
+<p>Users receive feedback, in the form of a message, about an input. Messages can be either positive (indicating that the form was submitted successfully) or negative (“The number you’ve provided is incorrect”).</p>
+<h2 id="when-to-use">When to use</h2>
+<p>Use messages components to give feedback to users.</p>
+<p>When validating a page, show one error notification on the top of the page which states “Some required information is missing or incomplete”.</p>
+<p>Then, for each input field with an error, show an error notification which states either “This is a required field” or “This is not a valid format”.</p>
+<p>Use success messages once the form has been submitted successfully, show a success notification.</p>
 
                 
               </div>
@@ -211,9 +217,34 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ced886438ea99917bf8b730508881199-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"feedback-message is-error"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Accepts:
+    - "title" (string): message title (mandatory)
+    - "body" (string): message body (mandatory)
+    - "isDisabled" (boolean): is disabled (optional, default: false)
+    - "hasError" (boolean): has error (optional, default: false)
+    - "extraClass" (string): extra CSS classes (optional, default: '')
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-feedback-message' %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isDisabled is defined and isDisabled == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-feedback-message--disabled' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> hasError is defined and hasError == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-feedback-message--error' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__body"</span>&gt;</span></span><span class="hljs-template-variable">{{ body }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -222,9 +253,36 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ced886438ea99917bf8b730508881199-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Default */</span>
+{
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Some feedback message"</span>,
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Disabled */</span>
+{
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Some feedback message"</span>,
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis"</span>,
+  <span class="hljs-attr">"isDisabled"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Error */</span>
+{
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Some feedback message"</span>,
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis"</span>,
+  <span class="hljs-attr">"hasError"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -234,10 +292,31 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-ced886438ea99917bf8b730508881199-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"feedback-message is-error"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__title"</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__body"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Disabled --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message ecl-feedback-message--disabled"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__title"</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__body"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Error --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message ecl-feedback-message--error"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__title"</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-feedback-message__body"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -253,13 +332,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-1db16242cd2bf0132d4f6e549a5287a1">_feedback-messages.scss</option>
+                <option value="file-f9ce1455f6da578d843f1d1bdc3e346f">ecl-forms-feedback-messages.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-1db16242cd2bf0132d4f6e549a5287a1" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-f9ce1455f6da578d843f1d1bdc3e346f" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -268,35 +347,37 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/*
-Feedback message
+ * Feedback message
+ * @define feedback-message
+ */</span>
 
-Markup: html/feedback-message.html
-
-Style guide form.feedback-message
-*/</span>
-
-<span class="hljs-selector-class">.feedback-message</span> {
-  @<span class="hljs-keyword">extend</span> .messages;
-
-  <span class="hljs-attribute">border</span>: none;
-
-  &amp;<span class="hljs-selector-class">.is-disabled</span> {
-    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-  }
-
-  &amp;<span class="hljs-selector-class">.is-error</span> {
-    <span class="hljs-attribute">background</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>) url(<span class="hljs-string">'../images/svg/messages-error.svg'</span>) no-repeat <span class="hljs-number">1.375em</span> <span class="hljs-number">1.375em</span>;
-  }
-
+<span class="hljs-selector-class">.ecl-feedback-message</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
+
+  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/svg/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.2rem</span> <span class="hljs-number">1.2rem</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">min-height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
 }
 
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-selector-class">.feedback-message</span> {
-    &amp;<span class="hljs-selector-class">.is-error</span> {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/png/messages-error.png'</span>);
-    }
-  }
+<span class="hljs-selector-class">.ecl-feedback-message--disabled</span> {
+  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-feedback-message--error</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+  <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/messages-error.svg'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-feedback-message__title</span> {
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-feedback-message__body</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 </pre>
                             </code>
@@ -306,15 +387,15 @@ Style guide form.feedback-message
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-forms-feedback-messages/_feedback-messages.scss"><span>/components/raw/ecl-forms-feedback-messages/_feedback-messages.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-forms-feedback-messages/ecl-forms-feedback-messages.scss"><span>/components/raw/ecl-forms-feedback-messages/ecl-forms-feedback-messages.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-forms/ecl-forms-feedback-messages/_feedback-messages.scss</span>
+                    <span class="Meta-value">framework/components/ecl-forms/ecl-forms-feedback-messages/ecl-forms-feedback-messages.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">515 Bytes</span>
+                    <span class="Meta-value">826 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1562,7 +1643,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2233,7 +2314,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2257,7 +2338,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2473,7 +2554,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4263,7 +4344,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
 
 
 

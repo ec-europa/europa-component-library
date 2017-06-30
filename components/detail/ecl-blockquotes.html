@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
 
 
 <title>Blockquotes | Europa Component Library</title>
@@ -212,9 +212,32 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-b4749a7a392a6c6b83affff797362618-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Blockquote element<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span></span></pre>
+        <pre><span class="xml"></span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-blockquote' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__quote"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__body"</span>&gt;</span></span><span class="hljs-template-variable">{{ body }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> author is defined %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__author"</span>&gt;</span></span><span class="hljs-template-variable">{{ author }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -223,7 +246,10 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."</span>,
+  <span class="hljs-attr">"author"</span>: <span class="hljs-string">"Lorem ipsum"</span>
+}</pre>
             
         
     </code>
@@ -234,9 +260,13 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-b4749a7a392a6c6b83affff797362618-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Blockquote element<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__quote"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__body"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-blockquote__author"</span>&gt;</span>Lorem ipsum<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -277,12 +307,9 @@
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
   <span class="hljs-attribute">font-style</span>: italic;
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5</span>;
-  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">max-width</span>: <span class="hljs-number">24em</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.6em</span> <span class="hljs-number">0</span> <span class="hljs-number">0.6em</span> <span class="hljs-number">1.2em</span>;
-  <span class="hljs-attribute">position</span>: relative;
 }
 
 @<span class="hljs-keyword">mixin</span> blockquotes-before() {
@@ -308,7 +335,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">439 Bytes</span>
+                    <span class="Meta-value">373 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -330,12 +357,10 @@
 
 <span class="hljs-selector-class">.ecl-blockquote</span> {
   @<span class="hljs-keyword">include</span> blockquotes();
+}
 
-  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
-  <span class="hljs-selector-tag">p</span> {
-    <span class="hljs-attribute">display</span>: inline;
-    <span class="hljs-attribute">line-height</span>: inherit;
-  }
+<span class="hljs-selector-class">.ecl-blockquote__quote</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 
   &amp;::before {
     @<span class="hljs-keyword">include</span> blockquotes-before();
@@ -346,12 +371,27 @@
   }
 }
 
-<span class="hljs-selector-class">.ecl-blockquote--small</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+<span class="hljs-selector-class">.ecl-blockquote__body</span> {
+  <span class="hljs-attribute">display</span>: inline;
+  <span class="hljs-attribute">line-height</span>: inherit;
+}
+
+<span class="hljs-selector-class">.ecl-blockquote__author</span> {
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-  <span class="hljs-attribute">font-style</span>: normal;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
+  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0.6em</span>;
+
+  &amp;::before {
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">' - '</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-blockquote--small</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
+
+  <span class="hljs-selector-class">.ecl-blockquote__author</span> {
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  }
 }
 </pre>
                             </code>
@@ -369,7 +409,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">510 Bytes</span>
+                    <span class="Meta-value">643 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1654,7 +1694,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2325,7 +2365,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2349,7 +2389,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2565,7 +2605,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4355,7 +4395,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
 
 
 
