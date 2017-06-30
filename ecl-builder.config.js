@@ -19,7 +19,6 @@ module.exports = {
       entry: path.resolve(__dirname, 'framework/index.scss'),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
-        normalize: true,
         sourceMap: isProd ? 'file' : true,
       },
     },
@@ -27,7 +26,6 @@ module.exports = {
       entry: path.resolve(__dirname, 'framework/editor-index.scss'),
       dest: path.resolve(__dirname, outputFolder, 'styles/editor.css'),
       options: {
-        normalize: true,
         sourceMap: isProd ? 'file' : true,
       },
     },
