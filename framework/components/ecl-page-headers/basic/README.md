@@ -1,4 +1,4 @@
-# Default page header
+# Basic page header
 
 ## Why and how to use this component
 Users need a way to easily identify the branding, to search and change the language if needed.
