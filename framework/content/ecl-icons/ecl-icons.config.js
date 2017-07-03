@@ -342,5 +342,54 @@ module.exports = {
         modifier: 'ecl-icon--camera',
       },
     },
+    {
+      name: 'spreadsheet',
+      label: 'Spreadsheet icon',
+      context: {
+        modifier: 'ecl-icon--spreadsheet',
+      },
+    },
+    {
+      name: 'share',
+      label: 'Share icon',
+      context: {
+        modifier: 'ecl-icon--share',
+      },
+    },
+    {
+      name: 'presentation',
+      label: 'Presentation icon',
+      context: {
+        modifier: 'ecl-icon--presentation',
+      },
+    },
+    {
+      name: 'faq',
+      label: 'Faq icon',
+      context: {
+        modifier: 'ecl-icon--faq',
+      },
+    },
+    {
+      name: 'data',
+      label: 'Data icon',
+      context: {
+        modifier: 'ecl-icon--data',
+      },
+    },
+    {
+      name: 'copy',
+      label: 'Copy icon',
+      context: {
+        modifier: 'ecl-icon--copy',
+      },
+    },
+    {
+      name: 'book',
+      label: 'Book icon',
+      context: {
+        modifier: 'ecl-icon--book',
+      },
+    },
   ],
 };
