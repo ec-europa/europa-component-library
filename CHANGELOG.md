@@ -1,3 +1,40 @@
+## 0.9.0 (2017-06-30)
+
+#### :rocket: New Feature
+
+*   [#214](https://github.com/ec-europa/europa-component-library/pull/214) feat(ecl-editor): init .ecl-editor -INNO-642. ([@degliwe](https://github.com/degliwe))
+*   [#208](https://github.com/ec-europa/europa-component-library/pull/208) feat(dropdowns): add dropdowns - INNO-637. ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :bug: Bug Fix
+
+*   [#221](https://github.com/ec-europa/europa-component-library/pull/221) fix(font-family): use $ecl-font-family-sans-serif for buttons, selects and text inputs - INNO-645. ([@yhuard](https://github.com/yhuard))
+*   [#219](https://github.com/ec-europa/europa-component-library/pull/219) fix(menu): add z-index on menu's dropdown - INNO-648. ([@yhuard](https://github.com/yhuard))
+*   [#215](https://github.com/ec-europa/europa-component-library/pull/215) fix(page-header): use breadcrumb and add tests - INNO-647. ([@degliwe](https://github.com/degliwe))
+
+#### :nail_care: Enhancement
+
+*   [#225](https://github.com/ec-europa/europa-component-library/pull/225) refactor(textareas): upgrade component - INNO-632. ([@emeryro](https://github.com/emeryro))
+*   [#224](https://github.com/ec-europa/europa-component-library/pull/224) refactor(checkboxes): upgrade component - INNO-602. ([@emeryro](https://github.com/emeryro))
+*   [#222](https://github.com/ec-europa/europa-component-library/pull/222) feat(feedback-messages): upgrade feedback-messages component - INNO-603. ([@yhuard](https://github.com/yhuard))
+*   [#218](https://github.com/ec-europa/europa-component-library/pull/218) refactor(banners): upgrade component - INNO-594. ([@emeryro](https://github.com/emeryro))
+*   [#220](https://github.com/ec-europa/europa-component-library/pull/220) feat(site-header): header search bar is part of site header --INNO-537. ([@degliwe](https://github.com/degliwe))
+*   [#217](https://github.com/ec-europa/europa-component-library/pull/217) refactor(tags): upgrade component - INNO-593. ([@emeryro](https://github.com/emeryro))
+*   [#212](https://github.com/ec-europa/europa-component-library/pull/212) fix(footers): use context data - INNO-644. ([@kalinchernev](https://github.com/kalinchernev))
+*   [#215](https://github.com/ec-europa/europa-component-library/pull/215) fix(page-header): use breadcrumb and add tests - INNO-647. ([@degliwe](https://github.com/degliwe))
+
+#### :house: Internal
+
+*   [#228](https://github.com/ec-europa/europa-component-library/pull/228) chore(deps): update all deps to the latest version 🚀 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+*   [#211](https://github.com/ec-europa/europa-component-library/pull/211) chore(deps): update packages - noissue. ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 5
+
+-   Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+-   Yannick Huard ([yhuard](https://github.com/yhuard))
+-   [emeryro](https://github.com/emeryro)
+-   [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+-   wesley deglise ([degliwe](https://github.com/degliwe))
+
 ## 0.8.0 (2017-06-22)
 
 #### :rocket: New Feature
