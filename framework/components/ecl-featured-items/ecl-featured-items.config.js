@@ -30,7 +30,7 @@ module.exports = {
       },
     },
     {
-      name: 'translations',
+      name: 'extended',
       label: 'Featured item extended',
       context: {
         variant: 'extended',
