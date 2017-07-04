@@ -1,0 +1,45 @@
+/*
+ * Radio
+ * @define radio
+ */
+
+$ecl-radio-icon-size: 1.5rem;
+
+.ecl-radio {
+  display: block;
+  margin: 0;
+  padding: map-get($ecl-spacing, 'xxxs') 0;
+}
+
+.ecl-radio--is-disabled {
+  color: map-get($ecl-colors, 'grey-50');
+  cursor: not-allowed;
+}
+
+.ecl-radio__label {
+  align-items: center;
+  display: inline-flex;
+
+  &::before {
+    background: #fff url('../images/svg/radio-unchecked.svg') no-repeat;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    content: '';
+    flex-shrink: 0;
+    height: $ecl-radio-icon-size;
+    margin-right: map-get($ecl-spacing, 'xxs');
+    width: $ecl-radio-icon-size;
+  }
+}
+
+.ecl-radio__input:checked + .ecl-radio__label::before {
+  background-image: url('../images/svg/radio-checked--blue.svg');
+}
+
+.ecl-radio__input:focus + .ecl-radio__label::before {
+  border-color: map-get($ecl-colors, 'yellow-100');
+}
+
+.ecl-radio--has-error .ecl-radio__label::before {
+  border-color: $ecl-color-error;
+}
