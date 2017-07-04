@@ -1,29 +1,79 @@
-<div class="featured-item">
-  <div class="featured-item__image">
-    <img src="https://unsplash.it/590/450" />
-  </div>
-  <div class="featured-item__content">
-    <div class="meta meta--header">
-      <span class="meta__item meta__item--type">announcement</span>
-      <span class="meta__item"><span class="date-display-single">21 December 2016</span></span>
-    </div>
-    <h3>Energy Union tour</h3>
-    <p>
-      Vice-President Šefcovic is visiting EU countries to present the opportunities that the Energy Union offers for Europe. The list of countries below are those he will visit over the next few months. Each completed visit comes with a presentation of the benefits of the Energy Union for that particular country. More visits will be added over time.
-    </p>
-  </div>
-</div>
+{#
+  - variant: the variant. Can be '' or 'extended' (default: '')
+  - image: {
+    src: the source of the image (default: '')
+    alt: alternative text for the image (default: '')
+  }
+  - meta: {
+    type: type of the featured item (default: '')
+    date: date of publication (default: '')
+  }
+  - title: title of the featured item (default: '')
+  - body (block): content of the featured item (default: lorem ipsum)
+  - link: {
+    href: target of the link (default: '')
+    label: label of the link (default: '')
+  }
+#}
 
-<!-- Extended -->
-<div class="featured-item featured-item__extended">
-  <div class="featured-item__image">
-    <img src="https://unsplash.it/590/450" />
+{% set variant = variant|default('') %}
+{% set image = {
+  src: image.src|default(''),
+  alt: image.alt|default('')
+} %}
+{% set meta = {
+  type: meta.type|default(''),
+  date: meta.date|default('')
+} %}
+{% set title = title|default('') %}
+{% set link = {
+  href: link.href|default(''),
+  label: link.label|default('')
+} %}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-featured-item' ~ (variant != '' ? ' ecl-featured-item--' ~ variant: '') %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
+<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+  <div class="ecl-featured-item__image">
+    <img src="{{ image.src }}" alt="{{ image.alt }}" />
   </div>
-  <div class="featured-item__content">
-    <h3>Energy Union tour</h3>
-    <p>
-      Vice-President Šefcovic is visiting EU countries to present the opportunities that the Energy Union offers for Europe. The list of countries below are those he will visit over the next few months. Each completed visit comes with a presentation of the benefits of the Energy Union for that particular country. More visits will be added over time.
+  
+  <div class="ecl-featured-item__body">
+    {% include '@ec-europa/ecl-meta' with {
+      'modifier': 'ecl-meta--header',
+      'meta_item_type_data': meta.type,
+      'meta_item_data': meta.date,
+    } %}
+
+    <a href="{{ link.href }}" class="ecl-link ecl-link--standalone ecl-featured-item__title">{{ title }}</a>
+
+    {% block body %}
+
+    <p class="ecl-paragraph">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
     </p>
-    <a href="#" class="btn btn-ctn">Link Button</a>
+
+    {% endblock %}
+
+    {% if variant == 'extended' %}
+    <a href="{{ link.href }}" class="ecl-button ecl-button--call ecl-button--caret-right">{{ link.label }}</a>
+    {% endif %}
   </div>
 </div>
