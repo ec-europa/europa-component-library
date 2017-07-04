@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -134,7 +134,7 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="radios">Radios</h1>
+                <h1 id="radio-field">Radio field</h1>
 
                 
               </div>
@@ -211,21 +211,56 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-40d17b637661f921d7eade153807d704-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rd-example-1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"rd-example-1"</span>&gt;</span>Unchecked multiple option 1<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rd-example-2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"rd-example-2"</span>&gt;</span>Checked multiple option 2<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rd-example-3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"rd-example-3"</span>&gt;</span>Checked multiple option 3<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-field-feedback"</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Accepts:
+    - "id" (string): radio group ID (mandatory)
+    - "name" (string): radio name (mandatory)
+    - "desc" (string): description for screen readers (mandatory)
+    - "options" (collection): array of options (mandatory). Each option accepts:
+      - "id" (string): radio input ID (mandatory)
+      - "value" (string): radio value (optional, default: '')
+      - "label" (string): radio label (optional, default: '')
+      - "checked" (boolean): is radio checked? (optional, default: false)
+    - "is_disabled" (boolean): is disabled (optional, default: false)
+    - "has_error" (boolean): has error (optional, default: false)
+    - "extra_class" (string): extra CSS classes (optional, default: '')
+#}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> id = id|<span class="hljs-keyword">default</span>('default-id') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> name = name|<span class="hljs-keyword">default</span>('default-name') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> checked = checked|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-radio' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> hasError is defined and hasError == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-radio--has-error' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isDisabled is defined and isDisabled == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-radio--is-disabled' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print the result  #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=</span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">spaceless</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ value }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ checked ? ' checked' : '' }}</span><span class="xml"><span class="hljs-tag"></span></span><span class="hljs-template-variable">{{ (isDisabled is defined and isDisabled == true) ? ' disabled' : '' }}</span><span class="xml"><span class="hljs-tag"> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endspaceless</span></span> %}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -233,9 +268,54 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-40d17b637661f921d7eade153807d704-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Default */</span>
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"opt-1"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"opt-1"</span>,
+  <span class="hljs-attr">"value"</span>: <span class="hljs-string">"opt-1"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Default"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Checked */</span>
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"opt-2"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"opt-2"</span>,
+  <span class="hljs-attr">"value"</span>: <span class="hljs-string">"opt-2"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Checked option"</span>,
+  <span class="hljs-attr">"checked"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Disabled */</span>
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"opt-3"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"opt-3"</span>,
+  <span class="hljs-attr">"value"</span>: <span class="hljs-string">"opt-3"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Disabled option"</span>,
+  <span class="hljs-attr">"isDisabled"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Error */</span>
+{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"opt-4"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"opt-4"</span>,
+  <span class="hljs-attr">"value"</span>: <span class="hljs-string">"opt-4"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Option with error"</span>,
+  <span class="hljs-attr">"hasError"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -245,21 +325,27 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-40d17b637661f921d7eade153807d704-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rd-example-1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"rd-example-1"</span>&gt;</span>Unchecked multiple option 1<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rd-example-2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"rd-example-2"</span>&gt;</span>Checked multiple option 2<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"radio"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rd-example-3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">checked</span>=<span class="hljs-string">"checked"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"rd-example-3"</span>&gt;</span>Checked multiple option 3<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-field-feedback"</span>&gt;</span>Some feedback message<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">opt-1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"opt-1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"opt-1"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"opt-1"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Checked --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">opt-2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">checked</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span>Checked option<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Disabled --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">opt-3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio ecl-radio--is-disabled"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"opt-3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"opt-3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"opt-3"</span> <span class="hljs-attr">disabled</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span>Disabled option<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Error --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">opt-4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio ecl-radio--has-error"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"opt-4"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"opt-4"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"opt-4"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span>Option with error<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -275,13 +361,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-77da69b8c56544a2bce7cb7694bd314d">_radios.scss</option>
+                <option value="file-80d13734faadc4b5d1b35759f9e7388b">ecl-forms-radios.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-77da69b8c56544a2bce7cb7694bd314d" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-80d13734faadc4b5d1b35759f9e7388b" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -290,80 +376,49 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/*
-Radio
-
-Markup: html/radio.html
-
-Style guide form.radio
-*/</span>
-
-<span class="hljs-comment">/*
- * Please
- * @see https://github.com/flatlogic/awesome-bootstrap-checkbox
- * @see http://flatlogic.github.io/awesome-bootstrap-checkbox/demo/
+ * Radio
+ * @define radio
  */</span>
 
-<span class="hljs-comment">// Component</span>
-<span class="hljs-selector-class">.radio</span> {
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">20px</span>;
+<span class="hljs-variable">$ecl-radio-icon-size</span>: <span class="hljs-number">1.5rem</span>;
 
-  <span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type="radio"]</span> {
-    <span class="hljs-attribute">margin-top</span>: <span class="hljs-variable">$form-checkbox-icon-size</span>;
-    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+<span class="hljs-selector-class">.ecl-radio</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) <span class="hljs-number">0</span>;
+}
 
-    <span class="hljs-comment">// Checked state.</span>
-    &amp;:checked + <span class="hljs-selector-tag">label</span>::before {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/radio-checked--blue.svg'</span>);
-    }
+<span class="hljs-selector-class">.ecl-radio--is-disabled</span> {
+  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+  <span class="hljs-attribute">cursor</span>: not-allowed;
+}
 
-    <span class="hljs-comment">// Focus state, not checked.</span>
-    &amp;:focus + <span class="hljs-selector-tag">label</span>::before {
-      <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-    }
-  }
+<span class="hljs-selector-class">.ecl-radio__label</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">display</span>: inline-flex;
 
-  <span class="hljs-selector-tag">label</span> {
-    <span class="hljs-attribute">position</span>: relative;
-    <span class="hljs-attribute">display</span>: inline-block;
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">12px</span>;
-    <span class="hljs-attribute">vertical-align</span>: middle;
-
-    &amp;::before {
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">display</span>: inline-block;
-      <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
-      <span class="hljs-attribute">width</span>: <span class="hljs-variable">$form-checkbox-icon-size</span>;
-      <span class="hljs-attribute">height</span>: <span class="hljs-variable">$form-checkbox-icon-size</span>;
-      <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">20px</span>;
-      <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span> url(<span class="hljs-string">'../images/svg/radio-unchecked.svg'</span>) no-repeat;
-      <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid transparent;
-      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
-      <span class="hljs-attribute">transition</span>: border <span class="hljs-number">0.15s</span> ease-in-out;
-    }
-  }
-
-  &amp;<span class="hljs-selector-class">.radio--inline</span> {
-    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+  &amp;::before {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span> url(<span class="hljs-string">'../images/svg/radio-unchecked.svg'</span>) no-repeat;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid transparent;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
+    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-variable">$ecl-radio-icon-size</span>;
+    <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+    <span class="hljs-attribute">width</span>: <span class="hljs-variable">$ecl-radio-icon-size</span>;
   }
 }
 
-<span class="hljs-comment">// Turning off completely custom radios when SVG's are not available</span>
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-selector-class">.radio</span> {
-    <span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type="radio"]</span>:checked + <span class="hljs-selector-tag">label</span>::before {
-      <span class="hljs-attribute">background</span>: none <span class="hljs-meta">!important</span>;
-    }
+<span class="hljs-selector-class">.ecl-radio__input</span>:checked + <span class="hljs-selector-class">.ecl-radio__label</span>::before {
+  <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/svg/radio-checked--blue.svg'</span>);
+}
 
-    <span class="hljs-selector-tag">label</span>::before {
-      <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#ccc</span>;
-      <span class="hljs-attribute">background</span>: none <span class="hljs-meta">!important</span>;
-      -webkit-<span class="hljs-attribute">transition</span>: border <span class="hljs-number">0.15s</span> ease-in-out;
-      -o-<span class="hljs-attribute">transition</span>: border <span class="hljs-number">0.15s</span> ease-in-out;
-      <span class="hljs-attribute">transition</span>: border <span class="hljs-number">0.15s</span> ease-in-out;
-    }
-  }
+<span class="hljs-selector-class">.ecl-radio__input</span>:focus + <span class="hljs-selector-class">.ecl-radio__label</span>::before {
+  <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-radio--has-error</span> <span class="hljs-selector-class">.ecl-radio__label</span>::before {
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-error</span>;
 }
 </pre>
                             </code>
@@ -373,15 +428,15 @@ Style guide form.radio
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-forms-radios/_radios.scss"><span>/components/raw/ecl-forms-radios/_radios.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-forms-radios/ecl-forms-radios.scss"><span>/components/raw/ecl-forms-radios/ecl-forms-radios.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-forms/ecl-forms-radios/_radios.scss</span>
+                    <span class="Meta-value">framework/components/ecl-forms/ecl-forms-radios/ecl-forms-radios.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.6 KB</span>
+                    <span class="Meta-value">943 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -2459,6 +2514,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
         
         
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-radio-groups" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Radio groups</span>
+            </a>
+        </li>
+        
+    
+        
+        
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
                 
@@ -2468,7 +2547,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3239,30 +3318,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--corporate" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Corporate</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-page-headers--default" data-pjax>
                 
 
@@ -3287,6 +3342,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-page-headers--basic" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Basic</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-page-headers--highlight" data-pjax>
                 
 
@@ -3304,54 +3383,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Highlight</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--improved-basic" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Improved basic</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--improved-complete" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Improved complete</span>
             </a>
         </li>
         

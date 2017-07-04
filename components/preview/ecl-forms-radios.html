@@ -9,21 +9,21 @@
     <title>Preview Layout</title>
   </head>
   <body>
-    <div class="form-group">
-  <div class="radio">
-    <input type="radio" id="rd-example-1" value="">
-    <label for="rd-example-1">Unchecked multiple option 1</label>
-  </div>
-  <div class="radio">
-    <input type="radio" id="rd-example-2" value="" checked="checked">
-    <label for="rd-example-2">Checked multiple option 2</label>
-  </div>
-  <div class="radio">
-    <input type="radio" id="rd-example-3" value="" checked="checked">
-    <label for="rd-example-3">Checked multiple option 3</label>
-  </div>
-  <p class="form-field-feedback">Some feedback message</p>
-</div>
+    <!-- Start: @ecl-forms-radios--default -->
+<label for=opt-1 class="ecl-radio"><input class="ecl-radio__input ecl-sr-only" type="radio" id="opt-1" value="opt-1" name="opt-1" /><span class="ecl-radio__label">Default</span></label>
+<!-- End: @ecl-forms-radios--default -->
+
+<!-- Start: @ecl-forms-radios--checked -->
+<label for=opt-2 class="ecl-radio"><input class="ecl-radio__input ecl-sr-only" type="radio" id="opt-2" value="opt-2" name="opt-2" checked /><span class="ecl-radio__label">Checked option</span></label>
+<!-- End: @ecl-forms-radios--checked -->
+
+<!-- Start: @ecl-forms-radios--disabled -->
+<label for=opt-3 class="ecl-radio ecl-radio--is-disabled"><input class="ecl-radio__input ecl-sr-only" type="radio" id="opt-3" value="opt-3" name="opt-3" disabled /><span class="ecl-radio__label">Disabled option</span></label>
+<!-- End: @ecl-forms-radios--disabled -->
+
+<!-- Start: @ecl-forms-radios--error -->
+<label for=opt-4 class="ecl-radio ecl-radio--has-error"><input class="ecl-radio__input ecl-sr-only" type="radio" id="opt-4" value="opt-4" name="opt-4" /><span class="ecl-radio__label">Option with error</span></label>
+<!-- End: @ecl-forms-radios--error -->
 
     <script src="../../framework/scripts/europa.js"></script>
       </body>

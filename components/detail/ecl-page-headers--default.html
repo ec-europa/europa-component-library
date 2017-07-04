@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
 
 
-<title>Default | Europa Component Library</title>
+<title>Page Headers: Default | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -104,7 +104,7 @@
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
         <a class="Pen-previewLink" href="../preview/ecl-page-headers--default" title="Component preview">
-            Default
+            Page Headers: Default
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -134,9 +134,77 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="default-page-header">Default page header</h1>
-<p>Simple page header displaying page introduction.</p>
-<p>It can be displayed with a background image by using modifier <strong>ecl-page-header–image</strong>.</p>
+                <h1 id="page-header">Page header</h1>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Users need a way to easily identify the branding, to search and change the language if needed.</p>
+<ul>
+<li>the page title functions as the top level H1.</li>
+<li>it is also used to construct the &lt; title > element (mandatory).</li>
+<li>gives context and confidence to the user so they know they are looking at the right piece of content.</li>
+<li>provides an H1 title for accessibility and SEO purposes.</li>
+</ul>
+<h2 id="page-header-types">Page header types</h2>
+<table>
+<thead>
+<tr>
+<th>Default page header</th>
+<th>Basic page header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mandatory components</td>
+<td>Mandatory components</td>
+</tr>
+<tr>
+<td>Breadcrumb</td>
+<td>Breadcrumb</td>
+</tr>
+<tr>
+<td>Page title</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Optional components</td>
+<td>Optional components</td>
+</tr>
+<tr>
+<td>Meta items</td>
+<td>Meta items</td>
+</tr>
+<tr>
+<td>Site identification</td>
+<td>Site identification</td>
+</tr>
+<tr>
+<td>Page introduction</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<table>
+<thead>
+<tr>
+<th>Default page header</th>
+<th>Basic page header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>detail pages and landing pages</td>
+<td>detail pages and landing pages</td>
+</tr>
+<tr>
+<td>no corporate menu</td>
+<td>corporate menu</td>
+</tr>
+<tr>
+<td>default implementation</td>
+<td>page title and page introduction elements should be placed on the body of the page</td>
+</tr>
+</tbody>
+</table>
 
                 
               </div>
@@ -193,6 +261,10 @@
         
         
         
+        <li class="Browser-tab Browser-tab--resources" data-role="tab">
+            <a href="#browser-44bcc97794e511d9a360f4590842c601-panel-assets">Code</a>
+        </li>
+        
         
         
         
@@ -209,14 +281,54 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-44bcc97794e511d9a360f4590842c601-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header </span></span></span><span class="hljs-template-variable">{{modifier_class}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{style}}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "highlight" %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header ecl-page-header--highlight"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Page introduction (mandatory) --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro </span></span></span><span class="hljs-template-variable">{{intro_class}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__highlight"</span>&gt;</span>
+      </span><span class="hljs-template-variable">{{ highlight }}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-breadcrumbs' with { 'extraClass':'ecl-u-mh-xxs','segments': [{'target':'#','title':'European Commission'},{'target':'#','title':'Announcements'}] } %}</span><span class="xml">
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> identity is defined %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__identity"</span>&gt;</span>
+      </span><span class="hljs-template-variable">{{ identity }}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> meta is defined %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__meta"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--header"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item ecl-u-f-up"</span>&gt;</span></span><span class="hljs-template-variable">{{ meta.type }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-display-single"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"dc:date"</span> <span class="hljs-attr">datatype</span>=<span class="hljs-string">"xsd:dateTime"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ meta.timestamp }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ meta.date }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span></span><span class="hljs-template-variable">{{ meta.location }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> title is defined %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__title"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" ecl-heading ecl-heading--h1 ecl-u-color-white"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> introduction is defined %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{paragraph_class}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ introduction }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -224,29 +336,20 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-44bcc97794e511d9a360f4590842c601-panel-context">
     <code class="Code Code--lang-json">
         
-        
-            <pre>
-<span class="hljs-comment">/* Default page header: No context defined */</span>
-
-</pre>
-        
-            <pre>
-<span class="hljs-comment">/* Page header with background image */</span>
-{
-  <span class="hljs-attr">"modifier_class"</span>: <span class="hljs-string">"ecl-page-header--image"</span>,
-  <span class="hljs-attr">"style"</span>: <span class="hljs-string">"style=\"background-image: url(data:image/jpeg;base64,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)\""</span>
-}
-
-</pre>
-        
-            <pre>
-<span class="hljs-comment">/* Large default page header */</span>
-{
-  <span class="hljs-attr">"intro_class"</span>: <span class="hljs-string">"ecl-u-fs-xl"</span>
-}
-
-</pre>
-        
+            
+            <pre>{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"default"</span>,
+  <span class="hljs-attr">"identity"</span>: <span class="hljs-string">"Digital single market"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Business, Economy, Euro"</span>,
+  <span class="hljs-attr">"introduction"</span>: <span class="hljs-string">"EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules."</span>,
+  <span class="hljs-attr">"meta"</span>: {
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"News article"</span>,
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"6 July 2015"</span>,
+    <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">"2015-07-06T17:44:28+02:00"</span>,
+    <span class="hljs-attr">"location"</span>: <span class="hljs-string">"Brussels"</span>
+  }
+}</pre>
+            
         
     </code>
 </div>
@@ -256,43 +359,45 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-44bcc97794e511d9a360f4590842c601-panel-html">
     <code class="Code Code--lang-html">
         
-        
-            <pre><span class="hljs-comment">&lt;!-- Default page header --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header "</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Page introduction (mandatory) --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro "</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs ecl-u-mh-xxs"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>You are here:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__segments-wrapper"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__segment ecl-breadcrumbs__segment--first"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__link"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__segment ecl-breadcrumbs__segment--last"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__link"</span>&gt;</span>Announcements<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
 
-</pre>
-        
-            <pre><span class="hljs-comment">&lt;!-- Page header with background image --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header ecl-page-header--image"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-image: url(data:image/jpeg;base64,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)"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Page introduction (mandatory) --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro "</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-</pre>
-        
-            <pre><span class="hljs-comment">&lt;!-- Large default page header --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header "</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!-- Page introduction (mandatory) --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro ecl-u-fs-xl"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__identity"</span>&gt;</span>
+      Digital single market
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-</pre>
-        
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__meta"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--header"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item ecl-u-f-up"</span>&gt;</span>News article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-display-single"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"dc:date"</span> <span class="hljs-attr">datatype</span>=<span class="hljs-string">"xsd:dateTime"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"2015-07-06T17:44:28+02:00"</span>&gt;</span>6 July 2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>Brussels<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__title"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" ecl-heading ecl-heading--h1 ecl-u-color-white"</span>&gt;</span>Business, Economy, Euro<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -300,6 +405,130 @@
     
     
 
+
+<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-44bcc97794e511d9a360f4590842c601-panel-assets">
+    <div class="FileBrowser">
+
+        <div class="FileBrowser-selectWrapper">
+            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
+            <select class="FileBrowser-select" id="filebrowser-select">
+                
+                <option value="file-a73c5b715099bef841d7d81fb6c60886">_page-headers.scss</option>
+                
+            </select>
+        </div>
+
+        
+        <div class="FileBrowser-item is-active" id="file-a73c5b715099bef841d7d81fb6c60886" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">// ECL page header</span>
+
+<span class="hljs-selector-class">.ecl-page-header</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+
+  &amp;__body {
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  }
+
+  &amp;__meta {
+    <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  }
+
+  &amp;__title {
+    <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  }
+
+  &amp;__identity {
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-25'</span>);
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+    <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+    <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  }
+
+  &amp;__intro {
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.33</span>;
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">40em</span>;
+  }
+
+  &amp;__label {
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+    <span class="hljs-attribute">text-transform</span>: uppercase;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-page-header--image</span> {
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">background-repeat</span>: no-repeat;
+  <span class="hljs-attribute">background-size</span>: cover;
+}
+
+<span class="hljs-selector-class">.ecl-page-header--highlight</span> {
+  <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+
+  <span class="hljs-selector-class">.ecl-page-header__body</span> {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+  }
+}
+
+@<span class="hljs-keyword">media</span> (min-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'sm'</span>)) {
+  <span class="hljs-selector-class">.ecl-page-header--highlight</span> {
+    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
+
+    <span class="hljs-selector-class">.ecl-page-header__body</span> {
+      <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
+      <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
+      <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
+    }
+  }
+
+  <span class="hljs-selector-class">.ecl-page-header__label</span> {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
+    <span class="hljs-attribute">display</span>: inline-block;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">2.4</span>;
+    <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">padding-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-page-header__highlight</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">22em</span>;
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  }
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-page-headers/_page-headers.scss"><span>/components/raw/ecl-page-headers/_page-headers.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-page-headers/_page-headers.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">1.8 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
 
 
 
@@ -327,6 +556,25 @@
         
         
         <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(3)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="ecl-page-headers--basic">
+                    <span>Basic</span>
+                </a>, 
+            
+                <a href="ecl-page-headers--highlight">
+                    <span>Highlight</span>
+                </a>
+            
+            </span>
+        </li>
+        
+        <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
             <span class="Meta-value">
                 <ul>
@@ -345,7 +593,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/ecl-page-headers/default/default.twig</span>
+            <span class="Meta-value">framework/components/ecl-page-headers/ecl-page-headers.twig</span>
         </li>
         
         
@@ -2372,6 +2620,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-radio-groups" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Radio groups</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-forms-radios" data-pjax>
                 
 
@@ -2380,7 +2652,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3150,30 +3422,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--corporate" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Corporate</span>
-            </a>
-        </li>
-        
-    
-        
-        
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
                 
@@ -3199,6 +3447,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-page-headers--basic" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Basic</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-page-headers--highlight" data-pjax>
                 
 
@@ -3216,54 +3488,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Highlight</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--improved-basic" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Improved basic</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--improved-complete" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Improved complete</span>
             </a>
         </li>
         
