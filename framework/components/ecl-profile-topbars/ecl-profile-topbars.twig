@@ -5,13 +5,7 @@
         <img src="{{ profile.avatar }}"/>
       </div>
       <div class="ecl-col-md-10 ecl-profile-topbar__pane">
-        <div class="context-nav group-context-nav field-group-context_nav"><span
-          class="context-nav__label">Department</span>
-          <div class="context-nav__items">
-            <span class="context-nav__item"><a href="#">Trade</a></span>
-            <span class="context-nav__item"><a href="#">European Anti-Fraud Office</a></span>
-          </div>
-        </div>
+        {% include '@ec-europa/ecl-context-navs' with context_nav %}
         {% include '@ec-europa/ecl-buttons' with profile.expandable.button %}
       </div>
     </div>
