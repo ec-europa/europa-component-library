@@ -1,20 +1,3 @@
-{% if variant is defined and variant == "homepage" %}
-<header class="ecl-site-header ecl-site-header--homepage" role="banner">
-  <div class="container-fluid ecl-site-header__container">
-    <section class="ecl-site-header__top-bar" aria-label="Site tools">
-      <div class="ecl-site-header__top-bar__wrapper">
-        {% include '@ec-europa/ecl-lang-select-sites' %}
-      </div>
-    </section>
-    {% include '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'below', 'externalClass': 'ecl-site-header__logo' } %}
-  </div>
-  <section class="ecl-header-search-bar" aria-label="Site tools">
-    <section class="ecl-container-fluid ecl-clearfix">
-      {% include '@ec-europa/ecl-search-forms' %}
-    </section>
-  </section>
-</header>
-{% else %}
 <header class="ecl-site-header" role="banner">
   <div class="container-fluid ecl-site-header__container">
     {% include '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'externalClass': 'ecl-site-header__logo' } %}
@@ -26,4 +9,3 @@
     </section>
   </div>
 </header>
-{% endif %}

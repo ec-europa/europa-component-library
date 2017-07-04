@@ -3,11 +3,6 @@ module.exports = {
   label: 'Site headers',
   tags: ['organism'],
   status: 'ready',
-  context: {
-    global: {
-      language: 'en',
-    },
-  },
   variants: [
     {
       name: 'default',
@@ -15,7 +10,9 @@ module.exports = {
     {
       name: 'homepage',
       context: {
-        variant: 'homepage',
+        global: {
+          language: 'en',
+        },
       },
     },
   ],
