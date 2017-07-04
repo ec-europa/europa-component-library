@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.0" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.0" type="text/css">
 
 
 <title>Featured items | Europa Component Library</title>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -136,8 +136,22 @@
                 
                 <h1 id="featured-items">Featured items</h1>
 <p>Component used to render featured/highlighted items.</p>
-<h2 id="extended">Extended</h2>
-<p>Visual changes and link option</p>
+<h2 id="when-and-how-to-use-this-component">When and how to use this component</h2>
+<p>Users need a way to quickly scan relevant information.
+The featured item component uses a different visualisation to attract user attention. It’s always the first item on the “Latest section”.</p>
+<h3 id="when-to-use-this-component">When to use this component</h3>
+<ul>
+<li>when you want to highlight content in a list for a limited period</li>
+</ul>
+<h3 id="do-not-use-this-component">Do not use this component</h3>
+<ul>
+<li>if it is a permanent page</li>
+</ul>
+<h2 id="variants">Variants</h2>
+<p>Use following variants to change display:</p>
+<ul>
+<li><strong>ecl-featured-items–extended</strong>: Visual changes and link option</li>
+</ul>
 
                 
               </div>
@@ -214,33 +228,83 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-8c54365c7b2455b61813b1fd2ba1407a-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__image"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unsplash.it/590/450"</span> /&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__content"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta meta--header"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item meta__item--type"</span>&gt;</span>announcement<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-display-single"</span>&gt;</span>21 December 2016<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Energy Union tour<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-      Vice-President Šefcovic is visiting EU countries to present the opportunities that the Energy Union offers for Europe. The list of countries below are those he will visit over the next few months. Each completed visit comes with a presentation of the benefits of the Energy Union for that particular country. More visits will be added over time.
-    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - variant: the variant. Can be '' or 'extended' (default: '')
+  - image: {
+    src: the source of the image (default: '')
+    alt: alternative text for the image (default: '')
+  }
+  - meta: {
+    type: type of the featured item (default: '')
+    date: date of publication (default: '')
+  }
+  - title: title of the featured item (default: '')
+  - body (block): content of the featured item (default: lorem ipsum)
+  - link: {
+    href: target of the link (default: '')
+    label: label of the link (default: '')
+  }
+#}</span><span class="xml">
 
-<span class="hljs-comment">&lt;!-- Extended --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item featured-item__extended"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__image"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unsplash.it/590/450"</span> /&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> variant = variant|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> image = {
+  src: image.src|<span class="hljs-keyword">default</span>(''),
+  alt: image.alt|<span class="hljs-keyword">default</span>('')
+} %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> meta = {
+  type: meta.type|<span class="hljs-keyword">default</span>(''),
+  <span class="hljs-name">date</span>: meta.date|<span class="hljs-keyword">default</span>('')
+} %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> title = title|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> link = {
+  href: link.href|<span class="hljs-keyword">default</span>(''),
+  label: link.label|<span class="hljs-keyword">default</span>('')
+} %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-featured-item' ~ (variant != '' ? ' ecl-featured-item--' ~ variant: '') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item__image"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ image.alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__content"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Energy Union tour<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-      Vice-President Šefcovic is visiting EU countries to present the opportunities that the Energy Union offers for Europe. The list of countries below are those he will visit over the next few months. Each completed visit comes with a presentation of the benefits of the Energy Union for that particular country. More visits will be added over time.
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item__body"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-meta' with {
+      'modifier': 'ecl-meta--header',
+      'meta_item_type_data': meta.type,
+      'meta_item_data': meta.date,
+    } %}</span><span class="xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-featured-item__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> body %}</span><span class="xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
     <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn"</span>&gt;</span>Link Button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == 'extended' %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-right"</span>&gt;</span></span><span class="hljs-template-variable">{{ link.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
@@ -250,9 +314,44 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-8c54365c7b2455b61813b1fd2ba1407a-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Featured item */</span>
+{
+  <span class="hljs-attr">"image"</span>: {
+    <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://lorempixel.com/720/480/technics/4"</span>,
+    <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Technic picture"</span>
+  },
+  <span class="hljs-attr">"meta"</span>: {
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"announcement"</span>,
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"21 December 2016"</span>
+  },
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Energy Union tour"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Featured item extended */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"extended"</span>,
+  <span class="hljs-attr">"image"</span>: {
+    <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://lorempixel.com/720/480/technics/4"</span>,
+    <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Technic picture"</span>
+  },
+  <span class="hljs-attr">"meta"</span>: {
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"announcement"</span>,
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"21 December 2016"</span>
+  },
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Energy Union tour"</span>,
+  <span class="hljs-attr">"link"</span>: {
+    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"See more"</span>
+  }
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -262,37 +361,56 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-8c54365c7b2455b61813b1fd2ba1407a-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__image"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unsplash.it/590/450"</span> /&gt;</span>
+        
+            <pre><span class="hljs-comment">&lt;!-- Featured item --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item__image"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://lorempixel.com/720/480/technics/4"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Technic picture"</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__content"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta meta--header"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item meta__item--type"</span>&gt;</span>announcement<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-display-single"</span>&gt;</span>21 December 2016<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--header"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item ecl-u-f-up"</span>&gt;</span>announcement<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>21 December 2016<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Energy Union tour<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-      Vice-President Šefcovic is visiting EU countries to present the opportunities that the Energy Union offers for Europe. The list of countries below are those he will visit over the next few months. Each completed visit comes with a presentation of the
-      benefits of the Energy Union for that particular country. More visits will be added over time.
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-featured-item__title"</span>&gt;</span>Energy Union tour<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel
+      congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
     <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-comment">&lt;!-- Extended --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item featured-item__extended"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__image"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unsplash.it/590/450"</span> /&gt;</span>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Featured item extended --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item ecl-featured-item--extended"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item__image"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://lorempixel.com/720/480/technics/4"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Technic picture"</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured-item__content"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Energy Union tour<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-      Vice-President Šefcovic is visiting EU countries to present the opportunities that the Energy Union offers for Europe. The list of countries below are those he will visit over the next few months. Each completed visit comes with a presentation of the
-      benefits of the Energy Union for that particular country. More visits will be added over time.
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-featured-item__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--header"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item ecl-u-f-up"</span>&gt;</span>announcement<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>21 December 2016<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-featured-item__title"</span>&gt;</span>Energy Union tour<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel
+      congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
     <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-ctn"</span>&gt;</span>Link Button<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-right"</span>&gt;</span>See more<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -308,13 +426,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-20a608b4b4a1eda0f2ed70ed3c2f866e">_featured-items.scss</option>
+                <option value="file-1d2c74cebcc221a4df41da2225d77fa3">ecl-featured-items.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-20a608b4b4a1eda0f2ed70ed3c2f866e" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-1d2c74cebcc221a4df41da2225d77fa3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -323,58 +441,45 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/**
- * Featured items
+ * Featured item component
+ * @define featured-item
  */</span>
 
-<span class="hljs-selector-class">.featured-item</span> {
+<span class="hljs-selector-class">.ecl-featured-item</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">30px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
-
-  <span class="hljs-selector-class">.listing__wrapper--three-columns</span> &amp; {
-    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">15px</span>;
-  }
 }
 
-<span class="hljs-selector-class">.featured-item__extended</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1.667em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span> <span class="hljs-number">0</span>;
+<span class="hljs-selector-class">.ecl-featured-item__image</span> {
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-featured-item__title</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-featured-item--extended</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
-  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">0.556em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
+  <span class="hljs-attribute">border-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) solid <span class="hljs-variable">$ecl-color-secondary</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
 }
 
-<span class="hljs-selector-class">.featured-item__image</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-5 !optional;
-
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1em</span>;
-
-  picture {
-    <span class="hljs-selector-tag">img</span> {
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-    }
-  }
-}
-
-<span class="hljs-selector-class">.featured-item__content</span> {
-  @<span class="hljs-keyword">extend</span> .col-md-7 !optional;
-
-  <span class="hljs-selector-tag">p</span> {
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+<span class="hljs-comment">/* Desktop display */</span>
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  <span class="hljs-selector-class">.ecl-featured-item</span> {
+    <span class="hljs-attribute">flex-direction</span>: row;
   }
 
-  <span class="hljs-selector-tag">h3</span> {
-    <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-    }
-  }
-}
-
-<span class="hljs-selector-class">.featured-item__image</span>,
-<span class="hljs-selector-class">.featured-item__content</span> {
-  <span class="hljs-selector-class">.listing__wrapper--three-columns</span> &amp; {
-    @<span class="hljs-keyword">extend</span> .col-md-12 !optional;
-
-    <span class="hljs-attribute">clear</span>: left;
+  <span class="hljs-selector-class">.ecl-featured-item__image</span> {
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">40%</span>;
   }
 }
 </pre>
@@ -385,15 +490,15 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-featured-items/_featured-items.scss"><span>/components/raw/ecl-featured-items/_featured-items.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-featured-items/ecl-featured-items.scss"><span>/components/raw/ecl-featured-items/ecl-featured-items.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-featured-items/_featured-items.scss</span>
+                    <span class="Meta-value">framework/components/ecl-featured-items/ecl-featured-items.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">810 Bytes</span>
+                    <span class="Meta-value">848 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1960,7 +2065,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -1974,8 +2079,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-fields">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-fields" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1983,7 +2089,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -1992,63 +2098,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Fields</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-fields--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-fields--aligned" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Aligned</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -4189,6 +4239,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-text" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Text</span>
+            </a>
+        </li>
+        
+    
 
     </ul>
 </div>
@@ -4318,7 +4392,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.0"></script>
 
 
 

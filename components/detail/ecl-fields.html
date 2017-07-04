@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.0" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.0" type="text/css">
 
 
 <title>Fields | Europa Component Library</title>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,8 +135,13 @@
               <div class="Prose">
                 
                 <h1 id="fields">Fields</h1>
-<p>Drupal note:</p>
-<p>Field styling appearing in this style guide is only valid for Default drupal field settings</p>
+<p>The field component is used to display structured information.
+It consists of sets of labels in the left column and their corresponding values in the right column.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>to display structured information like characteristics of a feedback, an event, contact information.</li>
+<li>to display information in list blocks used on filtered list pages</li>
+</ul>
 <h2 id="aligned-fields">Aligned fields</h2>
 <p>The field aligned modifier should be used for aligning fields that do not have a label
 with fields that do have a label.</p>
@@ -216,51 +221,61 @@ with fields that do have a label.</p>
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-cf5d52c8e583de492a583984db0c519a-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    John Doe
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - variant: the variant. Can be '' or 'aligned' (default: '')
+  - label: label of the field (default: '')
+  - body: content of the field (default: '')
+  }
+#}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> variant = variant|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> image = {
+  src: image.src|<span class="hljs-keyword">default</span>(''),
+  alt: image.alt|<span class="hljs-keyword">default</span>('')
+} %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> meta = {
+  type: meta.type|<span class="hljs-keyword">default</span>(''),
+  <span class="hljs-name">date</span>: meta.date|<span class="hljs-keyword">default</span>('')
+} %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> title = title|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> link = {
+  href: link.href|<span class="hljs-keyword">default</span>(''),
+  label: link.label|<span class="hljs-keyword">default</span>('')
+} %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-field' ~ (variant != '' ? ' ecl-field--' ~ variant: '') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == 'aligned' %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field__body"</span>&gt;</span></span><span class="hljs-template-variable">{{ body }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field field--aligned"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    Some text that gets aligned to the right
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field__body"</span>&gt;</span></span><span class="hljs-template-variable">{{ body }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Address<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    Street name, Number 54, Brussels
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Phone number<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    +48 531 555 003
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Date<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__item field__item--expired"</span>&gt;</span>
-      12 October 2016 (CET)
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field social-media-links--field field-label-inline clearfix"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Social media<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items social-media-links__list social-media-links__horizontal"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item icon-social--smaller"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"fb.com"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Facebook"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--facebook"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item icon-social--smaller"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"goo.gl"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"G+"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--gplus"</span>&gt;</span>G+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -268,9 +283,25 @@ with fields that do have a label.</p>
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-cf5d52c8e583de492a583984db0c519a-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Default */</span>
+{
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Name"</span>,
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"John Doe"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Aligned */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"aligned"</span>,
+  <span class="hljs-attr">"body"</span>: <span class="hljs-string">"Text without label"</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -280,50 +311,22 @@ with fields that do have a label.</p>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-cf5d52c8e583de492a583984db0c519a-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    John Doe
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        
+            <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field__label"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field__body"</span>&gt;</span>John Doe<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field field--aligned"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    Some text that gets aligned to the right
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Aligned --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field ecl-field--aligned"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-field__body"</span>&gt;</span>Text without label<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Address<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    Street name, Number 54, Brussels
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Phone number<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    +48 531 555 003
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Date<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__item field__item--expired"</span>&gt;</span>
-      12 October 2016 (CET)
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field social-media-links--field field-label-inline clearfix"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__label"</span>&gt;</span>Social media<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"field__items social-media-links__list social-media-links__horizontal"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item icon-social--smaller"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"fb.com"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Facebook"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--facebook"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item icon-social--smaller"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"goo.gl"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"G+"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--gplus"</span>&gt;</span>G+<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+</pre>
+        
         
     </code>
 </div>
@@ -339,13 +342,13 @@ with fields that do have a label.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-2ee6da7938938144c2617131a8da0a65">_fields.scss</option>
+                <option value="file-bc67f8838eba52c9c08f4d0f7494a8b3">ecl-fields.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-2ee6da7938938144c2617131a8da0a65" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-bc67f8838eba52c9c08f4d0f7494a8b3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -353,84 +356,42 @@ with fields that do have a label.</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Field
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * Fields component
+ * @define field
+ */</span>
 
-<span class="hljs-selector-class">.field</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.556em</span>;
-
-  + <span class="hljs-selector-class">.field--aligned</span>,
-  &amp;:last-child {
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-selector-class">.field__item--expired</span> {
-    <span class="hljs-attribute">text-decoration</span>: line-through;
-  }
-
-  <span class="hljs-selector-class">.label-above</span> {
-    @<span class="hljs-keyword">extend</span> .ecl-h3;
-  }
-
-  <span class="hljs-selector-class">.field__items</span> {
-    <span class="hljs-selector-tag">p</span>:last-child,
-    <span class="hljs-selector-tag">ul</span>:last-child {
-      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-    }
-  }
-
-  <span class="hljs-selector-class">.field__label</span> {
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-    <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-
-    <span class="hljs-selector-tag">h4</span> {
-      <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    }
-
-    <span class="hljs-selector-tag">a</span>:focus {
-      <span class="hljs-attribute">outline-offset</span>: <span class="hljs-number">2px</span>;
-    }
-  }
-
-  <span class="hljs-comment">// @todo: Why do we have this html? (body field in priorities)</span>
-  <span class="hljs-selector-class">.sections</span> <span class="hljs-selector-class">.container</span> {
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  }
+<span class="hljs-selector-class">.ecl-field</span> {
+  <span class="hljs-attribute">align-items</span>: flex-start;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 }
 
-<span class="hljs-comment">// Desktop and tablets breakpoint.</span>
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
-  <span class="hljs-selector-class">.field</span> {
-    <span class="hljs-selector-class">.field__label</span>:not(<span class="hljs-selector-class">.field__label--above</span>) {
-      <span class="hljs-attribute">display</span>: inline-block;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">20%</span>;
-      <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.335em</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">vertical-align</span>: top;
-
-      &amp; + <span class="hljs-selector-class">.field__items</span> {
-        <span class="hljs-attribute">display</span>: inline-block;
-        <span class="hljs-attribute">width</span>: <span class="hljs-number">79%</span>;
-      }
-    }
-  }
+<span class="hljs-selector-class">.ecl-field__label</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">20%</span>;
 }
 
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
-  <span class="hljs-selector-class">.field--aligned</span> {
-    <span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">0.556em</span>;
-
-    <span class="hljs-selector-class">.field__items</span> {
-      <span class="hljs-attribute">display</span>: inline-block;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">79%</span>;
-      <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20.8%</span>;
-    }
-  }
+<span class="hljs-selector-class">.ecl-field</span> + <span class="hljs-selector-class">.ecl-field</span> {
+  <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
 }
 
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-  <span class="hljs-selector-class">.field--aligned</span> <span class="hljs-selector-class">.field__items</span> {
-    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20.6%</span>;
+  <span class="hljs-selector-class">.ecl-field</span> {
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">flex-direction</span>: row;
+  }
+
+  <span class="hljs-selector-class">.ecl-field__label</span> {
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-field--aligned</span> <span class="hljs-selector-class">.ecl-field__body</span> {
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">20%</span>;
   }
 }
 </pre>
@@ -441,15 +402,15 @@ Field
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-fields/_fields.scss"><span>/components/raw/ecl-fields/_fields.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-fields/ecl-fields.scss"><span>/components/raw/ecl-fields/ecl-fields.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-fields/_fields.scss</span>
+                    <span class="Meta-value">framework/components/ecl-fields/ecl-fields.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.2 KB</span>
+                    <span class="Meta-value">609 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -481,21 +442,6 @@ Field
         
         
         
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="ecl-fields--default">
-                    <span>Default</span>
-                </a>, 
-            
-                <a href="ecl-fields--aligned">
-                    <span>Aligned</span>
-                </a>
-            
-            </span>
-        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -2031,7 +1977,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2045,8 +1991,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-fields">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2054,7 +2001,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2063,63 +2010,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Fields</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-fields--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-fields--aligned" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Aligned</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -4260,6 +4151,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-text" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Text</span>
+            </a>
+        </li>
+        
+    
 
     </ul>
 </div>
@@ -4389,7 +4304,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.0"></script>
 
 
 
