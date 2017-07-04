@@ -34,20 +34,6 @@
   }
 }
 
-/*
-Site Header for Homepage
-*/
-.ecl-site-header--homepage {
-  padding: 0;
-
-  .ecl-site-header__logo {
-    float: none;
-    margin: 0 auto;
-    position: relative;
-    top: 38px;
-  }
-}
-
 // If the logo is linking to an external page do not show the external icon.
 .ecl-site-header__logo {
   &::before,
@@ -60,31 +46,6 @@ Site Header for Homepage
   overflow: hidden;
   padding: 15px 0 0;
   width: 100%;
-}
-
-.ecl-site-header--homepage {
-  .ecl-site-header__top-bar {
-    float: right;
-    height: 90px;
-    padding: 0;
-    top: 0;
-  }
-
-  .ecl-lang-select-site__link {
-    padding-right: 0;
-  }
-
-  // Yeah, I know, it's bad...
-  .ecl-site-header__top-bar__wrapper {
-    float: right;
-  }
-
-  @include ecl-media-breakpoint-up(sm) {
-    /* stylelint-disable-next-line */
-    .ecl-site-header__top-bar {
-      height: 156px;
-    }
-  }
 }
 
 @include ecl-media-breakpoint-up(lg) {

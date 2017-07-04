@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.0" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.0" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
 
 
 <title>Site headers: Default | Europa Component Library</title>
@@ -134,10 +134,71 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="default-header">Default header</h1>
-<p>…</p>
-<h1 id="homepage">Homepage</h1>
-<p>…</p>
+                <h1 id="site-header">Site header</h1>
+<h1 id="why-and-how-to-use-this-component">Why and how to use this component</h1>
+<p>The site header conveys the EC brand to the users and provides basic structure and guidance. It informs users about which site they are on and their current location in the site. It also provides users with context on the page they’re viewing and the site search and language switcher options.</p>
+<h2 id="header-types">Header types</h2>
+<ul>
+<li>default</li>
+<li>homepage</li>
+</ul>
+<h1 id="when-to-use-this-component">When to use this component</h1>
+<table>
+<thead>
+<tr>
+<th>Default</th>
+<th>Homepage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>on every page of every Commission website - except for the Policies, information and services homepage</td>
+<td>only used in Commission and its priorities and Policies, information and services homepages</td>
+</tr>
+<tr>
+<td>detail and landing pages of transformed and Improved sites</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Components</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>European Commission logo (mute version)*</td>
+<td>European Commission logo</td>
+</tr>
+<tr>
+<td>Language selector</td>
+<td>Language selector</td>
+</tr>
+<tr>
+<td>Search bar</td>
+<td>Search bar</td>
+</tr>
+<tr>
+<td>Mandatory component</td>
+</tr>
+</tbody>
+</table>
+<h2 id="guidance-">Guidance*</h2>
+<p>The mute European Commission logo is a variation which was developed to allow multilingual purpose.
+The use of the logo must be included in all European Commission website pages except for the homepage (<strong>Commission and its priorities</strong> and <strong>Policies, information and services</strong>)</p>
+<p>The logo includes a link to the homepage of the <strong>Policies, information and services</strong> website.</p>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<table>
+<thead>
+<tr>
+<th>Default</th>
+<th>Homepage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>on any other homepage</td>
+<td>detail or landing pages</td>
+</tr>
+</tbody>
+</table>
 
                 
               </div>
@@ -214,24 +275,7 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-dfc06da206ec8807114de7f506c2373d-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "homepage" %}</span><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header ecl-site-header--homepage"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid ecl-site-header__container"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header__top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header__top-bar__wrapper"</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-lang-select-sites' %}</span><span class="xml">
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'below', 'externalClass': 'ecl-site-header__logo' } %}</span><span class="xml">
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-header-search-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container-fluid ecl-clearfix"</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-search-forms' %}</span><span class="xml">
-    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
-</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid ecl-site-header__container"</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'externalClass': 'ecl-site-header__logo' } %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header__top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
@@ -241,8 +285,7 @@
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -251,11 +294,7 @@
     <code class="Code Code--lang-json">
         
             
-            <pre>{
-  <span class="hljs-attr">"global"</span>: {
-    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"en"</span>
-  }
-}</pre>
+            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
         
     </code>
@@ -327,13 +366,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-cb347cc3f9bae6d117cb0f151eee6c1c">_site-headers.scss</option>
+                <option value="file-fb465a3cad027eb744de2c3025db4502">_site-headers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-cb347cc3f9bae6d117cb0f151eee6c1c" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-fb465a3cad027eb744de2c3025db4502" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -377,20 +416,6 @@
   }
 }
 
-<span class="hljs-comment">/*
-Site Header for Homepage
-*/</span>
-<span class="hljs-selector-class">.ecl-site-header--homepage</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-
-  <span class="hljs-selector-class">.ecl-site-header__logo</span> {
-    <span class="hljs-attribute">float</span>: none;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
-    <span class="hljs-attribute">position</span>: relative;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">38px</span>;
-  }
-}
-
 <span class="hljs-comment">// If the logo is linking to an external page do not show the external icon.</span>
 <span class="hljs-selector-class">.ecl-site-header__logo</span> {
   &amp;::before,
@@ -403,31 +428,6 @@ Site Header for Homepage
   <span class="hljs-attribute">overflow</span>: hidden;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-}
-
-<span class="hljs-selector-class">.ecl-site-header--homepage</span> {
-  <span class="hljs-selector-class">.ecl-site-header__top-bar</span> {
-    <span class="hljs-attribute">float</span>: right;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">90px</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-selector-class">.ecl-lang-select-site__link</span> {
-    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-comment">// Yeah, I know, it's bad...</span>
-  <span class="hljs-selector-class">.ecl-site-header__top-bar__wrapper</span> {
-    <span class="hljs-attribute">float</span>: right;
-  }
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
-    <span class="hljs-comment">/* stylelint-disable-next-line */</span>
-    <span class="hljs-selector-class">.ecl-site-header__top-bar</span> {
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">156px</span>;
-    }
-  }
 }
 
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(lg) {
@@ -487,7 +487,7 @@ Site Header for Homepage
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.2 KB</span>
+                    <span class="Meta-value">1.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -4396,7 +4396,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
 
 
 
