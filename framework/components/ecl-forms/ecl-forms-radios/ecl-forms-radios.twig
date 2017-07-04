@@ -1,15 +1,50 @@
-<div class="form-group">
-  <div class="radio">
-    <input type="radio" id="rd-example-1" value="">
-    <label for="rd-example-1">Unchecked multiple option 1</label>
-  </div>
-  <div class="radio">
-    <input type="radio" id="rd-example-2" value="" checked="checked">
-    <label for="rd-example-2">Checked multiple option 2</label>
-  </div>
-  <div class="radio">
-    <input type="radio" id="rd-example-3" value="" checked="checked">
-    <label for="rd-example-3">Checked multiple option 3</label>
-  </div>
-  <p class="form-field-feedback">Some feedback message</p>
-</div>
+{#
+  Accepts:
+    - "id" (string): radio group ID (mandatory)
+    - "name" (string): radio name (mandatory)
+    - "desc" (string): description for screen readers (mandatory)
+    - "options" (collection): array of options (mandatory). Each option accepts:
+      - "id" (string): radio input ID (mandatory)
+      - "value" (string): radio value (optional, default: '')
+      - "label" (string): radio label (optional, default: '')
+      - "checked" (boolean): is radio checked? (optional, default: false)
+    - "is_disabled" (boolean): is disabled (optional, default: false)
+    - "has_error" (boolean): has error (optional, default: false)
+    - "extra_class" (string): extra CSS classes (optional, default: '')
+#}
+
+{% set id = id|default('default-id') %}
+{% set name = name|default('default-name') %}
+{% set checked = checked|default(false) %}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-radio' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if hasError is defined and hasError == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-radio--has-error' %}
+{% endif %}
+
+{% if isDisabled is defined and isDisabled == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-radio--is-disabled' %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<label for={{ id }} class="{{ _cssClass }}"{{ _extraAttributes }}>{% spaceless %}
+  <input class="ecl-radio__input ecl-sr-only" type="radio" id="{{ id }}" value="{{ value }}" name="{{ name }}"{{ checked ? ' checked' : '' }}{{ (isDisabled is defined and isDisabled == true) ? ' disabled' : '' }} />
+  <span class="ecl-radio__label">{{ label }}</span>
+{% endspaceless %}</label>
