@@ -1,0 +1,48 @@
+{% if variant is defined and variant == "highlight" %}
+<div class="ecl-page-header ecl-page-header--highlight">
+  <div class="ecl-page-header__body">
+    <div class="ecl-page-header__label">{{ label }}</div>
+    <div class="ecl-page-header__highlight">
+      {{ highlight }}
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="ecl-page-header">
+  {% include '@ec-europa/ecl-breadcrumbs' with { 'extraClass':'ecl-u-mh-xxs','segments': [{'target':'#','title':'European Commission'},{'target':'#','title':'Announcements'}] } %}
+
+  <div class="ecl-page-header__body">
+
+    {% if identity is defined %}
+    <div class="ecl-page-header__identity">
+      {{ identity }}
+    </div>
+    {% endif %}
+
+    {% if meta is defined %}
+    <div class="ecl-page-header__meta">
+      <div class="ecl-meta ecl-meta--header">
+        <span class="ecl-meta__item ecl-u-f-up">{{ meta.type }}</span>
+        <span class="ecl-meta__item">
+          <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="{{ meta.timestamp }}">{{ meta.date }}</span>
+        </span>
+        <span class="ecl-meta__item">{{ meta.location }}</span>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if title is defined %}
+    <div class="ecl-page-header__title">
+      <h1 class=" ecl-heading ecl-heading--h1 ecl-u-color-white">{{ title }}</h1>
+    </div>
+    {% endif %}
+
+    {% if introduction is defined %}
+    <div class="ecl-page-header__intro">
+      <p class="{{paragraph_class}}">{{ introduction }}</p>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+{% endif %}
