@@ -9,7 +9,7 @@ module.exports = {
         "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
     },
     profile: {
-      avatar: 'http://lorempixel.com/160/160/business/',
+      avatar: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
       expandable: {
         button: {
           label: 'See details',
