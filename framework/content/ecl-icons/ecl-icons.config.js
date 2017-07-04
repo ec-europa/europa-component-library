@@ -336,38 +336,10 @@ module.exports = {
       },
     },
     {
-      name: 'camera',
-      label: 'Camera icon',
+      name: 'book',
+      label: 'Book icon',
       context: {
-        modifier: 'ecl-icon--camera',
-      },
-    },
-    {
-      name: 'spreadsheet',
-      label: 'Spreadsheet icon',
-      context: {
-        modifier: 'ecl-icon--spreadsheet',
-      },
-    },
-    {
-      name: 'share',
-      label: 'Share icon',
-      context: {
-        modifier: 'ecl-icon--share',
-      },
-    },
-    {
-      name: 'presentation',
-      label: 'Presentation icon',
-      context: {
-        modifier: 'ecl-icon--presentation',
-      },
-    },
-    {
-      name: 'faq',
-      label: 'Faq icon',
-      context: {
-        modifier: 'ecl-icon--faq',
+        modifier: 'ecl-icon--book',
       },
     },
     {
@@ -385,10 +357,59 @@ module.exports = {
       },
     },
     {
-      name: 'book',
-      label: 'Book icon',
+      name: 'spreadsheet',
+      label: 'Spreadsheet icon',
       context: {
-        modifier: 'ecl-icon--book',
+        modifier: 'ecl-icon--spreadsheet',
+      },
+    },
+    {
+      name: 'presentation',
+      label: 'Presentation icon',
+      context: {
+        modifier: 'ecl-icon--presentation',
+      },
+    },
+    {
+      name: 'info',
+      label: 'Info icon',
+      context: {
+        modifier: 'ecl-icon--info',
+      },
+    },
+    {
+      name: 'share',
+      label: 'Share icon',
+      context: {
+        modifier: 'ecl-icon--share',
+      },
+    },
+    {
+      name: 'faq',
+      label: 'Faq icon',
+      context: {
+        modifier: 'ecl-icon--faq',
+      },
+    },
+    {
+      name: 'camera',
+      label: 'Camera icon',
+      context: {
+        modifier: 'ecl-icon--camera',
+      },
+    },
+    {
+      name: 'user',
+      label: 'User icon',
+      context: {
+        modifier: 'ecl-icon--user',
+      },
+    },
+    {
+      name: 'logout',
+      label: 'Logout icon',
+      context: {
+        modifier: 'ecl-icon--logout',
       },
     },
   ],
