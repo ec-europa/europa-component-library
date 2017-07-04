@@ -1,10 +1,4 @@
-const variants = [
-  'corporate',
-  'default',
-  'highlight',
-  'improved-basic',
-  'improved-complete',
-];
+const variants = ['basic', 'default', 'highlight'];
 
 variants.forEach(variant => {
   describe(`ecl-page-headers--${variant}`, () => {
