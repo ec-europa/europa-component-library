@@ -13,7 +13,6 @@ module.exports = {
         global: {
           language: 'en',
         },
-        variant: 'homepage',
       },
     },
   ],
