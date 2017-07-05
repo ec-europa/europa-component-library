@@ -94,21 +94,3 @@ export const fileUploads = (
 
 // module exports
 export default fileUploads;
-
-/*
-jQuery(function () {
-  jQuery('input[type="file"]').each(function () {
-    var $input = jQuery(this),
-        $message = $input.parent().find('.file-upload__message');
-
-    $input.on('change', function (event) {
-      if (this.files && event.target.value) {
-        // The value comes in the form of C:\something\fileName.
-        var filename = event.target.value.split('\\').pop();
-        // Show the selected filename in the field.
-        $message.html(filename);
-      }
-    });
-  });
-});
-*/
