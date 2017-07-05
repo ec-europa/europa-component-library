@@ -1,8 +1,12 @@
 # Fields
 
-Drupal note:
+The field component is used to display structured information.
+It consists of sets of labels in the left column and their corresponding values in the right column.
 
-Field styling appearing in this style guide is only valid for Default drupal field settings
+## When to use this component
+
+* to display structured information like characteristics of a feedback, an event, contact information.
+* to display information in list blocks used on filtered list pages
 
 ## Aligned fields
 
