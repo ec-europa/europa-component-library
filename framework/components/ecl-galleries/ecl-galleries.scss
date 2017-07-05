@@ -1,36 +1,37 @@
-/*
-Gallery
-*/
+/**
+ * Gallery
+ * @define mediagallery
+ */
 
-.mediagallery {
+.ecl-mediagallery {
   padding-left: 15px;
   padding-right: 15px;
 
-  .row {
+  .ecl-row {
     padding-left: 0;
     padding-right: 0;
 
     &:first-child {
-      .mediagallery__item {
+      .ecl-mediagallery__item {
         padding-top: 0 !important;
       }
     }
 
     &:last-child {
-      .mediagallery__item {
+      .ecl-mediagallery__item {
         padding-bottom: 0 !important;
       }
     }
   }
 }
 
-.mediagallery__item {
+.ecl-mediagallery__item {
   // Makes the images 185px.
   height: auto;
   padding: 0;
   overflow: hidden;
 
-  .mediagallery__item_container {
+  .ecl-mediagallery__item-container {
     width: 100%;
     // height: 100%;
     margin: 5px 5px 0;
@@ -43,20 +44,20 @@ Gallery
   }
 
   &:first-child {
-    .mediagallery__item_container {
+    .ecl-mediagallery__item-container {
       margin-left: 0;
     }
   }
 
   &:hover {
-    .mediagallery__caption {
+    .ecl-mediagallery__caption {
       display: block; /* Fallback for non-webkit. */
       display: -webkit-box;
     }
   }
 }
 
-.mediagallery__caption {
+.ecl-mediagallery__caption {
   display: none;
   position: absolute;
   bottom: 0;
@@ -72,12 +73,12 @@ Gallery
   -webkit-box-orient: vertical;
 }
 
-.mediagallery__item.has-icon {
-  .mediagallery__caption {
+.ecl-mediagallery__item.has-icon {
+  .ecl-mediagallery__caption {
     padding-right: 4em !important;
   }
 
-  .mediagallery__icon {
+  .ecl-mediagallery__icon {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -109,7 +110,7 @@ Gallery
 
 // Firefox alternative to webkit-line-clamp.
 @-moz-document url-prefix() {
-  .mediagallery__caption {
+  .ecl-mediagallery__caption {
     &::after {
       content: "...";
       position: absolute;
@@ -124,30 +125,30 @@ Gallery
 }
 
 @media (max-width: map-get($ecl-grid-breakpoints, 'xs')) {
-  .mediagallery__item_container {
+  .ecl-mediagallery__item-container {
     margin-left: 0 !important;
   }
 }
 
 @media (min-width: map-get($ecl-grid-breakpoints, 'xs')) and (max-width: ecl-breakpoint-max(xs)) {
-  .mediagallery__item {
+  .ecl-mediagallery__item {
     float: left;
     width: 50%;
   }
 
-  .mediagallery__item:nth-of-type(3) .mediagallery__item_container {
+  .ecl-mediagallery__item:nth-of-type(3) .ecl-mediagallery__item-container {
     margin-left: 0;
   }
 }
 
 @media (max-width: ecl-breakpoint-max(sm)) {
-  .mediagallery {
+  .ecl-mediagallery {
     .row {
       margin-left: -20px;
     }
   }
 
-  .mediagallery__item {
+  .ecl-mediagallery__item {
     height: auto;
   }
 }
