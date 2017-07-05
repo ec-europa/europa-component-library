@@ -336,10 +336,80 @@ module.exports = {
       },
     },
     {
+      name: 'book',
+      label: 'Book icon',
+      context: {
+        modifier: 'ecl-icon--book',
+      },
+    },
+    {
+      name: 'data',
+      label: 'Data icon',
+      context: {
+        modifier: 'ecl-icon--data',
+      },
+    },
+    {
+      name: 'copy',
+      label: 'Copy icon',
+      context: {
+        modifier: 'ecl-icon--copy',
+      },
+    },
+    {
+      name: 'spreadsheet',
+      label: 'Spreadsheet icon',
+      context: {
+        modifier: 'ecl-icon--spreadsheet',
+      },
+    },
+    {
+      name: 'presentation',
+      label: 'Presentation icon',
+      context: {
+        modifier: 'ecl-icon--presentation',
+      },
+    },
+    {
+      name: 'info',
+      label: 'Info icon',
+      context: {
+        modifier: 'ecl-icon--info',
+      },
+    },
+    {
+      name: 'share',
+      label: 'Share icon',
+      context: {
+        modifier: 'ecl-icon--share',
+      },
+    },
+    {
+      name: 'faq',
+      label: 'Faq icon',
+      context: {
+        modifier: 'ecl-icon--faq',
+      },
+    },
+    {
       name: 'camera',
       label: 'Camera icon',
       context: {
         modifier: 'ecl-icon--camera',
+      },
+    },
+    {
+      name: 'user',
+      label: 'User icon',
+      context: {
+        modifier: 'ecl-icon--user',
+      },
+    },
+    {
+      name: 'logout',
+      label: 'Logout icon',
+      context: {
+        modifier: 'ecl-icon--logout',
       },
     },
   ],
