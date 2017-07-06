@@ -8,11 +8,10 @@ module.exports = {
       rows: [
         [
           {
-            classes: 'ecl-col-md-4 has-icon',
+            classes: 'ecl-col-md-4',
             image: {
               src: 'http://placehold.it/380x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '380' },
@@ -23,11 +22,10 @@ module.exports = {
             icon: 'ecl-icon--camera',
           },
           {
-            classes: 'ecl-col-md-3 has-icon',
+            classes: 'ecl-col-md-3',
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
@@ -37,11 +35,10 @@ module.exports = {
             icon: 'ecl-icon--audio',
           },
           {
-            classes: 'ecl-col-md-2 has-icon',
+            classes: 'ecl-col-md-2',
             image: {
               src: 'http://placehold.it/190x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '190' },
@@ -56,7 +53,6 @@ module.exports = {
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
@@ -71,7 +67,6 @@ module.exports = {
             image: {
               src: 'http://placehold.it/190x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '190' },
@@ -85,7 +80,6 @@ module.exports = {
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
@@ -98,7 +92,6 @@ module.exports = {
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
@@ -111,7 +104,6 @@ module.exports = {
             image: {
               src: 'http://placehold.it/380x185',
               alt: 'Example alt text',
-              extraClass: 'img-responsive',
               extraAttributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '380' },

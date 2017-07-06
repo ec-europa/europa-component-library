@@ -1,17 +1,17 @@
-<div class="ecl-mediagallery">
+<div class="ecl-gallery">
   {% if data.rows is defined and data.rows is iterable %}
   {% for row in data.rows %}
   <div class="ecl-row">
     {% if row is iterable %}
     {% for gallery_item in row %}
-    <div class="{{ gallery_item.classes }} ecl-mediagallery__item">
-      <div class="ecl-mediagallery__item-container">
+    <div class="{{ gallery_item.classes }} ecl-gallery__item">
+      <div class="ecl-gallery__item-container">
         {% include '@ec-europa/ecl-images' with gallery_item.image %}
         {% if gallery_item.caption is defined %}
-        <span class="ecl-mediagallery__caption">{{ gallery_item.caption }}</span>
+        <span class="ecl-gallery__caption">{{ gallery_item.caption }}</span>
         {% endif %}
         {% if gallery_item.icon is defined %}
-        <span class="ecl-mediagallery__icon">
+        <span class="ecl-gallery__icon">
           <span class="ecl-icon {{ gallery_item.icon }}"></span>
         </span>
         {% endif %}

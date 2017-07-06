@@ -1,155 +1,113 @@
 /**
- * Gallery
- * @define mediagallery
- */
+* Gallery
+* @define gallery ; weak
+*/
 
-.ecl-mediagallery {
-  padding-left: 15px;
-  padding-right: 15px;
+.ecl-gallery {
   margin: 0;
-
-  .ecl-row {
-    padding-left: 0;
-    padding-right: 0;
-
-    &:first-child {
-      .ecl-mediagallery__item {
-        padding-top: 0 !important;
-      }
-    }
-
-    &:last-child {
-      .ecl-mediagallery__item {
-        padding-bottom: 0 !important;
-      }
-    }
-  }
+  padding-left: map-get($ecl-spacing, 'xs');
+  padding-right: map-get($ecl-spacing, 'xs');
 }
 
-.ecl-mediagallery__item {
-  // Makes the images 185px.
-  height: auto;
+.ecl-gallery__item {
+  overflow: hidden;
   padding: 0;
-  overflow: hidden;
+}
 
-  .ecl-mediagallery__item-container {
-    width: 100%;
-    // height: 100%;
-    margin: 5px 5px 0;
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  &:first-child {
-    .ecl-mediagallery__item-container {
-      margin-left: 0;
-    }
-  }
-
-  &:hover {
-    .ecl-mediagallery__caption {
-      display: block; /* Fallback for non-webkit. */
-      display: -webkit-box;
-    }
+// That's how we show the caption on hover
+.ecl-gallery__item:hover {
+  .ecl-gallery__caption {
+    display: block;
   }
 }
 
-.ecl-mediagallery__caption {
-  display: none;
-  position: absolute;
-  bottom: 0;
+.ecl-gallery__item-container {
+  margin: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxxs') 0;
   width: 100%;
-  height: 4em;
-  padding: 5px 10px 5px 5px;
-  overflow: hidden;
+
+  /**
+  * General for 2 reasons:
+  *  - ensure consistency
+  *  - allow easy integration
+  */
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.ecl-gallery__caption {
   background-color: $ecl-color-shade;
-  font-size: 0.667em;
+  bottom: 0;
   color: #fff;
+  display: none;
+  font-size: map-get($ecl-font-size, 'xxs');
+  height: 4em;
+  overflow: hidden;
+  // The line is ignored because prettier wants first line to stay.
+  // Whereas the linter wants the rules to go a new line directly.
+  /* stylelint-disable-next-line */
+  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs')
+    map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxxs');
+  position: absolute;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  width: 100%;
 }
 
-.ecl-mediagallery__item.has-icon {
-  .ecl-mediagallery__caption {
-    padding-right: 4em !important;
-  }
+.ecl-gallery__icon {
+  background-color: $ecl-color-shade;
+  bottom: 0;
+  color: #fff;
+  height: 2.667em;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 2.667em;
+}
 
-  .ecl-mediagallery__icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 2.667em;
-    height: 2.667em;
-    padding: 0;
-    background-color: $ecl-color-shade;
-    color: #fff;
-    text-align: center;
-    overflow: hidden;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+// The following specifics are valid only for the icons in gallery context.
+.ecl-gallery__icon .ecl-icon {
+  font-size: map-get($ecl-font-size, 'm');
+  line-height: 2.667em;
 
-    .ecl-icon {
-      line-height: 2.667em;
-      font-size: map-get($ecl-font-size, 'm');
-
-      &::before {
-        margin-right: 0;
-      }
-    }
-
-    .ecl-icon--camera {
-      line-height: 4em;
-      font-size: 0.667em;
-    }
+  &::before {
+    margin-right: 0;
   }
 }
 
-// Firefox alternative to webkit-line-clamp.
-@-moz-document url-prefix() {
-  .ecl-mediagallery__caption {
-    &::after {
-      content: "...";
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin-top: 2em;
-      padding: 0 20px 1px 45px;
-      background: linear-gradient(to right, rgba(255, 255, 255, 0), $ecl-color-shade 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-      font-weight: bold;
-    }
-  }
+// The camera icon also needs tweaks to work in the gallery context.
+.ecl-gallery__icon .ecl-icon--camera {
+  font-size: map-get($ecl-font-size, xxs);
+  line-height: 4em;
 }
 
 @media (max-width: map-get($ecl-grid-breakpoints, 'xs')) {
-  .ecl-mediagallery__item-container {
+  .ecl-gallery__item-container {
     margin-left: 0 !important;
   }
 }
 
 @media (min-width: map-get($ecl-grid-breakpoints, 'xs')) and (max-width: ecl-breakpoint-max(xs)) {
-  .ecl-mediagallery__item {
+  .ecl-gallery__item {
     float: left;
     width: 50%;
   }
 
-  .ecl-mediagallery__item:nth-of-type(3) .ecl-mediagallery__item-container {
+  .ecl-gallery__item:nth-of-type(3) .ecl-gallery__item-container {
     margin-left: 0;
   }
 }
 
 @media (max-width: ecl-breakpoint-max(sm)) {
-  .ecl-mediagallery {
+  .ecl-gallery {
     .row {
       margin-left: -20px;
     }
   }
 
-  .ecl-mediagallery__item {
+  .ecl-gallery__item {
     height: auto;
   }
 }
