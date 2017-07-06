@@ -1,3 +1,14 @@
+{#
+  Accepts:
+    - "data" is the root namespace containing rows of gallery items
+
+  Structure of gallery item:
+    - "classes" (string): CSS classes to add (mandatory)
+    - "image" (@ecl-images): Image to add in the gallery (mandatory)
+    - "caption" (string): Textual caption for an image
+    - "icon" (string): An icon class building an icon in the item
+#}
+
 <div class="ecl-gallery">
   {% if data.rows is defined and data.rows is iterable %}
   {% for row in data.rows %}
