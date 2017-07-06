@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.0" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.0" type="text/css">
 
 
 <title>Icons: Generic language icon | Europa Component Library</title>
@@ -255,17 +255,17 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-3623a7bd8b49b5eee1a1841491deaae1">_icons.scss</option>
+                <option value="file-a47da6c9f1b6bdd85942093922247ee1">_icons.scss</option>
                 
-                <option value="file-863f235726626c607d8352c86cc64ebb">_mixins.scss</option>
+                <option value="file-26f56d2cdfe3b99c198c029fa96f4494">_mixins.scss</option>
                 
-                <option value="file-1381e62a2721eb55314af240a26053bc">_variables.scss</option>
+                <option value="file-94d7baf59b991c8788a16a9550d3ab77">_variables.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-3623a7bd8b49b5eee1a1841491deaae1" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-a47da6c9f1b6bdd85942093922247ee1" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -402,7 +402,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-863f235726626c607d8352c86cc64ebb" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-26f56d2cdfe3b99c198c029fa96f4494" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -434,7 +434,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-1381e62a2721eb55314af240a26053bc" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-94d7baf59b991c8788a16a9550d3ab77" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -470,13 +470,13 @@
   image: \e80d,
   download: \e806,
   infographic: \e80f,
-  multiple-files: \e820,
+  multiple-files: \e903,
   organigram: \e811,
-  package: \e812,
-  slides: \e814,
+  package: \e80e,
+  slides: \e812,
   video: \e800,
   error: \e82F,
-  success: \e816,
+  success: \e814,
   warning: \e804,
   budget: \e81a,
   digital: \e80b,
@@ -491,7 +491,17 @@
   tag-close: \e82c,
   tag-close-hover: \e82d,
   calendar: \e81d,
-  camera: \e900,
+  camera: \e907,
+  copy: \e820,
+  info: \e815,
+  spreadsheet: \e900,
+  share: \e901,
+  presentation: \e902,
+  faq: \e904,
+  data: \e905,
+  book: \e906,
+  user: \e908,
+  logout: \e909,
 ) !default;
 </pre>
                             </code>
@@ -509,7 +519,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">900 Bytes</span>
+                    <span class="Meta-value">1.1 KB</span>
                 </li>
             </ul>
         </div>
@@ -2335,7 +2345,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2400,9 +2410,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-file-uploads" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-forms-file-uploads">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -2410,7 +2419,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2419,7 +2428,87 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>File uploads</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Normal file upload</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--is-disabled" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Disabled file upload</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--has-error" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>File upload with error</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -4392,7 +4481,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.0"></script>
 
 
 
