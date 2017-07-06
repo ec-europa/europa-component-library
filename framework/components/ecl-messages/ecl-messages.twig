@@ -9,7 +9,11 @@
   <div class="ecl-message__title">{{ title }}</div>
   {% endif %}
 
-  {% if body is defined %}
-  <p class="ecl-message__body">{{ body }}</p>
+  {% if messages is defined %}
+  <ul class="ecl-message__body ecl-list">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
   {% endif %}
 </div>

@@ -27,7 +27,11 @@ module.exports = {
         dismiss: true,
         srOnly: 'Informative message',
         title: 'Some info title',
-        body: 'Lorem ipsum lor sit amet, consectetur adipi',
+        messages: [
+          'Lorem ipsum lor sit amet, consectetur adipi',
+          'Lorem ipsum lor sit amet, consectetur adipi',
+          'Lorem ipsum lor sit amet, consectetur adipi',
+        ],
       },
     },
     {
@@ -38,7 +42,11 @@ module.exports = {
         dismiss: true,
         srOnly: 'Warning message',
         title: 'Some warning title',
-        body: 'Lorem ipsum lor sit amet, consectetur adipi',
+        messages: [
+          'Lorem ipsum lor sit amet, consectetur adipi',
+          'Lorem ipsum lor sit amet, consectetur adipi',
+          'Lorem ipsum lor sit amet, consectetur adipi',
+        ],
       },
     },
     {
@@ -49,7 +57,7 @@ module.exports = {
         dismiss: true,
         srOnly: 'Success message',
         title: 'Some success title',
-        body: 'Lorem ipsum lor sit amet, consectetur adipi',
+        messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
       },
     },
     {
@@ -60,7 +68,7 @@ module.exports = {
         dismiss: true,
         srOnly: 'Error message',
         title: 'Some error title',
-        body: 'Lorem ipsum lor sit amet, consectetur adipi',
+        messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
       },
     },
     {
@@ -71,7 +79,7 @@ module.exports = {
         dismiss: true,
         srOnly: 'Livestream message',
         title: 'Some livestream title',
-        body: 'Lorem ipsum lor sit amet, consectetur adipi',
+        messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
       },
     },
   ],
