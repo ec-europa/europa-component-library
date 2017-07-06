@@ -83,31 +83,15 @@
   line-height: 4em;
 }
 
-@media (max-width: map-get($ecl-grid-breakpoints, 'xs')) {
-  .ecl-gallery__item-container {
-    margin-left: 0 !important;
-  }
-}
-
-@media (min-width: map-get($ecl-grid-breakpoints, 'xs')) and (max-width: ecl-breakpoint-max(xs)) {
+@include ecl-media-breakpoint-down(sm) {
   .ecl-gallery__item {
     float: left;
     width: 50%;
   }
-
-  .ecl-gallery__item:nth-of-type(3) .ecl-gallery__item-container {
-    margin-left: 0;
-  }
 }
 
-@media (max-width: ecl-breakpoint-max(sm)) {
-  .ecl-gallery {
-    .row {
-      margin-left: -20px;
-    }
-  }
-
+@include ecl-media-breakpoint-between(sm, md) {
   .ecl-gallery__item {
-    height: auto;
+    width: 100%;
   }
 }
