@@ -49,15 +49,9 @@
   <div class="ecl-file-upload__value" tabindex="0">{{ value }}</div>
   <label class="ecl-file-upload__browse" for="{{ id }}" tabindex="0">{{ labelBrowse }}</label>
   {% if hasUpload == true and isDisabled == false %}
-  {% include '@ec-europa/ecl-buttons' with {
-    'label': labelUpload,
-    'modifier': 'primary',
-    'extraClass': 'ecl-file-upload__upload ecl-u-ml-xxxs',
-    'extraAttributes': [
-      { 'name': 'tabindex', 'value': '0'},
-      { 'name': 'type', 'value': 'submit'},
-    ]
-  } %}
+  <button class="ecl-file-upload__upload" tabindex="0" type="submit">
+    {{ labelUpload }}
+  </button>
   {% endif %}
   <input class="ecl-file-upload__input" name="{{ name }}" type="file" id="{{ id }}" {% if isDisabled == true %}disabled{% endif %}>
 </div>

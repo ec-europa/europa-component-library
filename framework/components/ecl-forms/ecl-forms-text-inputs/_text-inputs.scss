@@ -13,7 +13,7 @@
   font-size: map-get($ecl-font-size, 's');
   line-height: 1.6;
   margin: 0;
-  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
   width: 100%;
 
   &:focus {
@@ -33,9 +33,5 @@
 
 .ecl-text-input--has-error {
   border-color: $ecl-color-error;
-
-  &:focus {
-    border-color: darken($ecl-color-error, 10%);
-    outline-color: darken($ecl-color-error, 10%);
-  }
+  border-width: 2px;
 }
