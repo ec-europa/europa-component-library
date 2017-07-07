@@ -30,7 +30,7 @@
   font-size: map-get($ecl-font-size, 's');
   line-height: 1.6;
   margin: 0;
-  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
   width: 100%;
 
   @include ecl-select-list-arrow($ecl-color-shade);
@@ -63,11 +63,7 @@
 
 .ecl-select--has-error {
   border-color: $ecl-color-error;
+  border-width: 2px;
 
   @include ecl-select-list-arrow($ecl-color-error);
-
-  &:focus {
-    border-color: darken($ecl-color-error, 10%);
-    outline-color: darken($ecl-color-error, 10%);
-  }
 }
