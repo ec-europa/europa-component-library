@@ -13,7 +13,7 @@ export * from './components/ecl-dropdowns/ecl-dropdowns';
 export * from './components/ecl-expandables/expandables';
 // export * from './components/ecl-files/files';
 // export * from './components/ecl-filters/filters';
-// export * from './components/ecl-forms/ecl-forms-file-uploads/file-uploads';
+export * from './components/ecl-forms/ecl-forms-file-uploads/ecl-forms-file-uploads';
 // export * from './components/ecl-inpage-navs/inpage-navs';
 export * from './components/ecl-messages/messages';
 export * from './components/ecl-navigation/ecl-navigation-menus/megamenu';
