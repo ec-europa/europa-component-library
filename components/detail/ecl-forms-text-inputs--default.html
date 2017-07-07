@@ -321,7 +321,7 @@
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.6</span>;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 
   &amp;:focus {
@@ -341,11 +341,7 @@
 
 <span class="hljs-selector-class">.ecl-text-input--has-error</span> {
   <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-error</span>;
-
-  &amp;:focus {
-    <span class="hljs-attribute">border-color</span>: darken(<span class="hljs-variable">$ecl-color-error</span>, <span class="hljs-number">10%</span>);
-    <span class="hljs-attribute">outline-color</span>: darken(<span class="hljs-variable">$ecl-color-error</span>, <span class="hljs-number">10%</span>);
-  }
+  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">2px</span>;
 }
 </pre>
                             </code>
@@ -363,7 +359,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">881 Bytes</span>
+                    <span class="Meta-value">788 Bytes</span>
                 </li>
             </ul>
         </div>
