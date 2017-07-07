@@ -8,6 +8,7 @@ describe('profile-toolbars', () => {
 
     browser.pause(1000);
     browser.url('ecl-profile-topbars.html');
+    browser.injectAxeCore();
   });
 
   // Normal state
@@ -16,5 +17,10 @@ describe('profile-toolbars', () => {
       name: 'profile-toolbars',
     });
     expect(screenshots).to.matchReference();
+  });
+
+  it('should be accessible', () => {
+    const a11yReport = browser.runAxeCore('ecl-profile-topbar').value;
+    expect(a11yReport).to.be.accessible;
   });
 });

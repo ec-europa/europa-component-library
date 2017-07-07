@@ -9,7 +9,10 @@ module.exports = {
         "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
     },
     profile: {
-      avatar: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+      image: {
+        src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+        alt: 'Example profile image',
+      },
       expandable: {
         button: {
           label: 'See details',
@@ -39,8 +42,6 @@ module.exports = {
           ],
         },
       },
-      details:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     context_nav: {
       label: 'Department',
