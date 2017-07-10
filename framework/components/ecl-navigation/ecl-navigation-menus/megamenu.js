@@ -1,4 +1,4 @@
-import { toggleExpandable } from '../../ecl-expandables/expandables';
+import { toggleExpandable } from '@ec-europa/ecl-expandables/expandables';
 
 export const megamenu = selector => {
   const megamenusArray = Array.prototype.slice.call(
