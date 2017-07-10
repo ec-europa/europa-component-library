@@ -1,11 +1,21 @@
 # Messages
 
-Messages is a component that is used for displaying different types of messages like:
+## Why and how to use this component
 
-*   info (by default)
-*   success
-*   warning
-*   error
-*   live
+Provide contextual feedback messages for typical user actions with the available flexible alert messages.  
+These includes errors, warnings, and general updates. For each kind of warning we use an icon and a specific colour.
 
-The component messages is defined "info" by default, the "info" type doesn't exist as class. The "live" type is meant to be used in cases like live streaming for events.
+## When to use this component
+
+| Status | Colour | Usage |
+|------------|------------|------------|
+| Success | EC Green N | Forms / Page notification (bellow the page header) |
+| Informative	| EC Blue N | Forms / Page notification (bellow the page header) |
+| Warning | EC Orange N | Forms / Page notification (bellow the page header) |
+| Error | EC Red N | Forms / Page notification (bellow the page header) |
+| Live stream	| EC Orange N | Pages with livestream content (bellow the page header) |
+
+## When not to use this component
+
+* to include notifications that aren't related to the user's current goal
+* but don't overdo it — too many notifications will either overwhelm or annoy the user and are likely to be ignored
