@@ -31,23 +31,23 @@
     "watch": "npm-run-all --parallel watch:*"
   },
   "devDependencies": {
-    "@ec-europa/ecl-builder": "0.8.0",
-    "@ec-europa/ecl-fractal-theme": "0.6.3",
-    "@ec-europa/ecl-qa": "0.3.0",
-    "@ec-europa/eslint-config-ecl": "0.3.0",
-    "@ec-europa/stylelint-config-ecl": "0.3.0",
+    "@ec-europa/ecl-builder": "0.9.0",
+    "@ec-europa/ecl-fractal-theme": "0.7.2",
+    "@ec-europa/ecl-qa": "0.3.1",
+    "@ec-europa/eslint-config-ecl": "0.3.1",
+    "@ec-europa/stylelint-config-ecl": "0.3.1",
     "@frctl/fractal": "1.1.4",
     "@frctl/twig": "1.0.0-alpha.0",
     "chai": "4.0.2",
     "chokidar-cli": "1.2.0",
     "cross-env": "5.0.1",
     "dotenv": "4.0.0",
-    "eslint": "4.1.1",
+    "eslint": "4.2.0",
     "gh-pages": "1.0.0",
-    "husky": "0.14.1",
-    "lerna": "2.0.0-rc.5",
+    "husky": "0.14.3",
+    "lerna": "2.0.0",
     "lerna-changelog": "0.5.0",
-    "lint-staged": "4.0.0",
+    "lint-staged": "4.0.1",
     "npm-run-all": "4.0.2",
     "prettier-eslint-cli": "4.1.1",
     "rimraf": "2.6.1",
@@ -65,12 +65,7 @@
     "node": ">=6.9.5"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier-eslint --write",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint"
-    ]
+    "*.js": ["prettier-eslint --write", "git add"],
+    "*.scss": ["stylelint"]
   }
 }

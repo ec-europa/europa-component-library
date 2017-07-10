@@ -21,7 +21,7 @@
   line-height: 1.6;
   margin: 0;
   overflow: hidden;
-  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
   text-overflow: ellipsis;
 
   &:focus {
@@ -40,13 +40,41 @@
   font-family: $ecl-font-family-sans-serif;
   font-size: map-get($ecl-font-size, 's');
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.6;
   margin: 0;
-  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
+  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xs');
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background-color: $ecl-color-primary;
+    outline: 3px solid map-get($ecl-colors, 'yellow-110');
+    outline-offset: -3px;
+  }
+}
+
+.ecl-file-upload__upload {
+  background-color: $ecl-color-primary;
+  border: 2px solid transparent;
+  color: #fff;
+  display: inline-block;
+  font-family: $ecl-font-family-sans-serif;
+  font-size: map-get($ecl-font-size, 's');
+  font-weight: 600;
+  line-height: 1.6;
+  margin-left: map-get($ecl-spacing, 'xxxs');
+  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xs');
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #fff;
+    border-color: $ecl-color-primary;
+    color: $ecl-color-primary;
+    text-decoration: underline;
+  }
+
+  &:focus {
     outline: 3px solid map-get($ecl-colors, 'yellow-110');
     outline-offset: -3px;
   }
