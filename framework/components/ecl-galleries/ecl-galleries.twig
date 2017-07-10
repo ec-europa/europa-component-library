@@ -22,8 +22,8 @@
         <span class="ecl-gallery__caption">{{ gallery_item.caption }}</span>
         {% endif %}
         {% if gallery_item.icon is defined %}
-        <span class="ecl-gallery__icon">
-          <span class="ecl-icon {{ gallery_item.icon }}"></span>
+        <span class="ecl-gallery__icon-wrapper">
+          <span class="ecl-gallery__icon ecl-icon {{ gallery_item.icon }}"></span>
         </span>
         {% endif %}
       </div>

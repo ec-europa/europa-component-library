@@ -54,7 +54,7 @@
   width: 100%;
 }
 
-.ecl-gallery__icon {
+.ecl-gallery__icon-wrapper {
   background-color: $ecl-color-shade;
   bottom: 0;
   color: #fff;
@@ -65,22 +65,21 @@
   right: 0;
   text-align: center;
   width: 2.667em;
+
+  // Camera icon needs to be smaller in this context.
+  .ecl-icon--camera {
+    font-size: map-get($ecl-font-size, 'xxs');
+    line-height: 4em;
+  }
 }
 
-// The following specifics are valid only for the icons in gallery context.
-.ecl-gallery__icon .ecl-icon {
+.ecl-gallery__icon {
   font-size: map-get($ecl-font-size, 'm');
   line-height: 2.667em;
 
   &::before {
     margin-right: 0;
   }
-}
-
-// The camera icon also needs tweaks to work in the gallery context.
-.ecl-gallery__icon .ecl-icon--camera {
-  font-size: map-get($ecl-font-size, xxs);
-  line-height: 4em;
 }
 
 @include ecl-media-breakpoint-down(sm) {
