@@ -2,11 +2,11 @@
  * Tables related behaviors.
  */
 
-// eslint-disable-next-line import/prefer-default-export
+/* eslint-disable no-unexpected-multiline */
+
 export function eclTables() {
   const tables = document.getElementsByClassName('ecl-table');
-  // eslint-disable-next-line prefer-arrow-callback, func-names
-  [].forEach.call(tables, function(table) {
+  [].forEach.call(tables, table => {
     const headerText = [];
     let textColspan = '';
     let ci = 0;
@@ -54,13 +54,12 @@ export function eclTables() {
     }
 
     // For every row, set the attributes we use to make this happen.
-    // eslint-disable-next-line prefer-arrow-callback, func-names
-    [].forEach.call(tableRows, function(row) {
+    [].forEach.call(tableRows, row => {
       for (let j = 0; j < cellPerRow; j += 1) {
         if (headerText[j] === '' || headerText[j] === '\u00a0') {
           row
-            .querySelectorAll('td')[j]
-            .setAttribute('class', 'ecl-table__heading');
+            .querySelectorAll('td')
+            [j].setAttribute('class', 'ecl-table__heading');
         } else {
           row.querySelectorAll('td')[j].setAttribute('data-th', headerText[j]);
         }
@@ -72,11 +71,16 @@ export function eclTables() {
 
           for (let c = 1; c < cn; c += 1) {
             row
-              .querySelectorAll('td')[colspanIndex + c]
-              .setAttribute('class', 'ecl-table__group_element');
+              .querySelectorAll('td')
+              [colspanIndex + c].setAttribute(
+                'class',
+                'ecl-table__group_element'
+              );
           }
         }
       }
     });
   });
 }
+
+export default eclTables;
