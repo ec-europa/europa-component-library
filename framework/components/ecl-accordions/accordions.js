@@ -92,18 +92,20 @@ export const accordions = (
         break;
       case 37:
       case 38: {
-        const previousHeaderIndex = currentHeaderIndex === 0
-          ? theseHeaders.length - 1
-          : currentHeaderIndex - 1;
+        const previousHeaderIndex =
+          currentHeaderIndex === 0
+            ? theseHeaders.length - 1
+            : currentHeaderIndex - 1;
         giveHeaderFocus(theseHeaders, previousHeaderIndex);
         e.preventDefault();
         break;
       }
       case 39:
       case 40: {
-        const nextHeaderIndex = currentHeaderIndex < theseHeaders.length - 1
-          ? currentHeaderIndex + 1
-          : 0;
+        const nextHeaderIndex =
+          currentHeaderIndex < theseHeaders.length - 1
+            ? currentHeaderIndex + 1
+            : 0;
         giveHeaderFocus(theseHeaders, nextHeaderIndex);
         e.preventDefault();
         break;
