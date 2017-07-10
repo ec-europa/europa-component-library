@@ -3,8 +3,8 @@
 Component library based on [Fractal](http://fractal.build/).
 
 Requirements:
--   Node.js >= 6.9.5
--   yarn >= 0.20.3
+- Node.js >= 6.9.5
+- yarn >= 0.20.3
 
 Tested on:
 
@@ -69,14 +69,14 @@ Tested on:
 
 ## Setup
 
-```
+```bash
 yarn
 yarn bootstrap
 ```
 
 ## Develop
 
-```
+```bash
 yarn start
 ```
 
@@ -84,7 +84,7 @@ yarn start
 
 With npm:
 
-```
+```bash
 npm run lint --silent
 ```
 
@@ -105,13 +105,13 @@ the variables manually.
 
 Be sure that you have built the framework before running the tests:
 
-```
+```bash
 yarn dist
 ```
 
 Then you can run:
 
-```
+```bash
 yarn test:functional
 ```
 
@@ -119,16 +119,16 @@ For more details, [see the testing documentation](docs/testing/visual.md)
 
 ## Deploy to GitHub Pages
 
-_To be executed from the master branch only._
+*To be executed from the master branch only.*
 
 First, make sure to have built the style guide with the framework with:
 
-```
+```bash
 yarn dist
 ```
 
 Then, you can type:
 
-```
+```bash
 yarn gh-pages
 ```
