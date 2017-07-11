@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.2" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.2" type="text/css">
 
 
 <title>Tables: Table with colspan | Europa Component Library</title>
@@ -465,19 +465,19 @@ On small screen, display switches to a list, to prevent overflow.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-766b27d3b6f44f33b87654b6fd72d896">_editor-tables.scss</option>
+                <option value="file-660fc6b4aaef5caffcaf504dfcccf388">_editor-tables.scss</option>
                 
-                <option value="file-5d933e1a2cca7207c01b2a1419361053">_tables-mixins.scss</option>
+                <option value="file-79feceae6060ec59bba39a2bcc8798d3">_tables-mixins.scss</option>
                 
-                <option value="file-c991e80058c5d73efa094e74264e9e92">_tables.scss</option>
+                <option value="file-bd22a79dace6fc341ad2c1547d6b97ba">_tables.scss</option>
                 
-                <option value="file-eadc9a2c8c27445563091433e194ffcc">ecl-tables.js</option>
+                <option value="file-63c4a5f3fc4367ef12e290d6318554fd">ecl-tables.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-766b27d3b6f44f33b87654b6fd72d896" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-660fc6b4aaef5caffcaf504dfcccf388" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -523,7 +523,7 @@ On small screen, display switches to a list, to prevent overflow.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-5d933e1a2cca7207c01b2a1419361053" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-79feceae6060ec59bba39a2bcc8798d3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -636,7 +636,7 @@ On small screen, display switches to a list, to prevent overflow.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-c991e80058c5d73efa094e74264e9e92" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-bd22a79dace6fc341ad2c1547d6b97ba" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -709,7 +709,7 @@ On small screen, display switches to a list, to prevent overflow.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-eadc9a2c8c27445563091433e194ffcc" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-63c4a5f3fc4367ef12e290d6318554fd" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -721,11 +721,11 @@ On small screen, display switches to a list, to prevent overflow.</p>
  * Tables related behaviors.
  */</span>
 
-<span class="hljs-comment">// eslint-disable-next-line import/prefer-default-export</span>
+<span class="hljs-comment">/* eslint-disable no-unexpected-multiline */</span>
+
 <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eclTables</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">const</span> tables = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'ecl-table'</span>);
-  <span class="hljs-comment">// eslint-disable-next-line prefer-arrow-callback, func-names</span>
-  [].forEach.call(tables, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table</span>) </span>{
+  [].forEach.call(tables, table =&gt; {
     <span class="hljs-keyword">const</span> headerText = [];
     <span class="hljs-keyword">let</span> textColspan = <span class="hljs-string">''</span>;
     <span class="hljs-keyword">let</span> ci = <span class="hljs-number">0</span>;
@@ -773,13 +773,12 @@ On small screen, display switches to a list, to prevent overflow.</p>
     }
 
     <span class="hljs-comment">// For every row, set the attributes we use to make this happen.</span>
-    <span class="hljs-comment">// eslint-disable-next-line prefer-arrow-callback, func-names</span>
-    [].forEach.call(tableRows, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">row</span>) </span>{
+    [].forEach.call(tableRows, row =&gt; {
       <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j = <span class="hljs-number">0</span>; j &lt; cellPerRow; j += <span class="hljs-number">1</span>) {
         <span class="hljs-keyword">if</span> (headerText[j] === <span class="hljs-string">''</span> || headerText[j] === <span class="hljs-string">'\u00a0'</span>) {
           row
-            .querySelectorAll(<span class="hljs-string">'td'</span>)[j]
-            .setAttribute(<span class="hljs-string">'class'</span>, <span class="hljs-string">'ecl-table__heading'</span>);
+            .querySelectorAll(<span class="hljs-string">'td'</span>)
+            [j].setAttribute(<span class="hljs-string">'class'</span>, <span class="hljs-string">'ecl-table__heading'</span>);
         } <span class="hljs-keyword">else</span> {
           row.querySelectorAll(<span class="hljs-string">'td'</span>)[j].setAttribute(<span class="hljs-string">'data-th'</span>, headerText[j]);
         }
@@ -791,14 +790,19 @@ On small screen, display switches to a list, to prevent overflow.</p>
 
           <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> c = <span class="hljs-number">1</span>; c &lt; cn; c += <span class="hljs-number">1</span>) {
             row
-              .querySelectorAll(<span class="hljs-string">'td'</span>)[colspanIndex + c]
-              .setAttribute(<span class="hljs-string">'class'</span>, <span class="hljs-string">'ecl-table__group_element'</span>);
+              .querySelectorAll(<span class="hljs-string">'td'</span>)
+              [colspanIndex + c].setAttribute(
+                <span class="hljs-string">'class'</span>,
+                <span class="hljs-string">'ecl-table__group_element'</span>
+              );
           }
         }
       }
     });
   });
 }
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eclTables;
 </pre>
                             </code>
                             
@@ -815,7 +819,7 @@ On small screen, display switches to a list, to prevent overflow.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.6 KB</span>
+                    <span class="Meta-value">2.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -3063,7 +3067,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3842,7 +3846,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4800,7 +4804,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.2"></script>
 
 
 

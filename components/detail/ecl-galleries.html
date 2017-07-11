@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.2" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.2" type="text/css">
 
 
 <title>Galleries | Europa Component Library</title>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,7 +135,20 @@
               <div class="Prose">
                 
                 <h1 id="galleries">Galleries</h1>
-<p>Gallery component.</p>
+<h2 id="when-and-how-to-use-this-component">When and how to use this component</h2>
+<p>This component helps the user to quickly browse available media thumbnails (images, videos and audio clips) related to the page’s textual content.
+These thumbnails display a caption describing the media item along with a visual icon to distinguish between video clips, audio clips and images.
+It should always be used with the Gallery overlay component, which allows the user to visualize the media in a bigger size and access additional controls for video and audio playback. (The Gallery overlay component needs to be enabled).</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>When I want to have a gallery with different media in order to provide the user with more information about a certain topic, complement existing information.</li>
+<li>In events pages.</li>
+<li>When a gallery of images is, in general, needed.</li>
+</ul>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<ul>
+<li>Without the Gallery overlay component</li>
+</ul>
 
                 
               </div>
@@ -212,64 +225,41 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e47dc58e86b7d578292dde6502d80e27-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4 mediagallery__item has-icon"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"380"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__icon"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Accepts:
+    - "data" is the root namespace containing rows of gallery items
+
+  Structure of gallery item:
+    - "classes" (string): CSS classes to add (mandatory)
+    - "image" (@ecl-images): Image to add in the gallery (mandatory)
+    - "caption" (string): Textual caption for an image
+    - "icon" (string): An icon class building an icon in the item
+#}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> data.rows is defined and data.rows is iterable %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> row in data.rows %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> row is iterable %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> gallery_item in row %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ gallery_item.classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-images' with gallery_item.image %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> gallery_item.caption is defined %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span></span><span class="hljs-template-variable">{{ gallery_item.caption }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> gallery_item.icon is defined %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon </span></span></span><span class="hljs-template-variable">{{ gallery_item.icon }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item has-icon"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__icon"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--audio"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-2 mediagallery__item has-icon"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"190"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__icon"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-2 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"190"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"380"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -279,7 +269,191 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"rows"</span>: [
+      [
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-4"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/380x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"380"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          },
+          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>,
+          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"ecl-icon--camera"</span>
+        },
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          },
+          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"ecl-icon--audio"</span>
+        },
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-2"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/190x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"190"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          },
+          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>,
+          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"ecl-icon--camera"</span>
+        },
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          }
+        }
+      ],
+      [
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-2"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/190x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"190"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          },
+          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>
+        },
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          }
+        },
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          }
+        },
+        {
+          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-4"</span>,
+          <span class="hljs-attr">"image"</span>: {
+            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/380x185"</span>,
+            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
+            <span class="hljs-attr">"extraAttributes"</span>: [
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"380"</span>
+              },
+              {
+                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
+                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
+              }
+            ]
+          },
+          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>
+        }
+      ]
+    ]
+  }
+}</pre>
             
         
     </code>
@@ -290,61 +464,61 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-e47dc58e86b7d578292dde6502d80e27-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4 mediagallery__item has-icon"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"380"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__icon"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-4 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon ecl-icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item has-icon"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__icon"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--audio"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon ecl-icon--audio"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-2 mediagallery__item has-icon"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"190"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__icon"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-2 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon ecl-icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-2 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"190"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-2 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"285"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-4 mediagallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__item_container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">typeof</span>=<span class="hljs-string">"foaf:Image"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-responsive"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"380"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"185"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"mediagallery__caption"</span>&gt;</span>Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1 Dummy image 1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-4 ecl-gallery__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -364,13 +538,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-149b8796a338fddcd57a4378a2254fc4">_galleries.scss</option>
+                <option value="file-d2eabde875b4296d0f9f6dd05da27eca">ecl-galleries.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-149b8796a338fddcd57a4378a2254fc4" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-d2eabde875b4296d0f9f6dd05da27eca" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -378,157 +552,100 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Gallery
+                                <pre><span class="hljs-comment">/**
+* Gallery
+* @define gallery ; weak
 */</span>
 
-<span class="hljs-selector-class">.mediagallery</span> {
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">15px</span>;
-  <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">15px</span>;
-
-  <span class="hljs-selector-class">.row</span> {
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0</span>;
-
-    &amp;:first-child {
-      <span class="hljs-selector-class">.mediagallery__item</span> {
-        <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-      }
-    }
-
-    &amp;:last-child {
-      <span class="hljs-selector-class">.mediagallery__item</span> {
-        <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-      }
-    }
-  }
+<span class="hljs-selector-class">.ecl-gallery</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">padding-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
 }
 
-<span class="hljs-selector-class">.mediagallery__item</span> {
-  <span class="hljs-comment">// Makes the images 185px.</span>
-  <span class="hljs-attribute">height</span>: auto;
+<span class="hljs-selector-class">.ecl-gallery__item</span> {
+  <span class="hljs-attribute">overflow</span>: hidden;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
+}
 
-  <span class="hljs-selector-class">.mediagallery__item_container</span> {
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-    <span class="hljs-comment">// height: 100%;</span>
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">5px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0</span>;
-
-    <span class="hljs-selector-tag">img</span> {
-      <span class="hljs-attribute">display</span>: block;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-      <span class="hljs-attribute">height</span>: auto;
-    }
-  }
-
-  &amp;:first-child {
-    <span class="hljs-selector-class">.mediagallery__item_container</span> {
-      <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
-    }
-  }
-
-  &amp;:hover {
-    <span class="hljs-selector-class">.mediagallery__caption</span> {
-      <span class="hljs-attribute">display</span>: block; <span class="hljs-comment">/* Fallback for non-webkit. */</span>
-      <span class="hljs-attribute">display</span>: -webkit-box;
-    }
+<span class="hljs-comment">// That's how we show the caption on hover</span>
+<span class="hljs-selector-class">.ecl-gallery__item</span>:hover {
+  <span class="hljs-selector-class">.ecl-gallery__caption</span> {
+    <span class="hljs-attribute">display</span>: block;
   }
 }
 
-<span class="hljs-selector-class">.mediagallery__caption</span> {
-  <span class="hljs-attribute">display</span>: none;
-  <span class="hljs-attribute">position</span>: absolute;
-  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+<span class="hljs-selector-class">.ecl-gallery__item-container</span> {
+  <span class="hljs-attribute">margin</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) <span class="hljs-number">0</span>;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">4em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">10px</span> <span class="hljs-number">5px</span> <span class="hljs-number">5px</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
+
+  <span class="hljs-comment">/**
+  * General for 2 reasons:
+  *  - ensure consistency
+  *  - allow easy integration
+  */</span>
+  <span class="hljs-selector-tag">img</span> {
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-gallery__caption</span> {
   <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.667em</span>;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">display</span>: none;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxs'</span>);
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">4em</span>;
+  <span class="hljs-attribute">overflow</span>: hidden;
+  <span class="hljs-comment">// The line is ignored because prettier wants first line to stay.</span>
+  <span class="hljs-comment">// Whereas the linter wants the rules to go a new line directly.</span>
+  <span class="hljs-comment">/* stylelint-disable-next-line */</span>
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>)
+    map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+  <span class="hljs-attribute">position</span>: absolute;
   <span class="hljs-attribute">text-overflow</span>: ellipsis;
-  -webkit-line-clamp: <span class="hljs-number">2</span>;
-  -webkit-box-orient: vertical;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 }
 
-<span class="hljs-selector-class">.mediagallery__item</span><span class="hljs-selector-class">.has-icon</span> {
-  <span class="hljs-selector-class">.mediagallery__caption</span> {
-    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">4em</span> <span class="hljs-meta">!important</span>;
-  }
+<span class="hljs-selector-class">.ecl-gallery__icon-wrapper</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">2.667em</span>;
+  <span class="hljs-attribute">overflow</span>: hidden;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">text-align</span>: center;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">2.667em</span>;
 
-  <span class="hljs-selector-class">.mediagallery__icon</span> {
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">2.667em</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">2.667em</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    <span class="hljs-attribute">text-align</span>: center;
-    <span class="hljs-attribute">overflow</span>: hidden;
-    -webkit-line-clamp: <span class="hljs-number">2</span>;
-    -webkit-box-orient: vertical;
-
-    <span class="hljs-selector-class">.ecl-icon</span> {
-      <span class="hljs-attribute">line-height</span>: <span class="hljs-number">2.667em</span>;
-      <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
-
-      &amp;::before {
-        <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
-      }
-    }
-
-    <span class="hljs-selector-class">.ecl-icon--camera</span> {
-      <span class="hljs-attribute">line-height</span>: <span class="hljs-number">4em</span>;
-      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.667em</span>;
-    }
+  <span class="hljs-comment">// Camera icon needs to be smaller in this context.</span>
+  <span class="hljs-selector-class">.ecl-icon--camera</span> {
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxs'</span>);
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">4em</span>;
   }
 }
 
-<span class="hljs-comment">// Firefox alternative to webkit-line-clamp.</span>
-@-moz-document url-prefix() {
-  <span class="hljs-selector-class">.mediagallery__caption</span> {
-    &amp;::after {
-      <span class="hljs-attribute">content</span>: <span class="hljs-string">"..."</span>;
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">2em</span>;
-      <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">20px</span> <span class="hljs-number">1px</span> <span class="hljs-number">45px</span>;
-      <span class="hljs-attribute">background</span>: linear-gradient(to right, rgba(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>), <span class="hljs-variable">$ecl-color-shade</span> <span class="hljs-number">50%</span>) repeat scroll <span class="hljs-number">0</span> <span class="hljs-number">0</span> rgba(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-      <span class="hljs-attribute">font-weight</span>: bold;
-    }
+<span class="hljs-selector-class">.ecl-gallery__icon</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">2.667em</span>;
+
+  &amp;::before {
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
   }
 }
 
-@<span class="hljs-keyword">media</span> (max-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'xs'</span>)) {
-  <span class="hljs-selector-class">.mediagallery__item_container</span> {
-    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-  }
-}
-
-@<span class="hljs-keyword">media</span> (min-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'xs'</span>)) and (max-width: ecl-breakpoint-max(xs)) {
-  <span class="hljs-selector-class">.mediagallery__item</span> {
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-down(sm) {
+  <span class="hljs-selector-class">.ecl-gallery__item</span> {
     <span class="hljs-attribute">float</span>: left;
     <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
   }
-
-  <span class="hljs-selector-class">.mediagallery__item</span>:nth-of-type(3) <span class="hljs-selector-class">.mediagallery__item_container</span> {
-    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
-  }
 }
 
-@<span class="hljs-keyword">media</span> (max-width: ecl-breakpoint-max(sm)) {
-  <span class="hljs-selector-class">.mediagallery</span> {
-    <span class="hljs-selector-class">.row</span> {
-      <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">20px</span>;
-    }
-  }
-
-  <span class="hljs-selector-class">.mediagallery__item</span> {
-    <span class="hljs-attribute">height</span>: auto;
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-between(sm, md) {
+  <span class="hljs-selector-class">.ecl-gallery__item</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
   }
 }
 </pre>
@@ -539,15 +656,15 @@ Gallery
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-galleries/_galleries.scss"><span>/components/raw/ecl-galleries/_galleries.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-galleries/ecl-galleries.scss"><span>/components/raw/ecl-galleries/ecl-galleries.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-galleries/_galleries.scss</span>
+                    <span class="Meta-value">framework/components/ecl-galleries/ecl-galleries.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.7 KB</span>
+                    <span class="Meta-value">1.9 KB</span>
                 </li>
             </ul>
         </div>
@@ -571,7 +688,7 @@ Gallery
                 
                     <span>
                 
-                    <span>molecule</span>
+                    <span>organism</span>
                 
             </span>
         </li>
@@ -2783,7 +2900,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3562,7 +3679,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4520,7 +4637,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.2"></script>
 
 
 

@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.2" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.2" type="text/css">
 
 
 <title>Accordions | Europa Component Library</title>
@@ -325,15 +325,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-b7e9fa4e6558d2e2796b23ec32f95306">_accordions.scss</option>
+                <option value="file-4bc1d3ac3e5885f6e418b4949f1cd4c3">_accordions.scss</option>
                 
-                <option value="file-29938c01a50cf3bf7df39cf52ac7d750">accordions.js</option>
+                <option value="file-8b948c5c467426b39b9dae0a4fb4b439">accordions.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-b7e9fa4e6558d2e2796b23ec32f95306" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-4bc1d3ac3e5885f6e418b4949f1cd4c3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -408,7 +408,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-29938c01a50cf3bf7df39cf52ac7d750" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-8b948c5c467426b39b9dae0a4fb4b439" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -418,7 +418,7 @@
                             <code class="Code Code--lang-JavaScript FileBrowser-code">
                                 <pre><span class="hljs-comment">// Heavily inspired by the accordion component from https://github.com/frend/frend.co</span>
 
-<span class="hljs-keyword">import</span> { queryAll } <span class="hljs-keyword">from</span> <span class="hljs-string">'../../base/helpers/dom'</span>;
+<span class="hljs-keyword">import</span> { queryAll } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ec-europa/ecl-base/helpers/dom'</span>;
 
 <span class="hljs-comment">/**
  * @param {object} options Object containing configuration overrides
@@ -510,18 +510,20 @@
         <span class="hljs-keyword">break</span>;
       <span class="hljs-keyword">case</span> <span class="hljs-number">37</span>:
       <span class="hljs-keyword">case</span> <span class="hljs-number">38</span>: {
-        <span class="hljs-keyword">const</span> previousHeaderIndex = currentHeaderIndex === <span class="hljs-number">0</span>
-          ? theseHeaders.length - <span class="hljs-number">1</span>
-          : currentHeaderIndex - <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">const</span> previousHeaderIndex =
+          currentHeaderIndex === <span class="hljs-number">0</span>
+            ? theseHeaders.length - <span class="hljs-number">1</span>
+            : currentHeaderIndex - <span class="hljs-number">1</span>;
         giveHeaderFocus(theseHeaders, previousHeaderIndex);
         e.preventDefault();
         <span class="hljs-keyword">break</span>;
       }
       <span class="hljs-keyword">case</span> <span class="hljs-number">39</span>:
       <span class="hljs-keyword">case</span> <span class="hljs-number">40</span>: {
-        <span class="hljs-keyword">const</span> nextHeaderIndex = currentHeaderIndex &lt; theseHeaders.length - <span class="hljs-number">1</span>
-          ? currentHeaderIndex + <span class="hljs-number">1</span>
-          : <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">const</span> nextHeaderIndex =
+          currentHeaderIndex &lt; theseHeaders.length - <span class="hljs-number">1</span>
+            ? currentHeaderIndex + <span class="hljs-number">1</span>
+            : <span class="hljs-number">0</span>;
         giveHeaderFocus(theseHeaders, nextHeaderIndex);
         e.preventDefault();
         <span class="hljs-keyword">break</span>;
@@ -2830,7 +2832,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3609,7 +3611,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4567,7 +4569,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.2"></script>
 
 
 

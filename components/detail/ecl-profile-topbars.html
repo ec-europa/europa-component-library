@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.2" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.2" type="text/css">
 
 
 <title>Profile topbars | Europa Component Library</title>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,8 +135,7 @@
               <div class="Prose">
                 
                 <h1 id="profile-topbar">Profile topbar</h1>
-<p>Defines the profile topbar component
-TODO: this component’s behaviour needs to be rewritten without jQuery.</p>
+<p>Defines the profile topbar component.</p>
 
                 
               </div>
@@ -213,36 +212,70 @@ TODO: this component’s behaviour needs to be rewritten without jQuery.</p>
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-8a9ecc8bb9f291a601f722d73660403e-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"profile_topbar"</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Component interface:
+    - `extraClass` - classes to add to root component
+    - `extraAttributes` - additional attributes to add to root component
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section__group row"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-2 profile_topbar__image"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/160x160"</span>/&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    - `context_nav` - data for @ec-europa/ecl-context-navs component composition
 
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-10 profile_topbar__column"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav group-context-nav field-group-context_nav"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>
-                        <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__label"</span>&gt;</span>Department<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__items"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Trade<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>European Anti-Fraud Office<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    - `profile` data contains profile-specific information
+      - `image` - data for @ec-europa/ecl-images component composition
+      - `expandable` - data related to the expandable part of the component
+        - `button` - data for @ec-europa/ecl-buttons component composition
+        - `expandable_body` - accepts `extraAttributes` for the expandable
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-collapse"</span> <span class="hljs-attr">data-target</span>=<span class="hljs-string">"#collapse"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"toggling-text"</span>&gt;</span>Show<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--down ecl-u-color-primary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    - body (block): content in the expandable area (default: lorem ipsum text)
+#}</span><span class="xml">
+
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-profile-topbar' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-2"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-images' with profile.image %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-10 ecl-profile-topbar__pane"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-context-navs' with context_nav %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with profile.expandable.button %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"profile_topbar__expander"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
-            Expander content
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>
+    </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> profile.expandable.expandable_body.extraAttributes is defined %}</span><span class="xml"><span class="hljs-tag">
+      </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in profile.expandable.expandable_body.extraAttributes %}</span><span class="xml"><span class="hljs-tag">
+        </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> <span class="hljs-name">attribute</span> = attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml"><span class="hljs-tag">
+        </span></span><span class="hljs-template-variable">{{ <span class="hljs-name">attribute</span> }}</span><span class="xml"><span class="hljs-tag">
+      </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag">
+    </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">
+  &gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> body %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -252,7 +285,74 @@ TODO: this component’s behaviour needs to be rewritten without jQuery.</p>
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"_demo"</span>: {
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });"</span>
+  },
+  <span class="hljs-attr">"profile"</span>: {
+    <span class="hljs-attr">"image"</span>: {
+      <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://lorempixel.com/output/business-q-c-160-160-10.jpg"</span>,
+      <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example profile image"</span>
+    },
+    <span class="hljs-attr">"expandable"</span>: {
+      <span class="hljs-attr">"button"</span>: {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"See details"</span>,
+        <span class="hljs-attr">"extraClass"</span>: <span class="hljs-string">"ecl-expandable__button ecl-profile-topbar__pane-button"</span>,
+        <span class="hljs-attr">"extraAttributes"</span>: [
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aria-controls"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ecl-profile-topbar__expandable-1"</span>
+          },
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aria-expanded"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"false"</span>
+          },
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"id"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ecl-profile-topbar__expandable-button-1"</span>
+          },
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"type"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"button"</span>
+          }
+        ]
+      },
+      <span class="hljs-attr">"expandable_body"</span>: {
+        <span class="hljs-attr">"extraAttributes"</span>: [
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aria-hidden"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"true"</span>
+          },
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aria-labelledby"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ecl-profile-topbar__expandable-button-1"</span>
+          },
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"id"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ecl-profile-topbar__expandable-1"</span>
+          },
+          {
+            <span class="hljs-attr">"name"</span>: <span class="hljs-string">"class"</span>,
+            <span class="hljs-attr">"value"</span>: <span class="hljs-string">"ecl-profile-topbar__collapsible-area"</span>
+          }
+        ]
+      }
+    }
+  },
+  <span class="hljs-attr">"context_nav"</span>: {
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Department"</span>,
+    <span class="hljs-attr">"items"</span>: [
+      {
+        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Trade"</span>
+      },
+      {
+        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">" European Anti-Fraud Office"</span>
+      }
+    ]
+  }
+}</pre>
             
         
     </code>
@@ -263,33 +363,34 @@ TODO: this component’s behaviour needs to be rewritten without jQuery.</p>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-8a9ecc8bb9f291a601f722d73660403e-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"profile_topbar"</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"section__group row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-2 profile_topbar__image"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/160x160"</span> /&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-profile-topbar"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-2"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example profile image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://lorempixel.com/output/business-q-c-160-160-10.jpg"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-10 profile_topbar__column"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav group-context-nav field-group-context_nav"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__label"</span>&gt;</span>Department<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-10 ecl-profile-topbar__pane"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__label"</span>&gt;</span>Department<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__items"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Trade<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>European Anti-Fraud Office<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Trade<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span> European Anti-Fraud Office<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-collapse"</span> <span class="hljs-attr">data-target</span>=<span class="hljs-string">"#collapse"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"toggling-text"</span>&gt;</span>Show<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--down ecl-u-color-primary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button ecl-profile-topbar__pane-button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"ecl-profile-topbar__expandable-1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-profile-topbar__expandable-button-1"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>See details<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"profile_topbar__expander"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span>
-      Expander content
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"ecl-profile-topbar__expandable-button-1"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-profile-topbar__expandable-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-profile-topbar__collapsible-area"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel
+        congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
@@ -308,15 +409,13 @@ TODO: this component’s behaviour needs to be rewritten without jQuery.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-7a24ce421b2ad75d9c9e86ca76b0c79c">_profile-topbars.scss</option>
-                
-                <option value="file-5bf38b8a2d90e58dcdc87d21f5f82eeb">profile-topbars.js</option>
+                <option value="file-574835ea3a3ea8b2bbc1d14d511ab362">ecl-profile-topbars.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-7a24ce421b2ad75d9c9e86ca76b0c79c" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-574835ea3a3ea8b2bbc1d14d511ab362" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -324,26 +423,29 @@ TODO: this component’s behaviour needs to be rewritten without jQuery.</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Profile topbar
-Defines the profile topbar component
-Markup: html/profile_topbar.html
-Style guide profile_topbar
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * ECL Profile Topbar
+ * @define profile-topbar
+ */</span>
 
-<span class="hljs-selector-class">.profile_topbar__column</span> {
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">160px</span>;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-
-  <span class="hljs-selector-class">.btn-collapse</span> {
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  }
+<span class="hljs-selector-class">.ecl-profile-topbar</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
 }
 
-<span class="hljs-selector-class">.profile_topbar__expander</span> {
+<span class="hljs-selector-class">.ecl-profile-topbar__pane</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">160px</span>;
+  <span class="hljs-attribute">position</span>: relative;
+}
+
+<span class="hljs-selector-class">.ecl-profile-topbar__pane-button</span> {
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">position</span>: absolute;
+}
+
+<span class="hljs-selector-class">.ecl-profile-topbar__collapsible-area</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
   <span class="hljs-attribute">overflow</span>: hidden;
 }
@@ -355,53 +457,15 @@ Style guide profile_topbar
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-profile-topbars/_profile-topbars.scss"><span>/components/raw/ecl-profile-topbars/_profile-topbars.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-profile-topbars/ecl-profile-topbars.scss"><span>/components/raw/ecl-profile-topbars/ecl-profile-topbars.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-profile-topbars/_profile-topbars.scss</span>
+                    <span class="Meta-value">framework/components/ecl-profile-topbars/ecl-profile-topbars.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">394 Bytes</span>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="FileBrowser-item" id="file-5bf38b8a2d90e58dcdc87d21f5f82eeb" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-comment">/**
- * @file
- * Breadcrumb related behaviors.
- */</span>
-
-<span class="hljs-comment">// eslint-disable-next-line import/prefer-default-export</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">profileTopbars</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'This script needs to be rewritten without jQuery'</span>);
-}
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-profile-topbars/profile-topbars.js"><span>/components/raw/ecl-profile-topbars/profile-topbars.js</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-profile-topbars/profile-topbars.js</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">214 Bytes</span>
+                    <span class="Meta-value">462 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -2637,7 +2701,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3416,7 +3480,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4374,7 +4438,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.2"></script>
 
 
 
