@@ -1,16 +1,46 @@
 {#
+  - extraAttributes: [{
+      name: attribute name
+      value: attribute value
+    }]
+
+    Note that the `role="dialog"` attribute is added by default to extraAttributes set.
+
+  - extraClass: additional classes to add to the component. 'ecl-dialog' is added by default.
+
   - dialog_title: {
     value: the title of the dialog (default: '')
     id: the id to match an `aria-labelledby` attribute (default: '')
-    classes: classes to apply to the title (default: 'ecl-sr-only')
+    classes: classes to apply to dialog title field (default: 'ecl-sr-only')
   }
+
+  - dialog_description: {
+    value: the description of the dialog (default: '')
+    id: the id to match an `aria-describedby` attribute (default: '')
+    classes: classes to apply to dialog description field (default: 'ecl-sr-only')
+  }
+
   - body (block): content of the dialog (default: lorem ipsum text)
+
+  - dismiss: {
+    label: the value for the button label to close the dialog window (default: 'Dismiss this dialog window')
+  }
 #}
 
 {% set dialog_title = {
   value: dialog_title.value|default(''),
   id: dialog_title.id|default(''),
   classes: dialog_title.classes|default('ecl-sr-only'),
+} %}
+
+{% set dialog_description = {
+  value: dialog_description.value|default(''),
+  id: dialog_description.id|default(''),
+  classes: dialog_description.classes|default('ecl-sr-only'),
+} %}
+
+{% set dismiss = {
+  label: dimiss.label|default('Dismiss this dialog window'),
 } %}
 
 {# Internal properties #}

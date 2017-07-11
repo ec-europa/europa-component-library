@@ -15,10 +15,9 @@ module.exports = {
     dialog_description: {
       value: 'Example description',
       id: 'dialog-description',
-      classes: 'ecl-sr-only',
     },
     dismiss: {
-      label: 'Close navigation',
+      label: 'Dismiss this dialog window',
     },
   },
 };
