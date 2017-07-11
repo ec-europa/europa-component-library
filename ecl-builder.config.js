@@ -57,5 +57,9 @@ module.exports = {
       from: path.resolve(__dirname, 'framework/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
+    {
+      from: path.resolve(__dirname, 'framework/scripts'),
+      to: path.resolve(__dirname, outputFolder, 'scripts'),
+    },
   ],
 };

@@ -1,0 +1,35 @@
+<div class="ecl-row">
+  <div class="ecl-col-sm-3">
+    <nav class="ecl-navigation-inpage">
+      <div class="ecl-navigation-inpage__title">{{ title }}</div>
+      <ul class="ecl-navigation-inpage__list">
+        {% for link in links %}
+        {% set activeClass = link.isActive is defined and link.isActive == true? ' ecl-navigation-inpage__link--is-active' : '' %}
+        <li class="ecl-navigation-inpage__item">
+          <a class="ecl-navigation-inpage__link{{ activeClass }} ecl-link" href="{{ link.href }}">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+
+  <div class="ecl-col-sm-9">
+    <section id="inline-nav-1">
+      <h2 class="ecl-heading ecl-heading--h2">Heading 1</h2>
+      <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dui ac lacus interdum eleifend non ut nisl. Duis arcu turpis, tristique vitae fringilla feugiat, tincidunt ac enim. Duis tincidunt purus quis metus finibus, ut ultricies nibh mattis. Ut ultricies placerat leo ac egestas. Suspendisse fringilla augue quam. Proin velit ipsum, bibendum ut commodo non, mattis at nisi. Sed massa eros, malesuada eu ipsum non, euismod finibus massa. Etiam mi ex, fringilla quis urna non, dignissim vulputate tortor. Vivamus congue sem vel ipsum posuere vulputate. Praesent ac vestibulum sem, sed tristique ligula. Praesent non eros suscipit, sagittis quam in, commodo felis.</p>
+      <p class="ecl-paragraph">Donec egestas fermentum nisl vel aliquet. Pellentesque dui massa, elementum sed laoreet at, blandit sit amet magna. Praesent ac lobortis turpis. Maecenas sem est, consequat in erat sit amet, malesuada cursus arcu. Vestibulum molestie massa nec elit luctus euismod. Nullam nec diam et augue mattis mollis. Phasellus efficitur id velit eu vestibulum. Donec ullamcorper semper porttitor. Vivamus et sagittis urna. Nunc sit amet lectus nec magna cursus vehicula. In elementum pretium pellentesque. Vivamus est metus, hendrerit eget urna venenatis, pellentesque cursus lacus. Etiam tempus justo eget velit ultrices, in tempor arcu sodales.</p>
+    </section>
+
+    <section id="inline-nav-2">
+      <h2 class="ecl-heading ecl-heading--h2">Heading 2</h2>
+      <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dui ac lacus interdum eleifend non ut nisl. Duis arcu turpis, tristique vitae fringilla feugiat, tincidunt ac enim. Duis tincidunt purus quis metus finibus, ut ultricies nibh mattis. Ut ultricies placerat leo ac egestas. Suspendisse fringilla augue quam. Proin velit ipsum, bibendum ut commodo non, mattis at nisi. Sed massa eros, malesuada eu ipsum non, euismod finibus massa. Etiam mi ex, fringilla quis urna non, dignissim vulputate tortor. Vivamus congue sem vel ipsum posuere vulputate. Praesent ac vestibulum sem, sed tristique ligula. Praesent non eros suscipit, sagittis quam in, commodo felis.</p>
+      <p class="ecl-paragraph">Donec egestas fermentum nisl vel aliquet. Pellentesque dui massa, elementum sed laoreet at, blandit sit amet magna. Praesent ac lobortis turpis. Maecenas sem est, consequat in erat sit amet, malesuada cursus arcu. Vestibulum molestie massa nec elit luctus euismod. Nullam nec diam et augue mattis mollis. Phasellus efficitur id velit eu vestibulum. Donec ullamcorper semper porttitor. Vivamus et sagittis urna. Nunc sit amet lectus nec magna cursus vehicula. In elementum pretium pellentesque. Vivamus est metus, hendrerit eget urna venenatis, pellentesque cursus lacus. Etiam tempus justo eget velit ultrices, in tempor arcu sodales.</p>
+    </section>
+
+    <section id="inline-nav-3">
+      <h2 class="ecl-heading ecl-heading--h2">Heading 3</h2>
+      <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dui ac lacus interdum eleifend non ut nisl. Duis arcu turpis, tristique vitae fringilla feugiat, tincidunt ac enim. Duis tincidunt purus quis metus finibus, ut ultricies nibh mattis. Ut ultricies placerat leo ac egestas. Suspendisse fringilla augue quam. Proin velit ipsum, bibendum ut commodo non, mattis at nisi. Sed massa eros, malesuada eu ipsum non, euismod finibus massa. Etiam mi ex, fringilla quis urna non, dignissim vulputate tortor. Vivamus congue sem vel ipsum posuere vulputate. Praesent ac vestibulum sem, sed tristique ligula. Praesent non eros suscipit, sagittis quam in, commodo felis.</p>
+      <p class="ecl-paragraph">Donec egestas fermentum nisl vel aliquet. Pellentesque dui massa, elementum sed laoreet at, blandit sit amet magna. Praesent ac lobortis turpis. Maecenas sem est, consequat in erat sit amet, malesuada cursus arcu. Vestibulum molestie massa nec elit luctus euismod. Nullam nec diam et augue mattis mollis. Phasellus efficitur id velit eu vestibulum. Donec ullamcorper semper porttitor. Vivamus et sagittis urna. Nunc sit amet lectus nec magna cursus vehicula. In elementum pretium pellentesque. Vivamus est metus, hendrerit eget urna venenatis, pellentesque cursus lacus. Etiam tempus justo eget velit ultrices, in tempor arcu sodales.</p>
+    </section>
+  </div>
+</div>

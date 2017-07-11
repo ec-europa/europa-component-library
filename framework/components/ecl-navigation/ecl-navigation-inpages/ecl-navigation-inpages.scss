@@ -1,0 +1,267 @@
+/*
+Inpage navigation
+
+Floating menu containing links to headings in a long page.
+Note: Style guide implementation is not complete. TODO: Refactor Drupal js to be
+technology agnostic.
+
+Markup: html/inpage-nav.html
+
+Style guide inpagenav
+*/
+
+/* stylelint-disable */
+.inpage-nav__wrapper {
+  @include ecl-hidden-print();
+
+  margin-bottom: 1.667em;
+
+  &.affix,
+  &.affix-top {
+    position: relative;
+  }
+}
+
+.inpage-nav {
+  .inpage-nav__list {
+    margin: 0 0 0 -11px !important;
+    padding-left: 0 !important;
+    list-style: none;
+
+    li {
+      &.active {
+        .inpage_nav__list-item {
+          background-color: map-get($ecl-colors, 'grey-10');
+          border-color: $ecl-color-primary;
+        }
+      }
+    }
+  }
+
+  .inpage_nav__list-item {
+    display: block;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 8px;
+    color: #000;
+    font-size: map-get($ecl-font-size, 's');
+    font-weight: bold;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+
+    &:hover {
+      background: none;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      background-color: map-get($ecl-colors, 'yellow-100') !important;
+      outline: none;
+      text-decoration: underline;
+    }
+  }
+}
+
+.inpage-nav__navbar {
+  background-color: #fff;
+  color: #fff;
+
+  .inpage-nav__current-wrapper {
+    overflow: hidden;
+  }
+
+  .inpage-nav__current,
+  .inpage-nav__help {
+    padding-bottom: 0;
+  }
+
+  .inpage-nav__current {
+    display: block;
+    width: 100%;
+    padding-top: 1em;
+    overflow: hidden;
+    font-size: map-get($ecl-font-size, 'm');
+    font-weight: bold;
+    color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  .inpage-nav__help {
+    display: none;
+    padding-top: 1.35em;
+    background-color: map-get($ecl-colors, 'grey-10');
+    font-size: map-get($ecl-font-size, 'xs');
+    color: map-get($ecl-colors, 'grey-100');
+    text-transform: uppercase;
+  }
+
+  .inpage-nav__title {
+    display: block;
+    padding: 1em;
+    line-height: 1;
+    font-size: map-get($ecl-font-size, 'm');
+    font-weight: bold;
+  }
+
+  .inpage-nav__toggle {
+    @extend .btn;
+
+    margin: 0;
+    padding: 1em;
+    background-color: map-get($ecl-colors, 'blue-120');
+    border-color: map-get($ecl-colors, 'blue-120');
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: map-get($ecl-colors, 'blue-120');
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .inpage-nav__icon-arrow {
+    display: block;
+    margin: 5px 4px;
+    font-size: 10px;
+    color: #fff;
+
+    transition: all 0.3s ease 0s;
+
+    transform-origin: 50% 50%;
+
+    &::before {
+      margin-right: 0;
+    }
+  }
+
+  .inpage-nav__close-text {
+    display: none;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  .inpage-nav__header {
+    margin: 0;
+  }
+
+  .inpage-nav__container {
+    width: auto;
+    padding: 0;
+    background-color: map-get($ecl-colors, 'blue-100');
+
+    .navbar-collapse {
+      max-height: none;
+    }
+  }
+
+  .inpage-nav__list--navbar {
+    padding: 0 15px;
+
+    li {
+      &.active {
+        .inpage_nav__list-item {
+          color: inherit;
+        }
+      }
+
+      .inpage_nav__list-item {
+        padding: 0.8em 0 0.8em 1em;
+        font-size: map-get($ecl-font-size, 's');
+        color: #fff;
+        border-top: 1px solid map-get($ecl-colors, 'blue-120');
+
+        &:hover,
+        &:focus {
+          background: none;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.inpage-nav__navbar-wrapper {
+  display: none;
+
+  &.is-active {
+    display: inherit;
+  }
+
+  &.is-collapsed,
+  &.is-collapsing {
+    .inpage-nav__navbar {
+      height: 100%;
+    }
+
+    .inpage-nav__help,
+    .inpage-nav__close-text {
+      display: block;
+    }
+
+    .inpage-nav__current {
+      display: none;
+    }
+
+    .inpage-nav__header {
+      background-color: map-get($ecl-colors, 'grey-10');
+      font-weight: normal;
+    }
+
+    .inpage-nav__toggle {
+      background-color: map-get($ecl-colors, 'grey-50');
+      border-color: map-get($ecl-colors, 'grey-50');
+
+      .inpage-nav__icon-arrow {
+        color: map-get($ecl-colors, 'grey-100');
+
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.inpage-nav__block-title {
+  display: inherit;
+  font-size: 1rem;
+  font-weight: normal;
+  color: map-get($ecl-colors, 'grey-100');
+  text-transform: uppercase;
+}
+
+.is-inpage-nav-open {
+  overflow: hidden;
+
+  .inpage-nav__navbar {
+    overflow: auto;
+  }
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .inpage-nav__wrapper {
+    &.affix,
+    &.affix-top {
+      top: 0;
+    }
+
+    &.affix {
+      position: fixed;
+      top: 0;
+      padding-top: 30px;
+    }
+
+    &.affix-bottom {
+      position: absolute;
+    }
+  }
+
+  .inpage-nav__navbar-wrapper.is-active {
+    display: none;
+  }
+}
