@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.7.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.7.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
 
 
 <title>Site switchers: Footer | Europa Component Library</title>
@@ -120,7 +120,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -135,7 +135,27 @@
               <div class="Prose">
                 
                 <h1 id="site-switcher">Site switcher</h1>
-<p>Helps the user choose between political and informational websites.</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Users need a way to easily navigate between the European Commission’s two sites; ‘Commission and its priorities’ and ‘Policies, information and services’. The solution is a site switcher - two prominent buttons that allow for navigation between the homepages of the two sites.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>on every page of every Commission website.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Site switcher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transformed sites + Improved sites</td>
+</tr>
+<tr>
+<td>Mandatory component</td>
+</tr>
+</tbody>
+</table>
 
                 
               </div>
@@ -212,10 +232,40 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-a355fd3d0bc383892f56bea8e4c8bef3-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher </span></span></span><span class="hljs-template-variable">{{modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher__list"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Commission and its priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher__option is-selected"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Policies, information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - variant: can be '','header','footer' (default: '')
+  - political:  {
+    href: target of the link (default: '')
+    label: label of the link (default: '')
+  }
+  - info:  {
+    href: target of the link (default: '')
+    label: label of the link (default: '')
+  }
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-site-switcher' ~ (variant != '' ? ' ecl-site-switcher--' ~ variant: '') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__list"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-site-switcher__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ political.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ political.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__option ecl-site-switcher__option--is-selected"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-site-switcher__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ info.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ info.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
@@ -227,7 +277,15 @@
         
             
             <pre>{
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"site-switcher--footer"</span>
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"footer"</span>,
+  <span class="hljs-attr">"political"</span>: {
+    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Commission and its priorities"</span>
+  },
+  <span class="hljs-attr">"info"</span>: {
+    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Policies, information and services"</span>
+  }
 }</pre>
             
         
@@ -239,10 +297,10 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-a355fd3d0bc383892f56bea8e4c8bef3-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher site-switcher--footer"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher__list"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Commission and its priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site-switcher__option is-selected"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Policies, information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher ecl-site-switcher--footer"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__list"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-site-switcher__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Commission and its priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-switcher__option ecl-site-switcher__option--is-selected"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-site-switcher__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Policies, information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
@@ -260,13 +318,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-aacf51a82c1abbf89df5d5c0ee1e8e69">_site-switchers.scss</option>
+                <option value="file-e1d665848d7420b7958b6dada0406c3a">ecl-site-switchers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-aacf51a82c1abbf89df5d5c0ee1e8e69" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-e1d665848d7420b7958b6dada0406c3a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -274,131 +332,103 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Site switcher
-
-Helps the user choose between political and informational websites.
-
-Markup: html/site-switcher.html
-
-.site-switcher--header - Header modifier
-.site-switcher--footer - Footer modifier
-
-Style guide: siteswitcher
+                                <pre><span class="hljs-comment">/**
+* Site switcher component
+* @define site-switcher
 */</span>
 
-<span class="hljs-selector-class">.site-switcher</span> {
+<span class="hljs-selector-class">.ecl-site-switcher</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
-  <span class="hljs-attribute">display</span>: block;
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+  <span class="hljs-attribute">display</span>: block;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 
-<span class="hljs-selector-class">.site-switcher__list</span> {
+<span class="hljs-selector-class">.ecl-site-switcher__link</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.3</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">text-decoration</span>: none;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+  &amp;::after,
+  &amp;--is-external::after {
+    <span class="hljs-attribute">content</span>: none <span class="hljs-meta">!important</span>;
+  }
+
+  &amp;:hover,
+  &amp;:focus {
+    <span class="hljs-attribute">text-decoration</span>: underline;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-site-switcher__list</span> {
   <span class="hljs-attribute">list-style</span>: none;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
 }
 
-<span class="hljs-selector-class">.site-switcher__option</span> {
+<span class="hljs-selector-class">.ecl-site-switcher__option</span> {
   <span class="hljs-attribute">display</span>: inline-block;
   <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
   <span class="hljs-attribute">text-align</span>: center;
   <span class="hljs-attribute">vertical-align</span>: middle;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
+}
 
-  <span class="hljs-selector-tag">a</span> {
-    <span class="hljs-attribute">text-decoration</span>: none;
+<span class="hljs-selector-class">.ecl-site-switcher__option--is-selected</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
 
-    &amp;:hover,
-    &amp;:focus {
-      <span class="hljs-attribute">text-decoration</span>: underline;
-    }
-  }
-
-  &amp; &gt; <span class="hljs-selector-tag">a</span> {
-    <span class="hljs-attribute">display</span>: block;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.5em</span> <span class="hljs-number">1.667em</span>;
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.3</span>;
-    <span class="hljs-attribute">font-weight</span>: bold;
-
-    &amp;::after,
-    &amp;<span class="hljs-selector-class">.is-external</span>::after {
-      <span class="hljs-attribute">content</span>: none <span class="hljs-meta">!important</span>;
-    }
-  }
-
-  &amp;<span class="hljs-selector-class">.is-selected</span> {
-    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
-    <span class="hljs-attribute">border-left</span>: none;
-
-    &amp; &gt; <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    }
+  <span class="hljs-selector-class">.ecl-site-switcher__link</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   }
 }
 
-<span class="hljs-selector-class">.site-switcher--header</span> {
-  <span class="hljs-selector-class">.site-switcher__list</span> {
-    &amp;:first-child {
-      <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-    }
-  }
-
-  <span class="hljs-selector-class">.site-switcher__option</span> {
-    <span class="hljs-attribute">position</span>: relative;
-
-    &amp;<span class="hljs-selector-class">.is-selected</span>::after {
-      <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span> <span class="hljs-meta">!important</span>;
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">top</span>: <span class="hljs-number">95%</span>;
-      <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">10px</span>;
-      <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid rgba(<span class="hljs-number">0</span>, <span class="hljs-number">68</span>, <span class="hljs-number">148</span>, <span class="hljs-number">0</span>);
-      <span class="hljs-attribute">border-top-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
-      <span class="hljs-attribute">pointer-events</span>: none;
-    }
-  }
-}
-
-<span class="hljs-selector-class">.site-switcher--footer</span> {
+<span class="hljs-selector-class">.ecl-site-switcher--header</span>,
+<span class="hljs-selector-class">.ecl-site-switcher--footer</span> {
   <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+}
 
-  <span class="hljs-selector-class">.site-switcher__list</span> {
-    &amp;:first-child {
-      <span class="hljs-attribute">border-left</span>: none;
-    }
+<span class="hljs-selector-class">.ecl-site-switcher--footer</span> <span class="hljs-selector-class">.ecl-site-switcher__option</span>,
+<span class="hljs-selector-class">.ecl-site-switcher--header</span> <span class="hljs-selector-class">.ecl-site-switcher__option</span> {
+  <span class="hljs-attribute">position</span>: relative;
+
+  &amp;--is-selected::after {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid rgba(<span class="hljs-number">0</span>, <span class="hljs-number">68</span>, <span class="hljs-number">148</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">' '</span> <span class="hljs-meta">!important</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">10px</span>;
+    <span class="hljs-attribute">pointer-events</span>: none;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
   }
+}
 
-  <span class="hljs-selector-class">.site-switcher__option</span> {
-    <span class="hljs-attribute">position</span>: relative;
+<span class="hljs-selector-class">.ecl-site-switcher--header</span> <span class="hljs-selector-class">.ecl-site-switcher__option</span> {
+  &amp;--is-selected::after {
+    <span class="hljs-attribute">border-top-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">95%</span>;
+  }
+}
 
-    &amp;<span class="hljs-selector-class">.is-selected</span>::after {
-      <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span> <span class="hljs-meta">!important</span>;
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
-      <span class="hljs-attribute">bottom</span>: <span class="hljs-number">95%</span>;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">10px</span>;
-      <span class="hljs-attribute">border</span>: <span class="hljs-number">10px</span> solid rgba(<span class="hljs-number">0</span>, <span class="hljs-number">68</span>, <span class="hljs-number">148</span>, <span class="hljs-number">0</span>);
-      <span class="hljs-attribute">border-bottom-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
-      <span class="hljs-attribute">pointer-events</span>: none;
-    }
+<span class="hljs-selector-class">.ecl-site-switcher--footer</span> <span class="hljs-selector-class">.ecl-site-switcher__option</span> {
+  &amp;--is-selected::after {
+    <span class="hljs-attribute">border-bottom-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">95%</span>;
   }
 }
 
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-  <span class="hljs-selector-class">.site-switcher__option</span> {
+  <span class="hljs-selector-class">.ecl-site-switcher__option</span> {
     <span class="hljs-attribute">width</span>: auto;
   }
 
-  <span class="hljs-selector-class">.site-switcher--footer</span> {
-    <span class="hljs-selector-class">.site-switcher__list</span> {
+  <span class="hljs-selector-class">.ecl-site-switcher--footer</span> {
+    <span class="hljs-selector-class">.ecl-site-switcher__list</span> {
       <span class="hljs-attribute">float</span>: right;
     }
   }
@@ -411,15 +441,15 @@ Style guide: siteswitcher
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-site-switchers/_site-switchers.scss"><span>/components/raw/ecl-site-switchers/_site-switchers.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-site-switchers/ecl-site-switchers.scss"><span>/components/raw/ecl-site-switchers/ecl-site-switchers.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-site-switchers/_site-switchers.scss</span>
+                    <span class="Meta-value">framework/components/ecl-site-switchers/ecl-site-switchers.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.3 KB</span>
+                    <span class="Meta-value">1.9 KB</span>
                 </li>
             </ul>
         </div>
@@ -3682,7 +3712,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3709,7 +3739,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3733,7 +3763,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3757,7 +3787,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4333,41 +4363,41 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
     <div class="Frame-footer">
         <footer class="ecl-footer">
-    <div class="ecl-footer__site-corporate">
+    <div class="ecl-footers__site-corporate">
         <div class="ecl-container">
             <div class="ecl-row">
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
                             <a href="#">Commission and its priorities</a>
                         </li>
-                        <li class="ecl-footer__menu-item">
+                        <li class="ecl-footers__menu-item">
                             <a href="#">Policies information and services</a>
                         </li>
                     </ul>
                 </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
-                    <ul class="ecl-footer__menu ecl-list-inline">
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">Follow the European Commission</h4>
+                    <ul class="ecl-footers__menu ecl-list-inline">
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
                         </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
                         </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
                             <a href="#">Other social media</a>
                         </li>
                     </ul>
                 </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Union</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
                             <a class="ecl-link--external" href="#">EU institutions</a>
                         </li>
-                        <li class="ecl-footer__menu-item">
+                        <li class="ecl-footers__menu-item">
                             <a class="ecl-link--external" href="#">European Union</a>
                         </li>
                     </ul>
@@ -4375,27 +4405,27 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             </div>
         </div>
     </div>
-    <div class="ecl-footer__ec">
+    <div class="ecl-footers__ec">
         <div class="ecl-container">
             <div class="ecl-row">
                 <div class="ecl-col-sm">
-                    <ul class="ecl-list-inline ecl-footer__menu">
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                    <ul class="ecl-list-inline ecl-footers__menu">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
                         </li>
                     </ul>
@@ -4411,7 +4441,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.7.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
 
 
 
