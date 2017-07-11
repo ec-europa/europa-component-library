@@ -1,31 +1,65 @@
-<div class="profile_topbar">
+{#
+  Component interface:
+    - `extraClass` - classes to add to root component
+    - `extraAttributes` - additional attributes to add to root component
 
-    <div class="container">
-        <div class="section__group row">
-            <div class="col-md-2 profile_topbar__image">
-                <img src="http://placehold.it/160x160"/>
-            </div>
+    - `context_nav` - data for @ec-europa/ecl-context-navs component composition
 
-            <div class="col-md-10 profile_topbar__column">
-                <div class="context-nav group-context-nav field-group-context_nav"><span
-                        class="context-nav__label">Department</span>
-                    <div class="context-nav__items">
-                        <span class="context-nav__item"><a href="#">Trade</a></span>
-                        <span class="context-nav__item"><a href="#">European Anti-Fraud Office</a></span>
-                    </div>
-                </div>
+    - `profile` data contains profile-specific information
+      - `image` - data for @ec-europa/ecl-images component composition
+      - `expandable` - data related to the expandable part of the component
+        - `button` - data for @ec-europa/ecl-buttons component composition
+        - `expandable_body` - accepts `extraAttributes` for the expandable
 
-                <button class="btn btn-collapse" data-target="#collapse" data-toggle="collapse">
-                    <span class="toggling-text">Show</span>
-                    <span class="icon icon--down ecl-u-color-primary"></span>
-                </button>
-            </div>
-        </div>
+    - body (block): content in the expandable area (default: lorem ipsum text)
+#}
+
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-profile-topbar' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
+<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-col-md-2">
+        {% include '@ec-europa/ecl-images' with profile.image %}
+      </div>
+      <div class="ecl-col-md-10 ecl-profile-topbar__pane">
+        {% include '@ec-europa/ecl-context-navs' with context_nav %}
+        {% include '@ec-europa/ecl-buttons' with profile.expandable.button %}
+      </div>
     </div>
-
-    <div id="collapse" class="profile_topbar__expander">
-        <div class="container">
-            Expander content
-        </div>
-    </div>
+  </div>
+  <div
+    {% if profile.expandable.expandable_body.extraAttributes is defined %}
+      {% for attr in profile.expandable.expandable_body.extraAttributes %}
+        {% set attribute = attr.name ~ '="' ~ attr.value ~ '"' %}
+        {{ attribute }}
+      {% endfor %}
+    {% endif %}
+  >
+  <div class="ecl-container">
+    {% block body %}
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+    </p>
+    {% endblock %}
+  </div>
+</div>
 </div>
