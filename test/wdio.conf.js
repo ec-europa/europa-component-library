@@ -24,8 +24,13 @@ require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependen
 
 const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
 
-function getScreenshotName(basePath) {
+function getScreenshotName(relativePath) {
   return context => {
+    const testFile = context.test.file;
+    const basePath = testFile.substr(
+      0,
+      testFile.lastIndexOf(`test${path.sep}spec`)
+    );
     const testName = context.options.name;
     const browserVersion = parseInt(/\d+/.exec(context.browser.version)[0], 10);
     const browserName = context.browser.name;
@@ -33,6 +38,7 @@ function getScreenshotName(basePath) {
 
     return path.join(
       basePath,
+      relativePath,
       `${testName}/${platform}_${browserName}_v${browserVersion}.png`
     );
   };
@@ -70,7 +76,7 @@ if (!process.connected) {
 }
 
 const specs = Object.keys(updatedPackages).map(p =>
-  path.resolve(updatedPackages[p].location, 'test/*.wdio.js')
+  path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
 );
 
 exports.config = {
@@ -200,15 +206,9 @@ exports.config = {
   // Visual regression config
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getScreenshotName(
-        path.resolve(__dirname, './screenshots/reference')
-      ),
-      screenshotName: getScreenshotName(
-        path.resolve(__dirname, './screenshots/captured')
-      ),
-      diffName: getScreenshotName(
-        path.resolve(__dirname, './screenshots/diff')
-      ),
+      referenceName: getScreenshotName('test/spec/screenshots/reference'),
+      screenshotName: getScreenshotName('test/spec/screenshots/captured'),
+      diffName: getScreenshotName('test/spec/screenshots/diff'),
       misMatchTolerance: 0.02,
     }),
   },
