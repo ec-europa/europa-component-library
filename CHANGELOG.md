@@ -1,5 +1,61 @@
 # Changelog
 
+## 0.10.0 (2017-07-11)
+
+### :rocket: New Feature
+
+- [#241](https://github.com/ec-europa/europa-component-library/pull/241) feat(site-switcher): upgrade --INNO-674. ([@degliwe](https://github.com/degliwe))
+- [#247](https://github.com/ec-europa/europa-component-library/pull/247) feat(gallery): upgrade component - INNO-576. ([@kalinchernev](https://github.com/kalinchernev))
+
+### :boom: Breaking Change
+
+- [#237](https://github.com/ec-europa/europa-component-library/pull/237) feat(site-header): add documentation, rename variant --INNO-538. ([@degliwe](https://github.com/degliwe))
+- [#234](https://github.com/ec-europa/europa-component-library/pull/234) feat(headers): rename and update doc --INNO-662. ([@degliwe](https://github.com/degliwe))
+
+### :bug: Bug Fix
+
+- [#264](https://github.com/ec-europa/europa-component-library/pull/264) fix(dependencies): handle JS dependencies the right way - INNO-687. ([@yhuard](https://github.com/yhuard))
+
+### :nail_care: Enhancement
+
+- [#238](https://github.com/ec-europa/europa-component-library/pull/238) feat(profile-topbar): upgrade component - INNO-586. ([@kalinchernev](https://github.com/kalinchernev))
+- [#262](https://github.com/ec-europa/europa-component-library/pull/262) chore(markdown): apply code conventions to md files - INNO-686. ([@yhuard](https://github.com/yhuard))
+- [#246](https://github.com/ec-europa/europa-component-library/pull/246) feat(messages): make bullet visible --INNO-680. ([@degliwe](https://github.com/degliwe))
+- [#245](https://github.com/ec-europa/europa-component-library/pull/245) fix(inputs): fix form elements heights - INNO-676. ([@emeryro](https://github.com/emeryro))
+- [#242](https://github.com/ec-europa/europa-component-library/pull/242) feat(messages): replace <p> by <li> --INNO-678. ([@degliwe](https://github.com/degliwe))
+- [#240](https://github.com/ec-europa/europa-component-library/pull/240) refactor(file-upload): upgrade component - INNO-611. ([@emeryro](https://github.com/emeryro))
+- [#239](https://github.com/ec-europa/europa-component-library/pull/239) feat(icons): include new icons - INNO-575. ([@kalinchernev](https://github.com/kalinchernev))
+- [#237](https://github.com/ec-europa/europa-component-library/pull/237) feat(site-header): add documentation, rename variant --INNO-538. ([@degliwe](https://github.com/degliwe))
+- [#233](https://github.com/ec-europa/europa-component-library/pull/233) refactor(fields): upgrade component - INNO-609. ([@emeryro](https://github.com/emeryro))
+- [#235](https://github.com/ec-europa/europa-component-library/pull/235) refactor(featured-items): upgrade component - INNO-604. ([@emeryro](https://github.com/emeryro))
+- [#234](https://github.com/ec-europa/europa-component-library/pull/234) feat(headers): rename and update doc --INNO-662. ([@degliwe](https://github.com/degliwe))
+- [#223](https://github.com/ec-europa/europa-component-library/pull/223) feat(radios): upgrade radios - INNO-631. ([@yhuard](https://github.com/yhuard))
+
+### :memo: Documentation
+
+- [#241](https://github.com/ec-europa/europa-component-library/pull/241) feat(site-switcher): upgrade --INNO-674. ([@degliwe](https://github.com/degliwe))
+- [#261](https://github.com/ec-europa/europa-component-library/pull/261) docs(metas): update doc - INNO-660. ([@emeryro](https://github.com/emeryro))
+- [#252](https://github.com/ec-europa/europa-component-library/pull/252) feat(expandables): update doc - INNO-657. ([@emeryro](https://github.com/emeryro))
+- [#259](https://github.com/ec-europa/europa-component-library/pull/259) feat(headings): update doc - INNO-658. ([@emeryro](https://github.com/emeryro))
+- [#260](https://github.com/ec-europa/europa-component-library/pull/260) feat(lists): update doc - INNO-659. ([@emeryro](https://github.com/emeryro))
+- [#263](https://github.com/ec-europa/europa-component-library/pull/263) docs(labels): update doc - INNO-669. ([@emeryro](https://github.com/emeryro))
+- [#251](https://github.com/ec-europa/europa-component-library/pull/251) feat(rss-links): update doc - INNO-656. ([@emeryro](https://github.com/emeryro))
+- [#250](https://github.com/ec-europa/europa-component-library/pull/250) feat(messages): update doc - INNO-655. ([@emeryro](https://github.com/emeryro))
+- [#237](https://github.com/ec-europa/europa-component-library/pull/237) feat(site-header): add documentation, rename variant --INNO-538. ([@degliwe](https://github.com/degliwe))
+- [#234](https://github.com/ec-europa/europa-component-library/pull/234) feat(headers): rename and update doc --INNO-662. ([@degliwe](https://github.com/degliwe))
+
+### :house: Internal
+
+- [#258](https://github.com/ec-europa/europa-component-library/pull/258) chore(conventions): update deps, make test:coding-conventions mandatory - no issue. ([@yhuard](https://github.com/yhuard))
+- [#236](https://github.com/ec-europa/europa-component-library/pull/236) chore(deps): upgrades - noissue. ([@kalinchernev](https://github.com/kalinchernev))
+
+### Committers: 4
+
+- Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [emeryro](https://github.com/emeryro)
+- wesley deglise ([degliwe](https://github.com/degliwe))
+
 ## 0.9.0 (2017-06-30)
 
 ### :rocket: New Feature
