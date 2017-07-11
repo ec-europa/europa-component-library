@@ -2,7 +2,7 @@
  * File uploads related behaviors.
  */
 
-import { queryAll } from '../../../base/helpers/dom';
+import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 
 /**
  * @param {object} options Object containing configuration overrides
