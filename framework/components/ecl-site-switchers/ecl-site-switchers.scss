@@ -9,13 +9,14 @@
   background-color: map-get($ecl-colors, 'grey-5');
   display: block;
   font-size: map-get($ecl-font-size, 's');
+  margin: 0;
 }
 
 .ecl-site-switcher__link {
   display: block;
   font-weight: bold;
   line-height: 1.3;
-  padding: 0.5em 1.667em;
+  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'm');
   text-decoration: none;
   width: 100%;
 
