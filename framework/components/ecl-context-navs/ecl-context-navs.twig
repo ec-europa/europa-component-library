@@ -1,54 +1,27 @@
 <div class="context-nav">
-  <span class="context-nav__label">Label for contextual nav</span>
+  <span class="context-nav__label">{{ label }}</span>
+  {% if items is defined and items is iterable %}
   <div class="context-nav__items">
+    {% for item in items %}
     <span class="context-nav__item">
-      <a href="#">Item one</a>
+      <a href="{{ item.target }}">{{ item.title }}</a>
     </span>
-    <span class="context-nav__item">
-      <a href="#">Item two</a>
-    </span>
-    <span class="context-nav__item">
-      <a href="#">Item three</a>
-    </span>
-    <span class="context-nav__item">
-      <a href="#">Item four</a>
-    </span>
-  </div>
-</div>
-
-<div class="context-nav">
-  <span class="context-nav__label">Label for longer list</span>
-  <div class="context-nav__items">
-    <span class="context-nav__item">
-      <a href="#">Item one</a>
-    </span>
-    <span class="context-nav__item">
-      <a href="#">Item two</a>
-    </span>
-    <span class="context-nav__item">
-      <a href="#">Item three</a>
-    </span>
-    <span class="context-nav__item">
-      <a href="#">Item four</a>
-    </span>
+    {% endfor %}
+    {% endif %}
+    {% if items_hidden is defined and items_hidden is iterable %}
     <div class="context-nav__expander">
       <span class="context-nav__more-button">
-        More<span class="icon icon--down ecl-u-color-primary"></span>
+        {{ button_more }}
+        <span class="icon icon--down ecl-u-color-primary"></span>
       </span>
       <div class="context-nav__hidden">
+        {% for hidden_item in items_hidden %}
         <span class="context-nav__item">
-          <a href="#">Item five</a>
+          <a href="{{ hidden_item.target }}">{{ hidden_item.title }}</a>
         </span>
-        <span class="context-nav__item">
-          <a href="#">Item six</a>
-        </span>
-        <span class="context-nav__item">
-          <a href="#">Item seven</a>
-        </span>
-        <span class="context-nav__item">
-          <a href="#">Item eight</a>
-        </span>
+        {% endfor %}
       </div>
     </div>
+    {% endif %}
   </div>
 </div>
