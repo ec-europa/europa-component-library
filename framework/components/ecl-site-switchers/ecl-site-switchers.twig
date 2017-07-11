@@ -1,6 +1,36 @@
-<div class="site-switcher {{modifier}}">
-  <ul class="site-switcher__list">
-      <li class="site-switcher__option"><a href="#">Commission and its priorities</a></li>
-      <li class="site-switcher__option is-selected"><a href="#">Policies, information and services</a></li>
+{#
+  - variant: can be '','header','footer' (default: '')
+  - political:  {
+    href: target of the link (default: '')
+    label: label of the link (default: '')
+  }
+  - info:  {
+    href: target of the link (default: '')
+    label: label of the link (default: '')
+  }
+#}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-site-switcher' ~ (variant != '' ? ' ecl-site-switcher--' ~ variant: '') %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+  <ul class="ecl-site-switcher__list">
+      <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="{{ political.href }}">{{ political.label }}</a></li>
+      <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="{{ info.href }}">{{ info.label }}</a></li>
   </ul>
 </div>
