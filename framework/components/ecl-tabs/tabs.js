@@ -1,6 +1,6 @@
 // Heavily inspired by the tab component from https://github.com/frend/frend.co
 
-import { queryAll } from '../../base/helpers/dom';
+import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 
 /**
  * @param {object} options Object containing configuration overrides
