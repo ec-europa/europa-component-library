@@ -1,34 +1,57 @@
-<div class="form-group">
-  <div class="file-upload">
-    <div class="input-group">
-      <div class="form-control file-upload__input" tabindex="0">
-        <span class="file-upload__message">No file selected.</span>
-      </div>
-      <span class="input-group-btn">
-        <label class="btn btn-default file-upload__label" for="field-name-1" tabindex="1">Browse</label>
-        <button class="btn btn-primary" type="submit" tabindex="2">Upload</button>
-      </span>
-    </div>
-    <input type="file" id="field-name-1">
-    <p class="help-block">
-      Files must be less than <strong>120 KB</strong>.<br>
-      Allowed file types: <strong>txt pdf</strong>.
-    </p>
-  </div>
-</div>
+{#
+  - id: string; the id of the file input (default: 'default-id')
+  - name: string; the name of the file input (default: 'default-name')
+  - value: string; the name of the file selected (default: 'No file selected.')
+  - labelBrowse: string; the label of the Browse button (default: 'Browse')
+  - hasUpload: boolean; define if form upload has a "upload" button (default: true)
+  - labelUpload: string; the label of the Upload button (default: 'Upload')
+  - isDisabled: boolean; define if form upload is disabled (default: false)
+  - hasError: boolean; define if form upload has error (default: false)
+#}
 
-<h4>File upload error</h4>
+{% set id = id|default('default-id') %}
+{% set name = name|default('default-name') %}
+{% set value = value|default('No file selected.') %}
+{% set labelBrowse = labelBrowse|default('Browse') %}
+{% set hasUpload = hasUpload|default(true) %}
+{% set labelUpload = labelUpload|default('Upload') %}
+{% set isDisabled = isDisabled|default(false) %}
+{% set hasError = hasError|default(false) %}
 
-<div class="form-group has-error">
-  <div class="file-upload">
-    <div class="input-group">
-      <div class="form-control file-upload__input has-error" tabindex="0">
-        <span class="file-upload__message">No file selected.</span>
-      </div>
-      <span class="input-group-btn">
-        <label class="btn btn-default file-upload__label" for="field-name-2" tabindex="1">Browse</label>
-      </span>
-    </div>
-    <input type="file" id="field-name-2">
-  </div>
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-file-upload' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if hasError == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-file-upload--has-error' %}
+{% endif %}
+
+{% if isDisabled == true %}
+  {% set _cssClass = _cssClass ~ ' ecl-file-upload--is-disabled' %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+  <div class="ecl-file-upload__value" tabindex="0">{{ value }}</div>
+  <label class="ecl-file-upload__browse" for="{{ id }}" tabindex="0">{{ labelBrowse }}</label>
+  {% if hasUpload == true and isDisabled == false %}
+  <button class="ecl-file-upload__upload" tabindex="0" type="submit">
+    {{ labelUpload }}
+  </button>
+  {% endif %}
+  <input class="ecl-file-upload__input" name="{{ name }}" type="file" id="{{ id }}" {% if isDisabled == true %}disabled{% endif %}>
 </div>
