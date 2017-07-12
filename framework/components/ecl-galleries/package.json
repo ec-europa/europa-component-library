@@ -1,14 +1,19 @@
 {
   "name": "@ec-europa/ecl-galleries",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Provides the ability to browse media files.",
   "main": "ecl-galleries.scss",
   "style": "ecl-galleries.scss",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "peerDependencies": {
-    "@ec-europa/ecl-icons": "0.5.0",
-    "@ec-europa/ecl-images": "0.3.0"
+  "dependencies": {
+    "@ec-europa/ecl-base": "^0.6.0",
+    "@ec-europa/ecl-grid": "^0.3.0",
+    "@ec-europa/ecl-icons": "^0.6.0",
+    "@ec-europa/ecl-images": "^0.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

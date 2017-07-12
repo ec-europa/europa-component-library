@@ -1,15 +1,19 @@
 {
   "name": "@ec-europa/ecl-profile-topbars",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "",
   "main": "ecl-profile-topbars.scss",
   "style": "ecl-profile-topbars.scss",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "peerDependencies": {
+  "dependencies": {
+    "@ec-europa/ecl-base": "^0.6.0",
     "@ec-europa/ecl-buttons": "^0.7.1",
-    "@ec-europa/ecl-context-navs": "^0.3.1",
-    "@ec-europa/ecl-icons": "^0.5.1"
+    "@ec-europa/ecl-grid": "^0.3.0",
+    "@ec-europa/ecl-icons": "^0.6.0"
+  },
+  "peerDependencies": {
+    "@ec-europa/ecl-context-navs": "^0.3.1"
   },
   "publishConfig": {
     "access": "public"

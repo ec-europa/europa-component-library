@@ -2,15 +2,16 @@
   "name": "@ec-europa/ecl-site-headers",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "ECL Site headers",
   "main": "_site-headers.scss",
   "style": "_site-headers.scss",
-  "peerDependencies": {
-    "@ec-europa/ecl-header-search-bars": "^0.1.0",
-    "@ec-europa/ecl-icons": "^0.1.0",
-    "@ec-europa/ecl-lang-select-sites": "^0.1.0",
-    "@ec-europa/ecl-logos": "^0.1.0"
+  "dependencies": {
+    "@ec-europa/ecl-base": "^0.6.0",
+    "@ec-europa/ecl-header-search-bars": "^0.4.0",
+    "@ec-europa/ecl-icons": "^0.6.0",
+    "@ec-europa/ecl-lang-select-sites": "^0.4.0",
+    "@ec-europa/ecl-logos": "^0.5.0"
   },
   "publishConfig": {
     "access": "public"
