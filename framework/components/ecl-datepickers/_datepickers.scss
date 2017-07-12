@@ -40,7 +40,7 @@ $ecl-datepickers-week-color: #999 !default;
   color: $ecl-datepickers-text-color;
   display: block;
   position: relative;
-  z-index: 9999;
+  z-index: map-get($ecl-z-index, 'modal');
   zoom: 1;
 
   /* postcss-bem-linter: ignore */
@@ -99,7 +99,7 @@ $ecl-datepickers-week-color: #999 !default;
     text-indent: 0.01px;
     text-overflow: '';
     width: 100%;
-    z-index: 9998;
+    z-index: map-get($ecl-z-index, 'modal') - 1;
 
     // Fix for IE 10+.
     &::-ms-expand {
@@ -109,7 +109,7 @@ $ecl-datepickers-week-color: #999 !default;
     @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
 
     &:focus {
-      z-index: 1;
+      z-index: map-get($ecl-z-index, 'highlight');
     }
 
     &:hover,
