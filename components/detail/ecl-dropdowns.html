@@ -425,7 +425,7 @@
   <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">6px</span> <span class="hljs-number">12px</span> rgba(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.175</span>);
   <span class="hljs-attribute">list-style</span>: none;
   <span class="hljs-attribute">position</span>: absolute;
-  <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1000</span>;
+  <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'dropdown'</span>);
 }
 </pre>
                             </code>
@@ -443,7 +443,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">367 Bytes</span>
+                    <span class="Meta-value">396 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -4283,6 +4283,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Text</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-z-index" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Z index</span>
             </a>
         </li>
         
