@@ -11,10 +11,6 @@ const links = [
     href: '#inline-nav-3',
     label: 'Heading 3',
   },
-  {
-    href: '#inline-nav-4',
-    label: 'Heading 4',
-  },
 ];
 
 module.exports = {
@@ -27,7 +23,7 @@ module.exports = {
     title: 'Page Contents',
     links,
     _demo: {
-      scripts: 'ECL.inpageNav();',
+      scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });`,
     },
   },
 };

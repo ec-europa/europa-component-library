@@ -1,3 +1,89 @@
+/**
+ * ECL Navigation inpage
+ * @define navigation-inpage
+ */
+/* stylelint-disable */
+.ecl-navigation-inpage {
+  margin: 0;
+  // z-index: map-get($ecl-z-index, 'navigation');
+  z-index: 10;
+}
+
+.ecl-navigation-inpage__trigger {
+  color: #fff;
+  padding: map-get($ecl-spacing, 'xxs');
+}
+
+.ecl-navigation-inpage__title {
+  color: map-get($ecl-colors, 'grey-75');
+  display: none;
+  text-transform: uppercase;
+}
+
+.ecl-navigation-inpage__list {
+  margin: 0;
+  padding: 0;
+}
+
+@include ecl-media-breakpoint-down(sm) {
+.ecl-navigation-inpage.js-is-sticky,
+.ecl-navigation-inpage.js-is-stuck {
+  .ecl-navigation-inpage__body {
+    background-color: $ecl-color-primary;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  .ecl-navigation-inpage__link {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .ecl-navigation-inpage__link--is-active {
+    font-weight: 600;
+  }
+}
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .ecl-navigation-inpage__title {
+    display: block;
+  }
+
+  .ecl-navigation-inpage__list[aria-hidden] {
+    display: block;
+  }
+
+  .ecl-navigation-inpage__trigger {
+    display: none;
+  }
+
+  .ecl-navigation-inpage__link {
+    border-left: 3px solid transparent;
+    color: $ecl-color-shade;
+    display: block;
+    font-weight: 600;
+    padding: map-get($ecl-spacing, 'xxxs');
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      background-color: map-get($ecl-colors, 'yellow-100');
+      outline: none;
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-navigation-inpage__link--is-active {
+    background-color: map-get($ecl-colors, 'grey-10');
+    border-left-color: $ecl-color-primary;
+  }
+}
+
 /*
 Inpage navigation
 
@@ -10,7 +96,7 @@ Markup: html/inpage-nav.html
 Style guide inpagenav
 */
 
-/* stylelint-disable */
+
 .inpage-nav__wrapper {
   @include ecl-hidden-print();
 

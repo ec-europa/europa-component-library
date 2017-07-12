@@ -19,10 +19,20 @@
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}
 
-    <!-- Specific scripts included in this preview template -->
+    <!-- https://github.com/dollarshaveclub/stickybits -->
     <script src="/framework/scripts/stickybits.min.js"></script>
     <script type="text/javascript">
-      stickybits('.ecl-navigation-inpage');
+      stickybits('.ecl-navigation-inpage', {useStickyClasses: true});
+    </script>
+
+    <!-- https://github.com/cferdinandi/gumshoe/ -->
+    <script src="/framework/scripts/gumshoe.min.js"></script>
+    <script type="text/javascript">
+    gumshoe.init({
+      selector: '.ecl-navigation-inpage__link',
+      activeClass: 'ecl-navigation-inpage__link--is-active',
+      offset: 10,
+    });
     </script>
   </body>
 </html>

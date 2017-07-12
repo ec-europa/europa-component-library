@@ -1,19 +1,24 @@
 <div class="ecl-row">
-  <div class="ecl-col-sm-3">
+  <div class="ecl-col-md-3" style="padding-top: 5rem">
     <nav class="ecl-navigation-inpage">
       <div class="ecl-navigation-inpage__title">{{ title }}</div>
-      <ul class="ecl-navigation-inpage__list">
-        {% for link in links %}
-        {% set activeClass = link.isActive is defined and link.isActive == true? ' ecl-navigation-inpage__link--is-active' : '' %}
-        <li class="ecl-navigation-inpage__item">
-          <a class="ecl-navigation-inpage__link{{ activeClass }} ecl-link" href="{{ link.href }}">{{ link.label }}</a>
-        </li>
-        {% endfor %}
-      </ul>
+
+      <div class="ecl-navigation-inpage__body">
+        <div class="ecl-navigation-inpage__trigger" aria-controls="ecl-navigation-inpage-list" aria-expanded="false" id="ecl-navigation-inpage-trigger">Button</div>
+
+        <ul class="ecl-navigation-inpage__list" aria-hidden="true" aria-labelledby="ecl-navigation-inpage-trigger" id="ecl-navigation-inpage-list">
+          {% for link in links %}
+          {% set activeClass = link.isActive is defined and link.isActive == true? ' ecl-navigation-inpage__link--is-active' : '' %}
+          <li class="ecl-navigation-inpage__item">
+            <a class="ecl-navigation-inpage__link{{ activeClass }} ecl-link ecl-link--standalone" href="{{ link.href }}">{{ link.label }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </nav>
   </div>
 
-  <div class="ecl-col-sm-9">
+  <div class="ecl-col-md-9">
     <section id="inline-nav-1">
       <h2 class="ecl-heading ecl-heading--h2">Heading 1</h2>
       <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dui ac lacus interdum eleifend non ut nisl. Duis arcu turpis, tristique vitae fringilla feugiat, tincidunt ac enim. Duis tincidunt purus quis metus finibus, ut ultricies nibh mattis. Ut ultricies placerat leo ac egestas. Suspendisse fringilla augue quam. Proin velit ipsum, bibendum ut commodo non, mattis at nisi. Sed massa eros, malesuada eu ipsum non, euismod finibus massa. Etiam mi ex, fringilla quis urna non, dignissim vulputate tortor. Vivamus congue sem vel ipsum posuere vulputate. Praesent ac vestibulum sem, sed tristique ligula. Praesent non eros suscipit, sagittis quam in, commodo felis.</p>
