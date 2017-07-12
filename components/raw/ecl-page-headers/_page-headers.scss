@@ -1,8 +1,12 @@
-// ECL page header
+/**
+ * Page header
+ * @define page-header
+ */
 
 .ecl-page-header {
   background-color: $ecl-color-primary;
   color: #fff;
+  margin: 0;
 
   &__body {
     padding: map-get($ecl-spacing, 'xxs');

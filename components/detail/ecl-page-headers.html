@@ -280,7 +280,34 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-9afcc1baf8e0b8cfab3fa53f6aace9f3-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "highlight" %}</span><span class="xml">
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+/**
+* Accepts the following context variables:
+* - variant: (string) Could be: default, basic, highlight
+*
+* Variables for `basic` and `default`:
+* - identity: (string) The name of the site, i.e. "Digital single market"
+*
+* Variables for `highlight`:
+* - label: (string) The label of the text box.
+* - highlight: (string) The value of the text box.
+*
+* Variables for `default`:
+* - title: (string) Page title.
+* - introduction: (string) The text inside intro area.
+* - paragraph_class: (string) Possible additional classes on the intro paragraph.
+* - meta: (object) Information for the meta sub-component.
+*
+* Meta has the following structure:
+*  {
+*   type: (string) 'News article',
+*   date: (string) '6 July 2015',
+*   timestamp: (timestamp) '2015-07-06T17:44:28+02:00',
+*   location: (string) 'Brussels',
+*  }
+*/
+#}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "highlight" %}</span><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header ecl-page-header--highlight"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -381,7 +408,7 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph ecl-paragraph--l"</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -401,13 +428,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-8b09564bfd8f9c6288efbec7cd8875d5">_page-headers.scss</option>
+                <option value="file-a73c5b715099bef841d7d81fb6c60886">_page-headers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-8b09564bfd8f9c6288efbec7cd8875d5" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-a73c5b715099bef841d7d81fb6c60886" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -415,11 +442,15 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">// ECL page header</span>
+                                <pre><span class="hljs-comment">/**
+ * Page header
+ * @define page-header
+ */</span>
 
 <span class="hljs-selector-class">.ecl-page-header</span> {
   <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 
   &amp;__body {
     <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
