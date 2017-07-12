@@ -48,6 +48,7 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
 
 before_script:
+  - npm rebuild node-sass
   - if [ "${TEST_SUITE}" = "test:functional" ]; then npm run dist; fi
 
 script:
