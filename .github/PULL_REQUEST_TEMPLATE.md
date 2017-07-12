@@ -1,15 +1,19 @@
+# PR description
+
+Please drop a few lines about the PR: what it does, how to test it, etc.
+
 # QA Checklist
 
 In order to ensure a safe and quick review, please check that your PR follow those guidelines:
 
-- [ ] package.json up-to-date
-- [ ] fractal status = “ready”
-- [ ] `@define component` in the SCSS file
-- [ ] `margin: 0;` on the CSS component
-- [ ] provide tests
-- [ ] follow naming guidelines (to be defined)
-- [ ] ensure that component supports composition
-- [ ] template is fully functional
-- [ ] fill readme file (at least a few lines)
-- [ ] check dependencies
-- [ ] no hardcoded strings (all content come from the context)
+- [ ] `package.json` is up-to-date and `@ec-europa/ecl-base` is part of the dependencies
+- [ ] I have given the fractal status “ready” to my component
+- [ ] I have declared `@define mycomponent` in the SCSS file
+- [ ] I have specified `margin: 0;` on the CSS component
+- [ ] I have provided tests
+- [ ] I follow the naming guidelines
+- [ ] the component supports composition
+- [ ] the template is fully functional
+- [ ] I have filled the README.md file (at least a few lines)
+- [ ] I have checked the dependencies
+- [ ] there are no hardcoded strings (all content come from the context)
