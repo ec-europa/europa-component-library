@@ -44,40 +44,47 @@ function getScreenshotName(relativePath) {
   };
 }
 
-logger.setLogLevel('silent');
-const cwd = process.cwd();
+// By default, test all the specs
+let specs = ['framework/**/test/spec/**/*.js'];
 
-const repo = new Repository(cwd);
-const packages = repo.packages;
-const filteredPackages = PackageUtilities.filterPackages(packages, {
-  scope: undefined,
-});
+if (isTravis && process.env.TRAVIS_PULL_REQUEST) {
+  console.log('is a pull request');
 
-// Get updated packages
-const collector = new UpdatedPackagesCollector({
-  execOpts: {
-    cwd: repo.rootPath,
-  },
-  logger,
-  repository: repo,
-  filteredPackages,
-  options: {
-    since: 'master',
-  },
-});
+  logger.setLogLevel('silent');
+  const cwd = process.cwd();
 
-const updatedPackages = collector.collectUpdatedPackages();
+  const repo = new Repository(cwd);
+  const packages = repo.packages;
+  const filteredPackages = PackageUtilities.filterPackages(packages, {
+    scope: undefined,
+  });
 
-if (!process.connected) {
-  console.log(
-    'Visual regression tests will be run on:',
-    Object.keys(updatedPackages)
+  // Get updated packages
+  const collector = new UpdatedPackagesCollector({
+    execOpts: {
+      cwd: repo.rootPath,
+    },
+    logger,
+    repository: repo,
+    filteredPackages,
+    options: {
+      since: 'master',
+    },
+  });
+
+  const updatedPackages = collector.collectUpdatedPackages();
+
+  if (!process.connected) {
+    console.log(
+      'Visual regression tests will be run on:',
+      Object.keys(updatedPackages)
+    );
+  }
+
+  specs = Object.keys(updatedPackages).map(p =>
+    path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
   );
 }
-
-const specs = Object.keys(updatedPackages).map(p =>
-  path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
-);
 
 exports.config = {
   // ==================
