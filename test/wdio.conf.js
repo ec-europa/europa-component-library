@@ -45,11 +45,10 @@ function getScreenshotName(relativePath) {
 }
 
 // By default, test all the specs
-let specs = ['framework/**/test/spec/**/*.js'];
+let specs = [path.resolve(__dirname, '../framework/**/test/spec/**/*.js')];
 
+// When a PR, only test the updated components
 if (isTravis && process.env.TRAVIS_PULL_REQUEST) {
-  console.log('is a pull request');
-
   logger.setLogLevel('silent');
   const cwd = process.cwd();
 
@@ -74,6 +73,7 @@ if (isTravis && process.env.TRAVIS_PULL_REQUEST) {
 
   const updatedPackages = collector.collectUpdatedPackages();
 
+  // Only on parent process (not spawned)
   if (!process.connected) {
     console.log(
       'Visual regression tests will be run on:',
