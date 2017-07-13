@@ -71,18 +71,18 @@ if (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false') {
     },
   });
 
-  const updatedPackages = collector.collectUpdatedPackages();
+  const updatedPackages = collector.getUpdates();
 
   // Only on parent process (not spawned)
   if (!process.connected) {
     console.log(
       'Visual regression tests will be run on:',
-      Object.keys(updatedPackages)
+      updatedPackages.map(update => update.package.name)
     );
   }
 
-  specs = Object.keys(updatedPackages).map(p =>
-    path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
+  specs = updatedPackages.map(update =>
+    path.resolve(update.package.location, 'test/spec/**/*.js')
   );
 } else if (!process.connected) {
   console.log('Visual regression tests will be run on all packages');
