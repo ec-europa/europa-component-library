@@ -26,8 +26,8 @@ cache:
 
 matrix:
   include:
-    # Nodejs 6 - Webdriver.io
-    - node_js: 6
+    # Nodejs - Webdriver.io
+    - node_js: node
       env: TEST_SUITE=test:functional
       addons:
         apt:
@@ -35,8 +35,8 @@ matrix:
             - graphicsmagick
         sauce_connect: true
 
-    # Nodejs 6 - Lint
-    - node_js: 6
+    # Nodejs - Lint
+    - node_js: node
       env: TEST_SUITE=test:coding-conventions
 
 before_install:
