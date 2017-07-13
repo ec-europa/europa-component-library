@@ -14,12 +14,23 @@ const matchReference = require('@ec-europa/ecl-qa/wdio/assertions/matchReference
 const isAccessible = require('@ec-europa/ecl-qa/wdio/assertions/isAccessible');
 const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatted');
 
+// Lerna related imports
+const logger = require('lerna/lib/logger');
+const UpdatedPackagesCollector = require('lerna/lib/UpdatedPackagesCollector');
+const Repository = require('lerna/lib/Repository');
+const PackageUtilities = require('lerna/lib/PackageUtilities');
+
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
 
-function getScreenshotName(basePath) {
+function getScreenshotName(relativePath) {
   return context => {
+    const testFile = context.test.file;
+    const basePath = testFile.substr(
+      0,
+      testFile.lastIndexOf(`test${path.sep}spec`)
+    );
     const testName = context.options.name;
     const browserVersion = parseInt(/\d+/.exec(context.browser.version)[0], 10);
     const browserName = context.browser.name;
@@ -27,10 +38,46 @@ function getScreenshotName(basePath) {
 
     return path.join(
       basePath,
+      relativePath,
       `${testName}/${platform}_${browserName}_v${browserVersion}.png`
     );
   };
 }
+
+logger.setLogLevel('silent');
+const cwd = process.cwd();
+
+const repo = new Repository(cwd);
+const packages = repo.packages;
+const filteredPackages = PackageUtilities.filterPackages(packages, {
+  scope: undefined,
+});
+
+// Get updated packages
+const collector = new UpdatedPackagesCollector({
+  execOpts: {
+    cwd: repo.rootPath,
+  },
+  logger,
+  repository: repo,
+  filteredPackages,
+  options: {
+    since: 'master',
+  },
+});
+
+const updatedPackages = collector.collectUpdatedPackages();
+
+if (!process.connected) {
+  console.log(
+    'Visual regression tests will be run on:',
+    Object.keys(updatedPackages)
+  );
+}
+
+const specs = Object.keys(updatedPackages).map(p =>
+  path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
+);
 
 exports.config = {
   // ==================
@@ -41,7 +88,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
 
-  specs: [path.resolve(__dirname, './functional/**/*.js')],
+  specs,
 
   // Patterns to exclude.
   exclude: [],
@@ -159,15 +206,9 @@ exports.config = {
   // Visual regression config
   visualRegression: {
     compare: new VisualRegressionCompare.LocalCompare({
-      referenceName: getScreenshotName(
-        path.resolve(__dirname, './screenshots/reference')
-      ),
-      screenshotName: getScreenshotName(
-        path.resolve(__dirname, './screenshots/captured')
-      ),
-      diffName: getScreenshotName(
-        path.resolve(__dirname, './screenshots/diff')
-      ),
+      referenceName: getScreenshotName('test/spec/screenshots/reference'),
+      screenshotName: getScreenshotName('test/spec/screenshots/captured'),
+      diffName: getScreenshotName('test/spec/screenshots/diff'),
       misMatchTolerance: 0.02,
     }),
   },
