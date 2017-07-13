@@ -50,4 +50,6 @@ before_script:
     fi
 
 script:
-  - npm run $TEST_SUITE
+  - if [ "${TEST_SUITE}" != "test:functional" ] || [ "$(yarn lerna updated -- --since master)" ] ; then 
+      npm run $TEST_SUITE;
+    fi
