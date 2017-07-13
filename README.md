@@ -3,8 +3,10 @@
 Component library based on [Fractal](http://fractal.build/).
 
 Requirements:
-- Node.js >= 6.9.5
-- yarn >= 0.20.3
+- Node.js LTS (6.x) or current (8.x)
+- yarn >= 0.27.5
+
+We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` followed by `nvm use` to get the right Node.js version.
 
 Tested on:
 
