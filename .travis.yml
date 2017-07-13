@@ -1,4 +1,4 @@
-language: node_js
+language: node_js # let travis extract node version from .nvmrc
 
 # Disable email notifications
 notifications:
@@ -10,6 +10,11 @@ env:
 
 sudo: false
 dist: trusty
+
+# Only build the master
+branches:
+  only:
+  - master
 
 addons:
   apt:
@@ -26,26 +31,28 @@ cache:
 
 matrix:
   include:
-    # Nodejs 6 - Webdriver.io
-    - node_js: 6
-      env: TEST_SUITE=test:functional
+    # Nodejs - Webdriver.io
+    - env: TEST_SUITE=test:functional
       addons:
         apt:
           packages:
             - graphicsmagick
         sauce_connect: true
 
-    # Nodejs 6 - Lint
-    - node_js: 6
-      env: TEST_SUITE=test:coding-conventions
+    # Nodejs - Lint
+    - env: TEST_SUITE=test:coding-conventions
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.27.5
   - export PATH="$HOME/.yarn/bin:$PATH"
 
 before_script:
-  - npm rebuild node-sass
-  - if [ "${TEST_SUITE}" = "test:functional" ]; then npm run dist; fi
+  - if [ "${TEST_SUITE}" = "test:functional" ] && [ "$(yarn lerna updated -- --since master)" ] ; then
+      npm rebuild node-sass;
+      npm run dist;
+    fi
 
 script:
-  - npm run $TEST_SUITE
+  - if [ "${TEST_SUITE}" != "test:functional" ] || [ "$(yarn lerna updated -- --since master)" ] ; then
+      npm run $TEST_SUITE;
+    fi

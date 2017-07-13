@@ -44,40 +44,47 @@ function getScreenshotName(relativePath) {
   };
 }
 
-logger.setLogLevel('silent');
-const cwd = process.cwd();
+// By default, test all the specs
+let specs = [path.resolve(__dirname, '../framework/**/test/spec/**/*.js')];
 
-const repo = new Repository(cwd);
-const packages = repo.packages;
-const filteredPackages = PackageUtilities.filterPackages(packages, {
-  scope: undefined,
-});
+// When a PR, only test the updated components
+if (isTravis && process.env.TRAVIS_PULL_REQUEST) {
+  logger.setLogLevel('silent');
+  const cwd = process.cwd();
 
-// Get updated packages
-const collector = new UpdatedPackagesCollector({
-  execOpts: {
-    cwd: repo.rootPath,
-  },
-  logger,
-  repository: repo,
-  filteredPackages,
-  options: {
-    since: 'master',
-  },
-});
+  const repo = new Repository(cwd);
+  const packages = repo.packages;
+  const filteredPackages = PackageUtilities.filterPackages(packages, {
+    scope: undefined,
+  });
 
-const updatedPackages = collector.collectUpdatedPackages();
+  // Get updated packages
+  const collector = new UpdatedPackagesCollector({
+    execOpts: {
+      cwd: repo.rootPath,
+    },
+    logger,
+    repository: repo,
+    filteredPackages,
+    options: {
+      since: 'master',
+    },
+  });
 
-if (!process.connected) {
-  console.log(
-    'Visual regression tests will be run on:',
-    Object.keys(updatedPackages)
+  const updatedPackages = collector.collectUpdatedPackages();
+
+  // Only on parent process (not spawned)
+  if (!process.connected) {
+    console.log(
+      'Visual regression tests will be run on:',
+      Object.keys(updatedPackages)
+    );
+  }
+
+  specs = Object.keys(updatedPackages).map(p =>
+    path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
   );
 }
-
-const specs = Object.keys(updatedPackages).map(p =>
-  path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
-);
 
 exports.config = {
   // ==================
