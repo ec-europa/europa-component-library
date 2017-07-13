@@ -11,6 +11,11 @@ env:
 sudo: false
 dist: trusty
 
+# Only build the master
+branches:
+  only:
+  - master
+
 addons:
   apt:
     sources:
