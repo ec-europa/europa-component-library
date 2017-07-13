@@ -48,7 +48,7 @@ function getScreenshotName(relativePath) {
 let specs = [path.resolve(__dirname, '../framework/**/test/spec/**/*.js')];
 
 // When a PR, only test the updated components
-if (isTravis && process.env.TRAVIS_PULL_REQUEST) {
+if (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false') {
   logger.setLogLevel('silent');
   const cwd = process.cwd();
 
@@ -84,6 +84,8 @@ if (isTravis && process.env.TRAVIS_PULL_REQUEST) {
   specs = Object.keys(updatedPackages).map(p =>
     path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
   );
+} else if (!process.connected) {
+  console.log('Visual regression tests will be run on all packages');
 }
 
 exports.config = {
