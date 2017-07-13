@@ -70,6 +70,7 @@ export const dialogs = (
 
   // INIT
   function init() {
+    console.log('ping');
     if (dialogContainers.length) {
       dialogContainers.forEach(dialogContainer => {
         bindDialogEvents(dialogContainer);
