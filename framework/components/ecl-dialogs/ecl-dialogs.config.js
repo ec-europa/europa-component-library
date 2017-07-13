@@ -9,9 +9,8 @@ module.exports = {
         document.addEventListener('DOMContentLoaded', function () {
             var options = {
               dialog: 'ecl-dialog',
-              overlay: 'ecl-dialog__overlay' 
             };
-            ECL.dialog(options);
+            ECL.dialogs(options);
         });
       `,
     },
