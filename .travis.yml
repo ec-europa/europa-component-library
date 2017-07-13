@@ -46,7 +46,7 @@ before_install:
     fi
 
 before_script:
-  - if [ "${TEST_SUITE}" = "test:functional" ]; then npm rebuild node-sass && npm run dist; fi
+  - if [ "${TEST_SUITE}" = "test:functional" ]; then npm rebuild node-sass && npm run bootstrap && npm run dist; fi
 
 script:
   - npm run $TEST_SUITE
