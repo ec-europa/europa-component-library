@@ -6,7 +6,7 @@ Requirements:
 - Node.js LTS (6.x) or current (8.x)
 - yarn >= 0.27.5
 
-We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm use` to get the right Node.js version.
+We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` followed by `nvm use` to get the right Node.js version.
 
 Tested on:
 
