@@ -3,18 +3,23 @@
  * @define icon-social
  */
 
+// Brings in the long list for $ecl-social-icons.
 @import './icons-list';
 
 $icon-size: 40px;
 $icon-size-small: 26px;
-$img-path: '../images/svg/icons/social/';
+$img-path: '../images/social/';
 
 // Social icons image.
 @mixin generate-icon($selector, $img-path, $image, $img-hover, $extra: null, $extra_hover: null) {
+  // Ignoring next 2 selectors since the dynamic selector is problematic for the linter.
+
+  /* postcss-bem-linter: ignore */
   #{$selector}::before {
     background: url($img-path + $image) no-repeat $extra;
   }
 
+  /* postcss-bem-linter: ignore */
   #{$selector}:hover::before {
     background-image: url($img-path + $img-hover) $extra_hover;
   }
