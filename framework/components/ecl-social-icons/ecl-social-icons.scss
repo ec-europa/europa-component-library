@@ -1,12 +1,13 @@
-/*
-Icon Social
-*/
+/**
+ * Social icons
+ * @define icon-social
+ */
 
 $icon-size: 40px;
 $icon-size-small: 26px;
 
 // Social icons image.
-@mixin social_icon_background($selector, $social_path, $image, $image_hover, $extra: null, $extra_hover: null) {
+@mixin generate-icon($selector, $social_path, $image, $image_hover, $extra: null, $extra_hover: null) {
   #{$selector} {
     &::before {
       background: url($social_path + $image) no-repeat $extra;
@@ -19,25 +20,20 @@ $icon-size-small: 26px;
 }
 
 .ecl-icon-social {
-  position: relative;
-  padding-left: 50px;
-  padding-top: 5px;
+  display: block;
+  margin: 0;
   min-height: $icon-size;
+  padding-left: map-get($ecl-spacing, 'xl');
+  padding-top: map-get($ecl-spacing, 'xxxs');
+  position: relative;
 
   &::before {
     content: '';
-    display: inline-block;
-    width: $icon-size;
     height: $icon-size;
-    margin: 0 10px 5px 0;
-    vertical-align: middle;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
-  }
-
-  &:hover {
-    cursor: pointer;
+    width: $icon-size;
   }
 }
 
@@ -55,64 +51,25 @@ $icon-size-small: 26px;
   }
 }
 
-$map_social_icons:
-  ('arto', ''),
-  ('bebo', ''),
-  ('bitly', ''),
-  ('blinklist', ''),
-  ('blog', ''),
-  ('blogger', ''),
-  ('delicious', ''),
-  ('digg', ''),
-  ('diigo', ''),
-  ('dzone', ''),
-  ('email', ''),
-  ('facebook', ''),
-  ('flickr', ''),
-  ('foursquare', ''),
-  ('generic', ''),
-  ('google', ''),
-  ('gplus', ''),
-  ('instagram', ''),
-  ('linkarena', ''),
-  ('linkedin', ''),
-  ('live', ''),
-  ('meneame', ''),
-  ('misterwong', ''),
-  ('myspace', ''),
-  ('netlog', ''),
-  ('netvibes', ''),
-  ('newsvine', ''),
-  ('nujij', ''),
-  ('pinterest', ''),
-  ('pocket', ''),
-  ('reddit', ''),
-  ('rss', ''),
-  ('share', ''),
-  ('skype', ''),
-  ('slashdot', ''),
-  ('sonico', ''),
-  ('spotify', ''),
-  ('storify', ''),
-  ('studivz', ''),
-  ('stumbleupon', ''),
-  ('technorati', ''),
-  ('tuenti', ''),
-  ('tumblr', ''),
-  ('twitter', '#ffffff'),
-  ('viadeo', ''),
-  ('vine', ''),
-  ('wordpress', ''),
-  ('wykop', ''),
-  ('xerpi', ''),
-  ('yammer', ''),
-  ('youtube', ''),
-  ('print', '');
+$map_social_icons: ('arto', ''),  ('bebo', ''),  ('bitly', ''),
+   ('blinklist', ''),  ('blog', ''),  ('blogger', ''),  ('delicious', ''),
+   ('digg', ''),  ('diigo', ''),  ('dzone', ''),  ('email', ''),
+   ('facebook', ''),  ('flickr', ''),  ('foursquare', ''),  ('generic', ''),
+   ('google', ''),  ('gplus', ''),  ('instagram', ''),  ('linkarena', ''),
+   ('linkedin', ''),  ('live', ''),  ('meneame', ''),  ('misterwong', ''),
+   ('myspace', ''),  ('netlog', ''),  ('netvibes', ''),  ('newsvine', ''),
+   ('nujij', ''),  ('pinterest', ''),  ('pocket', ''),  ('reddit', ''),
+   ('rss', ''),  ('share', ''),  ('skype', ''),  ('slashdot', ''),
+   ('sonico', ''),  ('spotify', ''),  ('storify', ''),  ('studivz', ''),
+   ('stumbleupon', ''),  ('technorati', ''),  ('tuenti', ''),  ('tumblr', ''),
+   ('twitter', '#ffffff'),  ('viadeo', ''),  ('vine', ''),  ('wordpress', ''),
+   ('wykop', ''),  ('xerpi', ''),  ('yammer', ''),  ('youtube', ''),
+   ('print', '');
 
 $svg_social_path: "../images/svg/icons/social/";
 
 @each $icon, $extra in $map_social_icons {
-  @include social_icon_background(".ecl-icon-social--" + $icon, $svg_social_path, $icon + '.svg', $icon + '_hover.svg', #{$extra});
+  @include generate-icon(".ecl-icon-social--" + $icon, $svg_social_path, $icon + '.svg', $icon + '_hover.svg', #{$extra});
 }
 
 .no-svg {
@@ -120,12 +77,12 @@ $svg_social_path: "../images/svg/icons/social/";
   $png_social_path_small: "../images/png/icons/social/small/";
 
   @each $icon, $extra in $map_social_icons {
-    @include social_icon_background(".ecl-icon-social--" + $icon, $png_social_path, $icon + '.png', $icon + '_hover.png', #{$extra});
+    @include generate-icon(".ecl-icon-social--" + $icon, $png_social_path, $icon + '.png', $icon + '_hover.png', #{$extra});
   }
 
   .ecl-icon-social--smaller {
     @each $icon, $extra in $map_social_icons {
-      @include social_icon_background(".ecl-icon-social--" + $icon, $png_social_path_small, $icon + '_small.png', $icon + '_hover_small.png', #{$extra});
+      @include generate-icon(".ecl-icon-social--" + $icon, $png_social_path_small, $icon + '_small.png', $icon + '_hover_small.png', #{$extra});
     }
   }
 }
