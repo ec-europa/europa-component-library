@@ -48,6 +48,22 @@ matrix:
           packages:
             - graphicsmagick
         sauce_connect: true
+    - env:
+        - TEST_SUITE=test:functional
+        - TEST_BROWSER=safari
+      addons:
+        apt:
+          packages:
+            - graphicsmagick
+        sauce_connect: true
+    - env:
+        - TEST_SUITE=test:functional
+        - TEST_BROWSER=ie
+      addons:
+        apt:
+          packages:
+            - graphicsmagick
+        sauce_connect: true
     # Nodejs - Lint
     - env: TEST_SUITE=test:coding-conventions
 
