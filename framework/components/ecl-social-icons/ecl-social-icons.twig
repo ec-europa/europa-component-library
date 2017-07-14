@@ -1,1 +1,44 @@
-<span class='ecl-icon-social {{modifier}}'>{{ social_icon_text }}</span>
+{#
+ How to use this component:
+ 
+ 1) Variables building an unordered list:
+ - extraClasses: (string) Optional set of classes to add to the list.
+  If nothing is supplied, `ecl-list` class comes by default.
+ - list: (iterable) A list of items.
+  List items have the following structure:
+  {
+    modifier: (string) Obligatory modifier.
+    value: (string) Obligatory value for the list item.
+  }
+
+  2) Variables building a single link:
+  - link: (structure) Obligatory data for the link itself.
+  {
+    target: (string) Obligatory link target.
+    modifier: (string) Obligatory modifier.
+    extraClasses: (string) Optional classes on top of defaults.
+    title: (string) Obligatory link title.
+  }
+
+  3) Variables building a span - this is a default output if the preceding fail.
+  - modifier: (string) Obligatory modifier.
+  - text: (text) The textual value.
+#}
+
+{# If there is a list, make a list #}
+{% if list is defined and list is iterable %}
+<ul class="{{ listExtraClasses ?: 'ecl-list' }}">
+  {% for listItem in list %}
+  <li class="ecl-icon-social {{ listItem.modifier }}">{{ listItem.value }}</li>
+  {% endfor %}
+</ul>
+{# If there is a link, it's a link #}
+{% elseif link is defined %}
+<a
+  href="{{ link.target }}"
+  class="ecl-link ecl-icon-social {{ modifier }} {{ link.extraClasses }}"
+  >{{ link.title }}</a>
+{% else %}
+{# Provide a span as a fallback #}
+<span class='ecl-icon-social {{ modifier }}'>{{ text }}</span>
+{% endif %}
