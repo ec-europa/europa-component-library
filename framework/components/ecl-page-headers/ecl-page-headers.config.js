@@ -12,6 +12,7 @@ module.exports = {
         title: 'Business, Economy, Euro',
         introduction:
           'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
+        paragraph_class: 'ecl-paragraph ecl-paragraph--l',
         meta: {
           type: 'News article',
           date: '6 July 2015',
