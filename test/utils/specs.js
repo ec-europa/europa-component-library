@@ -11,7 +11,7 @@ const isTravis = require('./travis').isTravis;
 
 module.exports.getSpecs = () => {
   // By default, test all the specs
-  let specs = [path.resolve(__dirname, '../framework/**/test/spec/**/*.js')];
+  let specs = [path.resolve(__dirname, '../../framework/**/test/spec/**/*.js')];
 
   // When a PR, only test the updated components
   if (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false') {
