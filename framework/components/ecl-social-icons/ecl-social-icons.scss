@@ -6,8 +6,6 @@
 // Brings in the long list for $ecl-social-icons.
 @import './icons-list';
 
-$icon-size: 40px;
-$icon-size-small: 26px;
 $img-path: '../images/social/';
 
 // Social icons image.
@@ -26,34 +24,25 @@ $img-path: '../images/social/';
 }
 
 .ecl-icon-social {
-  display: block;
+  align-items: center;
+  display: flex;
   margin: 0;
-  min-height: $icon-size;
-  padding-left: map-get($ecl-spacing, 'xl');
-  padding-top: map-get($ecl-spacing, 'xxxs');
-  position: relative;
+}
 
-  &::before {
-    content: '';
-    height: $icon-size;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: $icon-size;
-  }
+.ecl-icon-social::before {
+  content: '';
+  display: block;
+  height: 2rem;
+  margin-right: 1rem;
+  width: 2rem;
 }
 
 .ecl-icon-social--smaller {
-  .ecl-icon-social {
-    min-height: $icon-size-small;
-    padding-left: $icon-size-small + 10px;
-    padding-right: map-get($ecl-spacing, 'xxs');
-    padding-top: 0;
-  }
+  min-height: 1.5rem;
 
-  .ecl-icon-social::before {
-    height: $icon-size-small;
-    width: $icon-size-small;
+  &::before {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 }
 

@@ -17,10 +17,8 @@ Note that the `ecl-link` class is an optional extension you can have for links f
 <span class="ecl-icon-social ecl-icon-social--facebook">Facebook</span>
 ```
 
-- With a wrapper to make the icon smaller:
+- Making an icon smaller:
 
 ```html
-<div class="ecl-icon-social--smaller">
-  <span class="ecl-icon-social ecl-icon-social--facebook">Facebook</span>
-</div>
+  <span class="ecl-icon-social ecl-icon-social--smaller ecl-icon-social--facebook">Facebook</span>
 ```

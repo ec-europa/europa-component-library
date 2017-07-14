@@ -21,10 +21,8 @@ module.exports = {
                 .modifier}">${item.label}</span>
             </div>
             <div class="ecl-col">
-              <div class="ecl-icon-social--smaller">
-              <span class="ecl-icon-social ${item.context
-                .modifier}">${item.label}</span>
-              </div>
+              <span class="ecl-icon-social ecl-icon-social--smaller ${item
+                .context.modifier}">${item.label}</span>
             </div>
           </div>
       </div>
