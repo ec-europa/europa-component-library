@@ -3,12 +3,7 @@ import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 /**
  * @param {object} options Object containing configuration overrides
  */
-export const dialogs = (
-  {
-    selector: selector = '.ecl-dialog',
-    overlay: overlay = '.ecl-dialog__overlay',
-  } = {}
-) => {
+export const dialogs = () => {
   // SUPPORTS
   if (
     !('querySelector' in document) ||
@@ -19,62 +14,46 @@ export const dialogs = (
   }
 
   // SETUP
-  // set dialog element NodeLists
-  const dialogContainers = queryAll(selector);
+  const triggerElements = queryAll('[data-ecl-dialog]');
+  const dialogWindow = document.getElementById('ecl-dialog');
+  let dialogOverlay = document.getElementById('ecl-overlay');
 
-  // ACTIONS
+  // If user does not have an overlay for the background, create one.
+  if (!dialogOverlay) {
+    const el = document.createElement('div');
+    el.setAttribute('class', 'ecl-dialog__overlay');
+    el.setAttribute('id', 'ecl-overlay');
+    document.body.append(el);
+    dialogOverlay = el;
+  }
 
   // EVENTS
+  // Show dialog and overlay elements.
   function open() {
-    const Dialog = this;
-
-    this.dialogEl.removeAttribute('aria-hidden');
-    this.overlayEl.removeAttribute('aria-hidden');
-
-    this.focusedElBeforeOpen = document.activeElement;
-
-    this.dialogEl.addEventListener('keydown', e => {
-      Dialog._handleKeyDown(e);
-    });
-
-    this.overlayEl.addEventListener('click', () => {
-      Dialog.close();
-    });
-
-    this.firstFocusableEl.focus();
+    dialogWindow.setAttribute('aria-hidden', false);
+    dialogOverlay.setAttribute('aria-hidden', false);
   }
 
+  // Hide dialog and overlay elements.
   function close() {
-    this.dialogEl.setAttribute('aria-hidden', true);
-    this.overlayEl.setAttribute('aria-hidden', true);
-
-    if (this.focusedElBeforeOpen) {
-      this.focusedElBeforeOpen.focus();
-    }
+    dialogWindow.setAttribute('aria-hidden', true);
+    dialogOverlay.setAttribute('aria-hidden', true);
   }
-
-  function handleKeyDown() {}
 
   // BIND EVENTS
-  function bindDialogEvents(dialogContainer) {}
+  function bindDialogEvents(elements) {
+    elements.forEach(element => element.addEventListener('click', open));
 
-  // UNBIND EVENTS
-  function unbindDialogEvents(dialogContainer) {}
-
-  // DESTROY
-  function destroy() {
-    dialogContainers.forEach(dialogContainer => {
-      unbindDialogEvents(dialogContainer);
+    // const closeButtons = document.querySelectorAll('.ecl-message__dismiss');
+    queryAll('.ecl-message__dismiss').forEach(button => {
+      button.addEventListener('click', close);
     });
   }
 
   // INIT
   function init() {
-    console.log('ping');
-    if (dialogContainers.length) {
-      dialogContainers.forEach(dialogContainer => {
-        bindDialogEvents(dialogContainer);
-      });
+    if (triggerElements.length) {
+      bindDialogEvents(triggerElements);
     }
   }
 
@@ -83,7 +62,6 @@ export const dialogs = (
   // REVEAL API
   return {
     init,
-    destroy,
   };
 };
 

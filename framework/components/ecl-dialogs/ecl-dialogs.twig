@@ -61,7 +61,7 @@
 {% endif %}
 
 {# Print result #}
-
+<a href="#dialog" class="ecl-link" data-ecl-dialog="ecl-dialog">Open dialog</a>
 <div class="{{ _cssClass }}" {{ _extraAttributes }} role="dialog">
   {% if dialog_title is defined %}
   <h1 id="{{ dialog_title.id }}" class="{{ dialog_title.classes }}">{{ dialog_title.value }}</h1>
@@ -76,4 +76,4 @@
   <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
   {% endif %}
 </div>
-<div class="ecl-dialog__overlay"></div>
+<div class="ecl-dialog__overlay" id="ecl-overlay"></div>

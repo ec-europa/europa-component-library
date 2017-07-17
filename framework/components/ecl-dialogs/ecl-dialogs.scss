@@ -19,6 +19,10 @@
   &:not([aria-hidden='true']) {
     display: none;
   }
+
+  &[aria-hidden='false'] {
+    display: block;
+  }
 }
 
 .ecl-dialog__overlay {
@@ -33,5 +37,9 @@
   &[aria-hidden='true'],
   &:not([aria-hidden='true']) {
     display: none;
+  }
+
+  &[aria-hidden='false'] {
+    display: block;
   }
 }

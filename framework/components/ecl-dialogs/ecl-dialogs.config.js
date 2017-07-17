@@ -17,6 +17,7 @@ module.exports = {
     extraAttributes: [
       { name: 'aria-labelledby', value: 'dialog-title' },
       { name: 'aria-describedby', value: 'dialog-description' },
+      { name: 'id', value: 'ecl-dialog' },
     ],
     dialog_title: {
       value: 'Example title',
