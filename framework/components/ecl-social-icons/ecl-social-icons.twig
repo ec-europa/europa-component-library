@@ -18,7 +18,7 @@
 {% if link is defined %}
 <a
   href="{{ link.target }}"
-  class="ecl-link ecl-icon-social {{ modifier }} {{ link.extraClasses }}"
+  class="ecl-link ecl-icon-social {{ modifier }} {{ link.extraClasses }}" {{ link.extraAttributes }}
   >{{ link.title }}</a>
 {% else %}
 <span class='ecl-icon-social {{ modifier }}'>{{ text }}</span>
