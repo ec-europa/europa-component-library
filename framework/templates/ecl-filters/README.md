@@ -1,0 +1,3 @@
+# Filters
+
+https://ec.europa.eu/info/events_en?facet__select__field_core_location:country=0&facet__select__field_core_event_collection=0&facet__select__field_core_topics=0&facet__checkboxes__field_event_is_live_streaming=on&facet__select__field_core_departments=0

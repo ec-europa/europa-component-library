@@ -1,0 +1,154 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+<div class="ecl-row">
+  <aside class="ecl-col-lg-3" role="complementary">
+      <h3 class="ecl-heading ecl-heading--h3 ecl-u-mb-s">Filter by</h3>
+      <form action="#" method="get" id="{{ formID }}">
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Keyword' } %}
+          {% include '@ec-europa/ecl-forms-text-inputs' with {
+            'type': 'text',
+            'name': 'keywords',
+            'id': 'keywords',
+            'extraAttributes': [
+              { 'value': '', 'size': '30', 'maxlength': '128' }
+            ]
+          } %}
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Topic' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'topic', 'id': 'topic' } %}
+            {% block options %}
+              <option value="0">Any topic</option>
+              <option value="354">Banking and financial services</option>
+              <option value="369">Environment</option>
+              <option value="382">Research and innovation</option>
+            {% endblock %}
+          {% endembed %}
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Location' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'location', 'id': 'location' } %}
+            {% block options %}
+            <option value="0">Any country</option>
+            <option value="BE">Belgium</option>
+            <option value="ES">Spain</option>
+            <option value="RO">Romania</option>
+            <option value="IT">Italy</option>
+            <option value="PT">Portugal</option>
+            <option value="HR">Croatia</option>
+            <option value="FI">Finland</option>
+            <option value="DE">Germany</option>
+            <option value="IE">Ireland</option>
+            <option value="PL">Poland</option>
+            <option value="BG">Bulgaria</option>
+            <option value="GR">Greece</option>
+            <option value="NL">Netherlands</option>
+            <option value="SK">Slovakia</option>
+            <option value="SE">Sweden</option>
+            <option value="EE">Estonia</option>
+            <option value="AT">Austria</option>
+            <option value="CY">Cyprus</option>
+            <option value="DK">Denmark</option>
+            <option value="FR">France</option>
+            <option value="HU">Hungary</option>
+            <option value="LV">Latvia</option>
+            <option value="LT">Lithuania</option>
+            <option value="LU">Luxembourg</option>
+            <option value="MT">Malta</option>
+            {% endblock %}
+          {% endembed %}
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-checkboxes' with {
+            'name': 'event_is_online',
+            'id': 'event_is_online',
+            'label': 'Online only events'
+          } %}
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-checkboxes' with {
+            'name': 'event_is_live_streaming',
+            'id': 'event_is_live_streaming',
+            'label': 'Events with live streaming available',
+            'checked': 'checked'
+          } %}
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Organiser' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'organiser', 'id': 'organiser' } %}
+            {% block options %}
+              <option value="0">Any organiser</option>
+              <option value="881">Financial Stability, Financial Services and Capital Markets Union</option>
+              <option value="932">Translation</option>
+              <option value="189">Internal Audit Service</option>
+              <option value="746">Interpretation</option>
+            {% endblock %}
+          {% endembed %}
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'After' } %}
+          <div class="ecl-datepickers">
+            <input class="ecl-text-input" type="text" id="datepicker" value="" aria-label="Use the arrow keys to pick a date">
+            <span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span>
+          </div>
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Before' } %}
+          <div class="ecl-datepickers">
+            <input class="ecl-text-input" type="text" id="datepicker" value="" aria-label="Use the arrow keys to pick a date">
+            <span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span>
+          </div>
+        </div>
+        <div class="ecl-form-group">
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Collection' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'collection', 'id': 'collection' } %}
+            {% block options %}
+              <option value="0">Any collection</option>
+              <option value="2065">Citizens' Dialogues</option>
+              <option value="48422">Cities events</option>
+              <option value="35343">FISMA Events collectoin</option>
+              <option value="54309">Sustainable Development Goals</option>
+            {% endblock %}
+          {% endembed %}
+        </div>
+        {% include '@ec-europa/ecl-buttons' with {
+          'modifier': 'primary',
+          'label': 'Refine results',
+          'isBlock': true,
+          'extraClass': 'ecl-u-mb-xs',
+          'extraAttributes': [
+            { 'name': 'value', 'value': 'Refine results'},
+            { 'name': 'type', 'value': 'submit'}
+          ]
+        } %}
+        {% include '@ec-europa/ecl-buttons' with {
+          'modifier': 'default',
+          'label': 'Clear filters',
+          'isBlock': true,
+          'extraAttributes': [
+            { 'name': 'value', 'value': 'Clear filters'},
+            { 'name': 'type', 'value': 'reset'}
+          ]
+        } %}
+      </form>
+  </aside>
+  <section class="ecl-col-lg-9">
+    <div class="ecl-heading ecl-heading--h2 ecl-u-mb-m">Events (90)</div>
+
+    <div class="ecl-tag ecl-tag--facet-close ecl-u-mb-m">
+      <span class="ecl-tag__label">Live streaming available</span>
+      <button class="ecl-button ecl-button--facet-close ecl-tag__item" type="button">Yes</button>
+    </div>
+
+    <section class="ecl-u-mb-m">CONTENT HERE</section>
+
+    {% include '@ec-europa/ecl-pagers' with {
+      'currentPage': 1,
+      'maxPage': 20,
+      'fragmentUrl': '/page'
+    } %}
+  </section>
+</div>
