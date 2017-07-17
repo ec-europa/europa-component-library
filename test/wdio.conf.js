@@ -14,77 +14,13 @@ const matchReference = require('@ec-europa/ecl-qa/wdio/assertions/matchReference
 const isAccessible = require('@ec-europa/ecl-qa/wdio/assertions/isAccessible');
 const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatted');
 
-// Lerna related imports
-const logger = require('lerna/lib/logger');
-const UpdatedPackagesCollector = require('lerna/lib/UpdatedPackagesCollector');
-const Repository = require('lerna/lib/Repository');
-const PackageUtilities = require('lerna/lib/PackageUtilities');
+// Utils
+const getScreenshotName = require('./utils/screenshots').getScreenshotName;
+const getSpecs = require('./utils/specs').getSpecs;
+const isTravis = require('./utils/travis').isTravis;
+const getCapabilities = require('./utils/capabilities').getCapabilities;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
-
-const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
-
-function getScreenshotName(relativePath) {
-  return context => {
-    const testFile = context.test.file;
-    const basePath = testFile.substr(
-      0,
-      testFile.lastIndexOf(`test${path.sep}spec`)
-    );
-    const testName = context.options.name;
-    const browserVersion = parseInt(/\d+/.exec(context.browser.version)[0], 10);
-    const browserName = context.browser.name;
-    const platform = context.desiredCapabilities.platform;
-
-    return path.join(
-      basePath,
-      relativePath,
-      `${testName}/${platform}_${browserName}_v${browserVersion}.png`
-    );
-  };
-}
-
-// By default, test all the specs
-let specs = [path.resolve(__dirname, '../framework/**/test/spec/**/*.js')];
-
-// When a PR, only test the updated components
-if (isTravis && process.env.TRAVIS_PULL_REQUEST) {
-  logger.setLogLevel('silent');
-  const cwd = process.cwd();
-
-  const repo = new Repository(cwd);
-  const packages = repo.packages;
-  const filteredPackages = PackageUtilities.filterPackages(packages, {
-    scope: undefined,
-  });
-
-  // Get updated packages
-  const collector = new UpdatedPackagesCollector({
-    execOpts: {
-      cwd: repo.rootPath,
-    },
-    logger,
-    repository: repo,
-    filteredPackages,
-    options: {
-      since: 'master',
-    },
-  });
-
-  const updatedPackages = collector.collectUpdatedPackages();
-
-  // Only on parent process (not spawned)
-  if (!process.connected) {
-    console.log(
-      'Visual regression tests will be run on:',
-      Object.keys(updatedPackages)
-    );
-  }
-
-  specs = Object.keys(updatedPackages).map(p =>
-    path.resolve(updatedPackages[p].location, 'test/spec/**/*.js')
-  );
-}
 
 exports.config = {
   // ==================
@@ -95,7 +31,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
 
-  specs,
+  specs: getSpecs(isTravis),
 
   // Patterns to exclude.
   exclude: [],
@@ -120,44 +56,7 @@ exports.config = {
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://docs.saucelabs.com/reference/platforms-configurator
-  capabilities: [
-    {
-      browserName: 'chrome',
-      platform: 'Windows 10',
-      version: '56.0',
-      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-      screenResolution: '1920x1080',
-    },
-    {
-      browserName: 'internet explorer',
-      version: '11.0',
-      platform: 'Windows 7',
-      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-      screenResolution: '1920x1080',
-    },
-    {
-      browserName: 'safari',
-      // Version 10.0 has issues with executeAsync
-      // See: https://github.com/webdriverio/webdriverio/issues/1708
-      version: '9.0',
-      platform: 'OS X 10.11',
-      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-      screenResolution: '1920x1440',
-    },
-    {
-      browserName: 'firefox',
-      // Firefox 47 and above have issues with Action API
-      // See: https://github.com/SeleniumHQ/selenium/issues/2285
-      version: '46.0',
-      platform: 'Windows 7',
-      build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
-      'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
-      screenResolution: '1920x1080',
-    },
-  ],
+  capabilities: getCapabilities(),
 
   // ===================
   // Test Configurations
