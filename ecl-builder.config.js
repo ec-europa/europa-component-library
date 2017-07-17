@@ -58,6 +58,7 @@ module.exports = {
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
+      patterns: 'gumshoe.min.js',
       from: path.resolve(
         __dirname,
         'framework/components/ecl-navigation/ecl-navigation-inpages/node_modules/gumshoejs/dist/js'
@@ -65,6 +66,7 @@ module.exports = {
       to: path.resolve(__dirname, outputFolder, 'scripts'),
     },
     {
+      patterns: 'stickybits.min.js',
       from: path.resolve(
         __dirname,
         'framework/components/ecl-navigation/ecl-navigation-inpages/node_modules/stickybits/dist'
