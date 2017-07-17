@@ -17,38 +17,24 @@ It provides in-page (or anchor) links to all H2 headings on that page. It helps 
 
 ## Implementation
 
-Inpage navigation relies on two javascript libraries.  
-These libraries have to be included manually, and properly started (see below) for the component to work correctly.
+Inpage navigation relies on expandable component, and two javascript libraries.  
+The libraries have to be included manually:
 
 [**stickybits**](https://github.com/dollarshaveclub/stickybits)
-```javascript
+```js
 <script src="/path-to-js/stickybits.min.js"></script>
-<script type="text/javascript">
-  stickybits(
-    '.ecl-navigation-inpage',
-    {
-      useStickyClasses: true,
-    }
-  );
-</script>
 ```
 
 [**gumshoe**](https://github.com/cferdinandi/gumshoe/)
-```javascript
+```js
 <script src="/path-to-js/gumshoe.min.js"></script>
-<script type="text/javascript">
-gumshoe.init(
-  {
-    selector: '.ecl-navigation-inpage__link',
-    activeClass: 'ecl-navigation-inpage__link--is-active',
-    offset: 20,
-    callback: function (nav) {
-      if (!nav) return;
+```
 
-      const navigationTitle = document.querySelector('.ecl-navigation-inpage__trigger');
-      navigationTitle.innerHTML = nav.nav.innerHTML;
-    }
-  }
-);
-</script>
+Also, following script has to be added to your page:
+
+```js
+document.addEventListener('DOMContentLoaded', function () {
+  ECL.initExpandables();
+  ECL.navigationInpages();
+});
 ```

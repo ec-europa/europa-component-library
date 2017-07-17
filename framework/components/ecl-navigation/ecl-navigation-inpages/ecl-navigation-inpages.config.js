@@ -23,7 +23,7 @@ module.exports = {
     title: 'Page Contents',
     links,
     _demo: {
-      scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });`,
+      scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); ECL.navigationInpages(); });`,
     },
   },
 };
