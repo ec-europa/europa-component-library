@@ -7,10 +7,7 @@ module.exports = {
     _demo: {
       scripts: `
         document.addEventListener('DOMContentLoaded', function () {
-            var options = {
-              dialog: 'ecl-dialog',
-            };
-            ECL.dialogs(options);
+            ECL.dialogs();
         });
       `,
     },

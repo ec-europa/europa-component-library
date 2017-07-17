@@ -18,6 +18,19 @@ export const dialogs = () => {
   const dialogWindow = document.getElementById('ecl-dialog');
   let dialogOverlay = document.getElementById('ecl-overlay');
 
+  // What we can focus on in the modal.
+  const focusableElements = [].slice.call(
+    queryAll(
+      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
+    )
+  );
+  // Cache focused element before opening.
+  let focusedElBeforeOpen = document.activeElement;
+
+  // Specific elements to take care when openning and closing the dialog.
+  const firstFocusableElement = focusableElements[0];
+  const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
   // If user does not have an overlay for the background, create one.
   if (!dialogOverlay) {
     const el = document.createElement('div');
@@ -32,12 +45,20 @@ export const dialogs = () => {
   function open() {
     dialogWindow.setAttribute('aria-hidden', false);
     dialogOverlay.setAttribute('aria-hidden', false);
+
+    focusedElBeforeOpen = document.activeElement;
+    // Focus on the first element in the dialog.
+    firstFocusableElement.focus();
   }
 
   // Hide dialog and overlay elements.
   function close() {
     dialogWindow.setAttribute('aria-hidden', true);
     dialogOverlay.setAttribute('aria-hidden', true);
+
+    if (focusedElBeforeOpen) {
+      focusedElBeforeOpen.focus();
+    }
   }
 
   // BIND EVENTS
