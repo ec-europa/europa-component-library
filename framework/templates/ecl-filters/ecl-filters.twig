@@ -138,12 +138,13 @@
   <section class="ecl-col-lg-9">
     <div class="ecl-heading ecl-heading--h2 ecl-u-mb-m">Events (90)</div>
 
-    <div class="ecl-tag ecl-tag--facet-close ecl-u-mb-m">
-      <span class="ecl-tag__label">Live streaming available</span>
-      <button class="ecl-button ecl-button--facet-close ecl-tag__item" type="button">Yes</button>
-    </div>
+    {% include '@ec-europa/ecl-tags' with {
+      'modifier': 'facet-close',
+      'label': 'Live streaming available',
+      'tags': [{ 'value': 'Yes'}]
+    } %}
 
-    <section class="ecl-u-mb-m">CONTENT HERE</section>
+    <section class="ecl-u-mv-m">CONTENT HERE</section>
 
     {% include '@ec-europa/ecl-pagers' with {
       'currentPage': 1,
