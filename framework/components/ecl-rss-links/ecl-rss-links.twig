@@ -1,7 +1,11 @@
 <div class="ecl-rss-links">
   <span class="ecl-rss-links__label">Get updates:</span>
-  <a class="ecl-rss-links__link ecl-link" href="#">
-    <span class="ecl-rss-links__icon ecl-icon-social ecl-icon-social--rss"></span>
-    <span class="ecl-rss-links__text">RSS</span>
-  </a>
+  {% include '@ec-europa/ecl-social-icons' with {
+    link: {
+      target: '#',
+      modifier: 'ecl-icon-social--rss',
+      extraClasses: 'ecl-rss-links__link',
+      title: 'RSS'
+    }
+  } %}
 </div>
