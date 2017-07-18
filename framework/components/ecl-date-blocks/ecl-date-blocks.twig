@@ -1,13 +1,56 @@
-<div class="date-block {{event_type_1}}">
-  <span class="date-block__{{slot1_modifier}}">{{slot1_data}}</span>
-  <span class="date-block__{{slot2_modifier}}">{{slot2_data}}</span>
-  <span class="date-block__{{slot3_modifier}}">{{slot3_data}}</span>
-</div>
+{#
+  - variant: string; display variant (default: '')
+  - weekDay: string; day(s) of the week of the event (default: '')
+  - day: string; day number(s) of the event (default: '')
+  - month: string; month(s) of the event (default: '')
+  - year: string; year(s) of the event (default: '')
+#}
 
-<br><br>
+{% set variant = variant|default('') %}
+{% set weekDay = weekDay|default('') %}
+{% set day = day|default('') %}
+{% set month = month|default('') %}
+{% set year = year|default('') %}
 
-<div class="date-block {{event_type_2}}">
-  <span class="date-block__{{slot4_modifier}}">{{slot4_data}}</span>
-  <span class="date-block__{{slot5_modifier}}">{{slot5_data}}</span>
-  <span class="date-block__{{slot6_modifier}}">{{slot6_data}}</span>
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-date-block' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if variant != '' %}
+  {% set _cssClass = _cssClass ~ ' ecl-date-block--' ~ variant %}
+{% endif %}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+  <div class="ecl-date-block__body">
+    {% if weekDay != '' %}
+    <span class="ecl-date-block__week-day">{{ weekDay }}</span>
+    {% endif %}
+
+    {% if day != '' %}
+    <span class="ecl-date-block__day">{{ day }}</span>
+    {% endif %}
+
+    {% if month != '' %}
+    <span class="ecl-date-block__month">{{ month }}</span>
+    {% endif %}
+
+    {% if year != '' %}
+    <span class="ecl-date-block__year">{{ year }}</span>
+    {% endif %}
+  </div>
 </div>
