@@ -1,5 +1,11 @@
-<label for="datepicker">Date:</label>
 <div class="ecl-datepickers">
-  <input class="ecl-text-input" type="text" id="datepicker" value="04/01/2017" aria-label="Use the arrow keys to pick a date">
+  {% include '@ec-europa/ecl-forms-text-inputs' with {
+    'type': 'text',
+    'id': 'datepicker',
+    'extraAttributes': [
+      { 'name': 'aria-label', 'value': 'Use the arrow keys to pick a date' },
+      { 'name': 'value', 'value': '04/01/2017' }
+    ]
+  } %}
   <span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span>
 </div>
