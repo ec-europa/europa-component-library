@@ -1,11 +1,33 @@
-<div class="ecl-datepickers">
+{#
+  Accepts:
+    - "value" (string): the default value (mm/dd/yyyy, optional)
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}
+
+{% set _value = value|default('') %}
+{% set _css_class = 'ecl-datepickers' %}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% spaceless %}
+<div class="{{ _css_class }}"{{ _extra_attributes }}>
   {% include '@ec-europa/ecl-forms-text-inputs' with {
     'type': 'text',
     'id': 'datepicker',
     'extraAttributes': [
       { 'name': 'aria-label', 'value': 'Use the arrow keys to pick a date' },
-      { 'name': 'value', 'value': '04/01/2017' }
+      { 'name': 'value', 'value': _value }
     ]
   } %}
   <span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span>
 </div>
+{% endspaceless %}
