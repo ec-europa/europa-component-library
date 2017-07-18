@@ -1,0 +1,77 @@
+{#
+  - extra_attributes: [{
+      name: attribute name
+      value: attribute value
+    }]
+
+    Note that the `role="dialog"` attribute is added by default to extra_attributes set.
+
+  - extra_classes: additional classes to add to the component. 'ecl-dialog' is added by default.
+
+  - dialog_title: {
+    value: the title of the dialog (default: '')
+    id: the id to match an `aria-labelledby` attribute (default: '')
+    classes: classes to apply to dialog title field (default: 'ecl-sr-only')
+  }
+
+  - dialog_description: {
+    value: the description of the dialog (default: '')
+    id: the id to match an `aria-describedby` attribute (default: '')
+    classes: classes to apply to dialog description field (default: 'ecl-sr-only')
+  }
+
+  - body (block): content of the dialog (default: lorem ipsum text)
+
+  - dismiss: {
+    label: the value for the button label to close the dialog window (default: 'Dismiss this dialog window')
+  }
+#}
+
+{% set dialog_title = {
+  value: dialog_title.value|default(''),
+  id: dialog_title.id|default(''),
+  classes: dialog_title.classes|default('ecl-sr-only'),
+} %}
+
+{% set dialog_description = {
+  value: dialog_description.value|default(''),
+  id: dialog_description.id|default(''),
+  classes: dialog_description.classes|default('ecl-sr-only'),
+} %}
+
+{% set dismiss = {
+  label: dimiss.label|default('Dismiss this dialog window'),
+} %}
+
+{# Internal properties #}
+
+{% set _css_classes = 'ecl-dialog' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+<div class="{{ _css_classes }}" {{ _extra_attributes }} role="dialog">
+  {% if dialog_title is defined %}
+  <h1 id="{{ dialog_title.id }}" class="{{ dialog_title.classes }}">{{ dialog_title.value }}</h1>
+  {% endif %}
+  {% if dialog_description is defined %}
+  <p id="{{ dialog_description.id }}" class="{{ dialog_description.classes }}">{{ dialog_description.value }}</p>
+  {% endif %}
+  {% block body %}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+  {% endblock %}
+  {% if dismiss is defined %}
+  <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
+  {% endif %}
+</div>
