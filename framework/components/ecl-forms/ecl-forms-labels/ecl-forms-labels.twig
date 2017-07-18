@@ -6,10 +6,10 @@
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
-{% set _cssClass = 'ecl-form-label' %}
+{% set _css_class = 'ecl-form-label' %}
 
 {% if extra_classes is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extra_classes %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -18,4 +18,4 @@
   {% endfor %}
 {% endif %}
 
-<label class="{{ _cssClass }}"{{ _extra_attributes }}{{ for_attribute is defined ? ' for="' ~ for_attribute ~ '"'  : '' }}>{{ label }}{% block label %}{% endblock %}</label>
+<label class="{{ _css_class }}"{{ _extra_attributes }}{{ for_attribute is defined ? ' for="' ~ for_attribute ~ '"'  : '' }}>{{ label }}{% block label %}{% endblock %}</label>
