@@ -4,4 +4,7 @@ module.exports = {
   preview: '@preview-datepickers',
   status: 'ready',
   tags: ['molecule'],
+  context: {
+    value: '04/01/2017',
+  },
 };
