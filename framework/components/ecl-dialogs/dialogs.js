@@ -2,21 +2,32 @@ import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 
 /**
  * @param {object} options Object containing configuration overrides
+ *
+ * Available options:
+ * - options.triggerElementsSelector - any selector to which event listeners
+ * are attached. When clicked on any element with such a selector, a dialog opens.
+ *
+ * - options.dialogWindowId - id of target dialog window. Defaults to `ecl-dialog`.
+ *
+ * - options.dialogOverlayId - id of target dialog window. Defaults to `ecl-overlay`.
+ * Overlay element is created in the document if not provided by the user.
  */
-export const dialogs = () => {
+export const dialogs = (
+  {
+    triggerElementsSelector: triggerElementsSelector = '[data-ecl-dialog]',
+    dialogWindowId: dialogWindowId = 'ecl-dialog',
+    dialogOverlayId: dialogOverlayId = 'ecl-overlay',
+  } = {}
+) => {
   // SUPPORTS
-  if (
-    !('querySelector' in document) ||
-    !('addEventListener' in window) ||
-    !document.documentElement.classList
-  ) {
+  if (!('querySelector' in document) || !('addEventListener' in window)) {
     return null;
   }
 
   // SETUP
-  const triggerElements = queryAll('[data-ecl-dialog]');
-  const dialogWindow = document.getElementById('ecl-dialog');
-  let dialogOverlay = document.getElementById('ecl-overlay');
+  const triggerElements = queryAll(triggerElementsSelector);
+  const dialogWindow = document.getElementById(dialogWindowId);
+  let dialogOverlay = document.getElementById(dialogOverlayId);
 
   // Create an overlay element if the user does not supply one.
   if (!dialogOverlay) {
