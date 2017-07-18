@@ -22,7 +22,7 @@ module.exports = {
         id: 'opt-3',
         value: 'opt-3',
         label: 'option 3',
-        isDisabled: true,
+        is_disabled: true,
       },
     ],
   },
