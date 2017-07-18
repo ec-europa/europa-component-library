@@ -61,7 +61,6 @@
 {% endif %}
 
 {# Print result #}
-<a href="#dialog" class="ecl-link" data-ecl-dialog="ecl-dialog">Open dialog</a>
 <div class="{{ _css_classes }}" {{ _extra_attributes }} role="dialog">
   {% if dialog_title is defined %}
   <h1 id="{{ dialog_title.id }}" class="{{ dialog_title.classes }}">{{ dialog_title.value }}</h1>
