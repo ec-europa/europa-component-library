@@ -143,6 +143,21 @@ export const dialogs = (
     });
   }
 
+  // UNBIND EVENTS
+  function unbindDialogEvents(elements) {
+    elements.forEach(element => element.removeEventListener('click', open));
+
+    // const closeButtons = document.querySelectorAll('.ecl-message__dismiss');
+    queryAll('.ecl-message__dismiss').forEach(button => {
+      button.removeEventListener('click', close);
+    });
+  }
+
+  // DESTROY
+  function destroy() {
+    unbindDialogEvents(triggerElements);
+  }
+
   // INIT
   function init() {
     if (triggerElements.length) {
@@ -155,6 +170,7 @@ export const dialogs = (
   // REVEAL API
   return {
     init,
+    destroy,
   };
 };
 
