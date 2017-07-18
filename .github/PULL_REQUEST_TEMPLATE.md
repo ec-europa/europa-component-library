@@ -7,13 +7,13 @@ Please drop a few lines about the PR: what it does, how to test it, etc.
 In order to ensure a safe and quick review, please check that your PR follow those guidelines:
 
 - [ ] `package.json` is up-to-date and `@ec-europa/ecl-base` is part of the dependencies
+- [ ] I have checked the dependencies
 - [ ] I have given the fractal status “ready” to my component
 - [ ] I have declared `@define mycomponent` in the SCSS file
 - [ ] I have specified `margin: 0;` on the CSS component
 - [ ] I have provided tests
 - [ ] I follow the naming guidelines
 - [ ] the component supports composition
-- [ ] the template is fully functional
-- [ ] I have filled the README.md file (at least a few lines)
-- [ ] I have checked the dependencies
 - [ ] there are no hardcoded strings (all content come from the context)
+- [ ] I have filled the README.md file (at least a few lines)
+- [ ] My PR has the right label(s)

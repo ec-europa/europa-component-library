@@ -1,10 +1,23 @@
 {
-  "private": true,
   "name": "@ec-europa/ecl-date-blocks",
   "version": "0.3.0",
-  "description": "",
-  "main": "_date-blocks.scss",
-  "style": "_date-blocks.scss",
+  "description": "ECL date blocks",
+  "main": "ecl-date-blocks.scss",
+  "style": "ecl-date-blocks.scss",
   "author": "European Commission",
-  "license": "EUPL-1.1"
+  "license": "EUPL-1.1",
+  "dependencies": {
+    "@ec-europa/ecl-base": "^0.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library#readme"
 }
