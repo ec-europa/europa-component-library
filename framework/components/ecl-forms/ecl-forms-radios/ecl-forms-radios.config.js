@@ -30,7 +30,7 @@ module.exports = {
         name: 'opt-3',
         value: 'opt-3',
         label: 'Disabled option',
-        isDisabled: true,
+        is_disabled: true,
       },
     },
     {
@@ -40,7 +40,7 @@ module.exports = {
         name: 'opt-4',
         value: 'opt-4',
         label: 'Option with error',
-        hasError: true,
+        has_error: true,
       },
     },
   ],
