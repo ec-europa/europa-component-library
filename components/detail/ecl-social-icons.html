@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.2" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.2" type="text/css">
 
 
 <title>Social icons | Europa Component Library</title>
@@ -119,7 +119,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -134,8 +134,19 @@
               <div class="Prose">
                 
                 <h1 id="social-icons">Social icons</h1>
-<p>Social network icons.</p>
-
+<p>This is the ECL package you need when you want to implement a social media icon in any way.</p>
+<p>Few possibilities to do so:</p>
+<ul>
+<li>As a link:</li>
+</ul>
+<code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-icon-social ecl-icon-social--facebook"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre></code><p>Note that the <code>ecl-link</code> class is an optional extension you can have for links formatting.</p>
+<ul>
+<li>As a span:</li>
+</ul>
+<code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon-social ecl-icon-social--facebook"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></pre></code><ul>
+<li>Making an icon smaller:</li>
+</ul>
+<code class="lang-html"><pre>  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon-social ecl-icon-social--smaller ecl-icon-social--facebook"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></pre></code>
                 
               </div>
             </div>
@@ -211,178 +222,31 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-d9d5f7ed8e9d5e44b21b5d40f7b3d860-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"float: left;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu nav"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>svg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--arto'</span>&gt;</span>Arto<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bebo'</span>&gt;</span>Bebo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bitly'</span>&gt;</span>Bitly<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blinklist'</span>&gt;</span>Blinklist<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blog'</span>&gt;</span>Blog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blogger'</span>&gt;</span>Blogger<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--delicious'</span>&gt;</span>Delicious<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--digg'</span>&gt;</span>Digg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--diigo'</span>&gt;</span>Diigo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--dzone'</span>&gt;</span>Dzone<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--email'</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--facebook'</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--flickr'</span>&gt;</span>Flickr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--foursquare'</span>&gt;</span>Foursquare<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--generic'</span>&gt;</span>Generic<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--google'</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--gplus'</span>&gt;</span>Gplus<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--instagram'</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkarena'</span>&gt;</span>Linkarena<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkedin'</span>&gt;</span>Linkedin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--live'</span>&gt;</span>Live<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--meneame'</span>&gt;</span>Meneame<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--misterwong'</span>&gt;</span>Misterwong<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--myspace'</span>&gt;</span>Myspace<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netlog'</span>&gt;</span>Netlog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netvibes'</span>&gt;</span>Netvibes<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--newsvine'</span>&gt;</span>Newsvine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--nujij'</span>&gt;</span>Nujij<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pinterest'</span>&gt;</span>Pinterest<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pocket'</span>&gt;</span>Pocket<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--reddit'</span>&gt;</span>Reddit<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--rss'</span>&gt;</span>Rss<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--share'</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--skype'</span>&gt;</span>Skype<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--slashdot'</span>&gt;</span>Slashdot<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--sonico'</span>&gt;</span>Sonico<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--spotify'</span>&gt;</span>Spotify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--storify'</span>&gt;</span>Storify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--studivz'</span>&gt;</span>Studivz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--stumbleupon'</span>&gt;</span>Stumbleupon<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--technorati'</span>&gt;</span>Technorati<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tuenti'</span>&gt;</span>Tuenti<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--twitter'</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--viadeo'</span>&gt;</span>Viadeo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--vine'</span>&gt;</span>Vine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wordpress'</span>&gt;</span>Wordpress<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wykop'</span>&gt;</span>Wykop<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--xerpi'</span>&gt;</span>Xerpi<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--yammer'</span>&gt;</span>Yammer<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--youtube'</span>&gt;</span>Youtube<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--print'</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+ How to use this component:
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-svg"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"float: left; margin-left: 20px;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu nav"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>no-svg, fallback to png<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--arto'</span>&gt;</span>Arto<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bebo'</span>&gt;</span>Bebo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bitly'</span>&gt;</span>Bitly<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blinklist'</span>&gt;</span>Blinklist<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blog'</span>&gt;</span>Blog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blogger'</span>&gt;</span>Blogger<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--delicious'</span>&gt;</span>Delicious<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--digg'</span>&gt;</span>Digg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--diigo'</span>&gt;</span>Diigo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--dzone'</span>&gt;</span>Dzone<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--email'</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--facebook'</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--flickr'</span>&gt;</span>Flickr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--foursquare'</span>&gt;</span>Foursquare<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--generic'</span>&gt;</span>Generic<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--google'</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--gplus'</span>&gt;</span>Gplus<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--instagram'</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkarena'</span>&gt;</span>Linkarena<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkedin'</span>&gt;</span>Linkedin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--live'</span>&gt;</span>Live<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--meneame'</span>&gt;</span>Meneame<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--misterwong'</span>&gt;</span>Misterwong<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--myspace'</span>&gt;</span>Myspace<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netlog'</span>&gt;</span>Netlog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netvibes'</span>&gt;</span>Netvibes<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--newsvine'</span>&gt;</span>Newsvine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--nujij'</span>&gt;</span>Nujij<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pinterest'</span>&gt;</span>Pinterest<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pocket'</span>&gt;</span>Pocket<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--reddit'</span>&gt;</span>Reddit<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--rss'</span>&gt;</span>Rss<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--share'</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--skype'</span>&gt;</span>Skype<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--slashdot'</span>&gt;</span>Slashdot<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--sonico'</span>&gt;</span>Sonico<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--spotify'</span>&gt;</span>Spotify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--storify'</span>&gt;</span>Storify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--studivz'</span>&gt;</span>Studivz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--stumbleupon'</span>&gt;</span>Stumbleupon<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--technorati'</span>&gt;</span>Technorati<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tuenti'</span>&gt;</span>Tuenti<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--twitter'</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--viadeo'</span>&gt;</span>Viadeo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--vine'</span>&gt;</span>Vine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wordpress'</span>&gt;</span>Wordpress<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wykop'</span>&gt;</span>Wykop<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--xerpi'</span>&gt;</span>Xerpi<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--yammer'</span>&gt;</span>Yammer<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--youtube'</span>&gt;</span>Youtube<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--print'</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-svg"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"float: left; margin-left: 20px;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu nav ecl-icon-social--smaller"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>no-svg, fallback to png<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--arto'</span>&gt;</span>Arto<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bebo'</span>&gt;</span>Bebo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bitly'</span>&gt;</span>Bitly<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blinklist'</span>&gt;</span>Blinklist<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blog'</span>&gt;</span>Blog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blogger'</span>&gt;</span>Blogger<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--delicious'</span>&gt;</span>Delicious<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--digg'</span>&gt;</span>Digg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--diigo'</span>&gt;</span>Diigo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--dzone'</span>&gt;</span>Dzone<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--email'</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--facebook'</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--flickr'</span>&gt;</span>Flickr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--foursquare'</span>&gt;</span>Foursquare<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--generic'</span>&gt;</span>Generic<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--google'</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--gplus'</span>&gt;</span>Gplus<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--instagram'</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkarena'</span>&gt;</span>Linkarena<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkedin'</span>&gt;</span>Linkedin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--live'</span>&gt;</span>Live<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--meneame'</span>&gt;</span>Meneame<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--misterwong'</span>&gt;</span>Misterwong<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--myspace'</span>&gt;</span>Myspace<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netlog'</span>&gt;</span>Netlog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netvibes'</span>&gt;</span>Netvibes<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--newsvine'</span>&gt;</span>Newsvine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--nujij'</span>&gt;</span>Nujij<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pinterest'</span>&gt;</span>Pinterest<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pocket'</span>&gt;</span>Pocket<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--reddit'</span>&gt;</span>Reddit<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--rss'</span>&gt;</span>Rss<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--share'</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--skype'</span>&gt;</span>Skype<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--slashdot'</span>&gt;</span>Slashdot<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--sonico'</span>&gt;</span>Sonico<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--spotify'</span>&gt;</span>Spotify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--storify'</span>&gt;</span>Storify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--studivz'</span>&gt;</span>Studivz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--stumbleupon'</span>&gt;</span>Stumbleupon<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--technorati'</span>&gt;</span>Technorati<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tuenti'</span>&gt;</span>Tuenti<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--twitter'</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--viadeo'</span>&gt;</span>Viadeo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--vine'</span>&gt;</span>Vine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wordpress'</span>&gt;</span>Wordpress<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wykop'</span>&gt;</span>Wykop<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--xerpi'</span>&gt;</span>Xerpi<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--yammer'</span>&gt;</span>Yammer<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--youtube'</span>&gt;</span>Youtube<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--print'</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+  1) Variables building a link:
+  - link: (structure) Obligatory data for the link itself.
+  {
+    target: (string) Obligatory link target.
+    modifier: (string) Obligatory modifier.
+    extraClasses: (string) Optional classes on top of defaults.
+    title: (string) Obligatory link title.
+  }
+
+  2) Variables building a span - this is a default output if the preceding fail.
+  - modifier: (string) Obligatory modifier.
+  - text: (text) The textual value.
+#}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> link is defined %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span>
+  <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link.target }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+  <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-icon-social </span></span></span><span class="hljs-template-variable">{{ link.modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ link.extraClasses }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ link.extraAttributes }}</span><span class="xml"><span class="hljs-tag">
+  &gt;</span></span><span class="hljs-template-variable">{{ link.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social </span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">'</span>&gt;</span></span><span class="hljs-template-variable">{{ text }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -390,9 +254,484 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-d9d5f7ed8e9d5e44b21b5d40f7b3d860-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Arto */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--arto"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Arto"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Facebook */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--facebook"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Facebook"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Bebo */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--bebo"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Bebo"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Bitly */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--bitly"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Bitly"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Blinklist */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--blinklist"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Blinklist"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Blog */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--blog"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Blog"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Blogger */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--blogger"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Blogger"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Delicious */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--delicious"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Delicious"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Digg */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--digg"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Digg"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Diigo */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--diigo"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Diigo"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Dzone */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--dzone"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Dzone"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Email */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--email"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Email"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Flickr */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--flickr"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Flickr"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Foursquare */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--foursquare"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Foursquare"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Generic */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--generic"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Generic"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Google */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--google"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Google"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Gplus */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--gplus"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Gplus"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Instagram */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--instagram"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Instagram"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Linkarena */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--linkarena"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Linkarena"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Linkedin */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--linkedin"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Linkedin"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Live */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--live"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Live"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Meneame */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--meneame"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Meneame"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Misterwong */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--misterwong"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Misterwong"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Myspace */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--myspace"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Myspace"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Netlog */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--netlog"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Netlog"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Netvibes */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--netvibes"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Netvibes"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Newsvine */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--newsvine"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Newsvine"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Nujij */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--nujij"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Nujij"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Pinterest */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--pinterest"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Pinterest"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Pocket */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--pocket"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Pocket"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Reddit */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--reddit"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Reddit"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* RSS */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--rss"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"RSS"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Share */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--share"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Share"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Skype */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--skype"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Skype"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Slashdot */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--slashdot"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Slashdot"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Sonico */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--sonico"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Sonico"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Spotify */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--spotify"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Spotify"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Storify */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--storify"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Storify"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Studivz */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--studivz"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Studivz"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Stumbleupon */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--stumbleupon"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Stumbleupon"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Technorati */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--technorati"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Technorati"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Tuenti */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--tuenti"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Tuenti"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Tumblr */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--tumblr"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Tumblr"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Tumblr */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--tumblr"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Tumblr"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Twitter */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--twitter"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Twitter"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Viadeo */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--viadeo"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Viadeo"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Vine */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--vine"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Vine"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Wordpress */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--wordpress"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Wordpress"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Wykop */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--wykop"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Wykop"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Xerpi */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--xerpi"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Xerpi"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Yammer */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--yammer"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Yammer"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Youtube */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--youtube"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Youtube"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Print */</span>
+{
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-icon-social--print"</span>,
+  <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Print"</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -402,178 +741,272 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-d9d5f7ed8e9d5e44b21b5d40f7b3d860-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"float: left;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu nav"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>svg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--arto'</span>&gt;</span>Arto<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bebo'</span>&gt;</span>Bebo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bitly'</span>&gt;</span>Bitly<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blinklist'</span>&gt;</span>Blinklist<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blog'</span>&gt;</span>Blog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blogger'</span>&gt;</span>Blogger<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--delicious'</span>&gt;</span>Delicious<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--digg'</span>&gt;</span>Digg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--diigo'</span>&gt;</span>Diigo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--dzone'</span>&gt;</span>Dzone<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--email'</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--facebook'</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--flickr'</span>&gt;</span>Flickr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--foursquare'</span>&gt;</span>Foursquare<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--generic'</span>&gt;</span>Generic<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--google'</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--gplus'</span>&gt;</span>Gplus<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--instagram'</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkarena'</span>&gt;</span>Linkarena<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkedin'</span>&gt;</span>Linkedin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--live'</span>&gt;</span>Live<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--meneame'</span>&gt;</span>Meneame<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--misterwong'</span>&gt;</span>Misterwong<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--myspace'</span>&gt;</span>Myspace<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netlog'</span>&gt;</span>Netlog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netvibes'</span>&gt;</span>Netvibes<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--newsvine'</span>&gt;</span>Newsvine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--nujij'</span>&gt;</span>Nujij<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pinterest'</span>&gt;</span>Pinterest<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pocket'</span>&gt;</span>Pocket<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--reddit'</span>&gt;</span>Reddit<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--rss'</span>&gt;</span>Rss<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--share'</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--skype'</span>&gt;</span>Skype<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--slashdot'</span>&gt;</span>Slashdot<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--sonico'</span>&gt;</span>Sonico<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--spotify'</span>&gt;</span>Spotify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--storify'</span>&gt;</span>Storify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--studivz'</span>&gt;</span>Studivz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--stumbleupon'</span>&gt;</span>Stumbleupon<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--technorati'</span>&gt;</span>Technorati<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tuenti'</span>&gt;</span>Tuenti<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--twitter'</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--viadeo'</span>&gt;</span>Viadeo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--vine'</span>&gt;</span>Vine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wordpress'</span>&gt;</span>Wordpress<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wykop'</span>&gt;</span>Wykop<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--xerpi'</span>&gt;</span>Xerpi<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--yammer'</span>&gt;</span>Yammer<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--youtube'</span>&gt;</span>Youtube<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--print'</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        
+            <pre><span class="hljs-comment">&lt;!-- Arto --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--arto'</span>&gt;</span>Arto<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-svg"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"float: left; margin-left: 20px;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu nav"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>no-svg, fallback to png<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--arto'</span>&gt;</span>Arto<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bebo'</span>&gt;</span>Bebo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bitly'</span>&gt;</span>Bitly<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blinklist'</span>&gt;</span>Blinklist<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blog'</span>&gt;</span>Blog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blogger'</span>&gt;</span>Blogger<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--delicious'</span>&gt;</span>Delicious<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--digg'</span>&gt;</span>Digg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--diigo'</span>&gt;</span>Diigo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--dzone'</span>&gt;</span>Dzone<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--email'</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--facebook'</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--flickr'</span>&gt;</span>Flickr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--foursquare'</span>&gt;</span>Foursquare<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--generic'</span>&gt;</span>Generic<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--google'</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--gplus'</span>&gt;</span>Gplus<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--instagram'</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkarena'</span>&gt;</span>Linkarena<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkedin'</span>&gt;</span>Linkedin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--live'</span>&gt;</span>Live<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--meneame'</span>&gt;</span>Meneame<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--misterwong'</span>&gt;</span>Misterwong<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--myspace'</span>&gt;</span>Myspace<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netlog'</span>&gt;</span>Netlog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netvibes'</span>&gt;</span>Netvibes<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--newsvine'</span>&gt;</span>Newsvine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--nujij'</span>&gt;</span>Nujij<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pinterest'</span>&gt;</span>Pinterest<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pocket'</span>&gt;</span>Pocket<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--reddit'</span>&gt;</span>Reddit<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--rss'</span>&gt;</span>Rss<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--share'</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--skype'</span>&gt;</span>Skype<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--slashdot'</span>&gt;</span>Slashdot<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--sonico'</span>&gt;</span>Sonico<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--spotify'</span>&gt;</span>Spotify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--storify'</span>&gt;</span>Storify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--studivz'</span>&gt;</span>Studivz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--stumbleupon'</span>&gt;</span>Stumbleupon<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--technorati'</span>&gt;</span>Technorati<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tuenti'</span>&gt;</span>Tuenti<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--twitter'</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--viadeo'</span>&gt;</span>Viadeo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--vine'</span>&gt;</span>Vine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wordpress'</span>&gt;</span>Wordpress<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wykop'</span>&gt;</span>Wykop<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--xerpi'</span>&gt;</span>Xerpi<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--yammer'</span>&gt;</span>Yammer<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--youtube'</span>&gt;</span>Youtube<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--print'</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-svg"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"float: left; margin-left: 20px;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"menu nav ecl-icon-social--smaller"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>no-svg, fallback to png<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--arto'</span>&gt;</span>Arto<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bebo'</span>&gt;</span>Bebo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bitly'</span>&gt;</span>Bitly<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blinklist'</span>&gt;</span>Blinklist<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blog'</span>&gt;</span>Blog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blogger'</span>&gt;</span>Blogger<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--delicious'</span>&gt;</span>Delicious<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--digg'</span>&gt;</span>Digg<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--diigo'</span>&gt;</span>Diigo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--dzone'</span>&gt;</span>Dzone<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--email'</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--facebook'</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--flickr'</span>&gt;</span>Flickr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--foursquare'</span>&gt;</span>Foursquare<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--generic'</span>&gt;</span>Generic<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--google'</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--gplus'</span>&gt;</span>Gplus<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--instagram'</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkarena'</span>&gt;</span>Linkarena<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkedin'</span>&gt;</span>Linkedin<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--live'</span>&gt;</span>Live<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--meneame'</span>&gt;</span>Meneame<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--misterwong'</span>&gt;</span>Misterwong<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--myspace'</span>&gt;</span>Myspace<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netlog'</span>&gt;</span>Netlog<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netvibes'</span>&gt;</span>Netvibes<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--newsvine'</span>&gt;</span>Newsvine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--nujij'</span>&gt;</span>Nujij<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pinterest'</span>&gt;</span>Pinterest<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pocket'</span>&gt;</span>Pocket<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--reddit'</span>&gt;</span>Reddit<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--rss'</span>&gt;</span>Rss<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--share'</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--skype'</span>&gt;</span>Skype<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--slashdot'</span>&gt;</span>Slashdot<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--sonico'</span>&gt;</span>Sonico<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--spotify'</span>&gt;</span>Spotify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--storify'</span>&gt;</span>Storify<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--studivz'</span>&gt;</span>Studivz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--stumbleupon'</span>&gt;</span>Stumbleupon<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--technorati'</span>&gt;</span>Technorati<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tuenti'</span>&gt;</span>Tuenti<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--twitter'</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--viadeo'</span>&gt;</span>Viadeo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--vine'</span>&gt;</span>Vine<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wordpress'</span>&gt;</span>Wordpress<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wykop'</span>&gt;</span>Wykop<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--xerpi'</span>&gt;</span>Xerpi<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--yammer'</span>&gt;</span>Yammer<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--youtube'</span>&gt;</span>Youtube<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--print'</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Facebook --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--facebook'</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Bebo --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bebo'</span>&gt;</span>Bebo<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Bitly --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--bitly'</span>&gt;</span>Bitly<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Blinklist --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blinklist'</span>&gt;</span>Blinklist<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Blog --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blog'</span>&gt;</span>Blog<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Blogger --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--blogger'</span>&gt;</span>Blogger<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Delicious --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--delicious'</span>&gt;</span>Delicious<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Digg --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--digg'</span>&gt;</span>Digg<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Diigo --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--diigo'</span>&gt;</span>Diigo<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Dzone --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--dzone'</span>&gt;</span>Dzone<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Email --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--email'</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Flickr --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--flickr'</span>&gt;</span>Flickr<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Foursquare --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--foursquare'</span>&gt;</span>Foursquare<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Generic --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--generic'</span>&gt;</span>Generic<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Google --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--google'</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Gplus --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--gplus'</span>&gt;</span>Gplus<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Instagram --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--instagram'</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Linkarena --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkarena'</span>&gt;</span>Linkarena<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Linkedin --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--linkedin'</span>&gt;</span>Linkedin<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Live --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--live'</span>&gt;</span>Live<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Meneame --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--meneame'</span>&gt;</span>Meneame<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Misterwong --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--misterwong'</span>&gt;</span>Misterwong<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Myspace --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--myspace'</span>&gt;</span>Myspace<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Netlog --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netlog'</span>&gt;</span>Netlog<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Netvibes --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--netvibes'</span>&gt;</span>Netvibes<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Newsvine --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--newsvine'</span>&gt;</span>Newsvine<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Nujij --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--nujij'</span>&gt;</span>Nujij<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Pinterest --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pinterest'</span>&gt;</span>Pinterest<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Pocket --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--pocket'</span>&gt;</span>Pocket<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Reddit --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--reddit'</span>&gt;</span>Reddit<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- RSS --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--rss'</span>&gt;</span>RSS<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Share --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--share'</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Skype --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--skype'</span>&gt;</span>Skype<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Slashdot --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--slashdot'</span>&gt;</span>Slashdot<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Sonico --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--sonico'</span>&gt;</span>Sonico<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Spotify --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--spotify'</span>&gt;</span>Spotify<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Storify --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--storify'</span>&gt;</span>Storify<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Studivz --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--studivz'</span>&gt;</span>Studivz<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Stumbleupon --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--stumbleupon'</span>&gt;</span>Stumbleupon<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Technorati --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--technorati'</span>&gt;</span>Technorati<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Tuenti --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tuenti'</span>&gt;</span>Tuenti<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Tumblr --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Tumblr --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--tumblr'</span>&gt;</span>Tumblr<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Twitter --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--twitter'</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Viadeo --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--viadeo'</span>&gt;</span>Viadeo<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Vine --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--vine'</span>&gt;</span>Vine<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Wordpress --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wordpress'</span>&gt;</span>Wordpress<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Wykop --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--wykop'</span>&gt;</span>Wykop<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Xerpi --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--xerpi'</span>&gt;</span>Xerpi<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Yammer --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--yammer'</span>&gt;</span>Yammer<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Youtube --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--youtube'</span>&gt;</span>Youtube<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Print --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">'ecl-icon-social ecl-icon-social--print'</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -589,13 +1022,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-3e0cae2678cabcc4d3c0490324fe5ceb">_social-icons.scss</option>
+                <option value="file-b5c511421e1c9336cd19cbd84e341a57">ecl-social-icons.scss</option>
+                
+                <option value="file-4e87ea9b1dbfb70a880115cf644a56a5">icons-list.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-3e0cae2678cabcc4d3c0490324fe5ceb" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-b5c511421e1c9336cd19cbd84e341a57" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -603,136 +1038,56 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Icon Social
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * Social icons
+ * @define icon-social
+ */</span>
 
-<span class="hljs-variable">$icon-size</span>: <span class="hljs-number">40px</span>;
-<span class="hljs-variable">$icon-size-small</span>: <span class="hljs-number">26px</span>;
+<span class="hljs-comment">// Brings in the long list for $ecl-social-icons.</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'./icons-list'</span>;
+
+<span class="hljs-variable">$img-path</span>: <span class="hljs-string">'../images/social/'</span>;
 
 <span class="hljs-comment">// Social icons image.</span>
-@<span class="hljs-keyword">mixin</span> social_icon_background(<span class="hljs-variable">$selector</span>, <span class="hljs-variable">$social_path</span>, <span class="hljs-variable">$image</span>, <span class="hljs-variable">$image_hover</span>, <span class="hljs-variable">$extra</span>: null, <span class="hljs-variable">$extra_hover</span>: null) {
-  #{<span class="hljs-variable">$selector</span>} {
-    &amp;::before {
-      <span class="hljs-attribute">background</span>: url(<span class="hljs-variable">$social_path</span> + <span class="hljs-variable">$image</span>) no-repeat <span class="hljs-variable">$extra</span>;
-    }
+@<span class="hljs-keyword">mixin</span> generate-icon(<span class="hljs-variable">$selector</span>, <span class="hljs-variable">$img-path</span>, <span class="hljs-variable">$image</span>, <span class="hljs-variable">$img-hover</span>, <span class="hljs-variable">$extra</span>: null, <span class="hljs-variable">$extra_hover</span>: null) {
+  <span class="hljs-comment">// Ignoring next 2 selectors since the dynamic selector is problematic for the linter.</span>
 
-    &amp;:hover::before {
-      <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$social_path</span> + <span class="hljs-variable">$image_hover</span>) <span class="hljs-variable">$extra_hover</span>;
-    }
+  <span class="hljs-comment">/* postcss-bem-linter: ignore */</span>
+  #{<span class="hljs-variable">$selector</span>}::before {
+    <span class="hljs-attribute">background</span>: url(<span class="hljs-variable">$img-path</span> + <span class="hljs-variable">$image</span>) no-repeat <span class="hljs-variable">$extra</span>;
+  }
+
+  <span class="hljs-comment">/* postcss-bem-linter: ignore */</span>
+  #{<span class="hljs-variable">$selector</span>}:hover::before {
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$img-path</span> + <span class="hljs-variable">$img-hover</span>) <span class="hljs-variable">$extra_hover</span>;
   }
 }
 
 <span class="hljs-selector-class">.ecl-icon-social</span> {
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">50px</span>;
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">5px</span>;
-  <span class="hljs-attribute">min-height</span>: <span class="hljs-variable">$icon-size</span>;
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+}
 
-  &amp;::before {
-    <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
-    <span class="hljs-attribute">display</span>: inline-block;
-    <span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size</span>;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">10px</span> <span class="hljs-number">5px</span> <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">vertical-align</span>: middle;
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-  }
-
-  &amp;:hover {
-    <span class="hljs-attribute">cursor</span>: pointer;
-  }
+<span class="hljs-selector-class">.ecl-icon-social</span>::before {
+  <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">2rem</span>;
+  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">2rem</span>;
 }
 
 <span class="hljs-selector-class">.ecl-icon-social--smaller</span> {
-  <span class="hljs-selector-class">.ecl-icon-social</span> {
-    <span class="hljs-attribute">padding-right</span>: <span class="hljs-number">0.6em</span>;
-    <span class="hljs-attribute">padding-left</span>: <span class="hljs-variable">$icon-size-small</span> + <span class="hljs-number">10px</span>;
-    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">min-height</span>: <span class="hljs-variable">$icon-size-small</span>;
+  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">1.5rem</span>;
 
-    &amp;::before {
-      <span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size-small</span>;
-      <span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size-small</span>;
-    }
+  &amp;::before {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">1.5rem</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">1.5rem</span>;
   }
 }
 
-<span class="hljs-variable">$map_social_icons</span>:
-  (<span class="hljs-string">'arto'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'bebo'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'bitly'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'blinklist'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'blog'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'blogger'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'delicious'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'digg'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'diigo'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'dzone'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'email'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'facebook'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'flickr'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'foursquare'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'generic'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'google'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'gplus'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'instagram'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'linkarena'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'linkedin'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'live'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'meneame'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'misterwong'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'myspace'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'netlog'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'netvibes'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'newsvine'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'nujij'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'pinterest'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'pocket'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'reddit'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'rss'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'share'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'skype'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'slashdot'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'sonico'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'spotify'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'storify'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'studivz'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'stumbleupon'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'technorati'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'tuenti'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'tumblr'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'twitter'</span>, <span class="hljs-string">'#ffffff'</span>),
-  (<span class="hljs-string">'viadeo'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'vine'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'wordpress'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'wykop'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'xerpi'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'yammer'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'youtube'</span>, <span class="hljs-string">''</span>),
-  (<span class="hljs-string">'print'</span>, <span class="hljs-string">''</span>);
-
-<span class="hljs-variable">$svg_social_path</span>: <span class="hljs-string">"../images/svg/icons/social/"</span>;
-
-@<span class="hljs-keyword">each</span> <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$extra</span> in <span class="hljs-variable">$map_social_icons</span> {
-  @<span class="hljs-keyword">include</span> social_icon_background(<span class="hljs-string">".ecl-icon-social--"</span> + <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$svg_social_path</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'.svg'</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'_hover.svg'</span>, #{<span class="hljs-variable">$extra</span>});
-}
-
-<span class="hljs-selector-class">.no-svg</span> {
-  <span class="hljs-variable">$png_social_path</span>: <span class="hljs-string">"../images/png/icons/social/"</span>;
-  <span class="hljs-variable">$png_social_path_small</span>: <span class="hljs-string">"../images/png/icons/social/small/"</span>;
-
-  @<span class="hljs-keyword">each</span> <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$extra</span> in <span class="hljs-variable">$map_social_icons</span> {
-    @<span class="hljs-keyword">include</span> social_icon_background(<span class="hljs-string">".ecl-icon-social--"</span> + <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$png_social_path</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'.png'</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'_hover.png'</span>, #{<span class="hljs-variable">$extra</span>});
-  }
-
-  <span class="hljs-selector-class">.ecl-icon-social--smaller</span> {
-    @<span class="hljs-keyword">each</span> <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$extra</span> in <span class="hljs-variable">$map_social_icons</span> {
-      @<span class="hljs-keyword">include</span> social_icon_background(<span class="hljs-string">".ecl-icon-social--"</span> + <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$png_social_path_small</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'_small.png'</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'_hover_small.png'</span>, #{<span class="hljs-variable">$extra</span>});
-    }
-  }
+@<span class="hljs-keyword">each</span> <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$extra</span> in <span class="hljs-variable">$ecl-social-icons</span> {
+  @<span class="hljs-keyword">include</span> generate-icon(<span class="hljs-string">'.ecl-icon-social--'</span> + <span class="hljs-variable">$icon</span>, <span class="hljs-variable">$img-path</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'.svg'</span>, <span class="hljs-variable">$icon</span> + <span class="hljs-string">'_hover.svg'</span>, #{<span class="hljs-variable">$extra</span>});
 }
 </pre>
                             </code>
@@ -742,15 +1097,58 @@ Icon Social
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-social-icons/_social-icons.scss"><span>/components/raw/ecl-social-icons/_social-icons.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-social-icons/ecl-social-icons.scss"><span>/components/raw/ecl-social-icons/ecl-social-icons.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-social-icons/_social-icons.scss</span>
+                    <span class="Meta-value">framework/components/ecl-social-icons/ecl-social-icons.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.8 KB</span>
+                    <span class="Meta-value">1.1 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-4e87ea9b1dbfb70a880115cf644a56a5" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-variable">$ecl-social-icons</span>: (<span class="hljs-string">'arto'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'bebo'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'bitly'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'blinklist'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'blog'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'blogger'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'delicious'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'digg'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'diigo'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'dzone'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'email'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'facebook'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'flickr'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'foursquare'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'generic'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'google'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'gplus'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'instagram'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'linkarena'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'linkedin'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'live'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'meneame'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'misterwong'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'myspace'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'netlog'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'netvibes'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'newsvine'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'nujij'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'pinterest'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'pocket'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'reddit'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'rss'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'share'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'skype'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'slashdot'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'sonico'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'spotify'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'storify'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'studivz'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'stumbleupon'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'technorati'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'tuenti'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'tumblr'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'twitter'</span>, <span class="hljs-string">'#ffffff'</span>),  (<span class="hljs-string">'viadeo'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'vine'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'wordpress'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'wykop'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'xerpi'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'yammer'</span>, <span class="hljs-string">''</span>),  (<span class="hljs-string">'youtube'</span>, <span class="hljs-string">''</span>),
+   (<span class="hljs-string">'print'</span>, <span class="hljs-string">''</span>);
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-social-icons/icons-list.scss"><span>/components/raw/ecl-social-icons/icons-list.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-social-icons/icons-list.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">963 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -3074,30 +3472,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-inpage-navs" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Inpage navigations</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-labels" data-pjax>
                 
 
@@ -3494,6 +3868,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             
             
             
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation-inpages" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Inpage navigations</span>
+            </a>
+        </li>
+        
     
         
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-navigation-lists">
@@ -4098,7 +4496,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4747,7 +5145,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.2"></script>
 
 
 

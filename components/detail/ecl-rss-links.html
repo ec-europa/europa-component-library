@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.2" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.1" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.2" type="text/css">
 
 
 <title>RSS Links | Europa Component Library</title>
@@ -218,10 +218,14 @@
     <code class="Code Code--lang-twig">
         <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__label"</span>&gt;</span>Get updates:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__link ecl-link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__icon ecl-icon-social ecl-icon-social--rss"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__text"</span>&gt;</span>RSS<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-social-icons' with {
+    link: {
+      target: '#',
+      modifier: 'ecl-icon-social--rss',
+      extraClasses: 'ecl-rss-links__link',
+      title: 'RSS'
+    }
+  } %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -244,10 +248,8 @@
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__label"</span>&gt;</span>Get updates:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__link ecl-link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__icon ecl-icon-social ecl-icon-social--rss"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-rss-links__text"</span>&gt;</span>RSS<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-icon-social ecl-icon-social--rss ecl-rss-links__link"</span>&gt;</span>RSS<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -264,13 +266,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-4d6af0b9f5ea1ed5a00a3b4cb49bc8f9">_rss-links.scss</option>
+                <option value="file-bb9d0d14b79300e4be5c346df69e04d8">_rss-links.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-4d6af0b9f5ea1ed5a00a3b4cb49bc8f9" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-bb9d0d14b79300e4be5c346df69e04d8" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -286,37 +288,29 @@
 <span class="hljs-selector-class">.ecl-rss-links</span> {
   <span class="hljs-attribute">align-items</span>: center;
   <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-wrap</span>: wrap;
   <span class="hljs-attribute">justify-content</span>: center;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-rss-links__label</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">font-weight</span>: bold;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxs'</span>) <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxxs'</span>) <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-rss-links__link</span> {
   <span class="hljs-attribute">align-items</span>: center;
   <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">justify-content</span>: center;
-  <span class="hljs-attribute">text-decoration</span>: none;
-}
 
-<span class="hljs-selector-class">.ecl-rss-links__link</span>:hover {
-  <span class="hljs-selector-class">.ecl-rss-links__text</span> {
-    <span class="hljs-attribute">text-decoration</span>: underline;
+  &amp;::before {
+    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
   }
-}
-
-<span class="hljs-comment">// Correcting .ecl-icon-social adding 5px on top.</span>
-<span class="hljs-selector-class">.ecl-rss-links__icon</span> {
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
-}
-
-<span class="hljs-selector-class">.ecl-rss-links__text</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-  <span class="hljs-attribute">text-decoration</span>: none;
 }
 </pre>
                             </code>
@@ -334,7 +328,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">697 Bytes</span>
+                    <span class="Meta-value">600 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -2658,30 +2652,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-inpage-navs" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Inpage navigations</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-labels" data-pjax>
                 
 
@@ -3078,6 +3048,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             
             
             
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation-inpages" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Inpage navigations</span>
+            </a>
+        </li>
+        
     
         
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-navigation-lists">
@@ -3682,7 +3676,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4331,7 +4325,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.1"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.2"></script>
 
 
 
