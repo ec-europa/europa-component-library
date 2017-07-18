@@ -1,12 +1,12 @@
 {#
-  - extraAttributes: [{
+  - extra_attributes: [{
       name: attribute name
       value: attribute value
     }]
 
-    Note that the `role="dialog"` attribute is added by default to extraAttributes set.
+    Note that the `role="dialog"` attribute is added by default to extra_attributes set.
 
-  - extraClass: additional classes to add to the component. 'ecl-dialog' is added by default.
+  - extra_classes: additional classes to add to the component. 'ecl-dialog' is added by default.
 
   - dialog_title: {
     value: the title of the dialog (default: '')
@@ -45,24 +45,24 @@
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-dialog' %}
-{% set _extraAttributes = '' %}
+{% set _css_classes = 'ecl-dialog' %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if extra_classes is defined %}
+  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print result #}
 <a href="#dialog" class="ecl-link" data-ecl-dialog="ecl-dialog">Open dialog</a>
-<div class="{{ _cssClass }}" {{ _extraAttributes }} role="dialog">
+<div class="{{ _css_classes }}" {{ _extra_attributes }} role="dialog">
   {% if dialog_title is defined %}
   <h1 id="{{ dialog_title.id }}" class="{{ dialog_title.classes }}">{{ dialog_title.value }}</h1>
   {% endif %}
@@ -76,4 +76,3 @@
   <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
   {% endif %}
 </div>
-<div class="ecl-dialog__overlay" id="ecl-overlay"></div>

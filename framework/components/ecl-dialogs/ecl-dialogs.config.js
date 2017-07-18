@@ -11,7 +11,7 @@ module.exports = {
         });
       `,
     },
-    extraAttributes: [
+    extra_attributes: [
       { name: 'aria-labelledby', value: 'dialog-title' },
       { name: 'aria-describedby', value: 'dialog-description' },
       { name: 'id', value: 'ecl-dialog' },

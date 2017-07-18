@@ -18,39 +18,37 @@ export const dialogs = () => {
   const dialogWindow = document.getElementById('ecl-dialog');
   let dialogOverlay = document.getElementById('ecl-overlay');
 
+  // Create an overlay element if the user does not supply one.
+  if (!dialogOverlay) {
+    const element = document.createElement('div');
+    element.setAttribute('id', 'ecl-overlay');
+    element.setAttribute('class', 'ecl-dialog__overlay');
+    document.body.append(element);
+    dialogOverlay = element;
+  }
+
   // What we can focus on in the modal.
   const focusableElements = [].slice.call(
     queryAll(
-      'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex="0"]'
+      `
+        a[href],
+        area[href],
+        input:not([disabled]),
+        select:not([disabled]),
+        textarea:not([disabled]),
+        button:not([disabled]),
+        [tabindex="0"]
+      `
     )
   );
-  // Cache focused element before opening.
-  let focusedElBeforeOpen = document.activeElement;
+  // Use this variable to return focus on element after dialog being closed.
+  let focusedElBeforeOpen = null;
 
   // Specific elements to take care when openning and closing the dialog.
   const firstFocusableElement = focusableElements[0];
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
-  // If user does not have an overlay for the background, create one.
-  if (!dialogOverlay) {
-    const el = document.createElement('div');
-    el.setAttribute('class', 'ecl-dialog__overlay');
-    el.setAttribute('id', 'ecl-overlay');
-    document.body.append(el);
-    dialogOverlay = el;
-  }
-
   // EVENTS
-  // Show dialog and overlay elements.
-  function open() {
-    dialogWindow.setAttribute('aria-hidden', false);
-    dialogOverlay.setAttribute('aria-hidden', false);
-
-    focusedElBeforeOpen = document.activeElement;
-    // Focus on the first element in the dialog.
-    firstFocusableElement.focus();
-  }
-
   // Hide dialog and overlay elements.
   function close() {
     dialogWindow.setAttribute('aria-hidden', true);
@@ -59,6 +57,69 @@ export const dialogs = () => {
     if (focusedElBeforeOpen) {
       focusedElBeforeOpen.focus();
     }
+  }
+
+  // Keyboard behaviors.
+  function handleKeyDown(e) {
+    const KEY_TAB = 9;
+    const KEY_ESC = 27;
+
+    function handleBackwardTab() {
+      if (document.activeElement === firstFocusableElement) {
+        e.preventDefault();
+        lastFocusableElement.focus();
+      }
+    }
+
+    function handleForwardTab() {
+      if (document.activeElement === lastFocusableElement) {
+        e.preventDefault();
+        firstFocusableElement.focus();
+      }
+    }
+
+    switch (e.keyCode) {
+      // Keep tabbing in the scope of the dialog.
+      case KEY_TAB:
+        if (focusableElements.length === 1) {
+          e.preventDefault();
+          break;
+        }
+        if (e.shiftKey) {
+          handleBackwardTab();
+        } else {
+          handleForwardTab();
+        }
+        break;
+      case KEY_ESC:
+        close();
+        break;
+      default:
+        break;
+    }
+  }
+
+  // Show dialog and overlay elements.
+  function open() {
+    dialogWindow.setAttribute('aria-hidden', false);
+    dialogOverlay.setAttribute('aria-hidden', false);
+
+    // This is the element to have the focus after closing the dialog.
+    // Usually the element which triggered the dialog.
+    focusedElBeforeOpen = document.activeElement;
+
+    // Focus on the first element in the dialog.
+    firstFocusableElement.focus();
+
+    // Close dialog when clicked out of the dialog window.
+    dialogOverlay.addEventListener('click', () => {
+      close();
+    });
+
+    // Handle tabbing, esc and keyboard in the dialog window.
+    dialogWindow.addEventListener('keydown', e => {
+      handleKeyDown(e);
+    });
   }
 
   // BIND EVENTS
