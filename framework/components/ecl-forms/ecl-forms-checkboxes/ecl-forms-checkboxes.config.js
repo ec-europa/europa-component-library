@@ -28,7 +28,7 @@ module.exports = {
         label: 'Disabled checkbox',
         id: 'example-checkbox-id-2',
         name: 'example-checkbox-name-2',
-        isDisabled: true,
+        is_disabled: true,
       },
     },
     {
@@ -37,7 +37,7 @@ module.exports = {
         label: 'Checkbox with error',
         id: 'example-checkbox-id-3',
         name: 'example-checkbox-name-3',
-        hasError: true,
+        has_error: true,
       },
     },
   ],
