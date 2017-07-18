@@ -1,44 +1,46 @@
 {#
-  - variant: string; display variant (default: '')
-  - weekDay: string; day(s) of the week of the event (default: '')
-  - day: string; day number(s) of the event (default: '')
-  - month: string; month(s) of the event (default: '')
-  - year: string; year(s) of the event (default: '')
+  - "variant" (string); display variant (default: '')
+  - "week_day" (string); day(s) of the week of the event (default: '')
+  - "day" (string); day number(s) of the event (default: '')
+  - "month" (string); month(s) of the event (default: '')
+  - "year" (string); year(s) of the event (default: '')
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {% set variant = variant|default('') %}
-{% set weekDay = weekDay|default('') %}
+{% set week_day = week_day|default('') %}
 {% set day = day|default('') %}
 {% set month = month|default('') %}
 {% set year = year|default('') %}
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-date-block' %}
-{% set _extraAttributes = '' %}
+{% set _css_class = 'ecl-date-block' %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if variant != '' %}
-  {% set _cssClass = _cssClass ~ ' ecl-date-block--' ~ variant %}
+  {% set _css_class = _css_class ~ ' ecl-date-block--' ~ variant %}
 {% endif %}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_Class %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result  #}
 
-<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <div class="ecl-date-block__body">
-    {% if weekDay != '' %}
-    <span class="ecl-date-block__week-day">{{ weekDay }}</span>
+    {% if week_day != '' %}
+    <span class="ecl-date-block__week-day">{{ week_day }}</span>
     {% endif %}
 
     {% if day != '' %}

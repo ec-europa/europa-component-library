@@ -18,8 +18,7 @@ module.exports = {
       name: 'default',
       label: 'Default event',
       context: {
-        variant: '',
-        weekDay: 'Tue',
+        week_day: 'Tue',
         day: '12',
         month: 'Jan',
       },
@@ -29,7 +28,7 @@ module.exports = {
       label: 'Ongoing event',
       context: {
         variant: 'ongoing',
-        weekDay: 'Wed-Fri',
+        week_day: 'Wed-Fri',
         day: '31-11',
         month: 'May-Jun',
       },
@@ -39,7 +38,7 @@ module.exports = {
       label: 'Cancelled event',
       context: {
         variant: 'cancelled',
-        weekDay: 'Mon',
+        week_day: 'Mon',
         day: '11',
         month: 'Jan',
       },
