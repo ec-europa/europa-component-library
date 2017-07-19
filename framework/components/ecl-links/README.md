@@ -3,40 +3,38 @@
 ## Why and how to use this component
 When you need to direct users to a different page or to provide access to further information.
 ### Link types
-- __in-line text link__
+- *in-line text link*
   - internal links
   - external links
-- __stand-alone link__
+
+- *stand-alone link*
   - more link
   - expandable link
   - social media link
 
 ## When to use this component
-- __in-line link__
+- *in-line link*
 when links are inserted within paragraph text blocks
-__style__
+*style*
 blue, underlined (displayed in white colour if the background colour is blue)
-  - __internal link__
+  - *internal link*
 when links point to URLs inside the ec.europa.eu domain
-__style__
+*style*
 underlined link
-
-  - __external link__
+  - *external link*
 when links point to URLs outside the ec.europa.eu domain
-__style__
+*style*
 underlined link with an appended square w/ arrow pointing outward
 
-- __stand-alone link__
+- *stand-alone link*
 when links are not inserted within paragraph text blocks
-__style__
+*style*
 blue, no underline
-  - __more link__
+  - *more link*
 used on the Listings component
-
-  - __expandable link__
+  - *expandable link*
 used on the Expandable component
-
-  - __social media link__
+  - *social media link*
 used on the Social media - Follow. and Social media - Share. components
 ## Do not use this component
 - for actions or important links to other pages - in this case, use buttons instead
