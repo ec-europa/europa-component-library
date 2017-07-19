@@ -14,15 +14,6 @@
   transform: translate(-50%, -50%);
   width: 90%;
   z-index: map-get($ecl-z-index, 'modal');
-
-  &[aria-hidden='true'],
-  &:not([aria-hidden='true']) {
-    display: none;
-  }
-
-  &[aria-hidden='false'] {
-    display: block;
-  }
 }
 
 .ecl-dialog__overlay {
@@ -33,13 +24,4 @@
   top: 0;
   width: 100%;
   z-index: map-get($ecl-z-index, 'highlight');
-
-  &[aria-hidden='true'],
-  &:not([aria-hidden='true']) {
-    display: none;
-  }
-
-  &[aria-hidden='false'] {
-    display: block;
-  }
 }
