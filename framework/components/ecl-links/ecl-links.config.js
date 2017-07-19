@@ -43,7 +43,7 @@ module.exports = {
       label: 'Inverted',
       context: {
         variant: 'inverted',
-        extraClass: 'ecl-u-bg-shade',
+        extra_class: 'ecl-u-bg-shade',
         href: '#',
         label: 'inverted link',
       },
