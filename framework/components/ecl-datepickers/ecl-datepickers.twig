@@ -11,8 +11,8 @@
 {% set _value = value|default('') %}
 {% set _aria_label = aria_label|default('Use the arrow keys to pick a date') %}
 {% set _css_class = 'ecl-datepickers' %}
-{% set _id = id|default('default-id') %}
-{% set _name = name|default('default-name') %}
+{% set _id = id|default('datepicker') %}
+{% set _name = name|default('datepicker') %}
 
 {% if extra_classes is defined %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
