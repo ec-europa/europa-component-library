@@ -9,10 +9,10 @@ describe('footers', () => {
     browser.pause(1000);
   });
 
-  describe(`footer`, () => {
+  describe('footer', () => {
     before(() => {
       // Go to url
-      browser.url(`ecl-footers.html`);
+      browser.url('ecl-footers.html');
       // Make sure the browser has finished painting
       browser.pause(1000);
       // Inject axe-core (for accessibility tests)
