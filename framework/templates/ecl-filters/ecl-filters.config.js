@@ -4,7 +4,6 @@ module.exports = {
   status: 'ready',
   tags: ['template'],
   context: {
-    formID: 'form-filter',
     _demo: {
       scripts: `
         </script>

@@ -4,8 +4,8 @@
 
 <div class="ecl-row">
   <aside class="ecl-col-lg-3" role="complementary">
-      <h3 class="ecl-heading ecl-heading--h3 ecl-u-mb-s">Filter by</h3>
-      <form action="#" method="get" id="{{ formID }}">
+      <h3 class="ecl-heading ecl-heading--h3">Filter by</h3>
+      <form action="#" method="get" id="form-filter">
         <div class="ecl-form-group">
           {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Keyword', 'for_attribute': 'filter-keywords' } %}
           {% include '@ec-europa/ecl-forms-text-inputs' with {
