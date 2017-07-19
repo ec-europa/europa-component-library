@@ -24,7 +24,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Facebook',
                   title_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
@@ -34,7 +34,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Twitter',
                   title_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
@@ -44,7 +44,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: 'ecl-link--external',
+                  classes: 'ecl-link ecl-link--external',
                   title: 'Other social media',
                   title_wrapper_class: '',
                 },
@@ -58,7 +58,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Contact',
                   title_wrapper_class: '',
                 },
@@ -67,7 +67,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Site map',
                   title_wrapper_class: '',
                 },
@@ -91,7 +91,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'https://ec.europa.eu/commission/index_en',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Commission and its priorities',
                 },
               },
@@ -99,7 +99,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'https://ec.europa.eu/info/index_en',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Policies information and services',
                   title_wrapper_class: '',
                 },
@@ -117,7 +117,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Facebook',
                   title_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
@@ -127,7 +127,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Twitter',
                   title_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
@@ -137,7 +137,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item ecl-list-inline__item',
                 link: {
                   target: '#',
-                  classes: 'ecl-link--external',
+                  classes: 'ecl-link ecl-link--external',
                   title: 'Other social media',
                   title_wrapper_class: '',
                 },
@@ -155,7 +155,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
-                  classes: 'ecl-link--external',
+                  classes: 'ecl-link ecl-link--external',
                   title: 'EU institutions',
                   title_wrapper_class: '',
                 },
@@ -164,7 +164,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
-                  classes: 'ecl-link--external',
+                  classes: 'ecl-link ecl-link--external',
                   title: 'European Union',
                   title_wrapper_class: '',
                 },
@@ -185,7 +185,7 @@ module.exports = {
                 link: {
                   target:
                     'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: "About the Commission's new web presence",
                   title_wrapper_class: '',
                 },
@@ -194,7 +194,7 @@ module.exports = {
                 classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/resources-partners_en',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Resources for partners',
                   title_wrapper_class: '',
                 },
@@ -203,7 +203,7 @@ module.exports = {
                 classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/cookies_en',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Cookies',
                   title_wrapper_class: '',
                 },
@@ -212,7 +212,7 @@ module.exports = {
                 classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/legal-notice_en',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Legal notice',
                   title_wrapper_class: '',
                 },
@@ -221,17 +221,8 @@ module.exports = {
                 classes: 'ecl-list-inline__item ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/contact_en',
-                  classes: '',
+                  classes: 'ecl-link',
                   title: 'Contact',
-                  title_wrapper_class: '',
-                },
-              },
-              {
-                classes: 'ecl-list-inline__item ecl-footer__menu-item',
-                link: {
-                  target: 'http://ec.europa.eu/info/europa-analytics_en',
-                  classes: '',
-                  title: 'Europa Analytics',
                   title_wrapper_class: '',
                 },
               },
