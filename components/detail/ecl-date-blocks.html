@@ -119,7 +119,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -134,7 +134,16 @@
               <div class="Prose">
                 
                 <h1 id="date-blocks">Date blocks</h1>
-<p>Date component.</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Users need a way to quickly see an event’s date and status.<br>The solution is a date block that allows users to easily visualize this information.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>for lists of events and agenda pages</li>
+</ul>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<ul>
+<li>in any other situation except listings</li>
+</ul>
 
                 
               </div>
@@ -211,18 +220,63 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-8153fdfd432e5a335bd3dbc31098c5d6-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block </span></span></span><span class="hljs-template-variable">{{event_type_1}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__</span></span></span><span class="hljs-template-variable">{{slot1_modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{slot1_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__</span></span></span><span class="hljs-template-variable">{{slot2_modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{slot2_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__</span></span></span><span class="hljs-template-variable">{{slot3_modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{slot3_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - "variant" (string); display variant (default: '')
+  - "week_day" (string); day(s) of the week of the event (default: '')
+  - "day" (string); day number(s) of the event (default: '')
+  - "month" (string); month(s) of the event (default: '')
+  - "year" (string); year(s) of the event (default: '')
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> variant = variant|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> week_day = week_day|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> day = day|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> month = month|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> year = year|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block </span></span></span><span class="hljs-template-variable">{{event_type_2}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__</span></span></span><span class="hljs-template-variable">{{slot4_modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{slot4_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__</span></span></span><span class="hljs-template-variable">{{slot5_modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{slot5_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__</span></span></span><span class="hljs-template-variable">{{slot6_modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{slot6_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-<span class="hljs-name">date</span>-<span class="hljs-name">block</span>' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant != '' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-<span class="hljs-name">date</span>-<span class="hljs-name">block</span>--' ~ variant %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_Class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print the result  #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> week_day != '' %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span></span><span class="hljs-template-variable">{{ week_day }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> day != '' %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span></span><span class="hljs-template-variable">{{ day }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> month != '' %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span></span><span class="hljs-template-variable">{{ month }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> year != '' %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__year"</span>&gt;</span></span><span class="hljs-template-variable">{{ year }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -231,9 +285,50 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-8153fdfd432e5a335bd3dbc31098c5d6-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Default event */</span>
+{
+  <span class="hljs-attr">"week_day"</span>: <span class="hljs-string">"Tue"</span>,
+  <span class="hljs-attr">"day"</span>: <span class="hljs-string">"12"</span>,
+  <span class="hljs-attr">"month"</span>: <span class="hljs-string">"Jan"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Ongoing event */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"ongoing"</span>,
+  <span class="hljs-attr">"week_day"</span>: <span class="hljs-string">"Wed-Fri"</span>,
+  <span class="hljs-attr">"day"</span>: <span class="hljs-string">"31-11"</span>,
+  <span class="hljs-attr">"month"</span>: <span class="hljs-string">"May-Jun"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Cancelled event */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"cancelled"</span>,
+  <span class="hljs-attr">"week_day"</span>: <span class="hljs-string">"Mon"</span>,
+  <span class="hljs-attr">"day"</span>: <span class="hljs-string">"11"</span>,
+  <span class="hljs-attr">"month"</span>: <span class="hljs-string">"Jan"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Past event */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"past"</span>,
+  <span class="hljs-attr">"day"</span>: <span class="hljs-string">"2-4"</span>,
+  <span class="hljs-attr">"month"</span>: <span class="hljs-string">"Feb"</span>,
+  <span class="hljs-attr">"year"</span>: <span class="hljs-string">"2015"</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -243,19 +338,63 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-8153fdfd432e5a335bd3dbc31098c5d6-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block "</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__day-text"</span>&gt;</span>Mon<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__day"</span>&gt;</span>21<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__month"</span>&gt;</span>Oct<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        
+            <pre><span class="hljs-comment">&lt;!-- Default event --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>12<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Jan<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Ongoing event --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--ongoing"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Wed-Fri<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block "</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__day-text"</span>&gt;</span>Mon-Wed<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__day"</span>&gt;</span>04-06<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"date-block__month"</span>&gt;</span>Apr<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>31-11<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>May-Jun<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Cancelled event --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--cancelled"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Mon<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Jan<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Past event --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--past"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>2-4<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Feb<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__year"</span>&gt;</span>2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -271,13 +410,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-5c4c773e3d30696c24a15517e1249393">_date-blocks.scss</option>
+                <option value="file-fa30edb508e92d8fde6a184862ea8959">ecl-date-blocks.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-5c4c773e3d30696c24a15517e1249393" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-fa30edb508e92d8fde6a184862ea8959" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -286,147 +425,88 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/*
-Date Block
+ * Date block
+ * @define date-block
+ */</span>
 
-Date components
-
-Markup: html/date-block.html
-
-Style guide date-block
-*/</span>
-
-<span class="hljs-variable">$agenda-yellow</span>: <span class="hljs-number">#fed437</span>;
-
-<span class="hljs-selector-class">.date-block</span> {
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">display</span>: inline-block;
-  <span class="hljs-attribute">min-width</span>: <span class="hljs-number">5.556em</span>;
-  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">5.556em</span>;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.75em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.9em</span> <span class="hljs-number">0.5em</span> <span class="hljs-number">0.7em</span>;
+<span class="hljs-selector-class">.ecl-date-block</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
-  <span class="hljs-attribute">text-align</span>: center;
-  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">0.222em</span> solid <span class="hljs-variable">$agenda-yellow</span>;
-
-  &amp;::after {
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: -<span class="hljs-number">0.667em</span>;
-    <span class="hljs-attribute">right</span>: -<span class="hljs-number">0.2em</span>;
-    <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
-    <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1em</span> solid transparent;
-    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1em</span> solid transparent;
-    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">1em</span> solid <span class="hljs-number">#fff</span>;
-
-    <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">135deg</span>);
-  }
-}
-
-<span class="hljs-selector-class">.date-block__element</span> {
-  <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-}
-
-<span class="hljs-selector-class">.date-block__year</span> {
-  @<span class="hljs-keyword">extend</span> .date-block__element;
-
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-}
-
-<span class="hljs-selector-class">.date-block__day-text</span> {
-  @<span class="hljs-keyword">extend</span> .date-block__element;
-
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-}
-
-<span class="hljs-selector-class">.date-block__day</span> {
-  @<span class="hljs-keyword">extend</span> .date-block__element;
-
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxl'</span>);
-  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-}
-
-<span class="hljs-selector-class">.date-block__month</span> {
-  @<span class="hljs-keyword">extend</span> .date-block__element;
-
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
-}
-
-<span class="hljs-comment">/*
-Event Date Block
-
-Date components
-
-Markup: html/date-block-event.html
-
-.live-streaming - Live-streaming event date block
-.cancelled      - cancelled Event date block
-
-Style guide date-block.event
-*/</span>
-
-<span class="hljs-selector-class">.date-block</span><span class="hljs-selector-class">.event</span> {
-  &amp;<span class="hljs-selector-class">.live-streaming</span> {
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$agenda-yellow</span>;
-  }
-
-  &amp;<span class="hljs-selector-class">.cancelled</span> {
-    <span class="hljs-attribute">border-bottom-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
-
-    <span class="hljs-selector-class">.date-block__element</span> {
-      <span class="hljs-attribute">text-decoration</span>: line-through;
-    }
-  }
-}
-
-<span class="hljs-comment">/*
-Past Event Date Block
-
-Date components
-
-Markup: html/date-block-event-past.html
-
-.past - past Event date block
-
-Style guide date-block.event.past
-*/</span>
-
-<span class="hljs-selector-class">.date-block</span><span class="hljs-selector-class">.event</span><span class="hljs-selector-class">.past</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.8em</span> <span class="hljs-number">0.5em</span> <span class="hljs-number">0.7em</span>;
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
-  <span class="hljs-attribute">border</span>: <span class="hljs-number">0.166em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-
-  <span class="hljs-selector-class">.date-block__day</span> {
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-  }
-
-  <span class="hljs-selector-class">.date-block__month</span> {
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.3</span>;
-  }
+  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">0.2em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
+  <span class="hljs-attribute">display</span>: inline-flex;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">position</span>: relative;
 
   &amp;::before {
+    <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1.2em</span> solid transparent;
+    <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1.2em</span> solid <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
     <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: -<span class="hljs-number">0.85em</span>;
-    <span class="hljs-attribute">right</span>: -<span class="hljs-number">0.4em</span>;
-    <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
-    <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1em</span> solid transparent;
-    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1em</span> solid transparent;
-    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">1em</span> solid <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+  }
+}
 
-    <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">135deg</span>);
+<span class="hljs-selector-class">.ecl-date-block__body</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">display</span>: inline-flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">justify-content</span>: center;
+  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">5.55rem</span>;
+  <span class="hljs-attribute">min-width</span>: <span class="hljs-number">5.55rem</span>;
+}
+
+<span class="hljs-selector-class">.ecl-date-block__week-day</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;
+}
+
+<span class="hljs-selector-class">.ecl-date-block__day</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xl'</span>);
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;
+}
+
+<span class="hljs-selector-class">.ecl-date-block__month</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.1</span>;
+}
+
+<span class="hljs-selector-class">.ecl-date-block__year</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.2</span>;
+}
+
+<span class="hljs-comment">// ongoing</span>
+<span class="hljs-selector-class">.ecl-date-block--ongoing</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
+}
+
+<span class="hljs-comment">// cancelled</span>
+<span class="hljs-selector-class">.ecl-date-block--cancelled</span> {
+  <span class="hljs-attribute">border-bottom-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+  <span class="hljs-attribute">text-decoration</span>: line-through;
+}
+
+<span class="hljs-comment">// past</span>
+<span class="hljs-selector-class">.ecl-date-block--past</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">0.2em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+
+  &amp;::before {
+    <span class="hljs-attribute">border-left-width</span>: <span class="hljs-number">1.35em</span>;
+    <span class="hljs-attribute">border-top-width</span>: <span class="hljs-number">1.35em</span>;
+    <span class="hljs-attribute">right</span>: -<span class="hljs-number">0.2em</span>;
+    <span class="hljs-attribute">top</span>: -<span class="hljs-number">0.2em</span>;
   }
 
   &amp;::after {
-    <span class="hljs-attribute">top</span>: -<span class="hljs-number">0.35em</span>;
+    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">0.2em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">1.85em</span>;
+    <span class="hljs-attribute">position</span>: absolute;
     <span class="hljs-attribute">right</span>: <span class="hljs-number">0.45em</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">1.7em</span>;
-    <span class="hljs-attribute">border</span>: none;
-    <span class="hljs-attribute">border-right</span>: <span class="hljs-number">0.166em</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-
+    <span class="hljs-attribute">top</span>: -<span class="hljs-number">0.4em</span>;
     <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">135deg</span>);
   }
 }
@@ -438,15 +518,15 @@ Style guide date-block.event.past
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-date-blocks/_date-blocks.scss"><span>/components/raw/ecl-date-blocks/_date-blocks.scss</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-date-blocks/ecl-date-blocks.scss"><span>/components/raw/ecl-date-blocks/ecl-date-blocks.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-date-blocks/_date-blocks.scss</span>
+                    <span class="Meta-value">framework/components/ecl-date-blocks/ecl-date-blocks.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.5 KB</span>
+                    <span class="Meta-value">1.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -478,25 +558,6 @@ Style guide date-block.event.past
         
         
         
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(3)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="ecl-date-blocks--default">
-                    <span>Default</span>
-                </a>, 
-            
-                <a href="ecl-date-blocks--events">
-                    <span>Events</span>
-                </a>, 
-            
-                <a href="ecl-date-blocks--past-events">
-                    <span>Past events</span>
-                </a>
-            
-            </span>
-        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -1847,8 +1908,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-date-blocks">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1856,7 +1918,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -1865,87 +1927,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Date blocks</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks--events" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Events</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks--past-events" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Past events</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     

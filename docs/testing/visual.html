@@ -155,7 +155,7 @@
 <code><pre><span class="hljs-attr">SAUCE_USERNAME</span>=username
 <span class="hljs-attr">SAUCE_ACCESS_KEY</span>=my-sauce-labs-access-key</pre></code><p>Then, build the style guide with <code>yarn dist</code> and run: <code>yarn test:functional</code>.</p>
 <p>Tip: it can take a while to run all the tests, but you can also target your test only:</p>
-<code><pre>yarn <span class="hljs-built_in">test</span>:functional -- --spec ./<span class="hljs-built_in">test</span>/functional/my-component.js</pre></code><p>If everything went well, you should now have a new folder <code>./test/screenshots/reference/my-component</code> containing the reference screenshots. Add them to your Pull Request.</p>
+<code><pre>yarn <span class="hljs-string">test:</span>functional -- --spec .<span class="hljs-regexp">/framework/</span>components<span class="hljs-regexp">/my-component/</span>test<span class="hljs-regexp">/spec/</span>my-component.js</pre></code><p>If everything went well, you should now have a new folder <code>./framework/components/my-component/test/screenshots/reference/my-component</code> containing the reference screenshots. Add them to your Pull Request.</p>
 <p>That’s it!</p>
 
     
