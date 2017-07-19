@@ -69,9 +69,9 @@ Then, build the style guide with `yarn dist` and run: `yarn test:functional`.
 Tip: it can take a while to run all the tests, but you can also target your test only:
 
 ```
-yarn test:functional -- --spec ./test/functional/my-component.js
+yarn test:functional -- --spec ./framework/components/my-component/test/spec/my-component.js
 ```
 
-If everything went well, you should now have a new folder `./test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
+If everything went well, you should now have a new folder `./framework/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
 
 That's it!

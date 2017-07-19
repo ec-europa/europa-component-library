@@ -7,12 +7,13 @@ $ecl-radio-icon-size: 1.5rem;
 
 .ecl-radio {
   display: block;
+  font-size: map-get($ecl-font-size, 'm');
   margin: 0;
   padding: map-get($ecl-spacing, 'xxxs') 0;
 }
 
 .ecl-radio--is-disabled {
-  color: map-get($ecl-colors, 'grey-50');
+  color: map-get($ecl-colors, 'grey-75');
   cursor: not-allowed;
 }
 
@@ -25,6 +26,7 @@ $ecl-radio-icon-size: 1.5rem;
     border: 3px solid transparent;
     border-radius: 50%;
     content: '';
+    display: block;
     flex-shrink: 0;
     height: $ecl-radio-icon-size;
     margin-right: map-get($ecl-spacing, 'xxs');

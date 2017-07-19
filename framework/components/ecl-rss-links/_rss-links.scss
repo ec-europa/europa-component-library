@@ -6,35 +6,27 @@
 .ecl-rss-links {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  margin: 0;
 }
 
 .ecl-rss-links__label {
   color: $ecl-color-shade;
+  flex-shrink: 0;
   font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
-  margin: 0 map-get($ecl-font-size, 'xxs') 0 0;
+  margin: map-get($ecl-font-size, 'xxxs') map-get($ecl-font-size, 'xxs') map-get($ecl-font-size, 'xxxs') 0;
 }
 
 .ecl-rss-links__link {
   align-items: center;
   display: flex;
+  flex-shrink: 0;
+  font-size: map-get($ecl-font-size, 's');
   justify-content: center;
-  text-decoration: none;
-}
 
-.ecl-rss-links__link:hover {
-  .ecl-rss-links__text {
-    text-decoration: underline;
+  &::before {
+    flex-shrink: 0;
   }
-}
-
-// Correcting .ecl-icon-social adding 5px on top.
-.ecl-rss-links__icon {
-  padding-top: 0;
-}
-
-.ecl-rss-links__text {
-  font-size: map-get($ecl-font-size, 'xs');
-  text-decoration: none;
 }

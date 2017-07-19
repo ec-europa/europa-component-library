@@ -2,12 +2,9 @@
   Accepts:
     - "id" (string): radio group ID (mandatory)
     - "name" (string): radio name (mandatory)
-    - "desc" (string): description for screen readers (mandatory)
-    - "options" (collection): array of options (mandatory). Each option accepts:
-      - "id" (string): radio input ID (mandatory)
-      - "value" (string): radio value (optional, default: '')
-      - "label" (string): radio label (optional, default: '')
-      - "checked" (boolean): is radio checked? (optional, default: false)
+    - "value" (string): radio value (optional, default: '')
+    - "label" (string): radio label (optional, default: '')
+    - "checked" (boolean): is radio checked? (optional, default: false)
     - "is_disabled" (boolean): is disabled (optional, default: false)
     - "has_error" (boolean): has error (optional, default: false)
     - "extra_class" (string): extra CSS classes (optional, default: '')
@@ -19,32 +16,34 @@
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-radio' %}
-{% set _extraAttributes = '' %}
+{% set _css_class = 'ecl-radio' %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if hasError is defined and hasError == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-radio--has-error' %}
+{% if has_error is defined and has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-radio--has-error' %}
 {% endif %}
 
-{% if isDisabled is defined and isDisabled == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-radio--is-disabled' %}
+{% if is_disabled is defined and is_disabled == true %}
+  {% set _css_class = _css_class ~ ' ecl-radio--is-disabled' %}
 {% endif %}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result  #}
 
-<label for={{ id }} class="{{ _cssClass }}"{{ _extraAttributes }}>{% spaceless %}
-  <input class="ecl-radio__input ecl-sr-only" type="radio" id="{{ id }}" value="{{ value }}" name="{{ name }}"{{ checked ? ' checked' : '' }}{{ (isDisabled is defined and isDisabled == true) ? ' disabled' : '' }} />
-  <span class="ecl-radio__label">{{ label }}</span>
-{% endspaceless %}</label>
+{% embed '@ec-europa/ecl-forms-labels' with { 'for': id, 'extra_classes': _css_class, 'extra_attributes': _extra_attributes, _id: id, _value: value, _name: name, _label: label, _checked: checked, _is_disabled: is_disabled } only %}
+  {% block label %}{% spaceless %}
+    <input class="ecl-radio__input ecl-sr-only" type="radio" id="{{ _id }}" value="{{ _value }}" name="{{ _name }}"{{ _checked ? ' checked' : '' }}{{ (_is_disabled is defined and _is_disabled == true) ? ' disabled' : '' }} />
+    <span class="ecl-radio__label">{{ _label }}</span>
+  {% endspaceless %}{% endblock %}
+{% endembed %}

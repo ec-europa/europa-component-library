@@ -20,6 +20,7 @@ module.exports = {
         label: 'Normal checkbox',
         id: 'example-checkbox-id-1',
         name: 'example-checkbox-name-1',
+        value: 'some value',
       },
     },
     {
@@ -28,7 +29,8 @@ module.exports = {
         label: 'Disabled checkbox',
         id: 'example-checkbox-id-2',
         name: 'example-checkbox-name-2',
-        isDisabled: true,
+        is_disabled: true,
+        value: 'some value',
       },
     },
     {
@@ -37,7 +39,18 @@ module.exports = {
         label: 'Checkbox with error',
         id: 'example-checkbox-id-3',
         name: 'example-checkbox-name-3',
-        hasError: true,
+        has_error: true,
+        value: 'some value',
+      },
+    },
+    {
+      name: 'checked',
+      context: {
+        label: 'Checked by default',
+        id: 'example-checkbox-id-4',
+        name: 'example-checkbox-name-4',
+        checked: true,
+        value: 'some value',
       },
     },
   ],
