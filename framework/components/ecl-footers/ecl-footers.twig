@@ -7,12 +7,13 @@
         {% for menu in footer_menu.menus %}
         <div class="ecl-col-sm {{ (footer_menu.type != 'plain') ? 'ecl-footer__column' : '' }}">
 
-          {# If there is any sort of title #}
-          {% if menu.title.target is defined %}
+          {# If there is a link in the title, respect the link: #}
+          {% if menu.title.link.target is defined %}
           <h4 class="{{ menu.title.classes }}">
-            <a href="{{ menu.title.target }}">{{ menu.title.value }}</a>
+            <a class="{{ menu.title.link.classes }}" href="{{ menu.title.link.target }}">{{ menu.title.link.title }}</a>
           </h4>
-          {% elseif menu.title is defined %}
+          {# otherwise, if it is only a title, without a link, use the title: #}
+          {% elseif menu.title is defined and menu.title.value is defined %}
           <h4 class="{{ menu.title.classes }}">{{ menu.title.value }}</h4>
           {# Show a label if there is no title #}
           {% elseif menu.label is defined %}
