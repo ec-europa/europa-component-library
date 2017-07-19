@@ -2,12 +2,9 @@
   Accepts:
     - "id" (string): radio group ID (mandatory)
     - "name" (string): radio name (mandatory)
-    - "desc" (string): description for screen readers (mandatory)
-    - "options" (collection): array of options (mandatory). Each option accepts:
-      - "id" (string): radio input ID (mandatory)
-      - "value" (string): radio value (optional, default: '')
-      - "label" (string): radio label (optional, default: '')
-      - "checked" (boolean): is radio checked? (optional, default: false)
+    - "value" (string): radio value (optional, default: '')
+    - "label" (string): radio label (optional, default: '')
+    - "checked" (boolean): is radio checked? (optional, default: false)
     - "is_disabled" (boolean): is disabled (optional, default: false)
     - "has_error" (boolean): has error (optional, default: false)
     - "extra_class" (string): extra CSS classes (optional, default: '')
@@ -19,21 +16,21 @@
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-radio' %}
+{% set _css_class = 'ecl-radio' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if has_error is defined and has_error == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-radio--has-error' %}
+  {% set _css_class = _css_class ~ ' ecl-radio--has-error' %}
 {% endif %}
 
 {% if is_disabled is defined and is_disabled == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-radio--is-disabled' %}
+  {% set _css_class = _css_class ~ ' ecl-radio--is-disabled' %}
 {% endif %}
 
 {% if extra_classes is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extra_classes %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -44,7 +41,7 @@
 
 {# Print the result  #}
 
-{% embed '@ec-europa/ecl-forms-labels' with { 'for': id, 'extra_classes': _cssClass, 'extra_attributes': _extra_attributes, _id: id, _value: value, _name: name, _label: label, _checked: checked, _is_disabled: is_disabled } only %}
+{% embed '@ec-europa/ecl-forms-labels' with { 'for': id, 'extra_classes': _css_class, 'extra_attributes': _extra_attributes, _id: id, _value: value, _name: name, _label: label, _checked: checked, _is_disabled: is_disabled } only %}
   {% block label %}{% spaceless %}
     <input class="ecl-radio__input ecl-sr-only" type="radio" id="{{ _id }}" value="{{ _value }}" name="{{ _name }}"{{ _checked ? ' checked' : '' }}{{ (_is_disabled is defined and _is_disabled == true) ? ' disabled' : '' }} />
     <span class="ecl-radio__label">{{ _label }}</span>
