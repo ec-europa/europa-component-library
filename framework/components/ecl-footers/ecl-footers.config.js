@@ -4,10 +4,10 @@ module.exports = {
   status: 'ready',
   tags: ['organism'],
   context: {
-    ecFooterMenus: [
+    footer_menus: [
       {
         type: 'branded',
-        wrapperClass: 'ecl-footer__site-identity',
+        wrapper_class: 'ecl-footer__site-identity',
         menus: [
           {
             title: {
@@ -26,7 +26,7 @@ module.exports = {
                   target: '#',
                   classes: '',
                   title: 'Facebook',
-                  titleWrapperClass:
+                  title_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
                 },
               },
@@ -36,7 +36,7 @@ module.exports = {
                   target: '#',
                   classes: '',
                   title: 'Twitter',
-                  titleWrapperClass:
+                  title_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
                 },
               },
@@ -46,7 +46,7 @@ module.exports = {
                   target: '#',
                   classes: 'ecl-link--external',
                   title: 'Other social media',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
             ],
@@ -60,7 +60,7 @@ module.exports = {
                   target: '#',
                   classes: '',
                   title: 'Contact',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
               {
@@ -69,7 +69,7 @@ module.exports = {
                   target: '#',
                   classes: '',
                   title: 'Site map',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
             ],
@@ -78,7 +78,7 @@ module.exports = {
       },
       {
         type: 'normal',
-        wrapperClass: 'ecl-footer__site-corporate',
+        wrapper_class: 'ecl-footer__site-corporate',
         menus: [
           {
             title: {
@@ -101,7 +101,7 @@ module.exports = {
                   target: 'https://ec.europa.eu/info/index_en',
                   classes: '',
                   title: 'Policies information and services',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
             ],
@@ -119,7 +119,7 @@ module.exports = {
                   target: '#',
                   classes: '',
                   title: 'Facebook',
-                  titleWrapperClass:
+                  title_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
                 },
               },
@@ -129,7 +129,7 @@ module.exports = {
                   target: '#',
                   classes: '',
                   title: 'Twitter',
-                  titleWrapperClass:
+                  title_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
                 },
               },
@@ -139,7 +139,7 @@ module.exports = {
                   target: '#',
                   classes: 'ecl-link--external',
                   title: 'Other social media',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
             ],
@@ -157,7 +157,7 @@ module.exports = {
                   target: '#',
                   classes: 'ecl-link--external',
                   title: 'EU institutions',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
               {
@@ -166,7 +166,7 @@ module.exports = {
                   target: '#',
                   classes: 'ecl-link--external',
                   title: 'European Union',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
             ],
@@ -175,7 +175,7 @@ module.exports = {
       },
       {
         type: 'plain',
-        wrapperClass: 'ecl-footer__ec',
+        wrapper_class: 'ecl-footer__ec',
         menus: [
           {
             classes: 'ecl-list-inline ecl-footer__menu',
@@ -187,7 +187,7 @@ module.exports = {
                     'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
                   classes: '',
                   title: "About the Commission's new web presence",
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
               {
@@ -196,7 +196,7 @@ module.exports = {
                   target: 'http://ec.europa.eu/info/resources-partners_en',
                   classes: '',
                   title: 'Resources for partners',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
               {
@@ -205,7 +205,7 @@ module.exports = {
                   target: 'http://ec.europa.eu/info/cookies_en',
                   classes: '',
                   title: 'Cookies',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
               {
@@ -214,7 +214,7 @@ module.exports = {
                   target: 'http://ec.europa.eu/info/legal-notice_en',
                   classes: '',
                   title: 'Legal notice',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
               {
@@ -223,7 +223,7 @@ module.exports = {
                   target: 'http://ec.europa.eu/info/contact_en',
                   classes: '',
                   title: 'Contact',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
               {
@@ -232,7 +232,7 @@ module.exports = {
                   target: 'http://ec.europa.eu/info/europa-analytics_en',
                   classes: '',
                   title: 'Europa Analytics',
-                  titleWrapperClass: '',
+                  title_wrapper_class: '',
                 },
               },
             ],

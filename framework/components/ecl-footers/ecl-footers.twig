@@ -1,11 +1,11 @@
 <footer class="ecl-footer">
-  {% if ecFooterMenus is defined and ecFooterMenus is iterable %}
-  {% for FooterMenu in ecFooterMenus %}
-  <div class="{{ FooterMenu.wrapperClass }}">
+  {% if footer_menus is defined and footer_menus is iterable %}
+  {% for footer_menu in footer_menus %}
+  <div class="{{ footer_menu.wrapper_class }}">
     <div class="ecl-container">
       <div class="ecl-row">
-        {% for menu in FooterMenu.menus %}
-        <div class="ecl-col-sm {{ (FooterMenu.type != 'plain') ? 'ecl-footer__column' : '' }}">
+        {% for menu in footer_menu.menus %}
+        <div class="ecl-col-sm {{ (footer_menu.type != 'plain') ? 'ecl-footer__column' : '' }}">
 
           {# If there is any sort of title #}
           {% if menu.title.target is defined %}
@@ -21,14 +21,14 @@
 
           {% if menu.items is defined and is not empty %}
           <ul class="{{ menu.classes }}">
-            {% for menuItem in menu.items %}
-            {% if menuItem.link.titleWrapperClass is defined %}
-            <li class="{{ menuItem.classes }}">
-              <a class="{{ menuItem.link.classes }}" href="{{ menuItem.link.target }}"><span class="{{menuItem.link.titleWrapperClass}}"></span>{{ menuItem.link.title }}</a>
+            {% for menu_item in menu.items %}
+            {% if menu_item.link.title_wrapper_class is defined %}
+            <li class="{{ menu_item.classes }}">
+              <a class="{{ menu_item.link.classes }}" href="{{ menu_item.link.target }}"><span class="{{menu_item.link.title_wrapper_class}}"></span>{{ menu_item.link.title }}</a>
             </li>
             {% else %}
-            <li class="{{ menuItem.classes }}">
-              <a class="{{ menuItem.link.classes }}" href="{{ menuItem.link.target }}">{{ menuItem.link.title }}</a>
+            <li class="{{ menu_item.classes }}">
+              <a class="{{ menu_item.link.classes }}" href="{{ menu_item.link.target }}">{{ menu_item.link.title }}</a>
             </li>
             {% endif %}
             {% endfor %}
