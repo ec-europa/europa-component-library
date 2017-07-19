@@ -96,7 +96,7 @@
     
     
 
-<div class="Pen" id="pen-30ead99e555b1f8519b363c97d33f256">
+<div class="Pen" id="pen-6a9353c9aa66c74f2a8cde063ba50901">
 
     
 
@@ -119,7 +119,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -134,8 +134,15 @@
               <div class="Prose">
                 
                 <h1 id="filters">Filters</h1>
-<p>Filter components on content filtering pages.</p>
-<p>TODO: this component needs to be rewritten without jQuery nor Drupal.</p>
+<h2 id="when-and-how-to-use">When and how to use</h2>
+<p>When a list or collection of content items with shared characteristics is too large, filters allow users to narrow the scope of the displayed items.</p>
+<ul>
+<li>the filter has a H3 title and consists of input fields (with labels) and a ‘clear all’ action button</li>
+<li>all filter only allow for single select. This means that per search, only 1 value can be selected</li>
+<li>the first filter should always be a search field labeled Keywords</li>
+<li>always use a vertical, 1 column layout</li>
+<li>selecting a value in an input field automatically refreshes the list of displayed items</li>
+</ul>
 
                 
               </div>
@@ -144,7 +151,7 @@
         </div>
 
         <div class="Pen-playground" data-behaviour="pen" id="playground">
-          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-30ead99e555b1f8519b363c97d33f256">
+          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-6a9353c9aa66c74f2a8cde063ba50901">
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             
@@ -164,7 +171,7 @@
 
           <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
           <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-30ead99e555b1f8519b363c97d33f256">
+    <div class="Browser" data-behaviour="browser" id="browser-6a9353c9aa66c74f2a8cde063ba50901">
 
     
 
@@ -173,35 +180,31 @@
         
         
         <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
-            <a href="#browser-30ead99e555b1f8519b363c97d33f256-panel-view">View</a>
+            <a href="#browser-6a9353c9aa66c74f2a8cde063ba50901-panel-view">View</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-30ead99e555b1f8519b363c97d33f256-panel-context">Context</a>
+            <a href="#browser-6a9353c9aa66c74f2a8cde063ba50901-panel-context">Context</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-30ead99e555b1f8519b363c97d33f256-panel-html">HTML</a>
+            <a href="#browser-6a9353c9aa66c74f2a8cde063ba50901-panel-html">HTML</a>
         </li>
         
         
         
         
-        
-        <li class="Browser-tab Browser-tab--resources" data-role="tab">
-            <a href="#browser-30ead99e555b1f8519b363c97d33f256-panel-assets">Code</a>
-        </li>
         
         
         
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-30ead99e555b1f8519b363c97d33f256-panel-info">Info</a>
+            <a href="#browser-6a9353c9aa66c74f2a8cde063ba50901-panel-info">Info</a>
         </li>
         
         
@@ -210,28 +213,168 @@
 
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-30ead99e555b1f8519b363c97d33f256-panel-view">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-6a9353c9aa66c74f2a8cde063ba50901-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-9"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters__result-count"</span>&gt;</span>12 announcements<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters_button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  This is an example and should not be used as it is.
+#}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-3"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"complementary"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Filter by<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"get"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"form-filter"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-labels' with { 'label': 'Keyword', 'for_attribute': 'filter-keywords' } %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-text-inputs' with {
+            'type': 'text',
+            'name': 'keywords',
+            'id': 'filter-keywords',
+            'extraAttributes': [
+              { 'value': '', 'size': '30', 'maxlength': '128' }
+            ]
+          } %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-labels' with { 'label': 'Topic', 'for_attribute': 'filter-topic' } %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ec-europa/ecl-forms-selects' with { 'name': 'topic', 'id': 'filter-topic' } %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> options %}</span><span class="xml">
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any topic<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"354"</span>&gt;</span>Banking and financial services<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"369"</span>&gt;</span>Environment<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"382"</span>&gt;</span>Research and innovation<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-labels' with { 'label': 'Location', 'for_attribute': 'filter-location' } %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ec-europa/ecl-forms-selects' with { 'name': 'location', 'id': 'filter-location' } %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> options %}</span><span class="xml">
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any country<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"BE"</span>&gt;</span>Belgium<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ES"</span>&gt;</span>Spain<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"RO"</span>&gt;</span>Romania<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"IT"</span>&gt;</span>Italy<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"PT"</span>&gt;</span>Portugal<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"HR"</span>&gt;</span>Croatia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"FI"</span>&gt;</span>Finland<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"DE"</span>&gt;</span>Germany<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"IE"</span>&gt;</span>Ireland<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"PL"</span>&gt;</span>Poland<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"BG"</span>&gt;</span>Bulgaria<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"GR"</span>&gt;</span>Greece<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"NL"</span>&gt;</span>Netherlands<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"SK"</span>&gt;</span>Slovakia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"SE"</span>&gt;</span>Sweden<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"EE"</span>&gt;</span>Estonia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"AT"</span>&gt;</span>Austria<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"CY"</span>&gt;</span>Cyprus<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"DK"</span>&gt;</span>Denmark<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"FR"</span>&gt;</span>France<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"HU"</span>&gt;</span>Hungary<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"LV"</span>&gt;</span>Latvia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"LT"</span>&gt;</span>Lithuania<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"LU"</span>&gt;</span>Luxembourg<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"MT"</span>&gt;</span>Malta<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-checkboxes' with {
+            'name': 'event_is_online',
+            'id': 'event_is_online',
+            'label': 'Online only events'
+          } %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-checkboxes' with {
+            'name': 'event_is_live_streaming',
+            'id': 'event_is_live_streaming',
+            'label': 'Events with live streaming available',
+            'checked': true
+          } %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-labels' with { 'label': 'Organiser', 'for_attribute': 'filter-organiser' } %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ec-europa/ecl-forms-selects' with { 'name': 'organiser', 'id': 'filter-organiser' } %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> options %}</span><span class="xml">
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any organiser<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"881"</span>&gt;</span>Financial Stability, Financial Services and Capital Markets Union<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"932"</span>&gt;</span>Translation<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"189"</span>&gt;</span>Internal Audit Service<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"746"</span>&gt;</span>Interpretation<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-labels' with { 'label': 'After', 'for_attribute': 'filter-after' } %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-datepickers' with { 'id': 'filter-after' } %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-labels' with { 'label': 'Before', 'for_attribute': 'filter-before' } %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-datepickers' with { 'id': 'filter-before' } %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-labels' with { 'label': 'Collection', 'for_attribute': 'filter-collection' } %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ec-europa/ecl-forms-selects' with { 'name': 'collection', 'id': 'filter-collection' } %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> options %}</span><span class="xml">
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any collection<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2065"</span>&gt;</span>Citizens' Dialogues<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"48422"</span>&gt;</span>Cities events<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"35343"</span>&gt;</span>FISMA Events collectoin<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"54309"</span>&gt;</span>Sustainable Development Goals<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+          'modifier': 'primary',
+          'label': 'Refine results',
+          'isBlock': true,
+          'extraClass': 'ecl-u-mb-xs',
+          'extraAttributes': [
+            { 'name': 'value', 'value': 'Refine results'},
+            { 'name': 'type', 'value': 'submit'}
+          ]
+        } %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+          'modifier': 'default',
+          'label': 'Clear filters',
+          'isBlock': true,
+          'extraAttributes': [
+            { 'name': 'value', 'value': 'Clear filters'},
+            { 'name': 'type', 'value': 'reset'}
+          ]
+        } %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-9"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h2 ecl-u-mb-m"</span>&gt;</span>Events (90)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-tags' with {
+      'modifier': 'facet-close',
+      'label': 'Live streaming available',
+      'tags': [{ 'value': 'Yes'}]
+    } %}</span><span class="xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-mv-m"</span>&gt;</span>CONTENT HERE<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-pagers' with {
+      'currentPage': 1,
+      'maxPage': 20,
+      'fragmentUrl': '/page'
+    } %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-30ead99e555b1f8519b363c97d33f256-panel-context">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-6a9353c9aa66c74f2a8cde063ba50901-panel-context">
     <code class="Code Code--lang-json">
         
             
             <pre>{
   <span class="hljs-attr">"_demo"</span>: {
-    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"ECL.filters();"</span>
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"\n        &lt;/script&gt;\n        &lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js\"&gt;&lt;/script&gt;\n        &lt;script type=\"text/javascript\"&gt;\n          var pickerBefore = new Pikaday({\n            field: document.getElementById('filter-before'),\n            firstDay: 1,\n            maxDate: new Date(2020, 12, 31),\n            theme: 'ecl-pika-theme',\n            yearRange: [2000, 2020],\n          });\n          var pickerAfter = new Pikaday({\n            field: document.getElementById('filter-after'),\n            firstDay: 1,\n            maxDate: new Date(2020, 12, 31),\n            theme: 'ecl-pika-theme',\n            yearRange: [2000, 2020],\n          });\n        &lt;/script&gt;\n        &lt;script&gt;\n      "</span>
   }
 }</pre>
             
@@ -241,17 +384,156 @@
 
     
     
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-30ead99e555b1f8519b363c97d33f256-panel-html">
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-6a9353c9aa66c74f2a8cde063ba50901-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-3"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-9"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters__result-count"</span>&gt;</span>12 announcements<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters_button"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">aside</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-3"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"complementary"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Filter by<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"get"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"form-filter"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"filter-keywords"</span>&gt;</span>Keyword<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-keywords"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"keywords"</span>=<span class="hljs-string">""</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"filter-topic"</span>&gt;</span>Topic<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-topic"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"topic"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any topic<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"354"</span>&gt;</span>Banking and financial services<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"369"</span>&gt;</span>Environment<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"382"</span>&gt;</span>Research and innovation<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"filter-location"</span>&gt;</span>Location<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-location"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"location"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any country<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"BE"</span>&gt;</span>Belgium<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ES"</span>&gt;</span>Spain<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"RO"</span>&gt;</span>Romania<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"IT"</span>&gt;</span>Italy<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"PT"</span>&gt;</span>Portugal<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"HR"</span>&gt;</span>Croatia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"FI"</span>&gt;</span>Finland<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"DE"</span>&gt;</span>Germany<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"IE"</span>&gt;</span>Ireland<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"PL"</span>&gt;</span>Poland<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"BG"</span>&gt;</span>Bulgaria<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"GR"</span>&gt;</span>Greece<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"NL"</span>&gt;</span>Netherlands<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"SK"</span>&gt;</span>Slovakia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"SE"</span>&gt;</span>Sweden<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"EE"</span>&gt;</span>Estonia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"AT"</span>&gt;</span>Austria<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"CY"</span>&gt;</span>Cyprus<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"DK"</span>&gt;</span>Denmark<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"FR"</span>&gt;</span>France<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"HU"</span>&gt;</span>Hungary<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"LV"</span>&gt;</span>Latvia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"LT"</span>&gt;</span>Lithuania<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"LU"</span>&gt;</span>Luxembourg<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"MT"</span>&gt;</span>Malta<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label ecl-checkbox"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-checkbox__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"event_is_online"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"event_is_online"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-checkbox__label"</span>&gt;</span>Online only events<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label ecl-checkbox"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-checkbox__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"event_is_live_streaming"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"event_is_live_streaming"</span> <span class="hljs-attr">checked</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-checkbox__label"</span>&gt;</span>Events with live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"filter-organiser"</span>&gt;</span>Organiser<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-organiser"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"organiser"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any organiser<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"881"</span>&gt;</span>Financial Stability, Financial Services and Capital Markets Union<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"932"</span>&gt;</span>Translation<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"189"</span>&gt;</span>Internal Audit Service<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"746"</span>&gt;</span>Interpretation<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"filter-after"</span>&gt;</span>After<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-after"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Use the arrow keys to pick a date"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers__icon ecl-icon ecl-icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"filter-before"</span>&gt;</span>Before<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-before"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Use the arrow keys to pick a date"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers__icon ecl-icon ecl-icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-group"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"filter-collection"</span>&gt;</span>Collection<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-collection"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"collection"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any collection<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2065"</span>&gt;</span>Citizens' Dialogues<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"48422"</span>&gt;</span>Cities events<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"35343"</span>&gt;</span>FISMA Events collectoin<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"54309"</span>&gt;</span>Sustainable Development Goals<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+            
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-button--block ecl-u-mb-xs"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Refine results"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Refine results<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Clear filters"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span>&gt;</span>Clear filters<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-9"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h2 ecl-u-mb-m"</span>&gt;</span>Events (90)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag ecl-tag--facet-close"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-tag__label"</span>&gt;</span>Live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--facet-close ecl-tag__item"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-mv-m"</span>&gt;</span>CONTENT HERE<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__wrapper"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager "</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--current"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item-text"</span>&gt;</span>Page<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 1
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 2"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=2"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 3"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=3"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--ellipsis"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--last"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to page 20"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=20"</span>&gt;</span>20<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__item ecl-pager__item--next"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-pager__link"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Go to next page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/page=2"</span>&gt;</span>Next ›<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -261,251 +543,10 @@
     
 
 
-<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-30ead99e555b1f8519b363c97d33f256-panel-assets">
-    <div class="FileBrowser">
-
-        <div class="FileBrowser-selectWrapper">
-            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
-            <select class="FileBrowser-select" id="filebrowser-select">
-                
-                <option value="file-a8270afebcfa93aaf4a7d383c2b7aaf8">_filters.scss</option>
-                
-                <option value="file-9181fa8e248578f1855316501517b02c">filters.js</option>
-                
-            </select>
-        </div>
-
-        
-        <div class="FileBrowser-item is-active" id="file-a8270afebcfa93aaf4a7d383c2b7aaf8" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Filters
-*/</span>
-
-<span class="hljs-selector-class">.filters</span> {
-  <span class="hljs-attribute">background</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
-  <span class="hljs-attribute">margin-left</span>: -(<span class="hljs-variable">$ecl-grid-gutter-width-base</span> / <span class="hljs-number">2</span>);
-  <span class="hljs-attribute">margin-right</span>: -(<span class="hljs-variable">$ecl-grid-gutter-width-base</span> / <span class="hljs-number">2</span>);
-}
-
-<span class="hljs-comment">// Padding goes to a wrapper added with js.</span>
-<span class="hljs-comment">// Twitter bootstrap's collapsible twitching issue.</span>
-<span class="hljs-selector-class">.filters__wrapper</span> {
-  <span class="hljs-attribute">padding</span>: (<span class="hljs-variable">$ecl-grid-gutter-width-base</span> / <span class="hljs-number">2</span>);
-}
-
-<span class="hljs-comment">// And adding the padding back in case the wrapper is missing.</span>
-<span class="hljs-selector-class">.no-js</span> {
-  <span class="hljs-selector-class">.filters</span> {
-    <span class="hljs-attribute">padding</span>: (<span class="hljs-variable">$ecl-grid-gutter-width-base</span> / <span class="hljs-number">2</span>);
-  }
-}
-
-<span class="hljs-selector-class">.filters__filter</span> {
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">clear</span>: both;
-}
-
-<span class="hljs-selector-class">.filters__title</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">20px</span>;
-}
-
-<span class="hljs-selector-class">.filters__btn-submit</span> {
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-}
-
-<span class="hljs-selector-class">.filters__btn-reset</span> {
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">top</span>: <span class="hljs-number">10px</span>;
-
-  &amp;--<span class="hljs-selector-tag">small</span> {
-    <span class="hljs-attribute">float</span>: right;
-  }
-}
-
-<span class="hljs-selector-class">.filters__result-count</span> {
-  <span class="hljs-attribute">font-weight</span>: bold;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1em</span> <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
-
-  <span class="hljs-selector-class">.btn-group</span> {
-    <span class="hljs-attribute">float</span>: right;
-    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
-  }
-
-  &amp; + <span class="hljs-selector-class">.filters__active-facets</span> {
-    <span class="hljs-attribute">margin-top</span>: -<span class="hljs-number">0.5em</span>;
-  }
-}
-
-<span class="hljs-selector-class">.filters__result-range</span> {
-  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">15px</span>;
-  <span class="hljs-attribute">font-weight</span>: bold;
-}
-
-<span class="hljs-selector-class">.filters__active-facets</span> {
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
-}
-
-<span class="hljs-selector-class">.filters__btn-collapse</span> {
-  <span class="hljs-attribute">float</span>: right;
-}
-
-<span class="hljs-selector-class">.filters__close</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span> <span class="hljs-meta">!important</span>;
-  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span> <span class="hljs-meta">!important</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1em</span>;
-  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">400</span>;
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">32px</span>;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">20px</span>;
-  <span class="hljs-attribute">text-decoration</span>: none;
-  <span class="hljs-attribute">text-shadow</span>: none;
-
-  &amp;::after {
-    <span class="hljs-attribute">content</span>: <span class="hljs-string">""</span>;
-    <span class="hljs-attribute">background</span>: url(<span class="hljs-string">'../images/svg/arrow-up--blue.svg'</span>) no-repeat;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">8px</span>;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">10px</span>;
-    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">5px</span>;
-    <span class="hljs-attribute">display</span>: inline-block;
-    <span class="hljs-attribute">text-decoration</span>: none <span class="hljs-meta">!important</span>;
-  }
-
-  &amp;:hover,
-  &amp;:active,
-  &amp;:focus {
-    <span class="hljs-attribute">text-decoration</span>: underline;
-  }
-}
-
-<span class="hljs-selector-class">.filters__items-number</span>,
-<span class="hljs-selector-class">.filters__items-name</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xl'</span>);
-}
-
-<span class="hljs-selector-class">.filters__items-number</span> {
-  <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.333em</span>;
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0.5em</span>;
-}
-
-<span class="hljs-selector-class">.filters__btn-reset--small</span> {
-  <span class="hljs-attribute">display</span>: inline-block;
-}
-
-<span class="hljs-comment">// Button should be visible by default but hidden depending on breakpoint.</span>
-<span class="hljs-selector-tag">html</span> {
-  &amp;<span class="hljs-selector-class">.js</span> {
-    <span class="hljs-selector-class">.filters__btn-submit</span> {
-      <span class="hljs-attribute">display</span>: inline-block;
-    }
-  }
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
-  <span class="hljs-selector-class">.filters__close</span> {
-    &amp;::after {
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">12px</span>;
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">9px</span>;
-    }
-  }
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-  <span class="hljs-selector-class">.filters</span> {
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">background-color</span>: transparent;
-  }
-
-  <span class="hljs-selector-class">.filters__btn-reset--small</span>,
-  <span class="hljs-selector-class">.filters__btn-collapse</span> {
-    <span class="hljs-attribute">display</span>: none;
-  }
-
-  <span class="hljs-selector-tag">html</span> {
-    &amp;<span class="hljs-selector-class">.js</span> {
-      <span class="hljs-selector-class">.filters__btn-submit</span> {
-        <span class="hljs-attribute">display</span>: none;
-      }
-    }
-  }
-}
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-filters/_filters.scss"><span>/components/raw/ecl-filters/_filters.scss</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-filters/_filters.scss</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.5 KB</span>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="FileBrowser-item" id="file-9181fa8e248578f1855316501517b02c" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-comment">/**
- * Exposed filter related behaviors.
- */</span>
-
-<span class="hljs-comment">// eslint-disable-next-line import/prefer-default-export</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filters</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'This script needs to be rewritten without jQuery'</span>);
-}
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-filters/filters.js"><span>/components/raw/ecl-filters/filters.js</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-filters/filters.js</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">202 Bytes</span>
-                </li>
-            </ul>
-        </div>
-        
-    </div>
-</div>
-
 
 
     
-    <div class="Browser-panel" data-role="tab-panel" id="browser-30ead99e555b1f8519b363c97d33f256-panel-info">
+    <div class="Browser-panel" data-role="tab-panel" id="browser-6a9353c9aa66c74f2a8cde063ba50901-panel-info">
     <ul class="Meta">
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
@@ -518,7 +559,7 @@ Filters
                 
                     <span>
                 
-                    <span>molecule</span>
+                    <span>template</span>
                 
             </span>
         </li>
@@ -546,7 +587,7 @@ Filters
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/ecl-filters/ecl-filters.twig</span>
+            <span class="Meta-value">framework/templates/ecl-filters/ecl-filters.twig</span>
         </li>
         
         
@@ -2191,30 +2232,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Filters</span>
-            </a>
         </li>
         
     
@@ -4294,6 +4311,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Tree" data-behaviour="tree" id="tree-templates">
     <h3 class="Tree-title">Templates</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Filters</span>
+            </a>
+        </li>
         
     
         

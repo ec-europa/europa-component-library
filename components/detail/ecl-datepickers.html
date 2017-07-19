@@ -224,6 +224,8 @@
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Accepts:
+    - "id" (string): the input ID (optional)
+    - "name" (string): the input name (optional)
     - "value" (string): the default value (mm/dd/yyyy, optional)
     - "aria_label" (string): ARIA label (optional)
     - "extra_classes" (string): extra CSS classes to be added
@@ -233,6 +235,8 @@
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _value = value|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _aria_label = aria_label|<span class="hljs-keyword">default</span>('Use the arrow keys to pick a <span class="hljs-name">date</span>') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-datepickers' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _id = id|<span class="hljs-keyword">default</span>('datepicker') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _name = name|<span class="hljs-keyword">default</span>('datepicker') %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
@@ -248,7 +252,8 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-text-inputs' with {
     'type': 'text',
-    'id': 'datepicker',
+    'id': _id,
+    'name': _name,
     'extraAttributes': [
       { 'name': 'aria-label', 'value': _aria_label },
       { 'name': 'value', 'value': _value }
@@ -280,7 +285,7 @@
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers"</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"default-name"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Use the arrow keys to pick a date"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"04/01/2017"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers__icon ecl-icon ecl-icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"datepicker"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Use the arrow keys to pick a date"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"04/01/2017"</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-datepickers__icon ecl-icon ecl-icon--calendar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -2308,30 +2313,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Filters</span>
-            </a>
         </li>
         
     
@@ -4411,6 +4392,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Tree" data-behaviour="tree" id="tree-templates">
     <h3 class="Tree-title">Templates</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Filters</span>
+            </a>
+        </li>
         
     
         
