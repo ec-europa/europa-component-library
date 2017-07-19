@@ -7,19 +7,19 @@
       <h3 class="ecl-heading ecl-heading--h3 ecl-u-mb-s">Filter by</h3>
       <form action="#" method="get" id="{{ formID }}">
         <div class="ecl-form-group">
-          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Keyword' } %}
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Keyword', 'for_attribute': 'filter-keywords' } %}
           {% include '@ec-europa/ecl-forms-text-inputs' with {
             'type': 'text',
             'name': 'keywords',
-            'id': 'keywords',
+            'id': 'filter-keywords',
             'extraAttributes': [
               { 'value': '', 'size': '30', 'maxlength': '128' }
             ]
           } %}
         </div>
         <div class="ecl-form-group">
-          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Topic' } %}
-          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'topic', 'id': 'topic' } %}
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Topic', 'for_attribute': 'filter-topic' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'topic', 'id': 'filter-topic' } %}
             {% block options %}
               <option value="0">Any topic</option>
               <option value="354">Banking and financial services</option>
@@ -29,8 +29,8 @@
           {% endembed %}
         </div>
         <div class="ecl-form-group">
-          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Location' } %}
-          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'location', 'id': 'location' } %}
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Location', 'for_attribute': 'filter-location' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'location', 'id': 'filter-location' } %}
             {% block options %}
             <option value="0">Any country</option>
             <option value="BE">Belgium</option>
@@ -73,12 +73,12 @@
             'name': 'event_is_live_streaming',
             'id': 'event_is_live_streaming',
             'label': 'Events with live streaming available',
-            'checked': 'checked'
+            'checked': true
           } %}
         </div>
         <div class="ecl-form-group">
-          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Organiser' } %}
-          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'organiser', 'id': 'organiser' } %}
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Organiser', 'for_attribute': 'filter-organiser' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'organiser', 'id': 'filter-organiser' } %}
             {% block options %}
               <option value="0">Any organiser</option>
               <option value="881">Financial Stability, Financial Services and Capital Markets Union</option>
@@ -89,22 +89,16 @@
           {% endembed %}
         </div>
         <div class="ecl-form-group">
-          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'After' } %}
-          <div class="ecl-datepickers">
-            <input class="ecl-text-input" type="text" id="datepicker" value="" aria-label="Use the arrow keys to pick a date">
-            <span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span>
-          </div>
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'After', 'for_attribute': 'filter-after' } %}
+          {% include '@ec-europa/ecl-datepickers' with { 'id': 'filter-after' } %}
         </div>
         <div class="ecl-form-group">
-          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Before' } %}
-          <div class="ecl-datepickers">
-            <input class="ecl-text-input" type="text" id="datepicker" value="" aria-label="Use the arrow keys to pick a date">
-            <span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span>
-          </div>
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Before', 'for_attribute': 'filter-before' } %}
+          {% include '@ec-europa/ecl-datepickers' with { 'id': 'filter-before' } %}
         </div>
         <div class="ecl-form-group">
-          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Collection' } %}
-          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'collection', 'id': 'collection' } %}
+          {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Collection', 'for_attribute': 'filter-collection' } %}
+          {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'collection', 'id': 'filter-collection' } %}
             {% block options %}
               <option value="0">Any collection</option>
               <option value="2065">Citizens' Dialogues</option>

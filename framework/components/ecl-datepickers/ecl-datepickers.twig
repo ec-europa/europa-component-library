@@ -1,6 +1,8 @@
 {#
   Accepts:
-    - "value" (string): the default value (mm/dd/yyyy, optional)
+  - "id" (string): the input ID (optional)
+  - "name" (string): the input name (optional)
+  - "value" (string): the default value (mm/dd/yyyy, optional)
     - "aria_label" (string): ARIA label (optional)
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
@@ -9,6 +11,8 @@
 {% set _value = value|default('') %}
 {% set _aria_label = aria_label|default('Use the arrow keys to pick a date') %}
 {% set _css_class = 'ecl-datepickers' %}
+{% set _id = id|default('default-id') %}
+{% set _name = name|default('default-name') %}
 
 {% if extra_classes is defined %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -24,7 +28,8 @@
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
   {% include '@ec-europa/ecl-forms-text-inputs' with {
     'type': 'text',
-    'id': 'datepicker',
+    'id': _id,
+    'name': _name,
     'extraAttributes': [
       { 'name': 'aria-label', 'value': _aria_label },
       { 'name': 'value', 'value': _value }
