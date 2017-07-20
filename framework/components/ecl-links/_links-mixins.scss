@@ -1,6 +1,6 @@
 @mixin link() {
   color: $ecl-color-primary;
-  line-height: 1.66;
+  margin: 0;
   text-decoration: underline;
 
   &:hover,
@@ -10,8 +10,6 @@
 }
 
 @mixin link-external {
-  position: relative;
-
   &::after {
     @extend %ecl-icon--after;
 

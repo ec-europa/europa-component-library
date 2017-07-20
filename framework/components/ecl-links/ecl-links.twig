@@ -1,5 +1,25 @@
-<div>Lorem ipsum, <a href="#" class="ecl-link">in-line link</a> consectetur adipiscing elit</div>
-<div>Lorem ipsum, <a href="#" class="ecl-link ecl-link--external">external link</a> consectetur adipiscing elit</div>
-<div><a href="#" class="ecl-link ecl-link--standalone">Stand-alone link</a></div>
-<div><a href="#" class="ecl-link ecl-link--inverted ecl-u-bg-shade">Inverted link</a></div>
-<div class="ecl-clearfix" style="width: 50%"><a href="#" class="ecl-link ecl-link--all">'View all' link</a></div>
+{#
+  - variant: can be '','external','standalone', 'inverted', 'all', 'more' (default: '')
+  - href: target of the link (default: '')
+  - label: label of the link (default: '')
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-link' ~ (variant != '' ? ' ecl-link--' ~ variant: '') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+<a class="{{ _css_class }}" {{ _extra_attributes }} href="{{href}}">{{label}}</a>

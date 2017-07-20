@@ -1,4 +1,7 @@
-// ECL links
+/**
+* Site switcher component
+* @define link
+*/
 
 @import 'links-mixins';
 
@@ -27,4 +30,18 @@
   clear: right;
   float: right;
   text-transform: uppercase;
+}
+
+.ecl-link--more {
+  text-transform: uppercase;
+
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('right');
+
+    font-size: 75%;
+    margin-left: 0.4em;
+    margin-right: 0.2em;
+  }
 }
