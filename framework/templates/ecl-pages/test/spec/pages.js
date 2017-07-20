@@ -1,4 +1,4 @@
-describe('filters', () => {
+describe('pages', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -8,7 +8,7 @@ describe('filters', () => {
 
     browser.pause(1000);
 
-    browser.url(`ecl-filters.html`);
+    browser.url(`ecl-pages.html`);
     // Make sure the browser has finished painting
     browser.pause(1000);
     // Inject axe-core (for accessibility tests)
@@ -18,13 +18,13 @@ describe('filters', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'filters',
+      name: 'pages',
     });
     expect(screenshots).to.matchReference();
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-row').value;
+    const a11yReport = browser.runAxeCore('ecl-container').value;
     expect(a11yReport).to.be.accessible;
   });
 });
