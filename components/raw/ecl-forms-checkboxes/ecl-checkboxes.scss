@@ -4,49 +4,54 @@
  */
 
 // checkbox related variables
-$ecl-checkbox-icon-size: 1.5em;
+$form-checkbox-icon-size: 1.5em;
 
 .ecl-checkbox {
-  display: block;
-  font-size: map-get($ecl-font-size, 'm');
-  margin: 0;
-  padding: map-get($ecl-spacing, 'xxxs') 0;
-}
+  opacity: 0;
 
-.ecl-checkbox--is-disabled {
-  color: map-get($ecl-colors, 'grey-75');
-  cursor: not-allowed;
+  // Checked state.
+  &:checked + .ecl-checkbox__label::before {
+    background-image: url('../images/svg/checkbox-checked--blue.svg');
+  }
+
+  // Focus state, not checked.
+  &:focus + .ecl-checkbox__label::before {
+    border-color: map-get($ecl-colors, 'yellow-100');
+  }
+
+  &[disabled] + .ecl-checkbox__label,
+  &[readonly] + .ecl-checkbox__label {
+    cursor: not-allowed;
+  }
+
+  &[disabled] + .ecl-checkbox__label::before,
+  &[readonly] + .ecl-checkbox__label::before {
+    box-shadow: 0 0 $form-checkbox-icon-size map-get($ecl-colors, 'grey-15') inset;
+    cursor: not-allowed;
+  }
 }
 
 .ecl-checkbox__label {
-  align-items: center;
-  display: inline-flex;
+  display: inline-block;
+  line-height: $form-checkbox-icon-size;
+  padding-left: map-get($ecl-spacing, 'xs');
+  position: relative;
 
   &::before {
     background: #fff url('../images/svg/checkbox-unchecked.svg') no-repeat;
     border: 3px solid transparent;
     border-radius: 25%;
     content: '';
-    display: block;
-    flex-shrink: 0;
-    height: $ecl-checkbox-icon-size;
-    margin-right: map-get($ecl-spacing, 'xxs');
-    width: $ecl-checkbox-icon-size;
+    display: inline-block;
+    height: $form-checkbox-icon-size;
+    left: 0;
+    margin-left: -(map-get($ecl-spacing, 's'));
+    position: absolute;
+    transition: border 0.15s ease-in-out;
+    width: $form-checkbox-icon-size;
   }
 }
 
-.ecl-checkbox__input:checked + .ecl-checkbox__label::before {
-  background-image: url('../images/svg/checkbox-checked--blue.svg');
-}
-
-.ecl-checkbox__input:focus + .ecl-checkbox__label::before {
-  border-color: map-get($ecl-colors, 'yellow-100');
-}
-
-.ecl-checkbox--has-error .ecl-checkbox__label::before {
+.ecl-checkbox--has-error + .ecl-checkbox__label::before {
   border-color: $ecl-color-error;
-}
-
-.ecl-checkbox--is-disabled .ecl-checkbox__label::before {
-  box-shadow: 0 0 $ecl-checkbox-icon-size map-get($ecl-colors, 'grey-15') inset;
 }

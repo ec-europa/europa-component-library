@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
 
 
 <title>Radios: Checked | Europa Component Library</title>
@@ -79,8 +79,9 @@
 
     <div class="Frame-header">
         <div class="Header">
-    <strong><a href="../../components" class="Header-title">Europa Component Library</a></strong>
+    <strong><a href="https://ec-europa.github.io/europa-component-library/" class="Header-title">Europa Component Library</a></strong>
     <a href="../../docs" class="Header-title">Documentation</a>
+    <a href="../../components" class="Header-title">Components</a>
     <a href="https://github.com/ec-europa/europa-component-library" class="Header-title">GitHub</a>
 </div>
 
@@ -214,9 +215,12 @@
   Accepts:
     - "id" (string): radio group ID (mandatory)
     - "name" (string): radio name (mandatory)
-    - "value" (string): radio value (optional, default: '')
-    - "label" (string): radio label (optional, default: '')
-    - "checked" (boolean): is radio checked? (optional, default: false)
+    - "desc" (string): description for screen readers (mandatory)
+    - "options" (collection): array of options (mandatory). Each option accepts:
+      - "id" (string): radio input ID (mandatory)
+      - "value" (string): radio value (optional, default: '')
+      - "label" (string): radio label (optional, default: '')
+      - "checked" (boolean): is radio checked? (optional, default: false)
     - "is_disabled" (boolean): is disabled (optional, default: false)
     - "has_error" (boolean): has error (optional, default: false)
     - "extra_class" (string): extra CSS classes (optional, default: '')
@@ -228,37 +232,35 @@
 
 </span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-radio' %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = 'ecl-radio' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = '' %}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> has_error is defined and has_error == true %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-radio--has-error' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> hasError is defined and hasError == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-radio--has-error' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> is_disabled is defined and is_disabled == true %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-radio--is-disabled' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isDisabled is defined and isDisabled == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ecl-radio--is-disabled' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraClass is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _cssClass = _cssClass ~ ' ' ~ extraClass %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extraAttributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extraAttributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Print the result  #}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ec-europa/ecl-forms-labels' with { 'for': id, 'extra_classes': _css_class, 'extra_attributes': _extra_attributes, _id: id, _value: value, _name: name, _label: label, _checked: checked, _is_disabled: is_disabled } only %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> label %}</span><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">spaceless</span></span> %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _value }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _checked ? ' checked' : '' }}</span><span class="xml"><span class="hljs-tag"></span></span><span class="hljs-template-variable">{{ (_is_disabled is defined and _is_disabled == true) ? ' disabled' : '' }}</span><span class="xml"><span class="hljs-tag"> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ _label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endspaceless</span></span> %}</span><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml"></span></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=</span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _cssClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extraAttributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">spaceless</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ value }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ checked ? ' checked' : '' }}</span><span class="xml"><span class="hljs-tag"></span></span><span class="hljs-template-variable">{{ (isDisabled is defined and isDisabled == true) ? ' disabled' : '' }}</span><span class="xml"><span class="hljs-tag"> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endspaceless</span></span> %}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -284,7 +286,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-eece749df0a64edf6530d409e05f839c-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-label ecl-radio"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">checked</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span>Checked option<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">opt-2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__input ecl-sr-only"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"radio"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"opt-2"</span> <span class="hljs-attr">checked</span> /&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-radio__label"</span>&gt;</span>Checked option<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -300,13 +302,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-80d13734faadc4b5d1b35759f9e7388b">ecl-forms-radios.scss</option>
+                <option value="file-6891063442e2fbc5835cc26a828fe762">ecl-forms-radios.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-80d13734faadc4b5d1b35759f9e7388b" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-6891063442e2fbc5835cc26a828fe762" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -323,13 +325,12 @@
 
 <span class="hljs-selector-class">.ecl-radio</span> {
   <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-radio--is-disabled</span> {
-  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-75'</span>);
+  <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
   <span class="hljs-attribute">cursor</span>: not-allowed;
 }
 
@@ -342,7 +343,6 @@
     <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid transparent;
     <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
     <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
-    <span class="hljs-attribute">display</span>: block;
     <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">height</span>: <span class="hljs-variable">$ecl-radio-icon-size</span>;
     <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
@@ -377,7 +377,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1 KB</span>
+                    <span class="Meta-value">943 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1759,9 +1759,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-date-blocks">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -1769,7 +1768,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
 
 
 </div>
@@ -1778,7 +1777,87 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Date blocks</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks--events" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Events</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks--past-events" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Past events</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2074,6 +2153,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Filters</span>
+            </a>
         </li>
         
     
@@ -4158,30 +4261,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Filters</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="homepage" data-pjax>
                 
 
@@ -4217,41 +4296,41 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
     <div class="Frame-footer">
         <footer class="ecl-footer">
-    <div class="ecl-footer__site-corporate">
+    <div class="ecl-footers__site-corporate">
         <div class="ecl-container">
             <div class="ecl-row">
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
                             <a href="#">Commission and its priorities</a>
                         </li>
-                        <li class="ecl-footer__menu-item">
+                        <li class="ecl-footers__menu-item">
                             <a href="#">Policies information and services</a>
                         </li>
                     </ul>
                 </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
-                    <ul class="ecl-footer__menu ecl-list-inline">
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">Follow the European Commission</h4>
+                    <ul class="ecl-footers__menu ecl-list-inline">
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
                         </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
                         </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
                             <a href="#">Other social media</a>
                         </li>
                     </ul>
                 </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Union</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
                             <a class="ecl-link--external" href="#">EU institutions</a>
                         </li>
-                        <li class="ecl-footer__menu-item">
+                        <li class="ecl-footers__menu-item">
                             <a class="ecl-link--external" href="#">European Union</a>
                         </li>
                     </ul>
@@ -4259,27 +4338,27 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             </div>
         </div>
     </div>
-    <div class="ecl-footer__ec">
+    <div class="ecl-footers__ec">
         <div class="ecl-container">
             <div class="ecl-row">
                 <div class="ecl-col-sm">
-                    <ul class="ecl-list-inline ecl-footer__menu">
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                    <ul class="ecl-list-inline ecl-footers__menu">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
                         </li>
                     </ul>
@@ -4295,7 +4374,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
 
 
 

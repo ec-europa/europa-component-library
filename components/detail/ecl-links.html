@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.6.3" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.6.3" type="text/css">
 
 
 <title>Links | Europa Component Library</title>
@@ -79,8 +79,9 @@
 
     <div class="Frame-header">
         <div class="Header">
-    <strong><a href="../../components" class="Header-title">Europa Component Library</a></strong>
+    <strong><a href="https://ec-europa.github.io/europa-component-library/" class="Header-title">Europa Component Library</a></strong>
     <a href="../../docs" class="Header-title">Documentation</a>
+    <a href="../../components" class="Header-title">Components</a>
     <a href="https://github.com/ec-europa/europa-component-library" class="Header-title">GitHub</a>
 </div>
 
@@ -134,14 +135,59 @@
               <div class="Prose">
                 
                 <h1 id="links">Links</h1>
-<p>Different kind of links are available, depending on the context:</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>When you need to direct users to a different page or to provide access to further information.</p>
+<h3 id="link-types">Link types</h3>
 <ul>
-<li>In-line links (<strong>.ecl-link</strong>): when links are inside paragraphs.</li>
-<li>External links (<strong>.ecl-link–external</strong>): when links pointed outside the ec.europa.eu domain.</li>
-<li>Stand-alone links (<strong>.ecl-link–standalone</strong>): When links are not part of a paragraph. These links are usually in a list.</li>
-<li>Inverted links (<strong>.ecl-link–inverted</strong>): When links are shown on a dark background.</li>
-<li>Expandable link (<strong>.ecl-link–expand</strong>): When information needs to hide or expand to show additional content.</li>
-<li>‘View all’ links (<strong>.ecl-link–all</strong>): When more items need to be displayed. This link is always placed at the bottom of a list of items. The ‘view all’ link leads to the full list.</li>
+<li><strong>in-line text link</strong><ul>
+<li>internal links</li>
+<li>external links</li>
+</ul>
+</li>
+<li><strong>stand-alone link</strong><ul>
+<li>more link</li>
+<li>expandable link</li>
+<li>social media link</li>
+</ul>
+</li>
+</ul>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li><p><strong>in-line link</strong>
+when links are inserted within paragraph text blocks
+<strong>style</strong>
+blue, underlined (displayed in white colour if the background colour is blue)</p>
+<ul>
+<li><p><strong>internal link</strong>
+when links point to URLs inside the ec.europa.eu domain
+<strong>style</strong>
+underlined link</p>
+</li>
+<li><p><strong>external link</strong>
+when links point to URLs outside the ec.europa.eu domain
+<strong>style</strong>
+underlined link with an appended square w/ arrow pointing outward</p>
+</li>
+</ul>
+</li>
+<li><p><strong>stand-alone link</strong>
+when links are not inserted within paragraph text blocks
+<strong>style</strong>
+blue, no underline</p>
+<ul>
+<li><p><strong>more link</strong>
+used on the Listings component</p>
+</li>
+<li><p><strong>expandable link</strong>
+used on the Expandable component</p>
+</li>
+<li><p><strong>social media link</strong>
+used on the Social media - Follow. and Social media - Share. components</p>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+</li>
+</ul>
+</li>
+<li>for actions or important links to other pages - in this case, use buttons instead</li>
 </ul>
 
                 
@@ -219,11 +265,31 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-893c319ccfe957f4705f9ee20d9e61c9-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Lorem ipsum, <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link"</span>&gt;</span>in-line link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> consectetur adipiscing elit<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Lorem ipsum, <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--external"</span>&gt;</span>external link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> consectetur adipiscing elit<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span>&gt;</span>Stand-alone link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-u-bg-shade"</span>&gt;</span>Inverted link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-clearfix"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 50%"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--all"</span>&gt;</span>'View all' link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - variant: can be '','external','standalone', 'inverted', 'all', 'more' (default: '')
+  - href: target of the link (default: '')
+  - label: label of the link (default: '')
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-link' ~ (variant != '' ? ' ecl-link--' ~ variant: '') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{href}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{label}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -231,9 +297,67 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-893c319ccfe957f4705f9ee20d9e61c9-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Default */</span>
+{
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"in-line link"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* External */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"external"</span>,
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"external link"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Standalone */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"standalone"</span>,
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"standalone link"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Inverted */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"inverted"</span>,
+  <span class="hljs-attr">"extra_class"</span>: <span class="hljs-string">"ecl-u-bg-shade"</span>,
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"inverted link"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* All */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"all"</span>,
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"all link"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* More */</span>
+{
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"more"</span>,
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"more link"</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -243,11 +367,37 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-893c319ccfe957f4705f9ee20d9e61c9-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Lorem ipsum, <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link"</span>&gt;</span>in-line link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> consectetur adipiscing elit<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Lorem ipsum, <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--external"</span>&gt;</span>external link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> consectetur adipiscing elit<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span>&gt;</span>Stand-alone link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-u-bg-shade"</span>&gt;</span>Inverted link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-clearfix"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 50%"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--all"</span>&gt;</span>'View all' link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>in-line link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- External --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--external"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>external link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Standalone --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>standalone link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Inverted --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-u-bg-shade"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>inverted link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- All --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--all"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>all link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- More --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--more"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>more link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -263,17 +413,17 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-946f4d2fdee321f5a3775d8e781c0050">_editor-links.scss</option>
+                <option value="file-6ec57f9312c319d3fcf85ba8c4741e72">_editor-links.scss</option>
                 
-                <option value="file-840e51d24985e324e144b16f6eb78bcc">_links-mixins.scss</option>
+                <option value="file-84ed454344fb920d617f4757a9a7575a">_links-mixins.scss</option>
                 
-                <option value="file-a2c149a6db2d860dd79a188aaf5c8bdf">_links.scss</option>
+                <option value="file-8829a5aca8a2193f480fb592e3e9e38d">_links.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-946f4d2fdee321f5a3775d8e781c0050" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-6ec57f9312c319d3fcf85ba8c4741e72" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -312,7 +462,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-840e51d24985e324e144b16f6eb78bcc" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-84ed454344fb920d617f4757a9a7575a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -323,6 +473,7 @@
                                 <pre>@<span class="hljs-keyword">mixin</span> link() {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.66</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">text-decoration</span>: underline;
 
   &amp;:hover,
@@ -360,12 +511,12 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">357 Bytes</span>
+                    <span class="Meta-value">370 Bytes</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-a2c149a6db2d860dd79a188aaf5c8bdf" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-8829a5aca8a2193f480fb592e3e9e38d" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -373,7 +524,10 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">// ECL links</span>
+                                <pre><span class="hljs-comment">/**
+* Site switcher component
+* @define link
+*/</span>
 
 @<span class="hljs-keyword">import</span> <span class="hljs-string">'links-mixins'</span>;
 
@@ -403,6 +557,21 @@
   <span class="hljs-attribute">float</span>: right;
   <span class="hljs-attribute">text-transform</span>: uppercase;
 }
+
+<span class="hljs-selector-class">.ecl-link--more</span> {
+  <span class="hljs-attribute">position</span>: relative;
+  <span class="hljs-attribute">text-transform</span>: uppercase;
+
+  &amp;::after {
+    @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+
+    @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
+
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">75%</span>;
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.4em</span>;
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.2em</span>;
+  }
+}
 </pre>
                             </code>
                             
@@ -419,7 +588,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">370 Bytes</span>
+                    <span class="Meta-value">628 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -435,6 +604,17 @@
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
             <span class="Meta-value">@ec-europa/ecl-links</span>
+        </li>
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Tags:</strong>
+            <span class="Meta-value">
+                
+                    <span>
+                
+                    <span>atom</span>
+                
+            </span>
         </li>
         
         
@@ -1790,9 +1970,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-date-blocks">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -1800,7 +1979,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
 
 
 </div>
@@ -1809,7 +1988,87 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Date blocks</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks--default" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Default</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks--events" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Events</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks--past-events" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Past events</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2105,6 +2364,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Filters</span>
+            </a>
         </li>
         
     
@@ -4189,30 +4472,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Filters</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="homepage" data-pjax>
                 
 
@@ -4248,41 +4507,41 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
     <div class="Frame-footer">
         <footer class="ecl-footer">
-    <div class="ecl-footer__site-corporate">
+    <div class="ecl-footers__site-corporate">
         <div class="ecl-container">
             <div class="ecl-row">
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Commission</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
                             <a href="#">Commission and its priorities</a>
                         </li>
-                        <li class="ecl-footer__menu-item">
+                        <li class="ecl-footers__menu-item">
                             <a href="#">Policies information and services</a>
                         </li>
                     </ul>
                 </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
-                    <ul class="ecl-footer__menu ecl-list-inline">
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">Follow the European Commission</h4>
+                    <ul class="ecl-footers__menu ecl-list-inline">
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footers__social-icon"></span>Facebook</a>
                         </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
+                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footers__social-icon"></span>Twitter</a>
                         </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
+                        <li class="ecl-footers__menu-item ecl-list-inline__item">
                             <a href="#">Other social media</a>
                         </li>
                     </ul>
                 </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
+                <div class="ecl-col-sm ecl-footers__column">
+                    <h4 class="ecl-h4 ecl-footers__title">European Union</h4>
+                    <ul class="ecl-footers__menu">
+                        <li class="ecl-footers__menu-item">
                             <a class="ecl-link--external" href="#">EU institutions</a>
                         </li>
-                        <li class="ecl-footer__menu-item">
+                        <li class="ecl-footers__menu-item">
                             <a class="ecl-link--external" href="#">European Union</a>
                         </li>
                     </ul>
@@ -4290,27 +4549,27 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
             </div>
         </div>
     </div>
-    <div class="ecl-footer__ec">
+    <div class="ecl-footers__ec">
         <div class="ecl-container">
             <div class="ecl-row">
                 <div class="ecl-col-sm">
-                    <ul class="ecl-list-inline ecl-footer__menu">
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                    <ul class="ecl-list-inline ecl-footers__menu">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
                         </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
+                        <li class="ecl-list-inline__item ecl-footers__menu-item">
                             <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
                         </li>
                     </ul>
@@ -4326,7 +4585,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.6.3"></script>
 
 
 
