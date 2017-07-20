@@ -10,6 +10,12 @@
   display: block;
   font-size: map-get($ecl-font-size, 's');
   margin: 0;
+
+  &::after{
+    content:'';
+    clear:both;
+    display: block;
+  }
 }
 
 .ecl-site-switcher__link {
