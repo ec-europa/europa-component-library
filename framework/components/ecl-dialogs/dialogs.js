@@ -43,14 +43,15 @@ export const dialogs = (
   const focusableElements = [].slice.call(
     queryAll(
       `
-        #${dialogWindowId} a[href],
-        #${dialogWindowId} area[href],
-        #${dialogWindowId} input:not([disabled]),
-        #${dialogWindowId} select:not([disabled]),
-        #${dialogWindowId} textarea:not([disabled]),
-        #${dialogWindowId} button:not([disabled]),
-        #${dialogWindowId} [tabindex="0"]
-      `
+        a[href],
+        area[href],
+        input:not([disabled]),
+        select:not([disabled]),
+        textarea:not([disabled]),
+        button:not([disabled]),
+        [tabindex="0"]
+      `,
+      dialogWindow
     )
   );
 
@@ -125,10 +126,14 @@ export const dialogs = (
     firstFocusableElement.focus();
 
     // Close dialog when clicked out of the dialog window.
-    dialogOverlay.addEventListener('click', close);
+    dialogOverlay.addEventListener('click', () => {
+      close();
+    });
 
     // Handle tabbing, esc and keyboard in the dialog window.
-    dialogWindow.addEventListener('keydown', handleKeyDown);
+    dialogWindow.addEventListener('keydown', e => {
+      handleKeyDown(e);
+    });
   }
 
   // BIND EVENTS
