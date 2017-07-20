@@ -139,12 +139,14 @@
 <p>When you need to direct users to a different page or to provide access to further information.</p>
 <h3 id="link-types">Link types</h3>
 <ul>
-<li><strong>in-line text link</strong><ul>
+<li><p><strong>in-line text link</strong></p>
+<ul>
 <li>internal links</li>
 <li>external links</li>
 </ul>
 </li>
-<li><strong>stand-alone link</strong><ul>
+<li><p><strong>stand-alone link</strong></p>
+<ul>
 <li>more link</li>
 <li>expandable link</li>
 <li>social media link</li>
@@ -153,40 +155,42 @@
 </ul>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
-<li><p><strong>in-line link</strong>
-when links are inserted within paragraph text blocks
-<strong>style</strong>
+<li><p><strong>in-line link</strong><br/>
+when links are inserted within paragraph text blocks<br/>
+<strong>style</strong><br/>
 blue, underlined (displayed in white colour if the background colour is blue)</p>
 <ul>
-<li><p><strong>internal link</strong>
-when links point to URLs inside the ec.europa.eu domain
-<strong>style</strong>
+<li><p><strong>internal link</strong><br/>
+when links point to URLs inside the ec.europa.eu domain<br/>
+<strong>style</strong> <br/>
 underlined link</p>
 </li>
-<li><p><strong>external link</strong>
-when links point to URLs outside the ec.europa.eu domain
-<strong>style</strong>
+<li><p><strong>external link</strong><br/>
+when links point to URLs outside the ec.europa.eu domain<br/>
+<strong>style</strong><br/>
 underlined link with an appended square w/ arrow pointing outward</p>
 </li>
 </ul>
 </li>
-<li><p><strong>stand-alone link</strong>
-when links are not inserted within paragraph text blocks
-<strong>style</strong>
+<li><p><strong>stand-alone link</strong><br/>
+when links are not inserted within paragraph text blocks<br/>
+<strong>style</strong><br/>
 blue, no underline</p>
 <ul>
-<li><p><strong>more link</strong>
+<li><p><strong>more link</strong><br/>
 used on the Listings component</p>
 </li>
-<li><p><strong>expandable link</strong>
+<li><p><strong>expandable link</strong><br/>
 used on the Expandable component</p>
 </li>
-<li><p><strong>social media link</strong>
+<li><p><strong>social media link</strong><br/>
 used on the Social media - Follow. and Social media - Share. components</p>
-<h2 id="do-not-use-this-component">Do not use this component</h2>
 </li>
 </ul>
 </li>
+</ul>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<ul>
 <li>for actions or important links to other pages - in this case, use buttons instead</li>
 </ul>
 
@@ -387,7 +391,6 @@ used on the Social media - Follow. and Social media - Share. components</p>
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre>@<span class="hljs-keyword">mixin</span> link() {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.66</span>;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">text-decoration</span>: underline;
 
@@ -398,8 +401,6 @@ used on the Social media - Follow. and Social media - Share. components</p>
 }
 
 @<span class="hljs-keyword">mixin</span> link-external {
-  <span class="hljs-attribute">position</span>: relative;
-
   &amp;::after {
     @<span class="hljs-keyword">extend</span> %ecl-icon--after;
 
@@ -426,7 +427,7 @@ used on the Social media - Follow. and Social media - Share. components</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">370 Bytes</span>
+                    <span class="Meta-value">326 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -474,7 +475,6 @@ used on the Social media - Follow. and Social media - Share. components</p>
 }
 
 <span class="hljs-selector-class">.ecl-link--more</span> {
-  <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">text-transform</span>: uppercase;
 
   &amp;::after {
@@ -503,7 +503,7 @@ used on the Social media - Follow. and Social media - Share. components</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">628 Bytes</span>
+                    <span class="Meta-value">606 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1885,8 +1885,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-date-blocks">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -1894,7 +1895,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -1903,87 +1904,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Date blocks</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks--default" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks--events" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Events</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks--past-events" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Past events</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -2279,30 +2200,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
 
             </ul>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Filters</span>
-            </a>
         </li>
         
     
@@ -4382,6 +4279,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Tree" data-behaviour="tree" id="tree-templates">
     <h3 class="Tree-title">Templates</h3>
     <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Filters</span>
+            </a>
+        </li>
         
     
         
