@@ -126,14 +126,10 @@ export const dialogs = (
     firstFocusableElement.focus();
 
     // Close dialog when clicked out of the dialog window.
-    dialogOverlay.addEventListener('click', () => {
-      close();
-    });
+    dialogOverlay.addEventListener('click', close);
 
     // Handle tabbing, esc and keyboard in the dialog window.
-    dialogWindow.addEventListener('keydown', e => {
-      handleKeyDown(e);
-    });
+    dialogWindow.addEventListener('keydown', handleKeyDown);
   }
 
   // BIND EVENTS
