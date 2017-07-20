@@ -25,7 +25,7 @@ module.exports = {
       label: 'Disabled select list',
       context: {
         id: 'example-selectid-2',
-        isDisabled: true,
+        is_disabled: true,
       },
     },
     {
@@ -33,7 +33,7 @@ module.exports = {
       label: 'Select list with error',
       context: {
         id: 'example-select-id-3',
-        hasError: true,
+        has_error: true,
       },
     },
   ],
