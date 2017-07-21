@@ -138,11 +138,15 @@
 <p>Users need a way to easily identify the branding, to search and change the language if needed.</p>
 <ul>
 <li>the page title functions as the top level H1.</li>
-<li>it is also used to construct the &lt; title > element (mandatory).</li>
+<li>it is also used to construct the <code>&lt;title&gt;</code> element (mandatory).</li>
 <li>gives context and confidence to the user so they know they are looking at the right piece of content.</li>
 <li>provides an H1 title for accessibility and SEO purposes.</li>
 </ul>
-<h2 id="page-header-types">Page header types</h2>
+<h3 id="page-header-types">Page header types</h3>
+<ul>
+<li><strong>default page header</strong></li>
+<li><strong>basic page header</strong></li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -152,8 +156,8 @@
 </thead>
 <tbody>
 <tr>
-<td>Mandatory components</td>
-<td>Mandatory components</td>
+<td><strong>Mandatory components</strong></td>
+<td><strong>Mandatory components</strong></td>
 </tr>
 <tr>
 <td>Breadcrumb</td>
@@ -164,8 +168,8 @@
 <td>-</td>
 </tr>
 <tr>
-<td>Optional components</td>
-<td>Optional components</td>
+<td><strong>Optional components</strong></td>
+<td><strong>Optional components</strong></td>
 </tr>
 <tr>
 <td>Meta items</td>
@@ -318,9 +322,9 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header"</span>&gt;</span>
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-breadcrumbs' with { 'extraClass':'ecl-u-mh-xxs','segments': [{'target':'#','title':'European Commission'},{'target':'#','title':'Announcements'}] } %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-breadcrumbs' with { 'extraClass':'ecl-container','segments': [{'target':'#','title':'European Commission'},{'target':'#','title':'Announcements'}] } %}</span><span class="xml">
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body ecl-container"</span>&gt;</span>
 
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> identity is defined %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__identity"</span>&gt;</span>
@@ -401,13 +405,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-a73c5b715099bef841d7d81fb6c60886">_page-headers.scss</option>
+                <option value="file-8b09564bfd8f9c6288efbec7cd8875d5">_page-headers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-a73c5b715099bef841d7d81fb6c60886" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-8b09564bfd8f9c6288efbec7cd8875d5" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1958,6 +1962,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Datepickers</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-dialogs" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Dialogs</span>
             </a>
         </li>
         
@@ -4085,6 +4113,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-clearfix" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Clearfix</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
                 
 
@@ -4102,6 +4154,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-flex" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Flex</span>
             </a>
         </li>
         
@@ -4205,6 +4281,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-screen-reader" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Screen Reader</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-text" data-pjax>
                 
 
@@ -4283,6 +4383,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Filters</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Pages</span>
             </a>
         </li>
         

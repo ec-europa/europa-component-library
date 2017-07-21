@@ -134,10 +134,37 @@
               <div class="Prose">
                 
                 <h1 id="table-responsive">Table responsive</h1>
-<p>Tables are designed to handle different size of screens.
-On small screen, display switches to a list, to prevent overflow.</p>
-<p>Two display are also provided, depending on presence of table header or not.</p>
-<p>To use these enhanced tables, add class <strong>ecl-table</strong> to table tag and call javascript function <strong>eclTables()</strong> (once on the page).</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Tables show data sets organized in columns and rows.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>when there is a need to show tables that will be displayed across different devices.</li>
+<li>when you want to compare one set of values with another.</li>
+<li>you want to show how various parts comprise the whole.</li>
+<li>you want to understand trends over time for variable(s).</li>
+<li>you want to see which values deviate from the norm.</li>
+<li>you want to establish (or show) relationship between 2 (or more) variables.</li>
+</ul>
+<h2 id="structure">Structure</h2>
+<h3 id="headers">Headers</h3>
+<p>In-page data tables always contain a header <strong>row</strong>, a header <strong>column</strong> or <strong>both</strong>, that lists column titles. <strong>(required)</strong></p>
+<h4 id="web-writing-guidelines">Web writing guidelines</h4>
+<ul>
+<li>row/column titles should be kept short and clear.</li>
+<li>table headers should never be empty. This is particularly of concern for the top-left cell of some tables.</li>
+</ul>
+<h4 id="accessibility-guidelines">Accessibility guidelines</h4>
+<ul>
+<li>the scope attribute identifies whether a table header is a column header or a row header.</li>
+<li>the thread element defines the header rows for tables.</li>
+</ul>
+<h3 id="rows-and-columns">Rows and columns</h3>
+<p>The sets of raw data are displayed in rows below the header row.</p>
+<p>If there are 5 rows or more, the rows have alternating colours (zebra stripes).</p>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<ul>
+<li>don’t use data tables to structure content that isn’t part of a data set</li>
+</ul>
 
                 
               </div>
@@ -300,19 +327,19 @@ On small screen, display switches to a list, to prevent overflow.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-766b27d3b6f44f33b87654b6fd72d896">_editor-tables.scss</option>
+                <option value="file-660fc6b4aaef5caffcaf504dfcccf388">_editor-tables.scss</option>
                 
-                <option value="file-5d933e1a2cca7207c01b2a1419361053">_tables-mixins.scss</option>
+                <option value="file-79feceae6060ec59bba39a2bcc8798d3">_tables-mixins.scss</option>
                 
-                <option value="file-c991e80058c5d73efa094e74264e9e92">_tables.scss</option>
+                <option value="file-bd22a79dace6fc341ad2c1547d6b97ba">_tables.scss</option>
                 
-                <option value="file-eadc9a2c8c27445563091433e194ffcc">ecl-tables.js</option>
+                <option value="file-63c4a5f3fc4367ef12e290d6318554fd">ecl-tables.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-766b27d3b6f44f33b87654b6fd72d896" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-660fc6b4aaef5caffcaf504dfcccf388" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -358,7 +385,7 @@ On small screen, display switches to a list, to prevent overflow.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-5d933e1a2cca7207c01b2a1419361053" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-79feceae6060ec59bba39a2bcc8798d3" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -471,7 +498,7 @@ On small screen, display switches to a list, to prevent overflow.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-c991e80058c5d73efa094e74264e9e92" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-bd22a79dace6fc341ad2c1547d6b97ba" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -544,7 +571,7 @@ On small screen, display switches to a list, to prevent overflow.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-eadc9a2c8c27445563091433e194ffcc" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-63c4a5f3fc4367ef12e290d6318554fd" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -2091,6 +2118,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Datepickers</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-dialogs" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Dialogs</span>
             </a>
         </li>
         
@@ -4218,6 +4269,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-clearfix" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Clearfix</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
                 
 
@@ -4235,6 +4310,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-flex" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Flex</span>
             </a>
         </li>
         
@@ -4338,6 +4437,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-screen-reader" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Screen Reader</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-text" data-pjax>
                 
 
@@ -4416,6 +4539,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Filters</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Pages</span>
             </a>
         </li>
         

@@ -134,54 +134,68 @@
               <div class="Prose">
                 
                 <h1 id="site-header">Site header</h1>
-<h1 id="why-and-how-to-use-this-component">Why and how to use this component</h1>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
 <p>The site header conveys the EC brand to the users and provides basic structure and guidance. It informs users about which site they are on and their current location in the site. It also provides users with context on the page they’re viewing and the site search and language switcher options.</p>
-<h2 id="header-types">Header types</h2>
+<h3 id="header-types">Header types</h3>
 <ul>
 <li>default</li>
 <li>homepage</li>
 </ul>
-<h1 id="when-to-use-this-component">When to use this component</h1>
-<table>
-<thead>
-<tr>
-<th>Default</th>
-<th>Homepage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>on every page of every Commission website - except for the Policies, information and services homepage</td>
-<td>only used in Commission and its priorities and Policies, information and services homepages</td>
-</tr>
-<tr>
-<td>detail and landing pages of transformed and Improved sites</td>
-<td>-</td>
-</tr>
-<tr>
-<td><strong>Components</strong></td>
-<td>-</td>
-</tr>
-<tr>
-<td>European Commission logo (mute version)*</td>
-<td>European Commission logo</td>
-</tr>
-<tr>
-<td>Language selector</td>
-<td>Language selector</td>
-</tr>
-<tr>
-<td>Search bar</td>
-<td>Search bar</td>
-</tr>
-<tr>
-<td>Mandatory component</td>
-</tr>
-</tbody>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<table class="ecl-table">
+  <thead>
+    <tr>
+      <th>Default</th>
+      <th>Homepage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul class="ecl-list">
+          <li>on every page of every Commission website - except for the Policies, information and services homepage</li>
+          <li>detail and landing pages of transformed and Improved sites</li>
+        </ul>
+      </td>
+      <td>
+        <ul class="ecl-list">
+          <li>only used in Commission and its priorities and Policies, information and services homepages</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Components</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul class="ecl-list">
+          <li>European Commission logo (mute version)* </li>
+          <li>Language selector</li>
+          <li>Search bar</li>
+        </ul>
+      </td>
+      <td>
+        <ul class="ecl-list">
+          <li>European Commission logo</li>
+          <li>Language selector</li>
+          <li>Search bar</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Mandatory component</td>
+    </tr>
+  </tbody>
 </table>
-<h2 id="guidance-">Guidance*</h2>
-<p>The mute European Commission logo is a variation which was developed to allow multilingual purpose.
-The use of the logo must be included in all European Commission website pages except for the homepage (<strong>Commission and its priorities</strong> and <strong>Policies, information and services</strong>)</p>
+
+<h3 id="guidance-">Guidance*</h3>
+<p>The mute European Commission logo is a variation which was developed to allow multilingual purpose.</p>
+<p>The use of the logo must be included in all European Commission website pages except for the homepage (<strong>Commission and its priorities</strong> and <strong>Policies, information and services</strong>)</p>
 <p>The logo includes a link to the homepage of the <strong>Policies, information and services</strong> website.</p>
 <h2 id="do-not-use-this-component">Do not use this component</h2>
 <table>
@@ -274,7 +288,29 @@ The use of the logo must be included in all European Commission website pages ex
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-9df5022f206046c421e5dc5cb9c4d375-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - variant: can be '','homepage' (default: '')
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-site-header' ~ (variant != '' ? ' ecl-site-header--' ~ variant: '') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid ecl-site-header__container"</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'externalClass': 'ecl-site-header__logo' } %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header__top-bar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site tools"</span>&gt;</span>
@@ -308,7 +344,7 @@ The use of the logo must be included in all European Commission website pages ex
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-9df5022f206046c421e5dc5cb9c4d375-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-site-header ecl-site-header--"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container-fluid ecl-site-header__container"</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype ecl-site-header__logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home - European Commission"</span>&gt;</span>
@@ -369,13 +405,13 @@ The use of the logo must be included in all European Commission website pages ex
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-cb347cc3f9bae6d117cb0f151eee6c1c">_site-headers.scss</option>
+                <option value="file-ff94adffdc3e93358121b7e81bacf9a2">_site-headers.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-cb347cc3f9bae6d117cb0f151eee6c1c" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-ff94adffdc3e93358121b7e81bacf9a2" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1930,6 +1966,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Datepickers</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-dialogs" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Dialogs</span>
             </a>
         </li>
         
@@ -4057,6 +4117,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-clearfix" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Clearfix</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
                 
 
@@ -4074,6 +4158,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-flex" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Flex</span>
             </a>
         </li>
         
@@ -4177,6 +4285,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-screen-reader" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Screen Reader</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-text" data-pjax>
                 
 
@@ -4255,6 +4387,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Filters</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Pages</span>
             </a>
         </li>
         

@@ -134,8 +134,73 @@
               <div class="Prose">
                 
                 <h1 id="paragraphs">Paragraphs</h1>
-<p>Text paragraphs. 
-Different sizes are available, by using specific modifiers.</p>
+<table class="ecl-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Size</th>
+      <th>Leading</th>
+      <th>Weight</th>
+      <th>Colour</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Leading</td>
+      <td>L</td>
+      <td>36px</td>
+      <td>Regular</td>
+      <td>White / EC Dark Grey</td>
+      <td>Page header introduction (page header)</td>
+    </tr>
+    <tr>
+      <td>Medium</td>
+      <td>M</td>
+      <td>30px</td>
+      <td>Regular</td>
+      <td>White / EC Dark Grey</td>
+      <td>Paragraphs</td>
+    </tr>
+    <tr>
+      <td>Small</td>
+      <td>S</td>
+      <td>26px</td>
+      <td>Regular</td>
+      <td>EC Dark Grey</td>
+      <td>Lists views</td>
+    </tr>
+    <tr>
+      <td>Extra Small</td>
+      <td>XS</td>
+      <td>22px</td>
+      <td>Regular</td>
+      <td>EC Dark Grey</td>
+      <td>Captions / Meta</td>
+    </tr>
+    <tr>
+      <td>Extra Extra Small</td>
+      <td>XXS</td>
+      <td>20px</td>
+      <td>Regular</td>
+      <td>EC Dark Grey</td>
+      <td>Copyrights / Labels</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="line-height">Line height</h2>
+<p>Line-height, traditionally known as leading, is one of several factors that directly contribute to readability and pacing of copy. Line-heights are based on the size of the font itself. Ideal line-heights for standard copy has a ratio of 1.66. For example, a type at 1em/16px would have a line-height of 24px (16 x 1.66). The exception to this rule are headings, which need less spacing and therefore have a line-height ratio of 1.1.</p>
+<p><strong>Standard line-height</strong>: type size x 1.66</p>
+<h2 id="line-length">Line-length</h2>
+<p>“Research shows that reading slows and retention rates fall as line length begins to exceed the ideal width, because the reader then needs to use the muscles of the eye and neck to track from the end of one line to the beginning of the next line. If the eye must traverse great distances on the page, the reader is easily lost and must hunt for the beginning of the next line. Quantitative studies show that moderate line lengths significantly increase the legibility of text.”
+Web Style Guide – Basic Design Principles for Creating Website
+Patrick J. Lynch and Sarah Horton
+2nd edition, page 97.</p>
+<p><strong>Line-length</strong>: 44 to 77 characters.       </p>
+<h2 id="spacing">Spacing</h2>
+<p>The spacing between a Heading and a paragraph should be always 30px.</p>
+<p>The spacing between Headings should be (H1) 80px, (H2) 60px, (H3) 40px.</p>
 
                 
               </div>
@@ -254,17 +319,17 @@ Different sizes are available, by using specific modifiers.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-983e4d2e86389d90ac3744291bfc19c8">_editor-paragraph.scss</option>
+                <option value="file-384b97a856a32d4ee0dc1c2033ed5bc8">_editor-paragraph.scss</option>
                 
-                <option value="file-ae537a0d1f1ed7a920b8082c624e7af3">_paragraphs-mixins.scss</option>
+                <option value="file-388f0f1514233401cec91a31888c6e4c">_paragraphs-mixins.scss</option>
                 
-                <option value="file-4d87685493632b854ca563601e3495a6">_paragraphs.scss</option>
+                <option value="file-3c614427923aaa23ebe35585396800f4">_paragraphs.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-983e4d2e86389d90ac3744291bfc19c8" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-384b97a856a32d4ee0dc1c2033ed5bc8" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -298,7 +363,7 @@ Different sizes are available, by using specific modifiers.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-ae537a0d1f1ed7a920b8082c624e7af3" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-388f0f1514233401cec91a31888c6e4c" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -331,7 +396,7 @@ Different sizes are available, by using specific modifiers.</p>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-4d87685493632b854ca563601e3495a6" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-3c614427923aaa23ebe35585396800f4" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -1798,6 +1863,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Datepickers</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-dialogs" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Dialogs</span>
             </a>
         </li>
         
@@ -3925,6 +4014,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-clearfix" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Clearfix</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-colorize" data-pjax>
                 
 
@@ -3942,6 +4055,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Colorize</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-flex" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Flex</span>
             </a>
         </li>
         
@@ -4045,6 +4182,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-screen-reader" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Screen Reader</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-text" data-pjax>
                 
 
@@ -4123,6 +4284,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Filters</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Pages</span>
             </a>
         </li>
         

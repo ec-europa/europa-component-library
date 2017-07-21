@@ -4,35 +4,25 @@
 */
 
 @each $key, $value in $ecl-colors {
-  .ecl-u-bg-#{$key} {
-    background-color: $value;
-  }
-
-  .ecl-u-color-#{$key} {
-    color: $value;
+  // Filter out yellow colors (text should not be yellow)
+  @if not str-index($key, 'yellow-') {
+    .ecl-u-color-#{$key} {
+      color: $value;
+    }
   }
 }
 
-.ecl-u-bg-primary { background-color: $ecl-color-primary; }
+@each $key, $value in $ecl-colors-bg {
+  .ecl-u-bg-#{$key} {
+    background-color: $value;
+  }
+}
+
 .ecl-u-color-primary { color: $ecl-color-primary; }
-
-.ecl-u-bg-secondary { background-color: $ecl-color-secondary; }
 .ecl-u-color-secondary { color: $ecl-color-secondary; }
-
-.ecl-u-bg-shade { background-color: $ecl-color-shade; }
 .ecl-u-color-shade { color: $ecl-color-shade; }
-
-.ecl-u-bg-info { background-color: $ecl-color-info; }
 .ecl-u-color-info { color: $ecl-color-info; }
-
-.ecl-u-bg-warning { background-color: $ecl-color-warning; }
 .ecl-u-color-warning { color: $ecl-color-warning; }
-
-.ecl-u-bg-success { background-color: $ecl-color-success; }
 .ecl-u-color-success { color: $ecl-color-success; }
-
-.ecl-u-bg-error { background-color: $ecl-color-error; }
 .ecl-u-color-error { color: $ecl-color-error; }
-
-.ecl-u-bg-white { background-color: #fff; }
 .ecl-u-color-white { color: #fff; }
