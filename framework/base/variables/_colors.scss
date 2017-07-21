@@ -22,6 +22,10 @@ $ecl-colors: (
   grey-5: #f5f5f5
 ) !default;
 
+/*
+ * Aliases
+ */
+
 $ecl-color-primary: map-get($ecl-colors, 'blue-100') !default;
 $ecl-color-secondary: map-get($ecl-colors, 'yellow-100') !default;
 $ecl-color-shade: map-get($ecl-colors, 'grey-100') !default;
@@ -30,3 +34,17 @@ $ecl-color-info: #006fb4 !default;
 $ecl-color-warning: #f29527 !default;
 $ecl-color-success: #467a39 !default;
 $ecl-color-error: #da2130 !default;
+
+/*
+ * Background colors
+ *
+ * Note: in some cases, components can have other background colors (header-top, file, footer...)
+ * These are the main background colors.
+ */
+
+$ecl-colors-bg: (
+  default: #fff,
+  primary: $ecl-color-primary,
+  secondary: $ecl-color-secondary,
+  shade: $ecl-color-shade
+) !default;
