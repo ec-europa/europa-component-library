@@ -1,6 +1,6 @@
 # ECL Grid
 
-A grid provides a structure of rows and columns for aligning content. Grids are useful because they help create a familiar and easily navigable structure for content.
+Use a grid to give your design a basic underlying structure. By placing your design elements on the invisible lines of a grid, you will create a more structured and coherent composition.
 
 Please consider using [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) before jumping into grids when you are looking for solutions for component-specific layout management,
 
