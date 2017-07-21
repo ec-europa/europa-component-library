@@ -1,5 +1,73 @@
 # Changelog
 
+## 0.11.0 (2017-07-21)
+
+### :rocket: New Feature
+
+- [#302](https://github.com/ec-europa/europa-component-library/pull/302) feat(ecl-pages): add template - INNO-712. ([@degliwe](https://github.com/degliwe))
+- [#296](https://github.com/ec-europa/europa-component-library/pull/296) feat(dialog): add component - INNO-679. ([@kalinchernev](https://github.com/kalinchernev))
+- [#297](https://github.com/ec-europa/europa-component-library/pull/297) feat(links): add MORE> link, refactor template, add documentation - INNO-707. ([@degliwe](https://github.com/degliwe))
+- [#288](https://github.com/ec-europa/europa-component-library/pull/288) feat(filters): bootstrap filters feature - INNO-700. ([@yhuard](https://github.com/yhuard))
+- [#280](https://github.com/ec-europa/europa-component-library/pull/280) refactor(inpage-nav): upgrade component - INNO-670. ([@emeryro](https://github.com/emeryro))
+- [#282](https://github.com/ec-europa/europa-component-library/pull/282) feat(social-icons): upgrade component - INNO-693. ([@kalinchernev](https://github.com/kalinchernev))
+
+### :boom: Breaking Change
+
+- [#302](https://github.com/ec-europa/europa-component-library/pull/302) feat(ecl-pages): add template - INNO-712. ([@degliwe](https://github.com/degliwe))
+- [#299](https://github.com/ec-europa/europa-component-library/pull/299) fix(selects): fix display issue - INNO-711. ([@yhuard](https://github.com/yhuard))
+- [#298](https://github.com/ec-europa/europa-component-library/pull/298) refactor(footer): include `ecl-link` to all links for consistency - INNO-710. ([@kalinchernev](https://github.com/kalinchernev))
+
+### :bug: Bug Fix
+
+- [#299](https://github.com/ec-europa/europa-component-library/pull/299) fix(selects): fix display issue - INNO-711. ([@yhuard](https://github.com/yhuard))
+- [#295](https://github.com/ec-europa/europa-component-library/pull/295) fix(checkboxes): fix checkboxes - INNO-704. ([@yhuard](https://github.com/yhuard))
+- [#290](https://github.com/ec-europa/europa-component-library/pull/290) fix(labels): refactor labels templates - INNO-703. ([@yhuard](https://github.com/yhuard))
+- [#291](https://github.com/ec-europa/europa-component-library/pull/291) fix(rss-links): fix broken RSS links component - INNO-708. ([@yhuard](https://github.com/yhuard))
+
+### :nail_care: Enhancement
+
+- [#302](https://github.com/ec-europa/europa-component-library/pull/302) feat(ecl-pages): add template - INNO-712. ([@degliwe](https://github.com/degliwe))
+- [#303](https://github.com/ec-europa/europa-component-library/pull/303) refactor(colorize): generate only allowed colors - INNO-716. ([@yhuard](https://github.com/yhuard))
+- [#297](https://github.com/ec-europa/europa-component-library/pull/297) feat(links): add MORE> link, refactor template, add documentation - INNO-707. ([@degliwe](https://github.com/degliwe))
+- [#298](https://github.com/ec-europa/europa-component-library/pull/298) refactor(footer): include `ecl-link` to all links for consistency - INNO-710. ([@kalinchernev](https://github.com/kalinchernev))
+- [#293](https://github.com/ec-europa/europa-component-library/pull/293) refactor(date-block): upgrade component - INNO-608. ([@emeryro](https://github.com/emeryro))
+- [#292](https://github.com/ec-europa/europa-component-library/pull/292) refactor(datepicker): refactor template - INNO-705. ([@yhuard](https://github.com/yhuard))
+- [#289](https://github.com/ec-europa/europa-component-library/pull/289) feat(tests): add visual tests for content - INNO-649. ([@emeryro](https://github.com/emeryro))
+- [#275](https://github.com/ec-europa/europa-component-library/pull/275) fix(page-header): change paragraph classes in context - INNO-690. ([@kalinchernev](https://github.com/kalinchernev))
+- [#267](https://github.com/ec-europa/europa-component-library/pull/267) feat(z-index): add sass map and utilities - INNO-652. ([@emeryro](https://github.com/emeryro))
+
+### :memo: Documentation
+
+- [#306](https://github.com/ec-europa/europa-component-library/pull/306) docs(updates): update docs - INNO-713. ([@yhuard](https://github.com/yhuard))
+- [#300](https://github.com/ec-europa/europa-component-library/pull/300) fix(components): remove unused components and update doc - INNO-406. ([@yhuard](https://github.com/yhuard))
+
+### :house: Internal
+
+- [#304](https://github.com/ec-europa/europa-component-library/pull/304) feat(homepage): enhance homepage - INNO-717. ([@yhuard](https://github.com/yhuard))
+- [#300](https://github.com/ec-europa/europa-component-library/pull/300) fix(components): remove unused components and update doc - INNO-406. ([@yhuard](https://github.com/yhuard))
+- [#301](https://github.com/ec-europa/europa-component-library/pull/301) refactor(components): remove unused components - INNO-714. ([@yhuard](https://github.com/yhuard))
+- [#289](https://github.com/ec-europa/europa-component-library/pull/289) feat(tests): add visual tests for content - INNO-649. ([@emeryro](https://github.com/emeryro))
+- [#287](https://github.com/ec-europa/europa-component-library/pull/287) chore(dependencies): upgrades - noissue. ([@kalinchernev](https://github.com/kalinchernev))
+- [#281](https://github.com/ec-europa/europa-component-library/pull/281) feat(travis): try splitting the tests - no issue. ([@yhuard](https://github.com/yhuard))
+- [#272](https://github.com/ec-europa/europa-component-library/pull/272) chore(deps): update dependencies - noissue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#279](https://github.com/ec-europa/europa-component-library/pull/279) chore(travis): improve travis perf - INNO-694. ([@yhuard](https://github.com/yhuard))
+- [#278](https://github.com/ec-europa/europa-component-library/pull/278) chore(travis): improve travis perf - INNO-694. ([@yhuard](https://github.com/yhuard))
+- [#277](https://github.com/ec-europa/europa-component-library/pull/277) chore(travis): remove aws artifacts upload - no issue. ([@yhuard](https://github.com/yhuard))
+- [#276](https://github.com/ec-europa/europa-component-library/pull/276) chore: delete CODEOWNERS - no issue. ([@yhuard](https://github.com/yhuard))
+- [#274](https://github.com/ec-europa/europa-component-library/pull/274) fix(travis): fix travis configuration - no issue. ([@yhuard](https://github.com/yhuard))
+- [#266](https://github.com/ec-europa/europa-component-library/pull/266) feat(qa): create PULL_REQUEST_TEMPLATE.md - INNO-653. ([@yhuard](https://github.com/yhuard))
+- [#268](https://github.com/ec-europa/europa-component-library/pull/268) feat(tests): test only updated packages - INNO-691. ([@yhuard](https://github.com/yhuard))
+- [#267](https://github.com/ec-europa/europa-component-library/pull/267) feat(z-index): add sass map and utilities - INNO-652. ([@emeryro](https://github.com/emeryro))
+- [#269](https://github.com/ec-europa/europa-component-library/pull/269) chore(deps): update all dependencies to the latest version 🚀 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+### Committers: 5
+
+- Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [emeryro](https://github.com/emeryro)
+- [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+- wesley deglise ([degliwe](https://github.com/degliwe))
+
 ## 0.10.0 (2017-07-11)
 
 ### :rocket: New Feature
