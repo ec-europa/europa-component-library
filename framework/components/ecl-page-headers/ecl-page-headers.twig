@@ -36,9 +36,9 @@
 </div>
 {% else %}
 <div class="ecl-page-header">
-  {% include '@ec-europa/ecl-breadcrumbs' with { 'extraClass':'ecl-u-mh-xxs','segments': [{'target':'#','title':'European Commission'},{'target':'#','title':'Announcements'}] } %}
+  {% include '@ec-europa/ecl-breadcrumbs' with { 'extraClass':'ecl-container','segments': [{'target':'#','title':'European Commission'},{'target':'#','title':'Announcements'}] } %}
 
-  <div class="ecl-page-header__body">
+  <div class="ecl-page-header__body ecl-container">
 
     {% if identity is defined %}
     <div class="ecl-page-header__identity">
