@@ -8,11 +8,11 @@ $breadcrumb-heigth: 2.778em;
 .ecl-breadcrumbs {
   @include ecl-hidden-print();
 
-  border-bottom: 1px solid #fff;
   font-size: map-get($ecl-font-size, 's');
 }
 
 .ecl-breadcrumbs__segments-wrapper {
+  border-bottom: 1px solid #fff;
   list-style: none;
   margin: 0;
   padding: 0;
