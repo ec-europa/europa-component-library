@@ -39,6 +39,7 @@ Tested on:
 | [@ec-europa/ecl-blockquotes](framework/components/ecl-blockquotes) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-blockquotes.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-blockquotes) |
 | [@ec-europa/ecl-breadcrumbs](framework/components/ecl-breadcrumbs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-breadcrumbs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-breadcrumbs) |
 | [@ec-europa/ecl-buttons](framework/components/ecl-buttons) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-buttons.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-buttons) |
+| [@ec-europa/ecl-comments](framework/components/ecl-comments) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-comments.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-comments) |
 | [@ec-europa/ecl-date-blocks](framework/components/ecl-date-blocks) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-date-blocks.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-date-blocks) |
 | [@ec-europa/ecl-datepickers](framework/components/ecl-datepickers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-datepickers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-datepickers) |
 | [@ec-europa/ecl-dialogs](framework/components/ecl-dialogs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-dialogs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-dialogs) |
