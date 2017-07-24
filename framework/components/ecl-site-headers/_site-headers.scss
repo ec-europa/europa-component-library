@@ -4,88 +4,30 @@
  */
 
 .ecl-site-header {
-  color: $ecl-color-primary;
-  overflow: hidden;
-  padding: 14px 0 0;
-  position: relative;
-
-  @include ecl-media-breakpoint-up(lg) {
-    padding: 14px 0;
-  }
-
-  @media print {
-    -webkit-print-color-adjust: exact;
-  }
-
-  a {
-    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 5px);
-  }
+  margin: 0;
+  padding: map-get($ecl-spacing, 's') 0;
+  width: 100%;
 }
 
 .ecl-site-header__container {
-  position: relative;
-}
-
-@include ecl-media-breakpoint-up(md) {
-  .ecl-site-header__logo {
-    margin-bottom: 1em;
-    position: relative;
-    top: 15px;
-  }
+  display: flex;
+  flex-wrap: wrap;
 }
 
 // If the logo is linking to an external page do not show the external icon.
 .ecl-site-header__logo {
-  &::before,
-  &::after {
-    display: none !important;
-  }
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .ecl-site-header__top-bar {
-  overflow: hidden;
-  padding: 15px 0 0;
-  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  justify-content: flex-end;
 }
 
-@include ecl-media-breakpoint-up(lg) {
-  .ecl-site-header__top-bar {
-    float: right;
-    padding-bottom: 10px;
-    position: relative;
-    top: 6px;
-    width: auto;
-
-    .ecl-search-form__textfield-wrapper {
-      width: 240px;
-    }
-  }
-}
-
-/**
- * Site header search bar
- * @define header-search-bar ; weak
- */
-
-.ecl-header-search-bar {
-  background-color: $ecl-color-primary;
-  margin-top: map-get($ecl-spacing, 'l');
-  padding: 0.5rem 0;
-
-  .ecl-search-form {
-    border-width: 0;
-    float: right;
-    margin-bottom: 0;
-  }
-
-  .ecl-search-form__textfield-wrapper {
-    background-color: #fff;
-  }
-
-  @include ecl-media-breakpoint-up(s) {
-    /* stylelint-disable-next-line */
-    .ecl-search-form {
-      width: 18rem; // 324px if the root font-size is 18px
-    }
-  }
+.ecl-site-header__lang-select-sites {
+  flex-shrink: 0;
 }
