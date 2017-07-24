@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.4" type="text/css">
 
 
-<title>Visual regression testing | Europa Component Library</title>
+<title>Markdown coding conventions | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -96,7 +96,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">Visual regression testing</h1>
+        <h1 class="Document-title">Markdown coding conventions</h1>
         
 
 
@@ -113,50 +113,21 @@
 
     
     
-    <p>We test our components in order to catch visual regressions before they hit the production. We use <a href="http://webdriver.io/">WebdriverIO</a> to drive those tests on <a href="https://saucelabs.com/">Sauce Labs</a>‘s Selenium cloud-based solution:</p>
-<p>Here are the results of the latest build:</p>
-<p><a href="https://saucelabs.com/u/europa-component-library"><img src="https://saucelabs.com/browser-matrix/europa-component-library.svg" alt="Build Status"></a></p>
-<h2 id="how-to-test-a-new-component">How to test a new component</h2>
-<p>Testing a new component is quite simple. Follow the guide!</p>
-<h3 id="write-a-test">Write a test</h3>
-<p>Tests are located under <code>test/functional</code>. Create a new <code>my-component.js</code> file here and paste:</p>
-<code class="lang-js"><pre>describe(<span class="hljs-string">'my-component'</span>, () =&gt; {
-  before(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    <span class="hljs-comment">// Set viewport size</span>
-    browser.setViewportSize({
-      <span class="hljs-attr">width</span>: <span class="hljs-number">1400</span>,
-      <span class="hljs-attr">height</span>: <span class="hljs-number">600</span>,
-    });
-
-    browser.pause(<span class="hljs-number">1000</span>);
-
-    <span class="hljs-comment">// Go to url</span>
-    browser.url(<span class="hljs-string">'my-component.html'</span>);
-
-    <span class="hljs-comment">// Make sure the browser has finished painting</span>
-    browser.pause(<span class="hljs-number">1000</span>);
-  });
-
-  <span class="hljs-comment">// Normal state</span>
-  context(<span class="hljs-string">'with plain state'</span>, () =&gt; {
-    it(<span class="hljs-string">'should match the reference screenshot'</span>, () =&gt; {
-      <span class="hljs-keyword">const</span> screenshots = browser.checkDocument({
-        <span class="hljs-attr">name</span>: <span class="hljs-string">'my-component'</span>,
-      });
-      expect(screenshots).to.matchReference();
-    });
-  });
-});</pre></code><p>Of course, replace <code>my-component</code> by the name of the actual component and make sure the URL you provide exists.</p>
-<p><strong>Under the hood, the URL will be prefixed by <code>http://localhost:3000/components/preview/</code></strong>.</p>
-<h3 id="get-the-reference-screenshots">Get the reference screenshots</h3>
-<p>In order to get the reference screenshots, you have to run the tests locally. On the first run, if the reference screenshots don’t exist, they will be created. You need to create a Sauce Labs account and then create a new token.</p>
-<h4 id="configure-sauce-labs">Configure Sauce Labs</h4>
-<p>In your <code>.env</code> file, provide the information about your own Sauce Labs account.</p>
-<code><pre><span class="hljs-attr">SAUCE_USERNAME</span>=username
-<span class="hljs-attr">SAUCE_ACCESS_KEY</span>=my-sauce-labs-access-key</pre></code><p>Then, build the style guide with <code>yarn dist</code> and run: <code>yarn test:functional</code>.</p>
-<p>Tip: it can take a while to run all the tests, but you can also target your test only:</p>
-<code><pre>yarn <span class="hljs-string">test:</span>functional -- --spec .<span class="hljs-regexp">/framework/</span>components<span class="hljs-regexp">/my-component/</span>test<span class="hljs-regexp">/spec/</span>my-component.js</pre></code><p>If everything went well, you should now have a new folder <code>./framework/components/my-component/test/screenshots/reference/my-component</code> containing the reference screenshots. Add them to your Pull Request.</p>
-<p>That’s it!</p>
+    <p>We use <a href="https://github.com/wooorm/remark-lint">remark-lint</a> as our Markdown code style linter.</p>
+<h2 id="rules">Rules</h2>
+<h3 id="presets">Presets</h3>
+<ul>
+<li><a href="https://github.com/wooorm/remark-lint/tree/master/packages/remark-preset-lint-recommended">remark-preset-lint-recommended</a></li>
+<li><a href="https://github.com/wooorm/remark-lint/tree/master/packages/remark-preset-lint-consistent">remark-preset-lint-consistent</a></li>
+<li><a href="https://github.com/wooorm/remark-lint/tree/master/packages/remark-preset-lint-markdown-style-guide">remark-preset-lint-markdown-style-guide</a></li>
+</ul>
+<h3 id="custom-rules">Custom rules</h3>
+<ul>
+<li><code>[&quot;remark-lint-maximum-line-length&quot;, false]</code></li>
+<li><code>[&quot;remark-lint-no-duplicate-headings&quot;, false]</code></li>
+<li><code>[&quot;remark-lint-no-file-name-irregular-characters&quot;, false]</code></li>
+<li><code>[&quot;remark-lint-table-pipe-alignment&quot;, false]</code></li>
+</ul>
 
     
 
@@ -218,7 +189,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../conventions/git" data-pjax>
+            <a class="Tree-entityLink" href="git" data-pjax>
                 
                 <span>Git Commit</span>
             </a>
@@ -228,7 +199,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../conventions/javascript" data-pjax>
+            <a class="Tree-entityLink" href="javascript" data-pjax>
                 
                 <span>JavaScript</span>
             </a>
@@ -237,8 +208,8 @@
     
         
         
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../conventions/markdown" data-pjax>
+        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
+            <a class="Tree-entityLink" href="" data-pjax>
                 
                 <span>Markdown</span>
             </a>
@@ -248,7 +219,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../conventions/scss" data-pjax>
+            <a class="Tree-entityLink" href="scss" data-pjax>
                 
                 <span>SCSS</span>
             </a>
@@ -274,8 +245,8 @@
     
         
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../testing/visual" data-pjax>
                 
                 <span>Visual regression</span>
             </a>
