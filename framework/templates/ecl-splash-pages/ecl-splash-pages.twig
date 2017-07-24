@@ -9,32 +9,42 @@
 
 <section>
   <a id="main-content" tabindex="-1"></a>
-
-  <header class="ecl-u-bg-default ecl-u-pv-s" role="banner">
+  <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
     <div class="ecl-container">
-      <span class="ecl-logo ecl-u-mh-auto"></span>
+      {% include '@ec-europa/ecl-logos' with {
+          'extra_class': 'ecl-logo--big ecl-u-mh-auto',
+          'title': 'Skip to main content'
+      } %}
     </div>
   </header>
-
-  <div class="ecl-u-bg-primary ecl-u-pt-xl">
+  <div class="ecl-u-bg-primary ecl-u-pv-xl">
     <div class="ecl-container">
       <div class="ecl-row">
-        <div class="ecl-col-md-8 ecl-col-md-offset-2">
-            <div class="region region-content">
-    <section id="block-system-main" class="block block-system clearfix">
-
-
-    <div class="block__content">
-    <nav class="splash-page__container">
-  <h2 lang="en"><span class="icon icon--generic-lang"></span> Select your language</h2>
-
-  <div class="row"><div class="col-sm-6"><a href="/info/index_bg" lang="bg" hreflang="bg" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">български</a><a href="/info/index_cs" lang="cs" hreflang="cs" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">čeština</a><a href="/info/index_da" lang="da" hreflang="da" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">dansk</a><a href="/info/index_de" lang="de" hreflang="de" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">Deutsch</a><a href="/info/index_et" lang="et" hreflang="et" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">eesti</a><a href="/info/index_el" lang="el" hreflang="el" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">ελληνικά</a><a href="/info/index_en" lang="en" hreflang="en" rel="alternate" class="btn splash-page__btn-language is-active icon icon--check" data-languagespecific="true">English<span class="sr-only"> (Current language)</span></a><a href="/info/index_es" lang="es" hreflang="es" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">español</a><a href="/info/index_fr" lang="fr" hreflang="fr" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">français</a><a href="/info/index_ga" lang="ga" hreflang="ga" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">Gaeilge</a><a href="/info/index_hr" lang="hr" hreflang="hr" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">hrvatski</a><a href="/info/index_it" lang="it" hreflang="it" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">italiano</a></div><div class="col-sm-6"><a href="/info/index_lv" lang="lv" hreflang="lv" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">latviešu</a><a href="/info/index_lt" lang="lt" hreflang="lt" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">lietuvių</a><a href="/info/index_hu" lang="hu" hreflang="hu" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">magyar</a><a href="/info/index_mt" lang="mt" hreflang="mt" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">Malti</a><a href="/info/index_nl" lang="nl" hreflang="nl" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">Nederlands</a><a href="/info/index_pl" lang="pl" hreflang="pl" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">polski</a><a href="/info/index_pt" lang="pt-pt" hreflang="pt" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">português</a><a href="/info/index_ro" lang="ro" hreflang="ro" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">română</a><a href="/info/index_sk" lang="sk" hreflang="sk" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">slovenčina</a><a href="/info/index_sl" lang="sl" hreflang="sl" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">slovenščina</a><a href="/info/index_fi" lang="fi" hreflang="fi" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">suomi</a><a href="/info/index_sv" lang="sv" hreflang="sv" rel="alternate" class="btn splash-page__btn-language" data-languagespecific="true">svenska</a></div></div>
-
-      <a href="/info/index_en" class="splash-page__btn-close">Close</a>  </nav>
-  </div>
-
-</section>
-  </div>
+        <div class="ecl-col-md-8 ecl-offset-md-2">
+          <div class="ecl-row">
+            <div class="ecl-col-sm-6">
+              <a href="/info/index_bg" lang="bg" hreflang="bg" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">български</a>
+              <a href="/info/index_cs" lang="cs" hreflang="cs" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">čeština</a>
+              <a href="/info/index_da" lang="da" hreflang="da" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">dansk</a>
+              <a href="/info/index_de" lang="de" hreflang="de" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">Deutsch</a>
+              <a href="/info/index_et" lang="et" hreflang="et" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">eesti</a>
+              <a href="/info/index_el" lang="el" hreflang="el" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">ελληνικά</a>
+              <a href="/info/index_en" lang="en" hreflang="en" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language is-active icon icon--check" data-languagespecific="true">English<span class="sr-only"> (Current language)</span></a>
+              <a href="/info/index_es" lang="es" hreflang="es" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">español</a>
+              <a href="/info/index_fr" lang="fr" hreflang="fr" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">français</a>
+              <a href="/info/index_ga" lang="ga" hreflang="ga" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">Gaeilge</a>
+              <a href="/info/index_hr" lang="hr" hreflang="hr" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">hrvatski</a>
+              <a href="/info/index_it" lang="it" hreflang="it" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">italiano</a>
+            </div>
+            <div class="ecl-col-sm-6">
+              <a href="/info/index_lv" lang="lv" hreflang="lv" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">latviešu</a><a href="/info/index_lt" lang="lt" hreflang="lt" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">lietuvių</a>
+              <a href="/info/index_hu" lang="hu" hreflang="hu" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">magyar</a><a href="/info/index_mt" lang="mt" hreflang="mt" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">Malti</a><a href="/info/index_nl" lang="nl" hreflang="nl" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language"
+                  data-languagespecific="true">Nederlands</a><a href="/info/index_pl" lang="pl" hreflang="pl" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">polski</a><a href="/info/index_pt" lang="pt-pt" hreflang="pt" rel="alternate"
+                  class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">português</a><a href="/info/index_ro" lang="ro" hreflang="ro" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">română</a><a href="/info/index_sk"
+                  lang="sk" hreflang="sk" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">slovenčina</a><a href="/info/index_sl" lang="sl" hreflang="sl" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">slovenščina</a>
+                <a
+                  href="/info/index_fi" lang="fi" hreflang="fi" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">suomi</a><a href="/info/index_sv" lang="sv" hreflang="sv" rel="alternate" class="ecl-button ecl-button--default ecl-button--block splash-page__btn-language" data-languagespecific="true">svenska</a></div>
+          </div>
         </div>
       </div>
     </div>
