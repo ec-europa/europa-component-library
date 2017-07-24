@@ -59,7 +59,7 @@ Or using Twig:
 
 # External classes
 
-Additionally, you can add external classes with the `externalClass` optional
+Additionally, you can add external classes with the `extra_class` optional
 parameter.
 
 For example:
@@ -69,6 +69,6 @@ For example:
   'to': 'https://ec.europa.eu',
   'title': 'Home - European Commission',
   'type': 'right',
-  'externalClass': 'site-header__logo'
+  'extra_class': 'site-header__logo'
 } %}
 ```

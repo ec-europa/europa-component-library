@@ -114,6 +114,25 @@
   }
 }
 
+.ecl-button--splash-page {
+  &:focus,
+  &:active,
+  &:hover {
+    border-color: map-get($ecl-colors, 'yellow-100');
+    color: #000;
+  }
+
+  &:focus,
+  &:active {
+    background-color: #fff;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    background-color: map-get($ecl-colors, 'yellow-100');
+  }
+}
+
 .ecl-button--block {
   display: block;
   max-width: 30em;
