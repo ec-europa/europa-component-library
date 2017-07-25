@@ -1,0 +1,22 @@
+/**
+ * Site switcher component
+ * @define skip-link
+ */
+
+.ecl-skip-link__wrapper {
+  left: map-get($ecl-spacing, 'l');
+  position: fixed;
+  top: map-get($ecl-spacing, 'l');
+  z-index: map-get($ecl-z-index, 'max');
+}
+
+.ecl-skip-link {
+  @include ecl-sr-only();
+  @include ecl-sr-only-focusable();
+
+  background-color: map-get($ecl-colors, 'blue-75');
+  color: #fff;
+  outline: 4px solid map-get($ecl-colors, 'yellow-100');
+  outline-offset: 0;
+  padding: map-get($ecl-spacing, 'xxs');
+}

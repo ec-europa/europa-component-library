@@ -5,7 +5,6 @@
 %logo {
   background: url('../images/svg/logo.svg') no-repeat;
   display: block;
-  float: left;
   height: 72px;
   width: 140px;
 }
@@ -37,15 +36,11 @@
 // Default EC logo.
 .ecl-logo {
   @extend %logo;
+}
 
-  // EC logo no-svg
-  //
-  // Default EC logo with no-svg.
-
-  /* postcss-bem-linter: ignore */
-  .no-svg & {
-    background-image: url('../images/png/logo.png');
-  }
+.ecl-logo--big {
+  height: 153px;
+  width: 290px;
 }
 
 // EC logotype
@@ -57,18 +52,7 @@
 @include logo-background-languages('../images/svg/logo/logo--', '.svg');
 
 .ecl-logo--logotype {
-  @extend %logo;
-
   width: 190px;
-}
-
-.no-svg {
-  @include logo-background-languages('../images/png/logo/logo--', '.png');
-
-  /* postcss-bem-linter: ignore */
-  .ecl-logo--logotype {
-    width: 190px;
-  }
 }
 
 // EC logotype with text below the logo
@@ -79,19 +63,12 @@
 // in {{modifier_class}} modifier.
 @include logo-background-languages('../images/svg/logo/logotypebelow--', '.svg', 'ecl-logo--logotypebelow');
 
-.no-svg {
-  @include logo-background-languages('../images/png/logo/logotypebelow--', '.png', 'ecl-logo--logotypebelow');
-}
-
 .ecl-logo--logotypebelow {
-  @extend %logo;
-
-  // TODO: replace those hardcoded values by the real image size (easy with Webpack)
   height: 72px;
   width: 198px;
 }
 
-@include ecl-media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(sm) {
   .ecl-logo--logotype {
     width: 290px;
   }
