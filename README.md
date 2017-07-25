@@ -81,6 +81,7 @@ Tested on:
 | [@ec-europa/ecl-tables](framework/components/ecl-tables) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-tables.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-tables) |
 | [@ec-europa/ecl-tabs](framework/components/ecl-tabs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-tabs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-tabs) |
 | [@ec-europa/ecl-tags](framework/components/ecl-tags) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-tags.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-tags) |
+| [@ec-europa/ecl-timelines](framework/components/ecl-timelines) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-timelines.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-timelines) |
 
 ### Layout
 
