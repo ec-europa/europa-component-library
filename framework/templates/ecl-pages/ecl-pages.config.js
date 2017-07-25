@@ -3,7 +3,10 @@ module.exports = {
   label: 'Pages',
   status: 'ready',
   tags: ['template'],
+  preview: '@preview-website',
   context: {
-    _demo: {},
+    global: {
+      language: 'en',
+    },
   },
 };

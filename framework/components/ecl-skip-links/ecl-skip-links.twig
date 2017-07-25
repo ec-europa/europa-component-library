@@ -1,0 +1,30 @@
+{#
+  Accepts:
+    - "href" (string): link to jump to (default: '#main-content')
+    - "id" (string): ID od the skip link component (default: 'skip-link')
+    - "label" (string): link's label (default: 'Skip to main content')
+#}
+
+{# Internal properties #}
+
+{% set _href = href|default('#main-content') %}
+{% set _id = id|default('skip-link') %}
+{% set _label = label|default('Skip to main content') %}
+{% set _css_class = 'ecl-skip-link__wrapper' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _css_class }}" id="{{ _id }}" {{ _extra_attributes }}>
+  <a href="{{ _href }}" class="ecl-skip-link">{{ _label }}</a>
+</div>

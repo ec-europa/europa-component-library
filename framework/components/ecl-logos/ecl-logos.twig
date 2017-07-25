@@ -1,17 +1,21 @@
-{% set class = "" %}
+{% set _class = "" %}
 
 {% if type is defined %}
   {% if type == "below" %}
-    {% set class = " ecl-logo--logotypebelow" %}
+    {% set _class = " ecl-logo--logotypebelow" %}
   {% elseif type == "right" %}
-    {% set class = " ecl-logo--logotype" %}
+    {% set _class = " ecl-logo--logotype" %}
   {% endif %}
 {% endif %}
 
-{% if externalClass %}
-  {% set class = class ~ " " ~ externalClass %}
+{% if extra_class %}
+  {% set _class = _class ~ " " ~ extra_class %}
 {% endif %}
 
-<a href="{{ to }}" class="ecl-logo{{ class }}" title="{{ title }}">
+{% if to is defined %}
+<a href="{{ to }}" class="ecl-logo{{ _class }}" title="{{ title }}">
   <span class="ecl-sr-only">{{ title }}</span>
 </a>
+{% else %}
+<span class="ecl-logo{{ _class }}" role="img" aria-label="{{ title }}"></span>
+{% endif %}

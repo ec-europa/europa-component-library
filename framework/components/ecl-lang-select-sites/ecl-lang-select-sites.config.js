@@ -3,4 +3,8 @@ module.exports = {
   label: 'Language select (Site)',
   status: 'ready',
   tags: ['molecule'],
+  context: {
+    language: 'English',
+    code: 'en',
+  },
 };

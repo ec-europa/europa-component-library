@@ -1,9 +1,34 @@
-<div class="ecl-lang-select-sites">
+{#
+  Accepts:
+    - "language" (string): current language (default: 'English')
+    - "code" (string): current language code (default: 'en')
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-lang-select-sites' %}
+{% set _extra_attributes = '' %}
+{% set _language = language|default('English') %}
+{% set _code = code|default('en') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <a href="#" class="ecl-lang-select-sites__link">
-    <span class="ecl-lang-select-sites__label">English</span>
+    <span class="ecl-lang-select-sites__label">{{ _language }}</span>
     <span class="ecl-lang-select-sites__code">
       <span class="ecl-icon ecl-icon--language ecl-lang-select-sites__icon"></span>
-      <span class="ecl-lang-select-sites__code-text">en</span>
+      <span class="ecl-lang-select-sites__code-text">{{ _code }}</span>
     </span>
   </a>
 </div>
