@@ -1,142 +1,105 @@
 /*
-Language select (Page)
-*/
+ * Language selector (page level)
+ * @define lang-select-page
+ */
 
-.lang-select-page {
+.ecl-lang-select-page {
   @include ecl-hidden-print();
 
-  width: 100%;
-  overflow: hidden;
+  align-items: center;
   background-color: map-get($ecl-colors, 'grey-5');
-  font-size: map-get($ecl-font-size, 'xs');
   border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
+  color: $ecl-color-shade;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: map-get($ecl-font-size, 'xs');
+  margin: 0;
 }
 
-.ecl-icon.lang-select-page__icon {
+.ecl-lang-select-page__icon {
   @include ecl-hidden-print();
 
-  float: left;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: map-get($ecl-font-size, 'xl');
+}
+
+.ecl-lang-select-page__unavailable {
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xs');
+  text-decoration: line-through;
+
+  @include ecl-media-breakpoint-up(sm) {
+    margin-right: map-get($ecl-spacing, 'l');
+  }
+}
+
+.ecl-lang-select-page__list {
+  align-items: stretch;
+  align-self: stretch;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  font-size: 2em;
-
-  &::before {
-    float: left;
-    padding-top: 30%;
-  }
 }
 
-.lang-select-page__unavailable {
-  text-decoration: line-through;
+.ecl-lang-select-page__option {
+  align-items: center;
+  display: flex;
+  list-style: none;
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xs');
 }
 
-ul.lang-select-page__list {
-  float: left;
-  margin-bottom: 0 !important;
-  padding-left: 0 !important;
-
-  .lang-select-page__option {
-    list-style: none;
-    float: left;
-    padding: 0.85em;
-
-    a {
-      display: block;
-    }
-
-    &.is-selected {
-      background-color: map-get($ecl-colors, 'yellow-100');
-      font-weight: bold;
-      color: #000;
-    }
-  }
+.ecl-lang-select-page__option--is-selected {
+  background-color: map-get($ecl-colors, 'yellow-100');
+  color: #000;
+  font-weight: bold;
 }
 
-select.lang-select-page__list {
+.ecl-lang-select-page__dropdown {
   @include ecl-hidden-print();
 
-  width: 10em;
-  height: 3.4em;
-  padding-left: 1.2em;
-  line-height: 3.4em;
-  background: transparent url("../images/png/arrow-thick-down.png") no-repeat 8em center;
-  font-weight: bold;
+  align-self: stretch;
+  appearance: none;
+  background: transparent url('../images/png/arrow-thick-down.png') no-repeat right map-get($ecl-spacing, 'xs') center;
   border: 0;
   border-radius: 0;
+  color: $ecl-color-shade;
   cursor: pointer;
+  font-size: map-get($ecl-font-size, 'xs');
+  font-weight: bold;
+  padding-left: map-get($ecl-spacing, 's');
+  padding-right: map-get($ecl-spacing, 'l');
 
-  &:hover {
-    // select component is using a font icon with too much specificity that has to be overridden.
-    background-size: unset !important;
+  // Fix for IE 10+.
+  &::-ms-expand {
+    display: none;
   }
 }
 
-.lang-select-page--transparent {
-  background: transparent;
+// Useful in Firefox
+.ecl-lang-select-page__dropdown-option {
+  padding: map-get($ecl-spacing, 'xxs');
+}
+
+/* Variant */
+
+.ecl-lang-select-page--primary {
+  background-color: $ecl-color-primary;
   border-bottom: 1px solid #fff;
   color: #fff;
 
-  select.lang-select-page__list {
+  .ecl-lang-select-page__link {
+    color: #fff;
+  }
+
+  .ecl-lang-select-page__option--is-selected,
+  .ecl-lang-select-page__option--is-selected .ecl-lang-select-page__link {
+    color: #000;
+  }
+
+  .ecl-lang-select-page__dropdown {
     background-color: map-get($ecl-colors, 'blue-110');
     color: #fff;
-    // firefox hide arrow
-    -moz-appearance: none;
-    text-indent: 0.01px;
-    text-overflow: '';
-
-    &:hover,
-    &:active {
-      border: 0;
-    }
-
-    & > option {
-      background-color: map-get($ecl-colors, 'blue-110');
-    }
-
-    &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--arrow-down;
-    }
-  }
-
-  @-moz-document url-prefix() {
-    select.lang-select-page__list {
-      height: 3.4em;
-    }
-  }
-
-  .lang-select-page__option {
-    &.is-selected,
-    &.is-selected a {
-      color: #000;
-    }
-
-    a {
-      color: #fff;
-    }
-  }
-}
-
-@include ecl-media-breakpoint-up(sm) {
-  .lang-select-page__option {
-    display: inline-block;
-  }
-
-  .lang-select-page__unavailable {
-    margin-right: 3em;
-  }
-}
-
-// Drupal specifics
-
-// Dynamic header image now being DS.
-.region-content .page-header ul.lang-select-page__list {
-  max-width: inherit;
-}
-
-// Front page should never have secondary language switcher.
-.lang-select-page {
-  .front & {
-    display: none;
   }
 }

@@ -1,20 +1,54 @@
-<div class="lang-select-page lang-select-page--transparent">
-  <span class="lang-select-page__icon icon icon--generic-lang"></span>
-  <ul class="lang-select-page__list">
-    <li class="lang-select-page__option lang-select-page__unavailable">français</li>
-    <li class="lang-select-page__option is-selected"><a href="/en" hreflang="en" lang="en" rel="alternate">English</a></li>
-    <li class="lang-select-page__option"><a href="/nl" hreflang="nl" lang="nl" rel="alternate">Nederlands</a></li>
-    <li class="lang-select-page__option"><a href="/hr" hreflang="hr" lang="hr" rel="alternate">hrvatski</a></li>
-    <li class="lang-select-page__option"><a href="/it" hreflang="it" lang="it" rel="alternate">italiano</a></li>
-    <li class="lang-select-page__option"><a href="/lv" hreflang="lv" lang="lv" rel="alternate">latviesu</a></li>
-    <li class="lang-select-page__option"><a href="/hu" hreflang="hu" lang="hu" rel="alternate">magyar</a></li>
-  </ul>
-  <select style="display: inline-block;" class="lang-select-page__list">
-    <option selected="selected" lang="en">English</option>
-    <option value="/nl" lang="nl">Nederlands</option>
-    <option value="/hr" lang="hr">hrvatski</option>
-    <option value="/it" lang="it">italiano</option>
-    <option value="/lv" lang="lv">latviesu</option>
-    <option value="/hu" lang="hu">magyar</option>
+{#
+  Accepts:
+    - "unavailable" (string): unavailable language
+    - "theme" (string): empty or "primary"
+    - "variant" (string): if "dropdown", the options will be displayed as a drpodown
+    - "dropdown_label" (string): if a the component is a dropdown, this option will set the aria-label
+    - "options" (array): array of objects
+      - "href" (string)
+      - "hreflang" (string)
+      - "label" (string)
+      - "lang" (string)
+      - "is_selected" (boolean)
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-lang-select-page' %}
+{% set _extra_attributes = '' %}
+{% set _unavailable = unavailable|default('English') %}
+{% set _dropdown_label = dropdown_label|default('Choose your language') %}
+
+{# Internal logic - Process properties #}
+
+{% if theme is defined %}
+  {% set _css_class = _css_class ~ ' ecl-lang-select-page--' ~ theme %}
+{% endif %}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<section class="{{ _css_class }}" {{ _extra_attributes }}>
+  <span class="ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"></span>
+  <span class="ecl-lang-select-page__unavailable">{{ _unavailable }}</span>
+  {% if variant is defined and variant == 'dropdown' %}
+  <select class="ecl-lang-select-page__dropdown" aria-label="{{ _dropdown_label }}">
+    {% for opt in options %}
+      <option class="ecl-lang-select-page__dropdown-option" value="{{ opt.lang }}" lang="{{ opt.lang }}"{{ opt.is_selected ? ' selected' : '' }}>{{ opt.label }}</option>
+    {% endfor %}
   </select>
-</div>
+  {% else %}
+  <ul class="ecl-lang-select-page__list">
+  {% for opt in options %}
+  <li class="ecl-lang-select-page__option{{ opt.is_selected ? ' ecl-lang-select-page__option--is-selected' : '' }}"><a href="{{ opt.href }}" hreflang="{{ opt.hreflang }}" lang="{{ opt.lang }}" rel="alternate" class="ecl-link ecl-lang-select-page__link">{{ opt.label }}</a></li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+</section>
