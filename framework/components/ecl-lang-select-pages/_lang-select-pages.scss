@@ -3,6 +3,8 @@
  * @define lang-select-page
  */
 
+@import '~@ec-europa/ecl-forms-selects/mixins';
+
 .ecl-lang-select-page {
   @include ecl-hidden-print();
 
@@ -58,18 +60,17 @@
 
 .ecl-lang-select-page__dropdown {
   @include ecl-hidden-print();
+  @include ecl-select-list-arrow($background-color: transparent, $arrow-grey: true);
 
   align-self: stretch;
   appearance: none;
-  background: transparent url('../images/png/arrow-thick-down.png') no-repeat right map-get($ecl-spacing, 'xs') center;
   border: 0;
   border-radius: 0;
   color: $ecl-color-shade;
   cursor: pointer;
   font-size: map-get($ecl-font-size, 'xs');
   font-weight: bold;
-  padding-left: map-get($ecl-spacing, 's');
-  padding-right: map-get($ecl-spacing, 'l');
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 's') map-get($ecl-spacing, 's');
 
   // Fix for IE 10+.
   &::-ms-expand {
@@ -99,6 +100,8 @@
   }
 
   .ecl-lang-select-page__dropdown {
+    @include ecl-select-list-arrow($background-color: map-get($ecl-colors, 'blue-110'), $arrow-grey: false);
+
     background-color: map-get($ecl-colors, 'blue-110');
     color: #fff;
   }
