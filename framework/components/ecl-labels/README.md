@@ -6,11 +6,11 @@ Allows the user to see an highlighted element or to indicate a status to the use
 
 ### Label types
 
-| Status | Colour |
-|------------|------------|
-| Upcoming | EC yellow 25 |
-| Open / Highlight  | EC yellow |
-| Closed | EC grey 15 |
+| Status | Variant | Colour |
+|------------|------------|------------|
+| Upcoming | upcoming | EC yellow 25 |
+| Open / Highlight | open | EC yellow 100 |
+| Closed | close | EC grey 15 |
 
 ## When to use this component
 

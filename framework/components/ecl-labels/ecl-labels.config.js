@@ -1,90 +1,41 @@
 module.exports = {
   title: 'Labels',
   label: 'Labels',
-  status: 'planned',
+  status: 'ready',
   collated: true,
-  preview: '@preview-center-transparent',
+  collator(markup, item) {
+    return `
+      <!-- Start: @${item.handle} -->\n
+      <h3 class="ecl-heading ecl-heading--h3">${item.label}\n</h3>\n
+      ${markup}\n
+      <!-- End: @${item.handle} -->\n
+    `;
+  },
   tags: ['atom'],
+  default: 'upcoming',
   variants: [
     {
-      name: 'default',
-      label: 'Default',
+      name: 'upcoming',
+      label: 'Upcoming',
       context: {
-        label_type: 'label--default',
-        label_case: '',
-        label_content: 'Label default',
+        variant: 'upcoming',
+        body: 'Call status: upcoming',
       },
     },
     {
-      name: 'status',
-      label: 'Status',
+      name: 'open',
+      label: 'Open / Highlight ',
       context: {
-        label_type: 'label--status',
-        label_case: '',
-        label_content: 'Label status',
+        variant: 'open',
+        body: 'Call status: open',
       },
     },
     {
-      name: 'highlight',
-      label: 'Highlight',
+      name: 'close',
+      label: 'Closed',
       context: {
-        label_type: 'label--highlight',
-        label_case: '',
-        label_content: 'Label highlight',
-      },
-    },
-    {
-      name: 'meta',
-      label: 'Meta',
-      context: {
-        label_type: 'label--meta',
-        label_case: '',
-        label_content: 'Label meta',
-      },
-    },
-    {
-      name: 'primary',
-      label: 'Primary',
-      context: {
-        label_type: 'label--primary',
-        label_case: '',
-        label_content: 'Label primary',
-      },
-    },
-    {
-      name: 'success',
-      label: 'Success',
-      context: {
-        label_type: 'label--success',
-        label_case: '',
-        label_content: 'Label success',
-      },
-    },
-    {
-      name: 'info',
-      label: 'Info',
-      context: {
-        label_type: 'label--info',
-        label_case: '',
-        label_content: 'Label info',
-      },
-    },
-    {
-      name: 'warning',
-      label: 'Warning',
-      context: {
-        label_type: 'label--warning',
-        label_case: '',
-        label_content: 'Label warning',
-      },
-    },
-    {
-      name: 'danger',
-      label: 'Danger',
-      context: {
-        label_type: 'label--danger',
-        label_case: '',
-        label_content: 'Label danger',
+        variant: 'close',
+        body: 'Call status: closed',
       },
     },
   ],
