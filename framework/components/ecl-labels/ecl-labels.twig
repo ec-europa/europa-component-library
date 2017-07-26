@@ -1,1 +1,34 @@
-<span class="label {{label_type}} {{label_case}}">{{label_content}}</span>
+{#
+  - "variant" (string): variant of the label (default: '')
+  - "body" (string): content of the label (default: '')
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}
+
+{% set variant = variant|default('') %}
+{% set body = body|default('') %}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-label' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if variant != '' %}
+  {% set _css_class = _css_class ~ ' ecl-label--' ~ variant %}
+{% endif %}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<span class="{{ _css_class }}" {{ _extra_attributes }}>{{ body }}</span>
