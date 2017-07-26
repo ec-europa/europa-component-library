@@ -40,11 +40,25 @@ module.exports = {
       },
     },
     {
-      name: 'has-error',
-      label: 'File upload with error',
+      name: 'is-multiple',
+      label: 'Multiple file upload',
       context: {
         id: 'example-input-id-3',
         name: 'example-input-name-3',
+        isMultiple: true,
+        _demo: {
+          scripts: `document.addEventListener('DOMContentLoaded', function () {
+            ECL.fileUploads();
+          });`,
+        },
+      },
+    },
+    {
+      name: 'has-error',
+      label: 'File upload with error',
+      context: {
+        id: 'example-input-id-4',
+        name: 'example-input-name-4',
         hasError: true,
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {

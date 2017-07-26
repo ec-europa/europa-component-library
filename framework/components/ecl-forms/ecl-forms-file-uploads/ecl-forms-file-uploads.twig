@@ -6,6 +6,7 @@
   - hasUpload: boolean; define if form upload has a "upload" button (default: true)
   - labelUpload: string; the label of the Upload button (default: 'Upload')
   - isDisabled: boolean; define if form upload is disabled (default: false)
+  - isMultiple: boolean; define if form upload is multiple (default: false)
   - hasError: boolean; define if form upload has error (default: false)
 #}
 
@@ -16,6 +17,7 @@
 {% set hasUpload = hasUpload|default(true) %}
 {% set labelUpload = labelUpload|default('Upload') %}
 {% set isDisabled = isDisabled|default(false) %}
+{% set isMultiple = isMultiple|default(false) %}
 {% set hasError = hasError|default(false) %}
 
 {# Internal properties #}
@@ -53,5 +55,5 @@
     {{ labelUpload }}
   </button>
   {% endif %}
-  <input class="ecl-file-upload__input" name="{{ name }}" type="file" id="{{ id }}" {% if isDisabled == true %}disabled{% endif %}>
+  <input class="ecl-file-upload__input" name="{{ name }}" type="file" id="{{ id }}" {% if isDisabled == true %}disabled{% endif %} {% if isMultiple == true %}multiple{% endif %}>
 </div>
