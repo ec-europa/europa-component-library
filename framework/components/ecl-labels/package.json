@@ -1,13 +1,23 @@
 {
-  "private": true,
-  "name": "@ec-europa/ecl-labels",
-  "version": "0.5.0",
-  "description": "",
-  "main": "_labels.scss",
-  "style": "_labels.scss",
+  "name": "@ec-europa/ecl-navigation-labels",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "peerDependencies": {
-    "@ec-europa/ecl-meta": "^0.1.0"
-  }
+  "version": "0.5.0",
+  "description": "ECL Labels",
+  "main": "ecl-labels.scss",
+  "style": "ecl-labels.scss",
+  "dependencies": {
+    "@ec-europa/ecl-base": "^0.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library#readme"
 }
