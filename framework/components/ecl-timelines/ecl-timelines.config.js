@@ -5,6 +5,8 @@ module.exports = {
   preview: '@preview-center-transparent',
   tags: ['molecule'],
   context: {
+    limit: 3,
+    button_label: 'Show all timeline',
     items: [
       {
         title: 'By late-2013',
@@ -61,5 +63,10 @@ module.exports = {
         `,
       },
     ],
+    _demo: {
+      scripts: `
+        document.addEventListener('DOMContentLoaded', function () { ECL.timelines(); });
+        `,
+    },
   },
 };

@@ -1,5 +1,7 @@
 {#
   Accepts:
+    - "limit" (integer): max number of items to display (0 = display all)
+    - "button_label" (string): button label
     - "items" (array): array of objects containing
       - "title" (string): entry's title
       - "body" (string): entry's body text (HTML)
@@ -9,6 +11,7 @@
 
 {% set _css_class = 'ecl-timeline' %}
 {% set _extra_attributes = '' %}
+{% set _button_label = button_label|default('Show all timeline') %}
 
 {# Internal logic - Process properties #}
 
@@ -22,11 +25,21 @@
   {% endfor %}
 {% endif %}
 
-<ul class="{{ _css_class }}" {{ _extra_attributes }}>
-  {% for item in items %}
-  <li class="ecl-timeline__item">
-    <div class="ecl-heading ecl-heading--h4 ecl-timeline__title">{{ item.title }}</div>
-    <div class="ecl-timeline__body">{{ item.body }}</div>
-  </li>
-  {% endfor %}
-</ul>
+<section class="{{ _css_class }}" {{ _extra_attributes }}>
+  <ul class="ecl-timeline__list">
+    {% for item in items %}
+    <li class="ecl-timeline__item{{ limit is defined and limit > 0 and loop.index > limit ? ' ecl-timeline__item--over-limit' : '' }}">
+      <div class="ecl-heading ecl-heading--h4 ecl-timeline__title">{{ item.title }}</div>
+      <div class="ecl-timeline__body">{{ item.body }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if limit is defined and limit > 0 %}
+    {% include '@ec-europa/ecl-buttons' with {
+      'modifier': 'call',
+      'label': _button_label,
+      'extraClass': 'ecl-timeline__button',
+      'icon': 'caret-down'
+    } %}
+  {% endif %}
+</section>

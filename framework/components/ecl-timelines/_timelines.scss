@@ -8,8 +8,12 @@ $ecl-timeline-border-width: 4px !default;
 
 .ecl-timeline {
   border-left: $ecl-timeline-border-width solid map-get($ecl-colors, 'yellow-100');
-  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.ecl-timeline__list {
+  list-style: none;
   padding: map-get($ecl-spacing, 'm') 0 0;
 }
 
@@ -30,6 +34,17 @@ $ecl-timeline-border-width: 4px !default;
   }
 }
 
+.ecl-timeline__item--over-limit {
+  display: none;
+}
+
+.no-js {
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .ecl-timeline__item--over-limit {
+    display: list-item;
+  }
+}
+
 .ecl-timeline__title {
   font-weight: bold;
   margin-bottom: map-get($ecl-spacing, 'xs');
@@ -37,4 +52,8 @@ $ecl-timeline-border-width: 4px !default;
 
 .ecl-timeline__body {
   color: $ecl-color-shade;
+}
+
+.ecl-timeline__button {
+  margin-left: map-get($ecl-spacing, 'l');
 }
