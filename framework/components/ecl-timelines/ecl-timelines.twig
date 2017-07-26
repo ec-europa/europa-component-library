@@ -26,11 +26,11 @@
 {% endif %}
 
 <section class="{{ _css_class }}" {{ _extra_attributes }}>
-  <ul class="ecl-timeline__list">
+  <ul class="ecl-timeline__list ecl-u-pt-m">
     {% for item in items %}
-    <li class="ecl-timeline__item{{ limit is defined and limit > 0 and loop.index > limit ? ' ecl-timeline__item--over-limit' : '' }}">
-      <div class="ecl-heading ecl-heading--h4 ecl-timeline__title">{{ item.title }}</div>
-      <div class="ecl-timeline__body">{{ item.body }}</div>
+    <li class="ecl-timeline__item{{ loop.last ? '' : 'ecl-u-mb-l' }}{{ limit is defined and limit > 0 and loop.index > limit ? ' ecl-timeline__item--over-limit' : '' }}">
+      <div class="ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs">{{ item.title }}</div>
+      <div class="ecl-timeline__body ecl-u-pl-l">{{ item.body }}</div>
     </li>
     {% endfor %}
   </ul>
@@ -38,7 +38,7 @@
     {% include '@ec-europa/ecl-buttons' with {
       'modifier': 'call',
       'label': _button_label,
-      'extraClass': 'ecl-timeline__button',
+      'extraClass': 'ecl-timeline__button ecl-u-ml-l',
       'icon': 'caret-down'
     } %}
   {% endif %}
