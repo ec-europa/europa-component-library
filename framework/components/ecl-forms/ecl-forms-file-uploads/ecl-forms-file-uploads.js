@@ -27,9 +27,20 @@ export const fileUploads = (
   const fileUploadContainers = queryAll(selector);
 
   // ACTIONS
-  function updateFileName(element, value) {
-    // The value comes in the form of C:\something\fileName.
-    const filename = value.split('\\').pop();
+  function updateFileName(element, files) {
+    if (files.length === 0) return;
+
+    let filename = '';
+
+    for (let i = 0; i < files.length; i += 1) {
+      const file = files[i];
+      if ('name' in file) {
+        if (i > 0) {
+          filename += ', ';
+        }
+        filename += file.name;
+      }
+    }
 
     // Show the selected filename in the field.
     const messageElement = element;
@@ -38,13 +49,15 @@ export const fileUploads = (
 
   // EVENTS
   function eventValueChange(e) {
-    const fileUploadElements = queryAll(
-      valueSelector,
-      e.target.fileUploadContainer
-    );
-    fileUploadElements.forEach(fileUploadElement => {
-      updateFileName(fileUploadElement, e.target.value);
-    });
+    if ('files' in e.target) {
+      const fileUploadElements = queryAll(
+        valueSelector,
+        e.target.fileUploadContainer
+      );
+      fileUploadElements.forEach(fileUploadElement => {
+        updateFileName(fileUploadElement, e.target.files);
+      });
+    }
   }
 
   // BIND EVENTS
@@ -54,7 +67,6 @@ export const fileUploads = (
     fileUploadInputs.forEach(fileUploadInput => {
       const input = fileUploadInput;
       input.addEventListener('change', eventValueChange);
-      input.container = fileUploadContainer;
     });
   }
 

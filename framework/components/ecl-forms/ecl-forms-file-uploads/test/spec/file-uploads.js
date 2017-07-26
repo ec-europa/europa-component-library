@@ -1,4 +1,4 @@
-const variants = ['default', 'is-disabled', 'has-error'];
+const variants = ['default', 'is-disabled', 'is-multiple', 'has-error'];
 
 variants.forEach(variant => {
   describe(`forms-file-uploads--${variant}`, () => {
