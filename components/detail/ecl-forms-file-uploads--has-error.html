@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.5" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.5" type="text/css">
 
 
 <title>File uploads: File upload with error | Europa Component Library</title>
@@ -221,6 +221,7 @@
   - hasUpload: boolean; define if form upload has a "upload" button (default: true)
   - labelUpload: string; the label of the Upload button (default: 'Upload')
   - isDisabled: boolean; define if form upload is disabled (default: false)
+  - isMultiple: boolean; define if form upload is multiple (default: false)
   - hasError: boolean; define if form upload has error (default: false)
 #}</span><span class="xml">
 
@@ -231,6 +232,7 @@
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> hasUpload = hasUpload|<span class="hljs-keyword">default</span>(true) %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> labelUpload = labelUpload|<span class="hljs-keyword">default</span>('Upload') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> isDisabled = isDisabled|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> isMultiple = isMultiple|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> hasError = hasError|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
@@ -268,7 +270,7 @@
     </span><span class="hljs-template-variable">{{ labelUpload }}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__input"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isDisabled == true %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">disabled</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__input"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isDisabled == true %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">disabled</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> isMultiple == true %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">multiple</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -279,8 +281,8 @@
         
             
             <pre>{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"example-input-id-3"</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example-input-name-3"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"example-input-id-4"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example-input-name-4"</span>,
   <span class="hljs-attr">"hasError"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">"_demo"</span>: {
     <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n            ECL.fileUploads();\n          });"</span>
@@ -298,11 +300,11 @@
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload ecl-file-upload--has-error"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__value"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>No file selected.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__browse"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-3"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>Browse<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__browse"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"example-input-id-4"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span>&gt;</span>Browse<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__upload"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
     Upload
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__input"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"example-input-name-3"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-3"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file-upload__input"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"example-input-name-4"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"file"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-input-id-4"</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -319,15 +321,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-8bbde26fd28d0b914548a24c1cbdb697">ecl-forms-file-uploads.js</option>
+                <option value="file-0e814b7b05aa85a2400c204deaa1ec27">ecl-forms-file-uploads.js</option>
                 
-                <option value="file-c17b8ca705d9210851ca88c707a53f69">ecl-forms-file-uploads.scss</option>
+                <option value="file-5f19941d7b51de804241561ade8111bd">ecl-forms-file-uploads.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-8bbde26fd28d0b914548a24c1cbdb697" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-0e814b7b05aa85a2400c204deaa1ec27" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -364,9 +366,20 @@
   <span class="hljs-keyword">const</span> fileUploadContainers = queryAll(selector);
 
   <span class="hljs-comment">// ACTIONS</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateFileName</span>(<span class="hljs-params">element, value</span>) </span>{
-    <span class="hljs-comment">// The value comes in the form of C:\something\fileName.</span>
-    <span class="hljs-keyword">const</span> filename = value.split(<span class="hljs-string">'\\'</span>).pop();
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateFileName</span>(<span class="hljs-params">element, files</span>) </span>{
+    <span class="hljs-keyword">if</span> (files.length === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">let</span> filename = <span class="hljs-string">''</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; files.length; i += <span class="hljs-number">1</span>) {
+      <span class="hljs-keyword">const</span> file = files[i];
+      <span class="hljs-keyword">if</span> (<span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> file) {
+        <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span>) {
+          filename += <span class="hljs-string">', '</span>;
+        }
+        filename += file.name;
+      }
+    }
 
     <span class="hljs-comment">// Show the selected filename in the field.</span>
     <span class="hljs-keyword">const</span> messageElement = element;
@@ -375,13 +388,15 @@
 
   <span class="hljs-comment">// EVENTS</span>
   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eventValueChange</span>(<span class="hljs-params">e</span>) </span>{
-    <span class="hljs-keyword">const</span> fileUploadElements = queryAll(
-      valueSelector,
-      e.target.fileUploadContainer
-    );
-    fileUploadElements.forEach(<span class="hljs-function"><span class="hljs-params">fileUploadElement</span> =&gt;</span> {
-      updateFileName(fileUploadElement, e.target.value);
-    });
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">'files'</span> <span class="hljs-keyword">in</span> e.target) {
+      <span class="hljs-keyword">const</span> fileUploadElements = queryAll(
+        valueSelector,
+        e.target.fileUploadContainer
+      );
+      fileUploadElements.forEach(<span class="hljs-function"><span class="hljs-params">fileUploadElement</span> =&gt;</span> {
+        updateFileName(fileUploadElement, e.target.files);
+      });
+    }
   }
 
   <span class="hljs-comment">// BIND EVENTS</span>
@@ -391,7 +406,6 @@
     fileUploadInputs.forEach(<span class="hljs-function"><span class="hljs-params">fileUploadInput</span> =&gt;</span> {
       <span class="hljs-keyword">const</span> input = fileUploadInput;
       input.addEventListener(<span class="hljs-string">'change'</span>, eventValueChange);
-      input.container = fileUploadContainer;
     });
   }
 
@@ -447,12 +461,12 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.4 KB</span>
+                    <span class="Meta-value">2.6 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-c17b8ca705d9210851ca88c707a53f69" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-5f19941d7b51de804241561ade8111bd" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -485,6 +499,7 @@
   <span class="hljs-attribute">overflow</span>: hidden;
   <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
   <span class="hljs-attribute">text-overflow</span>: ellipsis;
+  <span class="hljs-attribute">white-space</span>: nowrap;
 
   &amp;:focus {
     <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
@@ -585,7 +600,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.3 KB</span>
+                    <span class="Meta-value">2.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -619,7 +634,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(3)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(4)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="ecl-forms-file-uploads--default">
@@ -628,6 +643,10 @@
             
                 <a href="ecl-forms-file-uploads--is-disabled">
                     <span>Disabled file upload</span>
+                </a>, 
+            
+                <a href="ecl-forms-file-uploads--is-multiple">
+                    <span>Multiple file upload</span>
                 </a>, 
             
                 <a href="">
@@ -2502,6 +2521,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     
         
         
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--is-multiple" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Multiple file upload</span>
+            </a>
+        </li>
+        
+    
+        
+        
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
                 
@@ -2809,7 +2852,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4127,7 +4170,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4516,76 +4559,73 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
     <div class="Frame-footer">
         <footer class="ecl-footer">
-    <div class="ecl-footer__site-corporate">
-        <div class="ecl-container">
-            <div class="ecl-row">
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
-                            <a href="#">Commission and its priorities</a>
-                        </li>
-                        <li class="ecl-footer__menu-item">
-                            <a href="#">Policies information and services</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
-                    <ul class="ecl-footer__menu ecl-list-inline">
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
-                        </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
-                        </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#">Other social media</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
-                            <a class="ecl-link--external" href="#">EU institutions</a>
-                        </li>
-                        <li class="ecl-footer__menu-item">
-                            <a class="ecl-link--external" href="#">European Union</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+  <div class="ecl-footer__site-corporate">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm ecl-footer__column">
+          <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
+          <ul class="ecl-footer__menu">
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
+            </li>
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies information and services</a>
+            </li>
+          </ul>
         </div>
-    </div>
-    <div class="ecl-footer__ec">
-        <div class="ecl-container">
-            <div class="ecl-row">
-                <div class="ecl-col-sm">
-                    <ul class="ecl-list-inline ecl-footer__menu">
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="ecl-col-sm ecl-footer__column">
+          <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
+          <ul class="ecl-footer__menu ecl-list-inline">
+            <li class="ecl-footer__menu-item ecl-list-inline__item">
+              <a class="ecl-link ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
+            </li>
+            <li class="ecl-footer__menu-item ecl-list-inline__item">
+              <a class="ecl-link ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
+            </li>
+            <li class="ecl-footer__menu-item ecl-list-inline__item">
+              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">Other social media</a>
+            </li>
+          </ul>
         </div>
+        <div class="ecl-col-sm ecl-footer__column">
+          <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
+          <ul class="ecl-footer__menu">
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">EU institutions</a>
+            </li>
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">European Union</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="ecl-footer__ec">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm ">
+          <ul class="ecl-list-inline ecl-footer__menu">
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/about-commissions-new-web-presence_en">About the Commission's new web presence</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/resources-partners_en">Resources for partners</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/cookies_en">Cookies</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/legal-notice_en">Legal notice</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/contact_en">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
     </div>
@@ -4594,7 +4634,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.5"></script>
 
 
 

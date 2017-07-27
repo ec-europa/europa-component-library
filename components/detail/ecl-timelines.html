@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.5" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.2" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.5" type="text/css">
 
 
 <title>Timelines | Europa Component Library</title>
@@ -119,7 +119,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -133,8 +133,19 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="timelines">Timelines</h1>
-<p>The JS behaviour of this component needs to be rewritten without jQuery.</p>
+                <h1 id="timeline-and-time-schedule">Timeline and Time schedule</h1>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>A timeline is a way of displaying a list of events in chronological order.</p>
+<p>There are two variants of this component:</p>
+<ul>
+<li><strong>timeline</strong></li>
+<li><strong>time schedule</strong></li>
+</ul>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li><strong>timeline</strong>: for bigger time ranges</li>
+<li><strong>time schedule</strong>: more granular, for hours (used on event)</li>
+</ul>
 
                 
               </div>
@@ -211,19 +222,51 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-38684a95490fe14dd50d7e7a3799f684-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__item"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__item-title"</span>&gt;</span>By late-2015<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__text"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>The Commission will convene the first energy infrastructure forum to discuss and find solutions to issues that are common to all regions across Europe.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__footer"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-time-line"</span>&gt;</span>Show all timeline<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Accepts:
+    - "limit" (integer): max number of items to display (0 = display all)
+    - "button_label" (string): button label
+    - "items" (array): array of objects containing
+      - "title" (string): entry's title
+      - "body" (string): entry's body text (HTML)
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-timeline' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _button_label = button_label|<span class="hljs-keyword">default</span>('Show all timeline') %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__list ecl-u-pt-m"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> item in items %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__item</span></span></span><span class="hljs-template-variable">{{ loop.last ? '' : 'ecl-u-mb-l' }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ limit is defined and limit &gt; 0 and loop.index &gt; limit ? ' ecl-timeline__item--over-limit' : '' }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__body ecl-u-pl-l"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.body }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> limit is defined and limit &gt; 0 %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+      'modifier': 'call',
+      'label': _button_label,
+      'extraClass': 'ecl-timeline__button ecl-u-ml-l',
+      'icon': 'caret-down'
+    } %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -233,8 +276,36 @@
         
             
             <pre>{
+  <span class="hljs-attr">"limit"</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-attr">"button_label"</span>: <span class="hljs-string">"Show all timeline"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"By late-2013"</span>,
+      <span class="hljs-attr">"body"</span>: <span class="hljs-string">"\n          &lt;p class=\"ecl-paragraph\"&gt;\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.\n          &lt;/p&gt;\n          &lt;p class=\"ecl-paragraph\"&gt;\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.\n          &lt;/p&gt;\n        "</span>
+    },
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"By late-2014"</span>,
+      <span class="hljs-attr">"body"</span>: <span class="hljs-string">"\n          &lt;p class=\"ecl-paragraph\"&gt;\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.\n          &lt;/p&gt;\n        "</span>
+    },
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"By late-2015"</span>,
+      <span class="hljs-attr">"body"</span>: <span class="hljs-string">"\n          &lt;p class=\"ecl-paragraph\"&gt;\n            The Commission will convene the first energy infrastructure forum to discuss and find solutions to issues that are common to all regions across Europe.\n          &lt;/p&gt;\n          &lt;p class=\"ecl-paragraph\"&gt;\n            The Commission will convene the first energy infrastructure forum to discuss and find solutions to issues that are common to all regions across Europe.\n          &lt;/p&gt;\n        "</span>
+    },
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"By late-2016"</span>,
+      <span class="hljs-attr">"body"</span>: <span class="hljs-string">"\n          &lt;p class=\"ecl-paragraph\"&gt;\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.\n          &lt;/p&gt;\n        "</span>
+    },
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"By late-2017"</span>,
+      <span class="hljs-attr">"body"</span>: <span class="hljs-string">"\n          &lt;p class=\"ecl-paragraph\"&gt;\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.\n          &lt;/p&gt;\n        "</span>
+    },
+    {
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"By late-2018"</span>,
+      <span class="hljs-attr">"body"</span>: <span class="hljs-string">"\n          &lt;p class=\"ecl-paragraph\"&gt;\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.\n          &lt;/p&gt;\n        "</span>
+    }
+  ],
   <span class="hljs-attr">"_demo"</span>: {
-    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"Europa.timeline();"</span>
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"\n        document.addEventListener('DOMContentLoaded', function () { ECL.timelines(); });\n        "</span>
   }
 }</pre>
             
@@ -247,19 +318,65 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-38684a95490fe14dd50d7e7a3799f684-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__item"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__item-title"</span>&gt;</span>By late-2015<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__text"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>The Commission will convene the first energy infrastructure forum to discuss and find solutions to issues that are common to all regions across Europe.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"timeline__footer"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-time-line"</span>&gt;</span>Show all timeline<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__list ecl-u-pt-m"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__itemecl-u-mb-l"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs"</span>&gt;</span>By late-2013<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__body ecl-u-pl-l"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__itemecl-u-mb-l"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs"</span>&gt;</span>By late-2014<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__body ecl-u-pl-l"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__itemecl-u-mb-l"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs"</span>&gt;</span>By late-2015<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__body ecl-u-pl-l"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          The Commission will convene the first energy infrastructure forum to discuss and find solutions to issues that are common to all regions across Europe.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          The Commission will convene the first energy infrastructure forum to discuss and find solutions to issues that are common to all regions across Europe.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__itemecl-u-mb-l ecl-timeline__item--over-limit"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs"</span>&gt;</span>By late-2016<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__body ecl-u-pl-l"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__itemecl-u-mb-l ecl-timeline__item--over-limit"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs"</span>&gt;</span>By late-2017<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__body ecl-u-pl-l"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__item ecl-timeline__item--over-limit"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs"</span>&gt;</span>By late-2018<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-timeline__body ecl-u-pl-l"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec tellus congue, pretium nibh eu, mattis ligula. Integer tempus varius enim ut scelerisque. Curabitur rutrum vestibulum elit ac pulvinar.
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-down ecl-timeline__button ecl-u-ml-l"</span>&gt;</span>Show all timeline<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -275,15 +392,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-2189a518d65e71c0c350fa8a58cb98ec">_timelines.scss</option>
+                <option value="file-f919e72b3a7d92dd378efbe10b34190a">_timelines.scss</option>
                 
-                <option value="file-b6f093c8ee204cb15b67f272289539a2">timelines.js</option>
+                <option value="file-6ff99560a00684d8e8e3439b0b52c2e9">timelines.js</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-2189a518d65e71c0c350fa8a58cb98ec" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-f919e72b3a7d92dd378efbe10b34190a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -291,94 +408,62 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Timeline
+                                <pre><span class="hljs-comment">/**
+ * Timeline
+ * @define timeline
+ */</span>
 
-Markup: html/timeline.html
+<span class="hljs-variable">$ecl-timeline-bullet-size</span>: <span class="hljs-number">14px</span> !default;
+<span class="hljs-variable">$ecl-timeline-border-width</span>: <span class="hljs-number">4px</span> !default;
 
-Style guide timeline
-*/</span>
+<span class="hljs-selector-class">.ecl-timeline</span> {
+  <span class="hljs-attribute">border-left</span>: <span class="hljs-variable">$ecl-timeline-border-width</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+}
 
-<span class="hljs-selector-class">.timeline</span> {
+<span class="hljs-selector-class">.ecl-timeline__list</span> {
+  <span class="hljs-attribute">list-style</span>: none;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.ecl-timeline__item--over-limit</span> {
+  <span class="hljs-attribute">display</span>: none;
+}
+
+<span class="hljs-selector-class">.no-js</span> {
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+  <span class="hljs-selector-class">.ecl-timeline__item--over-limit</span> {
+    <span class="hljs-attribute">display</span>: list-item;
+  }
+
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+  <span class="hljs-selector-class">.ecl-timeline__button</span> {
+    <span class="hljs-attribute">display</span>: none;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-timeline__title</span> {
+  <span class="hljs-attribute">font-weight</span>: bold;
   <span class="hljs-attribute">position</span>: relative;
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1.667em</span>;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">2em</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1.667em</span>;
-  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">4px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
 
-  <span class="hljs-selector-class">.listing__item</span> {
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  }
-
-  <span class="hljs-selector-class">.timeline__item-title</span> {
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.5em</span>;
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1em</span>;
-    <span class="hljs-attribute">font-weight</span>: bold;
-
-    &amp;::before {
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">left</span>: -<span class="hljs-number">0.6em</span>;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">14px</span>;
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">14px</span>;
-      <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.2em</span>;
-      <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
-      <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
-      <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
-      <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
-    }
-  }
-
-  <span class="hljs-selector-class">.timeline__text</span> {
-    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.2em</span>;
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1em</span>;
-
-    <span class="hljs-selector-tag">ul</span>,
-    <span class="hljs-selector-tag">ol</span> {
-      <span class="hljs-attribute">list-style</span>: none <span class="hljs-meta">!important</span>;
-      <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-    }
-
-    <span class="hljs-selector-tag">ul</span> &gt; <span class="hljs-selector-tag">li</span> {
-      <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>) <span class="hljs-meta">!important</span>;
-    }
-
-    &amp; &gt; * {
-      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-    }
+  &amp;::before {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-variable">$ecl-timeline-bullet-size</span>;
+    <span class="hljs-attribute">left</span>: -((<span class="hljs-variable">$ecl-timeline-bullet-size</span> + <span class="hljs-variable">$ecl-timeline-border-width</span>) / <span class="hljs-number">2</span>);
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">transform</span>: translateY(-<span class="hljs-number">50%</span>);
+    <span class="hljs-attribute">width</span>: <span class="hljs-variable">$ecl-timeline-bullet-size</span>;
   }
 }
 
-<span class="hljs-selector-class">.btn</span> {
-  &amp;<span class="hljs-selector-class">.btn-time-line</span> {
-    @<span class="hljs-keyword">extend</span> .btn-ctn !optional;
-
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-
-    &amp;::after {
-      <span class="hljs-attribute">content</span>: <span class="hljs-string">'\e81f'</span>;
-    }
-  }
-}
-
-<span class="hljs-selector-class">.timeline--nopadding</span> {
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0.5em</span>;
-}
-
-<span class="hljs-selector-class">.view-biography-timeline</span> <span class="hljs-selector-class">.view-footer</span> {
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1.667em</span> <span class="hljs-meta">!important</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">1.667em</span>;
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
-  <span class="hljs-selector-class">.timeline</span> {
-    <span class="hljs-selector-class">.timeline__item-title</span> {
-      &amp;::before {
-        <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">2px</span>;
-      }
-    }
-  }
+<span class="hljs-selector-class">.ecl-timeline__body</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
 }
 </pre>
                             </code>
@@ -396,12 +481,12 @@ Style guide timeline
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.4 KB</span>
+                    <span class="Meta-value">1.1 KB</span>
                 </li>
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-b6f093c8ee204cb15b67f272289539a2" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-6ff99560a00684d8e8e3439b0b52c2e9" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -413,10 +498,57 @@ Style guide timeline
  * Timeline
  */</span>
 
-<span class="hljs-comment">// eslint-disable-next-line import/prefer-default-export</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">timeline</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'This script needs to be rewritten without jQuery'</span>);
-}
+<span class="hljs-keyword">const</span> expandTimeline = (
+  timeline,
+  button,
+  {
+    classToRemove = <span class="hljs-string">'ecl-timeline__item--over-limit'</span>,
+    hiddenElementsSelector = <span class="hljs-string">'.ecl-timeline__item--over-limit'</span>,
+  } = {}
+) =&gt; {
+  <span class="hljs-keyword">if</span> (!timeline) {
+    <span class="hljs-keyword">return</span>;
+  }
+
+  <span class="hljs-keyword">const</span> hiddenElements = <span class="hljs-built_in">Array</span>.prototype.slice.call(
+    timeline.querySelectorAll(hiddenElementsSelector)
+  );
+
+  <span class="hljs-comment">// Remove extra class</span>
+  hiddenElements.forEach(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {
+    element.classList.remove(classToRemove);
+  });
+
+  <span class="hljs-comment">// Remove buttton</span>
+  button.parentNode.removeChild(button);
+};
+
+<span class="hljs-comment">// Helper method to automatically attach the event listener to all the expandables on page load</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> timelines = (
+  {
+    selector = <span class="hljs-string">'.ecl-timeline'</span>,
+    buttonSelector = <span class="hljs-string">'.ecl-timeline__button'</span>,
+    hiddenElementsSelector = <span class="hljs-string">'.ecl-timeline__item--over-limit'</span>,
+    classToRemove = <span class="hljs-string">'ecl-timeline__item--over-limit'</span>,
+    context = <span class="hljs-built_in">document</span>,
+  } = {}
+) =&gt; {
+  <span class="hljs-keyword">const</span> nodesArray = <span class="hljs-built_in">Array</span>.prototype.slice.call(
+    context.querySelectorAll(selector)
+  );
+
+  nodesArray.forEach(<span class="hljs-function"><span class="hljs-params">node</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> button = context.querySelector(buttonSelector);
+
+    <span class="hljs-keyword">if</span> (button) {
+      button.addEventListener(<span class="hljs-string">'click'</span>, () =&gt;
+        expandTimeline(node, button, { classToRemove, hiddenElementsSelector })
+      );
+    }
+  });
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> timelines;
 </pre>
                             </code>
                             
@@ -433,7 +565,7 @@ Style guide timeline
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">178 Bytes</span>
+                    <span class="Meta-value">1.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -2332,6 +2464,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--is-multiple" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Multiple file upload</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-forms-file-uploads--has-error" data-pjax>
                 
 
@@ -2638,7 +2794,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3956,7 +4112,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -4345,76 +4501,73 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
     <div class="Frame-footer">
         <footer class="ecl-footer">
-    <div class="ecl-footer__site-corporate">
-        <div class="ecl-container">
-            <div class="ecl-row">
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
-                            <a href="#">Commission and its priorities</a>
-                        </li>
-                        <li class="ecl-footer__menu-item">
-                            <a href="#">Policies information and services</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
-                    <ul class="ecl-footer__menu ecl-list-inline">
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
-                        </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
-                        </li>
-                        <li class="ecl-footer__menu-item ecl-list-inline__item">
-                            <a href="#">Other social media</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="ecl-col-sm ecl-footer__column">
-                    <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
-                    <ul class="ecl-footer__menu">
-                        <li class="ecl-footer__menu-item">
-                            <a class="ecl-link--external" href="#">EU institutions</a>
-                        </li>
-                        <li class="ecl-footer__menu-item">
-                            <a class="ecl-link--external" href="#">European Union</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+  <div class="ecl-footer__site-corporate">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm ecl-footer__column">
+          <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
+          <ul class="ecl-footer__menu">
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
+            </li>
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies information and services</a>
+            </li>
+          </ul>
         </div>
-    </div>
-    <div class="ecl-footer__ec">
-        <div class="ecl-container">
-            <div class="ecl-row">
-                <div class="ecl-col-sm">
-                    <ul class="ecl-list-inline ecl-footer__menu">
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/about-commissions-new-web-presence_en" class="">About the Commission's new web presence</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/resources-partners_en" class="">Resources for partners</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/cookies_en" class="">Cookies</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/legal-notice_en" class="">Legal notice</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/contact_en" class="">Contact</a>
-                        </li>
-                        <li class="ecl-list-inline__item ecl-footer__menu-item">
-                            <a href="http://ec.europa.eu/info/europa-analytics_en" class="">Europa Analytics</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="ecl-col-sm ecl-footer__column">
+          <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
+          <ul class="ecl-footer__menu ecl-list-inline">
+            <li class="ecl-footer__menu-item ecl-list-inline__item">
+              <a class="ecl-link ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
+            </li>
+            <li class="ecl-footer__menu-item ecl-list-inline__item">
+              <a class="ecl-link ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
+            </li>
+            <li class="ecl-footer__menu-item ecl-list-inline__item">
+              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">Other social media</a>
+            </li>
+          </ul>
         </div>
+        <div class="ecl-col-sm ecl-footer__column">
+          <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
+          <ul class="ecl-footer__menu">
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">EU institutions</a>
+            </li>
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">European Union</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="ecl-footer__ec">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm ">
+          <ul class="ecl-list-inline ecl-footer__menu">
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/about-commissions-new-web-presence_en">About the Commission's new web presence</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/resources-partners_en">Resources for partners</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/cookies_en">Cookies</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/legal-notice_en">Legal notice</a>
+            </li>
+            <li class="ecl-list-inline__item ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/contact_en">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
     </div>
@@ -4423,7 +4576,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.2"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.5"></script>
 
 
 
