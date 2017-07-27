@@ -1,13 +1,45 @@
-<div class="timeline">
-  <div class="timeline__item">
-    <div class="timeline__item-title">By late-2015</div>
-    <div class="timeline__text">
-      <ul>
-        <li>The Commission will convene the first energy infrastructure forum to discuss and find solutions to issues that are common to all regions across Europe.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="timeline__footer">
-    <button class="btn btn-time-line">Show all timeline</button>
-  </div>
-</div>
+{#
+  Accepts:
+    - "limit" (integer): max number of items to display (0 = display all)
+    - "button_label" (string): button label
+    - "items" (array): array of objects containing
+      - "title" (string): entry's title
+      - "body" (string): entry's body text (HTML)
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-timeline' %}
+{% set _extra_attributes = '' %}
+{% set _button_label = button_label|default('Show all timeline') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<section class="{{ _css_class }}" {{ _extra_attributes }}>
+  <ul class="ecl-timeline__list ecl-u-pt-m">
+    {% for item in items %}
+    <li class="ecl-timeline__item{{ loop.last ? '' : 'ecl-u-mb-l' }}{{ limit is defined and limit > 0 and loop.index > limit ? ' ecl-timeline__item--over-limit' : '' }}">
+      <div class="ecl-heading ecl-heading--h4 ecl-timeline__title ecl-u-pl-l ecl-u-mb-xs">{{ item.title }}</div>
+      <div class="ecl-timeline__body ecl-u-pl-l">{{ item.body }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if limit is defined and limit > 0 %}
+    {% include '@ec-europa/ecl-buttons' with {
+      'modifier': 'call',
+      'label': _button_label,
+      'extraClass': 'ecl-timeline__button ecl-u-ml-l',
+      'icon': 'caret-down'
+    } %}
+  {% endif %}
+</section>
