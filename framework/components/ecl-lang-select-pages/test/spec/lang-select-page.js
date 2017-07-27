@@ -1,4 +1,4 @@
-const variants = ['default', 'default-primary', 'dropdown', 'dropdown-primary'];
+const variants = ['default', 'primary'];
 
 describe('lang-select-pages', () => {
   before(() => {

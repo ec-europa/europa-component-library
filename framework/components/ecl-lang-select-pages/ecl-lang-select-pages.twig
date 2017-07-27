@@ -1,15 +1,14 @@
 {#
   Accepts:
     - "unavailable" (string): unavailable language
+    - "current" (string): current language
     - "theme" (string): empty or "primary"
-    - "variant" (string): if "dropdown", the options will be displayed as a drpodown
     - "dropdown_label" (string): if a the component is a dropdown, this option will set the aria-label
     - "options" (array): array of objects
       - "href" (string)
       - "hreflang" (string)
       - "label" (string)
       - "lang" (string)
-      - "is_selected" (boolean)
 #}
 
 {# Internal properties #}
@@ -38,17 +37,16 @@
 <section class="{{ _css_class }}" {{ _extra_attributes }}>
   <span class="ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"></span>
   <span class="ecl-lang-select-page__unavailable">{{ _unavailable }}</span>
-  {% if variant is defined and variant == 'dropdown' %}
   <select class="ecl-lang-select-page__dropdown" aria-label="{{ _dropdown_label }}">
+    <option class="ecl-lang-select-page__dropdown-option" value="" selected>{{ current }}</option>
     {% for opt in options %}
-      <option class="ecl-lang-select-page__dropdown-option" value="{{ opt.lang }}" lang="{{ opt.lang }}"{{ opt.is_selected ? ' selected' : '' }}>{{ opt.label }}</option>
+      <option class="ecl-lang-select-page__dropdown-option" value="{{ opt.lang }}" lang="{{ opt.lang }}">{{ opt.label }}</option>
     {% endfor %}
   </select>
-  {% else %}
   <ul class="ecl-lang-select-page__list">
-  {% for opt in options %}
-  <li class="ecl-lang-select-page__option{{ opt.is_selected ? ' ecl-lang-select-page__option--is-selected' : '' }}"><a href="{{ opt.href }}" hreflang="{{ opt.hreflang }}" lang="{{ opt.lang }}" rel="alternate" class="ecl-link ecl-lang-select-page__link">{{ opt.label }}</a></li>
-  {% endfor %}
+    <li class="ecl-lang-select-page__option ecl-lang-select-page__option--is-selected">{{ current }}</li>
+    {% for opt in options %}
+    <li class="ecl-lang-select-page__option"><a href="{{ opt.href }}" hreflang="{{ opt.hreflang }}" lang="{{ opt.lang }}" rel="alternate" class="ecl-link ecl-lang-select-page__link">{{ opt.label }}</a></li>
+    {% endfor %}
   </ul>
-  {% endif %}
 </section>

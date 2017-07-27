@@ -1,18 +1,12 @@
 const data = {
   unavailable: 'français',
+  current: 'Nederlands',
   options: [
     {
       href: '/en',
       hreflang: 'en',
       label: 'English',
       lang: 'en',
-    },
-    {
-      href: '/nl',
-      hreflang: 'nl',
-      label: 'Nederlands',
-      lang: 'nl',
-      is_selected: true,
     },
     {
       href: '/hr',
@@ -60,33 +54,13 @@ module.exports = {
       name: 'default',
       title: 'Language select (Page) - Default',
       label: 'Default',
-      context: Object.assign({}, data, {
-        variant: 'default',
-      }),
+      context: data,
     },
     {
-      name: 'default-primary',
-      title: 'Language select (Page) - Default primary',
-      label: 'Default primary',
+      name: 'primary',
+      title: 'Language select (Page) - Primary',
+      label: 'Primary',
       context: Object.assign({}, data, {
-        variant: 'default',
-        theme: 'primary',
-      }),
-    },
-    {
-      name: 'dropdown',
-      title: 'Language select (Page) - Dropdown',
-      label: 'Dropdown',
-      context: Object.assign({}, data, {
-        variant: 'dropdown',
-      }),
-    },
-    {
-      name: 'dropdown-primary',
-      title: 'Language select (Page) - Dropdown primary',
-      label: 'Dropdown primary',
-      context: Object.assign({}, data, {
-        variant: 'dropdown',
         theme: 'primary',
       }),
     },

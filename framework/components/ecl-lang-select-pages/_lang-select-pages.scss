@@ -1,7 +1,11 @@
 /*
  * Language selector (page level)
  * @define lang-select-page
+ *
+ * Note: `.ecl-lang-select-page--dropdown` is automatically added/removed (JS)
  */
+
+// TODO: SWITCH ecl-lang-select-page--dropdown with JS
 
 @import '~@ec-europa/ecl-forms-selects/mixins';
 
@@ -43,6 +47,10 @@
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+
+  .ecl-lang-select-page--dropdown & {
+    display: none;
+  }
 }
 
 .ecl-lang-select-page__option {
@@ -68,6 +76,7 @@
   border-radius: 0;
   color: $ecl-color-shade;
   cursor: pointer;
+  display: none;
   font-size: map-get($ecl-font-size, 'xs');
   font-weight: bold;
   padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 's') map-get($ecl-spacing, 's');
@@ -75,6 +84,10 @@
   // Fix for IE 10+.
   &::-ms-expand {
     display: none;
+  }
+
+  .ecl-lang-select-page--dropdown & {
+    display: block;
   }
 }
 
