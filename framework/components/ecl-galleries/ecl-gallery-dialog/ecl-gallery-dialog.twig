@@ -1,3 +1,5 @@
-{% include '@ec-europa/ecl-buttons' with dialog_trigger %}
-{% include '@ec-europa/ecl-dialogs' with dialog_settings %}
-{% include '@ec-europa/ecl-gallery-base' with dialog_contents %}
+{% embed '@ec-europa/ecl-dialogs' with dialog_settings %}
+  {% block dialog_body %}
+    {% include '@ec-europa/ecl-gallery-base' with dialog_contents %}
+  {% endblock %}
+{% endembed %}
