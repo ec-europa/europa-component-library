@@ -8,14 +8,14 @@ describe('galleries', () => {
       });
 
       // Reload
-      browser.url('ecl-galleries-base.html');
+      browser.url('ecl-gallery-base.html');
       browser.pause(1000);
       browser.injectAxeCore();
     });
 
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'galleries/basic/mobile',
+        name: 'gallery-base/mobile',
       });
       expect(screenshots).to.matchReference();
     });
@@ -35,14 +35,14 @@ describe('galleries', () => {
       });
 
       // Reload
-      browser.url('ecl-galleries-base.html');
+      browser.url('ecl-gallery-base.html');
       browser.pause(1000);
       browser.injectAxeCore();
     });
 
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'galleries/basic/tablet',
+        name: 'gallery-base/tablet',
       });
       expect(screenshots).to.matchReference();
     });
@@ -62,14 +62,14 @@ describe('galleries', () => {
       });
 
       // Reload
-      browser.url('ecl-galleries-base.html');
+      browser.url('ecl-gallery-base.html');
       browser.pause(1000);
       browser.injectAxeCore();
     });
 
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'galleries/basic/desktop',
+        name: 'gallery-base/desktop',
       });
       expect(screenshots).to.matchReference();
     });
