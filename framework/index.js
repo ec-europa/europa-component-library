@@ -19,4 +19,4 @@ export * from './components/ecl-navigation/ecl-navigation-inpages/ecl-navigation
 export * from './components/ecl-navigation/ecl-navigation-menus/megamenu';
 export * from './components/ecl-tables/ecl-tables';
 export * from './components/ecl-tabs/tabs';
-// export * from './components/ecl-timelines/timelines';
+export * from './components/ecl-timelines/timelines';
