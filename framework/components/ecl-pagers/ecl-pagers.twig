@@ -6,7 +6,7 @@
   - "title_page" (string): helper when hovering a page button (default: 'Go to page')
   - "title_next" (string): helper when hovering next page button (default: 'Go to next page')
   - "label_previous" (string): previous button label (default: '‹ Previous')
-  - "label_page" (string): page label (default: 'Page')
+  - "label_page" (string): page label displayed on small screens (default: 'Page')
   - "label_next" (string): next button label (default: 'Next ›')
   - "extra_classes" (string): extra CSS classes to be added
   - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
@@ -41,7 +41,7 @@
 
 {# Print the result  #}
 
-<div class="ecl-pager__wrapper">
+<nav class="ecl-pager__wrapper" aria-label="pagination">
   <ul class="{{ _css_class }}" {{ _extra_attributes }}>
     {% if current_page > 1 %}
     <li class="ecl-pager__item ecl-pager__item--previous">
@@ -51,7 +51,9 @@
 
     {% if current_page > 1 %}
     <li class="ecl-pager__item ecl-pager__item--first">
-      <a class="ecl-pager__link" title="{{ title_page }} 1" href="{{ fragment_url }}=1">1</a>
+      <a class="ecl-pager__link" title="{{ title_page }} 1" href="{{ fragment_url }}=1">
+        <span class="ecl-sr-only" >{{ label_page }} </span>1
+      </a>
     </li>
     {% endif %}
 
@@ -61,29 +63,37 @@
 
     {% if current_page > 3 %}
     <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page - 2 }}" href="{{ fragment_url }}={{ current_page - 2 }}">{{ current_page - 2 }}</a>
+      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page - 2 }}" href="{{ fragment_url }}={{ current_page - 2 }}">
+        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page - 2 }}
+      </a>
     </li>
     {% endif %}
 
     {% if current_page > 2 %}
     <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page - 1 }}" href="{{ fragment_url }}={{ current_page - 1 }}">{{ current_page - 1 }}</a>
+      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page - 1 }}" href="{{ fragment_url }}={{ current_page - 1 }}">
+        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page - 1 }}
+      </a>
     </li>
     {% endif %}
 
-    <li class="ecl-pager__item ecl-pager__item--current">
-      <span class="ecl-pager__item-text">{{ label_page }}</span> {{ current_page }}
+    <li class="ecl-pager__item ecl-pager__item--current" aria-current="page">
+      <span class="ecl-pager__item-text" >{{ label_page }}</span> {{ current_page }}
     </li>
 
     {% if max_page - current_page > 1 %}
     <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page + 1 }}" href="{{ fragment_url }}={{ current_page + 1 }}">{{ current_page + 1 }}</a>
+      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page + 1 }}" href="{{ fragment_url }}={{ current_page + 1 }}">
+        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page + 1 }}
+      </a>
     </li>
     {% endif %}
 
     {% if max_page - current_page > 2 %}
     <li class="ecl-pager__item">
-      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page + 2 }}" href="{{ fragment_url }}={{ current_page + 2 }}">{{ current_page + 2 }}</a>
+      <a class="ecl-pager__link" title="{{ title_page }} {{ current_page + 2 }}" href="{{ fragment_url }}={{ current_page + 2 }}">
+        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page + 2 }}
+      </a>
     </li>
     {% endif %}
 
@@ -93,7 +103,9 @@
 
     {% if current_page != max_page %}
     <li class="ecl-pager__item ecl-pager__item--last">
-      <a class="ecl-pager__link" title="{{ title_page }} {{ max_page }}" href="{{ fragment_url }}={{ max_page }}">{{ max_page }}</a>
+      <a class="ecl-pager__link" title="{{ title_page }} {{ max_page }}" href="{{ fragment_url }}={{ max_page }}">
+        <span class="ecl-sr-only" >{{ label_page }} </span>{{ max_page }}
+      </a>
     </li>
     {% endif %}
 
@@ -103,4 +115,4 @@
     </li>
     {% endif %}
   </ul>
-</div>
+</nav>
