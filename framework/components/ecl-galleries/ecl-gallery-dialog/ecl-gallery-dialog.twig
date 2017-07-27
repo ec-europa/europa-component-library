@@ -1,0 +1,15 @@
+{#
+
+#}
+
+<div class="ecl-gallery-dialog">
+  {% block dialog_element %}
+  {% include '@ec-europa/ecl-buttons' with {
+    'label': 'View Gallery',
+    'extraClass': 'ecl-button--primary',
+    'extraAttributes': [
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}
+  {% endblock %}
+</div>
