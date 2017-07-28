@@ -1,3 +1,15 @@
+{#
+  This component is a composition of:
+    - `@ec-europa/ecl-dialogs` accepting:
+      - dialog_settings (structure) contains the settings for the dialog.
+      - dialog_body (block) override for the contents of the dialog.
+    - `@ec-europa/ecl-gallery-base` accepting:
+      - dialog_contents (structure) the data passed to the gallery component.
+
+  For more details for the expected structures for the composed components,
+  please refer to their corresponding templates or example data.
+  
+#}
 {% embed '@ec-europa/ecl-dialogs' with dialog_settings %}
   {% block dialog_body %}
     {% include '@ec-europa/ecl-gallery-base' with dialog_contents %}
