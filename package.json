@@ -71,6 +71,7 @@
     "node": ">=6.9.5"
   },
   "lint-staged": {
+    "*.md": ["remark --quiet --frail --no-stdout"],
     "*.js": ["prettier-eslint --write", "git add"],
     "*.scss": ["stylelint"]
   }
