@@ -48,8 +48,6 @@ Arial is the standard typeface we use. We chose Arial because it is a system fon
   </tr>
 </table>
 
-
-
 ## Font colour
 
 Pay attention to the contrast if you give a background colour to text.
