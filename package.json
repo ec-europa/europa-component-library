@@ -41,11 +41,14 @@
     "@frctl/twig": "1.0.0-alpha.0",
     "chai": "4.1.0",
     "chokidar-cli": "1.2.0",
+    "chrome-launcher": "0.3.2",
+    "chromeless": "1.0.1",
     "cross-env": "5.0.1",
     "dotenv": "4.0.0",
     "eslint": "4.3.0",
     "gh-pages": "1.0.0",
     "husky": "0.14.3",
+    "jest": "20.0.4",
     "lerna": "2.0.0",
     "lerna-changelog": "0.6.0",
     "lint-staged": "4.0.2",
@@ -71,8 +74,15 @@
     "node": ">=6.9.5"
   },
   "lint-staged": {
-    "*.md": ["remark --quiet --frail --no-stdout"],
-    "*.js": ["prettier-eslint --write", "git add"],
-    "*.scss": ["stylelint"]
+    "*.md": [
+      "remark --quiet --frail --no-stdout"
+    ],
+    "*.js": [
+      "prettier-eslint --write",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint"
+    ]
   }
 }
