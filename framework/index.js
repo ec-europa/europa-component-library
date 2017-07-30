@@ -8,7 +8,7 @@
 
 // 2. Export components
 
-export * from './components/ecl-accordions/accordions';
+export * from './components/ecl-accordions';
 export * from './components/ecl-dropdowns/ecl-dropdowns';
 export * from './components/ecl-dialogs/dialogs';
 export * from './components/ecl-expandables/expandables';
