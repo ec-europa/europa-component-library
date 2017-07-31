@@ -8,5 +8,5 @@ When users need to select only one option out of a set of mutually exclusive cho
 
 ## Resources
 
--   [Radio Group, WAI-ARIA Authoring Practices 1.1, W3C Working Draft 28 June 2017](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#radiobutton)
--   [Replacing Radio Buttons Without Replacing Radio Buttons, Heydon Pickering, Sitepoint, October 15, 2014](https://www.sitepoint.com/replacing-radio-buttons-without-replacing-radio-buttons/)
+- [Radio Group, WAI-ARIA Authoring Practices 1.1, W3C Working Draft 28 June 2017](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/#radiobutton)
+- [Replacing Radio Buttons Without Replacing Radio Buttons, Heydon Pickering, Sitepoint, October 15, 2014](https://www.sitepoint.com/replacing-radio-buttons-without-replacing-radio-buttons/)

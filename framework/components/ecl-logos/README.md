@@ -17,7 +17,7 @@ Or using Twig:
 } %}
 ```
 
-# EC logotype
+## EC logotype
 
 EC logo with text. Add `logo--logotype` class to use it:
 
@@ -37,7 +37,7 @@ Or using Twig:
 } %}
 ```
 
-# EC logotype with text below the logo
+## EC logotype with text below the logo
 
 EC logo with text below. Add `logo--logotypebelow` class to use it:
 
@@ -57,7 +57,7 @@ Or using Twig:
 } %}
 ```
 
-# External classes
+## External classes
 
 Additionally, you can add external classes with the `extra_class` optional
 parameter.

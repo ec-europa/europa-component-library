@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Profile topbars',
   label: 'Profile topbars',
-  status: 'ready',
+  status: 'wip',
   tags: ['organism'],
   context: {
     _demo: {
