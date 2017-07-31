@@ -8,5 +8,5 @@ The search results are displayed in a separate page.
 
 ## When to use this component
 
--   It is located on the the site header.
--   If a site/section search is required, it can be implemented below the page header.
+- It is located on the the site header.
+- If a site/section search is required, it can be implemented below the page header.
