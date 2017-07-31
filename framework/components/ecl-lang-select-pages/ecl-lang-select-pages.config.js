@@ -40,19 +40,12 @@ module.exports = {
   label: 'Language select (Page)',
   tags: ['molecule'],
   status: 'ready',
-  collated: true,
-  collator(markup, item) {
-    return `
-      <!-- Start: @${item.handle} -->\n
-      <h3 class="ecl-heading ecl-heading--h3">${item.label}\n</h3>\n
-      ${markup}\n
-      <!-- End: @${item.handle} -->\n
-    `;
-  },
   context: {
     _demo: {
       scripts: `document.addEventListener('DOMContentLoaded', function () {
-        ECL.eclLangSelectPages();
+        ECL.eclLangSelectPages({
+          dropdownOnChange: function (event) { alert('language changed to: ' + event.target.value ) }
+        });
       });`,
     },
   },

@@ -17,9 +17,16 @@
   border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
   color: $ecl-color-shade;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   font-size: map-get($ecl-font-size, 'xs');
   margin: 0;
+  min-height: 3rem;
+  overflow: hidden;
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .no-js & {
+    flex-wrap: wrap;
+  }
 }
 
 .ecl-lang-select-page__icon {
@@ -43,13 +50,19 @@
   align-items: stretch;
   align-self: stretch;
   display: flex;
-  flex-grow: 1;
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
   margin: 0;
   padding: 0;
 
   .ecl-lang-select-page--dropdown & {
-    display: none;
+    position: absolute;
+    visibility: hidden;
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .no-js & {
+    flex-grow: 1;
+    flex-wrap: wrap;
   }
 }
 
@@ -76,10 +89,11 @@
   border-radius: 0;
   color: $ecl-color-shade;
   cursor: pointer;
-  display: none;
   font-size: map-get($ecl-font-size, 'xs');
   font-weight: bold;
   padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 's') map-get($ecl-spacing, 's');
+  position: absolute;
+  visibility: hidden;
 
   // Fix for IE 10+.
   &::-ms-expand {
@@ -87,7 +101,8 @@
   }
 
   .ecl-lang-select-page--dropdown & {
-    display: block;
+    position: static;
+    visibility: visible;
   }
 }
 
