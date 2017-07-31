@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.5" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.6" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.5" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.6" type="text/css">
 
 
 <title>Visual regression testing | Europa Component Library</title>
@@ -152,10 +152,10 @@
 <p>In order to get the reference screenshots, you have to run the tests locally. On the first run, if the reference screenshots don’t exist, they will be created. You need to create a Sauce Labs account and then create a new token.</p>
 <h4 id="configure-sauce-labs">Configure Sauce Labs</h4>
 <p>In your <code>.env</code> file, provide the information about your own Sauce Labs account.</p>
-<code><pre><span class="hljs-attr">SAUCE_USERNAME</span>=username
-<span class="hljs-attr">SAUCE_ACCESS_KEY</span>=my-sauce-labs-access-key</pre></code><p>Then, build the style guide with <code>yarn dist</code> and run: <code>yarn test:functional</code>.</p>
+<code class="lang-shell"><pre>SAUCE_USERNAME=username
+SAUCE_ACCESS_KEY=my-sauce-labs-access-key</pre></code><p>Then, build the style guide with <code>yarn dist</code> and run: <code>yarn test:functional</code>.</p>
 <p>Tip: it can take a while to run all the tests, but you can also target your test only:</p>
-<code><pre>yarn <span class="hljs-string">test:</span>functional -- --spec .<span class="hljs-regexp">/framework/</span>components<span class="hljs-regexp">/my-component/</span>test<span class="hljs-regexp">/spec/</span>my-component.js</pre></code><p>If everything went well, you should now have a new folder <code>./framework/components/my-component/test/screenshots/reference/my-component</code> containing the reference screenshots. Add them to your Pull Request.</p>
+<code class="lang-shell"><pre>yarn test:functional -- --spec ./framework/components/my-component/test/spec/my-component.js</pre></code><p>If everything went well, you should now have a new folder <code>./framework/components/my-component/test/screenshots/reference/my-component</code> containing the reference screenshots. Add them to your Pull Request.</p>
 <p>That’s it!</p>
 
     
@@ -188,7 +188,7 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../overview" data-pjax>
                 
-                <span>Overview</span>
+                <span>Components</span>
             </a>
         </li>
         
@@ -198,7 +198,7 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../atomic" data-pjax>
                 
-                <span>Atomic</span>
+                <span>Atomic design patterns</span>
             </a>
         </li>
         
@@ -375,7 +375,7 @@
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.5"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.6"></script>
 
 
 

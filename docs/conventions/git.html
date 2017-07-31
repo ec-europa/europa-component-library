@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.5" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.6" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.5" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.6" type="text/css">
 
 
 <title>Git Commit Guidelines | Europa Component Library</title>
@@ -113,21 +113,18 @@
 
     
     
-    <p><em>This documented was extracted from <a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md">Contributing to AngularJS</a>. Every contributor to the project should be aware of the following rules.</em></p>
-<p>We have very precise rules over how our git commit messages can be formatted.  This leads to <strong>more
-readable messages</strong> that are easy to follow when looking through the <strong>project history</strong>.  But also,
-we use the git commit messages to <strong>generate the theme framework change log</strong>.</p>
+    <h1 id="git-commit">Git Commit</h1>
+<p><em>This documented was extracted from <a href="https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md">Contributing to AngularJS</a>. Every contributor to the project should be aware of the following rules.</em></p>
+<p>We have very precise rules over how our git commit messages can be formatted. This leads to <strong>more readable messages</strong> that are easy to follow when looking through the <strong>project history</strong>. But also, we use the git commit messages to <strong>generate the theme framework change log</strong>.</p>
 <p>The commit message formatting can be added using a typical git workflow or through the use of a CLI wizard (<a href="https://github.com/commitizen/cz-cli">Commitizen</a>). To use the wizard, run <code>npm run commit</code> in your terminal after staging your changes in git.</p>
 <h2 id="commit-message-format">Commit Message Format</h2>
-<p>Each commit message consists of a <strong>header</strong>, a <strong>body</strong> and a <strong>footer</strong>.  The header has a special
-format that includes a <strong>type</strong>, a <strong>scope</strong> and a <strong>subject</strong>:</p>
-<code><pre><span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>(<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>): <span class="hljs-tag">&lt;<span class="hljs-name">subject</span>&gt;</span>
+<p>Each commit message consists of a <strong>header</strong>, a <strong>body</strong> and a <strong>footer</strong>. The header has a special format that includes a <strong>type</strong>, a <strong>scope</strong> and a <strong>subject</strong>:</p>
+<code class="lang-git"><pre><span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>(<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>): <span class="hljs-tag">&lt;<span class="hljs-name">subject</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">BLANK</span> <span class="hljs-attr">LINE</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">BLANK</span> <span class="hljs-attr">LINE</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span></pre></code><p>The <strong>header</strong> is mandatory and the <strong>scope</strong> of the header is optional.</p>
-<p>Any line of the commit message cannot be longer 100 characters! This allows the message to be easier
-to read on GitHub as well as in various git tools.</p>
+<p>Any line of the commit message cannot be longer 100 characters! This allows the message to be easier to read on GitHub as well as in various git tools.</p>
 <h2 id="revert">Revert</h2>
 <p>If the commit reverts a previous commit, it should begin with <code>revert:</code>, followed by the header of the reverted commit. In the body it should say: <code>This reverts commit &lt;hash&gt;.</code>, where the hash is the SHA of the commit being reverted.</p>
 <h2 id="type">Type</h2>
@@ -136,17 +133,14 @@ to read on GitHub as well as in various git tools.</p>
 <li><strong>feat</strong>: A new feature</li>
 <li><strong>fix</strong>: A bug fix</li>
 <li><strong>docs</strong>: Documentation only changes</li>
-<li><strong>style</strong>: Changes that do not affect the meaning of the code (white-space, formatting, missing
-semi-colons, etc)</li>
+<li><strong>style</strong>: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</li>
 <li><strong>refactor</strong>: A code change that neither fixes a bug nor adds a feature</li>
 <li><strong>perf</strong>: A code change that improves performance</li>
 <li><strong>test</strong>: Adding missing tests</li>
-<li><strong>chore</strong>: Changes to the build process or auxiliary tools and libraries such as documentation
-generation</li>
+<li><strong>chore</strong>: Changes to the build process or auxiliary tools and libraries such as documentation generation</li>
 </ul>
 <h2 id="scope">Scope</h2>
-<p>The scope could be anything specifying place of the commit change. For example <code>$location</code>,
-<code>$browser</code>, <code>$compile</code>, <code>$rootScope</code>, <code>ngHref</code>, <code>ngClick</code>, <code>ngView</code>, etc…</p>
+<p>The scope could be anything specifying place of the commit change. For example <code>$location</code>, <code>$browser</code>, <code>$compile</code>, <code>$rootScope</code>, <code>ngHref</code>, <code>ngClick</code>, <code>ngView</code>, etc…</p>
 <h2 id="subject">Subject</h2>
 <p>The subject contains succinct description of the change:</p>
 <ul>
@@ -155,11 +149,9 @@ generation</li>
 <li>no dot (.) at the end</li>
 </ul>
 <h2 id="body">Body</h2>
-<p>Just as in the <strong>subject</strong>, use the imperative, present tense: “change” not “changed” nor “changes”.
-The body should include the motivation for the change and contrast this with previous behavior.</p>
+<p>Just as in the <strong>subject</strong>, use the imperative, present tense: “change” not “changed” nor “changes”. The body should include the motivation for the change and contrast this with previous behavior.</p>
 <h2 id="footer">Footer</h2>
-<p>The footer should contain any information about <strong>Breaking Changes</strong> and is also the place to
-reference GitHub issues that this commit <strong>Closes</strong>.</p>
+<p>The footer should contain any information about <strong>Breaking Changes</strong> and is also the place to reference GitHub issues that this commit <strong>Closes</strong>.</p>
 <p><strong>Breaking Changes</strong> should start with the word <code>BREAKING CHANGE:</code> with a space or two newlines. The rest of the commit message is then used for this.</p>
 
     
@@ -192,7 +184,7 @@ reference GitHub issues that this commit <strong>Closes</strong>.</p>
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../overview" data-pjax>
                 
-                <span>Overview</span>
+                <span>Components</span>
             </a>
         </li>
         
@@ -202,7 +194,7 @@ reference GitHub issues that this commit <strong>Closes</strong>.</p>
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../atomic" data-pjax>
                 
-                <span>Atomic</span>
+                <span>Atomic design patterns</span>
             </a>
         </li>
         
@@ -379,7 +371,7 @@ reference GitHub issues that this commit <strong>Closes</strong>.</p>
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.5"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.6"></script>
 
 
 

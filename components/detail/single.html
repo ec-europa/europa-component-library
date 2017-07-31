@@ -31,9 +31,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.5" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.8.6" type="text/css">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.5" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.8.6" type="text/css">
 
 
 <title>Single | Europa Component Library</title>
@@ -133,46 +133,7 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="sections">Sections</h1>
-<p>SUMMARY (Components, elements, modifiers)</p>
-<p>.section (component)
-  Elements:
-    .section<strong>group
-    Element modifiers:
-      .section</strong>group–biography-top
-      .section<strong>group–highlight-grey
-      .section</strong>group–highlight-grey-lightest
-      .section<strong>group–highlight-yellow
-      .section</strong>group–collapsible
-      .section<strong>group–bottom-header
-      .section</strong>group–no-margin
-      .section<strong>group–full-width
-    .section</strong>item</p>
-<p>  Component modifiers:
-    .section–row-three
-    .section–row-two
-    .section–two-columns</p>
-<h2 id="section-component-">Section component.</h2>
-<p>The section component is used to wrap block of contents.
-Its implementation ensures the correct vertical spacing between different
-groups of contents, it uses the margin collapse mechanism (css2) so that you
-don’t have to worry when you place two sections one after the other, only one
-of the two margins will be applied, indeed.</p>
-<p>It can contain different set of html elements and components, but the
-predefined ones are its unique element {section group}, the {listing wrapper},
-the {sidebar-field-group}.</p>
-<p>The way it works is that the first {section group} in the section doesn’t get
-any margin (the parent is already defining that) while the last doesn’t get the
-margin-bottom (still for the same reason).
-When there’s only one {section group} element it doesn’t get any vertical margin.
-Please do not reset any of these margins.</p>
-<p>Mind that there is also a .section__group–full-width modifier which is not
-demoed here, it works when the section is not wrapped into a width limiting
-container.</p>
-<p>WHAT TO AVOID:
-Do not wrap a section component into a row element, this would break the
-collapsing margin.</p>
-
+                <p class="Browser-isEmptyNote">There are no notes for this item.</p>
                 
               </div>
             </div>
@@ -742,6 +703,140 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
                 <span>Navigations</span>
             </a>
+        </li>
+        
+    
+        
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-node_modules">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Node Modules</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
+            
+            
+            
+            
+    
+        
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-@ec-europa">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Ec Europa</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-4" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-buttons" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Buttons</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Date blocks</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Meta</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -3200,7 +3295,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
 
 
 </div>
@@ -4299,7 +4394,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.5"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.8.6"></script>
 
 
 
