@@ -63,6 +63,7 @@ Tested on:
 | [@ec-europa/ecl-forms-textareas](framework/components/ecl-forms/ecl-forms-textareas) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-textareas.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-forms-textareas) |
 | [@ec-europa/ecl-galleries](framework/components/ecl-galleries) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-galleries.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-galleries) |
 | [@ec-europa/ecl-labels](framework/components/ecl-labels) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-labels.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-labels) |
+| [@ec-europa/ecl-lang-select-pages](framework/components/ecl-lang-select-pages) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-pages.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-pages) |
 | [@ec-europa/ecl-lang-select-sites](framework/components/ecl-lang-select-sites) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-sites.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-lang-select-sites) |
 | [@ec-europa/ecl-link-blocks](framework/components/ecl-link-blocks) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-link-blocks.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-link-blocks) |
 | [@ec-europa/ecl-links](framework/components/ecl-links) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-links.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-links) |
