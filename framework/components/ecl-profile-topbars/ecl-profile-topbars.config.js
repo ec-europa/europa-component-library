@@ -28,7 +28,7 @@ module.exports = {
           ],
         },
         expandable_body: {
-          extraAttributes: [
+          extra_attributes: [
             {
               name: 'aria-hidden',
               value: 'true',
