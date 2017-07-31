@@ -22,7 +22,7 @@ Here's a comprehensive list of possible issues you might encounter at this stage
 
 During `yarn` install process, if you receive a similar message:
 
-```
+```shell
 PhantomJS not found on PATH
 Phantom installation failed TypeError: Path must be a string. Received undefined
 ```
