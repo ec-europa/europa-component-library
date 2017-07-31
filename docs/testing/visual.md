@@ -59,7 +59,7 @@ In order to get the reference screenshots, you have to run the tests locally. On
 
 In your `.env` file, provide the information about your own Sauce Labs account.
 
-```
+```shell
 SAUCE_USERNAME=username
 SAUCE_ACCESS_KEY=my-sauce-labs-access-key
 ```
@@ -68,7 +68,7 @@ Then, build the style guide with `yarn dist` and run: `yarn test:functional`.
 
 Tip: it can take a while to run all the tests, but you can also target your test only:
 
-```
+```shell
 yarn test:functional -- --spec ./framework/components/my-component/test/spec/my-component.js
 ```
 
