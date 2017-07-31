@@ -51,10 +51,8 @@ export const fileUploads = (
   // EVENTS
   function eventValueChange(e) {
     if ('files' in e.target) {
-      const fileUploadElements = queryAll(
-        valueSelector,
-        e.target.fileUploadContainer
-      );
+      const fileUploadElements = queryAll(valueSelector, e.target.parentNode);
+
       fileUploadElements.forEach(fileUploadElement => {
         updateFileName(fileUploadElement, e.target.files);
       });
@@ -65,7 +63,7 @@ export const fileUploads = (
     // collect header targets, and their prev/next
     const isModifierKey = e.metaKey || e.altKey;
 
-    const inputElements = queryAll(inputSelector, e.target.fileUploadContainer);
+    const inputElements = queryAll(inputSelector, e.target.parentNode);
 
     inputElements.forEach(inputElement => {
       // don't catch key events when ⌘ or Alt modifier is present
@@ -87,14 +85,14 @@ export const fileUploads = (
 
   // BIND EVENTS
   function bindFileUploadEvents(fileUploadContainer) {
-    const fileUploadInputs = queryAll(inputSelector, fileUploadContainer);
     // bind all file upload change events
+    const fileUploadInputs = queryAll(inputSelector, fileUploadContainer);
     fileUploadInputs.forEach(fileUploadInput => {
       fileUploadInput.addEventListener('change', eventValueChange);
     });
 
-    const fileUploadBrowses = queryAll(browseSelector, fileUploadContainer);
     // bind all file upload keydown events
+    const fileUploadBrowses = queryAll(browseSelector, fileUploadContainer);
     fileUploadBrowses.forEach(fileUploadBrowse => {
       fileUploadBrowse.addEventListener('keydown', eventBrowseKeydown);
     });
