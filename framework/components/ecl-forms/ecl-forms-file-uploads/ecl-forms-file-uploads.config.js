@@ -31,7 +31,7 @@ module.exports = {
       context: {
         id: 'example-input-id-2',
         name: 'example-input-name-2',
-        isDisabled: true,
+        is_disabled: true,
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
             ECL.fileUploads();
@@ -45,7 +45,7 @@ module.exports = {
       context: {
         id: 'example-input-id-3',
         name: 'example-input-name-3',
-        isMultiple: true,
+        is_multiple: true,
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
             ECL.fileUploads();
@@ -59,7 +59,7 @@ module.exports = {
       context: {
         id: 'example-input-id-4',
         name: 'example-input-name-4',
-        hasError: true,
+        has_error: true,
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
             ECL.fileUploads();
