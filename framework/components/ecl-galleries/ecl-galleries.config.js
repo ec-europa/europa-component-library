@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'ECL Galleries',
-  label: 'ECL Galleries',
+  title: 'Galleries',
+  label: 'Galleries',
   status: 'ready',
 };

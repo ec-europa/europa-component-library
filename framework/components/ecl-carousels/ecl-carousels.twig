@@ -1,0 +1,59 @@
+{#
+
+Usage:
+
+  - css_classes: (string)
+    Possible set of classes in addition to `ecl-carousel` wrapper.
+
+  - extra_attributes: (iterable)
+    Conventional map of possible extra attributes for the wrapper.
+
+  - heading_attributes: (iterable)
+    Conventional map of possible extra attributes for the header.
+
+  - heading_title: (string)
+    Optional title of the heading. If skipped, heading will not be shown.
+
+  - carousel_images (iterable)
+    A list of `@ec-europa/ecl-images` components.
+
+#}
+
+
+{# Internal properties #}
+
+{% set _css_classes = 'ecl-carousel' %}
+{% set _extra_attributes = '' %}
+{% set _heading_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if css_classes is defined %}
+  {% set _css_classes = _css_classes ~ ' ' ~ css_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% if heading_attributes is defined %}
+  {% for heading_attr in heading_attributes %}
+    {% set _heading_attributes = _heading_attributes ~ ' ' ~ heading_attr.name ~ '="' ~ heading_attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+<section class="{{ _css_classes }}" {{ _extra_attributes }}>
+  {% if heading_title %}
+  <h3 {{ _heading_attributes }} >{{ heading_title }}</h3>
+  {% endif %}
+  <ul class="ecl-list--unstyled">
+    {% for carousel_image in carousel_images %}
+    <li class="ecl-carousel__item">
+      {% include '@ec-europa/ecl-images' with carousel_image %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
