@@ -17,14 +17,17 @@ The breadcrumb - included on every page except the homepage itself - provides th
 - the separating characters and the spaces between the links and the labels are not linked
 
 ### Improved sites
+
 For the breadcrumb, DGs are asked to include the term 'European Commission', followed by the class, followed by the optional architecture levels, followed by the name of the site.
 
-__Example__: European Commission  >  Strategy  >  Digital single Market
+**Example**: European Commission > Strategy > Digital single Market
 
 ### When to use this component
+
 - breadcrumbs are required and should appear in the page header on every page of the site (except on the homepage of European Commission's political and information sites)
 
 ### Do not use this component
+
 - if there is no second level to show
 
 ### Accessibility
