@@ -17,5 +17,5 @@ These includes errors, warnings, and general updates. For each kind of warning w
 
 ## When not to use this component
 
-* to include notifications that aren't related to the user's current goal
-* but don't overdo it — too many notifications will either overwhelm or annoy the user and are likely to be ignored
+- to include notifications that aren't related to the user's current goal
+- but don't overdo it — too many notifications will either overwhelm or annoy the user and are likely to be ignored
