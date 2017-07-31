@@ -12,6 +12,7 @@ export const fileUploads = (
     selector: selector = '.ecl-file-upload',
     inputSelector: inputSelector = '.ecl-file-upload__input',
     valueSelector: valueSelector = '.ecl-file-upload__value',
+    browseSelector: browseSelector = '.ecl-file-upload__browse',
   } = {}
 ) => {
   // SUPPORTS
@@ -50,23 +51,50 @@ export const fileUploads = (
   // EVENTS
   function eventValueChange(e) {
     if ('files' in e.target) {
-      const fileUploadElements = queryAll(
-        valueSelector,
-        e.target.fileUploadContainer
-      );
+      const fileUploadElements = queryAll(valueSelector, e.target.parentNode);
+
       fileUploadElements.forEach(fileUploadElement => {
         updateFileName(fileUploadElement, e.target.files);
       });
     }
   }
 
+  function eventBrowseKeydown(e) {
+    // collect header targets, and their prev/next
+    const isModifierKey = e.metaKey || e.altKey;
+
+    const inputElements = queryAll(inputSelector, e.target.parentNode);
+
+    inputElements.forEach(inputElement => {
+      // don't catch key events when ⌘ or Alt modifier is present
+      if (isModifierKey) return;
+
+      // catch enter/space, left/right and up/down arrow key events
+      // if new panel show it, if next/prev move focus
+      switch (e.keyCode) {
+        case 13:
+        case 32:
+          e.preventDefault();
+          inputElement.click();
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
   // BIND EVENTS
   function bindFileUploadEvents(fileUploadContainer) {
-    const fileUploadInputs = queryAll(inputSelector, fileUploadContainer);
     // bind all file upload change events
+    const fileUploadInputs = queryAll(inputSelector, fileUploadContainer);
     fileUploadInputs.forEach(fileUploadInput => {
-      const input = fileUploadInput;
-      input.addEventListener('change', eventValueChange);
+      fileUploadInput.addEventListener('change', eventValueChange);
+    });
+
+    // bind all file upload keydown events
+    const fileUploadBrowses = queryAll(browseSelector, fileUploadContainer);
+    fileUploadBrowses.forEach(fileUploadBrowse => {
+      fileUploadBrowse.addEventListener('keydown', eventBrowseKeydown);
     });
   }
 
@@ -76,6 +104,12 @@ export const fileUploads = (
     // unbind all file upload change events
     fileUploadInputs.forEach(fileUploadInput => {
       fileUploadInput.removeEventListener('change', eventValueChange);
+    });
+
+    const fileUploadBrowses = queryAll(browseSelector, fileUploadContainer);
+    // bind all file upload keydown events
+    fileUploadBrowses.forEach(fileUploadBrowse => {
+      fileUploadBrowse.removeEventListener('keydown', eventBrowseKeydown);
     });
   }
 
