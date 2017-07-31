@@ -4,8 +4,7 @@ module.exports = {
   status: 'ready',
   tags: ['molecule'],
   context: {
-    currentPage: 7,
-    maxPage: 20,
-    fragmentUrl: '/page',
+    current_page: 7,
+    max_page: 20,
   },
 };
