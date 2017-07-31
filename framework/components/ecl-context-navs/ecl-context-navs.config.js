@@ -1,49 +1,42 @@
 module.exports = {
   title: 'Contextual navigations',
   label: 'Contextual navigations',
-  status: 'planned',
-  tags: ['molecule'],
+  status: 'ready',
+  tags: ['atom'],
   context: {
     _demo: {
-      scripts: 'ECL.contextualNav();',
+      scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.contextualNavs(); });`,
     },
     label: 'Label for contextual nav',
     items: [
       {
-        target: '#',
-        title: 'Item one',
+        href: '#',
+        label: 'Item one',
       },
       {
-        target: '#',
-        title: 'Item two',
+        href: '#',
+        label: 'Item two',
       },
       {
-        target: '#',
-        title: 'Item three',
+        href: '#',
+        label: 'Item three',
       },
       {
-        target: '#',
-        title: 'Item four',
+        href: '#',
+        label: 'Item four',
+      },
+      {
+        href: '#',
+        label: 'Item five',
+      },
+      {
+        href: '#',
+        label: 'Item six',
+      },
+      {
+        href: '#',
+        label: 'Item seven',
       },
     ],
-    items_hidden: [
-      {
-        target: '#',
-        title: 'Item five',
-      },
-      {
-        target: '#',
-        title: 'Item six',
-      },
-      {
-        target: '#',
-        title: 'Item seven',
-      },
-      {
-        target: '#',
-        title: 'Item eight',
-      },
-    ],
-    button_more: 'More',
   },
 };
