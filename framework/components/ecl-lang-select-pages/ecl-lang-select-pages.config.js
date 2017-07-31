@@ -49,6 +49,13 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
+  context: {
+    _demo: {
+      scripts: `document.addEventListener('DOMContentLoaded', function () {
+        ECL.eclLangSelectPages();
+      });`,
+    },
+  },
   variants: [
     {
       name: 'default',
