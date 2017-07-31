@@ -347,13 +347,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
+                <option value="file-290db8e9556849f6c09b4967abf2bbea">_mixins.scss</option>
+                
                 <option value="file-78f73663e8376f2e89657ddf3536c676">_selects.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-78f73663e8376f2e89657ddf3536c676" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-290db8e9556849f6c09b4967abf2bbea" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -361,11 +363,7 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/**
- * Select
- * @define select
- */</span>
-
+                                <pre><span class="hljs-comment">// Variables</span>
 <span class="hljs-variable">$ecl-select-icon-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
 <span class="hljs-variable">$ecl-select-background-width</span>: <span class="hljs-variable">$ecl-select-icon-size</span> + <span class="hljs-number">2</span> * map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
 
@@ -383,6 +381,41 @@
   <span class="hljs-attribute">background-repeat</span>: no-repeat;
   <span class="hljs-attribute">background-size</span>: <span class="hljs-variable">$ecl-select-icon-size</span> auto, <span class="hljs-variable">$ecl-select-background-width</span> <span class="hljs-number">100%</span>;
 }
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-forms-selects/_mixins.scss"><span>/components/raw/ecl-forms-selects/_mixins.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-forms/ecl-forms-selects/_mixins.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">758 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-78f73663e8376f2e89657ddf3536c676" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">/**
+ * Select
+ * @define select
+ */</span>
+
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'mixins'</span>;
 
 <span class="hljs-selector-class">.ecl-select</span> {
   appearance: none;
@@ -456,7 +489,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.2 KB</span>
+                    <span class="Meta-value">1.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -2842,7 +2875,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2869,7 +2902,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2885,7 +2918,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-lang-select-pages--dropdown" data-pjax>
+            <a class="Tree-entityLink" href="ecl-lang-select-pages--primary" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2893,7 +2926,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2901,7 +2934,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Dropdown</span>
+                <span>Primary</span>
             </a>
         </li>
         

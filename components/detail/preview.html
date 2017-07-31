@@ -212,12 +212,13 @@
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> bodyClass = 'no-svg' %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-js"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ '/framework/styles/europa.css' | path }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Preview Layout<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in">document</span>.documentElement.classList.remove(<span class="hljs-string">'no-js'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">body</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _target.context and _target.context.global and _target.context.global.language %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">class</span>=<span class="hljs-string">"language-</span></span></span><span class="hljs-template-variable">{{ _target.context.global.language }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
     </span><span class="hljs-template-variable">{{ yield }}</span><span class="xml">
@@ -247,13 +248,16 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-js"</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../framework/styles/europa.css"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Preview Layout<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-built_in">document</span>.documentElement.classList.remove(<span class="hljs-string">'no-js'</span>);
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
@@ -2637,7 +2641,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2664,7 +2668,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2680,7 +2684,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-lang-select-pages--dropdown" data-pjax>
+            <a class="Tree-entityLink" href="ecl-lang-select-pages--primary" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2688,7 +2692,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2696,7 +2700,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Dropdown</span>
+                <span>Primary</span>
             </a>
         </li>
         

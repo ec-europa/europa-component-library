@@ -119,7 +119,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -133,10 +133,19 @@
             <div class="Document-content">
               <div class="Prose">
                 
-                <h1 id="language-select-page-">Language select (Page)</h1>
-<p>Language selector for a page content.</p>
-<h2 id="language-select-dropdown-">Language select (Dropdown)</h2>
-<p>Demonstrates the language switcher for mobile and small viewports.</p>
+                <h1 id="language-selector-page-level">Language selector | Page level</h1>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>The language selector offers the alternative language versions of the page’s main content.</p>
+<p>The current language is indicated and the user can easily select a different language. It appears below the breadcrumb and above the page header.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<ul>
+<li>on every page for which the user’s preferred language is not available</li>
+</ul>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
+<ul>
+<li>if the site is only in one language, the language selector must not be implemented at the page level</li>
+<li>if the site is translated, implementation of the corporate language selector is optional (in case of technical complexity)</li>
+</ul>
 
                 
               </div>
@@ -213,26 +222,58 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ec778408a520ce8bb1153945430286fd-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page lang-select-page--transparent"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__icon icon icon--generic-lang"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__list"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option lang-select-page__unavailable"</span>&gt;</span>français<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option is-selected"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/en"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/nl"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"nl"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"nl"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hr"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/it"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/lv"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hu"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__list"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">selected</span>=<span class="hljs-string">"selected"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/nl"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"nl"</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Accepts:
+    - "unavailable" (string): unavailable language
+    - "current" (string): current language
+    - "theme" (string): empty or "primary"
+    - "dropdown_label" (string): if a the component is a dropdown, this option will set the aria-label
+    - "options" (array): array of objects
+      - "href" (string)
+      - "hreflang" (string)
+      - "label" (string)
+      - "lang" (string)
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-lang-select-page' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _unavailable = unavailable|<span class="hljs-keyword">default</span>('English') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dropdown_label = dropdown_label|<span class="hljs-keyword">default</span>('Choose your language') %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> theme is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-lang-select-page--' ~ theme %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__unavailable"</span>&gt;</span></span><span class="hljs-template-variable">{{ _unavailable }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dropdown_label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">selected</span>&gt;</span></span><span class="hljs-template-variable">{{ current }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> opt in options %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ opt.lang }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ opt.lang }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ opt.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__list"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option ecl-lang-select-page__option--is-selected"</span>&gt;</span></span><span class="hljs-template-variable">{{ current }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> opt in options %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ opt.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ opt.hreflang }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ opt.lang }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-lang-select-page__link"</span>&gt;</span></span><span class="hljs-template-variable">{{ opt.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -241,7 +282,11 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"_demo"</span>: {
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n        ECL.eclLangSelectPages({\n          dropdownOnChange: function (event) { alert('language changed to: ' + event.target.value ) }\n        });\n      });"</span>
+  }
+}</pre>
             
         
     </code>
@@ -252,26 +297,26 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-ec778408a520ce8bb1153945430286fd-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page lang-select-page--transparent"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__icon icon icon--generic-lang"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__list"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option lang-select-page__unavailable"</span>&gt;</span>français<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option is-selected"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/en"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/nl"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"nl"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"nl"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hr"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/it"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/lv"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hu"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__unavailable"</span>&gt;</span>français<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Choose your language"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">selected</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__list"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option ecl-lang-select-page__option--is-selected"</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/en"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-lang-select-page__link"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hr"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-lang-select-page__link"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/it"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-lang-select-page__link"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/lv"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-lang-select-page__link"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hu"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-lang-select-page__link"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lang-select-page__list"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">selected</span>=<span class="hljs-string">"selected"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/nl"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"nl"</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -289,6 +334,8 @@
                 
                 <option value="file-73ddc1272de1b4122e27061cfaf8d41e">_lang-select-pages.scss</option>
                 
+                <option value="file-ef2cea49fcc288021e94318fc58c7b62">lang-select-pages.js</option>
+                
             </select>
         </div>
 
@@ -302,145 +349,139 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/*
-Language select (Page)
-*/</span>
+ * Language selector (page level)
+ * @define lang-select-page
+ *
+ * Note: `.ecl-lang-select-page--dropdown` is automatically added/removed (JS)
+ */</span>
 
-<span class="hljs-selector-class">.lang-select-page</span> {
+<span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> SWITCH ecl-lang-select-page--dropdown with JS</span>
+
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@ec-europa/ecl-forms-selects/mixins'</span>;
+
+<span class="hljs-selector-class">.ecl-lang-select-page</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
+  <span class="hljs-attribute">align-items</span>: center;
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
   <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-wrap</span>: nowrap;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">3rem</span>;
+  <span class="hljs-attribute">overflow</span>: hidden;
+
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+  <span class="hljs-selector-class">.no-js</span> &amp; {
+    <span class="hljs-attribute">flex-wrap</span>: wrap;
+  }
 }
 
-<span class="hljs-selector-class">.ecl-icon</span><span class="hljs-selector-class">.lang-select-page__icon</span> {
+<span class="hljs-selector-class">.ecl-lang-select-page__icon</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
-  <span class="hljs-attribute">float</span>: left;
+  <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xl'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-lang-select-page__unavailable</span> {
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">text-decoration</span>: line-through;
+
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
+    <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
+  }
+}
+
+<span class="hljs-selector-class">.ecl-lang-select-page__list</span> {
+  <span class="hljs-attribute">align-items</span>: stretch;
+  <span class="hljs-attribute">align-self</span>: stretch;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-wrap</span>: no-wrap;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>;
 
-  &amp;::before {
-    <span class="hljs-attribute">float</span>: left;
-    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">30%</span>;
+  <span class="hljs-selector-class">.ecl-lang-select-page--dropdown</span> &amp; {
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">visibility</span>: hidden;
+  }
+
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+  <span class="hljs-selector-class">.no-js</span> &amp; {
+    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
+    <span class="hljs-attribute">flex-wrap</span>: wrap;
   }
 }
 
-<span class="hljs-selector-class">.lang-select-page__unavailable</span> {
-  <span class="hljs-attribute">text-decoration</span>: line-through;
+<span class="hljs-selector-class">.ecl-lang-select-page__option</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">list-style</span>: none;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
 }
 
-<span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.lang-select-page__list</span> {
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-
-  <span class="hljs-selector-class">.lang-select-page__option</span> {
-    <span class="hljs-attribute">list-style</span>: none;
-    <span class="hljs-attribute">float</span>: left;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.85em</span>;
-
-    <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">display</span>: block;
-    }
-
-    &amp;<span class="hljs-selector-class">.is-selected</span> {
-      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
-      <span class="hljs-attribute">font-weight</span>: bold;
-      <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-    }
-  }
-}
-
-<span class="hljs-selector-tag">select</span><span class="hljs-selector-class">.lang-select-page__list</span> {
-  @<span class="hljs-keyword">include</span> ecl-hidden-print();
-
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">10em</span>;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">3.4em</span>;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">1.2em</span>;
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">3.4em</span>;
-  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">"../images/png/arrow-thick-down.png"</span>) no-repeat <span class="hljs-number">8em</span> center;
+<span class="hljs-selector-class">.ecl-lang-select-page__option--is-selected</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
   <span class="hljs-attribute">font-weight</span>: bold;
+}
+
+<span class="hljs-selector-class">.ecl-lang-select-page__dropdown</span> {
+  @<span class="hljs-keyword">include</span> ecl-hidden-print();
+  @<span class="hljs-keyword">include</span> ecl-select-list-arrow(<span class="hljs-variable">$background-color</span>: transparent, <span class="hljs-variable">$arrow-grey</span>: true);
+
+  <span class="hljs-attribute">align-self</span>: stretch;
+  appearance: none;
   <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
   <span class="hljs-attribute">cursor</span>: pointer;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">font-weight</span>: bold;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">visibility</span>: hidden;
 
-  &amp;:hover {
-    <span class="hljs-comment">// select component is using a font icon with too much specificity that has to be overridden.</span>
-    <span class="hljs-attribute">background-size</span>: unset <span class="hljs-meta">!important</span>;
+  <span class="hljs-comment">// Fix for IE 10+.</span>
+  &amp;::-ms-expand {
+    display: none;
+  }
+
+  <span class="hljs-selector-class">.ecl-lang-select-page--dropdown</span> &amp; {
+    <span class="hljs-attribute">position</span>: static;
+    <span class="hljs-attribute">visibility</span>: visible;
   }
 }
 
-<span class="hljs-selector-class">.lang-select-page--transparent</span> {
-  <span class="hljs-attribute">background</span>: transparent;
+<span class="hljs-comment">// Useful in Firefox</span>
+<span class="hljs-selector-class">.ecl-lang-select-page__dropdown-option</span> {
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+}
+
+<span class="hljs-comment">/* Variant */</span>
+
+<span class="hljs-selector-class">.ecl-lang-select-page--primary</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#fff</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 
-  <span class="hljs-selector-tag">select</span><span class="hljs-selector-class">.lang-select-page__list</span> {
+  <span class="hljs-selector-class">.ecl-lang-select-page__link</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-lang-select-page__option--is-selected</span>,
+  <span class="hljs-selector-class">.ecl-lang-select-page__option--is-selected</span> <span class="hljs-selector-class">.ecl-lang-select-page__link</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-lang-select-page__dropdown</span> {
+    @<span class="hljs-keyword">include</span> ecl-select-list-arrow(<span class="hljs-variable">$background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-110'</span>), <span class="hljs-variable">$arrow-grey</span>: false);
+
     <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-110'</span>);
     <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    <span class="hljs-comment">// firefox hide arrow</span>
-    -moz-appearance: none;
-    <span class="hljs-attribute">text-indent</span>: <span class="hljs-number">0.01px</span>;
-    <span class="hljs-attribute">text-overflow</span>: <span class="hljs-string">''</span>;
-
-    &amp;:hover,
-    &amp;:active {
-      <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
-    }
-
-    &amp; &gt; <span class="hljs-selector-tag">option</span> {
-      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-110'</span>);
-    }
-
-    &amp;::after {
-      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-      @<span class="hljs-keyword">extend</span> %ecl-icon--arrow-down;
-    }
-  }
-
-  @-moz-document url-prefix() {
-    <span class="hljs-selector-tag">select</span><span class="hljs-selector-class">.lang-select-page__list</span> {
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">3.4em</span>;
-    }
-  }
-
-  <span class="hljs-selector-class">.lang-select-page__option</span> {
-    &amp;<span class="hljs-selector-class">.is-selected</span>,
-    &amp;<span class="hljs-selector-class">.is-selected</span> <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
-    }
-
-    <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    }
-  }
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
-  <span class="hljs-selector-class">.lang-select-page__option</span> {
-    <span class="hljs-attribute">display</span>: inline-block;
-  }
-
-  <span class="hljs-selector-class">.lang-select-page__unavailable</span> {
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">3em</span>;
-  }
-}
-
-<span class="hljs-comment">// Drupal specifics</span>
-
-<span class="hljs-comment">// Dynamic header image now being DS.</span>
-<span class="hljs-selector-class">.region-content</span> <span class="hljs-selector-class">.page-header</span> <span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.lang-select-page__list</span> {
-  <span class="hljs-attribute">max-width</span>: inherit;
-}
-
-<span class="hljs-comment">// Front page should never have secondary language switcher.</span>
-<span class="hljs-selector-class">.lang-select-page</span> {
-  <span class="hljs-selector-class">.front</span> &amp; {
-    <span class="hljs-attribute">display</span>: none;
   }
 }
 </pre>
@@ -459,7 +500,107 @@ Language select (Page)
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.6 KB</span>
+                    <span class="Meta-value">3.1 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-ef2cea49fcc288021e94318fc58c7b62" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-JavaScript FileBrowser-code">
+                                <pre><span class="hljs-keyword">import</span> debounce <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash.debounce'</span>;
+<span class="hljs-keyword">import</span> { queryAll } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ec-europa/ecl-base/helpers/dom'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> eclLangSelectPages = (
+  {
+    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-lang-select-page'</span>,
+    <span class="hljs-attr">toggleClass</span>: toggleClass = <span class="hljs-string">'ecl-lang-select-page--dropdown'</span>,
+    <span class="hljs-attr">listSelector</span>: listSelector = <span class="hljs-string">'.ecl-lang-select-page__list'</span>,
+    <span class="hljs-attr">dropdownSelector</span>: dropdownSelector = <span class="hljs-string">'.ecl-lang-select-page__dropdown'</span>,
+    <span class="hljs-attr">dropdownOnChange</span>: dropdownOnChange = <span class="hljs-literal">undefined</span>,
+  } = {}
+) =&gt; {
+  <span class="hljs-comment">// SUPPORTS</span>
+  <span class="hljs-keyword">if</span> (
+    !(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) ||
+    !(<span class="hljs-string">'addEventListener'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">window</span>) ||
+    !<span class="hljs-built_in">document</span>.documentElement.classList
+  )
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+
+  <span class="hljs-keyword">const</span> langSelectPagesContainers = queryAll(selector);
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toggle</span>(<span class="hljs-params">lsp</span>) </span>{
+    <span class="hljs-keyword">if</span> (!lsp) <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+
+    <span class="hljs-keyword">const</span> list = queryAll(listSelector, lsp)[<span class="hljs-number">0</span>];
+
+    <span class="hljs-keyword">if</span> (!lsp.classList.contains(toggleClass)) {
+      <span class="hljs-keyword">if</span> (list &amp;&amp; list.offsetLeft + list.offsetWidth &gt; lsp.offsetWidth) {
+        lsp.classList.add(toggleClass);
+      }
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">const</span> dropdown = queryAll(dropdownSelector, lsp)[<span class="hljs-number">0</span>];
+      <span class="hljs-keyword">if</span> (dropdown.offsetLeft + list.offsetWidth &lt; lsp.offsetWidth) {
+        lsp.classList.remove(toggleClass);
+      }
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// On load</span>
+    langSelectPagesContainers.forEach(<span class="hljs-function"><span class="hljs-params">lsp</span> =&gt;</span> {
+      toggle(lsp);
+
+      <span class="hljs-keyword">if</span> (dropdownOnChange) {
+        <span class="hljs-keyword">const</span> dropdown = queryAll(dropdownSelector, lsp)[<span class="hljs-number">0</span>];
+
+        <span class="hljs-keyword">if</span> (dropdown) {
+          dropdown.addEventListener(<span class="hljs-string">'change'</span>, dropdownOnChange);
+        }
+      }
+    });
+
+    <span class="hljs-built_in">window</span>.addEventListener(
+      <span class="hljs-string">'resize'</span>,
+      debounce(
+        <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+          langSelectPagesContainers.forEach(toggle);
+        },
+        <span class="hljs-number">100</span>,
+        { <span class="hljs-attr">maxWait</span>: <span class="hljs-number">300</span> }
+      )
+    );
+  }
+
+  <span class="hljs-keyword">return</span> init();
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> eclLangSelectPages;
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-lang-select-pages/lang-select-pages.js"><span>/components/raw/ecl-lang-select-pages/lang-select-pages.js</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-lang-select-pages/lang-select-pages.js</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">1.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -500,8 +641,8 @@ Language select (Page)
                     <span>Default</span>
                 </a>, 
             
-                <a href="ecl-lang-select-pages--dropdown">
-                    <span>Dropdown</span>
+                <a href="ecl-lang-select-pages--primary">
+                    <span>Primary</span>
                 </a>
             
             </span>
@@ -2860,7 +3001,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2887,7 +3028,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2903,7 +3044,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-lang-select-pages--dropdown" data-pjax>
+            <a class="Tree-entityLink" href="ecl-lang-select-pages--primary" data-pjax>
                 
 
 <div class="Status Status--unlabelled">
@@ -2911,7 +3052,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -2919,7 +3060,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Dropdown</span>
+                <span>Primary</span>
             </a>
         </li>
         
