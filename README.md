@@ -70,6 +70,7 @@ Tested on:
 | [@ec-europa/ecl-links](framework/components/ecl-links) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-links.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-links) |
 | [@ec-europa/ecl-logos](framework/components/ecl-logos) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-logos.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-logos) |
 | [@ec-europa/ecl-meta](framework/components/ecl-meta) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-meta.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-meta) |
+| [@ec-europa/ecl-messages](framework/components/ecl-messages) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-messages.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-messages) |
 | [@ec-europa/ecl-navigation-inpages](framework/components/ecl-navigation/ecl-navigation-inpages) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-navigation-inpages.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-navigation-inpages) |
 | [@ec-europa/ecl-navigation-lists](framework/components/ecl-navigation/ecl-navigation-lists) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-navigation-lists.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-navigation-lists) |
 | [@ec-europa/ecl-navigation-menus](framework/components/ecl-navigation/ecl-navigation-menus) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-navigation-menus.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-navigation-menus) |
