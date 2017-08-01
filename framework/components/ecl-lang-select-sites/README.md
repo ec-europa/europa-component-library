@@ -1,8 +1,8 @@
-# Language select (Site)
+# Language selector | Site level
 
 ## Why and how to use this component
 
-The language selector allows users to switch from one language to another one.
+The language selector allows users to switch from one language to another.
 
 By clicking on the language selector, a list of available languages is displayed. The user can then select the language of their choice (splash page).
 

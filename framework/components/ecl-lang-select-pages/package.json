@@ -1,14 +1,28 @@
 {
-  "private": true,
   "name": "@ec-europa/ecl-lang-select-pages",
-  "version": "0.4.0",
-  "description": "",
-  "main": "_lang-select-pages.scss",
-  "style": "_lang-select-pages.scss",
   "author": "European Commission",
   "license": "EUPL-1.1",
+  "version": "0.4.0",
+  "description": "ECL Language selector (page level)",
+  "main": "_lang-select-pages.scss",
+  "module": "lang-select-pages.js",
+  "style": "_lang-select-pages.scss",
   "dependencies": {
     "@ec-europa/ecl-base": "^0.7.0",
-    "@ec-europa/ecl-icons": "^0.7.0"
-  }
+    "@ec-europa/ecl-forms-selects": "^0.8.0",
+    "@ec-europa/ecl-icons": "^0.7.0",
+    "@ec-europa/ecl-links": "^0.7.0",
+    "lodash.debounce": "4.0.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library#readme"
 }
