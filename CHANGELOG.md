@@ -1,5 +1,52 @@
 # Changelog
 
+## 0.12.0 (2017-08-01)
+
+### :rocket: New Feature
+
+- [#337](https://github.com/ec-europa/europa-component-library/pull/337) refactor(context-nav): upgrade component - INNO-732. ([@emeryro](https://github.com/emeryro))
+- [#322](https://github.com/ec-europa/europa-component-library/pull/322) feat(lang-select-pages): upgrade component - INNO-672. ([@yhuard](https://github.com/yhuard))
+- [#323](https://github.com/ec-europa/europa-component-library/pull/323) feat(timelines): upgrade timelines - INNO-702. ([@yhuard](https://github.com/yhuard))
+- [#321](https://github.com/ec-europa/europa-component-library/pull/321) feat(splash-page): provide splash page template - INNO-601. ([@yhuard](https://github.com/yhuard))
+- [#320](https://github.com/ec-europa/europa-component-library/pull/320) feat(comments): upgrade comments component - INNO-706. ([@yhuard](https://github.com/yhuard))
+
+### :boom: Breaking Change
+
+- [#328](https://github.com/ec-europa/europa-component-library/pull/328) feat(file-upload): improve accessibility - INNO-675. ([@emeryro](https://github.com/emeryro))
+- [#329](https://github.com/ec-europa/europa-component-library/pull/329) feat(pager): improve accessibility - INNO-605. ([@emeryro](https://github.com/emeryro))
+
+### :bug: Bug Fix
+
+- [#338](https://github.com/ec-europa/europa-component-library/pull/338) fix(filters): fix pager display - INNO-734. ([@emeryro](https://github.com/emeryro))
+
+### :nail_care: Enhancement
+
+- [#337](https://github.com/ec-europa/europa-component-library/pull/337) refactor(context-nav): upgrade component - INNO-732. ([@emeryro](https://github.com/emeryro))
+- [#328](https://github.com/ec-europa/europa-component-library/pull/328) feat(file-upload): improve accessibility - INNO-675. ([@emeryro](https://github.com/emeryro))
+- [#329](https://github.com/ec-europa/europa-component-library/pull/329) feat(pager): improve accessibility - INNO-605. ([@emeryro](https://github.com/emeryro))
+- [#327](https://github.com/ec-europa/europa-component-library/pull/327) refactor(index): remove planned components - INNO-730. ([@yhuard](https://github.com/yhuard))
+- [#326](https://github.com/ec-europa/europa-component-library/pull/326) feat(file-uploads): allow multiple uploads --INNO-718. ([@emeryro](https://github.com/emeryro))
+- [#324](https://github.com/ec-europa/europa-component-library/pull/324) refactor(labels): upgrade component - INNO-688. ([@emeryro](https://github.com/emeryro))
+
+### :memo: Documentation
+
+- [#315](https://github.com/ec-europa/europa-component-library/pull/315) docs(markdown): add a few lines about markdown - no issue. ([@yhuard](https://github.com/yhuard))
+
+### :house: Internal
+
+- [#340](https://github.com/ec-europa/europa-component-library/pull/340) chore(debt): remove unused components - no issue. ([@yhuard](https://github.com/yhuard))
+- [#336](https://github.com/ec-europa/europa-component-library/pull/336) chore(module): use package.json "module" entry - no issue. ([@yhuard](https://github.com/yhuard))
+- [#335](https://github.com/ec-europa/europa-component-library/pull/335) chore(package): update all dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#331](https://github.com/ec-europa/europa-component-library/pull/331) chore(convention): fix all Markdown - no issue. ([@yhuard](https://github.com/yhuard))
+- [#318](https://github.com/ec-europa/europa-component-library/pull/318) chore(package): update all dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#311](https://github.com/ec-europa/europa-component-library/pull/311) chore(package): update @ec-europa/ecl-fractal-theme to version 0.8.3 - noissue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 3
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [emeryro](https://github.com/emeryro)
+- [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.11.0 (2017-07-21)
 
 ### :rocket: New Feature
