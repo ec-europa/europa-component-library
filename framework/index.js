@@ -15,6 +15,7 @@ export * from './components/ecl-dialogs/dialogs';
 export * from './components/ecl-expandables/expandables';
 // export * from './components/ecl-files/files';
 export * from './components/ecl-forms/ecl-forms-file-uploads/ecl-forms-file-uploads';
+export * from './components/ecl-lang-select-pages';
 export * from './components/ecl-messages/messages';
 export * from './components/ecl-navigation/ecl-navigation-inpages/ecl-navigation-inpages';
 export * from './components/ecl-navigation/ecl-navigation-menus/megamenu';
