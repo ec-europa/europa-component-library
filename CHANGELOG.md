@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.12.1 (2017-08-01)
+
+### :house: Internal
+
+- [#341](https://github.com/ec-europa/europa-component-library/pull/341) chore(package): fix wrong name and version - no issue. ([@yhuard](https://github.com/yhuard))
+
+### Committers: 1
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 0.12.0 (2017-08-01)
 
 ### :rocket: New Feature
