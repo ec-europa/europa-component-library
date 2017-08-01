@@ -81,6 +81,7 @@ Tested on:
 | [@ec-europa/ecl-search-forms](framework/components/ecl-search-forms) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-search-forms.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-search-forms) |
 | [@ec-europa/ecl-site-headers](framework/components/ecl-site-headers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-site-headers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-site-headers) |
 | [@ec-europa/ecl-site-switchers](framework/components/ecl-site-switchers) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-site-switchers.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-site-switchers) |
+| [@ec-europa/ecl-skip-links](framework/components/ecl-skip-links) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-skip-links.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-skip-links) |
 | [@ec-europa/ecl-social-icons](framework/components/ecl-social-icons) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-social-icons.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-social-icons) |
 | [@ec-europa/ecl-tables](framework/components/ecl-tables) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-tables.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-tables) |
 | [@ec-europa/ecl-tabs](framework/components/ecl-tabs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-tabs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-tabs) |
