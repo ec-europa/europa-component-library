@@ -4,9 +4,37 @@
  */
 
 .ecl-carousel {
+  background-color: #000;
+  display: flex;
   margin: 0;
 }
 
 .ecl-carousel__list {
+  flex-grow: 1;
   margin: 0;
+  position: relative;
+}
+
+.ecl-carousel__item {
+  display: flex;
+  justify-content: center;
+}
+
+.ecl-carousel__btn {
+  position: absolute;
+  top: 0;
+}
+
+.ecl-carousel__btn--previous {
+  left: 0;
+}
+
+.ecl-carousel__btn--next {
+  right: 0;
+}
+
+.ecl-carousel__live-region {
+  background-color: map-get($ecl-colors, 'grey-100');
+  color: #fff;
+  padding: map-get($ecl-spacing, 'l');
 }

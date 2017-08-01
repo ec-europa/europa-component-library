@@ -1,7 +1,6 @@
 module.exports = {
   title: 'Carousels',
   label: 'Carousels',
-  preview: '@preview-center-transparent',
   status: 'ready',
   tags: ['molecule'],
   context: {

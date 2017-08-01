@@ -45,7 +45,7 @@ export const carousels = (
         console.log('next clicked');
       });
 
-    carousel.appendChild(navControls);
+    document.querySelector('.ecl-carousel__list').append(navControls);
   }
 
   // BIND EVENTS
