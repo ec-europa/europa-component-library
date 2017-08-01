@@ -119,7 +119,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -134,7 +134,14 @@
               <div class="Prose">
                 
                 <h1 id="contextual-navigations">Contextual Navigations</h1>
-<p>The JS behaviour of this component needs to be rewritten without jQuery.</p>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Users need a way to navigate and explore the context of the information on the current page.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<p>Context navigation is placed:</p>
+<ul>
+<li>near the top of the page, below the title. It is placed there in case the context is crucial to interpret the page content.</li>
+<li>near the bottom of the page. That way it serves as a next step, for example as a next step to other content within the same context.</li>
+</ul>
 
                 
               </div>
@@ -211,32 +218,63 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-9d80d0ccf5855671792f19b028da9201-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - "label" (string): label displayed before the list (default: '')
+  - "items" (array): [{
+    "href" (string): target of the link (default: '#')
+    "label" (string): label of the link (default: '')
+  }]
+  - "limit" (integer): max number of items to display (0 = display all) (default: 5)
+  - "more_label": label of the "see more items" button (default: "More")
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> label = label|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> limit = limit|<span class="hljs-keyword">default</span>(4) %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> more_label = more_label|<span class="hljs-keyword">default</span>('More') %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-context-nav' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_Class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print the result  #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> items is defined and items is iterable %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__items"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__list"</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> item in items %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ item.target }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item</span></span></span><span class="hljs-template-variable">{{ limit &gt; 0 and loop.index &gt; limit ? ' ecl-context-nav__item--over-limit' : '' }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ item.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> items|<span class="hljs-keyword">length</span> &gt; limit %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item ecl-context-nav__more"</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+        'modifier': 'none',
+        'label': more_label,
+        'extraClass': 'ecl-context-nav__button ecl-link ecl-link--standalone',
+        'icon': 'caret-right'
+      } %}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> items_hidden is defined and items_hidden is iterable %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__expander"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__more-button"</span>&gt;</span>
-        </span><span class="hljs-template-variable">{{ button_more }}</span><span class="xml">
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--down ecl-u-color-primary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__hidden"</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> hidden_item in items_hidden %}</span><span class="xml">
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ hidden_item.target }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ hidden_item.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -248,46 +286,39 @@
             
             <pre>{
   <span class="hljs-attr">"_demo"</span>: {
-    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"ECL.contextualNav();"</span>
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () { ECL.contextualNavs(); });"</span>
   },
   <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Label for contextual nav"</span>,
   <span class="hljs-attr">"items"</span>: [
     {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item one"</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item one"</span>
     },
     {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item two"</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item two"</span>
     },
     {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item three"</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item three"</span>
     },
     {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item four"</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item four"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item five"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item six"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item seven"</span>
     }
-  ],
-  <span class="hljs-attr">"items_hidden"</span>: [
-    {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item five"</span>
-    },
-    {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item six"</span>
-    },
-    {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item seven"</span>
-    },
-    {
-      <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Item eight"</span>
-    }
-  ],
-  <span class="hljs-attr">"button_more"</span>: <span class="hljs-string">"More"</span>
+  ]
 }</pre>
             
         
@@ -299,42 +330,35 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-9d80d0ccf5855671792f19b028da9201-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__label"</span>&gt;</span>Label for contextual nav<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__items"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item one<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item two<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item three<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item four<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__expander"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__more-button"</span>&gt;</span>
-        More
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon--down ecl-u-color-primary"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__hidden"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item five<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item six<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item seven<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"context-nav__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item eight<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__label"</span>&gt;</span>Label for contextual nav<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__list"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item one<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item two<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item three<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item four<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item ecl-context-nav__item--over-limit"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item five<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item ecl-context-nav__item--over-limit"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item six<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item ecl-context-nav__item--over-limit"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Item seven<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-context-nav__item ecl-context-nav__more"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--none ecl-button--caret-right ecl-context-nav__button ecl-link ecl-link--standalone"</span>&gt;</span>More<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -351,140 +375,15 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-9ca67dce484ef1d7810eb2e5dc56a556">_context-navs.scss</option>
+                <option value="file-ba25b04d90ec2c8047881e0afbe5d56a">ecl-context-navs.js</option>
                 
-                <option value="file-72ed1a79f0f87885552423315badf1b9">context-navs.js</option>
+                <option value="file-ca4f24fc850d104767bd93c56cb17b94">ecl-context-navs.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-9ca67dce484ef1d7810eb2e5dc56a556" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-selector-class">.context-nav</span> {
-  @<span class="hljs-keyword">extend</span> .row !optional;
-
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-
-  &amp;__expander {
-    <span class="hljs-attribute">display</span>: inline-block;
-    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
-    <span class="hljs-attribute">border</span>: none;
-    <span class="hljs-attribute">cursor</span>: pointer;
-
-    &amp;:hover {
-      <span class="hljs-attribute">text-decoration</span>: underline;
-    }
-  }
-
-  &amp;__more-<span class="hljs-selector-tag">button</span> {
-    <span class="hljs-attribute">text-decoration</span>: underline;
-
-    &amp; <span class="hljs-selector-class">.ecl-icon</span> {
-      <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">2px</span>;
-      <span class="hljs-attribute">top</span>: <span class="hljs-number">3px</span>;
-      <span class="hljs-attribute">position</span>: relative;
-    }
-  }
-
-  &amp;__hidden {
-    <span class="hljs-attribute">display</span>: none;
-  }
-}
-
-<span class="hljs-selector-class">.context-nav__label</span> {
-  @<span class="hljs-keyword">extend</span> .col-xs-12 !optional;
-  @<span class="hljs-keyword">extend</span> .col-md-3 !optional;
-
-  <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">clear</span>: both;
-}
-
-<span class="hljs-selector-class">.context-nav__items</span> {
-  @<span class="hljs-keyword">extend</span> .col-xs-12 !optional;
-  @<span class="hljs-keyword">extend</span> .col-md-9 !optional;
-
-  <span class="hljs-attribute">display</span>: block;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.556em</span>;
-
-  &amp;:last-child {
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  }
-}
-
-<span class="hljs-selector-class">.context-nav__item</span> {
-  <span class="hljs-attribute">display</span>: inline-block;
-
-  &amp;::after {
-    <span class="hljs-attribute">content</span>: <span class="hljs-string">" |"</span>;
-    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">4px</span>;
-  }
-
-  &amp;:last-child {
-    &amp;::after {
-      <span class="hljs-attribute">display</span>: none;
-      <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
-    }
-  }
-
-  <span class="hljs-selector-tag">a</span> {
-    @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), 2px);
-
-    &amp;:link {
-      <span class="hljs-attribute">text-decoration</span>: none;
-    }
-
-    &amp;:hover {
-      <span class="hljs-attribute">text-decoration</span>: underline;
-    }
-  }
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-  <span class="hljs-selector-class">.context-nav__items</span> {
-    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-  }
-}
-
-<span class="hljs-comment">// Drupal specific override for the node-person-name display mode.</span>
-<span class="hljs-selector-class">.context-nav__item</span> {
-  <span class="hljs-selector-class">.view-mode-name</span> {
-    <span class="hljs-attribute">display</span>: inline-block;
-  }
-
-  &amp; &gt; * {
-    <span class="hljs-attribute">display</span>: inline;
-  }
-}
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-context-navs/_context-navs.scss"><span>/components/raw/ecl-context-navs/_context-navs.scss</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-context-navs/_context-navs.scss</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.5 KB</span>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="FileBrowser-item" id="file-72ed1a79f0f87885552423315badf1b9" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-ba25b04d90ec2c8047881e0afbe5d56a" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -496,9 +395,167 @@
  * Contextual navigation scripts
  */</span>
 
-<span class="hljs-comment">// eslint-disable-next-line import/prefer-default-export</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">contextualNav</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'This script needs to be rewritten without jQuery'</span>);
+<span class="hljs-keyword">import</span> { queryAll } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ec-europa/ecl-base/helpers/dom'</span>;
+
+<span class="hljs-keyword">const</span> expandContextualNav = (
+  contextualNav,
+  button,
+  {
+    classToRemove = <span class="hljs-string">'ecl-context-nav__item--over-limit'</span>,
+    hiddenElementsSelector = <span class="hljs-string">'.ecl-context-nav__item--over-limit'</span>,
+    context = <span class="hljs-built_in">document</span>,
+  } = {}
+) =&gt; {
+  <span class="hljs-keyword">if</span> (!contextualNav) {
+    <span class="hljs-keyword">return</span>;
+  }
+
+  <span class="hljs-keyword">const</span> hiddenElements = queryAll(hiddenElementsSelector, context);
+
+  <span class="hljs-comment">// Remove extra class</span>
+  hiddenElements.forEach(<span class="hljs-function"><span class="hljs-params">element</span> =&gt;</span> {
+    element.classList.remove(classToRemove);
+  });
+
+  <span class="hljs-comment">// Remove buttton</span>
+  button.parentNode.removeChild(button);
+};
+
+<span class="hljs-comment">// Helper method to automatically attach the event listener to all the expandables on page load</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> contextualNavs = (
+  {
+    selector = <span class="hljs-string">'.ecl-context-nav'</span>,
+    buttonSelector = <span class="hljs-string">'.ecl-context-nav__more'</span>,
+    hiddenElementsSelector = <span class="hljs-string">'.ecl-context-nav__item--over-limit'</span>,
+    classToRemove = <span class="hljs-string">'ecl-context-nav__item--over-limit'</span>,
+    context = <span class="hljs-built_in">document</span>,
+  } = {}
+) =&gt; {
+  <span class="hljs-keyword">const</span> nodesArray = queryAll(selector, context);
+
+  nodesArray.forEach(<span class="hljs-function"><span class="hljs-params">node</span> =&gt;</span> {
+    <span class="hljs-keyword">const</span> button = context.querySelector(buttonSelector);
+
+    <span class="hljs-keyword">if</span> (button) {
+      button.addEventListener(<span class="hljs-string">'click'</span>, () =&gt;
+        expandContextualNav(node, button, {
+          classToRemove,
+          hiddenElementsSelector,
+        })
+      );
+    }
+  });
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> contextualNavs;
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-context-navs/ecl-context-navs.js"><span>/components/raw/ecl-context-navs/ecl-context-navs.js</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-context-navs/ecl-context-navs.js</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">1.4 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-ca4f24fc850d104767bd93c56cb17b94" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">/*
+ * Contextual navigation
+ * @define context-nav
+ */</span>
+
+<span class="hljs-selector-class">.ecl-context-nav</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.ecl-context-nav__label</span> {
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-context-nav__list</span> {
+  <span class="hljs-attribute">list-style</span>: none;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.ecl-context-nav__item</span> {
+  <span class="hljs-attribute">display</span>: inline-block;
+
+  &amp;::after {
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">'|'</span>;
+    <span class="hljs-attribute">margin-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+    <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+  }
+}
+
+<span class="hljs-selector-class">.ecl-context-nav__item</span>:last-child {
+  &amp;::after {
+    <span class="hljs-attribute">display</span>: none;
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-context-nav__button</span> {
+  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+
+  &amp;:focus {
+    <span class="hljs-attribute">outline-offset</span>: <span class="hljs-number">0</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-context-nav__item--over-limit</span> {
+  <span class="hljs-attribute">display</span>: none;
+}
+
+<span class="hljs-selector-class">.no-js</span> {
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+  <span class="hljs-selector-class">.ecl-context-nav__item--over-limit</span> {
+    <span class="hljs-attribute">display</span>: inline-block;
+  }
+
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+  <span class="hljs-selector-class">.ecl-context-nav__more</span> {
+    <span class="hljs-attribute">display</span>: none;
+  }
+}
+
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  <span class="hljs-selector-class">.ecl-context-nav</span> {
+    <span class="hljs-attribute">flex-direction</span>: row;
+  }
+
+  <span class="hljs-selector-class">.ecl-context-nav__label</span> {
+    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">25%</span>;
+    <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
+  }
 }
 </pre>
                             </code>
@@ -508,15 +565,15 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-context-navs/context-navs.js"><span>/components/raw/ecl-context-navs/context-navs.js</span></a></span>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-context-navs/ecl-context-navs.scss"><span>/components/raw/ecl-context-navs/ecl-context-navs.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-context-navs/context-navs.js</span>
+                    <span class="Meta-value">framework/components/ecl-context-navs/ecl-context-navs.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">204 Bytes</span>
+                    <span class="Meta-value">1.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -540,7 +597,7 @@
                 
                     <span>
                 
-                    <span>molecule</span>
+                    <span>atom</span>
                 
             </span>
         </li>
@@ -2018,7 +2075,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3562,7 +3619,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>

@@ -10,46 +10,61 @@
     <script>document.documentElement.classList.remove('no-js');</script>
   </head>
   <body>
-    <div class="context-nav">
-  <span class="context-nav__label">Label for contextual nav</span>
-    <div class="context-nav__items">
-        <span class="context-nav__item">
-      <a href="#">Item one</a>
-    </span>
-        <span class="context-nav__item">
-      <a href="#">Item two</a>
-    </span>
-        <span class="context-nav__item">
-      <a href="#">Item three</a>
-    </span>
-        <span class="context-nav__item">
-      <a href="#">Item four</a>
-    </span>
-                <div class="context-nav__expander">
-      <span class="context-nav__more-button">
-        More
-        <span class="icon icon--down ecl-u-color-primary"></span>
-      </span>
-      <div class="context-nav__hidden">
-                <span class="context-nav__item">
-          <a href="#">Item five</a>
-        </span>
-                <span class="context-nav__item">
-          <a href="#">Item six</a>
-        </span>
-                <span class="context-nav__item">
-          <a href="#">Item seven</a>
-        </span>
-                <span class="context-nav__item">
-          <a href="#">Item eight</a>
-        </span>
-              </div>
-    </div>
-      </div>
-</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+<div class="ecl-context-nav" >
+  <span class="ecl-context-nav__label">Label for contextual nav</span>
+    <ul class="ecl-context-nav__list">
+        <li class="ecl-context-nav__item">
+      <a class="ecl-link ecl-link--standalone" href="#">Item one</a>
+    </li>
+        <li class="ecl-context-nav__item">
+      <a class="ecl-link ecl-link--standalone" href="#">Item two</a>
+    </li>
+        <li class="ecl-context-nav__item">
+      <a class="ecl-link ecl-link--standalone" href="#">Item three</a>
+    </li>
+        <li class="ecl-context-nav__item">
+      <a class="ecl-link ecl-link--standalone" href="#">Item four</a>
+    </li>
+        <li class="ecl-context-nav__item ecl-context-nav__item--over-limit">
+      <a class="ecl-link ecl-link--standalone" href="#">Item five</a>
+    </li>
+        <li class="ecl-context-nav__item ecl-context-nav__item--over-limit">
+      <a class="ecl-link ecl-link--standalone" href="#">Item six</a>
+    </li>
+        <li class="ecl-context-nav__item ecl-context-nav__item--over-limit">
+      <a class="ecl-link ecl-link--standalone" href="#">Item seven</a>
+    </li>
+    
+        <li class="ecl-context-nav__item ecl-context-nav__more">
+      
+
+
+
+
+
+
+  
+  
+  <button
+    class="ecl-button ecl-button--none ecl-button--caret-right ecl-context-nav__button ecl-link ecl-link--standalone"
+    >More</button>    </li>
+      </ul>
+  </div>
 
     <script src="../../framework/scripts/europa.js"></script>
-        <script type="text/javascript">ECL.contextualNav();</script>
+        <script type="text/javascript">document.addEventListener('DOMContentLoaded', function () { ECL.contextualNavs(); });</script>
       </body>
 </html>
 
