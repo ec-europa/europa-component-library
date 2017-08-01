@@ -49,7 +49,7 @@ Usage:
   {% if heading_title %}
   <h3 {{ _heading_attributes }} >{{ heading_title }}</h3>
   {% endif %}
-  <ul class="ecl-list--unstyled">
+  <ul class="ecl-carousel__list ecl-list--unstyled">
     {% for carousel_image in carousel_images %}
     <li class="ecl-carousel__item">
       {% include '@ec-europa/ecl-images' with carousel_image %}

@@ -5,10 +5,21 @@ module.exports = {
   status: 'ready',
   tags: ['molecule'],
   context: {
+    _demo: {
+      scripts: `
+        document.addEventListener('DOMContentLoaded', function () {
+            ECL.carousels();
+        });
+      `,
+    },
     extra_attributes: [
       {
         name: 'aria-labelledby',
         value: 'ecl-carousel__heading',
+      },
+      {
+        name: 'id',
+        value: 'ecl-carousel',
       },
     ],
     heading_title: 'Example gallery carousel',
