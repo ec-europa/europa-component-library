@@ -5,14 +5,14 @@
     "label" (string): label of the link (default: '')
   }]
   - "limit" (integer): max number of items to display (0 = display all) (default: 5)
-  - "more_label": label of the "see more items" button (default: "More ›")
+  - "more_label": label of the "see more items" button (default: "More")
   - "extra_classes" (string): extra CSS classes to be added
   - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {% set label = label|default('') %}
 {% set limit = limit|default(4) %}
-{% set more_label = more_label|default('More ›') %}
+{% set more_label = more_label|default('More') %}
 
 {# Internal properties #}
 
@@ -45,7 +45,12 @@
 
     {% if items|length > limit %}
     <li class="ecl-context-nav__item ecl-context-nav__more">
-      <span role="button" class="ecl-link ecl-link--standalone">{{ more_label }}</span>
+      {% include '@ec-europa/ecl-buttons' with {
+        'modifier': 'none',
+        'label': more_label,
+        'extraClass': 'ecl-context-nav__button ecl-link ecl-link--standalone',
+        'icon': 'caret-right'
+      } %}
     </li>
     {% endif %}
   </ul>

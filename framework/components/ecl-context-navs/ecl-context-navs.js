@@ -2,21 +2,22 @@
  * Contextual navigation scripts
  */
 
+import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
+
 const expandContextualNav = (
   contextualNav,
   button,
   {
     classToRemove = 'ecl-context-nav__item--over-limit',
     hiddenElementsSelector = '.ecl-context-nav__item--over-limit',
+    context = document,
   } = {}
 ) => {
   if (!contextualNav) {
     return;
   }
 
-  const hiddenElements = Array.prototype.slice.call(
-    contextualNav.querySelectorAll(hiddenElementsSelector)
-  );
+  const hiddenElements = queryAll(hiddenElementsSelector, context);
 
   // Remove extra class
   hiddenElements.forEach(element => {
@@ -37,9 +38,7 @@ export const contextualNavs = (
     context = document,
   } = {}
 ) => {
-  const nodesArray = Array.prototype.slice.call(
-    context.querySelectorAll(selector)
-  );
+  const nodesArray = queryAll(selector, context);
 
   nodesArray.forEach(node => {
     const button = context.querySelector(buttonSelector);
