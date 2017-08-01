@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Profile topbars',
   label: 'Profile topbars',
-  status: 'wip',
+  status: 'ready',
   tags: ['organism'],
   context: {
     _demo: {
@@ -28,7 +28,7 @@ module.exports = {
           ],
         },
         expandable_body: {
-          extraAttributes: [
+          extra_attributes: [
             {
               name: 'aria-hidden',
               value: 'true',
@@ -47,12 +47,12 @@ module.exports = {
       label: 'Department',
       items: [
         {
-          target: '#',
-          title: 'Trade',
+          href: '#',
+          label: 'Trade',
         },
         {
-          target: '#',
-          title: ' European Anti-Fraud Office',
+          href: '#',
+          label: ' European Anti-Fraud Office',
         },
       ],
     },

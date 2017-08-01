@@ -1,40 +1,36 @@
 {#
   Component interface:
-    - `extraClass` - classes to add to root component
-    - `extraAttributes` - additional attributes to add to root component
-
-    - `context_nav` - data for @ec-europa/ecl-context-navs component composition
-
-    - `profile` data contains profile-specific information
-      - `image` - data for @ec-europa/ecl-images component composition
-      - `expandable` - data related to the expandable part of the component
-        - `button` - data for @ec-europa/ecl-buttons component composition
-        - `expandable_body` - accepts `extraAttributes` for the expandable
-
-    - body (block): content in the expandable area (default: lorem ipsum text)
+    - "context_nav" (object) - data for @ec-europa/ecl-context-navs component composition
+    - "profile" (object): data contains profile-specific information
+      - "image" (object): data for @ec-europa/ecl-images component composition
+      - "expandable" (object): data related to the expandable part of the component
+        - "button" (object): data for @ec-europa/ecl-buttons component composition
+        - "expandable_body" (array): accepts `extra_attributes` for the expandable
+    - "body" (block): content in the expandable area (default: lorem ipsum text)
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
-
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-profile-topbar' %}
-{% set _extraAttributes = '' %}
+{% set _css_class = 'ecl-profile-topbar' %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_Class %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print result #}
 
-<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <div class="ecl-container">
     <div class="ecl-row">
       <div class="ecl-col-md-2">
@@ -47,8 +43,8 @@
     </div>
   </div>
   <div
-    {% if profile.expandable.expandable_body.extraAttributes is defined %}
-      {% for attr in profile.expandable.expandable_body.extraAttributes %}
+    {% if profile.expandable.expandable_body.extra_attributes is defined %}
+      {% for attr in profile.expandable.expandable_body.extra_attributes %}
         {% set attribute = attr.name ~ '="' ~ attr.value ~ '"' %}
         {{ attribute }}
       {% endfor %}

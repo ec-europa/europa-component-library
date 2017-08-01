@@ -1,4 +1,4 @@
-describe('profile-toolbars', () => {
+describe('profile-topbars', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
