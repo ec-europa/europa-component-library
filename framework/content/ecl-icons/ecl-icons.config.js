@@ -245,6 +245,13 @@ module.exports = {
       },
     },
     {
+      name: 'breadcrumb',
+      label: 'Breadcrumb icon',
+      context: {
+        modifier: 'ecl-icon--breadcrumb',
+      },
+    },
+    {
       name: 'generic-lang',
       label: 'Generic language icon',
       context: {
@@ -256,6 +263,20 @@ module.exports = {
       label: 'Budget icon',
       context: {
         modifier: 'ecl-icon--budget',
+      },
+    },
+    {
+      name: 'close',
+      label: 'Close icon',
+      context: {
+        modifier: 'ecl-icon--close',
+      },
+    },
+    {
+      name: 'close-dark',
+      label: 'Close (dark) icon',
+      context: {
+        modifier: 'ecl-icon--close-dark',
       },
     },
     {
@@ -305,13 +326,6 @@ module.exports = {
       label: 'Tag-close icon',
       context: {
         modifier: 'ecl-icon--tag-close',
-      },
-    },
-    {
-      name: 'tag-close-hover',
-      label: 'Tag-close hover icon',
-      context: {
-        modifier: 'ecl-icon--tag-close-hover',
       },
     },
     {
@@ -371,6 +385,13 @@ module.exports = {
       },
     },
     {
+      name: 'in',
+      label: 'In icon',
+      context: {
+        modifier: 'ecl-icon--in',
+      },
+    },
+    {
       name: 'info',
       label: 'Info icon',
       context: {
@@ -396,20 +417,6 @@ module.exports = {
       label: 'Camera icon',
       context: {
         modifier: 'ecl-icon--camera',
-      },
-    },
-    {
-      name: 'user',
-      label: 'User icon',
-      context: {
-        modifier: 'ecl-icon--user',
-      },
-    },
-    {
-      name: 'logout',
-      label: 'Logout icon',
-      context: {
-        modifier: 'ecl-icon--logout',
       },
     },
   ],
