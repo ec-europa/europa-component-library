@@ -21,10 +21,10 @@ module.exports = {
   default: 'external',
   variants: [
     {
-      name: 'external',
-      label: 'External link icon',
+      name: 'arrow-down',
+      label: 'Arrow down icon',
       context: {
-        modifier: 'ecl-icon--external',
+        modifier: 'ecl-icon--arrow-down',
       },
     },
     {
@@ -35,115 +35,24 @@ module.exports = {
       },
     },
     {
-      name: 'arrow-down',
-      label: 'Arrow down icon',
-      context: {
-        modifier: 'ecl-icon--arrow-down',
-      },
-    },
-    {
-      name: 'feedback',
-      label: 'Feedback icon',
-      context: {
-        modifier: 'ecl-icon--feedback',
-      },
-    },
-    {
-      name: 'spinner',
-      label: 'Spinner icon',
-      context: {
-        modifier: 'ecl-icon--spinner',
-      },
-    },
-    {
-      name: 'search',
-      label: 'Search icon',
-      context: {
-        modifier: 'ecl-icon--search',
-      },
-    },
-    {
-      name: 'language',
-      label: 'Language icon',
-      context: {
-        modifier: 'ecl-icon--language',
-      },
-    },
-    {
-      name: 'facebook',
-      label: 'Facebook icon',
-      context: {
-        modifier: 'ecl-icon--facebook',
-      },
-    },
-    {
-      name: 'twitter',
-      label: 'Twitter icon',
-      context: {
-        modifier: 'ecl-icon--twitter',
-      },
-    },
-    {
-      name: 'googleplus',
-      label: 'G+ icon',
-      context: {
-        modifier: 'ecl-icon--googleplus',
-      },
-    },
-    {
-      name: 'linkedin',
-      label: 'Linkedin icon',
-      context: {
-        modifier: 'ecl-icon--linkedin',
-      },
-    },
-    {
-      name: 'rss',
-      label: 'RSS icon',
-      context: {
-        modifier: 'ecl-icon--rss',
-      },
-    },
-    {
-      name: 'up',
-      label: 'Up icon',
-      context: {
-        modifier: 'ecl-icon--up',
-      },
-    },
-    {
-      name: 'right',
-      label: 'Right icon',
-      context: {
-        modifier: 'ecl-icon--right',
-      },
-    },
-    {
-      name: 'down',
-      label: 'Down icon',
-      context: {
-        modifier: 'ecl-icon--down',
-      },
-    },
-    {
-      name: 'left',
-      label: 'Left icon',
-      context: {
-        modifier: 'ecl-icon--left',
-      },
-    },
-    {
-      name: 'file',
-      label: 'File icon',
-      context: {
-        modifier: 'ecl-icon--file',
-      },
-    },
-    {
       name: 'audio',
       label: 'Audio icon',
       context: {
         modifier: 'ecl-icon--audio',
+      },
+    },
+    {
+      name: 'book',
+      label: 'Book icon',
+      context: {
+        modifier: 'ecl-icon--book',
+      },
+    },
+    {
+      name: 'breadcrumb',
+      label: 'Breadcrumb icon',
+      context: {
+        modifier: 'ecl-icon--breadcrumb',
       },
     },
     {
@@ -154,17 +63,73 @@ module.exports = {
       },
     },
     {
-      name: 'edit',
-      label: 'Edit icon',
+      name: 'budget',
+      label: 'Budget icon',
       context: {
-        modifier: 'ecl-icon--edit',
+        modifier: 'ecl-icon--budget',
       },
     },
     {
-      name: 'image',
-      label: 'Image icon',
+      name: 'calendar',
+      label: 'Calendar icon',
       context: {
-        modifier: 'ecl-icon--image',
+        modifier: 'ecl-icon--calendar',
+      },
+    },
+    {
+      name: 'camera',
+      label: 'Camera icon',
+      context: {
+        modifier: 'ecl-icon--camera',
+      },
+    },
+    {
+      name: 'check',
+      label: 'Check icon',
+      context: {
+        modifier: 'ecl-icon--check',
+      },
+    },
+    {
+      name: 'close',
+      label: 'Close icon',
+      context: {
+        modifier: 'ecl-icon--close',
+      },
+    },
+    {
+      name: 'close-dark',
+      label: 'Close (dark) icon',
+      context: {
+        modifier: 'ecl-icon--close-dark',
+      },
+    },
+    {
+      name: 'copy',
+      label: 'Copy icon',
+      context: {
+        modifier: 'ecl-icon--copy',
+      },
+    },
+    {
+      name: 'data',
+      label: 'Data icon',
+      context: {
+        modifier: 'ecl-icon--data',
+      },
+    },
+    {
+      name: 'digital',
+      label: 'Digital icon',
+      context: {
+        modifier: 'ecl-icon--digital',
+      },
+    },
+    {
+      name: 'down',
+      label: 'Down icon',
+      context: {
+        modifier: 'ecl-icon--down',
       },
     },
     {
@@ -175,10 +140,157 @@ module.exports = {
       },
     },
     {
+      name: 'edit',
+      label: 'Edit icon',
+      context: {
+        modifier: 'ecl-icon--edit',
+      },
+    },
+    {
+      name: 'energy',
+      label: 'Energy icon',
+      context: {
+        modifier: 'ecl-icon--energy',
+      },
+    },
+    {
+      name: 'error',
+      label: 'Error icon',
+      context: {
+        modifier: 'ecl-icon--error',
+      },
+    },
+    {
+      name: 'euro',
+      label: 'Euro icon',
+      context: {
+        modifier: 'ecl-icon--euro',
+      },
+    },
+    {
+      name: 'external',
+      label: 'External link icon',
+      context: {
+        modifier: 'ecl-icon--external',
+      },
+    },
+    {
+      name: 'facebook',
+      label: 'Facebook icon',
+      context: {
+        modifier: 'ecl-icon--facebook',
+      },
+    },
+    {
+      name: 'faq',
+      label: 'Faq icon',
+      context: {
+        modifier: 'ecl-icon--faq',
+      },
+    },
+    {
+      name: 'feedback',
+      label: 'Feedback icon',
+      context: {
+        modifier: 'ecl-icon--feedback',
+      },
+    },
+    {
+      name: 'file',
+      label: 'File icon',
+      context: {
+        modifier: 'ecl-icon--file',
+      },
+    },
+    {
+      name: 'generic-lang',
+      label: 'Generic language icon',
+      context: {
+        modifier: 'ecl-icon--generic-lang',
+      },
+    },
+    {
+      name: 'global',
+      label: 'Global icon',
+      context: {
+        modifier: 'ecl-icon--global',
+      },
+    },
+    {
+      name: 'googleplus',
+      label: 'G+ icon',
+      context: {
+        modifier: 'ecl-icon--googleplus',
+      },
+    },
+    {
+      name: 'growth',
+      label: 'Growth icon',
+      context: {
+        modifier: 'ecl-icon--growth',
+      },
+    },
+    {
+      name: 'image',
+      label: 'Image icon',
+      context: {
+        modifier: 'ecl-icon--image',
+      },
+    },
+    {
+      name: 'in',
+      label: 'In icon',
+      context: {
+        modifier: 'ecl-icon--in',
+      },
+    },
+    {
+      name: 'info',
+      label: 'Info icon',
+      context: {
+        modifier: 'ecl-icon--info',
+      },
+    },
+    {
       name: 'infographic',
       label: 'Infographic icon',
       context: {
         modifier: 'ecl-icon--infographic',
+      },
+    },
+    {
+      name: 'language',
+      label: 'Language icon',
+      context: {
+        modifier: 'ecl-icon--language',
+      },
+    },
+    {
+      name: 'left',
+      label: 'Left icon',
+      context: {
+        modifier: 'ecl-icon--left',
+      },
+    },
+    {
+      name: 'linkedin',
+      label: 'Linkedin icon',
+      context: {
+        modifier: 'ecl-icon--linkedin',
+      },
+    },
+    {
+      name: 'livestreaming',
+      label: 'Live streaming icon',
+      context: {
+        modifier: 'ecl-icon--livestreaming',
+      },
+    },
+    {
+      name: 'location',
+      label: 'Location icon',
+      context: {
+        modifier: 'ecl-icon--location',
       },
     },
     {
@@ -203,115 +315,10 @@ module.exports = {
       },
     },
     {
-      name: 'slides',
-      label: 'Slides icon',
+      name: 'presentation',
+      label: 'Presentation icon',
       context: {
-        modifier: 'ecl-icon--slides',
-      },
-    },
-    {
-      name: 'video',
-      label: 'Video icon',
-      context: {
-        modifier: 'ecl-icon--video',
-      },
-    },
-    {
-      name: 'error',
-      label: 'Error icon',
-      context: {
-        modifier: 'ecl-icon--error',
-      },
-    },
-    {
-      name: 'success',
-      label: 'Success icon',
-      context: {
-        modifier: 'ecl-icon--success',
-      },
-    },
-    {
-      name: 'warning',
-      label: 'Warning icon',
-      context: {
-        modifier: 'ecl-icon--warning',
-      },
-    },
-    {
-      name: 'check',
-      label: 'Check icon',
-      context: {
-        modifier: 'ecl-icon--check',
-      },
-    },
-    {
-      name: 'breadcrumb',
-      label: 'Breadcrumb icon',
-      context: {
-        modifier: 'ecl-icon--breadcrumb',
-      },
-    },
-    {
-      name: 'generic-lang',
-      label: 'Generic language icon',
-      context: {
-        modifier: 'ecl-icon--generic-lang',
-      },
-    },
-    {
-      name: 'budget',
-      label: 'Budget icon',
-      context: {
-        modifier: 'ecl-icon--budget',
-      },
-    },
-    {
-      name: 'close',
-      label: 'Close icon',
-      context: {
-        modifier: 'ecl-icon--close',
-      },
-    },
-    {
-      name: 'close-dark',
-      label: 'Close (dark) icon',
-      context: {
-        modifier: 'ecl-icon--close-dark',
-      },
-    },
-    {
-      name: 'digital',
-      label: 'Digital icon',
-      context: {
-        modifier: 'ecl-icon--digital',
-      },
-    },
-    {
-      name: 'energy',
-      label: 'Energy icon',
-      context: {
-        modifier: 'ecl-icon--energy',
-      },
-    },
-    {
-      name: 'euro',
-      label: 'Euro icon',
-      context: {
-        modifier: 'ecl-icon--euro',
-      },
-    },
-    {
-      name: 'global',
-      label: 'Global icon',
-      context: {
-        modifier: 'ecl-icon--global',
-      },
-    },
-    {
-      name: 'growth',
-      label: 'Growth icon',
-      context: {
-        modifier: 'ecl-icon--growth',
+        modifier: 'ecl-icon--presentation',
       },
     },
     {
@@ -322,80 +329,24 @@ module.exports = {
       },
     },
     {
-      name: 'tag-close',
-      label: 'Tag-close icon',
+      name: 'right',
+      label: 'Right icon',
       context: {
-        modifier: 'ecl-icon--tag-close',
+        modifier: 'ecl-icon--right',
       },
     },
     {
-      name: 'calendar',
-      label: 'Calendar icon',
+      name: 'rss',
+      label: 'RSS icon',
       context: {
-        modifier: 'ecl-icon--calendar',
+        modifier: 'ecl-icon--rss',
       },
     },
     {
-      name: 'location',
-      label: 'Location icon',
+      name: 'search',
+      label: 'Search icon',
       context: {
-        modifier: 'ecl-icon--location',
-      },
-    },
-    {
-      name: 'livestreaming',
-      label: 'Live streaming icon',
-      context: {
-        modifier: 'ecl-icon--livestreaming',
-      },
-    },
-    {
-      name: 'book',
-      label: 'Book icon',
-      context: {
-        modifier: 'ecl-icon--book',
-      },
-    },
-    {
-      name: 'data',
-      label: 'Data icon',
-      context: {
-        modifier: 'ecl-icon--data',
-      },
-    },
-    {
-      name: 'copy',
-      label: 'Copy icon',
-      context: {
-        modifier: 'ecl-icon--copy',
-      },
-    },
-    {
-      name: 'spreadsheet',
-      label: 'Spreadsheet icon',
-      context: {
-        modifier: 'ecl-icon--spreadsheet',
-      },
-    },
-    {
-      name: 'presentation',
-      label: 'Presentation icon',
-      context: {
-        modifier: 'ecl-icon--presentation',
-      },
-    },
-    {
-      name: 'in',
-      label: 'In icon',
-      context: {
-        modifier: 'ecl-icon--in',
-      },
-    },
-    {
-      name: 'info',
-      label: 'Info icon',
-      context: {
-        modifier: 'ecl-icon--info',
+        modifier: 'ecl-icon--search',
       },
     },
     {
@@ -406,17 +357,66 @@ module.exports = {
       },
     },
     {
-      name: 'faq',
-      label: 'Faq icon',
+      name: 'slides',
+      label: 'Slides icon',
       context: {
-        modifier: 'ecl-icon--faq',
+        modifier: 'ecl-icon--slides',
       },
     },
     {
-      name: 'camera',
-      label: 'Camera icon',
+      name: 'spinner',
+      label: 'Spinner icon',
       context: {
-        modifier: 'ecl-icon--camera',
+        modifier: 'ecl-icon--spinner',
+      },
+    },
+    {
+      name: 'spreadsheet',
+      label: 'Spreadsheet icon',
+      context: {
+        modifier: 'ecl-icon--spreadsheet',
+      },
+    },
+    {
+      name: 'success',
+      label: 'Success icon',
+      context: {
+        modifier: 'ecl-icon--success',
+      },
+    },
+    {
+      name: 'tag-close',
+      label: 'Tag-close icon',
+      context: {
+        modifier: 'ecl-icon--tag-close',
+      },
+    },
+    {
+      name: 'twitter',
+      label: 'Twitter icon',
+      context: {
+        modifier: 'ecl-icon--twitter',
+      },
+    },
+    {
+      name: 'up',
+      label: 'Up icon',
+      context: {
+        modifier: 'ecl-icon--up',
+      },
+    },
+    {
+      name: 'video',
+      label: 'Video icon',
+      context: {
+        modifier: 'ecl-icon--video',
+      },
+    },
+    {
+      name: 'warning',
+      label: 'Warning icon',
+      context: {
+        modifier: 'ecl-icon--warning',
       },
     },
   ],
