@@ -15,11 +15,6 @@
   position: relative;
 }
 
-.ecl-carousel__item {
-  display: flex;
-  justify-content: center;
-}
-
 .ecl-carousel__btn {
   position: absolute;
   top: 0;
@@ -37,4 +32,11 @@
   background-color: map-get($ecl-colors, 'grey-100');
   color: #fff;
   padding: map-get($ecl-spacing, 'l');
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .ecl-carousel__item {
+    display: flex;
+    justify-content: center;
+  }
 }

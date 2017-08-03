@@ -33,9 +33,60 @@ module.exports = {
       },
     ],
     carousel_images: [
-      { src: 'http://lorempixel.com/600/1200/business/1/', alt: 'First item' },
-      { src: 'http://lorempixel.com/600/1200/business/2/', alt: 'Second item' },
-      { src: 'http://lorempixel.com/600/1200/business/3/', alt: 'Third item' },
+      {
+        image: {
+          src: 'http://lorempixel.com/600/1200/business/1/',
+          alt: 'First item',
+        },
+        download: {
+          target: '#',
+          title: 'Download',
+          label: 'Download',
+        },
+        share: {
+          target: '#',
+          title: 'Share',
+          label: 'Share',
+        },
+        description: 'Description 1',
+        copyright: '© Copyright 1',
+      },
+      {
+        image: {
+          src: 'http://lorempixel.com/600/1200/business/2/',
+          alt: 'First item',
+        },
+        download: {
+          target: '#',
+          title: 'Download',
+          label: 'Download',
+        },
+        share: {
+          target: '#',
+          title: 'Share',
+          label: 'Share',
+        },
+        description: 'Description 2',
+        copyright: '© Copyright 2',
+      },
+      {
+        image: {
+          src: 'http://lorempixel.com/600/1200/business/3/',
+          alt: 'First item',
+        },
+        download: {
+          target: '#',
+          title: 'Download',
+          label: 'Download',
+        },
+        share: {
+          target: '#',
+          title: 'Share',
+          label: 'Share',
+        },
+        description: 'Description 3',
+        copyright: '© Copyright 3',
+      },
     ],
   },
 };
