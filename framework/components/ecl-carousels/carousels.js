@@ -13,17 +13,12 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     return null;
   }
 
+  // SETUP
   let currentSlide = 0;
   const carousel = document.getElementById(selectorId);
-  // We need to invoke the function here in order to use the `controls`.
-  // The controls MUST be added via JavaScript, as they are useless in `no-js`.
-  // eslint-disable-next-line no-use-before-define
-  addCarouselControls(carousel);
   const slides = queryAll('.ecl-carousel__item', carousel);
-  const controls = carousel.querySelector('.ecl-carousel__controls');
-  const prevButton = controls.querySelector('.ecl-carousel__btn--previous');
-  const nextButton = controls.querySelector('.ecl-carousel__btn--next');
 
+  // Methods
   function goToSlide(n) {
     removeClass(slides[currentSlide], 'ecl-carousel__item--showing');
     currentSlide = (n + slides.length) % slides.length;
@@ -38,6 +33,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     goToSlide(currentSlide + 1);
   }
 
+  // Attach controls to a carousel.
   function addCarouselControls(targetCarousel) {
     const navControls = document.createElement('ul');
 
@@ -62,19 +58,20 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     targetCarousel.querySelector('.ecl-carousel__list').append(navControls);
   }
 
-  // SETUP
-
-  // BIND EVENTS
-  function bindEvents(elements) {}
-
-  // UNBIND EVENTS
-  function unbindEvents(elements) {}
-
-  // DESTROY
-  function destroy() {}
+  function removeCarouselControls(targetCarousel) {
+    const controls = targetCarousel.querySelector('.ecl-carousel__controls');
+    targetCarousel.querySelector('.ecl-carousel__list').removeChild(controls);
+  }
 
   // INIT
-  function init() {}
+  function init() {
+    addCarouselControls(carousel);
+  }
+
+  // DESTROY
+  function destroy() {
+    removeCarouselControls(carousel);
+  }
 
   init();
 
