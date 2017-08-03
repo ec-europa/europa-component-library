@@ -2,28 +2,31 @@
   Accepts:
     - "title" (string): message title (mandatory)
     - "body" (string): message body (mandatory)
-    - "isDisabled" (boolean): is disabled (optional, default: false)
-    - "hasError" (boolean): has error (optional, default: false)
-    - "extraClass" (string): extra CSS classes (optional, default: '')
+    - "has_error" (boolean): has error (optional, default: false)
+    - "extra_class" (string): extra CSS classes (optional, default: '')
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-feedback-message' %}
+{% set _css_class = 'ecl-feedback-message' %}
+{% set _extra_attributes = '' %}
 
-{% if isDisabled is defined and isDisabled == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-feedback-message--disabled' %}
+{% if has_error is defined and has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-feedback-message--error' %}
 {% endif %}
 
-{% if hasError is defined and hasError == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-feedback-message--error' %}
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
 {% endif %}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
 {% endif %}
 
-<div class="{{ _cssClass }}">
-  <div class="ecl-feedback-message__title">{{ title }}</div>
+<div class="{{ _css_class }}" role="alert"{{ _extra_attributes }}>
+  <div class="ecl-feedback-message__title" role="heading">{{ title }}</div>
   <p class="ecl-feedback-message__body">{{ body }}</p>
 </div>
