@@ -27,6 +27,24 @@ Arial is the standard typeface we use. We chose Arial because it is a system fon
 
 ## Font size
 
+<table class="ecl-table" style="width:auto">
+  <thead>
+    <tr>
+      <th colspan="2">Baseline font</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Desktop</td>
+      <td>18px</td>
+    </tr>
+    <tr>
+      <td>Mobile</td>
+      <td>15px</td>
+    </tr>
+  </tbody>
+</table>
+
 <table class="ecl-table">
   <tr>
     <th>XXL</th>
@@ -38,13 +56,13 @@ Arial is the standard typeface we use. We chose Arial because it is a system fon
     <th>XXS</th>
   </tr>
   <tr>
-    <td>40px - 2.22em</td>
-    <td>30px - 1.67em</td>
-    <td>22px - 1.22em</td>
-    <td>18px - 1.00em</td>
-    <td>16px - 0.89em</td>
-    <td>14px - 0.78em</td>
-    <td>12px - 0.67em</td>
+    <td>2.22em</td>
+    <td>1.67em</td>
+    <td>1.22em</td>
+    <td>1.00em</td>
+    <td>0.89em</td>
+    <td>0.78em</td>
+    <td>0.67em</td>
   </tr>
 </table>
 
