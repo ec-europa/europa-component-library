@@ -1,4 +1,4 @@
-const variants = ['default', 'disabled', 'error'];
+const variants = ['default', 'error'];
 
 variants.forEach(variant => {
   describe(`ecl-forms-feedback-messages--${variant}`, () => {
