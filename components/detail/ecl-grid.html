@@ -134,9 +134,47 @@
                 
                 <h1 id="ecl-grid">ECL Grid</h1>
 <p>Use a grid to give your design a basic underlying structure. By placing your design elements on the invisible lines of a grid, you will create a more structured and coherent composition.</p>
-<p>Please consider using <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> before jumping into grids when you are looking for solutions for component-specific layout management,</p>
-<p>ECL uses the Bootstrap 4 grid system in order to facilitate the adoption, and try to increase developers’ productivity. Thus, the grid is based on the widely-known 12 columns, it’s responsive, and provides great flexibility in terms of implementation. Refer to <a href="http://v4-alpha.getbootstrap.com/layout/grid/">Bootstrap documentation</a> for understanding the general concepts.</p>
-<p>When using the grid of ECL, use <code>.ecl-</code> namespace in front of Bootstrap’s classes in order to avoid collisions.</p>
+<p>The ECL Grid uses Bootstrap v4’s grid. Designs are based on the 12-column Bootstrap grid system.</p>
+<p>We use 5 breakpoints, of which 3 of them are native to Bootstrap.</p>
+<table>
+<thead>
+<tr>
+<th>Layout</th>
+<th>Widths</th>
+<th>Media queries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Extra small</td>
+<td>Any</td>
+<td></td>
+</tr>
+<tr>
+<td>Small</td>
+<td>Bigger than 479px</td>
+<td>@media (min-width: 480px)</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Bigger than 767px</td>
+<td>@media (min-width: 768px)</td>
+</tr>
+<tr>
+<td>Large</td>
+<td>Bigger than 991px</td>
+<td>@media (min-width: 992px)</td>
+</tr>
+<tr>
+<td>Extra large</td>
+<td>Bigger than 1199px</td>
+<td>@media (min-width: 1200px)</td>
+</tr>
+</tbody>
+</table>
+<p>Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases.</p>
+<p>It includes predefined classes for easy layout options, as well as powerful mixins for generating more semantic layouts.</p>
+<p>Refer to <a href="http://v4-alpha.getbootstrap.com/layout/grid/">Bootstrap documentation</a> for understanding the general concepts. When using the grid of ECL, use <code>.ecl-</code> namespace in front of Bootstrap’s classes in order to avoid collisions.</p>
 
                 
               </div>
@@ -2382,30 +2420,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Basic</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--highlight" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Highlight</span>
             </a>
         </li>
         
