@@ -17,7 +17,7 @@
       <td>L</td>
       <td>36px</td>
       <td>Regular</td>
-      <td>White / EC Dark Grey</td>
+      <td>White / EC Grey</td>
       <td>Page header introduction (page header)</td>
     </tr>
     <tr>
@@ -25,7 +25,7 @@
       <td>M</td>
       <td>30px</td>
       <td>Regular</td>
-      <td>White / EC Dark Grey</td>
+      <td>White / EC Grey</td>
       <td>Paragraphs</td>
     </tr>
     <tr>
@@ -33,7 +33,7 @@
       <td>S</td>
       <td>26px</td>
       <td>Regular</td>
-      <td>EC Dark Grey</td>
+      <td>EC Grey</td>
       <td>Lists views</td>
     </tr>
     <tr>
@@ -41,7 +41,7 @@
       <td>XS</td>
       <td>22px</td>
       <td>Regular</td>
-      <td>EC Dark Grey</td>
+      <td>EC Grey</td>
       <td>Captions / Meta</td>
     </tr>
     <tr>
@@ -49,7 +49,7 @@
       <td>XXS</td>
       <td>20px</td>
       <td>Regular</td>
-      <td>EC Dark Grey</td>
+      <td>EC Grey</td>
       <td>Copyrights / Labels</td>
     </tr>
   </tbody>
