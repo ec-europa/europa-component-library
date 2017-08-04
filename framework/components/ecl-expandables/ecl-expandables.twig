@@ -3,28 +3,6 @@
   The template should not be reused direclty.
 #}
 
-<!-- Simple example -->
-
-<div>
-  {% include '@ec-europa/ecl-buttons' with {
-    'label': 'What is this all about?',
-    'extraAttributes': [
-      { 'name': 'aria-controls', 'value': 'example-expandable-0'},
-      { 'name': 'aria-expanded', 'value': 'false'},
-      { 'name': 'id', 'value': 'example-expandable-button-0' },
-      { 'name': 'type', 'value': 'button'},
-    ]
-  } %}
-  <div
-    aria-hidden="true"
-    aria-labelledby="example-expandable-button-0"
-    id="example-expandable-0"
-  >
-    <p>Lorem ipsum with a <a href="http://example.com">link thrown in</a> etc.</p>
-    <p>etc.</p>
-  </div>
-</div>
-
 <!-- Button collapse -->
 
 <div style="margin-top:1rem">
