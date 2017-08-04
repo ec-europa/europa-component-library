@@ -79,7 +79,7 @@ We recommend using only the following font colours:
 <table class="ecl-table">
   <tr>
     <th>Black <br/> #000000</th>
-    <th>EC Dark Grey <br/> #404040</th>
+    <th>EC Grey <br/> #404040</th>
     <th>EC Blue <br/> #004494</th>
     <th>White <br/> #ffffff</th>
   </tr>
