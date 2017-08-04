@@ -38,7 +38,6 @@
 }
 
 .ecl-button--default {
-  background-color: #fff;
   border-color: $ecl-color-primary;
   color: $ecl-color-primary;
 
@@ -58,15 +57,19 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: #fff;
+    background-color: transparent;
     color: $ecl-color-primary;
   }
 }
 
 .ecl-button--secondary {
-  background-color: #fff;
-  border-color: #fff;
   color: $ecl-color-primary;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $ecl-color-shade;
+  }
 }
 
 .ecl-button--call {
