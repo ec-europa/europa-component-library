@@ -10,17 +10,15 @@ The button with the strongest visual weight will attract the most attention.
 
 We've created multiple variants of the button to suit the following situations:
 
-### Call-to-action button
+### Default button
 
 #### Usage
 
-Use these buttons sparingly on the most important actions like "Apply for funding" or "Watch live streaming".
+The default button is used for important links on the page.
 
 #### Style
 
-The EC yellow is used for call to actions buttons. Yellow is the most luminous of all the colours of the spectrum. It’s the colour that captures our attention more than any other colour.
-
-The yellow reinforces the attention and allows us to guide our users through the interface.
+White and EC blue is used for the default button. A secondary action isn’t as important as a primary action so it shouldn’t call as much attention.
 
 ### Primary button
 
@@ -42,15 +40,17 @@ Used for secondary actions to cancel a form.
 
 Secondary actions should have the weakest visual weight comparing to primary actions.
 
-### Default button
+### Call-to-action button
 
 #### Usage
 
-The default button is used for important links on the page.
+Use these buttons sparingly on the most important actions like "Apply for funding" or "Watch live streaming".
 
 #### Style
 
-White and EC blue is used for the default button. A secondary action isn’t as important as a primary action so it shouldn’t call as much attention.
+The EC yellow is used for call to actions buttons. Yellow is the most luminous of all the colours of the spectrum. It’s the colour that captures our attention more than any other colour.
+
+The yellow reinforces the attention and allows us to guide our users through the interface.
 
 ### Submit & abort options
 
@@ -61,16 +61,6 @@ The submit and abort buttons are used to confirm a choice or send information. T
 #### Style
 
 See Primary button + Secondary button.
-
-### Button block
-
-#### Usage
-
-The button block is a series of default buttons with a fixed width. They link to child pages.
-
-#### Style
-
-See Default button style.
 
 ## Guidance
 
