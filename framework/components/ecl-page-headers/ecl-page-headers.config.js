@@ -27,6 +27,7 @@ module.exports = {
         identity: 'Digital single market',
       },
     },
+    /*
     {
       name: 'highlight',
       context: {
@@ -36,5 +37,6 @@ module.exports = {
           'Maecenas at mi <strong>molestie nulla</strong> tempor interdum sed sit amet ipsum.',
       },
     },
+    */
   ],
 };
