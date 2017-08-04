@@ -1,7 +1,7 @@
 const variants = ['default', 'header'];
 
 variants.forEach(variant => {
-  describe(`ecl-metas--${variant}`, () => {
+  describe(`ecl-meta--${variant}`, () => {
     before(() => {
       // Set viewport size
       browser.setViewportSize({
@@ -9,7 +9,7 @@ variants.forEach(variant => {
         height: 600,
       });
       // Go to url
-      browser.url(`ecl-metas--${variant}.html`);
+      browser.url(`ecl-meta--${variant}.html`);
 
       // Make sure the browser has finished painting
       browser.pause(1000);
@@ -20,7 +20,7 @@ variants.forEach(variant => {
     // Normal state
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: `metas/${variant}`,
+        name: `meta/${variant}`,
       });
       expect(screenshots).to.matchReference();
     });

@@ -6,13 +6,9 @@ describe('expandables', () => {
       height: 200,
     });
 
-    browser.pause(1000);
-
     browser.url(`ecl-expandables.html`);
     // Make sure the browser has finished painting
     browser.pause(1000);
-    // Inject axe-core (for accessibility tests)
-    browser.injectAxeCore();
   });
 
   // Normal state
@@ -21,10 +17,5 @@ describe('expandables', () => {
       name: 'expandables',
     });
     expect(screenshots).to.matchReference();
-  });
-
-  it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-expandable').value;
-    expect(a11yReport).to.be.accessible;
   });
 });
