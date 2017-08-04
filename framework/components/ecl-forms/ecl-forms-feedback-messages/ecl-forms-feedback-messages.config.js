@@ -22,15 +22,9 @@ module.exports = {
       name: 'default',
     },
     {
-      name: 'disabled',
-      context: {
-        isDisabled: true,
-      },
-    },
-    {
       name: 'error',
       context: {
-        hasError: true,
+        has_error: true,
       },
     },
   ],
