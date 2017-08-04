@@ -3,6 +3,8 @@
  * @define feedback-message
  */
 
+@import '~@ec-europa/ecl-typography-paragraphs/paragraphs-mixins';
+
 .ecl-feedback-message {
   @include ecl-hidden-print();
 
@@ -12,10 +14,6 @@
   margin: 0;
   min-height: map-get($ecl-spacing, 'l');
   padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
-}
-
-.ecl-feedback-message--disabled {
-  color: map-get($ecl-colors, 'grey-50');
 }
 
 .ecl-feedback-message--error {
@@ -29,5 +27,7 @@
 }
 
 .ecl-feedback-message__body {
+  @include paragraph();
+
   margin: 0;
 }
