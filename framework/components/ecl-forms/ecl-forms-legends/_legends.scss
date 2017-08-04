@@ -3,8 +3,21 @@
 * @define form-legend
 */
 
-$form-item-legend-font-size: map-get($ecl-font-size, 'xs');
-
 .ecl-form-legend {
-  font-size: $form-item-legend-font-size;
+  font-weight: 600;
+  line-height: 1.66;
+  margin-bottom: map-get($ecl-spacing, 'm');
+}
+
+.ecl-form-legend--level-1 {
+  border-bottom: 1px solid $ecl-color-shade;
+  color: $ecl-color-shade;
+  display: block;
+  font-size: map-get($ecl-font-size, 'l');
+  width: 100%;
+}
+
+.ecl-form-legend--level-2 {
+  color: #000;
+  font-size: map-get($ecl-font-size, 'm');
 }
