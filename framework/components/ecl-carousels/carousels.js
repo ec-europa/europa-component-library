@@ -19,6 +19,12 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   const slides = queryAll('.ecl-carousel__item', carousel);
 
   // Methods
+  function alignCenter() {
+    const percentage = 100 / slides.length;
+    // eslint-disable-next-line
+    slides.forEach(slide => (slide.style.left = `${percentage}%`));
+  }
+
   function goToSlide(n) {
     removeClass(slides[currentSlide], 'ecl-carousel__item--showing');
     currentSlide = (n + slides.length) % slides.length;
@@ -79,6 +85,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   // INIT
   function init() {
+    alignCenter();
     addCarouselControls(carousel);
     // Show first slide when loaded.
     goToSlide(0);
