@@ -4,6 +4,8 @@ import {
   queryAll,
 } from '@ec-europa/ecl-base/helpers/dom';
 
+import debounce from 'lodash.debounce';
+
 /**
  * @param {object} options Object containing configuration overrides
  */
@@ -89,6 +91,17 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     addCarouselControls(carousel);
     // Show first slide when loaded.
     goToSlide(0);
+
+    window.addEventListener(
+      'resize',
+      debounce(
+        () => {
+          alignCenter();
+        },
+        100,
+        { maxWait: 300 }
+      )
+    );
   }
 
   // DESTROY
