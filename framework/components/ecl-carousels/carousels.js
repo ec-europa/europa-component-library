@@ -25,12 +25,26 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     addClass(slides[currentSlide], 'ecl-carousel__item--showing');
   }
 
+  function setTransformation() {
+    const slide = currentSlide;
+    const offset = -currentSlide * slides[currentSlide].offsetWidth;
+    const tr = `translate3d(${offset}px, 0, 0)`;
+
+    slides[slide].style.MozTransform = tr; /* FF */
+    slides[slide].style.msTransform = tr; /* IE (9+) */
+    slides[slide].style.OTransform = tr; /* Opera */
+    slides[slide].style.WebkitTransform = tr; /* Safari + Chrome */
+    slides[slide].style.transform = tr;
+  }
+
   function previousSlide() {
     goToSlide(currentSlide - 1);
+    setTransformation();
   }
 
   function nextSlide() {
     goToSlide(currentSlide + 1);
+    setTransformation();
   }
 
   // Attach controls to a carousel.
@@ -66,6 +80,8 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   // INIT
   function init() {
     addCarouselControls(carousel);
+    // Show first slide when loaded.
+    goToSlide(0);
   }
 
   // DESTROY
