@@ -48,6 +48,11 @@
   right: 0;
 }
 
+// JS will show only the necessary one by a data attribute.
+.ecl-carousel__image-information {
+  display: none;
+}
+
 .ecl-carousel__live-region {
   background-color: map-get($ecl-colors, 'grey-100');
   color: #fff;
@@ -55,7 +60,19 @@
   padding: map-get($ecl-spacing, 'l');
 }
 
-@include ecl-media-breakpoint-up(md) {
+.ecl-carousel__meta {
+  display: flex;
+}
+
+.ecl-carousel__meta-item {
+  margin-right: map-get($ecl-spacing, 'xs');
+}
+
+.ecl-carousel__meta-slide {
+  order: -1;
+}
+
+@include ecl-media-breakpoint-up('md') {
   .ecl-carousel {
     flex-direction: row;
   }

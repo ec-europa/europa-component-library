@@ -45,21 +45,45 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     slides[slide].style.transform = tr;
   }
 
+  function announceCurrentSlide() {
+    carousel.querySelector(
+      '.ecl-carousel__meta-slide'
+    ).textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
+
+  function showImageInformation() {
+    // Reset/Hide all.
+    const infoAreas = queryAll('[data-image]');
+    // If anything is visible.
+    if (infoAreas) {
+      // eslint-disable-next-line
+      infoAreas.forEach(area => (area.style.display = "none"));
+    }
+
+    carousel.querySelector(`[data-image="${currentSlide}"]`).style.display =
+      'block';
+  }
+
   function previousSlide() {
     goToSlide(currentSlide - 1);
     setTransformation();
+    announceCurrentSlide();
+    showImageInformation();
   }
 
   function nextSlide() {
     goToSlide(currentSlide + 1);
     setTransformation();
+    announceCurrentSlide();
+    showImageInformation();
   }
 
   // Attach controls to a carousel.
-  function addCarouselControls(targetCarousel) {
+  function addCarouselControls() {
     const navControls = document.createElement('ul');
 
-    navControls.className = 'ecl-carousel__controls ecl-list--unstyled';
+    addClass(navControls, 'ecl-carousel__controls ecl-list--unstyled');
+
     navControls.innerHTML = `
       <li>
         <button type="button" class="ecl-carousel__btn ecl-carousel__btn--previous">Previous</button>
@@ -77,21 +101,39 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
       .querySelector('.ecl-carousel__btn--next', '.ecl-carousel__controls')
       .addEventListener('click', nextSlide);
 
-    targetCarousel.querySelector('.ecl-carousel__list').append(navControls);
+    carousel.querySelector('.ecl-carousel__list').append(navControls);
   }
 
-  function removeCarouselControls(targetCarousel) {
-    const controls = targetCarousel.querySelector('.ecl-carousel__controls');
-    targetCarousel.querySelector('.ecl-carousel__list').removeChild(controls);
+  function removeCarouselControls() {
+    const controls = carousel.querySelector('.ecl-carousel__controls');
+    carousel.querySelector('.ecl-carousel__list').removeChild(controls);
+  }
+
+  function addLiveRegion() {
+    const liveRegion = document.createElement('span');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    addClass(liveRegion, 'ecl-carousel__meta-slide ecl-carousel__meta-item');
+    carousel.querySelector('.ecl-carousel__live-region').append(liveRegion);
+  }
+
+  function removeLiveRegion() {
+    const liveRegion = carousel.querySelector('.ecl-carousel__meta-slide');
+    carousel
+      .querySelector('.ecl-carousel__live-region')
+      .removeChild(liveRegion);
   }
 
   // INIT
   function init() {
     alignCenter();
-    addCarouselControls(carousel);
-    // Show first slide when loaded.
+    addCarouselControls();
+    addLiveRegion();
     goToSlide(0);
+    announceCurrentSlide();
+    showImageInformation();
 
+    // Re-align on resize.
     window.addEventListener(
       'resize',
       debounce(
@@ -106,7 +148,8 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   // DESTROY
   function destroy() {
-    removeCarouselControls(carousel);
+    removeCarouselControls();
+    removeLiveRegion();
   }
 
   init();
