@@ -22,9 +22,8 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   // Methods
   function alignCenter() {
-    const percentage = 100 / slides.length;
     // eslint-disable-next-line
-    slides.forEach(slide => (slide.style.left = `${percentage}%`));
+    // slides.forEach(slide => (slide.style.left = `${space}px`));
   }
 
   function goToSlide(n) {
@@ -34,15 +33,14 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   }
 
   function setTransformation() {
-    const slide = currentSlide;
-    const offset = -currentSlide * slides[currentSlide].offsetWidth;
-    const tr = `translate3d(${offset}px, 0, 0)`;
+    const list = carousel.querySelector('.ecl-carousel__list');
+    const tr = `translate3d(${-currentSlide * list.offsetWidth}px, 0, 0)`;
 
-    slides[slide].style.MozTransform = tr; /* FF */
-    slides[slide].style.msTransform = tr; /* IE (9+) */
-    slides[slide].style.OTransform = tr; /* Opera */
-    slides[slide].style.WebkitTransform = tr; /* Safari + Chrome */
-    slides[slide].style.transform = tr;
+    list.style.MozTransform = tr; /* FF */
+    list.style.msTransform = tr; /* IE (9+) */
+    list.style.OTransform = tr; /* Opera */
+    list.style.WebkitTransform = tr; /* Safari + Chrome */
+    list.style.transform = tr;
   }
 
   function announceCurrentSlide() {
@@ -66,14 +64,16 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   function previousSlide() {
     goToSlide(currentSlide - 1);
-    // setTransformation();
+    alignCenter();
+    setTransformation();
     announceCurrentSlide();
     showImageInformation();
   }
 
   function nextSlide() {
     goToSlide(currentSlide + 1);
-    // setTransformation();
+    alignCenter();
+    setTransformation();
     announceCurrentSlide();
     showImageInformation();
   }
@@ -129,7 +129,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   // INIT
   function init() {
-    // alignCenter();
+    alignCenter();
     addCarouselControls();
     addLiveRegion();
     goToSlide(0);
@@ -137,16 +137,16 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     showImageInformation();
 
     // Re-align on resize.
-    // window.addEventListener(
-    //   'resize',
-    //   debounce(
-    //     () => {
-    //       alignCenter();
-    //     },
-    //     100,
-    //     { maxWait: 300 }
-    //   )
-    // );
+    window.addEventListener(
+      'resize',
+      debounce(
+        () => {
+          alignCenter();
+        },
+        100,
+        { maxWait: 300 }
+      )
+    );
   }
 
   // DESTROY

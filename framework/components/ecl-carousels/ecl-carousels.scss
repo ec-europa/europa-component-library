@@ -4,9 +4,11 @@
  */
 
 .ecl-carousel {
+  align-items: stretch;
   background-color: #000;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   margin: 0;
 }
 
@@ -17,6 +19,7 @@
 }
 
 .ecl-carousel__list-wrapper {
+  flex: 1;
   overflow: hidden;
   position: relative;
 }
@@ -26,12 +29,13 @@
 }
 
 .ecl-carousel__list {
-  align-items: stretch;
-  display: flex;
   margin: 0;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .ecl-carousel__item {
+  display: inline-block;
   opacity: 0;
   position: relative;
   z-index: map-get($ecl-z-index, 'zero');
@@ -70,6 +74,8 @@
 .ecl-carousel__live-region {
   background-color: map-get($ecl-colors, 'grey-100');
   color: #fff;
+  flex: 0;
+  min-width: 30%;
   padding: map-get($ecl-spacing, 'l');
 }
 
