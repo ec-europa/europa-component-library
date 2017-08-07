@@ -21,6 +21,10 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   const slides = queryAll('.ecl-carousel__item', carousel);
   const list = carousel.querySelector('.ecl-carousel__list');
 
+  function getListItemWidth() {
+    return carousel.querySelector('.ecl-carousel__item').offsetWidth;
+  }
+
   function alignCenter() {
     slides.forEach(slide => {
       // eslint-disable-next-line
@@ -34,8 +38,9 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     addClass(slides[currentSlide], 'ecl-carousel__item--showing');
   }
 
-  function setTransformation() {
-    const tr = `translate3d(${-currentSlide * list.offsetWidth}px, 0, 0)`;
+  function setOffset() {
+    const itemWidth = getListItemWidth();
+    const tr = `translate3d(${-currentSlide * itemWidth}px, 0, 0)`;
 
     list.style.MozTransform = tr; /* FF */
     list.style.msTransform = tr; /* IE (9+) */
@@ -66,7 +71,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   function previousSlide() {
     goToSlide(currentSlide - 1);
     alignCenter();
-    setTransformation();
+    setOffset();
     announceCurrentSlide();
     showImageInformation();
   }
@@ -74,7 +79,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   function nextSlide() {
     goToSlide(currentSlide + 1);
     alignCenter();
-    setTransformation();
+    setOffset();
     announceCurrentSlide();
     showImageInformation();
   }
@@ -143,6 +148,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
       debounce(
         () => {
           alignCenter();
+          setOffset();
         },
         100,
         { maxWait: 300 }
