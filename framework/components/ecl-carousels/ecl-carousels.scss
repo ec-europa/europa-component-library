@@ -11,7 +11,7 @@
   margin: 0;
 }
 
-@include ecl-media-breakpoint-up('md') {
+@include ecl-media-breakpoint-up('xl') {
   .ecl-carousel {
     flex-direction: row;
   }
@@ -80,7 +80,6 @@
 }
 
 .ecl-carousel__meta {
-  display: flex;
   margin-bottom: map-get($ecl-spacing, 'l');
 }
 
@@ -106,7 +105,9 @@
 }
 
 .ecl-carousel__meta-item {
+  display: inline-block;
   margin-right: map-get($ecl-spacing, 'xs');
+  padding-bottom: map-get($ecl-spacing, 'xxxs');
 }
 
 .ecl-carousel__meta-slide {
