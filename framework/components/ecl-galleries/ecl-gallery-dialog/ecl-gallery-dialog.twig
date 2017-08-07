@@ -8,10 +8,10 @@
 
   For more details for the expected structures for the composed components,
   please refer to their corresponding templates or example data.
-  
+
 #}
 {% embed '@ec-europa/ecl-dialogs' with dialog_settings %}
   {% block dialog_body %}
-    {% include '@ec-europa/ecl-gallery-base' with dialog_contents %}
+    {% include '@ec-europa/ecl-carousels' with dialog_contents %}
   {% endblock %}
 {% endembed %}

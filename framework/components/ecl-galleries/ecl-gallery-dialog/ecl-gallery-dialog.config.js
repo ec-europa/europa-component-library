@@ -26,6 +26,7 @@ module.exports = {
 
         document.addEventListener('DOMContentLoaded', function () {
             ECL.dialogs();
+            ECL.carousels();
         });
       `,
     },
@@ -46,117 +47,86 @@ module.exports = {
       },
     },
     dialog_contents: {
-      data: {
-        rows: [
-          [
-            {
-              classes: 'ecl-col-md-4',
-              image: {
-                src: 'http://placehold.it/380x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '380' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-              caption: 'Example image caption',
-              icon: 'ecl-icon--camera',
-            },
-            {
-              classes: 'ecl-col-md-3',
-              image: {
-                src: 'http://placehold.it/285x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '285' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-              icon: 'ecl-icon--audio',
-            },
-            {
-              classes: 'ecl-col-md-2',
-              image: {
-                src: 'http://placehold.it/190x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '190' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-              caption: 'Example image caption',
-              icon: 'ecl-icon--camera',
-            },
-            {
-              classes: 'ecl-col-md-3',
-              image: {
-                src: 'http://placehold.it/285x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '285' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-            },
-          ],
-          [
-            {
-              classes: 'ecl-col-md-2',
-              image: {
-                src: 'http://placehold.it/190x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '190' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-              caption: 'Example image caption',
-            },
-            {
-              classes: 'ecl-col-md-3',
-              image: {
-                src: 'http://placehold.it/285x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '285' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-            },
-            {
-              classes: 'ecl-col-md-3',
-              image: {
-                src: 'http://placehold.it/285x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '285' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-            },
-            {
-              classes: 'ecl-col-md-4',
-              image: {
-                src: 'http://placehold.it/380x185',
-                alt: 'Example alt text',
-                extraAttributes: [
-                  { name: 'typeof', value: 'foaf:Image' },
-                  { name: 'width', value: '380' },
-                  { name: 'height', value: '185' },
-                ],
-              },
-              caption: 'Example image caption',
-            },
-          ],
-        ],
-      },
+      extra_attributes: [
+        {
+          name: 'aria-labelledby',
+          value: 'ecl-carousel__heading',
+        },
+        {
+          name: 'id',
+          value: 'ecl-carousel',
+        },
+      ],
+      heading_title: 'Example gallery carousel',
+      heading_attributes: [
+        {
+          name: 'id',
+          value: 'ecl-carousel__heading',
+        },
+        {
+          name: 'class',
+          value: 'ecl-heading--3 ecl-sr-only',
+        },
+      ],
+      carousel_images: [
+        {
+          image: {
+            src: 'http://lorempixel.com/600/1200/business/1/',
+            alt: 'First item',
+          },
+          download: {
+            target: '#',
+            title: 'Download',
+            label: 'Download',
+          },
+          share: {
+            target: '#',
+            title: 'Share',
+            label: 'Share',
+          },
+          description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
+            <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
+          copyright: '© Copyright 1',
+        },
+        {
+          image: {
+            src: 'http://lorempixel.com/600/1200/business/2/',
+            alt: 'First item',
+          },
+          download: {
+            target: '#',
+            title: 'Download',
+            label: 'Download',
+          },
+          share: {
+            target: '#',
+            title: 'Share',
+            label: 'Share',
+          },
+          description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
+            <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
+          copyright: '© Copyright 2',
+        },
+        {
+          image: {
+            src: 'http://lorempixel.com/600/1200/business/3/',
+            alt: 'First item',
+          },
+          download: {
+            target: '#',
+            title: 'Download',
+            label: 'Download',
+          },
+          share: {
+            target: '#',
+            title: 'Share',
+            label: 'Share',
+          },
+          description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
+            <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
+          copyright: '© Copyright 3',
+        },
+      ],
     },
   },
 };
