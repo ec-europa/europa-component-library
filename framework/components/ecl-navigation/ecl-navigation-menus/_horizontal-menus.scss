@@ -25,10 +25,9 @@
   border-width: 0;
   color: #fff;
   display: flex;
-  font-size: map-get($ecl-font-size, 's');
+  font-size: map-get($ecl-font-size, 'm');
   font-weight: bold;
-  min-height: map-get($ecl-spacing, 'xl');
-  padding: 0 map-get($ecl-spacing, 'm');
+  padding: map-get($ecl-spacing, 'm');
   position: relative;
   text-decoration: none;
   width: 100%;
@@ -48,13 +47,16 @@
   border-width: 0;
   color: map-get($ecl-colors, 'blue-120');
   display: flex;
-  font-size: map-get($ecl-font-size, 'xs');
+  font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
-  height: map-get($ecl-spacing, 'l'); // need to use height and not min-height, for IE
-  padding: 0 map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'm');
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
   position: relative;
   text-decoration: none;
   width: 100%;
+
+  @include ecl-media-breakpoint-up(md) {
+    font-size: map-get($ecl-font-size, 'xs');
+  }
 }
 
 .ecl-navigation-menu__item:last-child .ecl-navigation-menu__link {
@@ -109,9 +111,12 @@
 .ecl-navigation-menu__item--active {
   background-color: map-get($ecl-colors, 'blue-75');
 
+  > .ecl-navigation-menu__link {
+    color: #fff;
+  }
+
   > .ecl-navigation-menu__link:not([aria-expanded='true']) {
     border-bottom-width: 0;
-    color: #fff;
   }
 }
 
@@ -253,5 +258,6 @@
 
   .ecl-navigation-menu__link[aria-expanded='true'] {
     background-color: map-get($ecl-colors, 'grey-5');
+    color: map-get($ecl-colors, 'blue-120');
   }
 }
