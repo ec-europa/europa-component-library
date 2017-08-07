@@ -1,4 +1,4 @@
-describe('forms', () => {
+describe('ecl-templates-forms', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,9 +6,7 @@ describe('forms', () => {
       height: 600,
     });
 
-    browser.pause(1000);
-
-    browser.url(`ecl-filters.html`);
+    browser.url(`ecl-templates-forms.html`);
     // Make sure the browser has finished painting
     browser.pause(1000);
     // Inject axe-core (for accessibility tests)
@@ -18,7 +16,7 @@ describe('forms', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'filters',
+      name: 'templates-forms',
     });
     expect(screenshots).to.matchReference();
   });
