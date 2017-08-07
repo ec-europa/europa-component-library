@@ -19,11 +19,13 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   let currentSlide = 0;
   const carousel = document.getElementById(selectorId);
   const slides = queryAll('.ecl-carousel__item', carousel);
+  const list = carousel.querySelector('.ecl-carousel__list');
 
-  // Methods
   function alignCenter() {
-    // eslint-disable-next-line
-    // slides.forEach(slide => (slide.style.left = `${space}px`));
+    slides.forEach(slide => {
+      // eslint-disable-next-line
+      slide.style.left = `${(list.offsetWidth - slide.offsetWidth) / 2}px`;
+    });
   }
 
   function goToSlide(n) {
@@ -33,7 +35,6 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   }
 
   function setTransformation() {
-    const list = carousel.querySelector('.ecl-carousel__list');
     const tr = `translate3d(${-currentSlide * list.offsetWidth}px, 0, 0)`;
 
     list.style.MozTransform = tr; /* FF */
