@@ -10,10 +10,17 @@
   margin: 0;
 }
 
+@include ecl-media-breakpoint-up('md') {
+  .ecl-carousel {
+    flex-direction: row;
+  }
+}
+
 .ecl-carousel__list {
   display: flex;
   justify-content: center;
   margin: 0;
+  overflow: hidden;
   position: relative;
 }
 
@@ -31,11 +38,10 @@
 .ecl-carousel__btn {
   background-color: #000;
   border: 0;
-  bottom: 0;
   color: #fff;
+  font-size: map-get($ecl-font-size, 'xxl');
   position: absolute;
-  top: 0;
-  width: 3em;
+  top: 50%;
 
   @include ecl-focus-outline-border();
 }
@@ -51,17 +57,40 @@
 // JS will show only the necessary one by a data attribute.
 .ecl-carousel__image-information {
   display: none;
+  text-align: left;
 }
 
 .ecl-carousel__live-region {
   background-color: map-get($ecl-colors, 'grey-100');
   color: #fff;
-  min-width: 235px;
+  min-width: 30%;
   padding: map-get($ecl-spacing, 'l');
 }
 
 .ecl-carousel__meta {
   display: flex;
+  margin-bottom: map-get($ecl-spacing, 'l');
+}
+
+// Every link has specific styling.
+.ecl-carousel__image-information a,
+.ecl-carousel__meta-link {
+  color: #fff;
+  padding-right: map-get($ecl-spacing, 'm');
+  position: relative;
+  text-decoration: underline;
+
+  // put icon on right without extends
+  &::before {
+    position: absolute;
+    right: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: underline;
+  }
 }
 
 .ecl-carousel__meta-item {
@@ -70,10 +99,9 @@
 
 .ecl-carousel__meta-slide {
   order: -1;
+  padding-top: map-get($ecl-spacing, 's');
 }
 
-@include ecl-media-breakpoint-up('md') {
-  .ecl-carousel {
-    flex-direction: row;
-  }
+.ecl-carousel__image-copyright {
+  font-size: map-get($ecl-font-size, 'xxs');
 }

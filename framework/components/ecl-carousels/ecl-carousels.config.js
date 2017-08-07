@@ -48,7 +48,8 @@ module.exports = {
           title: 'Share',
           label: 'Share',
         },
-        description: 'Description 1',
+        description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
+          <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
         copyright: '© Copyright 1',
       },
       {
@@ -66,7 +67,8 @@ module.exports = {
           title: 'Share',
           label: 'Share',
         },
-        description: 'Description 2',
+        description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
+          <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
         copyright: '© Copyright 2',
       },
       {
@@ -84,7 +86,8 @@ module.exports = {
           title: 'Share',
           label: 'Share',
         },
-        description: 'Description 3',
+        description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
+          <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
         copyright: '© Copyright 3',
       },
     ],

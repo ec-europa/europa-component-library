@@ -86,10 +86,13 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
     navControls.innerHTML = `
       <li>
-        <button type="button" class="ecl-carousel__btn ecl-carousel__btn--previous">Previous</button>
+        <button type="button" class="ecl-icon ecl-icon--left ecl-carousel__btn ecl-carousel__btn--previous">
+          <span class="ecl-sr-only">Previous</span></button>
       </li>
       <li>
-        <button type="button" class="ecl-carousel__btn ecl-carousel__btn--next">Next</button>
+        <button type="button" class="ecl-icon ecl-icon--right ecl-carousel__btn ecl-carousel__btn--next">
+          <span class="ecl-sr-only">Next</span>
+        </button>
       </li>
     `;
 
@@ -110,10 +113,10 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   }
 
   function addLiveRegion() {
-    const liveRegion = document.createElement('span');
+    const liveRegion = document.createElement('div');
     liveRegion.setAttribute('aria-live', 'polite');
     liveRegion.setAttribute('aria-atomic', 'true');
-    addClass(liveRegion, 'ecl-carousel__meta-slide ecl-carousel__meta-item');
+    addClass(liveRegion, 'ecl-carousel__meta-slide');
     carousel.querySelector('.ecl-carousel__live-region').append(liveRegion);
   }
 
