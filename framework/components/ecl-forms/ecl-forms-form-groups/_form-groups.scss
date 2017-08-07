@@ -6,11 +6,6 @@
 .ecl-form-group {
   @include ecl-hidden-print();
 
-  margin-bottom: map-get($ecl-spacing, 'm');
-}
-
-.ecl-fieldset {
-  border: 0;
   margin: 0;
-  padding: 0;
+  padding-bottom: map-get($ecl-spacing, 'm');
 }
