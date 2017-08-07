@@ -49,13 +49,15 @@ Usage:
   {% if heading_title %}
   <h3 {{ _heading_attributes }} >{{ heading_title }}</h3>
   {% endif %}
-  <ul class="ecl-carousel__list ecl-list--unstyled">
-    {% for carousel_image in carousel_images %}
-    <li class="ecl-carousel__item">
-      {% include '@ec-europa/ecl-images' with carousel_image.image %}
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="ecl-carousel__list-wrapper">
+    <ul class="ecl-carousel__list ecl-list--unstyled">
+      {% for carousel_image in carousel_images %}
+      <li class="ecl-carousel__item">
+        {% include '@ec-europa/ecl-images' with carousel_image.image %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
   <div class="ecl-carousel__live-region">
     {% for carousel_image in carousel_images %}
     <div class="ecl-carousel__image-information" data-image={{ loop.index0 }}>

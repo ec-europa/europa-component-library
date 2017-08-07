@@ -1,4 +1,5 @@
 const componentUrl = 'ecl-carousels.html';
+const timeout = 4000; // images are to be loaded
 
 describe('carousels', () => {
   context('mobile', () => {
@@ -11,7 +12,7 @@ describe('carousels', () => {
 
       // Reload
       browser.url(componentUrl);
-      browser.pause(4000);
+      browser.pause(timeout);
       browser.injectAxeCore();
     });
 
@@ -38,7 +39,7 @@ describe('carousels', () => {
 
       // Reload
       browser.url(componentUrl);
-      browser.pause(4000);
+      browser.pause(timeout);
       browser.injectAxeCore();
     });
 

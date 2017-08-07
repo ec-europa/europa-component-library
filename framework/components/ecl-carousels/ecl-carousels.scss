@@ -16,12 +16,19 @@
   }
 }
 
-.ecl-carousel__list {
-  display: flex;
-  justify-content: center;
-  margin: 0;
+.ecl-carousel__list-wrapper {
   overflow: hidden;
   position: relative;
+}
+
+.ecl-carousel__controls {
+  margin: 0;
+}
+
+.ecl-carousel__list {
+  align-items: stretch;
+  display: flex;
+  margin: 0;
 }
 
 .ecl-carousel__item {
@@ -63,7 +70,6 @@
 .ecl-carousel__live-region {
   background-color: map-get($ecl-colors, 'grey-100');
   color: #fff;
-  min-width: 30%;
   padding: map-get($ecl-spacing, 'l');
 }
 

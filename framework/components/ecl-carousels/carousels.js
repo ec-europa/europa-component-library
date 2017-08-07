@@ -66,14 +66,14 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   function previousSlide() {
     goToSlide(currentSlide - 1);
-    setTransformation();
+    // setTransformation();
     announceCurrentSlide();
     showImageInformation();
   }
 
   function nextSlide() {
     goToSlide(currentSlide + 1);
-    setTransformation();
+    // setTransformation();
     announceCurrentSlide();
     showImageInformation();
   }
@@ -104,12 +104,12 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
       .querySelector('.ecl-carousel__btn--next', '.ecl-carousel__controls')
       .addEventListener('click', nextSlide);
 
-    carousel.querySelector('.ecl-carousel__list').append(navControls);
+    carousel.querySelector('.ecl-carousel__list-wrapper').append(navControls);
   }
 
   function removeCarouselControls() {
     const controls = carousel.querySelector('.ecl-carousel__controls');
-    carousel.querySelector('.ecl-carousel__list').removeChild(controls);
+    carousel.querySelector('.ecl-carousel__list-wrapper').removeChild(controls);
   }
 
   function addLiveRegion() {
@@ -129,7 +129,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   // INIT
   function init() {
-    alignCenter();
+    // alignCenter();
     addCarouselControls();
     addLiveRegion();
     goToSlide(0);
@@ -137,16 +137,16 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     showImageInformation();
 
     // Re-align on resize.
-    window.addEventListener(
-      'resize',
-      debounce(
-        () => {
-          alignCenter();
-        },
-        100,
-        { maxWait: 300 }
-      )
-    );
+    // window.addEventListener(
+    //   'resize',
+    //   debounce(
+    //     () => {
+    //       alignCenter();
+    //     },
+    //     100,
+    //     { maxWait: 300 }
+    //   )
+    // );
   }
 
   // DESTROY
