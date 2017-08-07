@@ -25,7 +25,7 @@
   identity: 'PubliCare',
   title: 'Do you know about the EUR-Lex training courses?',
   introduction:
-    'For about 2 years the Publications Office has been offering a classroom training programme on EUR-Lex entitled ‘Make your search for EU law a success!’ for people working in EU institutions and agencies. As the programme has proved very successful, more courses are scheduled for this autumn. Take the opportunity to enrol now for one of the following courses. 19 September in Luxembourg8 November in Brussels.',
+    'For about 2 years the Publications Office has been offering a classroom training programme on EUR-Lex entitled ‘Make your search for EU law a success!’ for people working in EU institutions and agencies. As the programme has proved very successful, more courses are scheduled for this autumn. Take the opportunity to enrol now for one of the following courses.',
   meta: {
     type: 'What\'s new',
     date: '03 August 2017',
@@ -35,8 +35,132 @@
 <main>
   <a id="main-content" tabindex="-1"></a>
 
-  <div class="ecl-container" style="min-height: 500px">
-    Main content goes here
+  <!-- TODO: use a component -->
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone" href="#" style="color: #404040">
+          <h2 class="ecl-headings ecl-headings--h2">Official journal</h2>
+          <img src="https://webgate.ec.europa.eu/multisite/publicare/sites/publicare/files/officialjournal_box20130313.png" alt="" />
+          <p class="ecl-paragraph">
+            Looking for information on how to publish in the Official Journal?
+          </p>
+          <p class="ecl-paragraph">
+            Get an insight into how we prepare each issue, including producing each Official Journal in electronic form with legal value.
+          </p>
+        </a>
+
+        {% include '@ec-europa/ecl-link-blocks' with {
+          links: [
+            { href: 'http://eur-lex.europa.eu/', label: 'EUR-Lex' },
+            { href: 'http://ted.europa.eu/', label: 'Ted' }
+          ],
+        } %}
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone" href="#" style="color: #404040">
+          <h2 class="ecl-headings ecl-headings--h2">Publications</h2>
+          <img src="https://webgate.ec.europa.eu/multisite/publicare/sites/publicare/files/publications_box_2.png" alt="" />
+          <p class="ecl-paragraph">
+            Need to reach a large audience? Looking for information on copyright issues and reuse? Want to produce an e-book?
+          </p>
+          <p class="ecl-paragraph">
+            Discover the full range of services available to you for the registration, production and dissemination of your publications.
+          </p>
+        </a>
+
+        {% include '@ec-europa/ecl-link-blocks' with {
+          links: [
+            { href: 'http://bookshop.europa.eu/', label: 'EU Bookshop' }
+          ],
+        } %}
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone" href="#" style="color: #404040">
+          <h2 class="ecl-headings ecl-headings--h2">EU Open Data Portal</h2>
+          <img src="https://webgate.ec.europa.eu/multisite/publicare/sites/publicare/files/opendataportal_box.png" alt="" />
+          <p class="ecl-paragraph">
+            The EU Open Data Portal provides a single point of access to data held by the EU institutions, agencies and other bodies for anyone to reuse.
+          </p>
+          <p class="ecl-paragraph">
+            Learn here how to become a data provider and disseminate your data via the Portal.
+          </p>
+        </a>
+
+        {% include '@ec-europa/ecl-link-blocks' with {
+          links: [
+            { href: 'http://open-data.europa.eu/', label: 'EU Open Data Portal' }
+          ],
+        } %}
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO: use a component -->
+  <div class="ecl-container ecl-u-mt-m">
+    <div class="ecl-row">
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="background-color: #003776; color: #fff; display: block">
+          <h3 class="ecl-heading ecl-heading--h3 ecl-u-mb-xs" style="color: #fff">Training courses and events ></h3>
+          <span>Seminars, workshops, online courses</span>
+        </a>
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="background-color: #003776; color: #fff; display: block">
+          <h3 class="ecl-heading ecl-heading--h3 ecl-u-mb-xs" style="color: #fff">Past events ></h3>
+          <span>Archived events</span>
+        </a>
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="background-color: #003776; color: #fff; display: block">
+          <h3 class="ecl-heading ecl-heading--h3 ecl-u-mb-xs" style="color: #fff">Fact sheets ></h3>
+          <span>Scope of our services</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODO: use a component -->
+  <div class="ecl-container ecl-u-mv-m">
+    <div class="ecl-row">
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="min-height: 7em; background-color: #e3e3e3; color: #404040; display: block">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-u-mb-xxs" style="color: #404040">EU Whoiswho ></h4>
+          <span>The official directory of the European Union</span>
+        </a>
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="min-height: 7em; background-color: #e3e3e3; color: #404040; display: block">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-u-mb-xxs" style="color: #404040">CORDIS ></h4>
+          <span>Information on EU-funded research projects</span>
+        </a>
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="min-height: 7em; background-color: #e3e3e3; color: #404040; display: block">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-u-mb-xxs" style="color: #404040">eTendering ></h4>
+          <span>European public procurement</span>
+        </a>
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="min-height: 7em; background-color: #e3e3e3; color: #404040; display: block">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-u-mb-xxs" style="color: #404040">Interinstitutional style guide ></h4>
+          <span>Stylistic rules and conventions</span>
+        </a>
+      </div>
+
+      <div class="ecl-col-md">
+        <a class="ecl-link ecl-link--standalone ecl-u-pa-xs" href="#" style="min-height: 7em; display: block">
+          <span>View all online services managed by the Publications Office ></span>
+        </a>
+      </div>
+    </div>
   </div>
 </main>
 
