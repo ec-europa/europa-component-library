@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         name: 'class',
-        value: 'ecl-heading--3 ecl-sr-only',
+        value: 'ecl-headings ecl-headings--h3 ecl-sr-only',
       },
     ],
     carousel_images: [
