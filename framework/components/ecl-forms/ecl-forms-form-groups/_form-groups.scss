@@ -7,5 +7,11 @@
   @include ecl-hidden-print();
 
   margin: 0;
-  padding-bottom: map-get($ecl-spacing, 'm');
+}
+
+/* Spacing */
+
+/* stylelint-disable-next-line plugin/selector-bem-pattern */
+* + .ecl-form-group {
+  margin-top: map-get($ecl-spacing, 'm');
 }

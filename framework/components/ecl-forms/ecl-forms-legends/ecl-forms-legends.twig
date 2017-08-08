@@ -9,10 +9,19 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_class %}
 {% endif %}
 
+{% if level is defined %}
+  {% set _css_class = _css_class ~ ' ecl-form-legend--level-' ~ level %}
+{% endif %}
+
+
 {% if extra_attributes is defined %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-<legend class="{{ _css_class }}"{{ _extra_attributes }}>{% block legend content %}</legend>
+{% spaceless %}
+<legend class="{{ _css_class }}"{{ _extra_attributes }}>
+  {%- block legend content -%}
+</legend>
+{% endspaceless %}

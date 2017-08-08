@@ -69,6 +69,11 @@
                     { 'name': 'placeholder', 'value': 'Some placeholder text.' }
                   ]
                 } %}
+                {% include '@ec-europa/ecl-forms-feedback-messages' with {
+                  'title': 'Some feedback message',
+                  'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis',
+                  'has_error': true
+                } %}
               {% endblock %}
             {% endembed %}
           {% endblock %}

@@ -30,6 +30,13 @@ $ecl-datepickers-week-color: #999 !default;
   }
 }
 
+/* Spacing */
+
+/* stylelint-disable-next-line plugin/selector-bem-pattern */
+* + .ecl-datepickers {
+  margin-top: map-get($ecl-spacing, 'xs');
+}
+
 /*
  * @define pika-theme ; weak
  */

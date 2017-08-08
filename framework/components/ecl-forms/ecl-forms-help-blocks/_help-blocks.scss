@@ -13,8 +13,7 @@ $ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color !de
   color: $ecl-forms-help-block-text-color;
   font-size: map-get($ecl-font-size, 'xs');
   line-height: 1.66;
-  margin-bottom: map-get($ecl-spacing, 'xxs');
-  margin-top: 0;
+  margin: 0;
 }
 
 .ecl-help-block--disabled {
@@ -23,4 +22,11 @@ $ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color !de
 
 .ecl-help-block--has-error {
   color: $ecl-forms-help-block-text-color-has-error;
+}
+
+/* Spacing */
+
+/* stylelint-disable-next-line plugin/selector-bem-pattern */
+* + .ecl-help-block {
+  margin-top: map-get($ecl-spacing, 'xs');
 }
