@@ -133,6 +133,16 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
       .removeChild(liveRegion);
   }
 
+  const debounceCb = () =>
+    debounce(
+      () => {
+        alignCenter();
+        setOffset();
+      },
+      100,
+      { maxWait: 300 }
+    )();
+
   // INIT
   function init() {
     alignCenter();
@@ -143,23 +153,14 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     showImageInformation();
 
     // Re-align on resize.
-    window.addEventListener(
-      'resize',
-      debounce(
-        () => {
-          alignCenter();
-          setOffset();
-        },
-        100,
-        { maxWait: 300 }
-      )
-    );
+    window.addEventListener('resize', debounceCb);
   }
 
   // DESTROY
   function destroy() {
     removeCarouselControls();
     removeLiveRegion();
+    window.removeEventListener('resize', debounceCb);
   }
 
   init();
