@@ -4,12 +4,14 @@
 
 <div class="ecl-container ecl-u-mv-l">
   <div class="ecl-row ecl-u-mb-l">
-    {% include '@ec-europa/ecl-search-forms' %}
+    <div class="ecl-col">
+      {% include '@ec-europa/ecl-search-forms' %}
+    </div>
   </div>
   <div class="ecl-row">
     <aside class="ecl-col-lg-3" role="complementary">
-        <h3 class="ecl-heading ecl-heading--h3">Filter by</h3>
-        <form action="#" method="get" id="form-filter">
+        <h3 class="ecl-heading ecl-heading--h3">Search options</h3>
+        <form action="#" method="get" id="search-options-form">
           <div class="ecl-form-group">
             {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Keyword', 'for_attribute': 'filter-keywords' } %}
             {% include '@ec-europa/ecl-forms-text-inputs' with {
@@ -132,6 +134,8 @@
             ]
           } %}
         </form>
+        <h3 class="ecl-heading ecl-heading--h3">Filter by topic</h3>
+        <p class="ecl-paragraph">Custom component</p>
     </aside>
     <section class="ecl-col-lg-9">
       <div class="ecl-heading ecl-heading--h2 ecl-u-mb-m">Events (90)</div>
