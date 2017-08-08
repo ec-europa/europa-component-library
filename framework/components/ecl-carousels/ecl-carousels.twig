@@ -15,7 +15,26 @@ Usage:
     Optional title of the heading. If skipped, heading will not be shown.
 
   - carousel_images (iterable)
-    A list of `@ec-europa/ecl-images` components.
+    A list of images following the structure:
+
+    {
+      image: {
+        src: 'http://lorempixel.com/600/1200/business/1/',
+        alt: 'Iimage item alt text',
+      },
+      download: {
+        target: '#',
+        title: 'Download',
+        label: 'Download',
+      },
+      share: {
+        target: '#',
+        title: 'Share',
+        label: 'Share',
+      },
+      description: (string or block).
+      copyright: '© Copyright 1',
+    }
 
 #}
 
@@ -63,14 +82,14 @@ Usage:
     <div class="ecl-carousel__image-information" data-image={{ loop.index0 }}>
       <div class="ecl-carousel__meta">
         <span class="ecl-carousel__meta-item ecl-carousel__meta-download">
-          <a class="ecl-carousel__meta-link ecl-link ecl-icon ecl-icon--download"
+          <a class="ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"
              href="{{ carousel_image.download.target }}"
              title="{{ carousel_image.download.title }}">
                {{ carousel_image.download.label }}
          </a>
         </span>
         <span class="ecl-carousel__meta-item ecl-carousel__meta-share">
-          <a class="ecl-carousel__meta-link ecl-link ecl-icon ecl-icon--share"
+          <a class="ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"
              href="{{ carousel_image.share.target }}"
              title="{{ carousel_image.share.title }}">
                {{ carousel_image.share.label }}

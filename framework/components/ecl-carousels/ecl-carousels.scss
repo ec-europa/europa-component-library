@@ -1,6 +1,6 @@
 /**
  * Carousel
- * @define carousel ; weak
+ * @define carousel
  */
 
 .ecl-carousel {
@@ -84,23 +84,14 @@
 }
 
 // Every link has specific styling.
-.ecl-carousel__image-information a,
 .ecl-carousel__meta-link {
-  color: #fff;
   padding-right: map-get($ecl-spacing, 'm');
   position: relative;
-  text-decoration: underline;
 
   // put icon on right without extends
   &::before {
     position: absolute;
     right: 0;
-  }
-
-  &:hover,
-  &:focus {
-    color: #fff;
-    text-decoration: underline;
   }
 }
 

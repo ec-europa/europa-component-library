@@ -55,7 +55,7 @@ module.exports = {
       {
         image: {
           src: 'http://lorempixel.com/600/1200/business/2/',
-          alt: 'First item',
+          alt: 'Second item',
         },
         download: {
           target: '#',
@@ -74,7 +74,7 @@ module.exports = {
       {
         image: {
           src: 'http://lorempixel.com/600/1200/business/3/',
-          alt: 'First item',
+          alt: 'Third item',
         },
         download: {
           target: '#',
