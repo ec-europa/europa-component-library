@@ -3,16 +3,12 @@
  * @define search-form
  */
 
-.ecl-search-form__wrapper {
-  background-color: map-get($ecl-colors, 'grey-5');
-  padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 's');
-}
-
 .ecl-search-form {
   @include ecl-hidden-print();
 
   border: 1px solid map-get($ecl-colors, 'grey-50');
   display: inline-flex;
+  margin: 0;
 }
 
 .ecl-search-form__textfield-wrapper {

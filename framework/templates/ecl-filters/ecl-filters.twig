@@ -5,7 +5,7 @@
 <div class="ecl-container ecl-u-mv-l">
   <div class="ecl-row ecl-u-mb-l">
     <div class="ecl-col">
-      {% include '@ec-europa/ecl-search-forms' %}
+      {% include '@ec-europa/ecl-search-forms' with { 'variant': 'internal' } %}
     </div>
   </div>
   <div class="ecl-row">
@@ -114,25 +114,6 @@
               {% endblock %}
             {% endembed %}
           </div>
-          {% include '@ec-europa/ecl-buttons' with {
-            'modifier': 'primary',
-            'label': 'Refine results',
-            'isBlock': true,
-            'extraClass': 'ecl-u-mb-xs',
-            'extraAttributes': [
-              { 'name': 'value', 'value': 'Refine results'},
-              { 'name': 'type', 'value': 'submit'}
-            ]
-          } %}
-          {% include '@ec-europa/ecl-buttons' with {
-            'modifier': 'default',
-            'label': 'Clear filters',
-            'isBlock': true,
-            'extraAttributes': [
-              { 'name': 'value', 'value': 'Clear filters'},
-              { 'name': 'type', 'value': 'reset'}
-            ]
-          } %}
         </form>
         <h3 class="ecl-heading ecl-heading--h3">Filter by topic</h3>
         <p class="ecl-paragraph">Custom component</p>
