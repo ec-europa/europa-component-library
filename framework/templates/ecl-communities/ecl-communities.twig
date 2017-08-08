@@ -1,0 +1,244 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    ECL.megamenu('.ecl-navigation-menu__root');
+    ECL.initExpandables('.ecl-navigation-menu__toggle');
+  });
+</script>
+
+{% include '@ec-europa/ecl-skip-links' with {
+    'href': '#main-content',
+    'label': 'Skip to main content'
+} %}
+
+{% include '@ec-europa/ecl-site-switchers' with {
+    variant: 'header',
+    political: { href: '#', label: 'Commission and its priorities' },
+    info: { href: '#', label: 'Policies, information and services' }
+} %}
+
+{% include '@ec-europa/ecl-site-headers' %}
+
+{% include '@ec-europa/ecl-page-headers' with {
+  variant: 'default',
+  identity: 'Digital single market',
+  title: 'My community',
+  introduction:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.',
+} %}
+
+{% embed "@ec-europa/ecl-navigation-menus" with { 'homeLabel': 'Home', 'menuLabel': 'Menu' } %}
+  {% block navigationTree %}
+  <li class="ecl-navigation-menu__item">
+    <button class="ecl-navigation-menu__link" aria-controls="nav-menu-communities-group" aria-expanded="false" aria-haspopup="true" id="nav-menu-communities-label">Communities</button>
+    <ul class="ecl-navigation-menu__group" id="nav-menu-communities-group">
+      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Homepage</a></li>
+      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Articles</a></li>
+      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Events</a></li>
+      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Media gallery</a></li>
+    </ul>
+  </li>
+
+  <li class="ecl-navigation-menu__item">
+    <a href="#" class="ecl-navigation-menu__link">Events</a></li>
+  </li>
+
+  <li class="ecl-navigation-menu__item">
+    <a href="#" class="ecl-navigation-menu__link">Galleries</a></li>
+  </li>
+  {% endblock %}
+{% endembed %}
+
+<main>
+  <a id="main-content" tabindex="-1"></a>
+
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-col-sm-3">
+        {% include '@ec-europa/ecl-forms-labels' with {
+          for_attribute: 'create-content',
+          label: 'Create content',
+          extra_classes: 'ecl-u-mt-m'
+        } %}
+
+        {% embed '@ec-europa/ecl-forms-selects' with { 'id': 'create-content', 'name': 'create-content' }%}
+          {% block options %}
+            <option>Article</option>
+            <option>Event</option>
+            <option>News</option>
+            <option>Media item</option>
+          {% endblock %}
+        {% endembed %}
+
+        {% include '@ec-europa/ecl-link-blocks' with {
+          wrapper: true,
+          title: 'Members list',
+          links: [
+            { href: '#', label: 'John Doe' },
+            { href: '#', label: 'Jane Doe' },
+            { href: '#', label: 'Mike Doe' },
+            { href: '#', label: 'Richard Doe' }
+          ],
+          extraClass: 'ecl-u-mt-m'
+        } %}
+      </div>
+
+      <div class="ecl-col-sm-9">
+
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include '@ec-europa/ecl-footers' with {
+  footer_menus: [
+    {
+      type: 'normal',
+      wrapper_class: 'ecl-footer__site-corporate ecl-u-mt-m',
+      menus: [
+        {
+          title: {
+            value: 'European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                target: 'https://ec.europa.eu/commission/index_en',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Commission and its priorities',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                target: 'https://ec.europa.eu/info/index_en',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Policies information and services',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'Follow the European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu ecl-list-inline',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item ecl-list-inline__item',
+              link: {
+                target: '#',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Facebook',
+                title_wrapper_class:
+                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item ecl-list-inline__item',
+              link: {
+                target: '#',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Twitter',
+                title_wrapper_class:
+                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item ecl-list-inline__item',
+              link: {
+                target: '#',
+                classes: 'ecl-link ecl-footer__link ecl-link--external',
+                title: 'Other social media',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'European Union',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                target: '#',
+                classes: 'ecl-link ecl-footer__link ecl-link--external',
+                title: 'EU institutions',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                target: '#',
+                classes: 'ecl-link ecl-footer__link ecl-link--external',
+                title: 'European Union',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'plain',
+      wrapper_class: 'ecl-footer__ec',
+      menus: [
+        {
+          classes: 'ecl-list-inline ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              link: {
+                target:
+                  'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
+                classes: 'ecl-link ecl-footer__link',
+                title: "About the Commission's new web presence",
+              },
+            },
+            {
+              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              link: {
+                target: 'http://ec.europa.eu/info/resources-partners_en',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Resources for partners',
+              },
+            },
+            {
+              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              link: {
+                target: 'http://ec.europa.eu/info/cookies_en',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Cookies',
+              },
+            },
+            {
+              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              link: {
+                target: 'http://ec.europa.eu/info/legal-notice_en',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Legal notice',
+              },
+            },
+            {
+              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              link: {
+                target: 'http://ec.europa.eu/info/contact_en',
+                classes: 'ecl-link ecl-footer__link',
+                title: 'Contact',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+} %}
