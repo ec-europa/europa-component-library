@@ -2,6 +2,14 @@
   This is an example and should not be used as it is.
 #}
 
+<style type="text-css">
+  .ecl-user-menu {
+    text-align: right;
+    font-size: 0.89rem;
+    max-width: 100%;
+  }
+</style>
+
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function () {
     ECL.megamenu('.ecl-navigation-menu__root');
@@ -61,7 +69,7 @@
 
   <div class="ecl-container ecl-u-mt-m">
     <!-- TODO: use component and utilities -->
-    <ul class="ecl-list ecl-list--inline" style="text-align: right; font-size: 0.89rem; max-width: 100%">
+    <ul class="ecl-list ecl-list--inline ecl-user-menu">
       <li style="display: inline-block">
         <a class="ecl-link ecl-link--standalone" href="#">My workbench <span class="ecl-icon ecl-icon--spreadsheet"></span></a>
       </li>
@@ -72,6 +80,16 @@
         <a class="ecl-link ecl-link--standalone" href="#">Log out <span class="ecl-icon ecl-icon--faq"></span></a>
       </li>
     </ul>
+
+    {% include '@ec-europa/ecl-navigation-lists' with {
+      title: 'User menu',
+      links: [
+        { to: "#", title: "My workbench <span class='ecl-icon ecl-icon--spreadsheet'></span>" },
+        { to: "#", title: "My account <span class='ecl-icon ecl-icon--faq'>" },
+        { to: "#", title: "Log out <span class='ecl-icon ecl-icon--faq'>" },
+      ]
+    } %}
+
     <div class="ecl-row">
       <div class="ecl-col-sm-3">
         {% include '@ec-europa/ecl-forms-labels' with {
