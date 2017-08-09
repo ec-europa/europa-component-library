@@ -26,6 +26,10 @@
   variant: 'default',
   identity: 'Digital single market',
   title: 'My community',
+  meta: {
+    type: 'Public community',
+    date: '25 members',
+  },
   introduction:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.',
 } %}
@@ -56,6 +60,18 @@
   <a id="main-content" tabindex="-1"></a>
 
   <div class="ecl-container ecl-u-mt-m">
+    <!-- TODO: use component and utilities -->
+    <ul class="ecl-list ecl-list--inline" style="text-align: right; font-size: 0.89rem; max-width: 100%">
+      <li style="display: inline-block">
+        <a class="ecl-link ecl-link--standalone" href="#">My workbench <span class="ecl-icon ecl-icon--spreadsheet"></span></a>
+      </li>
+      <li style="display: inline-block">
+        <a class="ecl-link ecl-link--standalone" href="#">My account <span class="ecl-icon ecl-icon--faq"></span></a>
+      </li>
+      <li style="display: inline-block">
+        <a class="ecl-link ecl-link--standalone" href="#">Log out <span class="ecl-icon ecl-icon--faq"></span></a>
+      </li>
+    </ul>
     <div class="ecl-row">
       <div class="ecl-col-sm-3">
         {% include '@ec-europa/ecl-forms-labels' with {
@@ -198,6 +214,12 @@
             ],
           },
         } %}
+
+        {% include '@ec-europa/ecl-buttons' with {
+          label: "Unsubscribe",
+          modifier: "default",
+          extraClass: "ecl-u-mt-m",
+        } %}
       </div>
     </div>
   </div>
@@ -242,7 +264,7 @@
           classes: 'ecl-footer__menu ecl-list-inline',
           items: [
             {
-              classes: 'ecl-footer__menu-item ecl-list-inline__item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target: '#',
                 classes: 'ecl-link ecl-footer__link',
@@ -252,7 +274,7 @@
               },
             },
             {
-              classes: 'ecl-footer__menu-item ecl-list-inline__item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target: '#',
                 classes: 'ecl-link ecl-footer__link',
@@ -262,7 +284,7 @@
               },
             },
             {
-              classes: 'ecl-footer__menu-item ecl-list-inline__item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target: '#',
                 classes: 'ecl-link ecl-footer__link ecl-link--external',
@@ -306,7 +328,7 @@
           classes: 'ecl-list-inline ecl-footer__menu',
           items: [
             {
-              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target:
                   'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
@@ -315,7 +337,7 @@
               },
             },
             {
-              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target: 'http://ec.europa.eu/info/resources-partners_en',
                 classes: 'ecl-link ecl-footer__link',
@@ -323,7 +345,7 @@
               },
             },
             {
-              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target: 'http://ec.europa.eu/info/cookies_en',
                 classes: 'ecl-link ecl-footer__link',
@@ -331,7 +353,7 @@
               },
             },
             {
-              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target: 'http://ec.europa.eu/info/legal-notice_en',
                 classes: 'ecl-link ecl-footer__link',
@@ -339,7 +361,7 @@
               },
             },
             {
-              classes: 'ecl-list-inline__item ecl-footer__menu-item',
+              classes: 'ecl-footer__menu-item',
               link: {
                 target: 'http://ec.europa.eu/info/contact_en',
                 classes: 'ecl-link ecl-footer__link',
