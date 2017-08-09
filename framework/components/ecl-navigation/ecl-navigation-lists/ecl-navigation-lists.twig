@@ -1,15 +1,41 @@
 {#
-  - title: the title of the navigation (default: 'Navigation')
-  - variant: the variant. Can be 'default' or 'tabs' (default: 'default')
-  - links: array of links { to, title, isActive } (default: [])
+  - title (string): the title of the navigation (default: 'Navigation')
+  - variant (string): the variant. Can be 'default' or 'tabs' (default: 'default')
+  - links (array): [
+    - "href" (string): target of the link
+    - "label" (string): label of the link
+    - "is_active" (boolean): set active link
+  ]
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
-<nav class="ecl-navigation-list-wrapper">
+
+{# Internal properties #}
+
+{% set _css_class = '' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
+<nav class="ecl-navigation-list-wrapper {{ _css_class }}" {{ _extra_attributes }}>
   <h2 class="ecl-sr-only">{{ title|default('Navigation') }}</h2>
   <ul class="ecl-navigation-list ecl-navigation-list--{{ variant|default('default') }}">
     {% for link in links %}
-      {% set activeClass = link.isActive is defined and link.isActive == true? ' ecl-navigation-list__link--active' : '' %}
+      {% set active_class = link.is_active is defined and link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
       <li class="ecl-navigation-list__item">
-        <a class="ecl-navigation-list__link{{ activeClass }} ecl-link" href="{{ link.to }}">{{ link.title }}</a>
+        <a class="ecl-navigation-list__link{{ active_class }} ecl-link" href="{{ link.href }}">{{ link.label }}</a>
       </li>
     {% endfor %}
   </ul>
