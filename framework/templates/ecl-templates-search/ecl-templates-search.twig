@@ -1,0 +1,96 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+<div class="ecl-container ecl-u-mv-l">
+  <div class="ecl-row ecl-u-mb-l">
+    <div class="ecl-col">
+      {% include '@ec-europa/ecl-search-forms' with { 'variant': 'internal' } %}
+    </div>
+  </div>
+  <div class="ecl-row">
+    <aside class="ecl-col-lg-3" role="complementary">
+      <h3 class="ecl-heading ecl-heading--h3">Search options</h3>
+        {% embed '@ec-europa/ecl-forms-forms' with { 'extra_attributes': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+          {% block form %}
+            {% embed '@ec-europa/ecl-forms-form-groups' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Source', 'for_attribute': 'search-option-source' } %}
+                {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'source', 'id': 'search-option-source' } %}
+                  {% block options %}
+                    <option value="all">All sources</option>
+                    <option value="dg-trade" selected>DG Trade</option>
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
+            {% embed '@ec-europa/ecl-forms-form-groups' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Date', 'for_attribute': 'search-option-date' } %}
+                {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'date', 'id': 'search-option-date' } %}
+                  {% block options %}
+                    <option value="all">All dates</option>
+                    <option value="today">Today</option>
+                    <option value="last_week">Last week</option>
+                    <option value="last_year">Last year</option>
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
+            {% embed '@ec-europa/ecl-forms-form-groups' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels' with { 'label': 'Language', 'for_attribute': 'search-option-language' } %}
+                {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'language', 'id': 'search-option-language' } %}
+                  {% block options %}
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
+            {% embed '@ec-europa/ecl-forms-form-groups' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels' with { 'label': 'File Format', 'for_attribute': 'search-option-file-format' } %}
+                {% embed '@ec-europa/ecl-forms-selects' with { 'name': 'file-format', 'id': 'search-option-file-format' } %}
+                  {% block options %}
+                    <option value="all">All formats</option>
+                    <option value="doc">Doc</option>
+                    <option value="pdf">PDF</option>
+                    <option value="web">Web</option>
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
+          {% endblock %}
+        {% endembed %}
+        <h3 class="ecl-heading ecl-heading--h3">Filter by topic</h3>
+        <p class="ecl-paragraph">Custom component</p>
+    </aside>
+    <section class="ecl-col-lg-9">
+      <div class="ecl-heading ecl-heading--h2">Initiatives (65)</div>
+      <div class="ecl-heading ecl-heading--h4 ecl-u-mb-m">Showing results 11 to 20</div>
+
+      <div style="display:flex">
+        {% include '@ec-europa/ecl-tags' with {
+          'modifier': 'facet-close',
+          'label': 'Source',
+          'tags': [{ 'value': 'DG Trade' }]
+        } %}
+
+        {% include '@ec-europa/ecl-tags' with {
+          'modifier': 'facet-close',
+          'label': 'Topics',
+          'tags': [{ 'value': 'Health, wellbeing & Consumer protection' }]
+        } %}
+      </div>
+
+      <section class="ecl-u-mv-m">CONTENT HERE</section>
+
+      {% include '@ec-europa/ecl-pagers' with {
+        'current_page': 2,
+        'max_page': 7
+      } %}
+    </section>
+  </div>
+</div>
