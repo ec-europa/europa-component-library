@@ -4,23 +4,29 @@
   @include list();
 }
 
+// list alpha
 .ecl-list--alpha {
   list-style-type: lower-latin;
 }
 
+// list ustyled
 .ecl-list--unstyled {
-  @include ecl-list-unstyled;
+  list-style: none;
+  padding-left: 0;
 }
 
-// Inline turns list items into inline-block
-.ecl-list-inline {
-  @include ecl-list-unstyled;
-}
+// list inline
+.ecl-list--inline {
+  list-style: none;
+  padding-left: 0;
 
-.ecl-list-inline__item {
-  display: inline-block;
+  li {
+    display: inline-block;
+    margin-left: map-get($ecl-spacing, 'xxs');
 
-  &:not(:last-child) {
-    margin-right: $ecl-list-inline-margin;
+    /* stylelint-disable-next-line */
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
