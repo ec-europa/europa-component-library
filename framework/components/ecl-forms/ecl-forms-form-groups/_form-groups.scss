@@ -6,5 +6,12 @@
 .ecl-form-group {
   @include ecl-hidden-print();
 
-  margin-bottom: map-get($ecl-spacing, 'm');
+  margin: 0;
+}
+
+/* Spacing */
+
+/* stylelint-disable-next-line plugin/selector-bem-pattern */
+* + .ecl-form-group {
+  margin-top: map-get($ecl-spacing, 'm');
 }
