@@ -1,6 +1,6 @@
 /**
  * Carousel
- * @define carousel
+ * @define carousel ; weak
  */
 
 .ecl-carousel {
@@ -8,7 +8,9 @@
   background-color: #000;
   display: flex;
   flex-direction: column;
+  height: 90vh;
   margin: 0;
+  width: 90vw;
 }
 
 @include ecl-media-breakpoint-up('xl') {
@@ -77,6 +79,10 @@
   flex: 0;
   min-width: 30%;
   padding: map-get($ecl-spacing, 'l');
+
+  a {
+    color: #fff;
+  }
 }
 
 .ecl-carousel__meta {

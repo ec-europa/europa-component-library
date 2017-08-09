@@ -5,13 +5,13 @@
 
 .ecl-dialog {
   background-color: #fff;
-  left: 50%;
+  height: auto;
+  left: 3%;
   margin: 0;
   padding: map-get($ecl-spacing, 'm');
-  position: fixed;
+  position: absolute;
   text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width: auto;
   z-index: map-get($ecl-z-index, 'modal');
 }
 
