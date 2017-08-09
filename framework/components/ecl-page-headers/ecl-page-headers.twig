@@ -49,7 +49,7 @@
         <div class="ecl-meta ecl-meta--header">
           <span class="ecl-meta__item ecl-u-f-up">{{ meta.type }}</span>
           <span class="ecl-meta__item">
-            <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="{{ meta.timestamp }}">{{ meta.date }}</span>
+            <span class="date-display-single" content="{{ meta.timestamp }}">{{ meta.date }}</span>
           </span>
           <span class="ecl-meta__item">{{ meta.location }}</span>
         </div>
@@ -57,13 +57,12 @@
       {% endif %}
       {% if title is defined %}
       <div class="ecl-page-header__title">
-        <h1 class=" ecl-heading ecl-heading--h1 ecl-u-color-white">{{ title }}</h1>
+        <h1 class="ecl-heading ecl-heading--h1 ecl-u-color-white">{{ title }}</h1>
       </div>
       {% endif %}
-
       {% if introduction is defined %}
       <div class="ecl-page-header__intro">
-        <p class="{{paragraph_class}}">{{ introduction }}</p>
+        <p class="{{ paragraph_class }}">{{ introduction }}</p>
       </div>
       {% endif %}
     </div>
