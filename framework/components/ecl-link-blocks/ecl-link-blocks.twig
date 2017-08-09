@@ -1,5 +1,4 @@
 {#
-  - "wrapper" (boolean): toggle display of a div wrapper around the component (default: false)
   - "title" (string): optional title of the link block (default: '')
   - "links" (array): [
     "href" (string): target of the link
@@ -9,7 +8,6 @@
   - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
-{% set wrapper = wrapper|default(false) %}
 {% set title = title|default('') %}
 
 {# Internal properties #}
@@ -29,8 +27,6 @@
   {% endfor %}
 {% endif %}
 
-{% if wrapper == true %}
-
 <div class="{{ _css_class }}" {{ _extra_attributes }}>
   {% if title != '' %}
     <div class="ecl-link-block__title">{{ title }}</div>
@@ -44,15 +40,3 @@
     {% endfor %}
   </ul>
 </div>
-
-{% else %}
-
-<ul class="{{ _css_class }} ecl-link-block__list" {{ _extra_attributes }}>
-  {% for link in links %}
-    <li class="ecl-link-block__item">
-      <a class="ecl-link ecl-link--standalone ecl-link-block__link" href="{{ link.href }}">{{ link.label }}</a>
-    </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
