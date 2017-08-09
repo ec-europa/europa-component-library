@@ -1,9 +1,4 @@
-import {
-  addClass,
-  removeClass,
-  queryAll,
-} from '@ec-europa/ecl-base/helpers/dom';
-
+import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 import debounce from 'lodash.debounce';
 
 /**
@@ -33,9 +28,9 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   }
 
   function goToSlide(n) {
-    removeClass(slides[currentSlide], 'ecl-carousel__item--showing');
+    slides[currentSlide].classList.remove('ecl-carousel__item--showing');
     currentSlide = (n + slides.length) % slides.length;
-    addClass(slides[currentSlide], 'ecl-carousel__item--showing');
+    slides[currentSlide].classList.add('ecl-carousel__item--showing');
   }
 
   function setOffset() {
@@ -88,7 +83,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   function addCarouselControls() {
     const navControls = document.createElement('ul');
 
-    addClass(navControls, 'ecl-carousel__controls ecl-list--unstyled');
+    navControls.className = 'ecl-carousel__controls ecl-list--unstyled';
 
     navControls.innerHTML = `
       <li>
@@ -122,7 +117,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     const liveRegion = document.createElement('div');
     liveRegion.setAttribute('aria-live', 'polite');
     liveRegion.setAttribute('aria-atomic', 'true');
-    addClass(liveRegion, 'ecl-carousel__meta-slide');
+    liveRegion.classList.add('ecl-carousel__meta-slide');
     carousel.querySelector('.ecl-carousel__live-region').append(liveRegion);
   }
 
