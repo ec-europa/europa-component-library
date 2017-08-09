@@ -1,3 +1,26 @@
-<p class="ecl-help-block">This is some placeholder help text.</p>
-<p class="ecl-help-block ecl-help-block--disabled">Disabled: This is some placeholder help text.</p>
-<p class="ecl-help-block ecl-help-block--has-error">On error: This is some placeholder help text.</p>
+{# Internal properties #}
+
+{% set _css_class = 'ecl-help-block' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if has_error is defined and has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-help-block--has-error' %}
+{% endif %}
+
+{% if is_disabled is defined and is_disabled == true %}
+  {% set _css_class = _css_class ~ ' ecl-help-block--disabled' %}
+{% endif %}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<p class="{{ _css_class }}"{{ _extra_attributes }}>{% block help_block content %}</p>

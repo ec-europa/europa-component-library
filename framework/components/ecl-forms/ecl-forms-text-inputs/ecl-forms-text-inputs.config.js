@@ -6,8 +6,12 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
-      <label for="${item.context.id}">${item.label}\n</label>\n
-      ${markup}\n
+      <div class="ecl-form-group">
+        <label for="${item.context.id}" class="ecl-form-label">
+          ${item.label}
+        </label>\n
+        ${markup}\n
+      </div>
       <!-- End: @${item.handle} -->\n
     `;
   },

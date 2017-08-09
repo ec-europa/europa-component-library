@@ -1,27 +1,20 @@
-<form>
-  <div class="ecl-form-group">
-    <label for="field-ID-1">Default Field</label>
-    <p class="ecl-help-block">This is some placeholder help text.</p>
-    <input type="text" class="ecl-text-input" id="field-ID-1" name="field-name-1" placeholder="Some placeholder text."/>
-  </div>
-</form>
+{# Internal properties #}
 
-<form>
-  <div class="ecl-form-group">
-    <label for="example-input-id-1">Text Input - default with placeholder</label>
-    <p class="ecl-help-block">This is some help text.</p>
-    <input type="text" class="ecl-text-input" id="example-input-id-1" placeholder="Some placeholder text."/>
-  </div>
+{% set _css_class = 'ecl-form-group' %}
+{% set _extra_attributes = '' %}
 
-  <div class="ecl-form-group">
-    <label for="example-input-id-2">Text Input - disabled</label>
-    <p class="ecl-help-block ecl-help-block--disabled">This is some placeholder help text.</p>
-    <input type="text"  class="ecl-text-input" id="example-input-id-2" name="field-name-3" disabled placeholder="Some placeholder text."/>
-  </div>
+{# Internal logic - Process properties #}
 
-  <div class="ecl-form-group">
-    <label for="example-input-id-3">Text Input - error on a field</label>
-    <p class="ecl-help-block ecl-help-block--has-error">This is some placeholder help text.</p>
-    <input type="text" class="ecl-text-input ecl-text-input--has-error" id="example-input-id-3" name="field-name-4" placeholder="Some placeholder text."/>
-  </div>
-</form>
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<div class="ecl-form-group">
+  {% block form_group content %}
+</div>
