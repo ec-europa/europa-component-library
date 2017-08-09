@@ -31,6 +31,7 @@ module.exports = {
       `,
     },
     dialog_settings: {
+      theme: 'dark',
       extra_attributes: [
         { name: 'aria-labelledby', value: 'dialog-title' },
         { name: 'aria-describedby', value: 'dialog-description' },

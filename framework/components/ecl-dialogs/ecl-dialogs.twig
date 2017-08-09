@@ -50,6 +50,10 @@
 
 {# Internal logic - Process properties #}
 
+{% if theme is defined %}
+  {% set _css_classes = _css_classes ~ ' ecl-dialog--' ~ theme %}
+{% endif %}
+
 {% if extra_classes is defined %}
   {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
 {% endif %}
