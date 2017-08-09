@@ -1,3 +1,8 @@
+/**
+ * Timeline
+ * @define list
+ */
+
 @import 'lists-mixins';
 
 .ecl-list {
@@ -20,6 +25,7 @@
   list-style: none;
   padding-left: 0;
 
+  /* stylelint-disable-next-line */
   li {
     display: inline-block;
     margin-left: map-get($ecl-spacing, 'xxs');
