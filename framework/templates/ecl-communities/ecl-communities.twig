@@ -55,13 +55,12 @@
 <main>
   <a id="main-content" tabindex="-1"></a>
 
-  <div class="ecl-container">
+  <div class="ecl-container ecl-u-mt-m">
     <div class="ecl-row">
       <div class="ecl-col-sm-3">
         {% include '@ec-europa/ecl-forms-labels' with {
           for_attribute: 'create-content',
-          label: 'Create content',
-          extra_classes: 'ecl-u-mt-m'
+          label: 'Create content'
         } %}
 
         {% embed '@ec-europa/ecl-forms-selects' with { 'id': 'create-content', 'name': 'create-content' }%}
@@ -81,13 +80,124 @@
             { href: '#', label: 'Jane Doe' },
             { href: '#', label: 'Mike Doe' },
             { href: '#', label: 'Richard Doe' }
-          ],
-          extra_classes: 'ecl-u-mt-m'
+          ]
         } %}
       </div>
 
       <div class="ecl-col-sm-9">
-
+        {% include '@ec-europa/ecl-galleries' with {
+          data: {
+            rows: [
+              [
+                {
+                  classes: 'ecl-col-md-4',
+                  image: {
+                    src: 'http://placehold.it/380x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '380' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                  icon: 'ecl-icon--camera',
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  icon: 'ecl-icon--audio',
+                },
+                {
+                  classes: 'ecl-col-md-2',
+                  image: {
+                    src: 'http://placehold.it/190x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '190' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                  icon: 'ecl-icon--camera',
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                },
+              ],
+              [
+                {
+                  classes: 'ecl-col-md-2',
+                  image: {
+                    src: 'http://placehold.it/190x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '190' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                },
+                {
+                  classes: 'ecl-col-md-4',
+                  image: {
+                    src: 'http://placehold.it/380x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '380' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                },
+              ],
+            ],
+          },
+        } %}
       </div>
     </div>
   </div>
