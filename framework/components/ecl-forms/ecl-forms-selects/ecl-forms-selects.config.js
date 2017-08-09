@@ -1,3 +1,11 @@
+const optionsList = [
+  { value: '1', label: 'Delhi' },
+  { value: '2', label: 'Hong Kong' },
+  { value: '3', label: 'Mumbai' },
+  { value: '4', label: 'Tokyo' },
+  { value: '5', label: 'Amsterdam' },
+];
+
 module.exports = {
   title: 'Selects',
   label: 'Selects',
@@ -18,6 +26,7 @@ module.exports = {
       label: 'Default select list',
       context: {
         id: 'example-select-id-1',
+        options: optionsList,
       },
     },
     {
@@ -26,6 +35,7 @@ module.exports = {
       context: {
         id: 'example-selectid-2',
         is_disabled: true,
+        options: optionsList,
       },
     },
     {
@@ -34,6 +44,7 @@ module.exports = {
       context: {
         id: 'example-select-id-3',
         has_error: true,
+        options: optionsList,
       },
     },
   ],
