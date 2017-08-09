@@ -1,30 +1,30 @@
 {#
-/**
-* Accepts the following context variables:
-* - variant: (string) Could be: default, basic, highlight
-*
-* Variables for `basic` and `default`:
-* - identity: (string) The name of the site, i.e. "Digital single market"
-*
-* Variables for `highlight`:
-* - label: (string) The label of the text box.
-* - highlight: (string) The value of the text box.
-*
-* Variables for `default`:
-* - title: (string) Page title.
-* - introduction: (string) The text inside intro area.
-* - paragraph_class: (string) Possible additional classes on the intro paragraph.
-* - meta: (object) Information for the meta sub-component.
-*
-* Meta has the following structure:
-*  {
-*   type: (string) 'News article',
-*   date: (string) '6 July 2015',
-*   timestamp: (timestamp) '2015-07-06T17:44:28+02:00',
-*   location: (string) 'Brussels',
-*  }
-*/
+  Accepts the following context variables:
+  - variant: (string) Could be: default, basic, highlight
+
+  Variables for `basic` and `default`:
+  - identity: (string) The name of the site, i.e. "Digital single market"
+
+  Variables for `highlight`:
+  - label: (string) The label of the text box.
+  - highlight: (string) The value of the text box.
+
+  Variables for `default`:
+  - title: (string) Page title.
+  - introduction: (string) The text inside intro area.
+  - paragraph_class: (string) Possible additional classes on the intro paragraph.
+  - meta: (object) Information for the meta sub-component.
+
+  Meta has the following structure:
+   {
+    type: (string) 'News article',
+    date: (string) '6 July 2015',
+    timestamp: (timestamp) '2015-07-06T17:44:28+02:00',
+    location: (string) 'Brussels',
+   }
+
 #}
+
 {% if variant is defined and variant == "highlight" %}
 <div class="ecl-page-header ecl-page-header--highlight">
   <div class="ecl-page-header__body">
@@ -36,40 +36,37 @@
 </div>
 {% else %}
 <div class="ecl-page-header">
-  {% include '@ec-europa/ecl-breadcrumbs' with { 'extraClass':'ecl-container','segments': [{'target':'#','title':'European Commission'},{'target':'#','title':'Announcements'}] } %}
-
-  <div class="ecl-page-header__body ecl-container">
-
-    {% if identity is defined %}
-    <div class="ecl-page-header__identity">
-      {{ identity }}
-    </div>
-    {% endif %}
-
-    {% if meta is defined %}
-    <div class="ecl-page-header__meta">
-      <div class="ecl-meta ecl-meta--header">
-        <span class="ecl-meta__item ecl-u-f-up">{{ meta.type }}</span>
-        <span class="ecl-meta__item">
-          <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="{{ meta.timestamp }}">{{ meta.date }}</span>
-        </span>
-        <span class="ecl-meta__item">{{ meta.location }}</span>
+  <div class="ecl-container">
+    {% include '@ec-europa/ecl-breadcrumbs' with { 'segments': [{ 'target':'#', 'title':'European Commission' } , { 'target': '#', 'title': 'Announcements' }] } %}
+    <div class="ecl-page-header__body">
+      {% if identity is defined %}
+      <div class="ecl-page-header__identity">
+        {{ identity }}
       </div>
-    </div>
-    {% endif %}
+      {% endif %}
+      {% if meta is defined %}
+      <div class="ecl-page-header__meta">
+        <div class="ecl-meta ecl-meta--header">
+          <span class="ecl-meta__item ecl-u-f-up">{{ meta.type }}</span>
+          <span class="ecl-meta__item">
+            <span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="{{ meta.timestamp }}">{{ meta.date }}</span>
+          </span>
+          <span class="ecl-meta__item">{{ meta.location }}</span>
+        </div>
+      </div>
+      {% endif %}
+      {% if title is defined %}
+      <div class="ecl-page-header__title">
+        <h1 class=" ecl-heading ecl-heading--h1 ecl-u-color-white">{{ title }}</h1>
+      </div>
+      {% endif %}
 
-    {% if title is defined %}
-    <div class="ecl-page-header__title">
-      <h1 class=" ecl-heading ecl-heading--h1 ecl-u-color-white">{{ title }}</h1>
+      {% if introduction is defined %}
+      <div class="ecl-page-header__intro">
+        <p class="{{paragraph_class}}">{{ introduction }}</p>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
-
-    {% if introduction is defined %}
-    <div class="ecl-page-header__intro">
-      <p class="{{paragraph_class}}">{{ introduction }}</p>
-    </div>
-    {% endif %}
-
   </div>
 </div>
 {% endif %}
