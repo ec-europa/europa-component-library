@@ -209,9 +209,32 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-017f513d11cf391e3747538e80ef04ce-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--disabled"</span>&gt;</span>Disabled: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--has-error"</span>&gt;</span>On error: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></pre>
+        <pre><span class="xml"></span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-help-<span class="hljs-name">block</span>' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> has_error is defined and has_error == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-help-<span class="hljs-name">block</span>--has-error' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> is_disabled is defined and is_disabled == true %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-help-<span class="hljs-name">block</span>--disabled' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> help_block content %}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -219,9 +242,33 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-017f513d11cf391e3747538e80ef04ce-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Default */</span>
+{
+  <span class="hljs-attr">"content"</span>: <span class="hljs-string">"This is some placeholder help text."</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Disabled */</span>
+{
+  <span class="hljs-attr">"content"</span>: <span class="hljs-string">"Disabled: This is some placeholder help text."</span>,
+  <span class="hljs-attr">"is_disabled"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Error */</span>
+{
+  <span class="hljs-attr">"content"</span>: <span class="hljs-string">"On error: This is some placeholder help text."</span>,
+  <span class="hljs-attr">"has_error"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -231,9 +278,28 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-017f513d11cf391e3747538e80ef04ce-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block"</span>&gt;</span>This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--disabled"</span>&gt;</span>Disabled: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--has-error"</span>&gt;</span>On error: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block"</span>&gt;</span>
+
+  This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Disabled --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--disabled"</span>&gt;</span>
+
+  Disabled: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Error --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-help-block ecl-help-block--has-error"</span>&gt;</span>
+
+  On error: This is some placeholder help text.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -277,8 +343,8 @@
 
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-forms-help-block-text-color</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
-  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.66</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-help-block--disabled</span> {
@@ -287,6 +353,13 @@
 
 <span class="hljs-selector-class">.ecl-help-block--has-error</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-forms-help-block-text-color-has-error</span>;
+}
+
+<span class="hljs-comment">/* Spacing */</span>
+
+<span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+* + <span class="hljs-selector-class">.ecl-help-block</span> {
+  <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
 }
 </pre>
                             </code>
@@ -304,7 +377,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">665 Bytes</span>
+                    <span class="Meta-value">780 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1310,6 +1383,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-fieldsets" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Fieldsets</span>
+            </a>
+        </li>
+        
+    
+        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-forms-file-uploads">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -1456,6 +1553,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Form groups</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-forms" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Forms</span>
             </a>
         </li>
         
@@ -3357,6 +3478,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Splash pages</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-templates-forms" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Forms</span>
             </a>
         </li>
         

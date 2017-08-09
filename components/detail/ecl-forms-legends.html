@@ -212,7 +212,33 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-6ebdd8d43834c6ddcb02dbef6ccd4e79-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-legend"</span>&gt;</span></span><span class="hljs-template-variable">{{content}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span></span></pre>
+        <pre><span class="xml"></span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-form-legend' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_class is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_class %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> level is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-form-legend--level-' ~ level %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">spaceless</span></span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-keyword">block</span></span> legend content -%}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endspaceless</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -220,9 +246,25 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-6ebdd8d43834c6ddcb02dbef6ccd4e79-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
-            
+        
+            <pre>
+<span class="hljs-comment">/* Level 1 */</span>
+{
+  <span class="hljs-attr">"content"</span>: <span class="hljs-string">"Legend for a top-level fieldset"</span>,
+  <span class="hljs-attr">"level"</span>: <span class="hljs-number">1</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Level 2 */</span>
+{
+  <span class="hljs-attr">"content"</span>: <span class="hljs-string">"Legend for a nested fieldset"</span>,
+  <span class="hljs-attr">"level"</span>: <span class="hljs-number">2</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -232,7 +274,21 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-6ebdd8d43834c6ddcb02dbef6ccd4e79-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-legend"</span>&gt;</span>Legend text comes here<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span></pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Level 1 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-legend ecl-form-legend--level-1"</span>&gt;</span>
+
+  Legend for a top-level fieldset<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Level 2 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form-legend ecl-form-legend--level-2"</span>&gt;</span>
+
+  Legend for a nested fieldset<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -263,14 +319,29 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/**
-* Legend component
-* @define form-legend
-*/</span>
-
-<span class="hljs-variable">$form-item-legend-font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+ * Legend component
+ * @define form-legend
+ */</span>
 
 <span class="hljs-selector-class">.ecl-form-legend</span> {
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-variable">$form-item-legend-font-size</span>;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.66</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">/* Variants */</span>
+
+<span class="hljs-selector-class">.ecl-form-legend--level-1</span> {
+  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
+  <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.ecl-form-legend--level-2</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
 }
 </pre>
                             </code>
@@ -288,7 +359,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">173 Bytes</span>
+                    <span class="Meta-value">426 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1294,6 +1365,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-fieldsets" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Fieldsets</span>
+            </a>
+        </li>
+        
+    
+        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-forms-file-uploads">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -1440,6 +1535,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Form groups</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-forms-forms" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Forms</span>
             </a>
         </li>
         
@@ -3341,6 +3460,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Splash pages</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-templates-forms" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Forms</span>
             </a>
         </li>
         
