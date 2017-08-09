@@ -1,15 +1,6 @@
 {#
   This is an example and should not be used as it is.
 #}
-
-<style type="text-css">
-  .ecl-user-menu {
-    text-align: right;
-    font-size: 0.89rem;
-    max-width: 100%;
-  }
-</style>
-
 <script type="text/javascript">
   document.addEventListener('DOMContentLoaded', function () {
     ECL.megamenu('.ecl-navigation-menu__root');
@@ -68,26 +59,15 @@
   <a id="main-content" tabindex="-1"></a>
 
   <div class="ecl-container ecl-u-mt-m">
-    <!-- TODO: use component and utilities -->
-    <ul class="ecl-list ecl-list--inline ecl-user-menu">
-      <li style="display: inline-block">
-        <a class="ecl-link ecl-link--standalone" href="#">My workbench <span class="ecl-icon ecl-icon--spreadsheet"></span></a>
-      </li>
-      <li style="display: inline-block">
-        <a class="ecl-link ecl-link--standalone" href="#">My account <span class="ecl-icon ecl-icon--faq"></span></a>
-      </li>
-      <li style="display: inline-block">
-        <a class="ecl-link ecl-link--standalone" href="#">Log out <span class="ecl-icon ecl-icon--faq"></span></a>
-      </li>
-    </ul>
-
+    <!-- TODO: add utilities -->
     {% include '@ec-europa/ecl-navigation-lists' with {
       title: 'User menu',
       links: [
         { to: "#", title: "My workbench <span class='ecl-icon ecl-icon--spreadsheet'></span>" },
         { to: "#", title: "My account <span class='ecl-icon ecl-icon--faq'>" },
         { to: "#", title: "Log out <span class='ecl-icon ecl-icon--faq'>" },
-      ]
+      ],
+      extra_attributes: { name: 'style', value: 'text-align: right' }
     } %}
 
     <div class="ecl-row">
