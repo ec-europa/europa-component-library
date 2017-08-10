@@ -48,27 +48,7 @@ module.exports = {
       },
     },
     dialog_contents: {
-      extra_attributes: [
-        {
-          name: 'aria-labelledby',
-          value: 'ecl-carousel__heading',
-        },
-        {
-          name: 'id',
-          value: 'ecl-carousel',
-        },
-      ],
       heading_title: 'Example gallery carousel',
-      heading_attributes: [
-        {
-          name: 'id',
-          value: 'ecl-carousel__heading',
-        },
-        {
-          name: 'class',
-          value: 'ecl-heading--3 ecl-sr-only',
-        },
-      ],
       carousel_images: [
         {
           image: {

@@ -11,27 +11,6 @@ module.exports = {
         });
       `,
     },
-    // extra_attributes: [
-    //   {
-    //     name: 'aria-labelledby',
-    //     value: 'ecl-carousel__heading',
-    //   },
-    //   {
-    //     name: 'id',
-    //     value: 'ecl-carousel',
-    //   },
-    // ],
-    // heading_title: 'Example gallery carousel',
-    // heading_attributes: [
-    //   {
-    //     name: 'id',
-    //     value: 'ecl-carousel__heading',
-    //   },
-    //   {
-    //     name: 'class',
-    //     value: 'ecl-headings ecl-headings--h3 ecl-sr-only',
-    //   },
-    // ],
     carousel_images: [
       {
         image: {
