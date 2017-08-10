@@ -29,5 +29,5 @@ Users need a way to easily identify the branding, to search and change the langu
 | Default page header  | Basic page header |
 | --------------- | ---------- |
 | detail pages and landing pages | detail pages and landing pages |
-| no corporate menu | corporate menu |
+| [navigation menu](../ecl-navigation-menus) not allowed | navigation menu  |
 | default implementation | page title and page introduction elements should be placed on the body of the page |
