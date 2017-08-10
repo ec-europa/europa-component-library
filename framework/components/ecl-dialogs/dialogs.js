@@ -130,6 +130,10 @@ export const dialogs = (
 
     // Handle tabbing, esc and keyboard in the dialog window.
     dialogWindow.addEventListener('keydown', handleKeyDown);
+
+    // Tell other elements in the DOM the dialog got open.
+    const dialogOpen = new CustomEvent('eclDialogOpen', { dialogWindowId });
+    window.dispatchEvent(dialogOpen);
   }
 
   // BIND EVENTS
