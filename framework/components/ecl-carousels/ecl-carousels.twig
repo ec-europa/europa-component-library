@@ -43,7 +43,28 @@ Usage:
 
 {% set _css_classes = 'ecl-carousel' %}
 {% set _extra_attributes = '' %}
-{% set _heading_attributes = '' %}
+
+{% set _dialog_attributes = [
+  {
+    name: 'aria-labelledby',
+    value: value|default('ecl-carousel__heading'),
+  },
+  {
+    name: 'id',
+    value: value|default('ecl-carousel'),
+  }
+] %}
+{% set _heading_attributes = [
+  {
+    name: 'id',
+    value: value|default('ecl-carousel__heading'),
+  },
+  {
+    name: 'class',
+    value: value|default('ecl-headings ecl-headings--h3 ecl-sr-only'),
+  }
+] %}
+{% set heading_title = variant|default('gallery') %}
 
 {# Internal logic - Process properties #}
 
