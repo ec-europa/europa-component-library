@@ -1,4 +1,43 @@
-<nav class="ecl-navigation-menu" aria-label="{{ menu_aria_label }}">
+{#
+  - "menu_label" (integer): max number of items to display (0 = display all) (default: 5)
+  - "menu_aria_label" (string): label displayed before the list (default: '')
+  - "links" (array): [{
+      "href" (string): target of the link
+      "label" (string): label of the link
+      "is_active" (boolean): does the menu contains the current page? (default: false)
+      "children_links" (array): [{
+        "href" (string): target of the link
+        "label" (string): label of the link
+        "is_active" (boolean): is it the current page? (default: false)
+      }]
+    }]
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}
+
+{% set menu_label = menu_label|default('') %}
+{% set menu_aria_label = menu_aria_label|default('') %}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-navigation-menu' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_Class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<nav class="_css_class" aria-label="{{ menu_aria_label }}"{{ _extra_attributes }}>
   <div class="ecl-container">
     <div class="ecl-row">
       <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="true">
