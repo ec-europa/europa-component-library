@@ -12,12 +12,12 @@
 
 {# Internal properties #}
 
-{% set _css_class = '' %}
+{% set _css_class = 'ecl-navigation-list-wrapper' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if extra_class is defined %}
+{% if extra_classes is defined %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
@@ -29,13 +29,13 @@
 
 {# Print result #}
 
-<nav class="ecl-navigation-list-wrapper {{ _css_class }}" {{ _extra_attributes }}>
+<nav class="{{ _css_class }}" {{ _extra_attributes }}>
   <h2 class="ecl-sr-only">{{ title|default('Navigation') }}</h2>
   <ul class="ecl-navigation-list ecl-navigation-list--{{ variant|default('default') }}">
     {% for link in links %}
-      {% set active_class = link.is_active is defined and link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
+      {% set _active_class = link.is_active is defined and link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
       <li class="ecl-navigation-list__item">
-        <a class="ecl-navigation-list__link{{ active_class }} ecl-link" href="{{ link.href }}">{{ link.label }}</a>
+        <a class="ecl-navigation-list__link{{ _active_class }} ecl-link" href="{{ link.href }}">{{ link.label }}</a>
       </li>
     {% endfor %}
   </ul>
