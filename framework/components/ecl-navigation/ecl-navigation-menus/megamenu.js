@@ -56,12 +56,17 @@ const onKeydown = (node, menu) => e => {
   }
 };
 
-export const megamenu = selector => {
+export const megamenu = (
+  {
+    selector: selector = '.ecl-navigation-menu__root',
+    linkSelector: linkSelector = '.ecl-navigation-menu__link',
+  } = {}
+) => {
   const megamenusArray = queryAll(selector);
 
   megamenusArray.forEach(menu => {
     // Get expandables within the menu
-    const nodesArray = queryAll('.ecl-navigation-menu__link', menu);
+    const nodesArray = queryAll(linkSelector, menu);
 
     nodesArray.forEach(node => {
       node.addEventListener('click', onClick(node, menu));

@@ -80,8 +80,7 @@ module.exports = {
     ],
     _demo: {
       scripts: `document.addEventListener('DOMContentLoaded', function () {
-        ECL.megamenu('.ecl-navigation-menu__root');
-        ECL.initExpandables('.ecl-navigation-menu__toggle');
+        ECL.megamenu();
       });`,
     },
   },
