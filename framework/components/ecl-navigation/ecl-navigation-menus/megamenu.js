@@ -12,7 +12,9 @@ export const megamenu = selector => {
     );
 
     nodesArray.forEach(node =>
-      node.addEventListener('click', () => {
+      node.addEventListener('click', e => {
+        e.preventDefault();
+
         toggleExpandable(node, {
           context: menu,
           closeSiblings: true,
