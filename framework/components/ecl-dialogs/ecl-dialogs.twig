@@ -1,12 +1,29 @@
 {#
-  - extra_attributes: [{
-      name: attribute name
-      value: attribute value
-    }]
 
-    Note that the `role="dialog"` attribute is added by default to extra_attributes set.
+  Usage:
 
-  - extra_classes: additional classes to add to the component. 'ecl-dialog' is added by default.
+  - theme: (string)
+    Possible variation of the component. `dark` is supported at the moment.
+
+  - dialog_id: (string)
+    Overrideable `id` of the dialog: defaults to 'ecl-dialog'
+
+  - dialog_aria_labelledby: (string)
+    Overrideable `aria-labelledby` of the dialog: defaults to 'dialog-title'
+
+  - dialog_aria_describedby: (string)
+    Overrideable `aria-describedby` of the dialog: defaults to 'dialog-description'
+
+  - dialog_aria_hidden: (string)
+    Overrideable `aria-hidden` of the dialog: defaults to `true`
+
+  - extra_attributes: (iterable)
+    Conventional map of possible extra attributes for the dialog.
+    Pass any attribute, except: id, aria-hidden, aria-labelledby, aria-describedby, role.
+    Most of these attributes are managed by their corresponding variables described above.
+
+  - extra_classes: (string)
+    Possible additional classes to add to the dialog.
 
   - dialog_title: {
     value: the title of the dialog (default: '')
@@ -27,6 +44,13 @@
   }
 #}
 
+{# Internal properties #}
+
+{% set _dialog_id = dialog_id|default('ecl-dialog') %}
+{% set _dialog_aria_labelledby = dialog_aria_labelledby|default('dialog-title') %}
+{% set _dialog_aria_describedby = dialog_aria_describedby|default('dialog-description') %}
+{% set _dialog_aria_hidden = dialog_aria_hidden|default(true) %}
+
 {% set dialog_title = {
   value: dialog_title.value|default(''),
   id: dialog_title.id|default(''),
@@ -43,8 +67,6 @@
   label: dimiss.label|default('Dismiss this dialog window'),
 } %}
 
-{# Internal properties #}
-
 {% set _css_classes = 'ecl-dialog' %}
 {% set _extra_attributes = '' %}
 
@@ -60,9 +82,17 @@
 
 {% if extra_attributes is defined %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% if attr != 'id' and attr != 'aria-labelledby' and attr != 'aria-describedby' and attr != 'aria-hidden' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% endif %}
   {% endfor %}
 {% endif %}
+
+{# Attach the additional attributes on the dialog #}
+{% set _extra_attributes = _extra_attributes ~ ' ' ~ 'id="' ~ _dialog_id ~ '"' %}
+{% set _extra_attributes = _extra_attributes ~ ' ' ~ 'aria-labelledby="' ~ _dialog_aria_labelledby ~ '"' %}
+{% set _extra_attributes = _extra_attributes ~ ' ' ~ 'aria-describedby="' ~ _dialog_aria_describedby ~ '"' %}
+{% set _extra_attributes = _extra_attributes ~ ' ' ~ 'aria-hidden="' ~ _dialog_aria_hidden ~ '"' %}
 
 {# Print result #}
 <div class="{{ _css_classes }}" {{ _extra_attributes }} role="dialog">

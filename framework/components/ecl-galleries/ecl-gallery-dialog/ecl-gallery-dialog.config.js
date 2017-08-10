@@ -32,12 +32,6 @@ module.exports = {
     },
     dialog_settings: {
       theme: 'dark',
-      extra_attributes: [
-        { name: 'aria-labelledby', value: 'dialog-title' },
-        { name: 'aria-describedby', value: 'dialog-description' },
-        { name: 'id', value: 'ecl-dialog' },
-        { name: 'aria-hidden', value: 'true' },
-      ],
       dialog_title: {
         value: 'Example title',
         id: 'dialog-title',
