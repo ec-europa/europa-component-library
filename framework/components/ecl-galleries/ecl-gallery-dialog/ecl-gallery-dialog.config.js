@@ -22,7 +22,7 @@ module.exports = {
         link.setAttribute('data-ecl-dialog', 'ecl-dialog');
 
         // Show the link
-        document.body.append(link);
+        document.body.appendChild(link);
 
         document.addEventListener('DOMContentLoaded', function () {
             ECL.dialogs();

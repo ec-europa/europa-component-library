@@ -105,7 +105,9 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
       .querySelector('.ecl-carousel__btn--next', '.ecl-carousel__controls')
       .addEventListener('click', nextSlide);
 
-    carousel.querySelector('.ecl-carousel__list-wrapper').append(navControls);
+    carousel
+      .querySelector('.ecl-carousel__list-wrapper')
+      .appendChild(navControls);
   }
 
   function removeCarouselControls() {
@@ -118,7 +120,9 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     liveRegion.setAttribute('aria-live', 'polite');
     liveRegion.setAttribute('aria-atomic', 'true');
     liveRegion.classList.add('ecl-carousel__meta-slide');
-    carousel.querySelector('.ecl-carousel__live-region').append(liveRegion);
+    carousel
+      .querySelector('.ecl-carousel__live-region')
+      .appendChild(liveRegion);
   }
 
   function removeLiveRegion() {
