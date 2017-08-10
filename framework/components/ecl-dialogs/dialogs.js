@@ -1,5 +1,26 @@
 import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 
+// Normalize CustomEvent behavior.
+// See https://developer.mozilla.org/fr/docs/Web/API/CustomEvent
+(() => {
+  function CustomEvent(event, params) {
+    // eslint-disable-next-line
+    params = params || { bubbles: false, cancelable: false, detail: undefined };
+    const evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(
+      event,
+      params.bubbles,
+      params.cancelable,
+      params.detail
+    );
+    return evt;
+  }
+
+  CustomEvent.prototype = window.Event.prototype;
+
+  window.CustomEvent = CustomEvent;
+})();
+
 /**
  * @param {object} options Object containing configuration overrides
  *
