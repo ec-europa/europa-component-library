@@ -25,8 +25,8 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_Class %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -37,7 +37,7 @@
 
 {# Print the result  #}
 
-<nav class="_css_class" aria-label="{{ menu_aria_label }}"{{ _extra_attributes }}>
+<nav class="{{ _css_class }}" aria-label="{{ menu_aria_label }}"{{ _extra_attributes }}>
   <div class="ecl-container">
     <div class="ecl-row">
       <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="true">
