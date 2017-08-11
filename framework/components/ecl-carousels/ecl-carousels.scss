@@ -115,3 +115,25 @@
 .ecl-carousel__image-copyright {
   font-size: map-get($ecl-font-size, 'xxs');
 }
+
+/* When no js, show all images inline. */
+.no-js {
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .ecl-carousel__list-wrapper {
+    overflow: initial;
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .ecl-carousel__list {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .ecl-carousel__item {
+    display: inline-block;
+    opacity: 1;
+  }
+}
