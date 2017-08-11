@@ -1,33 +1,32 @@
 {% if variant is defined and variant == "internal" %}
-  <div class="ecl-search-form__wrapper">
-    <p class="ecl-paragraph">Search on this site</p>
-    <form class="ecl-search-form ecl-search-form--internal">
-      <label class="ecl-search-form__textfield-wrapper">
-        <span class="ecl-sr-only">Search this website</span>
-        {% include '@ec-europa/ecl-forms-text-inputs' with {
-          'type': 'search',
-          'extraClass': 'ecl-search-form__textfield',
-          'extraAttributes': [
-            { 'name': 'title', 'value': 'Search'}
-          ]
-        } %}
-      </label>
-      {% include '@ec-europa/ecl-buttons' with {
-        'modifier': 'form-primary',
-        'label': 'Search',
-        'extraClass': 'ecl-search-form__button',
+  <form class="ecl-search-form ecl-search-form--internal">
+    <label class="ecl-search-form__textfield-wrapper">
+      <span class="ecl-sr-only">Search this website</span>
+      {% include '@ec-europa/ecl-forms-text-inputs' with {
+        'id': 'search-form-internal',
+        'type': 'search',
+        'extraClass': 'ecl-search-form__textfield',
         'extraAttributes': [
-          { 'name': 'value', 'value': 'Search'},
-          { 'name': 'type', 'value': 'submit'}
+          { 'name': 'title', 'value': 'Search'}
         ]
       } %}
-    </form>
-  </div>
+    </label>
+    {% include '@ec-europa/ecl-buttons' with {
+      'modifier': 'form-primary',
+      'label': 'Search',
+      'extraClass': 'ecl-search-form__button',
+      'extraAttributes': [
+        { 'name': 'value', 'value': 'Search'},
+        { 'name': 'type', 'value': 'submit'}
+      ]
+    } %}
+  </form>
 {% else %}
   <form class="ecl-search-form">
     <label class="ecl-search-form__textfield-wrapper">
       <span class="ecl-sr-only">Search this website</span>
       {% include '@ec-europa/ecl-forms-text-inputs' with {
+        'id': 'search-form',
         'type': 'search',
         'extraClass': 'ecl-search-form__textfield',
         'extraAttributes': [
