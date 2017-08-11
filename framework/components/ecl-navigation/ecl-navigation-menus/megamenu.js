@@ -58,19 +58,32 @@ const onKeydown = (node, menu) => e => {
 
 export const megamenu = (
   {
-    selector: selector = '.ecl-navigation-menu__root',
+    selector: selector = '.ecl-navigation-menu',
+    toggleSelector: toggleSelector = '.ecl-navigation-menu__toggle',
+    listSelector: listSelector = '.ecl-navigation-menu__root',
     linkSelector: linkSelector = '.ecl-navigation-menu__link',
   } = {}
 ) => {
   const megamenusArray = queryAll(selector);
 
   megamenusArray.forEach(menu => {
-    // Get expandables within the menu
-    const nodesArray = queryAll(linkSelector, menu);
+    // Make the toggle expandable
+    const toggle = menu.querySelector(toggleSelector);
+    if (toggle) {
+      toggle.addEventListener('click', () =>
+        toggleExpandable(toggle, { context: menu })
+      );
+    }
+
+    // Get the list of links
+    const list = menu.querySelector(listSelector);
+
+    // Get expandables within the list
+    const nodesArray = queryAll(linkSelector, list);
 
     nodesArray.forEach(node => {
-      node.addEventListener('click', onClick(node, menu));
-      node.addEventListener('keydown', onKeydown(node, menu));
+      node.addEventListener('click', onClick(node, list));
+      node.addEventListener('keydown', onKeydown(node, list));
     });
   });
 };
