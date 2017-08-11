@@ -8,21 +8,25 @@
   background-color: #000;
   display: flex;
   flex-direction: column;
-  height: 90vh;
   margin: 0;
-  width: 90vw;
-}
+  max-width: 100%;
+  overflow: hidden;
 
-@include ecl-media-breakpoint-up('xl') {
-  .ecl-carousel {
+  @include ecl-media-breakpoint-up('xl') {
     flex-direction: row;
+    max-height: 100vh;
   }
 }
 
 .ecl-carousel__list-wrapper {
   flex: 1;
+  max-height: 70vh;
   overflow: hidden;
   position: relative;
+
+  @include ecl-media-breakpoint-up('xl') {
+    max-height: 100%;
+  }
 }
 
 .ecl-carousel__controls {
@@ -30,6 +34,7 @@
 }
 
 .ecl-carousel__list {
+  display: flex;
   margin: 0;
   white-space: nowrap;
   width: 100%;
@@ -37,33 +42,33 @@
 
 .ecl-carousel__item {
   display: inline-block;
-  opacity: 0;
+  flex: 1 0 100%;
   position: relative;
-  z-index: map-get($ecl-z-index, 'zero');
 }
 
-.ecl-carousel__item--showing {
-  opacity: 1;
-  z-index: map-get($ecl-z-index, 'highlight');
+.ecl-carousel__image {
+  display: block;
+  margin: auto;
 }
 
-.ecl-carousel__btn {
+.ecl-carousel__button {
   background-color: #000;
   border: 0;
   color: #fff;
   font-size: map-get($ecl-font-size, 'xxl');
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
   z-index: map-get($ecl-z-index, 'navigation');
 
   @include ecl-focus-outline-border();
 }
 
-.ecl-carousel__btn--previous {
+.ecl-carousel__button--previous {
   left: 0;
 }
 
-.ecl-carousel__btn--next {
+.ecl-carousel__button--next {
   right: 0;
 }
 

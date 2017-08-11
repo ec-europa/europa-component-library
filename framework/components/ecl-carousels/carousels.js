@@ -20,13 +20,6 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     return carousel.querySelector('.ecl-carousel__item').offsetWidth;
   }
 
-  function alignCenter() {
-    slides.forEach(slide => {
-      // eslint-disable-next-line
-      slide.style.left = `${(list.offsetWidth - slide.offsetWidth) / 2}px`;
-    });
-  }
-
   function goToSlide(n) {
     slides[currentSlide].classList.remove('ecl-carousel__item--showing');
     currentSlide = (n + slides.length) % slides.length;
@@ -65,7 +58,6 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   function previousSlide() {
     goToSlide(currentSlide - 1);
-    alignCenter();
     setOffset();
     announceCurrentSlide();
     showImageInformation();
@@ -73,7 +65,6 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   function nextSlide() {
     goToSlide(currentSlide + 1);
-    alignCenter();
     setOffset();
     announceCurrentSlide();
     showImageInformation();
@@ -87,22 +78,25 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
     navControls.innerHTML = `
       <li>
-        <button type="button" class="ecl-icon ecl-icon--left ecl-carousel__btn ecl-carousel__btn--previous">
+        <button type="button" class="ecl-icon ecl-icon--left ecl-carousel__button ecl-carousel__button--previous">
           <span class="ecl-sr-only">Previous</span></button>
       </li>
       <li>
-        <button type="button" class="ecl-icon ecl-icon--right ecl-carousel__btn ecl-carousel__btn--next">
+        <button type="button" class="ecl-icon ecl-icon--right ecl-carousel__button ecl-carousel__button--next">
           <span class="ecl-sr-only">Next</span>
         </button>
       </li>
     `;
 
     navControls
-      .querySelector('.ecl-carousel__btn--previous', '.ecl-carousel__controls')
+      .querySelector(
+        '.ecl-carousel__button--previous',
+        '.ecl-carousel__controls'
+      )
       .addEventListener('click', previousSlide);
 
     navControls
-      .querySelector('.ecl-carousel__btn--next', '.ecl-carousel__controls')
+      .querySelector('.ecl-carousel__button--next', '.ecl-carousel__controls')
       .addEventListener('click', nextSlide);
 
     carousel
@@ -135,7 +129,6 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
   const debounceCb = () =>
     debounce(
       () => {
-        alignCenter();
         setOffset();
       },
       100,
@@ -144,7 +137,6 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
   // INIT
   function init() {
-    alignCenter();
     addCarouselControls();
     addLiveRegion();
     goToSlide(0);

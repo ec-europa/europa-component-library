@@ -104,7 +104,7 @@ Usage:
     <ul class="ecl-carousel__list ecl-list--unstyled">
       {% for carousel_image in carousel_images %}
       <li class="ecl-carousel__item">
-        {% include '@ec-europa/ecl-images' with carousel_image.image %}
+        <img src="{{ carousel_image.image.src }}" alt="{{ carousel_image.image.alt }}" class="ecl-carousel__image" />
       </li>
       {% endfor %}
     </ul>
