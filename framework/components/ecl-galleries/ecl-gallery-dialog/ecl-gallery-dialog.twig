@@ -12,6 +12,8 @@
 #}
 {% embed '@ec-europa/ecl-dialogs' with dialog_settings %}
   {% block dialog_body %}
-    {% include '@ec-europa/ecl-carousels' with dialog_contents %}
+    <div class="ecl-container">
+      {% include '@ec-europa/ecl-carousels' with dialog_contents %}
+    </div>
   {% endblock %}
 {% endembed %}

@@ -102,9 +102,11 @@
   {% if dialog_description is defined %}
   <p id="{{ dialog_description.id }}" class="{{ dialog_description.classes }}">{{ dialog_description.value }}</p>
   {% endif %}
-  {% block dialog_body %}
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
-  {% endblock %}
+  <div class="ecl-dialog__body">
+    {% block dialog_body %}
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+    {% endblock %}
+  </div>
   {% if dismiss is defined %}
   <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
   {% endif %}
