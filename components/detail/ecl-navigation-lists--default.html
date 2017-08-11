@@ -214,17 +214,43 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-36293fa849f818a7a5fb55e85cbdff41-panel-view">
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
-  - title: the title of the navigation (default: 'Navigation')
-  - variant: the variant. Can be 'default' or 'tabs' (default: 'default')
-  - links: array of links { to, title, isActive } (default: [])
+  - title (string): the title of the navigation (default: 'Navigation')
+  - variant (string): the variant. Can be 'default' or 'tabs' (default: 'default')
+  - links (array): [
+    - "href" (string): target of the link
+    - "label" (string): label of the link
+    - "is_active" (boolean): set active link
+  ]
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}</span><span class="xml">
-<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list-wrapper"</span>&gt;</span>
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-navigation-list-wrapper' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{ title|<span class="hljs-keyword">default</span>('Navigation') }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list ecl-navigation-list--</span></span></span><span class="hljs-template-variable">{{ variant|<span class="hljs-keyword">default</span>('default') }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> link in links %}</span><span class="xml">
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> activeClass = link.isActive is defined and link.isActive == true? ' ecl-navigation-list__link--active' : '' %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _active_class = link.is_active is defined and link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__item"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__link</span></span></span><span class="hljs-template-variable">{{ activeClass }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link.to }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ link.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-list__link</span></span></span><span class="hljs-template-variable">{{ _active_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ link.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
@@ -242,21 +268,21 @@
   <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Default Navigation Menu"</span>,
   <span class="hljs-attr">"links"</span>: [
     {
-      <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Home"</span>
     },
     {
-      <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"About Us"</span>,
-      <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"About Us"</span>,
+      <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
     },
     {
-      <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"More Information"</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"More Information"</span>
     },
     {
-      <span class="hljs-attr">"to"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Contact Us"</span>
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Contact Us"</span>
     }
   ]
 }</pre>
@@ -328,6 +354,7 @@
   <span class="hljs-attribute">flex-direction</span>: row;
   <span class="hljs-attribute">flex-wrap</span>: nowrap;
   <span class="hljs-attribute">list-style-type</span>: none;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
 }
 
@@ -796,171 +823,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
                 <span>Legacy Grid</span>
             </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-ecl-listings">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ecl Listings</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-node_modules">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Node Modules</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-@ec-europa">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ec Europa</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-4" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Buttons</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Date blocks</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Meta</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -3706,6 +3568,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Forms</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-templates-search" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search Page</span>
             </a>
         </li>
         

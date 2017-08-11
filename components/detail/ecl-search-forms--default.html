@@ -218,35 +218,34 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-ce4f7797681e55bcdb2673b57da79a2c-panel-view">
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "internal" %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Search on this site<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form ecl-search-form--internal"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-text-inputs' with {
-          'type': 'search',
-          'extraClass': 'ecl-search-form__textfield',
-          'extraAttributes': [
-            { 'name': 'title', 'value': 'Search'}
-          ]
-        } %}</span><span class="xml">
-      <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
-        'modifier': 'form-primary',
-        'label': 'Search',
-        'extraClass': 'ecl-search-form__button',
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form ecl-search-form--internal"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-text-inputs' with {
+        'id': 'search-form-internal',
+        'type': 'search',
+        'extraClass': 'ecl-search-form__textfield',
         'extraAttributes': [
-          { 'name': 'value', 'value': 'Search'},
-          { 'name': 'type', 'value': 'submit'}
+          { 'name': 'title', 'value': 'Search'}
         ]
       } %}</span><span class="xml">
-    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
+      'modifier': 'form-primary',
+      'label': 'Search',
+      'extraClass': 'ecl-search-form__button',
+      'extraAttributes': [
+        { 'name': 'value', 'value': 'Search'},
+        { 'name': 'type', 'value': 'submit'}
+      ]
+    } %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-text-inputs' with {
+        'id': 'search-form',
         'type': 'search',
         'extraClass': 'ecl-search-form__textfield',
         'extraAttributes': [
@@ -304,7 +303,7 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span>
   <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span>
   <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-text-input ecl-search-form__textfield"</span>
-  <span class="hljs-attr">id</span>=<span class="hljs-string">"default-id"</span>
+  <span class="hljs-attr">id</span>=<span class="hljs-string">"search-form"</span>
   <span class="hljs-attr">name</span>=<span class="hljs-string">"default-name"</span>
    <span class="hljs-attr">title</span>=<span class="hljs-string">"Search"</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"30"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"128"</span>
 /&gt;</span>
@@ -345,16 +344,12 @@
  * @define search-form
  */</span>
 
-<span class="hljs-selector-class">.ecl-search-form__wrapper</span> {
-  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
-  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
-}
-
 <span class="hljs-selector-class">.ecl-search-form</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
   <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
   <span class="hljs-attribute">display</span>: inline-flex;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-search-form__textfield-wrapper</span> {
@@ -364,6 +359,7 @@
 <span class="hljs-selector-class">.ecl-search-form__textfield</span> {
   <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">height</span>: <span class="hljs-number">2.2rem</span>;
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
 }
@@ -441,7 +437,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.6 KB</span>
+                    <span class="Meta-value">1.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -836,171 +832,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
                 <span>Legacy Grid</span>
             </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-ecl-listings">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ecl Listings</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-node_modules">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Node Modules</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-@ec-europa">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ec Europa</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-4" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Buttons</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Date blocks</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Meta</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -3746,6 +3577,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Forms</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-templates-search" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search Page</span>
             </a>
         </li>
         

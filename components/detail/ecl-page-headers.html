@@ -198,8 +198,8 @@
 <td>detail pages and landing pages</td>
 </tr>
 <tr>
-<td>no corporate menu</td>
-<td>corporate menu</td>
+<td><a href="ecl-navigation-menus">navigation menu</a> not allowed</td>
+<td>navigation menu</td>
 </tr>
 <tr>
 <td>default implementation</td>
@@ -289,6 +289,7 @@
 
   Variables for `basic` and `default`:
   - identity: (string) The name of the site, i.e. "Digital single market"
+  - breadcrumb: (array) Array of links for the breadcrumb. Structure: [{'target': '#', 'title': 'lorem ipsum'}]
 
   Variables for `highlight`:
   - label: (string) The label of the text box.
@@ -307,7 +308,6 @@
     timestamp: (timestamp) '2015-07-06T17:44:28+02:00',
     location: (string) 'Brussels',
    }
-
 #}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "highlight" %}</span><span class="xml">
@@ -322,7 +322,7 @@
 </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-breadcrumbs' with { 'segments': [{ 'target':'#', 'title':'European Commission' } , { 'target': '#', 'title': 'Announcements' }] } %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-breadcrumbs' with { 'segments': breadcrumb } %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> identity is defined %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__identity"</span>&gt;</span>
@@ -931,171 +931,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
                 <span>Legacy Grid</span>
             </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-ecl-listings">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ecl Listings</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-node_modules">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Node Modules</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-@ec-europa">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ec Europa</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-4" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Buttons</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Date blocks</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Meta</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -3841,6 +3676,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Forms</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-templates-search" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search Page</span>
             </a>
         </li>
         

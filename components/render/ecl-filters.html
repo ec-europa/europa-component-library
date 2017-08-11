@@ -2,10 +2,50 @@
 
 
 
-<div class="ecl-row">
-  <aside class="ecl-col-lg-3" role="complementary">
-      <h3 class="ecl-heading ecl-heading--h3">Filter by</h3>
+<div class="ecl-container ecl-u-mv-l">
+  <div class="ecl-row ecl-u-mb-l">
+    <div class="ecl-col">
+        <form class="ecl-search-form ecl-search-form--internal">
+    <label class="ecl-search-form__textfield-wrapper">
+      <span class="ecl-sr-only">Search this website</span>
       
+
+
+
+
+
+
+  
+
+        
+
+
+<input
+  type="search"
+  class="ecl-text-input ecl-search-form__textfield"
+  id="search-form-internal"
+  name="default-name"
+   title="Search"
+/>
+    </label>
+    
+
+
+
+
+
+
+
+  
+                <button
+    class="ecl-button ecl-button--form-primary ecl-search-form__button"
+     value="Search" type="submit">Search</button>  </form>
+    </div>
+  </div>
+  <div class="ecl-row">
+    <aside class="ecl-col-lg-3" role="complementary">
+      <h3 class="ecl-heading ecl-heading--h3">Filter by</h3>
+        
 
 
 
@@ -13,7 +53,7 @@
 
                     
 <form class="ecl-form" action="#" method="get" id="form-filter">
-            
+              
 
 
 
@@ -21,13 +61,13 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
 
 
 
                     
 <label class="ecl-form-label" for="filter-keywords">Keyword</label>
-              
+                
 
 
 
@@ -46,8 +86,8 @@
   name="keywords"
    =""
 />
-            </div>
-          
+              </div>
+            
 
 
 
@@ -55,13 +95,13 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
 
 
 
                     
 <label class="ecl-form-label" for="filter-topic">Topic</label>
-              
+                
 
 
 
@@ -80,8 +120,8 @@
   id="filter-topic"
   name="topic"
    action="#" method="get" id="form-filter"
-><option value="0">Any topic</option><option value="354">Banking and financial services</option><option value="369">Environment</option><option value="382">Research and innovation</option></select>            </div>
-          
+><option value="0">Any topic</option><option value="354">Banking and financial services</option><option value="369">Environment</option><option value="382">Research and innovation</option></select>              </div>
+            
 
 
 
@@ -89,13 +129,13 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
 
 
 
                     
 <label class="ecl-form-label" for="filter-location">Location</label>
-              
+                
 
 
 
@@ -114,8 +154,8 @@
   id="filter-location"
   name="location"
    action="#" method="get" id="form-filter"
-><option value="0">Any country</option><option value="BE">Belgium</option><option value="ES">Spain</option><option value="RO">Romania</option><option value="IT">Italy</option><option value="PT">Portugal</option><option value="HR">Croatia</option><option value="FI">Finland</option><option value="DE">Germany</option><option value="IE">Ireland</option><option value="PL">Poland</option><option value="BG">Bulgaria</option><option value="GR">Greece</option><option value="NL">Netherlands</option><option value="SK">Slovakia</option><option value="SE">Sweden</option><option value="EE">Estonia</option><option value="AT">Austria</option><option value="CY">Cyprus</option><option value="DK">Denmark</option><option value="FR">France</option><option value="HU">Hungary</option><option value="LV">Latvia</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MT">Malta</option></select>            </div>
-          
+><option value="0">Any country</option><option value="BE">Belgium</option><option value="ES">Spain</option><option value="RO">Romania</option><option value="IT">Italy</option><option value="PT">Portugal</option><option value="HR">Croatia</option><option value="FI">Finland</option><option value="DE">Germany</option><option value="IE">Ireland</option><option value="PL">Poland</option><option value="BG">Bulgaria</option><option value="GR">Greece</option><option value="NL">Netherlands</option><option value="SK">Slovakia</option><option value="SE">Sweden</option><option value="EE">Estonia</option><option value="AT">Austria</option><option value="CY">Cyprus</option><option value="DK">Denmark</option><option value="FR">France</option><option value="HU">Hungary</option><option value="LV">Latvia</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MT">Malta</option></select>              </div>
+            
 
 
 
@@ -123,7 +163,7 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
 
 
 
@@ -137,31 +177,8 @@
                     
 
 
-<label class="ecl-form-label ecl-checkbox"><input class="ecl-checkbox__input ecl-sr-only" type="checkbox" id="event_is_online" value="" name="event_is_online" /><span class="ecl-checkbox__label">Online only events</span></label>            </div>
-          
-
-
-
-
-
-                    
-<div class="ecl-form-group">
-                
-
-
-
-
-
-
-
-
-
-
-                    
-
-
-<label class="ecl-form-label ecl-checkbox"><input class="ecl-checkbox__input ecl-sr-only" type="checkbox" id="event_is_live_streaming" value="" name="event_is_live_streaming" checked /><span class="ecl-checkbox__label">Events with live streaming available</span></label>            </div>
-          
+<label class="ecl-form-label ecl-checkbox"><input class="ecl-checkbox__input ecl-sr-only" type="checkbox" id="event_is_online" value="" name="event_is_online" /><span class="ecl-checkbox__label">Online only events</span></label>              </div>
+            
 
 
 
@@ -169,13 +186,36 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+<label class="ecl-form-label ecl-checkbox"><input class="ecl-checkbox__input ecl-sr-only" type="checkbox" id="event_is_live_streaming" value="" name="event_is_live_streaming" checked /><span class="ecl-checkbox__label">Events with live streaming available</span></label>              </div>
+            
+
+
+
+
+
+                    
+<div class="ecl-form-group">
+                  
 
 
 
                     
 <label class="ecl-form-label" for="filter-organiser">Organiser</label>
-              
+                
 
 
 
@@ -194,8 +234,8 @@
   id="filter-organiser"
   name="organiser"
    action="#" method="get" id="form-filter"
-><option value="0">Any organiser</option><option value="881">Financial Stability, Financial Services and Capital Markets Union</option><option value="932">Translation</option><option value="189">Internal Audit Service</option><option value="746">Interpretation</option></select>            </div>
-          
+><option value="0">Any organiser</option><option value="881">Financial Stability, Financial Services and Capital Markets Union</option><option value="932">Translation</option><option value="189">Internal Audit Service</option><option value="746">Interpretation</option></select>              </div>
+            
 
 
 
@@ -203,13 +243,13 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
 
 
 
                     
 <label class="ecl-form-label" for="filter-after">After</label>
-              
+                
 
 
 
@@ -220,8 +260,8 @@
   id="filter-after"
   name="datepicker"
    aria-label="Use the arrow keys to pick a date" value=""
-/><span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span></div>            </div>
-          
+/><span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span></div>              </div>
+            
 
 
 
@@ -229,13 +269,13 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
 
 
 
                     
 <label class="ecl-form-label" for="filter-before">Before</label>
-              
+                
 
 
 
@@ -246,8 +286,8 @@
   id="filter-before"
   name="datepicker"
    aria-label="Use the arrow keys to pick a date" value=""
-/><span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span></div>            </div>
-          
+/><span class="ecl-datepickers__icon ecl-icon ecl-icon--calendar"></span></div>              </div>
+            
 
 
 
@@ -255,13 +295,13 @@
 
                     
 <div class="ecl-form-group">
-                
+                  
 
 
 
                     
 <label class="ecl-form-label" for="filter-collection">Collection</label>
-              
+                
 
 
 
@@ -280,8 +320,8 @@
   id="filter-collection"
   name="collection"
    action="#" method="get" id="form-filter"
-><option value="0">Any collection</option><option value="2065">Citizens' Dialogues</option><option value="48422">Cities events</option><option value="35343">FISMA Events collectoin</option><option value="54309">Sustainable Development Goals</option></select>            </div>
-          
+><option value="0">Any collection</option><option value="2065">Citizens' Dialogues</option><option value="48422">Cities events</option><option value="35343">FISMA Events collectoin</option><option value="54309">Sustainable Development Goals</option></select>              </div>
+            
 
 
 
@@ -292,7 +332,7 @@
   
                 <button
     class="ecl-button ecl-button--primary ecl-button--block ecl-u-mt-s"
-     value="Refine results" type="submit">Refine results</button>          
+     value="Refine results" type="submit">Refine results</button>            
 
 
 
@@ -303,13 +343,14 @@
   
                 <button
     class="ecl-button ecl-button--default ecl-button--block ecl-u-mt-s"
-     value="Clear filters" type="reset">Clear filters</button>        </form>
-  </aside>
+     value="Clear filters" type="reset">Clear filters</button>          </form>
+        <h3 class="ecl-heading ecl-heading--h3">Filter by topic</h3>
+        <p class="ecl-paragraph">Custom component</p>
+    </aside>
+    <section class="ecl-col-lg-9">
+      <div class="ecl-heading ecl-heading--h2 ecl-u-mb-m">Events (90)</div>
 
-  <section class="ecl-col-lg-9">
-    <div class="ecl-heading ecl-heading--h2 ecl-u-mb-m">Events (90)</div>
-
-    <div class="ecl-tag ecl-tag--facet-close">
+      <div class="ecl-tag ecl-tag--facet-close">
     <span class="ecl-tag__label">Live streaming available</span>
   
             
@@ -326,10 +367,9 @@
     class="ecl-button ecl-button--facet-close ecl-tag__item"
      type="button">Yes</button>              
       </div>
+      <section class="ecl-u-mv-m">CONTENT HERE</section>
 
-    <section class="ecl-u-mv-m">CONTENT HERE</section>
-
-    
+      
 
 
 
@@ -377,6 +417,7 @@
     </li>
       </ul>
 </nav>
-  </section>
+    </section>
+  </div>
 </div>
 

@@ -133,15 +133,15 @@
               <div class="Prose">
                 
                 <h1 id="navigation-menus">Navigation menus</h1>
-<h2 id="introduction">Introduction</h2>
+<h2 id="when-and-how-to-use-this-component">When and how to use this component</h2>
 <p>The horizontal menu is used to display the first 2 levels of pages within a website’s architecture.</p>
-<p>For levels 3 and beyond the menu should be complemented by using listing navigation blocks to drill down to sub-pages.</p>
-<h2 id="usage-guidelines">Usage Guidelines</h2>
+<p>For levels 3 and below the menu should be complemented by using navigation blocks to drill down to sub-pages.</p>
+<h2 id="guidelines">Guidelines</h2>
 <h3 id="amount-of-items">Amount of Items</h3>
-<p>Due to limited horizontal space, especially on low resolution screens, the number of items on the first level of the menu should be between 3-5 items.</p>
+<p>Due to limited horizontal space, especially on low resolution screens, the number of items on the first level of the menu should be 3-5 items.</p>
 <h3 id="labeling">Labeling</h3>
 <p>Labels on the first level of the menu should be simple and composed of 1 to 3 words (for the English language version of the menu).</p>
-<p>Using 3 words should be an exception when you want to refer to two related topics (e.g. News and events / Contracts and funding)</p>
+<p>Using 3 words should be an exception when you want to refer to two related topics (e.g. News and events / Contracts and funding).</p>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
 <li>if you need an alternative to the listing navigation blocks</li>
@@ -152,8 +152,7 @@
 </ul>
 <h2 id="do-not-use-this-component">Do not use this component</h2>
 <ul>
-<li>with a complete page header</li>
-<li>with a corporate page header</li>
+<li>with a default page header</li>
 </ul>
 <h2 id="resources">Resources</h2>
 <ul>
@@ -240,79 +239,72 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-2823cce96462f91915e6bb0fbedb8671-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Main Navigation"</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - "menu_label" (integer): max number of items to display (0 = display all) (default: 5)
+  - "menu_aria_label" (string): label displayed before the list (default: '')
+  - "links" (array): [{
+      "href" (string): target of the link
+      "label" (string): label of the link
+      "is_active" (boolean): does the menu contains the current page? (default: false)
+      "children_links" (array): [{
+        "href" (string): target of the link
+        "label" (string): label of the link
+        "is_active" (boolean): is it the current page? (default: false)
+      }]
+    }]
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> menu_label = menu_label|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> menu_aria_label = menu_aria_label|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-navigation-menu' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print the result  #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ menu_aria_label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-root"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-toggle"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-root"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__hamburger-box"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__hamburger-inner"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__hamburger-label"</span>&gt;</span></span><span class="hljs-template-variable">{{ menuLabel }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__hamburger-label"</span>&gt;</span></span><span class="hljs-template-variable">{{ menu_label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
       <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__root"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-root"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span></span><span class="hljs-template-variable">{{ homeLabel }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> navigationTree %}</span><span class="xml">
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item  ecl-navigation-menu__item--active"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-1"</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-1"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.1 which has a longer label on multiple lines<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link ecl-navigation-menu__link--active"</span> <span class="hljs-attr">aria-current</span>=<span class="hljs-string">"page"</span>&gt;</span>Item 1.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-2"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-2"</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-2"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-3"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-3"</span>&gt;</span>Item 3<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-3"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-4"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-4"</span>&gt;</span>Item 4<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-4"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> navigation %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> _link in links %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _link_class_name = 'ecl-navigation-menu__item' ~ (_link.is_active ? ' ecl-navigation-menu__item--active' : '') %}</span><span class="xml">
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _link_class_name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _link.children_links is not defined or _link.children_links is empty %}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span></span><span class="hljs-template-variable">{{ _link.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+              </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-</span></span></span><span class="hljs-template-variable">{{ loop.index }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span>&gt;</span></span><span class="hljs-template-variable">{{ _link.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-</span></span></span><span class="hljs-template-variable">{{ loop.index }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> _child_link in _link.children_links %}</span><span class="xml">
+                    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _child_link_class_name = 'ecl-navigation-menu__link' ~ (_child_link.is_active ? ' ecl-navigation-menu__link--active' : '') %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _child_link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _child_link_class_name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ _child_link.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -327,10 +319,82 @@
         
             
             <pre>{
-  <span class="hljs-attr">"homeLabel"</span>: <span class="hljs-string">"Home"</span>,
-  <span class="hljs-attr">"menuLabel"</span>: <span class="hljs-string">"Menu"</span>,
+  <span class="hljs-attr">"menu_label"</span>: <span class="hljs-string">"Menu"</span>,
+  <span class="hljs-attr">"menu_aria_label"</span>: <span class="hljs-string">"Main Navigation"</span>,
+  <span class="hljs-attr">"links"</span>: [
+    {
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Home"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#home"</span>
+    },
+    {
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 1"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item1"</span>,
+      <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"children_links"</span>: [
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 1.1"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item1-1"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 1.2"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item1-2"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 1.3"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item1-3"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 1.4"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item1-4"</span>,
+          <span class="hljs-attr">"is_active"</span>: <span class="hljs-literal">true</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 1.5"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item1-5"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 1.6"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item1-6"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 2"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item2"</span>,
+      <span class="hljs-attr">"children_links"</span>: [
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 2.1"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item2-1"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 2.2"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item2-2"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 2.3"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item2-3"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 2.4"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item2-4"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 2.5"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item2-5"</span>
+        },
+        {
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 2.6"</span>,
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item2-6"</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Item 3"</span>,
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#item3"</span>
+    }
+  ],
   <span class="hljs-attr">"_demo"</span>: {
-    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n        ECL.megamenu('.ecl-navigation-menu__root');\n        ECL.initExpandables('.ecl-navigation-menu__toggle');\n      });"</span>
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n        ECL.megamenu();\n      });"</span>
   }
 }</pre>
             
@@ -346,74 +410,41 @@
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Main Navigation"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-root"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-toggle"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-root"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__hamburger-box"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__hamburger-inner"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__hamburger-label"</span>&gt;</span>Menu<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
       <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__root"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-root"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#home"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item  ecl-navigation-menu__item--active"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-1"</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-1"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.1 which has a longer label on multiple lines<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link ecl-navigation-menu__link--active"</span> <span class="hljs-attr">aria-current</span>=<span class="hljs-string">"page"</span>&gt;</span>Item 1.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-2"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-2"</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item ecl-navigation-menu__item--active"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-2"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span>&gt;</span>Item 1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-2"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item1-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item1-2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item1-3"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item1-4"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link ecl-navigation-menu__link--active"</span>&gt;</span>Item 1.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item1-5"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item1-6"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 1.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-3"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-3"</span>&gt;</span>Item 3<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-3"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span>&gt;</span>Item 2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-3"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item2-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item2-2"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item2-3"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item2-4"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item2-5"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item2-6"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 2.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"nav-menu-expandable-group-4"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">aria-haspopup</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-label-4"</span>&gt;</span>Item 4<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nav-menu-expandable-group-4"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.2<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.4<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.5<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.6<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 4.7<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#item3"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-navigation-menu__link"</span>&gt;</span>Item 3<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
       <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -454,6 +485,10 @@
  * @define navigation-menu
  */</span>
 
+<span class="hljs-selector-class">.ecl-navigation-menu</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+}
+
 <span class="hljs-comment">/* Mobile-first display */</span>
 <span class="hljs-selector-class">.ecl-navigation-menu__root</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-25'</span>);
@@ -462,8 +497,7 @@
   <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
   <span class="hljs-attribute">list-style</span>: none;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">transition</span>: <span class="hljs-number">0.2s</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
 
   &amp;<span class="hljs-selector-attr">[aria-hidden='true']</span> {
     <span class="hljs-attribute">display</span>: none;
@@ -472,14 +506,13 @@
 
 <span class="hljs-selector-class">.ecl-navigation-menu__toggle</span> {
   <span class="hljs-attribute">align-items</span>: center;
-  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-50'</span>);
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-75'</span>);
   <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   <span class="hljs-attribute">display</span>: flex;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">font-weight</span>: bold;
-  <span class="hljs-attribute">min-height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xl'</span>);
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">text-decoration</span>: none;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
@@ -496,16 +529,22 @@
 <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
   <span class="hljs-attribute">align-items</span>: center;
   <span class="hljs-attribute">background-color</span>: transparent;
-  <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-50'</span>);
+  <span class="hljs-attribute">border-left-width</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">border-right-width</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">border-top</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
   <span class="hljs-attribute">display</span>: flex;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">font-weight</span>: bold;
-  <span class="hljs-attribute">height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>); <span class="hljs-comment">// need to use height and not min-height, for IE</span>
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">text-decoration</span>: none;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__item</span>:last-child <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
@@ -524,6 +563,11 @@
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.1em</span>;
   <span class="hljs-attribute">position</span>: absolute;
   <span class="hljs-attribute">right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+
+  <span class="hljs-comment">/* stylelint-disable-next-line plugin/selector-bem-pattern */</span>
+  <span class="hljs-selector-class">.no-js</span> &amp; {
+    <span class="hljs-attribute">display</span>: none;
+  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded='false']</span> {
@@ -560,9 +604,12 @@
 <span class="hljs-selector-class">.ecl-navigation-menu__item--active</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-75'</span>);
 
+  &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  }
+
   &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span>:not(<span class="hljs-selector-attr">[aria-expanded='true']</span>) {
     <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   }
 }
 
@@ -704,6 +751,7 @@
 
   <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded='true']</span> {
     <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
   }
 }
 </pre>
@@ -722,7 +770,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">6.1 KB</span>
+                    <span class="Meta-value">6.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -735,27 +783,93 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-keyword">import</span> { toggleExpandable } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ec-europa/ecl-expandables/expandables'</span>;
+                                <pre><span class="hljs-keyword">import</span> { queryAll } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ec-europa/ecl-base/helpers/dom'</span>;
+<span class="hljs-keyword">import</span> { toggleExpandable } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ec-europa/ecl-expandables/expandables'</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> megamenu = <span class="hljs-function"><span class="hljs-params">selector</span> =&gt;</span> {
-  <span class="hljs-keyword">const</span> megamenusArray = <span class="hljs-built_in">Array</span>.prototype.slice.call(
-    <span class="hljs-built_in">document</span>.querySelectorAll(selector)
-  );
+<span class="hljs-keyword">const</span> onClick = <span class="hljs-function">(<span class="hljs-params">node, menu</span>) =&gt;</span> e =&gt; {
+  <span class="hljs-keyword">if</span> (node &amp;&amp; node.hasAttribute(<span class="hljs-string">'aria-haspopup'</span>)) {
+    <span class="hljs-keyword">const</span> hasPopup = node.getAttribute(<span class="hljs-string">'aria-haspopup'</span>);
+    <span class="hljs-keyword">if</span> (hasPopup === <span class="hljs-string">''</span> || hasPopup === <span class="hljs-string">'true'</span>) {
+      e.preventDefault();
+
+      toggleExpandable(node, {
+        <span class="hljs-attr">context</span>: menu,
+        <span class="hljs-attr">closeSiblings</span>: <span class="hljs-literal">true</span>,
+      });
+    }
+  }
+};
+
+<span class="hljs-keyword">const</span> onKeydown = <span class="hljs-function">(<span class="hljs-params">node, menu</span>) =&gt;</span> e =&gt; {
+  <span class="hljs-keyword">const</span> currentTab = node.parentElement;
+  <span class="hljs-keyword">const</span> previousTabItem =
+    currentTab.previousElementSibling ||
+    currentTab.parentElement.lastElementChild;
+  <span class="hljs-keyword">const</span> nextTabItem =
+    currentTab.nextElementSibling || currentTab.parentElement.firstElementChild;
+
+  <span class="hljs-comment">// don't catch key events when ⌘ or Alt modifier is present</span>
+  <span class="hljs-keyword">if</span> (e.metaKey || e.altKey) <span class="hljs-keyword">return</span>;
+
+  <span class="hljs-comment">// catch left/right and up/down arrow key events</span>
+  <span class="hljs-comment">// if new next/prev tab available, show it by passing tab anchor to showTab method</span>
+  <span class="hljs-keyword">switch</span> (e.keyCode) {
+    <span class="hljs-comment">// ENTER or SPACE</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">13</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-number">32</span>:
+      onClick(e.currentTarget, menu)(e);
+      <span class="hljs-comment">/* e.preventDefault();
+      toggleExpandable(e.currentTarget, {
+        context: menu,
+        closeSiblings: true,
+      }); */</span>
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-comment">// ARROWS LEFT and UP</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">37</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-number">38</span>:
+      e.preventDefault();
+      previousTabItem.querySelector(<span class="hljs-string">'a'</span>).focus();
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-comment">// ARROWS RIGHT and DOWN</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">39</span>:
+    <span class="hljs-keyword">case</span> <span class="hljs-number">40</span>:
+      e.preventDefault();
+      nextTabItem.querySelector(<span class="hljs-string">'a'</span>).focus();
+      <span class="hljs-keyword">break</span>;
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">break</span>;
+  }
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> megamenu = (
+  {
+    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-navigation-menu'</span>,
+    <span class="hljs-attr">toggleSelector</span>: toggleSelector = <span class="hljs-string">'.ecl-navigation-menu__toggle'</span>,
+    <span class="hljs-attr">listSelector</span>: listSelector = <span class="hljs-string">'.ecl-navigation-menu__root'</span>,
+    <span class="hljs-attr">linkSelector</span>: linkSelector = <span class="hljs-string">'.ecl-navigation-menu__link'</span>,
+  } = {}
+) =&gt; {
+  <span class="hljs-keyword">const</span> megamenusArray = queryAll(selector);
 
   megamenusArray.forEach(<span class="hljs-function"><span class="hljs-params">menu</span> =&gt;</span> {
-    <span class="hljs-comment">// Get expandables within the menu</span>
-    <span class="hljs-keyword">const</span> nodesArray = <span class="hljs-built_in">Array</span>.prototype.slice.call(
-      menu.querySelectorAll(<span class="hljs-string">'[aria-controls][aria-expanded]'</span>)
-    );
+    <span class="hljs-comment">// Make the toggle expandable</span>
+    <span class="hljs-keyword">const</span> toggle = menu.querySelector(toggleSelector);
+    <span class="hljs-keyword">if</span> (toggle) {
+      toggle.addEventListener(<span class="hljs-string">'click'</span>, () =&gt;
+        toggleExpandable(toggle, { <span class="hljs-attr">context</span>: menu })
+      );
+    }
 
-    nodesArray.forEach(<span class="hljs-function"><span class="hljs-params">node</span> =&gt;</span>
-      node.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
-        toggleExpandable(node, {
-          <span class="hljs-attr">context</span>: menu,
-          <span class="hljs-attr">closeSiblings</span>: <span class="hljs-literal">true</span>,
-        });
-      })
-    );
+    <span class="hljs-comment">// Get the list of links</span>
+    <span class="hljs-keyword">const</span> list = menu.querySelector(listSelector);
+
+    <span class="hljs-comment">// Get expandables within the list</span>
+    <span class="hljs-keyword">const</span> nodesArray = queryAll(linkSelector, list);
+
+    nodesArray.forEach(<span class="hljs-function"><span class="hljs-params">node</span> =&gt;</span> {
+      node.addEventListener(<span class="hljs-string">'click'</span>, onClick(node, list));
+      node.addEventListener(<span class="hljs-string">'keydown'</span>, onKeydown(node, list));
+    });
   });
 };
 
@@ -776,7 +890,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">636 Bytes</span>
+                    <span class="Meta-value">2.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -1156,171 +1270,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
                 <span>Legacy Grid</span>
             </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-ecl-listings">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ecl Listings</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-node_modules">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Node Modules</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
-            
-            
-            
-            
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-layout-collection-@ec-europa">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Ec Europa</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-4" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Buttons</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Date blocks</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Meta</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
@@ -4066,6 +4015,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Forms</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-templates-search" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #fbc11d; border-color: #fbc11d;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Search Page</span>
             </a>
         </li>
         
