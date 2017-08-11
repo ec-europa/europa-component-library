@@ -136,4 +136,17 @@
     display: inline-block;
     opacity: 1;
   }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .ecl-carousel__image-information {
+    border-bottom: 1px solid #fff;
+    display: block;
+    margin-bottom: map-get($ecl-spacing, 's');
+    padding-bottom: map-get($ecl-spacing, 's');
+  }
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .ecl-carousel__live-region {
+    overflow-y: scroll;
+  }
 }
