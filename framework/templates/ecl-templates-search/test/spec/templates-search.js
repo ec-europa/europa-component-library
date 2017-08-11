@@ -1,4 +1,4 @@
-describe('filters', () => {
+describe('templates-search', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,7 +6,7 @@ describe('filters', () => {
       height: 600,
     });
 
-    browser.url(`ecl-filters.html`);
+    browser.url(`ecl-templates-search.html`);
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
@@ -18,7 +18,7 @@ describe('filters', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'filters',
+      name: 'templates-search',
     });
     expect(screenshots).to.matchReference();
   });
