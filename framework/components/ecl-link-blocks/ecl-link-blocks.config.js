@@ -27,9 +27,8 @@ module.exports = {
     },
     {
       name: 'wrapper',
-      label: 'Block of links with wrapper',
+      label: 'Block of links with title',
       context: {
-        wrapper: true,
         title: 'More information',
         links: [
           { href: '#', label: 'European Commission' },
