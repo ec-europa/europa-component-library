@@ -14,7 +14,7 @@ module.exports = {
     carousel_images: [
       {
         image: {
-          src: 'http://lorempixel.com/600/1200/business/1/',
+          src: '/assets/demo_images/business-demo-1.jpg',
           alt: 'First item',
         },
         download: {
@@ -33,7 +33,7 @@ module.exports = {
       },
       {
         image: {
-          src: 'http://lorempixel.com/600/1200/business/2/',
+          src: '/assets/demo_images/business-demo-2.jpg',
           alt: 'Second item',
         },
         download: {
@@ -52,7 +52,7 @@ module.exports = {
       },
       {
         image: {
-          src: 'http://lorempixel.com/600/1200/business/3/',
+          src: '/assets/demo_images/business-demo-3.jpg',
           alt: 'Third item',
         },
         download: {

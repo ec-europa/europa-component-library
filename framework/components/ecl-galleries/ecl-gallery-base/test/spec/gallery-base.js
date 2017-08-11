@@ -1,4 +1,4 @@
-describe('galleries', () => {
+describe('gallery base', () => {
   context('mobile', () => {
     before(() => {
       // Set viewport size
@@ -15,7 +15,7 @@ describe('galleries', () => {
 
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'gallery-base/mobile',
+        name: 'mobile',
       });
       expect(screenshots).to.matchReference();
     });
@@ -42,7 +42,7 @@ describe('galleries', () => {
 
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'gallery-base/tablet',
+        name: 'tablet',
       });
       expect(screenshots).to.matchReference();
     });
@@ -69,7 +69,7 @@ describe('galleries', () => {
 
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'gallery-base/desktop',
+        name: 'desktop',
       });
       expect(screenshots).to.matchReference();
     });
