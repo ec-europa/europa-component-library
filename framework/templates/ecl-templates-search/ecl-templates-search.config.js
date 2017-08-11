@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Search Page',
   label: 'Search Page',
-  status: 'ready',
+  status: 'wip',
   preview: '@preview-full-page',
   tags: ['template'],
 };
