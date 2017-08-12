@@ -1,5 +1,5 @@
 const componentUrl = 'ecl-carousels.html';
-const timeout = 4000; // images are to be loaded
+const timeout = 1000;
 
 describe('carousels', () => {
   context('mobile', () => {
@@ -53,6 +53,29 @@ describe('carousels', () => {
     it('should be accessible', () => {
       const a11yReport = browser.runAxeCore('ecl-carousel').value;
       expect(a11yReport).to.be.accessible;
+    });
+  });
+
+  context('behaviors', () => {
+    before(() => {
+      // Set viewport size
+      browser.setViewportSize({
+        width: 1400,
+        height: 800,
+      });
+
+      // Reload
+      browser.url(componentUrl);
+      browser.pause(timeout);
+      browser.injectAxeCore();
+    });
+
+    it('should support slideshow of images', () => {
+      browser.click('.ecl-carousel__button--next');
+      const screenshots = browser.checkDocument({
+        name: 'slide-change',
+      });
+      expect(screenshots).to.matchReference();
     });
   });
 });

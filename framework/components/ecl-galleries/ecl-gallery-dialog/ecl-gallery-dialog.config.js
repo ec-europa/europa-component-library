@@ -20,6 +20,7 @@ module.exports = {
         link.setAttribute('href', '#dialog');
         link.setAttribute('class', 'ecl-link');
         link.setAttribute('data-ecl-dialog', 'ecl-dialog');
+        link.setAttribute('id', 'open-dialog-demo');
 
         // Show the link
         document.body.appendChild(link);

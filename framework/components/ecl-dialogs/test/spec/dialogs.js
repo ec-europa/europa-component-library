@@ -1,34 +1,26 @@
-describe('dialogs', () => {
-  before(() => {
-    // Set viewport size
-    browser.setViewportSize({
-      width: 800,
-      height: 100,
-    });
+const variants = ['default', 'dark'];
 
-    browser.pause(1000);
-
-    // Go to url
-    browser.url('ecl-dialogs.html');
-
-    // Make sure the browser has finished painting
-    browser.pause(1000);
-    // Inject axe-core (for accessibility tests)
-    browser.injectAxeCore();
-  });
-
-  // Normal state
-  context('with plain state', () => {
-    it('should match the reference screenshot', () => {
-      const screenshots = browser.checkDocument({
-        name: 'dialogs',
+variants.forEach(variant => {
+  describe(`dialogs--${variant}`, () => {
+    context('open dialog', () => {
+      before(() => {
+        // Set viewport size
+        browser.setViewportSize({
+          width: 1200,
+          height: 600,
+        });
+        browser.url(`ecl-dialogs--${variant}.html`);
+        browser.pause(1000);
       });
-      expect(screenshots).to.matchReference();
-    });
 
-    it('should be accessible', () => {
-      const a11yReport = browser.runAxeCore('ecl-dialog').value;
-      expect(a11yReport).to.be.accessible;
+      it('should match the reference screenshot', () => {
+        // Open the dialog to show the contents.
+        browser.click('.ecl-link');
+        const screenshots = browser.checkDocument({
+          name: `open-state--${variant}`,
+        });
+        expect(screenshots).to.matchReference();
+      });
     });
   });
 });

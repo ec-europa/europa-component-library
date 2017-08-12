@@ -145,8 +145,6 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
     // Re-align on resize.
     window.addEventListener('resize', debounceCb);
-    // When ecl-dialog is open.
-    window.addEventListener('eclDialogOpen', debounceCb);
   }
 
   // DESTROY
