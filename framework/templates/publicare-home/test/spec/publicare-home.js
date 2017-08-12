@@ -1,4 +1,4 @@
-describe('filters', () => {
+describe('publicare-home', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,25 +6,25 @@ describe('filters', () => {
       height: 600,
     });
 
-    browser.url(`ecl-filters.html`);
+    browser.pause(1000);
 
-    // Inject axe-core (for accessibility tests)
-    browser.injectAxeCore();
-
+    browser.url(`publicare-home.html`);
     // Make sure the browser has finished painting
     browser.pause(1000);
+    // Inject axe-core (for accessibility tests)
+    browser.injectAxeCore();
   });
 
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'filters',
+      name: 'publicare-home',
     });
     expect(screenshots).to.matchReference();
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-row').value;
+    const a11yReport = browser.runAxeCore('ecl-container').value;
     expect(a11yReport).to.be.accessible;
   });
 });

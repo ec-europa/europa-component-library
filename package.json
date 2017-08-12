@@ -16,6 +16,7 @@
     "fix:scss": "stylefmt -r \"framework/**/*.scss\" -c \".stylelintrc.js\"",
     "fix": "npm-run-all --parallel fix:*",
     "gh-pages": "gh-pages -d dist",
+    "lerna:clean": "lerna clean",
     "lint:md": "remark . --quiet --frail",
     "lint:js": "eslint .",
     "lint:scss": "stylelint ./framework/**/*.scss",
@@ -27,8 +28,8 @@
     "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
     "test:functional": "wdio test/wdio.conf.js",
-    "watch:scripts": "chokidar \"./framework/**/*.js\" -c \"eslint {path} & npm run build:scripts\"",
-    "watch:styles": "chokidar \"./framework/**/*.scss\" -c \"stylelint {path} & npm run build:styles\"",
+    "watch:scripts": "chokidar \"./framework/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
+    "watch:styles": "chokidar \"./framework/**/*.scss\" -i \"/node_modules/\" -c \"stylelint {path} & npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:*"
   },
   "devDependencies": {

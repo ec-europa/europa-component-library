@@ -7,8 +7,6 @@ describe('search-forms', () => {
       width: 1400,
       height: 600,
     });
-
-    browser.pause(1000);
   });
 
   variants.forEach(variant => {
