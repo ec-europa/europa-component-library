@@ -24,7 +24,11 @@
   {% include '@ec-europa/ecl-site-headers' %}
   {% include '@ec-europa/ecl-page-headers' with {
     variant: 'default',
-    identity: 'Search'
+    identity: 'Search',
+    breadcrumb: [
+      { target: 'http://europa.eu/index_en.htm', title: 'European Commission' },
+      { target: '#', title: 'Search' },
+    ]
   } %}
   <main>
     <a id="main-content" tabindex="-1"></a>
