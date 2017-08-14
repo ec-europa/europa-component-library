@@ -39,33 +39,31 @@
 
 <nav class="{{ _css_class }}" aria-label="{{ menu_aria_label }}"{{ _extra_attributes }}>
   <div class="ecl-container">
-    <div class="ecl-row">
-      <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="true">
-        <span class="ecl-navigation-menu__hamburger-box">
-          <span class="ecl-navigation-menu__hamburger-inner"></span>
-        </span>
-        <span class="ecl-navigation-menu__hamburger-label">{{ menu_label }}</span>
-      </button>
-      <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root">
-        {% block navigation %}
-          {% for _link in links %}
-            {% set _link_class_name = 'ecl-navigation-menu__item' ~ (_link.is_active ? ' ecl-navigation-menu__item--active' : '') %}
-            <li class="{{ _link_class_name }}">
-              {% if _link.children_links is not defined or _link.children_links is empty %}
-                <a href="{{ _link.href }}" class="ecl-navigation-menu__link">{{ _link.label }}</a>
-              {% else %}
-                <a href="{{ _link.href }}" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">{{ _link.label }}</a>
-                <ul class="ecl-navigation-menu__group" id="nav-menu-expandable-group-{{ loop.index }}">
-                  {% for _child_link in _link.children_links %}
-                    {% set _child_link_class_name = 'ecl-navigation-menu__link' ~ (_child_link.is_active ? ' ecl-navigation-menu__link--active' : '') %}
-                    <li class="ecl-navigation-menu__item"><a href="{{ _child_link.href }}" class="{{ _child_link_class_name }}">{{ _child_link.label }}</a></li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        {% endblock %}
-      </ul>
-    </div>
+    <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="true">
+      <span class="ecl-navigation-menu__hamburger-box">
+        <span class="ecl-navigation-menu__hamburger-inner"></span>
+      </span>
+      <span class="ecl-navigation-menu__hamburger-label">{{ menu_label }}</span>
+    </button>
+    <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root">
+      {% block navigation %}
+        {% for _link in links %}
+          {% set _link_class_name = 'ecl-navigation-menu__item' ~ (_link.is_active ? ' ecl-navigation-menu__item--active' : '') %}
+          <li class="{{ _link_class_name }}">
+            {% if _link.children_links is not defined or _link.children_links is empty %}
+              <a href="{{ _link.href }}" class="ecl-navigation-menu__link">{{ _link.label }}</a>
+            {% else %}
+              <a href="{{ _link.href }}" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">{{ _link.label }}</a>
+              <ul class="ecl-navigation-menu__group" id="nav-menu-expandable-group-{{ loop.index }}">
+                {% for _child_link in _link.children_links %}
+                  {% set _child_link_class_name = 'ecl-navigation-menu__link' ~ (_child_link.is_active ? ' ecl-navigation-menu__link--active' : '') %}
+                  <li class="ecl-navigation-menu__item"><a href="{{ _child_link.href }}" class="{{ _child_link_class_name }}">{{ _child_link.label }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      {% endblock %}
+    </ul>
   </div>
 </nav>

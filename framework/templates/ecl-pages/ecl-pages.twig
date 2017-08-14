@@ -14,24 +14,18 @@
 } %}
 
 {% include '@ec-europa/ecl-site-headers' %}
-
-{% include '@ec-europa/ecl-page-headers' with {
-  variant: 'default',
-  identity: 'Digital single market',
-  title: 'Business, Economy, Euro',
-  introduction:
-    'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
-  paragraph_class: 'ecl-paragraph ecl-paragraph--l',
-  meta: {
-    type: 'News article',
-    date: '6 July 2015',
-    timestamp: '2015-07-06T17:44:28+02:00',
-    location: 'Brussels',
-  },
-} %}
+{% include '@ec-europa/ecl-page-headers' with { variant: 'default' }|merge(page_header) %}
+{% if menu is defined and menu is not empty %}
+  {% include '@ec-europa/ecl-navigation-menus' with menu %}
+{% endif %}
 
 <main>
   <a id="main-content" tabindex="-1"></a>
+  <div class="ecl-container ecl-u-mv-l">
+    <h1 class="ecl-heading ecl-heading--h1">Page example</h1>
+    <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tortor elit, sagittis eu ante eu, tempor tempus lorem. Quisque auctor leo id tempor pulvinar. Nunc sapien orci, eleifend nec magna ac, feugiat viverra orci. Nulla efficitur nisl vitae risus pretium, sit amet aliquam dolor volutpat. Donec risus elit, congue at porta eget, posuere vitae ipsum. Nulla iaculis magna a lorem dignissim consequat. Praesent mattis libero ac tortor efficitur porta. In congue elementum nunc, vitae accumsan turpis dictum non.</p>
+    <p class="ecl-paragraph">Integer convallis quis magna et dapibus. Aenean id lectus vitae nulla fringilla gravida sed id mauris. Aliquam commodo erat sit amet nisi mollis, ut suscipit dolor eleifend. Fusce at malesuada lorem. Ut rutrum nibh massa, sed tincidunt nibh pretium id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed porttitor turpis a efficitur posuere. Integer eu est sodales, ornare elit ac, congue leo. Sed condimentum faucibus fermentum. Fusce aliquet ut enim euismod feugiat. Fusce nec interdum metus, id finibus nisl.</p>
+  </div>
 </main>
 
 {% include '@ec-europa/ecl-footers' with {

@@ -4,10 +4,14 @@
  */
 
 .ecl-navigation-menu {
+  background-color: map-get($ecl-colors, 'blue-75');
   margin: 0;
+
+  @include ecl-media-breakpoint-up(md) {
+    background-color: map-get($ecl-colors, 'blue-25');
+  }
 }
 
-/* Mobile-first display */
 .ecl-navigation-menu__root {
   background-color: map-get($ecl-colors, 'blue-25');
   display: flex;
@@ -16,8 +20,34 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
 
-  &[aria-hidden='true'] {
+  @include ecl-media-breakpoint-up(md) {
+    background-color: transparent;
+    flex-direction: row;
+  }
+}
+
+.ecl-navigation-menu__root[aria-hidden='true'] {
+  display: none;
+
+  // Force display
+  @include ecl-media-breakpoint-up(md) {
+    display: flex;
+  }
+}
+
+.ecl-navigation-menu__root::before {
+  background-color: map-get($ecl-colors, 'blue-25');
+  content: '';
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+
+  @include ecl-media-breakpoint-up(md) {
     display: none;
   }
 }
@@ -30,10 +60,14 @@
   display: flex;
   font-size: map-get($ecl-font-size, 'm');
   font-weight: bold;
-  padding: map-get($ecl-spacing, 'm');
+  padding: map-get($ecl-spacing, 'm') 0;
   position: relative;
   text-decoration: none;
   width: 100%;
+
+  @include ecl-media-breakpoint-up(md) {
+    display: none;
+  }
 }
 
 .ecl-navigation-menu__group {
@@ -42,6 +76,26 @@
   list-style: none;
   margin: 0;
   padding-left: 0;
+  position: relative;
+
+  @include ecl-media-breakpoint-up(md) {
+    flex-wrap: wrap;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+}
+
+.ecl-navigation-menu__group::before {
+  background-color: #f5f5f5;
+  content: '';
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, 0);
+  width: 100vw;
 }
 
 .ecl-navigation-menu__link {
@@ -61,7 +115,11 @@
   width: 100%;
 
   @include ecl-media-breakpoint-up(md) {
+    border-bottom-width: 0;
     font-size: map-get($ecl-font-size, 'xs');
+    height: map-get($ecl-spacing, 'xl'); // need to use height and not min-height, for IE
+    margin: 0;
+    padding: 0 map-get($ecl-spacing, 's');
   }
 }
 
@@ -74,6 +132,10 @@
   &:focus {
     text-decoration: underline;
   }
+
+  @include ecl-media-breakpoint-up(md) {
+    height: map-get($ecl-spacing, 'l'); // need to use height and not min-height, for IE
+  }
 }
 
 /* Icon display */
@@ -85,6 +147,11 @@
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .no-js & {
     display: none;
+  }
+
+  @include ecl-media-breakpoint-up(md) {
+    position: relative;
+    right: 0;
   }
 }
 
@@ -104,6 +171,11 @@
 
     @include ecl-icon('up');
   }
+
+  @include ecl-media-breakpoint-up(md) {
+    background-color: map-get($ecl-colors, 'grey-5');
+    color: map-get($ecl-colors, 'blue-120');
+  }
 }
 
 .ecl-navigation-menu__link ~ .ecl-navigation-menu__group .ecl-navigation-menu__link {
@@ -119,8 +191,26 @@
   }
 }
 
+/* Collapsible block display */
+.ecl-navigation-menu__link[aria-expanded='true'] ~ .ecl-navigation-menu__group {
+  display: block;
+
+  @include ecl-media-breakpoint-up(md) {
+    align-items: baseline;
+    display: inline-flex;
+    z-index: map-get($ecl-z-index, 'highlight');
+  }
+}
+
+.ecl-navigation-menu__group .ecl-navigation-menu__item {
+  @include ecl-media-breakpoint-up(md) {
+    width: 25%;
+  }
+}
+
 .ecl-navigation-menu__item--active {
   background-color: map-get($ecl-colors, 'blue-75');
+  position: relative;
 
   > .ecl-navigation-menu__link {
     color: #fff;
@@ -128,6 +218,21 @@
 
   > .ecl-navigation-menu__link:not([aria-expanded='true']) {
     border-bottom-width: 0;
+  }
+}
+
+.ecl-navigation-menu__item--active::before {
+  background-color: map-get($ecl-colors, 'blue-75'); //#f5f5f5;
+  content: '';
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100vw;
+
+  @include ecl-media-breakpoint-up(md) {
+    display: none;
   }
 }
 
@@ -195,80 +300,4 @@
   bottom: 0;
   transform: rotate(-90deg);
   transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-/* Collapsible block display */
-.ecl-navigation-menu__link[aria-expanded='true'] ~ .ecl-navigation-menu__group {
-  display: block;
-}
-
-/* Desktop display */
-@include ecl-media-breakpoint-up(md) {
-  .ecl-navigation-menu {
-    background-color: map-get($ecl-colors, 'blue-25');
-  }
-
-  .ecl-navigation-menu__toggle {
-    display: none;
-  }
-
-  .ecl-navigation-menu__root {
-    background-color: transparent;
-    flex-direction: row;
-  }
-
-  // Force display
-  .ecl-navigation-menu__root[aria-hidden='true'] {
-    display: flex;
-  }
-
-  .ecl-navigation-menu__link[aria-expanded='true'] ~ .ecl-navigation-menu__group {
-    align-items: baseline;
-    display: inline-flex;
-    z-index: map-get($ecl-z-index, 'highlight');
-  }
-
-  .ecl-navigation-menu__group {
-    flex-wrap: wrap;
-    left: 0;
-    position: absolute;
-    top: 100%;
-    width: 100%;
-
-    &::before {
-      background-color: #f5f5f5;
-      content: '';
-      height: 100%;
-      left: 50%;
-      position: absolute;
-      top: 0;
-      transform: translate(-50%, 0);
-      width: 100vw;
-    }
-  }
-
-  .ecl-navigation-menu__group .ecl-navigation-menu__item {
-    width: 25%;
-  }
-
-  .ecl-navigation-menu__link {
-    border-bottom-width: 0;
-    height: map-get($ecl-spacing, 'xl'); // need to use height and not min-height, for IE
-    margin: 0;
-    padding: 0 map-get($ecl-spacing, 's');
-  }
-
-  .ecl-navigation-menu__group .ecl-navigation-menu__link {
-    height: map-get($ecl-spacing, 'l'); // need to use height and not min-height, for IE
-  }
-
-  .ecl-navigation-menu__link[aria-expanded]::after {
-    position: relative;
-    right: 0;
-  }
-
-  .ecl-navigation-menu__link[aria-expanded='true'] {
-    background-color: map-get($ecl-colors, 'grey-5');
-    color: map-get($ecl-colors, 'blue-120');
-  }
 }
