@@ -2,8 +2,8 @@ describe('gallery dialog', () => {
   context('mobile', () => {
     before(() => {
       browser.setViewportSize({
-        width: 600,
-        height: 600,
+        width: 800,
+        height: 480,
       });
       browser.url('ecl-gallery-dialog.html');
       browser.pause(1000);
@@ -26,8 +26,8 @@ describe('gallery dialog', () => {
   context('tablet', () => {
     before(() => {
       browser.setViewportSize({
-        width: 800,
-        height: 600,
+        width: 1024,
+        height: 768,
       });
       browser.url('ecl-gallery-dialog.html');
       browser.pause(1000);
@@ -50,8 +50,8 @@ describe('gallery dialog', () => {
   context('desktop', () => {
     before(() => {
       browser.setViewportSize({
-        width: 1400,
-        height: 600,
+        width: 1280,
+        height: 800,
       });
       browser.url('ecl-gallery-dialog.html');
       browser.pause(1000);

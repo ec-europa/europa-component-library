@@ -19,12 +19,12 @@
 }
 
 .ecl-carousel__list-wrapper {
-  flex: 1;
   max-height: 70vh;
   overflow: hidden;
   position: relative;
 
   @include ecl-media-breakpoint-up('xl') {
+    flex: 1;
     max-height: 100%;
   }
 }
@@ -80,12 +80,16 @@
 .ecl-carousel__live-region {
   background-color: map-get($ecl-colors, 'grey-100');
   color: #fff;
-  flex: 0;
   min-width: 30%;
   padding: map-get($ecl-spacing, 'l');
 
   a {
     color: #fff;
+  }
+
+  @include ecl-media-breakpoint-up('xl') {
+    flex: 0;
+    max-height: 100%;
   }
 }
 

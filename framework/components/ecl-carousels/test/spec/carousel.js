@@ -1,13 +1,13 @@
 const componentUrl = 'ecl-carousels.html';
-const timeout = 1000;
+const timeout = 3000;
 
 describe('carousels', () => {
   context('mobile', () => {
     before(() => {
       // Set viewport size
       browser.setViewportSize({
-        width: 500,
-        height: 1000,
+        width: 800,
+        height: 480,
       });
 
       // Reload
@@ -33,7 +33,7 @@ describe('carousels', () => {
     before(() => {
       // Set viewport size
       browser.setViewportSize({
-        width: 1400,
+        width: 1280,
         height: 800,
       });
 
