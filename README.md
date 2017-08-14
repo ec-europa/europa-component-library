@@ -110,6 +110,7 @@ Tested on:
 | [@ec-europa/ecl-ratio](framework/utilities/ecl-ratio) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-ratio.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-ratio) |
 | [@ec-europa/ecl-screen-reader](framework/utilities/ecl-screen-reader) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-screen-reader.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-screen-reader) |
 | [@ec-europa/ecl-text](framework/utilities/ecl-text) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-text.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-text) |
+| [@ec-europa/ecl-u-display](framework/utilities/ecl-u-display) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-display.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-display) |
 | [@ec-europa/ecl-z-index](framework/utilities/ecl-z-index) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-z-index.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-z-index) |
 
 ## Setup
