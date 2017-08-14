@@ -110,7 +110,8 @@
   display: flex;
   font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
-  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
+  justify-content: space-between;
+  padding: map-get($ecl-spacing, 's') 0;
   position: relative;
   text-decoration: none;
   width: 100%;
@@ -140,9 +141,7 @@
 
 /* Icon display */
 .ecl-navigation-menu__link[aria-expanded]::after {
-  margin-top: 0.1em;
-  position: absolute;
-  right: map-get($ecl-spacing, 's');
+  padding-left: map-get($ecl-spacing, 'xxxs');
 
   /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .no-js & {
@@ -151,7 +150,6 @@
 
   @include ecl-media-breakpoint-up(md) {
     position: relative;
-    right: 0;
   }
 }
 
@@ -199,6 +197,12 @@
     align-items: baseline;
     display: flex;
     z-index: map-get($ecl-z-index, 'highlight');
+  }
+}
+
+.ecl-navigation-menu__item {
+  @include ecl-media-breakpoint-up(md) {
+    display: flex;
   }
 }
 
