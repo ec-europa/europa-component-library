@@ -23,11 +23,11 @@
 <header class="{{ _css_class }}" {{ _extra_attributes }} role="banner">
   <div class="ecl-container ecl-site-header__container">
     {% include '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'extra_class': 'ecl-site-header__logo' } only %}
-    <section class="ecl-site-header__top-bar" aria-label="Site tools">
-      {% include '@ec-europa/ecl-lang-select-sites' with {
-        'extra_class': 'ecl-site-header__lang-select-sites'
-      } %}
-      {% include '@ec-europa/ecl-search-forms' %}
-    </section>
+    {% include '@ec-europa/ecl-lang-select-sites' with {
+      'extra_class': 'ecl-site-header__lang-select-sites'
+    } %}
+    {% include '@ec-europa/ecl-search-forms' with {
+      'extra_classes': 'ecl-site-header__search'
+    } %}
   </div>
 </header>

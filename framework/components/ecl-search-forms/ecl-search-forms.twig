@@ -1,5 +1,27 @@
+{#
+  - variant: can be '','internal' (default: '')
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-search-form' ~ (variant != '' ? ' ecl-search-form--' ~ variant: '') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
 {% if variant is defined and variant == "internal" %}
-  <form class="ecl-search-form ecl-search-form--internal">
+  <form class="{{ _css_class }}" {{ _extra_attributes }}>
     <label class="ecl-search-form__textfield-wrapper">
       <span class="ecl-sr-only">Search this website</span>
       {% include '@ec-europa/ecl-forms-text-inputs' with {
@@ -22,7 +44,7 @@
     } %}
   </form>
 {% else %}
-  <form class="ecl-search-form">
+  <form class="{{ _css_class }}" {{ _extra_attributes }}>
     <label class="ecl-search-form__textfield-wrapper">
       <span class="ecl-sr-only">Search this website</span>
       {% include '@ec-europa/ecl-forms-text-inputs' with {
