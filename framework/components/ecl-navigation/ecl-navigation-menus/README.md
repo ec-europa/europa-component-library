@@ -1,22 +1,22 @@
 # Navigation menus
 
-## Introduction
+## When and how to use this component
 
 The horizontal menu is used to display the first 2 levels of pages within a website's architecture.
 
-For levels 3 and beyond the menu should be complemented by using listing navigation blocks to drill down to sub-pages.
+For levels 3 and below the menu should be complemented by using navigation blocks to drill down to sub-pages.
 
-## Usage Guidelines
+## Guidelines
 
 ### Amount of Items
 
-Due to limited horizontal space, especially on low resolution screens, the number of items on the first level of the menu should be between 3-5 items.
+Due to limited horizontal space, especially on low resolution screens, the number of items on the first level of the menu should be 3-5 items.
 
 ### Labeling
 
 Labels on the first level of the menu should be simple and composed of 1 to 3 words (for the English language version of the menu).
 
-Using 3 words should be an exception when you want to refer to two related topics (e.g. News and events / Contracts and funding)
+Using 3 words should be an exception when you want to refer to two related topics (e.g. News and events / Contracts and funding).
 
 ## When to use this component
 
@@ -28,8 +28,7 @@ Using 3 words should be an exception when you want to refer to two related topic
 
 ## Do not use this component
 
-- with a complete page header
-- with a corporate page header
+- with a default page header
 
 ## Resources
 

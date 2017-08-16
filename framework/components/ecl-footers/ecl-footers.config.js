@@ -21,10 +21,10 @@ module.exports = {
           },
           {
             label: 'Follow us:',
-            classes: 'ecl-footer__menu ecl-list-inline',
+            classes: 'ecl-footer__menu ecl-list--inline',
             items: [
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link',
@@ -34,7 +34,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link',
@@ -44,7 +44,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link ecl-link--external',
@@ -54,10 +54,10 @@ module.exports = {
             ],
           },
           {
-            classes: 'ecl-footer__menu ecl-list-inline',
+            classes: 'ecl-footer__menu ecl-list--unstyled',
             items: [
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link',
@@ -65,7 +65,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link',
@@ -110,10 +110,10 @@ module.exports = {
               value: 'Follow the European Commission',
               classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footer__menu ecl-list-inline',
+            classes: 'ecl-footer__menu ecl-list--inline',
             items: [
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link',
@@ -123,7 +123,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link',
@@ -133,7 +133,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item ecl-list-inline__item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: '#',
                   classes: 'ecl-link ecl-footer__link ecl-link--external',
@@ -174,10 +174,10 @@ module.exports = {
         wrapper_class: 'ecl-footer__ec',
         menus: [
           {
-            classes: 'ecl-list-inline ecl-footer__menu',
+            classes: 'ecl-list--inline ecl-footer__menu',
             items: [
               {
-                classes: 'ecl-list-inline__item ecl-footer__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target:
                     'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
@@ -186,7 +186,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footer__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/resources-partners_en',
                   classes: 'ecl-link ecl-footer__link',
@@ -194,7 +194,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footer__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/cookies_en',
                   classes: 'ecl-link ecl-footer__link',
@@ -202,7 +202,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footer__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/legal-notice_en',
                   classes: 'ecl-link ecl-footer__link',
@@ -210,7 +210,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-list-inline__item ecl-footer__menu-item',
+                classes: 'ecl-footer__menu-item',
                 link: {
                   target: 'http://ec.europa.eu/info/contact_en',
                   classes: 'ecl-link ecl-footer__link',

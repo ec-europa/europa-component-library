@@ -3,6 +3,10 @@
  * @define navigation-menu
  */
 
+.ecl-navigation-menu {
+  margin: 0;
+}
+
 /* Mobile-first display */
 .ecl-navigation-menu__root {
   background-color: map-get($ecl-colors, 'blue-25');
@@ -11,8 +15,7 @@
   flex-grow: 1;
   list-style: none;
   margin: 0;
-  padding-left: 0;
-  transition: 0.2s;
+  padding: 0;
 
   &[aria-hidden='true'] {
     display: none;
@@ -21,14 +24,13 @@
 
 .ecl-navigation-menu__toggle {
   align-items: center;
-  background-color: map-get($ecl-colors, 'blue-50');
+  background-color: map-get($ecl-colors, 'blue-75');
   border-width: 0;
   color: #fff;
   display: flex;
-  font-size: map-get($ecl-font-size, 's');
+  font-size: map-get($ecl-font-size, 'm');
   font-weight: bold;
-  min-height: map-get($ecl-spacing, 'xl');
-  padding: 0 map-get($ecl-spacing, 'm');
+  padding: map-get($ecl-spacing, 'm');
   position: relative;
   text-decoration: none;
   width: 100%;
@@ -45,16 +47,22 @@
 .ecl-navigation-menu__link {
   align-items: center;
   background-color: transparent;
-  border-width: 0;
+  border-bottom: 1px solid map-get($ecl-colors, 'blue-50');
+  border-left-width: 0;
+  border-right-width: 0;
+  border-top: 0;
   color: map-get($ecl-colors, 'blue-120');
   display: flex;
-  font-size: map-get($ecl-font-size, 'xs');
+  font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
-  height: map-get($ecl-spacing, 'l'); // need to use height and not min-height, for IE
-  padding: 0 map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'm');
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
   position: relative;
   text-decoration: none;
   width: 100%;
+
+  @include ecl-media-breakpoint-up(md) {
+    font-size: map-get($ecl-font-size, 'xs');
+  }
 }
 
 .ecl-navigation-menu__item:last-child .ecl-navigation-menu__link {
@@ -73,6 +81,11 @@
   margin-top: 0.1em;
   position: absolute;
   right: map-get($ecl-spacing, 's');
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .no-js & {
+    display: none;
+  }
 }
 
 .ecl-navigation-menu__link[aria-expanded='false'] {
@@ -109,9 +122,12 @@
 .ecl-navigation-menu__item--active {
   background-color: map-get($ecl-colors, 'blue-75');
 
+  > .ecl-navigation-menu__link {
+    color: #fff;
+  }
+
   > .ecl-navigation-menu__link:not([aria-expanded='true']) {
     border-bottom-width: 0;
-    color: #fff;
   }
 }
 
@@ -253,5 +269,6 @@
 
   .ecl-navigation-menu__link[aria-expanded='true'] {
     background-color: map-get($ecl-colors, 'grey-5');
+    color: map-get($ecl-colors, 'blue-120');
   }
 }

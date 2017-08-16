@@ -1,3 +1,8 @@
+const breadcrumbSegments = [
+  { target: '#', title: 'European Commission' },
+  { target: '#', title: 'Announcements' },
+];
+
 module.exports = {
   title: 'Page Headers',
   label: 'Page Headers',
@@ -8,6 +13,7 @@ module.exports = {
       name: 'default',
       context: {
         variant: 'default',
+        breadcrumb: breadcrumbSegments,
         identity: 'Digital single market',
         title: 'Business, Economy, Euro',
         introduction:
@@ -25,6 +31,7 @@ module.exports = {
       name: 'basic',
       context: {
         identity: 'Digital single market',
+        breadcrumb: breadcrumbSegments,
       },
     },
     /*

@@ -2,6 +2,7 @@ module.exports = {
   title: 'Filters',
   label: 'Filters',
   status: 'ready',
+  preview: '@preview-full-page',
   tags: ['template'],
   context: {
     _demo: {
