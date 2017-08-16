@@ -18,6 +18,21 @@
   }
 }
 
+// When carousel is a dialog.
+.ecl-carousel[aria-hidden='true'] {
+  display: none;
+}
+
+.ecl-carousel[aria-hidden='false'] {
+  display: flex;
+  height: 90vh;
+  left: 3%;
+  position: absolute;
+  top: 3%;
+  width: 90%;
+  z-index: map-get($ecl-z-index, 'modal');
+}
+
 .ecl-carousel__list-wrapper {
   max-height: 70vh;
   overflow: hidden;

@@ -17,37 +17,29 @@ module.exports = {
         link.title = "Click to test the modal";
 
         // Add necessary demo attributes.
-        link.setAttribute('href', '#dialog');
+        link.setAttribute('href', '#ecl-carousel');
         link.setAttribute('class', 'ecl-link');
-        link.setAttribute('data-ecl-dialog', 'ecl-dialog');
+        link.setAttribute('data-ecl-dialog', 'ecl-carousel');
         link.setAttribute('id', 'open-dialog-demo');
 
         // Show the link
         document.body.appendChild(link);
 
         document.addEventListener('DOMContentLoaded', function () {
-            ECL.dialogs();
+            ECL.dialogs({
+              dialogWindowId: 'ecl-carousel'
+            });
             ECL.carousels();
         });
       `,
     },
-    dialog_settings: {
-      theme: 'dark',
-      dialog_title: {
-        value: 'Example title',
-        id: 'dialog-title',
-      },
-      dialog_description: {
-        value: 'Example description',
-        id: 'dialog-description',
-      },
-    },
     dialog_contents: {
+      extra_attributes: [{ name: 'aria-hidden', value: true }],
       heading_title: 'Example gallery carousel',
       carousel_images: [
         {
           image: {
-            src: 'http://lorempixel.com/600/1200/business/1/',
+            src: '/assets/demo_images/business-demo-1.jpg',
             alt: 'First item',
           },
           download: {
@@ -66,8 +58,8 @@ module.exports = {
         },
         {
           image: {
-            src: 'http://lorempixel.com/600/1200/business/2/',
-            alt: 'First item',
+            src: '/assets/demo_images/business-demo-2.jpg',
+            alt: 'Second item',
           },
           download: {
             target: '#',
@@ -85,8 +77,8 @@ module.exports = {
         },
         {
           image: {
-            src: 'http://lorempixel.com/600/1200/business/3/',
-            alt: 'First item',
+            src: '/assets/demo_images/business-demo-3.jpg',
+            alt: 'Third item',
           },
           download: {
             target: '#',

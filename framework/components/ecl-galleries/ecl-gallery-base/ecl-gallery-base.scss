@@ -81,16 +81,3 @@
     margin-right: 0;
   }
 }
-
-@include ecl-media-breakpoint-down(sm) {
-  .ecl-gallery__item {
-    float: left;
-    width: 50%;
-  }
-}
-
-@include ecl-media-breakpoint-between(sm, md) {
-  .ecl-gallery__item {
-    width: 100%;
-  }
-}

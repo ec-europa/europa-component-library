@@ -18,7 +18,7 @@ describe('gallery dialog', () => {
     });
 
     it('should be accessible', () => {
-      const a11yReport = browser.runAxeCore('ecl-dialog').value;
+      const a11yReport = browser.runAxeCore('ecl-carousel').value;
       expect(a11yReport).to.be.accessible;
     });
   });
@@ -42,7 +42,7 @@ describe('gallery dialog', () => {
     });
 
     it('should be accessible', () => {
-      const a11yReport = browser.runAxeCore('ecl-dialog').value;
+      const a11yReport = browser.runAxeCore('ecl-carousel').value;
       expect(a11yReport).to.be.accessible;
     });
   });
@@ -66,7 +66,7 @@ describe('gallery dialog', () => {
     });
 
     it('should be accessible', () => {
-      const a11yReport = browser.runAxeCore('ecl-dialog').value;
+      const a11yReport = browser.runAxeCore('ecl-carousel').value;
       expect(a11yReport).to.be.accessible;
     });
   });
