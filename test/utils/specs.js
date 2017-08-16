@@ -14,7 +14,7 @@ module.exports.getSpecs = () => {
   let specs = [path.resolve(__dirname, '../../framework/**/test/spec/**/*.js')];
 
   // When a PR, only test the updated components
-  if (true || (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false')) {
+  if (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false') {
     logger.setLogLevel('silent');
     const cwd = process.cwd();
 
