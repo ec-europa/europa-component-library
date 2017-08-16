@@ -134,12 +134,16 @@
                 
                 <h1 id="search-form">Search form</h1>
 <h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
-<p>The search box allow user to search within all EC websites. The search box allows user to search in all European Commission websites through the EC search engine.</p>
-<p>The search results are displayed in a separate page.</p>
+<p>A “Search” functionality helps users to locate content quicker by using specific words or phrases without having to navigate through the entire website.</p>
+<h3 id="types-of-search">Types of search</h3>
+<h4 id="corporate-search">Corporate search</h4>
+<p>The search box allows the user to search within all EC websites through the EC search engine. The search results are displayed in a separate page.</p>
+<h4 id="internal-search">Internal search</h4>
+<p>This search box allows you to search only within the pages of the current website.</p>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
-<li>It is located on the the site header.</li>
-<li>If a site/section search is required, it can be implemented below the page header.</li>
+<li>the corporate search is located on the the site header</li>
+<li>if an internal search is required, it can be implemented below the page header</li>
 </ul>
 
                 
@@ -217,8 +221,34 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f57bfbe346702a241348c518ec80b667-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "internal" %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form ecl-search-form--internal"</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  - variant: can be '','internal' (default: '')
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-search-form' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ 'ecl-search-form--' ~ variant %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant == "internal" %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-text-inputs' with {
@@ -241,7 +271,7 @@
     } %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form__textfield-wrapper"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>Search this website<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-forms-text-inputs' with {
@@ -348,20 +378,19 @@
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
   <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-50'</span>);
-  <span class="hljs-attribute">display</span>: inline-flex;
+  <span class="hljs-attribute">display</span>: flex;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-search-form__textfield-wrapper</span> {
   <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid transparent; <span class="hljs-comment">// Keeps the focus in the container</span>
+  <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
 }
 
 <span class="hljs-selector-class">.ecl-search-form__textfield</span> {
   <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">2.2rem</span>;
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
 }
 
 <span class="hljs-selector-class">.ecl-search-form__button</span> {
@@ -475,7 +504,7 @@
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="ecl-search-forms--default">
-                    <span>Default</span>
+                    <span>Corporate</span>
                 </a>, 
             
                 <a href="ecl-search-forms--internal">
@@ -2653,7 +2682,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Default</span>
+                <span>Corporate</span>
             </a>
         </li>
         
@@ -3444,6 +3473,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Text</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-u-display" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Display</span>
             </a>
         </li>
         

@@ -7,20 +7,19 @@
   @include ecl-hidden-print();
 
   border: 1px solid map-get($ecl-colors, 'grey-50');
-  display: inline-flex;
+  display: flex;
   margin: 0;
 }
 
 .ecl-search-form__textfield-wrapper {
   border: 3px solid transparent; // Keeps the focus in the container
+  flex-grow: 1;
 }
 
 .ecl-search-form__textfield {
   border: 0;
-  height: 2.2rem;
   margin-top: 0;
-  padding-bottom: 0;
-  padding-top: 0;
+  padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
 }
 
 .ecl-search-form__button {
