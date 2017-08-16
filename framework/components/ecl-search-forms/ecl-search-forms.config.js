@@ -6,6 +6,7 @@ module.exports = {
   variants: [
     {
       name: 'default',
+      label: 'Corporate',
       status: 'ready',
     },
     {
