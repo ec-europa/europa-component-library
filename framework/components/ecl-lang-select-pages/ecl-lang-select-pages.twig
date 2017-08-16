@@ -13,7 +13,7 @@
 
 {# Internal properties #}
 
-{% set _css_classes = 'ecl-lang-select-page' %}
+{% set _css_class = 'ecl-lang-select-page' %}
 {% set _extra_attributes = '' %}
 {% set _unavailable = unavailable|default('English') %}
 {% set _dropdown_label = dropdown_label|default('Choose your language') %}
@@ -21,11 +21,11 @@
 {# Internal logic - Process properties #}
 
 {% if theme is defined %}
-  {% set _css_classes = _css_classes ~ ' ecl-lang-select-page--' ~ theme %}
+  {% set _css_class = _css_class ~ ' ecl-lang-select-page--' ~ theme %}
 {% endif %}
 
 {% if extra_class is defined %}
-  {% set _css_classes = _css_classes ~ ' ' ~ extra_class %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -34,7 +34,7 @@
   {% endfor %}
 {% endif %}
 
-<section class="{{ _css_classes }}" {{ _extra_attributes }}>
+<section class="{{ _css_class }}" {{ _extra_attributes }}>
   <span class="ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"></span>
   <span class="ecl-lang-select-page__unavailable">{{ _unavailable }}</span>
   <select class="ecl-lang-select-page__dropdown" aria-label="{{ _dropdown_label }}">

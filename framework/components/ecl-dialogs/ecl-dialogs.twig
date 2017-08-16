@@ -67,17 +67,17 @@
   label: dimiss.label|default('Dismiss this dialog window'),
 } %}
 
-{% set _css_classes = 'ecl-dialog' %}
+{% set _css_class = 'ecl-dialog' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if theme is defined %}
-  {% set _css_classes = _css_classes ~ ' ecl-dialog--' ~ theme %}
+  {% set _css_class = _css_class ~ ' ecl-dialog--' ~ theme %}
 {% endif %}
 
 {% if extra_classes is defined %}
-  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -95,7 +95,7 @@
 {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'aria-hidden="' ~ _dialog_aria_hidden ~ '"' %}
 
 {# Print result #}
-<div class="{{ _css_classes }}" {{ _extra_attributes }} role="dialog">
+<div class="{{ _css_class }}" {{ _extra_attributes }} role="dialog">
   {% if dialog_title is defined %}
   <h1 id="{{ dialog_title.id }}" class="{{ dialog_title.classes }}">{{ dialog_title.value }}</h1>
   {% endif %}

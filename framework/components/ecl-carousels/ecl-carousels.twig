@@ -2,7 +2,7 @@
 
 Usage:
 
-  - css_classes: (string)
+  - css_class: (string)
     Possible set of classes in addition to `ecl-carousel` wrapper.
 
   - extra_attributes: (iterable)
@@ -57,7 +57,7 @@ Usage:
 
 {# Internal properties #}
 
-{% set _css_classes = 'ecl-carousel' %}
+{% set _css_class = 'ecl-carousel' %}
 {% set _extra_attributes = '' %}
 
 {% set _carousel_id = carousel_id|default('ecl-carousel') %}
@@ -68,8 +68,8 @@ Usage:
 {# Internal logic - Process properties #}
 
 {# Carousel classes #}
-{% if css_classes is defined %}
-  {% set _css_classes = _css_classes ~ ' ' ~ css_classes %}
+{% if css_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ css_class %}
 {% endif %}
 
 {# Carousel attributes, except id and aria-labelledby #}
@@ -98,7 +98,7 @@ Usage:
 {% set _heading_attributes = _heading_attributes ~ 'id="' ~ _heading_id ~ '"' %}
 
 {# Print result #}
-<section class="{{ _css_classes }}" {{ _extra_attributes }}>
+<section class="{{ _css_class }}" {{ _extra_attributes }}>
   <h3 class="ecl-headings ecl-headings--h3 ecl-sr-only" {{ _heading_attributes }} >{{ _heading_title }}</h3>
   <div class="ecl-carousel__list-wrapper">
     <ul class="ecl-carousel__list ecl-list--unstyled">

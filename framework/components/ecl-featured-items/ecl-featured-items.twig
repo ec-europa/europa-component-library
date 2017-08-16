@@ -33,13 +33,13 @@
 
 {# Internal properties #}
 
-{% set _css_classes = 'ecl-featured-item' ~ (variant != '' ? ' ecl-featured-item--' ~ variant: '') %}
+{% set _css_class = 'ecl-featured-item' ~ (variant != '' ? ' ecl-featured-item--' ~ variant: '') %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined %}
-  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -50,7 +50,7 @@
 
 {# Print result #}
 
-<div class="{{ _css_classes }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <div class="ecl-featured-item__image">
     <img src="{{ image.src }}" alt="{{ image.alt }}" />
   </div>
