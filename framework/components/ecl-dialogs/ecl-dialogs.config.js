@@ -1,17 +1,3 @@
-const data = {
-  dialog_title: {
-    value: 'Example title',
-    id: 'dialog-title',
-  },
-  dialog_description: {
-    value: 'Example description',
-    id: 'dialog-description',
-  },
-  dismiss: {
-    label: 'Dismiss this dialog window',
-  },
-};
-
 module.exports = {
   title: 'Dialogs',
   label: 'Dialogs',
@@ -44,21 +30,16 @@ module.exports = {
         });
       `,
     },
+    dialog_title: {
+      value: 'Example title',
+      id: 'dialog-title',
+    },
+    dialog_description: {
+      value: 'Example description',
+      id: 'dialog-description',
+    },
+    dismiss: {
+      label: 'Dismiss this dialog window',
+    },
   },
-  variants: [
-    {
-      name: 'default',
-      title: 'Dialogs - Default',
-      label: 'Default',
-      context: data,
-    },
-    {
-      name: 'dark',
-      title: 'Dialogs - Dark',
-      label: 'Dark',
-      context: Object.assign({}, data, {
-        theme: 'dark',
-      }),
-    },
-  ],
 };
