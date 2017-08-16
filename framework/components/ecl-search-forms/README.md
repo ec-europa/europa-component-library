@@ -17,4 +17,4 @@ This search box allows you to search only within the pages of the current websit
 ## When to use this component
 
 - the corporate search is located on the the site header
-- if a internal search is required, it can be implemented below the page header
+- if an internal search is required, it can be implemented below the page header
