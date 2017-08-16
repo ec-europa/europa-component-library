@@ -1,10 +1,10 @@
 # Featured items
 
+Component used to render featured/highlighted items.
+
 ## When and how to use this component
 
-Users need a way to quickly scan relevant information.
-
-The featured item component uses a different visualisation to attract user attention. It's always the first item on the "Latest section".
+Users need a way to quickly scan relevant information. The featured item component uses a different visualisation to attract user attention. It's always the first item on the "Latest section".
 
 ### When to use this component
 
@@ -14,10 +14,8 @@ The featured item component uses a different visualisation to attract user atten
 
 - if it is a permanent page
 
-## Technical details
+## Variants
 
-### Variants
+Use following variants to change display:
 
-Use following variants to change the display:
-
-- `ecl-featured-items--extended`: visual changes and link option
+- **ecl-featured-items--extended**: Visual changes and link option
