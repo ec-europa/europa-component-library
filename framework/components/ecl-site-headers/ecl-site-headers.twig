@@ -1,10 +1,6 @@
-{#
-  - variant: can be '','homepage' (default: '')
-#}
-
 {# Internal properties #}
 
-{% set _css_class = 'ecl-site-header' ~ (variant != '' ? ' ecl-site-header--' ~ variant: '') %}
+{% set _css_class = 'ecl-site-header' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}

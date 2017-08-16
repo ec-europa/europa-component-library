@@ -4,10 +4,14 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-search-form' ~ (variant != '' ? ' ecl-search-form--' ~ variant: '') %}
+{% set _css_class = 'ecl-search-form' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if variant is defined and variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-search-form--' ~ variant %}
+{% endif %}
 
 {% if extra_classes is defined %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
