@@ -69,13 +69,15 @@
 
       color: map-get($ecl-colors, 'grey-25');
       font-size: map-get($ecl-font-size, 'm');
-      left: map-get($ecl-spacing, 'xxxs');
+      left: map-get($ecl-spacing, 'xxs');
       position: absolute;
-      top: 25%;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 
   .ecl-search-form__textfield {
-    padding-left: map-get($ecl-spacing, 'm');
+    // ~ 1 * icon's width + 1 * icon's left space + 1 * space between icon and input
+    padding-left: map-get($ecl-font-size, 'm') + 2 * map-get($ecl-spacing, 'xxs');
   }
 }
