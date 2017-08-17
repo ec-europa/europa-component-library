@@ -5,15 +5,34 @@
 
 .ecl-dialog {
   background-color: #fff;
-  left: 50%;
+  display: flex;
+  height: 100%;
+  left: 0;
   margin: 0;
-  padding: map-get($ecl-spacing, m);
-  position: fixed;
-  text-align: center;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  padding: map-get($ecl-spacing, 'l');
+  position: absolute;
+  top: 0%;
+  width: 100%;
   z-index: map-get($ecl-z-index, 'modal');
+
+  &[aria-hidden='true'] {
+    display: none;
+  }
+
+  @include ecl-media-breakpoint-up('sm') {
+    height: auto;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+  }
+}
+
+.ecl-dialog__body {
+  max-height: 100%;
+  overflow: auto;
 }
 
 .ecl-dialog__overlay {
