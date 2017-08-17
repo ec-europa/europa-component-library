@@ -2,11 +2,19 @@
 
 ## Why and how to use this component
 
-The search box allow user to search within all EC websites. The search box allows user to search in all European Commission websites through the EC search engine.
+A "Search" functionality helps users to locate content quicker by using specific words or phrases without having to navigate through the entire website.
 
-The search results are displayed in a separate page.
+### Types of search
+
+#### Corporate search
+
+The search box allows the user to search within all EC websites through the EC search engine. The search results are displayed in a separate page.
+
+#### Internal search
+
+This search box allows you to search only within the pages of the current website.
 
 ## When to use this component
 
-- It is located on the the site header.
-- If a site/section search is required, it can be implemented below the page header.
+- the corporate search is located on the the site header
+- if an internal search is required, it can be implemented below the page header
