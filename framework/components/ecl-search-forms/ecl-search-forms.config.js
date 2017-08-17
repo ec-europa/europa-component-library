@@ -6,13 +6,33 @@ module.exports = {
   variants: [
     {
       name: 'default',
-      status: 'ready',
+      label: 'Corporate',
+      context: {
+        aria_label: 'Search this website',
+        button: {
+          label: 'Search',
+        },
+        input: {
+          id: 'corporate-search',
+          extra_attributes: [
+            { name: 'size', value: '30' },
+            { name: 'maxlength', value: '128' },
+          ],
+        },
+      },
     },
     {
       name: 'internal',
-      status: 'ready',
+      label: 'Internal',
       context: {
         variant: 'internal',
+        aria_label: 'Search this website',
+        button: {
+          label: 'Search',
+        },
+        input: {
+          id: 'internal-search',
+        },
       },
     },
   ],

@@ -56,13 +56,13 @@ Arial is the standard typeface we use. We chose Arial because it is a system fon
     <th>XXS</th>
   </tr>
   <tr>
-    <td>2.22em</td>
-    <td>1.67em</td>
-    <td>1.22em</td>
-    <td>1.00em</td>
-    <td>0.89em</td>
-    <td>0.78em</td>
-    <td>0.67em</td>
+    <td>2.22rem</td>
+    <td>1.67rem</td>
+    <td>1.22rem</td>
+    <td>1.00rem</td>
+    <td>0.89rem</td>
+    <td>0.78rem</td>
+    <td>0.67rem</td>
   </tr>
 </table>
 
@@ -84,9 +84,9 @@ We recommend using only the following font colours:
     <th>White <br/> #ffffff</th>
   </tr>
   <tr>
-    <td>Headers <br/> H1, H2</td>
-    <td>Headers <br/> H3,H4</td>
-    <td>Default font color</td>
-    <td>For text links	On blue backgrounds</td>
+    <td><strong>Headers</strong><br/>H1, H2</td>
+    <td><strong>Headers</strong><br/>H3,H4<br/><br/><strong>Default font color</strong></td>
+    <td><strong>For text links</strong></td>
+    <td><strong>On blue backgrounds</strong></td>
   </tr>
 </table>

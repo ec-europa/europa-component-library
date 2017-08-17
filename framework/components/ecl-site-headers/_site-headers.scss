@@ -9,9 +9,15 @@
 }
 
 .ecl-site-header__banner {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   padding: map-get($ecl-spacing, 's') 0;
+}
+
+.ecl-site-header__banner > * {
+  margin-top: map-get($ecl-spacing, 's');
 }
 
 // If the logo is linking to an external page do not show the external icon.
@@ -20,14 +26,12 @@
   flex-shrink: 0;
 }
 
-.ecl-site-header__top-bar {
-  align-items: center;
-  display: flex;
+.ecl-site-header__lang-select-sites {
   flex-grow: 1;
-  flex-shrink: 1;
-  justify-content: flex-end;
+  flex-shrink: 0;
+  text-align: right;
 }
 
-.ecl-site-header__lang-select-sites {
-  flex-shrink: 0;
+.ecl-site-header__search {
+  flex-grow: 1;
 }

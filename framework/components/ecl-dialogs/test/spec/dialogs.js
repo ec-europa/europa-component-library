@@ -1,28 +1,20 @@
-describe('dialogs', () => {
-  before(() => {
-    // Set viewport size
-    browser.setViewportSize({
-      width: 800,
-      height: 100,
+describe(`dialogs`, () => {
+  context('open dialog', () => {
+    before(() => {
+      // Set viewport size
+      browser.setViewportSize({
+        width: 1200,
+        height: 600,
+      });
+      browser.url(`ecl-dialogs.html`);
+      browser.pause(1000);
+      browser.injectAxeCore();
     });
 
-    browser.pause(1000);
-
-    // Go to url
-    browser.url('ecl-dialogs.html');
-
-    // Make sure the browser has finished painting
-    browser.pause(1000);
-    // Inject axe-core (for accessibility tests)
-    browser.injectAxeCore();
-  });
-
-  // Normal state
-  context('with plain state', () => {
     it('should match the reference screenshot', () => {
-      const screenshots = browser.checkDocument({
-        name: 'dialogs',
-      });
+      // Open the dialog to show the contents.
+      browser.click('.ecl-link');
+      const screenshots = browser.checkDocument({ name: `open-state` });
       expect(screenshots).to.matchReference();
     });
 
