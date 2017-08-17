@@ -31,6 +31,12 @@
 .ecl-navigation-menu__root[aria-hidden='true'] {
   display: none;
 
+  // Force display if no JS
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .no-js & {
+    display: flex;
+  }
+
   // Force display
   @include ecl-media-breakpoint-up(md) {
     display: flex;

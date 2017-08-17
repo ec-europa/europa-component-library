@@ -39,13 +39,13 @@
 
 <nav class="{{ _css_class }}" aria-label="{{ menu_aria_label }}"{{ _extra_attributes }}>
   <div class="ecl-container">
-    <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="true">
+    <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="false">
       <span class="ecl-navigation-menu__hamburger-box">
         <span class="ecl-navigation-menu__hamburger-inner"></span>
       </span>
       <span class="ecl-navigation-menu__hamburger-label">{{ menu_label }}</span>
     </button>
-    <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root">
+    <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root" aria-hidden="true">
       {% block navigation %}
         {% for _link in links %}
           {% set _link_class_name = 'ecl-navigation-menu__item' ~ (_link.is_active ? ' ecl-navigation-menu__item--active' : '') %}
