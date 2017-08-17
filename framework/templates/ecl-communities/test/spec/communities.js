@@ -6,13 +6,13 @@ describe('communities', () => {
       height: 600,
     });
 
-    browser.pause(1000);
+    browser.url('ecl-communities.html');
 
-    browser.url(`ecl-communities.html`);
-    // Make sure the browser has finished painting
-    browser.pause(1000);
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
+
+    // Make sure the browser has finished painting
+    browser.pause(1000);
   });
 
   // Normal state

@@ -126,7 +126,7 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.
         </p>
 
-        {% include '@ec-europa/ecl-galleries' with {
+        {% include '@ec-europa/ecl-gallery-base' with {
           data: {
             rows: [
               [
@@ -286,7 +286,7 @@
             value: 'Follow the European Commission',
             classes: 'ecl-h4 ecl-footer__title',
           },
-          classes: 'ecl-footer__menu ecl-list-inline',
+          classes: 'ecl-footer__menu ecl-list--inline',
           items: [
             {
               classes: 'ecl-footer__menu-item',
@@ -350,7 +350,7 @@
       wrapper_class: 'ecl-footer__ec',
       menus: [
         {
-          classes: 'ecl-list-inline ecl-footer__menu',
+          classes: 'ecl-list--inline ecl-footer__menu',
           items: [
             {
               classes: 'ecl-footer__menu-item',
