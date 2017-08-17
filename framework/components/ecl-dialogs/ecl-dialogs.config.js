@@ -30,13 +30,8 @@ module.exports = {
         });
       `,
     },
-    dialog_title: {
-      value: 'Example title',
-      id: 'dialog-title',
-    },
     dialog_description: {
       value: 'Example description',
-      id: 'dialog-description',
     },
     dismiss: {
       label: 'Dismiss this dialog window',

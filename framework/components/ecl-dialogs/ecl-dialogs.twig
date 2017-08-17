@@ -47,21 +47,21 @@
 {# Internal properties #}
 
 {% set _dialog_id = dialog_id|default('ecl-dialog') %}
-{% set _dialog_aria_labelledby = dialog_aria_labelledby|default('dialog-title') %}
-{% set _dialog_aria_describedby = dialog_aria_describedby|default('dialog-description') %}
+{% set _dialog_aria_labelledby = dialog_aria_labelledby|default('ecl-dialog-title') %}
+{% set _dialog_aria_describedby = dialog_aria_describedby|default('ecl-dialog-description') %}
 {% set _dialog_aria_hidden = dialog_aria_hidden|default(true) %}
 
-{% set dialog_title = {
-  value: dialog_title.value|default(''),
-  id: dialog_title.id|default(''),
-  classes: dialog_title.classes|default('ecl-sr-only'),
-} %}
+{% set _dialog_title = {
+  value: 'Dialog',
+  id: 'ecl-dialog-title',
+  classes: 'ecl-sr-only'
+}|merge(dialog_title|default({})) %}
 
-{% set dialog_description = {
-  value: dialog_description.value|default(''),
-  id: dialog_description.id|default(''),
-  classes: dialog_description.classes|default('ecl-sr-only'),
-} %}
+{% set _dialog_description = {
+  value: '',
+  id: 'ecl-dialog-description',
+  classes: 'ecl-sr-only',
+}|merge(dialog_description|default({})) %}
 
 {% set dismiss = {
   label: dimiss.label|default('Dismiss this dialog window'),
@@ -96,11 +96,9 @@
 
 {# Print result #}
 <div class="{{ _css_class }}" {{ _extra_attributes }} role="dialog">
-  {% if dialog_title is defined %}
-  <h1 id="{{ dialog_title.id }}" class="{{ dialog_title.classes }}">{{ dialog_title.value }}</h1>
-  {% endif %}
+  <h3 id="{{ _dialog_title.id }}" class="ecl-heading ecl-heading--h3 {{ _dialog_title.classes }}">{{ _dialog_title.value }}</h3>
   {% if dialog_description is defined %}
-  <p id="{{ dialog_description.id }}" class="{{ dialog_description.classes }}">{{ dialog_description.value }}</p>
+  <p id="{{ _dialog_description.id }}" class="{{ _dialog_description.classes }}">{{ _dialog_description.value }}</p>
   {% endif %}
   <div class="ecl-dialog__body">
     {% block dialog_body %}
