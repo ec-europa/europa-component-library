@@ -1,5 +1,15 @@
 {#
   - variant: can be '','homepage' (default: '')
+
+  // for site switcher
+  - political:  {
+    - href: target of the link (default: '')
+    - label: label of the link (default: '')
+  }
+  - info:  {
+    - href: target of the link (default: '')
+    - label: label of the link (default: '')
+  }
 #}
 
 {# Internal properties #}
@@ -21,7 +31,15 @@
 
 {# Print result #}
 <header class="{{ _css_class }}" {{ _extra_attributes }} role="banner">
-  <div class="ecl-container ecl-site-header__container">
+  {% if political is defined  and info is defined %}
+  {% include '@ec-europa/ecl-site-switchers' with {
+    variant: 'header',
+    political: political,
+    info: info,
+  } %}
+  {% endif %}
+
+  <div class="ecl-container ecl-site-header__banner">
     {% include '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'extra_class': 'ecl-site-header__logo' } only %}
     <section class="ecl-site-header__top-bar" aria-label="Site tools">
       {% include '@ec-europa/ecl-lang-select-sites' with {
