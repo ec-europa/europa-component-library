@@ -4,6 +4,8 @@
     - label (string)
   - input (object)
     - extra_attributes (array of { name: '', value: '' })
+  - extra_classes (string): additional classes to add to the component
+  - extra_attributes (array of { name: '', value: '' })
 #}
 
 {# Internal properties #}
@@ -11,8 +13,8 @@
 {% set _css_class = 'ecl-search-form' %}
 {% set _extra_attributes = '' %}
 {% set _aria_label = aria_label|default('Search this website') %}
-{% set _button = { 'label': 'Search' }|merge(button) %}
-{% set _input = { 'id': 'search', 'extra_attributes': [] }|merge(input) %}
+{% set _button = { 'label': 'Search' }|merge(button|default({})) %}
+{% set _input = { 'id': 'search', 'extra_attributes': [] }|merge(input|default({})) %}
 
 {# Internal logic - Process properties #}
 
