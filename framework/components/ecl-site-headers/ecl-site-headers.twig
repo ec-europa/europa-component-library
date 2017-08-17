@@ -1,13 +1,21 @@
 {#
   // for site switcher
   - political:  {
-    - href: target of the link (default: '')
-    - label: label of the link (default: '')
+    - href (string): target of the link (default: '')
+    - label (string): label of the link (default: '')
   }
   - info:  {
-    - href: target of the link (default: '')
-    - label: label of the link (default: '')
+    - href (string): target of the link (default: '')
+    - label (string): label of the link (default: '')
   }
+
+  // for user menu
+  - title (string): the title of the user menu (default: 'Navigation')
+  - links (array): [
+    - href (string): target of the link
+    - label (string): label of the link
+    - is_active (boolean): set active link
+  ]
 #}
 
 {# Internal properties #}
@@ -29,7 +37,20 @@
 
 {# Print result #}
 <header class="{{ _css_class }}" {{ _extra_attributes }} role="banner">
-  {% if political is defined  and info is defined %}
+
+  {% if links is defined %}
+  <div class="ecl-container">
+    <!-- TODO: use utilities for float -->
+    {% include '@ec-europa/ecl-navigation-lists' with {
+      title: title,
+      variant: 'small',
+      links: links,
+      extra_attributes: [{ name: 'style', value: 'float: right' }]
+    } %}
+  </div>
+  {% endif %}
+
+  {% if political is defined and info is defined %}
   {% include '@ec-europa/ecl-site-switchers' with {
     variant: 'header',
     political: political,
