@@ -6,6 +6,7 @@
 .ecl-navigation-menu {
   background-color: map-get($ecl-colors, 'blue-75');
   margin: 0;
+  overflow-x: hidden;
 
   @include ecl-media-breakpoint-up(md) {
     background-color: map-get($ecl-colors, 'blue-25');
@@ -59,15 +60,14 @@
 }
 
 .ecl-navigation-menu__toggle {
-  align-items: center;
   background-color: map-get($ecl-colors, 'blue-75');
   border-width: 0;
   color: #fff;
-  display: flex;
   font-size: map-get($ecl-font-size, 'm');
   font-weight: bold;
   padding: map-get($ecl-spacing, 'm') 0;
   position: relative;
+  text-align: left;
   text-decoration: none;
   width: 100%;
 
@@ -95,7 +95,7 @@
 }
 
 .ecl-navigation-menu__group::before {
-  background-color: #f5f5f5;
+  background-color: map-get($ecl-colors, 'grey-5');
   content: '';
   height: 100%;
   left: 50%;
@@ -259,7 +259,13 @@
 /* Hamburger button */
 // Based on https://github.com/jonsuh/hamburgers
 .ecl-navigation-menu__hamburger-box {
-  width: map-get($ecl-spacing, 'l');
+  left: 0;
+  position: absolute;
+  top: 50%;
+}
+
+.ecl-navigation-menu__hamburger-label {
+  padding-left: map-get($ecl-spacing, 'm') + map-get($ecl-spacing, 's');
 }
 
 .ecl-navigation-menu__hamburger-inner {
