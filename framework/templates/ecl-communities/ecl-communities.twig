@@ -9,66 +9,88 @@
 </script>
 
 {% include '@ec-europa/ecl-skip-links' with {
-    'href': '#main-content',
-    'label': 'Skip to main content'
+  'href': '#main-content',
+  'label': 'Skip to main content'
 } %}
 
+<div class="ecl-container">
+  <!-- TODO: use utilities for float -->
+  {% include '@ec-europa/ecl-navigation-lists' with {
+    title: 'User menu',
+    variant: 'small',
+    links: [
+      { href: "#", label: "My workbench" },
+      { href: "#", label: "My account" },
+      { href: "#", label: "Log out" },
+    ],
+    extra_attributes: [{ name: 'style', value: 'float: right' }]
+  } %}
+</div>
+
 {% include '@ec-europa/ecl-site-switchers' with {
-    variant: 'header',
-    political: { href: '#', label: 'Commission and its priorities' },
-    info: { href: '#', label: 'Policies, information and services' }
+  variant: 'header',
+  political: { href: '#', label: 'Commission and its priorities' },
+  info: { href: '#', label: 'Policies, information and services' }
 } %}
 
 {% include '@ec-europa/ecl-site-headers' %}
 
 {% include '@ec-europa/ecl-page-headers' with {
-  variant: 'default',
-  identity: 'Digital single market',
-  title: 'My community',
-  meta: {
-    type: 'Public community',
-    date: '25 members',
-  },
-  introduction:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.',
+  variant: 'basic',
+  breadcrumb: [
+    { target: '#', title: 'European Commission' },
+    { target: '#', title: 'Group lists' },
+  ],
 } %}
 
-{% embed "@ec-europa/ecl-navigation-menus" with { 'homeLabel': 'Home', 'menuLabel': 'Menu' } %}
-  {% block navigationTree %}
-  <li class="ecl-navigation-menu__item">
-    <button class="ecl-navigation-menu__link" aria-controls="nav-menu-communities-group" aria-expanded="false" aria-haspopup="true" id="nav-menu-communities-label">Communities</button>
-    <ul class="ecl-navigation-menu__group" id="nav-menu-communities-group">
-      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Homepage</a></li>
-      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Articles</a></li>
-      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Events</a></li>
-      <li class="ecl-navigation-menu__item"><a href="#" class="ecl-navigation-menu__link">Media gallery</a></li>
-    </ul>
-  </li>
-
-  <li class="ecl-navigation-menu__item">
-    <a href="#" class="ecl-navigation-menu__link">Events</a></li>
-  </li>
-
-  <li class="ecl-navigation-menu__item">
-    <a href="#" class="ecl-navigation-menu__link">Galleries</a></li>
-  </li>
-  {% endblock %}
-{% endembed %}
+{% include "@ec-europa/ecl-navigation-menus" with {
+  menu_aria_label: 'Main Navigation',
+  menu_label: 'Menu',
+  links: [
+    {
+      label: 'Home',
+      href: '#',
+    },
+    {
+      label: 'Communities',
+      href: '#',
+      is_active: true,
+      children_links: [
+        {
+          label: 'Homepage',
+          href: '#',
+          is_active: true,
+        },
+        {
+          label: 'Articles',
+          href: '#',
+        },
+        {
+          label: 'Events',
+          href: '#',
+        },
+        {
+          label: 'Media gallery',
+          href: '#',
+        }
+      ],
+    },
+    {
+      label: 'Events',
+      href: '#',
+    },
+    {
+      label: 'Galleries',
+      href: '#',
+    }
+  ]
+} %}
 
 <main>
   <a id="main-content" tabindex="-1"></a>
 
   <div class="ecl-container ecl-u-mt-m">
-    <!-- TODO: add utilities -->
-    {% include '@ec-europa/ecl-navigation-lists' with {
-      title: 'User menu',
-      links: [
-        { to: "#", title: "My workbench <span class='ecl-icon ecl-icon--spreadsheet'></span>" },
-        { to: "#", title: "My account <span class='ecl-icon ecl-icon--faq'>" },
-        { to: "#", title: "Log out <span class='ecl-icon ecl-icon--faq'>" },
-      ],
-      extra_attributes: { name: 'style', value: 'text-align: right' }
-    } %}
+    <h1 class="ecl-heading ecl-heading--h1">My community</h1>
 
     <div class="ecl-row">
       <div class="ecl-col-sm-3">
@@ -94,11 +116,16 @@
             { href: '#', label: 'Jane Doe' },
             { href: '#', label: 'Mike Doe' },
             { href: '#', label: 'Richard Doe' }
-          ]
+          ],
+          extra_classes: 'ecl-u-mt-m',
         } %}
       </div>
 
       <div class="ecl-col-sm-9">
+        <p class="ecl-paragraph ecl-paragraph--l">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.
+        </p>
+
         {% include '@ec-europa/ecl-galleries' with {
           data: {
             rows: [

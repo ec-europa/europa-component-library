@@ -68,3 +68,12 @@ $ecl-navigation-border-width: 2px !default;
     border-bottom-color: transparent;
   }
 }
+
+// Small
+
+.ecl-navigation-list--small .ecl-navigation-list__link {
+  font-size: map-get($ecl-font-size, 's');
+  font-weight: normal;
+  line-height: 1.3;
+  padding: map-get($ecl-spacing, 'xxs');
+}
