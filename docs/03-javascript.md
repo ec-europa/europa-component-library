@@ -3,11 +3,11 @@ title: JavaScript
 label: JavaScript
 ---
 
-Europa Component Library (ECL) provides a maximally un-opinionated set of components' behaviors. In rare occasions some components, such as the datepicker, might use external libraries which integrate typical behaviors, in general components are jQuery-free and they provide consistent APIs.
+Europa Component Library (ECL) provides a maximally un-opinionated set of components' behaviors. In rare occasions, some components such as the date picker might use external libraries which integrate typical behaviors. Components are jQuery-free and provide consistent APIs.
 
 ## How to use
 
-First, you need to include the JavaScript file of `ECL.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by [`ecl-bulider` utility](https://www.npmjs.com/package/@ec-europa/ecl-builder).
+First, you need to include the JavaScript file of `ECL.js` provided in the [latest release package](https://github.com/ec-europa/europa-component-library/releases). This file contains a JavaScript module called `ECL` which is an [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the [`ecl-builder` utility](https://www.npmjs.com/package/@ec-europa/ecl-builder).
 
 This means that when you include the `ECL` library in your pages, you will have a namespaced global called `ECL` which contains the components' factory functions.
 
