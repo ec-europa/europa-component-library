@@ -1,5 +1,84 @@
 # Changelog
 
+## 0.13.0 (2017-08-18)
+
+### :rocket: New Feature
+
+- [#379](https://github.com/ec-europa/europa-component-library/pull/379) feat(page-menu): provide page with menu template - INNO-749. ([@yhuard](https://github.com/yhuard))
+- [#369](https://github.com/ec-europa/europa-component-library/pull/369) feat(communities): add template - INNO-753. ([@emeryro](https://github.com/emeryro))
+- [#330](https://github.com/ec-europa/europa-component-library/pull/330) refactor(gallery): add the dialog/overlay display - INNO-723. ([@kalinchernev](https://github.com/kalinchernev))
+- [#378](https://github.com/ec-europa/europa-component-library/pull/378) feat(display): provide responsive display utilities - INNO-761. ([@yhuard](https://github.com/yhuard))
+- [#362](https://github.com/ec-europa/europa-component-library/pull/362) feat(publicare): home page template - INNO-733. ([@emeryro](https://github.com/emeryro))
+- [#365](https://github.com/ec-europa/europa-component-library/pull/365) feat(template-search): revamp template - INNO-750. ([@yhuard](https://github.com/yhuard))
+- [#357](https://github.com/ec-europa/europa-component-library/pull/357) refactor(forms): revamp form groups - INNO-735. ([@yhuard](https://github.com/yhuard))
+- [#355](https://github.com/ec-europa/europa-component-library/pull/355) feat(typography): resize base font on small devices - INNO-744. ([@yhuard](https://github.com/yhuard))
+
+### :boom: Breaking Change
+
+- [#330](https://github.com/ec-europa/europa-component-library/pull/330) refactor(gallery): add the dialog/overlay display - INNO-723. ([@kalinchernev](https://github.com/kalinchernev))
+- [#372](https://github.com/ec-europa/europa-component-library/pull/372) feat(navigation-links): homogenization - INNO-760. ([@emeryro](https://github.com/emeryro))
+- [#368](https://github.com/ec-europa/europa-component-library/pull/368) feat(link-blocks): homogenization - INNO-757. ([@emeryro](https://github.com/emeryro))
+- [#367](https://github.com/ec-europa/europa-component-library/pull/367) feat(select): homogenization - INNO-756. ([@emeryro](https://github.com/emeryro))
+
+### :bug: Bug Fix
+
+- [#380](https://github.com/ec-europa/europa-component-library/pull/380) fix(site-headers): make site-headers truly responsive - INNO-764. ([@yhuard](https://github.com/yhuard))
+- [#365](https://github.com/ec-europa/europa-component-library/pull/365) feat(template-search): revamp template - INNO-750. ([@yhuard](https://github.com/yhuard))
+- [#377](https://github.com/ec-europa/europa-component-library/pull/377) fix(nav-menu): enhance contrast ratio of the toggle - no issue. ([@yhuard](https://github.com/yhuard))
+- [#370](https://github.com/ec-europa/europa-component-library/pull/370) fix(page-headers): make proper use of ecl-container - INNO-755. ([@yhuard](https://github.com/yhuard))
+- [#347](https://github.com/ec-europa/europa-component-library/pull/347) fix(listings): hide listings - INNO-738. ([@yhuard](https://github.com/yhuard))
+
+### :nail_care: Enhancement
+
+- [#379](https://github.com/ec-europa/europa-component-library/pull/379) feat(page-menu): provide page with menu template - INNO-749. ([@yhuard](https://github.com/yhuard))
+- [#330](https://github.com/ec-europa/europa-component-library/pull/330) refactor(gallery): add the dialog/overlay display - INNO-723. ([@kalinchernev](https://github.com/kalinchernev))
+- [#388](https://github.com/ec-europa/europa-component-library/pull/388) refactor(search-forms): refactor template - INNO-770. ([@yhuard](https://github.com/yhuard))
+- [#362](https://github.com/ec-europa/europa-component-library/pull/362) feat(publicare): home page template - INNO-733. ([@emeryro](https://github.com/emeryro))
+- [#363](https://github.com/ec-europa/europa-component-library/pull/363) feat(nav-menu): refactor styling - INNO-751. ([@yhuard](https://github.com/yhuard))
+- [#372](https://github.com/ec-europa/europa-component-library/pull/372) feat(navigation-links): homogenization - INNO-760. ([@emeryro](https://github.com/emeryro))
+- [#375](https://github.com/ec-europa/europa-component-library/pull/375) docs(navigation-menus): update README.md - noissue. ([@degliwe](https://github.com/degliwe))
+- [#371](https://github.com/ec-europa/europa-component-library/pull/371) feat(lists): add inline lists - INNO-754. ([@emeryro](https://github.com/emeryro))
+- [#368](https://github.com/ec-europa/europa-component-library/pull/368) feat(link-blocks): homogenization - INNO-757. ([@emeryro](https://github.com/emeryro))
+- [#367](https://github.com/ec-europa/europa-component-library/pull/367) feat(select): homogenization - INNO-756. ([@emeryro](https://github.com/emeryro))
+- [#357](https://github.com/ec-europa/europa-component-library/pull/357) refactor(forms): revamp form groups - INNO-735. ([@yhuard](https://github.com/yhuard))
+- [#353](https://github.com/ec-europa/europa-component-library/pull/353) feat(buttons): improve buttons - INNO-743. ([@yhuard](https://github.com/yhuard))
+- [#351](https://github.com/ec-europa/europa-component-library/pull/351) refactor(arial): arial everywhere - INNO-739. ([@emeryro](https://github.com/emeryro))
+- [#349](https://github.com/ec-europa/europa-component-library/pull/349) feat(feedback): remove disabled state - INNO-740. ([@yhuard](https://github.com/yhuard))
+- [#346](https://github.com/ec-europa/europa-component-library/pull/346) feat(icons): update icons - INNO-715. ([@yhuard](https://github.com/yhuard))
+
+### :memo: Documentation
+
+- [#390](https://github.com/ec-europa/europa-component-library/pull/390) docs(javascript): include basic documentation on using components js - INNO-695. ([@kalinchernev](https://github.com/kalinchernev))
+- [#385](https://github.com/ec-europa/europa-component-library/pull/385) docs(search-forms): update documentation - INNO-769. ([@yhuard](https://github.com/yhuard))
+- [#384](https://github.com/ec-europa/europa-component-library/pull/384) docs(featured-items): update documentation - INNO-768. ([@yhuard](https://github.com/yhuard))
+- [#381](https://github.com/ec-europa/europa-component-library/pull/381) docs(help-blocks): add documentation - INNO-752. ([@yhuard](https://github.com/yhuard))
+- [#383](https://github.com/ec-europa/europa-component-library/pull/383) docs(banners): update documentation - INNO-766. ([@yhuard](https://github.com/yhuard))
+- [#382](https://github.com/ec-europa/europa-component-library/pull/382) docs(fonts): update documentation - INNO-765. ([@yhuard](https://github.com/yhuard))
+- [#375](https://github.com/ec-europa/europa-component-library/pull/375) docs(navigation-menus): update README.md - noissue. ([@degliwe](https://github.com/degliwe))
+- [#368](https://github.com/ec-europa/europa-component-library/pull/368) feat(link-blocks): homogenization - INNO-757. ([@emeryro](https://github.com/emeryro))
+- [#367](https://github.com/ec-europa/europa-component-library/pull/367) feat(select): homogenization - INNO-756. ([@emeryro](https://github.com/emeryro))
+- [#356](https://github.com/ec-europa/europa-component-library/pull/356) docs(expandables): remove first example - INNO-747. ([@yhuard](https://github.com/yhuard))
+- [#354](https://github.com/ec-europa/europa-component-library/pull/354) docs(typography): replace "EC Dark Grey" by "EC Grey" - INNO-745. ([@yhuard](https://github.com/yhuard))
+- [#350](https://github.com/ec-europa/europa-component-library/pull/350) refactor(page-headers): hide "highlight" variant - INNO-741. ([@yhuard](https://github.com/yhuard))
+- [#352](https://github.com/ec-europa/europa-component-library/pull/352) docs(grid): update grid's documentation - INNO-742. ([@yhuard](https://github.com/yhuard))
+
+### :house: Internal
+
+- [#396](https://github.com/ec-europa/europa-component-library/pull/396) chore(packages): upgrades - noissue. ([@kalinchernev](https://github.com/kalinchernev))
+- [#376](https://github.com/ec-europa/europa-component-library/pull/376) chore(package): update dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#361](https://github.com/ec-europa/europa-component-library/pull/361) chore(package): update all dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#345](https://github.com/ec-europa/europa-component-library/pull/345) chore(package): update cross-env to version 5.0.3 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#348](https://github.com/ec-europa/europa-component-library/pull/348) refactor(listings): remove listings component - INNO-738. ([@yhuard](https://github.com/yhuard))
+- [#344](https://github.com/ec-europa/europa-component-library/pull/344) chore(package): update @ec-europa/ecl-fractal-theme to version 0.9.0 - noissue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+### Committers: 5
+
+- Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [emeryro](https://github.com/emeryro)
+- [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+- wesley deglise ([degliwe](https://github.com/degliwe))
+
 ## 0.12.1 (2017-08-01)
 
 ### :house: Internal
