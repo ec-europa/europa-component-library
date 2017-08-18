@@ -11,7 +11,7 @@ First, you need to include the JavaScript file of `ECL.js` provided in the [late
 
 This means that when you include the `ECL` library in your pages, you will have a namespaced global called `ECL` which contains the components' factory functions.
 
-![ECL library in your browser's console](../assets/ECLjs.png)
+![ECL library in your browser's console]({{ path '/assets/ECLjs.png' }})
 
 ### Instantiation
 
@@ -39,4 +39,4 @@ In this example, the dialog will again create the overlay for the background aut
 
 ### Components' settings
 
-At the moment, components' JavaScript behaviors are documented in the code of the components themselves. When you want to see a demo of a component's instantiation and settings you can also view the "Context" tab in demos provided in the library. 
+At the moment, components' JavaScript behaviors are documented in the code of the components themselves. When you want to see a demo of a component's instantiation and settings you can also view the "Context" tab in demos provided in the library.
