@@ -1,20 +1,20 @@
 const links = [
   {
-    to: '#',
-    title: 'Home',
+    href: '#',
+    label: 'Home',
   },
   {
-    to: '#',
-    title: 'About Us',
-    isActive: true,
+    href: '#',
+    label: 'About Us',
+    is_active: true,
   },
   {
-    to: '#',
-    title: 'More Information',
+    href: '#',
+    label: 'More Information',
   },
   {
-    to: '#',
-    title: 'Contact Us',
+    href: '#',
+    label: 'Contact Us',
   },
 ];
 
@@ -39,6 +39,15 @@ module.exports = {
       context: {
         variant: 'tabs',
         title: 'Tabs Navigation Menu',
+        links,
+      },
+    },
+    {
+      name: 'small',
+      label: 'Small',
+      context: {
+        variant: 'small',
+        title: 'Small Navigation Menu',
         links,
       },
     },

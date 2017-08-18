@@ -1,50 +1,52 @@
-{% if variant is defined and variant == "internal" %}
-  <div class="ecl-search-form__wrapper">
-    <p class="ecl-paragraph">Search on this site</p>
-    <form class="ecl-search-form ecl-search-form--internal">
-      <label class="ecl-search-form__textfield-wrapper">
-        <span class="ecl-sr-only">Search this website</span>
-        {% include '@ec-europa/ecl-forms-text-inputs' with {
-          'type': 'search',
-          'extraClass': 'ecl-search-form__textfield',
-          'extraAttributes': [
-            { 'name': 'title', 'value': 'Search'}
-          ]
-        } %}
-      </label>
-      {% include '@ec-europa/ecl-buttons' with {
-        'modifier': 'form-primary',
-        'label': 'Search',
-        'extraClass': 'ecl-search-form__button',
-        'extraAttributes': [
-          { 'name': 'value', 'value': 'Search'},
-          { 'name': 'type', 'value': 'submit'}
-        ]
-      } %}
-    </form>
-  </div>
-{% else %}
-  <form class="ecl-search-form">
-    <label class="ecl-search-form__textfield-wrapper">
-      <span class="ecl-sr-only">Search this website</span>
-      {% include '@ec-europa/ecl-forms-text-inputs' with {
-        'type': 'search',
-        'extraClass': 'ecl-search-form__textfield',
-        'extraAttributes': [
-          { 'name': 'title', 'value': 'Search'},
-          { 'name': 'size', 'value': '30'},
-          { 'name': 'maxlength', 'value': '128'}
-        ]
-      } %}
-    </label>
-    {% include '@ec-europa/ecl-buttons' with {
-      'modifier': 'form',
-      'label': 'Search',
-      'extraClass': 'ecl-search-form__button',
-      'extraAttributes': [
-        { 'name': 'value', 'value': 'Search'},
-        { 'name': 'type', 'value': 'submit'}
-      ]
-    } %}
-  </form>
+{#
+  - variant: can be '','internal' (default: '')
+  - button (object)
+    - label (string)
+  - input (object)
+    - extra_attributes (array of { name: '', value: '' })
+  - extra_classes (string): additional classes to add to the component
+  - extra_attributes (array of { name: '', value: '' })
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-search-form' %}
+{% set _extra_attributes = '' %}
+{% set _aria_label = aria_label|default('Search this website') %}
+{% set _button = { 'label': 'Search' }|merge(button|default({})) %}
+{% set _input = { 'id': 'search', 'extra_attributes': [] }|merge(input|default({})) %}
+
+{# Internal logic - Process properties #}
+
+{% if variant is defined and variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-search-form--' ~ variant %}
 {% endif %}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+<form class="{{ _css_class }}"{{ _extra_attributes }}>
+  <label class="ecl-search-form__textfield-wrapper">
+    <span class="ecl-sr-only">{{ _aria_label }}</span>
+    {% include '@ec-europa/ecl-forms-text-inputs' with {
+      'id': _input.id,
+      'type': 'search',
+      'extraClass': 'ecl-search-form__textfield',
+      'extraAttributes': _input.extra_attributes
+    } %}
+  </label>
+  {% include '@ec-europa/ecl-buttons' with {
+    'modifier': variant is defined and variant == 'internal' ? 'form-primary' : 'form',
+    'label': _button.label,
+    'extraClass': 'ecl-search-form__button',
+    'extraAttributes': [{ 'name': 'type', 'value': 'submit'}]
+  } %}
+</form>

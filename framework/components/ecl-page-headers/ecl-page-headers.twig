@@ -4,6 +4,7 @@
 
   Variables for `basic` and `default`:
   - identity: (string) The name of the site, i.e. "Digital single market"
+  - breadcrumb: (array) Array of links for the breadcrumb. Structure: [{'target': '#', 'title': 'lorem ipsum'}]
 
   Variables for `highlight`:
   - label: (string) The label of the text box.
@@ -22,7 +23,6 @@
     timestamp: (timestamp) '2015-07-06T17:44:28+02:00',
     location: (string) 'Brussels',
    }
-
 #}
 
 {% if variant is defined and variant == "highlight" %}
@@ -37,7 +37,7 @@
 {% else %}
 <div class="ecl-page-header">
   <div class="ecl-container">
-    {% include '@ec-europa/ecl-breadcrumbs' with { 'segments': [{ 'target':'#', 'title':'European Commission' } , { 'target': '#', 'title': 'Announcements' }] } %}
+    {% include '@ec-europa/ecl-breadcrumbs' with { 'segments': breadcrumb } %}
     <div class="ecl-page-header__body">
       {% if identity is defined %}
       <div class="ecl-page-header__identity">

@@ -1,0 +1,142 @@
+{#
+
+Usage:
+
+  - css_class: (string)
+    Possible set of classes in addition to `ecl-carousel` wrapper.
+
+  - extra_attributes: (iterable)
+    Conventional map of possible extra attributes for the wrapper.
+    Pass any attribute, except: id, aria-labelledby
+
+  - carousel_id: (string)
+    The id of the carousel.
+    Defaults to `ecl-carousel`.
+
+  - carousel_aria_labelledby: (string)
+    The value for `aria-labelledby` attribute for of heeading of the carousel.
+    Defaults to `ecl-carousel__heading`.
+    This value MUST be the same as `heading_id`.
+
+  - heading_attributes: (iterable)
+    Conventional map of possible extra attributes for the header.
+    Pass any attribute, except: id, class.
+
+  - heading_id: (string)
+    The id of carousel heading.
+    Defaults to `ecl-carousel__heading`.
+    This value MUST be the same as `carousel_aria_labelledby`.
+
+  - heading_title: (string)
+    Carousel heading value.
+    Defaults to `gallery`.
+
+  - carousel_images (iterable)
+    A list of images following the structure:
+
+    {
+      image: {
+        src: 'http://lorempixel.com/600/1200/business/1/',
+        alt: 'Iimage item alt text',
+      },
+      download: {
+        target: '#',
+        title: 'Download',
+        label: 'Download',
+      },
+      share: {
+        target: '#',
+        title: 'Share',
+        label: 'Share',
+      },
+      description: (string or block).
+      copyright: '© Copyright 1',
+    }
+
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-carousel' %}
+{% set _extra_attributes = '' %}
+
+{% set _carousel_id = carousel_id|default('ecl-carousel') %}
+{% set _carousel_aria_labellby = carousel_aria_labellby|default('ecl-carousel__heading') %}
+{% set _heading_id = heading_id|default('ecl-carousel__heading') %}
+{% set _heading_title = heading_title|default('gallery') %}
+
+{# Internal logic - Process properties #}
+
+{# Carousel classes #}
+{% if css_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ css_class %}
+{% endif %}
+
+{# Carousel attributes, except id and aria-labelledby #}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% if attr != 'id' and attr != 'aria-labelledby' %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Carousel id and aria-labelledby connecting to heading #}
+{% set _extra_attributes = _extra_attributes ~ ' ' ~ 'id="' ~ _carousel_id ~ '"' %}
+{% set _extra_attributes = _extra_attributes ~ ' ' ~ 'aria-labelledby="' ~ _carousel_aria_labellby ~ '"' %}
+
+{# Heading attributes except the id #}
+{% if heading_attributes is defined %}
+  {% for heading_attr in heading_attributes %}
+    {% if heading_attr != 'id' %}
+      {% set _heading_attributes = _heading_attributes ~ ' ' ~ heading_attr.name ~ '="' ~ heading_attr.value ~ '"' %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Heading id #}
+{% set _heading_attributes = _heading_attributes ~ 'id="' ~ _heading_id ~ '"' %}
+
+{# Print result #}
+<section class="{{ _css_class }}" {{ _extra_attributes }}>
+  <h3 class="ecl-headings ecl-headings--h3 ecl-sr-only" {{ _heading_attributes }} >{{ _heading_title }}</h3>
+  <div class="ecl-carousel__list-wrapper">
+    <ul class="ecl-carousel__list ecl-list--unstyled">
+      {% for carousel_image in carousel_images %}
+      <li class="ecl-carousel__item">
+        <img src="{{ carousel_image.image.src }}" alt="{{ carousel_image.image.alt }}" class="ecl-carousel__image" />
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="ecl-carousel__live-region">
+    {% for carousel_image in carousel_images %}
+    <div class="ecl-carousel__image-information" data-image={{ loop.index0 }}>
+      <div class="ecl-carousel__meta">
+        <span class="ecl-carousel__meta-item ecl-carousel__meta-download">
+          <a class="ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"
+             href="{{ carousel_image.download.target }}"
+             title="{{ carousel_image.download.title }}">
+               {{ carousel_image.download.label }}
+         </a>
+        </span>
+        <span class="ecl-carousel__meta-item ecl-carousel__meta-share">
+          <a class="ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"
+             href="{{ carousel_image.share.target }}"
+             title="{{ carousel_image.share.title }}">
+               {{ carousel_image.share.label }}
+         </a>
+        </span>
+      </div>
+      <div class="ecl-carousel__image-description">
+        {% block description %}
+          {{ carousel_image.description }}
+        {% endblock %}
+      </div>
+      <div class="ecl-carousel__image-copyright">
+        {{ carousel_image.copyright }}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
