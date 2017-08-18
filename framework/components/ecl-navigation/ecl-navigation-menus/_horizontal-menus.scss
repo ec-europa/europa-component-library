@@ -32,7 +32,6 @@
   display: none;
 
   // Force display if no JS
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .no-js & {
     display: flex;
   }
@@ -148,7 +147,6 @@
 .ecl-navigation-menu__link[aria-expanded]::after {
   padding-left: map-get($ecl-spacing, 'xxxs');
 
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
   .no-js & {
     display: none;
   }
