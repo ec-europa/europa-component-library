@@ -1,4 +1,4 @@
-const variants = ['default', 'tabs'];
+const variants = ['default', 'tabs', 'small'];
 
 describe('navigation-lists', () => {
   before(() => {
