@@ -928,16 +928,16 @@ babel-register@^6.24.1:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@6.23.0, babel-runtime@~6.23.0:
-  version "6.23.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
+babel-runtime@6.25.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.9.0, babel-runtime@~6.25.0:
+  version "6.25.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.25.0.tgz#33b98eaa5d482bb01a8d1aa6b437ad2b01aec41c"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.9.0:
-  version "6.25.0"
-  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.25.0.tgz#33b98eaa5d482bb01a8d1aa6b437ad2b01aec41c"
+babel-runtime@~6.23.0:
+  version "6.23.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
@@ -2889,9 +2889,9 @@ fd-slicer@~1.0.1:
   dependencies:
     pend "~1.2.0"
 
-fibers@~1.0.15:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/fibers/-/fibers-1.0.15.tgz#22f039c8f18b856190fbbe4decf056154c1eae9c"
+fibers@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fibers/-/fibers-2.0.0.tgz#f26d0aaf1f99995fbe1cb3f340efac08bda9dc4b"
 
 figures@^1.3.5, figures@^1.7.0:
   version "1.7.0"
@@ -6038,9 +6038,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint-cli@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-4.1.1.tgz#b2630e31ac3b3379ecf02c130f5b219c04a0bc3c"
+prettier-eslint-cli@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-4.2.0.tgz#733e19efac70432c2ef989665c0e458985c62fd3"
   dependencies:
     arrify "^1.0.1"
     babel-runtime "^6.23.0"
@@ -6048,6 +6048,7 @@ prettier-eslint-cli@4.1.1:
     camelcase-keys "^4.1.0"
     chalk "^1.1.3"
     common-tags "^1.4.0"
+    eslint "^3.19.0"
     find-up "^2.1.0"
     get-stdin "^5.0.1"
     glob "^7.1.1"
@@ -6837,7 +6838,13 @@ remark-lint-unordered-list-marker-style@^1.0.0:
     unist-util-position "^3.0.0"
     unist-util-visit "^1.1.1"
 
-remark-lint@6.0.0, remark-lint@^6.0.0:
+remark-lint@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/remark-lint/-/remark-lint-6.0.1.tgz#68b10ec25d5145042f7cfa52649e20ef7bc91482"
+  dependencies:
+    remark-message-control "^4.0.0"
+
+remark-lint@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/remark-lint/-/remark-lint-6.0.0.tgz#e9824cf9112fab7f03915914f05eb015f117043f"
   dependencies:
@@ -6872,9 +6879,9 @@ remark-parse@^4.0.0:
     vfile-location "^2.0.0"
     xtend "^4.0.1"
 
-remark-preset-lint-consistent@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/remark-preset-lint-consistent/-/remark-preset-lint-consistent-2.0.0.tgz#a07b9f2313bec7a0f3cd9a714eb0f02d83936d14"
+remark-preset-lint-consistent@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/remark-preset-lint-consistent/-/remark-preset-lint-consistent-2.0.1.tgz#02f03205bb0dc37fb1ba9034827a68fb5cb799dc"
   dependencies:
     remark-lint "^6.0.0"
     remark-lint-blockquote-indentation "^1.0.0"
@@ -6890,9 +6897,9 @@ remark-preset-lint-consistent@2.0.0:
     remark-lint-strong-marker "^1.0.0"
     remark-lint-table-cell-padding "^1.0.0"
 
-remark-preset-lint-markdown-style-guide@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/remark-preset-lint-markdown-style-guide/-/remark-preset-lint-markdown-style-guide-2.1.0.tgz#fdbc3d054d2b1f9e66b0c7b1b7351ddd960a67ff"
+remark-preset-lint-markdown-style-guide@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/remark-preset-lint-markdown-style-guide/-/remark-preset-lint-markdown-style-guide-2.1.1.tgz#6064a358bc0eec7a5c6bdf2ed7446d4b52b2a7b8"
   dependencies:
     remark-lint "^6.0.0"
     remark-lint-blockquote-indentation "^1.0.0"
@@ -6940,9 +6947,9 @@ remark-preset-lint-markdown-style-guide@2.1.0:
     remark-lint-table-pipes "^1.0.0"
     remark-lint-unordered-list-marker-style "^1.0.0"
 
-remark-preset-lint-recommended@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/remark-preset-lint-recommended/-/remark-preset-lint-recommended-3.0.0.tgz#39d70f6fc4e74a63468b5e9af12ab73022ef0353"
+remark-preset-lint-recommended@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/remark-preset-lint-recommended/-/remark-preset-lint-recommended-3.0.1.tgz#75486577873e20f514cf66e399fcc0d872971049"
   dependencies:
     remark-lint "^6.0.0"
     remark-lint-final-newline "^1.0.0"
@@ -8616,13 +8623,13 @@ wdio-dot-reporter@~0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/wdio-dot-reporter/-/wdio-dot-reporter-0.0.8.tgz#36195576da0d998210c71948cbb65f5bf11bfc65"
 
-wdio-mocha-framework@0.5.10:
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/wdio-mocha-framework/-/wdio-mocha-framework-0.5.10.tgz#d1f6b5b1129a845f273672d9b2ad0c4b4f37cba1"
+wdio-mocha-framework@0.5.11:
+  version "0.5.11"
+  resolved "https://registry.yarnpkg.com/wdio-mocha-framework/-/wdio-mocha-framework-0.5.11.tgz#33208d3a320ea7c9293093b831306c9dceab8416"
   dependencies:
     babel-runtime "^6.23.0"
     mocha "^3.2.0"
-    wdio-sync "0.6.14"
+    wdio-sync "0.7.0"
 
 wdio-sauce-service@0.4.0:
   version "0.4.0"
@@ -8652,11 +8659,11 @@ wdio-selenium-standalone-service@0.0.9:
     fs-extra "^0.30.0"
     selenium-standalone "^6.5.0"
 
-wdio-spec-reporter@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/wdio-spec-reporter/-/wdio-spec-reporter-0.1.0.tgz#a45310c9ceb3d1c7570ef1124abe75b433c48179"
+wdio-spec-reporter@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/wdio-spec-reporter/-/wdio-spec-reporter-0.1.2.tgz#91c6f6097f92ad251cd2b66e388505c4c0e24760"
   dependencies:
-    babel-runtime "~6.23.0"
+    babel-runtime "~6.25.0"
     humanize-duration "~3.10.0"
 
 wdio-static-server-service@1.0.1:
@@ -8668,12 +8675,12 @@ wdio-static-server-service@1.0.1:
     log "^1.4.0"
     morgan "^1.7.0"
 
-wdio-sync@0.6.14:
-  version "0.6.14"
-  resolved "https://registry.yarnpkg.com/wdio-sync/-/wdio-sync-0.6.14.tgz#a1dcd5907ba1d04154aae6176c622d910c3ca9b3"
+wdio-sync@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/wdio-sync/-/wdio-sync-0.7.0.tgz#2fb07d250121dc81f5635316542c3c49a1220168"
   dependencies:
-    babel-runtime "6.23.0"
-    fibers "~1.0.15"
+    babel-runtime "6.25.0"
+    fibers "~2.0.0"
     object.assign "^4.0.3"
 
 wdio-visual-regression-service@0.8.0:
