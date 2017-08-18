@@ -11,7 +11,7 @@ First, you need to include the JavaScript file of `ECL.js` provided in the [late
 
 This means that when you include the `ECL` library in your pages, you will have a namespaced global called `ECL` which contains the components' factory functions.
 
-![ECL library in your browser's console](/assets/ECLjs.png)
+![ECL library in your browser's console](../assets/ECLjs.png)
 
 ### Instantiation
 
