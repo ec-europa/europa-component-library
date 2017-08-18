@@ -35,7 +35,7 @@ export const dialogs = (
     element.setAttribute('id', 'ecl-overlay');
     element.setAttribute('class', 'ecl-dialog__overlay');
     element.setAttribute('aria-hidden', 'true');
-    document.body.append(element);
+    document.body.appendChild(element);
     dialogOverlay = element;
   }
 

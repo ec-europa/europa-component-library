@@ -137,6 +137,8 @@
 <p>The default navigation pattern.</p>
 <h2 id="tabs">Tabs</h2>
 <p>Tabbed navigation.</p>
+<h2 id="small">Small</h2>
+<p>Smaller navigation list</p>
 
                 
               </div>
@@ -390,6 +392,15 @@
     <span class="hljs-attribute">border-bottom-color</span>: transparent;
   }
 }
+
+<span class="hljs-comment">// Small</span>
+
+<span class="hljs-selector-class">.ecl-navigation-list--small</span> <span class="hljs-selector-class">.ecl-navigation-list__link</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">font-weight</span>: normal;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.3</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+}
 </pre>
                             </code>
                             
@@ -406,7 +417,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.4 KB</span>
+                    <span class="Meta-value">1.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -440,7 +451,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(3)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="ecl-navigation-lists--default">
@@ -449,6 +460,10 @@
             
                 <a href="ecl-navigation-lists--tabs">
                     <span>Tabs</span>
+                </a>, 
+            
+                <a href="ecl-navigation-lists--small">
+                    <span>Small</span>
                 </a>
             
             </span>
@@ -933,6 +948,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Buttons</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-carousels" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Carousels</span>
             </a>
         </li>
         
@@ -1823,9 +1862,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-galleries" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-galleries">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -1842,7 +1880,63 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Galleries</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-gallery-base" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Gallery - base</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-gallery-dialog" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Gallery - dialog (overlay)</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2364,6 +2458,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Tabs</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation-lists--small" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Small</span>
             </a>
         </li>
         
@@ -3481,6 +3599,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-communities" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Communities</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-filters" data-pjax>
                 
 
@@ -3503,9 +3645,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-pages" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-templates-collection-ecl-pages">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -3522,7 +3663,63 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Pages</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages--simple" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Simple</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages--with-menu" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Page with menu</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     

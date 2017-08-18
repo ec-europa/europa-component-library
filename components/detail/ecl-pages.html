@@ -223,24 +223,18 @@
 } %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-site-headers' %}</span><span class="xml">
-
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-page-headers' with {
-  variant: 'default',
-  identity: 'Digital single market',
-  title: 'Business, Economy, Euro',
-  introduction:
-    'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
-  paragraph_class: 'ecl-paragraph ecl-paragraph--l',
-  meta: {
-    type: 'News article',
-    <span class="hljs-name">date</span>: '6 July 2015',
-    timestamp: '2015-07-06T17:44:28+02:00',
-    location: 'Brussels',
-  },
-} %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-page-headers' with { variant: 'default' }|<span class="hljs-keyword">merge</span>(page_header) %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> menu is defined and menu is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-navigation-menus' with menu %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main-content"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container ecl-u-mv-l"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h1"</span>&gt;</span>Page example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tortor elit, sagittis eu ante eu, tempor tempus lorem. Quisque auctor leo id tempor pulvinar. Nunc sapien orci, eleifend nec magna ac, feugiat viverra orci. Nulla efficitur nisl vitae risus pretium, sit amet aliquam dolor volutpat. Donec risus elit, congue at porta eget, posuere vitae ipsum. Nulla iaculis magna a lorem dignissim consequat. Praesent mattis libero ac tortor efficitur porta. In congue elementum nunc, vitae accumsan turpis dictum non.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Integer convallis quis magna et dapibus. Aenean id lectus vitae nulla fringilla gravida sed id mauris. Aliquam commodo erat sit amet nisi mollis, ut suscipit dolor eleifend. Fusce at malesuada lorem. Ut rutrum nibh massa, sed tincidunt nibh pretium id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed porttitor turpis a efficitur posuere. Integer eu est sodales, ornare elit ac, congue leo. Sed condimentum faucibus fermentum. Fusce aliquet ut enim euismod feugiat. Fusce nec interdum metus, id finibus nisl.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-footers' with {
@@ -547,6 +541,12 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs "</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumbs"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-sr-only"</span>&gt;</span>You are here:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">ol</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__segments-wrapper"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__segment ecl-breadcrumbs__segment--first"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://europa.eu/index_en.htm"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__link"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__segment ecl-breadcrumbs__segment--last"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumbs__link"</span>&gt;</span>Example<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
@@ -574,6 +574,15 @@
 
 <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main-content"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container ecl-u-mv-l"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h1"</span>&gt;</span>Page example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tortor elit, sagittis eu ante eu, tempor tempus lorem. Quisque auctor leo id tempor pulvinar. Nunc sapien orci, eleifend nec magna ac, feugiat viverra orci. Nulla efficitur nisl
+      vitae risus pretium, sit amet aliquam dolor volutpat. Donec risus elit, congue at porta eget, posuere vitae ipsum. Nulla iaculis magna a lorem dignissim consequat. Praesent mattis libero ac tortor efficitur porta. In congue elementum nunc, vitae
+      accumsan turpis dictum non.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Integer convallis quis magna et dapibus. Aenean id lectus vitae nulla fringilla gravida sed id mauris. Aliquam commodo erat sit amet nisi mollis, ut suscipit dolor eleifend. Fusce at malesuada lorem. Ut rutrum nibh massa, sed tincidunt nibh pretium
+      id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed porttitor turpis a efficitur posuere. Integer eu est sodales, ornare elit ac, congue leo. Sed condimentum faucibus fermentum. Fusce aliquet ut enim euismod feugiat. Fusce nec
+      interdum metus, id finibus nisl.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
@@ -724,6 +733,21 @@
         
         
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="ecl-pages--simple">
+                    <span>Simple</span>
+                </a>, 
+            
+                <a href="ecl-pages--with-menu">
+                    <span>Page with menu</span>
+                </a>
+            
+            </span>
+        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -1204,6 +1228,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Buttons</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-carousels" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Carousels</span>
             </a>
         </li>
         
@@ -2094,9 +2142,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-galleries" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-galleries">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -2113,7 +2160,63 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Galleries</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-gallery-base" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Gallery - base</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-gallery-dialog" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Gallery - dialog (overlay)</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2635,6 +2738,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Tabs</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation-lists--small" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Small</span>
             </a>
         </li>
         
@@ -3752,6 +3879,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-communities" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Communities</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-filters" data-pjax>
                 
 
@@ -3774,9 +3925,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-templates-collection-ecl-pages">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -3793,7 +3943,63 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Pages</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages--simple" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Simple</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages--with-menu" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Page with menu</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     

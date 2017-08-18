@@ -31,38 +31,44 @@
 
 
 
-                          
 
-<div class="ecl-dialog"  aria-labelledby="dialog-title" aria-describedby="dialog-description" id="ecl-dialog" aria-hidden="true" role="dialog">
-    <h1 id="dialog-title" class="ecl-sr-only">Example title</h1>
-      <p id="dialog-description" class="ecl-sr-only">Example description</p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
-      <button type="button" class="ecl-message__dismiss" aria-label="Dismiss this dialog window">&times;</button>
+
+
+
+
+
+<div class="ecl-dialog"  id="ecl-dialog" aria-labelledby="ecl-dialog-title" aria-describedby="ecl-dialog-description" aria-hidden="true" role="dialog">
+  <h3 id="ecl-dialog-title" class="ecl-heading ecl-heading--h3 ecl-sr-only">Dialog</h3>
+    <p id="ecl-dialog-description" class="ecl-sr-only">Example description</p>
+    <div class="ecl-dialog__body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+      </div>
+    <button type="button" class="ecl-message__dismiss" aria-label="Dismiss this dialog window">&times;</button>
   </div>
 
     </main>
     <script src="../../framework/scripts/europa.js"></script>
         <script type="text/javascript">
-        // This is only for demo purposes to facilitate end-users.
-
-        // Create a link.
-        var link = document.createElement('a');
-        var text = document.createTextNode('Open dialog');
-
-        // Include textual content.
-        link.appendChild(text);
-        link.title = "Click to test the modal";
-
-        // Add necessary demo attributes.
-        link.setAttribute('href', '#dialog');
-        link.setAttribute('class', 'ecl-link');
-        link.setAttribute('data-ecl-dialog', 'ecl-dialog');
-
-        // Show the link
-        document.body.append(link);
-
         document.addEventListener('DOMContentLoaded', function () {
-            ECL.dialogs();
+          // This is only for demo purposes to facilitate end-users.
+
+          // Create a link.
+          var link = document.createElement('a');
+          var text = document.createTextNode('Open dialog');
+
+          // Include textual content.
+          link.appendChild(text);
+          link.title = "Click to test the modal";
+
+          // Add necessary demo attributes.
+          link.setAttribute('href', '#dialog');
+          link.setAttribute('class', 'ecl-link');
+          link.setAttribute('data-ecl-dialog', 'ecl-dialog');
+
+          // Show the link
+          document.body.appendChild(link);
+
+          ECL.dialogs();
         });
       </script>
       </body>

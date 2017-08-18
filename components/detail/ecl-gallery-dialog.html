@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.9.0" type="text/css">
 
 
-<title>Galleries | Europa Component Library</title>
+<title>Gallery - dialog (overlay) | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -95,14 +95,14 @@
     
     
 
-<div class="Pen" id="pen-e47dc58e86b7d578292dde6502d80e27">
+<div class="Pen" id="pen-a2f2a1d98a8aaffc1bc87773aef94565">
 
     
 
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
-        <a class="Pen-previewLink" href="../preview/ecl-galleries" title="Component preview">
-            Galleries
+        <a class="Pen-previewLink" href="../preview/ecl-gallery-dialog" title="Component preview">
+            Gallery - dialog (overlay)
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -136,7 +136,7 @@
 <h2 id="when-and-how-to-use-this-component">When and how to use this component</h2>
 <p>This component helps the user to quickly browse available media thumbnails (images, videos and audio clips) related to the page’s textual content.
 These thumbnails display a caption describing the media item along with a visual icon to distinguish between video clips, audio clips and images.
-It should always be used with the Gallery overlay component, which allows the user to visualize the media in a bigger size and access additional controls for video and audio playback. (The Gallery overlay component needs to be enabled).</p>
+It should always be used with the Gallery dialog component, which allows the user to visualize the media in a bigger size and access additional controls for video and audio playback. (The Gallery dialog component needs to be enabled).</p>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
 <li>When I want to have a gallery with different media in order to provide the user with more information about a certain topic, complement existing information.</li>
@@ -145,8 +145,25 @@ It should always be used with the Gallery overlay component, which allows the us
 </ul>
 <h2 id="do-not-use-this-component">Do not use this component</h2>
 <ul>
-<li>Without the Gallery overlay component</li>
+<li>Without the Gallery dialog component</li>
 </ul>
+<h2 id="notes-on-technical-implementation">Notes on technical implementation</h2>
+<p>In order to make this component work, you will need to combine:</p>
+<ul>
+<li>Template of <code>@ec-europa/ecl-carousels</code></li>
+<li>Javascript behaviors of <code>@ec-europa/ecl-dialogs</code></li>
+</ul>
+<p>As long as you have HTML representation matching the output of carousel component on the page (which is treated as a gallery component) you just need to integrate this markup with the Javascript behaviors of the dialog framework by:</p>
+<ul>
+<li>including ECL.js object</li>
+<li>instantiating both the carousel and dialog libraries</li>
+</ul>
+<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  ECL.dialogs({
+    <span class="hljs-attr">dialogWindowId</span>: <span class="hljs-string">'ecl-carousel'</span>
+  });
+  ECL.carousels();
+});</pre></code><p>For further configuration options of both carousel and dialog components, you can read their corresponding JavaScript files, which expose clear APIs.</p>
 
                 
               </div>
@@ -155,14 +172,14 @@ It should always be used with the Gallery overlay component, which allows the us
         </div>
 
         <div class="Pen-playground" data-behaviour="pen" id="playground">
-          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-e47dc58e86b7d578292dde6502d80e27">
+          <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-a2f2a1d98a8aaffc1bc87773aef94565">
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             
              <iframe
                 class="Preview-iframe"
                 data-role="window"
-                src="../preview/ecl-galleries"
+                src="../preview/ecl-gallery-dialog"
                 sandbox="allow-same-origin allow-scripts allow-forms"
                  style=""
                 marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
@@ -175,7 +192,7 @@ It should always be used with the Gallery overlay component, which allows the us
 
           <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
           <div class="Pen-panel Pen-info" data-role="info">
-    <div class="Browser" data-behaviour="browser" id="browser-e47dc58e86b7d578292dde6502d80e27">
+    <div class="Browser" data-behaviour="browser" id="browser-a2f2a1d98a8aaffc1bc87773aef94565">
 
     
 
@@ -184,35 +201,31 @@ It should always be used with the Gallery overlay component, which allows the us
         
         
         <li class="Browser-tab Browser-tab--view is-active " data-role="tab">
-            <a href="#browser-e47dc58e86b7d578292dde6502d80e27-panel-view">View</a>
+            <a href="#browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-view">View</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--context" data-role="tab">
-            <a href="#browser-e47dc58e86b7d578292dde6502d80e27-panel-context">Context</a>
+            <a href="#browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-context">Context</a>
         </li>
         
         
         
         <li class="Browser-tab Browser-tab--html" data-role="tab">
-            <a href="#browser-e47dc58e86b7d578292dde6502d80e27-panel-html">HTML</a>
+            <a href="#browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-html">HTML</a>
         </li>
         
         
         
         
-        
-        <li class="Browser-tab Browser-tab--resources" data-role="tab">
-            <a href="#browser-e47dc58e86b7d578292dde6502d80e27-panel-assets">Code</a>
-        </li>
         
         
         
         
         
         <li class="Browser-tab Browser-tab--info" data-role="tab">
-            <a href="#browser-e47dc58e86b7d578292dde6502d80e27-panel-info">Info</a>
+            <a href="#browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-info">Info</a>
         </li>
         
         
@@ -221,234 +234,92 @@ It should always be used with the Gallery overlay component, which allows the us
 
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e47dc58e86b7d578292dde6502d80e27-panel-view">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-view">
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Accepts:
-    - "data" is the root namespace containing rows of gallery items
+    - "dialog_contents" data passed to '@ec-europa/ecl-carousels' component.
 
-  Structure of gallery item:
-    - "classes" (string): CSS classes to add (mandatory)
-    - "image" (@ecl-images): Image to add in the gallery (mandatory)
-    - "caption" (string): Textual caption for an image
-    - "icon" (string): An icon class building an icon in the item
+  Structure of `dialog_contents` documented in '@ec-europa/ecl-carousels'.
+  JavaScript part explained in component's README file.
 #}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery"</span>&gt;</span>
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> data.rows is defined and data.rows is iterable %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> row in data.rows %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> row is iterable %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> gallery_item in row %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ gallery_item.classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-images' with gallery_item.image %}</span><span class="xml">
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> gallery_item.caption is defined %}</span><span class="xml">
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span></span><span class="hljs-template-variable">{{ gallery_item.caption }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> gallery_item.icon is defined %}</span><span class="xml">
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon </span></span></span><span class="hljs-template-variable">{{ gallery_item.icon }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-carousels' with dialog_contents %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
     
-    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-e47dc58e86b7d578292dde6502d80e27-panel-context">
+    <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-context">
     <code class="Code Code--lang-json">
         
             
             <pre>{
-  <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"rows"</span>: [
-      [
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-4"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/380x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"380"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          },
-          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>,
-          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"ecl-icon--camera"</span>
+  <span class="hljs-attr">"_demo"</span>: {
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"\n        // This is only for demo purposes to facilitate end-users.\n\n        // Create a link.\n        var link = document.createElement('a');\n        var text = document.createTextNode('Open dialog');\n\n        // Include textual content.\n        link.appendChild(text);\n        link.title = \"Click to test the modal\";\n\n        // Add necessary demo attributes.\n        link.setAttribute('href', '#ecl-carousel');\n        link.setAttribute('class', 'ecl-link');\n        link.setAttribute('data-ecl-dialog', 'ecl-carousel');\n        link.setAttribute('id', 'open-dialog-demo');\n\n        // Show the link\n        document.body.appendChild(link);\n\n        document.addEventListener('DOMContentLoaded', function () {\n            ECL.dialogs({\n              dialogWindowId: 'ecl-carousel'\n            });\n            ECL.carousels();\n        });\n      "</span>
+  },
+  <span class="hljs-attr">"dialog_contents"</span>: {
+    <span class="hljs-attr">"extra_attributes"</span>: [
+      {
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"aria-hidden"</span>,
+        <span class="hljs-attr">"value"</span>: <span class="hljs-literal">true</span>
+      }
+    ],
+    <span class="hljs-attr">"heading_title"</span>: <span class="hljs-string">"Example gallery carousel"</span>,
+    <span class="hljs-attr">"carousel_images"</span>: [
+      {
+        <span class="hljs-attr">"image"</span>: {
+          <span class="hljs-attr">"src"</span>: <span class="hljs-string">"/assets/demo_images/business-demo-1.jpg"</span>,
+          <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"First item"</span>
         },
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          },
-          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"ecl-icon--audio"</span>
+        <span class="hljs-attr">"download"</span>: {
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+          <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Download"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Download"</span>
         },
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-2"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/190x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"190"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          },
-          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>,
-          <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"ecl-icon--camera"</span>
+        <span class="hljs-attr">"share"</span>: {
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+          <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Share"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Share"</span>
         },
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          }
-        }
-      ],
-      [
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-2"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/190x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"190"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          },
-          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"&lt;p&gt;Nulla consequat massa quis enim. Donec pede justo.&lt;/p&gt;\n            &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. &lt;a href=\"#\" title=\"Cras dapibus\"&gt;Cras dapibus&lt;/a&gt;. Vivamus elementum semper nisi.&lt;/p&gt;"</span>,
+        <span class="hljs-attr">"copyright"</span>: <span class="hljs-string">"© Copyright 1"</span>
+      },
+      {
+        <span class="hljs-attr">"image"</span>: {
+          <span class="hljs-attr">"src"</span>: <span class="hljs-string">"/assets/demo_images/business-demo-2.jpg"</span>,
+          <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Second item"</span>
         },
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          }
+        <span class="hljs-attr">"download"</span>: {
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+          <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Download"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Download"</span>
         },
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-3"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/285x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"285"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          }
+        <span class="hljs-attr">"share"</span>: {
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+          <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Share"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Share"</span>
         },
-        {
-          <span class="hljs-attr">"classes"</span>: <span class="hljs-string">"ecl-col-md-4"</span>,
-          <span class="hljs-attr">"image"</span>: {
-            <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://placehold.it/380x185"</span>,
-            <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Example alt text"</span>,
-            <span class="hljs-attr">"extraAttributes"</span>: [
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"typeof"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"foaf:Image"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"width"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"380"</span>
-              },
-              {
-                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"height"</span>,
-                <span class="hljs-attr">"value"</span>: <span class="hljs-string">"185"</span>
-              }
-            ]
-          },
-          <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Example image caption"</span>
-        }
-      ]
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"&lt;p&gt;Nulla consequat massa quis enim. Donec pede justo.&lt;/p&gt;\n            &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. &lt;a href=\"#\" title=\"Cras dapibus\"&gt;Cras dapibus&lt;/a&gt;. Vivamus elementum semper nisi.&lt;/p&gt;"</span>,
+        <span class="hljs-attr">"copyright"</span>: <span class="hljs-string">"© Copyright 2"</span>
+      },
+      {
+        <span class="hljs-attr">"image"</span>: {
+          <span class="hljs-attr">"src"</span>: <span class="hljs-string">"/assets/demo_images/business-demo-3.jpg"</span>,
+          <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Third item"</span>
+        },
+        <span class="hljs-attr">"download"</span>: {
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+          <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Download"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Download"</span>
+        },
+        <span class="hljs-attr">"share"</span>: {
+          <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+          <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Share"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Share"</span>
+        },
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"&lt;p&gt;Nulla consequat massa quis enim. Donec pede justo.&lt;/p&gt;\n            &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. &lt;a href=\"#\" title=\"Cras dapibus\"&gt;Cras dapibus&lt;/a&gt;. Vivamus elementum semper nisi.&lt;/p&gt;"</span>,
+        <span class="hljs-attr">"copyright"</span>: <span class="hljs-string">"© Copyright 3"</span>
+      }
     ]
   }
 }</pre>
@@ -459,68 +330,102 @@ It should always be used with the Gallery overlay component, which allows the us
 
     
     
-<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-e47dc58e86b7d578292dde6502d80e27-panel-html">
+<div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-4 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon ecl-icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-carousel"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"ecl-carousel__heading"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-headings ecl-headings--h3 ecl-sr-only"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-carousel__heading"</span>&gt;</span>Example gallery carousel<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__list-wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__list ecl-list--unstyled"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/assets/demo_images/business-demo-1.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"First item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/assets/demo_images/business-demo-2.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Second item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/assets/demo_images/business-demo-3.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Third item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__live-region"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-information"</span> <span class="hljs-attr">data-image</span>=<span class="hljs-string">0</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-download"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"</span>
+             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
+             <span class="hljs-attr">title</span>=<span class="hljs-string">"Download"</span>&gt;</span>
+               Download
+         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-share"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"</span>
+             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
+             <span class="hljs-attr">title</span>=<span class="hljs-string">"Share"</span>&gt;</span>
+               Share
+         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon ecl-icon--audio"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-description"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nulla consequat massa quis enim. Donec pede justo.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Cras dapibus"</span>&gt;</span>Cras dapibus<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>. Vivamus elementum semper nisi.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-copyright"</span>&gt;</span>
+        © Copyright 1
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-2 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon-wrapper"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__icon ecl-icon ecl-icon--camera"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-information"</span> <span class="hljs-attr">data-image</span>=<span class="hljs-string">1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-download"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"</span>
+             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
+             <span class="hljs-attr">title</span>=<span class="hljs-string">"Download"</span>&gt;</span>
+               Download
+         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-share"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"</span>
+             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
+             <span class="hljs-attr">title</span>=<span class="hljs-string">"Share"</span>&gt;</span>
+               Share
+         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-description"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nulla consequat massa quis enim. Donec pede justo.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Cras dapibus"</span>&gt;</span>Cras dapibus<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>. Vivamus elementum semper nisi.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-copyright"</span>&gt;</span>
+        © Copyright 2
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-information"</span> <span class="hljs-attr">data-image</span>=<span class="hljs-string">2</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-download"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"</span>
+             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
+             <span class="hljs-attr">title</span>=<span class="hljs-string">"Download"</span>&gt;</span>
+               Download
+         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-share"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"</span>
+             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
+             <span class="hljs-attr">title</span>=<span class="hljs-string">"Share"</span>&gt;</span>
+               Share
+         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-description"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nulla consequat massa quis enim. Donec pede justo.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Cras dapibus"</span>&gt;</span>Cras dapibus<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>. Vivamus elementum semper nisi.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-copyright"</span>&gt;</span>
+        © Copyright 3
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-2 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/190x185"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-3 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/285x185"</span> /&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-4 ecl-gallery__item"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__item-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Example alt text"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://placehold.it/380x185"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-gallery__caption"</span>&gt;</span>Example image caption<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -529,166 +434,14 @@ It should always be used with the Gallery overlay component, which allows the us
     
 
 
-<div class="Browser-panel Browser-resources" data-role="tab-panel" id="browser-e47dc58e86b7d578292dde6502d80e27-panel-assets">
-    <div class="FileBrowser">
-
-        <div class="FileBrowser-selectWrapper">
-            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
-            <select class="FileBrowser-select" id="filebrowser-select">
-                
-                <option value="file-d2eabde875b4296d0f9f6dd05da27eca">ecl-galleries.scss</option>
-                
-            </select>
-        </div>
-
-        
-        <div class="FileBrowser-item is-active" id="file-d2eabde875b4296d0f9f6dd05da27eca" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/**
-* Gallery
-* @define gallery ; weak
-*/</span>
-
-<span class="hljs-selector-class">.ecl-gallery</span> {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
-  <span class="hljs-attribute">padding-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
-}
-
-<span class="hljs-selector-class">.ecl-gallery__item</span> {
-  <span class="hljs-attribute">overflow</span>: hidden;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-}
-
-<span class="hljs-comment">// That's how we show the caption on hover</span>
-<span class="hljs-selector-class">.ecl-gallery__item</span>:hover {
-  <span class="hljs-selector-class">.ecl-gallery__caption</span> {
-    <span class="hljs-attribute">display</span>: block;
-  }
-}
-
-<span class="hljs-selector-class">.ecl-gallery__item-container</span> {
-  <span class="hljs-attribute">margin</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-
-  <span class="hljs-comment">/**
-  * General for 2 reasons:
-  *  - ensure consistency
-  *  - allow easy integration
-  */</span>
-  <span class="hljs-selector-tag">img</span> {
-    <span class="hljs-attribute">display</span>: block;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  }
-}
-
-<span class="hljs-selector-class">.ecl-gallery__caption</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-  <span class="hljs-attribute">display</span>: none;
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxs'</span>);
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">4em</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
-  <span class="hljs-comment">// The line is ignored because prettier wants first line to stay.</span>
-  <span class="hljs-comment">// Whereas the linter wants the rules to go a new line directly.</span>
-  <span class="hljs-comment">/* stylelint-disable-next-line */</span>
-  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>)
-    map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
-  <span class="hljs-attribute">position</span>: absolute;
-  <span class="hljs-attribute">text-overflow</span>: ellipsis;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-}
-
-<span class="hljs-selector-class">.ecl-gallery__icon-wrapper</span> {
-  <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-  <span class="hljs-attribute">height</span>: <span class="hljs-number">2.667em</span>;
-  <span class="hljs-attribute">overflow</span>: hidden;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">position</span>: absolute;
-  <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
-  <span class="hljs-attribute">text-align</span>: center;
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">2.667em</span>;
-
-  <span class="hljs-comment">// Camera icon needs to be smaller in this context.</span>
-  <span class="hljs-selector-class">.ecl-icon--camera</span> {
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xxs'</span>);
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">4em</span>;
-  }
-}
-
-<span class="hljs-selector-class">.ecl-gallery__icon</span> {
-  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">2.667em</span>;
-
-  &amp;::before {
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
-  }
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-down(sm) {
-  <span class="hljs-selector-class">.ecl-gallery__item</span> {
-    <span class="hljs-attribute">float</span>: left;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
-  }
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-between(sm, md) {
-  <span class="hljs-selector-class">.ecl-gallery__item</span> {
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  }
-}
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a data-no-pjax href="../raw/ecl-galleries/ecl-galleries.scss"><span>/components/raw/ecl-galleries/ecl-galleries.scss</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-galleries/ecl-galleries.scss</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.9 KB</span>
-                </li>
-            </ul>
-        </div>
-        
-    </div>
-</div>
-
 
 
     
-    <div class="Browser-panel" data-role="tab-panel" id="browser-e47dc58e86b7d578292dde6502d80e27-panel-info">
+    <div class="Browser-panel" data-role="tab-panel" id="browser-a2f2a1d98a8aaffc1bc87773aef94565-panel-info">
     <ul class="Meta">
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@ec-europa/ecl-galleries</span>
-        </li>
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Tags:</strong>
-            <span class="Meta-value">
-                
-                    <span>
-                
-                    <span>organism</span>
-                
-            </span>
+            <span class="Meta-value">@ec-europa/ecl-gallery-dialog</span>
         </li>
         
         
@@ -699,12 +452,12 @@ It should always be used with the Gallery overlay component, which allows the us
             <strong class="Meta-key">Preview:</strong>
             <span class="Meta-value">
                 <ul>
-                    <li><a data-no-pjax href="../preview/ecl-galleries"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../preview/ecl-gallery-dialog"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
 </a></li>
-                    <li><a data-no-pjax href="../render/ecl-galleries"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a data-no-pjax href="../render/ecl-gallery-dialog"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
@@ -714,7 +467,7 @@ It should always be used with the Gallery overlay component, which allows the us
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/ecl-galleries/ecl-galleries.twig</span>
+            <span class="Meta-value">framework/components/ecl-galleries/ecl-gallery-dialog/ecl-gallery-dialog.twig</span>
         </li>
         
         
@@ -1174,6 +927,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Buttons</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-carousels" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Carousels</span>
             </a>
         </li>
         
@@ -2064,6 +1841,56 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-galleries">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Galleries</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-gallery-base" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Gallery - base</span>
+            </a>
+        </li>
+        
+    
+        
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
             <a class="Tree-entityLink" href="" data-pjax>
@@ -2082,8 +1909,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </div>
 
 
-                <span>Galleries</span>
+                <span>Gallery - dialog (overlay)</span>
             </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2605,6 +2437,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Tabs</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-navigation-lists--small" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Small</span>
             </a>
         </li>
         
@@ -3722,6 +3578,30 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-communities" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Communities</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="ecl-filters" data-pjax>
                 
 
@@ -3744,9 +3624,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-pages" data-pjax>
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-templates-collection-ecl-pages">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
                 
 
 <div class="Status Status--unlabelled">
@@ -3763,7 +3642,63 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Pages</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages--simple" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Simple</span>
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-pages--with-menu" data-pjax>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Page with menu</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
