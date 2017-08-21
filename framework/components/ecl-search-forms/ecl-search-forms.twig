@@ -1,7 +1,7 @@
 {% if variant is defined and variant == "internal" %}
   <form class="ecl-search-form ecl-search-form--internal">
     <label class="ecl-search-form__textfield-wrapper">
-      <span class="ecl-sr-only">Search this website</span>
+      <span class="ecl-u-sr-only">Search this website</span>
       {% include '@ec-europa/ecl-forms-text-inputs' with {
         'id': 'search-form-internal',
         'type': 'search',
@@ -24,7 +24,7 @@
 {% else %}
   <form class="ecl-search-form">
     <label class="ecl-search-form__textfield-wrapper">
-      <span class="ecl-sr-only">Search this website</span>
+      <span class="ecl-u-sr-only">Search this website</span>
       {% include '@ec-europa/ecl-forms-text-inputs' with {
         'id': 'search-form',
         'type': 'search',

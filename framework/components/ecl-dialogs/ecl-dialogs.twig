@@ -11,13 +11,13 @@
   - dialog_title: {
     value: the title of the dialog (default: '')
     id: the id to match an `aria-labelledby` attribute (default: '')
-    classes: classes to apply to dialog title field (default: 'ecl-sr-only')
+    classes: classes to apply to dialog title field (default: 'ecl-u-sr-only')
   }
 
   - dialog_description: {
     value: the description of the dialog (default: '')
     id: the id to match an `aria-describedby` attribute (default: '')
-    classes: classes to apply to dialog description field (default: 'ecl-sr-only')
+    classes: classes to apply to dialog description field (default: 'ecl-u-sr-only')
   }
 
   - body (block): content of the dialog (default: lorem ipsum text)
@@ -30,13 +30,13 @@
 {% set dialog_title = {
   value: dialog_title.value|default(''),
   id: dialog_title.id|default(''),
-  classes: dialog_title.classes|default('ecl-sr-only'),
+  classes: dialog_title.classes|default('ecl-u-sr-only'),
 } %}
 
 {% set dialog_description = {
   value: dialog_description.value|default(''),
   id: dialog_description.id|default(''),
-  classes: dialog_description.classes|default('ecl-sr-only'),
+  classes: dialog_description.classes|default('ecl-u-sr-only'),
 } %}
 
 {% set dismiss = {

@@ -4,7 +4,7 @@ Default EC logo.
 
 ```html
 <a href="https://ec.europa.eu" class="logo" title="European Commission">
-  <span class="ecl-sr-only">European Commission</span>
+  <span class="ecl-u-sr-only">European Commission</span>
 </a>
 ```
 
@@ -23,7 +23,7 @@ EC logo with text. Add `logo--logotype` class to use it:
 
 ```html
 <a href="https://ec.europa.eu" class="logo logo--logotype" title="European Commission">
-  <span class="ecl-sr-only">European Commission</span>
+  <span class="ecl-u-sr-only">European Commission</span>
 </a>
 ```
 
@@ -43,7 +43,7 @@ EC logo with text below. Add `logo--logotypebelow` class to use it:
 
 ```html
 <a href="https://ec.europa.eu" class="logo logo--logotypebelow" title="European Commission">
-  <span class="ecl-sr-only">European Commission</span>
+  <span class="ecl-u-sr-only">European Commission</span>
 </a>
 ```
 
