@@ -4,13 +4,17 @@ module.exports = {
   status: 'ready',
   tags: ['organism'],
   context: {
-    political: { href: '#', label: 'Commission and its priorities' },
-    info: { href: '#', label: 'Policies, information and services' },
-    title: 'User menu',
-    links: [
-      { href: '#', label: 'My workbench' },
-      { href: '#', label: 'My account' },
-      { href: '#', label: 'Log out' },
-    ],
+    site_switcher: {
+      political: { href: '#', label: 'Commission and its priorities' },
+      info: { href: '#', label: 'Policies, information and services' },
+    },
+    user_menu: {
+      title: 'User menu',
+      links: [
+        { href: '#', label: 'My workbench' },
+        { href: '#', label: 'My account' },
+        { href: '#', label: 'Log out' },
+      ],
+    },
   },
 };
