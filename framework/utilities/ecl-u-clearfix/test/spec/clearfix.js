@@ -8,7 +8,7 @@ describe('clearfix', () => {
 
     browser.pause(1000);
 
-    browser.url(`ecl-clearfix.html`);
+    browser.url(`ecl-u-clearfix.html`);
     // Make sure the browser has finished painting
     browser.pause(1000);
     // Inject axe-core (for accessibility tests)
