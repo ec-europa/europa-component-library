@@ -10,7 +10,7 @@ module.exports = {
     links: [
       { href: '#', label: 'My workbench' },
       { href: '#', label: 'My account' },
-      { href: '#', label: 'Log out' }
-    ]
+      { href: '#', label: 'Log out' },
+    ],
   },
 };
