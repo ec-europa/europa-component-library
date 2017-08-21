@@ -18,7 +18,7 @@ module.exports = {
       name: 'background',
       label: 'Background banner',
       context: {
-        modifier: 'background',
+        type: 'background',
         src: 'http://lorempixel.com/1600/370/abstract/8',
         title: {
           label: 'White Paper on the future of Europe',
@@ -32,14 +32,22 @@ module.exports = {
       name: 'quote',
       label: 'Quote banner',
       context: {
-        modifier: 'quote',
+        type: 'quote',
+        quote: {
+          body: `
+            Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis.
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+            Pellentesque in volutpat eros, ut fringilla tortor.
+          `,
+          author: 'President Juncker',
+        },
       },
     },
     {
       name: 'video',
       label: 'Video banner',
       context: {
-        modifier: 'video',
+        type: 'video',
       },
     },
   ],

@@ -1,6 +1,6 @@
 {#
   Accepts:
-    - "modifier" (string, default: "background")
+    - "type" (string, default: "background")
     - "src" (string)
     - "title" (object):
       - "href" (string)
@@ -9,12 +9,14 @@
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
-{% set _modifier = modifier|default('background') %}
+{# Internal properties #}
+
+{% set _type = type|default('background') %}
 {% set _css_class = 'ecl-banner' %}
 {% set _extra_attributes = '' %}
 
-{% if _modifier is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-banner--' ~ _modifier %}
+{% if _type is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-banner--' ~ _type %}
 {% endif %}
 
 {% if extra_classes is defined %}
@@ -28,7 +30,7 @@
 {% endif %}
 
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
-  {% if _modifier == 'background' %}
+  {% if _type == 'background' %}
 
     <div class="ecl-banner__image" style="background-image: url('{{ src }}')"></div>
     <div class="ecl-banner__body">
@@ -36,18 +38,11 @@
       <p class="ecl-paragraph ecl-banner__description">{{ description }}</p>
     </div>
 
-  {% elseif _modifier == 'quote' %}
+  {% elseif _type == 'quote' %}
 
-    {% include '@ec-europa/ecl-blockquotes' with {
-      'body':
-        'Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis.
-        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-        Pellentesque in volutpat eros, ut fringilla tortor.',
-      'author': 'President Juncker',
-      'extraClass': 'ecl-blockquote--small ecl-banner__quote',
-    } %}
+    {% include '@ec-europa/ecl-blockquotes' with { 'extra_classes': 'ecl-blockquote--small ecl-banner__quote' }|merge(quote) %}
 
-  {% elseif _modifier == 'video' %}
+  {% elseif _type == 'video' %}
 
     <div class="ecl-row">
       <div class="ecl-col-md-6">
