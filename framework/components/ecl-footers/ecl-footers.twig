@@ -89,7 +89,7 @@ items: [
           <p class="ecl-footer__label">{{ menu.label }}</p>
           {% endif %}
 
-          {% if menu.items is defined and is not empty %}
+          {% if menu.items is defined and menu.items is not empty %}
           <ul class="{{ menu.classes }}">
             {% for menu_item in menu.items %}
             {% if menu_item.link.title_wrapper_class is defined %}
