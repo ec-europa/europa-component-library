@@ -16,12 +16,6 @@
 </head>
 <body class="language-en">
   
-<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function () {
-    ECL.megamenu('.ecl-navigation-menu__root');
-    ECL.initExpandables('.ecl-navigation-menu__toggle');
-  });
-</script>
 
 
 
@@ -36,9 +30,21 @@
   <a href="#main-content" class="ecl-skip-link">Skip to main content</a>
 </div>
 
-<div class="ecl-container">
-  <!-- TODO: use utilities for float -->
-  
+
+
+
+
+
+
+
+
+
+
+<header class="ecl-site-header"  role="banner">
+
+    <div class="ecl-container">
+    <!-- TODO: use utilities for float -->
+    
 
 
 
@@ -63,7 +69,9 @@
       </li>
       </ul>
 </nav>
-</div>
+  </div>
+  
+    
 
 
 
@@ -73,25 +81,14 @@
 
 
 
-
-
-<div class="ecl-site-switcher ecl-site-switcher--header" >
+<div class="ecl-site-switcher ecl-site-switcher--header">
   <ul class="ecl-site-switcher__list ecl-container">
       <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="#">Commission and its priorities</a></li>
       <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="#">Policies, information and services</a></li>
   </ul>
 </div>
-
-
-
-
-
-
-
-
-
-<header class="ecl-site-header"  role="banner">
-  <div class="ecl-container ecl-site-header__container">
+  
+  <div class="ecl-container ecl-site-header__banner">
     
         
   
@@ -558,6 +555,13 @@
     </div>
   </div>
     </footer>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    ECL.megamenu('.ecl-navigation-menu__root');
+    ECL.initExpandables('.ecl-navigation-menu__toggle');
+  });
+</script>
 
   <script src="../../framework/scripts/europa.js"></script>
   </body>
