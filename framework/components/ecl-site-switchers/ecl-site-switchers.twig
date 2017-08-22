@@ -1,13 +1,18 @@
 {#
-  - variant: can be '','header','footer' (default: '')
-  - political:  {
-    href: target of the link (default: '')
-    label: label of the link (default: '')
+  - "variant": can be '', 'header', 'footer' (default: '')
+  - "political":  {
+    - "href": target of the link (default: '')
+    - "label": label of the link (default: '')
+    - "is_active" (boolean): set active link
+
   }
-  - info:  {
-    href: target of the link (default: '')
-    label: label of the link (default: '')
+  - "info":  {
+    - "href": target of the link (default: '')
+    - "label": label of the link (default: '')
+    - "is_active" (boolean): set active link
   }
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {# Internal properties #}
@@ -17,8 +22,8 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -28,9 +33,9 @@
 {% endif %}
 
 {# Print result #}
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}"{{ _extra_attributes }}>
   <ul class="ecl-site-switcher__list ecl-container">
-      <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="{{ political.href }}">{{ political.label }}</a></li>
-      <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="{{ info.href }}">{{ info.label }}</a></li>
+      <li class="ecl-site-switcher__option{{ political.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}"><a class="ecl-link ecl-site-switcher__link" href="{{ political.href }}">{{ political.label }}</a></li>
+      <li class="ecl-site-switcher__option{{ info.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}"><a class="ecl-link ecl-site-switcher__link" href="{{ info.href }}">{{ info.label }}</a></li>
   </ul>
 </div>
