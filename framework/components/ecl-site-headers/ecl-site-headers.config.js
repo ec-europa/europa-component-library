@@ -6,7 +6,11 @@ module.exports = {
   context: {
     site_switcher: {
       political: { href: '#', label: 'Commission and its priorities' },
-      info: { href: '#', label: 'Policies, information and services' },
+      info: {
+        href: '#',
+        label: 'Policies, information and services',
+        is_active: true,
+      },
     },
     user_menu: {
       title: 'User menu',
