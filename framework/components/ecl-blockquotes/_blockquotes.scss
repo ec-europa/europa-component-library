@@ -9,7 +9,8 @@
   @include blockquotes();
 }
 
-.ecl-blockquote__quote {
+.ecl-blockquote__body {
+  line-height: inherit;
   margin: 0;
 
   &::before {
@@ -21,22 +22,16 @@
   }
 }
 
-.ecl-blockquote__body {
-  display: inline;
-  line-height: inherit;
-}
-
 .ecl-blockquote__author {
   font-size: map-get($ecl-font-size, 's');
   font-weight: 600;
-  padding-top: 0.6em;
-
-  &::before {
-    content: ' - ';
-  }
+  margin-top: map-get($ecl-spacing, 'xxs');
 }
 
+// Variants
+
 .ecl-blockquote--small {
+  border-left-width: 6px;
   font-size: map-get($ecl-font-size, 'm');
 
   .ecl-blockquote__author {

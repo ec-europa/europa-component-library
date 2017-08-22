@@ -8,13 +8,15 @@ variants.forEach(variant => {
         width: 1400,
         height: 600,
       });
+
       // Go to url
       browser.url(`ecl-banners--${variant}.html`);
 
-      // Make sure the browser has finished painting
-      browser.pause(1000);
       // Inject axe-core (for accessibility tests)
       browser.injectAxeCore();
+
+      // Make sure the browser has finished painting
+      browser.pause(1000);
     });
 
     // Normal state
