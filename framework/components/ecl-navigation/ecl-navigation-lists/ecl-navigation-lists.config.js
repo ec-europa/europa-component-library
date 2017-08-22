@@ -42,5 +42,14 @@ module.exports = {
         links,
       },
     },
+    {
+      name: 'small',
+      label: 'Small',
+      context: {
+        variant: 'small',
+        title: 'Small Navigation Menu',
+        links,
+      },
+    },
   ],
 };
