@@ -4,4 +4,9 @@ module.exports = {
   status: 'wip',
   preview: '@preview-full-page',
   tags: ['template'],
+  context: {
+    global: {
+      language: 'en',
+    },
+  },
 };

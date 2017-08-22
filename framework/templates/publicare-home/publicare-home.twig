@@ -7,13 +7,22 @@
     'label': 'Skip to main content'
 } %}
 
-{% include '@ec-europa/ecl-site-switchers' with {
-    variant: 'header',
+{% include '@ec-europa/ecl-site-headers' with {
+  site_switcher: {
     political: { href: '#', label: 'Commission and its priorities' },
-    info: { href: '#', label: 'Policies, information and services' }
+    info: {
+      href: '#',
+      label: 'Policies, information and services',
+      is_active: true,
+    },
+  },
+  user_menu: {
+    title: 'User menu',
+    links: [
+      { href: "#", label: "Log in" },
+    ],
+  }
 } %}
-
-{% include '@ec-europa/ecl-site-headers' %}
 
 {% include '@ec-europa/ecl-page-headers' with {
   variant: 'default',

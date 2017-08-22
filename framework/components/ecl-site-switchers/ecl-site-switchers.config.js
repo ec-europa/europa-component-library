@@ -10,7 +10,11 @@ module.exports = {
       label: 'Default',
       context: {
         political: { href: '#', label: 'Commission and its priorities' },
-        info: { href: '#', label: 'Policies, information and services' },
+        info: {
+          href: '#',
+          label: 'Policies, information and services',
+          is_active: true,
+        },
       },
     },
     {
@@ -19,7 +23,11 @@ module.exports = {
       context: {
         variant: 'header',
         political: { href: '#', label: 'Commission and its priorities' },
-        info: { href: '#', label: 'Policies, information and services' },
+        info: {
+          href: '#',
+          label: 'Policies, information and services',
+          is_active: true,
+        },
       },
     },
     {
@@ -28,7 +36,11 @@ module.exports = {
       context: {
         variant: 'footer',
         political: { href: '#', label: 'Commission and its priorities' },
-        info: { href: '#', label: 'Policies, information and services' },
+        info: {
+          href: '#',
+          label: 'Policies, information and services',
+          is_active: true,
+        },
       },
     },
   ],
