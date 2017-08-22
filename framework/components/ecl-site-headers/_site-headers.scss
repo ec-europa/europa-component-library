@@ -5,18 +5,19 @@
 
 .ecl-site-header {
   margin: 0;
-  padding: map-get($ecl-spacing, 's') 0;
   width: 100%;
 }
 
-.ecl-site-header__container {
+.ecl-site-header__banner {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: map-get($ecl-spacing, 's');
+  padding-top: map-get($ecl-spacing, 's');
 }
 
-.ecl-site-header__container > * {
+.ecl-site-header__banner > * {
   margin-top: map-get($ecl-spacing, 's');
 }
 

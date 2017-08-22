@@ -17,12 +17,13 @@
       'href': '#main-content',
       'label': 'Skip to main content'
   } %}
-  {% include '@ec-europa/ecl-site-switchers' with {
+  {% include '@ec-europa/ecl-site-headers' with {
+    site_switcher: {
       variant: 'header',
       political: { href: '#', label: 'Commission and its priorities' },
-      info: { href: '#', label: 'Policies, information and services' }
+      info: { href: '#', label: 'Policies, information and services', is_active: true }
+    }
   } %}
-  {% include '@ec-europa/ecl-site-headers' %}
   {% include '@ec-europa/ecl-page-headers' with {
     variant: 'default',
     identity: 'Search',
