@@ -8,13 +8,13 @@
 
 {# Internal properties #}
 
-{% set _css_classes = '' %}
+{% set _css_class = '' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined %}
-  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -24,7 +24,7 @@
 {% endif %}
 
 <img
-  {% if _css_classes is not empty %}class="{{ _css_classes }}"{% endif %}
+  {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
   alt="{{ alt }}"
   src="{{ src }}"
   {{ _extra_attributes }} />
