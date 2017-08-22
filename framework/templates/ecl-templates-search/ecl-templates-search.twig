@@ -71,16 +71,22 @@
       <h2 class="ecl-heading ecl-heading--h2">Initiatives (65)</h2>
       <h3 class="ecl-heading ecl-heading--h3">Showing results 11 to 20</h3>
 
-      <div class="ecl-u-d-flex">
-        {% include '@ec-europa/ecl-tags' with {
-          'modifier': 'facet-close',
-          'label': 'Source',
-          'tags': [{ 'value': 'DG Trade' }]
-        } %}
-        {% include '@ec-europa/ecl-tags' with {
-          'modifier': 'facet-close',
-          'label': 'Topics',
-          'tags': [{ 'value': 'Health, wellbeing & Consumer protection' }]
+      <div class="ecl-u-d-flex ecl-justify-content-between ecl-flex-wrap">
+        <div class="ecl-u-d-flex ecl-flex-wrap">
+          {% include '@ec-europa/ecl-tags' with {
+            'modifier': 'facet-close',
+            'label': 'Source',
+            'tags': [{ 'value': 'DG Trade' }]
+          } %}
+          {% include '@ec-europa/ecl-tags' with {
+            'modifier': 'facet-close',
+            'label': 'Topics',
+            'tags': [{ 'value': 'Health, wellbeing & Consumer protection' }]
+          } %}
+        </div>
+        {% include '@ec-europa/ecl-buttons' with {
+          'label': 'Clear all',
+          'extraAttributes': [{ 'name': 'type', 'value': 'reset'}]
         } %}
       </div>
 
