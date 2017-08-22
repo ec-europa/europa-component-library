@@ -52,9 +52,11 @@
   </div>
   {% endif %}
 
+  {% if site_switcher is defined %}
   {% include '@ec-europa/ecl-site-switchers' with {
     variant: 'header'
     }|merge(site_switcher ) %}
+  {% endif %}
 
   <div class="ecl-container ecl-site-header__banner">
     {% include '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'extra_class': 'ecl-site-header__logo' } only %}
