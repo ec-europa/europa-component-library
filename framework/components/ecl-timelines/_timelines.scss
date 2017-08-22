@@ -15,25 +15,37 @@ $ecl-timeline-border-width: 4px !default;
 .ecl-timeline__list {
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding: map-get($ecl-spacing, 'm') 0 0;
+}
+
+.ecl-timeline__item {
+  margin-bottom: map-get($ecl-spacing, 'l');
+}
+
+.ecl-timeline__item:last-child {
+  margin-bottom: 0;
 }
 
 .ecl-timeline__item--over-limit {
   display: none;
-}
 
-.no-js {
-  .ecl-timeline__item--over-limit {
+  .no-js & {
     display: list-item;
   }
+}
 
-  .ecl-timeline__button {
+.ecl-timeline__button {
+  margin-left: map-get($ecl-spacing, 'l');
+
+  .no-js & {
     display: none;
   }
 }
 
 .ecl-timeline__title {
   font-weight: bold;
+  margin-bottom: map-get($ecl-spacing, 'xs');
+  padding-left: map-get($ecl-spacing, 'l');
   position: relative;
 
   &::before {
@@ -52,4 +64,5 @@ $ecl-timeline-border-width: 4px !default;
 
 .ecl-timeline__body {
   color: $ecl-color-shade;
+  padding-left: map-get($ecl-spacing, 'l');
 }

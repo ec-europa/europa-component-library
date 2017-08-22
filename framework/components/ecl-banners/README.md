@@ -25,7 +25,7 @@ The banner is used for optional, mainly promotional material.
 - The quote must always start with a quote symbol
 - The quote must start with uppercase
 - The quote must end with a dot
-- The author name should always start with a "-"
+- The author name should always start with a "―" (quotation dash)
 
 ### Video Banner
 

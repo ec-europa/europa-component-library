@@ -6,13 +6,13 @@ describe('blockquotes', () => {
       height: 200,
     });
 
-    browser.pause(1000);
-
     browser.url(`ecl-blockquotes.html`);
-    // Make sure the browser has finished painting
-    browser.pause(1000);
+
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
+
+    // Make sure the browser has finished painting
+    browser.pause(1000);
   });
 
   // Normal state
