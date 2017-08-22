@@ -1,39 +1,30 @@
 {#
   This is an example and should not be used as it is.
 #}
-<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function () {
-    ECL.megamenu('.ecl-navigation-menu__root');
-    ECL.initExpandables('.ecl-navigation-menu__toggle');
-  });
-</script>
 
 {% include '@ec-europa/ecl-skip-links' with {
   'href': '#main-content',
   'label': 'Skip to main content'
 } %}
 
-<div class="ecl-container">
-  <!-- TODO: use utilities for float -->
-  {% include '@ec-europa/ecl-navigation-lists' with {
+{% include '@ec-europa/ecl-site-headers' with {
+  site_switcher: {
+    political: { href: '#', label: 'Commission and its priorities' },
+    info: {
+      href: '#',
+      label: 'Policies, information and services',
+      is_active: true,
+    },
+  },
+  user_menu: {
     title: 'User menu',
-    variant: 'small',
     links: [
-      { href: "#", label: "My workbench" },
-      { href: "#", label: "My account" },
-      { href: "#", label: "Log out" },
+      { href: '#', label: 'My workbench' },
+      { href: '#', label: 'My account' },
+      { href: '#', label: 'Log out' },
     ],
-    extra_attributes: [{ name: 'style', value: 'float: right' }]
-  } %}
-</div>
-
-{% include '@ec-europa/ecl-site-switchers' with {
-  variant: 'header',
-  political: { href: '#', label: 'Commission and its priorities' },
-  info: { href: '#', label: 'Policies, information and services' }
+  }
 } %}
-
-{% include '@ec-europa/ecl-site-headers' %}
 
 {% include '@ec-europa/ecl-page-headers' with {
   variant: 'basic',
@@ -399,3 +390,10 @@
     },
   ],
 } %}
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    ECL.megamenu('.ecl-navigation-menu__root');
+    ECL.initExpandables('.ecl-navigation-menu__toggle');
+  });
+</script>
