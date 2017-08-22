@@ -42,25 +42,19 @@
 {# Print result #}
 <header class="{{ _css_class }}" {{ _extra_attributes }} role="banner">
 
-  {% if user_menu.links is defined %}
+  {% if user_menu is defined %}
   <div class="ecl-container">
     <!-- TODO: use utilities for float -->
     {% include '@ec-europa/ecl-navigation-lists' with {
-      title: user_menu.title,
       variant: 'small',
-      links: user_menu.links,
       extra_attributes: [{ name: 'style', value: 'float: right' }]
-    } %}
+      }|merge(user_menu ) %}
   </div>
   {% endif %}
 
-  {% if site_switcher.political is defined and site_switcher.info is defined %}
   {% include '@ec-europa/ecl-site-switchers' with {
-    variant: 'header',
-    political: site_switcher.political,
-    info: site_switcher.info,
-  } %}
-  {% endif %}
+    variant: 'header'
+    }|merge(site_switcher ) %}
 
   <div class="ecl-container ecl-site-header__banner">
     {% include '@ec-europa/ecl-logos' with { 'to': 'https://ec.europa.eu', 'title': 'Home - European Commission', 'type': 'right', 'extra_class': 'ecl-site-header__logo' } only %}
