@@ -9,7 +9,7 @@ describe('z-index', () => {
     browser.pause(1000);
 
     // Go to url
-    browser.url('ecl-z-index.html');
+    browser.url('ecl-u-z-index.html');
 
     // Make sure the browser has finished painting
     browser.pause(1000);

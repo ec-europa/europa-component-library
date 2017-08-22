@@ -101,17 +101,17 @@ Tested on:
 
 | Package | Version |
 |-------- |-------- |
-| [@ec-europa/ecl-clearfix](framework/utilities/ecl-clearfix) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-clearfix.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-clearfix) |
-| [@ec-europa/ecl-colorize](framework/utilities/ecl-colorize) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-colorize.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-colorize) |
-| [@ec-europa/ecl-flex](framework/utilities/ecl-flex) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-flex.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-flex) |
-| [@ec-europa/ecl-font-size](framework/utilities/ecl-font-size) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-font-size.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-font-size) |
-| [@ec-europa/ecl-margin](framework/utilities/ecl-margin) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-margin.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-margin) |
-| [@ec-europa/ecl-padding](framework/utilities/ecl-padding) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-padding.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-padding) |
-| [@ec-europa/ecl-ratio](framework/utilities/ecl-ratio) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-ratio.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-ratio) |
-| [@ec-europa/ecl-screen-reader](framework/utilities/ecl-screen-reader) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-screen-reader.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-screen-reader) |
-| [@ec-europa/ecl-text](framework/utilities/ecl-text) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-text.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-text) |
+| [@ec-europa/ecl-u-clearfix](framework/utilities/ecl-u-clearfix) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-clearfix.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-clearfix) |
+| [@ec-europa/ecl-u-colorize](framework/utilities/ecl-u-colorize) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-colorize.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-colorize) |
+| [@ec-europa/ecl-u-flex](framework/utilities/ecl-u-flex) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-flex.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-flex) |
+| [@ec-europa/ecl-u-font-size](framework/utilities/ecl-u-font-size) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-font-size.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-font-size) |
+| [@ec-europa/ecl-u-margin](framework/utilities/ecl-u-margin) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-margin.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-margin) |
+| [@ec-europa/ecl-u-padding](framework/utilities/ecl-u-padding) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-padding.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-padding) |
+| [@ec-europa/ecl-u-ratio](framework/utilities/ecl-u-ratio) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-ratio.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-ratio) |
+| [@ec-europa/ecl-u-screen-reader](framework/utilities/ecl-u-screen-reader) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-screen-reader.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-screen-reader) |
+| [@ec-europa/ecl-u-text](framework/utilities/ecl-u-text) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-text.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-text) |
 | [@ec-europa/ecl-u-display](framework/utilities/ecl-u-display) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-display.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-display) |
-| [@ec-europa/ecl-z-index](framework/utilities/ecl-z-index) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-z-index.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-z-index) |
+| [@ec-europa/ecl-u-z-index](framework/utilities/ecl-u-z-index) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-u-z-index.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-u-z-index) |
 
 ## Setup
 
