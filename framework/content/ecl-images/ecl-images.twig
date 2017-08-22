@@ -1,1 +1,30 @@
-<img alt="{{ alt }}" src="{{ src }}" />
+{#
+  Accepts:
+    - src (string): specifies the URL of the image
+    - alt (string): specifies an alternate text for the image
+    - extra_classes (string): additional classes to add to the component
+    - extra_attributes (array of { name: '', value: '' })
+#}
+
+{# Internal properties #}
+
+{% set _css_class = '' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<img
+  {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
+  alt="{{ alt }}"
+  src="{{ src }}"
+  {{ _extra_attributes }} />
