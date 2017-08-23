@@ -30,7 +30,7 @@
 {# Print result #}
 
 <nav class="{{ _css_class }}" {{ _extra_attributes }}>
-  <h2 class="ecl-sr-only">{{ title|default('Navigation') }}</h2>
+  <h2 class="ecl-u-sr-only">{{ title|default('Navigation') }}</h2>
   <ul class="ecl-navigation-list ecl-navigation-list--{{ variant|default('default') }}">
     {% for link in links %}
       {% set _active_class = link.is_active is defined and link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}

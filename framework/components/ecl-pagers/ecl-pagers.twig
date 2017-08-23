@@ -52,7 +52,7 @@
     {% if current_page > 1 %}
     <li class="ecl-pager__item ecl-pager__item--first">
       <a class="ecl-pager__link" title="{{ title_page }} 1" href="{{ fragment_url }}=1">
-        <span class="ecl-sr-only" >{{ label_page }} </span>1
+        <span class="ecl-u-sr-only" >{{ label_page }} </span>1
       </a>
     </li>
     {% endif %}
@@ -64,7 +64,7 @@
     {% if current_page > 3 %}
     <li class="ecl-pager__item">
       <a class="ecl-pager__link" title="{{ title_page }} {{ current_page - 2 }}" href="{{ fragment_url }}={{ current_page - 2 }}">
-        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page - 2 }}
+        <span class="ecl-u-sr-only" >{{ label_page }} </span>{{ current_page - 2 }}
       </a>
     </li>
     {% endif %}
@@ -72,7 +72,7 @@
     {% if current_page > 2 %}
     <li class="ecl-pager__item">
       <a class="ecl-pager__link" title="{{ title_page }} {{ current_page - 1 }}" href="{{ fragment_url }}={{ current_page - 1 }}">
-        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page - 1 }}
+        <span class="ecl-u-sr-only" >{{ label_page }} </span>{{ current_page - 1 }}
       </a>
     </li>
     {% endif %}
@@ -84,7 +84,7 @@
     {% if max_page - current_page > 1 %}
     <li class="ecl-pager__item">
       <a class="ecl-pager__link" title="{{ title_page }} {{ current_page + 1 }}" href="{{ fragment_url }}={{ current_page + 1 }}">
-        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page + 1 }}
+        <span class="ecl-u-sr-only" >{{ label_page }} </span>{{ current_page + 1 }}
       </a>
     </li>
     {% endif %}
@@ -92,7 +92,7 @@
     {% if max_page - current_page > 2 %}
     <li class="ecl-pager__item">
       <a class="ecl-pager__link" title="{{ title_page }} {{ current_page + 2 }}" href="{{ fragment_url }}={{ current_page + 2 }}">
-        <span class="ecl-sr-only" >{{ label_page }} </span>{{ current_page + 2 }}
+        <span class="ecl-u-sr-only" >{{ label_page }} </span>{{ current_page + 2 }}
       </a>
     </li>
     {% endif %}
@@ -104,7 +104,7 @@
     {% if current_page != max_page %}
     <li class="ecl-pager__item ecl-pager__item--last">
       <a class="ecl-pager__link" title="{{ title_page }} {{ max_page }}" href="{{ fragment_url }}={{ max_page }}">
-        <span class="ecl-sr-only" >{{ label_page }} </span>{{ max_page }}
+        <span class="ecl-u-sr-only" >{{ label_page }} </span>{{ max_page }}
       </a>
     </li>
     {% endif %}

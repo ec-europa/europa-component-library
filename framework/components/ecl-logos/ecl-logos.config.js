@@ -26,12 +26,12 @@ module.exports = {
           <a href="${item.context
             .to}" class="ecl-logo ecl-logo--logotype" title="${item.context
       .title}">
-            <span class="ecl-sr-only">${item.context.title}</span>
+            <span class="ecl-u-sr-only">${item.context.title}</span>
           </a>
           <a href="${item.context
             .to}" class="ecl-logo ecl-logo--logotypebelow" title="${item.context
       .title}">
-            <span class="ecl-sr-only">${item.context.title}</span>
+            <span class="ecl-u-sr-only">${item.context.title}</span>
           </a>
         </div>
       </div>\n

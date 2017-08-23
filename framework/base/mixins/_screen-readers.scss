@@ -3,7 +3,7 @@
 // See: http://a11yproject.com/posts/how-to-hide-content
 // See: http://hugogiraudel.com/2016/10/13/css-hide-and-seek/
 
-@mixin ecl-sr-only() {
+@mixin ecl-u-sr-only() {
   border: 0;
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
@@ -22,7 +22,7 @@
 //
 // Credit: HTML5 Boilerplate
 
-@mixin ecl-sr-only-focusable() {
+@mixin ecl-u-sr-only-focusable() {
   &:active,
   &:focus {
     clip: auto;

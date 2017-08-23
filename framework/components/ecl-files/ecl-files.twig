@@ -18,7 +18,7 @@
 
       <div class="ecl-col-12 ecl-col-md-4">
         {% include '@ec-europa/ecl-buttons' with {
-          'label': buttonLabel ~ '<span class="ecl-sr-only">(' ~ meta ~ ')',
+          'label': buttonLabel ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
           'isBlock': true,
           'extraClass': 'ecl-file__download',
           'extraAttributes': [
@@ -53,7 +53,7 @@
             <div class="ecl-file__translations-info">({{ translation.meta }})</div>
           </div>
           {% include '@ec-europa/ecl-buttons' with {
-          'label': buttonLabel ~ '<span class="ecl-sr-only">(' ~ translation.meta ~ ')',
+          'label': buttonLabel ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')',
           'modifier': 'secondary',
           'extraClass': 'ecl-file__translations-download',
           'extraAttributes': [
@@ -133,7 +133,7 @@
 
       <div class="ecl-col-12 ecl-col-md-4">
         {% include '@ec-europa/ecl-buttons' with {
-          'label': buttonLabel ~ '<span class="ecl-sr-only">(' ~ meta ~ ')',
+          'label': buttonLabel ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
           'isBlock': true,
           'extraClass': 'ecl-file__download',
           'extraAttributes': [

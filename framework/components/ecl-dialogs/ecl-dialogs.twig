@@ -28,13 +28,13 @@
   - dialog_title: {
     value: the title of the dialog (default: '')
     id: the id to match an `aria-labelledby` attribute (default: '')
-    classes: classes to apply to dialog title field (default: 'ecl-sr-only')
+    classes: classes to apply to dialog title field (default: 'ecl-u-sr-only')
   }
 
   - dialog_description: {
     value: the description of the dialog (default: '')
     id: the id to match an `aria-describedby` attribute (default: '')
-    classes: classes to apply to dialog description field (default: 'ecl-sr-only')
+    classes: classes to apply to dialog description field (default: 'ecl-u-sr-only')
   }
 
   - dialog_body (mixed): content of the dialog (default: lorem ipsum text)
@@ -54,13 +54,13 @@
 {% set _dialog_title = {
   value: 'Dialog',
   id: 'ecl-dialog-title',
-  classes: 'ecl-sr-only'
+  classes: 'ecl-u-sr-only'
 }|merge(dialog_title|default({})) %}
 
 {% set _dialog_description = {
   value: '',
   id: 'ecl-dialog-description',
-  classes: 'ecl-sr-only',
+  classes: 'ecl-u-sr-only',
 }|merge(dialog_description|default({})) %}
 
 {% set dismiss = {
