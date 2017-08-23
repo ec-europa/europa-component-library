@@ -86,7 +86,10 @@
         </div>
         {% include '@ec-europa/ecl-buttons' with {
           'label': 'Clear all',
-          'extraAttributes': [{ 'name': 'type', 'value': 'reset'}]
+          'extraAttributes': [
+            { 'name': 'type', 'value': 'reset'},
+            { 'name': 'form', 'value': 'form-filter'}
+          ]
         } %}
       </div>
 
