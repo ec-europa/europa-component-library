@@ -9,12 +9,17 @@
     </div>
   </div>
   <div class="ecl-row">
-    <aside class="ecl-col-lg-3" role="complementary">
-      <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-d-lg-none">
-        <h2 class="ecl-heading ecl-heading--h2 ecl-u-mv-s">Refine search</h2>
+    <aside class="ecl-col-lg-3" role="complementary" id="filters" aria-hidden="false" aria-labelledby="filters-title">
+      <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline ecl-u-d-lg-none">
+        <h2 class="ecl-heading ecl-heading--h2" id="filters-title">Refine search</h2>
         {% include '@ec-europa/ecl-buttons' with {
           'modifier': 'secondary',
-          'label': 'Hide'
+          'label': 'Hide',
+          'extraAttributes': [
+            { 'name': 'aria-controls', 'value': 'filters' },
+            { 'name': 'aria-expanded', 'value': 'true' },
+            { 'name': 'type', 'value': 'button' },
+          ]
         } %}
       </div>
       {% embed '@ec-europa/ecl-forms-forms' with { 'extra_attributes': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
@@ -102,12 +107,17 @@
       {% endembed %}
     </aside>
     <section class="ecl-col-lg-9">
-      <div class="ecl-u-d-flex ecl-u-justify-content-between">
+      <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline">
         <h2 class="ecl-heading ecl-heading--h2">Initiatives (65)</h2>
         {% include '@ec-europa/ecl-buttons' with {
           'modifier': 'primary',
           'label': 'Refine',
-          'extraClass': 'ecl-u-d-lg-none'
+          'extraClass': 'ecl-expandable__button ecl-u-d-lg-none',
+          'extraAttributes': [
+            { 'name': 'aria-controls', 'value': 'filters' },
+            { 'name': 'aria-expanded', 'value': 'true' },
+            { 'name': 'type', 'value': 'button' },
+          ]
         } %}
       </div>
       <h3 class="ecl-heading ecl-heading--h3">Showing results 11 to 20</h3>
