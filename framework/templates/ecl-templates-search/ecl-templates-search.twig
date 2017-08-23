@@ -112,7 +112,7 @@
         {% include '@ec-europa/ecl-buttons' with {
           'modifier': 'primary',
           'label': 'Refine',
-          'extraClass': 'ecl-expandable__button ecl-u-d-lg-none',
+          'extraClass': 'ecl-u-d-lg-none',
           'extraAttributes': [
             { 'name': 'aria-controls', 'value': 'filters' },
             { 'name': 'aria-expanded', 'value': 'true' },
@@ -138,6 +138,7 @@
         </div>
         {% include '@ec-europa/ecl-buttons' with {
           'label': 'Clear all',
+          'extraClass': 'ecl-u-d-none ecl-u-d-lg-inline-block',
           'extraAttributes': [
             { 'name': 'type', 'value': 'reset'},
             { 'name': 'form', 'value': 'form-filter'}
