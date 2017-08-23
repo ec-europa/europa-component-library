@@ -9,20 +9,21 @@
     </div>
   </div>
   <div class="ecl-row">
-    <aside class="ecl-col-lg-3" role="complementary" id="filters" aria-hidden="false" aria-labelledby="filters-title">
-      <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline ecl-u-d-lg-none">
-        <h2 class="ecl-heading ecl-heading--h2" id="filters-title">Refine search</h2>
+    <aside class="ecl-col-lg-3" role="complementary">
+      <div class="ecl-u-d-flex ecl-u-d-lg-none ecl-u-justify-content-between ecl-u-align-items-baseline">
+        <h2 class="ecl-heading ecl-heading--h2">Initiatives (65)</h2>
         {% include '@ec-europa/ecl-buttons' with {
-          'modifier': 'secondary',
-          'label': 'Hide',
+          'modifier': 'primary',
+          'label': 'Refine',
+          'extraClass': 'ecl-u-d-lg-none ecl-expandable__button',
           'extraAttributes': [
-            { 'name': 'aria-controls', 'value': 'filters' },
+            { 'name': 'aria-controls', 'value': 'form-filter' },
             { 'name': 'aria-expanded', 'value': 'true' },
-            { 'name': 'type', 'value': 'button' },
+            { 'name': 'type', 'value': 'button' }
           ]
         } %}
       </div>
-      {% embed '@ec-europa/ecl-forms-forms' with { 'extra_attributes': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+      {% embed '@ec-europa/ecl-forms-forms' with { 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
         {% block form %}
           {% embed '@ec-europa/ecl-forms-fieldsets' only %}
             {% block fieldset %}
@@ -107,19 +108,7 @@
       {% endembed %}
     </aside>
     <section class="ecl-col-lg-9">
-      <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-baseline">
-        <h2 class="ecl-heading ecl-heading--h2">Initiatives (65)</h2>
-        {% include '@ec-europa/ecl-buttons' with {
-          'modifier': 'primary',
-          'label': 'Refine',
-          'extraClass': 'ecl-u-d-lg-none',
-          'extraAttributes': [
-            { 'name': 'aria-controls', 'value': 'filters' },
-            { 'name': 'aria-expanded', 'value': 'true' },
-            { 'name': 'type', 'value': 'button' },
-          ]
-        } %}
-      </div>
+      <h2 class="ecl-heading ecl-heading--h2 ecl-u-d-none ecl-u-d-lg-block">Initiatives (65)</h2>
       <h3 class="ecl-heading ecl-heading--h3">Showing results 11 to 20</h3>
       <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-center ecl-u-flex-wrap">
         <div class="ecl-u-d-flex ecl-u-flex-wrap ecl-u-mv-xxs"">
