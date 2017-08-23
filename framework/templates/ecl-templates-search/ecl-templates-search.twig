@@ -102,9 +102,15 @@
       {% endembed %}
     </aside>
     <section class="ecl-col-lg-9">
-      <h2 class="ecl-heading ecl-heading--h2">Initiatives (65)</h2>
+      <div class="ecl-u-d-flex ecl-u-justify-content-between">
+        <h2 class="ecl-heading ecl-heading--h2">Initiatives (65)</h2>
+        {% include '@ec-europa/ecl-buttons' with {
+          'modifier': 'primary',
+          'label': 'Refine',
+          'extraClass': 'ecl-u-d-lg-none'
+        } %}
+      </div>
       <h3 class="ecl-heading ecl-heading--h3">Showing results 11 to 20</h3>
-
       <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-center ecl-u-flex-wrap">
         <div class="ecl-u-d-flex ecl-u-flex-wrap ecl-u-mv-xxs"">
           {% include '@ec-europa/ecl-tags' with {
