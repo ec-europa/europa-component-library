@@ -35,7 +35,7 @@
 {# Print result #}
 <form class="{{ _css_class }}"{{ _extra_attributes }}>
   <label class="ecl-search-form__textfield-wrapper">
-    <span class="ecl-sr-only">{{ _aria_label }}</span>
+    <span class="ecl-u-sr-only">{{ _aria_label }}</span>
     {% include '@ec-europa/ecl-forms-text-inputs' with {
       'id': _input.id,
       'type': 'search',

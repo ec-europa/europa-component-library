@@ -20,7 +20,7 @@
 {% endif %}
 
 <div class="{{ _css_class }}" role="radiogroup" aria-labelledby="{{ id }}_label" id="{{ id }}">
-  <p id="{{ id }}_label" class="ecl-sr-only">{{ desc }}</p>
+  <p id="{{ id }}_label" class="ecl-u-sr-only">{{ desc }}</p>
   {% for radio in radios %}
     {% set options = { 'name': name }|merge(radio) %}
     {% include '@ec-europa/ecl-forms-radios' with options %}
