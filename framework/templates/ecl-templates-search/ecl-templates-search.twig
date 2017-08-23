@@ -10,6 +10,13 @@
   </div>
   <div class="ecl-row">
     <aside class="ecl-col-lg-3" role="complementary">
+      <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-d-lg-none">
+        <h2 class="ecl-heading ecl-heading--h2 ecl-u-mv-s">Refine search</h2>
+        {% include '@ec-europa/ecl-buttons' with {
+          'modifier': 'secondary',
+          'label': 'Hide'
+        } %}
+      </div>
       {% embed '@ec-europa/ecl-forms-forms' with { 'extra_attributes': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
         {% block form %}
           {% embed '@ec-europa/ecl-forms-fieldsets' only %}
@@ -72,6 +79,25 @@
               <p class="ecl-paragraph">Custom component</p>
             {% endblock %}
           {% endembed %}
+          <div class="ecl-u-d-lg-none ecl-u-mv-l">
+            {% include '@ec-europa/ecl-buttons' with {
+              'modifier': 'primary',
+              'isBlock': true,
+              'extraClass': 'ecl-u-mv-s ecl-u-mh-auto',
+              'label': 'Refine results',
+              'extraAttributes': [
+                { 'name': 'type', 'value': 'submit'}
+              ]
+            } %}
+            {% include '@ec-europa/ecl-buttons' with {
+              'label': 'Clear all',
+              'isBlock': true,
+              'extraClass': 'ecl-u-mv-s ecl-u-mh-auto',
+              'extraAttributes': [
+                { 'name': 'type', 'value': 'reset'}
+              ]
+            } %}
+          </div>
         {% endblock %}
       {% endembed %}
     </aside>
