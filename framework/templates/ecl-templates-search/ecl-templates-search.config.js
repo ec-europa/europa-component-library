@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Search Page',
   label: 'Search Page',
-  status: 'wip',
+  status: 'ready',
   preview: '@preview-full-page',
   tags: ['template'],
   context: {
