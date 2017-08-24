@@ -1,25 +1,34 @@
 {#
-  - variant: can be '','external','standalone', 'inverted', 'all', 'more' (default: '')
-  - href: target of the link (default: '')
-  - label: label of the link (default: '')
+  Accepts:
+    - variant (string): can be empty,'external','standalone', 'inverted', 'all', 'more' (default: empty)
+    - href (string): target of the link (default: '#')
+    - label (string or block): label of the link (default: '')
+    - extra_classes (string): additional classes to add to the component
+    - extra_attributes (array of { name: '', value: '' })
 #}
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-link' ~ (variant != '' ? ' ecl-link--' ~ variant: '') %}
+{% set _css_class = 'ecl-link' %}
 {% set _extra_attributes = '' %}
+{% set _href = href|default('#') %}
+{% set _label = label|default('') %}
 
 {# Internal logic - Process properties #}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% if variant is defined and variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ variant %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print result #}
-<a class="{{ _css_class }}" {{ _extra_attributes }} href="{{href}}">{{label}}</a>
+<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes }}>{% block label _label %}</a>
