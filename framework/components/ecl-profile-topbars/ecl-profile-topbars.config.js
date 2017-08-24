@@ -16,8 +16,9 @@ module.exports = {
       expandable: {
         button: {
           label: 'See details',
-          extraClass: 'ecl-expandable__button ecl-profile-topbar__pane-button',
-          extraAttributes: [
+          extra_classes:
+            'ecl-expandable__button ecl-profile-topbar__pane-button',
+          extra_attributes: [
             {
               name: 'aria-controls',
               value: 'ecl-profile-topbar__expandable-1',

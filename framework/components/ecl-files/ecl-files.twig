@@ -19,11 +19,9 @@
       <div class="ecl-col-12 ecl-col-md-4">
         {% include '@ec-europa/ecl-buttons' with {
           'label': buttonLabel ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
-          'isBlock': true,
-          'extraClass': 'ecl-file__download',
-          'extraAttributes': [
-            { 'name': 'type', 'value': 'button' },
-          ]
+          'is_block': true,
+          'extra_classes': 'ecl-file__download',
+          'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
         } %}
       </div>
     </div>
@@ -33,8 +31,8 @@
     {% include '@ec-europa/ecl-buttons' with {
       'label': translationsLabel,
       'modifier': 'secondary',
-      'extraClass': 'ecl-file__translations-toggle',
-      'extraAttributes': [
+      'extra_classes': 'ecl-file__translations-toggle',
+      'extra_attributes': [
         { 'name': 'aria-controls', 'value': 'translations-expand' },
         { 'name': 'aria-expanded', 'value': 'true' },
         { 'name': 'id', 'value': 'translations-expand-button' },
@@ -47,20 +45,18 @@
       <ul class="ecl-file__translations-list">
         {% if translations is defined %}
           {% for translation in translations %}
-        <li class="ecl-file__translations-item">
-          <div class="ecl-file__translations-metadata">
-            <span class="ecl-file__translations-title">{{ translation.title }}</span>
-            <div class="ecl-file__translations-info">({{ translation.meta }})</div>
-          </div>
-          {% include '@ec-europa/ecl-buttons' with {
-          'label': buttonLabel ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')',
-          'modifier': 'secondary',
-          'extraClass': 'ecl-file__translations-download',
-          'extraAttributes': [
-          { 'name': 'type', 'value': 'button' },
-          ]
-          } %}
-        </li>
+            <li class="ecl-file__translations-item">
+              <div class="ecl-file__translations-metadata">
+                <span class="ecl-file__translations-title">{{ translation.title }}</span>
+                <div class="ecl-file__translations-info">({{ translation.meta }})</div>
+              </div>
+              {% include '@ec-europa/ecl-buttons' with {
+                'label': buttonLabel ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')',
+                'modifier': 'secondary',
+                'extra_classes': 'ecl-file__translations-download',
+                'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
+              } %}
+            </li>
           {% endfor %}
         {% endif %}
       </ul>
@@ -134,11 +130,9 @@
       <div class="ecl-col-12 ecl-col-md-4">
         {% include '@ec-europa/ecl-buttons' with {
           'label': buttonLabel ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
-          'isBlock': true,
-          'extraClass': 'ecl-file__download',
-          'extraAttributes': [
-            { 'name': 'type', 'value': 'button' },
-          ]
+          'is_block': true,
+          'extra_classes': 'ecl-file__download',
+          'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
         } %}
       </div>
     </div>

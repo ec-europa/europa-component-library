@@ -167,12 +167,3 @@
     @include ecl-button--caret();
   }
 }
-
-.ecl-button--caret-left {
-  &::after {
-    @extend %ecl-icon--after;
-
-    @include ecl-icon('left');
-    @include ecl-button--caret();
-  }
-}
