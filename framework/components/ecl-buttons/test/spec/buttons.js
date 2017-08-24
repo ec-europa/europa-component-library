@@ -9,8 +9,6 @@ describe('buttons', () => {
       width: 400,
       height: 200,
     });
-
-    browser.pause(1000);
   });
 
   variants.forEach(variant => {
@@ -18,12 +16,13 @@ describe('buttons', () => {
       before(() => {
         // Go to url
         browser.url(`ecl-buttons--${variant}.html`);
-        // Make sure the browser has finished painting
-        browser.pause(1000);
+
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
         // Inject HTMLInspector (for markup tests)
         browser.injectHTMLInspector();
+        // Make sure the browser has finished painting
+        browser.pause(500);
       });
 
       // Normal state
@@ -57,8 +56,8 @@ describe('buttons', () => {
         before(() => {
           // Reload
           browser.url(`ecl-buttons--${variant}.html`);
-          browser.pause(1000);
           browser.injectAxeCore();
+          browser.pause(500);
 
           // Hover the button
           browser.moveToObject('.ecl-button');
