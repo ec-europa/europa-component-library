@@ -25,6 +25,7 @@
   @include ecl-media-breakpoint-up(md) {
     background-color: transparent;
     flex-direction: row;
+    margin: 0 (-(map-get($ecl-spacing, 's')));
   }
 }
 

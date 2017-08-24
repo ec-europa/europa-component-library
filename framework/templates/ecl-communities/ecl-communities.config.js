@@ -8,5 +8,10 @@ module.exports = {
     global: {
       language: 'en',
     },
+    _demo: {
+      scripts: `document.addEventListener('DOMContentLoaded', function () {
+        ECL.megamenu();
+      });`,
+    },
   },
 };
