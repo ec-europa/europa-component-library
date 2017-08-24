@@ -1,8 +1,8 @@
 {#
   Accepts:
-    - variant: can be '','external','standalone', 'inverted', 'all', 'more' (default: '')
-    - href: target of the link (default: '')
-    - label: label of the link (default: '')
+    - variant (string): can be empty,'external','standalone', 'inverted', 'all', 'more' (default: empty)
+    - href (string): target of the link (default: '#')
+    - label (string or block): label of the link (default: '')
     - extra_classes (string): additional classes to add to the component
     - extra_attributes (array of { name: '', value: '' })
 #}
@@ -11,8 +11,8 @@
 
 {% set _css_class = 'ecl-link' %}
 {% set _extra_attributes = '' %}
+{% set _href = href|default('#') %}
 {% set _label = label|default('') %}
-{% set _href = href|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -31,4 +31,4 @@
 {% endif %}
 
 {# Print result #}
-<a class="{{ _css_class }}" href="{{href}}"{{ _extra_attributes }}>{{label}}</a>
+<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes }}>{% block label _label %}</a>
