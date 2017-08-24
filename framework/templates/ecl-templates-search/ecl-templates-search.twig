@@ -11,7 +11,7 @@
   <div class="ecl-row">
     <aside class="ecl-col-lg-3" role="complementary">
       <div class="ecl-u-d-flex ecl-u-d-lg-none ecl-u-justify-content-between ecl-u-align-items-baseline">
-        <h2 class="ecl-heading ecl-heading--h2">Initiatives (65)</h2>
+        <h2 class="ecl-heading ecl-heading--h2">Search results (65)</h2>
         {% include '@ec-europa/ecl-buttons' with {
           'modifier': 'primary',
           'label': 'Refine',
@@ -23,7 +23,7 @@
           ]
         } %}
       </div>
-      {% embed '@ec-europa/ecl-forms-forms' with { 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+      {% embed '@ec-europa/ecl-forms-forms' with { 'extra_class': 'ecl-u-d-lg-block', 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
         {% block form %}
           {% embed '@ec-europa/ecl-forms-fieldsets' only %}
             {% block fieldset %}
@@ -108,10 +108,10 @@
       {% endembed %}
     </aside>
     <section class="ecl-col-lg-9">
-      <h2 class="ecl-heading ecl-heading--h2 ecl-u-d-none ecl-u-d-lg-block">Initiatives (65)</h2>
+      <h2 class="ecl-heading ecl-heading--h2 ecl-u-d-none ecl-u-d-lg-block">Search results (65)</h2>
       <h3 class="ecl-heading ecl-heading--h3">Showing results 11 to 20</h3>
       <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-center ecl-u-flex-wrap">
-        <div class="ecl-u-d-flex ecl-u-flex-wrap ecl-u-mv-xxs"">
+        <div class="ecl-u-d-flex ecl-u-flex-wrap ecl-u-mv-xxs">
           {% include '@ec-europa/ecl-tags' with {
             'modifier': 'facet-close',
             'label': 'Source',
