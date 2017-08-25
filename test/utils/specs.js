@@ -18,7 +18,7 @@ module.exports.getSpecs = () => {
 
   // When a PR, only test the updated components
   if (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false') {
-    log.setLogLevel('silent');
+    log.level = 'silent';
     const cwd = process.cwd();
 
     const repo = new Repository(cwd);
