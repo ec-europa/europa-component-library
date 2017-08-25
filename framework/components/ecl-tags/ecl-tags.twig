@@ -49,7 +49,7 @@
         {% include '@ec-europa/ecl-buttons' with {
           'label': _tag.value,
           'extra_classes': 'ecl-tag__item',
-          'extra_attributes': [{ 'name': 'modifier', 'value': 'button'}]
+          'extra_attributes': [{ 'name': 'type', 'value': 'button'}]
         } %}
       {% else %}
         <a class="ecl-tag__item" href="{{ _tag.href }}">{{ _tag.value }}</a>
