@@ -118,6 +118,9 @@
 }
 
 .ecl-button--splash-page {
+  background-color: #fff;
+  color: $ecl-color-primary;
+
   &:focus,
   &:active,
   &:hover {
@@ -138,8 +141,6 @@
 
 .ecl-button--block {
   display: block;
-  max-width: 30em;
-  text-align: left;
   width: 100%;
 }
 
@@ -166,15 +167,6 @@
     @extend %ecl-icon--after;
 
     @include ecl-icon('down');
-    @include ecl-button--caret();
-  }
-}
-
-.ecl-button--caret-left {
-  &::after {
-    @extend %ecl-icon--after;
-
-    @include ecl-icon('left');
     @include ecl-button--caret();
   }
 }

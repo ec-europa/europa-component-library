@@ -29,12 +29,12 @@
                 {% endif %}
                 {% include '@ec-europa/ecl-buttons' with {
                   'type': 'link',
-                  'modifier': 'default',
+                  'modifier': 'splash-page',
                   'label': lang.label,
-                  'to': lang.href,
-                  'isBlock': true,
-                  'extraClass': 'ecl-button--splash-page',
-                  'extraAttributes': [
+                  'href': lang.href,
+                  'is_block': true,
+                  'extra_classes': 'ecl-button--splash-page ecl-u-mb-xxxs',
+                  'extra_attributes': [
                     { 'name': 'lang', 'value': lang.lang },
                     { 'name': 'hreflang', 'value': lang.hreflang },
                     { 'name': 'rel', 'value': 'alternate'}
