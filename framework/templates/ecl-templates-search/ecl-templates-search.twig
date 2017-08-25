@@ -15,7 +15,7 @@
         {% include '@ec-europa/ecl-buttons' with {
           'modifier': 'primary',
           'label': 'Refine',
-          'extraClass': 'ecl-u-d-lg-none ecl-expandable__button',
+          'extra_classes': 'ecl-u-d-lg-none ecl-expandable__button',
           'extra_attributes': [
             { 'name': 'aria-controls', 'value': 'form-filter' },
             { 'name': 'aria-expanded', 'value': 'true' },
@@ -82,14 +82,14 @@
           {% embed '@ec-europa/ecl-forms-fieldsets' only %}
             {% block fieldset %}
               {% include '@ec-europa/ecl-forms-legends' with { content: 'Filter by topic', level: 1 } only %}
-              <p class="ecl-paragraph">Custom component</p>
+              <p class="ecl-u-ph-m ecl-u-pv-xl" style="background-color:#e3e3e3;text-align:center">Custom component</p>
             {% endblock %}
           {% endembed %}
-          <div class="ecl-u-d-lg-none ecl-u-mv-l">
+          <div class="ecl-u-mv-m">
             {% include '@ec-europa/ecl-buttons' with {
               'modifier': 'primary',
-              'isBlock': true,
-              'extraClass': 'ecl-u-mv-s ecl-u-mh-auto',
+              'is_block': true,
+              'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto',
               'label': 'Refine results',
               'extra_attributes': [
                 { 'name': 'type', 'value': 'submit'}
@@ -97,8 +97,8 @@
             } %}
             {% include '@ec-europa/ecl-buttons' with {
               'label': 'Clear all',
-              'isBlock': true,
-              'extraClass': 'ecl-u-mv-s ecl-u-mh-auto',
+              'is_block': true,
+              'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto',
               'extra_attributes': [
                 { 'name': 'type', 'value': 'reset'}
               ]
@@ -110,32 +110,21 @@
     <section class="ecl-col-lg-9">
       <h2 class="ecl-heading ecl-heading--h2 ecl-u-d-none ecl-u-d-lg-block">Search results (65)</h2>
       <h3 class="ecl-heading ecl-heading--h3">Showing results 11 to 20</h3>
-      <div class="ecl-u-d-flex ecl-u-justify-content-between ecl-u-align-items-center ecl-u-flex-wrap">
-        <div class="ecl-u-d-flex ecl-u-flex-wrap ecl-u-mv-xxs">
-          {% include '@ec-europa/ecl-tags' with {
-            'modifier': 'facet-close',
-            'label': 'Source',
-            'tags': [{ 'value': 'DG Trade' }],
-            'extra_classes': 'ecl-u-mv-xxxs'
-          } %}
-          {% include '@ec-europa/ecl-tags' with {
-            'modifier': 'facet-close',
-            'label': 'Topics',
-            'tags': [{ 'value': 'Health, wellbeing & Consumer protection' }],
-            'extra_classes': 'ecl-u-mv-xxxs'
-          } %}
-        </div>
-        {% include '@ec-europa/ecl-buttons' with {
-          'label': 'Clear all',
-          'extraClass': 'ecl-u-d-none ecl-u-d-lg-inline-block',
-          'extra_attributes': [
-            { 'name': 'type', 'value': 'reset'},
-            { 'name': 'form', 'value': 'form-filter'}
-          ]
+      <div class="ecl-u-d-flex ecl-u-align-items-center ecl-u-flex-wrap">
+        {% include '@ec-europa/ecl-tags' with {
+          'modifier': 'facet-close',
+          'label': 'Source',
+          'tags': [{ 'value': 'DG Trade' }],
+          'extra_classes': 'ecl-u-mv-xxxs'
+        } %}
+        {% include '@ec-europa/ecl-tags' with {
+          'modifier': 'facet-close',
+          'label': 'Topics',
+          'tags': [{ 'value': 'Health, wellbeing & Consumer protection' }],
+          'extra_classes': 'ecl-u-mv-xxxs'
         } %}
       </div>
-
-      <ul class="ecl-list ecl-list--unstyled  ecl-u-mv-m">
+      <ul class="ecl-list ecl-list--unstyled ecl-u-mv-m">
         <li class="ecl-u-mv-m">
           {% include '@ec-europa/ecl-meta' with {
             'meta_item_type_data': 'web',
@@ -162,7 +151,61 @@
               { 'name': 'id', 'value': 'example-expandable-button-1' }
             ]
           } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-1" id="example-expandable-1">Related docs</div>
+          <ul aria-hidden="true" aria-labelledby="example-expandable-button-1" id="example-expandable-1" class="ecl-list ecl-list--unstyled ecl-u-mv-m ecl-u-ml-l">
+            <li class="ecl-u-mv-m">
+              {% include '@ec-europa/ecl-meta' with {
+                'meta_item_type_data': 'web',
+                'meta_item_data': '17 October 2015',
+              } %}
+              <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
+                {% include '@ec-europa/ecl-links' with {
+                  'label': 'EU funded Ebola treatment delivers encouraging results',
+                  'href': 'https://ec.europa.eu/growth/index_en'
+                } %}
+              </h4>
+              {% include '@ec-europa/ecl-links' with {
+                'label': 'ec.europa.eu/growth/index_en',
+                'href': 'https://ec.europa.eu/growth/index_en'
+              } %}
+              <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
+              <hr class="ecl-u-mt-m" />
+            </li>
+            <li class="ecl-u-mv-m">
+              {% include '@ec-europa/ecl-meta' with {
+                'meta_item_type_data': 'web',
+                'meta_item_data': '17 October 2015',
+              } %}
+              <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
+                {% include '@ec-europa/ecl-links' with {
+                  'label': 'EU funded Ebola treatment delivers encouraging results',
+                  'href': 'https://ec.europa.eu/growth/index_en'
+                } %}
+              </h4>
+              {% include '@ec-europa/ecl-links' with {
+                'label': 'ec.europa.eu/growth/index_en',
+                'href': 'https://ec.europa.eu/growth/index_en'
+              } %}
+              <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
+              <hr class="ecl-u-mt-m" />
+            </li>
+            <li class="ecl-u-mv-m">
+              {% include '@ec-europa/ecl-meta' with {
+                'meta_item_type_data': 'web',
+                'meta_item_data': '17 October 2015',
+              } %}
+              <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
+                {% include '@ec-europa/ecl-links' with {
+                  'label': 'EU funded Ebola treatment delivers encouraging results',
+                  'href': 'https://ec.europa.eu/growth/index_en'
+                } %}
+              </h4>
+              {% include '@ec-europa/ecl-links' with {
+                'label': 'ec.europa.eu/growth/index_en',
+                'href': 'https://ec.europa.eu/growth/index_en'
+              } %}
+              <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
+            </li>
+          </ul>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -181,17 +224,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-2'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-2' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-2" id="example-expandable-2">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -210,17 +242,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-3'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-3' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-3" id="example-expandable-3">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -239,17 +260,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-4'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-4' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-4" id="example-expandable-4">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -268,17 +278,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-5'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-5' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-5" id="example-expandable-5">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -297,17 +296,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-6'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-6' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-6" id="example-expandable-6">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -326,17 +314,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-7'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-7' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-7" id="example-expandable-7">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -355,17 +332,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-8'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-8' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-8" id="example-expandable-8">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -384,17 +350,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-9'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-9' }
-            ]
-          } %}
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-9" id="example-expandable-9">Related docs</div>
           <hr class="ecl-u-mt-m" />
         </li>
         <li class="ecl-u-mv-m">
@@ -413,16 +368,6 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          {% include '@ec-europa/ecl-links' with {
-            'label': 'Related docs',
-            'href': '#',
-            'extra_classes': 'ecl-expandable__button',
-            'extra_attributes': [
-              { 'name': 'aria-controls', 'value': 'example-expandable-10'},
-              { 'name': 'aria-expanded', 'value': 'false'},
-              { 'name': 'id', 'value': 'example-expandable-button-10' }
-            ]
-          } %}
           <div aria-hidden="true" aria-labelledby="example-expandable-button-10" id="example-expandable-10">Related docs</div>
         </li>
       </ul>

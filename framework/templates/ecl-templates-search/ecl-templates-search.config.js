@@ -9,8 +9,11 @@ module.exports = {
       language: 'en',
     },
     _demo: {
-      scripts:
-        "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
+      scripts: `
+        document.addEventListener('DOMContentLoaded', function () {
+          ECL.initExpandables();
+        });
+      `,
     },
   },
 };
