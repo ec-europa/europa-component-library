@@ -11,8 +11,8 @@
 }
 
 .ecl-skip-link {
-  @include ecl-sr-only();
-  @include ecl-sr-only-focusable();
+  @include ecl-u-sr-only();
+  @include ecl-u-sr-only-focusable();
 
   background-color: map-get($ecl-colors, 'blue-75');
   color: #fff;

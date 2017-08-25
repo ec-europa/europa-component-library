@@ -55,6 +55,9 @@ export const initExpandables = (
   );
 
   nodesArray.forEach(node =>
-    node.addEventListener('click', () => toggleExpandable(node, { context }))
+    node.addEventListener('click', e => {
+      toggleExpandable(node, { context });
+      e.preventDefault();
+    })
   );
 };
