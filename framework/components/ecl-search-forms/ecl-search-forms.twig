@@ -46,7 +46,7 @@
   {% include '@ec-europa/ecl-buttons' with {
     'modifier': variant is defined and variant == 'internal' ? 'form-primary' : 'form',
     'label': _button.label,
-    'extraClass': 'ecl-search-form__button',
-    'extraAttributes': [{ 'name': 'type', 'value': 'submit'}]
+    'extra_classes': 'ecl-search-form__button',
+    'extra_attributes': [{ 'name': 'type', 'value': 'submit'}]
   } %}
 </form>

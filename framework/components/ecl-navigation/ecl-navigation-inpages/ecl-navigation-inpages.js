@@ -2,6 +2,9 @@
  * Navigation inpage related behaviors.
  */
 
+import stickybits from 'stickybits';
+import gumshoe from 'gumshoejs';
+
 /**
  * @param {object} options Object containing configuration overrides
  */

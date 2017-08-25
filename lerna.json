@@ -1,5 +1,5 @@
 {
-  "lerna": "2.0.0",
+  "lerna": "2.1.0",
   "version": "independent",
   "npmClient": "yarn",
   "changelog": {
@@ -13,6 +13,14 @@
       "tag: internal": ":house: Internal"
     },
     "cacheDir": ".changelog"
+  },
+  "commands": {
+    "bootstrap": {
+      "hoist": "**"
+    },
+    "publish": {
+      "ignore": ["*.md", "test/**"]
+    }
   },
   "packages": [
     "framework/base",
