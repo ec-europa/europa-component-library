@@ -1,10 +1,13 @@
 const path = require('path');
 
 // Lerna related imports
-const logger = require('lerna/lib/logger');
+const log = require('npmlog');
 const UpdatedPackagesCollector = require('lerna/lib/UpdatedPackagesCollector');
 const Repository = require('lerna/lib/Repository');
 const PackageUtilities = require('lerna/lib/PackageUtilities');
+
+// handle log.success() used by lerna
+log.addLevel('success', 3001, { fg: 'green', bold: true });
 
 // Utils
 const isTravis = require('./travis').isTravis;
@@ -15,7 +18,7 @@ module.exports.getSpecs = () => {
 
   // When a PR, only test the updated components
   if (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false') {
-    logger.setLogLevel('silent');
+    log.setLogLevel('silent');
     const cwd = process.cwd();
 
     const repo = new Repository(cwd);
@@ -29,7 +32,7 @@ module.exports.getSpecs = () => {
       execOpts: {
         cwd: repo.rootPath,
       },
-      logger,
+      logger: log.newGroup('lerna'),
       repository: repo,
       filteredPackages,
       options: {
