@@ -8,7 +8,7 @@ This page explains how to update documentation directly on GitHub.
 ## Prerequisite
 
 If you don't already have a GitHub account, make sure to create one and log in with it.  
-You also have to be part of team "ECL doc editors".
+You also have to be part of team [ECL doc editors](https://github.com/orgs/ec-europa/teams/ecl-doc-editors/).
 
 ## Step 1: Open documentation file
 
