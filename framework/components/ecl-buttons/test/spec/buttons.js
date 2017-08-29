@@ -45,9 +45,9 @@ describe('buttons', () => {
         });
       });
 
-      // Stop here if browser is Safari
-      // See: https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/4136
-      if (browser.desiredCapabilities.browserName === 'safari') {
+      // Only continue with Chrome
+      // see https://github.com/webdriverio/webdriverio/issues/2212
+      if (browser.desiredCapabilities.browserName !== 'chrome') {
         return;
       }
 

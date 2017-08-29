@@ -55,7 +55,7 @@ exports.config = {
 
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
-  // https://docs.saucelabs.com/reference/platforms-configurator
+  // https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
   capabilities: getCapabilities(),
 
   // ===================
