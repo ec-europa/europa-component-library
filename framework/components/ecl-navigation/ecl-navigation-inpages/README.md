@@ -18,17 +18,9 @@ It provides in-page (or anchor) links to all H2 headings on that page. It helps 
 ## Implementation
 
 Inpage navigation relies on expandable component, and two javascript libraries.  
-The libraries have to be included manually:
 
-[**stickybits**](https://github.com/dollarshaveclub/stickybits)
-```js
-<script src="/path-to-js/stickybits.min.js"></script>
-```
-
-[**gumshoe**](https://github.com/cferdinandi/gumshoe/)
-```js
-<script src="/path-to-js/gumshoe.min.js"></script>
-```
+- [**stickybits**](https://github.com/dollarshaveclub/stickybits)
+- [**gumshoe**](https://github.com/cferdinandi/gumshoe/)
 
 Also, following script has to be added to your page:
 

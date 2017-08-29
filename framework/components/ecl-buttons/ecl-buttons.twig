@@ -1,51 +1,51 @@
-{% set type = type|default('button') %}
-{% set modifier = modifier|default('default') %}
+{#
+  Accepts:
+    - "modifier" (string): can be "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page" (default: "default")
+    - "type" (string): can be "link" or "button" (default: "button")
+    - "href" (string, if type == "link"): href of the link (default: '#')
+    - "icon" (string): can be empty, "caret-up", "caret-right" or "caret-down"  (default: "")
+    - "label" (string or block): label of the button (default: "")
+    - "is_block" (boolean): block-wide button (default: false)
+    - "extra_classes" (string): additional classes to add to the component
+    - "extra_attributes" (array of { name: "", value: "" })
+#}
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-button ecl-button--' ~ modifier %}
-{% set _extraAttributes = '' %}
+{% set _modifier = modifier|default('default') %}
+{% set _type = type|default('button') %}
+{% set _icon = icon|default('') %}
+{% set _label = label|default('') %}
+{% set _href = href|default('#') %}
+{% set _is_block = is_block|default(false) %}
+{% set _css_class = 'ecl-button ecl-button--' ~ _modifier %}
+{% set _extra_attributes = '' %}
+{% set _extra_classes = extra_classes|default('') %}
 
 {# Internal logic - Process properties #}
 
-{% if isBlock is defined and isBlock == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-button--block' %}
+{% if _is_block == true %}
+  {% set _css_class = _css_class ~ ' ecl-button--block' %}
 {% endif %}
 
-{% if icon is defined %}
-  {% set _cssClass = _cssClass ~ ' ecl-button--' ~ icon %}
+{% if _icon is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-button--' ~ _icon %}
 {% endif %}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if _extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _extra_classes %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+{% if extra_attributes is defined and extra_attributes is not empty %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-{% if type == 'link' %}
-  <a
-    href="{{ to|default('#') }}"
-    class="{{ _cssClass }}"
-    {{ _extraAttributes }}
-  >
-    {{- label -}}
-  </a>
-{% elseif type == 'input' %}
-  <input
-    type="button"
-    class="{{ _cssClass }}"
-    value="{{ label }}"
-    {{ _extraAttributes }}
-  />
+{# Print result #}
+
+{% if _type == 'link' %}
+  <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes }}>{% block label _label %}</a>
 {% else %}
-  <button
-    class="{{ _cssClass }}"
-    {{ _extraAttributes }}
-  >
-    {{- label -}}
-  </button>
+  <button class="{{ _css_class }}"{{ _extra_attributes }}>{% block label _label %}</button>
 {% endif %}
