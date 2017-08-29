@@ -1,5 +1,4 @@
 @mixin ecl-button--caret() {
-  font-size: 0.8em;
-  margin-left: 0.8em;
-  transition: rotate 0.3s ease 0s;
+  font-size: map-get($ecl-font-size, 'xs');
+  margin-left: map-get($ecl-spacing, 'xxs');
 }

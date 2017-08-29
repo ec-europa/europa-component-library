@@ -1,5 +1,42 @@
 # Changelog
 
+## 0.14.0 (2017-08-25)
+
+### :boom: Breaking Change
+
+- [#406](https://github.com/ec-europa/europa-component-library/pull/406) refactor(utilities): add prefix - INNO-692. ([@emeryro](https://github.com/emeryro))
+- [#395](https://github.com/ec-europa/europa-component-library/pull/395) refactor(site-header): add composition - INNO-754. ([@emeryro](https://github.com/emeryro))
+- [#403](https://github.com/ec-europa/europa-component-library/pull/403) refactor(banners): upgrade banners - INNO-767. ([@yhuard](https://github.com/yhuard))
+
+### :bug: Bug Fix
+
+- [#408](https://github.com/ec-europa/europa-component-library/pull/408) fix(template): missing variable in if-logic - no issue. ([@3wh](https://github.com/3wh))
+- [#402](https://github.com/ec-europa/europa-component-library/pull/402) fix(timelines): remove utility spacing - INNO-729 . ([@yhuard](https://github.com/yhuard))
+
+### :nail_care: Enhancement
+
+- [#409](https://github.com/ec-europa/europa-component-library/pull/409) feat(search-template): resume work - INNO-750. ([@yhuard](https://github.com/yhuard))
+- [#411](https://github.com/ec-europa/europa-component-library/pull/411) refactor(buttons): upgrade buttons - INNO-777. ([@yhuard](https://github.com/yhuard))
+- [#414](https://github.com/ec-europa/europa-component-library/pull/414) refactor(ecl-links): upgrade template - INNO-779. ([@yhuard](https://github.com/yhuard))
+- [#410](https://github.com/ec-europa/europa-component-library/pull/410) refactor(tags): upgrade component - INNO-775. ([@yhuard](https://github.com/yhuard))
+- [#406](https://github.com/ec-europa/europa-component-library/pull/406) refactor(utilities): add prefix - INNO-692. ([@emeryro](https://github.com/emeryro))
+- [#395](https://github.com/ec-europa/europa-component-library/pull/395) refactor(site-header): add composition - INNO-754. ([@emeryro](https://github.com/emeryro))
+- [#407](https://github.com/ec-europa/europa-component-library/pull/407) refactor(images): make component extendable - INNO-677. ([@yhuard](https://github.com/yhuard))
+- [#403](https://github.com/ec-europa/europa-component-library/pull/403) refactor(banners): upgrade banners - INNO-767. ([@yhuard](https://github.com/yhuard))
+
+### :house: Internal
+
+- [#413](https://github.com/ec-europa/europa-component-library/pull/413) chore(package): update dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#415](https://github.com/ec-europa/europa-component-library/pull/415) chore(components): remove unused components - INNO-778. ([@yhuard](https://github.com/yhuard))
+- [#401](https://github.com/ec-europa/europa-component-library/pull/401) chore(package): update all dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+### Committers: 4
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [3wh](https://github.com/3wh)
+- [emeryro](https://github.com/emeryro)
+- [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.13.0 (2017-08-18)
 
 ### :rocket: New Feature
@@ -130,7 +167,7 @@
 - [#318](https://github.com/ec-europa/europa-component-library/pull/318) chore(package): update all dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
 - [#311](https://github.com/ec-europa/europa-component-library/pull/311) chore(package): update @ec-europa/ecl-fractal-theme to version 0.8.3 - noissue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
-#### Committers: 3
+### Committers: 3
 
 - Yannick Huard ([yhuard](https://github.com/yhuard))
 - [emeryro](https://github.com/emeryro)

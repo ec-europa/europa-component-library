@@ -6,13 +6,13 @@ describe('splash-pages', () => {
       height: 600,
     });
 
-    browser.pause(1000);
-
     browser.url(`ecl-splash-pages.html`);
-    // Make sure the browser has finished painting
-    browser.pause(1000);
+
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
+
+    // Make sure the browser has finished painting
+    browser.pause(500);
   });
 
   // Normal state

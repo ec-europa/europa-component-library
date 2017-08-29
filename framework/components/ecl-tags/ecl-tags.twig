@@ -48,10 +48,8 @@
       {% elseif _modifier == 'facet-close' %}
         {% include '@ec-europa/ecl-buttons' with {
           'label': _tag.value,
-          'extraClass': 'ecl-tag__item',
-          'extraAttributes': [
-            { 'name': 'modifier', 'value': 'button'},
-          ]
+          'extra_classes': 'ecl-tag__item',
+          'extra_attributes': [{ 'name': 'type', 'value': 'button'}]
         } %}
       {% else %}
         <a class="ecl-tag__item" href="{{ _tag.href }}">{{ _tag.value }}</a>
