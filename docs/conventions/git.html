@@ -31,9 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.10.0" type="text/css">
-
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.10.0" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.1" type="text/css">
 
 
 <title>Git Commit Guidelines | Europa Component Library</title>
@@ -44,17 +42,16 @@
   <a href="#main-content" class="ecl-skip-link">Skip to main content</a>
 </div>
 
-<div class="ecl-site-switcher ecl-site-switcher--header">
-  <ul class="ecl-site-switcher__list ecl-container">
-    <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="#">Commission and its priorities</a></li>
-    <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="#">Policies, information and services</a></li>
-  </ul>
-</div>
-
 <header class="ecl-site-header" role="banner">
-  <div class="ecl-container ecl-site-header__container">
+  <div class="ecl-site-switcher ecl-site-switcher--header">
+    <ul class="ecl-site-switcher__list ecl-container">
+        <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="#">Commission and its priorities</a></li>
+        <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="#">Policies, information and services</a></li>
+    </ul>
+  </div>
+  <div class="ecl-container ecl-site-header__banner">
     <a href="https://ec.europa.eu" class="ecl-logo ecl-logo--logotype ecl-site-header__logo" title="Home - European Commission">
-      <span class="ecl-sr-only">Home - European Commission</span>
+      <span class="ecl-u-sr-only">Home - European Commission</span>
     </a>
     <div class="ecl-lang-select-sites ecl-site-header__lang-select-sites">
       <a href="#" class="ecl-lang-select-sites__link">
@@ -67,7 +64,7 @@
     </div>
     <form class="ecl-search-form ecl-site-header__search">
       <label class="ecl-search-form__textfield-wrapper">
-        <span class="ecl-sr-only">Search this website</span>
+        <span class="ecl-u-sr-only">Search this website</span>
         <input type="search" class="ecl-text-input ecl-search-form__textfield" id="search-components" name="search-components" />
         <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
       </label>
@@ -76,10 +73,11 @@
   </div>
 </header>
 
+
 <div class="ecl-page-header">
   <div class="ecl-container">
     <nav class="ecl-breadcrumbs " aria-label="breadcrumbs">
-      <span class="ecl-sr-only">You are here:</span>
+      <span class="ecl-u-sr-only">You are here:</span>
       <ol class="ecl-breadcrumbs__segments-wrapper">
         <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--first">
           <a href="http://europa.eu/index_en.htm" class="ecl-breadcrumbs__link">European Commission</a>
@@ -125,7 +123,7 @@
   <div id="frame">
     <div class="Frame-body" data-role="body">
       <div class="Frame-panel Frame-panel--main" data-role="main">
-        <div class="Frame-inner" id="pjax-container">
+        <div class="Frame-inner">
           
 
 <div class="Document">
@@ -217,7 +215,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../overview" data-pjax>
+            <a class="Tree-entityLink" href="../overview">
                 
                 <span>Components</span>
             </a>
@@ -227,7 +225,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../atomic" data-pjax>
+            <a class="Tree-entityLink" href="../atomic">
                 
                 <span>Atomic design patterns</span>
             </a>
@@ -237,9 +235,19 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../javascript" data-pjax>
+            <a class="Tree-entityLink" href="../javascript">
                 
                 <span>JavaScript</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../documentation">
+                
+                <span>Edit documentation</span>
             </a>
         </li>
         
@@ -259,7 +267,7 @@
         
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+            <a class="Tree-entityLink" href="">
                 
                 <span>Git Commit</span>
             </a>
@@ -269,7 +277,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="javascript" data-pjax>
+            <a class="Tree-entityLink" href="javascript">
                 
                 <span>JavaScript</span>
             </a>
@@ -279,7 +287,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="markdown" data-pjax>
+            <a class="Tree-entityLink" href="markdown">
                 
                 <span>Markdown</span>
             </a>
@@ -289,7 +297,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="scss" data-pjax>
+            <a class="Tree-entityLink" href="scss">
                 
                 <span>SCSS</span>
             </a>
@@ -316,7 +324,7 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="../testing/visual" data-pjax>
+            <a class="Tree-entityLink" href="../testing/visual">
                 
                 <span>Visual regression</span>
             </a>
@@ -412,7 +420,13 @@
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.10.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.1"></script>
+
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.1"></script>
+
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.1"></script>
+
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.1"></script>
 
 
 

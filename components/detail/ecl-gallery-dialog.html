@@ -31,9 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/ecl/ecl.css?cachebust=0.10.0" type="text/css">
-
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.10.0" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.1" type="text/css">
 
 
 <title>Gallery - dialog (overlay) | Europa Component Library</title>
@@ -44,17 +42,16 @@
   <a href="#main-content" class="ecl-skip-link">Skip to main content</a>
 </div>
 
-<div class="ecl-site-switcher ecl-site-switcher--header">
-  <ul class="ecl-site-switcher__list ecl-container">
-    <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="#">Commission and its priorities</a></li>
-    <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="#">Policies, information and services</a></li>
-  </ul>
-</div>
-
 <header class="ecl-site-header" role="banner">
-  <div class="ecl-container ecl-site-header__container">
+  <div class="ecl-site-switcher ecl-site-switcher--header">
+    <ul class="ecl-site-switcher__list ecl-container">
+        <li class="ecl-site-switcher__option"><a class="ecl-link ecl-site-switcher__link" href="#">Commission and its priorities</a></li>
+        <li class="ecl-site-switcher__option ecl-site-switcher__option--is-selected"><a class="ecl-link ecl-site-switcher__link" href="#">Policies, information and services</a></li>
+    </ul>
+  </div>
+  <div class="ecl-container ecl-site-header__banner">
     <a href="https://ec.europa.eu" class="ecl-logo ecl-logo--logotype ecl-site-header__logo" title="Home - European Commission">
-      <span class="ecl-sr-only">Home - European Commission</span>
+      <span class="ecl-u-sr-only">Home - European Commission</span>
     </a>
     <div class="ecl-lang-select-sites ecl-site-header__lang-select-sites">
       <a href="#" class="ecl-lang-select-sites__link">
@@ -67,7 +64,7 @@
     </div>
     <form class="ecl-search-form ecl-site-header__search">
       <label class="ecl-search-form__textfield-wrapper">
-        <span class="ecl-sr-only">Search this website</span>
+        <span class="ecl-u-sr-only">Search this website</span>
         <input type="search" class="ecl-text-input ecl-search-form__textfield" id="search-components" name="search-components" />
         <script id="searchIndexPath" type="application/json">{ "path": "../../assets/searchIndex.json" }</script>
       </label>
@@ -76,10 +73,11 @@
   </div>
 </header>
 
+
 <div class="ecl-page-header">
   <div class="ecl-container">
     <nav class="ecl-breadcrumbs " aria-label="breadcrumbs">
-      <span class="ecl-sr-only">You are here:</span>
+      <span class="ecl-u-sr-only">You are here:</span>
       <ol class="ecl-breadcrumbs__segments-wrapper">
         <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--first">
           <a href="http://europa.eu/index_en.htm" class="ecl-breadcrumbs__link">European Commission</a>
@@ -125,7 +123,7 @@
   <div id="frame">
     <div class="Frame-body" data-role="body">
       <div class="Frame-panel Frame-panel--main" data-role="main">
-        <div class="Frame-inner" id="pjax-container">
+        <div class="Frame-inner">
           
 
 
@@ -489,12 +487,12 @@ It should always be used with the Gallery dialog component, which allows the use
             <strong class="Meta-key">Preview:</strong>
             <span class="Meta-value">
                 <ul>
-                    <li><a data-no-pjax href="../preview/ecl-gallery-dialog"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a href="../preview/ecl-gallery-dialog"><span>With layout</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
 </a></li>
-                    <li><a data-no-pjax href="../render/ecl-gallery-dialog"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+                    <li><a href="../render/ecl-gallery-dialog"><span>Component only</span> <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
 </svg>
@@ -603,7 +601,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-fonts" data-pjax>
+            <a class="Tree-entityLink" href="ecl-typography-fonts">
                 
 
 <div class="Status Status--unlabelled">
@@ -627,7 +625,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-headings" data-pjax>
+            <a class="Tree-entityLink" href="ecl-typography-headings">
                 
 
 <div class="Status Status--unlabelled">
@@ -651,7 +649,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-paragraphs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-typography-paragraphs">
                 
 
 <div class="Status Status--unlabelled">
@@ -675,7 +673,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-typography-lists" data-pjax>
+            <a class="Tree-entityLink" href="ecl-typography-lists">
                 
 
 <div class="Status Status--unlabelled">
@@ -704,7 +702,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-colors" data-pjax>
+            <a class="Tree-entityLink" href="ecl-colors">
                 
 
 <div class="Status Status--unlabelled">
@@ -728,7 +726,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-icons" data-pjax>
+            <a class="Tree-entityLink" href="ecl-icons">
                 
 
 <div class="Status Status--unlabelled">
@@ -752,7 +750,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-images" data-pjax>
+            <a class="Tree-entityLink" href="ecl-images">
                 
 
 <div class="Status Status--unlabelled">
@@ -789,7 +787,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-grid" data-pjax>
+            <a class="Tree-entityLink" href="ecl-grid">
                 
 
 <div class="Status Status--unlabelled">
@@ -813,7 +811,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-legacy-bootstrap-grid" data-pjax>
+            <a class="Tree-entityLink" href="ecl-legacy-bootstrap-grid">
                 
 
 <div class="Status Status--unlabelled">
@@ -850,7 +848,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-accordions" data-pjax>
+            <a class="Tree-entityLink" href="ecl-accordions">
                 
 
 <div class="Status Status--unlabelled">
@@ -874,7 +872,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-banners" data-pjax>
+            <a class="Tree-entityLink" href="ecl-banners">
                 
 
 <div class="Status Status--unlabelled">
@@ -898,7 +896,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-blockquotes" data-pjax>
+            <a class="Tree-entityLink" href="ecl-blockquotes">
                 
 
 <div class="Status Status--unlabelled">
@@ -922,7 +920,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-breadcrumbs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-breadcrumbs">
                 
 
 <div class="Status Status--unlabelled">
@@ -946,7 +944,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-buttons" data-pjax>
+            <a class="Tree-entityLink" href="ecl-buttons">
                 
 
 <div class="Status Status--unlabelled">
@@ -970,7 +968,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-carousels" data-pjax>
+            <a class="Tree-entityLink" href="ecl-carousels">
                 
 
 <div class="Status Status--unlabelled">
@@ -994,7 +992,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-comments" data-pjax>
+            <a class="Tree-entityLink" href="ecl-comments">
                 
 
 <div class="Status Status--unlabelled">
@@ -1018,7 +1016,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-context-navs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-context-navs">
                 
 
 <div class="Status Status--unlabelled">
@@ -1042,7 +1040,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-date-blocks" data-pjax>
+            <a class="Tree-entityLink" href="ecl-date-blocks">
                 
 
 <div class="Status Status--unlabelled">
@@ -1066,7 +1064,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-datepickers" data-pjax>
+            <a class="Tree-entityLink" href="ecl-datepickers">
                 
 
 <div class="Status Status--unlabelled">
@@ -1090,7 +1088,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-dialogs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-dialogs">
                 
 
 <div class="Status Status--unlabelled">
@@ -1114,7 +1112,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-dropdowns" data-pjax>
+            <a class="Tree-entityLink" href="ecl-dropdowns">
                 
 
 <div class="Status Status--unlabelled">
@@ -1138,7 +1136,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-expandables" data-pjax>
+            <a class="Tree-entityLink" href="ecl-expandables">
                 
 
 <div class="Status Status--unlabelled">
@@ -1162,7 +1160,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-featured-items" data-pjax>
+            <a class="Tree-entityLink" href="ecl-featured-items">
                 
 
 <div class="Status Status--unlabelled">
@@ -1186,7 +1184,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-fields" data-pjax>
+            <a class="Tree-entityLink" href="ecl-fields">
                 
 
 <div class="Status Status--unlabelled">
@@ -1236,7 +1234,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-files--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-files--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -1260,7 +1258,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-files--translations" data-pjax>
+            <a class="Tree-entityLink" href="ecl-files--translations">
                 
 
 <div class="Status Status--unlabelled">
@@ -1284,7 +1282,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-files--links" data-pjax>
+            <a class="Tree-entityLink" href="ecl-files--links">
                 
 
 <div class="Status Status--unlabelled">
@@ -1308,7 +1306,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-files--images" data-pjax>
+            <a class="Tree-entityLink" href="ecl-files--images">
                 
 
 <div class="Status Status--unlabelled">
@@ -1332,7 +1330,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-files--videos-iframe" data-pjax>
+            <a class="Tree-entityLink" href="ecl-files--videos-iframe">
                 
 
 <div class="Status Status--unlabelled">
@@ -1356,7 +1354,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-files--videos-tag" data-pjax>
+            <a class="Tree-entityLink" href="ecl-files--videos-tag">
                 
 
 <div class="Status Status--unlabelled">
@@ -1385,7 +1383,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-footers" data-pjax>
+            <a class="Tree-entityLink" href="ecl-footers">
                 
 
 <div class="Status Status--unlabelled">
@@ -1435,7 +1433,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-checkboxes" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-checkboxes">
                 
 
 <div class="Status Status--unlabelled">
@@ -1459,7 +1457,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-feedback-messages" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-feedback-messages">
                 
 
 <div class="Status Status--unlabelled">
@@ -1483,7 +1481,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-fieldsets" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-fieldsets">
                 
 
 <div class="Status Status--unlabelled">
@@ -1533,7 +1531,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-file-uploads--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -1557,7 +1555,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-file-uploads--is-disabled" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--is-disabled">
                 
 
 <div class="Status Status--unlabelled">
@@ -1581,7 +1579,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-file-uploads--is-multiple" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--is-multiple">
                 
 
 <div class="Status Status--unlabelled">
@@ -1605,7 +1603,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-file-uploads--has-error" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-file-uploads--has-error">
                 
 
 <div class="Status Status--unlabelled">
@@ -1634,7 +1632,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-form-groups" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-form-groups">
                 
 
 <div class="Status Status--unlabelled">
@@ -1658,7 +1656,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-forms" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-forms">
                 
 
 <div class="Status Status--unlabelled">
@@ -1682,7 +1680,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-help-blocks" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-help-blocks">
                 
 
 <div class="Status Status--unlabelled">
@@ -1706,7 +1704,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-labels" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-labels">
                 
 
 <div class="Status Status--unlabelled">
@@ -1730,7 +1728,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-legends" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-legends">
                 
 
 <div class="Status Status--unlabelled">
@@ -1754,7 +1752,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-radio-groups" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-radio-groups">
                 
 
 <div class="Status Status--unlabelled">
@@ -1778,7 +1776,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-radios" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-radios">
                 
 
 <div class="Status Status--unlabelled">
@@ -1802,7 +1800,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-selects" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-selects">
                 
 
 <div class="Status Status--unlabelled">
@@ -1826,7 +1824,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-text-inputs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-text-inputs">
                 
 
 <div class="Status Status--unlabelled">
@@ -1850,7 +1848,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-forms-textareas" data-pjax>
+            <a class="Tree-entityLink" href="ecl-forms-textareas">
                 
 
 <div class="Status Status--unlabelled">
@@ -1905,7 +1903,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-gallery-base" data-pjax>
+            <a class="Tree-entityLink" href="ecl-gallery-base">
                 
 
 <div class="Status Status--unlabelled">
@@ -1929,7 +1927,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
+            <a class="Tree-entityLink" href="">
                 
 
 <div class="Status Status--unlabelled">
@@ -1958,7 +1956,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-labels" data-pjax>
+            <a class="Tree-entityLink" href="ecl-labels">
                 
 
 <div class="Status Status--unlabelled">
@@ -2008,7 +2006,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-lang-select-pages--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-lang-select-pages--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -2032,7 +2030,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-lang-select-pages--primary" data-pjax>
+            <a class="Tree-entityLink" href="ecl-lang-select-pages--primary">
                 
 
 <div class="Status Status--unlabelled">
@@ -2061,7 +2059,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-lang-select-sites" data-pjax>
+            <a class="Tree-entityLink" href="ecl-lang-select-sites">
                 
 
 <div class="Status Status--unlabelled">
@@ -2085,7 +2083,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-link-blocks" data-pjax>
+            <a class="Tree-entityLink" href="ecl-link-blocks">
                 
 
 <div class="Status Status--unlabelled">
@@ -2109,7 +2107,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-links" data-pjax>
+            <a class="Tree-entityLink" href="ecl-links">
                 
 
 <div class="Status Status--unlabelled">
@@ -2133,7 +2131,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-logos" data-pjax>
+            <a class="Tree-entityLink" href="ecl-logos">
                 
 
 <div class="Status Status--unlabelled">
@@ -2183,7 +2181,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages--info" data-pjax>
+            <a class="Tree-entityLink" href="ecl-messages--info">
                 
 
 <div class="Status Status--unlabelled">
@@ -2207,7 +2205,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages--warning" data-pjax>
+            <a class="Tree-entityLink" href="ecl-messages--warning">
                 
 
 <div class="Status Status--unlabelled">
@@ -2231,7 +2229,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages--success" data-pjax>
+            <a class="Tree-entityLink" href="ecl-messages--success">
                 
 
 <div class="Status Status--unlabelled">
@@ -2255,7 +2253,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages--error" data-pjax>
+            <a class="Tree-entityLink" href="ecl-messages--error">
                 
 
 <div class="Status Status--unlabelled">
@@ -2279,7 +2277,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-messages--livestream" data-pjax>
+            <a class="Tree-entityLink" href="ecl-messages--livestream">
                 
 
 <div class="Status Status--unlabelled">
@@ -2308,7 +2306,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-meta" data-pjax>
+            <a class="Tree-entityLink" href="ecl-meta">
                 
 
 <div class="Status Status--unlabelled">
@@ -2358,7 +2356,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-navigation-inpages" data-pjax>
+            <a class="Tree-entityLink" href="ecl-navigation-inpages">
                 
 
 <div class="Status Status--unlabelled">
@@ -2408,7 +2406,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-navigation-lists--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-navigation-lists--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -2432,7 +2430,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-navigation-lists--tabs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-navigation-lists--tabs">
                 
 
 <div class="Status Status--unlabelled">
@@ -2456,7 +2454,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-navigation-lists--small" data-pjax>
+            <a class="Tree-entityLink" href="ecl-navigation-lists--small">
                 
 
 <div class="Status Status--unlabelled">
@@ -2485,7 +2483,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-navigation-menus" data-pjax>
+            <a class="Tree-entityLink" href="ecl-navigation-menus">
                 
 
 <div class="Status Status--unlabelled">
@@ -2514,7 +2512,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications" data-pjax>
+            <a class="Tree-entityLink" href="ecl-notifications">
                 
 
 <div class="Status Status--unlabelled">
@@ -2564,7 +2562,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-page-headers--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -2588,7 +2586,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-page-headers--basic" data-pjax>
+            <a class="Tree-entityLink" href="ecl-page-headers--basic">
                 
 
 <div class="Status Status--unlabelled">
@@ -2617,7 +2615,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-pagers" data-pjax>
+            <a class="Tree-entityLink" href="ecl-pagers">
                 
 
 <div class="Status Status--unlabelled">
@@ -2641,7 +2639,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-profile-topbars" data-pjax>
+            <a class="Tree-entityLink" href="ecl-profile-topbars">
                 
 
 <div class="Status Status--unlabelled">
@@ -2665,7 +2663,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-rss-links" data-pjax>
+            <a class="Tree-entityLink" href="ecl-rss-links">
                 
 
 <div class="Status Status--unlabelled">
@@ -2715,7 +2713,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-search-forms--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-search-forms--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -2739,7 +2737,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-search-forms--internal" data-pjax>
+            <a class="Tree-entityLink" href="ecl-search-forms--internal">
                 
 
 <div class="Status Status--unlabelled">
@@ -2768,7 +2766,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-site-headers" data-pjax>
+            <a class="Tree-entityLink" href="ecl-site-headers">
                 
 
 <div class="Status Status--unlabelled">
@@ -2818,7 +2816,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-site-switchers--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-site-switchers--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -2842,7 +2840,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-site-switchers--header" data-pjax>
+            <a class="Tree-entityLink" href="ecl-site-switchers--header">
                 
 
 <div class="Status Status--unlabelled">
@@ -2866,7 +2864,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-site-switchers--footer" data-pjax>
+            <a class="Tree-entityLink" href="ecl-site-switchers--footer">
                 
 
 <div class="Status Status--unlabelled">
@@ -2895,7 +2893,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-skip-links" data-pjax>
+            <a class="Tree-entityLink" href="ecl-skip-links">
                 
 
 <div class="Status Status--unlabelled">
@@ -2919,7 +2917,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-social-icons" data-pjax>
+            <a class="Tree-entityLink" href="ecl-social-icons">
                 
 
 <div class="Status Status--unlabelled">
@@ -2969,7 +2967,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-social-media-links--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-social-media-links--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -2993,7 +2991,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-social-media-links---horizontal" data-pjax>
+            <a class="Tree-entityLink" href="ecl-social-media-links---horizontal">
                 
 
 <div class="Status Status--unlabelled">
@@ -3048,7 +3046,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-tables--default" data-pjax>
+            <a class="Tree-entityLink" href="ecl-tables--default">
                 
 
 <div class="Status Status--unlabelled">
@@ -3072,7 +3070,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-tables--empty" data-pjax>
+            <a class="Tree-entityLink" href="ecl-tables--empty">
                 
 
 <div class="Status Status--unlabelled">
@@ -3096,7 +3094,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-tables--colspan" data-pjax>
+            <a class="Tree-entityLink" href="ecl-tables--colspan">
                 
 
 <div class="Status Status--unlabelled">
@@ -3120,7 +3118,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-tables--colspan-empty" data-pjax>
+            <a class="Tree-entityLink" href="ecl-tables--colspan-empty">
                 
 
 <div class="Status Status--unlabelled">
@@ -3149,7 +3147,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-tabs" data-pjax>
+            <a class="Tree-entityLink" href="ecl-tabs">
                 
 
 <div class="Status Status--unlabelled">
@@ -3173,7 +3171,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-tags" data-pjax>
+            <a class="Tree-entityLink" href="ecl-tags">
                 
 
 <div class="Status Status--unlabelled">
@@ -3197,7 +3195,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-timelines" data-pjax>
+            <a class="Tree-entityLink" href="ecl-timelines">
                 
 
 <div class="Status Status--unlabelled">
@@ -3234,7 +3232,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-clearfix" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-clearfix">
                 
 
 <div class="Status Status--unlabelled">
@@ -3258,7 +3256,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-colorize" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-colorize">
                 
 
 <div class="Status Status--unlabelled">
@@ -3282,7 +3280,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-display" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-display">
                 
 
 <div class="Status Status--unlabelled">
@@ -3306,7 +3304,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-flex" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-flex">
                 
 
 <div class="Status Status--unlabelled">
@@ -3330,7 +3328,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-font-size" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-font-size">
                 
 
 <div class="Status Status--unlabelled">
@@ -3354,7 +3352,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-margin" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-margin">
                 
 
 <div class="Status Status--unlabelled">
@@ -3378,7 +3376,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-padding" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-padding">
                 
 
 <div class="Status Status--unlabelled">
@@ -3402,7 +3400,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-ratio" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-ratio">
                 
 
 <div class="Status Status--unlabelled">
@@ -3426,7 +3424,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-screen-reader" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-screen-reader">
                 
 
 <div class="Status Status--unlabelled">
@@ -3450,7 +3448,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-text" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-text">
                 
 
 <div class="Status Status--unlabelled">
@@ -3474,7 +3472,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-u-z-index" data-pjax>
+            <a class="Tree-entityLink" href="ecl-u-z-index">
                 
 
 <div class="Status Status--unlabelled">
@@ -3511,7 +3509,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-communities" data-pjax>
+            <a class="Tree-entityLink" href="ecl-communities">
                 
 
 <div class="Status Status--unlabelled">
@@ -3535,7 +3533,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-filters" data-pjax>
+            <a class="Tree-entityLink" href="ecl-filters">
                 
 
 <div class="Status Status--unlabelled">
@@ -3585,7 +3583,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-pages--simple" data-pjax>
+            <a class="Tree-entityLink" href="ecl-pages--simple">
                 
 
 <div class="Status Status--unlabelled">
@@ -3609,7 +3607,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-pages--with-menu" data-pjax>
+            <a class="Tree-entityLink" href="ecl-pages--with-menu">
                 
 
 <div class="Status Status--unlabelled">
@@ -3638,7 +3636,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-splash-pages" data-pjax>
+            <a class="Tree-entityLink" href="ecl-splash-pages">
                 
 
 <div class="Status Status--unlabelled">
@@ -3662,7 +3660,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-templates-forms" data-pjax>
+            <a class="Tree-entityLink" href="ecl-templates-forms">
                 
 
 <div class="Status Status--unlabelled">
@@ -3686,7 +3684,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-templates-search" data-pjax>
+            <a class="Tree-entityLink" href="ecl-templates-search">
                 
 
 <div class="Status Status--unlabelled">
@@ -3792,7 +3790,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.10.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.1"></script>
+
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.1"></script>
+
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.1"></script>
+
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.1"></script>
 
 
 
