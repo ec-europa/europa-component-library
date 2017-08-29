@@ -5,9 +5,10 @@ label: Edit documentation
 
 This page explains how to update documentation directly on GitHub.
 
-## Step 0: GitHub account
+## Prerequisite
 
-If you don't already have a GitHub account, make sure to create one and log in with it.
+If you don't already have a GitHub account, make sure to create one and log in with it.  
+You also have to be part of team "ECL-doc-editors".
 
 ## Step 1: Open documentation file
 
@@ -41,5 +42,5 @@ Thank you!
 
 ### Note: writing convention
 
-We are using writing convention for both [pull requests](https://ec-europa.github.io/europa-component-library/docs/conventions/git) and [markdown](https://ec-europa.github.io/europa-component-library/docs/conventions/markdown). You can optionally apply these convention, to facilitate documentation update process.  
+We are using writing conventions for both [pull requests](https://ec-europa.github.io/europa-component-library/docs/conventions/git) and [markdown](https://ec-europa.github.io/europa-component-library/docs/conventions/markdown). You can optionally apply these conventions, to facilitate documentation update process.  
 In any case, we will have to apply the conventions on our side before publishing it (so the content may be slightly modified).
