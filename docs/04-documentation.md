@@ -16,7 +16,7 @@ You also have to be part of team [ECL doc editors](https://github.com/orgs/ec-eu
 - Locate the component you wish to edit. Components are located in `framework/components`
 - Open the README.md file in that component (example: `framework/components/ecl-footers/README.md`)
 
-<img src="/assets/screenshots/git_edit.png" alt="GitHub edit" width="800" />
+![GitHub edit]({{ path '/assets/screenshots/git_edit.png' }})
 
 ## Step 2: Edit the documentation
 
@@ -24,7 +24,7 @@ You also have to be part of team [ECL doc editors](https://github.com/orgs/ec-eu
 - Make any modification you wish by using markdown editor. Here is a [cheatsheet for markdown syntax](https://guides.github.com/features/mastering-markdown/)
 - You can see result directly by switching to the "Preview" tab
 
-<img src="/assets/screenshots/git_preview.png" alt="GitHub preview" width="800" />
+![GitHub preview]({{ path '/assets/screenshots/git_preview.png' }})
 
 ## Step 3: Send your modifications
 
