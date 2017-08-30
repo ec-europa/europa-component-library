@@ -5,8 +5,8 @@ pipeline:
   checkout-master:
     image: plugins/git
     commands:
-      - git fetch origin master
-      - git checkout master
+      - git fetch --no-tags origin master
+      - git checkout -qf FETCH_HEAD
       - git checkout -
     when:
       event: [push, pull_request]
