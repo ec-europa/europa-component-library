@@ -13,6 +13,7 @@ pipeline:
   functional:
     group: test
     image: node:latest
+    secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
       - yarn dist
       - yarn test:functional
