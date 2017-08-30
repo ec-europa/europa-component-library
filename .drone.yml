@@ -6,7 +6,7 @@ pipeline:
     image: plugins/git
     commands:
       - git fetch --no-tags origin master
-      - git checkout -qf FETCH_HEAD
+      - git checkout -qf master
       - git checkout -
 
   build:
