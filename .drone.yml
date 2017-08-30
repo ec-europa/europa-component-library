@@ -1,6 +1,18 @@
 branches: master
 
 pipeline:
+  # On PRs, checkout master (for tests)
+  checkout-master:
+    image: plugins/git
+    commands:
+      - git fetch origin master
+      - git checkout master
+      - git checkout -
+    when:
+      event: [push, pull_request]
+      branch:
+        exclude: master
+
   prepare:
     image: node:latest
     commands:
