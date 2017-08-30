@@ -1,0 +1,17 @@
+pipeline:
+  build:
+    image: node:latest
+    commands:
+      - yarn install --frozen-lockfile
+
+  coding-conventions:
+    group: test
+    image: node:latest
+    commands:
+      - yarn test:coding-conventions
+
+  functional:
+    group: test
+    image: node:latest
+    commands:
+      - yarn test:functional
