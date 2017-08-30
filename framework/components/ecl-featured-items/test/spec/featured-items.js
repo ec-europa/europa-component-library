@@ -19,7 +19,7 @@ describe('ecl-featured-items', () => {
         browser.injectAxeCore();
 
         // Make sure the browser has finished painting
-        browser.pause(1000);
+        browser.pause(500);
       });
 
       // Normal state

@@ -6,11 +6,11 @@ describe('ratio', () => {
       height: 800,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
 
     browser.url(`ecl-u-ratio.html`);
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(500);
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });

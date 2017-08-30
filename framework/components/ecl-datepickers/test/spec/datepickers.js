@@ -13,7 +13,7 @@ describe('datepickers', () => {
     browser.injectAxeCore();
 
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(500);
   });
 
   // Normal state
@@ -42,7 +42,7 @@ describe('datepickers', () => {
       // Reload
       browser.url('ecl-datepickers.html');
       browser.injectAxeCore();
-      browser.pause(1000);
+      browser.pause(500);
 
       // Click the input
       browser.moveToObject('.ecl-text-input');

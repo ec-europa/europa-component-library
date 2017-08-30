@@ -8,7 +8,7 @@ describe('lang-select-pages', () => {
       height: 200,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
   });
 
   variants.forEach(variant => {
@@ -17,7 +17,7 @@ describe('lang-select-pages', () => {
         // Go to url
         browser.url(`ecl-lang-select-pages--${variant}.html`);
         // Make sure the browser has finished painting
-        browser.pause(1000);
+        browser.pause(500);
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
       });

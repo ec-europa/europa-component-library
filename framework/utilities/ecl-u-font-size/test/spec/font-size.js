@@ -6,11 +6,11 @@ describe('font-size', () => {
       height: 200,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
 
     browser.url(`ecl-u-font-size.html`);
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(500);
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });

@@ -6,7 +6,7 @@ describe('social-icons', () => {
       height: 5700,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
   });
 
   describe('social-icons', () => {
@@ -14,7 +14,7 @@ describe('social-icons', () => {
       // Go to url
       browser.url('ecl-social-icons.html');
       // Make sure the browser has finished painting
-      browser.pause(1000);
+      browser.pause(500);
     });
 
     // Normal state

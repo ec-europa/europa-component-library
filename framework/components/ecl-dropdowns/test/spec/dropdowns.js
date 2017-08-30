@@ -13,7 +13,7 @@ describe('dropdowns', () => {
     browser.injectAxeCore();
 
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(500);
   });
 
   // Only continue with Chrome
@@ -27,7 +27,7 @@ describe('dropdowns', () => {
       // Reload
       browser.url(`ecl-dropdowns.html`);
       browser.injectAxeCore();
-      browser.pause(1000);
+      browser.pause(500);
 
       // Click the input
       browser.moveToObject('#example-expandable-button');

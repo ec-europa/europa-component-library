@@ -6,13 +6,13 @@ describe('rss links', () => {
       height: 200,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
 
     // Go to url
     browser.url('ecl-rss-links.html');
 
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(500);
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });

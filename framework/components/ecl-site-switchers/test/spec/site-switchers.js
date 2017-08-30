@@ -8,7 +8,7 @@ describe('site-switchers', () => {
       height: 150,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
   });
 
   variants.forEach(variant => {
@@ -17,7 +17,7 @@ describe('site-switchers', () => {
         // Go to url
         browser.url(`ecl-site-switchers--${variant}.html`);
         // Make sure the browser has finished painting
-        browser.pause(1000);
+        browser.pause(500);
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
       });

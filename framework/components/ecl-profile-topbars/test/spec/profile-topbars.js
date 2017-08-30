@@ -6,7 +6,7 @@ describe('profile-topbars', () => {
       height: 600,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
     browser.url('ecl-profile-topbars.html');
     browser.injectAxeCore();
   });
