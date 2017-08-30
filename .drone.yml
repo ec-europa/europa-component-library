@@ -1,6 +1,12 @@
 branches: master
 
 pipeline:
+  prepare:
+    image: node:latest
+    commands:
+      - git checkout master
+      - git checkout -
+
   build:
     image: node:latest
     commands:
