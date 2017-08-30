@@ -8,16 +8,6 @@ pipeline:
       - git fetch --no-tags origin master
       - git checkout -qf FETCH_HEAD
       - git checkout -
-    when:
-      event: [push, pull_request]
-      branch:
-        exclude: master
-
-  prepare:
-    image: node:latest
-    commands:
-      - git checkout master
-      - git checkout -
 
   build:
     image: node:latest
