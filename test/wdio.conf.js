@@ -17,8 +17,8 @@ const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatt
 // Utils
 const getScreenshotName = require('./utils/screenshots').getScreenshotName;
 const getSpecs = require('./utils/specs').getSpecs;
-const isTravis = require('./utils/travis').isTravis;
 const getCapabilities = require('./utils/capabilities').getCapabilities;
+const isTravis = require('./utils/travis').isTravis;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -31,7 +31,7 @@ exports.config = {
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
 
-  specs: getSpecs(isTravis),
+  specs: getSpecs(),
 
   // Patterns to exclude.
   exclude: [],

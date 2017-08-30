@@ -11,13 +11,17 @@ log.addLevel('success', 3001, { fg: 'green', bold: true });
 
 // Utils
 const isTravis = require('./travis').isTravis;
+const isDrone = require('./drone').isDrone;
+
+const isCI = isTravis || isDrone;
+const ci = isTravis ? 'TRAVIS' : 'DRONE';
 
 module.exports.getSpecs = () => {
   // By default, test all the specs
   let specs = [path.resolve(__dirname, '../../framework/**/test/spec/**/*.js')];
 
   // When a PR, only test the updated components
-  if (isTravis && process.env.TRAVIS_PULL_REQUEST !== 'false') {
+  if (isCI && process.env[`${ci}_PULL_REQUEST`] !== 'false') {
     log.level = 'silent';
     const cwd = process.cwd();
 
