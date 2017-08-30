@@ -9,7 +9,7 @@ describe('gallery base', () => {
 
       // Reload
       browser.url('ecl-gallery-base.html');
-      browser.pause(1000);
+      browser.pause(500);
       browser.injectAxeCore();
     });
 
@@ -36,7 +36,7 @@ describe('gallery base', () => {
 
       // Reload
       browser.url('ecl-gallery-base.html');
-      browser.pause(1000);
+      browser.pause(500);
       browser.injectAxeCore();
     });
 
@@ -63,7 +63,7 @@ describe('gallery base', () => {
 
       // Reload
       browser.url('ecl-gallery-base.html');
-      browser.pause(1000);
+      browser.pause(500);
       browser.injectAxeCore();
     });
 

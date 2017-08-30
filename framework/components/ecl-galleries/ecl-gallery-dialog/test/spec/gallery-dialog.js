@@ -6,7 +6,7 @@ describe('gallery dialog', () => {
         height: 480,
       });
       browser.url('ecl-gallery-dialog.html');
-      browser.pause(1000);
+      browser.pause(500);
       browser.injectAxeCore();
     });
 
@@ -30,7 +30,7 @@ describe('gallery dialog', () => {
         height: 768,
       });
       browser.url('ecl-gallery-dialog.html');
-      browser.pause(1000);
+      browser.pause(500);
       browser.injectAxeCore();
     });
 
@@ -54,7 +54,7 @@ describe('gallery dialog', () => {
         height: 800,
       });
       browser.url('ecl-gallery-dialog.html');
-      browser.pause(1000);
+      browser.pause(500);
       browser.injectAxeCore();
     });
 

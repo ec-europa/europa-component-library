@@ -6,12 +6,12 @@ describe('forms-select', () => {
       height: 400,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
 
     // Go to url
     browser.url(`ecl-forms-selects.html`);
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(500);
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });

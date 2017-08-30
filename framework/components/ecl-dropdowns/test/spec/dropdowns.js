@@ -6,20 +6,19 @@ describe('dropdowns', () => {
       height: 420,
     });
 
-    browser.pause(1000);
-
     // Go to url
     browser.url('ecl-dropdowns.html');
 
-    // Make sure the browser has finished painting
-    browser.pause(1000);
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
+
+    // Make sure the browser has finished painting
+    browser.pause(500);
   });
 
-  // Stop here if browser is Safari
-  // See: https://github.com/seleniumhq/selenium-google-code-issue-archive/issues/4136
-  if (browser.desiredCapabilities.browserName === 'safari') {
+  // Only continue with Chrome
+  // see https://github.com/webdriverio/webdriverio/issues/2212
+  if (browser.desiredCapabilities.browserName !== 'chrome') {
     return;
   }
 
@@ -27,8 +26,8 @@ describe('dropdowns', () => {
     before(() => {
       // Reload
       browser.url(`ecl-dropdowns.html`);
-      browser.pause(1000);
       browser.injectAxeCore();
+      browser.pause(500);
 
       // Click the input
       browser.moveToObject('#example-expandable-button');

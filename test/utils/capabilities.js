@@ -1,3 +1,6 @@
+// Available screen resolutions:
+// https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SpecifyingtheScreenResolution
+
 // Utils
 const isTravis = require('./travis').isTravis;
 
@@ -5,7 +8,7 @@ const browsers = {
   chrome: {
     browserName: 'chrome',
     platform: 'Windows 10',
-    version: '56.0',
+    version: '60.0',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
     screenResolution: '1920x1080',
@@ -20,19 +23,16 @@ const browsers = {
   },
   safari: {
     browserName: 'safari',
-    // Version 10.0 has issues with executeAsync
-    // See: https://github.com/webdriverio/webdriverio/issues/1708
-    version: '9.0',
-    platform: 'OS X 10.11',
+    version: '10.0',
+    platform: 'macOS 10.12',
+    seleniumVersion: '3.5.1',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',
     screenResolution: '1920x1440',
   },
   firefox: {
     browserName: 'firefox',
-    // Firefox 47 and above have issues with Action API
-    // See: https://github.com/SeleniumHQ/selenium/issues/2285
-    version: '46.0',
+    version: '54.0',
     platform: 'Windows 7',
     build: isTravis ? process.env.TRAVIS_BUILD_NUMBER : 'local-build',
     'tunnel-identifier': isTravis ? process.env.TRAVIS_JOB_NUMBER : '',

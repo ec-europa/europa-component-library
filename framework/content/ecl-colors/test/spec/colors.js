@@ -6,13 +6,13 @@ describe('colors', () => {
       height: 600,
     });
 
-    browser.pause(1000);
+    browser.pause(500);
 
     // Go to url
     browser.url('ecl-colors.html');
 
     // Make sure the browser has finished painting
-    browser.pause(1000);
+    browser.pause(500);
   });
 
   // Normal state
