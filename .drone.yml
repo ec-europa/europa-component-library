@@ -4,16 +4,16 @@ clone:
     commands:
       - git init
       - git remote add origin ${DRONE_REMOTE_URL}
-      - git fetch --no-tags origin master
+      - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
       - git checkout -qf master
-      # If not on master
-      - git fetch --no-tags origin ${DRONE_COMMIT_REF}
-      - if [ "${DRONE_BUILD_EVENT}" == "push" ]; then 
-          git reset --hard -q ${DRONE_COMMIT_SHA}; 
+      - git branch
+      - if [ "${DRONE_BUILD_EVENT}" == "pull_request" || "${DRONE_BUILD_EVENT}" == "tag" ]; then 
+          git checkout -qf FETCH_HEAD;
         else 
-          git checkout -qf FETCH_HEAD; 
+          git reset --hard -q ${DRONE_COMMIT_SHA};
         fi
       - git status
+      - git branch
 
 pipeline:
   build:
