@@ -1,6 +1,8 @@
 # On PRs, checkout master (for tests, push only)
 clone:
-  git:
+  init:
+    image: plugins/git
+  checkout-master:
     image: plugins/git
     commands:
       - echo "${DRONE_PULL_REQUEST}"
