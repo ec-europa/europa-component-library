@@ -1,18 +1,17 @@
 clone:
-  # Clone project (only fetches the commit's branch)
   git:
     image: plugins/git
-  # Get "master" branch (used by lerna)
-  get-master:
-    image: plugins/git
     commands:
+      - git init
+      - git remote add origin ${DRONE_REMOTE_URL}
       - git fetch --no-tags origin master
       - git checkout -qf master
-      - git checkout -
-    when:
-      event: [push]
-      branch:
-        exclude: [master]
+      # If not on master
+      - git fetch --no-tags origin ${DRONE_COMMIT_REF}
+      # If push
+      - git reset --hard -q DRONE_COMMIT_SHA
+      # Else 
+      # git checkout -qf FETCH_HEAD
 
 pipeline:
   build:
