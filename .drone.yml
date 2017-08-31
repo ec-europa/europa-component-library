@@ -13,6 +13,7 @@ clone:
         else 
           git checkout -qf FETCH_HEAD; 
         fi
+      - git status
 
 pipeline:
   build:
