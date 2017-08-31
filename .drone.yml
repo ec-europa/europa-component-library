@@ -7,7 +7,9 @@ clone:
       - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
       - git checkout -qf master
       - git branch
-      - if [ "${DRONE_BUILD_EVENT}" == "pull_request" || "${DRONE_BUILD_EVENT}" == "tag" ]; then 
+      - git fetch --no-tags origin ${DRONE_COMMIT_REF}
+      - git branch
+      - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ]; then 
           git checkout -qf FETCH_HEAD;
         else 
           git reset --hard -q ${DRONE_COMMIT_SHA};
