@@ -177,7 +177,6 @@ yarn dist
 
 Then, you can type:
 
-
 ```bash
 yarn gh-pages
 ```
