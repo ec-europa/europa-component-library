@@ -3,6 +3,10 @@ pipeline:
   checkout-master:
     image: plugins/git
     commands:
+      - echo "${DRONE_COMMIT}"
+      - echo "${DRONE_COMMIT_BRANCH}"
+      - echo "$DRONE_COMMIT"
+      - echo "$DRONE_COMMIT_BRANCH"
       - git fetch --no-tags origin master
       - git checkout -qf master
       - git checkout -
