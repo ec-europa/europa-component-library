@@ -1,21 +1,18 @@
-# On PRs, checkout master (for tests, push only)
 clone:
-  init:
+  # Clone project (only fetches the commit's branch)
+  git:
     image: plugins/git
-  checkout-master:
+  # Get "master" branch (used by lerna)
+  get-master:
     image: plugins/git
     commands:
-      - echo "${DRONE_PULL_REQUEST}"
-      - echo "${DRONE_COMMIT_BRANCH}"
-      - echo "$DRONE_PULL_REQUEST"
-      - echo "$DRONE_COMMIT_BRANCH"
       - git fetch --no-tags origin master
       - git checkout -qf master
       - git checkout -
     when:
+      event: [push]
       branch:
         exclude: [master]
-      event: [push]
 
 pipeline:
   build:
