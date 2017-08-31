@@ -9,7 +9,8 @@ clone:
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then 
           git checkout -qf FETCH_HEAD;
         else 
-          git reset --hard -q ${DRONE_COMMIT_SHA};
+          # git reset --hard -q ${DRONE_COMMIT_SHA};
+          git checkout -qf ${DRONE_COMMIT_BRANCH};
         fi
 
 pipeline:
