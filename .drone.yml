@@ -29,8 +29,8 @@ pipeline:
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
       - if yarn lerna updated -- --since master ; then
-          yarn dist
-          yarn test:functional
+          yarn dist;
+          yarn test:functional;
         fi
     when:
       event: [push, tag, deployment]
