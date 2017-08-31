@@ -8,7 +8,11 @@ clone:
       - git checkout -qf master
       # If not on master
       - git fetch --no-tags origin ${DRONE_COMMIT_REF}
-      - if ["${DRONE_BUILD_EVENT}" == "push"]; then git reset --hard -q ${DRONE_COMMIT_SHA}; else git checkout -qf FETCH_HEAD; fi
+      - if [ "${DRONE_BUILD_EVENT}" == "push" ]; then 
+          git reset --hard -q ${DRONE_COMMIT_SHA}; 
+        else 
+          git checkout -qf FETCH_HEAD; 
+        fi
 
 pipeline:
   build:
