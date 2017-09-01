@@ -5,11 +5,13 @@
 const isTravis = require('./travis').isTravis;
 const isDrone = require('./drone').isDrone;
 
-const usingSauceConnect = !isDrone;
-const ci = isTravis ? 'TRAVIS' : 'DRONE';
-const build = usingSauceConnect
-  ? process.env[`${ci}_BUILD_NUMBER`]
-  : 'local-build';
+let build = 'local-build';
+
+if (isTravis) {
+  build = process.env.TRAVIS_BUILD_NUMBER;
+} else if (isDrone) {
+  build = process.env.DRONE_BUILD_NUMBER;
+}
 
 const browsers = {
   chrome: {

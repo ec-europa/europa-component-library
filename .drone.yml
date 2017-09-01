@@ -12,17 +12,33 @@ clone:
           git checkout -qf ${DRONE_COMMIT_BRANCH};
         fi
 
+matrix:
+  TEST:
+    - coding-conventions
+    - functional
+
 pipeline:
-  build:
+  install:
     image: node:latest
     commands:
       - yarn install --frozen-lockfile
-      - yarn dist
 
   coding-conventions:
     image: node:latest
     commands:
       - yarn test:coding-conventions
+    when:
+      matrix:
+        TEST: coding-conventions
+
+  build:
+    image: node:latest
+    commands:
+      - yarn dist
+    when:
+      event: [push]
+      matrix:
+        TEST: functional
 
   s3:
     image: plugins/s3
@@ -32,6 +48,8 @@ pipeline:
     target: /build/${DRONE_BUILD_NUMBER}
     when:
       event: [push]
+      matrix:
+        TEST: functional
 
   functional:
     image: node:latest
@@ -42,3 +60,5 @@ pipeline:
         fi
     when:
       event: [push]
+      matrix:
+        TEST: functional

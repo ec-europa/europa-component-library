@@ -6,12 +6,12 @@ const UpdatedPackagesCollector = require('lerna/lib/UpdatedPackagesCollector');
 const Repository = require('lerna/lib/Repository');
 const PackageUtilities = require('lerna/lib/PackageUtilities');
 
-// handle log.success() used by lerna
-log.addLevel('success', 3001, { fg: 'green', bold: true });
-
 // Utils
 const isTravis = require('./travis').isTravis;
 const isDrone = require('./drone').isDrone;
+
+// handle log.success() used by lerna
+log.addLevel('success', 3001, { fg: 'green', bold: true });
 
 const isCI = isTravis || isDrone;
 const ci = isTravis ? 'TRAVIS' : 'DRONE';

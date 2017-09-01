@@ -1,7 +1,7 @@
 /* global browser */
 const path = require('path');
 const chai = require('chai');
-const VisualRegressionCompare = require('wdio-visual-regression-service/compare'); // eslint-disable-line import/no-extraneous-dependencies
+const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
 const {
   injectAxeCore,
   runAxeCore,
@@ -21,33 +21,23 @@ const getCapabilities = require('./utils/capabilities').getCapabilities;
 const isTravis = require('./utils/travis').isTravis;
 const isDrone = require('./utils/drone').isDrone;
 
-const isCI = isTravis || isDrone;
-const ci = isTravis ? 'TRAVIS' : 'DRONE';
-const tunnelIdentifier = isCI ? process.env[`${ci}_JOB_NUMBER`] : '';
+const tunnelIdentifier =
+  isTravis || isDrone
+    ? process.env[`${isTravis ? 'TRAVIS' : 'DRONE'}_JOB_NUMBER`]
+    : '';
 
 // Either run selenium locally or use SauceLabs, Browserstack, etc.
-const localSelenium = false;
+const localSelenium = false; // change this value manually when you want to test lcoally
+const localServer = !isDrone; // with drone, builds are pushed onto AWS S3
 
 // Other properties
-const aws = isDrone;
-const sauceConnect = !aws && !isTravis;
-const baseUrl = aws
-  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env
-      .DRONE_BUILD_NUMBER}/components/preview/`
-  : 'http://localhost:3000/components/preview/';
+const useSauceConnect = localServer && !isTravis; // travis uses its own Sauce Connect launcher
+const baseUrl = localServer
+  ? 'http://localhost:3000/components/preview/'
+  : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env
+      .DRONE_BUILD_NUMBER}/components/preview/`;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
-
-// Test
-console.log('services', [
-  ...(aws ? [] : ['static-server']),
-  ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
-  'visual-regression',
-]);
-console.log('sauceConnect', sauceConnect);
-console.log('username', process.env.SAUCE_USERNAME);
-
-if (isTravis) process.exit(0);
 
 exports.config = {
   // ==================
@@ -121,7 +111,7 @@ exports.config = {
   // SauceLabs config
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
-  sauceConnect,
+  sauceConnect: useSauceConnect,
   sauceConnectOpts: {
     tunnelIdentifier,
   },
@@ -133,7 +123,7 @@ exports.config = {
 
   // Test runner services
   services: [
-    ...(aws ? [] : ['static-server']),
+    ...(localServer ? ['static-server'] : []),
     ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
     'visual-regression',
   ],
