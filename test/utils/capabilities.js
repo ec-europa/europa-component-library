@@ -5,13 +5,11 @@
 const isTravis = require('./travis').isTravis;
 const isDrone = require('./drone').isDrone;
 
-const isCI = isTravis || isDrone;
 const usingSauceConnect = !isDrone;
 const ci = isTravis ? 'TRAVIS' : 'DRONE';
 const build = usingSauceConnect
   ? process.env[`${ci}_BUILD_NUMBER`]
   : 'local-build';
-const tunnelIdentifier = isCI ? process.env[`${ci}_JOB_NUMBER`] : '';
 
 const browsers = {
   chrome: {
@@ -19,7 +17,6 @@ const browsers = {
     platform: 'Windows 10',
     version: '60.0',
     build,
-    'tunnel-identifier': tunnelIdentifier,
     screenResolution: '1920x1080',
   },
   ie: {
@@ -27,7 +24,6 @@ const browsers = {
     version: '11.0',
     platform: 'Windows 7',
     build,
-    'tunnel-identifier': tunnelIdentifier,
     screenResolution: '1920x1080',
   },
   safari: {
@@ -36,7 +32,6 @@ const browsers = {
     platform: 'macOS 10.12',
     seleniumVersion: '3.5.1',
     build,
-    'tunnel-identifier': tunnelIdentifier,
     screenResolution: '1920x1440',
   },
   firefox: {
@@ -44,7 +39,6 @@ const browsers = {
     version: '54.0',
     platform: 'Windows 7',
     build,
-    'tunnel-identifier': tunnelIdentifier,
     screenResolution: '1920x1080',
   },
 };

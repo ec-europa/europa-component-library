@@ -21,6 +21,10 @@ const getCapabilities = require('./utils/capabilities').getCapabilities;
 const isTravis = require('./utils/travis').isTravis;
 const isDrone = require('./utils/drone').isDrone;
 
+const isCI = isTravis || isDrone;
+const ci = isTravis ? 'TRAVIS' : 'DRONE';
+const tunnelIdentifier = isCI ? process.env[`${ci}_JOB_NUMBER`] : '';
+
 // Either run selenium locally or use SauceLabs, Browserstack, etc.
 const localSelenium = false;
 
@@ -40,7 +44,7 @@ console.log('services', [
   ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
   'visual-regression',
 ]);
-
+console.log('sauceConnect', sauceConnect);
 console.log('username', process.env.SAUCE_USERNAME);
 
 if (isTravis) process.exit(0);
@@ -118,6 +122,9 @@ exports.config = {
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
   sauceConnect,
+  sauceConnectOpts: {
+    tunnelIdentifier,
+  },
 
   // Initialize the browser instance with a WebdriverIO plugin
   plugins: {
