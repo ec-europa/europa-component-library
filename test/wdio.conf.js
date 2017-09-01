@@ -28,8 +28,8 @@ const localSelenium = false;
 const aws = isDrone;
 const sauceConnect = !aws && !isTravis;
 const baseUrl = aws
-  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/${process.env
-      .DRONE_REPO_NAME}/${process.env.DRONE_BUILD_NUMBER}/components/preview/`
+  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env
+      .DRONE_BUILD_NUMBER}/components/preview/`
   : 'http://localhost:3000/components/preview/';
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
