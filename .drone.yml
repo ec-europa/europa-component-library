@@ -26,8 +26,6 @@ pipeline:
 
   s3:
     image: plugins/s3
-    access_key: ${AWS_ACCESS_KEY}
-    secret_key: ${AWS_SECRET_KEY}
     bucket: inno-ecl
     region: eu-west-1
     acl: public-read
