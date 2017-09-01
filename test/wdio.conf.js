@@ -19,11 +19,18 @@ const getScreenshotName = require('./utils/screenshots').getScreenshotName;
 const getSpecs = require('./utils/specs').getSpecs;
 const getCapabilities = require('./utils/capabilities').getCapabilities;
 const isTravis = require('./utils/travis').isTravis;
+const isDrone = require('./utils/drone').isDrone;
 
 // Either run selenium locally or use SauceLabs, Browserstack, etc.
 const localSelenium = false;
 
-const sauceConnect = true; // !isTravis
+// Other properties
+const aws = isDrone;
+const sauceConnect = !aws && !isTravis;
+const baseUrl = aws
+  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/${process.env
+      .DRONE_REPO_NAME}/${process.env.DRONE_BUILD_NUMBER}/components/preview/`
+  : 'http://localhost:3000/components/preview/';
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -84,7 +91,7 @@ exports.config = {
 
   // Set a base URL in order to shorten url command calls. If your url parameter starts
   // with "/", then the base url gets prepended.
-  baseUrl: 'http://localhost:3000/components/preview/',
+  baseUrl,
 
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,

@@ -17,21 +17,31 @@ pipeline:
     image: node:latest
     commands:
       - yarn install --frozen-lockfile
+      - yarn dist
 
   coding-conventions:
-    group: test
     image: node:latest
     commands:
       - yarn test:coding-conventions
 
+  s3:
+    image: plugins/s3
+    access_key: ${AWS_ACCESS_KEY}
+    secret_key: ${AWS_SECRET_KEY}
+    bucket: inno-ecl
+    region: eu-west-1
+    acl: public-read
+    source: dist/**/*
+    target: /${DRONE_REPO_NAME}/${DRONE_BUILD_NUMBER}
+    when:
+      event: [push]
+
   functional:
-    group: test
-    image: yhuard/node-java
+    image: node:latest
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
       - if yarn lerna updated -- --since master ; then
-          yarn dist;
           yarn test:functional;
         fi
     when:
-      event: [push, tag, deployment]
+      event: [push]
