@@ -20,6 +20,11 @@ const getSpecs = require('./utils/specs').getSpecs;
 const getCapabilities = require('./utils/capabilities').getCapabilities;
 const isTravis = require('./utils/travis').isTravis;
 
+// Either run selenium locally or use SauceLabs, Browserstack, etc.
+const localSelenium = false;
+
+const sauceConnect = true; // !isTravis
+
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 exports.config = {
@@ -94,7 +99,15 @@ exports.config = {
   // SauceLabs config
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
-  sauceConnect: !isTravis,
+  sauceConnect,
+  sauceConnectOpts: {
+    // Log output from the `sc` process to stdout?
+    verbose: true,
+
+    // Enable verbose debugging (optional)
+    verboseDebugging: true,
+    doctor: true,
+  },
 
   // Initialize the browser instance with a WebdriverIO plugin
   plugins: {
@@ -104,8 +117,7 @@ exports.config = {
   // Test runner services
   services: [
     'static-server',
-    'selenium-standalone',
-    'sauce',
+    ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
     'visual-regression',
   ],
 
@@ -158,14 +170,6 @@ exports.config = {
   // =====
   // Hooks
   // =====
-  // WebdriverIO provides several hooks you can use to interfere with the test process in order to
-  // enhance it and to build services around it. You can either apply a single function or an
-  // array of methods to it. If one of them returns with a promise, WebdriverIO will wait until
-  // that promise got resolved to continue.
-
-  // Gets executed once before all workers get launched.
-  // onPrepare: function (config, capabilities) {
-  // },
 
   // Gets executed before test execution begins. At this point you can access all global
   // constiables, such as `browser`. It is the perfect place to define custom commands.
@@ -185,48 +189,4 @@ exports.config = {
     );
     browser.addCommand('runHTMLInspector', runHTMLInspector.bind(browser));
   },
-
-  // Hook that gets executed before the suite starts
-  // beforeSuite: function (suite) {
-  // },
-
-  // Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
-  // beforeEach in Mocha)
-  // beforeHook: function () {
-  // },
-
-  // Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
-  // afterEach in Mocha)
-  // afterHook: function () {
-  // },
-
-  // Function to be executed before a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
-  // beforeTest: function (test) {
-  // },
-
-  // Runs before a WebdriverIO command gets executed.
-  // beforeCommand: function (commandName, args) {
-  // },
-
-  // Runs after a WebdriverIO command gets executed
-  // afterCommand: function (commandName, args, result, error) {
-  // },
-
-  // Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
-  // afterTest: function (test) {
-  // },
-
-  // Hook that gets executed after the suite has ended
-  // afterSuite: function (suite) {
-  // },
-
-  // Gets executed after all tests are done. You still have access to all global constiables from
-  // the test.
-  // after: function (capabilities, specs) {
-  // },
-
-  // Gets executed after all workers got shut down and the process is about to exit. It is not
-  // possible to defer the end of the process using a promise.
-  // onComplete: function(exitCode) {
-  // }
 };
