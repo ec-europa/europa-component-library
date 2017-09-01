@@ -34,6 +34,7 @@ const baseUrl = aws
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
+// Test
 console.log('services', [
   ...(aws ? [] : ['static-server']),
   ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
