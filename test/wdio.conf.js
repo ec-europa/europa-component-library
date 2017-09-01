@@ -42,7 +42,7 @@ console.log('services', [
 
 console.log('username', process.env.SAUCE_USERNAME);
 
-isTravis && process.exit(0);
+if (isTravis) process.exit(0);
 
 exports.config = {
   // ==================
