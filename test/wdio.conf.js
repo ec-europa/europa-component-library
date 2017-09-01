@@ -34,6 +34,16 @@ const baseUrl = aws
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
+console.log('services', [
+  ...(aws ? [] : ['static-server']),
+  ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
+  'visual-regression',
+]);
+
+console.log('username', process.env.SAUCE_USERNAME);
+
+isTravis && process.exit(0);
+
 exports.config = {
   // ==================
   // Specify Test Files
@@ -107,14 +117,6 @@ exports.config = {
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
   sauceConnect,
-  sauceConnectOpts: {
-    // Log output from the `sc` process to stdout?
-    verbose: true,
-
-    // Enable verbose debugging (optional)
-    verboseDebugging: true,
-    doctor: true,
-  },
 
   // Initialize the browser instance with a WebdriverIO plugin
   plugins: {
@@ -123,7 +125,7 @@ exports.config = {
 
   // Test runner services
   services: [
-    'static-server',
+    ...(aws ? [] : ['static-server']),
     ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
     'visual-regression',
   ],
