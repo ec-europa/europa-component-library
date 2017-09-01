@@ -6,8 +6,11 @@ const isTravis = require('./travis').isTravis;
 const isDrone = require('./drone').isDrone;
 
 const isCI = isTravis || isDrone;
+const usingSauceConnect = !isDrone;
 const ci = isTravis ? 'TRAVIS' : 'DRONE';
-const build = isCI ? process.env[`${ci}_BUILD_NUMBER`] : 'local-build';
+const build = usingSauceConnect
+  ? process.env[`${ci}_BUILD_NUMBER`]
+  : 'local-build';
 const tunnelIdentifier = isCI ? process.env[`${ci}_JOB_NUMBER`] : '';
 
 const browsers = {
