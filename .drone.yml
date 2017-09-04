@@ -41,11 +41,13 @@ pipeline:
         TEST: functional
 
   s3:
-    image: plugins/s3
-    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_REGION, S3_BUCKET ]
-    source: dist/**/*
-    strip_prefix: dist/
-    target: /build/${DRONE_BUILD_NUMBER}
+    image: garland/aws-cli-docker
+    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION, S3_REGION, S3_BUCKET ]
+    # source: dist/**/*
+    # strip_prefix: dist/
+    # target: /build/${DRONE_BUILD_NUMBER}
+    commands:
+      - aws s3 ls
     when:
       event: [push]
       matrix:
