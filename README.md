@@ -180,3 +180,43 @@ Then, you can type:
 ```bash
 yarn gh-pages
 ```
+
+## Docker
+
+Build the image:
+
+```sh
+docker build -t ecl .
+```
+
+Create the container (daemon):
+
+```sh
+docker run -d -t -p 3000:3000 --name ecl_container ecl
+```
+
+Or, if you've already created it, start it:
+
+```sh
+docker start ecl_container
+```
+
+Start the bash or run a command:
+
+```sh
+docker exec -i ecl_container /bin/sh
+# Or
+docker exec -i ecl_container yarn start
+```
+
+Kill the container:
+
+```sh
+docker kill ecl_container
+```
+
+Remove the container:
+
+```sh
+docker rm ecl_container
+```
