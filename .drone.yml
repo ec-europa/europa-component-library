@@ -47,7 +47,7 @@ pipeline:
     # strip_prefix: dist/
     # target: /build/${DRONE_BUILD_NUMBER}
     commands:
-      - aws s3 ls
+      - aws s3 sync ./dist s3://${S3_BUCKET}/build/${DRONE_BUILD_NUMBER}
     when:
       event: [push]
       matrix:
