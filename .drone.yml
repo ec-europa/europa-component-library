@@ -41,10 +41,14 @@ pipeline:
         TEST: functional
 
   s3:
-    image: plugins/s3
+    image: plugins/s3-sync:1
     secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_REGION, S3_BUCKET ]
-    source: dist/**/*
-    strip_prefix: dist/
+    access_key: ${AWS_ACCESS_KEY_ID}
+    secret_key: ${AWS_SECRET_ACCESS_KEY}
+    bucket: inno-ecl
+    region: eu-west-1
+    source: dist
+    # strip_prefix: dist/
     target: /build/${DRONE_BUILD_NUMBER}
     when:
       event: [push]
