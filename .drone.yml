@@ -1,0 +1,64 @@
+clone:
+  git:
+    image: plugins/git
+    commands:
+      - git init
+      - git remote add origin ${DRONE_REMOTE_URL}
+      - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
+      - git checkout -qf master;
+      - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
+          git checkout -qf FETCH_HEAD;
+        else
+          git checkout -qf ${DRONE_COMMIT_BRANCH};
+        fi
+
+matrix:
+  TEST:
+    - coding-conventions
+    - functional
+
+pipeline:
+  install:
+    image: node:latest
+    commands:
+      - yarn install --frozen-lockfile
+
+  coding-conventions:
+    image: node:latest
+    commands:
+      - yarn test:coding-conventions
+    when:
+      matrix:
+        TEST: coding-conventions
+
+  build:
+    image: node:latest
+    commands:
+      - yarn dist
+    when:
+      event: [push]
+      matrix:
+        TEST: functional
+
+  s3:
+    image: plugins/s3
+    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, S3_REGION, S3_BUCKET ]
+    source: dist/**/*
+    strip_prefix: dist/
+    target: /build/${DRONE_BUILD_NUMBER}
+    when:
+      event: [push]
+      matrix:
+        TEST: functional
+
+  functional:
+    image: node:latest
+    secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
+    commands:
+      - if yarn lerna updated -- --since master ; then
+          yarn test:functional;
+        fi
+    when:
+      event: [push]
+      matrix:
+        TEST: functional
