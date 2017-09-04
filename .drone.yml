@@ -43,11 +43,9 @@ pipeline:
   s3:
     image: garland/aws-cli-docker
     secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION, S3_REGION, S3_BUCKET ]
-    # source: dist/**/*
-    # strip_prefix: dist/
-    # target: /build/${DRONE_BUILD_NUMBER}
     commands:
-      - aws s3 sync ./dist s3://${S3_BUCKET}/build/${DRONE_BUILD_NUMBER}
+      - cd ./dist
+      - aws s3 cp --recursive --quiet . s3://${S3_BUCKET}/build/${DRONE_BUILD_NUMBER}/
     when:
       event: [push]
       matrix:
