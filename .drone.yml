@@ -42,10 +42,12 @@ pipeline:
 
   s3:
     image: garland/aws-cli-docker
-    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION, S3_REGION, S3_BUCKET ]
+    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION, S3_BUCKET ]
     commands:
       - cd ./dist
-      - aws s3 cp --recursive . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/
+      - echo "${S3_BUCKET}"
+      - aws configure set default.s3.max_concurrent_requests 20
+      - aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/
     when:
       event: [push]
       matrix:
