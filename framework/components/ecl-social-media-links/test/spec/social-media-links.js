@@ -2,7 +2,7 @@ describe('social-media-links', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
-      width: 800,
+      width: 1200,
       height: 800,
     });
 
