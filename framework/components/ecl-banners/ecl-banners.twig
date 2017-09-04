@@ -5,8 +5,10 @@
     - "title" (object):
       - "href" (string)
       - "label" (string)
-    - "description" (string or block): main content (if type == "video" or "background")
+    - "description" (string): main content (if type == "background" or "video")
+    - "background_description_block" (block): main content (if type == "background")
     - "video" (object): parameters passed to ecl-files (if type == "video")
+    - "video_description_block" (block): main content (if type == "video")
     - "quote" (object): parameters passed to ecl-blockquotes (if type == "quote")
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
@@ -37,7 +39,7 @@
     <div class="ecl-banner__image" style="background-image: url('{{ src }}')"></div>
     <div class="ecl-banner__body">
       <a class="ecl-banner__title" href="{{ title.href }}">{{ title.label }}</a>
-      <p class="ecl-paragraph ecl-banner__description">{% block description description %}</p>
+      <p class="ecl-paragraph ecl-banner__description">{% block background_description_block description %}</p>
     </div>
   {% elseif _type == 'quote' %}
     {% include '@ec-europa/ecl-blockquotes' with { 'extra_classes': 'ecl-blockquote--small ecl-banner__quote' }|merge(quote) %}
@@ -53,7 +55,7 @@
         }|merge(video|default({})) %}
       </div>
       <div class="ecl-col-md-6">
-        {% block description description %}
+        {% block video_description_block description %}
       </div>
     </div>
   {% endif %}
