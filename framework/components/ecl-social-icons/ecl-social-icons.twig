@@ -28,6 +28,10 @@
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-icon-social--' ~ link.variant %}
 {% endif %}
 
+{% if variant is defined and variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-icon-social--' ~ variant %}
+{% endif %}
+
 {% if extra_classes is defined %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
@@ -41,7 +45,12 @@
 {# Print result #}
 
 {% if link is defined %}
-<a href="{{ link.href }}" class="ecl-link {{ _css_class }}" {{ _extra_attributes }}>{{ link.label }}</a>
+{% include '@ec-europa/ecl-links' with {
+  href: link.href,
+  label: link.label,
+  extra_classes: _css_class,
+  extra_attributes: _extra_attributes,
+} %}
 {% else %}
 <span class="{{ _css_class }}" {{ _extra_attributes }}>{{ label }}</span>
 {% endif %}

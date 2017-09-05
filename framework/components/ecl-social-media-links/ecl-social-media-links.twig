@@ -36,11 +36,11 @@
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-social-media-link--' ~ variant %}
 {% endif %}
 
-{% if extra_classes is defined %}
+{% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
@@ -59,11 +59,7 @@
   {% for _link in links %}
     <li class="ecl-social-media-link__item">
       {% include '@ec-europa/ecl-social-icons' with {
-        link: {
-          href: _link.href,
-          variant: _link.variant,
-          label: _link.label,
-        },
+        link: _link,
         extra_attributes: [{ name: 'title', value: _link.title}],
         extra_classes: 'ecl-social-media-link__link',
       } %}
