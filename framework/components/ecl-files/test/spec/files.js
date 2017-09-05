@@ -36,6 +36,7 @@ describe('files', () => {
           const screenshots = browser.checkDocument({
             name: `files/${variant}`,
           });
+
           expect(screenshots).to.matchReference();
         });
 
