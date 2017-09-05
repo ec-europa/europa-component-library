@@ -50,7 +50,7 @@
 {% set _button_label = button_label|default('Download') %}
 {% set _translations_label = translations_label|default('Available languages: 0') %}
 {% set _translations_tooltip = translations_tooltip|default('Click to see translations') %}
-{% set _css_classes = 'ecl-file' %}
+{% set _css_class = 'ecl-file' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -60,7 +60,7 @@
 {% endif %}
 
 {% if extra_classes is defined %}
-  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
 {% if extra_attributes is defined %}
