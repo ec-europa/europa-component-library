@@ -1,4 +1,4 @@
-# EC Component Library [![Build Status](https://travis-ci.org/ec-europa/europa-component-library.svg?branch=master)](https://travis-ci.org/ec-europa/europa-component-library) [![Greenkeeper badge](https://badges.greenkeeper.io/ec-europa/europa-component-library.svg)](https://greenkeeper.io/)
+# EC Component Library [![Build Status](https://drone.ne-dev.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.ne-dev.eu/ec-europa/europa-component-library) [![Greenkeeper badge](https://badges.greenkeeper.io/ec-europa/europa-component-library.svg)](https://greenkeeper.io/)
 
 Component library based on [Fractal](http://fractal.build/).
 
