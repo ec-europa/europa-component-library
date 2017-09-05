@@ -7,452 +7,451 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start demo of: @${item.handle} -->\n
-
       <div>
         <h3>@${item.handle}</h3>
         <div class="ecl-container">
           <div class="ecl-row">
             <div class="ecl-col">
-              <a href="#" class="ecl-link ecl-icon-social ${item.context
-                .modifier}">${item.label}</a>
+              <a href="#" class="ecl-link ecl-icon-social ecl-icon-social--${item
+                .context.variant}">${item.label}</a>
             </div>
             <div class="ecl-col">
-              <span class="ecl-icon-social ${item.context
-                .modifier}">${item.label}</span>
+              <span class="ecl-icon-social ecl-icon-social--${item.context
+                .variant}">${item.label}</span>
             </div>
             <div class="ecl-col">
-              <span class="ecl-icon-social ecl-icon-social--smaller ${item
-                .context.modifier}">${item.label}</span>
+              <span class="ecl-icon-social ecl-icon-social--smaller ecl-icon-social--${item
+                .context.variant}">${item.label}</span>
             </div>
           </div>
       </div>
       <!-- End: @${item.handle} -->\n
     `;
   },
-  default: 'facebook',
+  default: 'arto',
   variants: [
     {
       name: 'arto',
       label: 'Arto',
       context: {
-        modifier: 'ecl-icon-social--arto',
-        text: 'Arto',
+        variant: 'arto',
+        label: 'Arto',
       },
     },
     {
       name: 'bebo',
       label: 'Bebo',
       context: {
-        modifier: 'ecl-icon-social--bebo',
-        text: 'Bebo',
+        variant: 'bebo',
+        label: 'Bebo',
       },
     },
     {
       name: 'bitly',
       label: 'Bitly',
       context: {
-        modifier: 'ecl-icon-social--bitly',
-        text: 'Bitly',
+        variant: 'bitly',
+        label: 'Bitly',
       },
     },
     {
       name: 'blinklist',
       label: 'Blinklist',
       context: {
-        modifier: 'ecl-icon-social--blinklist',
-        text: 'Blinklist',
+        variant: 'blinklist',
+        label: 'Blinklist',
       },
     },
     {
       name: 'blog',
       label: 'Blog',
       context: {
-        modifier: 'ecl-icon-social--blog',
-        text: 'Blog',
+        variant: 'blog',
+        label: 'Blog',
       },
     },
     {
       name: 'blogger',
       label: 'Blogger',
       context: {
-        modifier: 'ecl-icon-social--blogger',
-        text: 'Blogger',
+        variant: 'blogger',
+        label: 'Blogger',
       },
     },
     {
       name: 'delicious',
       label: 'Delicious',
       context: {
-        modifier: 'ecl-icon-social--delicious',
-        text: 'Delicious',
+        variant: 'delicious',
+        label: 'Delicious',
       },
     },
     {
       name: 'digg',
       label: 'Digg',
       context: {
-        modifier: 'ecl-icon-social--digg',
-        text: 'Digg',
+        variant: 'digg',
+        label: 'Digg',
       },
     },
     {
       name: 'diigo',
       label: 'Diigo',
       context: {
-        modifier: 'ecl-icon-social--diigo',
-        text: 'Diigo',
+        variant: 'diigo',
+        label: 'Diigo',
       },
     },
     {
       name: 'dzone',
       label: 'Dzone',
       context: {
-        modifier: 'ecl-icon-social--dzone',
-        text: 'Dzone',
+        variant: 'dzone',
+        label: 'Dzone',
       },
     },
     {
       name: 'email',
       label: 'Email',
       context: {
-        modifier: 'ecl-icon-social--email',
-        text: 'Email',
+        variant: 'email',
+        label: 'Email',
       },
     },
     {
       name: 'facebook',
       label: 'Facebook',
       context: {
-        modifier: 'ecl-icon-social--facebook',
-        text: 'Facebook',
+        variant: 'facebook',
+        label: 'Facebook',
       },
     },
     {
       name: 'flickr',
       label: 'Flickr',
       context: {
-        modifier: 'ecl-icon-social--flickr',
-        text: 'Flickr',
+        variant: 'flickr',
+        label: 'Flickr',
       },
     },
     {
       name: 'foursquare',
       label: 'Foursquare',
       context: {
-        modifier: 'ecl-icon-social--foursquare',
-        text: 'Foursquare',
+        variant: 'foursquare',
+        label: 'Foursquare',
       },
     },
     {
       name: 'generic',
       label: 'Generic',
       context: {
-        modifier: 'ecl-icon-social--generic',
-        text: 'Generic',
+        variant: 'generic',
+        label: 'Generic',
       },
     },
     {
       name: 'google',
       label: 'Google',
       context: {
-        modifier: 'ecl-icon-social--google',
-        text: 'Google',
+        variant: 'google',
+        label: 'Google',
       },
     },
     {
       name: 'gplus',
       label: 'Gplus',
       context: {
-        modifier: 'ecl-icon-social--gplus',
-        text: 'Gplus',
+        variant: 'gplus',
+        label: 'Gplus',
       },
     },
     {
       name: 'instagram',
       label: 'Instagram',
       context: {
-        modifier: 'ecl-icon-social--instagram',
-        text: 'Instagram',
+        variant: 'instagram',
+        label: 'Instagram',
       },
     },
     {
       name: 'linkarena',
       label: 'Linkarena',
       context: {
-        modifier: 'ecl-icon-social--linkarena',
-        text: 'Linkarena',
+        variant: 'linkarena',
+        label: 'Linkarena',
       },
     },
     {
       name: 'linkedin',
       label: 'Linkedin',
       context: {
-        modifier: 'ecl-icon-social--linkedin',
-        text: 'Linkedin',
+        variant: 'linkedin',
+        label: 'Linkedin',
       },
     },
     {
       name: 'live',
       label: 'Live',
       context: {
-        modifier: 'ecl-icon-social--live',
-        text: 'Live',
+        variant: 'live',
+        label: 'Live',
       },
     },
     {
       name: 'meneame',
       label: 'Meneame',
       context: {
-        modifier: 'ecl-icon-social--meneame',
-        text: 'Meneame',
+        variant: 'meneame',
+        label: 'Meneame',
       },
     },
     {
       name: 'misterwong',
       label: 'Misterwong',
       context: {
-        modifier: 'ecl-icon-social--misterwong',
-        text: 'Misterwong',
+        variant: 'misterwong',
+        label: 'Misterwong',
       },
     },
     {
       name: 'myspace',
       label: 'Myspace',
       context: {
-        modifier: 'ecl-icon-social--myspace',
-        text: 'Myspace',
+        variant: 'myspace',
+        label: 'Myspace',
       },
     },
     {
       name: 'netlog',
       label: 'Netlog',
       context: {
-        modifier: 'ecl-icon-social--netlog',
-        text: 'Netlog',
+        variant: 'netlog',
+        label: 'Netlog',
       },
     },
     {
       name: 'netvibes',
       label: 'Netvibes',
       context: {
-        modifier: 'ecl-icon-social--netvibes',
-        text: 'Netvibes',
+        variant: 'netvibes',
+        label: 'Netvibes',
       },
     },
     {
       name: 'newsvine',
       label: 'Newsvine',
       context: {
-        modifier: 'ecl-icon-social--newsvine',
-        text: 'Newsvine',
+        variant: 'newsvine',
+        label: 'Newsvine',
       },
     },
     {
       name: 'nujij',
       label: 'Nujij',
       context: {
-        modifier: 'ecl-icon-social--nujij',
-        text: 'Nujij',
+        variant: 'nujij',
+        label: 'Nujij',
       },
     },
     {
       name: 'pinterest',
       label: 'Pinterest',
       context: {
-        modifier: 'ecl-icon-social--pinterest',
-        text: 'Pinterest',
+        variant: 'pinterest',
+        label: 'Pinterest',
       },
     },
     {
       name: 'pocket',
       label: 'Pocket',
       context: {
-        modifier: 'ecl-icon-social--pocket',
-        text: 'Pocket',
+        variant: 'pocket',
+        label: 'Pocket',
       },
     },
     {
       name: 'reddit',
       label: 'Reddit',
       context: {
-        modifier: 'ecl-icon-social--reddit',
-        text: 'Reddit',
+        variant: 'reddit',
+        label: 'Reddit',
       },
     },
     {
       name: 'rss',
       label: 'RSS',
       context: {
-        modifier: 'ecl-icon-social--rss',
-        text: 'RSS',
+        variant: 'rss',
+        label: 'RSS',
       },
     },
     {
       name: 'share',
       label: 'Share',
       context: {
-        modifier: 'ecl-icon-social--share',
-        text: 'Share',
+        variant: 'share',
+        label: 'Share',
       },
     },
     {
       name: 'skype',
       label: 'Skype',
       context: {
-        modifier: 'ecl-icon-social--skype',
-        text: 'Skype',
+        variant: 'skype',
+        label: 'Skype',
       },
     },
     {
       name: 'slashdot',
       label: 'Slashdot',
       context: {
-        modifier: 'ecl-icon-social--slashdot',
-        text: 'Slashdot',
+        variant: 'slashdot',
+        label: 'Slashdot',
       },
     },
     {
       name: 'sonico',
       label: 'Sonico',
       context: {
-        modifier: 'ecl-icon-social--sonico',
-        text: 'Sonico',
+        variant: 'sonico',
+        label: 'Sonico',
       },
     },
     {
       name: 'spotify',
       label: 'Spotify',
       context: {
-        modifier: 'ecl-icon-social--spotify',
-        text: 'Spotify',
+        variant: 'spotify',
+        label: 'Spotify',
       },
     },
     {
       name: 'storify',
       label: 'Storify',
       context: {
-        modifier: 'ecl-icon-social--storify',
-        text: 'Storify',
+        variant: 'storify',
+        label: 'Storify',
       },
     },
     {
       name: 'studivz',
       label: 'Studivz',
       context: {
-        modifier: 'ecl-icon-social--studivz',
-        text: 'Studivz',
+        variant: 'studivz',
+        label: 'Studivz',
       },
     },
     {
       name: 'stumbleupon',
       label: 'Stumbleupon',
       context: {
-        modifier: 'ecl-icon-social--stumbleupon',
-        text: 'Stumbleupon',
+        variant: 'stumbleupon',
+        label: 'Stumbleupon',
       },
     },
     {
       name: 'technorati',
       label: 'Technorati',
       context: {
-        modifier: 'ecl-icon-social--technorati',
-        text: 'Technorati',
+        variant: 'technorati',
+        label: 'Technorati',
       },
     },
     {
       name: 'tuenti',
       label: 'Tuenti',
       context: {
-        modifier: 'ecl-icon-social--tuenti',
-        text: 'Tuenti',
+        variant: 'tuenti',
+        label: 'Tuenti',
       },
     },
     {
       name: 'tumblr',
       label: 'Tumblr',
       context: {
-        modifier: 'ecl-icon-social--tumblr',
-        text: 'Tumblr',
+        variant: 'tumblr',
+        label: 'Tumblr',
       },
     },
     {
       name: 'tumblr',
       label: 'Tumblr',
       context: {
-        modifier: 'ecl-icon-social--tumblr',
-        text: 'Tumblr',
+        variant: 'tumblr',
+        label: 'Tumblr',
       },
     },
     {
       name: 'twitter',
       label: 'Twitter',
       context: {
-        modifier: 'ecl-icon-social--twitter',
-        text: 'Twitter',
+        variant: 'twitter',
+        label: 'Twitter',
       },
     },
     {
       name: 'viadeo',
       label: 'Viadeo',
       context: {
-        modifier: 'ecl-icon-social--viadeo',
-        text: 'Viadeo',
+        variant: 'viadeo',
+        label: 'Viadeo',
       },
     },
     {
       name: 'vine',
       label: 'Vine',
       context: {
-        modifier: 'ecl-icon-social--vine',
-        text: 'Vine',
+        variant: 'vine',
+        label: 'Vine',
       },
     },
     {
       name: 'wordpress',
       label: 'Wordpress',
       context: {
-        modifier: 'ecl-icon-social--wordpress',
-        text: 'Wordpress',
+        variant: 'wordpress',
+        label: 'Wordpress',
       },
     },
     {
       name: 'wykop',
       label: 'Wykop',
       context: {
-        modifier: 'ecl-icon-social--wykop',
-        text: 'Wykop',
+        variant: 'wykop',
+        label: 'Wykop',
       },
     },
     {
       name: 'xerpi',
       label: 'Xerpi',
       context: {
-        modifier: 'ecl-icon-social--xerpi',
-        text: 'Xerpi',
+        variant: 'xerpi',
+        label: 'Xerpi',
       },
     },
     {
       name: 'yammer',
       label: 'Yammer',
       context: {
-        modifier: 'ecl-icon-social--yammer',
-        text: 'Yammer',
+        variant: 'yammer',
+        label: 'Yammer',
       },
     },
     {
       name: 'youtube',
       label: 'Youtube',
       context: {
-        modifier: 'ecl-icon-social--youtube',
-        text: 'Youtube',
+        variant: 'youtube',
+        label: 'Youtube',
       },
     },
     {
       name: 'print',
       label: 'Print',
       context: {
-        modifier: 'ecl-icon-social--print',
-        text: 'Print',
+        variant: 'print',
+        label: 'Print',
       },
     },
   ],
