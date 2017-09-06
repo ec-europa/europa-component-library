@@ -15,11 +15,11 @@ const isAccessible = require('@ec-europa/ecl-qa/wdio/assertions/isAccessible');
 const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatted');
 
 // Utils
-const getScreenshotName = require('./utils/screenshots').getScreenshotName;
-const getSpecs = require('./utils/specs').getSpecs;
-const getCapabilities = require('./utils/capabilities').getCapabilities;
-const isTravis = require('./utils/travis').isTravis;
-const isDrone = require('./utils/drone').isDrone;
+const { getScreenshotName } = require('./utils/screenshots');
+const { getSpecs } = require('./utils/specs');
+const { getCapabilities } = require('./utils/capabilities');
+const { isTravis } = require('./utils/travis');
+const { isDrone } = require('./utils/drone');
 
 const tunnelIdentifier =
   isTravis || isDrone
