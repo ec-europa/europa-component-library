@@ -1,25 +1,56 @@
 {#
- How to use this component:
+  How to use this component:
 
   1) Variables building a link:
-  - link: (structure) Obligatory data for the link itself.
-  {
-    target: (string) Obligatory link target.
-    modifier: (string) Obligatory modifier.
-    extraClasses: (string) Optional classes on top of defaults.
-    title: (string) Obligatory link title.
-  }
+    - "link" (object): {
+      - "href" (string): target of the social link (default: empty).
+      - "variant" (string): variant of the social link. Correspond to the social network (default: empty)
+      - "label" (string): label of the social link (default: empty)
+    }
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 
   2) Variables building a span - this is a default output if the preceding fail.
-  - modifier: (string) Obligatory modifier.
-  - text: (text) The textual value.
+    - "variant" (string): variant of the social link. Correspond to the social network (default: empty)
+    - "label" (string): label of the social link (default: empty)
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
+{# Internal properties #}
+
+{% set _css_class = 'ecl-icon-social' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if link is defined and link.variant is defined and link.variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-icon-social--' ~ link.variant %}
+{% endif %}
+
+{% if variant is defined and variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-icon-social--' ~ variant %}
+{% endif %}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
 {% if link is defined %}
-<a
-  href="{{ link.target }}"
-  class="ecl-link ecl-icon-social {{ link.modifier }} {{ link.extraClasses }}" {{ link.extraAttributes }}
-  >{{ link.title }}</a>
+{% include '@ec-europa/ecl-links' with {
+  href: link.href,
+  label: link.label,
+  extra_classes: _css_class,
+  extra_attributes: _extra_attributes,
+} %}
 {% else %}
-<span class='ecl-icon-social {{ modifier }}'>{{ text }}</span>
+<span class="{{ _css_class }}" {{ _extra_attributes }}>{{ label }}</span>
 {% endif %}

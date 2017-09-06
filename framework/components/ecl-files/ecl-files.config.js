@@ -13,7 +13,7 @@ module.exports = {
         title: 'File title example',
         language: 'English',
         meta: '213.25 kB - PDF - 4 pages',
-        buttonLabel: 'Download',
+        button_label: 'Download',
         icon: 'file',
       },
     },
@@ -21,19 +21,19 @@ module.exports = {
       name: 'translations',
       label: 'File download with translations',
       context: {
-        variant: 'translations',
+        variant: 'translation',
         title: 'File title example',
         language: 'English',
         meta: '213.25 kB - PDF - 4 pages',
-        buttonLabel: 'Download',
+        button_label: 'Download',
         icon: 'file',
         translations: [
           { title: 'Titre du fichier', meta: '228.84 kB - PDF - 4 pages' },
           { title: 'Dateititel', meta: '232.12 kB - PDF - 4 pages' },
           { title: 'Файл Заглавие', meta: '257.54 kB - PDF - 4 pages' },
         ],
-        translationsLabel: 'Available languages (3)',
-        translationsTooltip: 'Click to see translations',
+        translations_label: 'Available languages (3)',
+        translations_tooltip: 'Click to see translations',
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
             ECL.initExpandables('#translations-expand-button');
@@ -45,14 +45,14 @@ module.exports = {
       name: 'links',
       label: 'Links to files',
       context: {
-        variant: 'links',
+        variant: 'link',
         links: [
           { title: 'Generic file link', icon: 'file', href: '#' },
           {
             title: 'Generic external file link',
             icon: 'file',
             href: '#',
-            external: true,
+            is_external: true,
           },
           {
             title: 'Link to a .pdf file',
@@ -79,7 +79,7 @@ module.exports = {
       name: 'images',
       label: 'Image file',
       context: {
-        variant: 'images',
+        variant: 'image',
         src: 'http://placehold.it/450x250',
         alt: 'placeholder image',
         caption:
@@ -90,9 +90,9 @@ module.exports = {
       name: 'videos-iframe',
       label: 'Video file (with iframe)',
       context: {
-        variant: 'videos',
+        variant: 'video',
         src: 'http://ec.europa.eu/avservices/play.cfm?ref=I101631',
-        iframe: true,
+        is_iframe: true,
         ratio: '16-9',
         caption:
           'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
@@ -102,7 +102,7 @@ module.exports = {
       name: 'videos-tag',
       label: 'Video file (with video tag)',
       context: {
-        variant: 'videos',
+        variant: 'video',
         src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
         caption:
           'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',

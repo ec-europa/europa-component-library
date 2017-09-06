@@ -20,7 +20,7 @@
     "lint:md": "remark . --quiet --frail",
     "lint:js": "eslint .",
     "lint:scss": "stylelint ./framework/**/*.scss",
-    "lint": "npm-run-all --parallel lint:* -c",
+    "lint": "npm-run-all --parallel lint:* -cln",
     "postinstall": "npm run bootstrap",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",

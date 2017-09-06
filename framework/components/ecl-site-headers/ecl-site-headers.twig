@@ -46,7 +46,7 @@
 {% endif %}
 
 {# Print result #}
-<header class="{{ _css_class }}" {{ _extra_attributes }} role="banner">
+<header class="{{ _css_class }}" role="banner"{{ _extra_attributes }}>
 
   {% if user_menu is defined and user_menu is iterable %}
   <div class="ecl-container">
