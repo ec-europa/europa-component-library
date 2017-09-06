@@ -2,8 +2,8 @@
 // https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SpecifyingtheScreenResolution
 
 // Utils
-const isTravis = require('./travis').isTravis;
-const isDrone = require('./drone').isDrone;
+const { isTravis } = require('./travis');
+const { isDrone } = require('./drone');
 
 let build = 'local-build';
 

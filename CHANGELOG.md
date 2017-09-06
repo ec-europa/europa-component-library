@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.15.0 (2017-09-06)
+
+### :rocket: New Feature
+
+- [#431](https://github.com/ec-europa/europa-component-library/pull/431) feat(social-media-links): init component - INNO-790. ([@emeryro](https://github.com/emeryro))
+
+### :boom: Breaking Change
+
+- [#435](https://github.com/ec-europa/europa-component-library/pull/435) refactor(files): upgrade twig - INNO-785. ([@emeryro](https://github.com/emeryro))
+
+### :bug: Bug Fix
+
+- [#432](https://github.com/ec-europa/europa-component-library/pull/432) fix(templates): fix twig templates - INNO-793. ([@yhuard](https://github.com/yhuard))
+- [#424](https://github.com/ec-europa/europa-component-library/pull/424) fix(visual-regression): bypass actions on browsers other than Chrome - INNO-722. ([@yhuard](https://github.com/yhuard))
+
+### :nail_care: Enhancement
+
+- [#435](https://github.com/ec-europa/europa-component-library/pull/435) refactor(files): upgrade twig - INNO-785. ([@emeryro](https://github.com/emeryro))
+
+### :memo: Documentation
+
+- [#428](https://github.com/ec-europa/europa-component-library/pull/428) docs(github): create CODE_OF_CONDUCT.md - no issue. ([@yhuard](https://github.com/yhuard))
+- [#417](https://github.com/ec-europa/europa-component-library/pull/417) docs(edit-documentation): add md file - INNO-783. ([@emeryro](https://github.com/emeryro))
+
+### :house: Internal
+
+- [#434](https://github.com/ec-europa/europa-component-library/pull/434) chore(drone): test drone ci - no issue. ([@yhuard](https://github.com/yhuard))
+- [#423](https://github.com/ec-europa/europa-component-library/pull/423) chore(package): update dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 3
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [emeryro](https://github.com/emeryro)
+- [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.14.0 (2017-08-25)
 
 ### :boom: Breaking Change
