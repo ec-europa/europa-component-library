@@ -20,8 +20,8 @@ module.exports.getSpecs = () => {
   // By default, test all the specs
   let specs = [path.resolve(__dirname, '../../framework/**/test/spec/**/*.js')];
 
-  // When a PR, only test the updated components
-  if (isCI && process.env[`${ci}_PULL_REQUEST`] !== 'false') {
+  // Only test the updated components when the branch is not the master
+  if (isCI && process.env[`${ci}_BRANCH`] !== 'master') {
     log.level = 'silent';
     const cwd = process.cwd();
 
