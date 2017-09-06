@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.1" type="text/css">
 
 
-<title>Social Media Links: Default | Europa Component Library</title>
+<title>Social Media Links: Default list with default display | Europa Component Library</title>
 
 </head>
 <body class="language-en">
@@ -137,7 +137,7 @@
     <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
         <a class="Pen-previewLink" href="../preview/ecl-social-media-links--default" title="Component preview">
-            Social Media Links: Default
+            Social Media Links: Default list with default display
             <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
@@ -153,7 +153,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #006fb4; border-color: #006fb4;">Planned</label>
+<label class="Status-label" style="background-color: #467a39; border-color: #467a39;">Ready</label>
 
 </div>
 
@@ -168,6 +168,30 @@
               <div class="Prose">
                 
                 <h1 id="social-media-links">Social Media Links</h1>
+<h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
+<p>Allows users to visit relevant social media profile pages of the European Commission.</p>
+<h2 id="when-to-use-this-component">When to use this component</h2>
+<p>Should be used whenever links need to be provided to related social media profiles.</p>
+<h2 id="guidance">Guidance</h2>
+<h3 id="orientation-vertical-or-horizontal">Orientation: vertical or horizontal</h3>
+<p>The component can be shown in a vertical or horizontal format.<br>If there is available space in the far right column of the page, the vertical version should be used, otherwise use the horizontal version</p>
+<h3 id="subject-generic-or-specific">Subject: generic or specific</h3>
+<p>The component can be shown with a generic label or a specific one (see preview).</p>
+<h3 id="more-link">More link</h3>
+<p>The component has an optional ‘more link’ to be able to link to more social media profiles without cluttering the page.</p>
+<h3 id="default-order">Default order</h3>
+<p>The default order of social media links is:</p>
+<ul>
+<li>Facebook</li>
+<li>Twitter</li>
+<li>Linkedin</li>
+<li>Youtube</li>
+<li>Google+</li>
+</ul>
+<h3 id="responsive-behaviour">Responsive behaviour</h3>
+<p>Below the 480px breakpoint, the social media links component is always shown vertically.</p>
+<h3 id="available-in-translation">Available in translation</h3>
+<p>Please note that the ‘View on’ link and ‘More link’ are available in the EU’s 24 official languages.</p>
 
                 
               </div>
@@ -244,13 +268,77 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-5ff09e5d1a1b2e0246d28a246efc2474-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links </span></span></span><span class="hljs-template-variable">{{modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Follow the latest progress and learn more about getting involved.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__label"</span>&gt;</span>Share this blog post:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__list"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://facebook.com"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Facebook"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--facebook"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://twitter.com"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Twitter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--twitter"</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item social-media-links__item--noicon"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Other social networks.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Parameters:
+    - "variant" (string): can be empty or 'horizontal' (default: empty)
+    - "has_text" (bool): display text before links or not (default: true)
+    - "text" (string): additional text displayed before the links (default: 'View European Commission on:')
+    - "links" (array): [{
+        "href" (string): target of the link (default: empty)
+        "label" (string): label of the link (default: empty)
+        "title" (string): title of the link (default: empty)
+        "variant" (string): variant of the social network. Should be one of the variant listed in Social icons component (default: empty)
+      }]
+      - "more" {object}: {
+        - "href" (string): target of the "more" link (default: empty)
+        - "label" (string): label of the "more" link (default: 'Other social networks')
+      }
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Blocks:
+    - "text_block": instead of providing additional text as a string, you can also embed the template and fill the "text" block directly
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _has_text = has_text|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _text = text|<span class="hljs-keyword">default</span>('View European Commission on:') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _more = more|<span class="hljs-keyword">default</span>({
+  label: more.label|<span class="hljs-keyword">default</span>('Other social networks'),
+  href: more.href|<span class="hljs-keyword">default</span>('')
+}) %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-social-media-link' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ 'ecl-social-media-link--' ~ variant %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined and extra_classes is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined and extra_attributes is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> text_block %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> has_text == true %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span></span><span class="hljs-template-variable">{{ _text }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__list ecl-list ecl-list--unstyled</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == 'horizontal' %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-list--inline</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> _link in links %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__item"</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-social-icons' with {
+        link: _link,
+        extra_attributes: [{ name: 'title', value: _link.title}],
+        extra_classes: 'ecl-social-media-link__link',
+      } %}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _more.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ _more.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
@@ -261,7 +349,29 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"links"</span>: [
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Facebook"</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Facebook"</span>,
+      <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"facebook"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Twitter"</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Twitter"</span>,
+      <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"twitter"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Instagram"</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Instagram"</span>,
+      <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"instagram"</span>
+    }
+  ],
+  <span class="hljs-attr">"has_text"</span>: <span class="hljs-literal">true</span>
+}</pre>
             
         
     </code>
@@ -272,13 +382,26 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-5ff09e5d1a1b2e0246d28a246efc2474-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links "</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Follow the latest progress and learn more about getting involved.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__label"</span>&gt;</span>Share this blog post:<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__list"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://facebook.com"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Facebook"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--facebook"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://twitter.com"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Twitter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-social icon-social--twitter"</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"social-media-links__item social-media-links__item--noicon"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Other social networks.<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>View European Commission on:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__list ecl-list ecl-list--unstyled"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__item"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-icon-social ecl-icon-social--facebook ecl-social-media-link__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__item"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-icon-social ecl-icon-social--twitter ecl-social-media-link__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__item"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-icon-social ecl-icon-social--instagram ecl-social-media-link__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Instagram<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__item"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-social-media-link__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>Other social networks<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
@@ -296,13 +419,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-f7d62598f7093821ad0914e06eada5c1">_social-media-links.scss</option>
+                <option value="file-08a139318d75709f29f013f1a0edef3b">ecl-social-media-links.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-f7d62598f7093821ad0914e06eada5c1" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-08a139318d75709f29f013f1a0edef3b" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -310,164 +433,49 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
-Social Media
-*/</span>
+                                <pre><span class="hljs-comment">/**
+ * Social media
+ * @define social-media-link
+ */</span>
 
-<span class="hljs-selector-class">.social-media-links</span> {
+<span class="hljs-selector-class">.ecl-social-media-link</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">float</span>: left;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">30px</span>;
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
-
-  <span class="hljs-selector-tag">a</span> {
-    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.778em</span>;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>;
-    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">40px</span>;
-
-    &amp;<span class="hljs-selector-class">.ecl-icon-social</span> {
-      <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
-    }
-  }
-}
-
-<span class="hljs-selector-class">.social-media-links--field</span> {
-  @<span class="hljs-keyword">include</span> ecl-hidden-print();
-
-  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-}
-
-<span class="hljs-selector-class">.social-media-links__list</span> {
-  <span class="hljs-attribute">list-style-type</span>: none;
-  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-}
-
-<span class="hljs-selector-class">.social-media-links__horizontal</span> {
-  <span class="hljs-selector-tag">li</span> {
-    <span class="hljs-attribute">float</span>: left;
-    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.6em</span>;
-
-    &amp;:nth-last-child(2) {
-      <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">3em</span>;
-    }
-  }
-}
-
-<span class="hljs-selector-class">.social-media-links__label</span> {
   <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.8em</span>;
 }
 
-<span class="hljs-selector-class">.social-media-links__item</span> {
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.7em</span>;
+<span class="hljs-selector-class">.ecl-social-media-link__item</span> {
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  <span class="hljs-attribute">vertical-align</span>: top;
 
-  &amp; &gt; <span class="hljs-selector-tag">a</span> {
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-    <span class="hljs-attribute">display</span>: block;
-
-    @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), -1px);
-
-    &amp;::before {
-      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
-    }
-
-    &amp;::after,
-    &amp;<span class="hljs-selector-class">.is-external</span>::after {
-      <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
-    }
+  &amp;:last-child {
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span>;
   }
 }
 
-<span class="hljs-selector-class">.social-media-links--webtool-horizontal</span> {
-  <span class="hljs-selector-class">.wtShareList</span> {
-    <span class="hljs-attribute">background-color</span>: transparent;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+<span class="hljs-selector-class">.ecl-social-media-link__link</span> {
+  <span class="hljs-attribute">align-items</span>: center;
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">min-height</span>: <span class="hljs-number">2rem</span>;
+}
 
-    <span class="hljs-selector-tag">li</span>:nth-last-child(2) {
-      <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.5em</span>;
-    }
-
-    <span class="hljs-selector-class">.wtShareMore</span> {
-      <span class="hljs-attribute">line-height</span>: <span class="hljs-number">5em</span>;
-    }
-
-    <span class="hljs-selector-tag">a</span><span class="hljs-selector-attr">[href^="http"]</span>:not(<span class="hljs-selector-class">.is-internal</span>)::after {
-      <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
-    }
+<span class="hljs-comment">// Horizontal</span>
+<span class="hljs-selector-class">.ecl-social-media-link--horizontal</span> {
+  <span class="hljs-selector-class">.ecl-social-media-link__list</span> {
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
   }
-}
 
-<span class="hljs-selector-class">.social-media-links__label</span>,
-<span class="hljs-selector-class">.social-media-links</span> &gt; <span class="hljs-selector-tag">p</span> {
-  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.889em</span>;
-  <span class="hljs-attribute">font-weight</span>: bold;
-  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">100%</span>;
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">1.4em</span> <span class="hljs-number">0</span>;
-}
-
-<span class="hljs-selector-class">.social-media-links--webtool-vertical</span> {
-  <span class="hljs-comment">// Extending for social bookmark kit web tools.</span>
-  <span class="hljs-selector-class">.wtShareList</span> {
-    <span class="hljs-attribute">overflow</span>: visible;
-    <span class="hljs-attribute">float</span>: left;
-    <span class="hljs-attribute">background-color</span>: transparent <span class="hljs-meta">!important</span>;
-    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
-
-    <span class="hljs-selector-tag">a</span> {
-      &amp;<span class="hljs-selector-attr">[href^="http"]</span>:not(<span class="hljs-selector-class">.is-internal</span>)::after {
-        <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
-      }
-
-      &amp;:focus {
-        <span class="hljs-attribute">outline-offset</span>: -<span class="hljs-number">1px</span>;
-        <span class="hljs-attribute">text-decoration</span>: underline;
-      }
-    }
-
-    <span class="hljs-selector-tag">a</span> {
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-      <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0</span> <span class="hljs-meta">!important</span>;
-    }
-
-    <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.wtShareMore</span> {
-      <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.8em</span>;
-      <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1.2em</span>;
-
-      &amp;:focus {
-        <span class="hljs-attribute">outline-offset</span>: <span class="hljs-number">2px</span>;
-      }
-    }
-
-    <span class="hljs-selector-class">.wtShareLink</span> {
-      @<span class="hljs-keyword">extend</span> .social-media-links__item;
-
-      <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
-    }
+  <span class="hljs-selector-class">.ecl-social-media-link__item</span> {
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
   }
-}
 
-<span class="hljs-comment">// Social network links in a field component.</span>
-
-<span class="hljs-selector-class">.field</span> <span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.social-media-links__horizontal</span> <span class="hljs-selector-tag">li</span> {
-  <span class="hljs-attribute">float</span>: none;
-  <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">0.1em</span>;
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
-  <span class="hljs-selector-class">.field</span> <span class="hljs-selector-tag">ul</span><span class="hljs-selector-class">.social-media-links__horizontal</span> {
-    <span class="hljs-attribute">vertical-align</span>: top;
-
-    <span class="hljs-selector-tag">li</span> {
-      <span class="hljs-attribute">float</span>: left;
-
-      &amp;:nth-last-child(2) {
-        <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0.6em</span>;
-      }
-    }
+  <span class="hljs-selector-class">.ecl-social-media-link__item</span>:last-child {
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
   }
 }
 </pre>
@@ -478,15 +486,15 @@ Social Media
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a href="../raw/ecl-social-media-links/_social-media-links.scss"><span>/components/raw/ecl-social-media-links/_social-media-links.scss</span></a></span>
+                    <span class="Meta-value"><a href="../raw/ecl-social-media-links/ecl-social-media-links.scss"><span>/components/raw/ecl-social-media-links/ecl-social-media-links.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-social-media-links/_social-media-links.scss</span>
+                    <span class="Meta-value">framework/components/ecl-social-media-links/ecl-social-media-links.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.6 KB</span>
+                    <span class="Meta-value">779 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -518,21 +526,6 @@ Social Media
         
         
         
-        
-        <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            
-                <a href="">
-                    <span>Default</span>
-                </a>, 
-            
-                <a href="ecl-social-media-links---horizontal">
-                    <span> Horizontal modifier</span>
-                </a>
-            
-            </span>
-        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -1999,6 +1992,140 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         </li>
         
     
+        
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-node_modules">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Node Modules</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
+            
+            
+            
+            
+    
+        
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-@ec-europa">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Ec Europa</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-4" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-icons">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Icons</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-images">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Images</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-grid">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>ECL Grid</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -2990,8 +3117,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-social-media-links">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-social-media-links">
                 
 
 <div class="Status Status--unlabelled">
@@ -2999,7 +3127,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3008,63 +3136,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Social Media Links</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-social-media-links---horizontal">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span> Horizontal modifier</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     

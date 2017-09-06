@@ -257,12 +257,85 @@ It is recommended to use the ratio utility to enforce correct display.</p>
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-b27f06061168eafbb3030be7b63b1d99-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined %}</span><span class="xml">
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Common parameters:
+    - "variant" (string): can be 'translations', 'links', 'images', 'videos' or empty
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == "translations" %}</span><span class="xml">
+  Default parameters:
+    - "title" (string): title of the file (default: empty)
+    - "language" (string): language of the file (default: empty)
+    - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
+    - "button_label" (string): label of the download button (default: "Download")
+    - "icon" (string): icon corresponding to the file type. Should be one of ecl-icons (default: empty)
+
+  Translations variant parameters:
+    - "title" (string): title of the file (default: empty)
+    - "language" (string): language of the file (default: empty)
+    - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
+    - "button_label" (string): label of the download button (default: "Download")
+    - "icon" (string): icon corresponding to the file type. Should be one of ecl-icons (default: empty)
+    - "translations" (array) [{
+      - "title" (string): title of the translated file (default: empty)
+      - "meta" (string): additional information concerning the translated file: size, type, number of page (default: empty)
+    }]
+    - "translations_label" (string): global label for translations area. Shoud display number of translations (default: "Available languages: 0")
+    - "translations_tooltip" (string): tooltip when hovering global label (default: "Click to see translations")
+
+  Links variant parameters:
+    - "links" (array): [{
+      - "title" (string): title of the link (default: empty)
+      - "icon" (string): icon corresponding to the file type. Should be one of ecl-icons (default: empty)
+      - "href" (string): target of the link (default: empty)
+      - "is_external" (boolean): is the link an external link or not (default: false)
+      - "type" (string): (optional) extension of the file (default: empty)
+    }]
+
+  Images variant parameters:
+    - "src" (string): source of the image (default: empty)
+    - "alt" (string): alternative text for the image (default: empty)
+    - "caption" (string): description of the image (default: empty)
+
+  Videos variant parameters:
+    - "src" (string): source of the video (default: empty)
+    - "caption" (string): description of the video (default: empty)
+    - "is_iframe" (boolean): video is displayed in an iframe or not (default: false)
+    - "ratio" (string): ratio of the video. Should be one of ecl-ratio. Format: '16-9' (default: empty)
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _button_label = button_label|<span class="hljs-keyword">default</span>('Download') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _translations_label = translations_label|<span class="hljs-keyword">default</span>('Available languages: 0') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _translations_tooltip = translations_tooltip|<span class="hljs-keyword">default</span>('Click to see translations') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-file' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ecl-file--' ~ variant %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == "translation" %}</span><span class="xml">
 
 <span class="hljs-comment">&lt;!-- Translations --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__body"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" ecl-col ecl-col-md-8"</span>&gt;</span>
@@ -277,7 +350,7 @@ It is recommended to use the ratio utility to enforce correct display.</p>
 
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-12 ecl-col-md-4"</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
-          'label': buttonLabel ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ meta ~ ')',
+          'label': _button_label ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ meta ~ ')',
           'is_block': true,
           'extra_classes': 'ecl-file__download',
           'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
@@ -288,7 +361,7 @@ It is recommended to use the ratio utility to enforce correct display.</p>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations"</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
-      'label': translationsLabel,
+      'label': translations_label,
       'modifier': 'secondary',
       'extra_classes': 'ecl-file__translations-toggle',
       'extra_attributes': [
@@ -296,7 +369,7 @@ It is recommended to use the ratio utility to enforce correct display.</p>
         { 'name': 'aria-expanded', 'value': 'true' },
         { 'name': 'id', 'value': 'translations-expand-button' },
         { 'name': 'type', 'value': 'button' },
-        { 'name': 'title', 'value': translationsTooltip }
+        { 'name': 'title', 'value': translations_tooltip }
       ]
     } %}</span><span class="xml">
 
@@ -310,7 +383,7 @@ It is recommended to use the ratio utility to enforce correct display.</p>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__translations-info"</span>&gt;</span>(</span><span class="hljs-template-variable">{{ translation.meta }}</span><span class="xml">)<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
               </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
-                'label': buttonLabel ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ translation.meta ~ ')',
+                'label': _button_label ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ translation.meta ~ ')',
                 'modifier': 'secondary',
                 'extra_classes': 'ecl-file__translations-download',
                 'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
@@ -323,15 +396,15 @@ It is recommended to use the ratio utility to enforce correct display.</p>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 
-  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "links" %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "link" %}</span><span class="xml">
 
 <span class="hljs-comment">&lt;!-- Links --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file ecl-file--link"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> links is defined %}</span><span class="xml">
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> link in links %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">a</span>
         <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ link.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-        <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-file__link </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> link.external is defined and link.external %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">ecl-link--external</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+        <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-file__link </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> link.is_external is defined and link.is_external %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">ecl-link--external</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--</span></span></span><span class="hljs-template-variable">{{ link.icon }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> ecl-file__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ link.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> link.type is defined %}</span><span class="xml">
@@ -342,20 +415,20 @@ It is recommended to use the ratio utility to enforce correct display.</p>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 
-  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "images" %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "image" %}</span><span class="xml">
 
 <span class="hljs-comment">&lt;!-- Images --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file ecl-file--image"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__caption"</span>&gt;</span></span><span class="hljs-template-variable">{{ caption }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 
-  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "videos" %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == "video" %}</span><span class="xml">
 
 <span class="hljs-comment">&lt;!-- Videos --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file ecl-file--video"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> src is defined %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> iframe is defined and iframe %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> is_iframe is defined and is_iframe %}</span><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> ratio is defined %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-ratio-</span></span></span><span class="hljs-template-variable">{{ ratio }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__video"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">"allowfullscreen"</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">"no"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -373,7 +446,7 @@ It is recommended to use the ratio utility to enforce correct display.</p>
 </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
 
 <span class="hljs-comment">&lt;!-- Default --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-file__body"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" ecl-col ecl-col-md-8"</span>&gt;</span>
@@ -388,7 +461,7 @@ It is recommended to use the ratio utility to enforce correct display.</p>
 
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-12 ecl-col-md-4"</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-buttons' with {
-          'label': buttonLabel ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ meta ~ ')',
+          'label': _button_label ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ meta ~ ')',
           'is_block': true,
           'extra_classes': 'ecl-file__download',
           'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
@@ -408,9 +481,9 @@ It is recommended to use the ratio utility to enforce correct display.</p>
         
             
             <pre>{
-  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"videos"</span>,
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"video"</span>,
   <span class="hljs-attr">"src"</span>: <span class="hljs-string">"http://ec.europa.eu/avservices/play.cfm?ref=I101631"</span>,
-  <span class="hljs-attr">"iframe"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"is_iframe"</span>: <span class="hljs-literal">true</span>,
   <span class="hljs-attr">"ratio"</span>: <span class="hljs-string">"16-9"</span>,
   <span class="hljs-attr">"caption"</span>: <span class="hljs-string">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"</span>
 }</pre>
@@ -446,13 +519,13 @@ It is recommended to use the ratio utility to enforce correct display.</p>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-738bbf9a2c3ab5ba6945387e82b668bf">_files.scss</option>
+                <option value="file-40660a9491be05f07e475648c5d04fb2">ecl-files.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-738bbf9a2c3ab5ba6945387e82b668bf" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-40660a9491be05f07e475648c5d04fb2" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -469,6 +542,8 @@ It is recommended to use the ratio utility to enforce correct display.</p>
 
 <span class="hljs-selector-class">.ecl-file</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
+
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-file__body</span> {
@@ -668,11 +743,11 @@ It is recommended to use the ratio utility to enforce correct display.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a href="../raw/ecl-files/_files.scss"><span>/components/raw/ecl-files/_files.scss</span></a></span>
+                    <span class="Meta-value"><a href="../raw/ecl-files/ecl-files.scss"><span>/components/raw/ecl-files/ecl-files.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-files/_files.scss</span>
+                    <span class="Meta-value">framework/components/ecl-files/ecl-files.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
@@ -2205,6 +2280,140 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         </li>
         
     
+        
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-node_modules">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Node Modules</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-3" data-role="items">
+            
+            
+            
+            
+    
+        
+        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-@ec-europa">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Ec Europa</span>
+            </h4>
+            <ul class="Tree-collectionItems Tree-depth-4" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-icons">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Icons</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-images">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>Images</span>
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-grid">
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+                <span>ECL Grid</span>
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -3196,8 +3405,9 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-social-media-links">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="ecl-social-media-links">
                 
 
 <div class="Status Status--unlabelled">
@@ -3205,7 +3415,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
 
 
 </div>
@@ -3214,63 +3424,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 
 
                 <span>Social Media Links</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-social-media-links--default">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Default</span>
             </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-social-media-links---horizontal">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span> Horizontal modifier</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
         </li>
         
     
