@@ -7,8 +7,8 @@ const Repository = require('lerna/lib/Repository');
 const PackageUtilities = require('lerna/lib/PackageUtilities');
 
 // Utils
-const isTravis = require('./travis').isTravis;
-const isDrone = require('./drone').isDrone;
+const { isTravis } = require('./travis');
+const { isDrone } = require('./drone');
 
 // handle log.success() used by lerna
 log.addLevel('success', 3001, { fg: 'green', bold: true });
@@ -26,7 +26,7 @@ module.exports.getSpecs = () => {
     const cwd = process.cwd();
 
     const repo = new Repository(cwd);
-    const packages = repo.packages;
+    const { packages } = repo;
     const filteredPackages = PackageUtilities.filterPackages(packages, {
       scope: undefined,
     });
