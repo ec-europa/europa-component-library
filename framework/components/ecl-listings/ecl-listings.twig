@@ -1,10 +1,9 @@
 {#
   Common parameters:
+    - "variant" (string): can be empty, 'date', date-2 (default: empty)
+    - "items" (array): array of ecl-list-items
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
-
-  Date parameters:
-    - "date" (object): contains all parameters of ecl-date-block
 #}
 
 {# Internal properties #}
@@ -30,12 +29,24 @@
 
 {# Print result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<ul class="{{ _css_class }}" {{ _extra_attributes }}>
 
 {% if variant == 'date' %}
 
-{% include '@ec-europa/ecl-date-blocks' with date %}
+{% for item in items %}
+
+  {% include '@ec-europa/ecl-list-items' with item %}
+
+{% endfor %}
+
+{% elseif variant == 'thumbnail' %}
+
+  <li>thumbnail listing (coming soon)</li>
+
+{% else %}
+
+  <li>default listing (coming soon)</li>
 
 {% endif %}
 
-</div>
+</ul>

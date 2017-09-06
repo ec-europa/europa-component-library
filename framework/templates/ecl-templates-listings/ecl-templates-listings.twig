@@ -1,0 +1,100 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+<h3 class="ecl-heading ecl-heading--h3">Date listing (one column)</h3>
+
+{% include '@ec-europa/ecl-listings' with {
+  variant: 'date',
+  items: [
+    {
+      variant: 'date',
+      date: {
+        week_day: 'Tue',
+        day: '07',
+        month: 'Sep',
+      },
+      title:
+        "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
+      detail:
+        '<small><span class="ecl-icon ecl-icon--location">Bucharest, Romania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+    },
+    {
+      variant: 'date',
+      date: {
+        week_day: 'Tue',
+        day: '08',
+        month: 'Sep',
+      },
+      title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
+      detail:
+        '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+    },
+  ]
+} %}
+
+<h3 class="ecl-heading ecl-heading--h3">Date listing (two columns)</h3>
+
+<div class="ecl-row">
+  <div class="ecl-col-xs-12 ecl-col-md-6">
+  {% include '@ec-europa/ecl-listings' with {
+    variant: 'date',
+    items: [
+      {
+        variant: 'date',
+        date: {
+          week_day: 'Tue',
+          day: '07',
+          month: 'Sep',
+        },
+        title:
+          "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
+        detail:
+          '<small><span class="ecl-icon ecl-icon--location">Bucharest, Romania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+      },
+      {
+        variant: 'date',
+        date: {
+          week_day: 'Tue',
+          day: '08',
+          month: 'Sep',
+        },
+        title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
+        detail:
+          '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+      },
+    ]
+  } %}
+  </div>
+
+  <div class="ecl-col-xs-12 ecl-col-md-6">
+  {% include '@ec-europa/ecl-listings' with {
+    variant: 'date',
+    items: [
+      {
+        variant: 'date',
+        date: {
+          week_day: 'Tue',
+          day: '14',
+          month: 'Sep',
+        },
+        title:
+          "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
+        detail:
+          '<small><span class="ecl-icon ecl-icon--location">Tallin, Estonia</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+      },
+      {
+        variant: 'date',
+        date: {
+          week_day: 'Tue',
+          day: '19',
+          month: 'Sep',
+        },
+        title: "Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis",
+        detail:
+          '<small><span class="ecl-icon ecl-icon--location">Kaunas, Lithuania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+      },
+    ]
+  } %}
+  </div>
+</div>

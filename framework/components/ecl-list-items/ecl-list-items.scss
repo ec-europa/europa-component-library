@@ -1,0 +1,40 @@
+/**
+ * list-items
+ * @define list-item
+ */
+
+.ecl-list-item {
+  border-bottom: 1px solid map-get($ecl-colors, 'grey-10');
+  list-style-type: none;
+  margin: 0;
+}
+
+.ecl-list-item:first-child {
+  border-top: 1px solid map-get($ecl-colors, 'grey-10');
+}
+
+.ecl-list-item__link {
+  color: $ecl-color-shade;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: map-get($ecl-spacing, 's');
+  padding-top: map-get($ecl-spacing, 's');
+  text-decoration: none;
+}
+
+.ecl-list-item__title {
+  color: $ecl-color-primary;
+  margin-bottom: map-get($ecl-spacing, 's');
+}
+
+.ecl-list-item__link:hover,
+.ecl-list-item__link:focus {
+  .ecl-list-item__title {
+    color: $ecl-color-shade;
+    text-decoration: underline;
+  }
+}
+
+.ecl-list-item__date {
+  margin-right: map-get($ecl-spacing, 'm');
+}

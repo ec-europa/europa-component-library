@@ -1,0 +1,69 @@
+{#
+  Common parameters:
+    - "variant" (string): can be empty, 'date', date-2 (default: empty)
+    - "href" (string): target of the list item link (default: empty)
+    - "title" (string): title of the list item (default: empty)
+    - "detail" (string): detail concerning the list item (default empty)
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Blocks:
+    - "detail_block": instead of providing detail as a string, you can also embed the template and fill the 'detail_block' block directly
+
+  Date parameters:
+    - "date" (object): contains all parameters of ecl-date-block
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-list-item' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if variant is defined and variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-item--' ~ variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
+<li class="{{ _css_class }}" {{ _extra_attributes }}>
+  <a href="{{ href }}" class="ecl-link ecl-list-item__link">
+
+{% if variant == 'date' %}
+
+    <div class="ecl-list-item__date">
+      {% include '@ec-europa/ecl-date-blocks' with date %}
+    </div>
+
+    <div class="ecl-list-item__body">
+      <h3 class="ecl-list-item__title ecl-heading ecl-heading--h3">{{ title }}</h3>
+
+      <div class="ecl-list-item__detail">
+        {% block detail_block %}
+          {{ detail }}
+        {% endblock %}
+      </div>
+    </div>
+
+{% elseif variant == 'thumbnail' %}
+
+  thumbnail list item (coming soon)
+
+{% else %}
+
+  default list item (coming soon)
+
+{% endif %}
+
+  </a>
+</li>
