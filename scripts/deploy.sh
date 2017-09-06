@@ -17,4 +17,4 @@ fi
   --silent \
   --repo https://${GH_TOKEN}@github.com/ec-europa/europa-component-library.git \
   --dist dist \
-  --message "Update GitHub Pages"
+  --message "Update GitHub Pages [SKIP CI]"
