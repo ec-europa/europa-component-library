@@ -49,7 +49,7 @@ pipeline:
     commands:
       - git config --global user.email "DIGIT-INNO@ec.europa.eu"
       - git config --global user.name "HAL Patch INNO"
-      - yarn run gh-pages -- --repo https://${GH_TOKEN}@github.com/ec-europa/europa-component-library.git
+      - yarn run gh-pages -- --repo https://$${GH_TOKEN}@github.com/ec-europa/europa-component-library.git
     when:
       event: [push]
       branch: master
