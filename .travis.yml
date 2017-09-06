@@ -34,31 +34,6 @@ matrix:
     # Nodejs - Webdriver.io
     - env:
         - TEST_SUITE=test:functional
-        - TEST_BROWSER=firefox
-      addons:
-        apt:
-          packages:
-            - graphicsmagick
-        sauce_connect: true
-    - env:
-        - TEST_SUITE=test:functional
-        - TEST_BROWSER=chrome
-      addons:
-        apt:
-          packages:
-            - graphicsmagick
-        sauce_connect: true
-    - env:
-        - TEST_SUITE=test:functional
-        - TEST_BROWSER=safari
-      addons:
-        apt:
-          packages:
-            - graphicsmagick
-        sauce_connect: true
-    - env:
-        - TEST_SUITE=test:functional
-        - TEST_BROWSER=ie
       addons:
         apt:
           packages:
