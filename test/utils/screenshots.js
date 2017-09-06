@@ -9,7 +9,7 @@ module.exports.getScreenshotName = relativePath => context => {
   const testName = context.options.name;
   const browserVersion = parseInt(/\d+/.exec(context.browser.version)[0], 10);
   const browserName = context.browser.name;
-  const platform = context.desiredCapabilities.platform;
+  const { platform } = context.desiredCapabilities;
 
   return path.join(
     basePath,
