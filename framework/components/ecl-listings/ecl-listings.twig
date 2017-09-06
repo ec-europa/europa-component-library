@@ -1,0 +1,41 @@
+{#
+  Common parameters:
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+
+  Date parameters:
+    - "date" (object): contains all parameters of ecl-date-block
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-listing' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if variant is defined and variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-listing--' ~ variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
+
+{% if variant == 'date' %}
+
+{% include '@ec-europa/ecl-date-blocks' with date %}
+
+{% endif %}
+
+</div>
