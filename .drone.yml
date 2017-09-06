@@ -1,3 +1,6 @@
+branches:
+  exclude: [ gh-pages ]
+
 clone:
   git:
     image: plugins/git
@@ -44,6 +47,8 @@ pipeline:
     image: node:latest
     secrets: [ GH_TOKEN ]
     commands:
+      - git config user.email "DIGIT-INNO@ec.europa.eu"
+      - git config user.name "HAL Patch INNO"
       - yarn run gh-pages -- --repo https://${GH_TOKEN}@github.com/ec-europa/europa-component-library.git
     when:
       event: [push]
