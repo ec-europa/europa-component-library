@@ -211,6 +211,11 @@ var framer = (function (element) {
   };
 });
 
+var babelHelpers = {};
+
+
+
+
 var asyncGenerator = function () {
   function AwaitValue(value) {
     this.value = value;
@@ -351,6 +356,50 @@ var createClass = function () {
     return Constructor;
   };
 }();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+babelHelpers;
 
 /* eslint-disable import/no-extraneous-dependencies */
 function getTreeUrl(urlPath) {
