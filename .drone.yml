@@ -40,6 +40,17 @@ pipeline:
       matrix:
         TEST: functional
 
+  deploy-pages:
+    image: node:latest
+    secrets: [ GH_TOKEN ]
+    commands:
+      - yarn run gh-pages -- --repo https://${GH_TOKEN}@github.com/ec-europa/europa-component-library.git
+    when:
+      event: [push]
+      branch: master
+      matrix:
+        TEST: functional
+
   s3:
     image: garland/aws-cli-docker
     secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
@@ -57,7 +68,7 @@ pipeline:
     image: node:latest
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
-      - if yarn lerna updated -- --since master ; then
+      - if [ "${DRONE_BRANCH}" == "master" ] || yarn lerna updated -- --since master ; then
           yarn test:functional;
         fi
     when:
