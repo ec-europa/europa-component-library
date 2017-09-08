@@ -1,7 +1,9 @@
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
-const outputFolder = isProd ? 'dist/framework' : 'static/framework';
+const outputFolder = isProd
+  ? 'dist/framework'
+  : 'packages/styleguide/static/framework';
 
 module.exports = {
   scripts: [
@@ -33,27 +35,33 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        'framework/components/ecl-forms/ecl-forms-selects/images'
+        'packages/framework/components/ecl-forms/ecl-forms-selects/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        'framework/components/ecl-social-icons/images'
+        'packages/framework/components/ecl-social-icons/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(__dirname, 'framework/content/ecl-icons/fonts'),
+      from: path.resolve(
+        __dirname,
+        'packages/framework/content/ecl-icons/fonts'
+      ),
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(__dirname, 'framework/components/ecl-logos/images'),
+      from: path.resolve(
+        __dirname,
+        'packages/framework/components/ecl-logos/images'
+      ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(__dirname, 'framework/images'),
+      from: path.resolve(__dirname, 'packages/framework/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
   ],
