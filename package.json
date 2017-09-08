@@ -73,6 +73,7 @@
     ],
     "*.{js,json}": [
       "prettier --write",
+      "eslint",
       "git add"
     ],
     "*.scss": [
@@ -87,5 +88,9 @@
     "framework/templates/**",
     "framework/utilities/**",
     "packages/**"
-  ]
+  ],
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  }
 }
