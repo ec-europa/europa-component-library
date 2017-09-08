@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link media="all" rel="stylesheet" href="{{ '/framework/styles/europa.css' | path }}">
+  <title>Preview Layout</title>
+</head>
+<body>
+  <div style="background-color: #004494; padding: 5px 15px 15px; float: left; width: 100%;">
+    {{ yield }}
+  </div>
+
+  <script src="{{ '/framework/scripts/europa.js' | path }}"></script>
+  {% if _target.context._demo and _target.context._demo %}
+  <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
+  {% endif %}
+</body>
+</html>

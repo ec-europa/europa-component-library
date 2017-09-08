@@ -8,14 +8,18 @@ const twigAdapter = require('@frctl/twig')({
 
 const paths = {
   build: `${__dirname}/dist`,
-  static: `${__dirname}/static`,
+  static: `${__dirname}/packages/styleguide/static`,
 };
 
 // Create a new theme instance with custom config options
-const theme = eclTheme();
+const theme = eclTheme({
+  panels: ['view', 'context', 'html'],
+});
 
 // Add overrides
-theme.addLoadPath(path.resolve(__dirname, './static/theme-overrides'));
+theme.addLoadPath(
+  path.resolve(__dirname, './packages/styleguide/static/theme-overrides')
+);
 
 // Project config
 fractal.set('project.title', 'Europa Component Library');
@@ -58,7 +62,7 @@ fractal.components.set('statuses', {
   },
 });
 fractal.components.set('default.status', 'planned');
-fractal.components.set('path', path.resolve(__dirname, './framework'));
+fractal.components.set('path', path.resolve(__dirname, './packages'));
 fractal.components.engine(twigAdapter); // use Twig for components
 fractal.components.set('ext', '.twig');
 
@@ -69,7 +73,7 @@ fractal.components.set('resources.assets', {
 });
 
 // Docs config
-fractal.docs.set('path', path.resolve(__dirname, 'docs'));
+fractal.docs.set('path', path.resolve(__dirname, 'packages/styleguide/docs'));
 
 // Web UI config
 fractal.web.theme(theme);
