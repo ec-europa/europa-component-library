@@ -122,7 +122,6 @@ Tested on:
 
 ```bash
 yarn
-yarn bootstrap
 ```
 
 ## Develop

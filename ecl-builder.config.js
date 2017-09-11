@@ -6,7 +6,10 @@ const outputFolder = isProd ? 'dist/framework' : 'static/framework';
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'framework/index.js'),
+      entry: path.resolve(
+        __dirname,
+        'packages/presets/ecl-preset-full/index.js'
+      ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
@@ -16,15 +19,11 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'framework/index.scss'),
+      entry: path.resolve(
+        __dirname,
+        'packages/presets/ecl-preset-full/index.scss'
+      ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
-      options: {
-        sourceMap: isProd ? 'file' : true,
-      },
-    },
-    {
-      entry: path.resolve(__dirname, 'framework/editor-index.scss'),
-      dest: path.resolve(__dirname, outputFolder, 'styles/editor.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
