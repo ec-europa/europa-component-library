@@ -2,7 +2,6 @@
   "lerna": "2.1.2",
   "version": "independent",
   "npmClient": "yarn",
-  "useWorkspaces": true,
   "changelog": {
     "repo": "ec-europa/europa-component-library",
     "labels": {
@@ -16,8 +15,20 @@
     "cacheDir": ".changelog"
   },
   "commands": {
+    "bootstrap": {
+      "hoist": "**"
+    },
     "publish": {
       "ignore": ["*.md", "test/**"]
     }
-  }
+  },
+  "packages": [
+    "framework/base",
+    "framework/content/**",
+    "framework/components/**",
+    "framework/layout/**",
+    "framework/templates/**",
+    "framework/utilities/**",
+    "packages/**"
+  ]
 }
