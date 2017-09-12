@@ -22,9 +22,14 @@
   text-decoration: none;
 }
 
+.ecl-list-item__meta {
+  margin-bottom: map-get($ecl-spacing, 's');
+}
+
 .ecl-list-item__title {
   color: $ecl-color-primary;
   margin-bottom: map-get($ecl-spacing, 's');
+  margin-top: 0;
 }
 
 .ecl-list-item__link:hover,
@@ -37,4 +42,6 @@
 
 .ecl-list-item__primary {
   margin-right: map-get($ecl-spacing, 'm');
+  max-height: 5.55rem;
+  max-width: 5.55rem;
 }

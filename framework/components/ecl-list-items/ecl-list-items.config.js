@@ -17,6 +17,10 @@ module.exports = {
     {
       name: 'default',
       label: 'Default list item',
+      context: {
+        metas: ['Service department', 'PMO'],
+        title: 'Administration and Payment of Individual Entitlements',
+      },
     },
     {
       name: 'date',
@@ -39,6 +43,12 @@ module.exports = {
       label: 'Thumbnail list item',
       context: {
         variant: 'thumbnail',
+        metas: ['Director-General'],
+        title: 'John Doe',
+        thumbnail: {
+          src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+          alt: 'Director-General John Doe',
+        },
       },
     },
   ],
