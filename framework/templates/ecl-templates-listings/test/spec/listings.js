@@ -1,4 +1,4 @@
-describe('listings', () => {
+describe('ecl-templates-listings', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -7,7 +7,7 @@ describe('listings', () => {
     });
 
     // Go to url
-    browser.url('ecl-listings.html');
+    browser.url('ecl-templates-listings.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)
@@ -17,7 +17,7 @@ describe('listings', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'listings',
+      name: 'templates-listings',
     });
     expect(screenshots).to.matchReference();
   });

@@ -1,26 +1,50 @@
-const itemsDate = [
+const itemsMultiple = [
   {
-    variant: 'date',
-    date: {
-      week_day: 'Tue',
-      day: '07',
-      month: 'Sep',
-    },
-    title:
-      "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
+    title: 'Business, Economy, Euro',
     detail:
-      '<small><span class="ecl-icon ecl-icon--location">Bucharest, Romania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+      'EU economy, the euro, and practical information for EU businesses and entrepreneurs.',
   },
   {
-    variant: 'date',
-    date: {
-      week_day: 'Tue',
-      day: '08',
-      month: 'Sep',
-    },
-    title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
+    title: 'About the European Union',
+    detail: 'The EU and its institutions, how to visit and work at the EU.',
+  },
+  {
+    title: 'Live, Work, Travel in EU',
     detail:
-      '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+      'Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.',
+  },
+  {
+    title: 'Funding, Tenders',
+    detail: 'EU funding, grants, tenders, and how to apply.',
+  },
+  {
+    title: 'Law',
+    detail:
+      'EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.',
+  },
+  {
+    title: 'Research and innovation',
+    detail:
+      'Research funding, partners, results, and EU action to promote innovation.',
+  },
+];
+
+const itemsDefault = [
+  {
+    metas: ['Service department', 'PMO'],
+    title: 'Administration and Payment of Individual Entitlements',
+  },
+  {
+    metas: ['Directorate-General', 'AGRI'],
+    title: 'Agriculture and Rural Development',
+  },
+  {
+    metas: ['Directorate-General', 'BUDG'],
+    title: 'Budget',
+  },
+  {
+    metas: ['Directorate-General', 'CLIMA'],
+    title: 'Climate Action',
   },
 ];
 
@@ -38,25 +62,29 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
-  default: 'default',
+  default: 'one-column',
   variants: [
     {
-      name: 'default',
-      label: 'Default listing',
-    },
-    {
-      name: 'date',
-      label: 'Date listing',
+      name: 'one-column',
+      label: 'One column listing',
       context: {
-        variant: 'date',
-        items: itemsDate,
+        items: itemsDefault,
       },
     },
     {
-      name: 'thumbnail',
-      label: 'Thumbnail listing',
+      name: 'two-columns',
+      label: 'Two columns listing',
       context: {
-        variant: 'thumbnail',
+        variant: 'two-columns',
+        items: itemsMultiple,
+      },
+    },
+    {
+      name: 'three-columns',
+      label: 'Three columns listing',
+      context: {
+        variant: 'three-columns',
+        items: itemsMultiple,
       },
     },
   ],

@@ -1,9 +1,67 @@
 /**
  * Listings
- * @define listing
+ * @define listing; weak
  */
 
 .ecl-listing {
   margin: 0;
   padding-left: 0;
+}
+
+// Two columns
+.ecl-listing--two-columns {
+  display: flex;
+  flex-wrap: wrap;
+
+  .ecl-list-item {
+    border-width: 0;
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .ecl-listing--two-columns {
+    .ecl-list-item {
+      width: 50%;
+    }
+
+    .ecl-list-item__link {
+      padding-left: map-get($ecl-spacing, 's');
+      padding-right: map-get($ecl-spacing, 's');
+    }
+  }
+}
+
+// Three columns
+.ecl-listing--three-columns {
+  display: flex;
+  flex-wrap: wrap;
+
+  .ecl-list-item {
+    border-width: 0;
+    flex-grow: 1;
+    width: 100%;
+  }
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .ecl-listing--three-columns {
+    .ecl-list-item {
+      width: 50%;
+    }
+
+    .ecl-list-item__link {
+      padding-left: map-get($ecl-spacing, 's');
+      padding-right: map-get($ecl-spacing, 's');
+    }
+  }
+}
+
+@include ecl-media-breakpoint-up(lg) {
+  .ecl-listing--three-columns {
+    .ecl-list-item {
+      width: 33%;
+    }
+  }
 }

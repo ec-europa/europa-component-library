@@ -17,6 +17,11 @@ module.exports = {
     {
       name: 'default',
       label: 'Default list item',
+      context: {
+        metas: ['Service department', 'PMO'],
+        title:
+          "Administration and Payment of Individual Entitlements",
+      },
     },
     {
       name: 'date',

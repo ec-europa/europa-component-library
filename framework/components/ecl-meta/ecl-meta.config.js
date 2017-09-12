@@ -13,17 +13,15 @@ module.exports = {
       name: 'default',
       label: 'Default meta',
       context: {
-        meta_item_type_data: 'news article',
-        meta_item_data: '17 September 2014',
+        metas: [ 'news article', '17 September 2014'],
       },
     },
     {
       name: 'header',
       label: 'Header meta',
       context: {
-        modifier: 'ecl-meta--header',
-        meta_item_type_data: 'news article',
-        meta_item_data: '17 September 2014',
+        variant: 'header',
+        metas: [ 'news article', '17 September 2014'],
       },
     },
   ],
