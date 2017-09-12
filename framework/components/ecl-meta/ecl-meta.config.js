@@ -13,7 +13,7 @@ module.exports = {
       name: 'default',
       label: 'Default meta',
       context: {
-        metas: [ 'news article', '17 September 2014'],
+        metas: ['news article', '17 September 2014'],
       },
     },
     {
@@ -21,7 +21,7 @@ module.exports = {
       label: 'Header meta',
       context: {
         variant: 'header',
-        metas: [ 'news article', '17 September 2014'],
+        metas: ['news article', '17 September 2014'],
       },
     },
   ],
