@@ -38,12 +38,5 @@ module.exports = {
           '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
       },
     },
-    {
-      name: 'thumbnail',
-      label: 'Thumbnail list item',
-      context: {
-        variant: 'thumbnail',
-      },
-    },
   ],
 };
