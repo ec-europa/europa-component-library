@@ -22,10 +22,7 @@ module.exports = {
           src: 'http://lorempixel.com/720/480/technics/4',
           alt: 'Technic picture',
         },
-        meta: {
-          type: 'announcement',
-          date: '21 December 2016',
-        },
+        metas: ['announcement', '21 December 2016'],
         title: 'Energy Union tour',
       },
     },
@@ -38,10 +35,7 @@ module.exports = {
           src: 'http://lorempixel.com/720/480/technics/4',
           alt: 'Technic picture',
         },
-        meta: {
-          type: 'announcement',
-          date: '21 December 2016',
-        },
+        metas: ['announcement', '21 December 2016'],
         title: 'Energy Union tour',
         link: {
           href: '#',

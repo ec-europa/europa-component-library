@@ -31,22 +31,10 @@
 
 <ul class="{{ _css_class }}" {{ _extra_attributes }}>
 
-{% if variant == 'date' %}
-
 {% for item in items %}
 
   {% include '@ec-europa/ecl-list-items' with item %}
 
 {% endfor %}
-
-{% elseif variant == 'thumbnail' %}
-
-  <li>thumbnail listing (coming soon)</li>
-
-{% else %}
-
-  <li>default listing (coming soon)</li>
-
-{% endif %}
 
 </ul>

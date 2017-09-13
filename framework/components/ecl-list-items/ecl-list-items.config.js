@@ -17,6 +17,10 @@ module.exports = {
     {
       name: 'default',
       label: 'Default list item',
+      context: {
+        metas: ['Service department', 'PMO'],
+        title: 'Administration and Payment of Individual Entitlements',
+      },
     },
     {
       name: 'date',
@@ -32,13 +36,6 @@ module.exports = {
           "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
         detail:
           '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
-      },
-    },
-    {
-      name: 'thumbnail',
-      label: 'Thumbnail list item',
-      context: {
-        variant: 'thumbnail',
       },
     },
   ],
