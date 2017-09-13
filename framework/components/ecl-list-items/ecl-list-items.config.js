@@ -45,7 +45,11 @@ module.exports = {
         variant: 'thumbnail',
         metas: ['Director-General'],
         title: 'John Doe',
-        thumbnail: {
+        primary_image: {
+          src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+          alt: 'Director-General John Doe',
+        },
+        secondary_image: {
           src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
           alt: 'Director-General John Doe',
         },

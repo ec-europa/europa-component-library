@@ -3,6 +3,8 @@
     - "variant" (string): can be empty, 'date' or 'thumbnail' (default: empty)
     - "href" (string): target of the list item link (default: empty)
     - "title" (string): title of the list item (default: empty)
+    - "primary_image" (object): primary image. Should follow ecl-image structure (default: empty)
+    - "secondary_image" (object): secondary image. Should follow ecl-image structure (default: empty)
     - "screen_reader" (string): alternative text for screen readers (default: "List item")
     - "detail" (string): detail concerning the list item (default empty)
     - "metas" (array): array of meta item, as in 'ecl-meta' component (default empty)
@@ -20,9 +22,9 @@
 
 {# Internal properties #}
 
-{% set _primary = '' %}
+{% set _primary = primary_image|default('') %}
+{% set _secondary = secondary_image|default('') %}
 {% set _screen_reader = screen_reader|default('List item') %}
-{% set _secondary = '' %}
 {% set _css_class = 'ecl-list-item' %}
 {% set _extra_attributes = '' %}
 
@@ -30,10 +32,6 @@
 
 {% if date is defined and date is not empty %}
   {% set _primary = date %}
-{% endif %}
-
-{% if thumbnail is defined and thumbnail is not empty %}
-  {% set _primary = thumbnail %}
 {% endif %}
 
 {% if variant is defined and variant is not empty %}
@@ -60,7 +58,7 @@
     <div class="ecl-list-item__primary">
       {% if variant == 'date' %}
         {% include '@ec-europa/ecl-date-blocks' with _primary %}
-      {% elseif variant == 'thumbnail' %}
+      {% else %}
         {% include '@ec-europa/ecl-images' with _primary %}
       {% endif %}
     </div>
@@ -90,7 +88,7 @@
 
     {% if _secondary is not empty %}
     <div class="ecl-list-item__secondary">
-
+      {% include '@ec-europa/ecl-images' with _secondary %}
     </div>
     {% endif %}
 
