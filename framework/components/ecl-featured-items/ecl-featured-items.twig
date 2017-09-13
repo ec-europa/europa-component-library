@@ -4,10 +4,7 @@
     src: the source of the image (default: '')
     alt: alternative text for the image (default: '')
   }
-  - meta: {
-    type: type of the featured item (default: '')
-    date: date of publication (default: '')
-  }
+  - metas (array): array of meta. Should follow structure of ecl-meta (default: '')
   - title: title of the featured item (default: '')
   - body (block): content of the featured item (default: lorem ipsum)
   - link: {
@@ -20,10 +17,6 @@
 {% set image = {
   src: image.src|default(''),
   alt: image.alt|default('')
-} %}
-{% set meta = {
-  type: meta.type|default(''),
-  date: meta.date|default('')
 } %}
 {% set title = title|default('') %}
 {% set link = {
@@ -57,9 +50,8 @@
 
   <div class="ecl-featured-item__body">
     {% include '@ec-europa/ecl-meta' with {
-      'modifier': 'ecl-meta--header',
-      'meta_item_type_data': meta.type,
-      'meta_item_data': meta.date,
+      modifier: 'ecl-meta--header',
+      metas: metas,
     } %}
 
     <a href="{{ link.href }}" class="ecl-link ecl-link--standalone ecl-featured-item__title">{{ title }}</a>
