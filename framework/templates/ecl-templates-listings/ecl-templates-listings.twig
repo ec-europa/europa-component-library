@@ -227,6 +227,69 @@
         },
       ]
     } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Thumbnail listing (one column)</h3>
+
+    {% include '@ec-europa/ecl-listings' with {
+      items: [
+        {
+          metas: ['Director-General'],
+          title: 'John Doe',
+          primary_image: {
+            src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+            alt: 'Director-General John Doe',
+          },
+        },
+        {
+          metas: ['Deputy Director-General'],
+          title: 'Jane Doe',
+          primary_image: {
+            src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+            alt: 'Deputy Director-General Jane Doe',
+          },
+        },
+        {
+          metas: ['Acting Deputy Director-General'],
+          title: 'Jack Doe',
+          primary_image: {
+            src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+            alt: 'Acting Deputy Director-General Jack Doe',
+          },
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Thumbnail listing (two columns)</h3>
+
+    {% include '@ec-europa/ecl-listings' with {
+      variant: 'two-columns',
+      items: [
+        {
+          metas: ['Director-General'],
+          title: 'John Doe',
+          primary_image: {
+            src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+            alt: 'Director-General John Doe',
+          },
+        },
+        {
+          metas: ['Deputy Director-General'],
+          title: 'Jane Doe',
+          primary_image: {
+            src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+            alt: 'Deputy Director-General Jane Doe',
+          },
+        },
+        {
+          metas: ['Acting Deputy Director-General'],
+          title: 'Jack Doe',
+          primary_image: {
+            src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+            alt: 'Acting Deputy Director-General Jack Doe',
+          },
+        },
+      ]
+    } %}
   </div>
 </main>
 

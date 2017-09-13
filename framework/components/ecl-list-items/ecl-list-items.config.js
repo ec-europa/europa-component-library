@@ -42,7 +42,6 @@ module.exports = {
       name: 'thumbnail',
       label: 'Thumbnail list item',
       context: {
-        variant: 'thumbnail',
         metas: ['Director-General'],
         title: 'John Doe',
         primary_image: {
