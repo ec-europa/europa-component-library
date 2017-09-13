@@ -262,9 +262,43 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-15358c98406e18c0d5fc9160101a99e7-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta </span></span></span><span class="hljs-template-variable">{{modifier}}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item ecl-u-f-up"</span>&gt;</span></span><span class="hljs-template-variable">{{meta_item_type_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span></span><span class="hljs-template-variable">{{meta_item_data}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Parameters:
+    - "variant" (string): can be empty or 'header' (default: empty)
+    - "metas" (array): array of strings; each one correspond to a meta item (default: empty)
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-meta' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ 'ecl-meta--' ~ variant %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined and extra_classes is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined and extra_attributes is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> meta in metas %}</span><span class="xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span></span><span class="hljs-template-variable">{{ meta }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -277,8 +311,10 @@
             <pre>
 <span class="hljs-comment">/* Default meta */</span>
 {
-  <span class="hljs-attr">"meta_item_type_data"</span>: <span class="hljs-string">"news article"</span>,
-  <span class="hljs-attr">"meta_item_data"</span>: <span class="hljs-string">"17 September 2014"</span>
+  <span class="hljs-attr">"metas"</span>: [
+    <span class="hljs-string">"news article"</span>,
+    <span class="hljs-string">"17 September 2014"</span>
+  ]
 }
 
 </pre>
@@ -286,9 +322,11 @@
             <pre>
 <span class="hljs-comment">/* Header meta */</span>
 {
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"ecl-meta--header"</span>,
-  <span class="hljs-attr">"meta_item_type_data"</span>: <span class="hljs-string">"news article"</span>,
-  <span class="hljs-attr">"meta_item_data"</span>: <span class="hljs-string">"17 September 2014"</span>
+  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"header"</span>,
+  <span class="hljs-attr">"metas"</span>: [
+    <span class="hljs-string">"news article"</span>,
+    <span class="hljs-string">"17 September 2014"</span>
+  ]
 }
 
 </pre>
@@ -304,17 +342,23 @@
         
         
             <pre><span class="hljs-comment">&lt;!-- Default meta --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta "</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item ecl-u-f-up"</span>&gt;</span>news article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>news article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>17 September 2014<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Header meta --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--header"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item ecl-u-f-up"</span>&gt;</span>news article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>news article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>17 September 2014<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 </pre>
@@ -334,13 +378,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-5d7dec85ba29e096bd1feaa60dd66e2a">_meta.scss</option>
+                <option value="file-7226e609b571990a6a06c77a88c85369">ecl-meta.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-5d7dec85ba29e096bd1feaa60dd66e2a" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-7226e609b571990a6a06c77a88c85369" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -356,6 +400,8 @@
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
   <span class="hljs-attribute">letter-spacing</span>: <span class="hljs-number">0.03rem</span>;
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.3</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">text-transform</span>: uppercase;
 }
 
 <span class="hljs-selector-class">.ecl-meta__item</span> {
@@ -385,15 +431,15 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a href="../raw/ecl-meta/_meta.scss"><span>/components/raw/ecl-meta/_meta.scss</span></a></span>
+                    <span class="Meta-value"><a href="../raw/ecl-meta/ecl-meta.scss"><span>/components/raw/ecl-meta/ecl-meta.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-meta/_meta.scss</span>
+                    <span class="Meta-value">framework/components/ecl-meta/ecl-meta.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">476 Bytes</span>
+                    <span class="Meta-value">518 Bytes</span>
                 </li>
             </ul>
         </div>

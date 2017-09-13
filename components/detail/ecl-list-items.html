@@ -168,12 +168,8 @@
               <div class="Prose">
                 
                 <h1 id="list-items">List items</h1>
-<h2 id="date-list-items">Date list items</h2>
-<h3 id="where-and-how-to-use-this-component">Where and how to use this component</h3>
-<p>Users need a way to have an overview of events, with a clear overview of when the events are taking place.  </p>
-<p>Read <a href="https://webgate.ec.europa.eu/CITnet/confluence/x/vQJvK">About Pool listings</a> to find out more about where and how to use listings in your website.</p>
-<h3 id="when-to-use-this-component">When to use this component</h3>
-<p>Use this component when you want to display a list of events. Either on a separate dedicated page or embedded in a detail page.</p>
+<p>List items are intended to be used only in listings component.  </p>
+<p>For more information, read documentation in ecl-listings.</p>
 
                 
               </div>
@@ -252,14 +248,19 @@
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Common parameters:
-    - "variant" (string): can be empty, 'date', date-2 (default: empty)
+    - "variant" (string): can be empty, 'date' or 'thumbnail' (default: empty)
     - "href" (string): target of the list item link (default: empty)
     - "title" (string): title of the list item (default: empty)
+    - "screen_reader" (string): alternative text for screen readers (default: "List item")
     - "detail" (string): detail concerning the list item (default empty)
+    - "metas" (array): array of meta item, as in 'ecl-meta' component (default empty)
+    - "action" (string): extra actions related to this list item (default empty)
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
   Blocks:
+    - "meta_block": instead of providing metas as an array, you can also embed the template and fill the 'meta_block' block directly
     - "detail_block": instead of providing detail as a string, you can also embed the template and fill the 'detail_block' block directly
+    - "action_block": instead of providing action as a string, you can also embed the template and fill the 'action_block' block directly
 
   Date parameters:
     - "date" (object): contains all parameters of ecl-date-block
@@ -267,10 +268,17 @@
 
 </span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
 
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _primary = '' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _screen_reader = screen_reader|<span class="hljs-keyword">default</span>('List item') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _secondary = '' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-list-item' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> <span class="hljs-name">date</span> is defined and <span class="hljs-name">date</span> is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _primary = <span class="hljs-name">date</span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant is defined and variant is not empty %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ 'ecl-list-item--' ~ variant %}</span><span class="xml">
@@ -290,32 +298,43 @@
 
 <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{ _screen_reader }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == '<span class="hljs-name">date</span>' %}</span><span class="xml">
-
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _primary is not empty %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-<span class="hljs-name">date</span>-blocks' with <span class="hljs-name">date</span> %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == '<span class="hljs-name">date</span>' %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-<span class="hljs-name">date</span>-blocks' with _primary %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> meta_block %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-meta' with { metas: metas } %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
       <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> detail_block %}</span><span class="xml">
           </span><span class="hljs-template-variable">{{ detail }}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> action_block %}</span><span class="xml">
+          </span><span class="hljs-template-variable">{{ action }}</span><span class="xml">
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> variant == 'thumbnail' %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _secondary is not empty %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__secondary"</span>&gt;</span>
 
-  thumbnail list item (coming soon)
-
-</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
-
-  default list item (coming soon)
-
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span></pre>
@@ -328,7 +347,14 @@
         
         
             <pre>
-<span class="hljs-comment">/* Default list item: No context defined */</span>
+<span class="hljs-comment">/* Default list item */</span>
+{
+  <span class="hljs-attr">"metas"</span>: [
+    <span class="hljs-string">"Service department"</span>,
+    <span class="hljs-string">"PMO"</span>
+  ],
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Administration and Payment of Individual Entitlements"</span>
+}
 
 </pre>
         
@@ -347,14 +373,6 @@
 
 </pre>
         
-            <pre>
-<span class="hljs-comment">/* Thumbnail list item */</span>
-{
-  <span class="hljs-attr">"variant"</span>: <span class="hljs-string">"thumbnail"</span>
-}
-
-</pre>
-        
         
     </code>
 </div>
@@ -368,10 +386,30 @@
             <pre><span class="hljs-comment">&lt;!-- Default list item --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
 
-  default list item (coming soon)
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta"</span>&gt;</span>
 
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>Service department<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>PMO<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Administration and Payment of Individual Entitlements<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -381,6 +419,7 @@
             <pre><span class="hljs-comment">&lt;!-- Date list item --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
 
@@ -397,25 +436,22 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
       <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Kraków, Poland<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-
-</pre>
-        
-            <pre><span class="hljs-comment">&lt;!-- Thumbnail list item --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--thumbnail"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
-
-
-  thumbnail list item (coming soon)
-
 
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -437,13 +473,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-8ac8fcecb498d1f7f79322ede17545b6">ecl-list-items.scss</option>
+                <option value="file-1df936abe0fd956b6ec4ede7c0ed423e">ecl-list-items.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-8ac8fcecb498d1f7f79322ede17545b6" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-1df936abe0fd956b6ec4ede7c0ed423e" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -475,9 +511,14 @@
   <span class="hljs-attribute">text-decoration</span>: none;
 }
 
+<span class="hljs-selector-class">.ecl-list-item__meta</span> {
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+}
+
 <span class="hljs-selector-class">.ecl-list-item__title</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-list-item__link</span>:hover,
@@ -507,7 +548,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">782 Bytes</span>
+                    <span class="Meta-value">870 Bytes</span>
                 </li>
             </ul>
         </div>

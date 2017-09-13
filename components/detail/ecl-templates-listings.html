@@ -278,10 +278,96 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container ecl-u-mv-l"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h1"</span>&gt;</span>Listings example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Default listing (one column)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-listings' with {
+      items: [
+        {
+          metas: ['Service department', 'PMO'],
+          title: 'Administration and Payment of Individual Entitlements',
+        },
+        {
+          metas: ['Directorate-General', 'AGRI'],
+          title: 'Agriculture and Rural Development',
+        },
+        {
+          metas: ['Directorate-General', 'BUDG'],
+          title: 'Budget',
+        },
+        {
+          metas: ['Directorate-General', 'CLIMA'],
+          title: 'Climate Action',
+        },
+      ]
+    } %}</span><span class="xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Default listing (two columns)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-listings' with {
+      variant: 'two-columns',
+      items: [
+        {
+          title: 'Business, Economy, Euro',
+          detail: 'EU economy, the euro, and practical information for EU businesses and entrepreneurs.'
+        },
+        {
+          title: 'About the European Union',
+          detail: 'The EU and its institutions, how to visit and work at the EU.'
+        },
+        {
+          title: 'Live, Work, Travel in EU',
+          detail: 'Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.'
+        },
+        {
+          title: 'Funding, Tenders',
+          detail: 'EU funding, grants, tenders, and how to apply.'
+        },
+        {
+          title: 'Law',
+          detail: 'EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.'
+        },
+        {
+          title: 'Research and innovation',
+          detail: 'Research funding, partners, results, and EU action to promote innovation.'
+        },
+      ]
+    } %}</span><span class="xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Default listing (three columns)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-listings' with {
+      variant: 'three-columns',
+      items: [
+        {
+          title: 'Business, Economy, Euro',
+          detail: 'EU economy, the euro, and practical information for EU businesses and entrepreneurs.'
+        },
+        {
+          title: 'About the European Union',
+          detail: 'The EU and its institutions, how to visit and work at the EU.'
+        },
+        {
+          title: 'Live, Work, Travel in EU',
+          detail: 'Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.'
+        },
+        {
+          title: 'Funding, Tenders',
+          detail: 'EU funding, grants, tenders, and how to apply.'
+        },
+        {
+          title: 'Law',
+          detail: 'EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.'
+        },
+        {
+          title: 'Research and innovation',
+          detail: 'Research funding, partners, results, and EU action to promote innovation.'
+        },
+      ]
+    } %}</span><span class="xml">
+
     <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Date listing (one column)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-listings' with {
-      variant: '<span class="hljs-name">date</span>',
       items: [
         {
           variant: '<span class="hljs-name">date</span>',
@@ -306,74 +392,85 @@
           detail:
             '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Kraków, Poland&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
         },
+        {
+          variant: '<span class="hljs-name">date</span>',
+          <span class="hljs-name">date</span>: {
+            week_day: 'Tue',
+            day: '14',
+            month: 'Sep',
+          },
+          title:
+            "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
+          detail:
+            '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Tallin, Estonia&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+        },
+        {
+          variant: '<span class="hljs-name">date</span>',
+          <span class="hljs-name">date</span>: {
+            week_day: 'Tue',
+            day: '19',
+            month: 'Sep',
+          },
+          title: "Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis",
+          detail:
+            '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Kaunas, Lithuania&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+        },
       ]
     } %}</span><span class="xml">
 
     <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Date listing (two columns)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-xs-12 ecl-col-md-6"</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-listings' with {
-        variant: '<span class="hljs-name">date</span>',
-        items: [
-          {
-            variant: '<span class="hljs-name">date</span>',
-            <span class="hljs-name">date</span>: {
-              week_day: 'Tue',
-              day: '07',
-              month: 'Sep',
-            },
-            title:
-              "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
-            detail:
-              '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Bucharest, Romania&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-listings' with {
+      variant: 'two-columns',
+      items: [
+        {
+          variant: '<span class="hljs-name">date</span>',
+          <span class="hljs-name">date</span>: {
+            week_day: 'Tue',
+            day: '07',
+            month: 'Sep',
           },
-          {
-            variant: '<span class="hljs-name">date</span>',
-            <span class="hljs-name">date</span>: {
-              week_day: 'Tue',
-              day: '08',
-              month: 'Sep',
-            },
-            title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
-            detail:
-              '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Kraków, Poland&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+          title:
+            "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
+          detail:
+            '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Bucharest, Romania&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+        },
+        {
+          variant: '<span class="hljs-name">date</span>',
+          <span class="hljs-name">date</span>: {
+            week_day: 'Tue',
+            day: '08',
+            month: 'Sep',
           },
-        ]
-      } %}</span><span class="xml">
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-xs-12 ecl-col-md-6"</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-listings' with {
-        variant: '<span class="hljs-name">date</span>',
-        items: [
-          {
-            variant: '<span class="hljs-name">date</span>',
-            <span class="hljs-name">date</span>: {
-              week_day: 'Tue',
-              day: '14',
-              month: 'Sep',
-            },
-            title:
-              "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
-            detail:
-              '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Tallin, Estonia&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+          title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
+          detail:
+            '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Kraków, Poland&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+        },
+        {
+          variant: '<span class="hljs-name">date</span>',
+          <span class="hljs-name">date</span>: {
+            week_day: 'Tue',
+            day: '14',
+            month: 'Sep',
           },
-          {
-            variant: '<span class="hljs-name">date</span>',
-            <span class="hljs-name">date</span>: {
-              week_day: 'Tue',
-              day: '19',
-              month: 'Sep',
-            },
-            title: "Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis",
-            detail:
-              '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Kaunas, Lithuania&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+          title:
+            "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
+          detail:
+            '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Tallin, Estonia&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+        },
+        {
+          variant: '<span class="hljs-name">date</span>',
+          <span class="hljs-name">date</span>: {
+            week_day: 'Tue',
+            day: '19',
+            month: 'Sep',
           },
-        ]
-      } %}</span><span class="xml">
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          title: "Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis",
+          detail:
+            '&lt;small&gt;&lt;span class="ecl-icon ecl-icon--location"&gt;Kaunas, Lithuania&lt;/span&gt; &lt;span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s"&gt;live streaming available&lt;/span&gt;&lt;/small&gt;',
+        },
+      ]
+    } %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
@@ -754,12 +851,451 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container ecl-u-mv-l"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h1"</span>&gt;</span>Listings example<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Default listing (one column)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta"</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>Service department<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>PMO<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Administration and Payment of Individual Entitlements<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta"</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>Directorate-General<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>AGRI<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Agriculture and Rural Development<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta"</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>Directorate-General<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>BUDG<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Budget<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta"</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>Directorate-General<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>CLIMA<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Climate Action<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Default listing (two columns)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing ecl-listing--two-columns"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--two-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--two-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Business, Economy, Euro<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              EU economy, the euro, and practical information for EU businesses and entrepreneurs.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--two-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--two-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>About the European Union<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              The EU and its institutions, how to visit and work at the EU.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--two-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--two-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Live, Work, Travel in EU<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--two-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--two-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Funding, Tenders<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              EU funding, grants, tenders, and how to apply.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--two-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--two-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Law<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--two-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--two-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Research and innovation<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              Research funding, partners, results, and EU action to promote innovation.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Default listing (three columns)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing ecl-listing--three-columns"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--three-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--three-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Business, Economy, Euro<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              EU economy, the euro, and practical information for EU businesses and entrepreneurs.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--three-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--three-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>About the European Union<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              The EU and its institutions, how to visit and work at the EU.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--three-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--three-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Live, Work, Travel in EU<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--three-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--three-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Funding, Tenders<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              EU funding, grants, tenders, and how to apply.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--three-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--three-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Law<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--three-columns"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--three-columns"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Research and innovation<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              Research funding, partners, results, and EU action to promote innovation.
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
     <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Date listing (one column)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing ecl-listing--date"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing"</span>&gt;</span>
 
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
 
@@ -776,10 +1312,20 @@
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
             <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Bucharest, Romania<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
@@ -788,6 +1334,7 @@
 
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
 
@@ -804,10 +1351,98 @@
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
             <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Kraków, Poland<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Tallin, Estonia<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>19<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
+
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Kaunas, Lithuania<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
@@ -818,133 +1453,165 @@
 
     <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Date listing (two columns)<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-xs-12 ecl-col-md-6"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing ecl-listing--two-columns"</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing ecl-listing--date"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>07<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>07<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-
-                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Bucharest, Romania<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Bucharest, Romania<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>08<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>08<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Kraków, Poland<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Kraków, Poland<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-xs-12 ecl-col-md-6"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-listing ecl-listing--date"</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>14<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 
-                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Tallin, Estonia<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Tallin, Estonia<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>19<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 
-                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item ecl-list-item--date"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-list-item__link"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>List item<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block ecl-date-block--date"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__body"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__week-day"</span>&gt;</span>Tue<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__day"</span>&gt;</span>19<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-date-block__month"</span>&gt;</span>Sep<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__body"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__meta"</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail"</span>&gt;</span>
-                  <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Kaunas, Lithuania<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--date"</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__title ecl-heading ecl-heading--h3"</span>&gt;</span>Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__detail ecl-paragraph"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--location"</span>&gt;</span>Kaunas, Lithuania<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--livestreaming ecl-u-ml-s"</span>&gt;</span>live streaming available<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__action"</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
