@@ -251,6 +251,8 @@
     - "variant" (string): can be empty, 'date' or 'thumbnail' (default: empty)
     - "href" (string): target of the list item link (default: empty)
     - "title" (string): title of the list item (default: empty)
+    - "primary_image" (object): primary image. Should follow ecl-image structure (default: empty)
+    - "secondary_image" (object): secondary image. Should follow ecl-image structure (default: empty)
     - "screen_reader" (string): alternative text for screen readers (default: "List item")
     - "detail" (string): detail concerning the list item (default empty)
     - "metas" (array): array of meta item, as in 'ecl-meta' component (default empty)
@@ -268,9 +270,9 @@
 
 </span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _primary = '' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _primary = primary_image|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _secondary = secondary_image|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _screen_reader = screen_reader|<span class="hljs-keyword">default</span>('List item') %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _secondary = '' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-list-item' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
 
@@ -303,7 +305,9 @@
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _primary is not empty %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__primary"</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> variant == '<span class="hljs-name">date</span>' %}</span><span class="xml">
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-<span class="hljs-name">date</span>-blocks' with _primary %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-<span class="hljs-name">date</span>-blocks' with _primary %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-images' with _primary %}</span><span class="xml">
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
@@ -332,7 +336,7 @@
 
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _secondary is not empty %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list-item__secondary"</span>&gt;</span>
-
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-images' with _secondary %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
@@ -407,13 +411,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-1df936abe0fd956b6ec4ede7c0ed423e">ecl-list-items.scss</option>
+                <option value="file-bb0b97ff8771562e675e9adbc55eac69">ecl-list-items.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-1df936abe0fd956b6ec4ede7c0ed423e" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-bb0b97ff8771562e675e9adbc55eac69" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -434,6 +438,10 @@
 
 <span class="hljs-selector-class">.ecl-list-item</span>:first-child {
   <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-list-item__body</span> {
+  <span class="hljs-attribute">flex-grow</span>: <span class="hljs-number">1</span>;
 }
 
 <span class="hljs-selector-class">.ecl-list-item__link</span> {
@@ -464,7 +472,11 @@
 }
 
 <span class="hljs-selector-class">.ecl-list-item__primary</span> {
+  <span class="hljs-attribute">height</span>: auto;
   <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  <span class="hljs-attribute">max-height</span>: <span class="hljs-number">5.55rem</span>;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">5.55rem</span>;
+  <span class="hljs-attribute">width</span>: auto;
 }
 </pre>
                             </code>
@@ -482,7 +494,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">870 Bytes</span>
+                    <span class="Meta-value">988 Bytes</span>
                 </li>
             </ul>
         </div>
