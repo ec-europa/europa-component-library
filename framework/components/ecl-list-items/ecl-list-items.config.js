@@ -38,5 +38,17 @@ module.exports = {
           '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
       },
     },
+    {
+      name: 'thumbnail',
+      label: 'Thumbnail list item',
+      context: {
+        metas: ['Director-General'],
+        title: 'John Doe',
+        primary_image: {
+          src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+          alt: 'Director-General John Doe',
+        },
+      },
+    },
   ],
 };

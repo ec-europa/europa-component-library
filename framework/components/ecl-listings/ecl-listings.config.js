@@ -1,4 +1,41 @@
-const itemsMultiple = [
+const itemsDate = [
+  {
+    variant: 'date',
+    date: {
+      week_day: 'Tue',
+      day: '07',
+      month: 'Sep',
+    },
+    title:
+      "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
+    detail:
+      '<small><span class="ecl-icon ecl-icon--location">Bucharest, Romania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+  },
+  {
+    variant: 'date',
+    date: {
+      week_day: 'Tue',
+      day: '08',
+      month: 'Sep',
+    },
+    title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
+    detail:
+      '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+  },
+  {
+    variant: 'date',
+    date: {
+      week_day: 'Tue',
+      day: '14',
+      month: 'Sep',
+    },
+    title: "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
+    detail:
+      '<small><span class="ecl-icon ecl-icon--location">Tallin, Estonia</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+  },
+];
+
+const itemsDefault = [
   {
     title: 'Business, Economy, Euro',
     detail:
@@ -29,22 +66,30 @@ const itemsMultiple = [
   },
 ];
 
-const itemsDefault = [
+const itemsThumbnails = [
   {
-    metas: ['Service department', 'PMO'],
-    title: 'Administration and Payment of Individual Entitlements',
+    metas: ['Director-General'],
+    title: 'John Doe',
+    primary_image: {
+      src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+      alt: 'Director-General John Doe',
+    },
   },
   {
-    metas: ['Directorate-General', 'AGRI'],
-    title: 'Agriculture and Rural Development',
+    metas: ['Deputy Director-General'],
+    title: 'Jane Doe',
+    primary_image: {
+      src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+      alt: 'Deputy Director-General Jane Doe',
+    },
   },
   {
-    metas: ['Directorate-General', 'BUDG'],
-    title: 'Budget',
-  },
-  {
-    metas: ['Directorate-General', 'CLIMA'],
-    title: 'Climate Action',
+    metas: ['Acting Deputy Director-General'],
+    title: 'Jack Doe',
+    primary_image: {
+      src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+      alt: 'Acting Deputy Director-General Jack Doe',
+    },
   },
 ];
 
@@ -68,7 +113,7 @@ module.exports = {
       name: 'one-column',
       label: 'One column listing',
       context: {
-        items: itemsDefault,
+        items: itemsDate,
       },
     },
     {
@@ -76,7 +121,7 @@ module.exports = {
       label: 'Two columns listing',
       context: {
         variant: 'two-columns',
-        items: itemsMultiple,
+        items: itemsThumbnails,
       },
     },
     {
@@ -84,7 +129,7 @@ module.exports = {
       label: 'Three columns listing',
       context: {
         variant: 'three-columns',
-        items: itemsMultiple,
+        items: itemsDefault,
       },
     },
   ],
