@@ -32,7 +32,7 @@ const browsers = {
     browserName: 'safari',
     version: '10.0',
     platform: 'macOS 10.12',
-    seleniumVersion: '3.5.1',
+    seleniumVersion: '3.4.0',
     build,
     screenResolution: '1920x1440',
   },
