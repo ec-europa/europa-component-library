@@ -23,7 +23,7 @@ $ecl-checkbox-icon-size: 1.5em;
   display: inline-flex;
 
   &::before {
-    background: #fff url('../images/svg/checkbox-unchecked.svg') no-repeat;
+    background: #fff url('../images/checkbox-unchecked.svg') no-repeat;
     border: 3px solid transparent;
     border-radius: 25%;
     content: '';
@@ -36,7 +36,7 @@ $ecl-checkbox-icon-size: 1.5em;
 }
 
 .ecl-checkbox__input:checked + .ecl-checkbox__label::before {
-  background-image: url('../images/svg/checkbox-checked--blue.svg');
+  background-image: url('../images/checkbox-checked--blue.svg');
 }
 
 .ecl-checkbox__input:focus + .ecl-checkbox__label::before {

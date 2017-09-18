@@ -4,7 +4,7 @@
  */
 
 .ecl-message {
-  background: transparent url('../images/svg/messages-info.svg') no-repeat 1.2rem 1.2rem;
+  background: transparent url('../image/messages-info.svg') no-repeat 1.2rem 1.2rem;
   border: 2px solid map-get($ecl-colors, 'blue-75');
   color: $ecl-color-shade;
   font-size: map-get($ecl-font-size, 's');
@@ -14,22 +14,22 @@
   position: relative;
 
   &--success {
-    background-image: url('../images/svg/messages-success.svg');
+    background-image: url('../images/messages-success.svg');
     border-color: $ecl-color-success;
   }
 
   &--warning {
-    background-image: url('../images/svg/messages-warning.svg');
+    background-image: url('../images/messages-warning.svg');
     border-color: map-get($ecl-colors, 'yellow-110');
   }
 
   &--error {
-    background-image: url('../images/svg/messages-error.svg');
+    background-image: url('../images/messages-error.svg');
     border-color: $ecl-color-error;
   }
 
   &--live {
-    background-image: url('../images/svg/live_streaming.svg');
+    background-image: url('../images/live_streaming.svg');
     border-color: map-get($ecl-colors, 'yellow-110');
   }
 }
