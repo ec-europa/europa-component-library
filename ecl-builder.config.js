@@ -66,10 +66,7 @@ module.exports = {
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(
-        __dirname,
-        'framework/components/ecl-messages/images'
-      ),
+      from: path.resolve(__dirname, 'framework/components/ecl-messages/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
