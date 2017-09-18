@@ -4,7 +4,7 @@
  */
 
 .ecl-message {
-  background: transparent url('../image/messages-info.svg') no-repeat 1.2rem 1.2rem;
+  background: transparent url('../images/messages-info.svg') no-repeat 1.2rem 1.2rem;
   border: 2px solid map-get($ecl-colors, 'blue-75');
   color: $ecl-color-shade;
   font-size: map-get($ecl-font-size, 's');
@@ -45,7 +45,7 @@
 }
 
 .ecl-message__dismiss {
-  background: transparent url('../images/svg/close.svg') no-repeat center center;
+  background: transparent url('../images/close.svg') no-repeat center center;
   border-width: 0;
   color: transparent;
   display: block;
@@ -59,6 +59,6 @@
   top: map-get($ecl-spacing, 'xxs');
 
   &:hover {
-    background-image: url('../images/svg/close_hover.svg');
+    background-image: url('../images/close_hover.svg');
   }
 }
