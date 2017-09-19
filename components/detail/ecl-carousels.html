@@ -287,8 +287,8 @@ Usage:
 
     {
       image: {
-        src: 'http://lorempixel.com/600/1200/business/1/',
-        alt: 'Iimage item alt text',
+        src: '&lt;path_to_image&gt;',
+        alt: 'Image item alt text',
       },
       download: {
         target: '#',
@@ -406,7 +406,7 @@ Usage:
   <span class="hljs-attr">"carousel_images"</span>: [
     {
       <span class="hljs-attr">"image"</span>: {
-        <span class="hljs-attr">"src"</span>: <span class="hljs-string">"/assets/demo_images/business-demo-1.jpg"</span>,
+        <span class="hljs-attr">"src"</span>: <span class="hljs-string">"../../assets/demo_images/business-demo-1.jpg"</span>,
         <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"First item"</span>
       },
       <span class="hljs-attr">"download"</span>: {
@@ -424,7 +424,7 @@ Usage:
     },
     {
       <span class="hljs-attr">"image"</span>: {
-        <span class="hljs-attr">"src"</span>: <span class="hljs-string">"/assets/demo_images/business-demo-2.jpg"</span>,
+        <span class="hljs-attr">"src"</span>: <span class="hljs-string">"../../assets/demo_images/business-demo-2.jpg"</span>,
         <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Second item"</span>
       },
       <span class="hljs-attr">"download"</span>: {
@@ -442,7 +442,7 @@ Usage:
     },
     {
       <span class="hljs-attr">"image"</span>: {
-        <span class="hljs-attr">"src"</span>: <span class="hljs-string">"/assets/demo_images/business-demo-3.jpg"</span>,
+        <span class="hljs-attr">"src"</span>: <span class="hljs-string">"../../assets/demo_images/business-demo-3.jpg"</span>,
         <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Third item"</span>
       },
       <span class="hljs-attr">"download"</span>: {
@@ -475,13 +475,13 @@ Usage:
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__list-wrapper"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__list ecl-list--unstyled"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__item"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/assets/demo_images/business-demo-1.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"First item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../assets/demo_images/business-demo-1.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"First item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__item"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/assets/demo_images/business-demo-2.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Second item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../assets/demo_images/business-demo-2.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Second item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__item"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/assets/demo_images/business-demo-3.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Third item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../assets/demo_images/business-demo-3.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Third item"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image"</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -578,15 +578,15 @@ Usage:
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-769b8bf07290287c56a65b4623495d7b">carousels.js</option>
+                <option value="file-79d82199d8b3f7fd39620d07967531f9">carousels.js</option>
                 
-                <option value="file-2f347e5e2cb7fbc4042799dac1d3843d">ecl-carousels.scss</option>
+                <option value="file-8aff5ec3ea23e454d63227e96a2674e9">ecl-carousels.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-769b8bf07290287c56a65b4623495d7b" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-79d82199d8b3f7fd39620d07967531f9" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -782,7 +782,7 @@ Usage:
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-2f347e5e2cb7fbc4042799dac1d3843d" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-8aff5ec3ea23e454d63227e96a2674e9" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
