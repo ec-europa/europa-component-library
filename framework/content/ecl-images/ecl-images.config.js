@@ -4,7 +4,7 @@ module.exports = {
   status: 'ready',
   order: 4,
   context: {
-    src: 'http://lorempixel.com/800/600/nature/8',
+    src: '../../assets/demo_images/nature-demo-1.jpg',
     alt: 'This is a test image',
   },
 };

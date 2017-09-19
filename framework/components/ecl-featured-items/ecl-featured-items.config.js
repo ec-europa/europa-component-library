@@ -19,7 +19,7 @@ module.exports = {
       label: 'Featured item',
       context: {
         image: {
-          src: 'http://lorempixel.com/720/480/technics/4',
+          src: '../../assets/demo_images/technics-demo-1.jpg',
           alt: 'Technic picture',
         },
         metas: ['announcement', '21 December 2016'],
@@ -32,7 +32,7 @@ module.exports = {
       context: {
         variant: 'extended',
         image: {
-          src: 'http://lorempixel.com/720/480/technics/4',
+          src: '../../assets/demo_images/technics-demo-1.jpg',
           alt: 'Technic picture',
         },
         metas: ['announcement', '21 December 2016'],

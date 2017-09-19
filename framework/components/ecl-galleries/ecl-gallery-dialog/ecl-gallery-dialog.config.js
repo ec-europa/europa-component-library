@@ -39,7 +39,7 @@ module.exports = {
       carousel_images: [
         {
           image: {
-            src: '/assets/demo_images/business-demo-1.jpg',
+            src: '../../assets/demo_images/business-demo-1.jpg',
             alt: 'First item',
           },
           download: {
@@ -58,7 +58,7 @@ module.exports = {
         },
         {
           image: {
-            src: '/assets/demo_images/business-demo-2.jpg',
+            src: '../../assets/demo_images/business-demo-2.jpg',
             alt: 'Second item',
           },
           download: {
@@ -77,7 +77,7 @@ module.exports = {
         },
         {
           image: {
-            src: '/assets/demo_images/business-demo-3.jpg',
+            src: '../../assets/demo_images/business-demo-3.jpg',
             alt: 'Third item',
           },
           download: {
