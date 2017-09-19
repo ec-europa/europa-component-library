@@ -5,11 +5,11 @@ $ecl-select-background-width: $ecl-select-icon-size + 2 * map-get($ecl-spacing, 
 // Select list arrow styling.
 @mixin ecl-select-list-arrow($background-color, $arrow-grey:false) {
   @if ($arrow-grey) {
-    background: url('../images/svg/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
+    background: url('../images/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
   }
 
   @else {
-    background: url('../images/svg/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
+    background: url('../images/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
   }
 
   background-position: right ($ecl-select-background-width - $ecl-select-icon-size)/2 center, right;
