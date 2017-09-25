@@ -50,10 +50,9 @@
 
   {% if user_menu is defined and user_menu is iterable %}
   <div class="ecl-container">
-    <!-- TODO: use utilities for float -->
     {% include '@ec-europa/ecl-navigation-lists' with {
       variant: 'small',
-      extra_attributes: [{ name: 'style', value: 'float: right' }]
+      extra_classes: 'ecl-u-f-r'
     }|merge(user_menu) %}
   </div>
   {% endif %}
