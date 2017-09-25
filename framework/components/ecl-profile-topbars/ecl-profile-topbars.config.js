@@ -10,7 +10,7 @@ module.exports = {
     },
     profile: {
       image: {
-        src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+        src: '../../assets/demo_images/default_profile_image.png',
         alt: 'Example profile image',
       },
       expandable: {

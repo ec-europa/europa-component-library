@@ -19,7 +19,7 @@ module.exports = {
       label: 'Background banner',
       context: {
         type: 'background',
-        src: 'http://lorempixel.com/1600/370/abstract/8',
+        src: '../../assets/demo_images/abstract-demo-1.jpg',
         title: {
           label: 'White Paper on the future of Europe',
           href: '#',
