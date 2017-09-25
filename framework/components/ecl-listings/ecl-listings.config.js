@@ -71,7 +71,7 @@ const itemsThumbnails = [
     metas: ['Director-General'],
     title: 'John Doe',
     primary_image: {
-      src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+      src: '../../assets/demo_images/default_profile_image.png',
       alt: 'Director-General John Doe',
     },
   },
@@ -79,7 +79,7 @@ const itemsThumbnails = [
     metas: ['Deputy Director-General'],
     title: 'Jane Doe',
     primary_image: {
-      src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+      src: '../../assets/demo_images/default_profile_image.png',
       alt: 'Deputy Director-General Jane Doe',
     },
   },
@@ -87,7 +87,7 @@ const itemsThumbnails = [
     metas: ['Acting Deputy Director-General'],
     title: 'Jack Doe',
     primary_image: {
-      src: 'http://lorempixel.com/output/business-q-c-160-160-10.jpg',
+      src: '../../assets/demo_images/default_profile_image.png',
       alt: 'Acting Deputy Director-General Jack Doe',
     },
   },

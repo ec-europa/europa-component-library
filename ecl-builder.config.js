@@ -33,6 +33,27 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
+        'framework/components/ecl-forms/ecl-forms-checkboxes/images'
+      ),
+      to: path.resolve(__dirname, outputFolder, 'images'),
+    },
+    {
+      from: path.resolve(
+        __dirname,
+        'framework/components/ecl-forms/ecl-forms-feedback-messages/images'
+      ),
+      to: path.resolve(__dirname, outputFolder, 'images'),
+    },
+    {
+      from: path.resolve(
+        __dirname,
+        'framework/components/ecl-forms/ecl-forms-radios/images'
+      ),
+      to: path.resolve(__dirname, outputFolder, 'images'),
+    },
+    {
+      from: path.resolve(
+        __dirname,
         'framework/components/ecl-forms/ecl-forms-selects/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
@@ -42,6 +63,10 @@ module.exports = {
         __dirname,
         'framework/components/ecl-social-icons/images'
       ),
+      to: path.resolve(__dirname, outputFolder, 'images'),
+    },
+    {
+      from: path.resolve(__dirname, 'framework/components/ecl-messages/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
