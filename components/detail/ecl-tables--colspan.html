@@ -199,7 +199,11 @@
 <ul>
 <li>don’t use data tables to structure content that isn’t part of a data set</li>
 </ul>
-
+<h2 id="technical-information">Technical information</h2>
+<p>When using ecl tables, make sure to call related javascript:</p>
+<code class="lang-javascript"><pre>ECL.eclTables();</pre></code><p>It will handle responsive behavior</p>
+<p>You can also apply this script only to a subset of elements:</p>
+<code class="lang-javascript"><pre>ECL.eclTables(elements);</pre></code>
                 
               </div>
             </div>
@@ -275,110 +279,68 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-40464fa43f1989845ae2904b2ddb7df3-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-table"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Registration date<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Language<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>French<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>German<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>September, 14 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>September, 14 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>September, 14 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-comment">{#
+  Parameters:
+    - "headers" (two dimentional array): Each item represents a tr; each item inside represents a th (default: empty)
+    [
+      [
+        {
+          - "label" (string): label of the header
+          - "attributes" (string): extra attributes for this header
+        }
+      ]
+    ]
+    - "rows" (two dimentional array): Each item represents a tr; each item inside represents a td (default: empty)
+    [
+      [
+        {
+          - "label" (string): label of the cell
+          - "attributes" (string): extra attributes for this cell
+        }
+      ]
+    ]
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-table"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Registration date<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Country<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Telephone<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>First name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Last name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Paolo<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Ferrari<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>13 September 2015<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Italy<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>063298234234<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Marco<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Ciauscolo<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>12 October 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Switzerland<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>235245662346<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-table"</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-table' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined and extra_classes is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined and extra_attributes is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> header in headers %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Location<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Profession<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Telephone<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> data in header %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> </span></span><span class="hljs-template-variable">{{ data.attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span></span><span class="hljs-template-variable">{{ data.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Country<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>City<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+
   <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> row in rows %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>England<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>London<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Student<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>2342345346<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> data in row %}</span><span class="xml">
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> </span></span><span class="hljs-template-variable">{{ data.attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span></span><span class="hljs-template-variable">{{ data.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Jim<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Ireland<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Dublin<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Mechanic<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>23523629365<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Franco<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Italy<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Bari<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Plumber<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>239238602936<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></span></pre>
     </code>
@@ -390,6 +352,86 @@
         
             
             <pre>{
+  <span class="hljs-attr">"headers"</span>: [
+    [
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Name"</span>,
+        <span class="hljs-attr">"attributes"</span>: <span class="hljs-string">"rowspan=\"2\""</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Registration date"</span>,
+        <span class="hljs-attr">"attributes"</span>: <span class="hljs-string">"rowspan=\"2\""</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Language"</span>,
+        <span class="hljs-attr">"attributes"</span>: <span class="hljs-string">"colspan=\"3\""</span>
+      }
+    ],
+    [
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"English"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"French"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"German"</span>
+      }
+    ]
+  ],
+  <span class="hljs-attr">"rows"</span>: [
+    [
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"John Doe"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"01/01/2016"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"yes"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"no"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"no"</span>
+      }
+    ],
+    [
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Jane Doe"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"06/12/2016"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"no"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"yes"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"yes"</span>
+      }
+    ],
+    [
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Jack Doe"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"03/05/2017"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"yes"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"no"</span>
+      },
+      {
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"no"</span>
+      }
+    ]
+  ],
   <span class="hljs-attr">"_demo"</span>: {
     <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"ECL.eclTables();"</span>
   }
@@ -407,9 +449,9 @@
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-table"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Registration date<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Language<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span>&gt;</span>Registration date<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"3"</span>&gt;</span>Language<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
@@ -417,96 +459,28 @@
       <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>German<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>September, 14 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>September, 14 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>September, 14 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>No<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-table"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Registration date<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Country<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Telephone<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>First name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Last name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Paolo<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Ferrari<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>13 September 2015<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Italy<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>063298234234<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John Doe<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>01/01/2016<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>no<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>no<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Marco<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Ciauscolo<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>12 October 2013<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Switzerland<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>235245662346<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-table"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Location<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Profession<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Telephone<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Jane Doe<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>06/12/2016<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>no<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Country<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>City<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>England<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>London<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Student<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>2342345346<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Jim<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Ireland<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Dublin<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Mechanic<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>23523629365<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Franco<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Italy<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Bari<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Plumber<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>239238602936<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Jack Doe<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>03/05/2017<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>yes<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>no<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>no<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></pre>
@@ -525,19 +499,19 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-80f3cb85ac5d94068b64da63ab8282a3">_editor-tables.scss</option>
+                <option value="file-3e15987bc6d410d7ba1a4d73dd46041f">_editor-tables.scss</option>
                 
-                <option value="file-494ca193074c2bf908fa36ee435facf0">_tables-mixins.scss</option>
+                <option value="file-aff4b9ca377e7f8bdf32204907f0a710">_tables-mixins.scss</option>
                 
-                <option value="file-85d986785d7560235c702a868bf4775b">_tables.scss</option>
+                <option value="file-26b547956327d3608bdac2ac5f80bf81">ecl-tables.js</option>
                 
-                <option value="file-9609c92938513e92f2a27993959a4d86">ecl-tables.js</option>
+                <option value="file-214234354f0c58c45e5d2de3b1801aff">ecl-tables.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-80f3cb85ac5d94068b64da63ab8282a3" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-3e15987bc6d410d7ba1a4d73dd46041f" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -583,7 +557,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-494ca193074c2bf908fa36ee435facf0" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-aff4b9ca377e7f8bdf32204907f0a710" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -595,7 +569,7 @@
   <span class="hljs-attribute">border-collapse</span>: collapse;
   <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
-  <span class="hljs-attribute">margin</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-selector-tag">table</span>-layout: fixed;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
 
@@ -696,80 +670,7 @@
             </ul>
         </div>
         
-        <div class="FileBrowser-item" id="file-85d986785d7560235c702a868bf4775b" data-role="resource-preview">
-            <ul class="Meta">
-                <li class="Meta-item">
-                    <strong class="Meta-key">Content:</strong>
-                    <span class="Meta-value">
-                        <div class="FileBrowser-itemPreview">
-                            
-                            <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre><span class="hljs-comment">/*
- *ECL tables
- * @define table ; weak
- */</span>
-
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'tables-mixins'</span>;
-
-<span class="hljs-selector-class">.ecl-table</span> {
-  @<span class="hljs-keyword">include</span> table();
-}
-
-@<span class="hljs-keyword">media</span> (max-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'md'</span>)) {
-  <span class="hljs-selector-class">.ecl-table</span> {
-    @<span class="hljs-keyword">include</span> table-max-width-md();
-  }
-
-  <span class="hljs-selector-class">.ecl-table__heading</span> {
-    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
-    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-    <span class="hljs-attribute">font-weight</span>: bold;
-  }
-
-  <span class="hljs-selector-class">.ecl-table__group-label</span> {
-    &amp;::after {
-      <span class="hljs-attribute">content</span>: attr(data-th-group);
-      <span class="hljs-attribute">display</span>: block;
-      <span class="hljs-attribute">font-weight</span>: bold;
-      <span class="hljs-attribute">left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">top</span>: -(map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>));
-    }
-
-    ~ <span class="hljs-selector-class">.ecl-table__group_element</span> {
-      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-      <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
-    }
-  }
-}
-
-@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'md'</span>) {
-  <span class="hljs-selector-class">.ecl-table</span> {
-    @<span class="hljs-keyword">include</span> table-min-width-md();
-  }
-}
-</pre>
-                            </code>
-                            
-                        </div>
-                    </span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a href="../raw/ecl-tables/_tables.scss"><span>/components/raw/ecl-tables/_tables.scss</span></a></span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-tables/_tables.scss</span>
-                </li>
-                <li class="Meta-item">
-                    <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">782 Bytes</span>
-                </li>
-            </ul>
-        </div>
-        
-        <div class="FileBrowser-item" id="file-9609c92938513e92f2a27993959a4d86" data-role="resource-preview">
+        <div class="FileBrowser-item" id="file-26b547956327d3608bdac2ac5f80bf81" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -783,8 +684,9 @@
 
 <span class="hljs-comment">/* eslint-disable no-unexpected-multiline */</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eclTables</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">const</span> tables = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'ecl-table'</span>);
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eclTables</span>(<span class="hljs-params">elements = null</span>) </span>{
+  <span class="hljs-keyword">const</span> tables =
+    elements === <span class="hljs-literal">null</span> ? <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'ecl-table'</span>) : elements;
   [].forEach.call(tables, table =&gt; {
     <span class="hljs-keyword">const</span> headerText = [];
     <span class="hljs-keyword">let</span> textColspan = <span class="hljs-string">''</span>;
@@ -879,7 +781,80 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.5 KB</span>
+                    <span class="Meta-value">2.6 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-214234354f0c58c45e5d2de3b1801aff" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">/*
+ *ECL tables
+ * @define table ; weak
+ */</span>
+
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'tables-mixins'</span>;
+
+<span class="hljs-selector-class">.ecl-table</span> {
+  @<span class="hljs-keyword">include</span> table();
+}
+
+@<span class="hljs-keyword">media</span> (max-width: map-get(<span class="hljs-variable">$ecl-grid-breakpoints</span>, <span class="hljs-string">'md'</span>)) {
+  <span class="hljs-selector-class">.ecl-table</span> {
+    @<span class="hljs-keyword">include</span> table-max-width-md();
+  }
+
+  <span class="hljs-selector-class">.ecl-table__heading</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">font-weight</span>: bold;
+  }
+
+  <span class="hljs-selector-class">.ecl-table__group-label</span> {
+    &amp;::after {
+      <span class="hljs-attribute">content</span>: attr(data-th-group);
+      <span class="hljs-attribute">display</span>: block;
+      <span class="hljs-attribute">font-weight</span>: bold;
+      <span class="hljs-attribute">left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">top</span>: -(map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>));
+    }
+
+    ~ <span class="hljs-selector-class">.ecl-table__group_element</span> {
+      <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+    }
+  }
+}
+
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'md'</span>) {
+  <span class="hljs-selector-class">.ecl-table</span> {
+    @<span class="hljs-keyword">include</span> table-min-width-md();
+  }
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a href="../raw/ecl-tables/ecl-tables.scss"><span>/components/raw/ecl-tables/ecl-tables.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">framework/components/ecl-tables/ecl-tables.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">782 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -943,7 +918,7 @@
         </li>
         <li class="Meta-item">
             <strong class="Meta-key">Filesystem Path:</strong>
-            <span class="Meta-value">framework/components/ecl-tables/ecl-tables--colspan.twig</span>
+            <span class="Meta-value">framework/components/ecl-tables/ecl-tables.twig</span>
         </li>
         
         
