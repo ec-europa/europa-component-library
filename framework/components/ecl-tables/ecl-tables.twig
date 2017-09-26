@@ -1,0 +1,64 @@
+{#
+  Parameters:
+    - "headers" (two dimentional array): Each item represents a tr; each item inside represents a th (default: empty)
+    [
+      [
+        {
+          - "label" (string): label of the header
+          - "attributes" (string): extra attributes for this header
+        }
+      ]
+    ]
+    - "rows" (two dimentional array): Each item represents a tr; each item inside represents a td (default: empty)
+    [
+      [
+        {
+          - "label" (string): label of the cell
+          - "attributes" (string): extra attributes for this cell
+        }
+      ]
+    ]
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-table' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
+<table class="{{ _css_class }}" {{ _extra_attributes }}>
+  <thead>
+    {% for header in headers %}
+    <tr>
+      {% for data in header %}
+      <th scope="col" {{ data.attributes }}>{{ data.label }}</th>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </thead>
+
+  <tbody>
+    {% for row in rows %}
+    <tr>
+      {% for data in row %}
+      <td {{ data.attributes }}>{{ data.label }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
