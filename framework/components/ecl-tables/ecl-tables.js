@@ -4,8 +4,9 @@
 
 /* eslint-disable no-unexpected-multiline */
 
-export function eclTables() {
-  const tables = document.getElementsByClassName('ecl-table');
+export function eclTables(elements = null) {
+  const tables =
+    elements === null ? document.getElementsByClassName('ecl-table') : elements;
   [].forEach.call(tables, table => {
     const headerText = [];
     let textColspan = '';
