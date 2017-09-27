@@ -51,7 +51,7 @@ exports.config = {
   specs: getSpecs(),
 
   // Patterns to exclude.
-  exclude: [],
+  exclude: ['node_modules/**'],
 
   // ============
   // Capabilities
