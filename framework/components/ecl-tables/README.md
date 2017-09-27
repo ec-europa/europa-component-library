@@ -38,3 +38,16 @@ If there are 5 rows or more, the rows have alternating colours (zebra stripes).
 ## Do not use this component
 
 - don't use data tables to structure content that isn't part of a data set
+
+## Technical information
+
+When using ecl tables, make sure to call related javascript:
+```javascript
+ECL.eclTables();
+```
+It will handle responsive behavior
+
+You can also apply this script only to a subset of elements:
+```javascript
+ECL.eclTables(elements);
+```
