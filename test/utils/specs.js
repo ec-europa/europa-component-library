@@ -1,4 +1,5 @@
 const path = require('path');
+const glob = require('glob');
 
 // Lerna related imports
 const log = require('npmlog');
@@ -18,7 +19,11 @@ const ci = isTravis ? 'TRAVIS' : 'DRONE';
 
 module.exports.getSpecs = () => {
   // By default, test all the specs
-  let specs = [path.resolve(__dirname, '../../framework/**/test/spec/**/*.js')];
+  const pattern = path.resolve(
+    __dirname,
+    '../../framework/**/test/spec/**/*.js'
+  );
+  let specs = glob.sync(pattern, { ignore: ['**/node_modules/**'] });
 
   // Only test the updated components when the branch is not the master
   if (isCI && process.env[`${ci}_BRANCH`] !== 'master') {
@@ -54,8 +59,12 @@ module.exports.getSpecs = () => {
       );
     }
 
-    specs = updatedPackages.map(update =>
-      path.resolve(update.package.location, 'test/spec/**/*.js')
+    specs = [].concat(
+      ...updatedPackages.map(update =>
+        glob.sync(path.resolve(update.package.location, 'test/spec/**/*.js'), {
+          ignore: ['**/node_modules/**'],
+        })
+      )
     );
   } else if (!process.connected) {
     console.log('Visual regression tests will be run on all packages');
