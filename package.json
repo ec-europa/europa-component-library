@@ -4,7 +4,6 @@
   "license": "EUPL-1.1",
   "description": "Europa Component Library",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
@@ -18,7 +17,6 @@
     "lint:js": "eslint .",
     "lint:scss": "stylelint ./framework/**/*.scss",
     "lint": "npm-run-all --parallel lint:* -cln",
-    "postinstall": "npm run bootstrap",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
     "serve": "fractal start --sync",
@@ -90,5 +88,14 @@
   "prettier": {
     "trailingComma": "es5",
     "singleQuote": true
-  }
+  },
+  "workspaces": [
+    "framework/base",
+    "framework/content/**",
+    "framework/components/**",
+    "framework/layout/**",
+    "framework/templates/**",
+    "framework/utilities/**",
+    "packages/**"
+  ]
 }
