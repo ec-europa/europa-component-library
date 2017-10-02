@@ -6,13 +6,13 @@ describe('skip-links', () => {
       height: 200,
     });
 
-    browser.pause(500);
+    browser.url('ecl-skip-links.html');
 
-    browser.url(`ecl-skip-links.html`);
-    // Make sure the browser has finished painting
-    browser.pause(500);
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
+
+    // Make sure the browser has finished painting
+    browser.pause(500);
   });
 
   // Normal state
