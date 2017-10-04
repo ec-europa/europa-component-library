@@ -23,22 +23,17 @@
   box-sizing: content-box;
   color: #000;
   display: none;
-  font-size: map-get($ecl-font-size, 's');
-  height: map-get($ecl-spacing, 's');
-  line-height: map-get($ecl-spacing, 's');
   list-style: none;
   margin: 0 map-get($ecl-spacing, 'xxxs');
-  min-width: map-get($ecl-spacing, 's');
-  padding: map-get($ecl-spacing, 'xxxs');
-
-  &--padding {
-    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
-  }
 }
 
 .ecl-pager__link {
   color: map-get($ecl-colors, 'blue-100');
+  display: block;
+  font-size: map-get($ecl-font-size, 's');
   font-weight: 500;
+  min-width: map-get($ecl-spacing, 's');
+  padding: map-get($ecl-spacing, 'xxxs');
   text-decoration: none;
 
   &:hover {
@@ -53,7 +48,10 @@
 }
 
 .ecl-pager__item--ellipsis {
+  font-size: map-get($ecl-font-size, 's');
   font-weight: 400;
+  min-width: map-get($ecl-spacing, 's');
+  padding: map-get($ecl-spacing, 'xxxs');
 }
 
 .ecl-pager__item--previous,
@@ -67,7 +65,10 @@
   border-radius: 50%;
   display: block;
   flex-grow: 1;
+  font-size: map-get($ecl-font-size, 's');
   font-weight: 600;
+  min-width: map-get($ecl-spacing, 's');
+  padding: map-get($ecl-spacing, 'xxxs');
 }
 
 @include ecl-media-breakpoint-up(md) {
