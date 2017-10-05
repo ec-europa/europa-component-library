@@ -1,6 +1,12 @@
 {#
   Accepts:
-    - src (string): specifies the URL of the image
+    - src (string): specifies the URL of the image, for single image tag
+    - srcs (object): different image URL, depending in screen size; used with picture tag
+      - xs: very small image URL
+      - sm: small image URL
+      - md: medium image URL
+      - lg: large image URL
+      - xl: extra large image URL (also default image)
     - alt (string): specifies an alternate text for the image
     - extra_classes (string): additional classes to add to the component
     - extra_attributes (array of { name: '', value: '' })
@@ -8,10 +14,15 @@
 
 {# Internal properties #}
 
+{% set _src = src|default('') %}
 {% set _css_class = '' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
+
+{% if srcs is defined and srcs.xl is defined and srcs.xl is not empty %}
+  {% set _src = srcs.xl %}
+{% endif %}
 
 {% if extra_classes is defined %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
@@ -23,8 +34,41 @@
   {% endfor %}
 {% endif %}
 
+{% if srcs is defined %}
+
+<picture
+  {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
+  {{ _extra_attributes }}>
+
+  {% if srcs.xl is defined and srcs.xl is not empty %}
+  <source media="(min-width: 1200px)" srcset="{{ srcs.xl }}">
+    {% endif %}
+
+  {% if srcs.lg is defined and srcs.lg is not empty %}
+    <source media="(min-width: 992px)" srcset="{{ srcs.lg }}">
+  {% endif %}
+
+  {% if srcs.md is defined and srcs.md is not empty %}
+  <source media="(min-width: 768px)" srcset="{{ srcs.md }}">
+    {% endif %}
+
+  {% if srcs.sm is defined and srcs.sm is not empty %}
+  <source media="(min-width: 480px)" srcset="{{ srcs.sm }}">
+  {% endif %}
+
+  {% if srcs.xs is defined and srcs.xs is not empty %}
+  <source media="(max-width: 479px)" srcset="{{ srcs.xs }}">
+  {% endif %}
+
+  <img src="{{ _src }}" alt="{{ alt }}">
+</picture>
+
+{% else %}
+
 <img
   {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
   alt="{{ alt }}"
-  src="{{ src }}"
+  src="{{ _src }}"
   {{ _extra_attributes }} />
+
+{% endif %}
