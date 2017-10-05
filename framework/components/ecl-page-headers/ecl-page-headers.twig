@@ -14,18 +14,11 @@
   - title: (string) Page title.
   - introduction: (string) The text inside intro area.
   - paragraph_class: (string) Possible additional classes on the intro paragraph.
-  - meta: (object) Information for the meta sub-component.
-
-  Meta has the following structure:
-   {
-    type: (string) 'News article',
-    date: (string) '6 July 2015',
-    timestamp: (timestamp) '2015-07-06T17:44:28+02:00',
-    location: (string) 'Brussels',
-   }
+  - metas (array): array of strings; each one correspond to a meta item (default: empty)
 #}
 
 {% if variant is defined and variant == "highlight" %}
+
 <div class="ecl-page-header ecl-page-header--highlight">
   <div class="ecl-page-header__body">
     <div class="ecl-page-header__label">{{ label }}</div>
@@ -34,37 +27,43 @@
     </div>
   </div>
 </div>
+
 {% else %}
+
 <div class="ecl-page-header">
   <div class="ecl-container">
+
     {% include '@ec-europa/ecl-breadcrumbs' with { 'segments': breadcrumb } %}
+
     <div class="ecl-page-header__body">
+
       {% if identity is defined %}
       <div class="ecl-page-header__identity">
         {{ identity }}
       </div>
       {% endif %}
-      {% if meta is defined %}
+
+      {% if metas is defined %}
       <div class="ecl-page-header__meta">
-        <div class="ecl-meta ecl-meta--header">
-          <span class="ecl-meta__item ecl-u-f-up">{{ meta.type }}</span>
-          <span class="ecl-meta__item">
-            <span class="date-display-single" content="{{ meta.timestamp }}">{{ meta.date }}</span>
-          </span>
-          <span class="ecl-meta__item">{{ meta.location }}</span>
-        </div>
+        {% include '@ec-europa/ecl-meta' with {
+          'variant': 'header',
+          'metas': metas }
+        %}
       </div>
       {% endif %}
+
       {% if title is defined %}
       <div class="ecl-page-header__title">
         <h1 class="ecl-heading ecl-heading--h1 ecl-u-color-white">{{ title }}</h1>
       </div>
       {% endif %}
+
       {% if introduction is defined %}
       <div class="ecl-page-header__intro">
         <p class="{{ paragraph_class }}">{{ introduction }}</p>
       </div>
       {% endif %}
+
     </div>
   </div>
 </div>
