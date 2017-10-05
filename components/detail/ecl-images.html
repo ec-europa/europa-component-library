@@ -169,6 +169,11 @@
                 
                 <h1 id="images">Images</h1>
 <p>Using images, just like any other component of a website, should be done with careful thought and consideration. Use images with purpose.</p>
+<p>Two possible display are available:</p>
+<ul>
+<li>Standard &lt;img&gt; tag, with a single image source</li>
+<li>HTML5 &lt;picture&gt; tag, with multiple image source (depending on screen size)</li>
+</ul>
 
                 
               </div>
@@ -247,7 +252,13 @@
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Accepts:
-    - src (string): specifies the URL of the image
+    - src (string): specifies the URL of the image, for single image tag
+    - srcs (object): different image URL, depending in screen size; used with picture tag
+      - xs: very small image URL
+      - sm: small image URL
+      - md: medium image URL
+      - lg: large image URL
+      - xl: extra large image URL (also default image)
     - alt (string): specifies an alternate text for the image
     - extra_classes (string): additional classes to add to the component
     - extra_attributes (array of { name: '', value: '' })
@@ -255,10 +266,15 @@
 
 </span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
 
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _src = src|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = '' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs is defined and srcs.xl is defined and srcs.xl is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _src = srcs.xl %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
@@ -270,11 +286,44 @@
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs is defined %}</span><span class="xml">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">picture</span>
+  </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _css_class is not empty %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">
+  </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs.xl is defined and srcs.xl is not empty %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 1200px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ srcs.xl }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs.lg is defined and srcs.lg is not empty %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 992px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ srcs.lg }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs.md is defined and srcs.md is not empty %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 768px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ srcs.md }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs.sm is defined and srcs.sm is not empty %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 480px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ srcs.sm }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs.xs is defined and srcs.xs is not empty %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(max-width: 479px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ srcs.xs }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span>
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+
 <span class="hljs-tag">&lt;<span class="hljs-name">img</span>
   </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _css_class is not empty %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">
   <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-  <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-  </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag"> /&gt;</span></span></pre>
+  <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
+  </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag"> /&gt;</span>
+
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -282,12 +331,31 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-2fe77c34f6203a4869e7adc8abce31cb-panel-context">
     <code class="Code Code--lang-json">
         
-            
-            <pre>{
+        
+            <pre>
+<span class="hljs-comment">/* Using &lt;img&gt; tag */</span>
+{
   <span class="hljs-attr">"src"</span>: <span class="hljs-string">"../../assets/demo_images/nature-demo-1.jpg"</span>,
   <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"This is a test image"</span>
-}</pre>
-            
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Using &lt;picture&gt; tag */</span>
+{
+  <span class="hljs-attr">"srcs"</span>: {
+    <span class="hljs-attr">"xs"</span>: <span class="hljs-string">"../../assets/demo_images/400x300.png"</span>,
+    <span class="hljs-attr">"sm"</span>: <span class="hljs-string">"../../assets/demo_images/640x480.png"</span>,
+    <span class="hljs-attr">"md"</span>: <span class="hljs-string">"../../assets/demo_images/800x600.png"</span>,
+    <span class="hljs-attr">"lg"</span>: <span class="hljs-string">"../../assets/demo_images/1024x768.png"</span>,
+    <span class="hljs-attr">"xl"</span>: <span class="hljs-string">"../../assets/demo_images/1280x960.png"</span>
+  },
+  <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"This is a test image"</span>
+}
+
+</pre>
+        
         
     </code>
 </div>
@@ -297,7 +365,30 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-2fe77c34f6203a4869e7adc8abce31cb-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"This is a test image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../assets/demo_images/nature-demo-1.jpg"</span> /&gt;</span></pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Using &lt;img&gt; tag --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"This is a test image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../assets/demo_images/nature-demo-1.jpg"</span> /&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Using &lt;picture&gt; tag --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">picture</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 1200px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"../../assets/demo_images/1280x960.png"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 992px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"../../assets/demo_images/1024x768.png"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 768px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"../../assets/demo_images/800x600.png"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 480px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"../../assets/demo_images/640x480.png"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(max-width: 479px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"../../assets/demo_images/400x300.png"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../../assets/demo_images/1280x960.png"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"This is a test image"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">picture</span>&gt;</span>
+
+</pre>
+        
         
     </code>
 </div>
@@ -313,13 +404,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-93a2d48628ea135034e6d23d8ae0109c">_images.scss</option>
+                <option value="file-65bd5ea83b9a0776c6dcd1a48adea193">_images.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-93a2d48628ea135034e6d23d8ae0109c" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-65bd5ea83b9a0776c6dcd1a48adea193" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
