@@ -1,8 +1,10 @@
 {#
   Accepts:
     - "href" (string): link to jump to (default: '#main-content')
-    - "id" (string): ID od the skip link component (default: 'skip-link')
+    - "id" (string): ID of the skip link component (default: 'skip-link')
     - "label" (string): link's label (default: 'Skip to main content')
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {# Internal properties #}
@@ -24,6 +26,8 @@
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
+
+{# Print result #}
 
 <div class="{{ _css_class }}" id="{{ _id }}" {{ _extra_attributes }}>
   <a href="{{ _href }}" class="ecl-skip-link">{{ _label }}</a>
