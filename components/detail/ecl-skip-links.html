@@ -168,7 +168,8 @@
               <div class="Prose">
                 
                 <h1 id="skip-link">Skip link</h1>
-<p><em>No description</em></p>
+<p>Provides a direct link to main content.</p>
+<p>Link is only displayed when focused (with keyboard) or to screen readers.</p>
 
                 
               </div>
@@ -248,8 +249,10 @@
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Accepts:
     - "href" (string): link to jump to (default: '#main-content')
-    - "id" (string): ID od the skip link component (default: 'skip-link')
+    - "id" (string): ID of the skip link component (default: 'skip-link')
     - "label" (string): link's label (default: 'Skip to main content')
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
@@ -271,6 +274,8 @@
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+
+</span><span class="hljs-comment">{# Print result #}</span><span class="xml">
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-skip-link"</span>&gt;</span></span><span class="hljs-template-variable">{{ _label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -312,13 +317,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-2ec16ebc40549db5bad14b10f3a153f1">_skip-links.scss</option>
+                <option value="file-079b3693d025e6216035ba22ae7e1bfe">ecl-skip-links.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-2ec16ebc40549db5bad14b10f3a153f1" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-079b3693d025e6216035ba22ae7e1bfe" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -327,12 +332,13 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/**
- * Site switcher component
+ * Skip link component
  * @define skip-link
  */</span>
 
 <span class="hljs-selector-class">.ecl-skip-link__wrapper</span> {
   <span class="hljs-attribute">left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">position</span>: fixed;
   <span class="hljs-attribute">top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
   <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'max'</span>);
@@ -347,6 +353,11 @@
   <span class="hljs-attribute">outline</span>: <span class="hljs-number">4px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>);
   <span class="hljs-attribute">outline-offset</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+
+  &amp;:focus,
+  &amp;:active {
+    <span class="hljs-attribute">white-space</span>: nowrap;
+  }
 }
 </pre>
                             </code>
@@ -356,15 +367,15 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">URL:</strong>
-                    <span class="Meta-value"><a href="../raw/ecl-skip-links/_skip-links.scss"><span>/components/raw/ecl-skip-links/_skip-links.scss</span></a></span>
+                    <span class="Meta-value"><a href="../raw/ecl-skip-links/ecl-skip-links.scss"><span>/components/raw/ecl-skip-links/ecl-skip-links.scss</span></a></span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Filesystem Path:</strong>
-                    <span class="Meta-value">framework/components/ecl-skip-links/_skip-links.scss</span>
+                    <span class="Meta-value">framework/components/ecl-skip-links/ecl-skip-links.scss</span>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">490 Bytes</span>
+                    <span class="Meta-value">553 Bytes</span>
                 </li>
             </ul>
         </div>
