@@ -64,6 +64,31 @@ const itemsDefault = [
     detail:
       'Research funding, partners, results, and EU action to promote innovation.',
   },
+
+  {
+    variant: 'highlight',
+    title: 'State of the European Union 2017',
+    primary_image: {
+      src: '../../assets/demo_images/nature-demo-1.jpg',
+      alt: 'State of the European Union 2017',
+    },
+  },
+  {
+    variant: 'highlight',
+    title: 'White paper on the future of Europe',
+    primary_image: {
+      src: '../../assets/demo_images/nature-demo-2.jpg',
+      alt: 'White paper on the future of Europe',
+    },
+  },
+  {
+    variant: 'highlight',
+    title: 'EU solidarity',
+    primary_image: {
+      src: '../../assets/demo_images/nature-demo-3.jpg',
+      alt: 'EU solidarity',
+    },
+  },
 ];
 
 const itemsThumbnails = [

@@ -43,3 +43,23 @@ Read [About Pool listings](https://webgate.ec.europa.eu/CITnet/confluence/x/vQJv
 ## When to use this component
 
 Use this component when you want to display content from similar data types with a visual clue. Either on a separate dedicated page or embedded in a detail page.
+
+## Highlighted listings
+
+### Where and how to use this component
+
+Users need a way to see highlights in a more visual way
+
+- landing pages/homepages
+- bottom of the page
+- in 3 columns, no more than 2 lines
+
+### When to use this component
+
+Use this component if you want to display highlight content in a more visual way.
+
+- it can be news, events or campaigns
+
+Do not use this component
+
+- on detail pages

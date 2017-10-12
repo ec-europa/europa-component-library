@@ -50,5 +50,17 @@ module.exports = {
         },
       },
     },
+    {
+      name: 'higlight',
+      label: 'Highlight list item',
+      context: {
+        variant: 'highlight',
+        title: 'State of European Union 2017',
+        primary_image: {
+          src: '../../assets/demo_images/nature-demo-1.jpg',
+          alt: 'Highlighted image',
+        },
+      },
+    },
   ],
 };
