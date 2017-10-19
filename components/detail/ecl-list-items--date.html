@@ -423,13 +423,13 @@
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
-                <option value="file-154be14fe93c276498fe3a552ce111e5">ecl-list-items.scss</option>
+                <option value="file-9ce872e940e3b8d63d4df0e4bbc8576f">ecl-list-items.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-154be14fe93c276498fe3a552ce111e5" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-9ce872e940e3b8d63d4df0e4bbc8576f" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
@@ -439,7 +439,7 @@
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre><span class="hljs-comment">/**
  * list-items
- * @define list-item
+ * @define list-item; weak
  */</span>
 
 <span class="hljs-selector-class">.ecl-list-item</span> {
@@ -484,11 +484,43 @@
 }
 
 <span class="hljs-selector-class">.ecl-list-item__primary</span> {
+  <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">height</span>: auto;
   <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">max-height</span>: <span class="hljs-number">5.55rem</span>;
   <span class="hljs-attribute">max-width</span>: <span class="hljs-number">5.55rem</span>;
   <span class="hljs-attribute">width</span>: auto;
+}
+
+<span class="hljs-comment">// Highlited item</span>
+<span class="hljs-selector-class">.ecl-list-item--highlight</span> <span class="hljs-selector-class">.ecl-list-item__link</span> {
+  <span class="hljs-attribute">flex-direction</span>: column;
+  <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.ecl-list-item--highlight</span> <span class="hljs-selector-class">.ecl-list-item__primary</span> {
+  <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">max-height</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">100%</span>;
+  <span class="hljs-selector-tag">object</span>-fit: contain;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+
+  <span class="hljs-selector-tag">img</span> {
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  }
+}
+
+<span class="hljs-selector-class">.ecl-list-item--highlight</span> <span class="hljs-selector-class">.ecl-list-item__body</span> {
+  <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+  <span class="hljs-attribute">padding-left</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  <span class="hljs-attribute">padding-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-list-item--highlight</span> <span class="hljs-selector-class">.ecl-list-item__title</span> {
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">2.2em</span>;
+  <span class="hljs-attribute">overflow</span>: hidden;
+  <span class="hljs-attribute">text-overflow</span>: ellipsis;
 }
 </pre>
                             </code>
@@ -506,7 +538,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">988 Bytes</span>
+                    <span class="Meta-value">1.6 KB</span>
                 </li>
             </ul>
         </div>
