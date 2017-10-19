@@ -20,7 +20,7 @@
   }
 }
 
-@include ecl-media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(lg) {
   .ecl-listing--two-columns {
     .ecl-list-item {
       width: 50%;
@@ -45,23 +45,15 @@
   }
 }
 
-@include ecl-media-breakpoint-up(md) {
+@include ecl-media-breakpoint-up(lg) {
   .ecl-listing--three-columns {
     .ecl-list-item {
-      width: 50%;
+      width: 33%;
     }
 
     .ecl-list-item__link {
       padding-left: map-get($ecl-spacing, 's');
       padding-right: map-get($ecl-spacing, 's');
-    }
-  }
-}
-
-@include ecl-media-breakpoint-up(lg) {
-  .ecl-listing--three-columns {
-    .ecl-list-item {
-      width: 33%;
     }
   }
 }

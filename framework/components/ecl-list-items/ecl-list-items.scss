@@ -1,6 +1,6 @@
 /**
  * list-items
- * @define list-item
+ * @define list-item; weak
  */
 
 .ecl-list-item {
@@ -45,9 +45,41 @@
 }
 
 .ecl-list-item__primary {
+  flex-shrink: 0;
   height: auto;
   margin-right: map-get($ecl-spacing, 'm');
   max-height: 5.55rem;
   max-width: 5.55rem;
   width: auto;
+}
+
+// Highlited item
+.ecl-list-item--highlight .ecl-list-item__link {
+  flex-direction: column;
+  padding-top: 0;
+}
+
+.ecl-list-item--highlight .ecl-list-item__primary {
+  margin-right: 0;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  width: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.ecl-list-item--highlight .ecl-list-item__body {
+  background-color: map-get($ecl-colors, 'grey-10');
+  padding-left: map-get($ecl-spacing, 's');
+  padding-right: map-get($ecl-spacing, 's');
+}
+
+.ecl-list-item--highlight .ecl-list-item__title {
+  height: 2.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
