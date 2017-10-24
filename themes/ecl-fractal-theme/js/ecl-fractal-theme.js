@@ -123,7 +123,7 @@ var framer = (function (element) {
 
   events$1.on('toggle-sidebar', toggleSidebar);
   events$1.on('start-dragging', function () {
-    return dragOccuring = true;
+    dragOccuring = true;
   });
   events$1.on('end-dragging', function () {
     setTimeout(function () {
@@ -210,11 +210,6 @@ var framer = (function (element) {
     }
   };
 });
-
-var babelHelpers = {};
-
-
-
 
 var asyncGenerator = function () {
   function AwaitValue(value) {
@@ -356,50 +351,6 @@ var createClass = function () {
     return Constructor;
   };
 }();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-babelHelpers;
 
 /* eslint-disable import/no-extraneous-dependencies */
 function getTreeUrl(urlPath) {
@@ -558,6 +509,8 @@ var Preview = function () {
         _this._resizer.css('width', 'calc(100% + 0.75rem)');
         return false;
       }
+
+      return true;
     });
 
     this._resizer.resizable({
@@ -636,7 +589,8 @@ var Browser = function () {
     tabs.eq(selectedIndex).find('a').trigger('click');
   };
 
-  Browser.prototype._initFileSwitcher = function _initFileSwitcher() {};
+  Browser.prototype._initFileSwitcher = function _initFileSwitcher() {}; // eslint-disable-line class-methods-use-this
+
 
   return Browser;
 }();
@@ -660,7 +614,7 @@ var Pen = function () {
     var initialHeight = storage.get('pen.previewHeight', this._el.outerHeight() / 2);
 
     var preview = new Preview(this._previewPanel);
-    var browser = new Browser(this._browser);
+    var browser = new Browser(this._browser); // eslint-disable-line no-unused-vars
     var state = storage.get('pen.previewState', 'open');
     var handleClicks = 0;
     var dblClick = false;
@@ -685,6 +639,8 @@ var Pen = function () {
         handleClicks = 0;
         return false;
       }
+
+      return true;
     });
 
     this._previewPanel.resizable({
@@ -2683,16 +2639,14 @@ var search = (function () {
   var searchIndexPath = JSON.parse($('#searchIndexPath').html());
 
   $.getJSON(searchIndexPath.path, function (searchIndexJson) {
-    var store = '';
-    var index = '';
-
     var $searchInput = $('#search-components');
     var $resultsArea = $('.Frame-inner');
 
     var initialContent = $resultsArea.html();
 
-    store = searchIndexJson.store;
-    index = lunr.Index.load(searchIndexJson.index);
+    var store = searchIndexJson.store;
+
+    var index = lunr.Index.load(searchIndexJson.index);
 
     $searchInput.keyup(function () {
       var query = $searchInput.val();
