@@ -31,19 +31,15 @@ module.exports.getSpecs = () => {
     const cwd = process.cwd();
 
     const repo = new Repository(cwd);
-    const { packages } = repo;
-    const filteredPackages = PackageUtilities.filterPackages(packages, {
-      scope: undefined,
-    });
+    const packages = PackageUtilities.getPackages(repo);
+    const packageGraph = PackageUtilities.getPackageGraph(packages);
 
     // Get updated packages
     const collector = new UpdatedPackagesCollector({
-      execOpts: {
-        cwd: repo.rootPath,
-      },
       logger: log.newGroup('lerna'),
       repository: repo,
-      filteredPackages,
+      filteredPackages: packages,
+      packageGraph,
       options: {
         since: 'master',
       },
