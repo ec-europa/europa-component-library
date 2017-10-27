@@ -139,7 +139,7 @@
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@hypnosphi/fuse.js/-/fuse.js-3.0.9.tgz#ea99f6121b4a8f065b4c71f85595db2714498807"
 
-"@storybook/addon-actions@3.2.13", "@storybook/addon-actions@^3.2.13":
+"@storybook/addon-actions@^3.2.13":
   version "3.2.13"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.2.13.tgz#7fae9201514f0efeee710d466828ea3c6bf0ec16"
   dependencies:
@@ -224,7 +224,7 @@
     fuse.js "^3.0.1"
     prop-types "^15.5.9"
 
-"@storybook/react@3.2.13":
+"@storybook/react@3.2.13", "@storybook/react@^3.0.0":
   version "3.2.13"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-3.2.13.tgz#d5b4d24a16a78b74d89bcee22475c755a05693cd"
   dependencies:
@@ -772,7 +772,7 @@ aws4@^1.2.1, aws4@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axe-core@2.4.2:
+axe-core@2.4.2, axe-core@^2.0.7:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-2.4.2.tgz#3156d914051ea32597e584071d9d653b66d1579b"
 
@@ -10241,6 +10241,14 @@ stdout-stream@^1.4.0:
 stickybits@2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/stickybits/-/stickybits-2.0.8.tgz#0e0b6db8554c1343bf95cbd7a4649fa756077712"
+
+storybook-addon-a11y@3.1.9:
+  version "3.1.9"
+  resolved "https://registry.yarnpkg.com/storybook-addon-a11y/-/storybook-addon-a11y-3.1.9.tgz#174ef98c132fb7b8eb16687720466bb1670fdf6f"
+  dependencies:
+    "@storybook/react" "^3.0.0"
+    axe-core "^2.0.7"
+    prop-types "^15.5.10"
 
 stream-browserify@^2.0.1:
   version "2.0.1"

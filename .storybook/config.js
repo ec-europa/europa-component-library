@@ -2,6 +2,7 @@ import { configure, addDecorator } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 import centered from '@storybook/addon-centered';
 import backgrounds from '@storybook/addon-backgrounds';
+import { checkA11y } from 'storybook-addon-a11y';
 
 /*
  * UI Options
@@ -16,7 +17,7 @@ setOptions({
   showSearchBox: false,
   downPanelInRight: false,
   sortStoriesByKind: false,
-  hierarchySeparator: null,
+  hierarchySeparator: '/',
   sidebarAnimations: false,
   selectedAddonPanel: undefined,
 });
@@ -26,6 +27,8 @@ setOptions({
  */
 
 addDecorator(centered);
+
+addDecorator(checkA11y);
 
 addDecorator(
   backgrounds([
