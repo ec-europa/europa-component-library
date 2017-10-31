@@ -1,5 +1,52 @@
 # Changelog
 
+## 0.16.0 - Happy Halloween! :ghost: (2017-10-31)
+
+### :rocket: New Feature
+
+-   `components`
+    - [#468](https://github.com/ec-europa/europa-component-library/pull/468) feat(list-items): add highlight - INNO-828. ([@emeryro](https://github.com/emeryro))
+    - [#437](https://github.com/ec-europa/europa-component-library/pull/437) feat(listings): date listings - INNO-803. ([@emeryro](https://github.com/emeryro))
+
+-   `presets`
+    - [#455](https://github.com/ec-europa/europa-component-library/pull/455) feat(float): add utility - INNO-697. ([@emeryro](https://github.com/emeryro))
+    - [#448](https://github.com/ec-europa/europa-component-library/pull/448) feat(listings): add thumbnails - INNO-804. ([@emeryro](https://github.com/emeryro))
+
+### :boom: Breaking Change
+
+-   `components`
+    - [#466](https://github.com/ec-europa/europa-component-library/pull/466) refactor(page-header): use composition for metas - INNO-668. ([@emeryro](https://github.com/emeryro))
+
+-   `presets`
+    - [#447](https://github.com/ec-europa/europa-component-library/pull/447) feat(listings): add default listing - INNO-805. ([@emeryro](https://github.com/emeryro))
+    - [#444](https://github.com/ec-europa/europa-component-library/pull/444) chore(preset): integrate presets into the main repo - INNO-807. ([@yhuard](https://github.com/yhuard))
+
+### :bug: Bug Fix
+
+- [#465](https://github.com/ec-europa/europa-component-library/pull/465) fix(skip-links): fix display on Firefox - INNO-826. ([@emeryro](https://github.com/emeryro))
+
+### :nail_care: Enhancement
+
+- [#464](https://github.com/ec-europa/europa-component-library/pull/464) refactor(images): use picture tag - INNO-774. ([@emeryro](https://github.com/emeryro))
+- [#463](https://github.com/ec-europa/europa-component-library/pull/463) refactor(pagers): increase click area - INNO-823. ([@emeryro](https://github.com/emeryro))
+- [#457](https://github.com/ec-europa/europa-component-library/pull/457) refactor(table): upgrade component - INNO-522. ([@emeryro](https://github.com/emeryro))
+- [#449](https://github.com/ec-europa/europa-component-library/pull/449) refactor(images): remove lorempixel - INNO-808. ([@emeryro](https://github.com/emeryro))
+- [#454](https://github.com/ec-europa/europa-component-library/pull/454) refactor(images): put images into components - INNO-787. ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#478](https://github.com/ec-europa/europa-component-library/pull/478) chore(package): update @ec-europa/ecl-fractal-theme to version 0.11.3 - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- [#459](https://github.com/ec-europa/europa-component-library/pull/459) chore(maintenance): update dependencies and add missing screenshots - INNO-822. ([@yhuard](https://github.com/yhuard))
+- [#458](https://github.com/ec-europa/europa-component-library/pull/458) fix(wdio): ignore unwanted tests - INNO-821. ([@emeryro](https://github.com/emeryro))
+- [#456](https://github.com/ec-europa/europa-component-library/pull/456) feat(publicare): remove template - INNO-818. ([@emeryro](https://github.com/emeryro))
+- [#441](https://github.com/ec-europa/europa-component-library/pull/441) chore(package): update dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 3
+
+- Romain Emery ([emeryro](https://github.com/emeryro))
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+- [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.15.0 (2017-09-06)
 
 ### :rocket: New Feature
