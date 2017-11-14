@@ -12,22 +12,8 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
-  default: 'background',
+  default: 'quote',
   variants: [
-    {
-      name: 'background',
-      label: 'Background banner',
-      context: {
-        type: 'background',
-        src: '../../assets/demo_images/abstract-demo-1.jpg',
-        title: {
-          label: 'White Paper on the future of Europe',
-          href: '#',
-        },
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-      },
-    },
     {
       name: 'quote',
       label: 'Quote banner',
@@ -41,25 +27,6 @@ module.exports = {
           `,
           author: 'President Juncker',
         },
-      },
-    },
-    {
-      name: 'video',
-      label: 'Video banner',
-      context: {
-        type: 'video',
-        video: {
-          src: 'http://ec.europa.eu/avservices/play.cfm?ref=I101631',
-          iframe: true,
-          ratio: '16-9',
-          caption:
-            'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
-        },
-        description: `
-          <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <p class="ecl-paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <p class="ecl-paragraph">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        `,
       },
     },
   ],

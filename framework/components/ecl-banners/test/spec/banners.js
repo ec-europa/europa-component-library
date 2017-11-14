@@ -1,4 +1,4 @@
-const variants = ['background', 'quote'];
+const variants = ['quote'];
 
 describe('ecl-banners', () => {
   before(() => {
