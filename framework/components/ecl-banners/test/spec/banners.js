@@ -1,5 +1,3 @@
-const variants = ['quote'];
-
 describe('ecl-banners', () => {
   before(() => {
     // Set viewport size
@@ -9,31 +7,29 @@ describe('ecl-banners', () => {
     });
   });
 
-  variants.forEach(variant => {
-    describe(`--${variant}`, () => {
-      before(() => {
-        // Go to url
-        browser.url(`ecl-banners--${variant}.html`);
+  describe(`The quote banner`, () => {
+    before(() => {
+      // Go to url
+      browser.url(`ecl-banners.html`);
 
-        // Inject axe-core (for accessibility tests)
-        browser.injectAxeCore();
+      // Inject axe-core (for accessibility tests)
+      browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
-        browser.pause(500);
+      // Make sure the browser has finished painting
+      browser.pause(500);
+    });
+
+    // Normal state
+    it('should match the reference screenshot', () => {
+      const screenshots = browser.checkDocument({
+        name: `banners`,
       });
+      expect(screenshots).to.matchReference();
+    });
 
-      // Normal state
-      it('should match the reference screenshot', () => {
-        const screenshots = browser.checkDocument({
-          name: `banners/${variant}`,
-        });
-        expect(screenshots).to.matchReference();
-      });
-
-      it('should be accessible', () => {
-        const a11yReport = browser.runAxeCore('ecl-banner').value;
-        expect(a11yReport).to.be.accessible;
-      });
+    it('should be accessible', () => {
+      const a11yReport = browser.runAxeCore('ecl-banner').value;
+      expect(a11yReport).to.be.accessible;
     });
   });
 });
