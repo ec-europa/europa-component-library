@@ -12,6 +12,7 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
+  default: 'quote',
   variants: [
     {
       name: 'quote',
