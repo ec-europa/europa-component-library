@@ -4,13 +4,7 @@
 
 The banner is used for optional, mainly promotional material.
 
-## Type of banners
-
-### Quote Banner
-
-- quote
-
-#### Guidance
+### Guidance
 
 - The author should always be available
 - The author can't be omitted
@@ -23,16 +17,8 @@ The banner is used for optional, mainly promotional material.
 
 ## When to use this component
 
-### Quote banner
-
 Within the content area of the page, at the top, bottom, or between blocks of content
 
 ## Do not use this component
 
 - do not use more than two quote banners on a page
-
-## Technical details
-
-The banner itself is not a standalone component, one of the following modifiers should always be used:
-
-- `ecl-banner--quote`: banner with a quote. Based on ecl-blockquotes component.
