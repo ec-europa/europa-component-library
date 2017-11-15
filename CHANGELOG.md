@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.17.0 (2017-11-15)
+
+### :bug: Bug Fix
+
+- [#490](https://github.com/ec-europa/europa-component-library/pull/490) fix(icons): fix font name - INNO-839. ([@emeryro](https://github.com/emeryro))
+
+### :nail_care: Enhancement
+
+- [#492](https://github.com/ec-europa/europa-component-library/pull/492) feat(reset): remove margin on body - INNO-837. ([@emeryro](https://github.com/emeryro))
+
+### Committers: 1
+
+- Romain Emery ([emeryro](https://github.com/emeryro))
+
 ## 0.16.0 - Happy Halloween! :ghost: (2017-10-31)
 
 ### :rocket: New Feature
