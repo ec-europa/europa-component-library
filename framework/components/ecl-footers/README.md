@@ -12,8 +12,9 @@ The footer offers access to copyright information, disclaimer and terms of use, 
 - about the Commission's new web presence
 - resources for partners
 - cookies
-- legal notice: a text area notifying the end user of legal information with an inline link for more information
+- legal notice: a text area notifying the end user of legal information with an inline link for more information     
 - contact
+- Europa analytics
 
 ### Custom footer (non mandatory)
 
@@ -24,7 +25,7 @@ A custom footer should be used only if the corporate footer does not satisfy all
 There can be no overlap with other links in the corporate footer.
 
 - identification of the site name
-- information on how to connect to social platforms of the improved site
+- information on how to connect to social platforms
 - contact
 - other relevant information
 
@@ -42,4 +43,4 @@ There can be no overlap with other links in the corporate footer.
 
 - never add navigation to the custom footer
 - never add the site map
-- keep it as short as possible
+- don't exceed 2 lines of links
