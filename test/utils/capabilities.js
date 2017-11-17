@@ -30,7 +30,7 @@ const browsers = {
   },
   safari: {
     browserName: 'safari',
-    version: '10.0',
+    version: '11.0',
     platform: 'macOS 10.12',
     seleniumVersion: '3.4.0',
     build,
