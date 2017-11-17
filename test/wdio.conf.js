@@ -34,12 +34,16 @@ const localServer = !isDrone; // with drone, builds are pushed onto AWS S3
 const useSauceConnect = localServer && !isTravis; // travis uses its own Sauce Connect launcher
 const baseUrl = localServer
   ? 'http://localhost:3000/components/preview/'
-  : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env
-      .DRONE_BUILD_NUMBER}/components/preview/`;
+  : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
+      process.env.DRONE_BUILD_NUMBER
+    }/components/preview/`;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 exports.config = {
+  // Temporarily solves https://github.com/webdriverio/webdriverio/issues/2076
+  deprecationWarnings: false,
+
   // ==================
   // Specify Test Files
   // ==================
