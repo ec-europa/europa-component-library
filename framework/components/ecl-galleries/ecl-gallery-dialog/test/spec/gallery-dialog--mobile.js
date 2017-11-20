@@ -6,7 +6,7 @@ describe('gallery dialog - mobile', () => {
     });
     browser.url('ecl-gallery-dialog.html');
     browser.injectAxeCore();
-    browser.pause(500);
+    browser.pause(1000);
   });
 
   it('should match the reference screenshot', () => {
