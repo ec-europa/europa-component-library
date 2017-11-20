@@ -1,22 +1,13 @@
 {#
   Accepts:
-    - "type" (string): one of "background", "quote" or "video" (default: "background")
-    - "src" (string)
-    - "title" (object):
-      - "href" (string)
-      - "label" (string)
-    - "description" (string): main content (if type == "background" or "video")
-    - "background_description_block" (block): main content (if type == "background")
-    - "video" (object): parameters passed to ecl-files (if type == "video")
-    - "video_description_block" (block): main content (if type == "video")
-    - "quote" (object): parameters passed to ecl-blockquotes (if type == "quote")
+    - "quote" (object): parameters passed to ecl-blockquotes
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {# Internal properties #}
 
-{% set _type = type|default('background') %}
+{% set _type = type|default('quote') %}
 {% set _css_class = 'ecl-banner' %}
 {% set _extra_attributes = '' %}
 
@@ -35,28 +26,5 @@
 {% endif %}
 
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
-  {% if _type == 'background' %}
-    <div class="ecl-banner__image" style="background-image: url('{{ src }}')"></div>
-    <div class="ecl-banner__body">
-      <a class="ecl-banner__title" href="{{ title.href }}">{{ title.label }}</a>
-      <p class="ecl-paragraph ecl-banner__description">{% block background_description_block description %}</p>
-    </div>
-  {% elseif _type == 'quote' %}
-    {% include '@ec-europa/ecl-blockquotes' with { 'extra_classes': 'ecl-blockquote--small ecl-banner__quote' }|merge(quote) %}
-  {% elseif _type == 'video' %}
-    <div class="ecl-row">
-      <div class="ecl-col-md-6">
-        {% include '@ec-europa/ecl-files' with {
-          'variant': 'videos',
-          'src': '',
-          'iframe': true,
-          'ratio': '16-9',
-          'caption': '',
-        }|merge(video|default({})) %}
-      </div>
-      <div class="ecl-col-md-6">
-        {% block video_description_block description %}
-      </div>
-    </div>
-  {% endif %}
+  {% include '@ec-europa/ecl-blockquotes' with { 'extra_classes': 'ecl-blockquote--small ecl-banner__quote' }|merge(quote) %}
 </div>
