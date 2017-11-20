@@ -49,7 +49,7 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
     // If anything is visible.
     if (infoAreas) {
       // eslint-disable-next-line
-      infoAreas.forEach(area => (area.style.display = "none"));
+      infoAreas.forEach(area => (area.style.display = 'none'));
     }
 
     carousel.querySelector(`[data-image="${currentSlide}"]`).style.display =
