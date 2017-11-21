@@ -21,7 +21,8 @@ module.exports = {
           },
           {
             label: 'Follow us:',
-            classes: 'ecl-footer__menu ecl-list--inline',
+            classes:
+              'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
             items: [
               {
                 classes: 'ecl-footer__menu-item',
@@ -110,7 +111,8 @@ module.exports = {
               value: 'Follow the European Commission',
               classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footer__menu ecl-list--inline',
+            classes:
+              'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
             items: [
               {
                 classes: 'ecl-footer__menu-item',
