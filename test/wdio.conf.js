@@ -41,6 +41,9 @@ const baseUrl = localServer
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 exports.config = {
+  // Temporarily solves https://github.com/webdriverio/webdriverio/issues/2076
+  deprecationWarnings: false,
+
   // ==================
   // Specify Test Files
   // ==================
