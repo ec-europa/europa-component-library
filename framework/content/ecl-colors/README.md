@@ -2,9 +2,13 @@
 
 ## Background colour
 
-White was chosen as the background colour of the website due to **colour contrast** and **readability** reasons.
+White was chosen as the background colour of the website due to **colour
+contrast** and **readability** reasons.
 
-Since one of the primary colours used throughout the website is the EC Yellow (#ffd617) depicted on the **Primary colours** section below, using a shade of grey or a tint of any other colour would greatly reduce the visual contrast between this colour and the background colour.
+Since one of the primary colours used throughout the website is the EC Yellow
+(#ffd617) depicted on the **Primary colours** section below, using a shade of
+grey or a tint of any other colour would greatly reduce the visual contrast
+between this colour and the background colour.
 
 <table class="ecl-table" style="width:auto">
   <thead>
@@ -38,7 +42,7 @@ Only use colours to highlight important content or actions. Use sparingly.
     </tr>
     <tr>
       <td>Used for navigational elements like links and buttons, but also as a background colour on the page header.</td>
-      <td>Yellow is used in elements to get attention, primary buttons, call-to-action buttons and focus states. It is used only as a background colour in buttons and never as a text colour. Use sparingly.</td>
+      <td>Yellow is used in elements to get attention, primary buttons, call-to-action and buttons. It is used only as a background colour in buttons and never as a text colour. Use sparingly.</td>
       <td>Grey is used for static text, soft backgrounds and dividers. We provide a grey colour palette.</td>
     </tr>
     <tr>
@@ -51,15 +55,18 @@ Only use colours to highlight important content or actions. Use sparingly.
 
 ### Blue
 
-Blue is commonly associated with trust, confidence, and sincerity; it is also used to represent calmness and responsibility.
+Blue is commonly associated with trust, confidence, and sincerity; it is also
+used to represent calmness and responsibility.
 
 ### Yellow
 
 Yellow is commonly associated with joy, happiness, intellect, and energy.
 
-Yellow is the most luminous of all the colours of the spectrum and is very effective for grabbing attention.
+Yellow is the most luminous of all the colours of the spectrum and is very
+effective for grabbing attention.
 
-Yellow reinforces attention and allows us to guide our users through the interface.
+Yellow reinforces attention and allows us to guide our users through the
+interface.
 
 ### Greys
 
@@ -240,11 +247,20 @@ Grey and black can appear neutral, objective or impartial.
 
 Text should always be presented in black or "EC blue" over a white background.
 
-The only exception to this rule are is the Page header, some Buttons styles and some Listings components.
+The only exception to this rule are is the Page header, some Buttons styles and
+some Listings components.
 
-WCAG (Web Content Accessibility Guidelines) ensure that content is accessible by everyone, regardless of disability or user device. To meet WCAG standards, text and interactive elements should have a colour contrast ratio of at least WCAG 2 AA Compliant (18pt+). This ensures that viewers who cannot see the full colour spectrum are able to read the text. The options below offer colour palette combinations that fall within the range of Section 508 compliant foreground/background colour contrast ratios. To ensure that text remains accessible, use only these permitted colour combinations.
+WCAG (Web Content Accessibility Guidelines) ensure that content is accessible by
+everyone, regardless of disability or user device. To meet WCAG standards, text
+and interactive elements should have a colour contrast ratio of at least WCAG 2
+AA Compliant (18pt+). This ensures that viewers who cannot see the full colour
+spectrum are able to read the text. The options below offer colour palette
+combinations that fall within the range of Section 508 compliant
+foreground/background colour contrast ratios. To ensure that text remains
+accessible, use only these permitted colour combinations.
 
-There are a number of online colour contrast checkers that should be used to validate designs before they are published.
+There are a number of online colour contrast checkers that should be used to
+validate designs before they are published.
 
 <style>
 .color {
