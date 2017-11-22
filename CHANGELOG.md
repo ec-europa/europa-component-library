@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.18.0 (2017-11-22)
+
+### :boom: Breaking Change
+- [#493](https://github.com/ec-europa/europa-component-library/pull/493) fix(banners): remove unnecessary banners INNO-841. ([@raduchiriac](https://github.com/raduchiriac))
+
+### :bug: Bug Fix
+- [#493](https://github.com/ec-europa/europa-component-library/pull/493) fix(banners): remove unnecessary banners INNO-841. ([@raduchiriac](https://github.com/raduchiriac))
+
+### :nail_care: Enhancement
+- [#501](https://github.com/ec-europa/europa-component-library/pull/501) feat(footer): fix display of social links - INNO-838. ([@emeryro](https://github.com/emeryro))
+
+### :memo: Documentation
+- [#500](https://github.com/ec-europa/europa-component-library/pull/500) docs(site-header): change text - INNO-840. ([@kalinchernev](https://github.com/kalinchernev))
+- [#499](https://github.com/ec-europa/europa-component-library/pull/499) docs(colours): update documentation - INNO-842. ([@kalinchernev](https://github.com/kalinchernev))
+- [#495](https://github.com/ec-europa/europa-component-library/pull/495) docs(breadcrumb): update doc - INNO-844. ([@emeryro](https://github.com/emeryro))
+- [#496](https://github.com/ec-europa/europa-component-library/pull/496) docs(footer): update doc - INNO-845. ([@emeryro](https://github.com/emeryro))
+
+### :house: Internal
+- [#491](https://github.com/ec-europa/europa-component-library/pull/491) chore(deps): update dependencies - noissue. ([@kalinchernev](https://github.com/kalinchernev))
+
+### Committers: 3
+- Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+- Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+- Romain Emery ([emeryro](https://github.com/emeryro))
+
 ## 0.17.0 (2017-11-15)
 
 ### :bug: Bug Fix
