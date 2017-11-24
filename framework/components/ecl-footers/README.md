@@ -6,7 +6,7 @@ The footer offers access to copyright information, disclaimer and terms of use, 
 
 ### Corporate footer
 
-* information about the European Commission and European Union: links to easily navigate between the Political/Information sites
+- information about the European Commission and European Union: links to easily navigate between the Political/Information sites
 - information on how to connect to social platforms of the European Commission
 - external links to European Union sites
 - about the Commission's new web presence
