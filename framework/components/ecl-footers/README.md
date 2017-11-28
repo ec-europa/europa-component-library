@@ -2,7 +2,7 @@
 
 ## Why and how to use this component
 
-The footer offers access to copyright information, disclaimer and terms of use, privacy and cookies policy. It allows the user to navigate to corporate social media profiles.
+The footer offers access to copyright information, disclaimer and terms of use, privacy and cookies policy. It allows the user to navigate to corporate social media profiles. Additing a sentence.
 
 ### Corporate footer
 
@@ -13,7 +13,6 @@ The footer offers access to copyright information, disclaimer and terms of use, 
 - resources for partners
 - cookies
 - legal notice: a text area notifying the end user of legal information with an inline link for more information     
-- contact
 
 ### Custom footer (non mandatory)
 
