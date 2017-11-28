@@ -20,8 +20,9 @@ export function eclTables(elements = null) {
     const headers = table.querySelectorAll('thead tr th');
 
     // The number of main headers.
-    const headFirst =
-      table.querySelectorAll('thead tr')[0].querySelectorAll('th').length - 1;
+    const headFirst = table.querySelectorAll('thead tr th').length
+      ? table.querySelectorAll('thead tr')[0].querySelectorAll('th').length - 1
+      : 0;
 
     // Number of cells per row.
     const cellPerRow = table
@@ -57,7 +58,11 @@ export function eclTables(elements = null) {
     // For every row, set the attributes we use to make this happen.
     [].forEach.call(tableRows, row => {
       for (let j = 0; j < cellPerRow; j += 1) {
-        if (headerText[j] === '' || headerText[j] === '\u00a0') {
+        if (
+          headerText[j] === undefined ||
+          headerText[j] === '' ||
+          headerText[j] === '\u00a0'
+        ) {
           row
             .querySelectorAll('td')
             [j].setAttribute('class', 'ecl-table__heading');
