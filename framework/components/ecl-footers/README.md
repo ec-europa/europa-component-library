@@ -1,4 +1,4 @@
-# Footers
+# Footers (DEMO)
 
 ## Why and how to use this component
 
