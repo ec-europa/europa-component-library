@@ -4,8 +4,10 @@
  */
 
 $ecl-forms-help-block-text-color: map-get($ecl-colors, 'grey-100') !default;
-$ecl-forms-help-block-text-color-disabled: map-get($ecl-colors, 'grey-75') !default;
-$ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color !default;
+$ecl-forms-help-block-text-color-disabled: map-get($ecl-colors, 'grey-75')
+  !default;
+$ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color
+  !default;
 
 .ecl-help-block {
   @include ecl-hidden-print();

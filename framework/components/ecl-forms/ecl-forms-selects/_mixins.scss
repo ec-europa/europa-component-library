@@ -1,18 +1,23 @@
 // Variables
 $ecl-select-icon-size: map-get($ecl-font-size, 's');
-$ecl-select-background-width: $ecl-select-icon-size + 2 * map-get($ecl-spacing, 'xxs');
+$ecl-select-background-width: $ecl-select-icon-size + 2 *
+  map-get($ecl-spacing, 'xxs');
 
 // Select list arrow styling.
 @mixin ecl-select-list-arrow($background-color, $arrow-grey:false) {
   @if ($arrow-grey) {
-    background: url('../images/arrow-down.svg'), linear-gradient(to bottom, $background-color, $background-color);
+    background: url('../images/arrow-down.svg'),
+      linear-gradient(to bottom, $background-color, $background-color);
+  } @else {
+    background: url('../images/arrow-down--white.svg'),
+      linear-gradient(to bottom, $background-color, $background-color);
   }
 
-  @else {
-    background: url('../images/arrow-down--white.svg'), linear-gradient(to bottom, $background-color, $background-color);
-  }
-
-  background-position: right ($ecl-select-background-width - $ecl-select-icon-size)/2 center, right;
+  background-position: right
+      (
+        $ecl-select-background-width - $ecl-select-icon-size
+      )/2 center,
+    right;
   background-repeat: no-repeat;
   background-size: $ecl-select-icon-size auto, $ecl-select-background-width 100%;
 }
