@@ -9,16 +9,16 @@ viewing and the site search and language switcher options.
 
 ## When to use this component
 
-- on every page of every Commission website
-- detail and landing pages
+* on every page of every Commission website
+* detail and landing pages
 
 ## Mandatory components
 
-- European Commission logo (mute version)*
-- Language selector
-- Search bar
+* European Commission logo (mute version)\*
+* Language selector
+* Search bar
 
-### Guidance*
+### Guidance\*
 
 The mute European Commission logo is a variation which was developed to allow
 multilingual purpose.
