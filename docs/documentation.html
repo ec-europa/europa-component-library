@@ -147,36 +147,140 @@
 
     
     
-    <p>This page explains how to update documentation directly on GitHub.</p>
+    <p>This page explains how to update the documentation directly on GitHub.</p>
 <h2 id="prerequisite">Prerequisite</h2>
-<p>If you don’t already have a GitHub account, make sure to create one and log in with it.<br>You also have to be part of team <a href="https://github.com/orgs/ec-europa/teams/ecl-doc-editors/">ECL doc editors</a>.</p>
-<h2 id="step-1-open-documentation-file">Step 1: Open documentation file</h2>
+<p>If you don’t already have an account on <a href="https://github.com/login">GitHub</a>, make
+sure to create one and log in with it.</p>
+<p>You also have to be part of team
+<a href="https://github.com/orgs/ec-europa/teams/ecl-doc-editors/">ECL doc editors</a>. For
+an invite, please contact an owner of
+<a href="https://github.com/orgs/ec-europa/people?utf8=%E2%9C%93&amp;query=%20role%3Aowner">ec-europa</a>.</p>
+<h2 id="step-1-locate-the-file-you-want-to-update">Step 1: Locate the file you want to update</h2>
+<p>Go to <a href="https://github.com/ec-europa/europa-component-library">ECL repository</a></p>
+<h3 id="option-1-search">Option 1) Search</h3>
+<p>Make a search query and filter for <code>Markdown</code> type of files, which are the
+documentation format.</p>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/locate-ecl-component.gif" alt="Locate ECL component in GitHub repository">
+
+</details>
+
+<h3 id="option-2-browsing-the-repository">Option 2) Browsing the repository</h3>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/locate-ecl-component-browsing.gif" alt="Brose ECL GitHub repository to find a component">
+
+</details>
+
+<h2 id="step-2-create-a-new-branch-for-your-changes">Step 2: Create a new branch for your changes</h2>
+<p>In this step we will make a copy of the main version of the documentaiton in a
+temporary branch which helps us in the process of updates and reviews.</p>
+<p>Name the branch <code>docs/update-{component-name}-{ticket-number}</code>, i.e.
+<code>docs/update-footer-INNO-123</code> or <code>docs/update-footer-noissue</code> if there is no
+Jira ticket corresponding to the update.</p>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/create-new-branch.gif" alt="Create a new branch for documentation u* pdates">
+
+</details>
+
+<h2 id="step-3-open-documentation-file-for-editing">Step 3: Open documentation file for editing</h2>
+<p>Ensure that you have switched to your new branch which is a good place to
+suggest changes. Then click on the button to open the README.md file in that
+component (example: <code>framework/components/ecl-footers/README.md</code>)</p>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/edit-documentation-file.gif" alt="Edit documentaiton file">
+
+</details>
+
+<h2 id="step-4-edit-the-documentation">Step 4: Edit the documentation</h2>
 <ul>
-<li>Go to <a href="https://github.com/ec-europa/europa-component-library">ECL repository</a></li>
-<li>Locate the component you wish to edit. Components are located in <code>framework/components</code></li>
-<li>Open the README.md file in that component (example: <code>framework/components/ecl-footers/README.md</code>)</li>
+<li><p>Make any modification you wish by using the markdown editor. Here is a
+<a href="https://guides.github.com/features/mastering-markdown/">cheatsheet for markdown syntax</a></p>
+</li>
+<li><p>You can see the result directly by switching to the “Preview” tab</p>
+</li>
 </ul>
-<p><img src="../assets/screenshots/git_edit.png" alt="GitHub edit"></p>
-<h2 id="step-2-edit-the-documentation">Step 2: Edit the documentation</h2>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/edit-preview-changes.gif" alt="Preview changes">
+
+</details>
+
+<h2 id="step-5-save-updates-to-the-branch">Step 5: Save updates to the branch</h2>
 <ul>
-<li>Click on the edit button (pencil icon on top right)</li>
-<li>Make any modification you wish by using markdown editor. Here is a <a href="https://guides.github.com/features/mastering-markdown/">cheatsheet for markdown syntax</a></li>
-<li>You can see result directly by switching to the “Preview” tab</li>
+<li><p>After you have modified the file, you have to commit the changes to save them
+in your branch.</p>
+</li>
+<li><p>Enter title and description based on
+<a href="https://ec-europa.github.io/europa-component-library/docs/conventions/git">naming conventions</a>.</p>
+</li>
+<li><p>Click on “Commit directly to the
+<code>docs/update-{component-name}-{ticket-number}</code>“.</p>
+</li>
+<li><p>This will save changes on your branch.</p>
+</li>
 </ul>
-<p><img src="../assets/screenshots/git_preview.png" alt="GitHub preview"></p>
-<h2 id="step-3-send-your-modifications">Step 3: Send your modifications</h2>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/save-changes-on-branch.gif" alt="Save changes to branch">
+
+</details>
+
+<h2 id="step-6-open-a-pull-request">Step 6: Open a pull request</h2>
 <ul>
-<li>Once you have modified the file, it has to be sent to us. To do so, still on the edit page, scroll down to the “Commit changes” form</li>
-<li>Optionally, enter a description for your modifications.</li>
-<li>Make sure that the “Create a new branch” option is selected. You can keep default name for the branch.</li>
-<li>Click on “Propose file change”. You are directed to a page to open a pull request.</li>
-<li>Just click on “Create pull request”, title or description can stay as is, or you can set it according to our writing convention for quickest integration (see below).</li>
+<li><p>Once you made sure you have saved changes on your particular branch, you are
+ready to proceed on proposing these changes to the main <code>master</code> branch which
+is where you see the documentation in production.</p>
+</li>
+<li><p>You can simply use the hints which GitHub gives you when you go to the root of
+the repo after saving your changes.</p>
+</li>
+<li><p>Do not forget to add <code>tag: documentation</code> on your pull request which is used
+for the release log.</p>
+</li>
 </ul>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/open-pull-request.gif" alt="Open a pull request">
+
+</details>
+
+<h2 id="step-7-preview-your-changes-and-follow-up">Step 7: Preview your changes and follow-up</h2>
+<ul>
+<li><p>When the pull request is open, our <code>HAL-Patch-INNO</code> bot will show you a
+preview of the ECL style guide with the updates provided by you.</p>
+</li>
+<li><p>You can review them and make further changes on the branch repeating steps
+1-5. Once the changes are saved, the pull request is automatically updated, no
+need to open another pull request.</p>
+</li>
+<li><p>Changes on the pull request update the preview automatically.</p>
+</li>
+</ul>
+<details><summary><em>See how to do this step</em></summary>
+
+<img src="../assets/screenshots/preview-changes.gif" alt="Preview changes">
+
+</details>
+
 <h2 id="it-s-done-">It’s done!</h2>
-<p>Your pull request will be handled by our team and integrated to master ECL branch.<br>Thank you!</p>
+<p>Your pull request will be briefly reviewed by our team, so that there are no
+linting issues and if all checks are green, changes will be integrated with the
+master ECL branch in short time.</p>
+<p>Thank you!</p>
 <hr>
 <h3 id="note-writing-convention">Note: writing convention</h3>
-<p>We are using writing conventions for both <a href="https://ec-europa.github.io/europa-component-library/docs/conventions/git">pull requests</a> and <a href="https://ec-europa.github.io/europa-component-library/docs/conventions/markdown">markdown</a>. You can optionally apply these conventions, to facilitate documentation update process.<br>In any case, we will have to apply the conventions on our side before publishing it (so the content may be slightly modified).</p>
+<p>We are using writing conventions for both
+<a href="https://ec-europa.github.io/europa-component-library/docs/conventions/git">pull requests</a>
+and
+<a href="https://ec-europa.github.io/europa-component-library/docs/conventions/markdown">markdown</a>.
+You can optionally apply these conventions to facilitate documentation update
+process.</p>
+<p>In any case, we will have to apply the conventions on our side before publishing
+it (so the content may be slightly modified).</p>
 
     
 
