@@ -6,6 +6,8 @@
 @import 'mixins';
 
 .ecl-select {
+  @include ecl-select-list-arrow($ecl-color-shade);
+
   appearance: none;
   background-color: #fff;
   background-image: none;
@@ -16,15 +18,20 @@
   font-family: $ecl-font-family-sans-serif;
   font-size: map-get($ecl-font-size, 's');
   margin: 0;
-  padding: map-get($ecl-spacing, 'xxs') ($ecl-select-background-width + map-get($ecl-spacing, 'xxxs')) map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xxs');
+  padding: map-get($ecl-spacing, 'xxs')
+    (
+      $ecl-select-background-width + map-get($ecl-spacing, 'xxxs')
+    ) map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xxs');
   width: 100%;
 
-  @include ecl-select-list-arrow($ecl-color-shade);
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  * + & {
+    margin-top: map-get($ecl-spacing, 'xs');
+  }
 
-  &:not([disabled]):not([readonly]):hover {
-    @include ecl-select-list-arrow($ecl-color-primary);
-
-    border-color: $ecl-color-primary;
+  // Fix for IE 10+.
+  &::-ms-expand {
+    display: none;
   }
 
   &:focus {
@@ -48,22 +55,16 @@
     opacity: 1;
   }
 
-  // Fix for IE 10+.
-  &::-ms-expand {
-    display: none;
+  &:not([disabled]):not([readonly]):hover {
+    @include ecl-select-list-arrow($ecl-color-primary);
+
+    border-color: $ecl-color-primary;
   }
 }
 
 .ecl-select--has-error {
+  @include ecl-select-list-arrow($ecl-color-error);
+
   border-color: $ecl-color-error;
   border-width: 2px;
-
-  @include ecl-select-list-arrow($ecl-color-error);
-}
-
-/* Spacing */
-
-/* stylelint-disable-next-line plugin/selector-bem-pattern */
-* + .ecl-select {
-  margin-top: map-get($ecl-spacing, 'xs');
 }

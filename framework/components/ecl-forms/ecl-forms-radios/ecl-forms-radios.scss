@@ -34,14 +34,14 @@ $ecl-radio-icon-size: 1.5rem;
   }
 }
 
+.ecl-radio--has-error .ecl-radio__label::before {
+  border-color: $ecl-color-error;
+}
+
 .ecl-radio__input:checked + .ecl-radio__label::before {
   background-image: url('../images/radio-checked--blue.svg');
 }
 
 .ecl-radio__input:focus + .ecl-radio__label::before {
   border-color: map-get($ecl-colors, 'yellow-100');
-}
-
-.ecl-radio--has-error .ecl-radio__label::before {
-  border-color: $ecl-color-error;
 }

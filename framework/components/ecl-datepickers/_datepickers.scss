@@ -177,7 +177,7 @@ $ecl-datepickers-week-color: #999 !default;
     }
   }
 
-  .is-rtl .pika-prev {
+  .pika-next {
     float: right;
     right: 0;
 
@@ -194,7 +194,17 @@ $ecl-datepickers-week-color: #999 !default;
     }
   }
 
-  .pika-next {
+  .pika-prev:hover,
+  .pika-next:hover {
+    opacity: 1;
+  }
+
+  .pika-prev.is-disabled,
+  .pika-next.is-disabled {
+    cursor: default;
+  }
+
+  .is-rtl .pika-prev {
     float: right;
     right: 0;
 
@@ -227,17 +237,6 @@ $ecl-datepickers-week-color: #999 !default;
       position: absolute;
       top: 15px;
       transform: rotate(180deg);
-    }
-  }
-
-  .pika-prev,
-  .pika-next {
-    &:hover {
-      opacity: 1;
-    }
-
-    &.is-disabled {
-      cursor: default;
     }
   }
 
