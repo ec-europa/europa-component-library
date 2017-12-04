@@ -29,6 +29,10 @@ In-page data tables always contain a header **row**, a header **column** or **bo
 - the scope attribute identifies whether a table header is a column header or a row header.
 - the thread element defines the header rows for tables.
 
+#### Responsiveness
+
+Tables are no longer responsive by default. Add an `ecl-table--responsive` class in order to achieve that; for containers of 766px or less, the table will be displayed vertically instead of horizontally.
+
 ### Rows and columns
 
 The sets of raw data are displayed in rows below the header row.

@@ -6,7 +6,10 @@
 
 export function eclTables(elements = null) {
   const tables =
-    elements === null ? document.getElementsByClassName('ecl-table') : elements;
+    elements === null
+      ? document.getElementsByClassName('ecl-table--responsive')
+      : elements;
+
   [].forEach.call(tables, table => {
     const headerText = [];
     let textColspan = '';
@@ -19,73 +22,76 @@ export function eclTables(elements = null) {
     // The headers in a table.
     const headers = table.querySelectorAll('thead tr th');
 
-    // The number of main headers.
-    const headFirst = table.querySelectorAll('thead tr th').length
-      ? table.querySelectorAll('thead tr')[0].querySelectorAll('th').length - 1
-      : 0;
+    if (headers.length > 0) {
+      // The number of main headers.
+      const headFirst =
+        table.querySelectorAll('thead tr')[0].querySelectorAll('th').length - 1;
 
-    // Number of cells per row.
-    const cellPerRow = table
-      .querySelectorAll('tbody tr')[0]
-      .querySelectorAll('td').length;
+      // Number of cells per row.
+      const cellPerRow = table
+        .querySelectorAll('tbody tr')[0]
+        .querySelectorAll('td').length;
 
-    // Position of the eventual colspan element.
-    let colspanIndex = -1;
+      // Position of the eventual colspan element.
+      let colspanIndex = -1;
 
-    // Build the array with all the "labels"
-    // Also get position of the eventual colspan element
-    for (let i = 0; i < headers.length; i += 1) {
-      if (headers[i].getAttribute('colspan')) {
-        colspanIndex = i;
-      }
-
-      headerText[i] = [];
-      headerText[i] = headers[i].textContent;
-    }
-
-    // If we have a colspan, we have to prepare the data for it.
-    if (colspanIndex !== -1) {
-      textColspan = headerText.splice(colspanIndex, 1);
-      ci = colspanIndex;
-      cn = table.querySelectorAll('th[colspan]')[0].getAttribute('colspan');
-
-      for (let c = 0; c < cn; c += 1) {
-        headerText.splice(ci + c, 0, headerText[headFirst + c]);
-        headerText.splice(headFirst + 1 + c, 1);
-      }
-    }
-
-    // For every row, set the attributes we use to make this happen.
-    [].forEach.call(tableRows, row => {
-      for (let j = 0; j < cellPerRow; j += 1) {
-        if (
-          headerText[j] === undefined ||
-          headerText[j] === '' ||
-          headerText[j] === '\u00a0'
-        ) {
-          row
-            .querySelectorAll('td')
-            [j].setAttribute('class', 'ecl-table__heading');
-        } else {
-          row.querySelectorAll('td')[j].setAttribute('data-th', headerText[j]);
+      // Build the array with all the "labels"
+      // Also get position of the eventual colspan element
+      for (let i = 0; i < headers.length; i += 1) {
+        if (headers[i].getAttribute('colspan')) {
+          colspanIndex = i;
         }
 
-        if (colspanIndex !== -1) {
-          const cell = row.querySelectorAll('td')[colspanIndex];
-          cell.setAttribute('class', 'ecl-table__group-label');
-          cell.setAttribute('data-th-group', textColspan);
+        headerText[i] = [];
+        headerText[i] = headers[i].textContent;
+      }
 
-          for (let c = 1; c < cn; c += 1) {
+      // If we have a colspan, we have to prepare the data for it.
+      if (colspanIndex !== -1) {
+        textColspan = headerText.splice(colspanIndex, 1);
+        ci = colspanIndex;
+        cn = table.querySelectorAll('th[colspan]')[0].getAttribute('colspan');
+
+        for (let c = 0; c < cn; c += 1) {
+          headerText.splice(ci + c, 0, headerText[headFirst + c]);
+          headerText.splice(headFirst + 1 + c, 1);
+        }
+      }
+
+      // For every row, set the attributes we use to make this happen.
+      [].forEach.call(tableRows, row => {
+        for (let j = 0; j < cellPerRow; j += 1) {
+          if (
+            headerText[j] === undefined ||
+            headerText[j] === '' ||
+            headerText[j] === '\u00a0'
+          ) {
             row
               .querySelectorAll('td')
-              [colspanIndex + c].setAttribute(
-                'class',
-                'ecl-table__group_element'
-              );
+              [j].setAttribute('class', 'ecl-table__heading');
+          } else {
+            row
+              .querySelectorAll('td')
+              [j].setAttribute('data-th', headerText[j]);
+          }
+
+          if (colspanIndex !== -1) {
+            const cell = row.querySelectorAll('td')[colspanIndex];
+            cell.setAttribute('class', 'ecl-table__group-label');
+            cell.setAttribute('data-th-group', textColspan);
+
+            for (let c = 1; c < cn; c += 1) {
+              row
+                .querySelectorAll('td')
+                [colspanIndex + c].setAttribute(
+                  'class',
+                  'ecl-table__group_element'
+                );
+            }
           }
         }
-      }
-    });
+      });
+    }
   });
 }
 
