@@ -316,8 +316,10 @@ $ecl-datepickers-week-color: #999 !default;
   .is-inrange .pika-button {
     background: #fff;
   }
+}
 
-  @include ecl-media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(xs) {
+  .ecl-pika-theme {
     .pika-lendar,
     .pika-single,
     .pika-table {

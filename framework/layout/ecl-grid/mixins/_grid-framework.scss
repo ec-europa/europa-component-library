@@ -28,6 +28,7 @@
       @extend %ecl-grid-column;
     }
 
+    /* stylelint-disable-next-line order/order */
     @include ecl-media-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .ecl-col#{$infix} {
