@@ -44,7 +44,7 @@ elements which have different attributes, you can use the component as:
 ```js
 document.addEventListener('DOMContentLoaded', function() {
   ECL.dialogs({
-    dialogWindowId: 'ecl-carousel'
+    dialogWindowId: 'ecl-carousel',
   });
 });
 ```

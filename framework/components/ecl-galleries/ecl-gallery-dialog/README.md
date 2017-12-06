@@ -39,7 +39,7 @@ integrate this markup with the Javascript behaviors of the dialog framework by:
 ```js
 document.addEventListener('DOMContentLoaded', function() {
   ECL.dialogs({
-    dialogWindowId: 'ecl-carousel'
+    dialogWindowId: 'ecl-carousel',
   });
   ECL.carousels();
 });
