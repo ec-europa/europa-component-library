@@ -1,5 +1,6 @@
 @mixin ecl-form-control() {
   @include ecl-hidden-print();
+  @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
 
   background-color: #fff;
   border: 1px solid $ecl-color-shade;
@@ -22,8 +23,6 @@
     box-shadow: none;
     color: #000;
   }
-
-  @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), 0, none);
 
   // Disabled modifier.
   &.is-disabled {

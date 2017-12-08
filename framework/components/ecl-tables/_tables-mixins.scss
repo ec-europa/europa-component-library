@@ -54,6 +54,19 @@
 }
 
 @mixin table-min-width-md() {
+  /* Zebra striping */
+  tr:nth-of-type(even) {
+    background-color: map-get($ecl-colors, 'grey-5');
+  }
+
+  tbody {
+    /* Hover */
+    /* stylelint-disable-next-line max-nesting-depth */
+    tr:hover {
+      background-color: map-get($ecl-colors, 'grey-10');
+    }
+  }
+
   thead {
     display: table-header-group;
 
@@ -66,19 +79,6 @@
     /* stylelint-disable-next-line max-nesting-depth */
     tr:last-child:not(:first-child) {
       border-bottom: 3px solid $ecl-color-shade;
-    }
-  }
-
-  /* Zebra striping */
-  tr:nth-of-type(even) {
-    background-color: map-get($ecl-colors, 'grey-5');
-  }
-
-  tbody {
-    /* Hover */
-    /* stylelint-disable-next-line max-nesting-depth */
-    tr:hover {
-      background-color: map-get($ecl-colors, 'grey-10');
     }
   }
 }
