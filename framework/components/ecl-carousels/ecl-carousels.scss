@@ -37,8 +37,10 @@
   max-height: 70vh;
   overflow: hidden;
   position: relative;
+}
 
-  @include ecl-media-breakpoint-up('xl') {
+@include ecl-media-breakpoint-up('xl') {
+  .ecl-carousel__list-wrapper {
     flex: 1;
     max-height: 100%;
   }
@@ -66,6 +68,8 @@
 }
 
 .ecl-carousel__button {
+  @include ecl-focus-outline-border();
+
   background-color: #000;
   border: 0;
   color: #fff;
@@ -74,8 +78,6 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: map-get($ecl-z-index, 'navigation');
-
-  @include ecl-focus-outline-border();
 }
 
 .ecl-carousel__button--previous {
@@ -101,8 +103,10 @@
   a {
     color: #fff;
   }
+}
 
-  @include ecl-media-breakpoint-up('xl') {
+@include ecl-media-breakpoint-up('xl') {
+  .ecl-carousel__live-region {
     flex: 0;
     max-height: 100%;
   }

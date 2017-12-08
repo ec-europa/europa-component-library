@@ -93,15 +93,18 @@
   color: map-get($ecl-colors, blue-120);
 
   // Links should have a different color because of their background.
-  .ecl-footer__link,
-  .ecl-footer__link:hover,
-  .ecl-footer__link:active,
-  .ecl-footer__link:focus {
+  .ecl-footer__link {
     color: map-get($ecl-colors, blue-120);
   }
 
   h4 .ecl-footer__link {
     text-decoration: none;
+  }
+
+  .ecl-footer__link:hover,
+  .ecl-footer__link:active,
+  .ecl-footer__link:focus {
+    color: map-get($ecl-colors, blue-120);
   }
 
   .ecl-footer__column {

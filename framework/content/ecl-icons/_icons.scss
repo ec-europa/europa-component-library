@@ -8,8 +8,8 @@
 @font-face {
   font-family: 'EuropaIcons';
   src: url('../fonts/europa-icons/europa-icons.eot');
-  src:
-    url('../fonts/europa-icons/europa-icons.eot?#iefix') format('embedded-opentype'),
+  src: url('../fonts/europa-icons/europa-icons.eot?#iefix')
+      format('embedded-opentype'),
     url('../fonts/europa-icons/europa-icons.woff') format('woff'),
     url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
     url('../fonts/europa-icons/europa-icons.svg#europa-icons') format('svg');
@@ -18,7 +18,7 @@
 %ecl-icon {
   &::before {
     display: inline-block;
-    font-family: 'EuropaIcons';
+    font-family: 'EuropaIcons'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
     // Better Font Rendering
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -36,7 +36,7 @@
 // Should be used only with @extend.
 %ecl-icon--after {
   display: inline-block;
-  font-family: 'EuropaIcons';
+  font-family: 'EuropaIcons'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
   // Better Font Rendering
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -46,18 +46,8 @@
   line-height: 1;
   margin-left: 4px;
   speak: none;
-  text-decoration: underline;
-  text-transform: none;
-}
-
-// Remove the underline from a::after
-// There is a bug in IE8-11, so using display:inline-block; alone won't
-// work. The solution is by explicitly setting text-decoration:underline;
-// for the ::after-content and then overwrite this rule again with
-// text-decoration:none;
-
-%ecl-icon--after {
   text-decoration: none;
+  text-transform: none;
 }
 
 // DEPRECATED: you should use @include ecl-icon('icon') when you want to include an icon
@@ -84,6 +74,7 @@
 }
 
 // Icon component and modifiers.
+/* stylelint-disable plugin/selector-bem-pattern */
 @each $modifier, $char in $ecl-icons {
   .ecl-icon--#{$modifier} {
     &::before {
@@ -106,3 +97,4 @@
     margin-right: 0;
   }
 }
+/* stylelint-enable */

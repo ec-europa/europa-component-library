@@ -65,7 +65,7 @@ $ecl-datepickers-week-color: #999 !default;
   // http://nicolasgallagher.com/micro-clearfix-hack/
   &::before,
   &::after {
-    content: " ";
+    content: ' ';
     display: table;
   }
 
@@ -92,6 +92,7 @@ $ecl-datepickers-week-color: #999 !default;
 
   .pika-label select {
     @include ecl-form-control();
+    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
 
     appearance: none;
     background-color: $ecl-datepickers-color-select;
@@ -113,8 +114,6 @@ $ecl-datepickers-week-color: #999 !default;
     &::-ms-expand {
       display: none;
     }
-
-    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
 
     &:focus {
       z-index: map-get($ecl-z-index, 'highlight');
@@ -157,51 +156,87 @@ $ecl-datepickers-week-color: #999 !default;
     top: 0;
     white-space: nowrap;
     width: $ecl-datepickers-arrow-size;
+  }
 
-    &:hover {
-      opacity: 1;
-    }
+  .pika-prev {
+    float: left;
+    left: 0;
+    order: -1;
 
-    &.is-disabled {
-      cursor: default;
+    &::after {
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--right;
+
+      @include ecl-icon('right');
+
+      color: #fff;
+      left: 15px;
+      position: absolute;
+      top: 15px;
+      transform: rotate(180deg);
     }
   }
 
-  .pika-prev,
+  .pika-next {
+    float: right;
+    right: 0;
+
+    &::after {
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--right;
+
+      @include ecl-icon('right');
+
+      color: #fff;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+  }
+
+  .pika-prev:hover,
+  .pika-next:hover {
+    opacity: 1;
+  }
+
+  .pika-prev.is-disabled,
+  .pika-next.is-disabled {
+    cursor: default;
+  }
+
+  .is-rtl .pika-prev {
+    float: right;
+    right: 0;
+
+    &::after {
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--right;
+
+      @include ecl-icon('right');
+
+      color: #fff;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+  }
+
   .is-rtl .pika-next {
     float: left;
     left: 0;
     order: -1;
 
     &::after {
+      @extend %ecl-icon--after;
+      @extend %ecl-icon--right;
+
+      @include ecl-icon('right');
+
       color: #fff;
       left: 15px;
       position: absolute;
       top: 15px;
       transform: rotate(180deg);
-
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--right;
-
-      @include ecl-icon('right');
-    }
-  }
-
-  .pika-next,
-  .is-rtl .pika-prev {
-    float: right;
-    right: 0;
-
-    &::after {
-      color: #fff;
-      position: absolute;
-      right: 15px;
-      top: 15px;
-
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--right;
-
-      @include ecl-icon('right');
     }
   }
 
@@ -281,8 +316,10 @@ $ecl-datepickers-week-color: #999 !default;
   .is-inrange .pika-button {
     background: #fff;
   }
+}
 
-  @include ecl-media-breakpoint-up(xs) {
+@include ecl-media-breakpoint-up(xs) {
+  .ecl-pika-theme {
     .pika-lendar,
     .pika-single,
     .pika-table {
