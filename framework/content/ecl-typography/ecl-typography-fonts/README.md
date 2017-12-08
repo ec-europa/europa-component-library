@@ -2,7 +2,8 @@
 
 ## Font family
 
-Arial is the standard typeface we use. We chose Arial because it is a system font that is suited for multilingual use.
+Arial is the standard typeface we use. We chose Arial because it is a system
+font that is suited for multilingual use.
 
 ## Font style
 
@@ -70,7 +71,14 @@ Arial is the standard typeface we use. We chose Arial because it is a system fon
 
 Pay attention to the contrast if you give a background colour to text.
 
-WCAG (Web Content Accessibility Guidelines) ensure that content is accessible by everyone, regardless of disability or user device. To meet WCAG standards, text and interactive elements should have a colour contrast ratio of at least WCAG 2 AA Compliant (18pt+). This ensures that viewers who cannot see the full colour spectrum are able to read the text. The options below offer colour palette combinations that fall within the range of Section 508 compliant foreground/background colour contrast ratios. To ensure that text remains accessible, use only these permitted colour combinations.
+WCAG (Web Content Accessibility Guidelines) ensure that content is accessible by
+everyone, regardless of disability or user device. To meet WCAG standards, text
+and interactive elements should have a colour contrast ratio of at least WCAG 2
+AA Compliant (18pt+). This ensures that viewers who cannot see the full colour
+spectrum are able to read the text. The options below offer colour palette
+combinations that fall within the range of Section 508 compliant
+foreground/background colour contrast ratios. To ensure that text remains
+accessible, use only these permitted colour combinations.
 
 There are a number of online colour contrast checkers.
 

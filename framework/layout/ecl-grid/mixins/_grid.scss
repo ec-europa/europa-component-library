@@ -96,10 +96,8 @@
   @if $type == push {
     @include ecl-make-col-push($size, $columns);
   } @else if $type == pull {
-
     @include ecl-make-col-pull($size, $columns);
   } @else if $type == offset {
-
     @include ecl-make-col-offset($size, $columns);
   }
 }

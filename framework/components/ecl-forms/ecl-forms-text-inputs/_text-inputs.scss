@@ -16,6 +16,11 @@
   padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
   width: 100%;
 
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  * + & {
+    margin-top: map-get($ecl-spacing, 'xs');
+  }
+
   &:focus {
     border-color: map-get($ecl-colors, 'yellow-110');
     outline: 3px solid map-get($ecl-colors, 'yellow-110');
@@ -34,11 +39,4 @@
 .ecl-text-input--has-error {
   border-color: $ecl-color-error;
   border-width: 2px;
-}
-
-/* Spacing */
-
-/* stylelint-disable-next-line plugin/selector-bem-pattern */
-* + .ecl-text-input {
-  margin-top: map-get($ecl-spacing, 'xs');
 }

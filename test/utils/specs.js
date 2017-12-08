@@ -43,6 +43,9 @@ module.exports.getSpecs = () => {
       options: {
         since: 'master',
       },
+      execOpts: {
+        cwd,
+      },
     });
 
     const updatedPackages = collector.getUpdates();

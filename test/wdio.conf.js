@@ -41,6 +41,8 @@ const baseUrl = localServer
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 exports.config = {
+  deprecationWarnings: false,
+
   // ==================
   // Specify Test Files
   // ==================

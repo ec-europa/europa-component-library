@@ -4,15 +4,16 @@
 
 Users need a way to quickly scan relevant information.
 
-The featured item component uses a different visualisation to attract user attention. It's always the first item on the "Latest section".
+The featured item component uses a different visualisation to attract user
+attention. It's always the first item on the "Latest section".
 
 ### When to use this component
 
-- when you want to highlight content in a list for a limited period
+* when you want to highlight content in a list for a limited period
 
 ### Do not use this component
 
-- if it is a permanent page
+* if it is a permanent page
 
 ## Technical details
 
@@ -20,4 +21,4 @@ The featured item component uses a different visualisation to attract user atten
 
 Use following variants to change the display:
 
-- `ecl-featured-items--extended`: visual changes and link option
+* `ecl-featured-items--extended`: visual changes and link option

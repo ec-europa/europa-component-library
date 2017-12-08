@@ -14,20 +14,10 @@
   top: 0%;
   width: 100%;
   z-index: map-get($ecl-z-index, 'modal');
+}
 
-  &[aria-hidden='true'] {
-    display: none;
-  }
-
-  @include ecl-media-breakpoint-up('sm') {
-    height: auto;
-    left: 50%;
-    max-height: 100%;
-    max-width: 100%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-  }
+.ecl-dialog[aria-hidden='true'] {
+  display: none;
 }
 
 .ecl-dialog__body {
@@ -43,4 +33,16 @@
   top: 0;
   width: 100%;
   z-index: map-get($ecl-z-index, 'highlight');
+}
+
+@include ecl-media-breakpoint-up('sm') {
+  .ecl-dialog {
+    height: auto;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+  }
 }
