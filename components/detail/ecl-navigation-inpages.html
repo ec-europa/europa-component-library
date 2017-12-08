@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Inpage navigations | Europa Component Library</title>
@@ -169,7 +169,12 @@
                 
                 <h1 id="inpage-navigations">Inpage navigations</h1>
 <h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
-<p>Inpage navigation gives the user an overview of page contents.<br>It provides in-page (or anchor) links to all H2 headings on that page. It helps users to orient themselves on the page and allows them to jump directly to content that is lower on the page, without scrolling first through the rest of the page content. A page with in-page links to content also makes it easier to refer to that specific content when shared.</p>
+<p>Inpage navigation gives the user an overview of page contents.\
+It provides in-page (or anchor) links to all H2 headings on that page. It helps users
+to orient themselves on the page and allows them to jump directly to content that
+is lower on the page, without scrolling first through the rest of the page content.
+A page with in-page links to content also makes it easier to refer to that specific
+content when shared.</p>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
 <li>on pages with extensive body text that is clearly structured</li>
@@ -178,16 +183,17 @@
 </ul>
 <h2 id="do-not-use-this-component">Do not use this component</h2>
 <ul>
-<li>when the content is above the fold (the part of the page visible without scrolling)</li>
+<li>when the content is above the fold (the part of the page visible without
+scrolling)</li>
 </ul>
 <h2 id="implementation">Implementation</h2>
-<p>Inpage navigation relies on expandable component, and two javascript libraries.  </p>
+<p>Inpage navigation relies on expandable component, and two javascript libraries.</p>
 <ul>
 <li><a href="https://github.com/dollarshaveclub/stickybits"><strong>stickybits</strong></a></li>
 <li><a href="https://github.com/cferdinandi/gumshoe/"><strong>gumshoe</strong></a></li>
 </ul>
 <p>Also, following script has to be added to your page:</p>
-<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   ECL.initExpandables();
   ECL.navigationInpages();
 });</pre></code>
@@ -540,9 +546,9 @@
 }
 
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-down(sm) {
+  <span class="hljs-comment">/* stylelint-disable plugin/selector-bem-pattern */</span>
   <span class="hljs-selector-class">.ecl-navigation-inpage</span><span class="hljs-selector-class">.js-is-sticky</span>,
   <span class="hljs-selector-class">.ecl-navigation-inpage</span><span class="hljs-selector-class">.js-is-stuck</span> {
-    <span class="hljs-comment">/* stylelint-disable-next-line */</span>
     <span class="hljs-selector-class">.ecl-navigation-inpage__body</span> {
       <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
       <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
@@ -551,7 +557,6 @@
       <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
     }
 
-    <span class="hljs-comment">/* stylelint-disable-next-line */</span>
     <span class="hljs-selector-class">.ecl-navigation-inpage__link</span> {
       <span class="hljs-attribute">border-top</span>: <span class="hljs-number">1px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-110'</span>);
       <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
@@ -560,14 +565,15 @@
       <span class="hljs-attribute">text-decoration</span>: underline;
     }
 
-    <span class="hljs-comment">/* stylelint-disable-next-line */</span>
     <span class="hljs-selector-class">.ecl-navigation-inpage__trigger</span> {
       <span class="hljs-attribute">display</span>: block;
     }
   }
+  <span class="hljs-comment">/* stylelint-enable */</span>
 }
 
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  <span class="hljs-comment">/* stylelint-disable plugin/selector-bem-pattern */</span>
   <span class="hljs-selector-class">.ecl-navigation-inpage__title</span> {
     <span class="hljs-attribute">display</span>: block;
   }
@@ -598,6 +604,7 @@
     <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
     <span class="hljs-attribute">border-left-color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
   }
+  <span class="hljs-comment">/* stylelint-enable */</span>
 }
 </pre>
                             </code>
@@ -615,7 +622,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.3 KB</span>
+                    <span class="Meta-value">2.4 KB</span>
                 </li>
             </ul>
         </div>
@@ -2723,30 +2730,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -3996,13 +3979,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

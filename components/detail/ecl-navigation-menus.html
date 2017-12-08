@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Navigation menus | Europa Component Library</title>
@@ -169,14 +169,19 @@
                 
                 <h1 id="navigation-menus">Navigation menus</h1>
 <h2 id="when-and-how-to-use-this-component">When and how to use this component</h2>
-<p>The horizontal menu is used to display the first 2 levels of pages within a website’s architecture.</p>
-<p>For levels 3 and below the menu should be complemented by using navigation blocks to drill down to sub-pages.</p>
+<p>The horizontal menu is used to display the first 2 levels of pages within a
+website’s architecture.</p>
+<p>For levels 3 and below the menu should be complemented by using navigation
+blocks to drill down to sub-pages.</p>
 <h2 id="guidelines">Guidelines</h2>
 <h3 id="amount-of-items">Amount of Items</h3>
-<p>Due to limited horizontal space, especially on low resolution screens, the number of items on the first level of the menu should be 3-5 items.</p>
+<p>Due to limited horizontal space, especially on low resolution screens, the
+number of items on the first level of the menu should be 3-5 items.</p>
 <h3 id="labeling">Labeling</h3>
-<p>Labels on the first level of the menu should be simple and composed of 1 to 3 words (for the English language version of the menu).</p>
-<p>Using 3 words should be an exception when you want to refer to two related topics (e.g. News and events / Contracts and funding).</p>
+<p>Labels on the first level of the menu should be simple and composed of 1 to 3
+words (for the English language version of the menu).</p>
+<p>Using 3 words should be an exception when you want to refer to two related
+topics (e.g. News and events / Contracts and funding).</p>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
 <li>if you need an alternative to the listing navigation blocks</li>
@@ -522,10 +527,6 @@
 <span class="hljs-selector-class">.ecl-navigation-menu</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-75'</span>);
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-25'</span>);
-  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__root</span> {
@@ -537,11 +538,6 @@
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">position</span>: relative;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">background-color</span>: transparent;
-    <span class="hljs-attribute">flex-direction</span>: row;
-  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__root</span><span class="hljs-selector-attr">[aria-hidden='true']</span> {
@@ -549,11 +545,6 @@
 
   <span class="hljs-comment">// Force display if no JS</span>
   <span class="hljs-selector-class">.no-js</span> &amp; {
-    <span class="hljs-attribute">display</span>: flex;
-  }
-
-  <span class="hljs-comment">// Force display</span>
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
     <span class="hljs-attribute">display</span>: flex;
   }
 }
@@ -567,10 +558,6 @@
   <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">transform</span>: translateX(-<span class="hljs-number">50%</span>);
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100vw</span>;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">display</span>: none;
-  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__toggle</span> {
@@ -584,10 +571,6 @@
   <span class="hljs-attribute">text-align</span>: left;
   <span class="hljs-attribute">text-decoration</span>: none;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">display</span>: none;
-  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__group</span> {
@@ -597,15 +580,6 @@
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding-left</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">position</span>: relative;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">flex-wrap</span>: wrap;
-    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
-    <span class="hljs-attribute">position</span>: absolute;
-    <span class="hljs-attribute">top</span>: <span class="hljs-number">100%</span>;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__group</span>::before {
@@ -635,17 +609,10 @@
   <span class="hljs-attribute">position</span>: relative;
   <span class="hljs-attribute">text-decoration</span>: none;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
-  }
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__item</span>:last-child <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
-  <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">0</span>;
+<span class="hljs-selector-class">.ecl-navigation-menu__item--active</span> &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__group</span> <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
@@ -653,10 +620,10 @@
   &amp;:focus {
     <span class="hljs-attribute">text-decoration</span>: underline;
   }
+}
 
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) <span class="hljs-number">0</span>;
-  }
+<span class="hljs-selector-class">.ecl-navigation-menu__item</span>:last-child <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
+  <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-comment">/* Icon display */</span>
@@ -665,10 +632,6 @@
 
   <span class="hljs-selector-class">.no-js</span> &amp; {
     <span class="hljs-attribute">display</span>: none;
-  }
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">position</span>: relative;
   }
 }
 
@@ -688,14 +651,11 @@
 
     @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'up'</span>);
   }
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
-    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
-  }
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__link</span> ~ <span class="hljs-selector-class">.ecl-navigation-menu__group</span> <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
+<span class="hljs-selector-class">.ecl-navigation-menu__link</span>
+  ~ <span class="hljs-selector-class">.ecl-navigation-menu__group</span>
+  <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
   <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">font-weight</span>: normal;
 
@@ -711,33 +671,11 @@
 <span class="hljs-comment">/* Collapsible block display */</span>
 <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded='true']</span> ~ <span class="hljs-selector-class">.ecl-navigation-menu__group</span> {
   <span class="hljs-attribute">display</span>: block;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">align-items</span>: baseline;
-    <span class="hljs-attribute">display</span>: flex;
-    <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'highlight'</span>);
-  }
-}
-
-<span class="hljs-selector-class">.ecl-navigation-menu__item</span> {
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">display</span>: flex;
-  }
-}
-
-<span class="hljs-selector-class">.ecl-navigation-menu__group</span> <span class="hljs-selector-class">.ecl-navigation-menu__item</span> {
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">25%</span>;
-  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__item--active</span> {
   <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-75'</span>);
   <span class="hljs-attribute">position</span>: relative;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">position</span>: static;
-  }
 }
 
 <span class="hljs-selector-class">.ecl-navigation-menu__item--active</span>::before {
@@ -749,23 +687,10 @@
   <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">transform</span>: translateX(-<span class="hljs-number">50%</span>);
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100vw</span>;
-
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">display</span>: none;
-  }
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__item--active</span> &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
-  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-}
-
-<span class="hljs-selector-class">.ecl-navigation-menu__item--active</span> &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded='true']</span> {
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
-    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
-  }
-}
-
-<span class="hljs-selector-class">.ecl-navigation-menu__item--active</span> &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span>:not(<span class="hljs-selector-attr">[aria-expanded='true']</span>) {
+<span class="hljs-selector-class">.ecl-navigation-menu__item--active</span>
+  &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span>:not(<span class="hljs-selector-attr">[aria-expanded='true']</span>) {
   <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">0</span>;
 }
 
@@ -815,30 +740,118 @@
   <span class="hljs-attribute">transition-timing-function</span>: cubic-bezier(<span class="hljs-number">0.55</span>, <span class="hljs-number">0.055</span>, <span class="hljs-number">0.675</span>, <span class="hljs-number">0.19</span>);
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span> <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::before {
+<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span>
+  <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::before {
   <span class="hljs-attribute">transition</span>: top <span class="hljs-number">0.075s</span> <span class="hljs-number">0.12s</span> ease, opacity <span class="hljs-number">0.075s</span> ease;
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span> <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::after {
-  <span class="hljs-attribute">transition</span>: bottom <span class="hljs-number">0.075s</span> <span class="hljs-number">0.12s</span> ease, transform <span class="hljs-number">0.075s</span> cubic-bezier(<span class="hljs-number">0.55</span>, <span class="hljs-number">0.055</span>, <span class="hljs-number">0.675</span>, <span class="hljs-number">0.19</span>);
+<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span>
+  <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::after {
+  <span class="hljs-attribute">transition</span>: bottom <span class="hljs-number">0.075s</span> <span class="hljs-number">0.12s</span> ease,
+    transform <span class="hljs-number">0.075s</span> cubic-bezier(<span class="hljs-number">0.55</span>, <span class="hljs-number">0.055</span>, <span class="hljs-number">0.675</span>, <span class="hljs-number">0.19</span>);
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span><span class="hljs-selector-attr">[aria-expanded='true']</span> <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span> {
+<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span><span class="hljs-selector-attr">[aria-expanded='true']</span>
+  <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span> {
   <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">45deg</span>);
   <span class="hljs-attribute">transition-delay</span>: <span class="hljs-number">0.12s</span>;
   <span class="hljs-attribute">transition-timing-function</span>: cubic-bezier(<span class="hljs-number">0.215</span>, <span class="hljs-number">0.61</span>, <span class="hljs-number">0.355</span>, <span class="hljs-number">1</span>);
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span><span class="hljs-selector-attr">[aria-expanded='true']</span> <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::before {
+<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span><span class="hljs-selector-attr">[aria-expanded='true']</span>
+  <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::before {
   <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">transition</span>: top <span class="hljs-number">0.075s</span> ease, opacity <span class="hljs-number">0.075s</span> <span class="hljs-number">0.12s</span> ease;
 }
 
-<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span><span class="hljs-selector-attr">[aria-expanded='true']</span> <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::after {
+<span class="hljs-selector-class">.ecl-navigation-menu__hamburger--squeeze</span><span class="hljs-selector-attr">[aria-expanded='true']</span>
+  <span class="hljs-selector-class">.ecl-navigation-menu__hamburger-inner</span>::after {
   <span class="hljs-attribute">bottom</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">transform</span>: rotate(-<span class="hljs-number">90deg</span>);
-  <span class="hljs-attribute">transition</span>: bottom <span class="hljs-number">0.075s</span> ease, transform <span class="hljs-number">0.075s</span> <span class="hljs-number">0.12s</span> cubic-bezier(<span class="hljs-number">0.215</span>, <span class="hljs-number">0.61</span>, <span class="hljs-number">0.355</span>, <span class="hljs-number">1</span>);
+  <span class="hljs-attribute">transition</span>: bottom <span class="hljs-number">0.075s</span> ease,
+    transform <span class="hljs-number">0.075s</span> <span class="hljs-number">0.12s</span> cubic-bezier(<span class="hljs-number">0.215</span>, <span class="hljs-number">0.61</span>, <span class="hljs-number">0.355</span>, <span class="hljs-number">1</span>);
+}
+
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
+  <span class="hljs-selector-class">.ecl-navigation-menu</span> {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-25'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__root</span> {
+    <span class="hljs-attribute">background-color</span>: transparent;
+    <span class="hljs-attribute">flex-direction</span>: row;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__root</span><span class="hljs-selector-attr">[aria-hidden='true']</span> {
+    <span class="hljs-attribute">display</span>: flex;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__root</span>::before {
+    <span class="hljs-attribute">display</span>: none;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__toggle</span> {
+    <span class="hljs-attribute">display</span>: none;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__group</span> {
+    <span class="hljs-attribute">flex-wrap</span>: wrap;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
+    <span class="hljs-attribute">border-bottom-width</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'xs'</span>);
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__group</span> <span class="hljs-selector-class">.ecl-navigation-menu__link</span> {
+    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>)
+      map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded]</span>::after {
+    <span class="hljs-attribute">position</span>: relative;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded='true']</span> {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded='true']</span>
+    ~ <span class="hljs-selector-class">.ecl-navigation-menu__group</span> {
+    <span class="hljs-attribute">align-items</span>: baseline;
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'highlight'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__item</span> {
+    <span class="hljs-attribute">display</span>: flex;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__group</span> <span class="hljs-selector-class">.ecl-navigation-menu__item</span> {
+    <span class="hljs-attribute">flex-basis</span>: <span class="hljs-number">25%</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__item--active</span> {
+    <span class="hljs-attribute">position</span>: static;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__item--active</span>::before {
+    <span class="hljs-attribute">display</span>: none;
+  }
+
+  <span class="hljs-selector-class">.ecl-navigation-menu__item--active</span>
+    &gt; <span class="hljs-selector-class">.ecl-navigation-menu__link</span><span class="hljs-selector-attr">[aria-expanded='true']</span> {
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
+  }
 }
 </pre>
                             </code>
@@ -3084,30 +3097,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -4357,13 +4346,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

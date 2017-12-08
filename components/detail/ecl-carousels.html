@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Carousels | Europa Component Library</title>
@@ -168,7 +168,9 @@
               <div class="Prose">
                 
                 <h1 id="carousels">Carousels</h1>
-<p>Carousels show a collection of items one at a time. They are also known as “slideshows” and “sliders”. Typical uses of carousels include scrolling news headlines, featured articles on home pages, and image galleries.</p>
+<p>Carousels show a collection of items one at a time. They are also known as
+“slideshows” and “sliders”. Typical uses of carousels include scrolling news
+headlines, featured articles on home pages, and image galleries.</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://www.w3.org/WAI/tutorials/carousels/">WAI tutorials carousel</a></li>
@@ -829,8 +831,10 @@ Usage:
   <span class="hljs-attribute">max-height</span>: <span class="hljs-number">70vh</span>;
   <span class="hljs-attribute">overflow</span>: hidden;
   <span class="hljs-attribute">position</span>: relative;
+}
 
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'xl'</span>) {
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'xl'</span>) {
+  <span class="hljs-selector-class">.ecl-carousel__list-wrapper</span> {
     <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span>;
     <span class="hljs-attribute">max-height</span>: <span class="hljs-number">100%</span>;
   }
@@ -858,6 +862,8 @@ Usage:
 }
 
 <span class="hljs-selector-class">.ecl-carousel__button</span> {
+  @<span class="hljs-keyword">include</span> ecl-focus-outline-border();
+
   <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#000</span>;
   <span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
@@ -866,8 +872,6 @@ Usage:
   <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
   <span class="hljs-attribute">transform</span>: translateY(-<span class="hljs-number">50%</span>);
   <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'navigation'</span>);
-
-  @<span class="hljs-keyword">include</span> ecl-focus-outline-border();
 }
 
 <span class="hljs-selector-class">.ecl-carousel__button--previous</span> {
@@ -893,8 +897,10 @@ Usage:
   <span class="hljs-selector-tag">a</span> {
     <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   }
+}
 
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'xl'</span>) {
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'xl'</span>) {
+  <span class="hljs-selector-class">.ecl-carousel__live-region</span> {
     <span class="hljs-attribute">flex</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">max-height</span>: <span class="hljs-number">100%</span>;
   }
@@ -974,7 +980,7 @@ Usage:
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.9 KB</span>
+                    <span class="Meta-value">3 KB</span>
                 </li>
             </ul>
         </div>
@@ -3082,30 +3088,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -4355,13 +4337,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Headlines and headings: h3 | Europa Component Library</title>
@@ -168,7 +168,9 @@
               <div class="Prose">
                 
                 <h1 id="headings">Headings</h1>
-<p>Headings and subheadings should be organised in a hierarchy, with heading first, followed by subheadings in order (An H2 will nestle under H1, and H2 under H3, and so on down).</p>
+<p>Headings and subheadings should be organised in a hierarchy, with heading first,
+followed by subheadings in order (An H2 will nestle under H1, and H2 under H3,
+and so on down).</p>
 <table>
 <thead>
 <tr>
@@ -231,7 +233,12 @@
 </tbody>
 </table>
 <h2 id="line-height">Line height</h2>
-<p>Line-height, traditionally known as leading, is one of several factors that directly contribute to readability and pacing of copy. Line-heights are based on the size of the font itself. Ideal line-heights for standard copy has a ratio of 1.66. For example, a type at 1em/16px would have a line-height of 24px (16 x 1.66). The exception to this rule are headings, which need less spacing and therefore have a line-height ratio of 1.1.</p>
+<p>Line-height, traditionally known as leading, is one of several factors that
+directly contribute to readability and pacing of copy. Line-heights are based on
+the size of the font itself. Ideal line-heights for standard copy has a ratio of
+1.66. For example, a type at 1em/16px would have a line-height of 24px (16 x
+1.66). The exception to this rule are headings, which need less spacing and
+therefore have a line-height ratio of 1.1.</p>
 <p><strong>Headings line-height</strong>: type size x 1.1</p>
 
                 
@@ -499,6 +506,8 @@
 
 <span class="hljs-selector-class">.ecl-heading</span> {
   @<span class="hljs-keyword">include</span> heading();
+
+  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
 }
 
 <span class="hljs-selector-class">.ecl-heading--h1</span> {
@@ -529,10 +538,6 @@
 }
 
 <span class="hljs-comment">// Spacing</span>
-<span class="hljs-selector-class">.ecl-heading</span> {
-  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
-}
-
 * + <span class="hljs-selector-class">.ecl-heading--h1</span> {
   <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
 }
@@ -571,7 +576,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">814 Bytes</span>
+                    <span class="Meta-value">797 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -2668,30 +2673,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -3941,13 +3922,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

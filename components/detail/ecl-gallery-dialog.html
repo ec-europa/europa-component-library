@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Gallery - dialog (overlay) | Europa Component Library</title>
@@ -169,12 +169,18 @@
                 
                 <h1 id="galleries">Galleries</h1>
 <h2 id="when-and-how-to-use-this-component">When and how to use this component</h2>
-<p>This component helps the user to quickly browse available media thumbnails (images, videos and audio clips) related to the page’s textual content.
-These thumbnails display a caption describing the media item along with a visual icon to distinguish between video clips, audio clips and images.
-It should always be used with the Gallery dialog component, which allows the user to visualize the media in a bigger size and access additional controls for video and audio playback. (The Gallery dialog component needs to be enabled).</p>
+<p>This component helps the user to quickly browse available media thumbnails
+(images, videos and audio clips) related to the page’s textual content. These
+thumbnails display a caption describing the media item along with a visual icon
+to distinguish between video clips, audio clips and images. It should always be
+used with the Gallery dialog component, which allows the user to visualize the
+media in a bigger size and access additional controls for video and audio
+playback. (The Gallery dialog component needs to be enabled).</p>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
-<li>When I want to have a gallery with different media in order to provide the user with more information about a certain topic, complement existing information.</li>
+<li>When I want to have a gallery with different media in order to provide the
+user with more information about a certain topic, complement existing
+information.</li>
 <li>In events pages.</li>
 <li>When a gallery of images is, in general, needed.</li>
 </ul>
@@ -188,17 +194,20 @@ It should always be used with the Gallery dialog component, which allows the use
 <li>Template of <code>@ec-europa/ecl-carousels</code></li>
 <li>Javascript behaviors of <code>@ec-europa/ecl-dialogs</code></li>
 </ul>
-<p>As long as you have HTML representation matching the output of carousel component on the page (which is treated as a gallery component) you just need to integrate this markup with the Javascript behaviors of the dialog framework by:</p>
+<p>As long as you have HTML representation matching the output of carousel
+component on the page (which is treated as a gallery component) you just need to
+integrate this markup with the Javascript behaviors of the dialog framework by:</p>
 <ul>
 <li>including ECL.js object</li>
 <li>instantiating both the carousel and dialog libraries</li>
 </ul>
-<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   ECL.dialogs({
-    <span class="hljs-attr">dialogWindowId</span>: <span class="hljs-string">'ecl-carousel'</span>
+    <span class="hljs-attr">dialogWindowId</span>: <span class="hljs-string">'ecl-carousel'</span>,
   });
   ECL.carousels();
-});</pre></code><p>For further configuration options of both carousel and dialog components, you can read their corresponding JavaScript files, which expose clear APIs.</p>
+});</pre></code><p>For further configuration options of both carousel and dialog components, you
+can read their corresponding JavaScript files, which expose clear APIs.</p>
 
                 
               </div>
@@ -2558,30 +2567,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -3831,13 +3816,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

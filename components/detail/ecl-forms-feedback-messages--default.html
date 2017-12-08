@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Feedback messages: Default | Europa Component Library</title>
@@ -168,12 +168,17 @@
               <div class="Prose">
                 
                 <h1 id="feedback-messages">Feedback messages</h1>
-<p>Users receive feedback, in the form of a message, about an input. Messages can be either positive (indicating that the form was submitted successfully) or negative (“The number you’ve provided is incorrect”).</p>
+<p>Users receive feedback, in the form of a message, about an input. Messages can
+be either positive (indicating that the form was submitted successfully) or
+negative (“The number you’ve provided is incorrect”).</p>
 <h2 id="when-to-use">When to use</h2>
 <p>Use messages components to give feedback to users.</p>
-<p>When validating a page, show one error notification on the top of the page which states “Some required information is missing or incomplete”.</p>
-<p>Then, for each input field with an error, show an error notification which states either “This is a required field” or “This is not a valid format”.</p>
-<p>Use success messages once the form has been submitted successfully, show a success notification.</p>
+<p>When validating a page, show one error notification on the top of the page which
+states “Some required information is missing or incomplete”.</p>
+<p>Then, for each input field with an error, show an error notification which
+states either “This is a required field” or “This is not a valid format”.</p>
+<p>Use success messages once the form has been submitted successfully, show a
+success notification.</p>
 
                 
               </div>
@@ -347,12 +352,14 @@
 <span class="hljs-selector-class">.ecl-feedback-message</span> {
   @<span class="hljs-keyword">include</span> ecl-hidden-print();
 
-  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.2rem</span> <span class="hljs-number">1.2rem</span>;
+  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.2rem</span>
+    <span class="hljs-number">1.2rem</span>;
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">min-height</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
-  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>)
+    map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>) map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
 }
 
 <span class="hljs-selector-class">.ecl-feedback-message--error</span> {
@@ -393,7 +400,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">983 Bytes</span>
+                    <span class="Meta-value">991 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -2501,30 +2508,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -3774,13 +3757,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

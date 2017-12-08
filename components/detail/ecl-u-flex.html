@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Flex | Europa Component Library</title>
@@ -168,8 +168,10 @@
               <div class="Prose">
                 
                 <h1 id="flexbox">Flexbox</h1>
-<p>Quickly manage the layout, alignment, and sizing of grid columns, navigation, components, and more with a full suite of responsive flexbox utilities.</p>
-<p>For more information, please read <a href="https://v4-alpha.getbootstrap.com/utilities/flexbox/">Bootstrap 4 documentation</a>.</p>
+<p>Quickly manage the layout, alignment, and sizing of grid columns, navigation,
+components, and more with a full suite of responsive flexbox utilities.</p>
+<p>For more information, please read
+<a href="https://v4-alpha.getbootstrap.com/utilities/flexbox/">Bootstrap 4 documentation</a>.</p>
 <p>We use the same classes, prefixed by <code>.ecl-u-</code>.</p>
 
                 
@@ -305,44 +307,108 @@
   @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-variable">$breakpoint</span>) {
     <span class="hljs-variable">$infix</span>: ecl-breakpoint-infix(<span class="hljs-variable">$breakpoint</span>, <span class="hljs-variable">$ecl-grid-breakpoints</span>);
 
-    <span class="hljs-selector-class">.ecl-u-order</span>#{<span class="hljs-variable">$infix</span>}-first { <span class="hljs-attribute">order</span>: -<span class="hljs-number">1</span>; }
-    <span class="hljs-selector-class">.ecl-u-order</span>#{<span class="hljs-variable">$infix</span>}-last { <span class="hljs-attribute">order</span>: <span class="hljs-number">1</span>; }
-    <span class="hljs-selector-class">.ecl-u-order</span>#{<span class="hljs-variable">$infix</span>}-0 { <span class="hljs-attribute">order</span>: <span class="hljs-number">0</span>; }
+    <span class="hljs-selector-class">.ecl-u-order</span>#{<span class="hljs-variable">$infix</span>}-first {
+      <span class="hljs-attribute">order</span>: -<span class="hljs-number">1</span>;
+    }
+    <span class="hljs-selector-class">.ecl-u-order</span>#{<span class="hljs-variable">$infix</span>}-last {
+      <span class="hljs-attribute">order</span>: <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-selector-class">.ecl-u-order</span>#{<span class="hljs-variable">$infix</span>}-0 {
+      <span class="hljs-attribute">order</span>: <span class="hljs-number">0</span>;
+    }
 
-    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-row { <span class="hljs-attribute">flex-direction</span>: row; }
-    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-column { <span class="hljs-attribute">flex-direction</span>: column; }
-    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-row-reverse { <span class="hljs-attribute">flex-direction</span>: row-reverse; }
-    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-column-reverse { <span class="hljs-attribute">flex-direction</span>: column-reverse; }
+    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-row {
+      <span class="hljs-attribute">flex-direction</span>: row;
+    }
+    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-column {
+      <span class="hljs-attribute">flex-direction</span>: column;
+    }
+    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-row-reverse {
+      <span class="hljs-attribute">flex-direction</span>: row-reverse;
+    }
+    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-column-reverse {
+      <span class="hljs-attribute">flex-direction</span>: column-reverse;
+    }
 
-    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-wrap { <span class="hljs-attribute">flex-wrap</span>: wrap; }
-    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-nowrap { <span class="hljs-attribute">flex-wrap</span>: nowrap; }
-    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-wrap-reverse { <span class="hljs-attribute">flex-wrap</span>: wrap-reverse; }
+    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-wrap {
+      <span class="hljs-attribute">flex-wrap</span>: wrap;
+    }
+    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-nowrap {
+      <span class="hljs-attribute">flex-wrap</span>: nowrap;
+    }
+    <span class="hljs-selector-class">.ecl-u-flex</span>#{<span class="hljs-variable">$infix</span>}-wrap-reverse {
+      <span class="hljs-attribute">flex-wrap</span>: wrap-reverse;
+    }
 
-    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-start { <span class="hljs-attribute">justify-content</span>: flex-start; }
-    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-end { <span class="hljs-attribute">justify-content</span>: flex-end; }
-    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-center { <span class="hljs-attribute">justify-content</span>: center; }
-    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-between { <span class="hljs-attribute">justify-content</span>: space-between; }
-    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-around { <span class="hljs-attribute">justify-content</span>: space-around; }
+    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-start {
+      <span class="hljs-attribute">justify-content</span>: flex-start;
+    }
+    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-end {
+      <span class="hljs-attribute">justify-content</span>: flex-end;
+    }
+    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-center {
+      <span class="hljs-attribute">justify-content</span>: center;
+    }
+    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-between {
+      <span class="hljs-attribute">justify-content</span>: space-between;
+    }
+    <span class="hljs-selector-class">.ecl-u-justify-content</span>#{<span class="hljs-variable">$infix</span>}-around {
+      <span class="hljs-attribute">justify-content</span>: space-around;
+    }
 
-    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-start { <span class="hljs-attribute">align-items</span>: flex-start; }
-    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-end { <span class="hljs-attribute">align-items</span>: flex-end; }
-    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-center { <span class="hljs-attribute">align-items</span>: center; }
-    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-baseline { <span class="hljs-attribute">align-items</span>: baseline; }
-    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-stretch { <span class="hljs-attribute">align-items</span>: stretch; }
+    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-start {
+      <span class="hljs-attribute">align-items</span>: flex-start;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-end {
+      <span class="hljs-attribute">align-items</span>: flex-end;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-center {
+      <span class="hljs-attribute">align-items</span>: center;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-baseline {
+      <span class="hljs-attribute">align-items</span>: baseline;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-items</span>#{<span class="hljs-variable">$infix</span>}-stretch {
+      <span class="hljs-attribute">align-items</span>: stretch;
+    }
 
-    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-start { <span class="hljs-attribute">align-content</span>: flex-start; }
-    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-end { <span class="hljs-attribute">align-content</span>: flex-end; }
-    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-center { <span class="hljs-attribute">align-content</span>: center; }
-    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-between { <span class="hljs-attribute">align-content</span>: space-between; }
-    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-around { <span class="hljs-attribute">align-content</span>: space-around; }
-    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-stretch { <span class="hljs-attribute">align-content</span>: stretch; }
+    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-start {
+      <span class="hljs-attribute">align-content</span>: flex-start;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-end {
+      <span class="hljs-attribute">align-content</span>: flex-end;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-center {
+      <span class="hljs-attribute">align-content</span>: center;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-between {
+      <span class="hljs-attribute">align-content</span>: space-between;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-around {
+      <span class="hljs-attribute">align-content</span>: space-around;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-content</span>#{<span class="hljs-variable">$infix</span>}-stretch {
+      <span class="hljs-attribute">align-content</span>: stretch;
+    }
 
-    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-<span class="hljs-attribute">auto</span> { <span class="hljs-attribute">align-self</span>: auto; }
-    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-start { <span class="hljs-attribute">align-self</span>: flex-start; }
-    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-end { <span class="hljs-attribute">align-self</span>: flex-end; }
-    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-center { <span class="hljs-attribute">align-self</span>: center; }
-    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-baseline { <span class="hljs-attribute">align-self</span>: baseline; }
-    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-stretch { <span class="hljs-attribute">align-self</span>: stretch; }
+    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-<span class="hljs-attribute">auto</span> {
+      <span class="hljs-attribute">align-self</span>: auto;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-start {
+      <span class="hljs-attribute">align-self</span>: flex-start;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-end {
+      <span class="hljs-attribute">align-self</span>: flex-end;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-center {
+      <span class="hljs-attribute">align-self</span>: center;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-baseline {
+      <span class="hljs-attribute">align-self</span>: baseline;
+    }
+    <span class="hljs-selector-class">.ecl-u-align-self</span>#{<span class="hljs-variable">$infix</span>}-stretch {
+      <span class="hljs-attribute">align-self</span>: stretch;
+    }
   }
 }
 </pre>
@@ -361,7 +427,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.3 KB</span>
+                    <span class="Meta-value">2.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -2458,30 +2524,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -3731,13 +3773,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

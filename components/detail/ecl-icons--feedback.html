@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Icons: Feedback icon | Europa Component Library</title>
@@ -169,7 +169,8 @@
                 
                 <h1 id="icons">Icons</h1>
 <p>Icons using europa icons font.</p>
-<p>You can change icon color and display by using color utilities and additional modifiers:</p>
+<p>You can change icon color and display by using color utilities and additional
+modifiers:</p>
 <ul>
 <li><strong>ecl-u-color-primary</strong>: blue icon</li>
 <li><strong>ecl-icon–rounded ecl-u-bg-secondary</strong>: adds a yellow circle background</li>
@@ -316,8 +317,8 @@
 @font-face {
   <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'EuropaIcons'</span>;
   src: url(<span class="hljs-string">'../fonts/europa-icons/europa-icons.eot'</span>);
-  src:
-    url(<span class="hljs-string">'../fonts/europa-icons/europa-icons.eot?#iefix'</span>) format(<span class="hljs-string">'embedded-opentype'</span>),
+  src: url(<span class="hljs-string">'../fonts/europa-icons/europa-icons.eot?#iefix'</span>)
+      format(<span class="hljs-string">'embedded-opentype'</span>),
     url(<span class="hljs-string">'../fonts/europa-icons/europa-icons.woff'</span>) format(<span class="hljs-string">'woff'</span>),
     url(<span class="hljs-string">'../fonts/europa-icons/europa-icons.ttf'</span>) format(<span class="hljs-string">'truetype'</span>),
     url(<span class="hljs-string">'../fonts/europa-icons/europa-icons.svg#europa-icons'</span>) format(<span class="hljs-string">'svg'</span>);
@@ -326,7 +327,7 @@
 %ecl-<span class="hljs-attribute">icon</span> {
   &amp;::before {
     <span class="hljs-attribute">display</span>: inline-block;
-    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'EuropaIcons'</span>;
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'EuropaIcons'</span>; <span class="hljs-comment">/* stylelint-disable-line font-family-no-missing-generic-family-keyword */</span>
     <span class="hljs-comment">// Better Font Rendering</span>
     -moz-osx-<span class="hljs-attribute">font</span>-smoothing: grayscale;
     -webkit-<span class="hljs-attribute">font</span>-smoothing: antialiased;
@@ -344,7 +345,7 @@
 <span class="hljs-comment">// Should be used only with @extend.</span>
 %ecl-<span class="hljs-attribute">icon</span>--after {
   <span class="hljs-attribute">display</span>: inline-block;
-  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'EuropaIcons'</span>;
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'EuropaIcons'</span>; <span class="hljs-comment">/* stylelint-disable-line font-family-no-missing-generic-family-keyword */</span>
   <span class="hljs-comment">// Better Font Rendering</span>
   -moz-osx-<span class="hljs-attribute">font</span>-smoothing: grayscale;
   -webkit-<span class="hljs-attribute">font</span>-smoothing: antialiased;
@@ -354,18 +355,8 @@
   <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1</span>;
   <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">4px</span>;
   speak: none;
-  <span class="hljs-attribute">text-decoration</span>: underline;
-  <span class="hljs-attribute">text-transform</span>: none;
-}
-
-<span class="hljs-comment">// Remove the underline from a::after</span>
-<span class="hljs-comment">// There is a bug in IE8-11, so using display:inline-block; alone won't</span>
-<span class="hljs-comment">// work. The solution is by explicitly setting text-decoration:underline;</span>
-<span class="hljs-comment">// for the ::after-content and then overwrite this rule again with</span>
-<span class="hljs-comment">// text-decoration:none;</span>
-
-%ecl-<span class="hljs-attribute">icon</span>--after {
   <span class="hljs-attribute">text-decoration</span>: none;
+  <span class="hljs-attribute">text-transform</span>: none;
 }
 
 <span class="hljs-comment">// DEPRECATED: you should use @include ecl-icon('icon') when you want to include an icon</span>
@@ -392,6 +383,7 @@
 }
 
 <span class="hljs-comment">// Icon component and modifiers.</span>
+<span class="hljs-comment">/* stylelint-disable plugin/selector-bem-pattern */</span>
 @<span class="hljs-keyword">each</span> <span class="hljs-variable">$modifier</span>, <span class="hljs-variable">$char</span> in <span class="hljs-variable">$ecl-icons</span> {
   <span class="hljs-selector-class">.ecl-icon--</span>#{<span class="hljs-variable">$modifier</span>} {
     &amp;::before {
@@ -414,6 +406,7 @@
     <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">0</span>;
   }
 }
+<span class="hljs-comment">/* stylelint-enable */</span>
 </pre>
                             </code>
                             
@@ -430,7 +423,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.4 KB</span>
+                    <span class="Meta-value">2.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -444,7 +437,7 @@
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre>@<span class="hljs-keyword">mixin</span> ecl-icon(<span class="hljs-variable">$modifier</span>, <span class="hljs-variable">$char</span>: map-get(<span class="hljs-variable">$ecl-icons</span>, <span class="hljs-variable">$modifier</span>)) {
-  <span class="hljs-attribute">content</span>: #{<span class="hljs-string">'\''</span>}#{<span class="hljs-variable">$char</span>}#{<span class="hljs-string">'\''</span>};
+  <span class="hljs-attribute">content</span>: #{<span class="hljs-string">"'"</span>}#{<span class="hljs-variable">$char</span>}#{<span class="hljs-string">"'"</span>};
 }
 </pre>
                             </code>
@@ -462,7 +455,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">105 Bytes</span>
+                    <span class="Meta-value">103 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -478,64 +471,65 @@
                                 <pre><span class="hljs-comment">// ECL icons</span>
 
 <span class="hljs-variable">$ecl-icons</span>: (
-  arrow-down: \e822,
-  arrow-up: \e821,
-  audio: \e801,
-  book: \<span class="hljs-number">0022</span>,
-  breadcrumb: \e828,
-  brochure: \e802,
-  budget: \e81a,
-  calendar: \e81d,
-  camera: \e800,
-  check: \e816,
-  close-dark: \e82d,
-  close: \e82c,
-  copy: \<span class="hljs-number">29</span>,
-  data: \<span class="hljs-number">24</span>,
-  digital: \e80b,
-  down: \e81f,
-  download: \e806,
-  edit: \e807,
-  energy: \e818,
-  error: \e82f,
-  euro: \e803,
-  external: \e825,
-  facebook: \e809,
-  faq: \<span class="hljs-number">21</span>,
-  feedback: \e82e,
-  file: \<span class="hljs-number">26</span>,
-  generic-lang: \e81e,
-  global: \e829,
-  googleplus: \e80c,
-  growth: \e82a,
-  image: \e80d,
-  in: \e806,
-  info: \e815,
-  infographic: \e80f,
-  language: \e824,
-  left: \e826,
-  linkedin: \e810,
-  livestreaming: \e81c,
-  location: \e81b,
-  multiple-files: \e820,
-  organigram: \e811,
-  package: \e812,
-  presentation: \e80e,
-  regulation: \e82b,
-  right: \e828,
-  rss: \e813,
-  search: \e823,
-  share: \e808,
-  slides: \e80e,
-  spinner: \e805,
-  spreadsheet: \<span class="hljs-number">2</span>d,
-  success: \e814,
-  tag-close: \e82c,
-  twitter: \e817,
-  up: \e827,
-  video: \e800,
-  warning: \e804,
-) !default;
+    arrow-down: \e822,
+    arrow-up: \e821,
+    audio: \e801,
+    book: \<span class="hljs-number">0022</span>,
+    breadcrumb: \e828,
+    brochure: \e802,
+    budget: \e81a,
+    calendar: \e81d,
+    camera: \e800,
+    check: \e816,
+    close-dark: \e82d,
+    close: \e82c,
+    copy: \<span class="hljs-number">29</span>,
+    data: \<span class="hljs-number">24</span>,
+    digital: \e80b,
+    down: \e81f,
+    download: \e806,
+    edit: \e807,
+    energy: \e818,
+    error: \e82f,
+    euro: \e803,
+    external: \e825,
+    facebook: \e809,
+    faq: \<span class="hljs-number">21</span>,
+    feedback: \e82e,
+    file: \<span class="hljs-number">26</span>,
+    generic-lang: \e81e,
+    global: \e829,
+    googleplus: \e80c,
+    growth: \e82a,
+    image: \e80d,
+    in: \e806,
+    info: \e815,
+    infographic: \e80f,
+    language: \e824,
+    left: \e826,
+    linkedin: \e810,
+    livestreaming: \e81c,
+    location: \e81b,
+    multiple-files: \e820,
+    organigram: \e811,
+    package: \e812,
+    presentation: \e80e,
+    regulation: \e82b,
+    right: \e828,
+    rss: \e813,
+    search: \e823,
+    share: \e808,
+    slides: \e80e,
+    spinner: \e805,
+    spreadsheet: \<span class="hljs-number">2</span>d,
+    success: \e814,
+    tag-close: \e82c,
+    twitter: \e817,
+    up: \e827,
+    video: \e800,
+    warning: \e804
+  )
+  !default;
 </pre>
                             </code>
                             
@@ -552,7 +546,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1 KB</span>
+                    <span class="Meta-value">1.2 KB</span>
                 </li>
             </ul>
         </div>
@@ -2649,30 +2643,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -3922,13 +3892,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

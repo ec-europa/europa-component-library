@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Tables: Table with empty heading | Europa Component Library</title>
@@ -172,7 +172,8 @@
 <p>Tables show data sets organized in columns and rows.</p>
 <h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
-<li>when there is a need to show tables that will be displayed across different devices.</li>
+<li>when there is a need to show tables that will be displayed across different
+devices.</li>
 <li>when you want to compare one set of values with another.</li>
 <li>you want to show how various parts comprise the whole.</li>
 <li>you want to understand trends over time for variable(s).</li>
@@ -181,15 +182,18 @@
 </ul>
 <h2 id="structure">Structure</h2>
 <h3 id="headers">Headers</h3>
-<p>In-page data tables always contain a header <strong>row</strong>, a header <strong>column</strong> or <strong>both</strong>, that lists column titles. <strong>(required)</strong></p>
+<p>In-page data tables always contain a header <strong>row</strong>, a header <strong>column</strong> or
+<strong>both</strong>, that lists column titles. <strong>(required)</strong></p>
 <h4 id="web-writing-guidelines">Web writing guidelines</h4>
 <ul>
 <li>row/column titles should be kept short and clear.</li>
-<li>table headers should never be empty. This is particularly of concern for the top-left cell of some tables.</li>
+<li>table headers should never be empty. This is particularly of concern for the
+top-left cell of some tables.</li>
 </ul>
 <h4 id="accessibility-guidelines">Accessibility guidelines</h4>
 <ul>
-<li>the scope attribute identifies whether a table header is a column header or a row header.</li>
+<li>the scope attribute identifies whether a table header is a column header or a
+row header.</li>
 <li>the thread element defines the header rows for tables.</li>
 </ul>
 <h3 id="rows-and-columns">Rows and columns</h3>
@@ -578,6 +582,19 @@
 }
 
 @<span class="hljs-keyword">mixin</span> table-min-width-md() {
+  <span class="hljs-comment">/* Zebra striping */</span>
+  <span class="hljs-selector-tag">tr</span>:nth-of-type(even) {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
+  }
+
+  <span class="hljs-selector-tag">tbody</span> {
+    <span class="hljs-comment">/* Hover */</span>
+    <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth */</span>
+    <span class="hljs-selector-tag">tr</span>:hover {
+      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
+    }
+  }
+
   <span class="hljs-selector-tag">thead</span> {
     <span class="hljs-attribute">display</span>: table-header-group;
 
@@ -590,19 +607,6 @@
     <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth */</span>
     <span class="hljs-selector-tag">tr</span>:last-child:not(:first-child) {
       <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">3px</span> solid <span class="hljs-variable">$ecl-color-shade</span>;
-    }
-  }
-
-  <span class="hljs-comment">/* Zebra striping */</span>
-  <span class="hljs-selector-tag">tr</span>:nth-of-type(even) {
-    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
-  }
-
-  <span class="hljs-selector-tag">tbody</span> {
-    <span class="hljs-comment">/* Hover */</span>
-    <span class="hljs-comment">/* stylelint-disable-next-line max-nesting-depth */</span>
-    <span class="hljs-selector-tag">tr</span>:hover {
-      <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-10'</span>);
     }
   }
 }
@@ -2931,30 +2935,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -4204,13 +4184,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

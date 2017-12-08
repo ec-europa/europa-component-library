@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>Datepickers | Europa Component Library</title>
@@ -171,7 +171,9 @@
 <h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
 <p>Users need a way to scan quickly a date related to an event.</p>
 <p>This component appears when you need to enter a date.</p>
-<p>By clicking in the date field a pop-up displays a calendar. It allows the user to select a time or a date value instead of typing it. This greatly reduces the likelihood of mistakes.</p>
+<p>By clicking in the date field a pop-up displays a calendar. It allows the user
+to select a time or a date value instead of typing it. This greatly reduces the
+likelihood of mistakes.</p>
 <h3 id="when-to-use-this-component">When to use this component</h3>
 <ul>
 <li>on the filter component, date field</li>
@@ -416,7 +418,7 @@
   <span class="hljs-comment">// http://nicolasgallagher.com/micro-clearfix-hack/</span>
   &amp;::before,
   &amp;::after {
-    <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">' '</span>;
     <span class="hljs-attribute">display</span>: table;
   }
 
@@ -443,6 +445,7 @@
 
   <span class="hljs-selector-class">.pika-label</span> <span class="hljs-selector-tag">select</span> {
     @<span class="hljs-keyword">include</span> ecl-form-control();
+    @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), -3px, none);
 
     appearance: none;
     <span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$ecl-datepickers-color-select</span>;
@@ -464,8 +467,6 @@
     &amp;::-ms-expand {
       display: none;
     }
-
-    @<span class="hljs-keyword">include</span> ecl-focus-outline-border(<span class="hljs-number">3px</span>, map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-100'</span>), -3px, none);
 
     &amp;:focus {
       <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'highlight'</span>);
@@ -508,51 +509,87 @@
     <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">white-space</span>: nowrap;
     <span class="hljs-attribute">width</span>: <span class="hljs-variable">$ecl-datepickers-arrow-size</span>;
+  }
 
-    &amp;:hover {
-      <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
-    }
+  <span class="hljs-selector-class">.pika-prev</span> {
+    <span class="hljs-attribute">float</span>: left;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">order</span>: -<span class="hljs-number">1</span>;
 
-    &amp;<span class="hljs-selector-class">.is-disabled</span> {
-      <span class="hljs-attribute">cursor</span>: default;
+    &amp;::after {
+      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
+
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
+
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+      <span class="hljs-attribute">left</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">180deg</span>);
     }
   }
 
-  <span class="hljs-selector-class">.pika-prev</span>,
+  <span class="hljs-selector-class">.pika-next</span> {
+    <span class="hljs-attribute">float</span>: right;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+
+    &amp;::after {
+      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
+
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
+
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">right</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
+    }
+  }
+
+  <span class="hljs-selector-class">.pika-prev</span>:hover,
+  <span class="hljs-selector-class">.pika-next</span>:hover {
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+  }
+
+  <span class="hljs-selector-class">.pika-prev</span><span class="hljs-selector-class">.is-disabled</span>,
+  <span class="hljs-selector-class">.pika-next</span><span class="hljs-selector-class">.is-disabled</span> {
+    <span class="hljs-attribute">cursor</span>: default;
+  }
+
+  <span class="hljs-selector-class">.is-rtl</span> <span class="hljs-selector-class">.pika-prev</span> {
+    <span class="hljs-attribute">float</span>: right;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+
+    &amp;::after {
+      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
+
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
+
+      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+      <span class="hljs-attribute">position</span>: absolute;
+      <span class="hljs-attribute">right</span>: <span class="hljs-number">15px</span>;
+      <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
+    }
+  }
+
   <span class="hljs-selector-class">.is-rtl</span> <span class="hljs-selector-class">.pika-next</span> {
     <span class="hljs-attribute">float</span>: left;
     <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
     <span class="hljs-attribute">order</span>: -<span class="hljs-number">1</span>;
 
     &amp;::after {
+      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
+      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
+
+      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
+
       <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
       <span class="hljs-attribute">left</span>: <span class="hljs-number">15px</span>;
       <span class="hljs-attribute">position</span>: absolute;
       <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
       <span class="hljs-attribute">transform</span>: rotate(<span class="hljs-number">180deg</span>);
-
-      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
-
-      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
-    }
-  }
-
-  <span class="hljs-selector-class">.pika-next</span>,
-  <span class="hljs-selector-class">.is-rtl</span> <span class="hljs-selector-class">.pika-prev</span> {
-    <span class="hljs-attribute">float</span>: right;
-    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
-
-    &amp;::after {
-      <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
-      <span class="hljs-attribute">position</span>: absolute;
-      <span class="hljs-attribute">right</span>: <span class="hljs-number">15px</span>;
-      <span class="hljs-attribute">top</span>: <span class="hljs-number">15px</span>;
-
-      @<span class="hljs-keyword">extend</span> %ecl-icon--after;
-      @<span class="hljs-keyword">extend</span> %ecl-icon--right;
-
-      @<span class="hljs-keyword">include</span> ecl-icon(<span class="hljs-string">'right'</span>);
     }
   }
 
@@ -632,8 +669,10 @@
   <span class="hljs-selector-class">.is-inrange</span> <span class="hljs-selector-class">.pika-button</span> {
     <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;
   }
+}
 
-  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
+@<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(xs) {
+  <span class="hljs-selector-class">.ecl-pika-theme</span> {
     <span class="hljs-selector-class">.pika-lendar</span>,
     <span class="hljs-selector-class">.pika-single</span>,
     <span class="hljs-selector-class">.pika-table</span> {
@@ -657,7 +696,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">5.9 KB</span>
+                    <span class="Meta-value">6.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -2765,30 +2804,6 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         
     
         
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="ecl-notifications">
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #006fb4; border-color: #006fb4;" title="Planned"></span>
-
-
-</div>
-
-</div>
-
-
-                <span>Notifications</span>
-            </a>
-        </li>
-        
-    
-        
         <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-components-collection-ecl-page-headers">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 
@@ -4038,13 +4053,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
 </footer>
 
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 

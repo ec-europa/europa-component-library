@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.3" type="text/css">
+<link rel="stylesheet" href="../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
 
 
 <title>JavaScript | Europa Component Library</title>
@@ -147,24 +147,43 @@
 
     
     
-    <p>Europa Component Library (ECL) provides a maximally un-opinionated set of components’ behaviors. In rare occasions, some components such as the date picker might use external libraries which integrate typical behaviors. Components are jQuery-free and provide consistent APIs.</p>
+    <p>Europa Component Library (ECL) provides a maximally un-opinionated set of
+components’ behaviors. In rare occasions, some components such as the date
+picker might use external libraries which integrate typical behaviors.
+Components are jQuery-free and provide consistent APIs.</p>
 <h2 id="how-to-use">How to use</h2>
-<p>First, you need to include the JavaScript file of <code>ECL.js</code> provided in the <a href="https://github.com/ec-europa/europa-component-library/releases">latest release package</a>. This file contains a JavaScript module called <code>ECL</code> which is an <a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">IIFE</a> built by the <a href="https://www.npmjs.com/package/@ec-europa/ecl-builder"><code>ecl-builder</code> utility</a>.</p>
-<p>This means that when you include the <code>ECL</code> library in your pages, you will have a namespaced global called <code>ECL</code> which contains the components’ factory functions.</p>
+<p>First, you need to include the JavaScript file of <code>ECL.js</code> provided in the
+<a href="https://github.com/ec-europa/europa-component-library/releases">latest release package</a>.
+This file contains a JavaScript module called <code>ECL</code> which is an
+<a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">IIFE</a> built by the
+<a href="https://www.npmjs.com/package/@ec-europa/ecl-builder"><code>ecl-builder</code> utility</a>.</p>
+<p>This means that when you include the <code>ECL</code> library in your pages, you will have
+a namespaced global called <code>ECL</code> which contains the components’ factory
+functions.</p>
 <p><img src="../assets/ECLjs.png" alt="ECL library in your browser&#39;s console"></p>
 <h3 id="instantiation">Instantiation</h3>
-<p>For a component to work on your pages, instantiate similarly to other popular JavaScript libraries. For example, here’s how to use the dialog component:</p>
-<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    ECL.dialogs();
-});</pre></code><p>When you invoke the factory without any parameters, the dialog library will automatically create an overlay for the background and assume that you have a dialog window element on the page with an id <code>ecl-dialog</code> which will be displayed on click of a trigger element with <code>data-ecl-dialog</code> data attribute.</p>
-<p>In other occasions, when you want to apply the dialog effect on existing elements which have different attributes, you can use the component as:</p>
-<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-    ECL.dialogs({
-      <span class="hljs-attr">dialogWindowId</span>: <span class="hljs-string">'ecl-carousel'</span>
-    });
-});</pre></code><p>In this example, the dialog will again create the overlay for the background automatically, but this time it will pop up a carousel gallery as the body of the dialog when open.</p>
+<p>For a component to work on your pages, instantiate similarly to other popular
+JavaScript libraries. For example, here’s how to use the dialog component:</p>
+<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  ECL.dialogs();
+});</pre></code><p>When you invoke the factory without any parameters, the dialog library will
+automatically create an overlay for the background and assume that you have a
+dialog window element on the page with an id <code>ecl-dialog</code> which will be
+displayed on click of a trigger element with <code>data-ecl-dialog</code> data attribute.</p>
+<p>In other occasions, when you want to apply the dialog effect on existing
+elements which have different attributes, you can use the component as:</p>
+<code class="lang-js"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  ECL.dialogs({
+    <span class="hljs-attr">dialogWindowId</span>: <span class="hljs-string">'ecl-carousel'</span>,
+  });
+});</pre></code><p>In this example, the dialog will again create the overlay for the background
+automatically, but this time it will pop up a carousel gallery as the body of
+the dialog when open.</p>
 <h3 id="components-settings">Components’ settings</h3>
-<p>At the moment, components’ JavaScript behaviors are documented in the code of the components themselves. When you want to see a demo of a component’s instantiation and settings you can also view the “Context” tab in demos provided in the library.</p>
+<p>At the moment, components’ JavaScript behaviors are documented in the code of
+the components themselves. When you want to see a demo of a component’s
+instantiation and settings you can also view the “Context” tab in demos provided
+in the library.</p>
 
     
 
@@ -398,13 +417,13 @@
 </footer>
 
 
-<script src="../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.3"></script>
+<script src="../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
 
-<script src="../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.3"></script>
+<script src="../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
 
-<script src="../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.3"></script>
+<script src="../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
 
-<script src="../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.3"></script>
+<script src="../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
 
 
 
