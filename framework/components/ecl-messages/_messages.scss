@@ -4,13 +4,15 @@
  */
 
 .ecl-message {
-  background: transparent url('../images/messages-info.svg') no-repeat 1.2rem 1.2rem;
+  background: transparent url('../images/messages-info.svg') no-repeat 1.2rem
+    1.2rem;
   border: 2px solid map-get($ecl-colors, 'blue-75');
   color: $ecl-color-shade;
   font-size: map-get($ecl-font-size, 's');
   margin-bottom: map-get($ecl-spacing, 's');
   min-height: map-get($ecl-spacing, 'l');
-  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l')
+    map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
   position: relative;
 
   &--success {

@@ -1,6 +1,7 @@
 # Forms Legends
 
-Legends are used to add a caption to a group of related form elements that have been grouped together into a fieldset.
+Legends are used to add a caption to a group of related form elements that have
+been grouped together into a fieldset.
 
 ## When to use this component
 

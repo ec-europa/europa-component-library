@@ -14,13 +14,6 @@
   padding: 0;
 }
 
-// That's how we show the caption on hover
-.ecl-gallery__item:hover {
-  .ecl-gallery__caption {
-    display: block;
-  }
-}
-
 .ecl-gallery__item-container {
   margin: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxxs') 0;
   width: 100%;
@@ -79,5 +72,12 @@
 
   &::before {
     margin-right: 0;
+  }
+}
+
+// That's how we show the caption on hover
+.ecl-gallery__item:hover {
+  .ecl-gallery__caption {
+    display: block;
   }
 }
