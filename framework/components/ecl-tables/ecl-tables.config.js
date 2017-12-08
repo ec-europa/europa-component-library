@@ -7,6 +7,7 @@ module.exports = {
       name: 'default',
       label: 'Default table',
       context: {
+        extra_classes: 'ecl-table--responsive',
         headers: [
           [
             { label: 'Name' },
@@ -46,6 +47,7 @@ module.exports = {
       name: 'empty',
       label: 'Table with empty heading',
       context: {
+        extra_classes: 'ecl-table--responsive',
         headers: [
           [{ label: '' }, { label: 'Registration date' }, { label: 'Email' }],
         ],
@@ -81,6 +83,7 @@ module.exports = {
       name: 'colspan',
       label: 'Table with colspan',
       context: {
+        extra_classes: 'ecl-table--responsive',
         headers: [
           [
             { label: 'Name', attributes: 'rowspan="2"' },
@@ -121,6 +124,7 @@ module.exports = {
       name: 'colspan-empty',
       label: 'Table with colspan and empty heading',
       context: {
+        extra_classes: 'ecl-table--responsive',
         headers: [
           [
             { label: '', attributes: 'rowspan="2"' },
