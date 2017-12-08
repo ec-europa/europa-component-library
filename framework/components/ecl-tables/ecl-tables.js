@@ -6,7 +6,9 @@
 
 export function eclTables(elements = null) {
   const tables =
-    elements === null ? document.getElementsByClassName('ecl-table') : elements;
+    elements === null
+      ? document.getElementsByClassName('ecl-table--responsive')
+      : elements;
   [].forEach.call(tables, table => {
     const headerText = [];
     let textColspan = '';
