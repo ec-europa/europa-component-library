@@ -45,6 +45,54 @@ If there are 5 rows or more, the rows have alternating colours (zebra stripes).
 
 ## Technical information
 
+Tables created by content writers (via WYSIWYG for example) can optionally
+include a manually set `ecl-table--responsive` class next to the root
+`ecl-table`. When this class is present, it's a flag for JavaScript behaviors
+attach correcting code to take effect on `<thead>` of the table.
+
+The correcting behavior is expressed in the following. Given the following
+table.
+
+```html
+<thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Registration date</th>
+    <th scope="col">Email</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td data-th="Name">John Doe</td>
+    <td data-th="Registration date">01/01/2016</td>
+    <td data-th="Email"><a href="mailto:john.doe@mail.com">john.doe@mail.com</a></td>
+  </tr>
+  <tr>
+    <td data-th="Name">Jane Doe</td>
+    <td data-th="Registration date">06/12/2016</td>
+    <td data-th="Email"><a href="mailto:jane.doe@mail.com">jane.doe@mail.com</a></td>
+  </tr>
+  <tr>
+    <td data-th="Name">Jack Doe</td>
+    <td data-th="Registration date">03/05/2017</td>
+    <td data-th="Email"><a href="mailto:jack.doe@mail.com">jack.doe@mail.com</a></td>
+  </tr>
+</tbody>
+```
+
+When table is in a small viewport (mobile view), the information about `Name` of
+`thead > tr > th` should be added visually to the `tbody > tr > td`. The
+JavaScript behavior is only responsible of "binding" these sets of information.
+
+JavaScript behavior is not responsible for any other visual, cosmetic or
+generally styling modifications. Responsive behavior is handled by CSS.
+
+Further details on these and other behavioral corrections needed by JavaScript,
+please refer to an
+[internal wiki page](https://webgate.ec.europa.eu/CITnet/confluence/display/NEXTEUROPA/Table).
+
+### Adding JavaScript behaviors
+
 When using ecl tables, make sure to call related javascript:
 
 ```javascript
@@ -58,3 +106,12 @@ You can also apply this script only to a subset of elements:
 ```javascript
 ECL.eclTables(elements);
 ```
+
+### Implementation goals
+
+JavaScript behavios are meant to be attached on-demand, in special cases, with
+conscious choice that information should be displayed correctly after default
+responsive layout in exceptional user scenarios.
+
+By default, tables should be displayed well only with CSS. Use JavaScript with
+caution, especially in admin pages of your CMS.
