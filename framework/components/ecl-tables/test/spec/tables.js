@@ -1,3 +1,5 @@
+const variants = require('../../variants');
+
 const devices = {
   mobile: {
     width: 400,
@@ -13,8 +15,6 @@ const devices = {
   },
 };
 
-const variants = ['default', 'empty', 'colspan', 'colspan-empty'];
-
 describe('tables with JavaScript corrections for mobile', () => {
   Object.entries(devices).forEach(testSpec => {
     // Prepare test
@@ -29,10 +29,10 @@ describe('tables with JavaScript corrections for mobile', () => {
       });
 
       variants.forEach(variant => {
-        describe(`--${variant}`, () => {
+        describe(`--${variant.name}`, () => {
           before(() => {
             // Go to url
-            browser.url(`ecl-tables--${variant}.html`);
+            browser.url(`ecl-tables--${variant.name}.html`);
             // Make sure the browser has finished painting
             browser.pause(500);
             // Inject axe-core (for accessibility tests)
@@ -43,7 +43,7 @@ describe('tables with JavaScript corrections for mobile', () => {
           context('with plain state', () => {
             it('should match the reference screenshot', () => {
               const screenshots = browser.checkDocument({
-                name: `tables/${device}/${variant}`,
+                name: `tables/${device}/${variant.name}`,
               });
               expect(screenshots).to.matchReference();
             });
