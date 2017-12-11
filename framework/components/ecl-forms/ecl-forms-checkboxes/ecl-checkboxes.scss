@@ -35,18 +35,18 @@ $ecl-checkbox-icon-size: 1.5em;
   }
 }
 
-.ecl-checkbox__input:checked + .ecl-checkbox__label::before {
-  background-image: url('../images/checkbox-checked--blue.svg');
-}
-
-.ecl-checkbox__input:focus + .ecl-checkbox__label::before {
-  border-color: map-get($ecl-colors, 'yellow-100');
-}
-
 .ecl-checkbox--has-error .ecl-checkbox__label::before {
   border-color: $ecl-color-error;
 }
 
 .ecl-checkbox--is-disabled .ecl-checkbox__label::before {
   box-shadow: 0 0 $ecl-checkbox-icon-size map-get($ecl-colors, 'grey-15') inset;
+}
+
+.ecl-checkbox__input:checked + .ecl-checkbox__label::before {
+  background-image: url('../images/checkbox-checked--blue.svg');
+}
+
+.ecl-checkbox__input:focus + .ecl-checkbox__label::before {
+  border-color: map-get($ecl-colors, 'yellow-100');
 }

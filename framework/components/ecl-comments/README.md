@@ -6,5 +6,5 @@ Allows users to comment.
 
 ## When to use this component
 
-- blogposts
-- articles
+* blogposts
+* articles

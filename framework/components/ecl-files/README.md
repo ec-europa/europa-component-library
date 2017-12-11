@@ -21,5 +21,5 @@ Displays the file image.
 
 ## Video file
 
-Displays the file video (in an iframe or video tag).
-It is recommended to use the ratio utility to enforce correct display.
+Displays the file video (in an iframe or video tag). It is recommended to use
+the ratio utility to enforce correct display.

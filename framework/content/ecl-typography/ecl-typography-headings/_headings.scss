@@ -3,6 +3,8 @@
 
 .ecl-heading {
   @include heading();
+
+  margin-bottom: map-get($ecl-spacing, 'm');
 }
 
 .ecl-heading--h1 {
@@ -33,10 +35,6 @@
 }
 
 // Spacing
-.ecl-heading {
-  margin-bottom: map-get($ecl-spacing, 'm');
-}
-
 * + .ecl-heading--h1 {
   margin-top: map-get($ecl-spacing, 'xxl');
 }
