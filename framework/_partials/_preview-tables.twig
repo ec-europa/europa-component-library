@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/framework/styles/europa.css' | path }}">
 
-    <title>Preview Layout for datepickers</title>
+    <title>Preview Layout for tables</title>
   </head>
   <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
     {{ yield }}
@@ -20,15 +20,12 @@
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}
 
-    <!-- Specific scripts included in this preview template -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <!-- Tables is collated to better demonstrate differences between default and enhanced -->
+    <!-- i.e. _target is per element before and yield does not suffice to load 1 instantiation before europa.js -->
+    <!-- More https://fractal.build/guide/components/preview-layouts -->
     <script type="text/javascript">
-      var picker = new Pikaday({
-        field: document.getElementById('datepicker'),
-        firstDay: 1,
-        maxDate: new Date(2020, 12, 31),
-        theme: 'ecl-pika-theme',
-        yearRange: [2000, 2020],
+      document.addEventListener('DOMContentLoaded', function () {
+        ECL.eclTables();
       });
     </script>
   </body>
