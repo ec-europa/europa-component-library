@@ -204,10 +204,54 @@ row header.</li>
 <li>don’t use data tables to structure content that isn’t part of a data set</li>
 </ul>
 <h2 id="technical-information">Technical information</h2>
+<p>Tables created by content writers (via WYSIWYG for example) can optionally
+include a manually set <code>ecl-table--responsive</code> class next to the root
+<code>ecl-table</code>. When this class is present, it’s a flag for JavaScript behaviors
+attach correcting code to take effect on <code>&lt;thead&gt;</code> of the table.</p>
+<p>The correcting behavior is expressed in the following. Given the following
+table.</p>
+<code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Registration date<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Name"</span>&gt;</span>John Doe<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Registration date"</span>&gt;</span>01/01/2016<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Email"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:john.doe@mail.com"</span>&gt;</span>john.doe@mail.com<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Name"</span>&gt;</span>Jane Doe<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Registration date"</span>&gt;</span>06/12/2016<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Email"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:jane.doe@mail.com"</span>&gt;</span>jane.doe@mail.com<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Name"</span>&gt;</span>Jack Doe<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Registration date"</span>&gt;</span>03/05/2017<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">data-th</span>=<span class="hljs-string">"Email"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:jack.doe@mail.com"</span>&gt;</span>jack.doe@mail.com<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span></pre></code><p>When table is in a small viewport (mobile view), the information about <code>Name</code> of
+<code>thead &gt; tr &gt; th</code> should be added visually to the <code>tbody &gt; tr &gt; td</code>. The
+JavaScript behavior is only responsible of “binding” these sets of information.</p>
+<p>JavaScript behavior is not responsible for any other visual, cosmetic or
+generally styling modifications. Responsive behavior is handled by CSS.</p>
+<p>Further details on these and other behavioral corrections needed by JavaScript,
+please refer to an
+<a href="https://webgate.ec.europa.eu/CITnet/confluence/display/NEXTEUROPA/Table">internal wiki page</a>.</p>
+<h3 id="adding-javascript-behaviors">Adding JavaScript behaviors</h3>
 <p>When using ecl tables, make sure to call related javascript:</p>
 <code class="lang-javascript"><pre>ECL.eclTables();</pre></code><p>It will handle responsive behavior</p>
 <p>You can also apply this script only to a subset of elements:</p>
-<code class="lang-javascript"><pre>ECL.eclTables(elements);</pre></code>
+<code class="lang-javascript"><pre>ECL.eclTables(elements);</pre></code><h3 id="implementation-goals">Implementation goals</h3>
+<p>JavaScript behavios are meant to be attached on-demand, in special cases, with
+conscious choice that information should be displayed correctly after default
+responsive layout in exceptional user scenarios.</p>
+<p>By default, tables should be displayed well only with CSS. Use JavaScript with
+caution, especially in admin pages of your CMS.</p>
+
                 
               </div>
             </div>
@@ -690,7 +734,9 @@ row header.</li>
 
 <span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">eclTables</span>(<span class="hljs-params">elements = null</span>) </span>{
   <span class="hljs-keyword">const</span> tables =
-    elements === <span class="hljs-literal">null</span> ? <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'ecl-table'</span>) : elements;
+    elements === <span class="hljs-literal">null</span>
+      ? <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'ecl-table--responsive'</span>)
+      : elements;
   [].forEach.call(tables, table =&gt; {
     <span class="hljs-keyword">const</span> headerText = [];
     <span class="hljs-keyword">let</span> textColspan = <span class="hljs-string">''</span>;
