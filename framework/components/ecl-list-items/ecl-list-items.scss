@@ -37,6 +37,13 @@
   margin-top: 0;
 }
 
+.ecl-list-item--highlight .ecl-list-item__title {
+  font-size: map-get($ecl-font-size, 'l');
+  height: 2.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .ecl-list-item__link:hover,
 .ecl-list-item__link:focus {
   .ecl-list-item__title {
@@ -77,11 +84,4 @@
   background-color: map-get($ecl-colors, 'grey-10');
   padding-left: map-get($ecl-spacing, 's');
   padding-right: map-get($ecl-spacing, 's');
-}
-
-.ecl-list-item--highlight .ecl-list-item__title {
-  font-size: map-get($ecl-font-size, 'l');
-  height: 2.2em;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
