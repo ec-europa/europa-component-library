@@ -7,7 +7,7 @@
 
     <title>Preview Layout for datepickers</title>
   </head>
-  <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
+  <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}" {% else %} class="ecl-u-mh-l" {% endif %}>
     <div class="ecl-row ecl-u-z-navigation ecl-u-pt-xl">
       <div class="ecl-col-md-3 ecl-u-z-navigation">
         {{ yield }}
