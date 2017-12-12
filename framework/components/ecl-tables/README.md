@@ -94,9 +94,6 @@ JavaScript behavior is only responsible of "binding" these sets of information.
 JavaScript behavior is not responsible for any other visual, cosmetic or
 generally styling modifications. Responsive behavior is handled by CSS.
 
-For further details please refer to
-[internal wiki page](https://webgate.ec.europa.eu/CITnet/confluence/display/NEXTEUROPA/Table).
-
 ### Adding JavaScript behaviors
 
 When using ECL tables, make sure to call related JavaScript:
