@@ -32,11 +32,13 @@
 
 .ecl-list-item__title {
   color: $ecl-color-primary;
+  font-size: map-get($ecl-font-size, 'm');
   margin-bottom: map-get($ecl-spacing, 's');
   margin-top: 0;
 }
 
 .ecl-list-item--highlight .ecl-list-item__title {
+  font-size: map-get($ecl-font-size, 'l');
   height: 2.2em;
   overflow: hidden;
   text-overflow: ellipsis;
