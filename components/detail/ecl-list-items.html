@@ -624,11 +624,13 @@
 
 <span class="hljs-selector-class">.ecl-list-item__title</span> {
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-primary</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
   <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
 }
 
 <span class="hljs-selector-class">.ecl-list-item--highlight</span> <span class="hljs-selector-class">.ecl-list-item__title</span> {
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
   <span class="hljs-attribute">height</span>: <span class="hljs-number">2.2em</span>;
   <span class="hljs-attribute">overflow</span>: hidden;
   <span class="hljs-attribute">text-overflow</span>: ellipsis;
@@ -691,7 +693,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.6 KB</span>
+                    <span class="Meta-value">1.7 KB</span>
                 </li>
             </ul>
         </div>
