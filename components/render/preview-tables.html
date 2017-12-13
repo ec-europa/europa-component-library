@@ -1,0 +1,26 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../framework/styles/europa.css">
+
+    <title>Preview Layout for tables</title>
+  </head>
+  <body>
+    
+    <script src="../../framework/scripts/europa.js"></script>
+    
+    <!-- Tables is collated to better demonstrate differences between default and enhanced -->
+    <!-- i.e. _target is per element before and yield does not suffice to load 1 instantiation before europa.js -->
+    <!-- More https://fractal.build/guide/components/preview-layouts -->
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+        ECL.eclTables();
+      });
+    </script>
+  </body>
+</html>
+
