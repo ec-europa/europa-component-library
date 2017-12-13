@@ -9,10 +9,10 @@ Tables show data sets organized in columns and rows.
 * when there is a need to show tables that will be displayed across different
   devices.
 * when you want to compare one set of values with another.
-* you want to show how various parts comprise the whole.
-* you want to understand trends over time for variable(s).
-* you want to see which values deviate from the norm.
-* you want to establish (or show) relationship between 2 (or more) variables.
+* when you want to show how various parts comprise the whole.
+* when you want to understand trends over time for variable(s).
+* when you want to see which values deviate from the norm.
+* when you want to establish (or show) relationship between 2 (or more) variables.
 
 ## Structure
 
@@ -45,14 +45,13 @@ If there are 5 rows or more, the rows have alternating colours (zebra stripes).
 
 ## Technical information
 
-Tables have responsive behaviors with CSS which make them better visually.
-Tables could also be progressively enhanced with optional JavaScript which
-organizes tables' elements in a more accessible way in mobile.
+Tables have a default responsive behaviour which can be progressively enhanced
+with JavaScript. This dynamic behaviour organizes the tables' elements in a more
+accessible way on small screens.
 
-More specifically, content editors can include `ecl-table--responsive` class
-next to the root `ecl-table` when creating tables from WYSIWYG. When
-`ecl-table--responsive` is present, it's a flag for JavaScript behaviors to add
-improvements in mobile.
+More specifically, content editors can include the `ecl-table--responsive` class
+next to the root `ecl-table` when creating tables from WYSIWYG. This class is a
+flag for JavaScript behaviours to add improvements in mobile.
 
 The JavaScript enhancements are added manually, only when necessary and when the
 structure of tables allow correct functioning of the JavaScript.
@@ -87,22 +86,23 @@ following table.
 </tbody>
 ```
 
-When table is in a small viewport (mobile view), the information about `Name` of
-`thead > tr > th` should be added visually to the `tbody > tr > td`. The
-JavaScript behavior is only responsible of "binding" these sets of information.
+When the table is in a small viewport (mobile view), the information about
+`Name` of `thead > tr > th` should be added visually to the
+`tbody > tr > td`. The JavaScript behaviour is only responsible for binding
+these sets of information.
 
-JavaScript behavior is not responsible for any other visual, cosmetic or
-generally styling modifications. Responsive behavior is handled by CSS.
+JavaScript behaviour is not responsible for any other visual, cosmetic or
+generally styling modifications. Responsive behaviour is handled by CSS.
 
-### Adding JavaScript behaviors
+### Adding JavaScript behaviours
 
-When using ECL tables, make sure to call related JavaScript:
+When using ECL tables, make sure to call the related JavaScript function:
 
 ```javascript
 ECL.eclTables();
 ```
 
-You can also apply this script only to a subset of elements:
+You can also apply this script on a subset of elements:
 
 ```javascript
 ECL.eclTables(elements);
@@ -110,9 +110,9 @@ ECL.eclTables(elements);
 
 ### Implementation goals
 
-JavaScript behaviors are meant to be attached manually, in special cases, with
+JavaScript behaviours are meant to be attached manually, in special cases, with
 conscious choice that information should be displayed correctly after default
 responsive layout in exceptional user scenarios.
 
 By default, tables should be displayed well only with CSS. Use JavaScript with
-caution, especially in administration pages of your CMS.
+caution, especially in the administration pages of your CMS.
