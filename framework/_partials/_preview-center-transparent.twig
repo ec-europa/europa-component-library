@@ -31,7 +31,7 @@
       {{ yield }}
     </main>
     <script src="{{ '/framework/scripts/europa.js' | path }}"></script>
-    {% if _target.context._demo and _target.context._demo %}
+    {% if _target.context._demo and _target.context._demo.scripts %}
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}
   </body>

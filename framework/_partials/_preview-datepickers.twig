@@ -16,7 +16,7 @@
   <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
     {{ yield }}
     <script src="{{ '/framework/scripts/europa.js' | path }}"></script>
-    {% if _target.context._demo and _target.context._demo %}
+    {% if _target.context._demo and _target.context._demo.scripts %}
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}
 
