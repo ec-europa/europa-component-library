@@ -1,15 +1,13 @@
 import debounce from 'lodash.debounce';
 import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 
-export const eclLangSelectPages = (
-  {
-    selector: selector = '.ecl-lang-select-page',
-    toggleClass: toggleClass = 'ecl-lang-select-page--dropdown',
-    listSelector: listSelector = '.ecl-lang-select-page__list',
-    dropdownSelector: dropdownSelector = '.ecl-lang-select-page__dropdown',
-    dropdownOnChange: dropdownOnChange = undefined,
-  } = {}
-) => {
+export const eclLangSelectPages = ({
+  selector: selector = '.ecl-lang-select-page',
+  toggleClass: toggleClass = 'ecl-lang-select-page--dropdown',
+  listSelector: listSelector = '.ecl-lang-select-page__list',
+  dropdownSelector: dropdownSelector = '.ecl-lang-select-page__dropdown',
+  dropdownOnChange: dropdownOnChange = undefined,
+} = {}) => {
   // SUPPORTS
   if (
     !('querySelector' in document) ||
