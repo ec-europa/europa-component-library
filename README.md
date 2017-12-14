@@ -1,4 +1,9 @@
-# EC Component Library [![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library) [![Greenkeeper badge](https://badges.greenkeeper.io/ec-europa/europa-component-library.svg)](https://greenkeeper.io/)
+# EC Component Library
+
+[![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library)
+[![Greenkeeper badge](https://badges.greenkeeper.io/ec-europa/europa-component-library.svg)](https://greenkeeper.io/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
 Component library based on [Fractal](http://fractal.build/).
 
@@ -7,9 +12,7 @@ Requirements:
 * Node.js current (8.x)
 * yarn >= 1.0.2
 
-We recommend you to use
-[Node Version Manager](https://github.com/creationix/nvm) and to run `nvm
-install` followed by `nvm use` to get the right Node.js version.
+We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` followed by `nvm use` to get the right Node.js version.
 
 Tested on:
 

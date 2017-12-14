@@ -11,11 +11,8 @@ In order to enforce consistent conventions and avoid errors in our stylesheets, 
 
 We use the following presets:
 
--   [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines), a config based on [Sass Guidelines](https://sass-guidelin.es/)
-
--   [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard), a standard config derived from the common rules found within a handful of CSS styleguides, including: [The Idiomatic CSS Principles](https://github.com/necolas/idiomatic-css),
-[GitHub's PrimerCSS Guidelines](http://primercss.io/guidelines/#scss),
-[Google's CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#CSS_Formatting_Rules), [Airbnb's Styleguide](https://github.com/airbnb/css#css), and [@mdo's Code Guide](http://codeguide.co/#css)
+* [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines), a config based on [Sass Guidelines](https://sass-guidelin.es/)
+* [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard), a standard config derived from the common rules found within a handful of CSS styleguides, including: [The Idiomatic CSS Principles](https://github.com/necolas/idiomatic-css), [GitHub's PrimerCSS Guidelines](http://primercss.io/guidelines/#scss), [Google's CSS Style Guide](https://google.github.io/styleguide/htmlcssguide.html#CSS_Formatting_Rules), [Airbnb's Styleguide](https://github.com/airbnb/css#css), and [@mdo's Code Guide](http://codeguide.co/#css)
 
 ### Plugins
 
@@ -25,8 +22,12 @@ In order to enable the BEM-style validation, you have to define a component with
 
 ```scss
 /** @define label */
-.ecl-label {}
-.ecl-label--primary {}
+
+.ecl-label {
+}
+
+.ecl-label--primary {
+}
 ```
 
 More information can be found on [postcss-bem-linter](https://github.com/postcss/postcss-bem-linter#defining-a-component-and-utilities)'s project.
