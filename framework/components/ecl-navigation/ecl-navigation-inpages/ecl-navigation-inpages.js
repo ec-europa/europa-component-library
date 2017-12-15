@@ -8,15 +8,13 @@ import gumshoe from 'gumshoejs';
 /**
  * @param {object} options Object containing configuration overrides
  */
-export const navigationInpages = (
-  {
-    stickySelector: stickySelector = '.ecl-navigation-inpage',
-    spySelector: spySelector = '.ecl-navigation-inpage__link',
-    spyClass: spyClass = 'ecl-navigation-inpage__link--is-active',
-    spyTrigger: spyTrigger = '.ecl-navigation-inpage__trigger',
-    spyOffset: spyOffset = 20,
-  } = {}
-) => {
+export const navigationInpages = ({
+  stickySelector: stickySelector = '.ecl-navigation-inpage',
+  spySelector: spySelector = '.ecl-navigation-inpage__link',
+  spyClass: spyClass = 'ecl-navigation-inpage__link--is-active',
+  spyTrigger: spyTrigger = '.ecl-navigation-inpage__trigger',
+  spyOffset: spyOffset = 20,
+} = {}) => {
   // SUPPORTS
   if (
     !('querySelector' in document) ||

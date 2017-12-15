@@ -56,14 +56,12 @@ const onKeydown = (node, menu) => e => {
   }
 };
 
-export const megamenu = (
-  {
-    selector: selector = '.ecl-navigation-menu',
-    toggleSelector: toggleSelector = '.ecl-navigation-menu__toggle',
-    listSelector: listSelector = '.ecl-navigation-menu__root',
-    linkSelector: linkSelector = '.ecl-navigation-menu__link',
-  } = {}
-) => {
+export const megamenu = ({
+  selector: selector = '.ecl-navigation-menu',
+  toggleSelector: toggleSelector = '.ecl-navigation-menu__toggle',
+  listSelector: listSelector = '.ecl-navigation-menu__root',
+  linkSelector: linkSelector = '.ecl-navigation-menu__link',
+} = {}) => {
   const megamenusArray = queryAll(selector);
 
   megamenusArray.forEach(menu => {
