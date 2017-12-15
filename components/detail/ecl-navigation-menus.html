@@ -940,14 +940,12 @@ topics (e.g. News and events / Contracts and funding).</p>
   }
 };
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> megamenu = (
-  {
-    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-navigation-menu'</span>,
-    <span class="hljs-attr">toggleSelector</span>: toggleSelector = <span class="hljs-string">'.ecl-navigation-menu__toggle'</span>,
-    <span class="hljs-attr">listSelector</span>: listSelector = <span class="hljs-string">'.ecl-navigation-menu__root'</span>,
-    <span class="hljs-attr">linkSelector</span>: linkSelector = <span class="hljs-string">'.ecl-navigation-menu__link'</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> megamenu = ({
+  <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-navigation-menu'</span>,
+  <span class="hljs-attr">toggleSelector</span>: toggleSelector = <span class="hljs-string">'.ecl-navigation-menu__toggle'</span>,
+  <span class="hljs-attr">listSelector</span>: listSelector = <span class="hljs-string">'.ecl-navigation-menu__root'</span>,
+  <span class="hljs-attr">linkSelector</span>: linkSelector = <span class="hljs-string">'.ecl-navigation-menu__link'</span>,
+} = {}) =&gt; {
   <span class="hljs-keyword">const</span> megamenusArray = queryAll(selector);
 
   megamenusArray.forEach(<span class="hljs-function"><span class="hljs-params">menu</span> =&gt;</span> {

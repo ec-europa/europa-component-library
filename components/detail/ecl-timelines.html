@@ -574,15 +574,13 @@
 };
 
 <span class="hljs-comment">// Helper method to automatically attach the event listener to all the expandables on page load</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> timelines = (
-  {
-    selector = <span class="hljs-string">'.ecl-timeline'</span>,
-    buttonSelector = <span class="hljs-string">'.ecl-timeline__button'</span>,
-    hiddenElementsSelector = <span class="hljs-string">'.ecl-timeline__item--over-limit'</span>,
-    classToRemove = <span class="hljs-string">'ecl-timeline__item--over-limit'</span>,
-    context = <span class="hljs-built_in">document</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> timelines = ({
+  selector = <span class="hljs-string">'.ecl-timeline'</span>,
+  buttonSelector = <span class="hljs-string">'.ecl-timeline__button'</span>,
+  hiddenElementsSelector = <span class="hljs-string">'.ecl-timeline__item--over-limit'</span>,
+  classToRemove = <span class="hljs-string">'ecl-timeline__item--over-limit'</span>,
+  context = <span class="hljs-built_in">document</span>,
+} = {}) =&gt; {
   <span class="hljs-keyword">const</span> nodesArray = <span class="hljs-built_in">Array</span>.prototype.slice.call(
     context.querySelectorAll(selector)
   );

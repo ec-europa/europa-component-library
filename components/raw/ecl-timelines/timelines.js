@@ -28,15 +28,13 @@ const expandTimeline = (
 };
 
 // Helper method to automatically attach the event listener to all the expandables on page load
-export const timelines = (
-  {
-    selector = '.ecl-timeline',
-    buttonSelector = '.ecl-timeline__button',
-    hiddenElementsSelector = '.ecl-timeline__item--over-limit',
-    classToRemove = 'ecl-timeline__item--over-limit',
-    context = document,
-  } = {}
-) => {
+export const timelines = ({
+  selector = '.ecl-timeline',
+  buttonSelector = '.ecl-timeline__button',
+  hiddenElementsSelector = '.ecl-timeline__item--over-limit',
+  classToRemove = 'ecl-timeline__item--over-limit',
+  context = document,
+} = {}) => {
   const nodesArray = Array.prototype.slice.call(
     context.querySelectorAll(selector)
   );

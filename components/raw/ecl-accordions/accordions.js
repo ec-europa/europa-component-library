@@ -5,12 +5,10 @@ import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 /**
  * @param {object} options Object containing configuration overrides
  */
-export const accordions = (
-  {
-    selector: selector = '.ecl-accordion',
-    headerSelector: headerSelector = '.ecl-accordion__header',
-  } = {}
-) => {
+export const accordions = ({
+  selector: selector = '.ecl-accordion',
+  headerSelector: headerSelector = '.ecl-accordion__header',
+} = {}) => {
   // SUPPORTS
   if (
     !('querySelector' in document) ||

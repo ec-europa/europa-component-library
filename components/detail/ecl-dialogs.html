@@ -447,13 +447,11 @@ require a response.</p>
  * - options.dialogOverlayId - id of target dialog window. Defaults to `ecl-overlay`.
  * Overlay element is created in the document if not provided by the user.
  */</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> dialogs = (
-  {
-    <span class="hljs-attr">triggerElementsSelector</span>: triggerElementsSelector = <span class="hljs-string">'[data-ecl-dialog]'</span>,
-    <span class="hljs-attr">dialogWindowId</span>: dialogWindowId = <span class="hljs-string">'ecl-dialog'</span>,
-    <span class="hljs-attr">dialogOverlayId</span>: dialogOverlayId = <span class="hljs-string">'ecl-overlay'</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> dialogs = ({
+  <span class="hljs-attr">triggerElementsSelector</span>: triggerElementsSelector = <span class="hljs-string">'[data-ecl-dialog]'</span>,
+  <span class="hljs-attr">dialogWindowId</span>: dialogWindowId = <span class="hljs-string">'ecl-dialog'</span>,
+  <span class="hljs-attr">dialogOverlayId</span>: dialogOverlayId = <span class="hljs-string">'ecl-overlay'</span>,
+} = {}) =&gt; {
   <span class="hljs-comment">// SUPPORTS</span>
   <span class="hljs-keyword">if</span> (!(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) || !(<span class="hljs-string">'addEventListener'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">window</span>)) {
     <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;

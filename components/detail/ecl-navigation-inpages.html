@@ -413,15 +413,13 @@ scrolling)</li>
 <span class="hljs-comment">/**
  * @param {object} options Object containing configuration overrides
  */</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> navigationInpages = (
-  {
-    <span class="hljs-attr">stickySelector</span>: stickySelector = <span class="hljs-string">'.ecl-navigation-inpage'</span>,
-    <span class="hljs-attr">spySelector</span>: spySelector = <span class="hljs-string">'.ecl-navigation-inpage__link'</span>,
-    <span class="hljs-attr">spyClass</span>: spyClass = <span class="hljs-string">'ecl-navigation-inpage__link--is-active'</span>,
-    <span class="hljs-attr">spyTrigger</span>: spyTrigger = <span class="hljs-string">'.ecl-navigation-inpage__trigger'</span>,
-    <span class="hljs-attr">spyOffset</span>: spyOffset = <span class="hljs-number">20</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> navigationInpages = ({
+  <span class="hljs-attr">stickySelector</span>: stickySelector = <span class="hljs-string">'.ecl-navigation-inpage'</span>,
+  <span class="hljs-attr">spySelector</span>: spySelector = <span class="hljs-string">'.ecl-navigation-inpage__link'</span>,
+  <span class="hljs-attr">spyClass</span>: spyClass = <span class="hljs-string">'ecl-navigation-inpage__link--is-active'</span>,
+  <span class="hljs-attr">spyTrigger</span>: spyTrigger = <span class="hljs-string">'.ecl-navigation-inpage__trigger'</span>,
+  <span class="hljs-attr">spyOffset</span>: spyOffset = <span class="hljs-number">20</span>,
+} = {}) =&gt; {
   <span class="hljs-comment">// SUPPORTS</span>
   <span class="hljs-keyword">if</span> (
     !(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) ||

@@ -587,15 +587,13 @@ is optional (in case of technical complexity)</li>
                                 <pre><span class="hljs-keyword">import</span> debounce <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash.debounce'</span>;
 <span class="hljs-keyword">import</span> { queryAll } <span class="hljs-keyword">from</span> <span class="hljs-string">'@ec-europa/ecl-base/helpers/dom'</span>;
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> eclLangSelectPages = (
-  {
-    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-lang-select-page'</span>,
-    <span class="hljs-attr">toggleClass</span>: toggleClass = <span class="hljs-string">'ecl-lang-select-page--dropdown'</span>,
-    <span class="hljs-attr">listSelector</span>: listSelector = <span class="hljs-string">'.ecl-lang-select-page__list'</span>,
-    <span class="hljs-attr">dropdownSelector</span>: dropdownSelector = <span class="hljs-string">'.ecl-lang-select-page__dropdown'</span>,
-    <span class="hljs-attr">dropdownOnChange</span>: dropdownOnChange = <span class="hljs-literal">undefined</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> eclLangSelectPages = ({
+  <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-lang-select-page'</span>,
+  <span class="hljs-attr">toggleClass</span>: toggleClass = <span class="hljs-string">'ecl-lang-select-page--dropdown'</span>,
+  <span class="hljs-attr">listSelector</span>: listSelector = <span class="hljs-string">'.ecl-lang-select-page__list'</span>,
+  <span class="hljs-attr">dropdownSelector</span>: dropdownSelector = <span class="hljs-string">'.ecl-lang-select-page__dropdown'</span>,
+  <span class="hljs-attr">dropdownOnChange</span>: dropdownOnChange = <span class="hljs-literal">undefined</span>,
+} = {}) =&gt; {
   <span class="hljs-comment">// SUPPORTS</span>
   <span class="hljs-keyword">if</span> (
     !(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) ||

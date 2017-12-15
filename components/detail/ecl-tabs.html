@@ -407,14 +407,12 @@ not the right way to present the content don’t use more than 3 tabs</li>
 <span class="hljs-comment">/**
  * @param {object} options Object containing configuration overrides
  */</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> tabs = (
-  {
-    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-tabs'</span>,
-    <span class="hljs-attr">tablistSelector</span>: tablistSelector = <span class="hljs-string">'.ecl-tabs__tablist'</span>,
-    <span class="hljs-attr">tabpanelSelector</span>: tabpanelSelector = <span class="hljs-string">'.ecl-tabs__tabpanel'</span>,
-    <span class="hljs-attr">tabelementsSelector</span>: tabelementsSelector = <span class="hljs-string">`<span class="hljs-subst">${tablistSelector}</span> li`</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> tabs = ({
+  <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-tabs'</span>,
+  <span class="hljs-attr">tablistSelector</span>: tablistSelector = <span class="hljs-string">'.ecl-tabs__tablist'</span>,
+  <span class="hljs-attr">tabpanelSelector</span>: tabpanelSelector = <span class="hljs-string">'.ecl-tabs__tabpanel'</span>,
+  <span class="hljs-attr">tabelementsSelector</span>: tabelementsSelector = <span class="hljs-string">`<span class="hljs-subst">${tablistSelector}</span> li`</span>,
+} = {}) =&gt; {
   <span class="hljs-comment">// SUPPORTS</span>
   <span class="hljs-keyword">if</span> (
     !(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) ||

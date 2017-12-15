@@ -386,14 +386,12 @@ pictures, videos, etc).</p>
 <span class="hljs-comment">/**
  * @param {object} options Object containing configuration overrides
  */</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> fileUploads = (
-  {
-    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-file-upload'</span>,
-    <span class="hljs-attr">inputSelector</span>: inputSelector = <span class="hljs-string">'.ecl-file-upload__input'</span>,
-    <span class="hljs-attr">valueSelector</span>: valueSelector = <span class="hljs-string">'.ecl-file-upload__value'</span>,
-    <span class="hljs-attr">browseSelector</span>: browseSelector = <span class="hljs-string">'.ecl-file-upload__browse'</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> fileUploads = ({
+  <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-file-upload'</span>,
+  <span class="hljs-attr">inputSelector</span>: inputSelector = <span class="hljs-string">'.ecl-file-upload__input'</span>,
+  <span class="hljs-attr">valueSelector</span>: valueSelector = <span class="hljs-string">'.ecl-file-upload__value'</span>,
+  <span class="hljs-attr">browseSelector</span>: browseSelector = <span class="hljs-string">'.ecl-file-upload__browse'</span>,
+} = {}) =&gt; {
   <span class="hljs-comment">// SUPPORTS</span>
   <span class="hljs-keyword">if</span> (
     !(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) ||

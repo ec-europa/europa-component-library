@@ -152,19 +152,19 @@
 <h3 id="presets">Presets</h3>
 <p>We use the following presets:</p>
 <ul>
-<li><p><a href="https://github.com/bjankord/stylelint-config-sass-guidelines">stylelint-config-sass-guidelines</a>, a config based on <a href="https://sass-guidelin.es/">Sass Guidelines</a></p>
-</li>
-<li><p><a href="https://github.com/stylelint/stylelint-config-standard">stylelint-config-standard</a>, a standard config derived from the common rules found within a handful of CSS styleguides, including: <a href="https://github.com/necolas/idiomatic-css">The Idiomatic CSS Principles</a>,
-<a href="http://primercss.io/guidelines/#scss">GitHub’s PrimerCSS Guidelines</a>,
-<a href="https://google.github.io/styleguide/htmlcssguide.html#CSS_Formatting_Rules">Google’s CSS Style Guide</a>, <a href="https://github.com/airbnb/css#css">Airbnb’s Styleguide</a>, and <a href="http://codeguide.co/#css">@mdo’s Code Guide</a></p>
-</li>
+<li><a href="https://github.com/bjankord/stylelint-config-sass-guidelines">stylelint-config-sass-guidelines</a>, a config based on <a href="https://sass-guidelin.es/">Sass Guidelines</a></li>
+<li><a href="https://github.com/stylelint/stylelint-config-standard">stylelint-config-standard</a>, a standard config derived from the common rules found within a handful of CSS styleguides, including: <a href="https://github.com/necolas/idiomatic-css">The Idiomatic CSS Principles</a>, <a href="http://primercss.io/guidelines/#scss">GitHub’s PrimerCSS Guidelines</a>, <a href="https://google.github.io/styleguide/htmlcssguide.html#CSS_Formatting_Rules">Google’s CSS Style Guide</a>, <a href="https://github.com/airbnb/css#css">Airbnb’s Styleguide</a>, and <a href="http://codeguide.co/#css">@mdo’s Code Guide</a></li>
 </ul>
 <h3 id="plugins">Plugins</h3>
 <p>Furthermore, we added the <a href="https://github.com/davidtheclark/stylelint-selector-bem-pattern">stylelint-selector-bem-pattern</a> plugin to check the validity of selectors against our BEM-style conventions. All the classes we provide should follow the <code>.ecl-block__element--modifier</code> pattern.</p>
 <p>In order to enable the BEM-style validation, you have to define a component with a comment.</p>
 <code class="lang-scss"><pre><span class="hljs-comment">/** @define label */</span>
-<span class="hljs-selector-class">.ecl-label</span> {}
-<span class="hljs-selector-class">.ecl-label--primary</span> {}</pre></code><p>More information can be found on <a href="https://github.com/postcss/postcss-bem-linter#defining-a-component-and-utilities">postcss-bem-linter</a>‘s project.</p>
+
+<span class="hljs-selector-class">.ecl-label</span> {
+}
+
+<span class="hljs-selector-class">.ecl-label--primary</span> {
+}</pre></code><p>More information can be found on <a href="https://github.com/postcss/postcss-bem-linter#defining-a-component-and-utilities">postcss-bem-linter</a>‘s project.</p>
 <h3 id="configuration">Configuration</h3>
 <p>All the rules are made availble through our <a href="https://github.com/ec-europa/ecl-toolkit/tree/master/packages/stylelint-config-ecl">stylelint-config-ecl</a> config. You are not supposed to override this configuration.</p>
 <h2 id="automatically-formats-stylesheets">Automatically formats stylesheets</h2>

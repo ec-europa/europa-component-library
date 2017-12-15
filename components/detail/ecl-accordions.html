@@ -472,12 +472,10 @@ reveal additional content. It is also possible to add an icon to the headers.</p
 <span class="hljs-comment">/**
  * @param {object} options Object containing configuration overrides
  */</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> accordions = (
-  {
-    <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-accordion'</span>,
-    <span class="hljs-attr">headerSelector</span>: headerSelector = <span class="hljs-string">'.ecl-accordion__header'</span>,
-  } = {}
-) =&gt; {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> accordions = ({
+  <span class="hljs-attr">selector</span>: selector = <span class="hljs-string">'.ecl-accordion'</span>,
+  <span class="hljs-attr">headerSelector</span>: headerSelector = <span class="hljs-string">'.ecl-accordion__header'</span>,
+} = {}) =&gt; {
   <span class="hljs-comment">// SUPPORTS</span>
   <span class="hljs-keyword">if</span> (
     !(<span class="hljs-string">'querySelector'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>) ||

@@ -29,15 +29,13 @@ const expandContextualNav = (
 };
 
 // Helper method to automatically attach the event listener to all the expandables on page load
-export const contextualNavs = (
-  {
-    selector = '.ecl-context-nav',
-    buttonSelector = '.ecl-context-nav__more',
-    hiddenElementsSelector = '.ecl-context-nav__item--over-limit',
-    classToRemove = 'ecl-context-nav__item--over-limit',
-    context = document,
-  } = {}
-) => {
+export const contextualNavs = ({
+  selector = '.ecl-context-nav',
+  buttonSelector = '.ecl-context-nav__more',
+  hiddenElementsSelector = '.ecl-context-nav__item--over-limit',
+  classToRemove = 'ecl-context-nav__item--over-limit',
+  context = document,
+} = {}) => {
   const nodesArray = queryAll(selector, context);
 
   nodesArray.forEach(node => {
