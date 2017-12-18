@@ -1,0 +1,48 @@
+/**
+ * Dialog
+ * @define dialog
+ */
+
+.ecl-dialog {
+  background-color: #fff;
+  display: flex;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: map-get($ecl-spacing, 'l');
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  z-index: map-get($ecl-z-index, 'modal');
+}
+
+.ecl-dialog[aria-hidden='true'] {
+  display: none;
+}
+
+.ecl-dialog__body {
+  max-height: 100%;
+  overflow: auto;
+}
+
+.ecl-dialog__overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: map-get($ecl-z-index, 'highlight');
+}
+
+@include ecl-media-breakpoint-up('sm') {
+  .ecl-dialog {
+    height: auto;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+  }
+}
