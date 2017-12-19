@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.19.0 (2017-12-15)
+
+#### :bug: Bug Fix
+
+* [#508](https://github.com/ec-europa/europa-component-library/pull/508) fix(tables): refactor tables headers - INNO-852. ([@raduchiriac](https://github.com/raduchiriac))
+* [#522](https://github.com/ec-europa/europa-component-library/pull/522) fix(list-items): font sizes - INNO-857. ([@raduchiriac](https://github.com/raduchiriac))
+* [#523](https://github.com/ec-europa/europa-component-library/pull/523) fix(navigation-inpages): remove bullet points - INNO-859. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### :memo: Documentation
+
+* [#507](https://github.com/ec-europa/europa-component-library/pull/507) docs(docs): docs about updating the docs - INNO-853. ([@kalinchernev](https://github.com/kalinchernev))
+* [#502](https://github.com/ec-europa/europa-component-library/pull/502) docs(footer): documentation update - INNO-853. ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :house: Internal
+
+* [#515](https://github.com/ec-europa/europa-component-library/pull/515) chore(package): update all dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 4
+
+* Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+* [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.18.0 (2017-11-22)
 
 ### :boom: Breaking Change

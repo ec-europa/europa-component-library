@@ -7,14 +7,12 @@ import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 /**
  * @param {object} options Object containing configuration overrides
  */
-export const fileUploads = (
-  {
-    selector: selector = '.ecl-file-upload',
-    inputSelector: inputSelector = '.ecl-file-upload__input',
-    valueSelector: valueSelector = '.ecl-file-upload__value',
-    browseSelector: browseSelector = '.ecl-file-upload__browse',
-  } = {}
-) => {
+export const fileUploads = ({
+  selector: selector = '.ecl-file-upload',
+  inputSelector: inputSelector = '.ecl-file-upload__input',
+  valueSelector: valueSelector = '.ecl-file-upload__value',
+  browseSelector: browseSelector = '.ecl-file-upload__browse',
+} = {}) => {
   // SUPPORTS
   if (
     !('querySelector' in document) ||
