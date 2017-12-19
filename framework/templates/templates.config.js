@@ -1,5 +1,5 @@
 module.exports = {
   title: 'Templates',
   label: 'Templates',
-  order: 1,
+  order: 5,
 };
