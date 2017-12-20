@@ -6,7 +6,7 @@ describe('language-selector-dialog', () => {
       height: 600,
     });
 
-    browser.url(`language-selector-dialog.html`);
+    browser.url(`ecl-language-selector-dialog.html`);
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
@@ -24,7 +24,7 @@ describe('language-selector-dialog', () => {
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-container').value;
+    const a11yReport = browser.runAxeCore('ecl-dialog__body').value;
     expect(a11yReport).to.be.accessible;
   });
 });
