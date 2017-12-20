@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.19.1 (2017-12-20)
+
+#### :bug: Bug Fix
+
+* [#531](https://github.com/ec-europa/europa-component-library/pull/531) fix(ecl-links): remove .ecl-editor links after pseudo - INNO-864. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### Committers: 1
+
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+
 ## 0.19.0 (2017-12-15)
 
 #### :bug: Bug Fix
