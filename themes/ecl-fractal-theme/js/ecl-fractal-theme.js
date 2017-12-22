@@ -3,6 +3,421 @@ var fractal = (function (exports,$) {
 
 $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
+// Query helper
+var queryAll = function queryAll(selector) {
+  var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document;
+  return [].slice.call(context.querySelectorAll(selector));
+};
+
+// Heavily inspired by the accordion component from https://github.com/frend/frend.co
+
+/**
+ * @param {object} options Object containing configuration overrides
+ */
+
+var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+
+
+
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+
+
+
+
+
+
+
+
+
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = _typeof(commonjsGlobal) == 'object' && commonjsGlobal && commonjsGlobal.Object === Object && commonjsGlobal;
+
+/** Detect free variable `self`. */
+var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+/**
+ * @param {object} options Object containing configuration overrides
+ */
+
+/**
+ * Contextual navigation scripts
+ */
+
+// Helper method to automatically attach the event listener to all the expandables on page load
+
+/**
+ * `Node#contains()` polyfill.
+ *
+ * See: http://compatibility.shwups-cms.ch/en/polyfills/?&id=1
+ *
+ * @param {Node} node
+ * @param {Node} other
+ * @return {Boolean}
+ * @public
+ */
+
+/**
+ * @param {object} options Object containing configuration overrides
+ *
+ * Available options:
+ * - options.triggerElementsSelector - any selector to which event listeners
+ * are attached. When clicked on any element with such a selector, a dialog opens.
+ *
+ * - options.dialogWindowId - id of target dialog window. Defaults to `ecl-dialog`.
+ *
+ * - options.dialogOverlayId - id of target dialog window. Defaults to `ecl-overlay`.
+ * Overlay element is created in the document if not provided by the user.
+ */
+
+var toggleExpandable = function toggleExpandable(toggleElement) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+      _ref$context = _ref.context,
+      context = _ref$context === undefined ? document : _ref$context,
+      _ref$forceClose = _ref.forceClose,
+      forceClose = _ref$forceClose === undefined ? false : _ref$forceClose,
+      _ref$closeSiblings = _ref.closeSiblings,
+      closeSiblings = _ref$closeSiblings === undefined ? false : _ref$closeSiblings,
+      _ref$siblingsSelector = _ref.siblingsSelector,
+      siblingsSelector = _ref$siblingsSelector === undefined ? '[aria-controls][aria-expanded]' : _ref$siblingsSelector;
+
+  if (!toggleElement) {
+    return;
+  }
+
+  // Get target element
+  var target = document.getElementById(toggleElement.getAttribute('aria-controls'));
+
+  // Exit if no target found
+  if (!target) {
+    return;
+  }
+
+  // Get current status
+  var isExpanded = forceClose === true || toggleElement.getAttribute('aria-expanded') === 'true';
+
+  // Toggle the expandable/collapsible
+  toggleElement.setAttribute('aria-expanded', !isExpanded);
+  target.setAttribute('aria-hidden', isExpanded);
+
+  // Close siblings if requested
+  if (closeSiblings === true) {
+    var siblingsArray = Array.prototype.slice.call(context.querySelectorAll(siblingsSelector)).filter(function (sibling) {
+      return sibling !== toggleElement;
+    });
+
+    siblingsArray.forEach(function (sibling) {
+      toggleExpandable(sibling, {
+        context: context,
+        forceClose: true
+      });
+    });
+  }
+};
+
+// Helper method to automatically attach the event listener to all the expandables on page load
+
+/**
+ * File uploads related behaviors.
+ */
+
+/**
+ * @param {object} options Object containing configuration overrides
+ */
+
+/*
+ * Messages behavior
+ */
+
+// Dismiss a selected message.
+// Helper method to automatically attach the event listener to all the messages on page load
+
+/*
+  STICKYBITS 💉
+  --------
+  > a lightweight alternative to `position: sticky` polyfills 🍬
+  --------
+  - each method is documented above it our view the readme
+  - Stickybits does not manage polymorphic functionality (position like properties)
+  * polymorphic functionality: (in the context of describing Stickybits)
+    means making things like `position: sticky` be loosely supported with position fixed.
+    It also means that features like `useStickyClasses` takes on styles like `position: fixed`.
+  --------
+  defaults 🔌
+  --------
+  - version = `package.json` version
+  - userAgent = viewer browser agent
+  - target = DOM element selector
+  - noStyles = boolean
+  - offset = number
+  - parentClass = 'string'
+  - scrollEl = window || DOM element selector
+  - stickyClass = 'string'
+  - stuckClass = 'string'
+  - useStickyClasses = boolean
+  - verticalPosition = 'string'
+  --------
+  props🔌
+  --------
+  - p = props {object}
+  --------
+  instance note
+  --------
+  - stickybits parent methods return this
+  - stickybits instance methods return an instance item
+  --------
+  nomenclature
+  --------
+  - target => el => e
+  - props => o || p
+  - instance => item => it
+  --------
+  methods
+  --------
+  - .definePosition = defines sticky or fixed
+  - .addInstance = an array of objects for each Stickybits Target
+  - .getClosestParent = gets the parent for non-window scroll
+  - .computeScrollOffsets = computes scroll position
+  - .toggleClasses = older browser toggler
+  - .manageState = manages sticky state
+  - .removeClass = older browser support class remover
+  - .removeInstance = removes an instance
+  - .cleanup = removes all Stickybits instances and cleans up dom from stickybits
+*/
+
+var gumshoe_min = createCommonjsModule(function (module, exports) {
+  /*! gumshoejs v3.5.0 | (c) 2017 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
+  !function (e, t) {
+    "function" == typeof undefined && undefined.amd ? undefined([], t(e)) : module.exports = t(e);
+  }("undefined" != typeof commonjsGlobal ? commonjsGlobal : commonjsGlobal.window || commonjsGlobal.global, function (e) {
+    var t,
+        n,
+        o,
+        r,
+        a,
+        c,
+        i,
+        l = {},
+        s = "querySelector" in document && "addEventListener" in e && "classList" in document.createElement("_"),
+        u = [],
+        f = { selector: "[data-gumshoe] a", selectorHeader: "[data-gumshoe-header]", container: e, offset: 0, activeClass: "active", scrollDelay: !1, callback: function callback() {} },
+        d = function d(e, t, n) {
+      if ("[object Object]" === Object.prototype.toString.call(e)) for (var o in e) {
+        Object.prototype.hasOwnProperty.call(e, o) && t.call(n, e[o], o, e);
+      } else for (var r = 0, a = e.length; r < a; r++) {
+        t.call(n, e[r], r, e);
+      }
+    },
+        v = function v() {
+      var e = {},
+          t = !1,
+          n = 0,
+          o = arguments.length;"[object Boolean]" === Object.prototype.toString.call(arguments[0]) && (t = arguments[0], n++);for (; n < o; n++) {
+        var r = arguments[n];!function (n) {
+          for (var o in n) {
+            Object.prototype.hasOwnProperty.call(n, o) && (t && "[object Object]" === Object.prototype.toString.call(n[o]) ? e[o] = v(!0, e[o], n[o]) : e[o] = n[o]);
+          }
+        }(r);
+      }return e;
+    },
+        m = function m(e) {
+      return Math.max(e.scrollHeight, e.offsetHeight, e.clientHeight);
+    },
+        g = function g() {
+      return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight);
+    },
+        h = function h(e) {
+      var n = 0;if (e.offsetParent) do {
+        n += e.offsetTop, e = e.offsetParent;
+      } while (e);else n = e.offsetTop;return n = n - a - t.offset, n >= 0 ? n : 0;
+    },
+        p = function p(t) {
+      var n = t.getBoundingClientRect();return n.top >= 0 && n.left >= 0 && n.bottom <= (e.innerHeight || document.documentElement.clientHeight) && n.right <= (e.innerWidth || document.documentElement.clientWidth);
+    },
+        y = function y() {
+      u.sort(function (e, t) {
+        return e.distance > t.distance ? -1 : e.distance < t.distance ? 1 : 0;
+      });
+    };l.setDistances = function () {
+      o = g(), a = r ? m(r) + h(r) : 0, d(u, function (e) {
+        e.distance = h(e.target);
+      }), y();
+    };var b = function b() {
+      var e = document.querySelectorAll(t.selector);d(e, function (e) {
+        if (e.hash) {
+          var t = document.querySelector(e.hash);t && u.push({ nav: e, target: t, parent: "li" === e.parentNode.tagName.toLowerCase() ? e.parentNode : null, distance: 0 });
+        }
+      });
+    },
+        H = function H() {
+      c && (c.nav.classList.remove(t.activeClass), c.parent && c.parent.classList.remove(t.activeClass));
+    },
+        C = function C(e) {
+      H(), e.nav.classList.add(t.activeClass), e.parent && e.parent.classList.add(t.activeClass), t.callback(e), c = { nav: e.nav, parent: e.parent };
+    };l.getCurrentNav = function () {
+      var n = e.pageYOffset;if (e.innerHeight + n >= o && p(u[0].target)) return C(u[0]), u[0];for (var r = 0, a = u.length; r < a; r++) {
+        var c = u[r];if (c.distance <= n) return C(c), c;
+      }H(), t.callback();
+    };var L = function L() {
+      d(u, function (e) {
+        e.nav.classList.contains(t.activeClass) && (c = { nav: e.nav, parent: e.parent });
+      });
+    };l.destroy = function () {
+      t && (t.container.removeEventListener("resize", j, !1), t.container.removeEventListener("scroll", j, !1), u = [], t = null, n = null, o = null, r = null, a = null, c = null, i = null);
+    };var E = function E(e) {
+      window.clearTimeout(n), n = setTimeout(function () {
+        l.setDistances(), l.getCurrentNav();
+      }, 66);
+    },
+        j = function j(e) {
+      n || (n = setTimeout(function () {
+        n = null, "scroll" === e.type && l.getCurrentNav(), "resize" === e.type && (l.setDistances(), l.getCurrentNav());
+      }, 66));
+    };return l.init = function (e) {
+      s && (l.destroy(), t = v(f, e || {}), r = document.querySelector(t.selectorHeader), b(), 0 !== u.length && (L(), l.setDistances(), l.getCurrentNav(), t.container.addEventListener("resize", j, !1), t.scrollDelay ? t.container.addEventListener("scroll", E, !1) : t.container.addEventListener("scroll", j, !1)));
+    }, l;
+  });
+});
+
+/**
+ * Navigation inpage related behaviors.
+ */
+
+/**
+ * @param {object} options Object containing configuration overrides
+ */
+
+var onClick = function onClick(node, menu) {
+  return function (e) {
+    if (node && node.hasAttribute('aria-haspopup')) {
+      var hasPopup = node.getAttribute('aria-haspopup');
+      if (hasPopup === '' || hasPopup === 'true') {
+        e.preventDefault();
+
+        toggleExpandable(node, {
+          context: menu,
+          closeSiblings: true
+        });
+      }
+    }
+  };
+};
+
+var onKeydown = function onKeydown(node, menu) {
+  return function (e) {
+    var currentTab = node.parentElement;
+    var previousTabItem = currentTab.previousElementSibling || currentTab.parentElement.lastElementChild;
+    var nextTabItem = currentTab.nextElementSibling || currentTab.parentElement.firstElementChild;
+
+    // don't catch key events when ⌘ or Alt modifier is present
+    if (e.metaKey || e.altKey) return;
+
+    // catch left/right and up/down arrow key events
+    // if new next/prev tab available, show it by passing tab anchor to showTab method
+    switch (e.keyCode) {
+      // ENTER or SPACE
+      case 13:
+      case 32:
+        onClick(e.currentTarget, menu)(e);
+        /* e.preventDefault();
+        toggleExpandable(e.currentTarget, {
+          context: menu,
+          closeSiblings: true,
+        }); */
+        break;
+      // ARROWS LEFT and UP
+      case 37:
+      case 38:
+        e.preventDefault();
+        previousTabItem.querySelector('a').focus();
+        break;
+      // ARROWS RIGHT and DOWN
+      case 39:
+      case 40:
+        e.preventDefault();
+        nextTabItem.querySelector('a').focus();
+        break;
+      default:
+        break;
+    }
+  };
+};
+
+var megamenu = function megamenu() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$selector = _ref.selector,
+      selector = _ref$selector === undefined ? '.ecl-navigation-menu' : _ref$selector,
+      _ref$toggleSelector = _ref.toggleSelector,
+      toggleSelector = _ref$toggleSelector === undefined ? '.ecl-navigation-menu__toggle' : _ref$toggleSelector,
+      _ref$listSelector = _ref.listSelector,
+      listSelector = _ref$listSelector === undefined ? '.ecl-navigation-menu__root' : _ref$listSelector,
+      _ref$linkSelector = _ref.linkSelector,
+      linkSelector = _ref$linkSelector === undefined ? '.ecl-navigation-menu__link' : _ref$linkSelector;
+
+  var megamenusArray = queryAll(selector);
+
+  megamenusArray.forEach(function (menu) {
+    // Make the toggle expandable
+    var toggle = menu.querySelector(toggleSelector);
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        return toggleExpandable(toggle, { context: menu });
+      });
+    }
+
+    // Get the list of links
+    var list = menu.querySelector(listSelector);
+
+    // Get expandables within the list
+    var nodesArray = queryAll(linkSelector, list);
+
+    nodesArray.forEach(function (node) {
+      node.addEventListener('click', onClick(node, list));
+      node.addEventListener('keydown', onKeydown(node, list));
+    });
+  });
+};
+
+/**
+ * Tables related behaviors.
+ */
+
+/* eslint-disable no-unexpected-multiline */
+
+// Heavily inspired by the tab component from https://github.com/frend/frend.co
+
+/**
+ * @param {object} options Object containing configuration overrides
+ */
+
+/**
+ * Timeline
+ */
+
+// Helper method to automatically attach the event listener to all the expandables on page load
+
+// Export components
+
 var storage = {
   get: function get(name, fallback) {
     var result = localStorage.getItem(name);
@@ -13,347 +428,8 @@ var storage = {
   }
 };
 
-var config = {
-  breakpoints: {
-    navCollapse: 500
-  }
-};
-
-/* eslint-disable import/no-extraneous-dependencies */
-var utils = {
-  debounce: function debounce(func, wait, immediate) {
-    var timeout = void 0;
-    return function handleDebounce() {
-      for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      var context = this;
-      var later = function later() {
-        timeout = null;
-        if (!immediate) {
-          func.apply(context, args);
-        }
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-
-      if (callNow) {
-        func.apply(context, args);
-      }
-    };
-  },
-  isSmallScreen: function isSmallScreen() {
-    return $(document).width() < config.breakpoints.navCollapse;
-  }
-};
-
 /* eslint-disable import/no-extraneous-dependencies */
 var events$1 = $({});
-
-/* eslint-disable import/no-extraneous-dependencies */
-var framer = (function (element) {
-  var el = $(element);
-  var dir = $('html').attr('dir');
-  var body = el.find('> [data-role="body"]');
-  var toggle = el.find('[data-action="toggle-sidebar"]');
-  var sidebar = body.children('[data-role="sidebar"]');
-  var main = body.children('[data-role="main"]');
-  var handle = body.children('[data-role="frame-resize-handle"]');
-  var sidebarMin = parseInt(sidebar.css('min-width'), 10);
-
-  var sidebarWidth = utils.isSmallScreen() ? sidebarMin : storage.get('frame.sidebar', sidebar.outerWidth());
-  var sidebarState = utils.isSmallScreen() ? 'closed' : storage.get('frame.state', 'open');
-  var scrollPos = storage.get('frame.scrollPos', 0);
-  var dragOccuring = false;
-  var isInitialClose = false;
-  var handleClicks = 0;
-
-  sidebar.outerWidth(sidebarWidth);
-
-  if (sidebarState === 'closed') {
-    isInitialClose = true;
-    closeSidebar();
-  }
-
-  sidebar.scrollTop(scrollPos);
-
-  handle.on('mousedown', function (e) {
-    handleClicks += 1;
-
-    setTimeout(function () {
-      handleClicks = 0;
-    }, 400);
-
-    if (handleClicks === 2) {
-      dragOccuring = false;
-      toggleSidebar();
-      handleClicks = 0;
-      e.stopImmediatePropagation();
-    }
-  });
-
-  sidebar.resizable({
-    handleSelector: handle,
-    resizeHeight: false,
-    onDragStart: function onDragStart() {
-      el.addClass('is-resizing');
-      events$1.trigger('start-dragging');
-    },
-    onDragEnd: function onDragEnd() {
-      setSidebarWidth(sidebar.outerWidth());
-      el.removeClass('is-resizing');
-      events$1.trigger('end-dragging');
-      if (sidebarState === 'closed') {
-        dragOccuring = false;
-        openSidebar();
-      }
-    },
-    resizeWidthFrom: dir === 'rtl' ? 'left' : 'right'
-  });
-
-  sidebar.on('scroll', utils.debounce(function () {
-    storage.set('frame.scrollPos', sidebar.scrollTop());
-  }, 50));
-
-  toggle.on('click', toggleSidebar);
-
-  // Global event listeners
-
-  events$1.on('toggle-sidebar', toggleSidebar);
-  events$1.on('start-dragging', function () {
-    dragOccuring = true;
-  });
-  events$1.on('end-dragging', function () {
-    setTimeout(function () {
-      dragOccuring = false;
-    }, 200);
-  });
-
-  events$1.on('data-changed', function () {
-    // TODO: make this smarter?
-    document.location.reload(true);
-  });
-
-  function closeSidebar() {
-    if (dragOccuring || !isInitialClose && sidebarState === 'closed') {
-      return;
-    }
-
-    var w = sidebar.outerWidth();
-    var translate = dir === 'rtl' ? w + 'px' : -1 * w + 'px';
-    var sidebarProps = {
-      transform: 'translate3d(' + translate + ', 0, 0)'
-    };
-
-    if (dir === 'rtl') {
-      sidebarProps.marginLeft = -1 * w + 'px';
-    } else {
-      sidebarProps.marginRight = -1 * w + 'px';
-    }
-    sidebarProps.transition = isInitialClose ? 'none' : '.3s ease all';
-    body.css(sidebarProps);
-    sidebarState = 'closed';
-    el.addClass('is-closed');
-    storage.set('frame.state', sidebarState);
-    isInitialClose = false;
-  }
-
-  function openSidebar() {
-    if (dragOccuring || sidebarState === 'open') {
-      return;
-    }
-
-    if (utils.isSmallScreen()) {
-      setSidebarWidth(sidebarMin);
-    }
-
-    body.css({
-      marginRight: 0,
-      marginLeft: 0,
-      transition: '.3s ease all',
-      transform: 'translate3d(0, 0, 0)'
-    });
-
-    sidebarState = 'open';
-    el.removeClass('is-closed');
-    storage.set('frame.state', sidebarState);
-  }
-
-  function toggleSidebar() {
-    if (sidebarState === 'open') {
-      closeSidebar();
-    } else {
-      openSidebar();
-    }
-
-    return false;
-  }
-
-  function setSidebarWidth(width) {
-    sidebarWidth = width;
-    sidebar.outerWidth(width);
-    storage.set('frame.sidebar', width);
-  }
-
-  return {
-    closeSidebar: closeSidebar,
-    openSidebar: openSidebar,
-
-    startLoad: function startLoad() {
-      main.addClass('is-loading');
-    },
-
-    endLoad: function endLoad() {
-      main.removeClass('is-loading');
-    }
-  };
-});
-
-var classCallCheck = function (instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-};
-
-var createClass = function () {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  return function (Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-}();
-
-/* eslint-disable import/no-extraneous-dependencies */
-function getTreeUrl(urlPath) {
-  var parser = document.createElement('a');
-  parser.href = urlPath;
-  var pathParts = parser.pathname.split('/');
-  pathParts.push(pathParts.pop());
-  return pathParts.join('/');
-}
-
-var Tree = function () {
-  function Tree(el) {
-    var _this = this;
-
-    classCallCheck(this, Tree);
-
-    this._el = $(el);
-    this._id = this._el[0].id;
-    this._state = storage.get('tree.' + this._id + '.state', []);
-    this._collections = $.map(this._el.find('[data-behaviour="collection"]'), function (c) {
-      return new TreeCollection(c, _this);
-    });
-
-    this._collections.forEach(function (collection) {
-      if (collection.containsCurrentItem()) {
-        _this._state.push(collection.id);
-      }
-    });
-
-    this._state = $.unique(this._state);
-    this._applyState();
-    events$1.on('main-content-preload', function (e, url) {
-      _this.selectItem(getTreeUrl(url));
-    });
-  }
-
-  Tree.prototype.selectItem = function selectItem(url) {
-    this._el.find('.is-current').removeClass('is-current');
-    this._el.find('[href="' + url + '"]').parent().addClass('is-current');
-  };
-
-  Tree.prototype._applyState = function _applyState() {
-    var _this2 = this;
-
-    this._collections.forEach(function (collection) {
-      if (_this2._state.includes(collection.id)) {
-        collection.open(true);
-      } else {
-        collection.close(true);
-      }
-    });
-  };
-
-  Tree.prototype.saveState = function saveState() {
-    this._state = this._collections.filter(function (c) {
-      return c.isOpen;
-    }).map(function (c) {
-      return c.id;
-    });
-    storage.set('tree.' + this._id + '.state', this._state);
-  };
-
-  return Tree;
-}();
-
-var TreeCollection = function () {
-  function TreeCollection(el, tree) {
-    classCallCheck(this, TreeCollection);
-
-    this._tree = tree;
-    this._el = $(el);
-    this._toggle = this._el.find('> [data-role="toggle"]');
-    this._itemsWrapper = this._el.find('[data-role="items"]:not(> [data-behaviour] [data-role="items"])');
-    this._isOpen = true;
-    this._toggle.on('click', this.toggle.bind(this));
-  }
-
-  TreeCollection.prototype.containsCurrentItem = function containsCurrentItem() {
-    return !!this._itemsWrapper.find('[data-state="current"]').length;
-  };
-
-  TreeCollection.prototype.open = function open(silent) {
-    this._el.removeClass('is-closed');
-    this._isOpen = true;
-    if (!silent) {
-      this._tree.saveState();
-    }
-  };
-
-  TreeCollection.prototype.close = function close(silent) {
-    this._el.addClass('is-closed');
-    this._isOpen = false;
-    if (!silent) {
-      this._tree.saveState();
-    }
-  };
-
-  TreeCollection.prototype.toggle = function toggle() {
-    if (this._isOpen) {
-      this.close();
-    } else {
-      this.open();
-    }
-
-    return false;
-  };
-
-  createClass(TreeCollection, [{
-    key: 'id',
-    get: function get$$1() {
-      return this._el[0].id;
-    }
-  }, {
-    key: 'isOpen',
-    get: function get$$1() {
-      return this._isOpen;
-    }
-  }]);
-  return TreeCollection;
-}();
 
 /* eslint-disable import/no-extraneous-dependencies */
 var Preview = function () {
@@ -569,10 +645,6 @@ var Pen = function () {
 
   return Pen;
 }();
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
 
 var lunr = createCommonjsModule(function (module, exports) {
   /**
@@ -2523,7 +2595,7 @@ var search = (function () {
 
   $.getJSON(searchIndexPath.path, function (searchIndexJson) {
     var $searchInput = $('#search-components');
-    var $resultsArea = $('.Frame-inner');
+    var $resultsArea = $('main > .ecl-container > .ecl-row > .ecl-col');
 
     var initialContent = $resultsArea.html();
 
@@ -2556,8 +2628,8 @@ var search = (function () {
       }
 
       if (results.length) {
-        $resultsArea.append($('\n              <div class="Document">\n                <div class="Document-header">\n                  <h1 class="Document-title">Search results</h1>\n                </div>\n                <div class="Document-content">\n                  <div class="Prose">\n                    <ul>\n                      ' + results.map(function (result) {
-          return '\n                          <li>\n                            <h4>\n                              <a href="' + (prefix + store[result.ref].handle) + '">' + store[result.ref].title + '\n                              </a>\n                            </h4>\n                          </li>\n                          ';
+        $resultsArea.append($('\n              <div class="Document">\n                <div class="Document-header">\n                  <h1 class="Document-title">Search results</h1>\n                </div>\n                <div class="Document-content">\n                  <div class="Prose">\n                    <ul class="ecl-list">\n                      ' + results.map(function (result) {
+          return '\n                          <li>\n                            <h4 class="ecl-heading ecl-heading--h4 ecl-u-mb-none">\n                              <a class="ecl-link" href="' + (prefix + store[result.ref].handle) + '">' + store[result.ref].title + '\n                              </a>\n                            </h4>\n                          </li>\n                          ';
         }).join('') + '\n                    </ul>\n                  </div>\n                </div>\n              </div>\n            '));
       } else {
         $resultsArea.append($('\n            <div class="Document">\n              <div class="Document-header">\n                <h1 class="Document-title">Search results</h1>\n              </div>\n              <div class="Document-content">\n                <div class="Prose">\n                  <h4>No components found</h4>\n                </div>\n              </div>\n            </div>\n          '));
@@ -2569,14 +2641,12 @@ var search = (function () {
 /* eslint-disable import/no-extraneous-dependencies, import/first */
 // Local imports
 document.addEventListener('DOMContentLoaded', function () {
-  framer($('#frame'));
-  $.map($('[data-behaviour="tree"]'), function (t) {
-    return new Tree(t);
-  });
   $.map($('[data-behaviour="pen"]'), function (p) {
     return new Pen(p);
   });
   search();
+
+  megamenu();
 });
 
 exports['default'] = events$1;

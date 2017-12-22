@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.11.4" type="text/css">
+<link rel="stylesheet" href="../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.12.0" type="text/css">
 
 
 <title>How to update documentation on ECL | Europa Component Library</title>
@@ -95,6 +95,7 @@
   </div>
 </div>
 
+<!--
 <nav class="ecl-navigation-menu" aria-label="Main Navigation">
   <div class="ecl-container">
     <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="false">
@@ -116,32 +117,170 @@
     </ul>
   </div>
 </nav>
+-->
 
   <main>
     <a id="main-content" tabindex="-1"></a>
     
-  <div id="frame">
-    <div class="Frame-body" data-role="body">
-      <div class="Frame-panel Frame-panel--main" data-role="main">
-        <div class="Frame-inner">
-          
-
-<div class="Document">
-
-    <div class="Document-header">
+  
+<nav class="ecl-navigation-menu" aria-label="Main Navigation">
+  <div class="ecl-container">
+    <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="false">
+      <span class="ecl-navigation-menu__hamburger-box">
+        <span class="ecl-navigation-menu__hamburger-inner"></span>
+      </span>
+      <span class="ecl-navigation-menu__hamburger-label">Menu</span>
+    </button>
+    <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root" aria-hidden="true">
+      
+<li class="ecl-navigation-menu__item">
+  <a href="#item2" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-3" aria-expanded="false" aria-haspopup="true">documentation</a>
+  <ul class="ecl-navigation-menu__group" id="nav-menu-expandable-group-3" aria-hidden="true">
+    
+    
         
-        <h1 class="Document-title">How to update documentation on ECL</h1>
         
-
-
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="overview" class="ecl-navigation-menu__link ">
+            
+            <span>Components</span>
+          </a>
+        </li>
         
-    </div>
-
-    <div class="Document-content">
-
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="atomic" class="ecl-navigation-menu__link ">
+            
+            <span>Atomic design patterns</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="javascript" class="ecl-navigation-menu__link ">
+            
+            <span>JavaScript</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-state="current" data-role="item">
+          <a href="" class="ecl-navigation-menu__link  ecl-navigation-menu__link--active">
+            
+            <span>Edit documentation</span>
+          </a>
+        </li>
+        
+    
+        
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Conventions</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="conventions/git" class="ecl-navigation-menu__link ">
+            
+            <span>Git Commit</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="conventions/javascript" class="ecl-navigation-menu__link ">
+            
+            <span>JavaScript</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="conventions/markdown" class="ecl-navigation-menu__link ">
+            
+            <span>Markdown</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="conventions/scss" class="ecl-navigation-menu__link ">
+            
+            <span>SCSS</span>
+          </a>
+        </li>
+        
     
 
-<div class="Prose">
+          </ul>
+        </li>
+        
+    
+        
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Testing</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="testing/visual" class="ecl-navigation-menu__link ">
+            
+            <span>Visual regression</span>
+          </a>
+        </li>
+        
+    
+
+          </ul>
+        </li>
+        
+    
+
+  </ul>
+</li>
+
+    </ul>
+  </div>
+</nav>
+
+
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-col ecl-u-mb-s">
+        
+<div class="ecl-u-mv-m">
+  <div class="ecl-u-mb-s">
+  
+    <h1 class="ecl-heading ecl-heading--h1">How to update documentation on ECL</h1>
+    
+
+
+    
+  </div>
+  
+
+<div class="ecl-editor">
 
 
 
@@ -288,162 +427,43 @@ it (so the content may be slightly modified).</p>
 </div>
 
 
-
-    </div>
-
 </div>
 
-
-        </div>
-      </div>
-      <div class="Frame-panel Frame-panel--sidebar" data-role="sidebar">
-        <nav class="Navigation">
-          
-<div class="Navigation-group">
-
-<div class="Tree" data-behaviour="tree" id="tree-docs">
-    <h3 class="Tree-title">documentation</h3>
-    <ul class="Tree-items Tree-depth-1">
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="overview">
-                
-                <span>Components</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="atomic">
-                
-                <span>Atomic design patterns</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="javascript">
-                
-                <span>JavaScript</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="">
-                
-                <span>Edit documentation</span>
-            </a>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-docs-collection-conventions">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-                <span>Conventions</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="conventions/git">
-                
-                <span>Git Commit</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="conventions/javascript">
-                
-                <span>JavaScript</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="conventions/markdown">
-                
-                <span>Markdown</span>
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="conventions/scss">
-                
-                <span>SCSS</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-        
-        <li class="Tree-item Tree-collection" data-behaviour="collection" id="tree-docs-collection-testing">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                
-                <span>Testing</span>
-            </h4>
-            <ul class="Tree-collectionItems Tree-depth-2" data-role="items">
-            
-            
-            
-            
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="testing/visual">
-                
-                <span>Visual regression</span>
-            </a>
-        </li>
-        
-    
-
-            </ul>
-        </li>
-        
-    
-
-    </ul>
-</div>
-
-</div>
-
-
-        </nav>
       </div>
     </div>
   </div>
 
   </main>
   <footer class="ecl-footer">
+  <div class="ecl-footer__site-identity">
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-col-sm ecl-footer__column">
+          <h4 class="ecl-h4">
+            <a class="ecl-link ecl-footer__link" href="#">Europa Component Library</a>
+          </h4>
+        </div>
+        <div class="ecl-col-sm ecl-footer__column">
+          <p class="ecl-footer__label">Follow us:</p>
+          <ul class="ecl-footer__menu ecl-list--inline ecl-footer__social-links">
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link ecl-link--external" href="https://github.com/ec-europa/europa-component-library">GitHub</a>
+            </li>
+          </ul>
+        </div>
+        <div class="ecl-col-sm ecl-footer__column">
+          <ul class="ecl-footer__menu ecl-list--unstyled">
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="../components">Components</a>
+            </li>
+            <li class="ecl-footer__menu-item">
+              <a class="ecl-link ecl-footer__link" href="../docs">Documentation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="ecl-footer__site-corporate">
     <div class="ecl-container">
       <div class="ecl-row">
@@ -514,13 +534,13 @@ it (so the content may be slightly modified).</p>
 </footer>
 
 
-<script src="../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.11.4"></script>
+<script src="../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.12.0"></script>
 
-<script src="../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.11.4"></script>
+<script src="../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.12.0"></script>
 
-<script src="../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.11.4"></script>
+<script src="../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.12.0"></script>
 
-<script src="../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.11.4"></script>
+<script src="../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.12.0"></script>
 
 
 
