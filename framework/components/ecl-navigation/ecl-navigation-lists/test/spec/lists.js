@@ -1,5 +1,3 @@
-const variants = ['default', 'tabs', 'small'];
-
 describe('navigation-lists', () => {
   before(() => {
     // Set viewport size
@@ -8,33 +6,26 @@ describe('navigation-lists', () => {
       height: 600,
     });
 
+    // Go to url
+    browser.url(`ecl-navigation-lists.html`);
+
+    // Inject axe-core (for accessibility tests)
+    browser.injectAxeCore();
+
+    // Make sure the browser has finished painting
     browser.pause(500);
   });
 
-  variants.forEach(variant => {
-    describe(`--${variant}`, () => {
-      before(() => {
-        // Go to url
-        browser.url(`ecl-navigation-lists--${variant}.html`);
-        // Make sure the browser has finished painting
-        browser.pause(500);
-        // Inject axe-core (for accessibility tests)
-        browser.injectAxeCore();
-      });
-
-      // Normal state
-      it('should match the reference screenshot', () => {
-        const screenshots = browser.checkDocument({
-          name: `navigation/lists/${variant}`,
-        });
-        expect(screenshots).to.matchReference();
-      });
-
-      it('should be accessible', () => {
-        const a11yReport = browser.runAxeCore('ecl-navigation-list-wrapper')
-          .value;
-        expect(a11yReport).to.be.accessible;
-      });
+  // Normal state
+  it('should match the reference screenshot', () => {
+    const screenshots = browser.checkDocument({
+      name: `navigation/lists`,
     });
+    expect(screenshots).to.matchReference();
+  });
+
+  it('should be accessible', () => {
+    const a11yReport = browser.runAxeCore('ecl-navigation-list-wrapper').value;
+    expect(a11yReport).to.be.accessible;
   });
 });
