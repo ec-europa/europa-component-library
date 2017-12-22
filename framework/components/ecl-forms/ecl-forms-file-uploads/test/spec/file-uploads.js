@@ -1,5 +1,3 @@
-const variants = ['default', 'is-disabled', 'is-multiple', 'has-error'];
-
 describe('ecl-forms-file-uploads', () => {
   before(() => {
     // Set viewport size
@@ -7,33 +5,27 @@ describe('ecl-forms-file-uploads', () => {
       width: 600,
       height: 300,
     });
+
+    // Go to url
+    browser.url(`ecl-forms-file-uploads.html`);
+
+    // Inject axe-core (for accessibility tests)
+    browser.injectAxeCore();
+
+    // Make sure the browser has finished painting
+    browser.pause(500);
   });
 
-  variants.forEach(variant => {
-    describe(`--${variant}`, () => {
-      before(() => {
-        // Go to url
-        browser.url(`ecl-forms-file-uploads--${variant}.html`);
-
-        // Inject axe-core (for accessibility tests)
-        browser.injectAxeCore();
-
-        // Make sure the browser has finished painting
-        browser.pause(500);
-      });
-
-      // Normal state
-      it('should match the reference screenshot', () => {
-        const screenshots = browser.checkDocument({
-          name: `forms/file-uploads/${variant}`,
-        });
-        expect(screenshots).to.matchReference();
-      });
-
-      it('should be accessible', () => {
-        const a11yReport = browser.runAxeCore('ecl-file-upload').value;
-        expect(a11yReport).to.be.accessible;
-      });
+  // Normal state
+  it('should match the reference screenshot', () => {
+    const screenshots = browser.checkDocument({
+      name: `forms/file-uploads`,
     });
+    expect(screenshots).to.matchReference();
+  });
+
+  it('should be accessible', () => {
+    const a11yReport = browser.runAxeCore('ecl-file-upload').value;
+    expect(a11yReport).to.be.accessible;
   });
 });
