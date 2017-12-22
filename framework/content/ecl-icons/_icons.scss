@@ -55,7 +55,7 @@
   %ecl-icon--#{$modifier} {
     /* stylelint-disable-next-line */
     &::before {
-      @include ecl-icon($modifier);
+      @include ecl-icon($modifier); /* stylelint-disable-line scss/percent-placeholder-pattern */
     }
   }
 }
