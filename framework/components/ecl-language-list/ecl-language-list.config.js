@@ -4,17 +4,21 @@ module.exports = {
   status: 'ready',
   collated: false,
   default: 'splash',
-  tags: [],
+  preview: '@preview-splash-page',
   variants: [
     {
       name: 'splash',
       label: 'Splash',
-      context: {},
+      context: {
+        variant: 'splash',
+      },
     },
     {
       name: 'overlay',
       label: 'Overlay',
-      context: {},
+      context: {
+        variant: 'overlay',
+      },
     },
   ],
 };
