@@ -1,6 +1,85 @@
 {#
-  - variant: the variant. Can be 'splash' or 'overlay' (default: 'splash')
+  - modifier: the variant. Can be 'splash' or 'overlay' (default: 'splash')
   }
 #}
 
-{% set variant = variant|default('splash') %}
+{% set modifier = variant|default('splash') %}
+{% set _css_class = 'ecl-language-list ecl-language-list--' ~ modifier %}
+{% set _extra_attributes = '' %}
+{% set _extra_classes = extra_classes|default('') %}
+
+{% set languages %}
+    <section>
+    <a id="main-content" tabindex="-1"></a>
+    <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
+      <div class="ecl-container">
+        {% include '@ec-europa/ecl-logos' with {
+            'extra_class': 'ecl-logo--big ecl-u-mh-auto',
+            'title': 'European Commission'
+        } %}
+      </div>
+    </header>
+    <div class="ecl-u-bg-primary ecl-u-pv-xl">
+      <div class="ecl-container">
+        <div class="ecl-row">
+          <div class="ecl-col-lg-8 ecl-offset-lg-2">
+            <div class="ecl-row">
+              <div class="ecl-col-md-6">
+                {% for lang in languages %}
+                  {% if loop.index0 == loop.length // 2 %}
+                </div><div class="ecl-col-md-6">
+                  {% endif %}
+                  {% include '@ec-europa/ecl-buttons' with {
+                    'type': 'link',
+                    'modifier': 'splash-page',
+                    'label': lang.label,
+                    'href': lang.href,
+                    'is_block': true,
+                    'extra_classes': 'ecl-button--splash-page ecl-u-mb-xxxs',
+                    'extra_attributes': [
+                      { 'name': 'lang', 'value': lang.lang },
+                      { 'name': 'hreflang', 'value': lang.hreflang },
+                      { 'name': 'rel', 'value': 'alternate'}
+                    ]
+                  } %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endset %}
+
+{#
+  This is an example and should not be used as it is.
+#}
+
+<div class="{{ _css_class }}"{{ _extra_attributes }}>
+  {% if modifier == 'overlay' %}
+    {% include '@ec-europa/ecl-lang-select-sites' with {
+      'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}],
+      'extra_class': 'ecl-link'
+    } %}
+
+    <div class="ecl-dialog" id="ecl-dialog" aria-labelledby="ecl-dialog-title" aria-describedby="ecl-dialog-description" aria-hidden="true" role="dialog">
+      <h3 id="ecl-dialog-title" class="ecl-heading ecl-heading--h3 ecl-u-sr-only">Dialog</h3>
+      <p id="ecl-dialog-description" class="ecl-u-sr-only">Example description</p>
+      <div class="ecl-dialog__body">
+        {{ languages }}
+      </div>
+      <button type="button" class="ecl-message__dismiss" aria-label="Dismiss this dialog window">&times;</button>
+    </div>
+  {% else %}
+    {% include '@ec-europa/ecl-skip-links' with {
+      'href': '#main-content',
+      'label': 'Skip to main content'
+    } %}
+
+    {{ languages }}
+  {% endif %}
+</div>
+
+
+
