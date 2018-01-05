@@ -63,13 +63,13 @@
       'extra_class': 'ecl-link'
     } %}
 
-    {% embed '@ec-europa/ecl-dialogs' %}
+    {% embed '@ec-europa/ecl-dialogs' with { 'variant': 'wide' } %}
       {% block dialog_body %}
         {{ languages }}
       {% endblock %}
     {% endembed %}
 
-  {% else %}
+  {% elseif modifier == 'splash' %}
     {% include '@ec-europa/ecl-skip-links' with {
       'href': '#main-content',
       'label': 'Skip to main content'
