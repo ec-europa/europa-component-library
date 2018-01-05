@@ -6,16 +6,19 @@
 {% set _css_class = 'ecl-language-list ecl-language-list--' ~ modifier %}
 {% set _extra_attributes = '' %}
 {% set _extra_classes = extra_classes|default('') %}
+{% set logo = logo|default(false) %}
 
 {% set languages %}
   <section>
     <a id="main-content" tabindex="-1"></a>
     <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
       <div class="ecl-container">
-        {% include '@ec-europa/ecl-logos' with {
-            'extra_class': 'ecl-logo--big ecl-u-mh-auto',
-            'title': 'European Commission'
-        } %}
+        {% if logo == true %}
+          {% include '@ec-europa/ecl-logos' with {
+              'extra_class': 'ecl-logo--big ecl-u-mh-auto',
+              'title': 'European Commission'
+          } %}
+        {% endif %}
       </div>
     </header>
     <div class="ecl-u-bg-primary ecl-u-pv-xl">
@@ -74,7 +77,7 @@
     {{ languages }}
   {% endif %}
 </div>
-<div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay-language-list" aria-hidden="true"></div>
+<div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog_overlay--blue" aria-hidden="true"></div>
 
 
 

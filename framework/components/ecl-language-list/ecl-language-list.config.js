@@ -161,6 +161,7 @@ module.exports = {
         {
           languages,
           variant: 'splash',
+          logo: true,
         }
       ),
     },
