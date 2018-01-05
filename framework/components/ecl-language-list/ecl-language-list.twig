@@ -1,6 +1,5 @@
 {#
   - modifier: the variant. Can be 'splash' or 'overlay' (default: 'splash')
-  }
 #}
 
 {% set modifier = variant|default('splash') %}
@@ -9,7 +8,7 @@
 {% set _extra_classes = extra_classes|default('') %}
 
 {% set languages %}
-    <section>
+  <section>
     <a id="main-content" tabindex="-1"></a>
     <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
       <div class="ecl-container">
@@ -52,25 +51,20 @@
   </section>
 {% endset %}
 
-{#
-  This is an example and should not be used as it is.
-#}
-
+{# Print result #}
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
   {% if modifier == 'overlay' %}
     {% include '@ec-europa/ecl-lang-select-sites' with {
-      'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}],
+      'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_class': 'ecl-link'
     } %}
 
-    <div class="ecl-dialog" id="ecl-dialog" aria-labelledby="ecl-dialog-title" aria-describedby="ecl-dialog-description" aria-hidden="true" role="dialog">
-      <h3 id="ecl-dialog-title" class="ecl-heading ecl-heading--h3 ecl-u-sr-only">Dialog</h3>
-      <p id="ecl-dialog-description" class="ecl-u-sr-only">Example description</p>
-      <div class="ecl-dialog__body">
+    {% embed '@ec-europa/ecl-dialogs' %}
+      {% block dialog_body %}
         {{ languages }}
-      </div>
-      <button type="button" class="ecl-message__dismiss" aria-label="Dismiss this dialog window">&times;</button>
-    </div>
+      {% endblock %}
+    {% endembed %}
+
   {% else %}
     {% include '@ec-europa/ecl-skip-links' with {
       'href': '#main-content',
@@ -80,6 +74,7 @@
     {{ languages }}
   {% endif %}
 </div>
+<div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay-language-list" aria-hidden="true"></div>
 
 
 
