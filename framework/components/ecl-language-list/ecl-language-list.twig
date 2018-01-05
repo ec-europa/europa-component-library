@@ -1,12 +1,13 @@
 {#
   - modifier: the variant. Can be 'splash' or 'overlay' (default: 'splash')
+  - logo: display or not the European Commission logo. Can be true|false (default: false)
 #}
 
 {% set modifier = variant|default('splash') %}
+{% set logo = logo|default(false) %}
 {% set _css_class = 'ecl-language-list ecl-language-list--' ~ modifier %}
 {% set _extra_attributes = '' %}
 {% set _extra_classes = extra_classes|default('') %}
-{% set logo = logo|default(false) %}
 
 {% set languages %}
   <section>
