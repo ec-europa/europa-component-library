@@ -19,11 +19,6 @@
 
 .ecl-dialog--transparent {
   background-color: transparent;
-
-  /* postcss-bem-linter: ignore */
-  .ecl-u-bg-primary {
-    background-color: transparent;
-  }
 }
 
 .ecl-dialog[aria-hidden='true'] {
@@ -50,6 +45,7 @@
 }
 
 .ecl-dialog--wide .ecl-dialog__body {
+  overflow: initial;
   width: 100%;
 }
 
@@ -67,6 +63,7 @@
   .ecl-dialog--wide {
     height: 100%;
     left: 0;
+    overflow: auto;
     right: 0;
     top: 0;
     transform: none;
