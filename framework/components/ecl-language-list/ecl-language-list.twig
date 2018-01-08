@@ -22,10 +22,13 @@
         </div>
       </header>
     {% endif %}
-    <div class="ecl-u-bg-primary ecl-u-pv-xl">
+    <div class="{{ modifier == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' }}">
       <div class="ecl-container">
         <div class="ecl-row">
           <div class="ecl-col-lg-8 ecl-offset-lg-2">
+            <h2 lang="en">
+              <span class="ecl-icon ecl-icon--generic-lang"></span> Select your language
+            </h2>
             <div class="ecl-row">
               <div class="ecl-col-md-6">
                 {% for lang in languages %}
