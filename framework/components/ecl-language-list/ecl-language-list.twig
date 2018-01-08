@@ -12,16 +12,16 @@
 {% set languages %}
   <section>
     <a id="main-content" tabindex="-1"></a>
-    <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
-      <div class="ecl-container">
-        {% if logo == true %}
+    {% if logo == true %}
+      <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
+        <div class="ecl-container">
           {% include '@ec-europa/ecl-logos' with {
-              'extra_class': 'ecl-logo--big ecl-u-mh-auto',
-              'title': 'European Commission'
+            'extra_class': 'ecl-logo--big ecl-u-mh-auto',
+            'title': 'European Commission'
           } %}
-        {% endif %}
-      </div>
-    </header>
+        </div>
+      </header>
+    {% endif %}
     <div class="ecl-u-bg-primary ecl-u-pv-xl">
       <div class="ecl-container">
         <div class="ecl-row">
