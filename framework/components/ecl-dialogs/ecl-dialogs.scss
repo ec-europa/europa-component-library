@@ -1,6 +1,7 @@
 /**
  * Dialog
  * @define dialog
+ * @define u-bg-primary
  */
 
 .ecl-dialog {
@@ -18,6 +19,11 @@
 
 .ecl-dialog--transparent {
   background-color: transparent;
+
+  /* postcss-bem-linter: ignore */
+  .ecl-u-bg-primary {
+    background-color: transparent;
+  }
 }
 
 .ecl-dialog[aria-hidden='true'] {
@@ -41,6 +47,10 @@
 
 .ecl-dialog__overlay--blue {
   background-color: rgba($ecl-color-primary, 0.95);
+}
+
+.ecl-dialog--wide .ecl-dialog__body {
+  width: 100%;
 }
 
 @include ecl-media-breakpoint-up('sm') {
