@@ -26,8 +26,8 @@
       <div class="ecl-container">
         <div class="ecl-row">
           <div class="ecl-col-lg-8 ecl-offset-lg-2">
-            <h2 lang="en">
-              <span class="ecl-icon ecl-icon--generic-lang"></span> Select your language
+            <h2 lang="en" class="ecl-heading ecl-heading--h2 ecl-dialog__title">
+              <span class="ecl-icon ecl-icon--generic-lang"></span> {{ heading }}
             </h2>
             <div class="ecl-row">
               <div class="ecl-col-md-6">
@@ -41,15 +41,16 @@
                     'label': lang.label,
                     'href': lang.href,
                     'is_block': true,
-                    'extra_classes': 'ecl-button--splash-page ecl-u-mb-xxxs',
+                    'extra_classes': 'ecl-u-mb-xxxs' ~ (lang.isActive ? ' ecl-button--splash-page--is-active ecl-icon ecl-icon--icon-check'),
                     'extra_attributes': [
                       { 'name': 'lang', 'value': lang.lang },
                       { 'name': 'hreflang', 'value': lang.hreflang },
-                      { 'name': 'rel', 'value': 'alternate'}
+                      { 'name': 'rel', 'value': 'alternate' }
                     ]
                   } %}
                 {% endfor %}
               </div>
+              <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
             </div>
           </div>
         </div>

@@ -38,6 +38,7 @@ const languages = [
   {
     href: 'index_en',
     hreflang: 'en',
+    isActive: true,
     label: 'English',
     lang: 'en',
   },
@@ -173,6 +174,7 @@ module.exports = {
         {
           languages,
           variant: 'overlay',
+          heading: 'Select your language',
           _demo: {
             scripts: `
               document.addEventListener('DOMContentLoaded', function () {
