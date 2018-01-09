@@ -2,6 +2,7 @@
  * Dialog
  * @define dialog
  * @define u-bg-primary
+ * @define button--is-active
  */
 
 .ecl-dialog {
@@ -44,9 +45,19 @@
   background-color: rgba($ecl-color-primary, 0.95);
 }
 
-.ecl-dialog--wide .ecl-dialog__body {
-  overflow: initial;
-  width: 100%;
+.ecl-dialog--wide {
+  .ecl-dialog__body {
+    overflow: initial;
+    width: 100%;
+  }
+}
+
+.ecl-dialog__title {
+  clear: both;
+  color: #fff;
+  font-size: 1.222em;
+  margin: 0;
+  padding: 2em 0;
 }
 
 @include ecl-media-breakpoint-up('sm') {
