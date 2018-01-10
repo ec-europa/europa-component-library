@@ -1,4 +1,4 @@
-describe('splash-pages', () => {
+describe('ecl-language-list', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,7 +6,7 @@ describe('splash-pages', () => {
       height: 600,
     });
 
-    browser.url(`ecl-splash-pages.html`);
+    browser.url(`ecl-language-list--overlay.html`);
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
@@ -18,7 +18,7 @@ describe('splash-pages', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'splash-pages',
+      name: 'ecl-language-list',
     });
     expect(screenshots).to.matchReference();
   });
