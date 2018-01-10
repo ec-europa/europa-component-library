@@ -69,6 +69,8 @@ export const dialogs = ({
     if (focusedElBeforeOpen) {
       focusedElBeforeOpen.focus();
     }
+
+    document.querySelector('body').classList.remove('ecl-u-disablescroll');
   }
 
   // Keyboard behaviors.
@@ -128,6 +130,8 @@ export const dialogs = ({
 
     // Handle tabbing, esc and keyboard in the dialog window.
     dialogWindow.addEventListener('keydown', handleKeyDown);
+
+    document.querySelector('body').classList.add('ecl-u-disablescroll');
   }
 
   // BIND EVENTS

@@ -40,6 +40,7 @@
   - dialog_body (mixed): content of the dialog (default: lorem ipsum text)
 
   - dismiss: {
+    hide: hide the default dismiss button in case you want to include a custom one in the "dialog_body" block (default: false)
     label: the value for the button label to close the dialog window (default: 'Dismiss this dialog window')
   }
 #}
@@ -65,6 +66,7 @@
 }|merge(dialog_description|default({})) %}
 
 {% set dismiss = {
+  hide: dismiss.hide|default(false),
   label: dimiss.label|default('Dismiss this dialog window'),
 } %}
 
@@ -107,7 +109,7 @@
     {% endblock %}
   </div>
 
-  {% if dismiss is defined %}
+  {% if not dismiss.hide %}
     <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
   {% endif %}
 </div>
