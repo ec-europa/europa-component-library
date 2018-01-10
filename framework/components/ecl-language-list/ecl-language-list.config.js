@@ -174,7 +174,10 @@ module.exports = {
         {
           languages,
           variant: 'overlay',
-          heading: 'Select your language',
+          messages: {
+            dismiss: 'Close',
+            heading: 'Select your language',
+          },
           _demo: {
             scripts: `
               document.addEventListener('DOMContentLoaded', function () {

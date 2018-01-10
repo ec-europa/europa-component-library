@@ -26,9 +26,11 @@
       <div class="ecl-container">
         <div class="ecl-row">
           <div class="ecl-col-lg-8 ecl-offset-lg-2">
-            <h2 lang="en" class="ecl-heading ecl-heading--h2 ecl-dialog__title">
-              <span class="ecl-icon ecl-icon--generic-lang"></span> {{ heading }}
-            </h2>
+            {% if variant == 'overlay' %}
+              <h2 lang="en" class="ecl-heading ecl-heading--h2 ecl-dialog__title">
+                <span class="ecl-icon ecl-icon--generic-lang"></span> {{ messages.heading }}
+              </h2>
+            {% endif %}
             <div class="ecl-row">
               <div class="ecl-col-md-6">
                 {% for lang in languages %}
@@ -38,7 +40,7 @@
                   {% include '@ec-europa/ecl-buttons' with {
                     'type': 'link',
                     'modifier': 'splash-page',
-                    'label': lang.label,
+                    'label': lang.label ~ (lang.isActive ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
                     'href': lang.href,
                     'is_block': true,
                     'extra_classes': 'ecl-u-mb-xxxs' ~ (lang.isActive ? ' ecl-button--splash-page--is-active ecl-icon ecl-icon--icon-check'),
@@ -50,7 +52,9 @@
                   } %}
                 {% endfor %}
               </div>
-              <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
+              {% if variant == 'overlay' %}
+                <button class="ecl-message__dismiss">{{messages.dismiss}}</button>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -66,8 +70,7 @@
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_class': 'ecl-link'
     } %}
-
-    {% embed '@ec-europa/ecl-dialogs' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide' } %}
+    {% embed '@ec-europa/ecl-dialogs' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
       {% block dialog_body %}
         {{ languages }}
       {% endblock %}
@@ -87,5 +90,3 @@
 {% if modifier == 'overlay' %}
   <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
 {% endif %}
-
-
