@@ -1,11 +1,11 @@
 {#
-  - modifier: the variant. Can be 'splash' or 'overlay' (default: 'splash')
+  - variant: can be 'splash' or 'overlay' (default: 'splash')
   - logo: display or not the European Commission logo. Can be true|false (default: false)
 #}
 
-{% set modifier = variant|default('splash') %}
+{% set variant = variant|default('splash') %}
 {% set logo = logo|default(false) %}
-{% set _css_class = 'ecl-language-list ecl-language-list--' ~ modifier %}
+{% set _css_class = 'ecl-language-list ecl-language-list--' ~ variant %}
 {% set _extra_attributes = '' %}
 {% set _extra_classes = extra_classes|default('') %}
 
@@ -22,7 +22,7 @@
         </div>
       </header>
     {% endif %}
-    <div class="{{ modifier == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' }}">
+    <div class="{{ variant == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' }}">
       <div class="ecl-container">
         <div class="ecl-row">
           <div class="ecl-col-lg-8 ecl-offset-lg-2">
@@ -65,7 +65,7 @@
 
 {# Print result #}
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
-  {% if modifier == 'overlay' %}
+  {% if variant == 'overlay' %}
     {% include '@ec-europa/ecl-lang-select-sites' with {
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_class': 'ecl-link'
@@ -76,7 +76,7 @@
       {% endblock %}
     {% endembed %}
 
-  {% elseif modifier == 'splash' %}
+  {% elseif variant == 'splash' %}
     {% include '@ec-europa/ecl-skip-links' with {
       'href': '#main-content',
       'label': 'Skip to main content'
@@ -87,6 +87,6 @@
 </div>
 
 {# Custom Dialog-overlay for the 'overlay' variant #}
-{% if modifier == 'overlay' %}
+{% if variant == 'overlay' %}
   <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
 {% endif %}
