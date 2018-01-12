@@ -117,34 +117,6 @@
   }
 }
 
-.ecl-button--splash-page {
-  background-color: #fff;
-  color: $ecl-color-primary;
-
-  &:focus,
-  &:active,
-  &:hover {
-    border-color: map-get($ecl-colors, 'yellow-100');
-    color: #000;
-  }
-
-  &:focus,
-  &:active {
-    background-color: #fff;
-    text-decoration: underline;
-  }
-
-  &:hover {
-    background-color: map-get($ecl-colors, 'yellow-100');
-  }
-}
-
-.ecl-button--splash-page--is-active {
-  background-color: $ecl-color-secondary;
-  box-shadow: none;
-  color: #000;
-}
-
 .ecl-button--block {
   display: block;
   width: 100%;
