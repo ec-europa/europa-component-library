@@ -5,7 +5,6 @@ module.exports = {
   label: 'Language list',
   status: 'ready',
   collated: false,
-  // preview: '@preview-center-transparent',
   default: 'splash',
   variants: [
     {
