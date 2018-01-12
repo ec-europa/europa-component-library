@@ -1,17 +1,21 @@
 {#
   - variant: can be 'splash' or 'overlay' (default: 'splash')
   - logo: display or not the European Commission logo. Can be true|false (default: false)
+  - languages (array): array of languages to display
 #}
 
 {% set _variant = variant|default('splash') %}
 {% set _logo = logo|default(false) %}
 {% set _css_class = 'ecl-language-list ecl-language-list--' ~ variant %}
 {% set _extra_attributes = '' %}
-{% set _extra_classes = extra_classes|default('') %}
+{% set _languages = languages|default([]) %}
 
-{% set languages %}
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% set languagesSection %}
   <section>
-    <a id="main-content" tabindex="-1"></a>
     {% if _logo == true %}
       <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
         <div class="ecl-container">
@@ -22,7 +26,7 @@
         </div>
       </header>
     {% endif %}
-    <div class="{{ _variant == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' }}">
+    <div class="{{ _variant == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' : '' }}">
       <div class="ecl-container">
         <div class="ecl-row">
           <div class="ecl-col-lg-8 ecl-offset-lg-2">
@@ -33,7 +37,7 @@
             {% endif %}
             <div class="ecl-row">
               <div class="ecl-col-md-6">
-                {% for lang in languages %}
+                {% for lang in _languages %}
                   {% if loop.index0 == loop.length // 2 %}
                 </div><div class="ecl-col-md-6">
                   {% endif %}
@@ -65,27 +69,22 @@
 {# Print result #}
 <div class="{{ _css_class }}"{{ _extra_attributes }}>
   {% if _variant == 'overlay' %}
+    {# Custom Dialog-overlay for the 'overlay' variant #}
+    <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
     {% include '@ec-europa/ecl-lang-select-sites' with {
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_class': 'ecl-link'
     } %}
     {% embed '@ec-europa/ecl-dialogs' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
       {% block dialog_body %}
-        {{ languages }}
+        {{ languagesSection }}
       {% endblock %}
     {% endembed %}
-
   {% elseif _variant == 'splash' %}
     {% include '@ec-europa/ecl-skip-links' with {
       'href': '#main-content',
       'label': 'Skip to main content'
     } %}
-
-    {{ languages }}
+    {{ languagesSection }}
   {% endif %}
 </div>
-
-{# Custom Dialog-overlay for the 'overlay' variant #}
-{% if _variant == 'overlay' %}
-  <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
-{% endif %}
