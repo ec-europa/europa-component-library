@@ -7,11 +7,13 @@
 {% set _logo = logo|default(false) %}
 {% set _css_class = 'ecl-language-list ecl-language-list--' ~ variant %}
 {% set _extra_attributes = '' %}
-{% set _extra_classes = extra_classes|default('') %}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
 
 {% set languages %}
   <section>
-    <a id="main-content" tabindex="-1"></a>
     {% if _logo == true %}
       <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
         <div class="ecl-container">
@@ -22,7 +24,7 @@
         </div>
       </header>
     {% endif %}
-    <div class="{{ _variant == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' }}">
+    <div class="{{ _variant == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' : '' }}">
       <div class="ecl-container">
         <div class="ecl-row">
           <div class="ecl-col-lg-8 ecl-offset-lg-2">
@@ -83,9 +85,9 @@
 
     {{ languages }}
   {% endif %}
-</div>
+  {# Custom Dialog-overlay for the 'overlay' variant #}
+  {% if _variant == 'overlay' %}
+    <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
+  {% endif %}
 
-{# Custom Dialog-overlay for the 'overlay' variant #}
-{% if _variant == 'overlay' %}
-  <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
-{% endif %}
+</div>
