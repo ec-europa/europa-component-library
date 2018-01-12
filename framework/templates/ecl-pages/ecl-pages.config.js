@@ -1,3 +1,5 @@
+const languages = require('../../components/ecl-language-list/languages.json');
+
 module.exports = {
   title: 'Pages',
   label: 'Pages',
@@ -8,6 +10,7 @@ module.exports = {
     global: {
       language: 'en',
     },
+    languages,
   },
   default: 'simple',
   variants: [
@@ -29,6 +32,14 @@ module.exports = {
             'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
           paragraph_class: 'ecl-paragraph ecl-paragraph--l',
           metas: ['News article', '6 July 2015', 'Brussels'],
+        },
+        _demo: {
+          scripts: `document.addEventListener('DOMContentLoaded', function () {
+            ECL.dialogs({
+              dialogOverlayId: 'ecl-overlay-language-list',
+              triggerElementsSelector: '#ecl-lang-select-sites__overlay'
+            });
+          });`,
         },
       },
     },
@@ -108,6 +119,10 @@ module.exports = {
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
             ECL.megamenu();
+            ECL.dialogs({
+              dialogOverlayId: 'ecl-overlay-language-list',
+              triggerElementsSelector: '#ecl-lang-select-sites__overlay'
+            });
           });`,
         },
       },
