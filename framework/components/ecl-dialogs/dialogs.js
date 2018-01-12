@@ -62,7 +62,8 @@ export const dialogs = ({
 
   // EVENTS
   // Hide dialog and overlay elements.
-  function close() {
+  function close(event) {
+    event.preventDefault();
     dialogWindow.setAttribute('aria-hidden', true);
     dialogOverlay.setAttribute('aria-hidden', true);
 
@@ -114,7 +115,8 @@ export const dialogs = ({
   }
 
   // Show dialog and overlay elements.
-  function open() {
+  function open(event) {
+    event.preventDefault();
     dialogWindow.setAttribute('aria-hidden', false);
     dialogOverlay.setAttribute('aria-hidden', false);
 
