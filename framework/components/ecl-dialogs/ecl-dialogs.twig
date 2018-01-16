@@ -40,12 +40,14 @@
   - dialog_body (mixed): content of the dialog (default: lorem ipsum text)
 
   - dismiss: {
+    hide: hide the default dismiss button in case you want to include a custom one in the "dialog_body" block (default: false)
     label: the value for the button label to close the dialog window (default: 'Dismiss this dialog window')
   }
 #}
 
 {# Internal properties #}
 
+{% set variant = variant|default('default') %}
 {% set _dialog_id = dialog_id|default('ecl-dialog') %}
 {% set _dialog_aria_labelledby = dialog_aria_labelledby|default('ecl-dialog-title') %}
 {% set _dialog_aria_describedby = dialog_aria_describedby|default('ecl-dialog-description') %}
@@ -64,6 +66,7 @@
 }|merge(dialog_description|default({})) %}
 
 {% set dismiss = {
+  hide: dismiss.hide|default(false),
   label: dimiss.label|default('Dismiss this dialog window'),
 } %}
 
@@ -98,14 +101,15 @@
 <div class="{{ _css_class }}" {{ _extra_attributes }} role="dialog">
   <h3 id="{{ _dialog_title.id }}" class="ecl-heading ecl-heading--h3 {{ _dialog_title.classes }}">{{ _dialog_title.value }}</h3>
   {% if dialog_description is defined %}
-  <p id="{{ _dialog_description.id }}" class="{{ _dialog_description.classes }}">{{ _dialog_description.value }}</p>
+    <p id="{{ _dialog_description.id }}" class="{{ _dialog_description.classes }}">{{ _dialog_description.value }}</p>
   {% endif %}
   <div class="ecl-dialog__body">
     {% block dialog_body %}
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
     {% endblock %}
   </div>
-  {% if dismiss is defined %}
-  <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
+
+  {% if not dismiss.hide %}
+    <button type="button" class="ecl-message__dismiss" aria-label="{{ dismiss.label }}">&times;</button>
   {% endif %}
 </div>

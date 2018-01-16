@@ -1,4 +1,4 @@
-# Splash page
+# Language list
 
 ## Why and how to use this component
 

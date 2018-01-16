@@ -10,10 +10,14 @@
   left: 0;
   margin: 0;
   padding: map-get($ecl-spacing, 'l');
-  position: absolute;
+  position: fixed;
   top: 0%;
   width: 100%;
   z-index: map-get($ecl-z-index, 'modal');
+}
+
+.ecl-dialog--transparent {
+  background-color: transparent;
 }
 
 .ecl-dialog[aria-hidden='true'] {
@@ -35,6 +39,23 @@
   z-index: map-get($ecl-z-index, 'highlight');
 }
 
+.ecl-dialog__overlay--blue {
+  background-color: rgba($ecl-color-primary, 0.95);
+}
+
+.ecl-dialog--wide .ecl-dialog__body {
+  overflow: visible;
+  width: 100%;
+}
+
+.ecl-dialog__title {
+  clear: both;
+  color: #fff;
+  font-size: map-get($ecl-font-size, 'l');
+  margin: 0;
+  padding: map-get($ecl-spacing, 'l') 0;
+}
+
 @include ecl-media-breakpoint-up('sm') {
   .ecl-dialog {
     height: auto;
@@ -44,5 +65,14 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: auto;
+  }
+
+  .ecl-dialog--wide {
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    right: 0;
+    top: 0;
+    transform: none;
   }
 }
