@@ -632,9 +632,18 @@
         
     
         
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Dialogs</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
         
-        <li class="ecl-navigation-menu__item"  data-state="current" data-role="item">
-          <a href="" class="ecl-navigation-menu__link  ecl-navigation-menu__link--active">
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-dialogs--default" class="ecl-navigation-menu__link ">
             
 
 <div class="Status Status--unlabelled">
@@ -650,8 +659,37 @@
 </div>
 
 
-            <span>Dialogs</span>
+            <span>Normal</span>
           </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-dialogs--wide" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Wide</span>
+          </a>
+        </li>
+        
+    
+
+          </ul>
         </li>
         
     
@@ -1452,6 +1490,68 @@
 
             <span>Language select (Site)</span>
           </a>
+        </li>
+        
+    
+        
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Language list</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-language-list--splash" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Splash</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-language-list--overlay" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Overlay</span>
+          </a>
+        </li>
+        
+    
+
+          </ul>
         </li>
         
     
@@ -2740,30 +2840,6 @@
         
         
         <li class="ecl-navigation-menu__item"  data-role="item">
-          <a href="ecl-splash-pages" class="ecl-navigation-menu__link ">
-            
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-            <span>Splash pages</span>
-          </a>
-        </li>
-        
-    
-        
-        
-        <li class="ecl-navigation-menu__item"  data-role="item">
           <a href="ecl-templates-forms" class="ecl-navigation-menu__link ">
             
 
@@ -2891,6 +2967,11 @@
 <p>A dialog is an application window that is designed to interrupt the current
 processing of an application in order to prompt the user to enter information or
 require a response.</p>
+<h2 id="normal-dialog-default-">Normal dialog (default)</h2>
+<p>Default implementation of the dialog. Will display an horizontally and vertically centered
+container with the text. When pressed, a top-right dismiss button will remove the container and its transparent overlay. The small container goes fullscreen for screens smaller than 480px.</p>
+<h2 id="wide-dialog">Wide dialog</h2>
+<p>Contrary to the normal dialog, when shown this variant of the dialog will always fill the entire screen no matter the user’s screen size</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://www.w3.org/TR/2009/WD-wai-aria-20091215/roles#dialog">WAI-ARIA dialog role</a></li>
@@ -3013,12 +3094,14 @@ require a response.</p>
   - dialog_body (mixed): content of the dialog (default: lorem ipsum text)
 
   - dismiss: {
+    hide: hide the default dismiss button in case you want to include a custom one in the "dialog_body" block (default: false)
     label: the value for the button label to close the dialog window (default: 'Dismiss this dialog window')
   }
 #}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
 
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> variant = variant|<span class="hljs-keyword">default</span>('default') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dialog_id = dialog_id|<span class="hljs-keyword">default</span>('ecl-dialog') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dialog_aria_labelledby = dialog_aria_labelledby|<span class="hljs-keyword">default</span>('ecl-dialog-title') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dialog_aria_describedby = dialog_aria_describedby|<span class="hljs-keyword">default</span>('ecl-dialog-description') %}</span><span class="xml">
@@ -3037,6 +3120,7 @@ require a response.</p>
 }|<span class="hljs-keyword">merge</span>(dialog_description|<span class="hljs-keyword">default</span>({})) %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> dismiss = {
+  hide: dismiss.hide|<span class="hljs-keyword">default</span>(false),
   label: dimiss.label|<span class="hljs-keyword">default</span>('Dismiss this dialog window'),
 } %}</span><span class="xml">
 
@@ -3071,15 +3155,16 @@ require a response.</p>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dialog_title.id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3 </span></span></span><span class="hljs-template-variable">{{ _dialog_title.classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ _dialog_title.value }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> dialog_description is defined %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dialog_description.id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dialog_description.classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ _dialog_description.value }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dialog_description.id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dialog_description.classes }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ _dialog_description.value }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dialog__body"</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> dialog_body %}</span><span class="xml">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> dismiss is defined %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ dismiss.label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not dismiss.hide %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ dismiss.label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
@@ -3090,17 +3175,7 @@ require a response.</p>
     <code class="Code Code--lang-json">
         
             
-            <pre>{
-  <span class="hljs-attr">"_demo"</span>: {
-    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"\n        document.addEventListener('DOMContentLoaded', function () {\n          // This is only for demo purposes to facilitate end-users.\n\n          // Create a link.\n          var link = document.createElement('a');\n          var text = document.createTextNode('Open dialog');\n\n          // Include textual content.\n          link.appendChild(text);\n          link.title = \"Click to test the modal\";\n\n          // Add necessary demo attributes.\n          link.setAttribute('href', '#dialog');\n          link.setAttribute('class', 'ecl-link');\n          link.setAttribute('data-ecl-dialog', 'ecl-dialog');\n\n          // Show the link\n          document.body.appendChild(link);\n\n          ECL.dialogs();\n        });\n      "</span>
-  },
-  <span class="hljs-attr">"dialog_description"</span>: {
-    <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Example description"</span>
-  },
-  <span class="hljs-attr">"dismiss"</span>: {
-    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Dismiss this dialog window"</span>
-  }
-}</pre>
+            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
         
     </code>
@@ -3118,6 +3193,7 @@ require a response.</p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel
     congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
   <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Dismiss this dialog window"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
@@ -3215,13 +3291,16 @@ require a response.</p>
 
   <span class="hljs-comment">// EVENTS</span>
   <span class="hljs-comment">// Hide dialog and overlay elements.</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">close</span>(<span class="hljs-params">event</span>) </span>{
+    event.preventDefault();
     dialogWindow.setAttribute(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-literal">true</span>);
     dialogOverlay.setAttribute(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-literal">true</span>);
 
     <span class="hljs-keyword">if</span> (focusedElBeforeOpen) {
       focusedElBeforeOpen.focus();
     }
+
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>).classList.remove(<span class="hljs-string">'ecl-u-disablescroll'</span>);
   }
 
   <span class="hljs-comment">// Keyboard behaviors.</span>
@@ -3265,7 +3344,8 @@ require a response.</p>
   }
 
   <span class="hljs-comment">// Show dialog and overlay elements.</span>
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">open</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">open</span>(<span class="hljs-params">event</span>) </span>{
+    event.preventDefault();
     dialogWindow.setAttribute(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-literal">false</span>);
     dialogOverlay.setAttribute(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-literal">false</span>);
 
@@ -3281,6 +3361,8 @@ require a response.</p>
 
     <span class="hljs-comment">// Handle tabbing, esc and keyboard in the dialog window.</span>
     dialogWindow.addEventListener(<span class="hljs-string">'keydown'</span>, handleKeyDown);
+
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>).classList.add(<span class="hljs-string">'ecl-u-disablescroll'</span>);
   }
 
   <span class="hljs-comment">// BIND EVENTS</span>
@@ -3342,7 +3424,7 @@ require a response.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.9 KB</span>
+                    <span class="Meta-value">5.1 KB</span>
                 </li>
             </ul>
         </div>
@@ -3367,10 +3449,14 @@ require a response.</p>
   <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
-  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">position</span>: fixed;
   <span class="hljs-attribute">top</span>: <span class="hljs-number">0%</span>;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
   <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'modal'</span>);
+}
+
+<span class="hljs-selector-class">.ecl-dialog--transparent</span> {
+  <span class="hljs-attribute">background-color</span>: transparent;
 }
 
 <span class="hljs-selector-class">.ecl-dialog</span><span class="hljs-selector-attr">[aria-hidden='true']</span> {
@@ -3392,6 +3478,23 @@ require a response.</p>
   <span class="hljs-attribute">z-index</span>: map-get(<span class="hljs-variable">$ecl-z-index</span>, <span class="hljs-string">'highlight'</span>);
 }
 
+<span class="hljs-selector-class">.ecl-dialog__overlay--blue</span> {
+  <span class="hljs-attribute">background-color</span>: rgba(<span class="hljs-variable">$ecl-color-primary</span>, <span class="hljs-number">0.95</span>);
+}
+
+<span class="hljs-selector-class">.ecl-dialog--wide</span> <span class="hljs-selector-class">.ecl-dialog__body</span> {
+  <span class="hljs-attribute">overflow</span>: visible;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.ecl-dialog__title</span> {
+  <span class="hljs-attribute">clear</span>: both;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'l'</span>);
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>) <span class="hljs-number">0</span>;
+}
+
 @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(<span class="hljs-string">'sm'</span>) {
   <span class="hljs-selector-class">.ecl-dialog</span> {
     <span class="hljs-attribute">height</span>: auto;
@@ -3401,6 +3504,15 @@ require a response.</p>
     <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
     <span class="hljs-attribute">transform</span>: translate(-<span class="hljs-number">50%</span>, -<span class="hljs-number">50%</span>);
     <span class="hljs-attribute">width</span>: auto;
+  }
+
+  <span class="hljs-selector-class">.ecl-dialog--wide</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">overflow</span>: auto;
+    <span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">transform</span>: none;
   }
 }
 </pre>
@@ -3419,7 +3531,7 @@ require a response.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">774 Bytes</span>
+                    <span class="Meta-value">1.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -3451,6 +3563,21 @@ require a response.</p>
         
         
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(2)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="ecl-dialogs--default">
+                    <span>Normal</span>
+                </a>, 
+            
+                <a href="ecl-dialogs--wide">
+                    <span>Wide</span>
+                </a>
+            
+            </span>
+        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>

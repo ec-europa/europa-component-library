@@ -632,9 +632,18 @@
         
     
         
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Dialogs</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="ecl-navigation-menu__item"  data-role="item">
-          <a href="ecl-dialogs" class="ecl-navigation-menu__link ">
+          <a href="ecl-dialogs--default" class="ecl-navigation-menu__link ">
             
 
 <div class="Status Status--unlabelled">
@@ -650,8 +659,37 @@
 </div>
 
 
-            <span>Dialogs</span>
+            <span>Normal</span>
           </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-dialogs--wide" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Wide</span>
+          </a>
+        </li>
+        
+    
+
+          </ul>
         </li>
         
     
@@ -1452,6 +1490,68 @@
 
             <span>Language select (Site)</span>
           </a>
+        </li>
+        
+    
+        
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Language list</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-language-list--splash" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Splash</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-language-list--overlay" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Overlay</span>
+          </a>
+        </li>
+        
+    
+
+          </ul>
         </li>
         
     
@@ -2740,30 +2840,6 @@
         
         
         <li class="ecl-navigation-menu__item"  data-role="item">
-          <a href="ecl-splash-pages" class="ecl-navigation-menu__link ">
-            
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-            <span>Splash pages</span>
-          </a>
-        </li>
-        
-    
-        
-        
-        <li class="ecl-navigation-menu__item"  data-role="item">
           <a href="ecl-templates-forms" class="ecl-navigation-menu__link ">
             
 
@@ -2981,7 +3057,8 @@
     links: [
       { href: "#", label: "Log in" },
     ],
-  }
+  },
+  lanugages: languages
 } %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-page-headers' with { variant: 'default' }|<span class="hljs-keyword">merge</span>(page_header) %}</span><span class="xml">
@@ -3230,6 +3307,153 @@
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"en"</span>
   },
+  <span class="hljs-attr">"languages"</span>: [
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_bg"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"bg"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"български"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"bg"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_cs"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"cs"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"čeština"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"cs"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_da"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"da"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"dansk"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"da"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_de"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"de"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Deutsch"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"de"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_et"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"et"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"eesti"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"et"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_el"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"el"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"ελληνικά"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"el"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_en"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"en"</span>,
+      <span class="hljs-attr">"isActive"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"English"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"en"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_es"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"es"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"español"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"es"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_fr"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"fr"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"français"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"fr"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_ga"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"ga"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Gaeilge"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"ga"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_hr"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"hr"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"hrvatski"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"hr"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_it"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"it"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"italiano"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"it"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_lv"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"lv"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"latviešu"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"lv"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_lt"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"lt"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"lietuvių"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"lt"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_hu"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"hu"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"magyar"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"hu"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_mt"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"mt"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Malti"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"mt"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_nl"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"nl"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Nederlands"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"nl"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_pl"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"pl"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"polski"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"pl"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_pt"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"pt"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"português"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"pt-pt"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_ro"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"ro"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"română"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"ro"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_sk"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"sk"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"slovenčina"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"sk"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_sl"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"sl"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"slovenščina"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"sl"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_fi"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"fi"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"suomi"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"fi"</span>
+    },
+    {
+      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"index_sv"</span>,
+      <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"sv"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"svenska"</span>,
+      <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"sv"</span>
+    }
+  ],
   <span class="hljs-attr">"page_header"</span>: {
     <span class="hljs-attr">"breadcrumb"</span>: [
       {
@@ -3250,6 +3474,9 @@
       <span class="hljs-string">"6 July 2015"</span>,
       <span class="hljs-string">"Brussels"</span>
     ]
+  },
+  <span class="hljs-attr">"_demo"</span>: {
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n            ECL.dialogs({\n              dialogOverlayId: 'ecl-overlay-language-list',\n              triggerElementsSelector: '#ecl-lang-select-sites__overlay'\n            });\n          });"</span>
   }
 }</pre>
             
@@ -3293,14 +3520,95 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home - European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites ecl-site-header__lang-select-sites"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__link"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-language-list ecl-language-list--overlay ecl-site-header__language-list"</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-overlay-language-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dialog__overlay ecl-dialog__overlay--blue"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites ecl-link"</span> <span class="hljs-attr">data-ecl-dialog</span>=<span class="hljs-string">"ecl-dialog"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-lang-select-sites__overlay"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__link"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__label"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__code"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--language ecl-lang-select-sites__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__code-text"</span>&gt;</span>en<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dialog ecl-dialog--transparent ecl-dialog--wide"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-dialog"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"ecl-dialog-title"</span> <span class="hljs-attr">aria-describedby</span>=<span class="hljs-string">"ecl-dialog-description"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-dialog-title"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3 ecl-u-sr-only"</span>&gt;</span>Dialog<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dialog__body"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-8 ecl-offset-lg-2"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h2 ecl-dialog__title"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--generic-lang"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> Select your language
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_bg"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"bg"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"bg"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>български<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_cs"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"cs"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"cs"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>čeština<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_da"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"da"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"da"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>dansk<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_de"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"de"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"de"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>Deutsch<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_et"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"et"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"et"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>eesti<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_el"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"el"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"el"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>ελληνικά<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button ecl-language-list__button--active ecl-icon ecl-icon--icon-check"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>English<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--check ecl-u-f-r"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_es"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"es"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"es"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>español<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_fr"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"fr"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"fr"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>français<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_ga"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"ga"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"ga"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>Gaeilge<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_hr"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_it"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_lv"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>latviešu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_lt"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lt"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"lt"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>lietuvių<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_hu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_mt"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"mt"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"mt"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>Malti<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_nl"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"nl"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"nl"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_pl"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pl"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"pl"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>polski<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_pt"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"pt-pt"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"pt"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>português<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_ro"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"ro"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"ro"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>română<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_sk"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"sk"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"sk"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>slovenčina<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_sl"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"sl"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"sl"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>slovenščina<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_fi"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"fi"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"fi"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>suomi<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_sv"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"sv"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"sv"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>svenska<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss ecl-message__dismiss--inverted"</span>&gt;</span>Close<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-search-form ecl-site-header__search"</span>&gt;</span>

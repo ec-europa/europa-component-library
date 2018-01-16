@@ -632,9 +632,18 @@
         
     
         
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Dialogs</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="ecl-navigation-menu__item"  data-role="item">
-          <a href="ecl-dialogs" class="ecl-navigation-menu__link ">
+          <a href="ecl-dialogs--default" class="ecl-navigation-menu__link ">
             
 
 <div class="Status Status--unlabelled">
@@ -650,8 +659,37 @@
 </div>
 
 
-            <span>Dialogs</span>
+            <span>Normal</span>
           </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-dialogs--wide" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Wide</span>
+          </a>
+        </li>
+        
+    
+
+          </ul>
         </li>
         
     
@@ -1452,6 +1490,68 @@
 
             <span>Language select (Site)</span>
           </a>
+        </li>
+        
+    
+        
+        <li class="ecl-navigation-menu__item">
+          <h4 class="ecl-heading ecl-heading--h4 ecl-navigation-menu__heading">Language list</h4>
+          <ul class="ecl-list ecl-list--unstyled ecl-navigation-menu__item-list" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-language-list--splash" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Splash</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-navigation-menu__item"  data-role="item">
+          <a href="ecl-language-list--overlay" class="ecl-navigation-menu__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Overlay</span>
+          </a>
+        </li>
+        
+    
+
+          </ul>
         </li>
         
     
@@ -2740,30 +2840,6 @@
         
         
         <li class="ecl-navigation-menu__item"  data-role="item">
-          <a href="ecl-splash-pages" class="ecl-navigation-menu__link ">
-            
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
-
-
-</div>
-
-</div>
-
-
-            <span>Splash pages</span>
-          </a>
-        </li>
-        
-    
-        
-        
-        <li class="ecl-navigation-menu__item"  data-role="item">
           <a href="ecl-templates-forms" class="ecl-navigation-menu__link ">
             
 
@@ -3170,6 +3246,30 @@ the user and are likely to be ignored</li>
     <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/close_hover.svg'</span>);
   }
 }
+
+<span class="hljs-selector-class">.ecl-message__dismiss--inverted</span> {
+  <span class="hljs-attribute">background-image</span>: none;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">cursor</span>: pointer;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.889em</span>;
+  <span class="hljs-attribute">text-decoration</span>: underline;
+
+  &amp;::after {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">'\00D7'</span>;
+    <span class="hljs-attribute">display</span>: inline-block;
+    <span class="hljs-attribute">float</span>: right;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">1.5em</span>;
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0.5em</span>;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">1.5em</span>;
+  }
+
+  &amp;:hover {
+    <span class="hljs-attribute">background-image</span>: none;
+  }
+}
 </pre>
                             </code>
                             
@@ -3186,7 +3286,7 @@ the user and are likely to be ignored</li>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.7 KB</span>
+                    <span class="Meta-value">2.1 KB</span>
                 </li>
             </ul>
         </div>
