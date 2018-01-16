@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.20.1 (2018-01-16)
+
+#### :bug: Bug Fix
+
+* `presets`
+  * [#545](https://github.com/ec-europa/europa-component-library/pull/545) fix(dependency): add missing ecl-language-list dependency - no issue. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 0.20.0 (2018-01-16)
 
 #### :rocket: New Feature
