@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.20.0 (2018-01-16)
+
+#### :rocket: New Feature
+
+* [#530](https://github.com/ec-europa/europa-component-library/pull/530) feat(language-selector-dialog): develop a language selector dialog - INNO-835. ([@raduchiriac](https://github.com/raduchiriac))
+* [#539](https://github.com/ec-europa/europa-component-library/pull/539) feat(scroll): create a new utility to disable scroll - INNO-874. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### :house: Internal
+
+* [#536](https://github.com/ec-europa/europa-component-library/pull/536) chore(package): update theme and dependencies - INNO-867. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 2
+
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+* [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.19.1 (2017-12-20)
 
 #### :bug: Bug Fix
