@@ -1,0 +1,90 @@
+{#
+  Accepts:
+    - "image" (object): image to display on the left (optional)
+      - "src" (string): image's URL
+      - "alt" (string): alt text
+    - "author" (string): author name
+    - "date" (string): formatted date
+    - "title" (object): comment's title
+      - "href" (string): link to point to
+      - "text" (string): text to display
+    - "body" (string): comment's text
+    - "operations" (object): object of operations (reply, edit, delete)
+      - "delete|edit|reply" (object):
+        - href (string)
+        - title (string)
+        - visible (boolean)
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-row ecl-comment' %}
+{% set _extra_attributes = '' %}
+{% set _comments = comments %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
+  <div class="ecl-listing">
+    {% for comment in _comments %}
+      <div class="ecl-list-item">
+        {% include '@ec-europa/ecl-comments' with comment %}
+      </div>
+    {% endfor %}
+
+    {% embed '@ec-europa/ecl-forms-forms' %}
+      {% block form %}
+        {% embed '@ec-europa/ecl-forms-fieldsets' %}
+          {% block fieldset %}
+            {% include '@ec-europa/ecl-forms-legends' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
+            {% embed '@ec-europa/ecl-forms-form-groups' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}
+                {% include '@ec-europa/ecl-forms-text-inputs' with {
+                  'id' : 'field-ID-1',
+                  'name': 'field-name-1',
+                  'type': 'text',
+                  'extraAttributes': [
+                    { 'name': 'placeholder', 'value': 'Your title' }
+                  ]
+                } %}
+              {% endblock %}
+            {% endembed %}
+            {% embed '@ec-europa/ecl-forms-form-groups' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels' with { 'for_attribute': 'field-ID-2', 'label': 'Comment' } %}
+                {% include '@ec-europa/ecl-forms-textareas' with {
+                  'id' : 'field-ID-2',
+                  'name': 'field-name-2',
+                  'type': 'textarea',
+                  'extraAttributes': [
+                    { 'name': 'placeholder', 'value': 'Your comment' }
+                  ]
+                } %}
+              {% endblock %}
+            {% endembed %}
+             {% include '@ec-europa/ecl-buttons' with {
+              'modifier': 'primary',
+              'label': 'Send',
+              'extra_classes': 'ecl-u-mt-s',
+              'extra_attributes': [
+                { 'name': 'value', 'value': 'send'},
+                { 'name': 'type', 'value': 'submit'}
+              ]
+            } %}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+  </div>
+</div>
