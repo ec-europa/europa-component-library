@@ -36,7 +36,7 @@
 <div class="{{ _css_class }}" {{ _extra_attributes }}>
   {% if image is defined %}
   <div class="ecl-comment__image-wrapper">
-    <img class="ecl-comment__image" src="{{ image.src }}" alt="{{ image.alt }}"">
+    <img class="ecl-comment__image" src="{{ image.src }}" alt="{{ image.alt }}">
   </div>
   {% endif %}
   <div class="ecl-comment__body">
@@ -49,17 +49,23 @@
       <p class="ecl-paragraph">{{ body }}</p>
     </div>
     {% if operations is defined %}
-    <div class="ecl-comment__operations">
+    <ul class="ecl-list ecl-list--inline ecl-comment__operations">
       {% if operations.reply is defined and operations.reply.visible %}
-        <a class="ecl-link ecl-comment__reply" href="{{ operations.reply.href }}">{{ operations.reply.title }}</a>
+        <li>
+          <a class="ecl-link ecl-comment__reply" href="{{ operations.reply.href }}">{{ operations.reply.title }}</a>
+        </li>
       {% endif %}
       {% if operations.edit is defined and operations.edit.visible %}
-        <a class="ecl-link ecl-comment__edit" href="{{ operations.edit.href }}">{{ operations.edit.title }}</a>
+        <li>
+          <a class="ecl-link ecl-comment__edit" href="{{ operations.edit.href }}">{{ operations.edit.title }}</a>
+        </li>
       {% endif %}
       {% if operations.delete is defined and operations.delete.visible %}
-        <a class="ecl-link ecl-comment__delete" href="{{ operations.delete.href }}">{{ operations.delete.title }}</a>
+        <li>
+          <a class="ecl-link ecl-comment__delete" href="{{ operations.delete.href }}">{{ operations.delete.title }}</a>
+        </li>
       {% endif %}
-    </div>
+    </ul>
     {% endif %}
   </div>
 </div>
