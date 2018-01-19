@@ -49,20 +49,20 @@
       <p class="ecl-paragraph">{{ body }}</p>
     </div>
     {% if operations is defined %}
-    <ul class="ecl-listing ecl-comment__operations">
+    <ul class="ecl-list ecl-list--inline ecl-comment__operations">
       {% if operations.reply is defined and operations.reply.visible %}
-        <li class="ecl-list-item">
-          <a class="ecl-link ecl-list-item__link ecl-comment__reply" href="{{ operations.reply.href }}">{{ operations.reply.title }}</a>
+        <li>
+          <a class="ecl-link ecl-comment__reply" href="{{ operations.reply.href }}">{{ operations.reply.title }}</a>
         </li>
       {% endif %}
       {% if operations.edit is defined and operations.edit.visible %}
-        <li class="ecl-list-item">
-          <a class="ecl-link ecl-list-item__link ecl-comment__edit" href="{{ operations.edit.href }}">{{ operations.edit.title }}</a>
+        <li>
+          <a class="ecl-link ecl-comment__edit" href="{{ operations.edit.href }}">{{ operations.edit.title }}</a>
         </li>
       {% endif %}
       {% if operations.delete is defined and operations.delete.visible %}
-        <li class="ecl-list-item">
-          <a class="ecl-link ecl-list-item__link ecl-comment__delete" href="{{ operations.delete.href }}">{{ operations.delete.title }}</a>
+        <li>
+          <a class="ecl-link ecl-comment__delete" href="{{ operations.delete.href }}">{{ operations.delete.title }}</a>
         </li>
       {% endif %}
     </ul>
