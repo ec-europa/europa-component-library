@@ -18,7 +18,7 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-row ecl-comment' %}
+{% set _css_class = 'ecl-row ecl-comments-with-form' %}
 {% set _extra_attributes = '' %}
 {% set _comments = comments %}
 
@@ -35,11 +35,11 @@
 {% endif %}
 
 <div class="{{ _css_class }}" {{ _extra_attributes }}>
-  <div class="ecl-listing">
+  <ul class="ecl-listing">
     {% for comment in _comments %}
-      <div class="ecl-list-item">
+      <li class="ecl-list-item ecl-u-pv-s">
         {% include '@ec-europa/ecl-comments' with comment %}
-      </div>
+      </li>
     {% endfor %}
 
     {% embed '@ec-europa/ecl-forms-forms' %}
@@ -86,5 +86,5 @@
         {% endembed %}
       {% endblock %}
     {% endembed %}
-  </div>
+  </ul>
 </div>
