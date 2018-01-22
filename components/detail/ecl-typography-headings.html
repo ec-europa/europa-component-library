@@ -3280,6 +3280,20 @@ therefore have a line-height ratio of 1.1.</p>
   @<span class="hljs-keyword">include</span> heading();
   @<span class="hljs-keyword">include</span> heading-5();
 }
+
+<span class="hljs-selector-class">.ecl-editor</span> {
+  * + <span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxl'</span>);
+  }
+
+  * + <span class="hljs-selector-tag">h2</span> {
+    <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xl'</span>);
+  }
+
+  * + <span class="hljs-selector-tag">h3</span> {
+    <span class="hljs-attribute">margin-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'l'</span>);
+  }
+}
 </pre>
                             </code>
                             
@@ -3296,7 +3310,7 @@ therefore have a line-height ratio of 1.1.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">368 Bytes</span>
+                    <span class="Meta-value">567 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -3310,7 +3324,7 @@ therefore have a line-height ratio of 1.1.</p>
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
                                 <pre>@<span class="hljs-keyword">mixin</span> heading() {
-  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
   <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
 }
 
@@ -3367,7 +3381,7 @@ therefore have a line-height ratio of 1.1.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">763 Bytes</span>
+                    <span class="Meta-value">792 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -3385,8 +3399,6 @@ therefore have a line-height ratio of 1.1.</p>
 
 <span class="hljs-selector-class">.ecl-heading</span> {
   @<span class="hljs-keyword">include</span> heading();
-
-  <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
 }
 
 <span class="hljs-selector-class">.ecl-heading--h1</span> {
@@ -3455,7 +3467,7 @@ therefore have a line-height ratio of 1.1.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">797 Bytes</span>
+                    <span class="Meta-value">751 Bytes</span>
                 </li>
             </ul>
         </div>
