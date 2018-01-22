@@ -4,16 +4,19 @@
 .ecl-editor h1 {
   @include heading();
   @include heading-1();
+  margin-top: map-get($ecl-spacing, 'xxl');
 }
 
 .ecl-editor h2 {
   @include heading();
   @include heading-2();
+  margin-top: map-get($ecl-spacing, 'xl');
 }
 
 .ecl-editor h3 {
   @include heading();
   @include heading-3();
+  margin-top: map-get($ecl-spacing, 'l');
 }
 
 .ecl-editor h4 {
