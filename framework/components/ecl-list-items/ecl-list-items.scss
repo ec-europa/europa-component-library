@@ -33,8 +33,10 @@
 .ecl-list-item__title {
   color: $ecl-color-primary;
   font-size: map-get($ecl-font-size, 'm');
+  font-weight: 600;
   margin-bottom: map-get($ecl-spacing, 's');
   margin-top: 0;
+  max-width: 32em;
 }
 
 .ecl-list-item--highlight .ecl-list-item__title {
