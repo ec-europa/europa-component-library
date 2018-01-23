@@ -3060,6 +3060,7 @@ implemented, but without any link (only indicating the current language).</p>
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _language = language|<span class="hljs-keyword">default</span>('English') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _code = code|<span class="hljs-keyword">default</span>('en') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _link = link|<span class="hljs-keyword">default</span>('#') %}</span><span class="xml">
 
 </span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
 
@@ -3074,7 +3075,7 @@ implemented, but without any link (only indicating the current language).</p>
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__link"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _link }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__link"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__label"</span>&gt;</span></span><span class="hljs-template-variable">{{ _language }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-sites__code"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--language ecl-lang-select-sites__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
@@ -3092,6 +3093,7 @@ implemented, but without any link (only indicating the current language).</p>
             
             <pre>{
   <span class="hljs-attr">"language"</span>: <span class="hljs-string">"English"</span>,
+  <span class="hljs-attr">"link"</span>: <span class="hljs-string">"#"</span>,
   <span class="hljs-attr">"code"</span>: <span class="hljs-string">"en"</span>
 }</pre>
             

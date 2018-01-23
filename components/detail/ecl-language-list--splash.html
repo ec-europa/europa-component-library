@@ -3048,11 +3048,13 @@ see the Language selector (page level) that locally overrules their selection.</
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   - variant: can be 'splash' or 'overlay' (default: 'splash')
+  - link: the link for the lang-select-sites (default: '#')
   - logo: display or not the European Commission logo. Can be true|false (default: false)
   - languages (array): array of languages to display
 #}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _variant = variant|<span class="hljs-keyword">default</span>('splash') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _link = link|<span class="hljs-keyword">default</span>('#') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _logo = logo|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-language-list ecl-language-list--' ~ variant %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
@@ -3074,7 +3076,7 @@ see the Language selector (page level) that locally overrules their selection.</
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _variant == 'splash' ? 'ecl-u-bg-primary ecl-u-pv-xl' : '' }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="hljs-template-variable">{{ _variant == 'splash' ? ' class="ecl-u-bg-primary ecl-u-pv-xl"' : '' }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-8 ecl-offset-lg-2"</span>&gt;</span>
@@ -3094,7 +3096,7 @@ see the Language selector (page level) that locally overrules their selection.</
                     'label': lang.label ~ (lang.isActive ? '&lt;span class="ecl-icon ecl-icon--check ecl-u-f-r"&gt;&lt;/span&gt;'),
                     'href': lang.href,
                     'is_block': true,
-                    'extra_classes': 'ecl-language-list__button' ~ (lang.isActive ? ' ecl-language-list__button--active ecl-icon ecl-icon--icon-check'),
+                    'extra_classes': 'ecl-language-list__button' ~ (lang.isActive ? ' ecl-language-list__button--active'),
                     'extra_attributes': [
                       { 'name': 'lang', 'value': lang.lang },
                       { 'name': 'hreflang', 'value': lang.hreflang },
@@ -3121,7 +3123,8 @@ see the Language selector (page level) that locally overrules their selection.</
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-overlay-language-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dialog__overlay ecl-dialog__overlay--blue"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-lang-select-sites' with {
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
-      'extra_class': 'ecl-link'
+      'extra_class': 'ecl-link',
+      'link': _link
     } %}</span><span class="xml">
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ec-europa/ecl-dialogs' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}</span><span class="xml">
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> dialog_body %}</span><span class="xml">
@@ -3336,7 +3339,7 @@ see the Language selector (page level) that locally overrules their selection.</
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_el"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"el"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"el"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>ελληνικά<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button ecl-language-list__button--active ecl-icon ecl-icon--icon-check"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>English<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--check ecl-u-f-r"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button ecl-language-list__button--active"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>English<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--check ecl-u-f-r"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"index_es"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-language-list__button"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"es"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"es"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>español<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
