@@ -1,4 +1,4 @@
-describe('communities', () => {
+describe('comments-with-form', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,7 +6,7 @@ describe('communities', () => {
       height: 600,
     });
 
-    browser.url('ecl-communities.html');
+    browser.url('ecl-comments-with-form.html');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
@@ -18,7 +18,7 @@ describe('communities', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'communities',
+      name: 'comments-with-form',
     });
     expect(screenshots).to.matchReference();
   });
