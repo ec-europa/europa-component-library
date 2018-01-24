@@ -10,6 +10,7 @@
 {% set _extra_attributes = '' %}
 {% set _language = language|default('English') %}
 {% set _code = code|default('en') %}
+{% set _link = link|default('#') %}
 
 {# Internal logic - Process properties #}
 
@@ -24,7 +25,7 @@
 {% endif %}
 
 <div class="{{ _css_class }}" {{ _extra_attributes }}>
-  <a href="#" class="ecl-lang-select-sites__link">
+  <a href="{{ _link }}" class="ecl-lang-select-sites__link">
     <span class="ecl-lang-select-sites__label">{{ _language }}</span>
     <span class="ecl-lang-select-sites__code">
       <span class="ecl-icon ecl-icon--language ecl-lang-select-sites__icon"></span>

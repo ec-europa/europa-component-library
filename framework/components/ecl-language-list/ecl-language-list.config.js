@@ -26,6 +26,7 @@ module.exports = {
         {},
         {
           languages,
+          link: '#',
           variant: 'overlay',
           messages: {
             dismiss: 'Close',
