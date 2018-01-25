@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.21.0 (2018-01-25)
+
+#### :rocket: New Feature
+
+* [#548](https://github.com/ec-europa/europa-component-library/pull/548) feat(template): new comments with form - INNO-896. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### :bug: Bug Fix
+
+* [#552](https://github.com/ec-europa/europa-component-library/pull/552) fix(language-list): remove icon and empty classes - INNO-901. ([@raduchiriac](https://github.com/raduchiriac))
+* [#550](https://github.com/ec-europa/europa-component-library/pull/550) fix(typography): add missing spacing in ecl-editor - INNO-871. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### :nail_care: Enhancement
+
+* [#546](https://github.com/ec-europa/europa-component-library/pull/546) fix(comments): operation links as a list - INNO-886. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### Committers: 1
+
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+
 ## 0.20.1 (2018-01-16)
 
 #### :bug: Bug Fix
