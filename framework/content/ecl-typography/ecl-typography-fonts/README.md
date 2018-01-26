@@ -89,12 +89,14 @@ We recommend using only the following font colours:
     <th>Black <br/> #000000</th>
     <th>EC Grey <br/> #404040</th>
     <th>EC Blue <br/> #004494</th>
+    <th>EC Purple <br/> #550745</th>
     <th>White <br/> #ffffff</th>
   </tr>
   <tr>
-    <td><strong>Headers</strong><br/>H1, H2</td>
-    <td><strong>Headers</strong><br/>H3,H4<br/><br/><strong>Default font color</strong></td>
-    <td><strong>For text links</strong></td>
-    <td><strong>On blue backgrounds</strong></td>
+    <td><strong>Headers</strong><br/>H1, H2<br/><br/><strong>Black + Underline<br/><br/>Default over text links</strong><br/><br/>(not on inverted links)</td>
+    <td><strong>Headers</strong><br/>H3, H4<br/><br/><strong>Default font color</strong></td>
+    <td><strong>Default text links</strong><br/><br/>(not on inverted links)</td>
+    <td><strong>Default visited text links</strong><br/><br/>(not on inverted links)</td>
+    <td><strong>On blue backgrounds<br/><br/>Inverted links</strong> (all states)</td>
   </tr>
 </table>
