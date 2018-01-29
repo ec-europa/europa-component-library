@@ -1,12 +1,14 @@
+const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-// const postcssNormalize = require('postcss-normalize');
+const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
   entry: ['./packages/presets/ecl-preset-full/index.scss'],
   output: {
-    filename: 'dist/bundle.js',
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -15,7 +17,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: 'dist/fonts/[name].[ext]',
+            name: 'fonts/[name].[ext]',
           },
         },
       },
@@ -23,7 +25,7 @@ module.exports = {
         test: /\.(jpg|png|svg)$/,
         loader: 'file-loader',
         options: {
-          name: 'dist/images/[name].[hash].[ext]',
+          name: 'images/[name].[hash].[ext]',
         },
       },
       {
@@ -31,12 +33,11 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader?importLoaders=3',
+            'css-loader?importLoaders=4',
             {
               loader: 'postcss-loader',
               options: {
                 plugins: () => [
-                  // postcssNormalize(),
                   cssnano({
                     safe: true,
                   }),
@@ -51,6 +52,13 @@ module.exports = {
               },
             },
             'sass-loader?sourceMap',
+            {
+              loader: 'postcss-loader',
+              options: {
+                parser: 'postcss-scss',
+                plugins: () => [postcssNormalize()],
+              },
+            },
           ],
         }),
       },
@@ -59,7 +67,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin({
       // define where to save the file
-      filename: 'dist/[name].bundle.css',
+      filename: '[name].bundle.css',
       allChunks: true,
     }),
   ],
