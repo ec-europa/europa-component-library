@@ -47,24 +47,28 @@ font that is suited for multilingual use.
 </table>
 
 <table class="ecl-table">
-  <tr>
-    <th>XXL</th>
-    <th>XL</th>
-    <th>L</th>
-    <th>M</th>
-    <th>S</th>
-    <th>XS</th>
-    <th>XXS</th>
-  </tr>
-  <tr>
-    <td>2.22rem</td>
-    <td>1.67rem</td>
-    <td>1.22rem</td>
-    <td>1.00rem</td>
-    <td>0.89rem</td>
-    <td>0.78rem</td>
-    <td>0.67rem</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>XXL</th>
+      <th>XL</th>
+      <th>L</th>
+      <th>M</th>
+      <th>S</th>
+      <th>XS</th>
+      <th>XXS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-th="XXL">2.22rem</td>
+      <td data-th="XL">1.67rem</td>
+      <td data-th="L">1.22rem</td>
+      <td data-th="M">1.00rem</td>
+      <td data-th="S">0.89rem</td>
+      <td data-th="XS">0.78rem</td>
+      <td data-th="XXS">0.67rem</td>
+    </tr>
+  </tbody>
 </table>
 
 ## Font colour
@@ -85,16 +89,22 @@ There are a number of online colour contrast checkers.
 We recommend using only the following font colours:
 
 <table class="ecl-table">
-  <tr>
-    <th>Black <br/> #000000</th>
-    <th>EC Grey <br/> #404040</th>
-    <th>EC Blue <br/> #004494</th>
-    <th>White <br/> #ffffff</th>
-  </tr>
-  <tr>
-    <td><strong>Headers</strong><br/>H1, H2</td>
-    <td><strong>Headers</strong><br/>H3,H4<br/><br/><strong>Default font color</strong></td>
-    <td><strong>For text links</strong></td>
-    <td><strong>On blue backgrounds</strong></td>
-  </tr>
+  <thead>
+    <tr>
+      <th scope="col">Black <br/> #000000</th>
+      <th scope="col">EC Grey <br/> #404040</th>
+      <th scope="col">EC Blue <br/> #004494</th>
+      <th scope="col">EC Purple <br/> #550745</th>
+      <th scope="col">White <br/> #ffffff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-th="Black"><strong>Headers</strong><br/>H1, H2<br/><br/><strong>Black + Underline<br/><br/>Default over text links</strong><br/><br/>(not on inverted links)</td>
+      <td data-th="EC Grey"><strong>Headers</strong><br/>H3, H4<br/><br/><strong>Default font color</strong></td>
+      <td data-th="EC Blue"><strong>Default text links</strong><br/><br/>(not on inverted links)</td>
+      <td data-th="EC Purple"><strong>Default visited text links</strong><br/><br/>(not on inverted links)</td>
+      <td data-th="White"><strong>On blue backgrounds<br/><br/>Inverted links</strong> (all states)</td>
+    </tr>
+  </tbody>
 </table>
