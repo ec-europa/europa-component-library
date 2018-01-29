@@ -5,13 +5,25 @@ const cssnano = require('cssnano');
 const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
-  entry: ['./packages/presets/ecl-preset-full/index.scss'],
+  entry: ['./index.js'],
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    library: 'ECL',
+    libraryTarget: 'umd',
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, '../../framework'),
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ],
+      },
       {
         test: /\.(ttf|otf|eot|svg\?#icon|woff(2)?)(\?[a-z0-9]+)?$/,
         use: {
