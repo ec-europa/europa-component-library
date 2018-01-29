@@ -1,4 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+// const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
   entry: ['./packages/presets/ecl-preset-full/index.scss'],
@@ -8,10 +11,47 @@ module.exports = {
   module: {
     rules: [
       {
-        // css / sass / scss loader for webpack
-        test: /\.(css|sass|scss)$/,
+        test: /\.(ttf|otf|eot|svg\?#icon|woff(2)?)(\?[a-z0-9]+)?$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'dist/fonts/[name].[ext]',
+          },
+        },
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'dist/images/[name].[hash].[ext]',
+        },
+      },
+      {
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader', 'sass-loader'],
+          fallback: 'style-loader',
+          use: [
+            'css-loader?importLoaders=3',
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [
+                  // postcssNormalize(),
+                  cssnano({
+                    safe: true,
+                  }),
+                  autoprefixer(),
+                ],
+              },
+            },
+            {
+              loader: 'resolve-url-loader',
+              options: {
+                keepQuery: true,
+              },
+            },
+            'sass-loader?sourceMap',
+          ],
         }),
       },
     ],

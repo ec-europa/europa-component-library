@@ -6,10 +6,10 @@ $ecl-select-background-width: $ecl-select-icon-size + 2 *
 // Select list arrow styling.
 @mixin ecl-select-list-arrow($background-color, $arrow-grey:false) {
   @if ($arrow-grey) {
-    background: url('../images/arrow-down.svg'),
+    background: url($ecl-assets-path + 'images/arrow-down.svg'),
       linear-gradient(to bottom, $background-color, $background-color);
   } @else {
-    background: url('../images/arrow-down--white.svg'),
+    background: url($ecl-assets-path + 'images/arrow-down--white.svg'),
       linear-gradient(to bottom, $background-color, $background-color);
   }
 
