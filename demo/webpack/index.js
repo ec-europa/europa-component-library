@@ -1,5 +1,5 @@
 // Import SCSS
-import '@ec-europa/ecl-preset-full/index.scss';
+import './styles.scss';
 
 // Export JS
 export * from '@ec-europa/ecl-preset-full';

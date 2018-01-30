@@ -2,7 +2,6 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
-const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
   entry: ['./index.js'],
@@ -45,7 +44,7 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader?importLoaders=4',
+            'css-loader?importLoaders=3',
             {
               loader: 'postcss-loader',
               options: {
@@ -64,13 +63,6 @@ module.exports = {
               },
             },
             'sass-loader?sourceMap',
-            {
-              loader: 'postcss-loader',
-              options: {
-                parser: 'postcss-scss',
-                plugins: () => [postcssNormalize()],
-              },
-            },
           ],
         }),
       },
