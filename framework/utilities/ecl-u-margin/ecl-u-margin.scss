@@ -14,7 +14,7 @@
     l = left
 */
 
-/* stylelint-disable */
+/* stylelint-disable max-nesting-depth */
 @each $breakpoint in map-keys($ecl-grid-breakpoints) {
   @include ecl-media-breakpoint-up($breakpoint) {
     $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
@@ -23,9 +23,7 @@
       .ecl-u-ma#{$infix}-#{$key} {
         margin: $value;
       }
-      .ecl-test#{$infix} {
-        background: #f00 !important;
-      }
+
       .ecl-u-mh#{$infix}-#{$key} {
         margin-left: $value;
         margin-right: $value;
