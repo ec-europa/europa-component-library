@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.22.0 (2018-01-31)
+
+#### :memo: Documentation
+
+* [#554](https://github.com/ec-europa/europa-component-library/pull/554) fix(typography): change documentation text - INNO-865. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### :house: Internal
+
+* `presets`
+  * [#553](https://github.com/ec-europa/europa-component-library/pull/553) chore(sass-compilation): allow compilation with webpack - INNO-904. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 2
+
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 0.21.0 (2018-01-25)
 
 #### :rocket: New Feature
