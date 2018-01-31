@@ -3190,7 +3190,8 @@
   <span class="hljs-attribute">display</span>: inline-flex;
 
   &amp;::before {
-    <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span> url(<span class="hljs-string">'../images/radio-unchecked.svg'</span>) no-repeat;
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span> url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/radio-unchecked.svg'</span>)
+      no-repeat;
     <span class="hljs-attribute">border</span>: <span class="hljs-number">3px</span> solid transparent;
     <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
     <span class="hljs-attribute">content</span>: <span class="hljs-string">''</span>;
@@ -3207,7 +3208,7 @@
 }
 
 <span class="hljs-selector-class">.ecl-radio__input</span>:checked + <span class="hljs-selector-class">.ecl-radio__label</span>::before {
-  <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/radio-checked--blue.svg'</span>);
+  <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/radio-checked--blue.svg'</span>);
 }
 
 <span class="hljs-selector-class">.ecl-radio__input</span>:focus + <span class="hljs-selector-class">.ecl-radio__label</span>::before {
@@ -3229,7 +3230,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">998 Bytes</span>
+                    <span class="Meta-value">1 KB</span>
                 </li>
             </ul>
         </div>

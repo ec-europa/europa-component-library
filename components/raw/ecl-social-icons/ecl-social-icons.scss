@@ -6,7 +6,7 @@
 // Brings in the long list for $ecl-social-icons.
 @import './icons-list';
 
-$img-path: '../images/social/';
+$img-path: $ecl-assets-path + 'images/social/';
 
 // Social icons image.
 @mixin generate-icon($selector, $img-path, $image, $img-hover, $extra: null, $extra_hover: null) {

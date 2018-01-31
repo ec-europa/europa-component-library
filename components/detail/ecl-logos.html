@@ -3625,7 +3625,7 @@ parameter.</p>
  */</span>
 
 %logo {
-  <span class="hljs-attribute">background</span>: url(<span class="hljs-string">'../images/logo.svg'</span>) no-repeat;
+  <span class="hljs-attribute">background</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/logo.svg'</span>) no-repeat;
   <span class="hljs-attribute">display</span>: block;
   <span class="hljs-attribute">height</span>: <span class="hljs-number">72px</span>;
   <span class="hljs-attribute">width</span>: <span class="hljs-number">140px</span>;
@@ -3671,7 +3671,7 @@ parameter.</p>
 
 <span class="hljs-comment">// Sets language-specific background image on .ecl-logo--logotype element nested</span>
 <span class="hljs-comment">// in {{modifier_class}} modifier.</span>
-@<span class="hljs-keyword">include</span> logo-background-languages(<span class="hljs-string">'../images/logo/logo--'</span>, <span class="hljs-string">'.svg'</span>);
+@<span class="hljs-keyword">include</span> logo-background-languages(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/logo/logo--'</span>, <span class="hljs-string">'.svg'</span>);
 
 <span class="hljs-selector-class">.ecl-logo--logotype</span> {
   <span class="hljs-attribute">width</span>: <span class="hljs-number">190px</span>;
@@ -3683,7 +3683,7 @@ parameter.</p>
 
 <span class="hljs-comment">// Sets language-specific background image on .ecl-logo--logotypebelow element nested</span>
 <span class="hljs-comment">// in {{modifier_class}} modifier.</span>
-@<span class="hljs-keyword">include</span> logo-background-languages(<span class="hljs-string">'../images/logo/logotypebelow--'</span>, <span class="hljs-string">'.svg'</span>, <span class="hljs-string">'ecl-logo--logotypebelow'</span>);
+@<span class="hljs-keyword">include</span> logo-background-languages(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/logo/logotypebelow--'</span>, <span class="hljs-string">'.svg'</span>, <span class="hljs-string">'ecl-logo--logotypebelow'</span>);
 
 <span class="hljs-selector-class">.ecl-logo--logotypebelow</span> {
   <span class="hljs-attribute">height</span>: <span class="hljs-number">72px</span>;

@@ -3307,10 +3307,10 @@ options and you have limited space to display the options.</p>
 <span class="hljs-comment">// Select list arrow styling.</span>
 @<span class="hljs-keyword">mixin</span> ecl-select-list-arrow(<span class="hljs-variable">$background-color</span>, <span class="hljs-variable">$arrow-grey</span>:false) {
   @<span class="hljs-keyword">if</span> (<span class="hljs-variable">$arrow-grey</span>) {
-    <span class="hljs-attribute">background</span>: url(<span class="hljs-string">'../images/arrow-down.svg'</span>),
+    <span class="hljs-attribute">background</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/arrow-down.svg'</span>),
       linear-gradient(to bottom, <span class="hljs-variable">$background-color</span>, <span class="hljs-variable">$background-color</span>);
   } @<span class="hljs-keyword">else</span> {
-    <span class="hljs-attribute">background</span>: url(<span class="hljs-string">'../images/arrow-down--white.svg'</span>),
+    <span class="hljs-attribute">background</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/arrow-down--white.svg'</span>),
       linear-gradient(to bottom, <span class="hljs-variable">$background-color</span>, <span class="hljs-variable">$background-color</span>);
   }
 
@@ -3338,7 +3338,7 @@ options and you have limited space to display the options.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">787 Bytes</span>
+                    <span class="Meta-value">819 Bytes</span>
                 </li>
             </ul>
         </div>

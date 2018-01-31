@@ -3207,8 +3207,8 @@ the user and are likely to be ignored</li>
  */</span>
 
 <span class="hljs-selector-class">.ecl-message</span> {
-  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/messages-info.svg'</span>) no-repeat <span class="hljs-number">1.2rem</span>
-    <span class="hljs-number">1.2rem</span>;
+  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/messages-info.svg'</span>)
+    no-repeat <span class="hljs-number">1.2rem</span> <span class="hljs-number">1.2rem</span>;
   <span class="hljs-attribute">border</span>: <span class="hljs-number">2px</span> solid map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-75'</span>);
   <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
   <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
@@ -3219,22 +3219,22 @@ the user and are likely to be ignored</li>
   <span class="hljs-attribute">position</span>: relative;
 
   &amp;--success {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/messages-success.svg'</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/messages-success.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-success</span>;
   }
 
   &amp;--warning {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/messages-warning.svg'</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/messages-warning.svg'</span>);
     <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
   }
 
   &amp;--error {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/messages-error.svg'</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/messages-error.svg'</span>);
     <span class="hljs-attribute">border-color</span>: <span class="hljs-variable">$ecl-color-error</span>;
   }
 
   &amp;--live {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/live_streaming.svg'</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/live_streaming.svg'</span>);
     <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'yellow-110'</span>);
   }
 }
@@ -3250,7 +3250,8 @@ the user and are likely to be ignored</li>
 }
 
 <span class="hljs-selector-class">.ecl-message__dismiss</span> {
-  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-string">'../images/close.svg'</span>) no-repeat center center;
+  <span class="hljs-attribute">background</span>: transparent url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/close.svg'</span>) no-repeat
+    center center;
   <span class="hljs-attribute">border-width</span>: <span class="hljs-number">0</span>;
   <span class="hljs-attribute">color</span>: transparent;
   <span class="hljs-attribute">display</span>: block;
@@ -3264,7 +3265,7 @@ the user and are likely to be ignored</li>
   <span class="hljs-attribute">top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
 
   &amp;:hover {
-    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'../images/close_hover.svg'</span>);
+    <span class="hljs-attribute">background-image</span>: url(<span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/close_hover.svg'</span>);
   }
 }
 
@@ -3307,7 +3308,7 @@ the user and are likely to be ignored</li>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.1 KB</span>
+                    <span class="Meta-value">2.2 KB</span>
                 </li>
             </ul>
         </div>

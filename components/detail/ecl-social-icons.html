@@ -3931,7 +3931,7 @@ formatting.</p>
 <span class="hljs-comment">// Brings in the long list for $ecl-social-icons.</span>
 @<span class="hljs-keyword">import</span> <span class="hljs-string">'./icons-list'</span>;
 
-<span class="hljs-variable">$img-path</span>: <span class="hljs-string">'../images/social/'</span>;
+<span class="hljs-variable">$img-path</span>: <span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/social/'</span>;
 
 <span class="hljs-comment">// Social icons image.</span>
 @<span class="hljs-keyword">mixin</span> generate-icon(<span class="hljs-variable">$selector</span>, <span class="hljs-variable">$img-path</span>, <span class="hljs-variable">$image</span>, <span class="hljs-variable">$img-hover</span>, <span class="hljs-variable">$extra</span>: null, <span class="hljs-variable">$extra_hover</span>: null) {
