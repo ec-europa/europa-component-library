@@ -14,63 +14,72 @@
     l = left
 */
 
-@each $key, $value in $ecl-spacing {
-  .ecl-u-ma-#{$key} {
-    margin: $value;
+/* stylelint-disable */
+@each $breakpoint in map-keys($ecl-grid-breakpoints) {
+  @include ecl-media-breakpoint-up($breakpoint) {
+    $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+    @each $key, $value in $ecl-spacing {
+      .ecl-u-ma#{$infix}-#{$key} {
+        margin: $value;
+      }
+      .ecl-test#{$infix} {
+        background: #f00 !important;
+      }
+      .ecl-u-mh#{$infix}-#{$key} {
+        margin-left: $value;
+        margin-right: $value;
+      }
+
+      .ecl-u-mv#{$infix}-#{$key} {
+        margin-bottom: $value;
+        margin-top: $value;
+      }
+
+      .ecl-u-mt#{$infix}-#{$key} {
+        margin-top: $value;
+      }
+
+      .ecl-u-mr#{$infix}-#{$key} {
+        margin-right: $value;
+      }
+
+      .ecl-u-mb#{$infix}-#{$key} {
+        margin-bottom: $value;
+      }
+
+      .ecl-u-ml#{$infix}-#{$key} {
+        margin-left: $value;
+      }
+    }
+
+    /*
+      ECL Margin auto
+      ===============
+      Base:
+        m = margin
+      Modifiers:
+        a = all
+        h = horizontal
+        r = right
+        l = left
+    */
+
+    .ecl-u-ma#{$infix}-auto {
+      margin: auto;
+    }
+
+    .ecl-u-mh#{$infix}-auto {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ecl-u-mr#{$infix}-auto {
+      margin-right: auto;
+    }
+
+    .ecl-u-ml#{$infix}-auto {
+      margin-left: auto;
+    }
   }
-
-  .ecl-u-mh-#{$key} {
-    margin-left: $value;
-    margin-right: $value;
-  }
-
-  .ecl-u-mv-#{$key} {
-    margin-bottom: $value;
-    margin-top: $value;
-  }
-
-  .ecl-u-mt-#{$key} {
-    margin-top: $value;
-  }
-
-  .ecl-u-mr-#{$key} {
-    margin-right: $value;
-  }
-
-  .ecl-u-mb-#{$key} {
-    margin-bottom: $value;
-  }
-
-  .ecl-u-ml-#{$key} {
-    margin-left: $value;
-  }
-}
-
-/*
-  ECL Margin auto
-  ===============
-  Base:
-    m = margin
-  Modifiers:
-    a = all
-    h = horizontal
-    r = right
-    l = left
-*/
-
-.ecl-u-ma-auto {
-  margin: auto;
-}
-
-.ecl-u-mh-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ecl-u-mr-auto {
-  margin-right: auto;
-}
-
-.ecl-u-ml-auto {
-  margin-left: auto;
 }

@@ -11,4 +11,6 @@ Use the following classes to quickly set a margin:
 * **ecl-u-ma-xxs**: Extra extra small margin
 
 You can also set a specific margin (top, right bottom, left, horizontal,
-vertical). See examples for more information.
+vertical), and/or a specific breakpoint.
+
+See examples for more information.
