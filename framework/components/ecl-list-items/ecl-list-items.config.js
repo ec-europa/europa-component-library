@@ -17,8 +17,8 @@ module.exports = {
     {
       name: 'default',
       label: 'Default list item',
-      href: '#',
       context: {
+        href: '#list-item-1',
         metas: ['Service department', 'PMO'],
         title: 'Administration and Payment of Individual Entitlements',
       },
@@ -33,7 +33,7 @@ module.exports = {
           day: '07',
           month: 'Sep',
         },
-        href: '#',
+        href: '#list-item-2',
         title:
           "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
         detail:
@@ -46,7 +46,7 @@ module.exports = {
       context: {
         metas: ['Director-General'],
         title: 'John Doe',
-        href: '#',
+        href: '#list-item-3',
         primary_image: {
           src: '../../assets/demo_images/default_profile_image.png',
           alt: 'Director-General John Doe',
@@ -59,7 +59,7 @@ module.exports = {
       context: {
         variant: 'highlight',
         title: 'State of European Union 2017',
-        href: '#',
+        href: '#list-item-4',
         primary_image: {
           src: '../../assets/demo_images/nature-demo-1.jpg',
           alt: 'Highlighted image',
