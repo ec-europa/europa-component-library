@@ -22,6 +22,10 @@ module.exports = {
           src: '../../assets/demo_images/technics-demo-1.jpg',
           alt: 'Technic picture',
         },
+        link: {
+          href: '#',
+          label: 'See more',
+        },
         metas: ['announcement', '21 December 2016'],
         title: 'Energy Union tour',
       },
