@@ -3245,7 +3245,10 @@ instead</li>
 
   &amp;:hover,
   &amp;:focus {
-    <span class="hljs-attribute">color</span>: <span class="hljs-variable">$ecl-color-shade</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;
+  }
+  &amp;:visited {
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'purple-100'</span>);
   }
 }
 
@@ -3276,7 +3279,7 @@ instead</li>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">326 Bytes</span>
+                    <span class="Meta-value">379 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -3317,8 +3320,9 @@ instead</li>
   <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 
   &amp;:hover,
-  &amp;:focus {
-    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-25'</span>);
+  &amp;:focus,
+  &amp;:visited {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
   }
 }
 
@@ -3357,7 +3361,7 @@ instead</li>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">666 Bytes</span>
+                    <span class="Meta-value">652 Bytes</span>
                 </li>
             </ul>
         </div>
