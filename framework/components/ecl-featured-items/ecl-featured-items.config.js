@@ -22,6 +22,10 @@ module.exports = {
           src: '../../assets/demo_images/technics-demo-1.jpg',
           alt: 'Technic picture',
         },
+        link: {
+          href: '#featured-item-1',
+          label: 'See more',
+        },
         metas: ['announcement', '21 December 2016'],
         title: 'Energy Union tour',
       },
@@ -38,7 +42,7 @@ module.exports = {
         metas: ['announcement', '21 December 2016'],
         title: 'Energy Union tour',
         link: {
-          href: '#',
+          href: '#featured-item-2',
           label: 'See more',
         },
       },
