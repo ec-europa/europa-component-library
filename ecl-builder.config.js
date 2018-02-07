@@ -16,6 +16,21 @@ module.exports = {
         moduleName: 'ECL',
       },
     },
+    {
+      entry: path.resolve(
+        __dirname,
+        'packages/presets/ecl-preset-corporate/index.js'
+      ),
+      dest: path.resolve(
+        __dirname,
+        outputFolder,
+        'scripts/europa-corporate.js'
+      ),
+      options: {
+        sourceMap: isProd ? false : 'inline',
+        moduleName: 'ECL',
+      },
+    },
   ],
   styles: [
     {
@@ -24,6 +39,40 @@ module.exports = {
         'packages/presets/ecl-preset-full/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
+      options: {
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
+    {
+      entry: path.resolve(
+        __dirname,
+        'packages/presets/ecl-preset-base/index.scss'
+      ),
+      dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
+      options: {
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
+    {
+      entry: path.resolve(
+        __dirname,
+        'packages/presets/ecl-preset-editor/index.scss'
+      ),
+      dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
+      options: {
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
+    {
+      entry: path.resolve(
+        __dirname,
+        'packages/presets/ecl-preset-corporate/index.scss'
+      ),
+      dest: path.resolve(
+        __dirname,
+        outputFolder,
+        'styles/europa-corporate.css'
+      ),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
