@@ -29,7 +29,7 @@
 
 {# Print result #}
 
-<nav class="{{ _css_class }}" {{ _extra_attributes }}>
+<nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <h2 class="ecl-u-sr-only">{{ title|default('Navigation') }}</h2>
   <ul class="ecl-navigation-list ecl-navigation-list--{{ variant|default('default') }}">
     {% for link in links %}

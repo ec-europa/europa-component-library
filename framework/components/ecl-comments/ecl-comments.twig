@@ -33,7 +33,7 @@
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   {% if image is defined %}
   <div class="ecl-comment__image-wrapper">
     <img class="ecl-comment__image" src="{{ image.src }}" alt="{{ image.alt }}">

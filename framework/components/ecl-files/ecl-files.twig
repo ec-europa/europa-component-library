@@ -76,7 +76,7 @@
   {% if variant == "translation" %}
 
 <!-- Translations -->
-<section class="{{ _css_class }}"{{ _extra_attributes }}>
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-file__body">
     <div class="ecl-row">
       <div class=" ecl-col ecl-col-md-8">
@@ -140,7 +140,7 @@
   {% elseif variant == "link" %}
 
 <!-- Links -->
-<section class="{{ _css_class }}"{{ _extra_attributes }}>
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if links is defined %}
     {% for link in links %}
       <a
@@ -159,7 +159,7 @@
   {% elseif variant == "image" %}
 
 <!-- Images -->
-<section class="{{ _css_class }}"{{ _extra_attributes }}>
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <img class="ecl-file__image" src="{{ src }}" alt="{{ alt }}">
   <div class="ecl-file__caption">{{ caption }}</div>
 </section>
@@ -167,7 +167,7 @@
   {% elseif variant == "video" %}
 
 <!-- Videos -->
-<section class="{{ _css_class }}"{{ _extra_attributes }}>
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if src is defined %}
     {% if is_iframe is defined and is_iframe %}
   <div {% if ratio is defined %} class="ecl-u-ratio-{{ ratio }}" {% endif %}>
@@ -187,7 +187,7 @@
 {% else %}
 
 <!-- Default -->
-<section class="{{ _css_class }}"{{ _extra_attributes }}>
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-file__body">
     <div class="ecl-row">
       <div class=" ecl-col ecl-col-md-8">

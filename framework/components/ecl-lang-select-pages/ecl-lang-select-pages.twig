@@ -34,7 +34,7 @@
   {% endfor %}
 {% endif %}
 
-<section class="{{ _css_class }}" {{ _extra_attributes }}>
+<section class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <span class="ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"></span>
   <span class="ecl-lang-select-page__unavailable">{{ _unavailable }}</span>
   <select class="ecl-lang-select-page__dropdown" aria-label="{{ _dropdown_label }}">

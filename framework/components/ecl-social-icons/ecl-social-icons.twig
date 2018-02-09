@@ -52,5 +52,5 @@
   extra_attributes: _extra_attributes,
 } %}
 {% else %}
-<span class="{{ _css_class }}" {{ _extra_attributes }}>{{ label }}</span>
+<span class="{{ _css_class }}" {{ _extra_attributes|raw }}>{{ label }}</span>
 {% endif %}

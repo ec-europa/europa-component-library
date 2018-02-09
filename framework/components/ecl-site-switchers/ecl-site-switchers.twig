@@ -33,7 +33,7 @@
 {% endif %}
 
 {# Print result #}
-<div class="{{ _css_class }}"{{ _extra_attributes }}>
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <ul class="ecl-site-switcher__list ecl-container">
       <li class="ecl-site-switcher__option{{ political.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}"><a class="ecl-link ecl-site-switcher__link" href="{{ political.href }}">{{ political.label }}</a></li>
       <li class="ecl-site-switcher__option{{ info.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}"><a class="ecl-link ecl-site-switcher__link" href="{{ info.href }}">{{ info.label }}</a></li>
