@@ -38,7 +38,7 @@
 
 <picture
   {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
-  {{ _extra_attributes }}>
+  {{ _extra_attributes|raw }}>
 
   {% if srcs.xl is defined and srcs.xl is not empty %}
   <source media="(min-width: 1200px)" srcset="{{ srcs.xl }}">
@@ -69,6 +69,6 @@
   {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
   alt="{{ alt }}"
   src="{{ _src }}"
-  {{ _extra_attributes }} />
+  {{ _extra_attributes|raw }} />
 
 {% endif %}

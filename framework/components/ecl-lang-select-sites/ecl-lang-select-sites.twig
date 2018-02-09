@@ -24,7 +24,7 @@
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <a href="{{ _link }}" class="ecl-lang-select-sites__link">
     <span class="ecl-lang-select-sites__label">{{ _language }}</span>
     <span class="ecl-lang-select-sites__code">

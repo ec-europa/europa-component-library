@@ -98,7 +98,7 @@ Usage:
 {% set _heading_attributes = _heading_attributes ~ 'id="' ~ _heading_id ~ '"' %}
 
 {# Print result #}
-<section class="{{ _css_class }}" {{ _extra_attributes }}>
+<section class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <h3 class="ecl-headings ecl-headings--h3 ecl-u-sr-only" {{ _heading_attributes }} >{{ _heading_title }}</h3>
   <div class="ecl-carousel__list-wrapper">
     <ul class="ecl-carousel__list ecl-list--unstyled">

@@ -15,6 +15,6 @@
   {% endfor %}
 {% endif %}
 
-<fieldset class="{{ _css_class }}"{{ _extra_attributes }}>
+<fieldset class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% block fieldset content %}
 </fieldset>
