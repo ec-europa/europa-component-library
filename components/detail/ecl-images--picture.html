@@ -3110,7 +3110,7 @@ size)</li>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">picture</span>
   </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _css_class is not empty %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">
-  </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  </span></span><span class="hljs-template-variable">{{ _extra_attributes|<span class="hljs-keyword">raw</span> }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
 
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> srcs.xl is defined and srcs.xl is not empty %}</span><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">source</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"(min-width: 1200px)"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ srcs.xl }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
@@ -3141,7 +3141,7 @@ size)</li>
   </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _css_class is not empty %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">
   <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
   <span class="hljs-attr">src</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _src }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-  </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag"> /&gt;</span>
+  </span></span><span class="hljs-template-variable">{{ _extra_attributes|<span class="hljs-keyword">raw</span> }}</span><span class="xml"><span class="hljs-tag"> /&gt;</span>
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"></span></pre>
     </code>

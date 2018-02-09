@@ -3114,7 +3114,7 @@ options and you have limited space to display the options.</p>
   <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
   <span class="hljs-attr">id</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ id }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
   <span class="hljs-attr">name</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-  </span></span><span class="hljs-template-variable">{{ _extra_attributes }}</span><span class="xml"><span class="hljs-tag">
+  </span></span><span class="hljs-template-variable">{{ _extra_attributes|<span class="hljs-keyword">raw</span> }}</span><span class="xml"><span class="hljs-tag">
 &gt;</span>
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> options %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> option in options %}</span><span class="xml">
