@@ -21,7 +21,7 @@
 {% endif %}
 
 {% spaceless %}
-<legend class="{{ _css_class }}"{{ _extra_attributes }}>
+<legend class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {%- block legend content -%}
 </legend>
 {% endspaceless %}

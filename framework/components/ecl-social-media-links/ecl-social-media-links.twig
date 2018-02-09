@@ -48,7 +48,7 @@
 
 {# Print result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   {% block text_block %}
   {% if has_text == true %}
   <p class="ecl-paragraph">{{ _text }}</p>

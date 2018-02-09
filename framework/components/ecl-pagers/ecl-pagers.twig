@@ -42,7 +42,7 @@
 {# Print the result  #}
 
 <nav class="ecl-pager__wrapper" aria-label="pagination">
-  <ul class="{{ _css_class }}" {{ _extra_attributes }}>
+  <ul class="{{ _css_class }}" {{ _extra_attributes|raw }}>
     {% if current_page > 1 %}
     <li class="ecl-pager__item ecl-pager__item--previous">
       <a class="ecl-pager__link" title="{{ title_previous }}" href="{{ fragment_url }}={{ current_page - 1 }}">{{ label_previous }}</a>

@@ -46,7 +46,7 @@
   class="{{ _css_class }}"
   id="{{ id }}"
   name="{{ name }}"
-  {{ _extra_attributes }}
+  {{ _extra_attributes|raw }}
 >
 {% block options %}
   {% for option in options %}

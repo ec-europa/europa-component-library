@@ -31,4 +31,4 @@
 {% endif %}
 
 {# Print result #}
-<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes }}>{% block label _label %}</a>
+<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>{% block label _label %}</a>

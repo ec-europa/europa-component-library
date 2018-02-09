@@ -29,7 +29,7 @@
 
 {# Print result #}
 
-<ul class="{{ _css_class }}" {{ _extra_attributes }}>
+<ul class="{{ _css_class }}" {{ _extra_attributes|raw }}>
 
 {% for item in items %}
 
