@@ -49,5 +49,5 @@
 {% if _type == 'link' %}
   <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes }}>{% block link_label_block _label %}</a>
 {% else %}
-  <button class="{{ _css_class }}"{{ _extra_attributes }}>{% block button_label_block _label %}</button>
+  <button class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block button_label_block _label %}</button>
 {% endif %}
