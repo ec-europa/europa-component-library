@@ -3,7 +3,7 @@ describe('filters', () => {
     // Set viewport size
     browser.setViewportSize({
       width: 1400,
-      height: 600,
+      height: 800,
     });
 
     browser.url(`ecl-filters.html`);
