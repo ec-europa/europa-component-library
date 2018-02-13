@@ -1,40 +1,3 @@
-const data = {
-  unavailable: 'français',
-  current: 'Nederlands',
-  options: [
-    {
-      href: '/en',
-      hreflang: 'en',
-      label: 'English',
-      lang: 'en',
-    },
-    {
-      href: '/hr',
-      hreflang: 'hr',
-      label: 'hrvatski',
-      lang: 'hr',
-    },
-    {
-      href: '/it',
-      hreflang: 'it',
-      label: 'italiano',
-      lang: 'it',
-    },
-    {
-      href: '/lv',
-      hreflang: 'lv',
-      label: 'latviesu',
-      lang: 'lv',
-    },
-    {
-      href: '/hu',
-      hreflang: 'hu',
-      label: 'magyar',
-      lang: 'hu',
-    },
-  ],
-};
-
 module.exports = {
   title: 'Language select (Page)',
   label: 'Language select (Page)',
@@ -54,15 +17,89 @@ module.exports = {
       name: 'default',
       title: 'Language select (Page) - Default',
       label: 'Default',
-      context: data,
+      context: {
+        unavailable: 'français',
+        current: 'Nederlands',
+        options: [
+          {
+            href: '/en',
+            hreflang: 'en',
+            label: 'English',
+            lang: 'en',
+          },
+          {
+            href: '/hr',
+            hreflang: 'hr',
+            label: 'hrvatski',
+            lang: 'hr',
+          },
+          {
+            href: '/it',
+            hreflang: 'it',
+            label: 'italiano',
+            lang: 'it',
+          },
+          {
+            href: '/lv',
+            hreflang: 'lv',
+            label: 'latviesu',
+            lang: 'lv',
+          },
+          {
+            href: '/hu',
+            hreflang: 'hu',
+            label: 'magyar',
+            lang: 'hu',
+          },
+        ],
+      },
     },
     {
       name: 'primary',
       title: 'Language select (Page) - Primary',
       label: 'Primary',
-      context: Object.assign({}, data, {
+      context: {
         theme: 'primary',
-      }),
+        unavailable: 'français',
+        current: 'Nederlands',
+        options: [
+          {
+            href: '/en',
+            hreflang: 'en',
+            label: 'English',
+            lang: 'en',
+            variant: 'inverted',
+          },
+          {
+            href: '/hr',
+            hreflang: 'hr',
+            label: 'hrvatski',
+            lang: 'hr',
+            variant: 'inverted',
+          },
+          {
+            href: '/it',
+            hreflang: 'it',
+            label: 'italiano',
+            lang: 'it',
+            variant: 'inverted',
+          },
+          {
+            href: '/lv',
+            hreflang: 'lv',
+            label: 'latviesu',
+            lang: 'lv',
+            variant: 'inverted',
+          },
+          {
+            href: '/hu',
+            hreflang: 'hu',
+            label: 'magyar',
+            lang: 'hu',
+            variant: 'inverted',
+          },
+        ],
+      },
     },
   ],
 };

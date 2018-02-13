@@ -26,9 +26,12 @@
   color: #fff;
 
   &:hover,
-  &:focus,
-  &:visited {
+  &:focus {
     color: #fff;
+  }
+
+  &:visited {
+    color: map-get($ecl-colors, 'blue-25');
   }
 }
 

@@ -1,6 +1,6 @@
 {#
   Accepts:
-    - variant (string): can be empty,'external','standalone', 'inverted', 'all', 'more' (default: empty)
+    - variant (string): can be empty,'external','standalone', 'inverted', 'all', 'more', or an array (default: empty)
     - href (string): target of the link (default: '#')
     - label (string or block): label of the link (default: '')
     - extra_classes (string): additional classes to add to the component
@@ -17,7 +17,13 @@
 {# Internal logic - Process properties #}
 
 {% if variant is defined and variant is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ variant %}
+  {% if variant is iterable %}
+    {% for var in variant %}
+      {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ var %}
+    {% endfor %}
+  {% else %}
+    {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ variant %}
+  {% endif %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}

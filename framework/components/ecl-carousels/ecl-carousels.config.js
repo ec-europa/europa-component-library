@@ -18,14 +18,16 @@ module.exports = {
           alt: 'First item',
         },
         download: {
-          target: '#',
+          href: '#',
           title: 'Download',
           label: 'Download',
+          variant: ['inverted', 'standalone'],
         },
         share: {
-          target: '#',
+          href: '#',
           title: 'Share',
           label: 'Share',
+          variant: ['inverted', 'standalone'],
         },
         description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
           <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
@@ -37,14 +39,16 @@ module.exports = {
           alt: 'Second item',
         },
         download: {
-          target: '#',
+          href: '#',
           title: 'Download',
           label: 'Download',
+          variant: ['inverted', 'standalone'],
         },
         share: {
-          target: '#',
+          href: '#',
           title: 'Share',
           label: 'Share',
+          variant: ['inverted', 'standalone'],
         },
         description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
           <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,
@@ -56,14 +60,16 @@ module.exports = {
           alt: 'Third item',
         },
         download: {
-          target: '#',
+          href: '#',
           title: 'Download',
           label: 'Download',
+          variant: ['inverted', 'standalone'],
         },
         share: {
-          target: '#',
+          href: '#',
           title: 'Share',
           label: 'Share',
+          variant: ['inverted', 'standalone'],
         },
         description: `<p>Nulla consequat massa quis enim. Donec pede justo.</p>
           <p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. <a href="#" title="Cras dapibus">Cras dapibus</a>. Vivamus elementum semper nisi.</p>`,

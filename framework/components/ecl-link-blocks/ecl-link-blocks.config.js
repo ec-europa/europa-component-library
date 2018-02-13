@@ -19,9 +19,13 @@ module.exports = {
       label: 'Standalone block of links',
       context: {
         links: [
-          { href: '#', label: 'European Commission' },
-          { href: '#', label: 'Priorities' },
-          { href: '#', label: 'Jobs, Growth and Investment' },
+          { href: '#', label: 'European Commission', variant: 'standalone' },
+          { href: '#', label: 'Priorities', variant: 'standalone' },
+          {
+            href: '#',
+            label: 'Jobs, Growth and Investment',
+            variant: 'standalone',
+          },
         ],
       },
     },
@@ -31,9 +35,13 @@ module.exports = {
       context: {
         title: 'More information',
         links: [
-          { href: '#', label: 'European Commission' },
-          { href: '#', label: 'Priorities' },
-          { href: '#', label: 'Jobs, Growth and Investment' },
+          { href: '#', label: 'European Commission', variant: 'standalone' },
+          { href: '#', label: 'Priorities', variant: 'standalone' },
+          {
+            href: '#',
+            label: 'Jobs, Growth and Investment',
+            variant: 'standalone',
+          },
         ],
       },
     },

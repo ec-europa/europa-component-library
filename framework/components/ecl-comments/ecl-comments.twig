@@ -7,12 +7,12 @@
     - "date" (string): formatted date
     - "title" (object): comment's title
       - "href" (string): link to point to
-      - "text" (string): text to display
+      - "label" (string): text to display
     - "body" (string): comment's text
     - "operations" (object): object of operations (reply, edit, delete)
       - "delete|edit|reply" (object):
         - href (string)
-        - title (string)
+        - label (string)
         - visible (boolean)
 #}
 
@@ -44,7 +44,10 @@
       <span class="ecl-comment__author">{{ author }}</span> |
       <span class="ecl-comment__date">{{ date }}</span>
     </div>
-    <a class="ecl-link ecl-heading ecl-heading--h3 ecl-comment__title" href="{{ title.href }}">{{ title.text }}</a>
+    {% include '@ec-europa/ecl-links' with {
+      'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
+      }|merge(title)
+    %}
     <div class="ecl-comment__text">
       <p class="ecl-paragraph">{{ body }}</p>
     </div>
@@ -52,17 +55,26 @@
     <ul class="ecl-list ecl-list--inline ecl-comment__operations">
       {% if operations.reply is defined and operations.reply.visible %}
         <li>
-          <a class="ecl-link ecl-comment__reply" href="{{ operations.reply.href }}">{{ operations.reply.title }}</a>
+          {% include '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__reply',
+            }|merge(operations.reply)
+          %}
         </li>
       {% endif %}
       {% if operations.edit is defined and operations.edit.visible %}
         <li>
-          <a class="ecl-link ecl-comment__edit" href="{{ operations.edit.href }}">{{ operations.edit.title }}</a>
+          {% include '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__edit',
+            }|merge(operations.edit)
+          %}
         </li>
       {% endif %}
       {% if operations.delete is defined and operations.delete.visible %}
         <li>
-          <a class="ecl-link ecl-comment__delete" href="{{ operations.delete.href }}">{{ operations.delete.title }}</a>
+          {% include '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__delete',
+            }|merge(operations.delete)
+          %}
         </li>
       {% endif %}
     </ul>

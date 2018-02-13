@@ -21,10 +21,15 @@ module.exports = {
         page_header: {
           breadcrumb: [
             {
-              target: 'http://europa.eu/index_en.htm',
-              title: 'European Commission',
+              href: 'http://europa.eu/index_en.htm',
+              label: 'European Commission',
+              variant: ['inverted', 'standalone'],
             },
-            { target: '#', title: 'Example' },
+            {
+              href: '#',
+              label: 'Example',
+              variant: ['inverted', 'standalone'],
+            },
           ],
           identity: 'Digital single market',
           title: 'Business, Economy, Euro',
@@ -50,10 +55,15 @@ module.exports = {
         page_header: {
           breadcrumb: [
             {
-              target: 'http://europa.eu/index_en.htm',
-              title: 'European Commission',
+              href: 'http://europa.eu/index_en.htm',
+              label: 'European Commission',
+              variant: ['inverted', 'standalone'],
             },
-            { target: '#', title: 'Example' },
+            {
+              href: '#',
+              label: 'Example',
+              variant: ['inverted', 'standalone'],
+            },
           ],
           identity: 'Digital single market',
         },

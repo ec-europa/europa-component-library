@@ -46,7 +46,16 @@
   <ul class="ecl-lang-select-page__list">
     <li class="ecl-lang-select-page__option ecl-lang-select-page__option--is-selected">{{ current }}</li>
     {% for opt in options %}
-    <li class="ecl-lang-select-page__option"><a href="{{ opt.href }}" hreflang="{{ opt.hreflang }}" lang="{{ opt.lang }}" rel="alternate" class="ecl-link ecl-lang-select-page__link">{{ opt.label }}</a></li>
+    <li class="ecl-lang-select-page__option">
+      {% include '@ec-europa/ecl-links' with {
+        'extra_attributes': [
+          { 'name': 'hreflang', 'value': opt.hreflang },
+          { 'name': 'lang', 'value': opt.lang },
+          { 'name': 'rel', 'value': 'alternate' },
+        ]
+        }|merge(opt)
+      %}
+    </li>
     {% endfor %}
   </ul>
 </section>

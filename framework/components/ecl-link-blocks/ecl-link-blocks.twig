@@ -35,7 +35,10 @@
   <ul class="ecl-link-block__list">
     {% for link in links %}
     <li class="ecl-link-block__item">
-      <a class="ecl-link ecl-link--standalone ecl-link-block__link" href="{{ link.href }}">{{ link.label }}</a>
+      {% include '@ec-europa/ecl-links' with {
+        'extra_classes': 'ecl-link-block__link',
+        }|merge(link)
+      %}
     </li>
     {% endfor %}
   </ul>

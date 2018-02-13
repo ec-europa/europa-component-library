@@ -13,9 +13,9 @@ module.exports = {
             title: {
               classes: 'ecl-h4',
               link: {
-                classes: 'ecl-link ecl-footer__link',
-                target: '#',
-                title: 'Digital single market',
+                href: '#',
+                label: 'Digital single market',
+                variant: 'standalone',
               },
             },
           },
@@ -27,29 +27,27 @@ module.exports = {
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Facebook',
-                  title_wrapper_class:
+                  href: '#',
+                  label: 'Facebook',
+                  label_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Twitter',
-                  title_wrapper_class:
+                  href: '#',
+                  label: 'Twitter',
+                  label_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link ecl-link--external',
-                  title: 'Other social media',
+                  href: '#',
+                  label: 'Other social media',
+                  variant: 'external',
                 },
               },
             ],
@@ -60,17 +58,15 @@ module.exports = {
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Contact',
+                  href: '#',
+                  label: 'Contact',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Site map',
+                  href: '#',
+                  label: 'Site map',
                 },
               },
             ],
@@ -91,17 +87,17 @@ module.exports = {
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: 'https://ec.europa.eu/commission/index_en',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Commission and its priorities',
+                  href: 'https://ec.europa.eu/commission/index_en',
+                  label: 'Commission and its priorities',
+                  variant: 'inverted',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: 'https://ec.europa.eu/info/index_en',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Policies information and services',
+                  href: 'https://ec.europa.eu/info/index_en',
+                  label: 'Policies information and services',
+                  variant: 'inverted',
                 },
               },
             ],
@@ -117,29 +113,29 @@ module.exports = {
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Facebook',
-                  title_wrapper_class:
+                  href: '#',
+                  label: 'Facebook',
+                  label_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+                  variant: 'inverted',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Twitter',
-                  title_wrapper_class:
+                  href: '#',
+                  label: 'Twitter',
+                  label_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+                  variant: 'inverted',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link ecl-link--external',
-                  title: 'Other social media',
+                  href: '#',
+                  label: 'Other social media',
+                  variant: ['inverted', 'external'],
                 },
               },
             ],
@@ -154,17 +150,17 @@ module.exports = {
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link ecl-link--external',
-                  title: 'EU institutions',
+                  href: '#',
+                  label: 'EU institutions',
+                  variant: ['inverted', 'external'],
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: '#',
-                  classes: 'ecl-link ecl-footer__link ecl-link--external',
-                  title: 'European Union',
+                  href: '#',
+                  label: 'European Union',
+                  variant: ['inverted', 'external'],
                 },
               },
             ],
@@ -181,42 +177,42 @@ module.exports = {
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target:
+                  href:
                     'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: "About the Commission's new web presence",
+                  label: "About the Commission's new web presence",
+                  variant: 'inverted',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: 'http://ec.europa.eu/info/resources-partners_en',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Resources for partners',
+                  href: 'http://ec.europa.eu/info/resources-partners_en',
+                  label: 'Resources for partners',
+                  variant: 'inverted',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: 'http://ec.europa.eu/info/cookies_en',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Cookies',
+                  href: 'http://ec.europa.eu/info/cookies_en',
+                  label: 'Cookies',
+                  variant: 'inverted',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: 'http://ec.europa.eu/info/legal-notice_en',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Legal notice',
+                  href: 'http://ec.europa.eu/info/legal-notice_en',
+                  label: 'Legal notice',
+                  variant: 'inverted',
                 },
               },
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
-                  target: 'http://ec.europa.eu/info/contact_en',
-                  classes: 'ecl-link ecl-footer__link',
-                  title: 'Contact',
+                  href: 'http://ec.europa.eu/info/contact_en',
+                  label: 'Contact',
+                  variant: 'inverted',
                 },
               },
             ],

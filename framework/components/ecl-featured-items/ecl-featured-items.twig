@@ -54,7 +54,13 @@
       metas: metas,
     } %}
 
-    <a href="{{ link.href }}" class="ecl-link ecl-link--standalone ecl-featured-item__title">{{ title }}</a>
+    {% include '@ec-europa/ecl-links' with {
+      'href': link.href,
+      'label': title,
+      'extra_classes': 'ecl-featured-item__title',
+      'variant': 'standalone',
+      }
+    %}
 
     {% block body %}
 

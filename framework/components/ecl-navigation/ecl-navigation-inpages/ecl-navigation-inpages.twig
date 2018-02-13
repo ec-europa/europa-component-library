@@ -35,7 +35,10 @@
     <ul class="ecl-navigation-inpage__list" aria-hidden="true" aria-labelledby="ecl-navigation-inpage-trigger" id="ecl-navigation-inpage-list">
       {% for link in links %}
       <li class="ecl-navigation-inpage__item">
-        <a class="ecl-navigation-inpage__link ecl-link ecl-link--standalone" href="{{ link.href }}">{{ link.label }}</a>
+        {% include '@ec-europa/ecl-links' with {
+          'extra_classes': 'ecl-navigation-inpage__link',
+          }|merge(link)
+        %}
       </li>
       {% endfor %}
     </ul>
