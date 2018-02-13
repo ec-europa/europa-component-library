@@ -23,4 +23,4 @@
   {% endfor %}
 {% endif %}
 
-<p class="{{ _css_class }}"{{ _extra_attributes }}>{% block help_block content %}</p>
+<p class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block help_block content %}</p>

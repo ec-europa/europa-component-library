@@ -25,6 +25,6 @@
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}"{{ _extra_attributes }}>
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% include '@ec-europa/ecl-blockquotes' with { 'extra_classes': 'ecl-blockquote--small ecl-banner__quote' }|merge(quote) %}
 </div>

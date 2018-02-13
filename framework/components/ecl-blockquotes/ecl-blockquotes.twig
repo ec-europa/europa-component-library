@@ -23,7 +23,7 @@
   {% endfor %}
 {% endif %}
 
-<blockquote class="{{ _css_classes }}"{{ _extra_attributes }}>
+<blockquote class="{{ _css_classes }}"{{ _extra_attributes|raw }}>
   <p class="ecl-paragraph ecl-blockquote__body">{{ body|default("")|trim }}</p>
   {% if author is defined and author is not empty %}
   <footer class="ecl-blockquote__author">―&thinsp;<cite>{{ author }}</cite></footer>

@@ -26,7 +26,7 @@
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}" role="alert"{{ _extra_attributes }}>
+<div class="{{ _css_class }}" role="alert"{{ _extra_attributes|raw }}>
   <div class="ecl-feedback-message__title" role="heading">{{ title }}</div>
   <p class="ecl-feedback-message__body">{{ body }}</p>
 </div>

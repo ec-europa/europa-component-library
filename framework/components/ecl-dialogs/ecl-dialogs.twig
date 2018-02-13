@@ -98,7 +98,7 @@
 {% set _extra_attributes = _extra_attributes ~ ' ' ~ 'aria-hidden="' ~ _dialog_aria_hidden ~ '"' %}
 
 {# Print result #}
-<div class="{{ _css_class }}" {{ _extra_attributes }} role="dialog">
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }} role="dialog">
   <h3 id="{{ _dialog_title.id }}" class="ecl-heading ecl-heading--h3 {{ _dialog_title.classes }}">{{ _dialog_title.value }}</h3>
   {% if dialog_description is defined %}
     <p id="{{ _dialog_description.id }}" class="{{ _dialog_description.classes }}">{{ _dialog_description.value }}</p>

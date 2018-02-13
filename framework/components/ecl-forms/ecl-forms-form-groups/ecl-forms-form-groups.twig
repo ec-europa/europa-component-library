@@ -1,18 +1,11 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-form-group' %}
-{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if extra_class is defined %}
   {% set _css_class = _css_class ~ ' ' ~ extra_class %}
-{% endif %}
-
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
 {% endif %}
 
 <div class="ecl-form-group">

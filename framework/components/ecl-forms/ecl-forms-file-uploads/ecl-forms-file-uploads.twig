@@ -49,7 +49,7 @@
 
 {# Print the result  #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-file-upload__value" tabindex="0">{{ value }}</div>
   <label for="{{ id }}">
     <span class="ecl-file-upload__browse" role="button" aria-controls="{{ id }}" tabindex="0">{{ label_browse }}</span>

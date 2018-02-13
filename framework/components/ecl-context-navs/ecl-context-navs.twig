@@ -33,7 +33,7 @@
 
 {# Print the result  #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <span class="ecl-context-nav__label">{{ label }}</span>
   {% if items is defined and items is iterable %}
   <ul class="ecl-context-nav__list">
