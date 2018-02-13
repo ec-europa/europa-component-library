@@ -50,10 +50,12 @@ module.exports = {
         {
           href: '#',
           label: 'Trade',
+          variant: 'standalone',
         },
         {
           href: '#',
           label: ' European Anti-Fraud Office',
+          variant: 'standalone',
         },
       ],
     },
