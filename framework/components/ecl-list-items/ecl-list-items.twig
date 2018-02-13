@@ -50,7 +50,7 @@
 
 {# Print result #}
 
-<li class="{{ _css_class }}" {{ _extra_attributes }}>
+<li class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <a href="{{ href }}" class="ecl-link ecl-list-item__link">
     <div class="ecl-u-sr-only">{{ _screen_reader }}</div>
 

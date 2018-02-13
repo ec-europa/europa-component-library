@@ -40,7 +40,7 @@
 
 {# Print the result  #}
 
-<nav class="{{ _css_class }}" aria-label="{{ menu_aria_label }}"{{ _extra_attributes }}>
+<nav class="{{ _css_class }}" aria-label="{{ menu_aria_label }}"{{ _extra_attributes|raw }}>
   <div class="ecl-container">
     <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="false">
       <span class="ecl-navigation-menu__hamburger-box">

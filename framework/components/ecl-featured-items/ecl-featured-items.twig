@@ -43,7 +43,7 @@
 
 {# Print result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-featured-item__image">
     <img src="{{ image.src }}" alt="{{ image.alt }}" />
   </div>

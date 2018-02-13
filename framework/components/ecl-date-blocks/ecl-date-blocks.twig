@@ -37,7 +37,7 @@
 
 {# Print the result  #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-date-block__body">
     {% if week_day != '' %}
     <span class="ecl-date-block__week-day">{{ week_day }}</span>
