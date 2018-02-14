@@ -358,6 +358,73 @@
 {% include '@ec-europa/ecl-footers' with {
   footer_menus: [
     {
+      type: 'branded',
+      wrapper_class: 'ecl-footer__site-identity',
+      menus: [
+        {
+          title: {
+            classes: 'ecl-h4',
+            link: {
+              href: '#',
+              label: 'Digital single market',
+              variant: 'standalone',
+            },
+          },
+        },
+        {
+          label: 'Follow us:',
+          classes: 'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Facebook',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Twitter',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Other social media',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+        {
+          classes: 'ecl-footer__menu ecl-list--unstyled',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Contact',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Site map',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
       type: 'normal',
       wrapper_class: 'ecl-footer__site-corporate',
       menus: [
