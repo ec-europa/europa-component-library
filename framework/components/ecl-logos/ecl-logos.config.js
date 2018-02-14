@@ -3,6 +3,7 @@ const languages = require('./lang.json');
 const variants = languages.map(({ id, name }) => ({
   name,
   context: {
+    flavor: 'ec',
     global: {
       language: id,
     },

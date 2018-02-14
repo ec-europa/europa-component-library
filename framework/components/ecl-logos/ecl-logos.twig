@@ -12,10 +12,16 @@
   {% set _class = _class ~ " " ~ extra_class %}
 {% endif %}
 
-{% if to is defined %}
-<a href="{{ to }}" class="ecl-logo{{ _class }}" title="{{ title }}">
-  <span class="ecl-u-sr-only">{{ title }}</span>
-</a>
-{% else %}
-<span class="ecl-logo{{ _class }}" role="img" aria-label="{{ title }}"></span>
+{% if flavor is not defined %}
+  {% if to is defined %}
+  <a href="{{ to }}" class="ecl-logo{{ _class }}" title="{{ title }}">
+    <span class="ecl-u-sr-only">{{ title }}</span>
+  </a>
+  {% else %}
+  <span class="ecl-logo{{ _class }}" role="img" aria-label="{{ title }}"></span>
+  {% endif %}
+{% elseif flavor == "ec" %}
+  <span class="ecl-logo{{ _class }}">EC flavor: {{ title }}</span>
+{% elseif flavor == "eu" %}
+  <span class="ecl-logo{{ _class }}">EU flavor: {{ title }}</span>
 {% endif %}
