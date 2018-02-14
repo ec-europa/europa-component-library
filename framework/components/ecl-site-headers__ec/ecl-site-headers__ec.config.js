@@ -1,8 +1,8 @@
 const languages = require('../ecl-language-list/languages.json');
 
 module.exports = {
-  title: 'Site headers',
-  label: 'Site headers',
+  title: 'Site headers EC',
+  label: 'Site headers EC',
   status: 'ready',
   tags: ['organism'],
   context: {

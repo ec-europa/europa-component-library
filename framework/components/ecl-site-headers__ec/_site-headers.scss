@@ -3,10 +3,11 @@
  * @define site-header ; weak
  */
 
+ // Headers
+ @import '~@ec-europa/ecl-site-headers/site-headers-mixins';
+
 .ecl-site-header {
-  background-color: #fff;
-  margin: 0;
-  width: 100%;
+  @include ecl-site-header();
 }
 
 .ecl-site-header__banner {

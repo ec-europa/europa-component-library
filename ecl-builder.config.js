@@ -8,7 +8,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        'packages/presets/ecl-preset-full/index.js'
+        'packages/presets/ecl-preset-full__ec/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
@@ -36,7 +36,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        'packages/presets/ecl-preset-full/index.scss'
+        'packages/presets/ecl-preset-full__ec/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
@@ -123,7 +123,11 @@ module.exports = {
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(__dirname, 'framework/components/ecl-logos/images'),
+      from: path.resolve(__dirname, 'framework/components/ecl-logos__ec/images'),
+      to: path.resolve(__dirname, outputFolder, 'images'),
+    },
+    {
+      from: path.resolve(__dirname, 'framework/components/ecl-logos__eu/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
