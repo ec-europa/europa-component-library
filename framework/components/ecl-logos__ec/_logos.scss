@@ -2,30 +2,15 @@
  * EC logo
  */
 
+ // Headers
+ @import '~@ec-europa/ecl-logos/logos-mixins';
+
+
 %logo {
-  background: url($ecl-assets-path + 'images/logo.svg') no-repeat;
+  background: url($ecl-assets-path + 'images/logo__ec.svg') no-repeat;
   display: block;
   height: 72px;
   width: 140px;
-}
-
-// Language generator.
-@mixin logo-background-languages($file_path, $file_extension, $logo_class: ecl-logo--logotype) {
-  @each $item in $ecl-languages {
-    /* stylelint-disable max-nesting-depth */
-    .language-#{$item} {
-      .#{$logo_class} {
-        background-image: url('#{$file_path}#{$item}#{$file_extension}');
-      }
-
-      @media print {
-        .#{$logo_class}::before {
-          content: url('#{$file_path}#{$item}#{$file_extension}');
-        }
-      }
-    }
-    /* stylelint-enable */
-  }
 }
 
 /**

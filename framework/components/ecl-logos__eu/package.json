@@ -1,11 +1,16 @@
 {
-  "name": "@ec-europa/ecl-site-headers",
+  "name": "@ec-europa/ecl-logos__eu",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "0.0.1",
-  "description": "ECL Site headers",
-  "main": "_site-headers-mixins.scss",
-  "style": "_site-headers-mixins.scss",
+  "version": "0.8.2",
+  "description": "ECL Logos",
+  "main": "_logos.scss",
+  "style": "_logos.scss",
+  "dependencies": {
+    "@ec-europa/ecl-base": "^0.10.0",
+    "@ec-europa/ecl-u-screen-reader": "^0.5.1",
+    "@ec-europa/ecl-logos": "^0.8.2"
+  },
   "publishConfig": {
     "access": "public"
   },
