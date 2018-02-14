@@ -1,12 +1,12 @@
 /**
- * EC logo
+ * ECL logo
  */
 
+@import 'logos-mixins';
+
 %logo {
-  background: url($ecl-assets-path + 'images/logo.svg') no-repeat;
-  display: block;
-  height: 72px;
-  width: 140px;
+  @include logo-dimensions();
+  background: url($ecl-assets-path + 'images/ec/logo.svg') no-repeat;
 }
 
 // Language generator.
