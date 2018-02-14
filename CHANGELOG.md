@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.23.0 (2018-02-14)
+
+#### :rocket: New Feature
+
+* `presets`
+  * [#559](https://github.com/ec-europa/europa-component-library/pull/559) feat(preset): add corporate preset - INNO-917. ([@emeryro](https://github.com/emeryro))
+* Other
+  * [#556](https://github.com/ec-europa/europa-component-library/pull/556) feat(margin): add responsive utilities - INNO-911. ([@emeryro](https://github.com/emeryro))
+
+#### :boom: Breaking Change
+
+* [#563](https://github.com/ec-europa/europa-component-library/pull/563) refactor(links): use links with correct modifiers in twig - INNO-920. ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+* Other
+  * [#560](https://github.com/ec-europa/europa-component-library/pull/560) fix(site-headers): add a background color - INNO-923. ([@raduchiriac](https://github.com/raduchiriac))
+  * [#561](https://github.com/ec-europa/europa-component-library/pull/561) fix(ecl-components): add raw modifier - INNO-925. ([@raduchiriac](https://github.com/raduchiriac))
+  * [#557](https://github.com/ec-europa/europa-component-library/pull/557) fix(links): fix link colours - INNO-866. ([@raduchiriac](https://github.com/raduchiriac))
+* `presets`
+  * [#558](https://github.com/ec-europa/europa-component-library/pull/558) fix(legacy-grid): remove legacy from preset - INNO-919. ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+* Romain Emery ([emeryro](https://github.com/emeryro))
+
 ## 0.22.0 (2018-01-31)
 
 #### :memo: Documentation
