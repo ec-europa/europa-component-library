@@ -22,11 +22,16 @@ module.exports = {
       label: 'Header',
       context: {
         variant: 'header',
-        political: { href: '#', label: 'Commission and its priorities' },
+        political: {
+          href: '#',
+          label: 'Commission and its priorities',
+          variant: '',
+        },
         info: {
           href: '#',
           label: 'Policies, information and services',
           is_active: true,
+          variant: '',
         },
       },
     },
@@ -35,11 +40,16 @@ module.exports = {
       label: 'Footer',
       context: {
         variant: 'footer',
-        political: { href: '#', label: 'Commission and its priorities' },
+        political: {
+          href: '#',
+          label: 'Commission and its priorities',
+          variant: '',
+        },
         info: {
           href: '#',
           label: 'Policies, information and services',
           is_active: true,
+          variant: '',
         },
       },
     },

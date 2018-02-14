@@ -35,7 +35,10 @@
     {% for link in links %}
       {% set _active_class = link.is_active is defined and link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
       <li class="ecl-navigation-list__item">
-        <a class="ecl-navigation-list__link{{ _active_class }} ecl-link" href="{{ link.href }}">{{ link.label }}</a>
+        {% include '@ec-europa/ecl-links' with {
+          'extra_classes': 'ecl-navigation-list__link' ~ _active_class,
+          }|merge(link)
+        %}
       </li>
     {% endfor %}
   </ul>

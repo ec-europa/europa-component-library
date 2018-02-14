@@ -10,10 +10,13 @@ module.exports = {
     page_header: {
       breadcrumb: [
         {
-          target: 'http://europa.eu/index_en.htm',
-          title: 'European Commission',
+          href: 'http://europa.eu/index_en.htm',
+          label: 'European Commission',
         },
-        { target: '#', title: 'Example' },
+        {
+          href: '#',
+          label: 'Example',
+        },
       ],
       identity: 'Digital single market',
       title: 'Business, Economy, Euro',

@@ -21,7 +21,10 @@ module.exports = {
         links: [
           { href: '#', label: 'European Commission' },
           { href: '#', label: 'Priorities' },
-          { href: '#', label: 'Jobs, Growth and Investment' },
+          {
+            href: '#',
+            label: 'Jobs, Growth and Investment',
+          },
         ],
       },
     },
@@ -33,7 +36,10 @@ module.exports = {
         links: [
           { href: '#', label: 'European Commission' },
           { href: '#', label: 'Priorities' },
-          { href: '#', label: 'Jobs, Growth and Investment' },
+          {
+            href: '#',
+            label: 'Jobs, Growth and Investment',
+          },
         ],
       },
     },

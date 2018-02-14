@@ -13,24 +13,24 @@ module.exports = {
     date: '26 March 2015',
     title: {
       href: '#',
-      text: 'Nice article',
+      label: 'Nice article',
     },
     body:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem eius enim eos error esse fugiat incidunt iste laudantium nemo, numquam quam quasi repudiandae sapiente soluta sunt tempore ullam voluptatem.',
     operations: {
       delete: {
         href: '#',
-        title: 'Delete',
+        label: 'Delete',
         visible: true,
       },
       edit: {
         href: '#',
-        title: 'Edit',
+        label: 'Edit',
         visible: true,
       },
       reply: {
         href: '#',
-        title: 'Reply',
+        label: 'Reply',
         visible: true,
       },
     },

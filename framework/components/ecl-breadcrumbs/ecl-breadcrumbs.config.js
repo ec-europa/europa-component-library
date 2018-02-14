@@ -7,16 +7,16 @@ module.exports = {
   context: {
     segments: [
       {
-        target: '#',
-        title: 'European Commission',
+        href: '#',
+        label: 'European Commission',
       },
       {
-        target: '#',
-        title: 'Priorities',
+        href: '#',
+        label: 'Priorities',
       },
       {
-        target: '#',
-        title: 'Jobs, Growth and Investment',
+        href: '#',
+        label: 'Jobs, Growth and Investment',
       },
     ],
   },
