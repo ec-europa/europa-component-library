@@ -3185,18 +3185,20 @@ Usage:
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-information"</span> <span class="hljs-attr">data-image</span>=</span></span><span class="hljs-template-variable">{{ loop.index0 }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-download"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ carousel_image.download.target }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ carousel_image.download.title }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-               </span><span class="hljs-template-variable">{{ carousel_image.download.label }}</span><span class="xml">
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--download',
+            'extra_attributes': [ 'name': 'title', 'value': carousel_image.download.title ],
+            'variant': ['inverted', 'standalone'],
+            }|<span class="hljs-keyword">merge</span>(carousel_image.download)
+          %}</span><span class="xml">
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-share"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ carousel_image.share.target }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ carousel_image.share.title }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-               </span><span class="hljs-template-variable">{{ carousel_image.share.label }}</span><span class="xml">
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--share',
+            'extra_attributes': [ 'name': 'title', 'value': carousel_image.share.title ],
+            'variant': ['inverted', 'standalone'],
+            }|<span class="hljs-keyword">merge</span>(carousel_image.share)
+          %}</span><span class="xml">
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-description"</span>&gt;</span>
@@ -3230,12 +3232,12 @@ Usage:
         <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"First item"</span>
       },
       <span class="hljs-attr">"download"</span>: {
-        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Download"</span>,
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Download"</span>
       },
       <span class="hljs-attr">"share"</span>: {
-        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Share"</span>,
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Share"</span>
       },
@@ -3248,12 +3250,12 @@ Usage:
         <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Second item"</span>
       },
       <span class="hljs-attr">"download"</span>: {
-        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Download"</span>,
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Download"</span>
       },
       <span class="hljs-attr">"share"</span>: {
-        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Share"</span>,
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Share"</span>
       },
@@ -3266,14 +3268,22 @@ Usage:
         <span class="hljs-attr">"alt"</span>: <span class="hljs-string">"Third item"</span>
       },
       <span class="hljs-attr">"download"</span>: {
-        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Download"</span>,
-        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Download"</span>
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Download"</span>,
+        <span class="hljs-attr">"variant"</span>: [
+          <span class="hljs-string">"inverted"</span>,
+          <span class="hljs-string">"standalone"</span>
+        ]
       },
       <span class="hljs-attr">"share"</span>: {
-        <span class="hljs-attr">"target"</span>: <span class="hljs-string">"#"</span>,
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
         <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Share"</span>,
-        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Share"</span>
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Share"</span>,
+        <span class="hljs-attr">"variant"</span>: [
+          <span class="hljs-string">"inverted"</span>,
+          <span class="hljs-string">"standalone"</span>
+        ]
       },
       <span class="hljs-attr">"description"</span>: <span class="hljs-string">"&lt;p&gt;Nulla consequat massa quis enim. Donec pede justo.&lt;/p&gt;\n          &lt;p&gt;In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Integer tincidunt. &lt;a href=\"#\" title=\"Cras dapibus\"&gt;Cras dapibus&lt;/a&gt;. Vivamus elementum semper nisi.&lt;/p&gt;"</span>,
       <span class="hljs-attr">"copyright"</span>: <span class="hljs-string">"© Copyright 3"</span>
@@ -3309,18 +3319,32 @@ Usage:
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-information"</span> <span class="hljs-attr">data-image</span>=<span class="hljs-string">0</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-download"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"Download"</span>&gt;</span>
-               Download
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          
+
+
+
+
+
+
+                            
+  
+                          
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-carousel__meta-link ecl-icon ecl-icon--download"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span>&gt;</span>Download<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-share"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"Share"</span>&gt;</span>
-               Share
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          
+
+
+
+
+
+
+                            
+  
+                          
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-carousel__meta-link ecl-icon ecl-icon--share"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-description"</span>&gt;</span>
@@ -3334,18 +3358,32 @@ Usage:
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-information"</span> <span class="hljs-attr">data-image</span>=<span class="hljs-string">1</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-download"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"Download"</span>&gt;</span>
-               Download
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          
+
+
+
+
+
+
+                            
+  
+                          
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-carousel__meta-link ecl-icon ecl-icon--download"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span>&gt;</span>Download<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-share"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"Share"</span>&gt;</span>
-               Share
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          
+
+
+
+
+
+
+                            
+  
+                          
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-carousel__meta-link ecl-icon ecl-icon--share"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-description"</span>&gt;</span>
@@ -3359,18 +3397,32 @@ Usage:
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-information"</span> <span class="hljs-attr">data-image</span>=<span class="hljs-string">2</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-download"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--download"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"Download"</span>&gt;</span>
-               Download
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          
+
+
+
+
+
+
+                            
+  
+                          
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-carousel__meta-link ecl-icon ecl-icon--download"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span>&gt;</span>Download<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-item ecl-carousel__meta-share"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__meta-link ecl-link ecl-link--inverted ecl-icon ecl-icon--share"</span>
-             <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>
-             <span class="hljs-attr">title</span>=<span class="hljs-string">"Share"</span>&gt;</span>
-               Share
-         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          
+
+
+
+
+
+
+                            
+  
+                          
+
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-carousel__meta-link ecl-icon ecl-icon--share"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span> =<span class="hljs-string">":"</span> =<span class="hljs-string">""</span>&gt;</span>Share<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-carousel__image-description"</span>&gt;</span>

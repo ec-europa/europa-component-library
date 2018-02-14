@@ -3078,12 +3078,12 @@
     - "date" (string): formatted date
     - "title" (object): comment's title
       - "href" (string): link to point to
-      - "text" (string): text to display
+      - "label" (string): text to display
     - "body" (string): comment's text
     - "operations" (object): object of operations (reply, edit, delete)
       - "delete|edit|reply" (object):
         - href (string)
-        - title (string)
+        - label (string)
         - visible (boolean)
 #}</span><span class="xml">
 
@@ -3115,7 +3115,10 @@
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-comment__author"</span>&gt;</span></span><span class="hljs-template-variable">{{ author }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> |
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-comment__date"</span>&gt;</span></span><span class="hljs-template-variable">{{ <span class="hljs-name">date</span> }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-heading ecl-heading--h3 ecl-comment__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ title.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ title.text }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-links' with {
+      'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
+      }|<span class="hljs-keyword">merge</span>(title)
+    %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-comment__text"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span></span><span class="hljs-template-variable">{{ body }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3123,17 +3126,26 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-comment__operations"</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> operations.reply is defined and operations.reply.visible %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-comment__reply"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ operations.reply.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ operations.reply.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__reply',
+            }|<span class="hljs-keyword">merge</span>(operations.reply)
+          %}</span><span class="xml">
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> operations.edit is defined and operations.edit.visible %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-comment__edit"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ operations.edit.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ operations.edit.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__edit',
+            }|<span class="hljs-keyword">merge</span>(operations.edit)
+          %}</span><span class="xml">
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> operations.delete is defined and operations.delete.visible %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-comment__delete"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ operations.delete.href }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ operations.delete.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__delete',
+            }|<span class="hljs-keyword">merge</span>(operations.delete)
+          %}</span><span class="xml">
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
@@ -3157,23 +3169,23 @@
   <span class="hljs-attr">"date"</span>: <span class="hljs-string">"26 March 2015"</span>,
   <span class="hljs-attr">"title"</span>: {
     <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
-    <span class="hljs-attr">"text"</span>: <span class="hljs-string">"Nice article"</span>
+    <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Nice article"</span>
   },
   <span class="hljs-attr">"body"</span>: <span class="hljs-string">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem eius enim eos error esse fugiat incidunt iste laudantium nemo, numquam quam quasi repudiandae sapiente soluta sunt tempore ullam voluptatem."</span>,
   <span class="hljs-attr">"operations"</span>: {
     <span class="hljs-attr">"delete"</span>: {
       <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Delete"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Delete"</span>,
       <span class="hljs-attr">"visible"</span>: <span class="hljs-literal">true</span>
     },
     <span class="hljs-attr">"edit"</span>: {
       <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Edit"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Edit"</span>,
       <span class="hljs-attr">"visible"</span>: <span class="hljs-literal">true</span>
     },
     <span class="hljs-attr">"reply"</span>: {
       <span class="hljs-attr">"href"</span>: <span class="hljs-string">"#"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Reply"</span>,
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Reply"</span>,
       <span class="hljs-attr">"visible"</span>: <span class="hljs-literal">true</span>
     }
   }
@@ -3197,18 +3209,22 @@
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-comment__author"</span>&gt;</span>Martin (Not verified)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> |
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-comment__date"</span>&gt;</span>26 March 2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-heading ecl-heading--h3 ecl-comment__title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Nice article<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-comment__text"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem eius enim eos error esse fugiat incidunt iste laudantium nemo, numquam quam quasi repudiandae sapiente soluta sunt tempore ullam voluptatem.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-comment__operations"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+
         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-comment__reply"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Reply<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+
         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-comment__edit"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Edit<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+
         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-comment__delete"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
