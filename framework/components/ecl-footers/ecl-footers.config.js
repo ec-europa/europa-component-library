@@ -89,7 +89,6 @@ module.exports = {
                 link: {
                   href: 'https://ec.europa.eu/commission/index_en',
                   label: 'Commission and its priorities',
-                  variant: 'inverted',
                 },
               },
               {
@@ -97,7 +96,6 @@ module.exports = {
                 link: {
                   href: 'https://ec.europa.eu/info/index_en',
                   label: 'Policies information and services',
-                  variant: 'inverted',
                 },
               },
             ],
@@ -117,7 +115,6 @@ module.exports = {
                   label: 'Facebook',
                   label_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
-                  variant: 'inverted',
                 },
               },
               {
@@ -127,7 +124,6 @@ module.exports = {
                   label: 'Twitter',
                   label_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
-                  variant: 'inverted',
                 },
               },
               {
@@ -135,7 +131,7 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Other social media',
-                  variant: ['inverted', 'external'],
+                  variant: 'external',
                 },
               },
             ],
@@ -152,7 +148,7 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'EU institutions',
-                  variant: ['inverted', 'external'],
+                  variant: 'external',
                 },
               },
               {
@@ -160,7 +156,7 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Union',
-                  variant: ['inverted', 'external'],
+                  variant: 'external',
                 },
               },
             ],
@@ -180,7 +176,6 @@ module.exports = {
                   href:
                     'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
                   label: "About the Commission's new web presence",
-                  variant: 'inverted',
                 },
               },
               {
@@ -188,7 +183,6 @@ module.exports = {
                 link: {
                   href: 'http://ec.europa.eu/info/resources-partners_en',
                   label: 'Resources for partners',
-                  variant: 'inverted',
                 },
               },
               {
@@ -196,7 +190,6 @@ module.exports = {
                 link: {
                   href: 'http://ec.europa.eu/info/cookies_en',
                   label: 'Cookies',
-                  variant: 'inverted',
                 },
               },
               {
@@ -204,7 +197,6 @@ module.exports = {
                 link: {
                   href: 'http://ec.europa.eu/info/legal-notice_en',
                   label: 'Legal notice',
-                  variant: 'inverted',
                 },
               },
               {
@@ -212,7 +204,6 @@ module.exports = {
                 link: {
                   href: 'http://ec.europa.eu/info/contact_en',
                   label: 'Contact',
-                  variant: 'inverted',
                 },
               },
             ],

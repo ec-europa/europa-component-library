@@ -1,10 +1,6 @@
 const breadcrumbSegments = [
-  {
-    href: '#',
-    label: 'European Commission',
-    variant: ['inverted', 'standalone'],
-  },
-  { href: '#', label: 'Announcements', variant: ['inverted', 'standalone'] },
+  { href: '#', label: 'European Commission' },
+  { href: '#', label: 'Announcements' },
 ];
 
 module.exports = {

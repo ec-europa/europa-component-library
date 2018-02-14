@@ -94,19 +94,50 @@ items: [
             {% for menu_item in menu.items %}
             {% if menu_item.link.label_wrapper_class is defined %}
             <li class="{{ menu_item.classes }}">
+              {% if footer_menu.type == 'branded' %}
+                {% set link_variant = menu_item.link.variant %}
+              {% else %}
+                {% if menu_item.link.variant is defined %}
+                  {% if menu_item.link.variant is iterable %}
+                    {% set link_variant = ['inverted']|merge(menu_item.link.variant) %}
+                  {% else %}
+                    {% set link_variant = ['inverted']|merge([menu_item.link.variant]) %}
+                  {% endif %}
+                {% else %}
+                  {% set link_variant = 'inverted' %}
+                {% endif %}
+              {% endif %}
+
               {% include '@ec-europa/ecl-links' with {
                 'href': menu_item.link.href,
                 'label': '<span class="' ~ menu_item.link.label_wrapper_class ~ '"></span>' ~ menu_item.link.label,
                 'extra_classes': 'ecl-footer__link',
-                'variant': menu_item.link.variant,
+                'variant': link_variant,
                 }
               %}
             </li>
             {% else %}
             <li class="{{ menu_item.classes }}">
+              {% if footer_menu.type == 'branded' %}
+                {% set link_variant = menu_item.link.variant %}
+              {% else %}
+                {% if menu_item.link.variant is defined %}
+                  {% if menu_item.link.variant is iterable %}
+                    {% set link_variant = ['inverted']|merge(menu_item.link.variant) %}
+                  {% else %}
+                    {% set link_variant = ['inverted']|merge([menu_item.link.variant]) %}
+                  {% endif %}
+                {% else %}
+                  {% set link_variant = 'inverted' %}
+                {% endif %}
+              {% endif %}
+
               {% include '@ec-europa/ecl-links' with {
+                'href': menu_item.link.href,
+                'label': menu_item.link.label,
                 'extra_classes': 'ecl-footer__link',
-                }|merge(menu_item.link)
+                'variant': link_variant,
+                }
               %}
             </li>
             {% endif %}

@@ -47,12 +47,18 @@
     <li class="ecl-lang-select-page__option ecl-lang-select-page__option--is-selected">{{ current }}</li>
     {% for opt in options %}
     <li class="ecl-lang-select-page__option">
+      {% set link_variant = '' %}
+      {% if theme is defined and theme == 'primary' %}
+        {% set link_variant = 'inverted' %}
+      {% endif %}
+
       {% include '@ec-europa/ecl-links' with {
         'extra_attributes': [
           { 'name': 'hreflang', 'value': opt.hreflang },
           { 'name': 'lang', 'value': opt.lang },
           { 'name': 'rel', 'value': 'alternate' },
-        ]
+        ],
+        'variant': link_variant
         }|merge(opt)
       %}
     </li>

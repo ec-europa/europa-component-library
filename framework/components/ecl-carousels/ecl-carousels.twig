@@ -117,6 +117,7 @@ Usage:
           {% include '@ec-europa/ecl-links' with {
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--download',
             'extra_attributes': [ 'name': 'title', 'value': carousel_image.download.title ],
+            'variant': ['inverted', 'standalone'],
             }|merge(carousel_image.download)
           %}
         </span>
@@ -124,6 +125,7 @@ Usage:
           {% include '@ec-europa/ecl-links' with {
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--share',
             'extra_attributes': [ 'name': 'title', 'value': carousel_image.share.title ],
+            'variant': ['inverted', 'standalone'],
             }|merge(carousel_image.share)
           %}
         </span>

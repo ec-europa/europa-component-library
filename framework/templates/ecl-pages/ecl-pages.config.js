@@ -23,12 +23,10 @@ module.exports = {
             {
               href: 'http://europa.eu/index_en.htm',
               label: 'European Commission',
-              variant: ['inverted', 'standalone'],
             },
             {
               href: '#',
               label: 'Example',
-              variant: ['inverted', 'standalone'],
             },
           ],
           identity: 'Digital single market',
@@ -57,12 +55,10 @@ module.exports = {
             {
               href: 'http://europa.eu/index_en.htm',
               label: 'European Commission',
-              variant: ['inverted', 'standalone'],
             },
             {
               href: '#',
               label: 'Example',
-              variant: ['inverted', 'standalone'],
             },
           ],
           identity: 'Digital single market',
