@@ -70,7 +70,7 @@ fractal.components.set('resources.assets', {
 });
 
 // Docs config
-fractal.docs.set('path', path.resolve(__dirname, 'docs'));
+fractal.docs.set('path', path.resolve(__dirname, '../../../docs'));
 
 // Web UI config
 fractal.web.theme(theme);
