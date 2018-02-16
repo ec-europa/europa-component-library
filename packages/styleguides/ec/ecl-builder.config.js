@@ -12,7 +12,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ec-preset-full/index.js'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
+      dest: path.resolve(__dirname, outputFolder, 'scripts/ec.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -23,11 +23,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ec-preset-corporate/index.js'
       ),
-      dest: path.resolve(
-        __dirname,
-        outputFolder,
-        'scripts/europa-corporate.js'
-      ),
+      dest: path.resolve(__dirname, outputFolder, 'scripts/ec-corporate.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -40,7 +36,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ec-preset-full/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
+      dest: path.resolve(__dirname, outputFolder, 'styles/ec.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
@@ -50,7 +46,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ec-preset-base/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
+      dest: path.resolve(__dirname, outputFolder, 'styles/ec-base.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
@@ -60,7 +56,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ec-preset-editor/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
+      dest: path.resolve(__dirname, outputFolder, 'styles/ec-editor.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
@@ -70,11 +66,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ec-preset-corporate/index.scss'
       ),
-      dest: path.resolve(
-        __dirname,
-        outputFolder,
-        'styles/europa-corporate.css'
-      ),
+      dest: path.resolve(__dirname, outputFolder, 'styles/ec-corporate.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
