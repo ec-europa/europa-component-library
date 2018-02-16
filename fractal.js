@@ -3,7 +3,7 @@ const path = require('path');
 const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ec-europa/ecl-fractal-theme');
 const twigAdapter = require('@frctl/twig')({ handlePrefix: '@ec-europa/' });
-const fractalEc = require('./scripts/styleguides/ec/fractal');
+const fractalEc = require('./packages/styleguides/ec/fractal');
 
 // Create a new theme instance with custom config options
 const theme = eclTheme();
