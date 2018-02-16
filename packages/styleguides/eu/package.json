@@ -1,23 +1,24 @@
 {
-  "private": true,
+  "name": "@ec-europa/ecl-eu-styleguide",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "description": "Europa Component Library",
+  "version": "0.0.1",
+  "description": "ECL EU Styleguide based on Fractal",
   "scripts": {
+    "build:copy": "ecl-builder copy",
     "build": "npm-run-all --parallel build:* -ln",
-    "build:ec": "cd packages/styleguides/ec && npm run build",
-    "changelog": "lerna-changelog",
-    "clean": "rimraf tmp build dist static/flavors",
+    "clean": "rimraf tmp build dist ../../../static/flavors/eu",
     "dist": "npm run clean && ./node_modules/.bin/fractal build && cross-env NODE_ENV=production npm run build",
-    "gh-pages": "gh-pages -d dist",
-    "lerna:clean": "lerna clean",
     "lint:js": "eslint .",
-    "lint:scss": "stylelint \"./src/flavors/**/*.scss\"",
+    "lint:scss": "stylelint \"../../../src/flavors/eu/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
-    "precommit": "lint-staged",
-    "publish": "scripts/release.sh",
+    "serve": "fractal start --sync",
+    "start": "npm-run-all clean build --parallel serve watch",
     "test:coding-conventions": "npm run lint",
-    "test:functional": "wdio test/wdio.conf.js"
+    "test:functional": "wdio test/wdio.conf.js",
+    "watch:scripts": "chokidar \"../../../src/flavors/eu/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
+    "watch:styles": "chokidar \"../../../src/flavors/eu/**/*.scss\" -i \"/node_modules/\" -c \"stylelint {path} & npm run build:styles\"",
+    "watch": "npm-run-all --parallel watch:* -ln"
   },
   "devDependencies": {
     "@ec-europa/ecl-builder": "0.12.4",
@@ -32,14 +33,10 @@
     "cross-env": "5.1.1",
     "dotenv": "4.0.0",
     "eslint": "4.13.1",
-    "gh-pages": "1.1.0",
     "glob": "7.1.2",
     "husky": "0.14.3",
-    "lerna": "2.5.1",
-    "lerna-changelog": "0.7.0",
     "lint-staged": "6.0.0",
     "npm-run-all": "4.1.2",
-    "npmlog": "4.1.2",
     "prettier": "1.9.2",
     "rimraf": "2.6.2",
     "stylelint": "8.4.0",
@@ -53,32 +50,17 @@
     "wdio-visual-regression-service": "0.8.0",
     "webdriverio": "4.9.9"
   },
-  "engines": {
-    "node": ">=8.9.1"
+  "main": "fractal.js",
+  "fractal": {
+    "main": "fractal.js"
   },
-  "lint-staged": {
-    "*.md": [
-      "prettier --parser markdown --write",
-      "git add"
-    ],
-    "*.js": [
-      "prettier --parser babylon --write",
-      "eslint",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --parser json --write",
-      "git add"
-    ],
-    "*.scss": [
-      "prettier --parser scss --write",
-      "stylelint"
-    ]
+  "private": "true",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
   },
-  "workspaces": [
-    "demo/*",
-    "packages/**",
-    "src/generic/**",
-    "src/flavors/**"
-  ]
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library#readme"
 }

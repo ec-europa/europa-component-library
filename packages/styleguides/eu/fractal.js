@@ -16,7 +16,7 @@ const theme = eclTheme();
 theme.addLoadPath(path.resolve(__dirname, '../../../static/theme-overrides'));
 
 // Project config
-fractal.set('project.title', 'Europa Component Library');
+fractal.set('project.title', 'Europa Component Library: EU flavor');
 fractal.set(
   'project.url',
   'https://ec-europa.github.io/europa-component-library/'
@@ -58,7 +58,7 @@ fractal.components.set('statuses', {
 fractal.components.set('default.status', 'planned');
 fractal.components.set(
   'path',
-  path.resolve(__dirname, '../../../src/flavors/ec')
+  path.resolve(__dirname, '../../../src/flavors/eu')
 );
 fractal.components.engine(twigAdapter); // use Twig for components
 fractal.components.set('ext', '.twig');
