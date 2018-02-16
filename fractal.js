@@ -2,14 +2,8 @@
 const path = require('path');
 const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ec-europa/ecl-fractal-theme');
-const twigAdapter = require('@frctl/twig')({
-  handlePrefix: '@ec-europa/',
-});
-
-const paths = {
-  build: `${__dirname}/dist`,
-  static: `${__dirname}/static`,
-};
+const twigAdapter = require('@frctl/twig')({ handlePrefix: '@ec-europa/' });
+const fractalEc = require('./scripts/styleguides/ec/fractal');
 
 // Create a new theme instance with custom config options
 const theme = eclTheme();
@@ -58,7 +52,7 @@ fractal.components.set('statuses', {
   },
 });
 fractal.components.set('default.status', 'planned');
-fractal.components.set('path', path.resolve(__dirname, './framework'));
+fractal.components.set('path', path.resolve(__dirname, './src/flavors/ec'));
 fractal.components.engine(twigAdapter); // use Twig for components
 fractal.components.set('ext', '.twig');
 
@@ -73,9 +67,10 @@ fractal.docs.set('path', path.resolve(__dirname, 'docs'));
 
 // Web UI config
 fractal.web.theme(theme);
-fractal.web.set('static.path', paths.static);
-fractal.web.set('builder.dest', paths.build);
 fractal.web.set('builder.urls.ext', null);
+
+// Add EC flavor
+fractalEc(fractal);
 
 // Export config
 module.exports = fractal;
