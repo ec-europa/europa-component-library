@@ -29,14 +29,14 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../node_modules/@ec-europa/ecl-icons/fonts'
+        '../../../src/flavors/ec/content/ecl-icons/fonts'
       ),
       to: path.resolve(__dirname, 'dist/fonts'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../node_modules/@ec-europa/ecl-logos/images'
+        '../../../src/flavors/ec/components/ecl-logos/images'
       ),
       to: path.resolve(__dirname, 'dist/images'),
     },
@@ -52,20 +52,20 @@ module.exports = {
     },
     {
       patterns: 'jquery.min.js',
-      from: path.resolve(__dirname, '../../node_modules/jquery/dist'),
+      from: path.resolve(__dirname, '../../../node_modules/jquery/dist'),
       to: path.resolve(__dirname, './dist/js'),
     },
     {
       patterns: 'jquery-resizable.min.js',
       from: path.resolve(
         __dirname,
-        '../../node_modules/jquery-resizable-dom/dist'
+        '../../../node_modules/jquery-resizable-dom/dist'
       ),
       to: path.resolve(__dirname, './dist/js'),
     },
     {
       patterns: 'select2.min.js',
-      from: path.resolve(__dirname, '../../node_modules/select2/dist/js'),
+      from: path.resolve(__dirname, '../../../node_modules/select2/dist/js'),
       to: path.resolve(__dirname, './dist/js'),
     },
   ],
