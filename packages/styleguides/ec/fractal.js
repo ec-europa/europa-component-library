@@ -6,7 +6,7 @@ const twigAdapter = require('@frctl/twig')({ handlePrefix: '@ec-europa/' });
 
 const paths = {
   build: `${__dirname}/../../../dist/flavors/ec`,
-  static: `${__dirname}/../../../static`,
+  static: `${__dirname}/static`,
 };
 
 // Create a new theme instance with custom config options

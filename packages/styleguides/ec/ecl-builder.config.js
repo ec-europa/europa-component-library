@@ -1,9 +1,7 @@
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
-const outputFolder = isProd
-  ? '../../../dist/flavors/ec'
-  : '../../../static/flavors/ec';
+const outputFolder = isProd ? '../../../dist/flavors/ec' : './static';
 
 module.exports = {
   scripts: [
