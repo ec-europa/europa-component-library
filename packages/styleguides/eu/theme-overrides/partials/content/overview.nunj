@@ -1,0 +1,36 @@
+{% import "macros/status.nunj" as status %}
+
+<p class="ecl-paragraph ecl-paragraph--l">The Europa Component Library (ECL) is a library of components applicable to all European Commission websites (hosted under ec.europa.eu.domain). The library contains all available components which you can use to build your website.</p>
+
+<p class="ecl-paragraph ecl-paragraph--m">The Digital Transformation team (DTT) - a cross European Commission team led by DGs COMM, DIGIT, and DTT - is the owner of this library. Please contact COMM Europa Management for support on using this resource for a European Commission website.</p>
+
+<p class="ecl-paragraph ecl-paragraph--m">All library elements are accompanied with</p>
+
+<ul class="ecl-list">
+  <li>documentation: what the component is intended for and recommendations regarding its usage</li>
+  <li>demo: visual representation of the component</li>
+  <li>code: technologically agnostic HTML/CSS code for implementation</li>
+</ul>
+
+<p class="ecl-paragraph ecl-paragraph--m">Websites hosted on the corporate European Commission Next Europa CMS (based on Drupal) can also benefit from a Drupal theme implementation that is based on this same library of components.</p>
+
+<h3 class="ecl-heading ecl-heading--h3">Component statuses</h3>
+
+<p class="ecl-paragraph ecl-paragraph--m">Components and their variants have been given statuses reflecting their state of completion. The available statuses are listed below.</p>
+
+<table class="ecl-table">
+  <thead>
+    <tr>
+        <th>Label</th>
+        <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for handle, st in frctl.get('components.statuses') %}
+    <tr>
+        <td>{{ status.tag(st) }}</td>
+        <td>{{ st.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

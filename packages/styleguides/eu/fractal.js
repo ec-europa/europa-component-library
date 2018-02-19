@@ -13,7 +13,7 @@ const paths = {
 const theme = eclTheme();
 
 // Add overrides
-theme.addLoadPath(path.resolve(__dirname, '../../../static/theme-overrides'));
+theme.addLoadPath(path.resolve(__dirname, './theme-overrides'));
 
 // Project config
 fractal.set('project.title', 'Europa Component Library: EU flavor');
