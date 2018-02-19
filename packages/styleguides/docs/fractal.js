@@ -4,8 +4,8 @@ const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ec-europa/ecl-fractal-theme');
 
 const paths = {
-  build: `${__dirname}/../../../dist/docs`,
-  static: `${__dirname}/../../../static`,
+  build: `${__dirname}/../../../dist`,
+  static: `${__dirname}/static`,
 };
 
 // Create a new theme instance with custom config options
@@ -15,7 +15,7 @@ const theme = eclTheme();
 theme.addLoadPath(path.resolve(__dirname, './theme-overrides'));
 
 // Project config
-fractal.set('project.title', 'Europa Component Library: Docs');
+fractal.set('project.title', 'Europa Component Library');
 fractal.set(
   'project.url',
   'https://ec-europa.github.io/europa-component-library/'

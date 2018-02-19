@@ -9,7 +9,7 @@
     "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
     "build": "npm-run-all --parallel build:* -ln",
-    "clean": "rimraf tmp build dist ../../../static/flavors",
+    "clean": "rimraf build dist ../../../static/flavors",
     "dist": "npm run clean && ./node_modules/.bin/fractal build && cross-env NODE_ENV=production npm run build",
     "lint:js": "eslint .",
     "lint:scss": "stylelint \"../../../src/flavors/**/*.scss\"",
