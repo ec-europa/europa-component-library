@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link media="all" rel="stylesheet" href="{{ '/flavors/ec/styles/ec.css' | path }}">
+  <link media="all" rel="stylesheet" href="{{ '/styles/ec.css' | path }}">
   <title>Preview Layout</title>
 </head>
 <body>
@@ -10,7 +10,7 @@
     {{ yield }}
   </div>
 
-  <script src="{{ '/flavors/ec/scripts/ec.js' | path }}"></script>
+  <script src="{{ '/scripts/ec.js' | path }}"></script>
   {% if _target.context._demo and _target.context._demo.scripts %}
   <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
   {% endif %}
