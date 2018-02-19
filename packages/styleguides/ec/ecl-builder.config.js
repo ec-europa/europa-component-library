@@ -8,7 +8,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ec-preset-full/index.js'
+        '../../../src/flavors/ec/presets/ecl-preset-full/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/ec.js'),
       options: {
@@ -19,7 +19,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ec-preset-corporate/index.js'
+        '../../../src/flavors/ec/presets/ecl-preset-corporate/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/ec-corporate.js'),
       options: {
@@ -32,7 +32,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ec-preset-full/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-full/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/ec.css'),
       options: {
@@ -42,7 +42,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ec-preset-base/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-base/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/ec-base.css'),
       options: {
@@ -52,7 +52,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ec-preset-editor/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-editor/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/ec-editor.css'),
       options: {
@@ -62,7 +62,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ec-preset-corporate/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-corporate/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/ec-corporate.css'),
       options: {

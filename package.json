@@ -7,7 +7,7 @@
     "build": "npm-run-all --parallel build:* -ln",
     "build:ec": "cd packages/styleguides/ec && npm run build",
     "changelog": "lerna-changelog",
-    "clean": "rimraf tmp build dist static/flavors",
+    "clean": "rimraf tmp build dist packages/theme/ecl-fractal-theme/dist",
     "dist": "scripts/styleguide.sh",
     "gh-pages": "gh-pages -d dist",
     "lerna:clean": "lerna clean",

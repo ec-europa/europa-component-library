@@ -14,11 +14,12 @@
     "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
     "clean": "rimraf dist",
+    "postinstall": "npm run build",
     "prepublish": "npm run clean && npm run build"
   },
   "devDependencies": {
     "@ec-europa/ecl-builder": "^0.12.4",
-    "@ec-europa/ec-preset-full": "0.6.0",
+    "@ec-europa/ecl-preset-full": "0.6.0",
     "eslint": "4.13.1",
     "highlight.js": "9.12.0",
     "jquery": "3.2.1",
