@@ -5,7 +5,7 @@ const eclTheme = require('@ec-europa/ecl-fractal-theme');
 const twigAdapter = require('@frctl/twig')({ handlePrefix: '@ec-europa/' });
 
 const paths = {
-  build: `${__dirname}/../../../dist`,
+  build: `${__dirname}/../../../dist/flavors/eu`,
   static: `${__dirname}/../../../static`,
 };
 

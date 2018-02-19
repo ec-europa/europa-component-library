@@ -5,7 +5,7 @@ const eclTheme = require('@ec-europa/ecl-fractal-theme');
 const twigAdapter = require('@frctl/twig')({ handlePrefix: '@ec-europa/' });
 
 const paths = {
-  build: `${__dirname}/../../../dist`,
+  build: `${__dirname}/../../../dist/flavors/ec`,
   static: `${__dirname}/../../../static`,
 };
 
@@ -16,7 +16,7 @@ const theme = eclTheme();
 theme.addLoadPath(path.resolve(__dirname, '../../../static/theme-overrides'));
 
 // Project config
-fractal.set('project.title', 'Europa Component Library');
+fractal.set('project.title', 'Europa Component Library: EC Flavor');
 fractal.set(
   'project.url',
   'https://ec-europa.github.io/europa-component-library/'
