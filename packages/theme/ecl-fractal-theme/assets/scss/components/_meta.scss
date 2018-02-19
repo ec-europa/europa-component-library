@@ -1,0 +1,83 @@
+.Meta {
+  a {
+    text-decoration: none;
+  }
+}
+
+.Meta-item {
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba($color-frame-border, 0.15);
+  }
+}
+
+.Meta-key {
+  @include font(label);
+  display: block;
+  padding-right: 0.5rem;
+  padding-bottom: 0.25rem;
+  color: $color-sidebar-heading;
+}
+
+.Meta-value {
+  @include font(caption);
+  display: block;
+  min-width: 10rem;
+  padding-bottom: 0.25rem;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  a svg {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 5px;
+  }
+
+  a:hover span {
+    text-decoration: underline;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 0.25em;
+  }
+}
+
+.Meta-count {
+  font-style: normal;
+  font-weight: normal;
+  opacity: 0.75;
+}
+
+@include mq($from: medium) {
+  .Frame.is-closed {
+    .Meta-item {
+      @include padding-inline(start, 10rem);
+    }
+
+    .Meta-key {
+      @include margin-inline(start, -10rem);
+      width: 10rem;
+      float: left;
+    }
+  }
+}
+
+@include mq($from: large) {
+  .Frame:not(.is-closed) {
+    .Meta-item {
+      @include padding-inline(start, 10rem);
+    }
+
+    .Meta-key {
+      @include margin-inline(start, -10rem);
+      width: 10rem;
+      float: left;
+    }
+  }
+}

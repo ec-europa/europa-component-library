@@ -1,0 +1,13 @@
+{% extends "layouts/pen-frame.nunj" %}
+
+{% block content %}
+<div class="ecl-u-mv-m">
+  <div class="ecl-u-mb-s">
+  {% block docHeader %}
+    <h1 class="ecl-heading ecl-heading--h1">{{ page.title }}</h1>
+    {% if status %}{{ status }}{% endif %}
+    {% endblock %}
+  </div>
+  {% block docContent %}{% endblock %}
+</div>
+{% endblock %}
