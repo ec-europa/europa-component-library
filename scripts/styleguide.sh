@@ -2,7 +2,10 @@
 
 yarn clean
 
-cd packages/styleguides/ec
+cd packages/theme/ecl-fractal-theme
+yarn build
+
+cd ../../styleguides/ec
 npx fractal build && npx cross-env NODE_ENV=production npm run build
 
 cd ../eu
