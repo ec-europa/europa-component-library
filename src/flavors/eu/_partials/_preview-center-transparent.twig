@@ -13,7 +13,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/flavors/eu/styles/eu.css' | path }}">
+    <link rel="stylesheet" href="{{ '/styles/eu.css' | path }}">
     <title>Preview Layout</title>
     <style>
       body {
@@ -30,6 +30,7 @@
     <main>
       {{ yield }}
     </main>
+    <script src="{{ '/scripts/eu.js' | path }}"></script>
     {% if _target.context._demo and _target.context._demo.scripts %}
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}

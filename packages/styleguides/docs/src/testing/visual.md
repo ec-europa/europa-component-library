@@ -15,7 +15,7 @@ Testing a new component is quite simple. Follow the guide!
 
 ### Write a test
 
-Tests are located under `test/functional`. Create a new `my-component.js` file here and paste:
+Tests are located under `test/spec`. Create a new `my-component.js` file here and paste:
 
 ```js
 describe('my-component', () => {
@@ -49,7 +49,7 @@ describe('my-component', () => {
 
 Of course, replace `my-component` by the name of the actual component and make sure the URL you provide exists.
 
-**Under the hood, the URL will be prefixed by `http://localhost:3000/components/preview/`**.
+**Under the hood, the URL will be prefixed by `http://localhost:3000/flavors/{flavor}/components/preview/`**.
 
 ### Get the reference screenshots
 
@@ -69,9 +69,9 @@ Then, build the style guide with `yarn dist` and run: `yarn test:functional`.
 Tip: it can take a while to run all the tests, but you can also target your test only:
 
 ```shell
-yarn test:functional -- --spec ./framework/components/my-component/test/spec/my-component.js
+yarn test:functional:{flavor} --spec ./src/flavors/{flavor}/components/my-component/test/spec/my-component.js
 ```
 
-If everything went well, you should now have a new folder `./framework/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
+If everything went well, you should now have a new folder `./src/flavors/{flavor}/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
 
 That's it!

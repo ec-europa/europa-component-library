@@ -1,0 +1,43 @@
+/**
+ * EU logo
+ */
+
+// Language generator.
+@mixin logo-background-languages($file_path, $file_extension, $logo_class: ecl-logo--logotype) {
+  @each $item in $ecl-languages {
+    /* stylelint-disable max-nesting-depth */
+    .language-#{$item} {
+      .#{$logo_class} {
+        background-image: url('#{$file_path}#{$item}#{$file_extension}');
+      }
+
+      @media print {
+        .#{$logo_class}::before {
+          content: url('#{$file_path}#{$item}#{$file_extension}');
+        }
+      }
+    }
+    /* stylelint-enable */
+  }
+}
+
+/**
+ * Logos
+ * @define logo
+ */
+
+// Default EU logo.
+.eu-logo {
+  background: url($ecl-assets-path + 'images/logo.svg') no-repeat;
+  background-size: contain;
+  display: block;
+  height: 40px;
+  width: 59px;
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .eu-logo {
+    height: 56px;
+    width: 83px;
+  }
+}

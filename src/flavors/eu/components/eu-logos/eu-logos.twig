@@ -1,12 +1,4 @@
-{% set _class = "" %}
-
-{% if type is defined %}
-  {% if type == "below" %}
-    {% set _class = " ecl-logo--logotypebelow" %}
-  {% elseif type == "right" %}
-    {% set _class = " ecl-logo--logotype" %}
-  {% endif %}
-{% endif %}
+{% set _class = " ecl-logo--logotype" %}
 
 {% if extra_class %}
   {% set _class = _class ~ " " ~ extra_class %}

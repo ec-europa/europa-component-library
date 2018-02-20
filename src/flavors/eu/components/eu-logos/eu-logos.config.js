@@ -23,14 +23,7 @@ module.exports = {
       <!-- Start: @${item.handle} -->\n
       <div class="clearfix">
         <div class="language-${item.context.global.language}">\n
-          <a href="${
-            item.context.to
-          }" class="ecl-logo ecl-logo--logotype" title="${item.context.title}">
-            <span class="ecl-u-sr-only">${item.context.title}</span>
-          </a>
-          <a href="${
-            item.context.to
-          }" class="ecl-logo ecl-logo--logotypebelow" title="${
+          <a href="${item.context.to}" class="eu-logo title="${
       item.context.title
     }">
             <span class="ecl-u-sr-only">${item.context.title}</span>
