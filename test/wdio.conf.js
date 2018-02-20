@@ -36,7 +36,7 @@ const baseUrl = localServer
   ? 'http://localhost:3000/flavors/ec/components/preview/'
   : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
       process.env.DRONE_BUILD_NUMBER
-    }/components/preview/`;
+    }/flavors/ec/components/preview/`;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
