@@ -61,7 +61,7 @@ module.exports.getSpecs = () => {
     specs = [].concat(
       ...updatedPackages.map(update =>
         glob.sync(path.resolve(update.package.location, 'test/spec/**/*.js'), {
-          ignore: ['**/node_modules/**'],
+          ignore: ['**/node_modules/**', '**/packages/**', 'demo/**'],
         })
       )
     );
