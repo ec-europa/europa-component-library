@@ -33,7 +33,7 @@ const localServer = !isDrone; // with drone, builds are pushed onto AWS S3
 // Other properties
 const useSauceConnect = localServer && !isTravis; // travis uses its own Sauce Connect launcher
 const baseUrl = localServer
-  ? 'http://localhost:3000/components/preview/'
+  ? 'http://localhost:3000/flavors/ec/components/preview/'
   : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
       process.env.DRONE_BUILD_NUMBER
     }/components/preview/`;
