@@ -24,7 +24,7 @@ describe('logos', () => {
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('eu-logo').value;
+    const a11yReport = browser.runAxeCore('ecl-logo').value;
     expect(a11yReport).to.be.accessible;
   });
 });
