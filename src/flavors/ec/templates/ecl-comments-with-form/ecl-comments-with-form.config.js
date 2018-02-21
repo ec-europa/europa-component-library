@@ -15,24 +15,24 @@ module.exports = {
         date: '26 March 2015',
         title: {
           href: '#',
-          text: 'Nice article',
+          label: 'Nice article',
         },
         body:
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem eius enim eos error esse fugiat incidunt iste laudantium nemo, numquam quam quasi repudiandae sapiente soluta sunt tempore ullam voluptatem.',
         operations: {
           delete: {
             href: '#',
-            title: 'Delete',
+            label: 'Delete',
             visible: true,
           },
           edit: {
             href: '#',
-            title: 'Edit',
+            label: 'Edit',
             visible: true,
           },
           reply: {
             href: '#',
-            title: 'Reply',
+            label: 'Reply',
             visible: true,
           },
         },
@@ -46,24 +46,24 @@ module.exports = {
         date: '28 March 2015',
         title: {
           href: '#',
-          text: 'Interesting',
+          label: 'Interesting',
         },
         body:
           'Excepteur ipsum ipsum officia ullamco nisi laboris do minim. Amet esse commodo ut eiusmod. Eu voluptate velit consectetur laborum ea. Et occaecat exercitation minim voluptate amet non. Ea veniam aute laborum exercitation labore dolore.',
         operations: {
           delete: {
             href: '#',
-            title: 'Delete',
+            label: 'Delete',
             visible: true,
           },
           edit: {
             href: '#',
-            title: 'Edit',
+            label: 'Edit',
             visible: true,
           },
           reply: {
             href: '#',
-            title: 'Reply',
+            label: 'Reply',
             visible: true,
           },
         },
@@ -77,24 +77,24 @@ module.exports = {
         },
         title: {
           href: '#',
-          text: 'I agree',
+          label: 'I agree',
         },
         body:
           'Ad eu proident commodo fugiat elit occaecat laboris cillum sit. Ex elit laborum amet excepteur occaecat do ea eu ullamco. Esse dolor commodo commodo incididunt ea quis cillum est deserunt. Tempor exercitation minim dolore ipsum sit cupidatat cupidatat occaecat laboris duis ipsum. Sint non quis eu commodo magna voluptate nisi ad laborum. Ea eu officia quis in enim duis proident voluptate do velit ut non ea ex.',
         operations: {
           delete: {
             href: '#',
-            title: 'Delete',
+            label: 'Delete',
             visible: true,
           },
           edit: {
             href: '#',
-            title: 'Edit',
+            label: 'Edit',
             visible: true,
           },
           reply: {
             href: '#',
-            title: 'Reply',
+            label: 'Reply',
             visible: true,
           },
         },
