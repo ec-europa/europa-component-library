@@ -18,8 +18,8 @@
     "publish": "scripts/release.sh",
     "test:coding-conventions": "npm run lint",
     "test:functional": "run-s test:functional:*",
-    "test:functional:ec": "wdio test/wdio.conf.ec.js",
-    "test:functional:eu": "wdio test/wdio.conf.eu.js"
+    "test:functional:ec": "wdio test/wdio.conf.js",
+    "test:functional:eu": "FLAVOR=eu wdio test/wdio.conf.js"
   },
   "devDependencies": {
     "@ec-europa/ecl-builder": "0.12.4",
