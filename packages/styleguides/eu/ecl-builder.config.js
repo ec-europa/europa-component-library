@@ -10,7 +10,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/eu/presets/eu-preset-base/index.js'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'scripts/eu.js'),
+      dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -23,7 +23,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/eu/presets/eu-preset-base/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/eu.css'),
+      dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },

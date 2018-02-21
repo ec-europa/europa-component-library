@@ -10,7 +10,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ecl-preset-full/index.js'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'scripts/ec.js'),
+      dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -34,7 +34,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ecl-preset-full/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/ec.css'),
+      dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
@@ -44,7 +44,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ecl-preset-base/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/ec-base.css'),
+      dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
@@ -54,7 +54,7 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ecl-preset-editor/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/ec-editor.css'),
+      dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
@@ -64,7 +64,11 @@ module.exports = {
         __dirname,
         '../../../src/flavors/ec/presets/ecl-preset-corporate/index.scss'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/ec-corporate.css'),
+      dest: path.resolve(
+        __dirname,
+        outputFolder,
+        'styles/europa-corporate.css'
+      ),
       options: {
         sourceMap: isProd ? 'file' : true,
       },
