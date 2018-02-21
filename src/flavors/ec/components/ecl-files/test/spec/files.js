@@ -1,12 +1,4 @@
-const variants = [
-  'default',
-  'translations',
-  'links',
-  'images',
-  // The following variants are not tested yet (flash player causes troubles)
-  // 'videos-iframe',
-  // 'videos-tag',
-];
+const variants = ['default', 'translations', 'links', 'images'];
 
 describe('files', () => {
   before(() => {
