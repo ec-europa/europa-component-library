@@ -191,3 +191,13 @@ Then, you can type:
 ```bash
 yarn gh-pages
 ```
+
+## Preparing Github releases
+
+Run the following in order to get packages for Github releases:
+
+```bash
+yarn publish:releases
+```
+
+For the moment, you will need to upload the output items of `./dist/releases` manually.
