@@ -29,13 +29,5 @@ module.exports = {
       },
     },
   ],
-  copy: [
-    {
-      from: path.resolve(
-        __dirname,
-        '../../../src/flavors/eu/components/eu-logos/images'
-      ),
-      to: path.resolve(__dirname, outputFolder, 'images'),
-    },
-  ],
+  copy: [],
 };
