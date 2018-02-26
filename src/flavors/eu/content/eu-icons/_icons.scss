@@ -1,0 +1,100 @@
+/**
+ * Icons
+ */
+
+@import './variables';
+@import './mixins';
+
+@font-face {
+  font-family: 'EuropaIcons';
+  src: url('../fonts/europa-icons/europa-icons.eot');
+  src: url('../fonts/europa-icons/europa-icons.eot?#iefix')
+      format('embedded-opentype'),
+    url('../fonts/europa-icons/europa-icons.woff') format('woff'),
+    url('../fonts/europa-icons/europa-icons.ttf') format('truetype'),
+    url('../fonts/europa-icons/europa-icons.svg#europa-icons') format('svg');
+}
+
+%ecl-icon {
+  &::before {
+    display: inline-block;
+    font-family: 'EuropaIcons'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+    // Better Font Rendering
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin-right: 4px;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+  }
+}
+
+// Should be used only with @extend.
+%ecl-icon--after {
+  display: inline-block;
+  font-family: 'EuropaIcons'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+  // Better Font Rendering
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-left: 4px;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
+}
+
+// DEPRECATED: you should use @include ecl-icon('icon') when you want to include an icon
+@each $modifier, $char in $ecl-icons {
+  %ecl-icon--#{$modifier} {
+    /* stylelint-disable-next-line */
+    &::before {
+      @include ecl-icon($modifier); /* stylelint-disable-line scss/percent-placeholder-pattern */
+    }
+  }
+}
+
+/**
+ * Icon classes
+ * @define icon
+ */
+
+.ecl-icon {
+  @extend %ecl-icon;
+}
+
+.ecl-icon--after {
+  @extend %ecl-icon--after;
+}
+
+// Icon component and modifiers.
+/* stylelint-disable plugin/selector-bem-pattern */
+@each $modifier, $char in $ecl-icons {
+  .ecl-icon--#{$modifier} {
+    &::before {
+      @include ecl-icon($modifier);
+    }
+  }
+}
+
+.ecl-icon--rounded {
+  border-radius: 50%;
+  display: inline-block;
+  font-size: map-get($ecl-font-size, 'xs');
+  height: map-get($ecl-spacing, 'l');
+  line-height: map-get($ecl-spacing, 'l');
+  text-align: center;
+  width: map-get($ecl-spacing, 'l');
+
+  &::before {
+    line-height: inherit;
+    margin-right: 0;
+  }
+}
+/* stylelint-enable */

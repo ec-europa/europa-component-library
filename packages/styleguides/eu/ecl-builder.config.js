@@ -29,5 +29,13 @@ module.exports = {
       },
     },
   ],
-  copy: [],
+  copy: [
+    {
+      from: path.resolve(
+        __dirname,
+        '../../../src/flavors/eu/content/eu-icons/fonts'
+      ),
+      to: path.resolve(__dirname, outputFolder, 'fonts'),
+    },
+  ],
 };
