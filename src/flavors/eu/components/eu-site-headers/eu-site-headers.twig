@@ -26,10 +26,10 @@
 {# Print result #}
 <header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
 
-  <div class="ecl-container ecl-site-header__banner">
+  <div class="{% if lang is defined %}language-{{ lang }} {% endif %}ecl-container ecl-site-header__banner">
     {% include '@ec-europa/eu-logos' with {
-      'to': 'https://ec.europa.eu',
-      'title': 'Home - European Commission',
+      'to': 'https://europa.eu',
+      'title': 'Home - European Union',
       'type': 'right',
       'extra_class': 'ecl-site-header__logo'
     } only %}

@@ -6,6 +6,7 @@ module.exports = {
   status: 'ready',
   tags: ['organism'],
   context: {
+    lang: 'en',
     site_switcher: {
       political: { href: '#', label: 'Commission and its priorities' },
       info: {

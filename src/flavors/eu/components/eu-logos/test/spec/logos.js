@@ -1,4 +1,4 @@
-describe('logos', () => {
+describe('eu-logos', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -8,7 +8,7 @@ describe('logos', () => {
 
     browser.pause(500);
 
-    browser.url(`ecl-logos.html`);
+    browser.url(`eu-logos.html`);
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

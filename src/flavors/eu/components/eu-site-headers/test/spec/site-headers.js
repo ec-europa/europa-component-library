@@ -1,4 +1,4 @@
-describe('site-headers', () => {
+describe('eu-site-headers', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -9,7 +9,7 @@ describe('site-headers', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url('ecl-site-headers.html');
+    browser.url('eu-site-headers.html');
 
     // Make sure the browser has finished painting
     browser.pause(500);
