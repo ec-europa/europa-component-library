@@ -8,7 +8,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/eu-preset-base/index.js'
+        '../../../src/flavors/eu/presets/eu-preset-full/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
@@ -21,7 +21,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/eu-preset-base/index.scss'
+        '../../../src/flavors/eu/presets/eu-preset-full/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
@@ -29,5 +29,13 @@ module.exports = {
       },
     },
   ],
-  copy: [],
+  copy: [
+    {
+      from: path.resolve(
+        __dirname,
+        '../../../src/generic/content/ecl-icons/fonts'
+      ),
+      to: path.resolve(__dirname, outputFolder, 'fonts'),
+    },
+  ],
 };

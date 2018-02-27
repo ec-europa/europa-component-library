@@ -1,0 +1,158 @@
+/**
+ * EU navigation menus
+ * @define navigation-menu
+ */
+
+.ecl-navigation-menu {
+  background-color: map-get($ecl-colors, 'grey-10');
+}
+
+.ecl-navigation-menu__link {
+  border-bottom: 1px solid map-get($ecl-colors, 'grey-15');
+  color: map-get($ecl-colors, 'blue-110');
+}
+
+.ecl-navigation-menu__item--active {
+  background-color: map-get($ecl-colors, 'grey-10');
+
+  .ecl-navigation-menu__link {
+    color: map-get($ecl-colors, 'blue-110');
+  }
+
+  .ecl-navigation-menu__link[aria-expanded='true'] {
+    border-bottom: 1px solid map-get($ecl-colors, 'grey-15');
+  }
+
+  &::before {
+    background-color: map-get($ecl-colors, 'grey-10');
+  }
+
+  > .ecl-navigation-menu__link::before {
+    background-color: map-get($ecl-colors, 'blue-110');
+    content: '';
+    display: block;
+    height: 100%;
+    left: -($ecl-grid-gutter-width-base / 2);
+    position: absolute;
+    top: 0;
+    width: map-get($ecl-spacing, 'xxxs');
+  }
+}
+
+.ecl-navigation-menu__group {
+  .ecl-navigation-menu__link {
+    color: map-get($ecl-colors, 'blue-100');
+  }
+
+  &::before {
+    background-color: map-get($ecl-colors, 'grey-5');
+    border-bottom: 1px solid map-get($ecl-colors, 'grey-15');
+  }
+}
+
+.ecl-navigation-menu__toggle {
+  background-color: map-get($ecl-colors, 'grey-15');
+  color: map-get($ecl-colors, 'blue-110');
+  margin-left: -($ecl-grid-gutter-width-base / 2);
+  margin-right: -($ecl-grid-gutter-width-base / 2);
+  padding-left: ($ecl-grid-gutter-width-base / 2);
+  padding-right: ($ecl-grid-gutter-width-base / 2);
+  width: calc(100% + #{$ecl-grid-gutter-width-base});
+}
+
+.ecl-navigation-menu__hamburger-inner {
+  left: ($ecl-grid-gutter-width-base / 2);
+}
+
+.ecl-navigation-menu__hamburger-inner,
+.ecl-navigation-menu__hamburger-inner::before,
+.ecl-navigation-menu__hamburger-inner::after {
+  background-color: map-get($ecl-colors, 'blue-100');
+}
+
+.ecl-navigation-menu__root {
+  background-color: transparent;
+
+  &::before {
+    background-color: transparent;
+  }
+}
+
+.ecl-navigation-menu__root .ecl-navigation-menu__item:first-child {
+  border-top: 3px solid map-get($ecl-colors, 'grey-15');
+  margin-left: -($ecl-grid-gutter-width-base / 2);
+  margin-right: -($ecl-grid-gutter-width-base / 2);
+  padding-left: ($ecl-grid-gutter-width-base / 2);
+  padding-right: ($ecl-grid-gutter-width-base / 2);
+}
+
+/*
+ ugly hack caused be ecl-navigation-menu component
+ to be refactored
+*/
+.ecl-navigation-menu__item--active > .ecl-navigation-menu__link:not([aria-expanded='true']) {
+  border-bottom-width: 1px;
+}
+
+@include ecl-media-breakpoint-up(md) {
+  .ecl-navigation-menu {
+    border-bottom: 3px solid map-get($ecl-colors, 'grey-15');
+  }
+
+  .ecl-navigation-menu__link {
+    border-bottom-width: 0;
+  }
+
+  .ecl-navigation-menu__item {
+    margin-right: 3px;
+  }
+
+  .ecl-navigation-menu__item--active {
+    background-color: map-get($ecl-colors, 'grey-5');
+    margin-bottom: -3px;
+
+    > .ecl-navigation-menu__link::before {
+      display: none;
+    }
+  }
+
+  .ecl-navigation-menu__item--active .ecl-navigation-menu__link {
+    border-bottom-color: map-get($ecl-colors, 'blue-100');
+  }
+
+  .ecl-navigation-menu__group {
+    margin-top: 3px;
+
+    &::before {
+      border-bottom: 3px solid map-get($ecl-colors, 'blue-100');
+    }
+  }
+
+  .ecl-navigation-menu__link[aria-expanded='true'] {
+    background-color: map-get($ecl-colors, 'grey-5');
+    border-bottom: 3px solid map-get($ecl-colors, 'grey-5');
+    color: map-get($ecl-colors, 'blue-100');
+    margin-bottom: -3px;
+  }
+
+  .ecl-navigation-menu__item--active .ecl-navigation-menu__link[aria-expanded='true'] {
+    border-bottom: 3px solid map-get($ecl-colors, 'grey-5');
+    margin-bottom: 0;
+  }
+
+  .ecl-navigation-menu__root .ecl-navigation-menu__item:first-child {
+    border-top-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /*
+   ugly hack caused be ecl-navigation-menu component
+   to be refactored
+  */
+  .ecl-navigation-menu__item--active > .ecl-navigation-menu__link:not([aria-expanded='true']) {
+    border-bottom-width: 3px;
+  }
+}
