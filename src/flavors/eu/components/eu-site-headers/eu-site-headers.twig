@@ -34,6 +34,7 @@
       'extra_class': 'ecl-site-header__logo'
     } only %}
 
+    {% if _languages is not empty %}
     {% include '@ec-europa/eu-language-list' with {
       'extra_class': 'ecl-site-header__language-list',
       'languages': _languages,
@@ -43,6 +44,7 @@
         'heading': 'Select your language'
       }
     } %}
+    {% endif %}
 
     {% include '@ec-europa/ecl-search-forms' with {
       'input': { 'id': 'global-search' },
