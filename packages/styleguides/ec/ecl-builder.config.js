@@ -120,7 +120,7 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/content/ecl-icons/fonts'
+        '../../../src/generic/content/ecl-icons/fonts'
       ),
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
