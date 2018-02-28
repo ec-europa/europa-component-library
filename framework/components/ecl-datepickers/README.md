@@ -22,7 +22,15 @@ likelihood of mistakes.
 
 Component `ecl-datepickers` depends on [Pikaday](https://github.com/dbushell/Pikaday). Please follow the [installation guide](https://github.com/dbushell/Pikaday#installation) of the library in order to add the JavaScript behaviors of datepickers to your project.
 
-Then, add an instantiation script similar to the following:
+Because `Pikaday` works as a global, a possible way to include it in your site would be:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+```
+
+If you're using a bundler for your assets (like `webpack` or `rollup`), please keep in mind the list of [known issues](https://github.com/dbushell/Pikaday/search?q=moment&type=Issues&utf8=%E2%9C%93) regarding how `Pikaday` handles dependencies to `moment.js` which you might not need.
+
+Then, add an instantiation script similar to this:
 
 ```javascript
 var picker = new Pikaday({
