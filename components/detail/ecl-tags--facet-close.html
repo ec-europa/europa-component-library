@@ -31,7 +31,7 @@
 <link rel="icon" type="image/png" sizes="96x96" href="../../themes/ecl-fractal-theme/img/favicon/favicon-96x96.png">
 <link rel="shortcut icon" href="../../themes/ecl-fractal-theme/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.12.0" type="text/css">
+<link rel="stylesheet" href="../../themes/ecl-fractal-theme/css/fractal.css?cachebust=0.13.2" type="text/css">
 
 
 <title>Tags: Facet tag with close | Europa Component Library</title>
@@ -72,18 +72,19 @@
     </form>
   </div>
 </header>
-
-
 <div class="ecl-page-header">
   <div class="ecl-container">
     <nav class="ecl-breadcrumbs " aria-label="breadcrumbs">
       <span class="ecl-u-sr-only">You are here:</span>
       <ol class="ecl-breadcrumbs__segments-wrapper">
         <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--first">
-          <a href="http://europa.eu/index_en.htm" class="ecl-breadcrumbs__link">European Commission</a>
+          <a href="http://europa.eu/index_en.htm" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link">European Commission</a>
         </li>
         <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--last">
-          <a href="#" class="ecl-breadcrumbs__link"> Europa Component Library</a>
+          <a href="/" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link">Europa Component Library</a>
+        </li>
+        <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--last">
+          <a href="#" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link"> Europa Component Library</a>
         </li>
       </ol>
     </nav>
@@ -94,30 +95,6 @@
     </div>
   </div>
 </div>
-
-<!--
-<nav class="ecl-navigation-menu" aria-label="Main Navigation">
-  <div class="ecl-container">
-    <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="false">
-      <span class="ecl-navigation-menu__hamburger-box">
-        <span class="ecl-navigation-menu__hamburger-inner"></span>
-      </span>
-      <span class="ecl-navigation-menu__hamburger-label">Menu</span>
-    </button>
-    <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root" aria-hidden="true">
-      <li class="ecl-navigation-menu__item">
-        <a href="../../components" class="ecl-navigation-menu__link">Europa Component Library</a>
-      </li>
-      <li class="ecl-navigation-menu__item">
-        <a href="../../docs" class="ecl-navigation-menu__link">Documentation</a>
-      </li>
-      <li class="ecl-navigation-menu__item">
-        <a href="https://github.com/ec-europa/europa-component-library" class="ecl-navigation-menu__link  ecl-link--external">GitHub</a>
-      </li>
-    </ul>
-  </div>
-</nav>
--->
 
   <main>
     <a id="main-content" tabindex="-1"></a>
@@ -3401,7 +3378,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
       <div class="ecl-row">
         <div class="ecl-col-sm ecl-footer__column">
           <h4 class="ecl-h4">
-            <a class="ecl-link ecl-footer__link" href="#">Europa Component Library</a>
+            <a class="ecl-link ecl-link--standalone ecl-footer__link" href="#">Europa Component Library</a>
           </h4>
         </div>
         <div class="ecl-col-sm ecl-footer__column">
@@ -3415,10 +3392,10 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         <div class="ecl-col-sm ecl-footer__column">
           <ul class="ecl-footer__menu ecl-list--unstyled">
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="../../components">Components</a>
+              <a class="ecl-link ecl-footer__link" href="/flavors/ec">EC Components</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="../../docs">Documentation</a>
+              <a class="ecl-link ecl-footer__link" href="/flavors/eu">EU Components</a>
             </li>
           </ul>
         </div>
@@ -3432,24 +3409,24 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
           <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
           <ul class="ecl-footer__menu">
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies information and services</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies information and services</a>
             </li>
           </ul>
         </div>
         <div class="ecl-col-sm ecl-footer__column">
           <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
-          <ul class="ecl-footer__menu ecl-list--inline">
+          <ul class="ecl-footer__menu ecl-list--inline ecl-footer__social-links">
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"></span>Facebook</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="#"><span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"></span>Twitter</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">Other social media</a>
+              <a class="ecl-link ecl-link--inverted ecl-link--external ecl-footer__link" href="#">Other social media</a>
             </li>
           </ul>
         </div>
@@ -3457,10 +3434,10 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
           <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
           <ul class="ecl-footer__menu">
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">EU institutions</a>
+              <a class="ecl-link ecl-link--inverted ecl-link--external ecl-footer__link" href="#">EU institutions</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link ecl-link--external" href="#">European Union</a>
+              <a class="ecl-link ecl-link--inverted ecl-link--external ecl-footer__link" href="#">European Union</a>
             </li>
           </ul>
         </div>
@@ -3473,19 +3450,19 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
         <div class="ecl-col-sm ">
           <ul class="ecl-list--inline ecl-footer__menu">
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/about-commissions-new-web-presence_en">About the Commission's new web presence</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="http://ec.europa.eu/info/about-commissions-new-web-presence_en">About the Commission's new web presence</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/resources-partners_en">Resources for partners</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="http://ec.europa.eu/info/resources-partners_en">Resources for partners</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/cookies_en">Cookies</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="http://ec.europa.eu/info/cookies_en">Cookies</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/legal-notice_en">Legal notice</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="http://ec.europa.eu/info/legal-notice_en">Legal notice</a>
             </li>
             <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="http://ec.europa.eu/info/contact_en">Contact</a>
+              <a class="ecl-link ecl-link--inverted ecl-footer__link" href="http://ec.europa.eu/info/contact_en">Contact</a>
             </li>
           </ul>
         </div>
@@ -3494,14 +3471,13 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
   </div>
 </footer>
 
+<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.13.2"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery.min.js?cachebust=0.12.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.13.2"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/jquery-resizable.min.js?cachebust=0.12.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.13.2"></script>
 
-<script src="../../themes/ecl-fractal-theme/js/select2.min.js?cachebust=0.12.0"></script>
-
-<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.12.0"></script>
+<script src="../../themes/ecl-fractal-theme/js/ecl-fractal-theme.js?cachebust=0.13.2"></script>
 
 
 

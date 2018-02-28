@@ -11,15 +11,7 @@ var queryAll = function queryAll(selector) {
 
 // Heavily inspired by the accordion component from https://github.com/frend/frend.co
 
-/**
- * @param {object} options Object containing configuration overrides
- */
-
 var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-
-
-
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -30,16 +22,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 } : function (obj) {
   return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
 };
-
-
-
-
-
-
-
-
-
-
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -57,14 +39,8 @@ var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'o
 var root = freeGlobal || freeSelf || Function('return this')();
 
 /**
- * @param {object} options Object containing configuration overrides
- */
-
-/**
  * Contextual navigation scripts
  */
-
-// Helper method to automatically attach the event listener to all the expandables on page load
 
 /**
  * `Node#contains()` polyfill.
@@ -75,19 +51,6 @@ var root = freeGlobal || freeSelf || Function('return this')();
  * @param {Node} other
  * @return {Boolean}
  * @public
- */
-
-/**
- * @param {object} options Object containing configuration overrides
- *
- * Available options:
- * - options.triggerElementsSelector - any selector to which event listeners
- * are attached. When clicked on any element with such a selector, a dialog opens.
- *
- * - options.dialogWindowId - id of target dialog window. Defaults to `ecl-dialog`.
- *
- * - options.dialogOverlayId - id of target dialog window. Defaults to `ecl-overlay`.
- * Overlay element is created in the document if not provided by the user.
  */
 
 var toggleExpandable = function toggleExpandable(toggleElement) {
@@ -135,22 +98,13 @@ var toggleExpandable = function toggleExpandable(toggleElement) {
   }
 };
 
-// Helper method to automatically attach the event listener to all the expandables on page load
-
 /**
  * File uploads related behaviors.
- */
-
-/**
- * @param {object} options Object containing configuration overrides
  */
 
 /*
  * Messages behavior
  */
-
-// Dismiss a selected message.
-// Helper method to automatically attach the event listener to all the messages on page load
 
 /*
   STICKYBITS 💉
@@ -303,10 +257,6 @@ var gumshoe_min = createCommonjsModule(function (module, exports) {
  * Navigation inpage related behaviors.
  */
 
-/**
- * @param {object} options Object containing configuration overrides
- */
-
 var onClick = function onClick(node, menu) {
   return function (e) {
     if (node && node.hasAttribute('aria-haspopup')) {
@@ -402,19 +352,11 @@ var megamenu = function megamenu() {
  * Tables related behaviors.
  */
 
-/* eslint-disable no-unexpected-multiline */
-
 // Heavily inspired by the tab component from https://github.com/frend/frend.co
-
-/**
- * @param {object} options Object containing configuration overrides
- */
 
 /**
  * Timeline
  */
-
-// Helper method to automatically attach the event listener to all the expandables on page load
 
 // Export components
 
@@ -429,9 +371,11 @@ var storage = {
 };
 
 /* eslint-disable import/no-extraneous-dependencies */
-var events$1 = $({});
+
+var events = $({});
 
 /* eslint-disable import/no-extraneous-dependencies */
+
 var Preview = function () {
   function Preview(el) {
     classCallCheck(this, Preview);
@@ -478,7 +422,7 @@ var Preview = function () {
       onDragStart: function onDragStart() {
         _this._el.addClass('is-resizing');
         _this.disableEvents();
-        events$1.trigger('start-dragging');
+        events.trigger('start-dragging');
       },
       onDragEnd: function onDragEnd() {
         if (_this._resizer.outerWidth() === _this._el.outerWidth()) {
@@ -487,7 +431,7 @@ var Preview = function () {
         storage.set('preview.width', _this._resizer.outerWidth());
         _this._el.removeClass('is-resizing');
         _this.enableEvents();
-        events$1.trigger('end-dragging');
+        events.trigger('end-dragging');
       },
       resizeWidthFrom: dir === 'rtl' ? 'left' : 'right'
     });
@@ -505,6 +449,7 @@ var Preview = function () {
 }();
 
 /* eslint-disable import/no-extraneous-dependencies */
+
 var Browser = function () {
   function Browser(el) {
     classCallCheck(this, Browser);
@@ -555,6 +500,7 @@ var Browser = function () {
 }();
 
 /* eslint-disable import/no-extraneous-dependencies */
+
 var Pen = function () {
   function Pen(el) {
     classCallCheck(this, Pen);
@@ -608,12 +554,12 @@ var Pen = function () {
       onDragStart: function onDragStart() {
         _this._el.addClass('is-resizing');
         preview.disableEvents();
-        events$1.trigger('start-dragging');
+        events.trigger('start-dragging');
       },
       onDragEnd: function onDragEnd() {
         _this._el.removeClass('is-resizing');
         preview.enableEvents();
-        events$1.trigger('end-dragging');
+        events.trigger('end-dragging');
         if (dblClick) {
           if (state === 'closed') {
             _this._previewPanel.css('height', storage.get('pen.onClosedHeight', initialHeight));
@@ -647,13 +593,7 @@ var Pen = function () {
 }();
 
 var lunr = createCommonjsModule(function (module, exports) {
-  /**
-   * lunr - http://lunrjs.com - A bit like Solr, but much smaller and not as bright - 1.0.0
-   * Copyright (C) 2017 Oliver Nightingale
-   * @license MIT
-   */
-
-  (function () {
+(function () {
 
     /**
      * Convenience function for instantiating a new lunr index and configuring it
@@ -1101,10 +1041,8 @@ var lunr = createCommonjsModule(function (module, exports) {
           token = this._stack[j](token, i, tokens);
           if (token === void 0 || token === '') break;
         }
-
         if (token !== void 0 && token !== '') out.push(token);
       }
-
       return out;
     };
 
@@ -1454,7 +1392,6 @@ var lunr = createCommonjsModule(function (module, exports) {
           continue;
         }
       }
-
       return intersectSet;
     };
 
@@ -1718,7 +1655,6 @@ var lunr = createCommonjsModule(function (module, exports) {
 
         this.tokenStore.add(token, { ref: docRef, tf: tf });
       }
-
       if (emitEvent) this.eventEmitter.emit('add', doc, this);
     };
 
@@ -1922,7 +1858,6 @@ var lunr = createCommonjsModule(function (module, exports) {
 
         documentVector.insert(this.corpusTokens.indexOf(token), tf * idf);
       }
-
       return documentVector;
     };
 
@@ -2586,6 +2521,7 @@ var lunr = createCommonjsModule(function (module, exports) {
 });
 
 /* eslint-disable import/no-extraneous-dependencies */
+
 var search = (function () {
   if (!document.getElementById('searchIndexPath')) {
     return;
@@ -2639,7 +2575,7 @@ var search = (function () {
 });
 
 /* eslint-disable import/no-extraneous-dependencies, import/first */
-// Local imports
+
 document.addEventListener('DOMContentLoaded', function () {
   $.map($('[data-behaviour="pen"]'), function (p) {
     return new Pen(p);
@@ -2649,7 +2585,7 @@ document.addEventListener('DOMContentLoaded', function () {
   megamenu();
 });
 
-exports['default'] = events$1;
+exports.default = events;
 
 return exports;
 
