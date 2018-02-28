@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 export const toggleExpandable = (
   toggleElement,
   {
@@ -29,6 +31,15 @@ export const toggleExpandable = (
   // Toggle the expandable/collapsible
   toggleElement.setAttribute('aria-expanded', !isExpanded);
   target.setAttribute('aria-hidden', isExpanded);
+
+  // Toggle label if possible
+  if (!isExpanded && toggleElement.hasAttribute('data-label-expanded')) {
+    toggleElement.innerHTML = toggleElement.getAttribute('data-label-expanded');
+  } else if (isExpanded && toggleElement.hasAttribute('data-label-collapsed')) {
+    toggleElement.innerHTML = toggleElement.getAttribute(
+      'data-label-collapsed'
+    );
+  }
 
   // Close siblings if requested
   if (closeSiblings === true) {
