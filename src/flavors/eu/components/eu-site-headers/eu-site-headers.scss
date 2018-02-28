@@ -13,19 +13,13 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding-bottom: map-get($ecl-spacing, 's');
   padding-top: map-get($ecl-spacing, 's');
 }
 
 .ecl-site-header__banner > * {
   margin-top: map-get($ecl-spacing, 's');
-}
-
-// If the logo is linking to an external page do not show the external icon.
-.ecl-site-header__logo {
-  flex-grow: 1;
-  flex-shrink: 0;
 }
 
 .ecl-site-header__language-list {
