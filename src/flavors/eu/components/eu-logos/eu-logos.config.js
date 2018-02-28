@@ -21,15 +21,13 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
-      <div class="clearfix">
-        <div class="language-${item.context.global.language}">\n
-          <a href="${
-            item.context.to
-          }" class="ecl-logo ecl-logo--logotype" title="${item.context.title}">
-            <span class="ecl-u-sr-only">${item.context.title}</span>
-          </a>
-        </div>
-      </div>\n
+      <div class="language-${item.context.global.language}">\n
+        <a href="${
+          item.context.to
+        }" class="ecl-logo ecl-logo--logotype" title="${item.context.title}">
+          <span class="ecl-u-sr-only">${item.context.title}</span>
+        </a>
+      </div>
       <!-- End: @${item.handle} -->\n
     `;
   },
