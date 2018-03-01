@@ -20,7 +20,7 @@ module.exports = {
   status: 'ready',
   tags: ['molecule'],
   context: {
-    title: 'Page Contents',
+    title: 'Page content',
     links,
     _demo: {
       scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); ECL.navigationInpages(); });`,
