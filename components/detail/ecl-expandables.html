@@ -2981,7 +2981,11 @@ sub-sections in a structured way.</p>
 following script to your page:</p>
 <code class="lang-javascript"><pre><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
   ECL.initExpandables();
-});</pre></code><h2 id="resources">Resources</h2>
+});</pre></code><h2 id="change-button-label-when-the-component-is-collapsed-expanded">Change button label when the component is collapsed/expanded</h2>
+<p>You can attach <code>data-label-expanded</code> and <code>data-label-collapsed</code> attributes to
+your button. The button label will be updated dynamically according to these
+values. Check the first example for more information.</p>
+<h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://www.w3.org/WAI/GL/wiki/Using_the_WAI-ARIA_aria-expanded_state_to_mark_expandable_and_collapsible_regions">Using the WAI-ARIA aria-expanded state to mark expandable and collapsible regions, WCAG Working Group</a></li>
 <li><a href="http://heydonworks.com/practical_aria_examples/#progressive-collapsibles">Progressive collapsibles, ARIA Examples, Heydon Pickering</a></li>
@@ -3075,6 +3079,8 @@ following script to your page:</p>
     'extra_attributes': [
       { 'name': 'aria-controls', 'value': 'example-expandable-1'},
       { 'name': 'aria-expanded', 'value': 'false'},
+      { 'name': 'data-label-expanded', 'value': 'Hide me'},
+      { 'name': 'data-label-collapsed', 'value': 'What is this all about?'},
       { 'name': 'id', 'value': 'example-expandable-button-1' },
       { 'name': 'type', 'value': 'button'},
     ]
@@ -3137,7 +3143,7 @@ following script to your page:</p>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"margin-top:1rem"</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-expandable-1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button-1"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>What is this all about?<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-expandable-1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">data-label-expanded</span>=<span class="hljs-string">"Hide me"</span> <span class="hljs-attr">data-label-collapsed</span>=<span class="hljs-string">"What is this all about?"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button-1"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>What is this all about?<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button-1"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-1"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -3235,7 +3241,9 @@ following script to your page:</p>
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-JavaScript FileBrowser-code">
-                                <pre><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toggleExpandable = (
+                                <pre><span class="hljs-comment">/* eslint-disable no-param-reassign */</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> toggleExpandable = (
   toggleElement,
   {
     context = <span class="hljs-built_in">document</span>,
@@ -3266,6 +3274,15 @@ following script to your page:</p>
   <span class="hljs-comment">// Toggle the expandable/collapsible</span>
   toggleElement.setAttribute(<span class="hljs-string">'aria-expanded'</span>, !isExpanded);
   target.setAttribute(<span class="hljs-string">'aria-hidden'</span>, isExpanded);
+
+  <span class="hljs-comment">// Toggle label if possible</span>
+  <span class="hljs-keyword">if</span> (!isExpanded &amp;&amp; toggleElement.hasAttribute(<span class="hljs-string">'data-label-expanded'</span>)) {
+    toggleElement.innerHTML = toggleElement.getAttribute(<span class="hljs-string">'data-label-expanded'</span>);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (isExpanded &amp;&amp; toggleElement.hasAttribute(<span class="hljs-string">'data-label-collapsed'</span>)) {
+    toggleElement.innerHTML = toggleElement.getAttribute(
+      <span class="hljs-string">'data-label-collapsed'</span>
+    );
+  }
 
   <span class="hljs-comment">// Close siblings if requested</span>
   <span class="hljs-keyword">if</span> (closeSiblings === <span class="hljs-literal">true</span>) {
@@ -3314,7 +3331,7 @@ following script to your page:</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">1.5 KB</span>
+                    <span class="Meta-value">1.9 KB</span>
                 </li>
             </ul>
         </div>
