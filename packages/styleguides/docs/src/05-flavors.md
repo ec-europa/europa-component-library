@@ -47,6 +47,13 @@ In short, this means that each flavor will have an independent set of:
 * `ecl-builder.config.js` configurations about how CSS, JS and other assets are managed
 * each project lives and progresses independently from the other
 
+#### Important notes
+
+* It is acceptable to have exact same HTML markup from per-family "duplicate" components
+* Same component from 2 families cannot be used together at the same time
+
+Example: EC-flavor logo and EU-flavor logo can have same HTML markup, but should never be used together in the same page.
+
 ### Maintaining flavors (Important notes on APIs)
 
 The split of the project introduces several important rules which should be followed in order to keep ECL project repository maintainable for contributors, and also easy to integrate by consumers of ECL builds and resources.
@@ -60,42 +67,3 @@ Each flavor should be named in a distinguishable manner:
 * Twig templates should be prefixed with `@ec-europa/` in order to be consistently consumable by [Europa Component Library Twig loader](https://github.com/openeuropa/ecl-twig-loader)
 
 Please note that all current EC-flavor components have preserved `@ec-europa/ecl-*` naming in order to give time for consumers of ECL components to plan changes based on flavors. The `@ec-europa/ecl-` namespace, in future, should be the place to store reusable parts of components such as mixins and variables.
-
-Also, for keeping current consumption of ECL releases smooth for users, releases are to include `framework.zip` with this structure:
-
-```
-.
-├── fonts
-│   └── europa-icons
-│       ├── europa-icons.eot
-│       ├── europa-icons.svg
-│       ├── europa-icons.ttf
-│       └── europa-icons.woff
-├── images
-│   ├── arrow-down.svg
-        ...
-│   ├── favicon
-│   │   ├── android-chrome-144x144.png
-            ...
-│   ├── live_streaming.svg
-        ...
-│   ├── logo
-│   │   ├── logo--bg.svg
-            ...
-│   └── social
-│       ├── arto_hover.svg
-│       ├── arto.svg
-            ...
-├── scripts
-│   ├── europa-corporate.js
-│   └── europa.js
-└── styles
-    ├── europa-base.css
-    ├── europa-base.css.map
-    ├── europa-corporate.css
-    ├── europa-corporate.css.map
-    ├── europa.css
-    ├── europa.css.map
-    ├── europa-editor.css
-    └── europa-editor.css.map
-```
