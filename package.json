@@ -16,7 +16,6 @@
     "lint": "npm-run-all --parallel lint:* -cln",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
-    "publish:releases": "scripts/release-packages.sh",
     "test:coding-conventions": "npm run lint",
     "test:functional": "run-s test:functional:*",
     "test:functional:ec": "wdio test/wdio.conf.js",
