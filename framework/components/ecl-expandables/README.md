@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 ```
 
+## Change button label when the component is collapsed/expanded
+
+You can attach `data-label-expanded` and `data-label-collapsed` attributes to
+your button. The button label will be updated dynamically according to these
+values. Check the first example for more information.
+
 ## Resources
 
 * [Using the WAI-ARIA aria-expanded state to mark expandable and collapsible regions, WCAG Working Group](https://www.w3.org/WAI/GL/wiki/Using_the_WAI-ARIA_aria-expanded_state_to_mark_expandable_and_collapsible_regions)
