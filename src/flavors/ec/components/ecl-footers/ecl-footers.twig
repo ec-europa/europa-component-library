@@ -78,7 +78,7 @@ items: [
           <h4 class="{{ menu.title.classes }}">
             {% include '@ec-europa/ecl-links' with {
               'extra_classes': 'ecl-footer__link',
-              }|merge(menu.title.link)
+              }|merge(menu.title.link|default({}))
             %}
           </h4>
           {# otherwise, if it is only a title, without a link, use the title: #}

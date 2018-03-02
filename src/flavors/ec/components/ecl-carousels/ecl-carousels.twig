@@ -118,7 +118,7 @@ Usage:
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--download',
             'extra_attributes': [ 'name': 'title', 'value': carousel_image.download.title ],
             'variant': ['inverted', 'standalone'],
-            }|merge(carousel_image.download)
+            }|merge(carousel_image.download|default({}))
           %}
         </span>
         <span class="ecl-carousel__meta-item ecl-carousel__meta-share">
@@ -126,7 +126,7 @@ Usage:
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--share',
             'extra_attributes': [ 'name': 'title', 'value': carousel_image.share.title ],
             'variant': ['inverted', 'standalone'],
-            }|merge(carousel_image.share)
+            }|merge(carousel_image.share|default({}))
           %}
         </span>
       </div>
