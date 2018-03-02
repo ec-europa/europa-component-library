@@ -46,7 +46,7 @@
     </div>
     {% include '@ec-europa/ecl-links' with {
       'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
-      }|merge(title)
+      }|merge(title|default({}))
     %}
     <div class="ecl-comment__text">
       <p class="ecl-paragraph">{{ body }}</p>
@@ -57,7 +57,7 @@
         <li>
           {% include '@ec-europa/ecl-links' with {
             'extra_classes': 'ecl-comment__reply',
-            }|merge(operations.reply)
+            }|merge(operations.reply|default({}))
           %}
         </li>
       {% endif %}
@@ -65,7 +65,7 @@
         <li>
           {% include '@ec-europa/ecl-links' with {
             'extra_classes': 'ecl-comment__edit',
-            }|merge(operations.edit)
+            }|merge(operations.edit|default({}))
           %}
         </li>
       {% endif %}
@@ -73,7 +73,7 @@
         <li>
           {% include '@ec-europa/ecl-links' with {
             'extra_classes': 'ecl-comment__delete',
-            }|merge(operations.delete)
+            }|merge(operations.delete|default({}))
           %}
         </li>
       {% endif %}

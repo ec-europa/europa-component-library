@@ -6,7 +6,7 @@
       {% include '@ec-europa/ecl-links' with {
         'extra_classes': 'ecl-breadcrumbs__link',
         'variant': ['inverted', 'standalone'],
-        }|merge(segment)
+        }|merge(segment|default({}))
       %}
     </li>
     {% endfor %}

@@ -38,13 +38,13 @@
     <li class="ecl-site-switcher__option{{ political.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
       {% include '@ec-europa/ecl-links' with {
         'extra_classes': 'ecl-site-switcher__link',
-        }|merge(political)
+        }|merge(political|default({}))
       %}
     </li>
     <li class="ecl-site-switcher__option{{ info.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
       {% include '@ec-europa/ecl-links' with {
         'extra_classes': 'ecl-site-switcher__link',
-        }|merge(info)
+        }|merge(info|default({}))
       %}
     </li>
   </ul>

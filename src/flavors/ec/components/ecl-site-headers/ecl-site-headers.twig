@@ -56,14 +56,14 @@
     {% include '@ec-europa/ecl-navigation-lists' with {
       variant: 'small',
       extra_classes: 'ecl-u-f-r'
-    }|merge(user_menu) %}
+    }|merge(user_menu|default({})) %}
   </div>
   {% endif %}
 
   {% if site_switcher is defined %}
   {% include '@ec-europa/ecl-site-switchers' with {
     variant: 'header'
-    }|merge(site_switcher ) %}
+    }|merge(site_switcher|default({})) %}
   {% endif %}
 
   <div class="ecl-container ecl-site-header__banner">

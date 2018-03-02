@@ -25,7 +25,7 @@
   lanugages: languages
 } %}
 
-{% include '@ec-europa/ecl-page-headers' with { variant: 'default' }|merge(page_header) %}
+{% include '@ec-europa/ecl-page-headers' with { variant: 'default' }|merge(page_header|default({})) %}
 {% if menu is defined and menu is not empty %}
   {% include '@ec-europa/ecl-navigation-menus' with menu %}
 {% endif %}

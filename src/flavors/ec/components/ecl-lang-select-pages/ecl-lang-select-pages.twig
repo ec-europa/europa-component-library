@@ -59,7 +59,7 @@
           { 'name': 'rel', 'value': 'alternate' },
         ],
         'variant': link_variant
-        }|merge(opt)
+        }|merge(opt|default({}))
       %}
     </li>
     {% endfor %}
