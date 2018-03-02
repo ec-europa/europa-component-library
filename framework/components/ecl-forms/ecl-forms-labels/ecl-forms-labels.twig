@@ -18,4 +18,4 @@
   {% endfor %}
 {% endif %}
 
-<label class="{{ _css_class }}"{{ _extra_attributes }}{{ for_attribute is defined ? ' for="' ~ for_attribute ~ '"'  : '' }}>{% block label label %}</label>
+<label class="{{ _css_class }}"{{ _extra_attributes|raw }}{{ for_attribute is defined ? ' for="' ~ for_attribute ~ '"'  : '' }}>{% block label label %}</label>

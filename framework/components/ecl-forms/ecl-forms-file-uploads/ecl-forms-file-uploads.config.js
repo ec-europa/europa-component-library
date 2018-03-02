@@ -1,8 +1,9 @@
 module.exports = {
   title: 'File uploads',
   label: 'File uploads',
+  preview: '@preview-forms-file-uploads',
   status: 'ready',
-  collated: false,
+  collated: true,
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
@@ -18,11 +19,6 @@ module.exports = {
       context: {
         id: 'example-input-id-1',
         name: 'example-input-name-1',
-        _demo: {
-          scripts: `document.addEventListener('DOMContentLoaded', function () {
-            ECL.fileUploads();
-          });`,
-        },
       },
     },
     {
@@ -32,11 +28,6 @@ module.exports = {
         id: 'example-input-id-2',
         name: 'example-input-name-2',
         is_disabled: true,
-        _demo: {
-          scripts: `document.addEventListener('DOMContentLoaded', function () {
-            ECL.fileUploads();
-          });`,
-        },
       },
     },
     {
@@ -46,11 +37,6 @@ module.exports = {
         id: 'example-input-id-3',
         name: 'example-input-name-3',
         is_multiple: true,
-        _demo: {
-          scripts: `document.addEventListener('DOMContentLoaded', function () {
-            ECL.fileUploads();
-          });`,
-        },
       },
     },
     {
@@ -60,11 +46,6 @@ module.exports = {
         id: 'example-input-id-4',
         name: 'example-input-name-4',
         has_error: true,
-        _demo: {
-          scripts: `document.addEventListener('DOMContentLoaded', function () {
-            ECL.fileUploads();
-          });`,
-        },
       },
     },
   ],

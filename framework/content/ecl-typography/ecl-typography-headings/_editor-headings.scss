@@ -25,3 +25,17 @@
   @include heading();
   @include heading-5();
 }
+
+.ecl-editor {
+  * + h1 {
+    margin-top: map-get($ecl-spacing, 'xxl');
+  }
+
+  * + h2 {
+    margin-top: map-get($ecl-spacing, 'xl');
+  }
+
+  * + h3 {
+    margin-top: map-get($ecl-spacing, 'l');
+  }
+}

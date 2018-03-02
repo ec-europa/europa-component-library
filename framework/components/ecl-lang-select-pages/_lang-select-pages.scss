@@ -79,7 +79,10 @@
 
 .ecl-lang-select-page__dropdown {
   @include ecl-hidden-print();
-  @include ecl-select-list-arrow($background-color: transparent, $arrow-grey: true);
+  @include ecl-select-list-arrow(
+    $background-color: transparent,
+    $arrow-grey: true
+  );
 
   align-self: stretch;
   appearance: none;
@@ -89,7 +92,8 @@
   cursor: pointer;
   font-size: map-get($ecl-font-size, 'xs');
   font-weight: bold;
-  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 's') map-get($ecl-spacing, 's');
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'l')
+    map-get($ecl-spacing, 's') map-get($ecl-spacing, 's');
   position: absolute;
   visibility: hidden;
 
@@ -116,17 +120,11 @@
   border-bottom: 1px solid #fff;
   color: #fff;
 
-  .ecl-lang-select-page__link {
-    color: #fff;
-  }
-
-  .ecl-lang-select-page__option--is-selected,
-  .ecl-lang-select-page__option--is-selected .ecl-lang-select-page__link {
-    color: #000;
-  }
-
   .ecl-lang-select-page__dropdown {
-    @include ecl-select-list-arrow($background-color: map-get($ecl-colors, 'blue-110'), $arrow-grey: false);
+    @include ecl-select-list-arrow(
+      $background-color: map-get($ecl-colors, 'blue-110'),
+      $arrow-grey: false
+    );
 
     background-color: map-get($ecl-colors, 'blue-110');
     color: #fff;

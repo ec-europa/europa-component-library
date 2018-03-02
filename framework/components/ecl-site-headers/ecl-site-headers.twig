@@ -26,12 +26,15 @@
   Generic:
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+    - "languages" (array): array of languages to display
 #}
 
 {# Internal properties #}
 
 {% set _css_class = 'ecl-site-header' %}
 {% set _extra_attributes = '' %}
+{% set _languages = languages|default([]) %}
+
 
 {# Internal logic - Process properties #}
 
@@ -46,7 +49,7 @@
 {% endif %}
 
 {# Print result #}
-<header class="{{ _css_class }}" role="banner"{{ _extra_attributes }}>
+<header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
 
   {% if user_menu is defined and user_menu is iterable %}
   <div class="ecl-container">
@@ -70,8 +73,14 @@
       'type': 'right',
       'extra_class': 'ecl-site-header__logo'
     } only %}
-    {% include '@ec-europa/ecl-lang-select-sites' with {
-      'extra_class': 'ecl-site-header__lang-select-sites'
+    {% include '@ec-europa/ecl-language-list' with {
+      'extra_class': 'ecl-site-header__language-list',
+      'languages': _languages,
+      'variant': 'overlay',
+      'messages': {
+        'dismiss': 'Close',
+        'heading': 'Select your language'
+      }
     } %}
     {% include '@ec-europa/ecl-search-forms' with {
       'input': { 'id': 'global-search' },

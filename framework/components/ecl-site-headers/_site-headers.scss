@@ -4,6 +4,7 @@
  */
 
 .ecl-site-header {
+  background-color: #fff;
   margin: 0;
   width: 100%;
 }
@@ -27,10 +28,11 @@
   flex-shrink: 0;
 }
 
-.ecl-site-header__lang-select-sites {
+.ecl-site-header__language-list {
+  display: flex;
   flex-grow: 1;
   flex-shrink: 0;
-  text-align: right;
+  justify-content: flex-end;
 }
 
 .ecl-site-header__search {

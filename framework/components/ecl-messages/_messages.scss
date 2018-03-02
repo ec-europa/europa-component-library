@@ -4,32 +4,34 @@
  */
 
 .ecl-message {
-  background: transparent url('../images/messages-info.svg') no-repeat 1.2rem 1.2rem;
+  background: transparent url($ecl-assets-path+'images/messages-info.svg')
+    no-repeat 1.2rem 1.2rem;
   border: 2px solid map-get($ecl-colors, 'blue-75');
   color: $ecl-color-shade;
   font-size: map-get($ecl-font-size, 's');
   margin-bottom: map-get($ecl-spacing, 's');
   min-height: map-get($ecl-spacing, 'l');
-  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l')
+    map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
   position: relative;
 
   &--success {
-    background-image: url('../images/messages-success.svg');
+    background-image: url($ecl-assets-path+'images/messages-success.svg');
     border-color: $ecl-color-success;
   }
 
   &--warning {
-    background-image: url('../images/messages-warning.svg');
+    background-image: url($ecl-assets-path+'images/messages-warning.svg');
     border-color: map-get($ecl-colors, 'yellow-110');
   }
 
   &--error {
-    background-image: url('../images/messages-error.svg');
+    background-image: url($ecl-assets-path+'images/messages-error.svg');
     border-color: $ecl-color-error;
   }
 
   &--live {
-    background-image: url('../images/live_streaming.svg');
+    background-image: url($ecl-assets-path+'images/live_streaming.svg');
     border-color: map-get($ecl-colors, 'yellow-110');
   }
 }
@@ -45,7 +47,8 @@
 }
 
 .ecl-message__dismiss {
-  background: transparent url('../images/close.svg') no-repeat center center;
+  background: transparent url($ecl-assets-path+'images/close.svg') no-repeat
+    center center;
   border-width: 0;
   color: transparent;
   display: block;
@@ -59,6 +62,30 @@
   top: map-get($ecl-spacing, 'xxs');
 
   &:hover {
-    background-image: url('../images/close_hover.svg');
+    background-image: url($ecl-assets-path+'images/close_hover.svg');
+  }
+}
+
+.ecl-message__dismiss--inverted {
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.889em;
+  text-decoration: underline;
+
+  &::after {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    content: '\00D7';
+    display: inline-block;
+    float: right;
+    height: 1.5em;
+    margin-left: 0.5em;
+    text-align: center;
+    width: 1.5em;
+  }
+
+  &:hover {
+    background-image: none;
   }
 }

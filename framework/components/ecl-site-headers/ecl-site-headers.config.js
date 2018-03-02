@@ -1,3 +1,5 @@
+const languages = require('../ecl-language-list/languages.json');
+
 module.exports = {
   title: 'Site headers',
   label: 'Site headers',
@@ -19,6 +21,17 @@ module.exports = {
         { href: '#', label: 'My account' },
         { href: '#', label: 'Log out' },
       ],
+    },
+    languages,
+    _demo: {
+      scripts: `
+        document.addEventListener('DOMContentLoaded', function () {
+          ECL.dialogs({
+            dialogOverlayId: 'ecl-overlay-language-list',
+            triggerElementsSelector: '#ecl-lang-select-sites__overlay'
+          });
+        });
+      `,
     },
   },
 };

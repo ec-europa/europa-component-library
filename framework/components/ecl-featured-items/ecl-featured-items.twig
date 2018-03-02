@@ -43,7 +43,7 @@
 
 {# Print result #}
 
-<div class="{{ _css_class }}" {{ _extra_attributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
   <div class="ecl-featured-item__image">
     <img src="{{ image.src }}" alt="{{ image.alt }}" />
   </div>
@@ -54,7 +54,13 @@
       metas: metas,
     } %}
 
-    <a href="{{ link.href }}" class="ecl-link ecl-link--standalone ecl-featured-item__title">{{ title }}</a>
+    {% include '@ec-europa/ecl-links' with {
+      'href': link.href,
+      'label': title,
+      'extra_classes': 'ecl-featured-item__title',
+      'variant': 'standalone',
+      }
+    %}
 
     {% block body %}
 

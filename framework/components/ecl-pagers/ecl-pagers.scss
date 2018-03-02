@@ -45,6 +45,10 @@
 .ecl-pager__item--previous,
 .ecl-pager__item--next {
   display: block;
+
+  .ecl-pager__link {
+    font-weight: 600;
+  }
 }
 
 .ecl-pager__item--ellipsis {
@@ -52,13 +56,6 @@
   font-weight: 400;
   min-width: map-get($ecl-spacing, 's');
   padding: map-get($ecl-spacing, 'xxxs');
-}
-
-.ecl-pager__item--previous,
-.ecl-pager__item--next {
-  .ecl-pager__link {
-    font-weight: 600;
-  }
 }
 
 .ecl-pager__item--current {

@@ -8,17 +8,19 @@
 .ecl-feedback-message {
   @include ecl-hidden-print();
 
-  background: transparent url('../images/messages-info.svg') no-repeat 1.2rem 1.2rem;
+  background: transparent url($ecl-assets-path+'images/messages-info.svg')
+    no-repeat 1.2rem 1.2rem;
   color: $ecl-color-shade;
   font-size: map-get($ecl-font-size, 's');
   margin: 0;
   min-height: map-get($ecl-spacing, 'l');
-  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+  padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l')
+    map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
 }
 
 .ecl-feedback-message--error {
   background-color: map-get($ecl-colors, 'grey-5');
-  background-image: url('../images/messages-error.svg');
+  background-image: url($ecl-assets-path+'images/messages-error.svg');
 }
 
 .ecl-feedback-message__title {

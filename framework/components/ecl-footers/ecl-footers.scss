@@ -22,6 +22,11 @@
   margin-right: 8px !important;
 }
 
+.ecl-footer__social-links li:last-child {
+  display: block;
+  margin-left: 0;
+}
+
 .ecl-footer__title {
   border-bottom: 2px solid map-get($ecl-colors, blue-50);
   color: #fff;
@@ -62,19 +67,6 @@
   }
 }
 
-// By default footer links should be white in all states.
-.ecl-footer__link {
-  color: #fff;
-}
-
-.ecl-footer__link:hover,
-.ecl-footer__link:active,
-.ecl-footer__link:focus {
-  background: none;
-  color: #fff;
-  text-decoration: none;
-}
-
 .ecl-footer__column {
   padding-top: map-get($ecl-spacing, m);
 }
@@ -88,15 +80,14 @@
   color: map-get($ecl-colors, blue-120);
 
   // Links should have a different color because of their background.
-  .ecl-footer__link,
+  .ecl-footer__link {
+    color: map-get($ecl-colors, blue-120);
+  }
+
   .ecl-footer__link:hover,
   .ecl-footer__link:active,
   .ecl-footer__link:focus {
     color: map-get($ecl-colors, blue-120);
-  }
-
-  h4 .ecl-footer__link {
-    text-decoration: none;
   }
 
   .ecl-footer__column {

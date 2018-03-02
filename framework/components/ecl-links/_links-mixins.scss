@@ -5,7 +5,10 @@
 
   &:hover,
   &:focus {
-    color: $ecl-color-shade;
+    color: #000;
+  }
+  &:visited {
+    color: map-get($ecl-colors, 'purple-100');
   }
 }
 

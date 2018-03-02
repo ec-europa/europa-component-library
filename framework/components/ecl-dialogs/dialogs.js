@@ -12,13 +12,11 @@ import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
  * - options.dialogOverlayId - id of target dialog window. Defaults to `ecl-overlay`.
  * Overlay element is created in the document if not provided by the user.
  */
-export const dialogs = (
-  {
-    triggerElementsSelector: triggerElementsSelector = '[data-ecl-dialog]',
-    dialogWindowId: dialogWindowId = 'ecl-dialog',
-    dialogOverlayId: dialogOverlayId = 'ecl-overlay',
-  } = {}
-) => {
+export const dialogs = ({
+  triggerElementsSelector: triggerElementsSelector = '[data-ecl-dialog]',
+  dialogWindowId: dialogWindowId = 'ecl-dialog',
+  dialogOverlayId: dialogOverlayId = 'ecl-overlay',
+} = {}) => {
   // SUPPORTS
   if (!('querySelector' in document) || !('addEventListener' in window)) {
     return null;
@@ -64,13 +62,16 @@ export const dialogs = (
 
   // EVENTS
   // Hide dialog and overlay elements.
-  function close() {
+  function close(event) {
+    event.preventDefault();
     dialogWindow.setAttribute('aria-hidden', true);
     dialogOverlay.setAttribute('aria-hidden', true);
 
     if (focusedElBeforeOpen) {
       focusedElBeforeOpen.focus();
     }
+
+    document.querySelector('body').classList.remove('ecl-u-disablescroll');
   }
 
   // Keyboard behaviors.
@@ -114,7 +115,8 @@ export const dialogs = (
   }
 
   // Show dialog and overlay elements.
-  function open() {
+  function open(event) {
+    event.preventDefault();
     dialogWindow.setAttribute('aria-hidden', false);
     dialogOverlay.setAttribute('aria-hidden', false);
 
@@ -130,6 +132,8 @@ export const dialogs = (
 
     // Handle tabbing, esc and keyboard in the dialog window.
     dialogWindow.addEventListener('keydown', handleKeyDown);
+
+    document.querySelector('body').classList.add('ecl-u-disablescroll');
   }
 
   // BIND EVENTS

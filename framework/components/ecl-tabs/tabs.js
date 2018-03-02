@@ -5,14 +5,12 @@ import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
 /**
  * @param {object} options Object containing configuration overrides
  */
-export const tabs = (
-  {
-    selector: selector = '.ecl-tabs',
-    tablistSelector: tablistSelector = '.ecl-tabs__tablist',
-    tabpanelSelector: tabpanelSelector = '.ecl-tabs__tabpanel',
-    tabelementsSelector: tabelementsSelector = `${tablistSelector} li`,
-  } = {}
-) => {
+export const tabs = ({
+  selector: selector = '.ecl-tabs',
+  tablistSelector: tablistSelector = '.ecl-tabs__tablist',
+  tabpanelSelector: tabpanelSelector = '.ecl-tabs__tabpanel',
+  tabelementsSelector: tabelementsSelector = `${tablistSelector} li`,
+} = {}) => {
   // SUPPORTS
   if (
     !('querySelector' in document) ||

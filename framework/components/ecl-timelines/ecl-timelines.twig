@@ -28,7 +28,7 @@
   {% endfor %}
 {% endif %}
 
-<section class="{{ _css_class }}"{{ _extra_attributes }}>
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <ul class="ecl-timeline__list">
     {% for item in items %}
     <li class="ecl-timeline__item{{ limit is defined and limit > 0 and loop.index > limit ? ' ecl-timeline__item--over-limit' : '' }}">

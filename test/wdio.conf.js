@@ -34,12 +34,15 @@ const localServer = !isDrone; // with drone, builds are pushed onto AWS S3
 const useSauceConnect = localServer && !isTravis; // travis uses its own Sauce Connect launcher
 const baseUrl = localServer
   ? 'http://localhost:3000/components/preview/'
-  : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env
-      .DRONE_BUILD_NUMBER}/components/preview/`;
+  : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
+      process.env.DRONE_BUILD_NUMBER
+    }/components/preview/`;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 exports.config = {
+  deprecationWarnings: false,
+
   // ==================
   // Specify Test Files
   // ==================
@@ -68,7 +71,7 @@ exports.config = {
   // and 30 processes will get spawned. The property handles how many capabilities
   // from the same test should run tests.
 
-  maxInstances: 2,
+  maxInstances: 5,
 
   // If you have trouble getting all important capabilities together, check out the
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -99,7 +102,7 @@ exports.config = {
   baseUrl,
 
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 10000,
+  waitforTimeout: 30000,
 
   // Default timeout in milliseconds for request
   // if Selenium Grid doesn't send response
@@ -171,7 +174,7 @@ exports.config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: 120000,
+    timeout: 200000,
   },
 
   // =====
