@@ -1,0 +1,34 @@
+%ecl-icon {
+  &::before {
+    display: inline-block;
+    font-family: 'EuropaIcons'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+    // Better Font Rendering
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    margin-right: 4px;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+  }
+}
+
+// Should be used only with @extend.
+%ecl-icon--after {
+  display: inline-block;
+  font-family: 'EuropaIcons'; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
+  // Better Font Rendering
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  margin-left: 4px;
+  speak: none;
+  text-decoration: none;
+  text-transform: none;
+}
