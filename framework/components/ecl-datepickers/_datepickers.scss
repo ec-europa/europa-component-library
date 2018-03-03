@@ -92,7 +92,12 @@ $ecl-datepickers-week-color: #999 !default;
 
   .pika-label select {
     @include ecl-form-control();
-    @include ecl-focus-outline-border(3px, map-get($ecl-colors, 'yellow-100'), -3px, none);
+    @include ecl-focus-outline-border(
+      3px,
+      map-get($ecl-colors, 'yellow-100'),
+      -3px,
+      none
+    );
 
     appearance: none;
     background-color: $ecl-datepickers-color-select;

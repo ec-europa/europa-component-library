@@ -22,7 +22,7 @@ $ecl-radio-icon-size: 1.5rem;
   display: inline-flex;
 
   &::before {
-    background: #fff url($ecl-assets-path + 'images/radio-unchecked.svg')
+    background: #fff url($ecl-assets-path+'images/radio-unchecked.svg')
       no-repeat;
     border: 3px solid transparent;
     border-radius: 50%;
@@ -40,7 +40,7 @@ $ecl-radio-icon-size: 1.5rem;
 }
 
 .ecl-radio__input:checked + .ecl-radio__label::before {
-  background-image: url($ecl-assets-path + 'images/radio-checked--blue.svg');
+  background-image: url($ecl-assets-path+'images/radio-checked--blue.svg');
 }
 
 .ecl-radio__input:focus + .ecl-radio__label::before {

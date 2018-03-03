@@ -79,7 +79,10 @@
 
 .ecl-lang-select-page__dropdown {
   @include ecl-hidden-print();
-  @include ecl-select-list-arrow($background-color: transparent, $arrow-grey: true);
+  @include ecl-select-list-arrow(
+    $background-color: transparent,
+    $arrow-grey: true
+  );
 
   align-self: stretch;
   appearance: none;
@@ -118,7 +121,10 @@
   color: #fff;
 
   .ecl-lang-select-page__dropdown {
-    @include ecl-select-list-arrow($background-color: map-get($ecl-colors, 'blue-110'), $arrow-grey: false);
+    @include ecl-select-list-arrow(
+      $background-color: map-get($ecl-colors, 'blue-110'),
+      $arrow-grey: false
+    );
 
     background-color: map-get($ecl-colors, 'blue-110');
     color: #fff;

@@ -6,5 +6,6 @@ module.exports = {
     'declaration-empty-line-before': null,
     'selector-combinator-space-before': null,
     'selector-descendant-combinator-no-non-space': null,
+    'scss/percent-placeholder-pattern': null,
   },
 };
