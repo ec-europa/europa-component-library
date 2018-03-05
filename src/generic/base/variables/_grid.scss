@@ -1,0 +1,34 @@
+// ECL Breakpoints
+
+$ecl-grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$ecl-container-max-widths: (
+  sm: 440px,
+  md: 720px,
+  lg: 960px,
+  xl: 1170px
+) !default;
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$ecl-grid-columns: 12 !default;
+$ecl-grid-gutter-width-base: 2rem !default;
+$ecl-grid-gutter-widths: (
+  xs: $ecl-grid-gutter-width-base,
+  sm: $ecl-grid-gutter-width-base,
+  md: $ecl-grid-gutter-width-base,
+  lg: $ecl-grid-gutter-width-base,
+  xl: $ecl-grid-gutter-width-base
+) !default;

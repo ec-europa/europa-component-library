@@ -1,0 +1,31 @@
+{#
+  Accepts:
+    - "body" (string, default: "")
+    - "author" (string, optional)
+    - "extra_classes" (string): extra CSS classes to be added
+    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}
+
+{# Internal properties #}
+
+{% set _css_classes = 'ecl-blockquote' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<blockquote class="{{ _css_classes }}"{{ _extra_attributes|raw }}>
+  <p class="ecl-paragraph ecl-blockquote__body">{{ body|default("")|trim }}</p>
+  {% if author is defined and author is not empty %}
+  <footer class="ecl-blockquote__author">―&thinsp;<cite>{{ author }}</cite></footer>
+  {% endif %}
+</blockquote>

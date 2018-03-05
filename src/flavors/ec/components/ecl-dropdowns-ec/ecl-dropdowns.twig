@@ -1,0 +1,27 @@
+<!-- Button dropdown -->
+
+<div class="ecl-dropdown">
+  {% include '@ec-europa/ecl-buttons' with {
+    'label': 'Create',
+    'extra_classes': 'ecl-expandable__button',
+    'extra_attributes': [
+      { 'name': 'aria-controls', 'value': 'example-button-dropdown'},
+      { 'name': 'aria-expanded', 'value': 'false'},
+      { 'name': 'id', 'value': 'example-expandable-button' },
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}
+  {% include '@ec-europa/ecl-link-blocks' with {
+    'extra_classes': 'ecl-dropdown__body',
+    'extra_attributes': [
+      { 'name': 'id', 'value': 'example-button-dropdown'},
+      { 'name': 'aria-labelledby', 'value': 'example-expandable-button'},
+      { 'name': 'aria-hidden', 'value': 'true'},
+    ],
+    'links': [
+      { 'href': '#', 'label': 'European Commission' },
+      { 'href': '#', 'label': 'Priorities' },
+      { 'href': '#', 'label': 'Jobs, Growth and Investment' },
+    ],
+  } %}
+</div>

@@ -1,0 +1,20 @@
+/**
+ * ECL Expandable
+ * @define expandable
+ */
+
+.ecl-expandable__button {
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-button--caret();
+  }
+
+  &[aria-expanded='false']::after {
+    @include ecl-icon('down');
+  }
+
+  &[aria-expanded='true']::after {
+    @include ecl-icon('up');
+  }
+}

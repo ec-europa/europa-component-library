@@ -1,0 +1,83 @@
+{#
+  Accepts:
+    - "image" (object): image to display on the left (optional)
+      - "src" (string): image's URL
+      - "alt" (string): alt text
+    - "author" (string): author name
+    - "date" (string): formatted date
+    - "title" (object): comment's title
+      - "href" (string): link to point to
+      - "label" (string): text to display
+    - "body" (string): comment's text
+    - "operations" (object): object of operations (reply, edit, delete)
+      - "delete|edit|reply" (object):
+        - href (string)
+        - label (string)
+        - visible (boolean)
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-row ecl-comment' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  {% if image is defined %}
+  <div class="ecl-comment__image-wrapper">
+    <img class="ecl-comment__image" src="{{ image.src }}" alt="{{ image.alt }}">
+  </div>
+  {% endif %}
+  <div class="ecl-comment__body">
+    <div class="ecl-comment__meta">
+      <span class="ecl-comment__author">{{ author }}</span> |
+      <span class="ecl-comment__date">{{ date }}</span>
+    </div>
+    {% include '@ec-europa/ecl-links' with {
+      'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
+      }|merge(title|default({}))
+    %}
+    <div class="ecl-comment__text">
+      <p class="ecl-paragraph">{{ body }}</p>
+    </div>
+    {% if operations is defined %}
+    <ul class="ecl-list ecl-list--inline ecl-comment__operations">
+      {% if operations.reply is defined and operations.reply.visible %}
+        <li>
+          {% include '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__reply',
+            }|merge(operations.reply|default({}))
+          %}
+        </li>
+      {% endif %}
+      {% if operations.edit is defined and operations.edit.visible %}
+        <li>
+          {% include '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__edit',
+            }|merge(operations.edit|default({}))
+          %}
+        </li>
+      {% endif %}
+      {% if operations.delete is defined and operations.delete.visible %}
+        <li>
+          {% include '@ec-europa/ecl-links' with {
+            'extra_classes': 'ecl-comment__delete',
+            }|merge(operations.delete|default({}))
+          %}
+        </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+</div>

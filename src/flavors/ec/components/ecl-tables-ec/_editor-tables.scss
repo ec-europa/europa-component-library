@@ -1,0 +1,17 @@
+@import 'tables-mixins';
+
+.ecl-editor table {
+  @include table();
+}
+
+@media (max-width: map-get($ecl-grid-breakpoints, 'md')) {
+  .ecl-editor table {
+    @include table-max-width-md();
+  }
+}
+
+@include ecl-media-breakpoint-up('md') {
+  .ecl-editor table {
+    @include table-min-width-md();
+  }
+}
