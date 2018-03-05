@@ -10,7 +10,7 @@
     "build:styles": "ecl-builder styles",
     "build": "run-p build:* -ln",
     "clean": "rm -rf ./static/images ./static/scripts ./static/styles ./static/fonts",
-    "postinstall": "copyfiles -f '../../../node_modules/@ec-europa/**/*.twig' ../../../src/flavors/eu/_imports",
+    "postinstall": "copyfiles -f '../../../node_modules/@ec-europa/ecl-!(*-ec|*-eu)/**/*.twig' ../../../src/flavors/eu/_imports",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
     "watch:scripts": "chokidar \"../../../src/flavors/eu/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
