@@ -1,0 +1,38 @@
+/**
+ * Timeline
+ * @define list
+ */
+
+@import 'lists-mixins';
+
+.ecl-list {
+  @include list();
+}
+
+// list alpha
+.ecl-list--alpha {
+  list-style-type: lower-latin;
+}
+
+// list ustyled
+.ecl-list--unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+// list inline
+.ecl-list--inline {
+  list-style: none;
+  padding-left: 0;
+
+  /* stylelint-disable-next-line */
+  li {
+    display: inline-block;
+    margin-left: map-get($ecl-spacing, 'xxs');
+
+    /* stylelint-disable-next-line */
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

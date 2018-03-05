@@ -1,0 +1,104 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+{% embed '@ec-europa/ecl-forms-forms-ec' %}
+  {% block form %}
+    {% embed '@ec-europa/ecl-forms-fieldsets-ec' %}
+      {% block fieldset %}
+        {% include '@ec-europa/ecl-forms-legends-ec' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'Personal information' } %}
+        {% embed '@ec-europa/ecl-forms-form-groups-ec' %}
+          {% block form_group %}
+            {% include '@ec-europa/ecl-forms-labels-ec' with { 'for_attribute': 'field-ID-1', 'label': 'First name' } %}
+            {% include '@ec-europa/ecl-forms-text-inputs-ec' with {
+              'id' : 'field-ID-1',
+              'name': 'field-name-1',
+              'type': 'text',
+              'extraAttributes': [
+                { 'name': 'placeholder', 'value': 'Some placeholder text.' }
+              ]
+            } %}
+          {% endblock %}
+        {% endembed %}
+        {% embed '@ec-europa/ecl-forms-form-groups-ec' %}
+          {% block form_group %}
+            {% include '@ec-europa/ecl-forms-labels-ec' with { 'for_attribute': 'field-ID-2', 'label': 'Last name' } %}
+            {% include '@ec-europa/ecl-forms-text-inputs-ec' with {
+              'id' : 'field-ID-2',
+              'name': 'field-name-2',
+              'type': 'text',
+              'extraAttributes': [
+                { 'name': 'placeholder', 'value': 'Some placeholder text.' }
+              ]
+            } %}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+    {% embed '@ec-europa/ecl-forms-fieldsets-ec' %}
+      {% block fieldset %}
+        {% include '@ec-europa/ecl-forms-legends-ec' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'Group' } %}
+        {% embed '@ec-europa/ecl-forms-fieldsets-ec' %}
+          {% block fieldset %}
+            {% include '@ec-europa/ecl-forms-legends-ec' with { 'extra_class': 'ecl-form-legend--level-2', 'content': 'Subgroup 1' } %}
+            {% embed '@ec-europa/ecl-forms-form-groups-ec' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels-ec' with { 'for_attribute': 'field-ID-3', 'label': 'Text Input - disabled' } %}
+                {% include '@ec-europa/ecl-forms-help-blocks-ec' with { 'content': 'This is some placeholder help text', 'is_disabled': true } %}
+                {% include '@ec-europa/ecl-forms-text-inputs-ec' with {
+                  'id' : 'field-ID-3',
+                  'name': 'field-name-3',
+                  'type': 'text',
+                  'isDisabled': true,
+                  'extraAttributes': [
+                    { 'name': 'placeholder', 'value': 'Some placeholder text.' }
+                  ]
+                } %}
+              {% endblock %}
+            {% endembed %}
+            {% embed '@ec-europa/ecl-forms-form-groups-ec' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels-ec' with { 'for_attribute': 'field-ID-4', 'label': 'Text Input - error on a field' } %}
+                {% include '@ec-europa/ecl-forms-help-blocks-ec' with { 'content': 'This is some placeholder help text', 'has_error': true } %}
+                {% include '@ec-europa/ecl-forms-text-inputs-ec' with {
+                  'id' : 'field-ID-4',
+                  'name': 'field-name-4',
+                  'type': 'text',
+                  'hasError': true,
+                  'extraAttributes': [
+                    { 'name': 'placeholder', 'value': 'Some placeholder text.' }
+                  ]
+                } %}
+                {% include '@ec-europa/ecl-forms-feedback-messages-ec' with {
+                  'title': 'Some feedback message',
+                  'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis',
+                  'has_error': true
+                } %}
+              {% endblock %}
+            {% endembed %}
+          {% endblock %}
+        {% endembed %}
+        {% embed '@ec-europa/ecl-forms-fieldsets-ec' %}
+          {% block fieldset %}
+            {% include '@ec-europa/ecl-forms-legends-ec' with { 'extra_class': 'ecl-form-legend--level-2', 'content': 'Subgroup 2' } %}
+            {% embed '@ec-europa/ecl-forms-form-groups-ec' %}
+              {% block form_group %}
+                {% include '@ec-europa/ecl-forms-labels-ec' with { 'for_attribute': 'field-ID-5', 'label': 'Text Input - disabled' } %}
+                {% include '@ec-europa/ecl-forms-help-blocks-ec' with { 'content': 'This is some placeholder help text', 'is_disabled': true } %}
+                {% include '@ec-europa/ecl-forms-text-inputs-ec' with {
+                  'id' : 'field-ID-5',
+                  'name': 'field-name-5',
+                  'type': 'text',
+                  'isDisabled': true,
+                  'extraAttributes': [
+                    { 'name': 'placeholder', 'value': 'Some placeholder text.' }
+                  ]
+                } %}
+              {% endblock %}
+            {% endembed %}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,19 @@
+<div class="ecl-message {% if modifier is defined %} ecl-message--{{ modifier }} {% endif %}" role="alert">
+  <span class="ecl-u-sr-only">{{ srOnly }}</span>
+
+  {% if dismiss is defined and dismiss %}
+  <button type="button" class="ecl-message__dismiss" aria-label="Dismiss this alert">&times;</button>
+  {% endif %}
+
+  {% if title is defined %}
+  <div class="ecl-message__title">{{ title }}</div>
+  {% endif %}
+
+  {% if messages is defined %}
+  <ul class="ecl-message__body ecl-list">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

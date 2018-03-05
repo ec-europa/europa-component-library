@@ -1,0 +1,18 @@
+@import 'blockquotes-mixins';
+
+.ecl-editor blockquote {
+  @include blockquotes();
+
+  p {
+    display: inline;
+    line-height: inherit;
+  }
+
+  &::before {
+    @include blockquotes-before();
+  }
+
+  &::after {
+    @include blockquotes-after();
+  }
+}
