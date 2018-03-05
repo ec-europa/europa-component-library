@@ -3,7 +3,11 @@
  */
 
 // Language generator.
-@mixin logo-background-languages($file_path, $file_extension, $logo_class: ecl-logo--logotype) {
+@mixin logo-background-languages(
+  $file_path,
+  $file_extension,
+  $logo_class: ecl-logo--logotype
+) {
   @each $item in $ecl-languages {
     /* stylelint-disable max-nesting-depth */
     .language-#{$item} {
@@ -26,9 +30,9 @@
  * @define logo
  */
 
-// Default EC logo.
+// Default EU logo.
 .ecl-logo {
-  background: url($ecl-assets-path + 'images/logo.svg') no-repeat;
+  background: url($ecl-assets-path+'images/logo.svg') no-repeat;
   background-size: contain;
   display: block;
   height: 40px;
@@ -40,13 +44,16 @@
   width: 118px;
 }
 
-// EC logotype
+// EU logotype
 //
-// EC logo with text.
+// EU logo with text.
 
 // Sets language-specific background image on .ecl-logo--logotype element nested
 // in {{modifier_class}} modifier.
-@include logo-background-languages($ecl-assets-path + 'images/logo/logo--', '.svg');
+@include logo-background-languages(
+  $ecl-assets-path + 'images/logo/logo--',
+  '.svg'
+);
 
 .ecl-logo--logotype {
   width: 234px;

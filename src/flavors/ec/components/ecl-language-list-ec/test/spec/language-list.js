@@ -5,20 +5,23 @@ describe('ecl-language-list', () => {
       width: 1400,
       height: 600,
     });
-
-    browser.url(`ecl-language-list--overlay.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-language-list--overlay.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 
-  // Normal state
-  it('should match the reference screenshot', () => {
+  it('should display a language switcher in normal state', () => {
     const screenshots = browser.checkDocument({
-      name: 'ecl-language-list',
+      name: 'ecl-language-list/normal',
+    });
+    expect(screenshots).to.matchReference();
+  });
+
+  it('should display an overlay in open state', () => {
+    // Open the dialog to show the contents.
+    browser.click('.ecl-lang-select-sites__link');
+    const screenshots = browser.checkDocument({
+      name: 'ecl-language-list/open',
     });
     expect(screenshots).to.matchReference();
   });
