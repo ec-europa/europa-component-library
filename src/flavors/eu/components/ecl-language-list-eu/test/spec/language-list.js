@@ -1,4 +1,4 @@
-describe('eu-language-list', () => {
+describe('ecl-language-list-eu', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,7 +6,7 @@ describe('eu-language-list', () => {
       height: 600,
     });
 
-    browser.url(`eu-language-list--overlay.html`);
+    browser.url(`ecl-language-list-eu--overlay.html`);
     browser.injectAxeCore();
     browser.pause(500);
   });

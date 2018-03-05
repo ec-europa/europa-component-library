@@ -27,7 +27,7 @@
 <header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
 
   <div class="{% if lang is defined %}language-{{ lang }} {% endif %}ecl-container ecl-site-header__banner">
-    {% include '@ec-europa/eu-logos' with {
+    {% include '@ec-europa/ecl-logos-eu' with {
       'to': 'https://europa.eu',
       'title': 'Home - European Union',
       'type': 'right',
@@ -35,7 +35,7 @@
     } only %}
 
     {% if _languages is not empty %}
-    {% include '@ec-europa/eu-language-list' with {
+    {% include '@ec-europa/ecl-language-list-eu' with {
       'extra_class': 'ecl-site-header__language-list',
       'languages': _languages,
       'variant': 'overlay',

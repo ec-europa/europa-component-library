@@ -1,14 +1,13 @@
-describe('eu-logos', () => {
+describe(`icons`, () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
-      width: 800,
-      height: 200,
+      width: 600,
+      height: 800,
     });
 
-    browser.pause(500);
-
-    browser.url(`eu-logos.html`);
+    // Go to url
+    browser.url(`ecl-icons-eu.html`);
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)
@@ -18,13 +17,13 @@ describe('eu-logos', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'logos',
+      name: `icons`,
     });
     expect(screenshots).to.matchReference();
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-logo').value;
+    const a11yReport = browser.runAxeCore('ecl-icon').value;
     expect(a11yReport).to.be.accessible;
   });
 });
