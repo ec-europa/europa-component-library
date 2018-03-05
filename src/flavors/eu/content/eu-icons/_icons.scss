@@ -6,16 +6,15 @@
 @import '~@ec-europa/ecl-icons';
 
 // DEPRECATED: you should use @include ecl-icon('icon') when you want to include an icon
+/* stylelint-disable */
 @each $modifier, $char in $ecl-icons {
   %ecl-icon--#{$modifier} {
-    /* stylelint-disable-next-line */
     &::before {
-      @include ecl-icon(
-        $modifier
-      ); /* stylelint-disable-line scss/percent-placeholder-pattern */
+      @include ecl-icon($modifier);
     }
   }
 }
+/* stylelint-enable */
 
 /**
  * Icon classes
