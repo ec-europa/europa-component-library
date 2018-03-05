@@ -4,13 +4,10 @@
   "license": "EUPL-1.1",
   "description": "Europa Component Library",
   "scripts": {
-    "build": "npm-run-all --parallel build:* -ln",
-    "build:ec": "cd packages/styleguides/ec && npm run build",
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "dist": "scripts/styleguide.sh",
     "gh-pages": "gh-pages -d dist",
-    "lerna:clean": "lerna clean",
     "lint:js": "eslint .",
     "lint:scss": "stylelint \"./src/flavors/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
