@@ -33,7 +33,7 @@
 <div class="ecl-page-header">
   <div class="ecl-container">
 
-    {% include '@ec-europa/ecl-breadcrumbs' with { 'segments': breadcrumb } %}
+    {% include '@ec-europa/ecl-breadcrumbs-ec' with { 'segments': breadcrumb } %}
 
     <div class="ecl-page-header__body">
 
@@ -45,7 +45,7 @@
 
       {% if metas is defined %}
       <div class="ecl-page-header__meta">
-        {% include '@ec-europa/ecl-meta' with {
+        {% include '@ec-europa/ecl-meta-ec' with {
           'variant': 'header',
           'metas': metas }
         %}

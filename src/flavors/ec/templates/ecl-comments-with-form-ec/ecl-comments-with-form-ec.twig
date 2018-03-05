@@ -11,19 +11,19 @@
 <ul class="ecl-listing">
   {% for comment in _comments %}
     <li class="ecl-list-item ecl-u-pv-s">
-      {% include '@ec-europa/ecl-comments' with comment %}
+      {% include '@ec-europa/ecl-comments-ec' with comment %}
     </li>
   {% endfor %}
 
-  {% embed '@ec-europa/ecl-forms-forms' %}
+  {% embed '@ec-europa/ecl-forms-forms-ec' %}
     {% block form %}
-      {% embed '@ec-europa/ecl-forms-fieldsets' %}
+      {% embed '@ec-europa/ecl-forms-fieldsets-ec' %}
         {% block fieldset %}
-          {% include '@ec-europa/ecl-forms-legends' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
-          {% embed '@ec-europa/ecl-forms-form-groups' %}
+          {% include '@ec-europa/ecl-forms-legends-ec' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
+          {% embed '@ec-europa/ecl-forms-form-groups-ec' %}
             {% block form_group %}
-              {% include '@ec-europa/ecl-forms-labels' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}
-              {% include '@ec-europa/ecl-forms-text-inputs' with {
+              {% include '@ec-europa/ecl-forms-labels-ec' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}
+              {% include '@ec-europa/ecl-forms-text-inputs-ec' with {
                 'id' : 'field-ID-1',
                 'name': 'field-name-1',
                 'type': 'text',
@@ -33,10 +33,10 @@
               } %}
             {% endblock %}
           {% endembed %}
-          {% embed '@ec-europa/ecl-forms-form-groups' %}
+          {% embed '@ec-europa/ecl-forms-form-groups-ec' %}
             {% block form_group %}
-              {% include '@ec-europa/ecl-forms-labels' with { 'for_attribute': 'field-ID-2', 'label': 'Comment' } %}
-              {% include '@ec-europa/ecl-forms-textareas' with {
+              {% include '@ec-europa/ecl-forms-labels-ec' with { 'for_attribute': 'field-ID-2', 'label': 'Comment' } %}
+              {% include '@ec-europa/ecl-forms-textareas-ec' with {
                 'id' : 'field-ID-2',
                 'name': 'field-name-2',
                 'type': 'textarea',
@@ -46,7 +46,7 @@
               } %}
             {% endblock %}
           {% endembed %}
-          {% include '@ec-europa/ecl-buttons' with {
+          {% include '@ec-europa/ecl-buttons-ec' with {
             'modifier': 'primary',
             'label': 'Send',
             'extra_classes': 'ecl-u-mt-s',

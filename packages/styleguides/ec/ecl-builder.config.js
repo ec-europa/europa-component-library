@@ -8,7 +8,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ecl-preset-full/index.js'
+        '../../../src/flavors/ec/presets/ecl-preset-full-ec/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
@@ -19,7 +19,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ecl-preset-corporate/index.js'
+        '../../../src/flavors/ec/presets/ecl-preset-corporate-ec/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/ec-corporate.js'),
       options: {
@@ -32,7 +32,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ecl-preset-full/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-full-ec/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
@@ -42,7 +42,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ecl-preset-base/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-base-ec/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
       options: {
@@ -52,7 +52,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ecl-preset-editor/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-editor-ec/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
       options: {
@@ -62,7 +62,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/presets/ecl-preset-corporate/index.scss'
+        '../../../src/flavors/ec/presets/ecl-preset-corporate-ec/index.scss'
       ),
       dest: path.resolve(
         __dirname,
@@ -78,42 +78,42 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/components/ecl-forms/ecl-forms-checkboxes/images'
+        '../../../src/flavors/ec/components/ecl-forms-ec/ecl-forms-checkboxes-ec/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/components/ecl-forms/ecl-forms-feedback-messages/images'
+        '../../../src/flavors/ec/components/ecl-forms-ec/ecl-forms-feedback-messages-ec/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/components/ecl-forms/ecl-forms-radios/images'
+        '../../../src/flavors/ec/components/ecl-forms-ec/ecl-forms-radios-ec/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/components/ecl-forms/ecl-forms-selects/images'
+        '../../../src/flavors/ec/components/ecl-forms-ec/ecl-forms-selects-ec/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/components/ecl-social-icons/images'
+        '../../../src/flavors/ec/components/ecl-social-icons-ec/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/components/ecl-messages/images'
+        '../../../src/flavors/ec/components/ecl-messages-ec/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
@@ -127,7 +127,7 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/ec/components/ecl-logos/images'
+        '../../../src/flavors/ec/components/ecl-logos-ec/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },

@@ -44,7 +44,7 @@
       <span class="ecl-comment__author">{{ author }}</span> |
       <span class="ecl-comment__date">{{ date }}</span>
     </div>
-    {% include '@ec-europa/ecl-links' with {
+    {% include '@ec-europa/ecl-links-ec' with {
       'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
       }|merge(title|default({}))
     %}
@@ -55,7 +55,7 @@
     <ul class="ecl-list ecl-list--inline ecl-comment__operations">
       {% if operations.reply is defined and operations.reply.visible %}
         <li>
-          {% include '@ec-europa/ecl-links' with {
+          {% include '@ec-europa/ecl-links-ec' with {
             'extra_classes': 'ecl-comment__reply',
             }|merge(operations.reply|default({}))
           %}
@@ -63,7 +63,7 @@
       {% endif %}
       {% if operations.edit is defined and operations.edit.visible %}
         <li>
-          {% include '@ec-europa/ecl-links' with {
+          {% include '@ec-europa/ecl-links-ec' with {
             'extra_classes': 'ecl-comment__edit',
             }|merge(operations.edit|default({}))
           %}
@@ -71,7 +71,7 @@
       {% endif %}
       {% if operations.delete is defined and operations.delete.visible %}
         <li>
-          {% include '@ec-europa/ecl-links' with {
+          {% include '@ec-europa/ecl-links-ec' with {
             'extra_classes': 'ecl-comment__delete',
             }|merge(operations.delete|default({}))
           %}

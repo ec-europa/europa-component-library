@@ -21,7 +21,7 @@
     {% if _logo == true %}
       <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
         <div class="ecl-container">
-          {% include '@ec-europa/ecl-logos' with {
+          {% include '@ec-europa/ecl-logos-ec' with {
             'extra_class': 'ecl-logo--big ecl-u-mh-auto',
             'title': 'European Commission'
           } %}
@@ -43,7 +43,7 @@
                   {% if loop.index0 == loop.length // 2 %}
                 </div><div class="ecl-col-md-6">
                   {% endif %}
-                  {% include '@ec-europa/ecl-buttons' with {
+                  {% include '@ec-europa/ecl-buttons-ec' with {
                     'type': 'link',
                     'label': lang.label ~ (lang.isActive ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
                     'href': lang.href,
@@ -73,18 +73,18 @@
   {% if _variant == 'overlay' %}
     {# Custom Dialog-overlay for the 'overlay' variant #}
     <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
-    {% include '@ec-europa/ecl-lang-select-sites' with {
+    {% include '@ec-europa/ecl-lang-select-sites-ec' with {
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_class': 'ecl-link',
       'link': _link
     } %}
-    {% embed '@ec-europa/ecl-dialogs' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
+    {% embed '@ec-europa/ecl-dialogs-ec' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
       {% block dialog_body %}
         {{ languagesSection }}
       {% endblock %}
     {% endembed %}
   {% elseif _variant == 'splash' %}
-    {% include '@ec-europa/ecl-skip-links' with {
+    {% include '@ec-europa/ecl-skip-links-ec' with {
       'href': '#main-content',
       'label': 'Skip to main content'
     } %}

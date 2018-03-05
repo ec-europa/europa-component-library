@@ -35,7 +35,7 @@
     <ul class="ecl-navigation-inpage__list" aria-hidden="true" aria-labelledby="ecl-navigation-inpage-trigger" id="ecl-navigation-inpage-list">
       {% for link in links %}
       <li class="ecl-navigation-inpage__item">
-        {% include '@ec-europa/ecl-links' with {
+        {% include '@ec-europa/ecl-links-ec' with {
           'extra_classes': 'ecl-navigation-inpage__link',
           'variant': 'standalone',
           }|merge(link|default({}))
