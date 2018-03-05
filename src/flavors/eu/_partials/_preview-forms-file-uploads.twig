@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% set bodyClass = '' %}
+{% if _target.context is defined and _target.context.global is defined %}
+  {% if _target.context.global.svg is defined %}
+    {% set bodyClass = 'no-svg' %}
+  {% endif %}
+{% endif %}
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/styles/europa.css' | path }}">
+    <title>Preview Layout</title>
+    <script>document.documentElement.classList.remove('no-js');</script>
+  </head>
+  <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
+    {{ yield }}
+    <script src="{{ '/scripts/europa.js' | path }}"></script>
+    <script type="text/javascript">document.addEventListener('DOMContentLoaded', function() { ECL.fileUploads(); });</script>
+  </body>
+</html>
