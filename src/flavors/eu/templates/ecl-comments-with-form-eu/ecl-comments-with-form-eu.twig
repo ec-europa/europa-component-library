@@ -1,0 +1,62 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+{# Internal properties #}
+
+{% set _comments = comments %}
+
+{# Print result #}
+
+<ul class="ecl-listing">
+  {% for comment in _comments %}
+    <li class="ecl-list-item ecl-u-pv-s">
+      {% include '@ec-europa/ecl-comments-eu' with comment %}
+    </li>
+  {% endfor %}
+
+  {% embed '@ec-europa/ecl-forms-forms-eu' %}
+    {% block form %}
+      {% embed '@ec-europa/ecl-forms-fieldsets-eu' %}
+        {% block fieldset %}
+          {% include '@ec-europa/ecl-forms-legends-eu' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
+          {% embed '@ec-europa/ecl-forms-form-groups-eu' %}
+            {% block form_group %}
+              {% include '@ec-europa/ecl-forms-labels-eu' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}
+              {% include '@ec-europa/ecl-forms-text-inputs-eu' with {
+                'id' : 'field-ID-1',
+                'name': 'field-name-1',
+                'type': 'text',
+                'extraAttributes': [
+                  { 'name': 'placeholder', 'value': 'Your title' }
+                ]
+              } %}
+            {% endblock %}
+          {% endembed %}
+          {% embed '@ec-europa/ecl-forms-form-groups-eu' %}
+            {% block form_group %}
+              {% include '@ec-europa/ecl-forms-labels-eu' with { 'for_attribute': 'field-ID-2', 'label': 'Comment' } %}
+              {% include '@ec-europa/ecl-forms-textareas-eu' with {
+                'id' : 'field-ID-2',
+                'name': 'field-name-2',
+                'type': 'textarea',
+                'extraAttributes': [
+                  { 'name': 'placeholder', 'value': 'Your comment' }
+                ]
+              } %}
+            {% endblock %}
+          {% endembed %}
+          {% include '@ec-europa/ecl-buttons-eu' with {
+            'modifier': 'primary',
+            'label': 'Send',
+            'extra_classes': 'ecl-u-mt-s',
+            'extra_attributes': [
+              { 'name': 'value', 'value': 'send'},
+              { 'name': 'type', 'value': 'submit'}
+            ]
+          } %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+</ul>

@@ -1,0 +1,565 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+{% include '@ec-europa/ecl-skip-links-eu' with {
+    'href': '#main-content',
+    'label': 'Skip to main content'
+} %}
+
+{% include '@ec-europa/ecl-site-headers-eu' with {
+  site_switcher: {
+    political: { href: '#', label: 'Commission and its priorities' },
+    info: {
+      href: '#',
+      label: 'Policies, information and services',
+      is_active: true,
+    },
+  },
+  user_menu: {
+    title: 'User menu',
+    links: [
+      { href: "#", label: "Log in" },
+    ],
+  }
+} %}
+
+{% include '@ec-europa/ecl-page-headers-eu' with { variant: 'default' }|merge(page_header|default({})) %}
+{% if menu is defined and menu is not empty %}
+  {% include '@ec-europa/ecl-navigation-menus-eu' with menu %}
+{% endif %}
+
+<main>
+  <a id="main-content" tabindex="-1"></a>
+  <div class="ecl-container ecl-u-mv-l">
+    <h1 class="ecl-heading ecl-heading--h1">Listings example</h1>
+
+    <h3 class="ecl-heading ecl-heading--h3">Default listing (one column)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      items: [
+        {
+          metas: ['Service department', 'PMO'],
+          href: '#listing-default-1',
+          title: 'Administration and Payment of Individual Entitlements',
+        },
+        {
+          metas: ['Directorate-General', 'AGRI'],
+          href: '#listing-default-2',
+          title: 'Agriculture and Rural Development',
+        },
+        {
+          metas: ['Directorate-General', 'BUDG'],
+          href: '#listing-default-3',
+          title: 'Budget',
+        },
+        {
+          metas: ['Directorate-General', 'CLIMA'],
+          href: '#listing-default-4',
+          title: 'Climate Action',
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Default listing (two columns)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      variant: 'two-columns',
+      items: [
+        {
+          title: 'Business, Economy, Euro',
+          href: '#listing-default-two-1',
+          detail: 'EU economy, the euro, and practical information for EU businesses and entrepreneurs.'
+        },
+        {
+          title: 'About the European Union',
+          href: '#listing-default-two-2',
+          detail: 'The EU and its institutions, how to visit and work at the EU.'
+        },
+        {
+          title: 'Live, Work, Travel in EU',
+          href: '#listing-default-two-3',
+          detail: 'Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.'
+        },
+        {
+          title: 'Funding, Tenders',
+          href: '#listing-default-two-4',
+          detail: 'EU funding, grants, tenders, and how to apply.'
+        },
+        {
+          title: 'Law',
+          href: '#listing-default-two-5',
+          detail: 'EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.'
+        },
+        {
+          title: 'Research and innovation',
+          href: '#listing-default-two-6',
+          detail: 'Research funding, partners, results, and EU action to promote innovation.'
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Default listing (three columns)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      variant: 'three-columns',
+      items: [
+        {
+          title: 'Business, Economy, Euro',
+          href: '#listing-default-three-1',
+          detail: 'EU economy, the euro, and practical information for EU businesses and entrepreneurs.'
+        },
+        {
+          title: 'About the European Union',
+          href: '#listing-default-three-2',
+          detail: 'The EU and its institutions, how to visit and work at the EU.'
+        },
+        {
+          title: 'Live, Work, Travel in EU',
+          href: '#listing-default-three-3',
+          detail: 'Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.'
+        },
+        {
+          title: 'Funding, Tenders',
+          href: '#listing-default-three-4',
+          detail: 'EU funding, grants, tenders, and how to apply.'
+        },
+        {
+          title: 'Law',
+          href: '#listing-default-three-5',
+          detail: 'EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.'
+        },
+        {
+          title: 'Research and innovation',
+          href: '#listing-default-three-6',
+          detail: 'Research funding, partners, results, and EU action to promote innovation.'
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Date listing (one column)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      items: [
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '07',
+            month: 'Sep',
+          },
+          href: '#listing-date-1',
+          title:
+            "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Bucharest, Romania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '08',
+            month: 'Sep',
+          },
+          href: '#listing-date-2',
+          title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '14',
+            month: 'Sep',
+          },
+          href: '#listing-date-3',
+          title:
+            "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Tallin, Estonia</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '19',
+            month: 'Sep',
+          },
+          href: '#listing-date-4',
+          title: "Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Kaunas, Lithuania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Date listing (two columns)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      variant: 'two-columns',
+      items: [
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '07',
+            month: 'Sep',
+          },
+          href: '#listing-date-two-1',
+          title:
+            "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Bucharest, Romania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '08',
+            month: 'Sep',
+          },
+          href: '#listing-date-two-2',
+          title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '14',
+            month: 'Sep',
+          },
+          href: '#listing-date-two-3',
+          title:
+            "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Tallin, Estonia</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+        {
+          variant: 'date',
+          date: {
+            week_day: 'Tue',
+            day: '19',
+            month: 'Sep',
+          },
+          href: '#listing-date-two-4',
+          title: "Citizens' Dialogue in Kaunas with Commissioner Vytenis Andriukaitis",
+          detail:
+            '<small><span class="ecl-icon ecl-icon--location">Kaunas, Lithuania</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Thumbnail listing (one column)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      items: [
+        {
+          metas: ['Director-General'],
+          title: 'John Doe',
+          href: '#listing-thumbnail-one-1',
+          primary_image: {
+            src: '../../assets/demo_images/default_profile_image.png',
+            alt: 'Director-General John Doe',
+          },
+        },
+        {
+          metas: ['Deputy Director-General'],
+          title: 'Jane Doe',
+          href: '#listing-thumbnail-one-2',
+          primary_image: {
+            src: '../../assets/demo_images/default_profile_image.png',
+            alt: 'Deputy Director-General Jane Doe',
+          },
+        },
+        {
+          metas: ['Acting Deputy Director-General'],
+          title: 'Jack Doe',
+          href: '#listing-thumbnail-one-3',
+          primary_image: {
+            src: '../../assets/demo_images/default_profile_image.png',
+            alt: 'Acting Deputy Director-General Jack Doe',
+          },
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Thumbnail listing (two columns)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      variant: 'two-columns',
+      items: [
+        {
+          metas: ['Director-General'],
+          title: 'John Doe',
+          href: '#listing-thumbnail-two-1',
+          primary_image: {
+            src: '../../assets/demo_images/default_profile_image.png',
+            alt: 'Director-General John Doe',
+          },
+        },
+        {
+          metas: ['Deputy Director-General'],
+          title: 'Jane Doe',
+          href: '#listing-thumbnail-two-2',
+          primary_image: {
+            src: '../../assets/demo_images/default_profile_image.png',
+            alt: 'Deputy Director-General Jane Doe',
+          },
+        },
+        {
+          metas: ['Acting Deputy Director-General'],
+          title: 'Jack Doe',
+          href: '#listing-thumbnail-two-3',
+          primary_image: {
+            src: '../../assets/demo_images/default_profile_image.png',
+            alt: 'Acting Deputy Director-General Jack Doe',
+          },
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Highlight listing (three columns)</h3>
+
+    {% include '@ec-europa/ecl-listings-eu' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'highlight',
+          title: 'State of the European Union 2017',
+          primary_image: {
+            src: '../../assets/demo_images/nature-demo-1.jpg',
+            alt: 'State of the European Union 2017',
+          },
+        },
+        {
+          variant: 'highlight',
+          title: 'White paper on the future of Europe',
+          primary_image: {
+            src: '../../assets/demo_images/nature-demo-2.jpg',
+            alt: 'White paper on the future of Europe',
+          },
+        },
+        {
+          variant: 'highlight',
+          title: 'EU solidarity',
+          primary_image: {
+            src: '../../assets/demo_images/nature-demo-3.jpg',
+            alt: 'EU solidarity',
+          },
+        },
+      ]
+    } %}
+  </div>
+</main>
+
+{% include '@ec-europa/ecl-footers-eu' with {
+  footer_menus: [
+    {
+      type: 'branded',
+      wrapper_class: 'ecl-footer__site-identity',
+      menus: [
+        {
+          title: {
+            classes: 'ecl-h4',
+            link: {
+              href: '#',
+              label: 'Digital single market',
+              variant: 'standalone',
+            },
+          },
+        },
+        {
+          label: 'Follow us:',
+          classes: 'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Facebook',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Twitter',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Other social media',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+        {
+          classes: 'ecl-footer__menu ecl-list--unstyled',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Contact',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Site map',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'normal',
+      wrapper_class: 'ecl-footer__site-corporate',
+      menus: [
+        {
+          title: {
+            value: 'European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'https://ec.europa.eu/commission/index_en',
+                label: 'Commission and its priorities',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'https://ec.europa.eu/info/index_en',
+                label: 'Policies information and services',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'Follow the European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes:
+            'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Facebook',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Twitter',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Other social media',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'European Union',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'EU institutions',
+                variant: 'external',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'European Union',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'plain',
+      wrapper_class: 'ecl-footer__ec',
+      menus: [
+        {
+          classes: 'ecl-list--inline ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href:
+                  'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
+                label: "About the Commission's new web presence",
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/resources-partners_en',
+                label: 'Resources for partners',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/cookies_en',
+                label: 'Cookies',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/legal-notice_en',
+                label: 'Legal notice',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/contact_en',
+                label: 'Contact',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+} %}
