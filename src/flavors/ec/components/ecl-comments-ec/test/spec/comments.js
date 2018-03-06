@@ -1,18 +1,11 @@
 describe('comments', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 600,
     });
-
-    // Go to url
-    browser.url('ecl-comments.html');
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-comments-ec.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(2000);
   });
 

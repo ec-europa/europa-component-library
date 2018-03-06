@@ -13,7 +13,7 @@ describe('files', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-files--${variant}.html`);
+        browser.url(`ecl-files-ec--${variant}.html`);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

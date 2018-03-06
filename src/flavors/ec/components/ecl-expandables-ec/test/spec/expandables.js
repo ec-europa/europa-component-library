@@ -1,13 +1,11 @@
 describe('expandables', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 200,
     });
 
-    browser.url(`ecl-expandables.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-expandables-ec.html');
     browser.pause(500);
   });
 

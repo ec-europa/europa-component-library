@@ -1,16 +1,13 @@
-const componentUrl = 'ecl-carousels.html';
+const componentUrl = 'ecl-carousels-ec.html';
 const timeout = 3000;
 
 describe('carousels', () => {
   context('mobile', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 800,
         height: 480,
       });
-
-      // Reload
       browser.url(componentUrl);
       browser.pause(timeout);
       browser.injectAxeCore();

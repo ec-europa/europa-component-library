@@ -7,7 +7,7 @@ describe('datepickers', () => {
     });
 
     // Go to url
-    browser.url('ecl-datepickers.html');
+    browser.url('ecl-datepickers-ec.html');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

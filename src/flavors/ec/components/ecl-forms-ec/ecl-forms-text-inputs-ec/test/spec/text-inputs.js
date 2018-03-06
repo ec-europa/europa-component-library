@@ -9,7 +9,7 @@ describe('forms-text-input', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url(`ecl-forms-text-inputs.html`);
+    browser.url('ecl-forms-text-inputs-ec.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

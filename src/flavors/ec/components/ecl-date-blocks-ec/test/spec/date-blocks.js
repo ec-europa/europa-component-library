@@ -13,7 +13,7 @@ describe('ecl-date-blocks', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-date-blocks--${variant}.html`);
+        browser.url(`ecl-date-blocks-ec--${variant}.html`);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

@@ -7,7 +7,7 @@ describe('dropdowns', () => {
     });
 
     // Go to url
-    browser.url('ecl-dropdowns.html');
+    browser.url('ecl-dropdowns-ec.html');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
@@ -25,7 +25,7 @@ describe('dropdowns', () => {
   context('collapsed dropdowns', () => {
     before(() => {
       // Reload
-      browser.url(`ecl-dropdowns.html`);
+      browser.url('ecl-dropdowns-ec.html');
       browser.injectAxeCore();
       browser.pause(500);
 

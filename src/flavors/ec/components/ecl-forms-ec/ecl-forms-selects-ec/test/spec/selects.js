@@ -9,7 +9,7 @@ describe('forms-select', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url(`ecl-forms-selects.html`);
+    browser.url('ecl-forms-selects-ec.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)
