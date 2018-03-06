@@ -11,7 +11,7 @@ describe('fields', () => {
 
   describe('field', () => {
     before(() => {
-      browser.url('ecl-fields-ec.html');
+      browser.url('ecl-fields-eu.html');
       browser.pause(500);
       browser.injectAxeCore();
     });
