@@ -12,13 +12,8 @@ describe('ecl-page-headers', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        // Go to url
-        browser.url(`ecl-page-headers--${variant}.html`);
-
-        // Inject axe-core (for accessibility tests)
+        browser.url(`ecl-page-headers-eu--${variant}.html`);
         browser.injectAxeCore();
-
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

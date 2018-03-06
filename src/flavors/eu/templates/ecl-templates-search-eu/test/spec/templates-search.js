@@ -6,12 +6,8 @@ describe('templates-search', () => {
       height: 600,
     });
 
-    browser.url(`ecl-templates-search.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-templates-search-eu.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

@@ -6,11 +6,8 @@ describe('inpage navigation', () => {
       height: 600,
     });
 
-    // Go to url
-    browser.url(`ecl-navigation-inpages.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-navigation-inpages-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 
@@ -18,7 +15,7 @@ describe('inpage navigation', () => {
   context('with plain state', () => {
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: `ecl-navigation-inpages`,
+        name: 'ecl-navigation-inpages',
       });
       expect(screenshots).to.matchReference();
     });

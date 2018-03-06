@@ -7,11 +7,7 @@ describe('pagers', () => {
     });
 
     browser.pause(500);
-
-    // Go to url
-    browser.url('ecl-pagers.html');
-
-    // Make sure the browser has finished painting
+    browser.url('ecl-pagers-eu.html');
     browser.pause(500);
   });
 

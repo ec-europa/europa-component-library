@@ -6,13 +6,8 @@ describe('dropdowns', () => {
       height: 420,
     });
 
-    // Go to url
-    browser.url('ecl-dropdowns.html');
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-dropdowns-eu.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 
@@ -25,7 +20,7 @@ describe('dropdowns', () => {
   context('collapsed dropdowns', () => {
     before(() => {
       // Reload
-      browser.url(`ecl-dropdowns.html`);
+      browser.url('ecl-dropdowns-eu.html');
       browser.injectAxeCore();
       browser.pause(500);
 

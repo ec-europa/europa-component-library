@@ -6,20 +6,15 @@ describe('navigation-lists', () => {
       height: 600,
     });
 
-    // Go to url
-    browser.url(`ecl-navigation-lists.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-navigation-lists-eu.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `navigation/lists`,
+      name: 'navigation/lists',
     });
     expect(screenshots).to.matchReference();
   });

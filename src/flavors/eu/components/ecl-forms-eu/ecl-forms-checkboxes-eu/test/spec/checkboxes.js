@@ -9,7 +9,7 @@ describe('forms-checkbox', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url(`ecl-forms-checkboxes.html`);
+    browser.url('ecl-forms-checkboxes-eu.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)
@@ -19,7 +19,7 @@ describe('forms-checkbox', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/checkboxes`,
+      name: 'forms/checkboxes',
     });
     expect(screenshots).to.matchReference();
   });

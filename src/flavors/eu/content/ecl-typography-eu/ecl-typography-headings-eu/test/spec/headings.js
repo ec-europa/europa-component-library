@@ -1,23 +1,20 @@
-describe(`typography-headings`, () => {
+describe('typography-headings', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
       width: 1024,
       height: 600,
     });
-    // Go to url
-    browser.url(`ecl-typography-headings.html`);
 
-    // Make sure the browser has finished painting
+    browser.url('ecl-typography-headings-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `headings`,
+      name: 'headings',
     });
     expect(screenshots).to.matchReference();
   });

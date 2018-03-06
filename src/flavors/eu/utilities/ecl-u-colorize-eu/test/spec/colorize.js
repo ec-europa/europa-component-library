@@ -6,9 +6,7 @@ describe('colorize', () => {
       height: 800,
     });
 
-    // Go to url
-    browser.url(`ecl-u-colorize.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-u-colorize-eu.html');
     browser.pause(500);
   });
 

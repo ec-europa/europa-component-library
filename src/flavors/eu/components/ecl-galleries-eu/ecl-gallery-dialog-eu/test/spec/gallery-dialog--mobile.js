@@ -4,7 +4,7 @@ describe('gallery dialog - mobile', () => {
       width: 800,
       height: 480,
     });
-    browser.url('ecl-gallery-dialog.html');
+    browser.url('ecl-gallery-dialog-eu.html');
     browser.injectAxeCore();
     browser.pause(500);
   });

@@ -7,13 +7,8 @@ describe('breadcrumbs', () => {
     });
 
     browser.pause(500);
-
-    // Go to url
-    browser.url('ecl-breadcrumbs.html');
-
-    // Make sure the browser has finished painting
+    browser.url('ecl-breadcrumbs-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

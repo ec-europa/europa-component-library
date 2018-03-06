@@ -7,11 +7,8 @@ describe('ecl-logos-eu', () => {
     });
 
     browser.pause(500);
-
-    browser.url(`ecl-logos-eu.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-logos-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

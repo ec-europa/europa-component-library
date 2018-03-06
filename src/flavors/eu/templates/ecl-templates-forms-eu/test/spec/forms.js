@@ -6,7 +6,7 @@ describe('ecl-templates-forms', () => {
       height: 600,
     });
 
-    browser.url(`ecl-templates-forms.html`);
+    browser.url('ecl-templates-forms-eu.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

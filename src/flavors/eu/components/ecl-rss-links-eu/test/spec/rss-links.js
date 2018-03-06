@@ -9,7 +9,7 @@ describe('rss links', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url('ecl-rss-links.html');
+    browser.url('ecl-rss-links-eu.html');
 
     // Make sure the browser has finished painting
     browser.pause(500);

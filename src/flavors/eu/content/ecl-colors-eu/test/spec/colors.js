@@ -7,11 +7,7 @@ describe('colors', () => {
     });
 
     browser.pause(500);
-
-    // Go to url
-    browser.url('ecl-colors.html');
-
-    // Make sure the browser has finished painting
+    browser.url('ecl-colors-eu.html');
     browser.pause(500);
   });
 

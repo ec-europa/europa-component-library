@@ -15,7 +15,7 @@ describe('lang-select-pages', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-lang-select-pages--${variant}.html`);
+        browser.url(`ecl-lang-select-pages-eu--${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(500);
         // Inject axe-core (for accessibility tests)

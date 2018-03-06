@@ -6,11 +6,8 @@ describe('links', () => {
       height: 450,
     });
 
-    // Go to url
-    browser.url(`ecl-links.html`);
-    // Make sure the browser has finished painting
+    browser.url(`ecl-links-eu.html`);
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

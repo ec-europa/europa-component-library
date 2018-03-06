@@ -7,11 +7,8 @@ describe('font-size', () => {
     });
 
     browser.pause(500);
-
-    browser.url(`ecl-u-font-size.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-u-font-size-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

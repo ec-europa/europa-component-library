@@ -6,12 +6,8 @@ describe('filters', () => {
       height: 800,
     });
 
-    browser.url(`ecl-filters.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url(`ecl-filters-eu.html`);
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

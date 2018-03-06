@@ -8,18 +8,15 @@ describe('forms-select', () => {
 
     browser.pause(500);
 
-    // Go to url
-    browser.url(`ecl-forms-selects.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-forms-selects-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/selects`,
+      name: 'forms/selects',
     });
     expect(screenshots).to.matchReference();
   });

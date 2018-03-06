@@ -13,7 +13,7 @@ describe('ecl-meta', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-meta--${variant}.html`);
+        browser.url(`ecl-meta-eu--${variant}.html`);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

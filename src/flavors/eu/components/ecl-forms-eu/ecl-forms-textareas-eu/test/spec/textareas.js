@@ -13,7 +13,7 @@ describe('ecl-forms-textareas', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-forms-textareas--${variant}.html`);
+        browser.url(`ecl-forms-textareas-eu--${variant}.html`);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

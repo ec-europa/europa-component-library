@@ -6,12 +6,8 @@ describe('blockquotes', () => {
       height: 200,
     });
 
-    browser.url(`ecl-blockquotes.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-blockquotes-eu.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

@@ -7,7 +7,7 @@ describe('profile-topbars', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-profile-topbars.html');
+    browser.url('ecl-profile-topbars-eu.html');
     browser.injectAxeCore();
   });
 

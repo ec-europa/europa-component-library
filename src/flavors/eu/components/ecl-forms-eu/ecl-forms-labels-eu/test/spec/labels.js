@@ -9,7 +9,7 @@ describe('forms-labels', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url(`ecl-forms-labels.html`);
+    browser.url('ecl-forms-labels-eu.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)
@@ -19,7 +19,7 @@ describe('forms-labels', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/labels`,
+      name: 'forms/labels',
     });
     expect(screenshots).to.matchReference();
   });

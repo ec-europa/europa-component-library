@@ -6,12 +6,8 @@ describe('clearfix', () => {
       height: 200,
     });
 
-    browser.url(`ecl-u-clearfix.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-u-clearfix-eu.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

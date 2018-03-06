@@ -9,7 +9,7 @@ describe('forms-legends', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url(`ecl-forms-legends.html`);
+    browser.url('ecl-forms-legends-eu.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)
@@ -19,7 +19,7 @@ describe('forms-legends', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/legends`,
+      name: 'forms/legends',
     });
     expect(screenshots).to.matchReference();
   });

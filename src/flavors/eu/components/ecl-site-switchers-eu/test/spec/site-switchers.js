@@ -15,7 +15,7 @@ describe('site-switchers', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-site-switchers--${variant}.html`);
+        browser.url(`ecl-site-switchers-eu--${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(500);
         // Inject axe-core (for accessibility tests)

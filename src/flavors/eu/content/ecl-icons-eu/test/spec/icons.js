@@ -1,4 +1,4 @@
-describe(`icons`, () => {
+describe('icons', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,18 +6,15 @@ describe(`icons`, () => {
       height: 800,
     });
 
-    // Go to url
-    browser.url(`ecl-icons-eu.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-icons-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `icons`,
+      name: 'icons',
     });
     expect(screenshots).to.matchReference();
   });

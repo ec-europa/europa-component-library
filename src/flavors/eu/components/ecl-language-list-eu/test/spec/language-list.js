@@ -6,7 +6,7 @@ describe('ecl-language-list-eu', () => {
       height: 600,
     });
 
-    browser.url(`ecl-language-list-eu--overlay.html`);
+    browser.url('ecl-language-list-eu--overlay.html');
     browser.injectAxeCore();
     browser.pause(500);
   });

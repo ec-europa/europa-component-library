@@ -8,18 +8,15 @@ describe('forms-text-input', () => {
 
     browser.pause(500);
 
-    // Go to url
-    browser.url(`ecl-forms-text-inputs.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-forms-text-inputs-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/text-inputs`,
+      name: 'forms/text-inputs',
     });
     expect(screenshots).to.matchReference();
   });

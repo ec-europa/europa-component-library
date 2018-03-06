@@ -1,17 +1,12 @@
 describe('banners', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
     });
 
-    browser.url(`ecl-banners.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-banners-eu.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

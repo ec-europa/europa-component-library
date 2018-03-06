@@ -7,11 +7,7 @@ describe('lang-select-sites', () => {
     });
 
     browser.pause(1500);
-
-    // Go to url
-    browser.url('ecl-lang-select-sites.html');
-
-    // Make sure the browser has finished painting
+    browser.url('ecl-lang-select-sites-eu.html');
     browser.pause(1500);
   });
 

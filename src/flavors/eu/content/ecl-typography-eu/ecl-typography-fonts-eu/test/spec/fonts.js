@@ -8,7 +8,7 @@ describe('typography-fonts', () => {
 
     browser.pause(500);
 
-    browser.url(`ecl-typography-fonts.html`);
+    browser.url('ecl-typography-fonts-eu.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

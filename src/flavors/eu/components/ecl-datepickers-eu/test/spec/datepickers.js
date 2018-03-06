@@ -7,7 +7,7 @@ describe('datepickers', () => {
     });
 
     // Go to url
-    browser.url('ecl-datepickers.html');
+    browser.url('ecl-datepickers-eu.html');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
@@ -40,7 +40,7 @@ describe('datepickers', () => {
   context('click open state', () => {
     before(() => {
       // Reload
-      browser.url('ecl-datepickers.html');
+      browser.url('ecl-datepickers-eu.html');
       browser.injectAxeCore();
       browser.pause(500);
 

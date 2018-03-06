@@ -1,4 +1,4 @@
-describe(`dialogs`, () => {
+describe('dialogs', () => {
   context('open dialog', () => {
     before(() => {
       // Set viewport size
@@ -6,7 +6,7 @@ describe(`dialogs`, () => {
         width: 1200,
         height: 600,
       });
-      browser.url(`ecl-dialogs.html`);
+      browser.url('ecl-dialogs-ec.html');
       browser.pause(500);
       browser.injectAxeCore();
     });
@@ -14,7 +14,7 @@ describe(`dialogs`, () => {
     it('should match the reference screenshot', () => {
       // Open the dialog to show the contents.
       browser.click('.ecl-link');
-      const screenshots = browser.checkDocument({ name: `open-state` });
+      const screenshots = browser.checkDocument({ name: 'open-state' });
       expect(screenshots).to.matchReference();
     });
 

@@ -7,7 +7,7 @@ describe('ecl-forms-file-uploads', () => {
     });
 
     // Go to url
-    browser.url(`ecl-forms-file-uploads.html`);
+    browser.url('ecl-forms-file-uploads-eu.html');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
@@ -19,7 +19,7 @@ describe('ecl-forms-file-uploads', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/file-uploads`,
+      name: 'forms/file-uploads',
     });
     expect(screenshots).to.matchReference();
   });

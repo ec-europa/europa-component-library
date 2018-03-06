@@ -9,13 +9,10 @@ describe('fields', () => {
     browser.pause(500);
   });
 
-  describe(`field`, () => {
+  describe('field', () => {
     before(() => {
-      // Go to url
-      browser.url(`ecl-fields.html`);
-      // Make sure the browser has finished painting
+      browser.url('ecl-fields-ec.html');
       browser.pause(500);
-      // Inject axe-core (for accessibility tests)
       browser.injectAxeCore();
     });
 
@@ -23,7 +20,7 @@ describe('fields', () => {
     context('with plain state', () => {
       it('should match the reference screenshot', () => {
         const screenshots = browser.checkDocument({
-          name: `fields`,
+          name: 'fields',
         });
         expect(screenshots).to.matchReference();
       });

@@ -15,13 +15,10 @@ describe('buttons', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-buttons--${variant}.html`);
+        browser.url(`ecl-buttons-eu--${variant}.html`);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
-        // Inject HTMLInspector (for markup tests)
         browser.injectHTMLInspector();
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 
@@ -38,15 +35,6 @@ describe('buttons', () => {
           const a11yReport = browser.runAxeCore('ecl-button').value;
           expect(a11yReport).to.be.accessible;
         });
-
-        /*
-        // Temporary remove tests
-
-        it('should be well formatted', () => {
-          const markup = browser.runHTMLInspector();
-          expect(markup).to.be.wellFormatted;
-        });
-        */
       });
 
       // Only continue with Chrome
@@ -59,7 +47,7 @@ describe('buttons', () => {
       context('with hover state', () => {
         before(() => {
           // Reload
-          browser.url(`ecl-buttons--${variant}.html`);
+          browser.url(`ecl-buttons-eu--${variant}.html`);
           browser.injectAxeCore();
           browser.pause(500);
 

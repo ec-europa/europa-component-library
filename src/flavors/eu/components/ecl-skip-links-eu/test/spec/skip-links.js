@@ -6,12 +6,8 @@ describe('skip-links', () => {
       height: 200,
     });
 
-    browser.url('ecl-skip-links.html');
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-skip-links-eu.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

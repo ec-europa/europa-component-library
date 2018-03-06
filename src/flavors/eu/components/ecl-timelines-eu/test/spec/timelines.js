@@ -6,11 +6,8 @@ describe('timelines', () => {
       height: 600,
     });
 
-    // Go to url
-    browser.url('ecl-timelines.html');
-    // Make sure the browser has finished painting
+    browser.url('ecl-timelines-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

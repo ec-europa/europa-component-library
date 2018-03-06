@@ -7,13 +7,8 @@ describe('floats', () => {
     });
 
     browser.pause(500);
-
-    // Go to url
-    browser.url('ecl-u-float.html');
-
-    // Make sure the browser has finished painting
+    browser.url('ecl-u-float-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

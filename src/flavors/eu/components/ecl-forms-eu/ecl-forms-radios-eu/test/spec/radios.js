@@ -13,7 +13,7 @@ describe('ecl-forms-radios', () => {
     describe(`ecl-forms-radios--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-forms-radios--${variant}.html`);
+        browser.url(`ecl-forms-radios-eu--${variant}.html`);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

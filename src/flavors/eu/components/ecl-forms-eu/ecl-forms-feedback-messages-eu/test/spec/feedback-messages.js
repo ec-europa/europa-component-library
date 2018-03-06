@@ -10,10 +10,10 @@ describe('ecl-forms-feedback-messages', () => {
   });
 
   variants.forEach(variant => {
-    describe(`ecl-forms-feedback-messages--${variant}`, () => {
+    describe(`ecl-forms-feedback-messages-eu--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-forms-feedback-messages--${variant}.html`);
+        browser.url(`ecl-forms-feedback-messages-eu--${variant}.html`);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

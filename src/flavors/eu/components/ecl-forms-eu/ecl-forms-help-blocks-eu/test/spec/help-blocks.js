@@ -9,7 +9,7 @@ describe('forms-help-block', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url(`ecl-forms-help-blocks.html`);
+    browser.url('ecl-forms-help-blocks-eu.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)
@@ -19,7 +19,7 @@ describe('forms-help-block', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/help-blocks`,
+      name: 'forms/help-blocks',
     });
     expect(screenshots).to.matchReference();
   });

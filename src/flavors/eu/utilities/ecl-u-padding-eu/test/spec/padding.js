@@ -7,11 +7,8 @@ describe('padding', () => {
     });
 
     browser.pause(500);
-
-    browser.url(`ecl-u-padding.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-u-padding-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

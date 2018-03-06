@@ -7,13 +7,8 @@ describe('texts', () => {
     });
 
     browser.pause(500);
-
-    // Go to url
-    browser.url('ecl-u-text.html');
-
-    // Make sure the browser has finished painting
+    browser.url('ecl-u-text-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

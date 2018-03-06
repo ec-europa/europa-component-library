@@ -7,13 +7,8 @@ describe('ecl-site-headers-eu', () => {
     });
 
     browser.pause(500);
-
-    // Go to url
     browser.url('ecl-site-headers-eu.html');
-
-    // Make sure the browser has finished painting
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

@@ -1,23 +1,20 @@
-describe(`typography-paragraphs`, () => {
+describe('typography-paragraphs', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 600,
     });
-    // Go to url
-    browser.url(`ecl-typography-paragraphs.html`);
 
-    // Make sure the browser has finished painting
+    browser.url('ecl-typography-paragraphs-eu.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `paragraphs`,
+      name: 'paragraphs',
     });
     expect(screenshots).to.matchReference();
   });
