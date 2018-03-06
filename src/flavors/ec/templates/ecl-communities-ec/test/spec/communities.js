@@ -6,7 +6,7 @@ describe('communities', () => {
       height: 600,
     });
 
-    browser.url('ecl-communities.html');
+    browser.url('ecl-communities-ec.html');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

@@ -1,17 +1,12 @@
 describe('images', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 600,
     });
 
-    browser.url(`ecl-images.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-images-ec.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

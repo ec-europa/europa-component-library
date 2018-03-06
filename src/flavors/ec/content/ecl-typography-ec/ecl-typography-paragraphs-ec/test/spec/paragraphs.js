@@ -1,4 +1,4 @@
-describe(`typography-paragraphs`, () => {
+describe('typography-paragraphs', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,7 +6,7 @@ describe(`typography-paragraphs`, () => {
       height: 600,
     });
     // Go to url
-    browser.url(`ecl-typography-paragraphs.html`);
+    browser.url('ecl-typography-paragraphs-ec.html');
 
     // Make sure the browser has finished painting
     browser.pause(500);
@@ -17,7 +17,7 @@ describe(`typography-paragraphs`, () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `paragraphs`,
+      name: 'paragraphs',
     });
     expect(screenshots).to.matchReference();
   });

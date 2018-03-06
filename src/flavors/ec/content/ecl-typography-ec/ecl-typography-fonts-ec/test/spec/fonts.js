@@ -7,11 +7,8 @@ describe('typography-fonts', () => {
     });
 
     browser.pause(500);
-
-    browser.url(`ecl-typography-fonts.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-typography-fonts-ec.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

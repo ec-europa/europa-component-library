@@ -8,7 +8,7 @@ describe('font-size', () => {
 
     browser.pause(500);
 
-    browser.url(`ecl-u-font-size.html`);
+    browser.url(`ecl-u-font-size-ec.html`);
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

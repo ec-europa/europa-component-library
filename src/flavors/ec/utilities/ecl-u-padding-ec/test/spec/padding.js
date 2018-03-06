@@ -8,7 +8,7 @@ describe('padding', () => {
 
     browser.pause(500);
 
-    browser.url(`ecl-u-padding.html`);
+    browser.url('ecl-u-padding-ec.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

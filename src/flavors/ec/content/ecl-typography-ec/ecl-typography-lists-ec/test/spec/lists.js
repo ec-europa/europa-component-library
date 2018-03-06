@@ -1,4 +1,4 @@
-describe(`typography-lists`, () => {
+describe('typography-lists', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,7 +6,7 @@ describe(`typography-lists`, () => {
       height: 600,
     });
     // Go to url
-    browser.url(`ecl-typography-lists.html`);
+    browser.url('ecl-typography-lists-ec.html');
 
     // Make sure the browser has finished painting
     browser.pause(500);

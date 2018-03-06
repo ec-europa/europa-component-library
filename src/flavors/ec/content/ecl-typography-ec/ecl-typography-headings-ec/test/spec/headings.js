@@ -1,4 +1,4 @@
-describe(`typography-headings`, () => {
+describe('typography-headings', () => {
   before(() => {
     // Set viewport size
     browser.setViewportSize({
@@ -6,7 +6,7 @@ describe(`typography-headings`, () => {
       height: 600,
     });
     // Go to url
-    browser.url(`ecl-typography-headings.html`);
+    browser.url('ecl-typography-headings-ec.html');
 
     // Make sure the browser has finished painting
     browser.pause(500);

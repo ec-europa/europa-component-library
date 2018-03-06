@@ -8,7 +8,7 @@ describe('margin', () => {
 
     browser.pause(500);
 
-    browser.url(`ecl-u-margin.html`);
+    browser.url('ecl-u-margin-ec.html');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

@@ -1,16 +1,11 @@
 describe('inpage navigation', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
     });
-
-    // Go to url
-    browser.url(`ecl-navigation-inpages.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-navigation-inpages-ec.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

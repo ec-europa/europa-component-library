@@ -1,17 +1,12 @@
 describe('navigation-menus', () => {
   before(() => {
-    browser.url('ecl-navigation-menus.html');
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-navigation-menus-ec.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 
   describe('on desktop', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 1400,
         height: 600,

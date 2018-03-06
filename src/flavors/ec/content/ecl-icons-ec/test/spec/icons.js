@@ -6,11 +6,8 @@ describe(`icons`, () => {
       height: 800,
     });
 
-    // Go to url
-    browser.url(`ec-icons.html`);
-    // Make sure the browser has finished painting
+    browser.url('ec-icons-ec.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

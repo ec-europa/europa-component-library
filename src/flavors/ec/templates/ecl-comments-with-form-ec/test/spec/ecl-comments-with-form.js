@@ -6,7 +6,7 @@ describe('comments-with-form', () => {
       height: 600,
     });
 
-    browser.url('ecl-comments-with-form.html');
+    browser.url('ecl-comments-with-form-ec.html');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

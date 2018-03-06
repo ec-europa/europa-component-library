@@ -12,7 +12,7 @@ describe('social-icons', () => {
   describe('social-icons', () => {
     before(() => {
       // Go to url
-      browser.url('ecl-social-icons.html');
+      browser.url('ecl-social-icons-ec.html');
       // Make sure the browser has finished painting
       browser.pause(500);
     });

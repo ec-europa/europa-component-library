@@ -13,7 +13,7 @@ describe(`ecl-tags`, () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-tags--${variant}.html`);
+        browser.url(`ecl-tags-ec--${variant}.html`);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

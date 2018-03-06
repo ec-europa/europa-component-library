@@ -1,18 +1,11 @@
 describe('navigation-lists', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
     });
-
-    // Go to url
-    browser.url(`ecl-navigation-lists.html`);
-
-    // Inject axe-core (for accessibility tests)
+    browser.url('ecl-navigation-lists-ec.html');
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

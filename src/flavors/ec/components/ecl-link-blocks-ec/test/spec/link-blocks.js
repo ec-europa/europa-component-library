@@ -15,7 +15,7 @@ describe('link-blocks', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-link-blocks--${variant}.html`);
+        browser.url(`ecl-link-blocks-ec--${variant}.html`);
         // Make sure the browser has finished painting
         browser.pause(500);
         // Inject axe-core (for accessibility tests)

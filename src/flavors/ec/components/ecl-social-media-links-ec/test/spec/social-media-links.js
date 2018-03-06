@@ -12,7 +12,7 @@ describe('social-media-links', () => {
   describe('social-media-links', () => {
     before(() => {
       // Go to url
-      browser.url('ecl-social-media-links.html');
+      browser.url('ecl-social-media-links-ec.html');
       // Make sure the browser has finished painting
       browser.pause(500);
     });

@@ -7,11 +7,8 @@ describe('tabs', () => {
     });
 
     browser.pause(500);
-
-    browser.url(`ecl-tabs.html`);
-    // Make sure the browser has finished painting
+    browser.url('ecl-tabs-ec.html');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 
