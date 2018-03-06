@@ -1,0 +1,67 @@
+{#
+  Accepts:
+    - "unavailable" (string): unavailable language
+    - "current" (string): current language
+    - "theme" (string): empty or "primary"
+    - "dropdown_label" (string): if a the component is a dropdown, this option will set the aria-label
+    - "options" (array): array of objects
+      - "href" (string)
+      - "hreflang" (string)
+      - "label" (string)
+      - "lang" (string)
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-lang-select-page' %}
+{% set _extra_attributes = '' %}
+{% set _unavailable = unavailable|default('English') %}
+{% set _dropdown_label = dropdown_label|default('Choose your language') %}
+
+{# Internal logic - Process properties #}
+
+{% if theme is defined %}
+  {% set _css_class = _css_class ~ ' ecl-lang-select-page--' ~ theme %}
+{% endif %}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<section class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <span class="ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"></span>
+  <span class="ecl-lang-select-page__unavailable">{{ _unavailable }}</span>
+  <select class="ecl-lang-select-page__dropdown" aria-label="{{ _dropdown_label }}">
+    <option class="ecl-lang-select-page__dropdown-option" value="" selected>{{ current }}</option>
+    {% for opt in options %}
+      <option class="ecl-lang-select-page__dropdown-option" value="{{ opt.lang }}" lang="{{ opt.lang }}">{{ opt.label }}</option>
+    {% endfor %}
+  </select>
+  <ul class="ecl-lang-select-page__list">
+    <li class="ecl-lang-select-page__option ecl-lang-select-page__option--is-selected">{{ current }}</li>
+    {% for opt in options %}
+    <li class="ecl-lang-select-page__option">
+      {% set link_variant = '' %}
+      {% if theme is defined and theme == 'primary' %}
+        {% set link_variant = 'inverted' %}
+      {% endif %}
+
+      {% include '@ec-europa/ecl-links-eu' with {
+        'extra_attributes': [
+          { 'name': 'hreflang', 'value': opt.hreflang },
+          { 'name': 'lang', 'value': opt.lang },
+          { 'name': 'rel', 'value': 'alternate' },
+        ],
+        'variant': link_variant
+        }|merge(opt|default({}))
+      %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>

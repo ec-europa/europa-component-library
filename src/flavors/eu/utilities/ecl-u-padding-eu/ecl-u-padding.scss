@@ -1,0 +1,47 @@
+/*
+  ECL Padding
+  ===========
+
+  Base:
+    p = padding
+  Modifiers:
+    a = all
+    h = horizontal
+    v = vertical
+    t = top
+    r = right
+    b = bottom
+    l = left
+*/
+
+@each $key, $value in $ecl-spacing {
+  .ecl-u-pa-#{$key} {
+    padding: $value;
+  }
+
+  .ecl-u-ph-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+
+  .ecl-u-pv-#{$key} {
+    padding-bottom: $value;
+    padding-top: $value;
+  }
+
+  .ecl-u-pt-#{$key} {
+    padding-top: $value;
+  }
+
+  .ecl-u-pr-#{$key} {
+    padding-right: $value;
+  }
+
+  .ecl-u-pb-#{$key} {
+    padding-bottom: $value;
+  }
+
+  .ecl-u-pl-#{$key} {
+    padding-left: $value;
+  }
+}

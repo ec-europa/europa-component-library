@@ -10,7 +10,7 @@
     "build:styles": "ecl-builder styles",
     "build": "run-p build:* -ln",
     "clean": "rm -rf ./static/images ./static/scripts ./static/styles ./static/fonts",
-    "postinstall": "copyfiles -f '../../../node_modules/@ec-europa/**/*.twig' ../../../src/flavors/eu/_imports",
+    "postinstall": "copyfiles -f '../../../node_modules/@ec-europa/ecl-!(*-ec|*-eu)/**/*.twig' ../../../src/flavors/eu/_imports",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
     "watch:scripts": "chokidar \"../../../src/flavors/eu/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
@@ -28,10 +28,10 @@
     "chokidar-cli": "1.2.0",
     "copyfiles": "1.2.0",
     "cross-env": "5.1.3",
-    "eslint": "4.13.1",
+    "eslint": "4.18.2",
     "npm-run-all": "4.1.2",
-    "stylelint": "8.4.0",
-    "stylelint-config-prettier": "2.0.0"
+    "stylelint": "9.1.1",
+    "stylelint-config-prettier": "2.1.0"
   },
   "main": "fractal.js",
   "fractal": {

@@ -1,0 +1,109 @@
+/**
+ * ECL Navigation inpage
+ * @define navigation-inpage
+ */
+
+.ecl-navigation-inpage {
+  margin: 0;
+  z-index: map-get($ecl-z-index, 'navigation');
+}
+
+.ecl-navigation-inpage__trigger {
+  color: #fff;
+  display: none;
+  padding: map-get($ecl-spacing, 'xxs');
+  position: relative;
+
+  &::after {
+    @extend %ecl-icon--after;
+
+    @include ecl-icon('arrow-down');
+
+    align-items: center;
+    background-color: map-get($ecl-colors, 'blue-110');
+    display: flex;
+    font-size: map-get($ecl-font-size, 'xxxs');
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: map-get($ecl-spacing, 'l');
+  }
+}
+
+.ecl-navigation-inpage__title {
+  color: map-get($ecl-colors, 'grey-75');
+  display: none;
+  padding-bottom: map-get($ecl-spacing, 'xs');
+  padding-top: map-get($ecl-spacing, 'xxs');
+  text-transform: uppercase;
+}
+
+.ecl-navigation-inpage__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@include ecl-media-breakpoint-down(sm) {
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .ecl-navigation-inpage.js-is-sticky,
+  .ecl-navigation-inpage.js-is-stuck {
+    .ecl-navigation-inpage__body {
+      background-color: $ecl-color-primary;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
+
+    .ecl-navigation-inpage__link {
+      border-top: 1px solid map-get($ecl-colors, 'blue-110');
+      color: #fff;
+      display: block;
+      padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+      text-decoration: underline;
+    }
+
+    .ecl-navigation-inpage__trigger {
+      display: block;
+    }
+  }
+  /* stylelint-enable */
+}
+
+@include ecl-media-breakpoint-up(md) {
+  /* stylelint-disable plugin/selector-bem-pattern */
+  .ecl-navigation-inpage__title {
+    display: block;
+  }
+
+  .ecl-navigation-inpage__list[aria-hidden] {
+    display: block;
+  }
+
+  .ecl-navigation-inpage__link {
+    border-left: 3px solid transparent;
+    color: $ecl-color-shade;
+    display: block;
+    font-weight: 600;
+    padding: map-get($ecl-spacing, 'xxxs');
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      background-color: map-get($ecl-colors, 'yellow-100');
+      outline: none;
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-navigation-inpage__link--is-active {
+    background-color: map-get($ecl-colors, 'grey-10');
+    border-left-color: $ecl-color-primary;
+  }
+  /* stylelint-enable */
+}

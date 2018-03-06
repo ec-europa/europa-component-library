@@ -1,0 +1,17 @@
+/*
+  ECL Font size
+  ===========
+
+  Base:
+    fs = font size
+*/
+
+@each $key, $value in $ecl-font-size {
+  .ecl-u-fs-#{$key} {
+    font-size: $value;
+  }
+}
+
+.ecl-u-f-up {
+  text-transform: uppercase;
+}
