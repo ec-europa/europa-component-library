@@ -1,6 +1,5 @@
 describe('social-media-links', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1200,
       height: 800,
@@ -13,7 +12,7 @@ describe('social-media-links', () => {
     before(() => {
       // Go to url
       browser.goToComponent('ecl-social-media-links-ec');
-      // Make sure the browser has finished painting
+
       browser.pause(500);
     });
 

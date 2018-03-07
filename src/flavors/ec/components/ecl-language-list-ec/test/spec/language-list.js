@@ -1,11 +1,10 @@
 describe('ecl-language-list', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
     });
-    browser.goToComponent('ecl-language-list-ec--overlay');
+    browser.goToComponent('ecl-language-list-ec', 'overlay');
     browser.injectAxeCore();
     browser.pause(500);
   });

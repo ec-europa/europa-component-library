@@ -1,6 +1,5 @@
 describe('ecl-templates-listings', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1200,
       height: 600,
@@ -8,9 +7,9 @@ describe('ecl-templates-listings', () => {
 
     // Go to url
     browser.goToComponent('ecl-templates-listings-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

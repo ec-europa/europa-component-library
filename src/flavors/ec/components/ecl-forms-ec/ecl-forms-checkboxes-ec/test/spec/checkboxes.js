@@ -1,6 +1,5 @@
 describe('forms-checkbox', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 300,
       height: 100,
@@ -10,9 +9,9 @@ describe('forms-checkbox', () => {
 
     // Go to url
     browser.goToComponent('ecl-forms-checkboxes-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

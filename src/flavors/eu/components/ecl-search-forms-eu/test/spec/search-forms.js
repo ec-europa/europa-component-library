@@ -2,7 +2,6 @@ const variants = ['default', 'internal'];
 
 describe('search-forms', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -14,9 +13,9 @@ describe('search-forms', () => {
       before(() => {
         // Go to url
         browser.goToComponent('ecl-search-forms-eu', variant);
-        // Make sure the browser has finished painting
+
         browser.pause(500);
-        // Inject axe-core (for accessibility tests)
+
         browser.injectAxeCore();
       });
 

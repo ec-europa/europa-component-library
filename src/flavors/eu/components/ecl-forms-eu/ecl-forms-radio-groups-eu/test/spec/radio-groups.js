@@ -1,6 +1,5 @@
 describe('forms-radio-groups', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 400,
@@ -10,9 +9,9 @@ describe('forms-radio-groups', () => {
 
     // Go to url
     browser.goToComponent('ecl-forms-radio-groups-eu');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

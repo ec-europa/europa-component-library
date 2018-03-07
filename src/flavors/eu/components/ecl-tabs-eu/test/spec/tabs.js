@@ -1,6 +1,5 @@
 describe('tabs', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -9,9 +8,9 @@ describe('tabs', () => {
     browser.pause(500);
 
     browser.goToComponent('ecl-tabs-eu');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

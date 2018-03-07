@@ -1,6 +1,5 @@
 describe('typography-fonts', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 400,
@@ -9,9 +8,9 @@ describe('typography-fonts', () => {
     browser.pause(500);
 
     browser.goToComponent('ecl-typography-fonts-eu');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

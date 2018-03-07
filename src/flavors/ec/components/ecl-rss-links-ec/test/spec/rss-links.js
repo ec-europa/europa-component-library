@@ -1,6 +1,5 @@
 describe('rss links', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 400,
       height: 200,

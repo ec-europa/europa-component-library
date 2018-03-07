@@ -2,7 +2,6 @@ const variants = ['standalone', 'wrapper'];
 
 describe('link-blocks', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 420,
       height: 420,
@@ -16,9 +15,9 @@ describe('link-blocks', () => {
       before(() => {
         // Go to url
         browser.goToComponent('ecl-link-blocks-eu', variant);
-        // Make sure the browser has finished painting
+
         browser.pause(500);
-        // Inject axe-core (for accessibility tests)
+
         browser.injectAxeCore();
       });
 

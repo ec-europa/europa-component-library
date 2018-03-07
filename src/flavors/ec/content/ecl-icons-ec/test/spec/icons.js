@@ -1,6 +1,5 @@
 describe(`icons`, () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 800,

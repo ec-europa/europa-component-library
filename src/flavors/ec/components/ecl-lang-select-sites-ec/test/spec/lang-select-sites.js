@@ -1,6 +1,5 @@
 describe('lang-select-sites', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -11,7 +10,6 @@ describe('lang-select-sites', () => {
     // Go to url
     browser.goToComponent('ecl-lang-select-sites-ec');
 
-    // Make sure the browser has finished painting
     browser.pause(1500);
   });
 

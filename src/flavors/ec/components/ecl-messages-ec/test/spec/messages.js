@@ -2,7 +2,6 @@ const variants = ['info', 'warning', 'success', 'error', 'livestream'];
 
 describe('ecl-messages', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1200,
       height: 400,
@@ -15,10 +14,8 @@ describe('ecl-messages', () => {
         // Go to url
         browser.goToComponent('ecl-messages-ec', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

@@ -1,6 +1,5 @@
 describe('dropdowns', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 420,
       height: 420,

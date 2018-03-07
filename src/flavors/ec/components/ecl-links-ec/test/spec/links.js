@@ -1,6 +1,5 @@
 describe('links', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 700,
       height: 450,
@@ -8,9 +7,9 @@ describe('links', () => {
 
     // Go to url
     browser.goToComponent('ecl-links-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

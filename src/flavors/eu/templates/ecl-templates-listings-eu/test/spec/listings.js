@@ -1,6 +1,5 @@
 describe('ecl-templates-listings', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1200,
       height: 600,

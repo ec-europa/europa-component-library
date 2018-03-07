@@ -1,6 +1,5 @@
 describe('ecl-site-headers-eu', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,

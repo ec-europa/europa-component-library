@@ -1,6 +1,5 @@
 describe('skip-links', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 200,

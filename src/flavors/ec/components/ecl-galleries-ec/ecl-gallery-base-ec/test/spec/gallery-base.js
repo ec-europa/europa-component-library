@@ -1,7 +1,6 @@
 describe('gallery base', () => {
   context('mobile', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 400,
         height: 600,
@@ -28,7 +27,6 @@ describe('gallery base', () => {
 
   context('tablet', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 600,
         height: 600,
@@ -55,7 +53,6 @@ describe('gallery base', () => {
 
   context('desktop', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 1400,
         height: 600,

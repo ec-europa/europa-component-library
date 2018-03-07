@@ -1,6 +1,5 @@
 describe('clearfix', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 200,
@@ -8,10 +7,8 @@ describe('clearfix', () => {
 
     browser.goToComponent('ecl-u-clearfix-ec');
 
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
 
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

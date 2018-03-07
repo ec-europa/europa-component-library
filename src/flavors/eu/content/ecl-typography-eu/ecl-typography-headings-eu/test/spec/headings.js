@@ -1,6 +1,5 @@
 describe('typography-headings', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1024,
       height: 600,

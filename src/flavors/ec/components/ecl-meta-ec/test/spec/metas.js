@@ -2,7 +2,6 @@ const variants = ['default', 'header'];
 
 describe('ecl-meta', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -15,10 +14,8 @@ describe('ecl-meta', () => {
         // Go to url
         browser.goToComponent('ecl-meta-ec', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

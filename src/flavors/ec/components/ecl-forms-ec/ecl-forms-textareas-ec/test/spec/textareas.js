@@ -2,7 +2,6 @@ const variants = ['default', 'is-disabled', 'has-error'];
 
 describe('ecl-forms-textareas', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 300,

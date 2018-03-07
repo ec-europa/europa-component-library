@@ -1,6 +1,5 @@
 describe('padding', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 800,
@@ -9,9 +8,9 @@ describe('padding', () => {
     browser.pause(500);
 
     browser.goToComponent('ecl-u-padding-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

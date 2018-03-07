@@ -2,7 +2,6 @@ const variants = ['default', 'primary'];
 
 describe('lang-select-pages', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 200,
@@ -16,9 +15,9 @@ describe('lang-select-pages', () => {
       before(() => {
         // Go to url
         browser.goToComponent('ecl-lang-select-pages-ec', variant);
-        // Make sure the browser has finished painting
+
         browser.pause(500);
-        // Inject axe-core (for accessibility tests)
+
         browser.injectAxeCore();
       });
 

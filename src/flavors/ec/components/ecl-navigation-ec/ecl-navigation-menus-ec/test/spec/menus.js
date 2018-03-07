@@ -29,7 +29,6 @@ describe('navigation-menus', () => {
 
   describe('on mobile closed', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 460,
         height: 600,

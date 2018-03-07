@@ -23,7 +23,6 @@ describe('tables with JavaScript corrections for mobile', () => {
 
     context(device, () => {
       before(() => {
-        // Set viewport size
         browser.setViewportSize(deviceSize);
         browser.pause(500);
       });

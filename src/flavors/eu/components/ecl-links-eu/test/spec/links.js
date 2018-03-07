@@ -1,6 +1,5 @@
 describe('links', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 700,
       height: 450,

@@ -1,6 +1,5 @@
 describe('dropdowns', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 420,
       height: 420,
@@ -9,10 +8,8 @@ describe('dropdowns', () => {
     // Go to url
     browser.goToComponent('ecl-dropdowns-ec');
 
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
 
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

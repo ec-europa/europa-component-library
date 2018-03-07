@@ -1,6 +1,5 @@
 describe('typography-headings', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1024,
       height: 600,
@@ -8,9 +7,8 @@ describe('typography-headings', () => {
     // Go to url
     browser.goToComponent('ecl-typography-headings-ec');
 
-    // Make sure the browser has finished painting
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

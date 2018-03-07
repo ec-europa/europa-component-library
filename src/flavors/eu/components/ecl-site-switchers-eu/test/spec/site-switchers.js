@@ -2,7 +2,6 @@ const variants = ['default', 'header', 'footer'];
 
 describe('site-switchers', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1200,
       height: 150,
@@ -16,9 +15,9 @@ describe('site-switchers', () => {
       before(() => {
         // Go to url
         browser.goToComponent('ecl-site-switchers-eu', variant);
-        // Make sure the browser has finished painting
+
         browser.pause(500);
-        // Inject axe-core (for accessibility tests)
+
         browser.injectAxeCore();
       });
 

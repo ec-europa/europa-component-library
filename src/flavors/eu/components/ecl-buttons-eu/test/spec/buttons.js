@@ -4,7 +4,6 @@ const variants = buttonVariants.map(variant => variant.name);
 
 describe('buttons', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 400,
       height: 200,

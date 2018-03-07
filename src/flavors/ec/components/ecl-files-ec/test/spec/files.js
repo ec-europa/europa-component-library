@@ -2,7 +2,6 @@ const variants = ['default', 'translations', 'links', 'images'];
 
 describe('files', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 400,

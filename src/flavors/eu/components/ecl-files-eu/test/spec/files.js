@@ -2,7 +2,6 @@ const variants = ['default', 'translations', 'links', 'images'];
 
 describe('files', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 400,
@@ -15,10 +14,8 @@ describe('files', () => {
         // Go to url
         browser.goToComponent('ecl-files-eu', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

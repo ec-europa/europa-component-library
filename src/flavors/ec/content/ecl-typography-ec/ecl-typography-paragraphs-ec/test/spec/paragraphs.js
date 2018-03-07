@@ -1,6 +1,5 @@
 describe('typography-paragraphs', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 600,
@@ -8,9 +7,8 @@ describe('typography-paragraphs', () => {
     // Go to url
     browser.goToComponent('ecl-typography-paragraphs-ec');
 
-    // Make sure the browser has finished painting
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

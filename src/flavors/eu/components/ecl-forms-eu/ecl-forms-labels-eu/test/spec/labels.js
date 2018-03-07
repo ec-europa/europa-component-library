@@ -1,6 +1,5 @@
 describe('forms-labels', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 600,
@@ -10,9 +9,9 @@ describe('forms-labels', () => {
 
     // Go to url
     browser.goToComponent('ecl-forms-labels-eu');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

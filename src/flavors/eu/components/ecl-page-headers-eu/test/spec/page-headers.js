@@ -2,7 +2,6 @@ const variants = ['basic', 'default'];
 
 describe('ecl-page-headers', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,

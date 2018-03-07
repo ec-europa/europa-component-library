@@ -1,6 +1,5 @@
 describe('context-navs', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 100,

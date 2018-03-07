@@ -2,7 +2,6 @@ const variants = ['simple', 'with-menu'];
 
 describe('pages', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -12,13 +11,8 @@ describe('pages', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        // Set viewport size
-        browser.goToComponent('ecl-pages-ec.html', variant);
-
-        // Inject axe-core (for accessibility tests)
+        browser.goToComponent('ecl-pages-ec', variant);
         browser.injectAxeCore();
-
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

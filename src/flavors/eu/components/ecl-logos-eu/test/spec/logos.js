@@ -1,6 +1,5 @@
 describe('ecl-logos-eu', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 200,

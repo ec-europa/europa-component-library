@@ -2,16 +2,13 @@ describe('navigation-menus', () => {
   before(() => {
     browser.goToComponent('ecl-navigation-menus-eu');
 
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
 
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 
   describe('on desktop', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 1400,
         height: 600,
@@ -34,7 +31,6 @@ describe('navigation-menus', () => {
 
   describe('on mobile closed', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 460,
         height: 600,

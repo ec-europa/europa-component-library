@@ -28,7 +28,6 @@ describe('carousels', () => {
 
   context('desktop', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 1280,
         height: 800,
@@ -55,7 +54,6 @@ describe('carousels', () => {
 
   context('behaviors', () => {
     before(() => {
-      // Set viewport size
       browser.setViewportSize({
         width: 1400,
         height: 800,

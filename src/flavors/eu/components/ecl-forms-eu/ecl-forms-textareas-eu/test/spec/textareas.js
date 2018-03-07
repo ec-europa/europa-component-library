@@ -2,7 +2,6 @@ const variants = ['default', 'is-disabled', 'has-error'];
 
 describe('ecl-forms-textareas', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 300,
@@ -15,10 +14,8 @@ describe('ecl-forms-textareas', () => {
         // Go to url
         browser.goToComponent('ecl-forms-textareas-eu', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

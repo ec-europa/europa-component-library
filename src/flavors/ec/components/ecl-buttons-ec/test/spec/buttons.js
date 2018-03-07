@@ -4,7 +4,6 @@ const variants = buttonVariants.map(variant => variant.name);
 
 describe('buttons', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 400,
       height: 200,
@@ -17,11 +16,10 @@ describe('buttons', () => {
         // Go to url
         browser.goToComponent('ecl-buttons-ec', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
         // Inject HTMLInspector (for markup tests)
         browser.injectHTMLInspector();
-        // Make sure the browser has finished painting
+
         browser.pause(500);
       });
 

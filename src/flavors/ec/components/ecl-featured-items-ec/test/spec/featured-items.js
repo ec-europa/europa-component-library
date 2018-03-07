@@ -2,7 +2,6 @@ const variants = ['default', 'extended'];
 
 describe('ecl-featured-items', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -15,10 +14,8 @@ describe('ecl-featured-items', () => {
         // Go to url
         browser.goToComponent('ecl-featured-items-ec', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

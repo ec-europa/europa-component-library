@@ -1,15 +1,14 @@
 describe('ecl-templates-forms', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
     });
 
     browser.goToComponent('ecl-templates-forms-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

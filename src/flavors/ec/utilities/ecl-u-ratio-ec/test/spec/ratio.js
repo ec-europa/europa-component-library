@@ -1,6 +1,5 @@
 describe('ratio', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 800,
@@ -9,9 +8,9 @@ describe('ratio', () => {
     browser.pause(500);
 
     browser.goToComponent('ecl-u-ratio-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

@@ -1,6 +1,5 @@
 describe('forms-help-block', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -10,9 +9,9 @@ describe('forms-help-block', () => {
 
     // Go to url
     browser.goToComponent('ecl-forms-help-blocks-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

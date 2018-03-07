@@ -1,6 +1,5 @@
 describe('ecl-forms-file-uploads', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 300,
@@ -9,10 +8,8 @@ describe('ecl-forms-file-uploads', () => {
     // Go to url
     browser.goToComponent('ecl-forms-file-uploads-ec');
 
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
 
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

@@ -1,6 +1,5 @@
 describe('texts', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 600,
@@ -11,9 +10,8 @@ describe('texts', () => {
     // Go to url
     browser.goToComponent('ecl-u-text-ec');
 
-    // Make sure the browser has finished painting
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
+
     browser.injectAxeCore();
   });
 

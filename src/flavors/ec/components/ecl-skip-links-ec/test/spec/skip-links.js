@@ -1,6 +1,5 @@
 describe('skip-links', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 200,
@@ -8,10 +7,8 @@ describe('skip-links', () => {
 
     browser.goToComponent('ecl-skip-links-ec');
 
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
 
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 

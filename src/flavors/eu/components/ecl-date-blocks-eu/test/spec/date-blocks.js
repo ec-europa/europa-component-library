@@ -2,7 +2,6 @@ const variants = ['default', 'ongoing', 'cancelled', 'past'];
 
 describe('ecl-date-blocks', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 600,
@@ -15,10 +14,8 @@ describe('ecl-date-blocks', () => {
         // Go to url
         browser.goToComponent('ecl-date-blocks-eu', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

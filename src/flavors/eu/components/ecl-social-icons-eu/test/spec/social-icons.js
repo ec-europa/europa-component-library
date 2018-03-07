@@ -1,11 +1,9 @@
 describe('social-icons', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 5700,
     });
-
     browser.pause(500);
   });
 
@@ -13,7 +11,6 @@ describe('social-icons', () => {
     before(() => {
       // Go to url
       browser.goToComponent('ecl-social-icons-eu');
-      // Make sure the browser has finished painting
       browser.pause(500);
     });
 

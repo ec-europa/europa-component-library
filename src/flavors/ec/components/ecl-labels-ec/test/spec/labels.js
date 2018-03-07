@@ -2,7 +2,6 @@ const variants = ['upcoming', 'open', 'close'];
 
 describe('ecl-labels', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 100,
@@ -15,10 +14,8 @@ describe('ecl-labels', () => {
         // Go to url
         browser.goToComponent('ecl-labels-ec', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

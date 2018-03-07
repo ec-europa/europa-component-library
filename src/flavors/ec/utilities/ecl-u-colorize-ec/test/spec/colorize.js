@@ -1,6 +1,5 @@
 describe('colorize', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 600,
       height: 800,
@@ -8,7 +7,7 @@ describe('colorize', () => {
 
     // Go to url
     browser.goToComponent('ecl-u-colorize-ec');
-    // Make sure the browser has finished painting
+
     browser.pause(500);
   });
 

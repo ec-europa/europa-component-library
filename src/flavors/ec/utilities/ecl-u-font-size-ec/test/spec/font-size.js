@@ -1,17 +1,13 @@
 describe('font-size', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 800,
       height: 200,
     });
 
     browser.pause(500);
-
-    browser.goToComponent(`ecl-u-font-size-ec.html`);
-    // Make sure the browser has finished painting
+    browser.goToComponent('ecl-u-font-size-ec');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

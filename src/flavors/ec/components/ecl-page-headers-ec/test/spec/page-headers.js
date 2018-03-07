@@ -2,7 +2,6 @@ const variants = ['basic', 'default'];
 
 describe('ecl-page-headers', () => {
   before(() => {
-    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -15,10 +14,8 @@ describe('ecl-page-headers', () => {
         // Go to url
         browser.goToComponent('ecl-page-headers-ec', variant);
 
-        // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
 
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 
