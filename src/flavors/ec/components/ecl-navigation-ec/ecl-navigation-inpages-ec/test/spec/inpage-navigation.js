@@ -4,7 +4,7 @@ describe('inpage navigation', () => {
       width: 1400,
       height: 600,
     });
-    browser.url('ecl-navigation-inpages-ec.html');
+    browser.goToComponent('ecl-navigation-inpages-ec');
     browser.pause(500);
     browser.injectAxeCore();
   });

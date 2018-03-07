@@ -7,7 +7,7 @@ describe('ratio', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-u-ratio-eu.html');
+    browser.goToComponent('ecl-u-ratio-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

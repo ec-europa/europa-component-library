@@ -13,7 +13,7 @@ describe('ecl-page-headers', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-page-headers-ec--${variant}.html`);
+        browser.goToComponent('ecl-page-headers-ec', variant);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

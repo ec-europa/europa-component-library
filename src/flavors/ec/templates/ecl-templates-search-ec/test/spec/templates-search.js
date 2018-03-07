@@ -6,7 +6,7 @@ describe('templates-search', () => {
       height: 600,
     });
 
-    browser.url('ecl-templates-search-ec.html');
+    browser.goToComponent('ecl-templates-search-ec');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

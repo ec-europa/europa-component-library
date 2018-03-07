@@ -7,7 +7,7 @@ describe('ecl-logos-eu', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-logos-eu.html');
+    browser.goToComponent('ecl-logos-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

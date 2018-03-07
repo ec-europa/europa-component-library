@@ -1,4 +1,4 @@
-const componentUrl = 'ecl-carousels-eu.html';
+const component = 'ecl-carousels-eu';
 const timeout = 3000;
 
 describe('carousels', () => {
@@ -11,7 +11,7 @@ describe('carousels', () => {
       });
 
       // Reload
-      browser.url(componentUrl);
+      browser.goToComponent(component);
       browser.pause(timeout);
       browser.injectAxeCore();
     });
@@ -38,7 +38,7 @@ describe('carousels', () => {
       });
 
       // Reload
-      browser.url(componentUrl);
+      browser.goToComponent(component);
       browser.pause(timeout);
       browser.injectAxeCore();
     });
@@ -65,7 +65,7 @@ describe('carousels', () => {
       });
 
       // Reload
-      browser.url(componentUrl);
+      browser.goToComponent(component);
       browser.pause(timeout);
       browser.injectAxeCore();
     });

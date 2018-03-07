@@ -7,7 +7,7 @@ describe('floats', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-u-float-eu.html');
+    browser.goToComponent('ecl-u-float-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

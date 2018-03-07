@@ -8,7 +8,7 @@ describe('ratio', () => {
 
     browser.pause(500);
 
-    browser.url('ecl-u-ratio-ec.html');
+    browser.goToComponent('ecl-u-ratio-ec');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

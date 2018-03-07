@@ -7,7 +7,7 @@ describe('comments', () => {
     });
 
     // Go to url
-    browser.url('ecl-comments-eu.html');
+    browser.goToComponent('ecl-comments-eu');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

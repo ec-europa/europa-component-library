@@ -8,7 +8,7 @@ describe('forms-select', () => {
 
     browser.pause(500);
 
-    browser.url('ecl-forms-selects-eu.html');
+    browser.goToComponent('ecl-forms-selects-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

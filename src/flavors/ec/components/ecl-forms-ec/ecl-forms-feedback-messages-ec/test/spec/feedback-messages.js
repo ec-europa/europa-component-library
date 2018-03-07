@@ -13,7 +13,7 @@ describe('ecl-forms-feedback-messages', () => {
     describe(`ecl-forms-feedback-messages--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-forms-feedback-messages-ec--${variant}.html`);
+        browser.goToComponent('ecl-forms-feedback-messages-ec', variant);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

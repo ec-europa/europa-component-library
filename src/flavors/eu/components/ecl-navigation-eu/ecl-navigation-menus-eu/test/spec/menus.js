@@ -1,6 +1,6 @@
 describe('navigation-menus', () => {
   before(() => {
-    browser.url('ecl-navigation-menus-eu.html');
+    browser.goToComponent('ecl-navigation-menus-eu');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

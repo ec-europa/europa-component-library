@@ -7,7 +7,7 @@ describe('ecl-site-headers-eu', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-site-headers-eu.html');
+    browser.goToComponent('ecl-site-headers-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

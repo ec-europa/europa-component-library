@@ -8,7 +8,7 @@ describe('gallery base', () => {
       });
 
       // Reload
-      browser.url('ecl-gallery-base-ec.html');
+      browser.goToComponent('ecl-gallery-base-ec');
       browser.pause(500);
       browser.injectAxeCore();
     });
@@ -35,7 +35,7 @@ describe('gallery base', () => {
       });
 
       // Reload
-      browser.url('ecl-gallery-base-ec.html');
+      browser.goToComponent('ecl-gallery-base-ec');
       browser.pause(500);
       browser.injectAxeCore();
     });
@@ -62,7 +62,7 @@ describe('gallery base', () => {
       });
 
       // Reload
-      browser.url('ecl-gallery-base-ec.html');
+      browser.goToComponent('ecl-gallery-base-ec');
       browser.pause(500);
       browser.injectAxeCore();
     });

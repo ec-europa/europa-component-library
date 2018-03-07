@@ -7,7 +7,7 @@ describe('tabs', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-tabs-ec.html');
+    browser.goToComponent('ecl-tabs-ec');
     browser.pause(500);
     browser.injectAxeCore();
   });

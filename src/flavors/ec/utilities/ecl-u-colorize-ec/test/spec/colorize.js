@@ -7,7 +7,7 @@ describe('colorize', () => {
     });
 
     // Go to url
-    browser.url('ecl-u-colorize-ec.html');
+    browser.goToComponent('ecl-u-colorize-ec');
     // Make sure the browser has finished painting
     browser.pause(500);
   });

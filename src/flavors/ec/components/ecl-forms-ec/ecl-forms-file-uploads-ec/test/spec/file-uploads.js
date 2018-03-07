@@ -7,7 +7,7 @@ describe('ecl-forms-file-uploads', () => {
     });
 
     // Go to url
-    browser.url('ecl-forms-file-uploads-ec.html');
+    browser.goToComponent('ecl-forms-file-uploads-ec');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

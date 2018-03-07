@@ -4,7 +4,7 @@ describe('gallery dialog - tablet', () => {
       width: 1024,
       height: 768,
     });
-    browser.url('ecl-gallery-dialog-ec.html');
+    browser.goToComponent('ecl-gallery-dialog-ec');
     browser.injectAxeCore();
     browser.pause(500);
   });

@@ -8,7 +8,7 @@ describe('tabs', () => {
 
     browser.pause(500);
 
-    browser.url('ecl-tabs-eu.html');
+    browser.goToComponent('ecl-tabs-eu');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

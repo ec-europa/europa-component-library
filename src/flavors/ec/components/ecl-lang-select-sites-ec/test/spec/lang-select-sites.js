@@ -9,7 +9,7 @@ describe('lang-select-sites', () => {
     browser.pause(1500);
 
     // Go to url
-    browser.url('ecl-lang-select-sites-ec.html');
+    browser.goToComponent('ecl-lang-select-sites-ec');
 
     // Make sure the browser has finished painting
     browser.pause(1500);

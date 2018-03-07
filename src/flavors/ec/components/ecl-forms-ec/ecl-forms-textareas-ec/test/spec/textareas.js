@@ -12,13 +12,8 @@ describe('ecl-forms-textareas', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        // Go to url
-        browser.url(`ecl-forms-textareas-ec--${variant}.html`);
-
-        // Inject axe-core (for accessibility tests)
+        browser.goToComponent('ecl-forms-textareas-ec', variant);
         browser.injectAxeCore();
-
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

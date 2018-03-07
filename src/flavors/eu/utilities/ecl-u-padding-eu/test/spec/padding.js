@@ -7,7 +7,7 @@ describe('padding', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-u-padding-eu.html');
+    browser.goToComponent('ecl-u-padding-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

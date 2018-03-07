@@ -6,7 +6,7 @@ describe('links', () => {
       height: 450,
     });
 
-    browser.url(`ecl-links-eu.html`);
+    browser.goToComponent('ecl-links-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

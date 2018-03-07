@@ -5,7 +5,7 @@ describe('images', () => {
       height: 600,
     });
 
-    browser.url('ecl-images-ec.html');
+    browser.goToComponent('ecl-images-ec');
     browser.injectAxeCore();
     browser.pause(500);
   });

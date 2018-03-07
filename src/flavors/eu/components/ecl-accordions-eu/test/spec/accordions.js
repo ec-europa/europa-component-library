@@ -6,7 +6,7 @@ describe('accordions', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-accordions-eu.html');
+    browser.goToComponent('ecl-accordions-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

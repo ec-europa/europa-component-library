@@ -13,7 +13,7 @@ describe('ecl-messages', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-messages-eu--${variant}.html`);
+        browser.goToComponent('ecl-messages-eu', variant);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

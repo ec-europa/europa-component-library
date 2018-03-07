@@ -5,7 +5,7 @@ describe('site-headers', () => {
       height: 600,
     });
     browser.pause(500);
-    browser.url('ecl-site-headers-ec.html');
+    browser.goToComponent('ecl-site-headers-ec');
     browser.pause(500);
     browser.injectAxeCore();
   });

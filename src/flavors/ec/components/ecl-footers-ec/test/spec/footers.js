@@ -12,7 +12,7 @@ describe('footers', () => {
   describe('footer', () => {
     before(() => {
       // Go to url
-      browser.url('ecl-footers-ec.html');
+      browser.goToComponent('ecl-footers-ec');
       // Make sure the browser has finished painting
       browser.pause(500);
       // Inject axe-core (for accessibility tests)

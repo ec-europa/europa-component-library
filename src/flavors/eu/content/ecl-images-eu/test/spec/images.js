@@ -6,7 +6,7 @@ describe('images', () => {
       height: 600,
     });
 
-    browser.url('ecl-images-eu.html');
+    browser.goToComponent('ecl-images-eu');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

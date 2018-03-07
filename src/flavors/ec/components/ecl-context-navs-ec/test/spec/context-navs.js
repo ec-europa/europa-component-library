@@ -7,13 +7,8 @@ describe('context-navs', () => {
     });
 
     browser.pause(500);
-
-    // Go to url
-    browser.url('ecl-context-navs-ec.html');
-
-    // Make sure the browser has finished painting
+    browser.goToComponent('ecl-context-navs-ec');
     browser.pause(500);
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
   });
 

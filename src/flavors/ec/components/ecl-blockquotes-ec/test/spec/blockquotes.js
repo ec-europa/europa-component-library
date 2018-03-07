@@ -4,7 +4,7 @@ describe('blockquotes', () => {
       width: 800,
       height: 200,
     });
-    browser.url('ecl-blockquotes-ec.html');
+    browser.goToComponent('ecl-blockquotes-ec');
     browser.injectAxeCore();
     browser.pause(500);
   });

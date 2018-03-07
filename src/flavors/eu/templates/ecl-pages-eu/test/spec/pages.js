@@ -13,7 +13,7 @@ describe('pages', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Set viewport size
-        browser.url(`ecl-pages-eu--${variant}.html`);
+        browser.goToComponent('ecl-pages-eu', variant);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

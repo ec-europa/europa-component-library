@@ -6,7 +6,7 @@ describe('pagers', () => {
       height: 600,
     });
     browser.pause(500);
-    browser.url('ecl-pagers-ec.html');
+    browser.goToComponent('ecl-pagers-ec');
     browser.pause(500);
   });
 

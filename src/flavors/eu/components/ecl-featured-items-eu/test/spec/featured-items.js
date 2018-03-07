@@ -13,7 +13,7 @@ describe('ecl-featured-items', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-featured-items-eu--${variant}.html`);
+        browser.goToComponent('ecl-featured-items-eu', variant);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();

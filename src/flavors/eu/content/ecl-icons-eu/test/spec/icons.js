@@ -6,7 +6,7 @@ describe('icons', () => {
       height: 800,
     });
 
-    browser.url('ecl-icons-eu.html');
+    browser.goToComponent('ecl-icons-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

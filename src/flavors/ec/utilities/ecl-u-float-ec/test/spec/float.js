@@ -9,7 +9,7 @@ describe('floats', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url('ecl-u-float-ec.html');
+    browser.goToComponent('ecl-u-float-ec');
 
     // Make sure the browser has finished painting
     browser.pause(500);

@@ -5,7 +5,7 @@ describe('breadcrumbs', () => {
       height: 600,
     });
     browser.pause(500);
-    browser.url('ecl-breadcrumbs-ec.html');
+    browser.goToComponent('ecl-breadcrumbs-ec');
     browser.pause(500);
     browser.injectAxeCore();
   });

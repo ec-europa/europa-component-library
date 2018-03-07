@@ -6,7 +6,7 @@ describe('typography-headings', () => {
       height: 600,
     });
 
-    browser.url('ecl-typography-headings-eu.html');
+    browser.goToComponent('ecl-typography-headings-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

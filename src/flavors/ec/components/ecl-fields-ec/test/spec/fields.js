@@ -11,11 +11,8 @@ describe('fields', () => {
 
   describe(`field`, () => {
     before(() => {
-      // Go to url
-      browser.url('ecl-fields-ec.html');
-      // Make sure the browser has finished painting
+      browser.goToComponent('ecl-fields-ec');
       browser.pause(500);
-      // Inject axe-core (for accessibility tests)
       browser.injectAxeCore();
     });
 

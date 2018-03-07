@@ -6,7 +6,7 @@ describe('skip-links', () => {
       height: 200,
     });
 
-    browser.url('ecl-skip-links-ec.html');
+    browser.goToComponent('ecl-skip-links-ec');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

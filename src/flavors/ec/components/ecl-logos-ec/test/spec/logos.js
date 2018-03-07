@@ -8,7 +8,7 @@ describe('logos', () => {
 
     browser.pause(500);
 
-    browser.url('ecl-logos-ec.html');
+    browser.goToComponent('ecl-logos-ec');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

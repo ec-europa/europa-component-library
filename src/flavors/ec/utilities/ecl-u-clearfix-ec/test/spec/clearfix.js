@@ -6,7 +6,7 @@ describe('clearfix', () => {
       height: 200,
     });
 
-    browser.url('ecl-u-clearfix-ec.html');
+    browser.goToComponent('ecl-u-clearfix-ec');
 
     // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();

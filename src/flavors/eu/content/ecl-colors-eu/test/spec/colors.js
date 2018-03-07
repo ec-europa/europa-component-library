@@ -7,7 +7,7 @@ describe('colors', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-colors-eu.html');
+    browser.goToComponent('ecl-colors-eu');
     browser.pause(500);
   });
 

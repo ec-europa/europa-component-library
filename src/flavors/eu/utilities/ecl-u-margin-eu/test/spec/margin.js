@@ -7,7 +7,7 @@ describe('margin', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-u-margin-eu.html');
+    browser.goToComponent('ecl-u-margin-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });

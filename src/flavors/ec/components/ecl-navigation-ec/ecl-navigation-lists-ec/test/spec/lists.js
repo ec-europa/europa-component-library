@@ -4,7 +4,7 @@ describe('navigation-lists', () => {
       width: 1400,
       height: 600,
     });
-    browser.url('ecl-navigation-lists-ec.html');
+    browser.goToComponent('ecl-navigation-lists-ec');
     browser.injectAxeCore();
     browser.pause(500);
   });

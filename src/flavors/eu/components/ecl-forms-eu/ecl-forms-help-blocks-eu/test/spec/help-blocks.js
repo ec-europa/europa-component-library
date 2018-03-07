@@ -9,7 +9,7 @@ describe('forms-help-block', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url('ecl-forms-help-blocks-eu.html');
+    browser.goToComponent('ecl-forms-help-blocks-eu');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

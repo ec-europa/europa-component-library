@@ -7,7 +7,7 @@ describe('links', () => {
     });
 
     // Go to url
-    browser.url('ecl-links-ec.html');
+    browser.goToComponent('ecl-links-ec');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

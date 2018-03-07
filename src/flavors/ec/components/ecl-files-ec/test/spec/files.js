@@ -12,13 +12,8 @@ describe('files', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        // Go to url
-        browser.url(`ecl-files-ec--${variant}.html`);
-
-        // Inject axe-core (for accessibility tests)
+        browser.goToComponent('ecl-files-ec', variant);
         browser.injectAxeCore();
-
-        // Make sure the browser has finished painting
         browser.pause(500);
       });
 

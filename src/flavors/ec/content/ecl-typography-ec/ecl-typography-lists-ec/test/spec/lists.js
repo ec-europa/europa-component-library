@@ -6,7 +6,7 @@ describe('typography-lists', () => {
       height: 600,
     });
     // Go to url
-    browser.url('ecl-typography-lists-ec.html');
+    browser.goToComponent('ecl-typography-lists-ec');
 
     // Make sure the browser has finished painting
     browser.pause(500);

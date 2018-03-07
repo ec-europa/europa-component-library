@@ -7,7 +7,7 @@ describe('timelines', () => {
     });
 
     // Go to url
-    browser.url('ecl-timelines-ec.html');
+    browser.goToComponent('ecl-timelines-ec');
     // Make sure the browser has finished painting
     browser.pause(500);
     // Inject axe-core (for accessibility tests)

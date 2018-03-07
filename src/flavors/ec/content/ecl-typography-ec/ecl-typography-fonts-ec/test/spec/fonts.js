@@ -7,7 +7,7 @@ describe('typography-fonts', () => {
     });
 
     browser.pause(500);
-    browser.url('ecl-typography-fonts-ec.html');
+    browser.goToComponent('ecl-typography-fonts-ec');
     browser.pause(500);
     browser.injectAxeCore();
   });

@@ -9,7 +9,7 @@ describe('texts', () => {
     browser.pause(500);
 
     // Go to url
-    browser.url('ecl-u-text-ec.html');
+    browser.goToComponent('ecl-u-text-ec');
 
     // Make sure the browser has finished painting
     browser.pause(500);

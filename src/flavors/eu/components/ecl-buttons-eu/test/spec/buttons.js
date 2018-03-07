@@ -15,7 +15,7 @@ describe('buttons', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-buttons-eu--${variant}.html`);
+        browser.goToComponent('ecl-buttons-eu', variant);
 
         browser.injectAxeCore();
         browser.injectHTMLInspector();
@@ -47,7 +47,7 @@ describe('buttons', () => {
       context('with hover state', () => {
         before(() => {
           // Reload
-          browser.url(`ecl-buttons-eu--${variant}.html`);
+          browser.goToComponent('ecl-buttons-eu', variant);
           browser.injectAxeCore();
           browser.pause(500);
 

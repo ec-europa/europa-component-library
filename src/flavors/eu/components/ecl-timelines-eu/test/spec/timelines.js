@@ -6,7 +6,7 @@ describe('timelines', () => {
       height: 600,
     });
 
-    browser.url('ecl-timelines-eu.html');
+    browser.goToComponent('ecl-timelines-eu');
     browser.pause(500);
     browser.injectAxeCore();
   });
