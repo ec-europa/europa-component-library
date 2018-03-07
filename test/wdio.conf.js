@@ -21,8 +21,6 @@ const { getCapabilities } = require('./utils/capabilities');
 const { isTravis } = require('./utils/travis');
 const { isDrone } = require('./utils/drone');
 
-const flavor = require('./utils/getFlavor')();
-
 const tunnelIdentifier =
   isTravis || isDrone
     ? process.env[`${isTravis ? 'TRAVIS' : 'DRONE'}_JOB_NUMBER`]
@@ -35,10 +33,10 @@ const localServer = !isDrone; // with drone, builds are pushed onto AWS S3
 // Other properties
 const useSauceConnect = localServer && !isTravis; // travis uses its own Sauce Connect launcher
 const baseUrl = localServer
-  ? `http://localhost:3000/flavors/${flavor}/components/preview/`
+  ? 'http://localhost:3000/'
   : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
       process.env.DRONE_BUILD_NUMBER
-    }/flavors/${flavor}/components/preview/`;
+    }/`;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -200,5 +198,12 @@ exports.config = {
       injectHTMLInspector.bind(browser)
     );
     browser.addCommand('runHTMLInspector', runHTMLInspector.bind(browser));
+
+    browser.addCommand('goToComponent', (component, variant) => {
+      const flavor = component.match(/(ec|eu)$/g);
+      const prefix = `flavors/${flavor}/components/preview`;
+      const page = `${component}${variant && `--${variant}`}.html`;
+      return browser.url(`${prefix}/${page}`);
+    });
   },
 };
