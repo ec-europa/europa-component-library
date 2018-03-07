@@ -6,13 +6,8 @@ describe('datepickers', () => {
       height: 420,
     });
 
-    // Go to url
     browser.url('ecl-datepickers-eu.html');
-
-    // Inject axe-core (for accessibility tests)
     browser.injectAxeCore();
-
-    // Make sure the browser has finished painting
     browser.pause(500);
   });
 
