@@ -33,10 +33,10 @@ const localServer = !isDrone; // with drone, builds are pushed onto AWS S3
 // Other properties
 const useSauceConnect = localServer && !isTravis; // travis uses its own Sauce Connect launcher
 const baseUrl = localServer
-  ? 'http://localhost:3000'
+  ? 'http://localhost:3000/'
   : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
       process.env.DRONE_BUILD_NUMBER
-    }`;
+    }/`;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -201,7 +201,7 @@ exports.config = {
 
     browser.addCommand('goToComponent', (component, variant) => {
       const flavor = component.match(/(ec|eu)$/g);
-      const prefix = `/flavors/${flavor}/components/preview`;
+      const prefix = `flavors/${flavor}/components/preview`;
       const page = `${component}${variant && `--${variant}`}.html`;
       return browser.url(`${prefix}/${page}`);
     });
