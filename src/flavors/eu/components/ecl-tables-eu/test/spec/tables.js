@@ -31,11 +31,8 @@ describe('tables with JavaScript corrections for mobile', () => {
       variants.forEach(variant => {
         describe(`--${variant.name}`, () => {
           before(() => {
-            // Go to url
-            browser.goToComponent(`ecl-tables-eu--${variant.name}.html`);
-            // Make sure the browser has finished painting
+            browser.goToComponent('ecl-tables-eu', variant.name);
             browser.pause(500);
-            // Inject axe-core (for accessibility tests)
             browser.injectAxeCore();
           });
 
