@@ -15,7 +15,7 @@ describe('buttons', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.url(`ecl-buttons-ec--${variant}.html`);
+        browser.goToComponent('ecl-buttons-ec', variant);
 
         // Inject axe-core (for accessibility tests)
         browser.injectAxeCore();
@@ -50,7 +50,7 @@ describe('buttons', () => {
       context('with hover state', () => {
         before(() => {
           // Reload
-          browser.url(`ecl-buttons-ec--${variant}.html`);
+          browser.goToComponent('ecl-buttons-ec', variant);
           browser.injectAxeCore();
           browser.pause(500);
 
