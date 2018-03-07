@@ -6,9 +6,7 @@ describe('images', () => {
     });
 
     browser.goToComponent('ecl-images-eu');
-
     browser.injectAxeCore();
-
     browser.pause(500);
   });
 
