@@ -21,7 +21,7 @@ module.exports.getSpecs = () => {
   // By default, test all the specs
   const pattern = path.resolve(
     __dirname,
-    '../../src/flavors/ec/**/test/spec/**/*.js'
+    '../../src/flavors/**/test/spec/**/*.js'
   );
   let specs = glob.sync(pattern, { ignore: ['**/node_modules/**'] });
 
