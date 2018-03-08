@@ -9,7 +9,7 @@ clone:
       - git remote add origin ${DRONE_REMOTE_URL}
       - for remote in `git branch -r`; do git branch --track ${remote#origin/} $remote; done
       - git fetch --no-tags --all
-      - git pull --all
+      - git pull --no-tags --all
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
           git checkout -qf FETCH_HEAD;
         else
