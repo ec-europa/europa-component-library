@@ -32,15 +32,10 @@ module.exports.getSpecs = async () => {
     const packages = PackageUtilities.getPackages(repo);
     const packageGraph = PackageUtilities.getPackageGraph(packages);
 
-    console.log({
-      owner: process.env.DRONE_REPO_OWNER,
-      repo: process.env.DRONE_REPO_NAME,
-      head: process.env.DRONE_BRANCH,
-    });
     const matchingPullRequests = await octokit.pullRequests.getAll({
       owner: process.env.DRONE_REPO_OWNER,
       repo: process.env.DRONE_REPO_NAME,
-      head: process.env.DRONE_BRANCH,
+      head: `${process.env.DRONE_REPO_OWNER}:${process.env.DRONE_BRANCH}`,
     });
 
     if (!matchingPullRequests || !matchingPullRequests.data) {
@@ -50,6 +45,8 @@ module.exports.getSpecs = async () => {
     const data = matchingPullRequests.data[0];
 
     const { ref } = data.base;
+
+    console.log('ref', ref);
 
     // Get updated packages
     const collector = new UpdatedPackagesCollector({
