@@ -16,7 +16,7 @@ module.exports.getSpecs = async () => {
 
   // Only test the updated components when the branch is not the master
   if (isDrone && process.env.DRONE_BRANCH !== 'master') {
-    const updatedPackages = getUpdated();
+    const updatedPackages = await getUpdated();
 
     specs = [].concat(
       ...updatedPackages.map(update =>
