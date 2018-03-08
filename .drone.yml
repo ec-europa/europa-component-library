@@ -57,9 +57,7 @@ pipeline:
     image: node:latest
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
-      - if [ "${DRONE_BRANCH}" = "master" ] ; then
-          yarn test:functional;
-        fi
+      - yarn test:functional;
     when:
       event: [push]
       matrix:
