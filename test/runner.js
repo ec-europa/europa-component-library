@@ -6,13 +6,20 @@ const { getSpecs } = require('./utils/specs');
   // Load specs
   const specs = await getSpecs();
 
+  if (specs.length === 0) {
+    console.log('No test will be run');
+    return process.exit(0);
+  }
+
+  console.log('The following tests will be run', specs);
+
   // Configure launcher
   const wdio = new Launcher(path.resolve(__dirname, './wdio.conf.js'), {
     specs,
   });
 
   // Start tests
-  wdio.run().then(
+  return wdio.run().then(
     // On success
     code => {
       console.log('Process exited with code', code);

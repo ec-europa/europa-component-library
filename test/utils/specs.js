@@ -20,6 +20,7 @@ module.exports.getSpecs = async () => {
     __dirname,
     '../../src/flavors/**/test/spec/**/*.js'
   );
+
   let specs = glob.sync(pattern, { ignore: ['**/node_modules/**'] });
 
   // Only test the updated components when the branch is not the master
@@ -51,14 +52,6 @@ module.exports.getSpecs = async () => {
 
     const updatedPackages = collector.getUpdates();
 
-    // Only on parent process (not spawned)
-    if (!process.connected) {
-      console.log(
-        'Visual regression tests will be run on:',
-        updatedPackages.map(update => update.package.name)
-      );
-    }
-
     specs = [].concat(
       ...updatedPackages.map(update =>
         glob.sync(path.resolve(update.package.location, 'test/spec/**/*.js'), {
@@ -66,8 +59,6 @@ module.exports.getSpecs = async () => {
         })
       )
     );
-  } else if (!process.connected) {
-    console.log('Visual regression tests will be run on all packages');
   }
 
   return specs;
