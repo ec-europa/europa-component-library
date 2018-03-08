@@ -1,5 +1,6 @@
 const path = require('path');
 const glob = require('glob');
+const octokit = require('@octokit/rest')();
 
 // Lerna related imports
 const log = require('npmlog');
@@ -8,16 +9,12 @@ const Repository = require('lerna/lib/Repository');
 const PackageUtilities = require('lerna/lib/PackageUtilities');
 
 // Utils
-const { isTravis } = require('./travis');
 const { isDrone } = require('./drone');
 
 // handle log.success() used by lerna
 log.addLevel('success', 3001, { fg: 'green', bold: true });
 
-const isCI = isTravis || isDrone;
-const ci = isTravis ? 'TRAVIS' : 'DRONE';
-
-module.exports.getSpecs = () => {
+module.exports.getSpecs = async () => {
   // By default, test all the specs
   const pattern = path.resolve(
     __dirname,
@@ -26,7 +23,7 @@ module.exports.getSpecs = () => {
   let specs = glob.sync(pattern, { ignore: ['**/node_modules/**'] });
 
   // Only test the updated components when the branch is not the master
-  if (isCI && process.env[`${ci}_BRANCH`] !== 'master') {
+  if (isDrone && process.env.DRONE_BRANCH !== 'master') {
     log.level = 'silent';
     const cwd = process.cwd();
 
@@ -34,18 +31,22 @@ module.exports.getSpecs = () => {
     const packages = PackageUtilities.getPackages(repo);
     const packageGraph = PackageUtilities.getPackageGraph(packages);
 
+    const { data } = await octokit.pullRequests.get({
+      owner: process.env.DRONE_REPO_OWNER,
+      repo: process.env.DRONE_REPO_NAME,
+      number: process.env.DRONE_PULL_REQUEST,
+    });
+
+    const { ref } = data.base;
+
     // Get updated packages
     const collector = new UpdatedPackagesCollector({
       logger: log.newGroup('lerna'),
       repository: repo,
       filteredPackages: packages,
       packageGraph,
-      options: {
-        since: 'master',
-      },
-      execOpts: {
-        cwd,
-      },
+      options: { since: ref },
+      execOpts: { cwd },
     });
 
     const updatedPackages = collector.getUpdates();
