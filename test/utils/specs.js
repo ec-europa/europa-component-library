@@ -32,11 +32,21 @@ module.exports.getSpecs = async () => {
     const packages = PackageUtilities.getPackages(repo);
     const packageGraph = PackageUtilities.getPackageGraph(packages);
 
-    const { data } = await octokit.pullRequests.get({
+    const matchingPullRequests = await octokit.pullRequests.getAll({
       owner: process.env.DRONE_REPO_OWNER,
       repo: process.env.DRONE_REPO_NAME,
-      number: process.env.DRONE_PULL_REQUEST,
+      head: process.env.DRONE_BRANCH,
     });
+
+    console.log('matchingPullRequests', matchingPullRequests);
+
+    if (!matchingPullRequests) {
+      return specs;
+    }
+
+    const data = matchingPullRequests[0];
+
+    console.log('data', data);
 
     const { ref } = data.base;
 
