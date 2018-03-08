@@ -16,7 +16,7 @@
     "start:ec": "cd packages/styleguides/ec && npm run start",
     "start:eu": "cd packages/styleguides/eu && npm run start",
     "test:coding-conventions": "npm run lint",
-    "test:functional": "wdio test/wdio.conf.js"
+    "test:functional": "node test/runner.js"
   },
   "devDependencies": {
     "@ec-europa/ecl-qa": "0.4.0",
