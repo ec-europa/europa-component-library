@@ -1,4 +1,4 @@
-# Footers
+# EU Footers
 
 ## Why and how to use this component
 

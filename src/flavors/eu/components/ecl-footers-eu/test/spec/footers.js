@@ -1,5 +1,6 @@
 describe('footers', () => {
   before(() => {
+    // Set viewport size
     browser.setViewportSize({
       width: 1400,
       height: 600,
@@ -12,9 +13,9 @@ describe('footers', () => {
     before(() => {
       // Go to url
       browser.goToComponent('ecl-footers-eu');
-
+      // Make sure the browser has finished painting
       browser.pause(500);
-
+      // Inject axe-core (for accessibility tests)
       browser.injectAxeCore();
     });
 

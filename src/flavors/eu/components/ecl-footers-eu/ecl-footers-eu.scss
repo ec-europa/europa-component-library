@@ -1,0 +1,71 @@
+/**
+ * Footers component
+ * @define footer ; weak
+ */
+
+.ecl-footer {
+  margin: 0;
+
+  .ecl-link {
+    color: inherit;
+  }
+}
+
+@mixin cols-x {
+  @for $i from 2 through 4 {
+    /* stylelint-disable-next-line */
+    .ecl-footer__menu--#{$i}-col {
+      column-count: $i;
+    }
+  }
+}
+
+@include cols-x;
+
+.ecl-footer__title {
+  align-items: flex-end;
+  border-bottom: 2px solid rgba(87, 87, 87, 0.25);
+  color: map-get($ecl-colors, 'grey-100');
+  display: flex;
+  font-size: map-get($ecl-font-size, m);
+  margin-bottom: map-get($ecl-spacing, 'xs');
+  padding-bottom: map-get($ecl-spacing, 'xs');
+}
+
+.ecl-footer__link--side-identity {
+  color: map-get($ecl-colors, 'grey-100');
+}
+
+.ecl-footer__menu {
+  .ecl-footer__menu-item {
+    font-size: map-get($ecl-font-size, s);
+  }
+}
+
+.ecl-footer__site-identity {
+  background-color: map-get($ecl-colors, 'grey-5');
+  color: map-get($ecl-colors, 'blue-100');
+
+  .ecl-footer__label {
+    color: map-get($ecl-colors, 'grey-100');
+  }
+}
+
+.ecl-footer__site-corporate {
+  background-color: #e3e3e3;
+  border-top: 6px solid map-get($ecl-colors, 'blue-100');
+  color: map-get($ecl-colors, 'blue-100');
+}
+
+.ecl-footer__ec {
+  background-color: #d9d9d9;
+  color: map-get($ecl-colors, 'blue-110');
+}
+
+@include ecl-media-breakpoint-down(sm) {
+  .ecl-footer__menu--2-col,
+  .ecl-footer__menu--3-col,
+  .ecl-footer__menu--4-col {
+    column-count: 1;
+  }
+}
