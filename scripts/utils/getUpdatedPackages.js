@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const octokit = require('@octokit/rest')();
-const git = require('simple-git/promise');
+const simpleGit = require('simple-git/promise');
 
 // Lerna related imports
 const log = require('npmlog');
@@ -38,12 +38,26 @@ const getRef = async () => {
   return 'master';
 };
 
-const cacheFile = path.resolve(process.cwd(), '.tmp/lerna-updated.json');
-
 const getUpdatedPackages = async ({
   ignoreCache = false,
   cacheResults = true,
+  since = '',
 } = {}) => {
+  // If "since" parameter is not provided, try to guess it
+  let ref = since;
+  if (!ref) ref = await getRef();
+
+  console.log('Packages compared with:', ref);
+
+  const cwd = process.cwd();
+  const git = simpleGit(cwd);
+  const status = await git.status();
+
+  const cacheFile = path.resolve(
+    cwd,
+    `.tmp/${status.current}/lerna-updated-${ref}.json`
+  );
+
   // Load from cache
   if (!ignoreCache) {
     try {
@@ -59,14 +73,14 @@ const getUpdatedPackages = async ({
   // Only test the updated components when the branch is not the master
   // if (process.env.DRONE_BRANCH !== 'master') {
   log.level = 'silent';
-  const cwd = process.cwd();
-
-  const ref = await getRef();
-
-  console.log('Packages compared with:', ref);
 
   // Fetch reference branch for comparison
-  await git(cwd).fetch('origin', `${ref}:${ref}`);
+  try {
+    await git.silent(true).fetch('origin', `${ref}:${ref}`);
+  } catch (e) {
+    console.error('Error while fetching branch', e.message);
+    return [];
+  }
 
   const repo = new Repository(cwd);
   const packages = PackageUtilities.getPackages(repo);
