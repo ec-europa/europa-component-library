@@ -28,11 +28,14 @@ describe('my-component', () => {
 
     browser.pause(1000);
 
-    // Go to url
-    browser.url('my-component.html');
+    // Go to the URL of the component
+    browser.goToComponent('my-component-flavor');
 
     // Make sure the browser has finished painting
     browser.pause(1000);
+
+    // Adds necessary scripts for accessibility testing
+    browser.injectAxeCore();
   });
 
   // Normal state
@@ -42,6 +45,12 @@ describe('my-component', () => {
         name: 'my-component',
       });
       expect(screenshots).to.matchReference();
+    });
+
+    // This assertion is mostly the same for each test
+    it('should be accessible', () => {
+      const a11yReport = browser.runAxeCore('ecl-component-class').value;
+      expect(a11yReport).to.be.accessible;
     });
   });
 });
@@ -69,7 +78,7 @@ Then, build the style guide with `yarn dist` and run: `yarn test:functional`.
 Tip: it can take a while to run all the tests, but you can also target your test only:
 
 ```shell
-yarn test:functional:{flavor} --spec ./src/flavors/{flavor}/components/my-component/test/spec/my-component.js
+yarn test:functional --spec ./src/flavors/{flavor}/components/my-component/test/spec/my-component.js
 ```
 
 If everything went well, you should now have a new folder `./src/flavors/{flavor}/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.

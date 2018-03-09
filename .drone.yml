@@ -23,7 +23,7 @@ pipeline:
   build:
     image: node:latest
     commands:
-      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated ; then
+      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
           yarn dist ;
         fi
     when:

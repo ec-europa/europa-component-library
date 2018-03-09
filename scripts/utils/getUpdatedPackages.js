@@ -98,12 +98,17 @@ const getUpdatedPackages = async ({
 
   const updatedPackages = collector.getUpdates();
 
+  const sanitizedPackages = updatedPackages.map(updatedPackage => ({
+    package: updatedPackage.package.toJSON(),
+    location: updatedPackage.package.location,
+  }));
+
   // Save to cache
   if (cacheResults) {
     try {
       // Make sure the .tmp directoy exists
       mkdirp.sync(path.dirname(cacheFile));
-      fs.writeFileSync(cacheFile, JSON.stringify(updatedPackages), {
+      fs.writeFileSync(cacheFile, JSON.stringify(sanitizedPackages), {
         encoding: 'utf8',
       });
       console.log('Cache updated');
@@ -112,7 +117,7 @@ const getUpdatedPackages = async ({
     }
   }
 
-  return updatedPackages;
+  return sanitizedPackages;
 };
 
 module.exports.getUpdatedPackages = getUpdatedPackages;
