@@ -112,7 +112,6 @@ const getUpdatedPackages = async ({
     }
   }
 
-  // console.log(updatedPackages);
   return updatedPackages;
 };
 

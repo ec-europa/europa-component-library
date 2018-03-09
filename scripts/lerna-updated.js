@@ -1,8 +1,24 @@
-const { getUpdatedPackages } = require('./utils/getUpdatedPackages');
+/**
+ * Run: "yarn updated"
+ * Accepted parameters:
+ * --ignoreCache    - Ignore cache, rebuilt the updated packages list (default: false)
+ * --cacheResults   - If false, the cache file won't be updated (default: true)
+ * --since [branch] - Force comparison with the branch
+ */
 
-const lernaUpdated = async () => {
-  const updatedPackages = await getUpdatedPackages();
-  console.log(updatedPackages);
+const { getUpdatedPackages } = require('./utils/getUpdatedPackages');
+const minimist = require('minimist');
+
+const lernaUpdated = async ({
+  ignoreCache = false,
+  cacheResults = true,
+  since = '',
+} = {}) => {
+  const updatedPackages = await getUpdatedPackages({
+    ignoreCache,
+    cacheResults,
+    since,
+  });
 
   if (!updatedPackages || updatedPackages.length === 0) {
     process.exit(1);
@@ -11,4 +27,5 @@ const lernaUpdated = async () => {
   process.exit(0);
 };
 
-lernaUpdated();
+const argv = minimist(process.argv.slice(2));
+lernaUpdated(argv);

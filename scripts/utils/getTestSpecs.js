@@ -4,7 +4,7 @@ const { getUpdatedPackages } = require('./getUpdatedPackages');
 
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 
-module.exports.getTestSpecs = async () => {
+module.exports.getTestSpecs = async options => {
   // By default, test all the specs
   const pattern = path.resolve(
     __dirname,
@@ -15,7 +15,7 @@ module.exports.getTestSpecs = async () => {
 
   // Only test the updated components when the branch is not the master
   if (isDrone && process.env.DRONE_BRANCH !== 'master') {
-    const updatedPackages = await getUpdatedPackages();
+    const updatedPackages = await getUpdatedPackages(options);
 
     specs = [].concat(
       ...updatedPackages.map(update =>
@@ -23,7 +23,7 @@ module.exports.getTestSpecs = async () => {
           ignore: ['**/node_modules/**', '**/packages/**', 'demo/**'],
         })
       )
-      // filter is in specs
+      // filter if is in specs
     );
   }
 
