@@ -14,12 +14,15 @@ module.exports.getTestSpecs = async options => {
   let specs = glob.sync(pattern, { ignore: ['**/node_modules/**'] });
 
   // Only test the updated components when the branch is not the master
-  if (isDrone && process.env.DRONE_BRANCH !== 'master') {
+  if (
+    (options && options.since) ||
+    (isDrone && process.env.DRONE_BRANCH !== 'master')
+  ) {
     const updatedPackages = await getUpdatedPackages(options);
 
     specs = [].concat(
       ...updatedPackages.map(update =>
-        glob.sync(path.resolve(update.package.location, 'test/spec/**/*.js'), {
+        glob.sync(path.resolve(update.location, 'test/spec/**/*.js'), {
           ignore: ['**/node_modules/**', '**/packages/**', 'demo/**'],
         })
       )
