@@ -58,7 +58,7 @@ describe('my-component', () => {
 
 Of course, replace `my-component` by the name of the actual component and make sure the URL you provide exists.
 
-**Under the hood, the URL will be prefixed by `http://localhost:3000/flavors/{flavor}/components/preview/`**.
+**Under the hood, the URL will be prefixed by `http://localhost:3000/systems/{flavor}/components/preview/`**.
 
 ### Get the reference screenshots
 
@@ -106,7 +106,7 @@ yarn test:functional --since master --ignoreCache
 You can also decide to run only one specific test file:
 
 ```shell
-yarn test:functional --spec ./src/flavors/{flavor}/components/my-component/test/spec/my-component.js
+yarn test:functional --spec ./src/systems/{flavor}/components/my-component/test/spec/my-component.js
 ```
 
 #### Target 1 specific browser
@@ -121,6 +121,6 @@ TEST_BROWSER=firefox yarn test:functional
 
 ##### Finally
 
-If everything went well, you should now have a new folder `./src/flavors/{flavor}/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
+If everything went well, you should now have a new folder `./src/systems/{flavor}/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
 
 That's it!

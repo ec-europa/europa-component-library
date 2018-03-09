@@ -1,4 +1,4 @@
-# Europa family and ECL flavors
+# Europa family and ECL systems
 
 ECL (Europa Component Library) consists of 2 separate sets of components:
 
@@ -19,23 +19,23 @@ The colour palette will be the same as used on Europa.eu, but with enlarged set 
 
 In the end, users and stakeholders will benefit from this. By using the same set of components (tested for accessibility and usability) we will improve efficiency, support DGs in their online communication and increase the quality of the whole «Europa Web Family».
 
-### High-level changes in ECL with regards to components' flavors/families
+### High-level changes in ECL with regards to components' systems/families
 
 Here's a brief list of changes done in the ECL's repository in order to accommodate the new EU-flavor components:
 
 * The single [fractal configuration](https://fractal.build/guide/core-concepts/configuration-files) rendering a style guide for ECL compnents has been split into 3 different configuration files. All 3 sub-projects are managed under `./packages/styleguides` folder.
 * Existing ECL components are moved as-is from `./framework` folder in a sub-folder `./src/generic`.
-* EC-flavor components are placed into `./src/flavors/ec`.
-* EU-flavor components are placed into `./src/flavors/eu`.
+* EC-flavor components are placed into `./src/systems/ec`.
+* EU-flavor components are placed into `./src/systems/eu`.
 * Visual regression testing tools are now automatically calculating test suits per-flavor.
 
-In order to minimize breaking changes an to be as backwards compatible as possible after the changes mentioned above, the following decisions were made in terms of development in order to deliver a working version of a single style guide application hosting several flavors/families of components:
+In order to minimize breaking changes an to be as backwards compatible as possible after the changes mentioned above, the following decisions were made in terms of development in order to deliver a working version of a single style guide application hosting several systems/families of components:
 
 * The majority of components in `ec` and `eu` are same.
 * Each component residing in a flavor should have a flavor suffix throughout. (see **Naming** section for details)
 * Components in `generic` should not contain test scripts, only re-usable code.
 
-In short summary, the project has been split into per-flavor/per-family manner, each one being handled as a separate project under a single repository. Re-usable code should be hoisted into generic layer on top of flavors/families.
+In short summary, the project has been split into per-flavor/per-family manner, each one being handled as a separate project under a single repository. Re-usable code should be hoisted into generic layer on top of systems/families.
 
 ### Development notes
 

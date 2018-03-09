@@ -1,14 +1,14 @@
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
-const outputFolder = isProd ? '../../../dist/flavors/eu' : './static';
+const outputFolder = isProd ? '../../../dist/systems/eu' : './static';
 
 module.exports = {
   scripts: [
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/ecl-preset-full-eu/index.js'
+        '../../../src/systems/eu/presets/ecl-preset-full-eu/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
@@ -19,7 +19,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/ecl-preset-corporate-eu/index.js'
+        '../../../src/systems/eu/presets/ecl-preset-corporate-eu/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/eu-corporate.js'),
       options: {
@@ -32,7 +32,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/ecl-preset-full-eu/index.scss'
+        '../../../src/systems/eu/presets/ecl-preset-full-eu/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
@@ -42,7 +42,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/ecl-preset-base-eu/index.scss'
+        '../../../src/systems/eu/presets/ecl-preset-base-eu/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
       options: {
@@ -52,7 +52,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/ecl-preset-editor-eu/index.scss'
+        '../../../src/systems/eu/presets/ecl-preset-editor-eu/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
       options: {
@@ -62,7 +62,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/presets/ecl-preset-corporate-eu/index.scss'
+        '../../../src/systems/eu/presets/ecl-preset-corporate-eu/index.scss'
       ),
       dest: path.resolve(
         __dirname,
@@ -78,42 +78,42 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/components/ecl-forms-eu/ecl-forms-checkboxes-eu/images'
+        '../../../src/systems/eu/components/ecl-forms-eu/ecl-forms-checkboxes-eu/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/components/ecl-forms-eu/ecl-forms-feedback-messages-eu/images'
+        '../../../src/systems/eu/components/ecl-forms-eu/ecl-forms-feedback-messages-eu/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/components/ecl-forms-eu/ecl-forms-radios-eu/images'
+        '../../../src/systems/eu/components/ecl-forms-eu/ecl-forms-radios-eu/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/components/ecl-forms-eu/ecl-forms-selects-eu/images'
+        '../../../src/systems/eu/components/ecl-forms-eu/ecl-forms-selects-eu/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/components/ecl-social-icons-eu/images'
+        '../../../src/systems/eu/components/ecl-social-icons-eu/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/components/ecl-messages-eu/images'
+        '../../../src/systems/eu/components/ecl-messages-eu/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
@@ -127,12 +127,12 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../../src/flavors/eu/components/ecl-logos-eu/images'
+        '../../../src/systems/eu/components/ecl-logos-eu/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(__dirname, '../../../src/flavors/eu/images'),
+      from: path.resolve(__dirname, '../../../src/systems/eu/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
   ],

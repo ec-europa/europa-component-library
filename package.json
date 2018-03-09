@@ -9,7 +9,7 @@
     "dist": "scripts/styleguide.sh",
     "gh-pages": "gh-pages -d dist",
     "lint:js": "eslint .",
-    "lint:scss": "stylelint \"./src/flavors/**/*.scss\"",
+    "lint:scss": "stylelint \"./src/systems/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
@@ -79,7 +79,7 @@
     "demo/**",
     "packages/**",
     "src/generic/**",
-    "src/flavors/ec/**",
-    "src/flavors/eu/**"
+    "src/systems/ec/**",
+    "src/systems/eu/**"
   ]
 }
