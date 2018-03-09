@@ -12,7 +12,7 @@ module.exports = {
           {
             extra_classes: 'ecl-col-sm',
             title: {
-              classes: 'ecl-h4 ecl-footer__link--side-identity',
+              classes: 'ecl-h4 ecl-footer__link--site-identity',
               link: {
                 href: '#',
                 label: 'Digital single market',
