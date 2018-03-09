@@ -1,10 +1,10 @@
 const path = require('path');
 const { Launcher } = require('webdriverio');
-const { getSpecs } = require('./utils/specs');
+const { getTestSpecs } = require('./utils/getTestSpecs');
 
 (async () => {
   // Load specs
-  const specs = await getSpecs();
+  const specs = await getTestSpecs();
 
   if (specs.length === 0) {
     console.log('No test will be run');
@@ -14,9 +14,12 @@ const { getSpecs } = require('./utils/specs');
   console.log('The following tests will be run', specs);
 
   // Configure launcher
-  const wdio = new Launcher(path.resolve(__dirname, './wdio.conf.js'), {
-    specs,
-  });
+  const wdio = new Launcher(
+    path.resolve(__dirname, '../test/functional/wdio.conf.js'),
+    {
+      specs,
+    }
+  );
 
   // Start tests
   return wdio.run().then(

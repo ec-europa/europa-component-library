@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+const mkdirp = require('mkdirp');
 const octokit = require('@octokit/rest')();
 const git = require('simple-git/promise');
 
@@ -8,7 +11,7 @@ const Repository = require('lerna/lib/Repository');
 const PackageUtilities = require('lerna/lib/PackageUtilities');
 
 // Utils
-const { isDrone } = require('./utils/drone');
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 
 // handle log.success() used by lerna
 log.addLevel('success', 3001, { fg: 'green', bold: true });
@@ -35,7 +38,24 @@ const getRef = async () => {
   return 'master';
 };
 
-const getUpdated = async () => {
+const cacheFile = path.resolve(process.cwd(), '.tmp/lerna-updated.json');
+
+const getUpdatedPackages = async ({
+  ignoreCache = false,
+  cacheResults = true,
+} = {}) => {
+  // Load from cache
+  if (!ignoreCache) {
+    try {
+      const data = fs.readFileSync(cacheFile, { encoding: 'utf8' });
+      const updatedPackages = JSON.parse(data);
+      console.log('List of updated packages loaded from cache');
+      return updatedPackages;
+    } catch (e) {
+      console.log("Can't load packages from cache:", e.message);
+    }
+  }
+
   // Only test the updated components when the branch is not the master
   // if (process.env.DRONE_BRANCH !== 'master') {
   log.level = 'silent';
@@ -43,7 +63,7 @@ const getUpdated = async () => {
 
   const ref = await getRef();
 
-  console.log('ref', ref);
+  console.log('Packages compared with:', ref);
 
   // Fetch reference branch for comparison
   await git(cwd).fetch('origin', `${ref}:${ref}`);
@@ -64,9 +84,22 @@ const getUpdated = async () => {
 
   const updatedPackages = collector.getUpdates();
 
-  console.log(updatedPackages);
+  // Save to cache
+  if (cacheResults) {
+    try {
+      // Make sure the .tmp directoy exists
+      mkdirp.sync(path.dirname(cacheFile));
+      fs.writeFileSync(cacheFile, JSON.stringify(updatedPackages), {
+        encoding: 'utf8',
+      });
+      console.log('Cache updated');
+    } catch (e) {
+      console.log('Error while updating cache:', e.message);
+    }
+  }
+
+  // console.log(updatedPackages);
   return updatedPackages;
 };
 
-module.exports.getUpdated = getUpdated;
-// getUpdated();
+module.exports.getUpdatedPackages = getUpdatedPackages;

@@ -17,8 +17,8 @@ const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatt
 // Utils
 const { getScreenshotName } = require('./utils/screenshots');
 const { getCapabilities } = require('./utils/capabilities');
-const { isDrone } = require('./utils/drone');
 
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 const tunnelIdentifier = isDrone ? process.env.DRONE_JOB_NUMBER : '';
 
 // Either run selenium locally or use SauceLabs, Browserstack, etc.

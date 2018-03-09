@@ -1,12 +1,9 @@
 // Available screen resolutions:
 // https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SpecifyingtheScreenResolution
 
-// Utils
-const { isDrone } = require('./drone');
-
 let build = 'local-build';
 
-if (isDrone) {
+if ('DRONE' in process.env && 'CI' in process.env) {
   build = process.env.DRONE_BUILD_NUMBER;
 }
 

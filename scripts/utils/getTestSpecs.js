@@ -1,11 +1,10 @@
 const path = require('path');
 const glob = require('glob');
+const { getUpdatedPackages } = require('./getUpdatedPackages');
 
-// Utils
-const { isDrone } = require('./drone');
-const { getUpdated } = require('../lerna-updated');
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 
-module.exports.getSpecs = async () => {
+module.exports.getTestSpecs = async () => {
   // By default, test all the specs
   const pattern = path.resolve(
     __dirname,
@@ -16,7 +15,7 @@ module.exports.getSpecs = async () => {
 
   // Only test the updated components when the branch is not the master
   if (isDrone && process.env.DRONE_BRANCH !== 'master') {
-    const updatedPackages = await getUpdated();
+    const updatedPackages = await getUpdatedPackages();
 
     specs = [].concat(
       ...updatedPackages.map(update =>
@@ -24,6 +23,7 @@ module.exports.getSpecs = async () => {
           ignore: ['**/node_modules/**', '**/packages/**', 'demo/**'],
         })
       )
+      // filter is in specs
     );
   }
 
