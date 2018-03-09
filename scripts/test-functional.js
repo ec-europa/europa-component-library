@@ -22,14 +22,11 @@ const testFunctional = async ({
 
   if (!spec) {
     // Load specs
-    console.log('load specs');
     specs = await getTestSpecs({
       ignoreCache,
       cacheResults,
       since,
     });
-
-    console.log('specs loaded');
 
     if (specs.length === 0) {
       console.log('No test will be run');
