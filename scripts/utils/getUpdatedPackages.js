@@ -64,6 +64,7 @@ const getUpdatedPackages = async ({
       const data = fs.readFileSync(cacheFile, { encoding: 'utf8' });
       const updatedPackages = JSON.parse(data);
       console.log('List of updated packages loaded from cache');
+      console.log(`(${updatedPackages.length} packages updated)`);
       return updatedPackages;
     } catch (e) {
       console.log("Can't load packages from cache:", e.message);
@@ -74,9 +75,15 @@ const getUpdatedPackages = async ({
   // if (process.env.DRONE_BRANCH !== 'master') {
   log.level = 'silent';
 
-  // Fetch reference branch for comparison
+  // Fetch reference branch for comparison if not already there
   try {
-    await git.silent(true).fetch('origin', `${ref}:${ref}`);
+    const branches = await git.branch();
+    console.log('branches', branches.branches);
+
+    if (!branches || !branches.branches || !branches.branches[ref]) {
+      console.log('will fetch');
+      await git.silent(true).fetch('origin', `${ref}:${ref}`);
+    }
   } catch (e) {
     console.error('Error while fetching branch', e.message);
     return [];
