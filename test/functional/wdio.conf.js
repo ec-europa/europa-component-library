@@ -16,23 +16,18 @@ const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatt
 
 // Utils
 const { getScreenshotName } = require('./utils/screenshots');
-const { getSpecs } = require('./utils/specs');
 const { getCapabilities } = require('./utils/capabilities');
-const { isTravis } = require('./utils/travis');
-const { isDrone } = require('./utils/drone');
 
-const tunnelIdentifier =
-  isTravis || isDrone
-    ? process.env[`${isTravis ? 'TRAVIS' : 'DRONE'}_JOB_NUMBER`]
-    : '';
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
+const tunnelIdentifier = isDrone ? process.env.DRONE_JOB_NUMBER : '';
 
 // Either run selenium locally or use SauceLabs, Browserstack, etc.
 const localSelenium = false; // change this value manually when you want to test lcoally
-const localServer = !isDrone; // with drone, builds are pushed onto AWS S3
+const useLocalServer = !isDrone; // with drone, builds are pushed onto AWS S3
 
 // Other properties
-const useSauceConnect = localServer && !isTravis; // travis uses its own Sauce Connect launcher
-const baseUrl = localServer
+const useSauceConnect = useLocalServer;
+const baseUrl = useLocalServer
   ? 'http://localhost:3000/'
   : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
       process.env.DRONE_BUILD_NUMBER
@@ -50,8 +45,7 @@ exports.config = {
   // from which `wdio` was called. Notice that, if you are calling `wdio` from an
   // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
   // directory is where your package.json resides, so `wdio` will be called from there.
-
-  specs: getSpecs(),
+  specs: [],
 
   // Patterns to exclude.
   exclude: [],
@@ -126,7 +120,7 @@ exports.config = {
 
   // Test runner services
   services: [
-    ...(localServer ? ['static-server'] : []),
+    ...(useLocalServer ? ['static-server'] : []),
     ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
     'visual-regression',
   ],
