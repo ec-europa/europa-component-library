@@ -1,7 +1,7 @@
 const { getUpdatedPackages } = require('./utils/getUpdatedPackages');
 
 const lernaUpdated = async () => {
-  const updatedPackages = await getUpdatedPackages({ since: 'feat/test' });
+  const updatedPackages = await getUpdatedPackages();
   console.log(updatedPackages);
 
   if (!updatedPackages || updatedPackages.length === 0) {
