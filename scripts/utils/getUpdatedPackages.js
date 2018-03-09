@@ -64,6 +64,7 @@ const getUpdatedPackages = async ({
       const data = fs.readFileSync(cacheFile, { encoding: 'utf8' });
       const updatedPackages = JSON.parse(data);
       console.log('List of updated packages loaded from cache');
+      console.log(`(${updatedPackages.length} packages updated)`);
       return updatedPackages;
     } catch (e) {
       console.log("Can't load packages from cache:", e.message);
@@ -77,8 +78,10 @@ const getUpdatedPackages = async ({
   // Fetch reference branch for comparison if not already there
   try {
     const branches = await git.branch();
+    console.log('branches', branches.branches);
 
     if (!branches || !branches.branches || !branches.branches[ref]) {
+      console.log('will fetch');
       await git.silent(true).fetch('origin', `${ref}:${ref}`);
     }
   } catch (e) {
