@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.24.0 (2018-03-09)
+
+#### :bug: Bug Fix
+
+* [#581](https://github.com/ec-europa/europa-component-library/pull/581) fix(inpage-demo): fix inpage navigation demo - INNO-944. ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+* [#592](https://github.com/ec-europa/europa-component-library/pull/592) refactor(blockquotes): remove trim from body - INNO-942. ([@kalinchernev](https://github.com/kalinchernev))
+* [#579](https://github.com/ec-europa/europa-component-library/pull/579) feat(expandables): update label on state change - INNO-937. ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+* [#573](https://github.com/ec-europa/europa-component-library/pull/573) docs(datepicker): explain Pikaday dependency and give examples - INNO-940. ([@kalinchernev](https://github.com/kalinchernev))
+
+#### :house: Internal
+
+* [#578](https://github.com/ec-europa/europa-component-library/pull/578) fix(eslintignore): fix eslintignore rules - no issue. ([@yhuard](https://github.com/yhuard))
+* [#577](https://github.com/ec-europa/europa-component-library/pull/577) chore(package): update all dependencies - no issue. ([@greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
+#### Committers: 3
+
+* Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+* [greenkeeper[bot]](https://github.com/apps/greenkeeper)
+
 ## 0.23.0 (2018-02-14)
 
 #### :rocket: New Feature
