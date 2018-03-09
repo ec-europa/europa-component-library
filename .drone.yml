@@ -24,7 +24,7 @@ pipeline:
     image: node:latest
     commands:
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated ; then
-          yarn dist;
+          yarn dist ;
         fi
     when:
       event: [push]
@@ -47,10 +47,10 @@ pipeline:
     secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
     commands:
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated ; then
-          cd ./dist
-          aws configure set default.s3.max_concurrent_requests 20
-          aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/
-          echo "Transfer complete"
+          cd ./dist ;
+          aws configure set default.s3.max_concurrent_requests 20 ;
+          aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
+          echo "Transfer complete" ;
         fi
 
     when:
@@ -63,7 +63,7 @@ pipeline:
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated ; then
-          yarn test:functional;
+          yarn test:functional ;
         fi
     when:
       event: [push]
