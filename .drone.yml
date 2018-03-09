@@ -46,7 +46,7 @@ pipeline:
     image: garland/aws-cli-docker
     secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
     commands:
-      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated ; then
+      - if [ -d "./dist" ] ; then
           cd ./dist ;
           aws configure set default.s3.max_concurrent_requests 20 ;
           aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
