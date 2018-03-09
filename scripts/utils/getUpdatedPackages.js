@@ -74,9 +74,13 @@ const getUpdatedPackages = async ({
   // if (process.env.DRONE_BRANCH !== 'master') {
   log.level = 'silent';
 
-  // Fetch reference branch for comparison
+  // Fetch reference branch for comparison if not already there
   try {
-    await git.silent(true).fetch('origin', `${ref}:${ref}`);
+    const branches = await git.branch();
+
+    if (!branches || !branches.branches || !branches.branches[ref]) {
+      await git.silent(true).fetch('origin', `${ref}:${ref}`);
+    }
   } catch (e) {
     console.error('Error while fetching branch', e.message);
     return [];
