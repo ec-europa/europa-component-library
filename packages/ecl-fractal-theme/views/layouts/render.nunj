@@ -1,0 +1,14 @@
+{% if not entity %}{{ throw(404, "Component '" + request.params.handle + "' not found.") }}{% endif -%}
+
+{% set rendered = entity.render(null, renderEnv, { preview: withLayout, collate: withCollation }) | async(true) %}
+
+{% if rendered | isError -%}
+{% extends 'layouts/full.nunj' %}
+{% set error = rendered %}
+{% set page = {
+    title: 'Error rendering component ' + request.params.handle
+} %}
+{% block content -%}{% import "macros/errors.nunj" as errors -%}{{ errors.renderError('component', error.message, error.stack) }}{% endblock %}
+{%- else -%}
+{{ rendered }}
+{%- endif %}
