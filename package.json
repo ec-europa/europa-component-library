@@ -7,9 +7,10 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "dist": "scripts/styleguide.sh",
+    "postdist": "copyfiles -f website/* dist",
     "gh-pages": "gh-pages -d dist",
     "lint:js": "eslint .",
-    "lint:scss": "stylelint \"./src/flavors/**/*.scss\"",
+    "lint:scss": "stylelint \"./src/systems/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
     "postinstall": "lerna run prepublish",
     "precommit": "lint-staged",
@@ -27,6 +28,7 @@
     "@octokit/rest": "15.1.7",
     "chai": "4.1.2",
     "chokidar-cli": "1.2.0",
+    "copyfiles": "2.0.0",
     "cross-env": "5.1.3",
     "dotenv": "5.0.1",
     "eslint": "4.18.2",
@@ -80,7 +82,7 @@
     "demo/**",
     "packages/**",
     "src/generic/**",
-    "src/flavors/ec/**",
-    "src/flavors/eu/**"
+    "src/systems/ec/**",
+    "src/systems/eu/**"
   ]
 }

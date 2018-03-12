@@ -8,7 +8,7 @@ module.exports.getTestSpecs = async options => {
   // By default, test all the specs
   const pattern = path.resolve(
     __dirname,
-    '../../src/flavors/**/test/spec/**/*.js'
+    '../../src/systems/**/test/spec/**/*.js'
   );
 
   let specs = glob.sync(pattern, { ignore: ['**/node_modules/**'] });
