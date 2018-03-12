@@ -1,0 +1,33 @@
+{% extends "layouts/doc.nunj"%}
+{% import "macros/status.nunj" as status %}
+
+{% set pathParam = request.params.path %}
+{% set doc = frctl.docs.find('path', pathParam | default('')) %}
+
+{% if pathParam and not doc %}{{ throw(404, 'Page not found') }}{% endif %}
+
+{% set page = {
+    title: doc.title | default(frctl.get('project.title')) | default('Welcome to your component library')
+} %}
+
+{% set status = status.tag(doc.status) %}
+
+{% block docContent %}
+
+<div class="ecl-editor">
+{% block pageContent %}
+{% import "macros/errors.nunj" as errors %}
+{% if doc %}
+    {% set contents = doc.render(null, renderEnv) | async(true) %}
+    {% if contents | isError %}
+    {{ errors.renderError('page', contents.message) }}
+    {% else %}
+    {{ contents }}
+    {% endif %}
+{% else %}
+{% include 'partials/content/overview.nunj' %}
+{% endif %}
+{% endblock %}
+</div>
+
+{% endblock %}

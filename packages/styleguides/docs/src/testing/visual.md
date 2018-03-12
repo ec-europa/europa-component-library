@@ -73,13 +73,53 @@ SAUCE_USERNAME=username
 SAUCE_ACCESS_KEY=my-sauce-labs-access-key
 ```
 
-Then, build the style guide with `yarn dist` and run: `yarn test:functional`.
+Then, build the style guide with `yarn dist`.
 
-Tip: it can take a while to run all the tests, but you can also target your test only:
+#### Run all the tests
+
+You can run all the tests with the following command:
+
+```shell
+yarn test:functional
+```
+
+It can take a while to run all the tests, so here come some shortcuts.
+
+#### Run the tests for the updated packages only
+
+Test your changes against the branch you want to merge in with:
+
+```shell
+yarn test:functional --since target-branch
+```
+
+The list of the updated packages is cached by default the first time it is generated, so if you encounter some strange behaviors, you can force the list to be rebuilt with: `--ignoreCache`.
+
+Example:
+
+```shell
+yarn test:functional --since master --ignoreCache
+```
+
+#### Run 1 specific test
+
+You can also decide to run only one specific test file:
 
 ```shell
 yarn test:functional --spec ./src/flavors/{flavor}/components/my-component/test/spec/my-component.js
 ```
+
+#### Target 1 specific browser
+
+Prepend your command with `TEST_BROWSER=[browser you want to target]` to target 1 specific browser.
+
+Example:
+
+```shell
+TEST_BROWSER=firefox yarn test:functional
+```
+
+##### Finally
 
 If everything went well, you should now have a new folder `./src/flavors/{flavor}/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
 

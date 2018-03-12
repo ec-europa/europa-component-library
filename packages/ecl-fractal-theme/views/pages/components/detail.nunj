@@ -1,0 +1,4 @@
+{% extends "layouts/pen.nunj" %}
+
+{% set entity = frctl.components.find('@' + request.params.handle) %}
+{% if not entity %}{{ throw(404, "Component '" + request.params.handle + "' not found.") }}{% endif %}
