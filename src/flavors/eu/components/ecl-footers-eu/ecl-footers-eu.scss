@@ -31,11 +31,11 @@
 }
 
 .ecl-footer__column {
-  padding-top: map-get($ecl-spacing, m);
+  padding-top: map-get($ecl-spacing, 'm');
 }
 
 .ecl-footer__column:last-child {
-  padding-bottom: map-get($ecl-spacing, m);
+  padding-bottom: map-get($ecl-spacing,'m');
 }
 
 @mixin cols-x {
@@ -55,8 +55,9 @@
   border-bottom: 2px solid rgba(87, 87, 87, 0.25);
   color: map-get($ecl-colors, 'grey-100');
   display: flex;
-  font-size: map-get($ecl-font-size, m);
-  margin-bottom: map-get($ecl-spacing, 'xs');
+  font-size: map-get($ecl-font-size, 'm');
+  font-weight: normal;
+  margin-bottom: map-get($ecl-spacing, 'm');
   padding-bottom: map-get($ecl-spacing, 'xs');
 }
 
@@ -66,7 +67,8 @@
 
 .ecl-footer__menu {
   .ecl-footer__menu-item {
-    font-size: map-get($ecl-font-size, s);
+    font-size: map-get($ecl-font-size, 's');
+    line-height: map-get($ecl-font-size, 'xl');
   }
 }
 

@@ -99,14 +99,15 @@ module.exports = {
               value: 'Contact EU',
               classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footer__menu ecl-footer__menu--2-col',
+            classes:
+              'ecl-footer__menu ecl-footer__menu--2-col ecl-list--unstyled',
             extra_classes: 'ecl-col-md-8',
             items: [
               {
                 classes: 'ecl-footer__menu-item',
                 link: {
                   href: '#',
-                  label: 'Call 00 800 6 7 8 9 0. See details about of service',
+                  label: 'Call 00 800 6 7 8 9 10 11. See details of service',
                 },
               },
               {
@@ -167,10 +168,11 @@ module.exports = {
           },
           {
             title: {
-              value: 'Find an European Institution',
+              value: 'Find an European institution',
               classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footer__menu ecl-footer__menu--3-col',
+            classes:
+              'ecl-footer__menu ecl-footer__menu--3-col ecl-list--unstyled',
             extra_classes: 'ecl-col-md-12',
             items: [
               {
@@ -191,7 +193,7 @@ module.exports = {
                 classes: 'ecl-footer__menu-item',
                 link: {
                   href: '#',
-                  label: 'Council of the Europe',
+                  label: 'Council of the European Union',
                 },
               },
               {
