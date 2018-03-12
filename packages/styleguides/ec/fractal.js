@@ -16,7 +16,7 @@ const theme = eclTheme();
 theme.addLoadPath(path.resolve(__dirname, './theme-overrides'));
 
 // Project config
-fractal.set('project.title', 'Europa Component Library: EC Flavor');
+fractal.set('project.title', 'EC System');
 fractal.set(
   'project.url',
   'https://ec-europa.github.io/europa-component-library/'
