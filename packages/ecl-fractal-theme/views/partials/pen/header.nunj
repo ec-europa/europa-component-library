@@ -1,0 +1,13 @@
+<div class="Pen-panel Pen-header">
+    <h1 class="Pen-title">
+        <a class="Pen-previewLink" href="{{ previewUrl }}" title="Component preview">
+            {{ entity.title }}
+            {% include "icons/open-in-browser.svg" %}
+        </a>
+    </h1>
+    <div class="Pen-tabs-nav">
+        <a href="#documentation" class="active">Documentation</a> &bull;
+        <a href="#playground">Demo</a>
+    </div>
+    {{ status.tag(entity.status) }}
+</div>
