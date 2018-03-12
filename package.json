@@ -11,6 +11,7 @@
     "lint:js": "eslint .",
     "lint:scss": "stylelint \"./src/systems/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
+    "postinstall": "lerna run prepublish",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
     "start:ec": "cd packages/styleguides/ec && npm run start",
