@@ -58,7 +58,7 @@ describe('my-component', () => {
 
 Of course, replace `my-component` by the name of the actual component and make sure the URL you provide exists.
 
-**Under the hood, the URL will be prefixed by `http://localhost:3000/systems/{system}/components/preview/`**.
+**Under the hood, the URL will be prefixed by `http://localhost:3000/{system}/components/preview/`**.
 
 ### Get the reference screenshots
 
