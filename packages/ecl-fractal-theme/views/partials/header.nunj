@@ -36,17 +36,7 @@
   <div class="ecl-container">
     <nav class="ecl-breadcrumbs " aria-label="breadcrumbs">
       <span class="ecl-u-sr-only">You are here:</span>
-      <ol class="ecl-breadcrumbs__segments-wrapper">
-        <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--first">
-          <a href="http://europa.eu/index_en.htm" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link">European Commission</a>
-        </li>
-        <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--last">
-          <a href="/" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link">Europa Component Library</a>
-        </li>
-        <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment--last">
-          <a href="#" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link">{{ current }} {{ frctl.get('project.title') }}</a>
-        </li>
-      </ol>
+      {% include 'partials/header_breadcrumb.nunj' %}
     </nav>
     <div class="ecl-page-header__body">
       <div class="ecl-page-header__identity">
