@@ -195,7 +195,7 @@ exports.config = {
 
     browser.addCommand('goToComponent', (component, variant) => {
       const flavor = component.match(/(ec|eu)$/g);
-      const prefix = `systems/${flavor}/components/preview`;
+      const prefix = `${flavor}/components/preview`;
       const page = variant
         ? `${component}--${variant}.html`
         : `${component}.html`;
