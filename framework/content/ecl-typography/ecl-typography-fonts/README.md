@@ -37,11 +37,11 @@ font that is suited for multilingual use.
   <tbody>
     <tr>
       <td>Desktop</td>
-      <td>18px</td>
+      <td>1.125rem</td>
     </tr>
     <tr>
       <td>Mobile</td>
-      <td>15px</td>
+      <td>1.125rem</td>
     </tr>
   </tbody>
 </table>
@@ -60,13 +60,13 @@ font that is suited for multilingual use.
   </thead>
   <tbody>
     <tr>
-      <td data-th="XXL">2.22rem</td>
-      <td data-th="XL">1.67rem</td>
-      <td data-th="L">1.22rem</td>
-      <td data-th="M">1.00rem</td>
-      <td data-th="S">0.89rem</td>
-      <td data-th="XS">0.78rem</td>
-      <td data-th="XXS">0.67rem</td>
+      <td data-th="XXL">2.5rem</td>
+      <td data-th="XL">1.875rem</td>
+      <td data-th="L">1.375rem</td>
+      <td data-th="M">1.125rem</td>
+      <td data-th="S">1rem</td>
+      <td data-th="XS">0.875rem</td>
+      <td data-th="XXS">0.75rem</td>
     </tr>
   </tbody>
 </table>
