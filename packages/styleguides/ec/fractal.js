@@ -69,6 +69,9 @@ fractal.components.set('resources.assets', {
   match: '**/*.{js,scss}',
 });
 
+// Docs config
+fractal.docs.set('path', path.resolve(__dirname, '../../../docs'));
+
 // Web UI config
 fractal.web.theme(theme);
 fractal.web.set('static.path', paths.static);

@@ -3,9 +3,7 @@
     <div class="ecl-container">
       <div class="ecl-row">
         <div class="ecl-col-sm ecl-footer__column">
-          <h4 class="ecl-h4">
-            <a class="ecl-link ecl-link--standalone ecl-footer__link" href="#">{{ frctl.get('project.title') }}</a>
-          </h4>
+          {% include 'partials/footer_title.nunj' %}
         </div>
         <div class="ecl-col-sm ecl-footer__column">
           <p class="ecl-footer__label">Follow us:</p>
@@ -17,12 +15,7 @@
         </div>
         <div class="ecl-col-sm ecl-footer__column">
           <ul class="ecl-footer__menu ecl-list--unstyled">
-            <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="/ec/">EC System</a>
-            </li>
-            <li class="ecl-footer__menu-item">
-              <a class="ecl-link ecl-footer__link" href="/eu/">EU System</a>
-            </li>
+            {% include 'partials/footer_links.nunj' %}
           </ul>
         </div>
       </div>
