@@ -11,6 +11,7 @@ export default () => {
 
   $.getJSON(searchIndexPath.path, searchIndexJson => {
     const $searchInput = $('#search-components');
+    const $navigationMenu = $('.ecl-navigation-menu');
     const $resultsArea = $('main > .ecl-container > .ecl-row > .ecl-col');
 
     const initialContent = $resultsArea.html();
@@ -20,7 +21,7 @@ export default () => {
 
     $searchInput.keyup(() => {
       const query = $searchInput.val();
-
+      $navigationMenu.find('[aria-expanded]').attr('aria-expanded', false);
       // Empty search box: initial and cleared states.
       if (query === '') {
         $resultsArea.html(initialContent);
