@@ -3,6 +3,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
+// SCSS includePaths
+const includePaths = [path.resolve(__dirname, '../../node_modules')];
+
 module.exports = {
   entry: ['./index.js'],
   output: {
@@ -62,7 +65,13 @@ module.exports = {
                 keepQuery: true,
               },
             },
-            'sass-loader?sourceMap',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+                includePaths,
+              },
+            },
           ],
         }),
       },
