@@ -26,13 +26,17 @@ export const navigationSide = ({
   }
 
   function scrollToTop() {
-    document
-      .getElementsByClassName(stickySelector.substring(1))[0]
-      .addEventListener('click', e => {
+    const toggle = document.getElementsByClassName(
+      stickySelector.substring(1)
+    )[0];
+
+    if (toggle) {
+      toggle.addEventListener('click', e => {
         if (e.target.getAttribute('aria-expanded') === 'false') {
           e.target.scrollIntoView();
         }
       });
+    }
   }
 
   // INIT
