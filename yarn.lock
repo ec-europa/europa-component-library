@@ -75,56 +75,55 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@ec-europa/ecl-builder@0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@ec-europa/ecl-builder/-/ecl-builder-0.14.0.tgz#e085977b7d943fe745017841cc38e3f17d7511e9"
+"@ecl/builder@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/builder/-/builder-0.1.0.tgz#4e1de87b3c859f21002be440d381cd2dd6e6bea0"
   dependencies:
-    autoprefixer "8.0.0"
+    autoprefixer "8.1.0"
     babel-core "6.26.0"
     babel-eslint "8.2.2"
     babel-plugin-external-helpers "6.22.0"
     babel-preset-env "1.6.1"
-    browserslist "3.1.1"
-    commander "2.14.1"
+    browserslist "3.1.2"
+    commander "2.15.0"
     cssnano "3.10.0"
-    findup-sync "2.0.0"
     globby "8.0.1"
     mkdirp "0.5.1"
     ncp "2.0.0"
     node-sass "4.7.2"
     postcss "6.0.19"
-    postcss-normalize "4.0.0"
-    rollup "0.56.3"
+    rollup "0.56.5"
     rollup-plugin-babel "3.0.3"
-    rollup-plugin-commonjs "8.3.0"
-    rollup-plugin-node-resolve "3.0.3"
+    rollup-plugin-commonjs "9.1.0"
+    rollup-plugin-node-resolve "3.2.0"
     rollup-plugin-uglify "3.0.0"
 
-"@ec-europa/ecl-qa@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@ec-europa/ecl-qa/-/ecl-qa-0.4.0.tgz#596f6fcf2d71ad30ceaaca485a03ccd1f3da97cd"
-  dependencies:
-    axe-core "2.6.1"
-    chai "4.1.2"
-    html-inspector "0.8.2"
-
-"@ec-europa/eslint-config-ecl@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@ec-europa/eslint-config-ecl/-/eslint-config-ecl-0.5.0.tgz#fa0dde504b2938ece8328ae70c6625a302ba88cd"
+"@ecl/eslint-config@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/eslint-config/-/eslint-config-0.1.0.tgz#785dad38e124526026ce2c1b7eef6cde882d9187"
   dependencies:
     eslint-config-airbnb-base "12.1.0"
     eslint-config-prettier "2.9.0"
     eslint-plugin-import "2.9.0"
     eslint-plugin-prettier "2.6.0"
 
-"@ec-europa/stylelint-config-ecl@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@ec-europa/stylelint-config-ecl/-/stylelint-config-ecl-0.8.0.tgz#1b14c97be488c5b69086f140b82cfbac051052d0"
+"@ecl/qa@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/qa/-/qa-0.1.0.tgz#2b14926eebf41763f9ab2bc3139238782fd58321"
   dependencies:
+    axe-core "2.6.1"
+    chai "4.1.2"
+    html-inspector "0.8.2"
+
+"@ecl/stylelint-config@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ecl/stylelint-config/-/stylelint-config-0.1.0.tgz#cb2f7580327ab9d4209beb571a08c732aa2cb926"
+  dependencies:
+    stylelint-config-prettier "3.0.4"
     stylelint-config-sass-guidelines "5.0.0"
-    stylelint-config-standard "18.1.0"
+    stylelint-config-standard "18.2.0"
     stylelint-order "0.8.1"
-    stylelint-scss "2.4.0"
+    stylelint-scss "2.5.0"
     stylelint-selector-bem-pattern "2.0.0"
 
 "@frctl/fractal@1.1.7", "@frctl/fractal@^1.0.0", "@frctl/fractal@^1.1.0-alpha.0", "@frctl/fractal@^1.1.0-beta.1":
@@ -265,7 +264,7 @@ acorn@^4.0.3:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
-acorn@^5.0.0, acorn@^5.2.1, acorn@^5.3.0, acorn@^5.5.0:
+acorn@^5.0.0, acorn@^5.3.0, acorn@^5.5.0:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
 
@@ -636,17 +635,6 @@ atob@^2.0.0:
 atob@~1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-1.1.3.tgz#95f13629b12c3a51a5d215abdce2aa9f32f80773"
-
-autoprefixer@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-8.0.0.tgz#c19e480f061013127c373df0b01cf46919943f74"
-  dependencies:
-    browserslist "^3.0.0"
-    caniuse-lite "^1.0.30000808"
-    normalize-range "^0.1.2"
-    num2fraction "^1.2.2"
-    postcss "^6.0.17"
-    postcss-value-parser "^3.2.3"
 
 autoprefixer@8.1.0, autoprefixer@^8.0.0:
   version "8.1.0"
@@ -1491,12 +1479,12 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-browserslist@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-3.1.1.tgz#d380fc048bc3a33e60fb87dc135110ebaaa6320a"
+browserslist@3.1.2, browserslist@^3.1.1:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-3.1.2.tgz#893f29399d640ed35fe06bacd7eb1d78609a47e5"
   dependencies:
-    caniuse-lite "^1.0.30000809"
-    electron-to-chromium "^1.3.33"
+    caniuse-lite "^1.0.30000813"
+    electron-to-chromium "^1.3.36"
 
 browserslist@^1.3.6, browserslist@^1.5.2, browserslist@^1.7.6:
   version "1.7.7"
@@ -1505,19 +1493,12 @@ browserslist@^1.3.6, browserslist@^1.5.2, browserslist@^1.7.6:
     caniuse-db "^1.0.30000639"
     electron-to-chromium "^1.2.7"
 
-browserslist@^2.1.2, browserslist@^2.1.5:
+browserslist@^2.1.2:
   version "2.11.3"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-2.11.3.tgz#fe36167aed1bbcde4827ebfe71347a2cc70b99b2"
   dependencies:
     caniuse-lite "^1.0.30000792"
     electron-to-chromium "^1.3.30"
-
-browserslist@^3.0.0, browserslist@^3.1.1:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-3.1.2.tgz#893f29399d640ed35fe06bacd7eb1d78609a47e5"
-  dependencies:
-    caniuse-lite "^1.0.30000813"
-    electron-to-chromium "^1.3.36"
 
 bs-recipes@1.3.4:
   version "1.3.4"
@@ -1547,9 +1528,13 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-builtin-modules@^1.0.0, builtin-modules@^1.1.0, builtin-modules@^1.1.1:
+builtin-modules@^1.0.0, builtin-modules@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
+
+builtin-modules@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-2.0.0.tgz#60b7ef5ae6546bd7deefa74b08b62a43a232648e"
 
 builtin-status-codes@^3.0.0:
   version "3.0.0"
@@ -1661,7 +1646,7 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000813"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000813.tgz#e0a1c603f8880ad787b2a35652b2733f32a5e29a"
 
-caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000808, caniuse-lite@^1.0.30000809, caniuse-lite@^1.0.30000810, caniuse-lite@^1.0.30000813:
+caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000810, caniuse-lite@^1.0.30000813:
   version "1.0.30000813"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000813.tgz#7b25e27fdfb8d133f3c932b01f77452140fcc6c9"
 
@@ -2022,11 +2007,7 @@ commander@2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
-commander@2.14.1:
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
-
-commander@^2.14.1, commander@^2.2.0, commander@^2.6.0, commander@^2.9.0:
+commander@2.15.0, commander@^2.14.1, commander@^2.2.0, commander@^2.6.0, commander@^2.9.0:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.0.tgz#ad2a23a1c3b036e392469b8012cec6b33b4c1322"
 
@@ -2953,7 +2934,7 @@ ejs@~2.5.6:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
-electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.33, electron-to-chromium@^1.3.36:
+electron-to-chromium@^1.2.7, electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.36:
   version "1.3.37"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.37.tgz#4a92734e0044c8cf0b1553be57eae21a4c6e5fab"
 
@@ -3325,7 +3306,7 @@ estree-walker@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.3.1.tgz#e6b1a51cf7292524e7237c312e5fe6660c1ce1aa"
 
-estree-walker@^0.5.0:
+estree-walker@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.5.1.tgz#64fc375053abc6f57d73e9bd2f004644ad3c5854"
 
@@ -3723,7 +3704,7 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
-findup-sync@2.0.0, findup-sync@^2.0.0:
+findup-sync@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/findup-sync/-/findup-sync-2.0.0.tgz#9326b1488c22d1a6088650a86901b2d9a90a2cbc"
   dependencies:
@@ -7497,13 +7478,6 @@ postcss-normalize-url@^3.0.7:
     postcss "^5.0.14"
     postcss-value-parser "^3.2.3"
 
-postcss-normalize@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-normalize/-/postcss-normalize-4.0.0.tgz#12d05a6005661a7282034347b5d12ccf083bd119"
-  dependencies:
-    browserslist "^2.1.5"
-    postcss "^6.0.2"
-
 postcss-ordered-values@^2.1.0:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/postcss-ordered-values/-/postcss-ordered-values-2.2.3.tgz#eec6c2a67b6c412a8db2042e77fe8da43f95c11d"
@@ -7616,7 +7590,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@6.0.19, postcss@>=5.0.19, postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.13, postcss@^6.0.14, postcss@^6.0.16, postcss@^6.0.17, postcss@^6.0.19, postcss@^6.0.2, postcss@^6.0.6, postcss@^6.0.8:
+postcss@6.0.19, postcss@>=5.0.19, postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.13, postcss@^6.0.14, postcss@^6.0.16, postcss@^6.0.19, postcss@^6.0.6, postcss@^6.0.8:
   version "6.0.19"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.19.tgz#76a78386f670b9d9494a655bf23ac012effd1555"
   dependencies:
@@ -8322,7 +8296,7 @@ resolve@1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-resolve@^1.1.6, resolve@^1.1.7, resolve@^1.4.0, resolve@^1.5.0:
+resolve@^1.1.6, resolve@^1.1.7, resolve@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.5.0.tgz#1f09acce796c9a762579f31b2c1cc4c3cddf9f36"
   dependencies:
@@ -8397,21 +8371,20 @@ rollup-plugin-babel@3.0.3:
   dependencies:
     rollup-pluginutils "^1.5.0"
 
-rollup-plugin-commonjs@8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-commonjs/-/rollup-plugin-commonjs-8.3.0.tgz#91b4ba18f340951e39ed7b1901f377a80ab3f9c3"
+rollup-plugin-commonjs@9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-commonjs/-/rollup-plugin-commonjs-9.1.0.tgz#468341aab32499123ee9a04b22f51d9bf26fdd94"
   dependencies:
-    acorn "^5.2.1"
-    estree-walker "^0.5.0"
+    estree-walker "^0.5.1"
     magic-string "^0.22.4"
-    resolve "^1.4.0"
+    resolve "^1.5.0"
     rollup-pluginutils "^2.0.1"
 
-rollup-plugin-node-resolve@3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-3.0.3.tgz#8f57b253edd00e5b0ad0aed7b7e9cf5982e98fa4"
+rollup-plugin-node-resolve@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-3.2.0.tgz#31534952f3ab21f9473c1d092be7ed43937ea4d4"
   dependencies:
-    builtin-modules "^1.1.0"
+    builtin-modules "^2.0.0"
     is-module "^1.0.0"
     resolve "^1.1.6"
 
@@ -8435,9 +8408,9 @@ rollup-pluginutils@^2.0.1:
     estree-walker "^0.3.0"
     micromatch "^2.3.11"
 
-rollup@0.56.3:
-  version "0.56.3"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.56.3.tgz#7900695531afa1badd3235f285cc4aa0d49ce254"
+rollup@0.56.5:
+  version "0.56.5"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.56.5.tgz#40fe3cf0cd1659d469baad11f4d5b6336c14ce84"
 
 run-async@^0.1.0:
   version "0.1.0"
@@ -9273,7 +9246,7 @@ stylelint-config-prettier@3.0.4:
   dependencies:
     stylelint "^9.1.1"
 
-stylelint-config-recommended@^2.0.0:
+stylelint-config-recommended@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-2.1.0.tgz#f526d5c771c6811186d9eaedbed02195fee30858"
 
@@ -9284,11 +9257,11 @@ stylelint-config-sass-guidelines@5.0.0:
     stylelint-order "^0.8.0"
     stylelint-scss "^2.0.0"
 
-stylelint-config-standard@18.1.0:
-  version "18.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-18.1.0.tgz#e4d977063f5bca77970033d2f76941c3cc19fd9c"
+stylelint-config-standard@18.2.0:
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-18.2.0.tgz#6283149aba7f64f18731aef8f0abfb35cf619e06"
   dependencies:
-    stylelint-config-recommended "^2.0.0"
+    stylelint-config-recommended "^2.1.0"
 
 stylelint-order@0.8.1, stylelint-order@^0.8.0:
   version "0.8.1"
@@ -9298,17 +9271,7 @@ stylelint-order@0.8.1, stylelint-order@^0.8.0:
     postcss "^6.0.14"
     postcss-sorting "^3.1.0"
 
-stylelint-scss@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-2.4.0.tgz#2d417688556d64536f435e7a6f77a40dbb89e505"
-  dependencies:
-    lodash "^4.17.4"
-    postcss-media-query-parser "^0.2.3"
-    postcss-resolve-nested-selector "^0.1.1"
-    postcss-selector-parser "^3.1.1"
-    postcss-value-parser "^3.3.0"
-
-stylelint-scss@^2.0.0:
+stylelint-scss@2.5.0, stylelint-scss@^2.0.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-2.5.0.tgz#ac4c83474c53b19cc1f9e93d332786cf89c8d217"
   dependencies:
