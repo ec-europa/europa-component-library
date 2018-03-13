@@ -3,6 +3,7 @@ module.exports = {
   label: 'Side navigation',
   status: 'ready',
   tags: ['organism'],
+  isHidden: true,
   context: {
     menu_label: 'Menu',
     menu_aria_label: 'Main Navigation',
