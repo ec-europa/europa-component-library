@@ -1,28 +1,29 @@
 // ECL Reset
+@mixin reset() {
+  html {
+    box-sizing: border-box;
+  }
 
-html {
-  box-sizing: border-box;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+  body {
+    font-family: $ecl-font-family-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    text-rendering: optimizelegibility;
+  }
 
-body {
-  font-family: $ecl-font-family-base;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  text-rendering: optimizelegibility;
-}
+  [aria-hidden='true'] {
+    display: none;
+  }
 
-[aria-hidden='true'] {
-  display: none;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
+  img {
+    height: auto;
+    max-width: 100%;
+  }
 }
