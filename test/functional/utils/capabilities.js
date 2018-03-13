@@ -1,11 +1,8 @@
 // Available screen resolutions:
 // https://wiki.saucelabs.com/display/DOCS/Test+Configuration+Options#TestConfigurationOptions-SpecifyingtheScreenResolution
 
-let build = 'local-build';
-
-if ('DRONE' in process.env && 'CI' in process.env) {
-  build = process.env.DRONE_BUILD_NUMBER;
-}
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
+const build = isDrone ? process.env.DRONE_BUILD_NUMBER : 'local-build';
 
 const browsers = {
   chrome: {
