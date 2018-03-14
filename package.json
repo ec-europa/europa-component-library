@@ -10,7 +10,7 @@
     "postdist": "copyfiles -f website/* dist",
     "gh-pages": "gh-pages -d dist",
     "lint:js": "eslint .",
-    "lint:scss": "stylelint \"./src/systems/**/*.scss\"",
+    "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
     "postinstall": "lerna run prepublish",
     "precommit": "lint-staged",
@@ -22,9 +22,9 @@
     "updated": "node ./scripts/lerna-updated"
   },
   "devDependencies": {
-    "@ec-europa/ecl-qa": "0.4.0",
-    "@ec-europa/eslint-config-ecl": "0.5.0",
-    "@ec-europa/stylelint-config-ecl": "0.8.0",
+    "@ecl/eslint-config": "0.1.0",
+    "@ecl/qa": "0.1.0",
+    "@ecl/stylelint-config": "0.1.0",
     "@octokit/rest": "15.2.1",
     "chai": "4.1.2",
     "chokidar-cli": "1.2.0",
