@@ -71,14 +71,14 @@ items: [
     <div class="ecl-container">
       <div class="ecl-row">
         {% for menu in footer_menu.menus %}
-        <div class="ecl-col-sm {{ (footer_menu.type != 'plain') ? 'ecl-footer__column' : '' }}">
+        <div class="{{ menu.extra_classes }}{{ (footer_menu.type != 'plain') ? ' ecl-footer__column' : '' }}">
 
           {# If there is a link in the title, respect the link: #}
           {% if menu.title.link.href is defined %}
           <h4 class="{{ menu.title.classes }}">
             {% include '@ec-europa/ecl-links' with {
-              'extra_classes': 'ecl-footer__link',
-              }|merge(menu.title.link|default({}))
+              'extra_classes': 'ecl-footer__link ecl-link--standalone',
+              }|merge(menu.title.link)
             %}
           </h4>
           {# otherwise, if it is only a title, without a link, use the title: #}
@@ -111,7 +111,7 @@ items: [
               {% include '@ec-europa/ecl-links' with {
                 'href': menu_item.link.href,
                 'label': '<span class="' ~ menu_item.link.label_wrapper_class ~ '"></span>' ~ menu_item.link.label,
-                'extra_classes': 'ecl-footer__link',
+                'extra_classes': 'ecl-footer__link ecl-link--standalone',
                 'variant': link_variant,
                 }
               %}
@@ -135,7 +135,7 @@ items: [
               {% include '@ec-europa/ecl-links' with {
                 'href': menu_item.link.href,
                 'label': menu_item.link.label,
-                'extra_classes': 'ecl-footer__link',
+                'extra_classes': 'ecl-footer__link ecl-link--standalone',
                 'variant': link_variant,
                 }
               %}
