@@ -1,5 +1,8 @@
 const path = require('path');
 
+// SCSS includePaths
+const includePaths = [path.resolve(__dirname, '../../node_modules')];
+
 module.exports = {
   scripts: [
     {
@@ -22,6 +25,7 @@ module.exports = {
       options: {
         normalize: true,
         sourceMap: true,
+        includePaths,
       },
     },
   ],

@@ -14,7 +14,7 @@ First, you need to include the JavaScript file of `ECL.js` provided in the
 [latest release package](https://github.com/ec-europa/europa-component-library/releases).
 This file contains a JavaScript module called `ECL` which is an
 [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) built by the
-[`ecl-builder` utility](https://www.npmjs.com/package/@ec-europa/ecl-builder).
+[`ecl-builder` utility](https://www.npmjs.com/package/@ecl/builder).
 
 This means that when you include the `ECL` library in your pages, you will have
 a namespaced global called `ECL` which contains the components' factory
