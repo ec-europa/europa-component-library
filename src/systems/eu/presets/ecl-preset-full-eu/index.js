@@ -6,7 +6,7 @@ export * from '@ecl/eu-context-nav';
 export * from '@ecl/eu-dropdown';
 export * from '@ecl/eu-dialog';
 export * from '@ecl/eu-expandable';
-export * from '@ecl/eu-forms-file-upload';
+export * from '@ecl/eu-component-forms-file-upload';
 export * from '@ecl/eu-lang-select-page';
 export * from '@ecl/eu-message';
 export * from '@ecl/eu-navigation-inpage';

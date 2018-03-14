@@ -27,7 +27,7 @@
 <header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
 
   <div class="{% if lang is defined %}language-{{ lang }} {% endif %}ecl-container ecl-site-header__banner">
-    {% include '@ecl/eu-content-logo' with {
+    {% include '@ecl/eu-component-logo' with {
       'to': 'https://europa.eu',
       'title': 'Home - European Union',
       'type': 'right',

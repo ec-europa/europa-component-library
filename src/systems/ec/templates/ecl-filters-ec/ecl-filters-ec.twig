@@ -11,12 +11,12 @@
   <div class="ecl-row">
     <aside class="ecl-col-lg-3" role="complementary">
       <h3 class="ecl-heading ecl-heading--h3">Filter by</h3>
-        {% embed '@ecl/ec-forms-forms' with { 'extra_attribute': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+        {% embed '@ecl/ec-component-forms-forms' with { 'extra_attribute': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
           {% block form %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-labels' with { 'label': 'Keyword', 'for_attribute': 'filter-keyword' } %}
-                {% include '@ecl/ec-forms-text-input' with {
+                {% include '@ecl/ec-component-forms-labels' with { 'label': 'Keyword', 'for_attribute': 'filter-keyword' } %}
+                {% include '@ecl/ec-component-forms-text-input' with {
                   'type': 'text',
                   'name': 'keywords',
                   'id': 'filter-keywords',
@@ -26,10 +26,10 @@
                 } %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-label' with { 'label': 'Topic', 'for_attribute': 'filter-topic' } %}
-                {% embed '@ecl/ec-forms-select' with { 'name': 'topic', 'id': 'filter-topic' } %}
+                {% include '@ecl/ec-component-forms-label' with { 'label': 'Topic', 'for_attribute': 'filter-topic' } %}
+                {% embed '@ecl/ec-component-forms-select' with { 'name': 'topic', 'id': 'filter-topic' } %}
                   {% block options %}
                     <option value="0">Any topic</option>
                     <option value="354">Banking and financial services</option>
@@ -39,10 +39,10 @@
                 {% endembed %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-label' with { 'label': 'Location', 'for_attribute': 'filter-location' } %}
-                {% embed '@ecl/ec-forms-select' with { 'name': 'location', 'id': 'filter-location' } %}
+                {% include '@ecl/ec-component-forms-label' with { 'label': 'Location', 'for_attribute': 'filter-location' } %}
+                {% embed '@ecl/ec-component-forms-select' with { 'name': 'location', 'id': 'filter-location' } %}
                   {% block options %}
                   <option value="0">Any country</option>
                   <option value="BE">Belgium</option>
@@ -74,18 +74,18 @@
                 {% endembed %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-checkboxe' with {
+                {% include '@ecl/ec-component-forms-checkboxe' with {
                   'name': 'event_is_online',
                   'id': 'event_is_online',
                   'label': 'Online only events'
                 } %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-checkboxe' with {
+                {% include '@ecl/ec-component-forms-checkboxe' with {
                   'name': 'event_is_live_streaming',
                   'id': 'event_is_live_streaming',
                   'label': 'Events with live streaming available',
@@ -93,10 +93,10 @@
                 } %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-label' with { 'label': 'Organiser', 'for_attribute': 'filter-organiser' } %}
-                {% embed '@ecl/ec-forms-select' with { 'name': 'organiser', 'id': 'filter-organiser' } %}
+                {% include '@ecl/ec-component-forms-label' with { 'label': 'Organiser', 'for_attribute': 'filter-organiser' } %}
+                {% embed '@ecl/ec-component-forms-select' with { 'name': 'organiser', 'id': 'filter-organiser' } %}
                   {% block options %}
                     <option value="0">Any organiser</option>
                     <option value="881">Financial Stability, Financial Services and Capital Markets Union</option>
@@ -107,22 +107,22 @@
                 {% endembed %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-label' with { 'label': 'After', 'for_attribute': 'filter-after' } %}
+                {% include '@ecl/ec-component-forms-label' with { 'label': 'After', 'for_attribute': 'filter-after' } %}
                 {% include '@ecl/ec-datepicker' with { 'id': 'filter-after' } %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-label' with { 'label': 'Before', 'for_attribute': 'filter-before' } %}
+                {% include '@ecl/ec-component-forms-label' with { 'label': 'Before', 'for_attribute': 'filter-before' } %}
                 {% include '@ecl/ec-datepicker' with { 'id': 'filter-before' } %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-forms-form-group' %}
+            {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-forms-label' with { 'label': 'Collection', 'for_attribute': 'filter-collection' } %}
-                {% embed '@ecl/ec-forms-select' with { 'name': 'collection', 'id': 'filter-collection' } %}
+                {% include '@ecl/ec-component-forms-label' with { 'label': 'Collection', 'for_attribute': 'filter-collection' } %}
+                {% embed '@ecl/ec-component-forms-select' with { 'name': 'collection', 'id': 'filter-collection' } %}
                   {% block options %}
                     <option value="0">Any collection</option>
                     <option value="2065">Citizens' Dialogues</option>

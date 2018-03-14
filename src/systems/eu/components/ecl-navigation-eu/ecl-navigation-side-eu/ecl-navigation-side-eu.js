@@ -1,1 +1,1 @@
-export * from '@ec-europa/ecl-navigation-side';
+export * from '@ecl/generic-component-navigation-side';

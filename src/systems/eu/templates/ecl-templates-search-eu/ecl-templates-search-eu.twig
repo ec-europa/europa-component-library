@@ -23,15 +23,15 @@
           ]
         } %}
       </div>
-      {% embed '@ecl/eu-forms-forms' with { 'extra_class': 'ecl-u-d-lg-block', 'extra_attribute': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+      {% embed '@ecl/eu-component-forms-forms' with { 'extra_class': 'ecl-u-d-lg-block', 'extra_attribute': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
         {% block form %}
-          {% embed '@ecl/eu-forms-fieldset' only %}
+          {% embed '@ecl/eu-component-forms-fieldset' only %}
             {% block fieldset %}
-              {% include '@ecl/eu-forms-legends' with { content: 'Search option', level: 1 } only %}
-              {% embed '@ecl/eu-forms-form-group' %}
+              {% include '@ecl/eu-component-forms-legends' with { content: 'Search option', level: 1 } only %}
+              {% embed '@ecl/eu-component-forms-form-group' %}
                 {% block form_group %}
-                  {% include '@ecl/eu-forms-label' with { 'label': 'Source', 'for_attribute': 'search-option-source' } %}
-                  {% embed '@ecl/eu-forms-select' with { 'name': 'source', 'id': 'search-option-source' } %}
+                  {% include '@ecl/eu-component-forms-label' with { 'label': 'Source', 'for_attribute': 'search-option-source' } %}
+                  {% embed '@ecl/eu-component-forms-select' with { 'name': 'source', 'id': 'search-option-source' } %}
                     {% block options %}
                       <option value="all">All sources</option>
                       <option value="dg-trade" selected>DG Trade</option>
@@ -39,10 +39,10 @@
                   {% endembed %}
                 {% endblock %}
               {% endembed %}
-              {% embed '@ecl/eu-forms-form-group' %}
+              {% embed '@ecl/eu-component-forms-form-group' %}
                 {% block form_group %}
-                  {% include '@ecl/eu-forms-label' with { 'label': 'Date', 'for_attribute': 'search-option-date' } %}
-                  {% embed '@ecl/eu-forms-select' with { 'name': 'date', 'id': 'search-option-date' } %}
+                  {% include '@ecl/eu-component-forms-label' with { 'label': 'Date', 'for_attribute': 'search-option-date' } %}
+                  {% embed '@ecl/eu-component-forms-select' with { 'name': 'date', 'id': 'search-option-date' } %}
                     {% block options %}
                       <option value="all">All dates</option>
                       <option value="today">Today</option>
@@ -52,10 +52,10 @@
                   {% endembed %}
                 {% endblock %}
                 {% endembed %}
-              {% embed '@ecl/eu-forms-form-group' %}
+              {% embed '@ecl/eu-component-forms-form-group' %}
                 {% block form_group %}
-                  {% include '@ecl/eu-forms-label' with { 'label': 'Language', 'for_attribute': 'search-option-language' } %}
-                  {% embed '@ecl/eu-forms-select' with { 'name': 'language', 'id': 'search-option-language' } %}
+                  {% include '@ecl/eu-component-forms-label' with { 'label': 'Language', 'for_attribute': 'search-option-language' } %}
+                  {% embed '@ecl/eu-component-forms-select' with { 'name': 'language', 'id': 'search-option-language' } %}
                     {% block options %}
                       <option value="en">English</option>
                       <option value="de">Deutsch</option>
@@ -64,10 +64,10 @@
                   {% endembed %}
                 {% endblock %}
               {% endembed %}
-              {% embed '@ecl/eu-forms-form-group' %}
+              {% embed '@ecl/eu-component-forms-form-group' %}
                 {% block form_group %}
-                  {% include '@ecl/eu-forms-label' with { 'label': 'File Format', 'for_attribute': 'search-option-file-format' } %}
-                  {% embed '@ecl/eu-forms-select' with { 'name': 'file-format', 'id': 'search-option-file-format' } %}
+                  {% include '@ecl/eu-component-forms-label' with { 'label': 'File Format', 'for_attribute': 'search-option-file-format' } %}
+                  {% embed '@ecl/eu-component-forms-select' with { 'name': 'file-format', 'id': 'search-option-file-format' } %}
                     {% block options %}
                       <option value="all">All formats</option>
                       <option value="doc">Doc</option>
@@ -79,9 +79,9 @@
               {% endembed %}
             {% endblock %}
           {% endembed %}
-          {% embed '@ecl/eu-forms-fieldset' only %}
+          {% embed '@ecl/eu-component-forms-fieldset' only %}
             {% block fieldset %}
-              {% include '@ecl/eu-forms-legend' with { content: 'Filter by topic', level: 1 } only %}
+              {% include '@ecl/eu-component-forms-legend' with { content: 'Filter by topic', level: 1 } only %}
               <p class="ecl-u-ph-m ecl-u-pv-xl" style="background-color:#e3e3e3;text-align:center">Custom component</p>
             {% endblock %}
           {% endembed %}

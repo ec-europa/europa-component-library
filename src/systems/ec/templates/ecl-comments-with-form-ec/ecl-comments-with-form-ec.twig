@@ -15,15 +15,15 @@
     </li>
   {% endfor %}
 
-  {% embed '@ecl/ec-forms-form' %}
+  {% embed '@ecl/ec-component-forms-form' %}
     {% block form %}
-      {% embed '@ecl/ec-forms-fieldset' %}
+      {% embed '@ecl/ec-component-forms-fieldset' %}
         {% block fieldset %}
-          {% include '@ecl/ec-forms-legends' with { 'extra_clas': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
-          {% embed '@ecl/ec-forms-form-group' %}
+          {% include '@ecl/ec-component-forms-legends' with { 'extra_clas': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
+          {% embed '@ecl/ec-component-forms-form-group' %}
             {% block form_group %}
-              {% include '@ecl/ec-forms-label' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}
-              {% include '@ecl/ec-forms-text-input' with {
+              {% include '@ecl/ec-component-forms-label' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}
+              {% include '@ecl/ec-component-forms-text-input' with {
                 'id' : 'field-ID-1',
                 'name': 'field-name-1',
                 'type': 'text',
@@ -33,10 +33,10 @@
               } %}
             {% endblock %}
           {% endembed %}
-          {% embed '@ecl/ec-forms-form-group' %}
+          {% embed '@ecl/ec-component-forms-form-group' %}
             {% block form_group %}
-              {% include '@ecl/ec-forms-label' with { 'for_attribute': 'field-ID-2', 'label': 'Comment' } %}
-              {% include '@ecl/ec-forms-textarea' with {
+              {% include '@ecl/ec-component-forms-label' with { 'for_attribute': 'field-ID-2', 'label': 'Comment' } %}
+              {% include '@ecl/ec-component-forms-textarea' with {
                 'id' : 'field-ID-2',
                 'name': 'field-name-2',
                 'type': 'textarea',

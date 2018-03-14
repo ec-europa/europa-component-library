@@ -85,12 +85,12 @@
 
     <div class="ecl-row">
       <div class="ecl-col-sm-3">
-        {% include '@ecl/eu-forms-label' with {
+        {% include '@ecl/eu-component-forms-label' with {
           for_attribute: 'create-content',
           label: 'Create content'
         } %}
 
-        {% embed '@ecl/eu-forms-select' with { 'id': 'create-content', 'name': 'create-content' }%}
+        {% embed '@ecl/eu-component-forms-select' with { 'id': 'create-content', 'name': 'create-content' }%}
           {% block options %}
             <option>Article</option>
             <option>Event</option>
