@@ -12,7 +12,7 @@
 .ecl-footer__ec {
   @include ecl-hidden-print();
 
-  a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-ec-link-patterns})::after {
+  a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-link-patterns})::after {
     line-height: 2.2;
     position: absolute;
   }
