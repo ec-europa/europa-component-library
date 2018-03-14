@@ -1,4 +1,4 @@
-const languages = require('../ecl-language-list/languages.json');
+const languages = require('../generic-component-language-list/languages.json');
 
 module.exports = {
   title: 'Site headers',
