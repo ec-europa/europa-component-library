@@ -17,7 +17,7 @@
     {% for gallery_item in row %}
     <div class="{{ gallery_item.classes }} ecl-gallery__item">
       <div class="ecl-gallery__item-container">
-        {% include '@ec-europa/ecl-images' with gallery_item.image %}
+        {% include '@ecl/generic-images' with gallery_item.image %}
         {% if gallery_item.caption is defined %}
         <span class="ecl-gallery__caption">{{ gallery_item.caption }}</span>
         {% endif %}

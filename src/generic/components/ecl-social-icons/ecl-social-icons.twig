@@ -45,7 +45,7 @@
 {# Print result #}
 
 {% if link is defined %}
-{% include '@ec-europa/ecl-links' with {
+{% include '@ecl/generic-links' with {
   href: link.href,
   label: link.label,
   extra_classes: _css_class,

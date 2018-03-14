@@ -38,7 +38,7 @@
     {% endfor %}
   </ul>
   {% if limit is defined and limit > 0 %}
-    {% include '@ec-europa/ecl-buttons' with {
+    {% include '@ecl/generic-buttons' with {
       'modifier': 'call',
       'label': _button_label,
       'extra_classes': 'ecl-timeline__button',

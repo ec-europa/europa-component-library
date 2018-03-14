@@ -53,7 +53,7 @@
 
   {% if user_menu is defined and user_menu is iterable %}
   <div class="ecl-container">
-    {% include '@ec-europa/ecl-navigation-lists' with {
+    {% include '@ecl/generic-navigation-lists' with {
       variant: 'small',
       extra_classes: 'ecl-u-f-r'
     }|merge(user_menu|default({})) %}
@@ -61,19 +61,19 @@
   {% endif %}
 
   {% if site_switcher is defined %}
-  {% include '@ec-europa/ecl-site-switchers' with {
+  {% include '@ecl/generic-site-switchers' with {
     variant: 'header'
     }|merge(site_switcher|default({})) %}
   {% endif %}
 
   <div class="ecl-container ecl-site-header__banner">
-    {% include '@ec-europa/ecl-logos' with {
+    {% include '@ecl/generic-logos' with {
       'to': 'https://ec.europa.eu',
       'title': 'Home - European Commission',
       'type': 'right',
       'extra_class': 'ecl-site-header__logo'
     } only %}
-    {% include '@ec-europa/ecl-language-list' with {
+    {% include '@ecl/generic-language-list' with {
       'extra_class': 'ecl-site-header__language-list',
       'languages': _languages,
       'variant': 'overlay',
@@ -82,7 +82,7 @@
         'heading': 'Select your language'
       }
     } %}
-    {% include '@ec-europa/ecl-search-forms' with {
+    {% include '@ecl/generic-search-forms' with {
       'input': { 'id': 'global-search' },
       'extra_classes': 'ecl-site-header__search'
     } %}

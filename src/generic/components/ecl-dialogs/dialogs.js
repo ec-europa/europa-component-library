@@ -1,4 +1,4 @@
-import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
+import { queryAll } from '@ecl/generic-base/helpers/dom';
 
 /**
  * @param {object} options Object containing configuration overrides

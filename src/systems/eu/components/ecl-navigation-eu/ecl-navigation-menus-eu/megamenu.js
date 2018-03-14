@@ -1,4 +1,4 @@
-import { queryAll } from '@ec-europa/ecl-base-eu/helpers/dom';
+import { queryAll } from '@ecl/eu-base/helpers/dom';
 import { toggleExpandable } from '@ec-europa/ecl-expandables-eu/expandables';
 
 const onClick = (node, menu) => e => {

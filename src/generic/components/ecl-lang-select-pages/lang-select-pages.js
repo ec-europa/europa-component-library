@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce';
-import { queryAll } from '@ec-europa/ecl-base/helpers/dom';
+import { queryAll } from '@ecl/generic-base/helpers/dom';
 
 export const eclLangSelectPages = ({
   selector: selector = '.ecl-lang-select-page',

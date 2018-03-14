@@ -90,7 +90,7 @@
       </div>
 
       <div class="ecl-col-12 ecl-col-md-4">
-        {% include '@ec-europa/ecl-buttons' with {
+        {% include '@ecl/generic-buttons' with {
           'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
           'is_block': true,
           'extra_classes': 'ecl-file__download',
@@ -101,7 +101,7 @@
   </div>
 
   <div class="ecl-file__translations">
-    {% include '@ec-europa/ecl-buttons' with {
+    {% include '@ecl/generic-buttons' with {
       'label': translations_label,
       'modifier': 'secondary',
       'extra_classes': 'ecl-file__translations-toggle',
@@ -123,7 +123,7 @@
                 <span class="ecl-file__translations-title">{{ translation.title }}</span>
                 <div class="ecl-file__translations-info">({{ translation.meta }})</div>
               </div>
-              {% include '@ec-europa/ecl-buttons' with {
+              {% include '@ecl/generic-buttons' with {
                 'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')',
                 'modifier': 'secondary',
                 'extra_classes': 'ecl-file__translations-download',
@@ -201,7 +201,7 @@
       </div>
 
       <div class="ecl-col-12 ecl-col-md-4">
-        {% include '@ec-europa/ecl-buttons' with {
+        {% include '@ecl/generic-buttons' with {
           'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
           'is_block': true,
           'extra_classes': 'ecl-file__download',

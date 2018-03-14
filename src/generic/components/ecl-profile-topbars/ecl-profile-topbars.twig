@@ -1,10 +1,10 @@
 {#
   Component interface:
-    - "context_nav" (object) - data for @ec-europa/ecl-context-navs component composition
+    - "context_nav" (object) - data for @ecl/generic-context-navs component composition
     - "profile" (object): data contains profile-specific information
-      - "image" (object): data for @ec-europa/ecl-images component composition
+      - "image" (object): data for @ecl/generic-images component composition
       - "expandable" (object): data related to the expandable part of the component
-        - "button" (object): data for @ec-europa/ecl-buttons component composition
+        - "button" (object): data for @ecl/generic-buttons component composition
         - "expandable_body" (array): accepts `extra_attributes` for the expandable
     - "body" (block): content in the expandable area (default: lorem ipsum text)
     - "extra_classes" (string): extra CSS classes to be added
@@ -34,11 +34,11 @@
   <div class="ecl-container">
     <div class="ecl-row">
       <div class="ecl-col-md-2">
-        {% include '@ec-europa/ecl-images' with profile.image %}
+        {% include '@ecl/generic-images' with profile.image %}
       </div>
       <div class="ecl-col-md-10 ecl-profile-topbar__pane">
-        {% include '@ec-europa/ecl-context-navs' with context_nav %}
-        {% include '@ec-europa/ecl-buttons' with profile.expandable.button %}
+        {% include '@ecl/generic-context-navs' with context_nav %}
+        {% include '@ecl/generic-buttons' with profile.expandable.button %}
       </div>
     </div>
   </div>

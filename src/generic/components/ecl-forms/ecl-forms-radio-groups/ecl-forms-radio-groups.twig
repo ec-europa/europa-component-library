@@ -23,6 +23,6 @@
   <p id="{{ id }}_label" class="ecl-u-sr-only">{{ desc }}</p>
   {% for radio in radios %}
     {% set options = { 'name': name }|merge(radio) %}
-    {% include '@ec-europa/ecl-forms-radios' with options %}
+    {% include '@ecl/generic-forms-radios' with options %}
   {% endfor %}
 </div>

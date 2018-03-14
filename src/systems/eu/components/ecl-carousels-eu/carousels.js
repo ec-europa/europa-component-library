@@ -1,4 +1,4 @@
-import { queryAll } from '@ec-europa/ecl-base-eu/helpers/dom';
+import { queryAll } from '@ecl/eu-base/helpers/dom';
 import debounce from 'lodash.debounce';
 
 /**
