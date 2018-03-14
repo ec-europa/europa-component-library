@@ -57,9 +57,9 @@
     {% if _primary is not empty %}
     <div class="ecl-list-item__primary">
       {% if variant == 'date' %}
-        {% include '@ec-europa/ecl-date-blocks-eu' with _primary %}
+        {% include '@ecl/eu-date-block' with _primary %}
       {% else %}
-        {% include '@ec-europa/ecl-images-eu' with _primary %}
+        {% include '@ecl/eu-image' with _primary %}
       {% endif %}
     </div>
     {% endif %}
@@ -67,7 +67,7 @@
     <div class="ecl-list-item__body">
       <div class="ecl-list-item__meta">
         {% block meta_block %}
-        {% include '@ec-europa/ecl-meta-eu' with { metas: metas } %}
+        {% include '@ecl/eu-meta' with { metas: metas } %}
         {% endblock %}
       </div>
 
@@ -88,7 +88,7 @@
 
     {% if _secondary is not empty %}
     <div class="ecl-list-item__secondary">
-      {% include '@ec-europa/ecl-images-eu' with _secondary %}
+      {% include '@ecl/eu-image' with _secondary %}
     </div>
     {% endif %}
 

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, import/first */
 import $ from 'jquery';
-import * as ECL from '@ec-europa/ecl-preset-full-ec';
+import * as ECL from '@ecl/ec-preset-full';
 
 // Local imports
 import Pen from './components/pen';

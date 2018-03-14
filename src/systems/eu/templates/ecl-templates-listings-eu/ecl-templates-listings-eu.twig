@@ -2,12 +2,12 @@
   This is an example and should not be used as it is.
 #}
 
-{% include '@ec-europa/ecl-skip-links-eu' with {
+{% include '@ecl/eu-skip-link' with {
     'href': '#main-content',
     'label': 'Skip to main content'
 } %}
 
-{% include '@ec-europa/ecl-site-headers-eu' with {
+{% include '@ecl/eu-site-header' with {
   site_switcher: {
     political: { href: '#', label: 'Commission and its priorities' },
     info: {
@@ -24,9 +24,9 @@
   }
 } %}
 
-{% include '@ec-europa/ecl-page-headers-eu' with { variant: 'default' }|merge(page_header|default({})) %}
+{% include '@ecl/eu-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
 {% if menu is defined and menu is not empty %}
-  {% include '@ec-europa/ecl-navigation-menus-eu' with menu %}
+  {% include '@ecl/eu-navigation-menu' with menu %}
 {% endif %}
 
 <main>
@@ -36,7 +36,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Default listing (one column)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       items: [
         {
           metas: ['Service department', 'PMO'],
@@ -63,7 +63,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Default listing (two columns)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       variant: 'two-columns',
       items: [
         {
@@ -101,7 +101,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Default listing (three columns)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       variant: 'three-columns',
       items: [
         {
@@ -139,7 +139,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Date listing (one column)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       items: [
         {
           variant: 'date',
@@ -196,7 +196,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Date listing (two columns)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       variant: 'two-columns',
       items: [
         {
@@ -254,7 +254,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Thumbnail listing (one column)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       items: [
         {
           metas: ['Director-General'],
@@ -288,7 +288,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Thumbnail listing (two columns)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       variant: 'two-columns',
       items: [
         {
@@ -323,7 +323,7 @@
 
     <h3 class="ecl-heading ecl-heading--h3">Highlight listing (three columns)</h3>
 
-    {% include '@ec-europa/ecl-listings-eu' with {
+    {% include '@ecl/eu-listing' with {
       variant: 'three-columns',
       items: [
         {
@@ -355,7 +355,7 @@
   </div>
 </main>
 
-{% include '@ec-europa/ecl-footers-eu' with {
+{% include '@ecl/eu-footer' with {
   footer_menus: [
     {
       type: 'branded',

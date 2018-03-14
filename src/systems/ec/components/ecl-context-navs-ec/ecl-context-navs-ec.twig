@@ -39,7 +39,7 @@
   <ul class="ecl-context-nav__list">
     {% for item in items %}
     <li class="ecl-context-nav__item{{ limit > 0 and loop.index > limit ? ' ecl-context-nav__item--over-limit' : '' }}">
-      {% include '@ec-europa/ecl-links-ec' with {
+      {% include '@ecl/ec-link' with {
         'variant': 'standalone',
         }|merge(item|default({}))
       %}
@@ -48,7 +48,7 @@
 
     {% if items|length > limit %}
     <li class="ecl-context-nav__item ecl-context-nav__more">
-      {% include '@ec-europa/ecl-buttons-ec' with {
+      {% include '@ecl/ec-button' with {
         'modifier': 'none',
         'label': more_label,
         'extra_classes': 'ecl-context-nav__button ecl-link ecl-link--standalone',

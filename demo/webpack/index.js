@@ -2,4 +2,4 @@
 import './styles.scss';
 
 // Export JS
-export * from '@ec-europa/ecl-preset-full-ec';
+export * from '@ecl/ec-preset-full';

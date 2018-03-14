@@ -1,3 +1,3 @@
 // Export components
 
-export * from '@ec-europa/ecl-dialogs-ec';
+export * from '@ecl/ec-dialog';

@@ -34,11 +34,11 @@
   <div class="ecl-container">
     <div class="ecl-row">
       <div class="ecl-col-md-2">
-        {% include '@ec-europa/ecl-images-eu' with profile.image %}
+        {% include '@ecl/eu-image' with profile.image %}
       </div>
       <div class="ecl-col-md-10 ecl-profile-topbar__pane">
-        {% include '@ec-europa/ecl-context-navs-eu' with context_nav %}
-        {% include '@ec-europa/ecl-buttons-eu' with profile.expandable.button %}
+        {% include '@ecl/eu-context-nav' with context_nav %}
+        {% include '@ecl/eu-button' with profile.expandable.button %}
       </div>
     </div>
   </div>

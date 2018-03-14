@@ -36,13 +36,13 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <ul class="ecl-site-switcher__list ecl-container">
     <li class="ecl-site-switcher__option{{ political.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
-      {% include '@ec-europa/ecl-links-ec' with {
+      {% include '@ecl/ec-link' with {
         'extra_classes': 'ecl-site-switcher__link',
         }|merge(political|default({}))
       %}
     </li>
     <li class="ecl-site-switcher__option{{ info.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
-      {% include '@ec-europa/ecl-links-ec' with {
+      {% include '@ecl/ec-link' with {
         'extra_classes': 'ecl-site-switcher__link',
         }|merge(info|default({}))
       %}

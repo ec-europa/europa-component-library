@@ -11,7 +11,7 @@ Default EC logo.
 Or using Twig:
 
 ```twig
-{% include '@ecl/generic-logos' with {
+{% include '@ecl/generic-content-logo' with {
   'to': 'https://ec.europa.eu',
   'title': 'European Commission',
 } %}
@@ -30,7 +30,7 @@ EC logo with text. Add `logo--logotype` class to use it:
 Or using Twig:
 
 ```twig
-{% include '@ecl/generic-logos' with {
+{% include '@ecl/generic-content-logo' with {
   'to': 'https://ec.europa.eu',
   'title': 'European Commission',
   'type': 'right',
@@ -50,7 +50,7 @@ EC logo with text below. Add `logo--logotypebelow` class to use it:
 Or using Twig:
 
 ```twig
-{% include '@ecl/generic-logos' with {
+{% include '@ecl/generic-content-logo' with {
   'to': 'https://ec.europa.eu',
   'title': 'European Commission',
   'type': 'below',
@@ -65,7 +65,7 @@ parameter.
 For example:
 
 ```twig
-{% include '@ecl/generic-logos' with {
+{% include '@ecl/generic-content-logo' with {
   'to': 'https://ec.europa.eu',
   'title': 'Home - European Commission',
   'type': 'right',

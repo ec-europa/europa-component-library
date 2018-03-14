@@ -76,7 +76,7 @@ items: [
           {# If there is a link in the title, respect the link: #}
           {% if menu.title.link.href is defined %}
           <h4 class="{{ menu.title.classes }}">
-            {% include '@ec-europa/ecl-links-ec' with {
+            {% include '@ecl/ec-link' with {
               'extra_classes': 'ecl-footer__link',
               }|merge(menu.title.link|default({}))
             %}
@@ -108,7 +108,7 @@ items: [
                 {% endif %}
               {% endif %}
 
-              {% include '@ec-europa/ecl-links-ec' with {
+              {% include '@ecl/ec-link' with {
                 'href': menu_item.link.href,
                 'label': '<span class="' ~ menu_item.link.label_wrapper_class ~ '"></span>' ~ menu_item.link.label,
                 'extra_classes': 'ecl-footer__link',
@@ -132,7 +132,7 @@ items: [
                 {% endif %}
               {% endif %}
 
-              {% include '@ec-europa/ecl-links-ec' with {
+              {% include '@ecl/ec-link' with {
                 'href': menu_item.link.href,
                 'label': menu_item.link.label,
                 'extra_classes': 'ecl-footer__link',

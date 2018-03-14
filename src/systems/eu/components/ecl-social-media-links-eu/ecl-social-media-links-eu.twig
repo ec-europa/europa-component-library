@@ -58,7 +58,7 @@
   <ul class="ecl-social-media-link__list ecl-list ecl-list--unstyled{% if variant == 'horizontal' %} ecl-list--inline{% endif %}">
   {% for _link in links %}
     <li class="ecl-social-media-link__item">
-      {% include '@ec-europa/ecl-social-icons-eu' with {
+      {% include '@ecl/eu-social-icon' with {
         link: _link,
         extra_attributes: [{ name: 'title', value: _link.title}],
         extra_classes: 'ecl-social-media-link__link',

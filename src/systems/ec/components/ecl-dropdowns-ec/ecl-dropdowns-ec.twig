@@ -1,7 +1,7 @@
 <!-- Button dropdown -->
 
 <div class="ecl-dropdown">
-  {% include '@ec-europa/ecl-buttons-ec' with {
+  {% include '@ecl/ec-button' with {
     'label': 'Create',
     'extra_classes': 'ecl-expandable__button',
     'extra_attributes': [
@@ -11,7 +11,7 @@
       { 'name': 'type', 'value': 'button'},
     ]
   } %}
-  {% include '@ec-europa/ecl-link-blocks-ec' with {
+  {% include '@ecl/ec-link-block' with {
     'extra_classes': 'ecl-dropdown__body',
     'extra_attributes': [
       { 'name': 'id', 'value': 'example-button-dropdown'},

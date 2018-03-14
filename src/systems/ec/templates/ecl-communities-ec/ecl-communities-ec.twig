@@ -2,12 +2,12 @@
   This is an example and should not be used as it is.
 #}
 
-{% include '@ec-europa/ecl-skip-links-ec' with {
+{% include '@ecl/ec-skip-link' with {
   'href': '#main-content',
   'label': 'Skip to main content'
 } %}
 
-{% include '@ec-europa/ecl-site-headers-ec' with {
+{% include '@ecl/ec-site-header' with {
   site_switcher: {
     political: { href: '#', label: 'Commission and its priorities' },
     info: {
@@ -26,7 +26,7 @@
   }
 } %}
 
-{% include '@ec-europa/ecl-page-headers-ec' with {
+{% include '@ecl/ec-page-header' with {
   variant: 'basic',
   breadcrumb: [
     { href: '#', label: 'European Commission' },
@@ -85,12 +85,12 @@
 
     <div class="ecl-row">
       <div class="ecl-col-sm-3">
-        {% include '@ec-europa/ecl-forms-labels-ec' with {
+        {% include '@ecl/ec-forms-label' with {
           for_attribute: 'create-content',
           label: 'Create content'
         } %}
 
-        {% embed '@ec-europa/ecl-forms-selects-ec' with { 'id': 'create-content', 'name': 'create-content' }%}
+        {% embed '@ecl/ec-forms-select' with { 'id': 'create-content', 'name': 'create-content' }%}
           {% block options %}
             <option>Article</option>
             <option>Event</option>
@@ -99,7 +99,7 @@
           {% endblock %}
         {% endembed %}
 
-        {% include '@ec-europa/ecl-link-blocks-ec' with {
+        {% include '@ecl/ec-link-block' with {
           wrapper: true,
           title: 'Members list',
           links: [
@@ -117,7 +117,7 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.
         </p>
 
-        {% include '@ec-europa/ecl-gallery-base-ec' with {
+        {% include '@ecl/ec-gallery-base' with {
           data: {
             rows: [
               [
@@ -231,7 +231,7 @@
           },
         } %}
 
-        {% include '@ec-europa/ecl-buttons-ec' with {
+        {% include '@ecl/ec-button' with {
           label: "Unsubscribe",
           modifier: "default",
           extra_classes: "ecl-u-mt-m",
@@ -241,7 +241,7 @@
   </div>
 </main>
 
-{% include '@ec-europa/ecl-footers-ec' with {
+{% include '@ecl/ec-footer' with {
   footer_menus: [
     {
       type: 'normal',

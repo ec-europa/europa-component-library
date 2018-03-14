@@ -11,7 +11,7 @@ Default EU logo.
 Or using Twig:
 
 ```twig
-{% include '@ec-europa/ecl-logos' with {
+{% include '@ecl/generic-content-logo' with {
   'to': 'https://europa.eu',
   'title': 'European Union',
 } %}

@@ -49,12 +49,12 @@
   </div>
 
   <div class="ecl-featured-item__body">
-    {% include '@ec-europa/ecl-meta-ec' with {
+    {% include '@ecl/ec-meta' with {
       modifier: 'ecl-meta--header',
       metas: metas,
     } %}
 
-    {% include '@ec-europa/ecl-links-ec' with {
+    {% include '@ecl/ec-link' with {
       'href': link.href,
       'label': title,
       'extra_classes': 'ecl-featured-item__title',

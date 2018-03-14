@@ -114,7 +114,7 @@ Usage:
     <div class="ecl-carousel__image-information" data-image={{ loop.index0 }}>
       <div class="ecl-carousel__meta">
         <span class="ecl-carousel__meta-item ecl-carousel__meta-download">
-          {% include '@ec-europa/ecl-links-eu' with {
+          {% include '@ecl/eu-link' with {
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--download',
             'extra_attributes': [ 'name': 'title', 'value': carousel_image.download.title ],
             'variant': ['inverted', 'standalone'],
@@ -122,7 +122,7 @@ Usage:
           %}
         </span>
         <span class="ecl-carousel__meta-item ecl-carousel__meta-share">
-          {% include '@ec-europa/ecl-links-eu' with {
+          {% include '@ecl/eu-link' with {
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--share',
             'extra_attributes': [ 'name': 'title', 'value': carousel_image.share.title ],
             'variant': ['inverted', 'standalone'],
