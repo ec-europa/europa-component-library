@@ -39,17 +39,17 @@
 }
 
 @mixin b() {
-            @mixin cols-x {
-  @for $i from 2 through 4 {
-    /* stylelint-disable-next-line */
-    .ecl-footer__menu--#{$i}-col {
-      column-count: $i;
-      margin: 0;
+  @mixin cols-x {
+    @for $i from 2 through 4 {
+      /* stylelint-disable-next-line */
+      .ecl-footer__menu--#{$i}-col {
+        column-count: $i;
+        margin: 0;
+      }
     }
   }
-}
 
-@include cols-x;
+  @include cols-x;
 }
 
 @mixin footers() {
