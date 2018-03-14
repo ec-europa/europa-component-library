@@ -38,7 +38,8 @@
   padding-bottom: map-get($ecl-spacing, 'm');
 }
 
-@mixin cols-x {
+@mixin b() {
+            @mixin cols-x {
   @for $i from 2 through 4 {
     /* stylelint-disable-next-line */
     .ecl-footer__menu--#{$i}-col {
@@ -49,6 +50,7 @@
 }
 
 @include cols-x;
+}
 
 @mixin footers() {
   .ecl-footer__title {
