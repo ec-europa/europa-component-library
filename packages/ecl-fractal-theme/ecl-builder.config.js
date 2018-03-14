@@ -33,14 +33,14 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../node_modules/@ec-europa/ecl-icons/fonts'
+        '../../node_modules/@ecl/generic-content-icon/fonts'
       ),
       to: path.resolve(__dirname, 'dist/fonts'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../node_modules/@ec-europa/ecl-logos/images'
+        '../../node_modules/@ecl/generic-component-logo/images'
       ),
       to: path.resolve(__dirname, 'dist/images'),
     },
