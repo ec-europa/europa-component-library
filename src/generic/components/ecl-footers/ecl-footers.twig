@@ -77,7 +77,7 @@ items: [
           {% if menu.title.link.href is defined %}
           <h4 class="{{ menu.title.classes }}">
             {% include '@ec-europa/ecl-links' with {
-              'extra_classes': 'ecl-footer__link ecl-link--standalone',
+              'extra_classes': 'ecl-footer__link',
               }|merge(menu.title.link)
             %}
           </h4>
@@ -111,7 +111,7 @@ items: [
               {% include '@ec-europa/ecl-links' with {
                 'href': menu_item.link.href,
                 'label': '<span class="' ~ menu_item.link.label_wrapper_class ~ '"></span>' ~ menu_item.link.label,
-                'extra_classes': 'ecl-footer__link ecl-link--standalone',
+                'extra_classes': 'ecl-footer__link',
                 'variant': link_variant,
                 }
               %}
@@ -135,7 +135,7 @@ items: [
               {% include '@ec-europa/ecl-links' with {
                 'href': menu_item.link.href,
                 'label': menu_item.link.label,
-                'extra_classes': 'ecl-footer__link ecl-link--standalone',
+                'extra_classes': 'ecl-footer__link',
                 'variant': link_variant,
                 }
               %}
