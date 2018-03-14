@@ -5,7 +5,7 @@ const eclTheme = require('@ec-europa/ecl-fractal-theme');
 const twigAdapter = require('@frctl/twig')({ handlePrefix: '@ec-europa/' });
 
 const paths = {
-  build: `${__dirname}/../../../dist/flavors/ec`,
+  build: `${__dirname}/../../../dist/ec`,
   static: `${__dirname}/static`,
 };
 
@@ -58,7 +58,7 @@ fractal.components.set('statuses', {
 fractal.components.set('default.status', 'planned');
 fractal.components.set(
   'path',
-  path.resolve(__dirname, '../../../src/flavors/ec')
+  path.resolve(__dirname, '../../../src/systems/ec')
 );
 fractal.components.engine(twigAdapter); // use Twig for components
 fractal.components.set('ext', '.twig');
@@ -68,6 +68,9 @@ fractal.components.set('resources.assets', {
   label: 'Code',
   match: '**/*.{js,scss}',
 });
+
+// Docs config
+fractal.docs.set('path', path.resolve(__dirname, '../../../docs'));
 
 // Web UI config
 fractal.web.theme(theme);

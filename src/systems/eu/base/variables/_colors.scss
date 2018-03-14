@@ -1,0 +1,51 @@
+// ECL Colors
+
+$ecl-colors: (
+  blue-120: #012b58,
+  blue-110: #003776,
+  blue-100: #004494,
+  blue-75: #4073af,
+  blue-50: #7fa1c9,
+  blue-25: #bfd0e4,
+  yellow-120: #f8ae21,
+  yellow-110: #fbc11d,
+  yellow-100: #ffd617,
+  yellow-75: #ffde39,
+  yellow-50: #ffe879,
+  yellow-25: #fff4bb,
+  grey-100: #404040,
+  grey-75: #707070,
+  grey-50: #9f9f9f,
+  grey-25: #cfcfcf,
+  grey-15: #e3e3e3,
+  grey-10: #ebebeb,
+  grey-5: #f5f5f5,
+  purple-100: #550745
+) !default;
+
+/*
+ * Aliases
+ */
+
+$ecl-color-primary: map-get($ecl-colors, 'blue-100') !default;
+$ecl-color-secondary: map-get($ecl-colors, 'yellow-100') !default;
+$ecl-color-shade: map-get($ecl-colors, 'grey-100') !default;
+
+$ecl-color-info: #006fb4 !default;
+$ecl-color-warning: #f29527 !default;
+$ecl-color-success: #467a39 !default;
+$ecl-color-error: #da2130 !default;
+
+/*
+ * Background colors
+ *
+ * Note: in some cases, components can have other background colors (header-top, file, footer...)
+ * These are the main background colors.
+ */
+
+$ecl-colors-bg: (
+  default: #fff,
+  primary: $ecl-color-primary,
+  secondary: $ecl-color-secondary,
+  shade: $ecl-color-shade
+) !default;
