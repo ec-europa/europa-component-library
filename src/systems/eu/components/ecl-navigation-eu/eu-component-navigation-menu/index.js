@@ -1,5 +1,5 @@
-import { queryAll } from '@ecl/ec-base/helpers/dom';
-import { toggleExpandable } from '@ecl/ec-component-expandable/expandables';
+import { queryAll } from '@ecl/eu-base/helpers/dom';
+import { toggleExpandable } from '@ecl/eu-component-expandable';
 
 const onClick = (node, menu) => e => {
   if (node && node.hasAttribute('aria-haspopup')) {
