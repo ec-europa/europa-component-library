@@ -1,0 +1,62 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+{# Internal properties #}
+
+{% set _comments = comments %}
+
+{# Print result #}
+
+<ul class="ecl-listing">
+  {% for comment in _comments %}
+    <li class="ecl-list-item ecl-u-pv-s">
+      {% include '@ecl/eu-comment' with comment %}
+    </li>
+  {% endfor %}
+
+  {% embed '@ecl/eu-component-forms-form' %}
+    {% block form %}
+      {% embed '@ecl/eu-component-forms-fieldset' %}
+        {% block fieldset %}
+          {% include '@ecl/ec-component--component-forms-legend' with { 'extra_clas': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
+          {% embed '@ecl/eu-component-forms-form-group' %}
+            {% block form_group %}
+              {% include '@ecl/eu-component-forms-label' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}
+              {% include '@ecl/eu-component-forms-text-input' with {
+                'id' : 'field-ID-1',
+                'name': 'field-name-1',
+                'type': 'text',
+                'extraAttributes': [
+                  { 'name': 'placeholder', 'value': 'Your title' }
+                ]
+              } %}
+            {% endblock %}
+          {% endembed %}
+          {% embed '@ecl/eu-component-forms-form-group' %}
+            {% block form_group %}
+              {% include '@ecl/eu-component-forms-label' with { 'for_attribute': 'field-ID-2', 'label': 'Comment' } %}
+              {% include '@ecl/eu-component-forms-textarea' with {
+                'id' : 'field-ID-2',
+                'name': 'field-name-2',
+                'type': 'textarea',
+                'extraAttributes': [
+                  { 'name': 'placeholder', 'value': 'Your comment' }
+                ]
+              } %}
+            {% endblock %}
+          {% endembed %}
+          {% include '@ecl/eu-component-button' with {
+            'modifier': 'primary',
+            'label': 'Send',
+            'extra_classes': 'ecl-u-mt-s',
+            'extra_attributes': [
+              { 'name': 'value', 'value': 'send'},
+              { 'name': 'type', 'value': 'submit'}
+            ]
+          } %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+</ul>

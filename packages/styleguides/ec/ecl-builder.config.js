@@ -11,7 +11,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/systems/ec/presets/ecl-preset-full-ec/index.js'
+        '../../../src/systems/ec/presets/ec-preset-full/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
@@ -22,7 +22,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/systems/ec/presets/ecl-preset-corporate-ec/index.js'
+        '../../../src/systems/ec/presets/ec-preset-corporate/index.js'
       ),
       dest: path.resolve(__dirname, outputFolder, 'scripts/ec-corporate.js'),
       options: {
@@ -35,7 +35,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/systems/ec/presets/ecl-preset-full-ec/index.scss'
+        '../../../src/systems/ec/presets/ec-preset-full/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
@@ -46,7 +46,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/systems/ec/presets/ecl-preset-base-ec/index.scss'
+        '../../../src/systems/ec/presets/ec-preset-base/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
       options: {
@@ -57,7 +57,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/systems/ec/presets/ecl-preset-editor-ec/index.scss'
+        '../../../src/systems/ec/presets/ec-preset-editor/index.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
       options: {
@@ -68,7 +68,7 @@ module.exports = {
     {
       entry: path.resolve(
         __dirname,
-        '../../../src/systems/ec/presets/ecl-preset-corporate-ec/index.scss'
+        '../../../src/systems/ec/presets/ec-preset-corporate/index.scss'
       ),
       dest: path.resolve(
         __dirname,
@@ -85,61 +85,57 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../../src/systems/ec/components/ecl-forms-ec/ecl-forms-checkboxes-ec/images'
+        '../../../src/systems/ec/components/ecl-forms-ec/ec-component-forms-checkboxe/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/systems/ec/components/ecl-forms-ec/ecl-forms-feedback-messages-ec/images'
+        '../../../src/systems/ec/components/ecl-forms-ec/ec-component-forms-feedback-message/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/systems/ec/components/ecl-forms-ec/ecl-forms-radios-ec/images'
+        '../../../src/systems/ec/components/ecl-forms-ec/ec-component-forms-radio/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/systems/ec/components/ecl-forms-ec/ecl-forms-selects-ec/images'
+        '../../../src/systems/ec/components/ecl-forms-ec/ec-component-forms-select/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/systems/ec/components/ecl-social-icons-ec/images'
+        '../../../src/systems/ec/components/ec-component-social-icon/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/systems/ec/components/ecl-messages-ec/images'
+        '../../../src/systems/ec/components/ec-component-message/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/generic/content/ecl-icons/fonts'
+        '../../../src/generic/content/generic-content-icon/fonts'
       ),
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
     {
       from: path.resolve(
         __dirname,
-        '../../../src/systems/ec/components/ecl-logos-ec/images'
+        '../../../src/systems/ec/components/ec-component-logo/images'
       ),
-      to: path.resolve(__dirname, outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(__dirname, '../../../src/systems/ec/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
   ],
