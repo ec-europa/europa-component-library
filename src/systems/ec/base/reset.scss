@@ -1,33 +1,5 @@
 // ECL Reset
 
-html {
-  box-sizing: border-box;
-  font-size: 93.75%;
+@import '@ec-europa/ecl-base/reset';
 
-  @include ecl-media-breakpoint-up(md) {
-    font-size: 112.5%;
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body {
-  font-family: $ecl-font-family-base;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  text-rendering: optimizelegibility;
-}
-
-[aria-hidden='true'] {
-  display: none;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-}
+@include reset();
