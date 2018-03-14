@@ -1,17 +1,17 @@
 // Mixins
-@import '~sass-mq/mq';
+@import 'sass-mq/mq';
 
 // Import normalize.css
-@import-normalize;
+@import 'normalize.css/normalize';
 
 // Embed external CSS
-@import '~highlight.js/styles/github';
-@import '~select2/dist/css/select2';
+@import 'highlight.js/styles/github';
+@import 'select2/dist/css/select2';
 
 // ECL
-@import '~@ec-europa/ecl-preset-full-ec';
+@import '@ec-europa/ecl-preset-full-ec/index';
 
 // Fractal
 @import './theme';
 @import './core/all';
-@import './components';
+@import './components/index';

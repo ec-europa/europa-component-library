@@ -13,8 +13,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/styles/europa.css' | path }}">
     <title>Preview Layout</title>
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <link rel="stylesheet" href="{{ '/styles/europa.css' | path }}">
     <style>
       body {
         background-image:url({{ '/assets/alpha.jpg' | path }});
@@ -24,7 +25,6 @@
         align-items: center;
       }
     </style>
-     <script>document.documentElement.classList.remove('no-js');</script>
   </head>
   <body class="{{ bodyClass }}">
     <main>

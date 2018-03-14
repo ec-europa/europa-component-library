@@ -2,17 +2,14 @@
 const path = require('path');
 const chai = require('chai');
 const VisualRegressionCompare = require('wdio-visual-regression-service/compare');
-const {
-  injectAxeCore,
-  runAxeCore,
-} = require('@ec-europa/ecl-qa/wdio/commands/a11y');
+const { injectAxeCore, runAxeCore } = require('@ecl/qa/wdio/commands/a11y');
 const {
   injectHTMLInspector,
   runHTMLInspector,
-} = require('@ec-europa/ecl-qa/wdio/commands/html-inspector');
-const matchReference = require('@ec-europa/ecl-qa/wdio/assertions/matchReference');
-const isAccessible = require('@ec-europa/ecl-qa/wdio/assertions/isAccessible');
-const isWellFormatted = require('@ec-europa/ecl-qa/wdio/assertions/isWellFormatted');
+} = require('@ecl/qa/wdio/commands/html-inspector');
+const matchReference = require('@ecl/qa/wdio/assertions/matchReference');
+const isAccessible = require('@ecl/qa/wdio/assertions/isAccessible');
+const isWellFormatted = require('@ecl/qa/wdio/assertions/isWellFormatted');
 
 // Utils
 const { getScreenshotName } = require('./utils/screenshots');

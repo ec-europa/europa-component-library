@@ -11,6 +11,7 @@ export * from '@ec-europa/ecl-lang-select-pages-ec';
 export * from '@ec-europa/ecl-messages-ec';
 export * from '@ec-europa/ecl-navigation-inpages-ec';
 export * from '@ec-europa/ecl-navigation-menus-ec';
+export * from '@ec-europa/ecl-navigation-side-ec';
 export * from '@ec-europa/ecl-tables-ec';
 export * from '@ec-europa/ecl-tabs-ec';
 export * from '@ec-europa/ecl-timelines-ec';
