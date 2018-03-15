@@ -23,7 +23,7 @@
           ]
         } %}
       </div>
-      {% embed '@ecl/eu-component-forms-form' with { 'extra_class': 'ecl-u-d-lg-block', 'extra_attribute': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+      {% embed '@ecl/eu-component-forms-form' with { 'extra_class': 'ecl-u-d-lg-block', 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
         {% block form %}
           {% embed '@ecl/eu-component-forms-fieldset' only %}
             {% block fieldset %}
