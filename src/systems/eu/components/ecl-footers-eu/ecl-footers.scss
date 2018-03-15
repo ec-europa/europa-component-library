@@ -1,5 +1,7 @@
 @import '@ec-europa/ecl-footers/ecl-footers';
 
+@include footers();
+
 @mixin cols-x {
   @for $i from 2 through 4 {
     /* stylelint-disable-next-line */
@@ -11,6 +13,18 @@
 }
 
 @include cols-x;
+
+.ecl-footer .ecl-link {
+  text-decoration: none;
+}
+
+.ecl-footer__column {
+  padding-top: map-get($ecl-spacing, 'xl');
+}
+
+.ecl-footer__column:last-child {
+  padding-bottom: map-get($ecl-spacing, 'xl');
+}
 
 .ecl-footer__title {
   align-items: flex-end;
@@ -53,8 +67,6 @@
   background-color: #d9d9d9;
   color: map-get($ecl-colors, 'blue-110');
 }
-
-@include footers();
 
 @include ecl-media-breakpoint-down(sm) {
   .ecl-footer__menu--2-col,

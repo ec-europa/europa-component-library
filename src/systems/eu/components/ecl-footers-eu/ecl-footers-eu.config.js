@@ -16,7 +16,6 @@ module.exports = {
               link: {
                 href: '#',
                 label: 'Digital single market',
-                variant: 'standalone',
               },
             },
           },
@@ -31,7 +30,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Facebook',
-                  variant: 'standalone',
                   label_wrapper_class:
                     'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
                 },
@@ -40,10 +38,17 @@ module.exports = {
                 classes: 'ecl-footer__menu-item',
                 link: {
                   href: '#',
-                  variant: 'standalone',
                   label: 'Twitter',
                   label_wrapper_class:
                     'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+                },
+              },
+              {
+                classes: 'ecl-footer__menu-item',
+                link: {
+                  href: '#',
+                  variant: 'external',
+                  label: 'Other social media',
                 },
               },
             ],
@@ -58,7 +63,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Contact',
-                  variant: 'standalone',
                 },
               },
               {
@@ -66,7 +70,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Site map',
-                  variant: 'standalone',
                 },
               },
               {
@@ -74,7 +77,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Lorem ipsum',
-                  variant: 'standalone',
                 },
               },
               {
@@ -82,7 +84,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Lorem ipsum',
-                  variant: 'standalone',
                 },
               },
               {
@@ -90,7 +91,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Lorem ipsum',
-                  variant: 'standalone',
                 },
               },
             ],
@@ -115,7 +115,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Call 00 800 6 7 8 9 10 11. See details of service',
-                  variant: 'standalone',
                 },
               },
               {
@@ -123,7 +122,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'E-mail your questions about the EU',
-                  variant: 'standalone',
                 },
               },
               {
@@ -131,7 +129,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'EU in your country',
-                  variant: 'standalone',
                 },
               },
               {
@@ -139,7 +136,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Local information services in the EU',
-                  variant: 'standalone',
                 },
               },
               {
@@ -147,7 +143,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Institutions, bodies and agencies',
-                  variant: 'standalone',
                 },
               },
               {
@@ -155,7 +150,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Press contacts',
-                  variant: 'standalone',
                 },
               },
             ],
@@ -175,7 +169,6 @@ module.exports = {
                   href: '#',
                   label:
                     'Use this tool to search for EU social media channels.',
-                  variant: 'standalone',
                 },
               },
             ],
@@ -194,7 +187,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Parliament',
-                  variant: 'standalone',
                 },
               },
               {
@@ -202,7 +194,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Council',
-                  variant: 'standalone',
                 },
               },
               {
@@ -210,7 +201,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Council of the European Union',
-                  variant: 'standalone',
                 },
               },
               {
@@ -218,7 +208,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Commission',
-                  variant: 'standalone',
                 },
               },
               {
@@ -226,7 +215,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Court of Justice of the European Union',
-                  variant: 'standalone',
                 },
               },
               {
@@ -234,7 +222,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Central Bank',
-                  variant: 'standalone',
                 },
               },
               {
@@ -242,7 +229,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Court of Auditors',
-                  variant: 'standalone',
                 },
               },
               {
@@ -250,7 +236,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European External Action Service',
-                  variant: 'standalone',
                 },
               },
               {
@@ -258,7 +243,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Economic and Social Committee',
-                  variant: 'standalone',
                 },
               },
               {
@@ -266,7 +250,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Committee of the Regions',
-                  variant: 'standalone',
                 },
               },
               {
@@ -274,7 +257,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Investment Bank',
-                  variant: 'standalone',
                 },
               },
               {
@@ -282,7 +264,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Ombudsman',
-                  variant: 'standalone',
                 },
               },
               {
@@ -290,7 +271,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Data Protection Supervisor',
-                  variant: 'standalone',
                 },
               },
               {
@@ -298,7 +278,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'European Personnel Selection Office',
-                  variant: 'standalone',
                 },
               },
               {
@@ -306,7 +285,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Publications Office of the European Union',
-                  variant: 'standalone',
                 },
               },
               {
@@ -314,7 +292,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Agencies',
-                  variant: 'standalone',
                 },
               },
             ],
@@ -334,7 +311,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Work for the European Union',
-                  variant: 'standalone',
                 },
               },
               {
@@ -342,7 +318,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'Sitemap',
-                  variant: 'standalone',
                 },
               },
               {
@@ -350,7 +325,6 @@ module.exports = {
                 link: {
                   href: 'http://ec.europa.eu/info/cookies_en',
                   label: 'Cookies',
-                  variant: 'standalone',
                 },
               },
               {
@@ -358,7 +332,6 @@ module.exports = {
                 link: {
                   href: '#',
                   label: 'About this site',
-                  variant: 'standalone',
                 },
               },
               {
@@ -366,7 +339,6 @@ module.exports = {
                 link: {
                   href: 'http://ec.europa.eu/info/legal-notice_en',
                   label: 'Legal notice',
-                  variant: 'standalone',
                 },
               },
             ],
