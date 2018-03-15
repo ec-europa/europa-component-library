@@ -27,7 +27,7 @@
         {% block form %}
           {% embed '@ecl/ec-component-forms-fieldset' only %}
             {% block fieldset %}
-              {% include '@ecl/ec-component-forms-legend' with { content: 'Search option', level: 1 } only %}
+              {% include '@ecl/ec-component-forms-legend' with { content: 'Search options', level: 1 } only %}
               {% embed '@ecl/ec-component-forms-form-group' %}
                 {% block form_group %}
                   {% include '@ecl/ec-component-forms-label' with { 'label': 'Source', 'for_attribute': 'search-option-source' } %}
