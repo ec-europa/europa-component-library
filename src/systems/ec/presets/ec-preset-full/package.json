@@ -4,7 +4,8 @@
   "license": "EUPL-1.1",
   "version": "0.0.1",
   "description": "Europa Component Library base preset",
-  "style": "index.scss",
+  "style": "ec-preset-full.scss",
+  "module": "ec-preset-full.js",
   "publishConfig": { "access": "public" },
   "dependencies": {
     "@ecl/ec-component-accordion": "^0.0.1",
@@ -26,7 +27,7 @@
     "@ecl/ec-component-field": "^0.0.1",
     "@ecl/ec-component-file": "^0.0.1",
     "@ecl/ec-component-footer": "^0.0.1",
-    "@ecl/ec-component-forms-checkboxe": "^0.0.1",
+    "@ecl/ec-component-forms-checkbox": "^0.0.1",
     "@ecl/ec-component-forms-feedback-message": "^0.0.1",
     "@ecl/ec-component-forms-fieldset": "^0.0.1",
     "@ecl/ec-component-forms-file-upload": "^0.0.1",
@@ -94,5 +95,6 @@
   "bugs": {
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
-  "sass": "index.scss"
+  "sass": "ec-preset-full.scss",
+  "main": "ec-preset-full.js"
 }
