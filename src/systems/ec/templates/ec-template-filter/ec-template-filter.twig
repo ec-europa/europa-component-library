@@ -15,7 +15,7 @@
           {% block form %}
             {% embed '@ecl/ec-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-component-forms-label' with { 'label': 'Keyword', 'for_attribute': 'filter-keyword' } %}
+                {% include '@ecl/ec-component-forms-label' with { 'label': 'Keyword', 'for_attribute': 'filter-keywords' } %}
                 {% include '@ecl/ec-component-forms-text-input' with {
                   'type': 'text',
                   'name': 'keywords',
