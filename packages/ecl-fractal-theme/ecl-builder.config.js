@@ -33,7 +33,7 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../node_modules/@ecl/generic-content-icon/fonts'
+        '../../node_modules/@ecl/generic-style-icon/fonts'
       ),
       to: path.resolve(__dirname, 'dist/fonts'),
     },

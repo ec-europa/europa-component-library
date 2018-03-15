@@ -2,12 +2,12 @@
   This is an example and should not be used as it is.
 #}
 
-{% include '@ecl/ec-skip-link' with {
+{% include '@ecl/ec-component-skip-link' with {
     'href': '#main-content',
     'label': 'Skip to main content'
 } %}
 
-{% include '@ecl/ec-site-header' with {
+{% include '@ecl/ec-component-site-header' with {
   site_switcher: {
     political: { href: '#', label: 'Commission and its priorities' },
     info: {
@@ -25,9 +25,9 @@
   lanugages: languages
 } %}
 
-{% include '@ecl/ec-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
+{% include '@ecl/ec-component-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
 {% if menu is defined and menu is not empty %}
-  {% include '@ecl/ec-navigation-menu' with menu %}
+  {% include '@ecl/ec-component-navigation-menu' with menu %}
 {% endif %}
 
 <main>
@@ -39,7 +39,7 @@
   </div>
 </main>
 
-{% include '@ecl/ec-footer' with {
+{% include '@ecl/ec-component-footer' with {
   footer_menus: [
     {
       type: 'branded',

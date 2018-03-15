@@ -52,7 +52,7 @@
         {% set link_variant = 'inverted' %}
       {% endif %}
 
-      {% include '@ecl/ec-link' with {
+      {% include '@ecl/ec-component-link' with {
         'extra_attributes': [
           { 'name': 'hreflang', 'value': opt.hreflang },
           { 'name': 'lang', 'value': opt.lang },

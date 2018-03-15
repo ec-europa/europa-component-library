@@ -39,7 +39,7 @@
   <ul class="ecl-context-nav__list">
     {% for item in items %}
     <li class="ecl-context-nav__item{{ limit > 0 and loop.index > limit ? ' ecl-context-nav__item--over-limit' : '' }}">
-      {% include '@ecl/eu-link' with {
+      {% include '@ecl/eu-component-link' with {
         'variant': 'standalone',
         }|merge(item|default({}))
       %}

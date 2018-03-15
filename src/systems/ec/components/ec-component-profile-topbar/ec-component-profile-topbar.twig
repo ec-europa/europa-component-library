@@ -2,7 +2,7 @@
   Component interface:
     - "context_nav" (object) - data for @ec-europa/ecl-context-navs component composition
     - "profile" (object): data contains profile-specific information
-      - "image" (object): data for @ecl/ec-content-image component composition
+      - "image" (object): data for @ecl/ec-style-image component composition
       - "expandable" (object): data related to the expandable part of the component
         - "button" (object): data for @ec-europa/ecl-buttons component composition
         - "expandable_body" (array): accepts `extra_attributes` for the expandable
@@ -34,10 +34,10 @@
   <div class="ecl-container">
     <div class="ecl-row">
       <div class="ecl-col-md-2">
-        {% include '@ecl/ec-image' with profile.image %}
+        {% include '@ecl/ec-style-image' with profile.image %}
       </div>
       <div class="ecl-col-md-10 ecl-profile-topbar__pane">
-        {% include '@ecl/ec-context-nav' with context_nav %}
+        {% include '@ecl/ec-component-context-nav' with context_nav %}
         {% include '@ecl/ec-component-button' with profile.expandable.button %}
       </div>
     </div>

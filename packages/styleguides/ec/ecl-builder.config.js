@@ -127,7 +127,7 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../../src/generic/content/generic-content-icon/fonts'
+        '../../../src/generic/content/generic-style-icon/fonts'
       ),
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },

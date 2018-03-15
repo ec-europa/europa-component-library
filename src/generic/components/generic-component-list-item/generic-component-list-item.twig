@@ -59,7 +59,7 @@
       {% if variant == 'date' %}
         {% include '@ecl/generic-component-date-block' with _primary %}
       {% else %}
-        {% include '@ecl/generic-component-image' with _primary %}
+        {% include '@ecl/generic-style-image' with _primary %}
       {% endif %}
     </div>
     {% endif %}
@@ -67,7 +67,7 @@
     <div class="ecl-list-item__body">
       <div class="ecl-list-item__meta">
         {% block meta_block %}
-        {% include '@ecl/generic-meta' with { metas: metas } %}
+        {% include '@ecl/generic-component-meta' with { metas: metas } %}
         {% endblock %}
       </div>
 
@@ -88,7 +88,7 @@
 
     {% if _secondary is not empty %}
     <div class="ecl-list-item__secondary">
-      {% include '@ecl/generic-component-image' with _secondary %}
+      {% include '@ecl/generic-style-image' with _secondary %}
     </div>
     {% endif %}
 

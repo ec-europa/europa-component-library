@@ -5,7 +5,7 @@
 <div class="ecl-container ecl-u-mv-l">
   <div class="ecl-row ecl-u-mb-l">
     <div class="ecl-col">
-      {% include '@ecl/eu-search-form' with { 'variant': 'internal' } %}
+      {% include '@ecl/eu-component-search-form' with { 'variant': 'internal' } %}
     </div>
   </div>
   <div class="ecl-row">
@@ -110,13 +110,13 @@
             {% embed '@ecl/eu-component-forms-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-forms-label' with { 'label': 'After', 'for_attribute': 'filter-after' } %}
-                {% include '@ecl/eu-datepicker' with { 'id': 'filter-after' } %}
+                {% include '@ecl/eu-component-datepicker' with { 'id': 'filter-after' } %}
               {% endblock %}
             {% endembed %}
             {% embed '@ecl/eu-component-forms-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-forms-label' with { 'label': 'Before', 'for_attribute': 'filter-before' } %}
-                {% include '@ecl/eu-datepicker' with { 'id': 'filter-before' } %}
+                {% include '@ecl/eu-component-datepicker' with { 'id': 'filter-before' } %}
               {% endblock %}
             {% endembed %}
             {% embed '@ecl/eu-component-forms-form-group' %}
@@ -161,14 +161,14 @@
     <section class="ecl-col-lg-9">
       <div class="ecl-heading ecl-heading--h2 ecl-u-mb-m">Events (90)</div>
 
-      {% include '@ecl/eu-tag' with {
+      {% include '@ecl/eu-component-tag' with {
         'modifier': 'facet-close',
         'label': 'Live streaming available',
         'tags': [{ 'value': 'Yes'}]
       } %}
       <section class="ecl-u-mv-m">CONTENT HERE</section>
 
-      {% include '@ecl/eu-pager' with {
+      {% include '@ecl/eu-component-pager' with {
         'current_page': 1,
         'max_page': 20
       } %}

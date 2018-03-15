@@ -53,7 +53,7 @@
 
   {% if user_menu is defined and user_menu is iterable %}
   <div class="ecl-container">
-    {% include '@ecl/ec-navigation-list' with {
+    {% include '@ecl/ec-component-navigation-list' with {
       variant: 'small',
       extra_classes: 'ecl-u-f-r'
     }|merge(user_menu|default({})) %}
@@ -61,7 +61,7 @@
   {% endif %}
 
   {% if site_switcher is defined %}
-  {% include '@ecl/ec-site-switcher' with {
+  {% include '@ecl/ec-component-site-switcher' with {
     variant: 'header'
     }|merge(site_switcher|default({})) %}
   {% endif %}
@@ -73,7 +73,7 @@
       'type': 'right',
       'extra_class': 'ecl-site-header__logo'
     } only %}
-    {% include '@ecl/ec-language-list' with {
+    {% include '@ecl/ec-component-language-list' with {
       'extra_class': 'ecl-site-header__language-list',
       'languages': _languages,
       'variant': 'overlay',
@@ -82,7 +82,7 @@
         'heading': 'Select your language'
       }
     } %}
-    {% include '@ecl/ec-search-form' with {
+    {% include '@ecl/ec-component-search-form' with {
       'input': { 'id': 'global-search' },
       'extra_classes': 'ecl-site-header__search'
     } %}

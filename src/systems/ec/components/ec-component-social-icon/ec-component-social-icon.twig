@@ -45,7 +45,7 @@
 {# Print result #}
 
 {% if link is defined %}
-{% include '@ecl/ec-link' with {
+{% include '@ecl/ec-component-link' with {
   href: link.href,
   label: link.label,
   extra_classes: _css_class,
