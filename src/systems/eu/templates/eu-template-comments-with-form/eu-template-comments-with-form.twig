@@ -19,7 +19,7 @@
     {% block form %}
       {% embed '@ecl/eu-component-forms-fieldset' %}
         {% block fieldset %}
-          {% include '@ecl/ec-component--component-forms-legend' with { 'extra_clas': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
+          {% include '@ecl/eu-component-forms-legend' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'New Comment' } %}
           {% embed '@ecl/eu-component-forms-form-group' %}
             {% block form_group %}
               {% include '@ecl/eu-component-forms-label' with { 'for_attribute': 'field-ID-1', 'label': 'Title' } %}

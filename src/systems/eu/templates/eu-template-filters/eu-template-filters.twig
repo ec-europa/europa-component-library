@@ -11,11 +11,11 @@
   <div class="ecl-row">
     <aside class="ecl-col-lg-3" role="complementary">
       <h3 class="ecl-heading ecl-heading--h3">Filter by</h3>
-        {% embed '@ecl/ec-component--component-forms-form' with { 'extra_attribute': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+        {% embed '@ecl/eu-component-forms-form' with { 'extra_attribute': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
           {% block form %}
             {% embed '@ecl/eu-component-forms-form-group' %}
               {% block form_group %}
-                {% include '@ecl/ec-component--component-forms-label' with { 'label': 'Keyword', 'for_attribute': 'filter-keyword' } %}
+                {% include '@ecl/eu-component-forms-label' with { 'label': 'Keyword', 'for_attribute': 'filter-keyword' } %}
                 {% include '@ecl/eu-component-forms-text-input' with {
                   'type': 'text',
                   'name': 'keywords',

@@ -6,7 +6,7 @@
   {% block form %}
     {% embed '@ecl/eu-component-forms-fieldset' %}
       {% block fieldset %}
-        {% include '@ecl/ec-component--component-forms-legend' with { 'extra_clas': 'ecl-form-legend--level-1', 'content': 'Personal information' } %}
+        {% include '@ecl/eu-component-forms-legend' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'Personal information' } %}
         {% embed '@ecl/eu-component-forms-form-group' %}
           {% block form_group %}
             {% include '@ecl/eu-component-forms-label' with { 'for_attribute': 'field-ID-1', 'label': 'First name' } %}
@@ -37,10 +37,10 @@
     {% endembed %}
     {% embed '@ecl/eu-component-forms-fieldset' %}
       {% block fieldset %}
-        {% include '@ecl/ec-component--component-forms-legend' with { 'extra_clas': 'ecl-form-legend--level-1', 'content': 'Group' } %}
+        {% include '@ecl/eu-component-forms-legend' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'Group' } %}
         {% embed '@ecl/eu-component-forms-fieldset' %}
           {% block fieldset %}
-            {% include '@ecl/ec-component--component-forms-legend' with { 'extra_clas': 'ecl-form-legend--level-2', 'content': 'Subgroup 1' } %}
+            {% include '@ecl/eu-component-forms-legend' with { 'extra_class': 'ecl-form-legend--level-2', 'content': 'Subgroup 1' } %}
             {% embed '@ecl/eu-component-forms-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-forms-label' with { 'for_attribute': 'field-ID-3', 'label': 'Text Input - disabled' } %}
@@ -80,7 +80,7 @@
         {% endembed %}
         {% embed '@ecl/eu-component-forms-fieldset' %}
           {% block fieldset %}
-            {% include '@ecl/ec-component--component-forms-legend' with { 'extra_clas': 'ecl-form-legend--level-2', 'content': 'Subgroup 2' } %}
+            {% include '@ecl/eu-component-forms-legend' with { 'extra_class': 'ecl-form-legend--level-2', 'content': 'Subgroup 2' } %}
             {% embed '@ecl/eu-component-forms-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-forms-label' with { 'for_attribute': 'field-ID-5', 'label': 'Text Input - disabled' } %}
