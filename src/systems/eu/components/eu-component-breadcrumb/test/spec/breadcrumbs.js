@@ -6,7 +6,7 @@ describe('breadcrumbs', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-breadcrumbs-eu');
+    browser.goToComponent('eu-component-breadcrumb');
     browser.pause(500);
     browser.injectAxeCore();
   });

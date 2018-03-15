@@ -5,7 +5,7 @@ describe('ecl-templates-listings', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-templates-listings-eu');
+    browser.goToComponent('eu-template-templates-listing');
     browser.pause(500);
     browser.injectAxeCore();
   });

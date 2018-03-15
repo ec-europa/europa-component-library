@@ -6,7 +6,7 @@ describe('context-navs', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-context-navs-eu');
+    browser.goToComponent('eu-component-context-nav');
     browser.pause(500);
     browser.injectAxeCore();
   });

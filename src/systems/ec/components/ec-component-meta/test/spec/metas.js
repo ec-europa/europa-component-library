@@ -12,7 +12,7 @@ describe('ecl-meta', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-meta-ec', variant);
+        browser.goToComponent('ec-component-meta', variant);
 
         browser.injectAxeCore();
 

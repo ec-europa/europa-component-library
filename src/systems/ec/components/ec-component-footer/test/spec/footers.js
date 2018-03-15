@@ -11,7 +11,7 @@ describe('footers', () => {
   describe('footer', () => {
     before(() => {
       // Go to url
-      browser.goToComponent('ecl-footers-ec');
+      browser.goToComponent('ec-component-footer');
 
       browser.pause(500);
 

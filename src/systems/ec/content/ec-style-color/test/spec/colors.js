@@ -8,7 +8,7 @@ describe('colors', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-colors-ec');
+    browser.goToComponent('ec-style-color');
 
     browser.pause(500);
   });

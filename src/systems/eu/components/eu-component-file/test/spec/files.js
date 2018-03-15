@@ -12,7 +12,7 @@ describe('files', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-files-eu', variant);
+        browser.goToComponent('eu-component-file', variant);
 
         browser.injectAxeCore();
 

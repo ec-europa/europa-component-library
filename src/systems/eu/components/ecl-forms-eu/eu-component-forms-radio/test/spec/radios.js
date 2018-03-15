@@ -12,7 +12,7 @@ describe('ecl-forms-radios', () => {
     describe(`ecl-forms-radios--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-forms-radios-eu', variant);
+        browser.goToComponent('eu-component-forms-radio', variant);
 
         browser.injectAxeCore();
 

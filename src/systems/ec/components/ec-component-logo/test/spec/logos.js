@@ -7,7 +7,7 @@ describe('logos', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('ecl-logos-ec');
+    browser.goToComponent('ec-component-logo');
 
     browser.pause(500);
 

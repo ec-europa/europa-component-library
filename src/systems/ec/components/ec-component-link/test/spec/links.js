@@ -6,7 +6,7 @@ describe('links', () => {
     });
 
     // Go to url
-    browser.goToComponent('ecl-links-ec');
+    browser.goToComponent('ec-component-link');
 
     browser.pause(500);
 

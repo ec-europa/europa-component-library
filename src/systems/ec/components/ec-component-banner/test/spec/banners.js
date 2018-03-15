@@ -4,7 +4,7 @@ describe('banners', () => {
       width: 1400,
       height: 600,
     });
-    browser.goToComponent('ecl-banners-ec');
+    browser.goToComponent('ec-component-banner');
     browser.injectAxeCore();
     browser.pause(500);
   });

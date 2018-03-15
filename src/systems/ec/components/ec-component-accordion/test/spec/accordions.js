@@ -5,7 +5,7 @@ describe('accordions', () => {
       height: 600,
     });
     browser.pause(500);
-    browser.goToComponent('ecl-accordions-ec');
+    browser.goToComponent('ec-component-accordion');
     browser.pause(500);
     browser.injectAxeCore();
   });

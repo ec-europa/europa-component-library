@@ -7,7 +7,7 @@ describe('margin', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('ecl-u-margin-ec');
+    browser.goToComponent('ec-utility-margin');
 
     browser.pause(500);
 

@@ -13,7 +13,7 @@ describe('site-switchers', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        browser.goToComponent('ecl-site-switchers-ec', variant);
+        browser.goToComponent('ec-component-site-switcher', variant);
         browser.pause(500);
         browser.injectAxeCore();
       });

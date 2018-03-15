@@ -6,7 +6,7 @@ describe('screen-reader', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-u-screen-reader-eu');
+    browser.goToComponent('eu-utility-screen-reader');
     browser.pause(500);
     browser.injectAxeCore();
   });

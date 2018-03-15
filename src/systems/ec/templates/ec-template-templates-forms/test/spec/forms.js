@@ -5,7 +5,7 @@ describe('ecl-templates-forms', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-templates-forms-ec');
+    browser.goToComponent('ec-template-templates-form');
 
     browser.pause(500);
 

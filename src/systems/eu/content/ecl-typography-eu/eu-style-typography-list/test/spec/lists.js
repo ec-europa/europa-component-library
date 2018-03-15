@@ -5,7 +5,7 @@ describe('typography-lists', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-typography-lists-eu');
+    browser.goToComponent('eu-style-typography-list');
     browser.pause(500);
     browser.injectAxeCore();
   });

@@ -14,7 +14,7 @@ describe('lang-select-pages', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-lang-select-pages-ec', variant);
+        browser.goToComponent('ec-component-lang-select-page', variant);
 
         browser.pause(500);
 

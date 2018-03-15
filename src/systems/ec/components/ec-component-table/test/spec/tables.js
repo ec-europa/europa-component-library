@@ -30,7 +30,7 @@ describe('tables with JavaScript corrections for mobile', () => {
       variants.forEach(variant => {
         describe(`--${variant.name}`, () => {
           before(() => {
-            browser.goToComponent('ecl-tables-ec', variant.name);
+            browser.goToComponent('ec-component-table', variant.name);
             browser.pause(500);
             browser.injectAxeCore();
           });

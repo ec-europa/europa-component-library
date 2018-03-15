@@ -11,7 +11,7 @@ describe('ecl-page-headers', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        browser.goToComponent('ecl-page-headers-eu', variant);
+        browser.goToComponent('eu-component-page-header', variant);
         browser.injectAxeCore();
         browser.pause(500);
       });

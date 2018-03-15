@@ -8,7 +8,7 @@ describe('rss links', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-rss-links-eu');
+    browser.goToComponent('eu-component-rss-link');
 
     browser.pause(500);
 

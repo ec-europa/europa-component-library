@@ -5,7 +5,7 @@ describe('dialogs', () => {
         width: 1200,
         height: 600,
       });
-      browser.goToComponent('ecl-dialogs-eu');
+      browser.goToComponent('eu-component-dialog');
       browser.pause(500);
       browser.injectAxeCore();
     });

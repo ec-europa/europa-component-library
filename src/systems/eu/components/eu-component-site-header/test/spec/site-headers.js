@@ -1,4 +1,4 @@
-describe('ecl-site-headers-eu', () => {
+describe('eu-component-site-header', () => {
   before(() => {
     browser.setViewportSize({
       width: 1400,
@@ -6,7 +6,7 @@ describe('ecl-site-headers-eu', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-site-headers-eu');
+    browser.goToComponent('eu-component-site-header');
     browser.pause(500);
     browser.injectAxeCore();
   });

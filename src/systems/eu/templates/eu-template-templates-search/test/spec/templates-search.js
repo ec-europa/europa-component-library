@@ -5,7 +5,7 @@ describe('templates-search', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-templates-search-eu');
+    browser.goToComponent('eu-template-templates-search');
     browser.injectAxeCore();
     browser.pause(500);
   });

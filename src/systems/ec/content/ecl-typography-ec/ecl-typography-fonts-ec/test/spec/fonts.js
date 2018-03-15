@@ -6,7 +6,7 @@ describe('typography-fonts', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-typography-fonts-ec');
+    browser.goToComponent('ec-style-typography-font');
     browser.pause(500);
     browser.injectAxeCore();
   });

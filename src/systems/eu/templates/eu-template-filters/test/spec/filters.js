@@ -5,7 +5,7 @@ describe('filters', () => {
       height: 800,
     });
 
-    browser.goToComponent('ecl-filters-eu');
+    browser.goToComponent('eu-template-filter');
     browser.injectAxeCore();
     browser.pause(500);
   });

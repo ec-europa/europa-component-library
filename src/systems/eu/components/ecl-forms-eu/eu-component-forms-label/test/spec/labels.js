@@ -8,7 +8,7 @@ describe('forms-labels', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-forms-labels-eu');
+    browser.goToComponent('eu-component-forms-label');
 
     browser.pause(500);
 

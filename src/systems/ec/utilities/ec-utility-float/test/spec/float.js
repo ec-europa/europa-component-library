@@ -8,7 +8,7 @@ describe('floats', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-u-float-ec');
+    browser.goToComponent('ec-utility-float');
 
     browser.pause(500);
 

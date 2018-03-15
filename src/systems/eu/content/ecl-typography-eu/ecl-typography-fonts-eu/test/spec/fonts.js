@@ -7,7 +7,7 @@ describe('typography-fonts', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('ecl-typography-fonts-eu');
+    browser.goToComponent('eu-style-typography-font');
 
     browser.pause(500);
 

@@ -5,7 +5,7 @@ describe('typography-paragraphs', () => {
       height: 600,
     });
     // Go to url
-    browser.goToComponent('ecl-typography-paragraphs-ec');
+    browser.goToComponent('ec-style-typography-paragraph');
 
     browser.pause(500);
 

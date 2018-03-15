@@ -6,7 +6,7 @@ describe('texts', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-u-text-eu');
+    browser.goToComponent('eu-utility-text');
     browser.pause(500);
     browser.injectAxeCore();
   });

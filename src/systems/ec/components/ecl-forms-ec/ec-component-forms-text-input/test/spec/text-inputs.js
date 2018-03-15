@@ -8,7 +8,7 @@ describe('forms-text-input', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-forms-text-inputs-ec');
+    browser.goToComponent('ec-component-forms-text-input');
 
     browser.pause(500);
 

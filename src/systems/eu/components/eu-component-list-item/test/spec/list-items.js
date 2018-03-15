@@ -5,7 +5,7 @@ describe('list-items', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-list-items-eu');
+    browser.goToComponent('eu-component-list-item');
     browser.pause(500);
     browser.injectAxeCore();
   });

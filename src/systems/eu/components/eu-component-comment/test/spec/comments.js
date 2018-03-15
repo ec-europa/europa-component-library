@@ -6,7 +6,7 @@ describe('comments', () => {
     });
 
     // Go to url
-    browser.goToComponent('ecl-comments-eu');
+    browser.goToComponent('eu-component-comment');
 
     browser.injectAxeCore();
 

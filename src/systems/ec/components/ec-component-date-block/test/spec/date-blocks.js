@@ -12,7 +12,7 @@ describe('ecl-date-blocks', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-date-blocks-ec', variant);
+        browser.goToComponent('ec-component-date-block', variant);
 
         browser.injectAxeCore();
 

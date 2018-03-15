@@ -6,7 +6,7 @@ describe('padding', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-u-padding-eu');
+    browser.goToComponent('eu-utility-padding');
     browser.pause(500);
     browser.injectAxeCore();
   });

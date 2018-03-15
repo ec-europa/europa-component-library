@@ -6,7 +6,7 @@ describe('pagers', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-pagers-eu');
+    browser.goToComponent('eu-component-pager');
     browser.pause(500);
   });
 

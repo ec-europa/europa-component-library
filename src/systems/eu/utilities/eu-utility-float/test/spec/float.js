@@ -6,7 +6,7 @@ describe('floats', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-u-float-eu');
+    browser.goToComponent('eu-utility-float');
     browser.pause(500);
     browser.injectAxeCore();
   });

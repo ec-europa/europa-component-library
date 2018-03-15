@@ -11,7 +11,7 @@ describe('pages', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        browser.goToComponent('ecl-pages-ec', variant);
+        browser.goToComponent('ec-template-page', variant);
         browser.injectAxeCore();
         browser.pause(500);
       });

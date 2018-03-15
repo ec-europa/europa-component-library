@@ -5,7 +5,7 @@ describe('communities', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-communities-eu');
+    browser.goToComponent('eu-template-communitie');
     browser.injectAxeCore();
     browser.pause(500);
   });

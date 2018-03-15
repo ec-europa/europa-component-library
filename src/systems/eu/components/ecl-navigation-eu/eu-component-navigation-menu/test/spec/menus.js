@@ -1,6 +1,6 @@
 describe('navigation-menus', () => {
   before(() => {
-    browser.goToComponent('ecl-navigation-menus-eu');
+    browser.goToComponent('eu-component-navigation-menu');
 
     browser.injectAxeCore();
 

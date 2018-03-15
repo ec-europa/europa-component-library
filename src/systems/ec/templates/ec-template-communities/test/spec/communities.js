@@ -5,7 +5,7 @@ describe('communities', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-communities-ec');
+    browser.goToComponent('ec-template-communitie');
 
     browser.injectAxeCore();
 

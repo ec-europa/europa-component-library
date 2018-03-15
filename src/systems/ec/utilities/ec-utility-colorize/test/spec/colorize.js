@@ -6,7 +6,7 @@ describe('colorize', () => {
     });
 
     // Go to url
-    browser.goToComponent('ecl-u-colorize-ec');
+    browser.goToComponent('ec-utility-colorize');
 
     browser.pause(500);
   });

@@ -5,7 +5,7 @@ describe(`icons`, () => {
       height: 800,
     });
 
-    browser.goToComponent('ecl-icons-ec');
+    browser.goToComponent('ec-style-icon');
     browser.pause(500);
     browser.injectAxeCore();
   });

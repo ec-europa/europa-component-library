@@ -12,7 +12,7 @@ describe('search-forms', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-search-forms-eu', variant);
+        browser.goToComponent('eu-component-search-form', variant);
 
         browser.pause(500);
 

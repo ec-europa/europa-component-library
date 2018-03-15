@@ -7,7 +7,7 @@ describe('padding', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('ecl-u-padding-ec');
+    browser.goToComponent('ec-utility-padding');
 
     browser.pause(500);
 

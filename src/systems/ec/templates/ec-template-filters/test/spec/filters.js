@@ -5,7 +5,7 @@ describe('filters', () => {
       height: 800,
     });
 
-    browser.goToComponent('ecl-filters-ec');
+    browser.goToComponent('ec-template-filter');
 
     browser.injectAxeCore();
 

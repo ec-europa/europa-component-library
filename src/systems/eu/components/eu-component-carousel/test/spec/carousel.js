@@ -1,4 +1,4 @@
-const component = 'ecl-carousels-eu';
+const component = 'eu-component-carousel';
 const timeout = 3000;
 
 describe('carousels', () => {

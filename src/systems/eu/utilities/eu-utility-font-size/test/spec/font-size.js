@@ -6,7 +6,7 @@ describe('font-size', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-u-font-size-eu');
+    browser.goToComponent('eu-utility-font-size');
     browser.pause(500);
     browser.injectAxeCore();
   });

@@ -7,7 +7,7 @@ describe('tabs', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('ecl-tabs-eu');
+    browser.goToComponent('eu-component-tab');
 
     browser.pause(500);
 

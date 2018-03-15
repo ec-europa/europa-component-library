@@ -6,7 +6,7 @@ describe('z-index', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-u-z-index-eu');
+    browser.goToComponent('eu-utility-z-index');
     browser.pause(500);
     browser.injectAxeCore();
   });

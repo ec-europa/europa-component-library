@@ -6,7 +6,7 @@ describe('list-items', () => {
     });
 
     // Go to url
-    browser.goToComponent('ecl-list-items-ec');
+    browser.goToComponent('ec-component-list-item');
 
     browser.pause(500);
 

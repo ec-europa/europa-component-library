@@ -8,7 +8,7 @@ describe('texts', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-u-text-ec');
+    browser.goToComponent('ec-utility-text');
 
     browser.pause(500);
 

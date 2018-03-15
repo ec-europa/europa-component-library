@@ -5,7 +5,7 @@ describe('typography-headings', () => {
       height: 600,
     });
     // Go to url
-    browser.goToComponent('ecl-typography-headings-ec');
+    browser.goToComponent('ec-style-typography-heading');
 
     browser.pause(500);
 

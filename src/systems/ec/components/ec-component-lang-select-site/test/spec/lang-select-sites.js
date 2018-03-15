@@ -8,7 +8,7 @@ describe('lang-select-sites', () => {
     browser.pause(1500);
 
     // Go to url
-    browser.goToComponent('ecl-lang-select-sites-ec');
+    browser.goToComponent('ec-component-lang-select-site');
 
     browser.pause(1500);
   });

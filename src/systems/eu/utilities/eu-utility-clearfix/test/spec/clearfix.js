@@ -5,7 +5,7 @@ describe('clearfix', () => {
       height: 200,
     });
 
-    browser.goToComponent('ecl-u-clearfix-eu');
+    browser.goToComponent('eu-utility-clearfix');
     browser.injectAxeCore();
     browser.pause(500);
   });

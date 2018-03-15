@@ -12,7 +12,7 @@ describe('ecl-messages', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-messages-ec', variant);
+        browser.goToComponent('ec-component-message', variant);
 
         browser.injectAxeCore();
 

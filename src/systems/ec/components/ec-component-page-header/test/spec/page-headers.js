@@ -12,7 +12,7 @@ describe('ecl-page-headers', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-page-headers-ec', variant);
+        browser.goToComponent('ec-component-page-header', variant);
 
         browser.injectAxeCore();
 

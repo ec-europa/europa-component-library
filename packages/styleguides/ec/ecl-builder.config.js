@@ -84,7 +84,7 @@ module.exports = {
     {
       from: path.resolve(
         nodeModules,
-        '@ecl/ec-component-forms-checkboxe/images'
+        '@ecl/ec-component-forms-checkbox/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },

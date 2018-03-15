@@ -6,7 +6,7 @@ describe('dropdowns', () => {
     });
 
     // Go to url
-    browser.goToComponent('ecl-dropdowns-ec');
+    browser.goToComponent('ec-component-dropdown');
 
     browser.injectAxeCore();
 
@@ -22,7 +22,7 @@ describe('dropdowns', () => {
   context('collapsed dropdowns', () => {
     before(() => {
       // Reload
-      browser.goToComponent('ecl-dropdowns-ec');
+      browser.goToComponent('ec-component-dropdown');
       browser.injectAxeCore();
       browser.pause(500);
 

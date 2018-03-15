@@ -12,7 +12,7 @@ describe('ecl-labels', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-labels-eu', variant);
+        browser.goToComponent('eu-component-label', variant);
 
         browser.injectAxeCore();
 

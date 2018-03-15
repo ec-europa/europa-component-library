@@ -11,7 +11,7 @@ describe('ecl-forms-textareas', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        browser.goToComponent('ecl-forms-textareas-ec', variant);
+        browser.goToComponent('ec-component-forms-textarea', variant);
         browser.injectAxeCore();
         browser.pause(500);
       });

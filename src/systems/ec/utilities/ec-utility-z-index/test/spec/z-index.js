@@ -8,7 +8,7 @@ describe('z-index', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-u-z-index-ec');
+    browser.goToComponent('ec-utility-z-index');
 
     browser.pause(500);
 

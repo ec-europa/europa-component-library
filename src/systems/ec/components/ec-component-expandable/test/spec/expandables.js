@@ -5,7 +5,7 @@ describe('expandables', () => {
       height: 200,
     });
 
-    browser.goToComponent('ecl-expandables-ec');
+    browser.goToComponent('ec-component-expandable');
     browser.pause(500);
   });
 

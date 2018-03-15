@@ -8,7 +8,7 @@ describe('forms-help-block', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ecl-forms-help-blocks-eu');
+    browser.goToComponent('eu-component-forms-help-block');
 
     browser.pause(500);
 

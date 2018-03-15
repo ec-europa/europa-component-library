@@ -7,7 +7,7 @@ describe('screen-reader', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('ecl-u-screen-reader-ec');
+    browser.goToComponent('ec-utility-screen-reader');
 
     browser.pause(500);
 

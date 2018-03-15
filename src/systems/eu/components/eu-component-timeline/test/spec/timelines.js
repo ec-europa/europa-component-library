@@ -5,7 +5,7 @@ describe('timelines', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-timelines-eu');
+    browser.goToComponent('eu-component-timeline');
     browser.pause(500);
     browser.injectAxeCore();
   });

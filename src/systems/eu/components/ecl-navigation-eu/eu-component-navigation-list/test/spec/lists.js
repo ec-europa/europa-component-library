@@ -5,7 +5,7 @@ describe('navigation-lists', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-navigation-lists-eu');
+    browser.goToComponent('eu-component-navigation-list');
     browser.injectAxeCore();
     browser.pause(500);
   });

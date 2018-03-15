@@ -12,7 +12,7 @@ describe(`ecl-tags`, () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-tags-eu', variant);
+        browser.goToComponent('eu-component-tag', variant);
 
         browser.injectAxeCore();
 

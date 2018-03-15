@@ -5,7 +5,7 @@ describe('colorize', () => {
       height: 800,
     });
 
-    browser.goToComponent('ecl-u-colorize-eu');
+    browser.goToComponent('eu-utility-colorize');
     browser.pause(500);
   });
 

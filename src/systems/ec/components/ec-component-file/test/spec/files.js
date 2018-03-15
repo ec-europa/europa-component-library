@@ -11,7 +11,7 @@ describe('files', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        browser.goToComponent('ecl-files-ec', variant);
+        browser.goToComponent('ec-component-file', variant);
         browser.injectAxeCore();
         browser.pause(500);
       });

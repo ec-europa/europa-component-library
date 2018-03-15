@@ -4,7 +4,7 @@ describe('comments', () => {
       width: 800,
       height: 600,
     });
-    browser.goToComponent('ecl-comments-ec');
+    browser.goToComponent('ec-component-comment');
     browser.injectAxeCore();
     browser.pause(2000);
   });

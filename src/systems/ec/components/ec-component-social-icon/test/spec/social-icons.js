@@ -11,7 +11,7 @@ describe('social-icons', () => {
   describe('social-icons', () => {
     before(() => {
       // Go to url
-      browser.goToComponent('ecl-social-icons-ec');
+      browser.goToComponent('ec-component-social-icon');
 
       browser.pause(500);
     });

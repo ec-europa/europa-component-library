@@ -5,7 +5,7 @@ describe('clearfix', () => {
       height: 200,
     });
 
-    browser.goToComponent('ecl-u-clearfix-ec');
+    browser.goToComponent('ec-utility-clearfix');
 
     browser.injectAxeCore();
 

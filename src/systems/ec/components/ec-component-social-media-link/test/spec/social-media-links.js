@@ -11,7 +11,7 @@ describe('social-media-links', () => {
   describe('social-media-links', () => {
     before(() => {
       // Go to url
-      browser.goToComponent('ecl-social-media-links-ec');
+      browser.goToComponent('ec-component-social-media-link');
 
       browser.pause(500);
     });

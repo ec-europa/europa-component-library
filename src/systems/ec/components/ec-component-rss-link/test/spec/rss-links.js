@@ -5,7 +5,7 @@ describe('rss links', () => {
       height: 200,
     });
     browser.pause(500);
-    browser.goToComponent('ecl-rss-links-ec');
+    browser.goToComponent('ec-component-rss-link');
     browser.pause(500);
     browser.injectAxeCore();
   });

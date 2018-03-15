@@ -5,7 +5,7 @@ describe('comments-with-form', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-comments-with-form-eu');
+    browser.goToComponent('eu-template-comments-with-form');
     browser.injectAxeCore();
     browser.pause(500);
   });

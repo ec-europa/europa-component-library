@@ -1,4 +1,4 @@
-describe('ecl-logos-eu', () => {
+describe('eu-component-logo', () => {
   before(() => {
     browser.setViewportSize({
       width: 800,
@@ -6,7 +6,7 @@ describe('ecl-logos-eu', () => {
     });
 
     browser.pause(500);
-    browser.goToComponent('ecl-logos-eu');
+    browser.goToComponent('eu-component-logo');
     browser.pause(500);
     browser.injectAxeCore();
   });

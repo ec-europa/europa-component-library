@@ -14,7 +14,7 @@ describe('link-blocks', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-link-blocks-eu', variant);
+        browser.goToComponent('eu-component-link-block', variant);
 
         browser.pause(500);
 

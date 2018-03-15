@@ -10,7 +10,7 @@ describe('social-icons', () => {
   describe('social-icons', () => {
     before(() => {
       // Go to url
-      browser.goToComponent('ecl-social-icons-eu');
+      browser.goToComponent('eu-component-social-icon');
       browser.pause(500);
     });
 

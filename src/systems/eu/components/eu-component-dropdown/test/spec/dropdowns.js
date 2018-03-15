@@ -5,7 +5,7 @@ describe('dropdowns', () => {
       height: 420,
     });
 
-    browser.goToComponent('ecl-dropdowns-eu');
+    browser.goToComponent('eu-component-dropdown');
     browser.injectAxeCore();
     browser.pause(500);
   });
@@ -19,7 +19,7 @@ describe('dropdowns', () => {
   context('collapsed dropdowns', () => {
     before(() => {
       // Reload
-      browser.goToComponent('ecl-dropdowns-eu');
+      browser.goToComponent('eu-component-dropdown');
       browser.injectAxeCore();
       browser.pause(500);
 

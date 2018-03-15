@@ -1,11 +1,11 @@
-describe('ecl-language-list-eu', () => {
+describe('eu-component-language-list', () => {
   before(() => {
     browser.setViewportSize({
       width: 1400,
       height: 600,
     });
 
-    browser.goToComponent('ecl-language-list-eu', 'overlay');
+    browser.goToComponent('eu-component-language-list', 'overlay');
     browser.injectAxeCore();
     browser.pause(500);
   });

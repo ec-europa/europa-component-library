@@ -6,7 +6,7 @@ describe('lang-select-sites', () => {
     });
 
     browser.pause(1500);
-    browser.goToComponent('ecl-lang-select-sites-eu');
+    browser.goToComponent('eu-component-lang-select-site');
     browser.pause(1500);
   });
 

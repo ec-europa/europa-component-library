@@ -5,7 +5,7 @@ describe('datepickers', () => {
       height: 420,
     });
 
-    browser.goToComponent('ecl-datepickers-eu');
+    browser.goToComponent('eu-component-datepicker');
     browser.injectAxeCore();
     browser.pause(500);
   });
@@ -34,7 +34,7 @@ describe('datepickers', () => {
   context('click open state', () => {
     before(() => {
       // Reload
-      browser.goToComponent('ecl-datepickers-eu');
+      browser.goToComponent('eu-component-datepicker');
       browser.injectAxeCore();
       browser.pause(500);
 

@@ -11,7 +11,7 @@ describe('search-forms', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        browser.goToComponent('ecl-search-forms-ec', variant);
+        browser.goToComponent('ec-component-search-form', variant);
         browser.pause(500);
         browser.injectAxeCore();
       });

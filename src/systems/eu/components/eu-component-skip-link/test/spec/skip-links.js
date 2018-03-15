@@ -5,7 +5,7 @@ describe('skip-links', () => {
       height: 200,
     });
 
-    browser.goToComponent('ecl-skip-links-eu');
+    browser.goToComponent('eu-component-skip-link');
     browser.injectAxeCore();
     browser.pause(500);
   });

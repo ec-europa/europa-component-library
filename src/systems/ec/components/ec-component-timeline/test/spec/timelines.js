@@ -6,7 +6,7 @@ describe('timelines', () => {
     });
 
     // Go to url
-    browser.goToComponent('ecl-timelines-ec');
+    browser.goToComponent('ec-component-timeline');
 
     browser.pause(500);
 

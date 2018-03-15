@@ -14,7 +14,7 @@ describe('site-switchers', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ecl-site-switchers-eu', variant);
+        browser.goToComponent('eu-component-site-switcher', variant);
 
         browser.pause(500);
 

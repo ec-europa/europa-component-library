@@ -9,7 +9,7 @@ describe('ecl-navigation-side', () => {
     browser.pause(1000);
 
     // Go to the URL of the component
-    browser.goToComponent('ecl-navigation-side-ec');
+    browser.goToComponent('ec-component-navigation-side');
 
     // Make sure the browser has finished painting
     browser.pause(1000);

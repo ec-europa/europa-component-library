@@ -5,7 +5,7 @@ describe('typography-paragraphs', () => {
       height: 600,
     });
 
-    browser.goToComponent('ecl-typography-paragraphs-eu');
+    browser.goToComponent('eu-style-typography-paragraph');
     browser.pause(500);
     browser.injectAxeCore();
   });

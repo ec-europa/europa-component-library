@@ -4,7 +4,7 @@ describe('gallery dialog - desktop', () => {
       width: 1280,
       height: 800,
     });
-    browser.goToComponent('ecl-gallery-dialog-ec');
+    browser.goToComponent('ec-component-gallery-dialog');
     browser.injectAxeCore();
     browser.pause(500);
   });

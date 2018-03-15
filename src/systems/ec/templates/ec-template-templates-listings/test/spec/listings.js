@@ -6,7 +6,7 @@ describe('ecl-templates-listings', () => {
     });
 
     // Go to url
-    browser.goToComponent('ecl-templates-listings-ec');
+    browser.goToComponent('ec-template-templates-listing');
 
     browser.pause(500);
 

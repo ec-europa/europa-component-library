@@ -10,7 +10,7 @@ describe('fields', () => {
 
   describe(`field`, () => {
     before(() => {
-      browser.goToComponent('ecl-fields-ec');
+      browser.goToComponent('ec-component-field');
       browser.pause(500);
       browser.injectAxeCore();
     });
