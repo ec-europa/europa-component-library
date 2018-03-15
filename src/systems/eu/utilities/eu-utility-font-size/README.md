@@ -10,9 +10,5 @@ Use the following classes to quickly set a font size:
 * **ecl-u-fs-xs**: Extra small text
 * **ecl-u-fs-xxs**: Extra extra small text
 
-Additional fonts utilities:
-
-* **ecl-u-f-up**: Uppercase text
-
 For more information, see
 [the wiki page](https://webgate.ec.europa.eu/CITnet/confluence/pages/viewpage.action?pageId=650250290#Typography..-Font)
