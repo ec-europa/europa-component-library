@@ -1,0 +1,47 @@
+{#
+  - title: string; title of the navigation block (default: '')
+  - links: array;
+    {
+      href: string; target of the anchor, with a "#". should be an existing id in the page (default: '')
+      label: string; label of the anchor (default: '')
+    }
+#}
+
+{# Internal properties #}
+
+{% set _cssClass = 'ecl-inpage-navigation' %}
+{% set _extraAttributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extraClass is defined %}
+  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% endif %}
+
+{% if extraAttributes is defined %}
+  {% for attr in extraAttributes %}
+    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<nav class="{{ _cssClass }}" {{ _extraAttributes }}>
+  <div class="ecl-inpage-navigation__title">{{ title }}</div>
+
+  <div class="ecl-inpage-navigation__body">
+    <div class="ecl-inpage-navigation__trigger" aria-controls="ecl-inpage-navigation-list" aria-expanded="false" id="ecl-inpage-navigation-trigger">&nbsp;</div>
+
+    <ul class="ecl-inpage-navigation__list" aria-hidden="true" aria-labelledby="ecl-inpage-navigation-trigger" id="ecl-inpage-navigation-list">
+      {% for link in links %}
+      <li class="ecl-inpage-navigation__item">
+        {% include '@ecl/ec-component-link' with {
+          'extra_classes': 'ecl-inpage-navigation__link',
+          'variant': 'standalone',
+          }|merge(link|default({}))
+        %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
