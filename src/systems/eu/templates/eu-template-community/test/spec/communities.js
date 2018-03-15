@@ -5,7 +5,7 @@ describe('communities', () => {
       height: 600,
     });
 
-    browser.goToComponent('eu-template-communitie');
+    browser.goToComponent('eu-template-community');
     browser.injectAxeCore();
     browser.pause(500);
   });
@@ -13,7 +13,7 @@ describe('communities', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'communities',
+      name: 'community',
     });
     expect(screenshots).to.matchReference();
   });

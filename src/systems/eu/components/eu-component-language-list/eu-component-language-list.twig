@@ -43,7 +43,7 @@
                   {% if loop.index0 == loop.length // 2 %}
                 </div><div class="ecl-col-md-6">
                   {% endif %}
-                  {% include '@ec-europa/ecl-buttons' with {
+                  {% include '@ecl/eu-component-button' with {
                     'type': 'link',
                     'label': lang.label ~ (lang.isActive ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
                     'href': lang.href,
@@ -73,18 +73,18 @@
   {% if _variant == 'overlay' %}
     {# Custom Dialog-overlay for the 'overlay' variant #}
     <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
-    {% include '@ec-europa/ecl-lang-select-sites' with {
+    {% include '@ecl/eu-component-lang-select-site' with {
       'extra_attributes': [{name: 'data-eul-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_class': 'ecl-link',
       'link': _link
     } %}
-    {% embed '@ec-europa/ecl-dialogs' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
+    {% embed '@ecl/eu-component-dialog' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
       {% block dialog_body %}
         {{ languagesSection }}
       {% endblock %}
     {% endembed %}
   {% elseif _variant == 'splash' %}
-    {% include '@ec-europa/ecl-skip-links' with {
+    {% include '@ecl/eu-component-skip-link' with {
       'href': '#main-content',
       'label': 'Skip to main content'
     } %}

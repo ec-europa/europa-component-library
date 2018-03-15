@@ -5,7 +5,7 @@ describe('communities', () => {
       height: 600,
     });
 
-    browser.goToComponent('ec-template-communitie');
+    browser.goToComponent('ec-template-community');
 
     browser.injectAxeCore();
 
@@ -15,7 +15,7 @@ describe('communities', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: 'communities',
+      name: 'community',
     });
     expect(screenshots).to.matchReference();
   });

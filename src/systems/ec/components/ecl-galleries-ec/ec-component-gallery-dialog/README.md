@@ -26,8 +26,8 @@ playback. (The Gallery dialog component needs to be enabled).
 
 In order to make this component work, you will need to combine:
 
-* Template of `@ec-europa/ecl-carousels`
-* Javascript behaviors of `@ec-europa/ecl-dialogs`
+* Template of `@ecl/ec-component-carousel`
+* Javascript behaviors of `@ecl/ec-component-dialog`
 
 As long as you have HTML representation matching the output of carousel
 component on the page (which is treated as a gallery component) you just need to

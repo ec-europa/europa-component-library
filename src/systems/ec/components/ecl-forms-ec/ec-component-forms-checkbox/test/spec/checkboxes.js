@@ -8,7 +8,7 @@ describe('forms-checkbox', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ec-component-forms-checkboxe');
+    browser.goToComponent('ec-component-forms-checkbox');
 
     browser.pause(500);
 
@@ -18,7 +18,7 @@ describe('forms-checkbox', () => {
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
-      name: `forms/checkboxes`,
+      name: `forms/checkbox`,
     });
     expect(screenshots).to.matchReference();
   });

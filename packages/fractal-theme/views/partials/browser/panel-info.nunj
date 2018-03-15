@@ -2,7 +2,7 @@
     <ul class="Meta">
         <li class="Meta-item">
             <strong class="Meta-key">Handle:</strong>
-            <span class="Meta-value">@ec-europa/{{ entity.handle }}</span>
+            <span class="Meta-value">@ecl/{{ entity.handle }}</span>
         </li>
         {% if entity.tags.length > 1 %}
         <li class="Meta-item">
@@ -49,7 +49,7 @@
             <strong class="Meta-key">References <em class="Meta-count">({{ entity.references.length }})</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             {% for ref in entity.references %}
-                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: ref.handle })) }}">@ec-europa/<span>{{ ref.handle }}</span></a>{% if not loop.last %}, {% endif %}
+                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: ref.handle })) }}">@ecl/<span>{{ ref.handle }}</span></a>{% if not loop.last %}, {% endif %}
             {% endfor %}
             </span>
         </li class="Meta-item">
@@ -59,7 +59,7 @@
             <strong class="Meta-key">Referenced by <em class="Meta-count">({{ entity.referencedBy.length }})</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             {% for ref in entity.referencedBy %}
-                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: ref.handle })) }}">@ec-europa/<span>{{ ref.handle }}</span></a>{% if not loop.last %}, {% endif %}
+                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: ref.handle })) }}">@ecl/<span>{{ ref.handle }}</span></a>{% if not loop.last %}, {% endif %}
             {% endfor %}
             </span>
         </li>

@@ -67,7 +67,7 @@ The split of the project introduces several important rules which should be foll
 
 Each system should be named in a distinguishable manner:
 
-* Existing `@ec-europa/ecl-component` components are preserved as-is in `generic`. This is a temporary measure to minimize the amount of breaking changes and stay backwards compatible for sufficient amount of time to organize future developments with consumers of ECL.
+* Existing `@ecl/[system]-component` components are preserved as-is in `generic`. This is a temporary measure to minimize the amount of breaking changes and stay backwards compatible for sufficient amount of time to organize future developments with consumers of ECL.
 * Throughout the whole project, in `package.json` files, namespace should always be `@ec-europa/ecl-`, regardless whether work is to be done on a generic or systemed component. One reason is that `@ec-europa` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
 * Flavored components should be suffixed with the name of their corresponding system. For example, for EC system there will be `@ec-europa/ecl-logos-ec` package name with a twig template `ecl-logos-ec.twig`, a config file `ec-logos-ec.config.js`, etc. Whereas the same component in the EU system will be `@ec-europa/ecl-logos-eu` with `ecl-logos-eu.twig` and `ec-logos-eu.config.js`.
 * Twig templates should be prefixed with `@ec-europa/` in order to be consistently consumable by [Europa Component Library Twig loader](https://github.com/openeuropa/ecl-twig-loader).
