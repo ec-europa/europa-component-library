@@ -3,29 +3,9 @@
  * @define footer ; weak
  */
 
-.ecl-footer {
-  margin: 0;
-}
+@import '@ec-europa/ecl-footers/ecl-footers';
 
-.ecl-footer__site-identity,
-.ecl-footer__site-corporate,
-.ecl-footer__ec {
-  @include ecl-hidden-print();
-
-  a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-link-patterns})::after {
-    line-height: 2.2;
-    position: absolute;
-  }
-}
-
-.ecl-footer__social-icon::before {
-  margin-right: 8px !important;
-}
-
-.ecl-footer__social-links li:last-child {
-  display: block;
-  margin-left: 0;
-}
+@include footers();
 
 .ecl-footer__title {
   border-bottom: 2px solid map-get($ecl-colors, blue-50);
@@ -45,16 +25,6 @@
   }
 }
 
-.ecl-footer__label {
-  display: inline;
-  font-weight: bold;
-
-  /* Any adjusent unordered list to be inlined */
-  + ul {
-    display: inline;
-  }
-}
-
 .ecl-footer__menu {
   list-style: none;
   margin: 0;
@@ -65,14 +35,6 @@
     font-size: map-get($ecl-font-size, xs);
     margin-bottom: map-get($ecl-spacing, xxxs);
   }
-}
-
-.ecl-footer__column {
-  padding-top: map-get($ecl-spacing, m);
-}
-
-.ecl-footer__column:last-child {
-  padding-bottom: map-get($ecl-spacing, m);
 }
 
 .ecl-footer__site-identity {

@@ -10,11 +10,8 @@ describe('footers', () => {
 
   describe('footer', () => {
     before(() => {
-      // Go to url
       browser.goToComponent('ecl-footers-eu');
-
       browser.pause(500);
-
       browser.injectAxeCore();
     });
 
