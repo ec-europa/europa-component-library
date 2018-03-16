@@ -8,6 +8,7 @@ module.exports = {
       {
         type: 'branded',
         wrapper_class: 'ecl-footer__site-identity',
+        column_class: 'ecl-footer__column',
         menus: [
           {
             extra_classes: 'ecl-col-sm',
@@ -78,6 +79,7 @@ module.exports = {
       },
       {
         type: 'normal',
+        column_class: 'ecl-footer__column',
         wrapper_class: 'ecl-footer__site-corporate',
         menus: [
           {

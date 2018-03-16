@@ -19,6 +19,22 @@
 }
 
 @mixin footers() {
+  .ecl-footer__column {
+    padding-top: map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-footer__column:last-child {
+    padding-bottom: map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-footer__spaced-column {
+    padding-top: map-get($ecl-spacing, 'xl');
+  }
+
+  .ecl-footer__spaced-column:last-child {
+    padding-bottom: map-get($ecl-spacing, 'xl');
+  }
+
   .ecl-footer__social-icon::before {
     margin-right: 8px !important;
   }

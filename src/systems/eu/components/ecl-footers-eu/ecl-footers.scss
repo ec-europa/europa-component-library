@@ -1,3 +1,8 @@
+/**
+ * Footers component
+ * @define footer ; weak
+ */
+
 @import '@ec-europa/ecl-footers/ecl-footers';
 
 @include footers();
@@ -24,14 +29,6 @@
   &:focus {
     text-decoration: underline;
   }
-}
-
-.ecl-footer__column {
-  padding-top: map-get($ecl-spacing, 'xl');
-}
-
-.ecl-footer__column:last-child {
-  padding-bottom: map-get($ecl-spacing, 'xl');
 }
 
 .ecl-footer__title {
@@ -71,7 +68,7 @@
   color: map-get($ecl-colors, 'blue-100');
 }
 
-.ecl-footer__ec {
+.ecl-footer__eu {
   background-color: #d9d9d9;
   color: map-get($ecl-colors, 'blue-110');
 }

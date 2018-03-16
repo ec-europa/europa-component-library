@@ -7,6 +7,7 @@ module.exports = {
     footer_menus: [
       {
         type: 'branded',
+        column_class: 'ecl-footer__column',
         wrapper_class: 'ecl-footer__site-identity',
         menus: [
           {
@@ -99,6 +100,7 @@ module.exports = {
       },
       {
         type: 'normal',
+        column_class: 'ecl-footer__spaced-column',
         wrapper_class: 'ecl-footer__site-corporate',
         menus: [
           {
@@ -300,7 +302,7 @@ module.exports = {
       },
       {
         type: 'plain',
-        wrapper_class: 'ecl-footer__ec',
+        wrapper_class: 'ecl-footer__eu',
         menus: [
           {
             classes: 'ecl-list--inline ecl-footer__menu',

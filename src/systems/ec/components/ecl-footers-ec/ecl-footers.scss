@@ -5,13 +5,7 @@
 
 @import '@ec-europa/ecl-footers/ecl-footers';
 
-.ecl-footer__column {
-  padding-top: map-get($ecl-spacing, 'm');
-}
-
-.ecl-footer__column:last-child {
-  padding-bottom: map-get($ecl-spacing, 'm');
-}
+@include footers();
 
 .ecl-footer__title {
   border-bottom: 2px solid map-get($ecl-colors, blue-50);
@@ -79,8 +73,6 @@
   color: #fff;
   padding: map-get($ecl-spacing, s) 0;
 }
-
-@include footers();
 
 @include ecl-media-breakpoint-up(sm) {
   .ecl-footer__column {

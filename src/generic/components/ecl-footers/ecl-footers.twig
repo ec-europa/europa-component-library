@@ -71,7 +71,7 @@ items: [
     <div class="ecl-container">
       <div class="ecl-row">
         {% for menu in footer_menu.menus %}
-        <div class="{{ menu.extra_classes }}{{ (footer_menu.type != 'plain') ? ' ecl-footer__column' : '' }}">
+        <div class="{{ menu.extra_classes }}{{ footer_menu.column_class ? ' ' ~ footer_menu.column_class : '' }}">
 
           {# If there is a link in the title, respect the link: #}
           {% if menu.title.link.href is defined %}
