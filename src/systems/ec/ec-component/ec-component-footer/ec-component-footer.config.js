@@ -8,8 +8,10 @@ module.exports = {
       {
         type: 'branded',
         wrapper_class: 'ecl-footer__site-identity',
+        column_class: 'ecl-footer__column',
         menus: [
           {
+            extra_classes: 'ecl-col-sm',
             title: {
               classes: 'ecl-h4',
               link: {
@@ -20,6 +22,7 @@ module.exports = {
             },
           },
           {
+            extra_classes: 'ecl-col-sm',
             label: 'Follow us:',
             classes:
               'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
@@ -54,6 +57,7 @@ module.exports = {
           },
           {
             classes: 'ecl-footer__menu ecl-list--unstyled',
+            extra_classes: 'ecl-col-sm',
             items: [
               {
                 classes: 'ecl-footer__menu-item',
@@ -75,9 +79,11 @@ module.exports = {
       },
       {
         type: 'normal',
+        column_class: 'ecl-footer__column',
         wrapper_class: 'ecl-footer__site-corporate',
         menus: [
           {
+            extra_classes: 'ecl-col-sm',
             title: {
               value: 'European Commission',
               classes: 'ecl-h4 ecl-footer__title',
@@ -101,6 +107,7 @@ module.exports = {
             ],
           },
           {
+            extra_classes: 'ecl-col-sm',
             title: {
               value: 'Follow the European Commission',
               classes: 'ecl-h4 ecl-footer__title',
@@ -137,6 +144,7 @@ module.exports = {
             ],
           },
           {
+            extra_classes: 'ecl-col-sm',
             title: {
               value: 'European Union',
               classes: 'ecl-h4 ecl-footer__title',
@@ -168,6 +176,7 @@ module.exports = {
         wrapper_class: 'ecl-footer__ec',
         menus: [
           {
+            extra_classes: 'ecl-col-sm',
             classes: 'ecl-list--inline ecl-footer__menu',
             items: [
               {

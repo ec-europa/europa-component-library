@@ -71,14 +71,14 @@ items: [
     <div class="ecl-container">
       <div class="ecl-row">
         {% for menu in footer_menu.menus %}
-        <div class="ecl-col-sm {{ (footer_menu.type != 'plain') ? 'ecl-footer__column' : '' }}">
+        <div class="{{ menu.extra_classes }}{{ footer_menu.column_class ? ' ' ~ footer_menu.column_class : '' }}">
 
           {# If there is a link in the title, respect the link: #}
           {% if menu.title.link.href is defined %}
           <h4 class="{{ menu.title.classes }}">
             {% include '@ecl/generic-component-link' with {
               'extra_classes': 'ecl-footer__link',
-              }|merge(menu.title.link|default({}))
+              }|merge(menu.title.link)
             %}
           </h4>
           {# otherwise, if it is only a title, without a link, use the title: #}
