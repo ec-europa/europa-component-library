@@ -36,7 +36,7 @@
 <form class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <label class="ecl-search-form__textfield-wrapper">
     <span class="ecl-u-sr-only">{{ _aria_label }}</span>
-    {% include '@ecl/eu-component-forms-text-input' with {
+    {% include '@ecl/eu-component-form-text-input' with {
       'id': _input.id,
       'type': 'search',
       'extraClass': 'ecl-search-form__textfield',

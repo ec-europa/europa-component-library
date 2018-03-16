@@ -6,7 +6,7 @@ export * from '@ecl/ec-component-context-nav';
 export * from '@ecl/ec-component-dropdown';
 export * from '@ecl/ec-component-dialog';
 export * from '@ecl/ec-component-expandable';
-export * from '@ecl/ec-component-forms-file-upload';
+export * from '@ecl/ec-component-form-file-upload';
 export * from '@ecl/ec-component-lang-select-page';
 export * from '@ecl/ec-component-message';
 export * from '@ecl/ec-component-inpage-navigation';

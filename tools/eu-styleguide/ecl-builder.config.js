@@ -82,25 +82,22 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(
-        nodeModules,
-        '@ecl/eu-component-forms-checkbox/images'
-      ),
+      from: path.resolve(nodeModules, '@ecl/eu-component-form-checkbox/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         nodeModules,
-        '@ecl/eu-component-forms-feedback-message/images'
+        '@ecl/eu-component-form-feedback-message/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-forms-radio/images'),
+      from: path.resolve(nodeModules, '@ecl/eu-component-form-radio/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-forms-select/images'),
+      from: path.resolve(nodeModules, '@ecl/eu-component-form-select/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
