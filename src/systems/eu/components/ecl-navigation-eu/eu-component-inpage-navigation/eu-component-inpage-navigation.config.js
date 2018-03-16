@@ -16,7 +16,7 @@ const links = [
 module.exports = {
   title: 'Inpage navigations',
   label: 'Inpage navigations',
-  preview: '@preview-inpage-navigations',
+  preview: '@preview-inpage-navigation',
   status: 'ready',
   tags: ['molecule'],
   context: {
