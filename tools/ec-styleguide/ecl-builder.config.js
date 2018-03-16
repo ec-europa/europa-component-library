@@ -1,9 +1,9 @@
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
-const outputFolder = isProd ? '../../../dist/eu' : './static';
+const outputFolder = isProd ? '../../dist/ec' : './static';
 
-const nodeModules = path.resolve(__dirname, '../../../node_modules');
+const nodeModules = path.resolve(__dirname, '../../node_modules');
 
 // SCSS includePaths
 const includePaths = [nodeModules];
@@ -11,7 +11,7 @@ const includePaths = [nodeModules];
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(nodeModules, '@ecl/eu-preset-full/eu-preset-full.js'),
+      entry: path.resolve(nodeModules, '@ecl/ec-preset-full/ec-preset-full.js'),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
@@ -21,9 +21,9 @@ module.exports = {
     {
       entry: path.resolve(
         nodeModules,
-        '@ecl/eu-preset-corporate/eu-preset-corporate.js'
+        '@ecl/ec-preset-corporate/ec-preset-corporate.js'
       ),
-      dest: path.resolve(__dirname, outputFolder, 'scripts/eu-corporate.js'),
+      dest: path.resolve(__dirname, outputFolder, 'scripts/ec-corporate.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -34,7 +34,7 @@ module.exports = {
     {
       entry: path.resolve(
         nodeModules,
-        '@ecl/eu-preset-full/eu-preset-full.scss'
+        '@ecl/ec-preset-full/ec-preset-full.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
@@ -45,7 +45,7 @@ module.exports = {
     {
       entry: path.resolve(
         nodeModules,
-        '@ecl/eu-preset-base/eu-preset-base.scss'
+        '@ecl/ec-preset-base/ec-preset-base.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
       options: {
@@ -56,7 +56,7 @@ module.exports = {
     {
       entry: path.resolve(
         nodeModules,
-        '@ecl/eu-preset-editor/eu-preset-editor.scss'
+        '@ecl/ec-preset-editor/ec-preset-editor.scss'
       ),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
       options: {
@@ -67,7 +67,7 @@ module.exports = {
     {
       entry: path.resolve(
         nodeModules,
-        '@ecl/eu-preset-corporate/eu-preset-corporate.scss'
+        '@ecl/ec-preset-corporate/ec-preset-corporate.scss'
       ),
       dest: path.resolve(
         __dirname,
@@ -84,31 +84,31 @@ module.exports = {
     {
       from: path.resolve(
         nodeModules,
-        '@ecl/eu-component-forms-checkbox/images'
+        '@ecl/ec-component-forms-checkbox/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         nodeModules,
-        '@ecl/eu-component-forms-feedback-message/images'
+        '@ecl/ec-component-forms-feedback-message/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-forms-radio/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-forms-radio/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-forms-select/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-forms-select/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-social-icon/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-social-icon/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-message/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-message/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
@@ -116,7 +116,7 @@ module.exports = {
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-logo/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-logo/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
   ],

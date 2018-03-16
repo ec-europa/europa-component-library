@@ -1,9 +1,10 @@
 {
-  "name": "@ecl/eu-styleguide",
+  "private": true,
+  "name": "@ecl/ec-styleguide",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "0.0.1",
-  "description": "ECL EU Styleguide based on Fractal",
+  "description": "ECL EC Styleguide based on Fractal",
   "scripts": {
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",
@@ -12,13 +13,13 @@
     "clean":
       "rm -rf ./static/images ./static/scripts ./static/styles ./static/fonts",
     "postinstall":
-      "copyfiles -f '../../../node_modules/@ecl/generic-*/**/*.twig' ../../../src/systems/eu/_imports",
+      "copyfiles -f '../../../node_modules/@ecl/generic-*/**/*.twig' ../../../src/systems/ec/_imports",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",
     "watch:scripts":
-      "chokidar \"../../../src/systems/eu/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
+      "chokidar \"../../../src/systems/ec/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
     "watch:styles":
-      "chokidar \"../../../src/systems/eu/**/*.scss\" -i \"/node_modules/\" -c \"stylelint {path} & npm run build:styles\"",
+      "chokidar \"../../../src/systems/ec/**/*.scss\" -i \"/node_modules/\" -c \"stylelint {path} & npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:* -ln"
   },
   "devDependencies": {

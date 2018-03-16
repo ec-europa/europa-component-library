@@ -23,7 +23,7 @@ In the end, users and stakeholders will benefit from this. By using the same set
 
 Here's a brief list of changes done in the ECL's repository in order to accommodate the new EU-system components:
 
-* The single [fractal configuration](https://fractal.build/guide/core-concepts/configuration-files) rendering a style guide for ECL compnents has been split into 3 different configuration files. All 3 sub-projects are managed under `./packages/styleguides` folder.
+* The single [fractal configuration](https://fractal.build/guide/core-concepts/configuration-files) rendering a style guide for ECL compnents has been split into 2 different configuration files. All 2 sub-projects are managed under `./tools` folder.
 * Existing ECL components are moved as-is from `./framework` folder in a sub-folder `./src/generic`.
 * EC-system components are placed into `./src/systems/ec`.
 * EU-system components are placed into `./src/systems/eu`.
@@ -67,10 +67,10 @@ The split of the project introduces several important rules which should be foll
 
 Each system should be named in a distinguishable manner:
 
-* Existing `@ecl/[system]-component` components are preserved as-is in `generic`. This is a temporary measure to minimize the amount of breaking changes and stay backwards compatible for sufficient amount of time to organize future developments with consumers of ECL.
-* Throughout the whole project, in `package.json` files, namespace should always be `@ec-europa/ecl-`, regardless whether work is to be done on a generic or systemed component. One reason is that `@ec-europa` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
-* Flavored components should be suffixed with the name of their corresponding system. For example, for EC system there will be `@ec-europa/ecl-logos-ec` package name with a twig template `ecl-logos-ec.twig`, a config file `ec-logos-ec.config.js`, etc. Whereas the same component in the EU system will be `@ec-europa/ecl-logos-eu` with `ecl-logos-eu.twig` and `ec-logos-eu.config.js`.
-* Twig templates should be prefixed with `@ec-europa/` in order to be consistently consumable by [Europa Component Library Twig loader](https://github.com/openeuropa/ecl-twig-loader).
+* Existing components are preserved as-is in `generic`. This is a temporary measure to minimize the amount of breaking changes and stay backwards compatible for sufficient amount of time to organize future developments with consumers of ECL.
+* Throughout the whole project, in `package.json` files, namespace should always be `@ecl/`, regardless whether work is to be done on a generic or systemed component. One reason is that `@ecl` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
+* Flavored components should be prefixed with the name of their corresponding system and type (component, style, template): `[generic|ec|eu]-[component|style|template|utility]`. For example, for EC system there will be `@ecl/ec-component-logo` package name with a twig template `ec-component-logo.twig`, a config file `ec-component-logo.config.js`, etc. Whereas the same component in the EU system will be `@ecl/eu-component-logo` with `eu-component-logo.twig` and `eu-component-logo.config.js`.
+* Twig templates should be prefixed with `@ecl/` in order to be consistently consumable by [Europa Component Library Twig loader](https://github.com/openeuropa/ecl-twig-loader).
 
 In terms of release/dist assets, all should remain the same for compatibility reasons. Few examples would be:
 

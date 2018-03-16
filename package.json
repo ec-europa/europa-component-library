@@ -15,8 +15,8 @@
     "postinstall": "lerna run prepublish",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
-    "start:ec": "cd packages/styleguides/ec && npm run start",
-    "start:eu": "cd packages/styleguides/eu && npm run start",
+    "start:ec": "cd tools/ec-styleguide && npm run start",
+    "start:eu": "cd tools/eu-styleguide && npm run start",
     "test:coding-conventions": "npm run lint",
     "test:functional": "node ./scripts/test-functional.js",
     "updated": "node ./scripts/lerna-updated"
@@ -67,9 +67,9 @@
   },
   "workspaces": [
     "examples/*",
-    "packages/**",
     "src/generic/**",
     "src/systems/ec/**",
-    "src/systems/eu/**"
+    "src/systems/eu/**",
+    "tools/*"
   ]
 }
