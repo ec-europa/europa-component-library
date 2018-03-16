@@ -1,0 +1,54 @@
+{#
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  - "languages" (array): array of languages to display
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-site-header' %}
+{% set _extra_attributes = '' %}
+{% set _languages = languages|default([]) %}
+
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+<header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
+
+  <div class="{% if lang is defined %}language-{{ lang }} {% endif %}ecl-container ecl-site-header__banner">
+    {% include '@ecl/eu-component-logo' with {
+      'to': 'https://europa.eu',
+      'title': 'Home - European Union',
+      'type': 'right',
+      'extra_class': 'ecl-site-header__logo'
+    } only %}
+
+    {% if _languages is not empty %}
+    {% include '@ecl/eu-component-language-list' with {
+      'extra_class': 'ecl-site-header__language-list',
+      'languages': _languages,
+      'variant': 'overlay',
+      'messages': {
+        'dismiss': 'Close',
+        'heading': 'Select your language'
+      }
+    } %}
+    {% endif %}
+
+    {% include '@ecl/eu-component-search-form' with {
+      'input': { 'id': 'global-search' },
+      'extra_classes': 'ecl-site-header__search'
+    } %}
+  </div>
+</header>

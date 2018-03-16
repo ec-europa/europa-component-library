@@ -5,8 +5,13 @@ always_pending:
     - wip
   explanation: 'This PR is a work in progress'
 
+always_rejected:
+  title_regex: '^(?!(chore|docs|feat|fix|perf|refactor|revert|style|test)(\(\w+\))?\:\s(\S+)).*$'
+  explanation: 'Invalid title. Please read our conventions: https://github.com/ec-europa/europa-component-library/blob/master/docs/conventions/git.md'
+
 groups:
   code-review:
+    required: 1
     github_reviews:
       enabled: true
     approve_by_comment:
@@ -15,9 +20,7 @@ groups:
       ignored: true
     reset_on_push:
       enabled: true
-    required: 1
+    reset_on_reopened:
+      enabled: true
     teams:
       - inno
-    conditions:
-      branches:
-          - master # only need to review if merging into master

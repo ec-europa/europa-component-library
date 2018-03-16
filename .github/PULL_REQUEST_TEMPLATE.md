@@ -6,7 +6,7 @@ Please drop a few lines about the PR: what it does, how to test it, etc.
 
 In order to ensure a safe and quick review, please check that your PR follow those guidelines:
 
-* [ ] `package.json` is up-to-date and `@ec-europa/ecl-base` is part of the dependencies
+* [ ] `package.json` is up-to-date and `@ecl/[system]-base` is part of the dependencies
 * [ ] I have checked the dependencies
 * [ ] I have given the fractal status “ready” to my component
 * [ ] I have declared `@define mycomponent` in the SCSS file

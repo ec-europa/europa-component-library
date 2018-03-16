@@ -191,8 +191,8 @@ exports.config = {
     browser.addCommand('runHTMLInspector', runHTMLInspector.bind(browser));
 
     browser.addCommand('goToComponent', (component, variant) => {
-      const flavor = component.match(/(ec|eu)$/g);
-      const prefix = `${flavor}/components/preview`;
+      const flavor = component.match(/^(ec|eu)/g);
+      const prefix = `${flavor[0]}/components/preview`;
       const page = variant
         ? `${component}--${variant}.html`
         : `${component}.html`;

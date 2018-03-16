@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "name": "@ecl/eu-styleguide",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "0.0.1",
+  "description": "ECL EU Styleguide based on Fractal",
+  "scripts": {
+    "build:copy": "ecl-builder copy",
+    "build:scripts": "ecl-builder scripts",
+    "build:styles": "ecl-builder styles",
+    "build": "run-p build:* -ln",
+    "clean":
+      "rm -rf ./static/images ./static/scripts ./static/styles ./static/fonts",
+    "postinstall":
+      "copyfiles -f '../../node_modules/@ecl/generic-*/**/*.twig' ../../src/systems/eu/_imports",
+    "serve": "fractal start --sync",
+    "start": "npm-run-all clean build --parallel serve watch",
+    "watch:scripts":
+      "chokidar \"../../src/systems/eu/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
+    "watch:styles":
+      "chokidar \"../../src/systems/eu/**/*.scss\" -i \"/node_modules/\" -c \"stylelint {path} & npm run build:styles\"",
+    "watch": "npm-run-all --parallel watch:* -ln"
+  },
+  "devDependencies": {
+    "@ecl/fractal-theme": "^0.0.1",
+    "@ecl/builder": "0.1.0",
+    "@frctl/fractal": "1.1.7",
+    "@frctl/twig": "1.0.0-beta.2",
+    "chokidar-cli": "1.2.0",
+    "copyfiles": "2.0.0",
+    "cross-env": "5.1.4",
+    "eslint": "4.18.2",
+    "npm-run-all": "4.1.2",
+    "stylelint": "9.1.3"
+  },
+  "main": "fractal.js",
+  "fractal": {
+    "main": "fractal.js"
+  },
+  "private": "true",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library#readme"
+}

@@ -8,18 +8,18 @@
   <link media="all" rel="stylesheet" href="{{ '/styles/europa.css' | path }}">
 </head>
 <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
-  {% include '@ec-europa/ecl-skip-links-ec' with {
+  {% include '@ecl/ec-component-skip-link' with {
       'href': '#main-content',
       'label': 'Skip to main content'
   } %}
-  {% include '@ec-europa/ecl-site-headers-ec' with {
+  {% include '@ecl/ec-component-site-header' with {
     site_switcher: {
       variant: 'header',
       political: { href: '#', label: 'Commission and its priorities' },
       info: { href: '#', label: 'Policies, information and services', is_active: true }
     }
   } %}
-  {% include '@ec-europa/ecl-page-headers-ec' with {
+  {% include '@ecl/ec-component-page-header' with {
     variant: 'default',
     identity: 'Search',
     breadcrumb: [
@@ -32,7 +32,7 @@
     {{ yield }}
   </main>
 
-  {% include '@ec-europa/ecl-footers-ec' with {
+  {% include '@ecl/ec-component-footer' with {
     footer_menus: [
       {
         type: 'normal',

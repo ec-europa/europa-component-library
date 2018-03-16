@@ -1,0 +1,93 @@
+{#
+  - variant: can be 'splash' or 'overlay' (default: 'splash')
+  - link: the link for the lang-select-sites (default: '#')
+  - logo: display or not the European Commission logo. Can be true|false (default: false)
+  - languages (array): array of languages to display
+#}
+
+{% set _variant = variant|default('splash') %}
+{% set _link = link|default('#') %}
+{% set _logo = logo|default(false) %}
+{% set _css_class = 'ecl-language-list ecl-language-list--' ~ variant %}
+{% set _extra_attributes = '' %}
+{% set _languages = languages|default([]) %}
+
+{% if extra_class is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% endif %}
+
+{% set languagesSection %}
+  <section>
+    {% if _logo == true %}
+      <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
+        <div class="ecl-container">
+          {% include '@ecl/ec-component-logo' with {
+            'extra_class': 'ecl-logo--big ecl-u-mh-auto',
+            'title': 'European Commission'
+          } %}
+        </div>
+      </header>
+    {% endif %}
+    <div{{ _variant == 'splash' ? ' class="ecl-u-bg-primary ecl-u-pv-xl"' : '' }}>
+      <div class="ecl-container">
+        <div class="ecl-row">
+          <div class="ecl-col-lg-8 ecl-offset-lg-2">
+            {% if _variant == 'overlay' %}
+              <h2 lang="en" class="ecl-heading ecl-heading--h2 ecl-dialog__title">
+                <span class="ecl-icon ecl-icon--generic-lang"></span> {{ messages.heading }}
+              </h2>
+            {% endif %}
+            <div class="ecl-row">
+              <div class="ecl-col-md-6">
+                {% for lang in _languages %}
+                  {% if loop.index0 == loop.length // 2 %}
+                </div><div class="ecl-col-md-6">
+                  {% endif %}
+                  {% include '@ecl/ec-component-button' with {
+                    'type': 'link',
+                    'label': lang.label ~ (lang.isActive ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
+                    'href': lang.href,
+                    'is_block': true,
+                    'extra_classes': 'ecl-language-list__button' ~ (lang.isActive ? ' ecl-language-list__button--active'),
+                    'extra_attributes': [
+                      { 'name': 'lang', 'value': lang.lang },
+                      { 'name': 'hreflang', 'value': lang.hreflang },
+                      { 'name': 'rel', 'value': 'alternate' }
+                    ]
+                  } %}
+                {% endfor %}
+              </div>
+              {% if _variant == 'overlay' %}
+                <button class="ecl-message__dismiss ecl-message__dismiss--inverted">{{messages.dismiss}}</button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endset %}
+
+{# Print result #}
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _variant == 'overlay' %}
+    {# Custom Dialog-overlay for the 'overlay' variant #}
+    <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
+    {% include '@ecl/ec-component-lang-select-site' with {
+      'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
+      'extra_class': 'ecl-link',
+      'link': _link
+    } %}
+    {% embed '@ecl/ec-component-dialog' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
+      {% block dialog_body %}
+        {{ languagesSection }}
+      {% endblock %}
+    {% endembed %}
+  {% elseif _variant == 'splash' %}
+    {% include '@ecl/ec-component-skip-link' with {
+      'href': '#main-content',
+      'label': 'Skip to main content'
+    } %}
+    {{ languagesSection }}
+  {% endif %}
+</div>

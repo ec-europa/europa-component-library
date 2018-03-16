@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd packages/styleguides/ec
+cd tools/ec-styleguide
 npx fractal build && cross-env NODE_ENV=production npm run build
 
-cd ../eu
+cd ../eu-styleguide
 npx fractal build && cross-env NODE_ENV=production npm run build

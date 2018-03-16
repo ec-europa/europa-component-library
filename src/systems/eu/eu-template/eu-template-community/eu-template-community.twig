@@ -1,0 +1,391 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+{% include '@ecl/eu-component-skip-link' with {
+  'href': '#main-content',
+  'label': 'Skip to main content'
+} %}
+
+{% include '@ecl/eu-component-site-header' with {
+  site_switcher: {
+    political: { href: '#', label: 'Commission and its priorities' },
+    info: {
+      href: '#',
+      label: 'Policies, information and services',
+      is_active: true,
+    },
+  },
+  user_menu: {
+    title: 'User menu',
+    links: [
+      { href: '#', label: 'My workbench' },
+      { href: '#', label: 'My account' },
+      { href: '#', label: 'Log out' },
+    ],
+  }
+} %}
+
+{% include '@ecl/eu-component-page-header' with {
+  variant: 'basic',
+  breadcrumb: [
+    { href: '#', label: 'European Commission' },
+    { href: '#', label: 'Group lists' },
+  ],
+} %}
+
+{% include "@ecl/eu-component-navigation-menu" with {
+  menu_aria_label: 'Main Navigation',
+  menu_label: 'Menu',
+  links: [
+    {
+      label: 'Home',
+      href: '#',
+    },
+    {
+      label: 'Communities',
+      href: '#',
+      is_active: true,
+      children_links: [
+        {
+          label: 'Homepage',
+          href: '#',
+          is_active: true,
+        },
+        {
+          label: 'Articles',
+          href: '#',
+        },
+        {
+          label: 'Events',
+          href: '#',
+        },
+        {
+          label: 'Media gallery',
+          href: '#',
+        }
+      ],
+    },
+    {
+      label: 'Events',
+      href: '#',
+    },
+    {
+      label: 'Galleries',
+      href: '#',
+    }
+  ]
+} %}
+
+<main>
+  <a id="main-content" tabindex="-1"></a>
+
+  <div class="ecl-container ecl-u-mv-l">
+    <h1 class="ecl-heading ecl-heading--h1">My community</h1>
+
+    <div class="ecl-row">
+      <div class="ecl-col-sm-3">
+        {% include '@ecl/eu-component-form-label' with {
+          for_attribute: 'create-content',
+          label: 'Create content'
+        } %}
+
+        {% embed '@ecl/eu-component-form-select' with { 'id': 'create-content', 'name': 'create-content' }%}
+          {% block options %}
+            <option>Article</option>
+            <option>Event</option>
+            <option>News</option>
+            <option>Media item</option>
+          {% endblock %}
+        {% endembed %}
+
+        {% include '@ecl/eu-component-link-block' with {
+          wrapper: true,
+          title: 'Members list',
+          links: [
+            { href: '#', label: 'John Doe' },
+            { href: '#', label: 'Jane Doe' },
+            { href: '#', label: 'Mike Doe' },
+            { href: '#', label: 'Richard Doe' }
+          ],
+          extra_classes: 'ecl-u-mt-m',
+        } %}
+      </div>
+
+      <div class="ecl-col-sm-9">
+        <p class="ecl-paragraph ecl-paragraph--l">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.
+        </p>
+
+        {% include '@ecl/eu-component-gallery-base' with {
+          data: {
+            rows: [
+              [
+                {
+                  classes: 'ecl-col-md-4',
+                  image: {
+                    src: 'http://placehold.it/380x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '380' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                  icon: 'ecl-icon--camera',
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  icon: 'ecl-icon--audio',
+                },
+                {
+                  classes: 'ecl-col-md-2',
+                  image: {
+                    src: 'http://placehold.it/190x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '190' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                  icon: 'ecl-icon--camera',
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                },
+              ],
+              [
+                {
+                  classes: 'ecl-col-md-2',
+                  image: {
+                    src: 'http://placehold.it/190x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '190' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                },
+                {
+                  classes: 'ecl-col-md-3',
+                  image: {
+                    src: 'http://placehold.it/285x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '285' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                },
+                {
+                  classes: 'ecl-col-md-4',
+                  image: {
+                    src: 'http://placehold.it/380x185',
+                    alt: 'Example alt text',
+                    extraAttributes: [
+                      { name: 'typeof', value: 'foaf:Image' },
+                      { name: 'width', value: '380' },
+                      { name: 'height', value: '185' },
+                    ],
+                  },
+                  caption: 'Example image caption',
+                },
+              ],
+            ],
+          },
+        } %}
+
+        {% include '@ecl/eu-component-button' with {
+          label: "Unsubscribe",
+          modifier: "default",
+          extra_classes: "ecl-u-mt-m",
+        } %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include '@ecl/eu-component-footer' with {
+  footer_menus: [
+    {
+      type: 'normal',
+      wrapper_class: 'ecl-footer__site-corporate',
+      menus: [
+        {
+          title: {
+            value: 'European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'https://ec.europa.eu/commission/index_en',
+                label: 'Commission and its priorities',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'https://ec.europa.eu/info/index_en',
+                label: 'Policies information and services',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'Follow the European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes:
+            'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Facebook',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Twitter',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Other social media',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'European Union',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'EU institutions',
+                variant: 'external',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'European Union',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'plain',
+      wrapper_class: 'ecl-footer__ec',
+      menus: [
+        {
+          classes: 'ecl-list--inline ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href:
+                  'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
+                label: "About the Commission's new web presence",
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/resources-partners_en',
+                label: 'Resources for partners',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/cookies_en',
+                label: 'Cookies',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/legal-notice_en',
+                label: 'Legal notice',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/contact_en',
+                label: 'Contact',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+} %}
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    ECL.megamenu('.ecl-navigation-menu__root');
+    ECL.initExpandables('.ecl-navigation-menu__toggle');
+  });
+</script>

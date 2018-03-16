@@ -19,6 +19,7 @@ matrix:
   TEST:
     - coding-conventions
     - functional
+    - webpack
 
 pipeline:
   install:
@@ -33,6 +34,14 @@ pipeline:
     when:
       matrix:
         TEST: coding-conventions
+
+  webpack:
+    image: node:latest
+    commands:
+      - cd examples/webpack && yarn build
+    when:
+      matrix:
+        TEST: webpack
 
   build:
     image: node:latest

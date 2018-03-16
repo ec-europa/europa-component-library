@@ -1,0 +1,46 @@
+{#
+  - "title" (string): optional title of the link block (default: '')
+  - "links" (array): [
+    "href" (string): target of the link
+    "label" (string): label of the link
+  ]
+  - "extra_classes" (string): extra CSS classes to be added
+  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+#}
+
+{% set title = title|default('') %}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-link-block' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  {% if title != '' %}
+    <div class="ecl-link-block__title">{{ title }}</div>
+  {% endif %}
+
+  <ul class="ecl-link-block__list">
+    {% for link in links %}
+    <li class="ecl-link-block__item">
+      {% include '@ecl/eu-component-link' with {
+        'extra_classes': 'ecl-link-block__link',
+        'variant': 'standalone',
+        }|merge(link|default({}))
+      %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
