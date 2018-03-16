@@ -12,7 +12,7 @@
     "build": "run-p build:* -ln",
     "clean":
       "rm -rf ./static/images ./static/scripts ./static/styles ./static/fonts",
-    "prepublish":
+    "postinstall":
       "copyfiles -f '../../node_modules/@ecl/generic-*/**/*.twig' ../../src/systems/eu/_imports",
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build --parallel serve watch",

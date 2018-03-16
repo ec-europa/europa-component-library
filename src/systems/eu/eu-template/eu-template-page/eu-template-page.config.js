@@ -1,4 +1,5 @@
-const languages = require('../../components/ec-component-language-list/languages.json');
+/* eslint-disable import/no-extraneous-dependencies */
+const languages = require('@ecl/eu-component-language-list/languages.json');
 
 module.exports = {
   title: 'Pages',
