@@ -14,8 +14,16 @@
 
 @include cols-x;
 
+// Links in EU footers should look like standalone links
+// The rule is added via CSS in order to allow better context management in twig, i.e. external links having variant
+
 .ecl-footer .ecl-link {
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }
 
 .ecl-footer__column {
