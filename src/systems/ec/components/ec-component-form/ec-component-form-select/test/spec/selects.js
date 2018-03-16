@@ -8,7 +8,7 @@ describe('forms-select', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ec-component-forms-select');
+    browser.goToComponent('ec-component-form-select');
 
     browser.pause(500);
 

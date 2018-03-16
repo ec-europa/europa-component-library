@@ -12,7 +12,7 @@ describe('ecl-forms-feedback-messages', () => {
     describe(`ecl-forms-feedback-messages--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('ec-component-forms-feedback-message', variant);
+        browser.goToComponent('ec-component-form-feedback-message', variant);
 
         browser.injectAxeCore();
 

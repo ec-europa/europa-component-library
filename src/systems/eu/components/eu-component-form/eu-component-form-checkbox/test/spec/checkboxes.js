@@ -8,7 +8,7 @@ describe('forms-checkbox', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('eu-component-forms-checkbox');
+    browser.goToComponent('eu-component-form-checkbox');
 
     browser.pause(500);
 

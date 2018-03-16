@@ -7,7 +7,7 @@ describe('forms-select', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('eu-component-forms-select');
+    browser.goToComponent('eu-component-form-select');
     browser.pause(500);
     browser.injectAxeCore();
   });

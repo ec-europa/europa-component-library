@@ -7,7 +7,7 @@ describe('forms-text-input', () => {
 
     browser.pause(500);
 
-    browser.goToComponent('eu-component-forms-text-input');
+    browser.goToComponent('eu-component-form-text-input');
     browser.pause(500);
     browser.injectAxeCore();
   });

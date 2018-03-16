@@ -8,7 +8,7 @@ describe('forms-radio-groups', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ec-component-forms-radio-group');
+    browser.goToComponent('ec-component-form-radio-group');
 
     browser.pause(500);
 

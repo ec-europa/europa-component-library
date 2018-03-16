@@ -12,7 +12,7 @@ describe('ecl-forms-textareas', () => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
-        browser.goToComponent('eu-component-forms-textarea', variant);
+        browser.goToComponent('eu-component-form-textarea', variant);
 
         browser.injectAxeCore();
 

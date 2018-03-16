@@ -6,7 +6,7 @@ describe('ecl-forms-file-uploads', () => {
     });
 
     // Go to url
-    browser.goToComponent('eu-component-forms-file-upload');
+    browser.goToComponent('eu-component-form-file-upload');
 
     browser.injectAxeCore();
 

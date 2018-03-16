@@ -8,7 +8,7 @@ describe('forms-legends', () => {
     browser.pause(500);
 
     // Go to url
-    browser.goToComponent('ec-component-forms-legend');
+    browser.goToComponent('ec-component-form-legend');
 
     browser.pause(500);
 
