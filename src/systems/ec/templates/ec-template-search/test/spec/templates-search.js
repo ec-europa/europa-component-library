@@ -5,7 +5,7 @@ describe('templates-search', () => {
       height: 600,
     });
 
-    browser.goToComponent('ec-template-templates-search');
+    browser.goToComponent('ec-template-search');
 
     browser.injectAxeCore();
 
