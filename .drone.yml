@@ -38,7 +38,8 @@ pipeline:
   webpack:
     image: node:latest
     commands:
-      - cd examples/webpack && yarn build
+      - cd examples/webpack3 && yarn build
+      - cd examples/webpack4 && yarn build
     when:
       matrix:
         TEST: webpack
