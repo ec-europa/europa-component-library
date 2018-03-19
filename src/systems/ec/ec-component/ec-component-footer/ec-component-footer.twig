@@ -150,10 +150,10 @@
       {% if last_menu.items is defined and last_menu.items is not empty %}
       <ul class="ecl-list--inline ecl-footer__menu">
         {% for menu_item in last_menu.items %}
-        <li class="{{ menu_item.classes }}">
+        <li class="ecl-footer__menu-item">
           {% include '@ecl/ec-component-link' with {
-            'href': menu_item.link.href,
-            'label': menu_item.link.label,
+            'href': menu_item.href,
+            'label': menu_item.label,
             'extra_classes': 'ecl-footer__link',
             'variant': 'inverted',
             }

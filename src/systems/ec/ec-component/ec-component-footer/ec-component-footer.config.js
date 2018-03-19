@@ -113,40 +113,25 @@ module.exports = {
     last_menu: {
       items: [
         {
-          classes: 'ecl-footer__menu-item',
-          link: {
-            href:
-              'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
-            label: "About the Commission's new web presence",
-          },
+          href:
+            'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
+          label: "About the Commission's new web presence",
         },
         {
-          classes: 'ecl-footer__menu-item',
-          link: {
-            href: 'http://ec.europa.eu/info/resources-partners_en',
-            label: 'Resources for partners',
-          },
+          href: 'http://ec.europa.eu/info/resources-partners_en',
+          label: 'Resources for partners',
         },
         {
-          classes: 'ecl-footer__menu-item',
-          link: {
-            href: 'http://ec.europa.eu/info/cookies_en',
-            label: 'Cookies',
-          },
+          href: 'http://ec.europa.eu/info/cookies_en',
+          label: 'Cookies',
         },
         {
-          classes: 'ecl-footer__menu-item',
-          link: {
-            href: 'http://ec.europa.eu/info/legal-notice_en',
-            label: 'Legal notice',
-          },
+          href: 'http://ec.europa.eu/info/legal-notice_en',
+          label: 'Legal notice',
         },
         {
-          classes: 'ecl-footer__menu-item',
-          link: {
-            href: 'http://ec.europa.eu/info/contact_en',
-            label: 'Contact',
-          },
+          href: 'http://ec.europa.eu/info/contact_en',
+          label: 'Contact',
         },
       ],
     },
