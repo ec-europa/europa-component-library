@@ -2,7 +2,7 @@
 const path = require('path');
 const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ecl/fractal-theme');
-const twigAdapter = require('@frctl/twig')({ handlePrefix: '@ecl/' });
+const twigAdapter = require('@ecl/fractal-twig')({ handlePrefix: '@ecl/' });
 
 const projectRoot = path.resolve(__dirname, '../..');
 

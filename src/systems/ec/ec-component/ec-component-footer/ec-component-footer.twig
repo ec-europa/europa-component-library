@@ -1,1 +1,167 @@
-{% include '@ecl/generic-component-footer' %}
+{% import '@ecl/generic-component-footer' as macros %}
+
+{% set _custom_footer %}
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-footer__column ecl-col-sm">
+        <h4 class="ecl-heading ecl-heading--h4">
+          {% include '@ecl/ec-component-link' with {
+            extra_classes: 'ecl-footer__link',
+            variant: 'standalone',
+          }|merge(custom_footer.identity|default({}))
+          %}
+        </h4>
+      </div>
+      {% if custom_footer.social_links is defined and custom_footer.social_links.links is defined %}
+      <div class="ecl-footer__column ecl-col-sm">
+        <p class="ecl-footer__label">{{ custom_footer.social_links.label }}</p>
+        <ul class="ecl-footer__menu ecl-footer__social-links ecl-list--inline">
+          {% for menu_item in custom_footer.social_links.links %}
+            <li class="ecl-footer__menu-item">
+              {% if menu_item.type == 'social-network' %}
+                {% embed '@ecl/ec-component-link' with {
+                  href: menu_item.link.href,
+                  extra_classes: 'ecl-footer__link',
+                  icon: menu_item.icon,
+                  link_label: menu_item.link.label
+                } only %}
+                  {% block label %}
+                    {% spaceless %}
+                      {% include '@ecl/ec-style-icon' with {
+                        modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                      } only %}<span>{{ link_label }}</span>
+                    {% endspaceless %}
+                  {% endblock %}
+                {% endembed %}
+              {% else %}
+                {% include '@ecl/ec-component-link' with {
+                  href: menu_item.link.href,
+                  label: menu_item.link.label,
+                  extra_classes: 'ecl-footer__link',
+                  variant: 'external',
+                } only %}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if custom_footer.other_links is defined and custom_footer.other_links.links is defined %}
+      <div class="ecl-footer__column ecl-col-sm">
+        <ul class="ecl-footer__menu ecl-list--unstyled">
+          {% for menu_item in custom_footer.other_links.links %}
+            <li class="ecl-footer__menu-item">
+              {% include '@ecl/ec-component-link' with {
+                'href': menu_item.link.href,
+                'label': menu_item.link.label,
+                'extra_classes': 'ecl-footer__link',
+                'variant': link_variant,
+                }
+              %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endset %}
+
+{% set _corporate_footer %}
+<div class="ecl-container">
+  <div class="ecl-row">
+    {% for menu in corporate_footer %}
+    <div class="ecl-footer__column ecl-col-sm">
+      <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ menu.title }}</h4>
+      {% if menu.items is defined and menu.items is not empty %}
+      <ul class="{{ menu.classes }}">
+        {% for menu_item in menu.items %}
+        {% if menu_item.link.label_wrapper_class is defined %}
+        <li class="{{ menu_item.classes }}">
+          {% if footer_menu.type == 'branded' %}
+            {% set link_variant = menu_item.link.variant %}
+          {% else %}
+            {% if menu_item.link.variant is defined %}
+              {% if menu_item.link.variant is iterable %}
+                {% set link_variant = ['inverted']|merge(menu_item.link.variant) %}
+              {% else %}
+                {% set link_variant = ['inverted']|merge([menu_item.link.variant]) %}
+              {% endif %}
+            {% else %}
+              {% set link_variant = 'inverted' %}
+            {% endif %}
+          {% endif %}
+
+          {% include '@ecl/ec-component-link' with {
+            'href': menu_item.link.href,
+            'label': '<span class="' ~ menu_item.link.label_wrapper_class ~ '"></span>' ~ menu_item.link.label,
+            'extra_classes': 'ecl-footer__link',
+            'variant': link_variant,
+            }
+          %}
+        </li>
+        {% else %}
+        <li class="{{ menu_item.classes }}">
+          {% if footer_menu.type == 'branded' %}
+            {% set link_variant = menu_item.link.variant %}
+          {% else %}
+            {% if menu_item.link.variant is defined %}
+              {% if menu_item.link.variant is iterable %}
+                {% set link_variant = ['inverted']|merge(menu_item.link.variant) %}
+              {% else %}
+                {% set link_variant = ['inverted']|merge([menu_item.link.variant]) %}
+              {% endif %}
+            {% else %}
+              {% set link_variant = 'inverted' %}
+            {% endif %}
+          {% endif %}
+
+          {% include '@ecl/ec-component-link' with {
+            'href': menu_item.link.href,
+            'label': menu_item.link.label,
+            'extra_classes': 'ecl-footer__link',
+            'variant': link_variant,
+            }
+          %}
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endset %}
+
+{% set _last_footer %}
+<div class="ecl-container">
+  <div class="ecl-row">
+    <div class="ecl-col">
+      {% if last_menu.items is defined and last_menu.items is not empty %}
+      <ul class="ecl-list--inline ecl-footer__menu">
+        {% for menu_item in last_menu.items %}
+        <li class="{{ menu_item.classes }}">
+          {% include '@ecl/ec-component-link' with {
+            'href': menu_item.link.href,
+            'label': menu_item.link.label,
+            'extra_classes': 'ecl-footer__link',
+            'variant': 'inverted',
+            }
+          %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endset %}
+
+{# Render component #}
+
+{{ macros.footer({
+  custom_footer: _custom_footer,
+  corporate_footer: _corporate_footer,
+  last_footer: _last_footer
+}) }}
