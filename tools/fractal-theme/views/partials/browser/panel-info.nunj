@@ -1,0 +1,68 @@
+<div class="Browser-panel" data-role="tab-panel" id="browser-{{ entity.id }}-panel-info">
+    <ul class="Meta">
+        <li class="Meta-item">
+            <strong class="Meta-key">Handle:</strong>
+            <span class="Meta-value">@ecl/{{ entity.handle }}</span>
+        </li>
+        {% if entity.tags.length > 1 %}
+        <li class="Meta-item">
+            <strong class="Meta-key">Tags:</strong>
+            <span class="Meta-value">
+                {% for tag in entity.tags %}
+                    <span>{% if tag %}{{ tag }}</span>{% if not loop.last %}, {% endif %}{% endif %}
+                {% endfor %}
+            </span>
+        </li>
+        {% endif %}
+        {% if entity.isComponent %}
+        {% set variants = entity.variants() %}
+        {% else %}
+        {% set variants = entity.parent.variants() %}
+        {% endif %}
+        {% if variants.size > 1 and not entity.collated %}
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">({{ variants.size }})</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            {% for variant in variants.items() %}
+                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: variant.handle })) }}">
+                    <span>{{ variant.label }}</span>
+                </a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </span>
+        </li>
+        {% endif %}
+        <li class="Meta-item">
+            <strong class="Meta-key">Preview:</strong>
+            <span class="Meta-value">
+                <ul>
+                    <li><a href="{{ path(frctl.theme.urlFromRoute('preview', { handle: entity.handle })) }}"><span>With layout</span> {% include "icons/open-in-browser.svg" %}</a></li>
+                    <li><a href="{{ path(frctl.theme.urlFromRoute('render', { handle: entity.handle })) }}"><span>Component only</span> {% include "icons/open-in-browser.svg" %}</a></li>
+                </ul>
+            </span>
+        </li>
+        <li class="Meta-item">
+            <strong class="Meta-key">Filesystem Path:</strong>
+            <span class="Meta-value">{{ entity.viewPath | componentPath }}</span>
+        </li>
+        {% if entity.references.length %}
+        <li class="Meta-item">
+            <strong class="Meta-key">References <em class="Meta-count">({{ entity.references.length }})</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            {% for ref in entity.references %}
+                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: ref.handle })) }}">@ecl/<span>{{ ref.handle }}</span></a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </span>
+        </li class="Meta-item">
+        {% endif %}
+        {% if entity.referencedBy.length %}
+        <li class="Meta-item">
+            <strong class="Meta-key">Referenced by <em class="Meta-count">({{ entity.referencedBy.length }})</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            {% for ref in entity.referencedBy %}
+                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: ref.handle })) }}">@ecl/<span>{{ ref.handle }}</span></a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+            </span>
+        </li>
+        {% endif %}
+    </ul>
+</div>

@@ -32,8 +32,8 @@ Tested on:
 | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [@ec-europa/ecl-icons](framework/content/ecl-icons)                                                | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-icons.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-icons)                                 |
 | [@ec-europa/ecl-images](framework/content/ecl-images)                                              | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-images.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-images)                               |
-| [@ec-europa/ecl-typography-headings](framework/content/ecl-typography/ecl-typography-headings)     | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings)     |
-| [@ec-europa/ecl-typography-lists](framework/content/ecl-typography/ecl-typography-lists)           | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists)           |
+| [@ecl/generic-style-typography-heading](framework/content/ecl-typography/ecl-typography-headings)  | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-headings)     |
+| [@ecl/generic-style-typography-list](framework/content/ecl-typography/ecl-typography-lists)        | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-lists)           |
 | [@ec-europa/ecl-typography-paragraphs](framework/content/ecl-typography/ecl-typography-paragraphs) | [![npm version](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs.svg)](https://badge.fury.io/js/%40ec-europa%2Fecl-typography-paragraphs) |
 
 ### Components
@@ -191,3 +191,13 @@ Then, you can type:
 ```bash
 yarn gh-pages
 ```
+
+## Preparing Github releases
+
+Run the following in order to get packages for Github releases:
+
+```bash
+yarn publish:releases
+```
+
+For the moment, you will need to upload the output items of `./dist/releases` manually.

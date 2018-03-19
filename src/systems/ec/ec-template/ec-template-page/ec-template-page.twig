@@ -1,0 +1,249 @@
+{#
+  This is an example and should not be used as it is.
+#}
+
+{% include '@ecl/ec-component-skip-link' with {
+    'href': '#main-content',
+    'label': 'Skip to main content'
+} %}
+
+{% include '@ecl/ec-component-site-header' with {
+  site_switcher: {
+    political: { href: '#', label: 'Commission and its priorities' },
+    info: {
+      href: '#',
+      label: 'Policies, information and services',
+      is_active: true,
+    },
+  },
+  user_menu: {
+    title: 'User menu',
+    links: [
+      { href: "#", label: "Log in" },
+    ],
+  },
+  lanugages: languages
+} %}
+
+{% include '@ecl/ec-component-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
+{% if menu is defined and menu is not empty %}
+  {% include '@ecl/ec-component-navigation-menu' with menu %}
+{% endif %}
+
+<main>
+  <a id="main-content" tabindex="-1"></a>
+  <div class="ecl-container ecl-u-mv-l">
+    <h1 class="ecl-heading ecl-heading--h1">Page example</h1>
+    <p class="ecl-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tortor elit, sagittis eu ante eu, tempor tempus lorem. Quisque auctor leo id tempor pulvinar. Nunc sapien orci, eleifend nec magna ac, feugiat viverra orci. Nulla efficitur nisl vitae risus pretium, sit amet aliquam dolor volutpat. Donec risus elit, congue at porta eget, posuere vitae ipsum. Nulla iaculis magna a lorem dignissim consequat. Praesent mattis libero ac tortor efficitur porta. In congue elementum nunc, vitae accumsan turpis dictum non.</p>
+    <p class="ecl-paragraph">Integer convallis quis magna et dapibus. Aenean id lectus vitae nulla fringilla gravida sed id mauris. Aliquam commodo erat sit amet nisi mollis, ut suscipit dolor eleifend. Fusce at malesuada lorem. Ut rutrum nibh massa, sed tincidunt nibh pretium id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed porttitor turpis a efficitur posuere. Integer eu est sodales, ornare elit ac, congue leo. Sed condimentum faucibus fermentum. Fusce aliquet ut enim euismod feugiat. Fusce nec interdum metus, id finibus nisl.</p>
+  </div>
+</main>
+
+{% include '@ecl/ec-component-footer' with {
+  footer_menus: [
+    {
+      type: 'branded',
+      wrapper_class: 'ecl-footer__site-identity',
+      menus: [
+        {
+          title: {
+            classes: 'ecl-h4',
+            link: {
+              href: '#',
+              label: 'Digital single market',
+              variant: 'standalone',
+            },
+          },
+        },
+        {
+          label: 'Follow us:',
+          classes: 'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Facebook',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Twitter',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Other social media',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+        {
+          classes: 'ecl-footer__menu ecl-list--unstyled',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Contact',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Site map',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'normal',
+      wrapper_class: 'ecl-footer__site-corporate',
+      menus: [
+        {
+          title: {
+            value: 'European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'https://ec.europa.eu/commission/index_en',
+                label: 'Commission and its priorities',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'https://ec.europa.eu/info/index_en',
+                label: 'Policies information and services',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'Follow the European Commission',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes:
+            'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Facebook',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Twitter',
+                label_wrapper_class:
+                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'Other social media',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+        {
+          title: {
+            value: 'European Union',
+            classes: 'ecl-h4 ecl-footer__title',
+          },
+          classes: 'ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'EU institutions',
+                variant: 'external',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: '#',
+                label: 'European Union',
+                variant: 'external',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      type: 'plain',
+      wrapper_class: 'ecl-footer__ec',
+      menus: [
+        {
+          classes: 'ecl-list--inline ecl-footer__menu',
+          items: [
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href:
+                  'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
+                label: "About the Commission's new web presence",
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/resources-partners_en',
+                label: 'Resources for partners',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/cookies_en',
+                label: 'Cookies',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/legal-notice_en',
+                label: 'Legal notice',
+              },
+            },
+            {
+              classes: 'ecl-footer__menu-item',
+              link: {
+                href: 'http://ec.europa.eu/info/contact_en',
+                label: 'Contact',
+              },
+            },
+          ],
+        },
+      ],
+    },
+  ],
+} %}

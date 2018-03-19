@@ -1,0 +1,5 @@
+{% extends 'layouts/render.nunj' %}
+
+{% set entity = frctl.components.find('@' + request.params.handle) -%}
+{% set withLayout = true -%}
+{% set withCollation = true -%}

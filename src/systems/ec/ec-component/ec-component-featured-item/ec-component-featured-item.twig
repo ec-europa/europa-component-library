@@ -1,0 +1,77 @@
+{#
+  - variant: the variant. Can be '' or 'extended' (default: '')
+  - image: {
+    src: the source of the image (default: '')
+    alt: alternative text for the image (default: '')
+  }
+  - metas (array): array of meta. Should follow structure of ecl-meta (default: '')
+  - title: title of the featured item (default: '')
+  - body (block): content of the featured item (default: lorem ipsum)
+  - link: {
+    href: target of the link (default: '')
+    label: label of the link (default: '')
+  }
+#}
+
+{% set variant = variant|default('') %}
+{% set image = {
+  src: image.src|default(''),
+  alt: image.alt|default('')
+} %}
+{% set title = title|default('') %}
+{% set link = {
+  href: link.href|default(''),
+  label: link.label|default('')
+} %}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-featured-item' ~ (variant != '' ? ' ecl-featured-item--' ~ variant: '') %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print result #}
+
+<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+  <div class="ecl-featured-item__image">
+    <img src="{{ image.src }}" alt="{{ image.alt }}" />
+  </div>
+
+  <div class="ecl-featured-item__body">
+    {% include '@ecl/ec-component-meta' with {
+      modifier: 'ecl-meta--header',
+      metas: metas,
+    } %}
+
+    {% include '@ecl/ec-component-link' with {
+      'href': link.href,
+      'label': title,
+      'extra_classes': 'ecl-featured-item__title',
+      'variant': 'standalone',
+      }
+    %}
+
+    {% block body %}
+
+    <p class="ecl-paragraph">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+    </p>
+
+    {% endblock %}
+
+    {% if variant == 'extended' %}
+    <a href="{{ link.href }}" class="ecl-button ecl-button--call ecl-button--caret-right">{{ link.label }}</a>
+    {% endif %}
+  </div>
+</div>

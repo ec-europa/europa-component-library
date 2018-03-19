@@ -1,5 +1,0 @@
-# Webpack demo
-
-```
-yarn build
-```
