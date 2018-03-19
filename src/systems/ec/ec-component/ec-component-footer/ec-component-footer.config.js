@@ -54,82 +54,62 @@ module.exports = {
         ],
       },
     },
-    corporate_footer: [
-      {
+    corporate_footer: {
+      about_ec: {
         title: 'European Commission',
-        classes: 'ecl-footer__menu',
         items: [
           {
-            classes: 'ecl-footer__menu-item',
-            link: {
-              href: 'https://ec.europa.eu/commission/index_en',
-              label: 'Commission and its priorities',
-            },
+            href: 'https://ec.europa.eu/commission/index_en',
+            label: 'Commission and its priorities',
           },
           {
-            classes: 'ecl-footer__menu-item',
-            link: {
-              href: 'https://ec.europa.eu/info/index_en',
-              label: 'Policies information and services',
-            },
+            href: 'https://ec.europa.eu/info/index_en',
+            label: 'Policies information and services',
           },
         ],
       },
-      {
+      follow_ec: {
         title: 'Follow the European Commission',
-        classes: 'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
         items: [
           {
-            classes: 'ecl-footer__menu-item',
+            type: 'social-network',
+            icon: 'facebook',
             link: {
               href: '#',
               label: 'Facebook',
-              label_wrapper_class:
-                'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
             },
           },
           {
-            classes: 'ecl-footer__menu-item',
+            type: 'social-network',
+            icon: 'twitter',
             link: {
               href: '#',
               label: 'Twitter',
-              label_wrapper_class:
-                'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
             },
           },
           {
-            classes: 'ecl-footer__menu-item',
+            type: 'external',
             link: {
               href: '#',
               label: 'Other social media',
-              variant: 'external',
             },
           },
         ],
       },
-      {
+      about_eu: {
         title: 'European Union',
-        classes: 'ecl-footer__menu',
         items: [
           {
-            classes: 'ecl-footer__menu-item',
-            link: {
-              href: '#',
-              label: 'EU institutions',
-              variant: 'external',
-            },
+            href: '#',
+            label: 'EU institutions',
           },
           {
-            classes: 'ecl-footer__menu-item',
-            link: {
-              href: '#',
-              label: 'European Union',
-              variant: 'external',
-            },
+            href: '#',
+            label: 'European Union',
           },
         ],
       },
-    ],
+    },
     last_menu: {
       items: [
         {
