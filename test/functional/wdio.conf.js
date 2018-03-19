@@ -128,7 +128,7 @@ exports.config = {
       referenceName: getScreenshotName('test/spec/screenshots/reference'),
       screenshotName: getScreenshotName('test/spec/screenshots/captured'),
       diffName: getScreenshotName('test/spec/screenshots/diff'),
-      misMatchTolerance: 0.02,
+      misMatchTolerance: 3,
     }),
   },
 
