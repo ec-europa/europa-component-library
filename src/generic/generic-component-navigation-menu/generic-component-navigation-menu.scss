@@ -104,6 +104,10 @@
     width: 100%;
   }
 
+  .ecl-navigation-menu__root > .ecl-navigation-menu__item {
+    background-color: $ecl-navigation-menu-bar-bg-desktop;
+  }
+
   .ecl-navigation-menu__item--active {
     background-color: $ecl-navigation-menu-active-bg;
     position: relative;
@@ -122,6 +126,10 @@
       transform: translateX(-50%);
       width: 100vw;
     }
+  }
+
+  .ecl-navigation-menu__root > .ecl-navigation-menu__item--active {
+    background-color: $ecl-navigation-menu-active-bg;
   }
 
   .ecl-navigation-menu__group .ecl-navigation-menu__link {

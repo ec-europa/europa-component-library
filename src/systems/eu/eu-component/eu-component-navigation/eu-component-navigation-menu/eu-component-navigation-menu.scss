@@ -51,7 +51,8 @@
     margin-right: 3px;
   }
 
-  .ecl-navigation-menu__item--active {
+  .ecl-navigation-menu__item--active,
+  .ecl-navigation-menu__root > .ecl-navigation-menu__item--active {
     background-color: map-get($ecl-colors, 'grey-5');
     margin-bottom: -3px;
 
