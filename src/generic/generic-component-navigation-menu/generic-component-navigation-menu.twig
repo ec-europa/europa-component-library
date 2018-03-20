@@ -57,12 +57,21 @@
               <a href="{{ _link.href }}" class="ecl-navigation-menu__link">{{ _link.label }}</a>
             {% else %}
               <a href="{{ _link.href }}" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">{{ _link.label }}</a>
-              <ul class="ecl-navigation-menu__group" id="nav-menu-expandable-group-{{ loop.index }}">
-                {% for _child_link in _link.children_links %}
-                  {% set _child_link_class_name = 'ecl-navigation-menu__link' ~ (_child_link.is_active ? ' ecl-navigation-menu__link--active' : '') %}
-                  <li class="ecl-navigation-menu__item"><a href="{{ _child_link.href }}" class="{{ _child_link_class_name }}">{{ _child_link.label }}</a></li>
+              <div class="ecl-navigation-menu__group ecl-row" id="nav-menu-expandable-group-{{ loop.index }}">
+                {% for _column in _link.children_links %}
+                  <div class="ecl-col">
+                    {% if _column.title is defined and _column.title is not empty %}
+                    <div class="ecl-navigation-menu__title">{{ _column.title }}</div>
+                    {% endif %}
+                    <ul class="ecl-list--unstyled">
+                      {% for _child_link in _column.links %}
+                      {% set _child_link_class_name = 'ecl-navigation-menu__link' ~ (_child_link.is_active ? ' ecl-navigation-menu__link--active' : '') %}
+                      <li class="ecl-navigation-menu__item"><a href="{{ _child_link.href }}" class="{{ _child_link_class_name }}">{{ _child_link.label }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
                 {% endfor %}
-              </ul>
+              </div>
             {% endif %}
           </li>
         {% endfor %}

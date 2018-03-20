@@ -3,13 +3,21 @@
  * @define navigation-menu
  */
 
+$ecl-navigation-menu-bar-bg-mobile: '' !default;
+$ecl-navigation-menu-bar-bg-desktop: '' !default;
+$ecl-navigation-menu-toggle-btn-color: '' !default;
+$ecl-navigation-menu-group-bg: '' !default;
+$ecl-navigation-menu-separator-mobile: '' !default;
+$ecl-navigation-menu-link-color: '' !default;
+$ecl-navigation-menu-active-color: '' !default;
+$ecl-navigation-menu-active-bg: '' !default;
+
 .ecl-navigation-menu {
-  background-color: map-get($ecl-colors, 'blue-75');
+  background-color: $ecl-navigation-menu-bar-bg-mobile;
   margin: 0;
 }
 
 .ecl-navigation-menu__root {
-  background-color: map-get($ecl-colors, 'blue-25');
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -29,7 +37,7 @@
 }
 
 .ecl-navigation-menu__root::before {
-  background-color: map-get($ecl-colors, 'blue-25');
+  background-color: $ecl-navigation-menu-bar-bg-desktop;
   content: '';
   height: 100%;
   left: 50%;
@@ -40,9 +48,9 @@
 }
 
 .ecl-navigation-menu__toggle {
-  background-color: map-get($ecl-colors, 'blue-75');
+  background-color: $ecl-navigation-menu-bar-bg-mobile;
   border-width: 0;
-  color: #fff;
+  color: $ecl-navigation-menu-toggle-btn-color;
   font-size: map-get($ecl-font-size, 'm');
   font-weight: bold;
   padding: map-get($ecl-spacing, 'm') 0;
@@ -53,16 +61,14 @@
 }
 
 .ecl-navigation-menu__group {
-  background-color: map-get($ecl-colors, 'grey-5');
   display: none;
   list-style: none;
-  margin: 0;
-  padding-left: 0;
+  padding: map-get($ecl-spacing, 's') 0 map-get($ecl-spacing, 's');
   position: relative;
 }
 
 .ecl-navigation-menu__group::before {
-  background-color: map-get($ecl-colors, 'grey-5');
+  background-color: $ecl-navigation-menu-group-bg;
   content: '';
   height: 100%;
   left: 50%;
@@ -72,14 +78,21 @@
   width: 100vw;
 }
 
+.ecl-navigation-menu__title {
+  color: map-get($ecl-colors, 'grey-100');
+  font-size: map-get($ecl-font-size, 'm');
+  padding-bottom: map-get($ecl-spacing, 'xs');
+  padding-top: map-get($ecl-spacing, 'xs');
+}
+
 .ecl-navigation-menu__link {
   align-items: center;
   background-color: transparent;
-  border-bottom: 1px solid map-get($ecl-colors, 'blue-50');
+  border-bottom: 1px solid $ecl-navigation-menu-separator-mobile;
   border-left-width: 0;
   border-right-width: 0;
   border-top: 0;
-  color: map-get($ecl-colors, 'blue-120');
+  color: $ecl-navigation-menu-link-color;
   display: flex;
   font-size: map-get($ecl-font-size, 's');
   font-weight: bold;
@@ -90,8 +103,24 @@
   width: 100%;
 }
 
-.ecl-navigation-menu__item--active > .ecl-navigation-menu__link {
-  color: #fff;
+.ecl-navigation-menu__item--active {
+  background-color: $ecl-navigation-menu-active-bg;
+  position: relative;
+
+  > .ecl-navigation-menu__link {
+    color: $ecl-navigation-menu-active-color;
+  }
+
+  &::before {
+    background-color: $ecl-navigation-menu-active-bg;
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
 }
 
 .ecl-navigation-menu__group .ecl-navigation-menu__link {
@@ -152,27 +181,6 @@
   display: block;
 }
 
-.ecl-navigation-menu__item--active {
-  background-color: map-get($ecl-colors, 'blue-75');
-  position: relative;
-}
-
-.ecl-navigation-menu__item--active::before {
-  background-color: map-get($ecl-colors, 'blue-75'); //#f5f5f5;
-  content: '';
-  height: 100%;
-  left: 50%;
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-  width: 100vw;
-}
-
-.ecl-navigation-menu__item--active
-  > .ecl-navigation-menu__link:not([aria-expanded='true']) {
-  border-bottom-width: 0;
-}
-
 /* Hamburger button */
 // Based on https://github.com/jonsuh/hamburgers
 .ecl-navigation-menu__hamburger-box {
@@ -193,7 +201,7 @@
 .ecl-navigation-menu__hamburger-inner,
 .ecl-navigation-menu__hamburger-inner::before,
 .ecl-navigation-menu__hamburger-inner::after {
-  background-color: #fff;
+  background-color: $ecl-navigation-menu-toggle-btn-color;
   border-radius: 0.1em;
   height: 0.2em;
   position: absolute;
@@ -254,7 +262,7 @@
 
 @include ecl-media-breakpoint-up(md) {
   .ecl-navigation-menu {
-    background-color: map-get($ecl-colors, 'blue-25');
+    background-color: $ecl-navigation-menu-bar-bg-desktop;
   }
 
   .ecl-navigation-menu__root {
@@ -277,7 +285,7 @@
   .ecl-navigation-menu__group {
     flex-wrap: wrap;
     left: 0;
-    padding: map-get($ecl-spacing, 'xs') 0 map-get($ecl-spacing, 's');
+    margin: 0;
     position: absolute;
     top: 100%;
     width: 100%;
@@ -285,14 +293,12 @@
 
   .ecl-navigation-menu__link {
     border-bottom-width: 0;
-    font-size: map-get($ecl-font-size, 'xs');
     margin: 0;
     padding: map-get($ecl-spacing, 's');
   }
 
   .ecl-navigation-menu__group .ecl-navigation-menu__link {
-    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's')
-      map-get($ecl-spacing, 'xs') 0;
+    padding: map-get($ecl-spacing, 'xs') 0;
   }
 
   .ecl-navigation-menu__link[aria-expanded]::after {
@@ -300,8 +306,8 @@
   }
 
   .ecl-navigation-menu__link[aria-expanded='true'] {
-    background-color: map-get($ecl-colors, 'grey-5');
-    color: map-get($ecl-colors, 'blue-120');
+    background-color: $ecl-navigation-menu-group-bg;
+    color: $ecl-navigation-menu-link-color;
   }
 
   .ecl-navigation-menu__link[aria-expanded='true']
@@ -325,10 +331,5 @@
 
   .ecl-navigation-menu__item--active::before {
     display: none;
-  }
-
-  .ecl-navigation-menu__item--active
-    > .ecl-navigation-menu__link[aria-expanded='true'] {
-    color: map-get($ecl-colors, 'blue-120');
   }
 }
