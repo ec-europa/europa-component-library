@@ -75,7 +75,7 @@ module.exports = {
     corporate_footer: {
       contact_eu: {
         title: 'Contact EU',
-        // classes: 'ecl-footer__menu ecl-footer__menu--2-col ecl-list--unstyled',
+        // classes: 'ecl-footer__list ecl-footer__list--2-col ecl-list--unstyled',
         // extra_classes: 'ecl-col-md-8',
         items: [
           {
@@ -105,8 +105,8 @@ module.exports = {
         ],
       },
       social_media: {
-        title: 'Find the EU on social media accounts',
-        // classes: 'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+        title: 'Find EU social media accounts',
+        // classes: 'ecl-footer__list ecl-list--inline ecl-footer__social-links',
         // extra_classes: 'ecl-col-md-4',
         items: [
           {
@@ -116,11 +116,7 @@ module.exports = {
         ],
       },
       find_institution: {
-        title: 'Find an European institution',
-        //  classes: 'ecl-h4 ecl-footer__title',
-        // },
-        // classes: 'ecl-footer__menu ecl-footer__menu--3-col ecl-list--unstyled',
-        // extra_classes: 'ecl-col-md-12',
+        title: 'Find a European institution',
         items: [
           {
             href: '#',
@@ -140,7 +136,7 @@ module.exports = {
             label: 'European Commission',
           },
           {
-            classes: 'ecl-footer__menu-item',
+            classes: 'ecl-footer__list-item',
             link: {
               href: '#',
               label: 'Court of Justice of the European Union',
@@ -197,7 +193,7 @@ module.exports = {
         // wrapper_class: 'ecl-footer__eu',
         // menus: [
         //  {
-        //    classes: 'ecl-list--inline ecl-footer__menu',
+        //    classes: 'ecl-list--inline ecl-footer__list',
         //    extra_classes: 'ecl-col',
         //    items: [
         {

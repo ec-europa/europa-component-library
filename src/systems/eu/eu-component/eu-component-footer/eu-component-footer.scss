@@ -10,7 +10,7 @@
 @mixin cols-x {
   @for $i from 2 through 4 {
     /* stylelint-disable-next-line */
-    .ecl-footer__menu--#{$i}-col {
+    .ecl-footer__list--#{$i}-col {
       column-count: $i;
       margin: 0;
     }
@@ -43,11 +43,30 @@
   padding-bottom: map-get($ecl-spacing, 'xs');
 }
 
-.ecl-footer__menu {
-  .ecl-footer__menu-item {
-    font-size: map-get($ecl-font-size, 's');
-    line-height: 2rem; // map-get($ecl-font-size, 'xl');
+.ecl-footer__list {
+  list-style: none;
+  margin: 0;
+  max-width: none;
+  padding-left: 0;
+}
+
+// Small hack until we fix ecl-list
+/* stylelint-disable */
+.ecl-footer__list.ecl-list--inline {
+  li {
+    margin-left: 0;
+    margin-right: map-get($ecl-spacing, 'xxs');
   }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}
+/* stylelint-enable */
+
+.ecl-footer__list-item {
+  font-size: map-get($ecl-font-size, 's');
+  line-height: 2rem; // map-get($ecl-font-size, 'xl');
 }
 
 .ecl-footer__custom {
@@ -74,12 +93,13 @@
 .ecl-footer__corporate-bottom {
   background-color: #d9d9d9;
   color: map-get($ecl-colors, 'blue-110');
+  padding: map-get($ecl-spacing, 's') 0;
 }
 
 @include ecl-media-breakpoint-down(sm) {
-  .ecl-footer__menu--2-col,
-  .ecl-footer__menu--3-col,
-  .ecl-footer__menu--4-col {
+  .ecl-footer__list--2-col,
+  .ecl-footer__list--3-col,
+  .ecl-footer__list--4-col {
     column-count: 1;
   }
 }

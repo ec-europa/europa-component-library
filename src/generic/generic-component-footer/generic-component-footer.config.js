@@ -22,10 +22,10 @@ module.exports = {
           {
             label: 'Follow us:',
             classes:
-              'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+              'ecl-footer__list ecl-list--inline ecl-footer__social-links',
             items: [
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Facebook',
@@ -34,7 +34,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Twitter',
@@ -43,7 +43,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Other social media',
@@ -53,17 +53,17 @@ module.exports = {
             ],
           },
           {
-            classes: 'ecl-footer__menu ecl-list--unstyled',
+            classes: 'ecl-footer__list ecl-list--unstyled',
             items: [
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Contact',
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Site map',
@@ -82,17 +82,17 @@ module.exports = {
               value: 'European Commission',
               classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footer__menu',
+            classes: 'ecl-footer__list',
             items: [
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: 'https://ec.europa.eu/commission/index_en',
                   label: 'Commission and its priorities',
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: 'https://ec.europa.eu/info/index_en',
                   label: 'Policies information and services',
@@ -106,10 +106,10 @@ module.exports = {
               classes: 'ecl-h4 ecl-footer__title',
             },
             classes:
-              'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
+              'ecl-footer__list ecl-list--inline ecl-footer__social-links',
             items: [
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Facebook',
@@ -118,7 +118,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Twitter',
@@ -127,7 +127,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'Other social media',
@@ -141,10 +141,10 @@ module.exports = {
               value: 'European Union',
               classes: 'ecl-h4 ecl-footer__title',
             },
-            classes: 'ecl-footer__menu',
+            classes: 'ecl-footer__list',
             items: [
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'EU institutions',
@@ -152,7 +152,7 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: '#',
                   label: 'European Union',
@@ -168,10 +168,10 @@ module.exports = {
         wrapper_class: 'ecl-footer__bottom',
         menus: [
           {
-            classes: 'ecl-list--inline ecl-footer__menu',
+            classes: 'ecl-list--inline ecl-footer__list',
             items: [
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href:
                     'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
@@ -179,28 +179,28 @@ module.exports = {
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: 'http://ec.europa.eu/info/resources-partners_en',
                   label: 'Resources for partners',
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: 'http://ec.europa.eu/info/cookies_en',
                   label: 'Cookies',
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: 'http://ec.europa.eu/info/legal-notice_en',
                   label: 'Legal notice',
                 },
               },
               {
-                classes: 'ecl-footer__menu-item',
+                classes: 'ecl-footer__list-item',
                 link: {
                   href: 'http://ec.europa.eu/info/contact_en',
                   label: 'Contact',

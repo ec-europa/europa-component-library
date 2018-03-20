@@ -33,7 +33,7 @@
   {% set system = system|default('generic') %}
   <div class="ecl-container">
     <div class="ecl-row">
-      <div class="ecl-footer__column ecl-col-sm">
+      <div class="ecl-footer__column ecl-col-md">
         <h4 class="ecl-heading ecl-heading--h4 ecl-footer__custom-title">
           {% include '@ecl/' ~ system ~ '-component-link' with {
             extra_classes: 'ecl-footer__link',
@@ -43,11 +43,11 @@
         </h4>
       </div>
       {% if options.social_links is defined and options.social_links.links is defined %}
-      <div class="ecl-footer__column ecl-col-sm">
+      <div class="ecl-footer__column ecl-col-md">
         <p class="ecl-footer__label">{{ options.social_links.label }}</p>
-        <ul class="ecl-footer__menu ecl-footer__social-links ecl-list ecl-list--inline">
+        <ul class="ecl-footer__list ecl-footer__social-links ecl-list ecl-list--inline">
           {% for menu_item in options.social_links.links %}
-            <li class="ecl-footer__menu-item">
+            <li class="ecl-footer__list-item">
               {% if menu_item.type == 'social-network' %}
                 {% embed '@ecl/' ~ system ~ '-component-link' with {
                   href: menu_item.link.href,
@@ -78,10 +78,10 @@
       </div>
       {% endif %}
       {% if options.other_links is defined and options.other_links.links is defined %}
-      <div class="ecl-footer__column ecl-col-sm">
-        <ul class="ecl-footer__menu ecl-list--unstyled{{ options.other_links_inline ? ' ecl-list--inline' : '' }}">
+      <div class="ecl-footer__column ecl-col-md">
+        <ul class="ecl-footer__list ecl-list ecl-list--unstyled{{ options.other_links_inline ? ' ecl-list--inline' : '' }}">
           {% for menu_item in options.other_links.links %}
-            <li class="ecl-footer__menu-item">
+            <li class="ecl-footer__list-item">
               {% include '@ecl/' ~ system ~ '-component-link' with {
                 'href': menu_item.link.href,
                 'label': menu_item.link.label,

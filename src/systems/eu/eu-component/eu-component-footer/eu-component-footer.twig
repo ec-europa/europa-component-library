@@ -9,11 +9,11 @@
   <div class="ecl-container">
     <div class="ecl-row">
       {% if corporate_footer.contact_eu.items is defined and corporate_footer.contact_eu.items is not empty %}
-      <div class="ecl-footer__column ecl-col-sm-8">
+      <div class="ecl-footer__column ecl-col-md-8 ecl-footer__spaced-column">
         <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.contact_eu.title }}</h4>
-        <ul class="ecl-footer__menu ecl-list ecl-list--unstyled">
+        <ul class="ecl-footer__list ecl-list ecl-list--unstyled ecl-footer__list--2-col">
           {% for menu_item in corporate_footer.contact_eu.items %}
-            <li class="ecl-footer__menu-item">
+            <li class="ecl-footer__list-item">
               {% include '@ecl/eu-component-link' with {
                 href: menu_item.href,
                 label: menu_item.label,
@@ -25,11 +25,11 @@
       </div>
       {% endif %}
       {% if corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}
-      <div class="ecl-footer__column ecl-col-sm-4">
+      <div class="ecl-footer__column ecl-col-md-4 ecl-footer__spaced-column">
         <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.social_media.title }}</h4>
-        <ul class="ecl-footer__menu ecl-list--inline ecl-footer__social-links">
+        <ul class="ecl-footer__list ecl-list--inline ecl-footer__social-links">
           {% for menu_item in corporate_footer.social_media.items %}
-            <li class="ecl-footer__menu-item">
+            <li class="ecl-footer__list-item">
               {% include '@ecl/eu-component-link' with {
                 href: menu_item.href,
                 label: menu_item.label,
@@ -41,13 +41,13 @@
       </div>
       {% endif %}
     </div>
-    <div class="ecl-row">
+    <div class="ecl-row ecl-u-d-none ecl-u-d-md-block">
       {% if corporate_footer.find_institution.items is defined and corporate_footer.find_institution.items is not empty %}
-      <div class="ecl-footer__column ecl-col-sm">
+      <div class="ecl-footer__column ecl-col ecl-footer__spaced-column">
         <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.find_institution.title }}</h4>
-        <ul class="ecl-footer__menu ecl-footer__menu--3-col ecl-list--unstyled">
+        <ul class="ecl-footer__list ecl-footer__list--3-col ecl-list--unstyled">
           {% for menu_item in corporate_footer.find_institution.items %}
-            <li class="ecl-footer__menu-item">
+            <li class="ecl-footer__list-item">
               {% include '@ecl/eu-component-link' with {
                 href: menu_item.href,
                 label: menu_item.label,
@@ -66,9 +66,9 @@
     <div class="ecl-row">
       <div class="ecl-col">
         {% if corporate_footer.bottom_links is defined and corporate_footer.bottom_links is not empty %}
-        <ul class="ecl-list--inline ecl-footer__menu">
+        <ul class="ecl-list--inline ecl-footer__list">
           {% for menu_item in corporate_footer.bottom_links %}
-          <li class="ecl-footer__menu-item">
+          <li class="ecl-footer__list-item">
             {% include '@ecl/eu-component-link' with {
               'href': menu_item.href,
               'label': menu_item.label,
