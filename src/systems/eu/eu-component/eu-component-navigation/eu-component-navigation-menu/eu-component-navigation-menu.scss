@@ -3,16 +3,18 @@
  * @define navigation-menu
  */
 
-$ecl-navigation-menu-bar-bg-mobile: map-get($ecl-colors, 'grey-15');
-$ecl-navigation-menu-bar-bg-desktop: map-get($ecl-colors, 'grey-10');
-$ecl-navigation-menu-toggle-btn-color: map-get($ecl-colors, 'blue-100');
-$ecl-navigation-menu-group-bg: map-get($ecl-colors, 'grey-5');
-$ecl-navigation-menu-separator-mobile: map-get($ecl-colors, 'grey-15');
-$ecl-navigation-menu-link-color: map-get($ecl-colors, 'blue-100');
-$ecl-navigation-menu-active-color: map-get($ecl-colors, 'blue-100');
-$ecl-navigation-menu-active-bg: map-get($ecl-colors, 'grey-10');
+ @import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
 
-@import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
+ @include ecl-navigation-menu(
+   map-get($ecl-colors, 'grey-15'),
+   map-get($ecl-colors, 'grey-10'),
+   map-get($ecl-colors, 'blue-100'),
+   map-get($ecl-colors, 'grey-5'),
+   map-get($ecl-colors, 'grey-15'),
+   map-get($ecl-colors, 'blue-100'),
+   map-get($ecl-colors, 'blue-100'),
+   map-get($ecl-colors, 'grey-10')
+ )
 
 .ecl-navigation-menu__item--active {
 
