@@ -7,7 +7,7 @@ module.exports = {
     footer_menus: [
       {
         type: 'branded',
-        wrapper_class: 'ecl-footer__site-identity',
+        wrapper_class: 'ecl-footer__custom',
         menus: [
           {
             title: {
@@ -75,7 +75,7 @@ module.exports = {
       },
       {
         type: 'normal',
-        wrapper_class: 'ecl-footer__site-corporate',
+        wrapper_class: 'ecl-footer__corporate',
         menus: [
           {
             title: {
@@ -165,7 +165,7 @@ module.exports = {
       },
       {
         type: 'plain',
-        wrapper_class: 'ecl-footer__ec',
+        wrapper_class: 'ecl-footer__bottom',
         menus: [
           {
             classes: 'ecl-list--inline ecl-footer__menu',

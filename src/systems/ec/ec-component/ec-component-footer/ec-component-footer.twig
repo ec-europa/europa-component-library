@@ -1,27 +1,39 @@
 {% import '@ecl/generic-component-footer' as macros %}
 
-{% set _custom_footer %}
+{% set _custom_footer = macros.footer_custom(custom_footer, 'ec') %}
+
+{% set _corporate_footer %}
+<div class="ecl-footer__corporate-top">
   <div class="ecl-container">
     <div class="ecl-row">
+      {% if corporate_footer.about_ec.items is defined and corporate_footer.about_ec.items is not empty %}
       <div class="ecl-footer__column ecl-col-sm">
-        <h4 class="ecl-heading ecl-heading--h4">
-          {% include '@ecl/ec-component-link' with {
-            extra_classes: 'ecl-footer__link',
-            variant: 'standalone',
-          }|merge(custom_footer.identity|default({}))
-          %}
-        </h4>
+        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.about_ec.title }}</h4>
+        <ul class="ecl-footer__menu">
+          {% for menu_item in corporate_footer.about_ec.items %}
+            <li class="ecl-footer__menu-item">
+              {% include '@ecl/ec-component-link' with {
+                href: menu_item.href,
+                label: menu_item.label,
+                extra_classes: 'ecl-footer__link',
+                variant: 'inverted',
+              } %}
+            </li>
+          {% endfor %}
+        </ul>
       </div>
-      {% if custom_footer.social_links is defined and custom_footer.social_links.links is defined %}
+      {% endif %}
+      {% if corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}
       <div class="ecl-footer__column ecl-col-sm">
-        <p class="ecl-footer__label">{{ custom_footer.social_links.label }}</p>
-        <ul class="ecl-footer__menu ecl-footer__social-links ecl-list--inline">
-          {% for menu_item in custom_footer.social_links.links %}
+        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.social_media.title }}</h4>
+        <ul class="ecl-footer__menu ecl-list--inline ecl-footer__social-links">
+          {% for menu_item in corporate_footer.social_media.items %}
             <li class="ecl-footer__menu-item">
               {% if menu_item.type == 'social-network' %}
                 {% embed '@ecl/ec-component-link' with {
                   href: menu_item.link.href,
                   extra_classes: 'ecl-footer__link',
+                  variant: 'inverted',
                   icon: menu_item.icon,
                   link_label: menu_item.link.label
                 } only %}
@@ -38,7 +50,7 @@
                   href: menu_item.link.href,
                   label: menu_item.link.label,
                   extra_classes: 'ecl-footer__link',
-                  variant: 'external',
+                  variant: ['inverted', 'external'],
                 } only %}
               {% endif %}
             </li>
@@ -46,18 +58,18 @@
         </ul>
       </div>
       {% endif %}
-      {% if custom_footer.other_links is defined and custom_footer.other_links.links is defined %}
+      {% if corporate_footer.about_eu.items is defined and corporate_footer.about_eu.items is not empty %}
       <div class="ecl-footer__column ecl-col-sm">
-        <ul class="ecl-footer__menu ecl-list--unstyled">
-          {% for menu_item in custom_footer.other_links.links %}
+        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.about_eu.title }}</h4>
+        <ul class="ecl-footer__menu">
+          {% for menu_item in corporate_footer.about_eu.items %}
             <li class="ecl-footer__menu-item">
               {% include '@ecl/ec-component-link' with {
-                'href': menu_item.link.href,
-                'label': menu_item.link.label,
-                'extra_classes': 'ecl-footer__link',
-                'variant': link_variant,
-                }
-              %}
+                href: menu_item.href,
+                label: menu_item.label,
+                extra_classes: 'ecl-footer__link',
+                variant: 'inverted',
+              } only %}
             </li>
           {% endfor %}
         </ul>
@@ -65,103 +77,27 @@
       {% endif %}
     </div>
   </div>
-{% endset %}
-
-{% set _corporate_footer %}
-<div class="ecl-container">
-  <div class="ecl-row">
-    {% if corporate_footer.about_ec.items is defined and corporate_footer.about_ec.items is not empty %}
-    <div class="ecl-footer__column ecl-col-sm">
-      <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.about_ec.title }}</h4>
-      <ul class="ecl-footer__menu">
-        {% for menu_item in corporate_footer.about_ec.items %}
-          <li class="ecl-footer__menu-item">
-            {% include '@ecl/ec-component-link' with {
-              href: menu_item.href,
-              label: menu_item.label,
-              extra_classes: 'ecl-footer__link',
-              variant: 'inverted',
-            } %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-    {% if corporate_footer.follow_ec.items is defined and corporate_footer.follow_ec.items is not empty %}
-    <div class="ecl-footer__column ecl-col-sm">
-      <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.follow_ec.title }}</h4>
-      <ul class="ecl-footer__menu ecl-list--inline ecl-footer__social-links">
-        {% for menu_item in corporate_footer.follow_ec.items %}
-          <li class="ecl-footer__menu-item">
-            {% if menu_item.type == 'social-network' %}
-              {% embed '@ecl/ec-component-link' with {
-                href: menu_item.link.href,
-                extra_classes: 'ecl-footer__link',
-                variant: 'inverted',
-                icon: menu_item.icon,
-                link_label: menu_item.link.label
-              } only %}
-                {% block label %}
-                  {% spaceless %}
-                    {% include '@ecl/ec-style-icon' with {
-                      modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
-                    } only %}<span>{{ link_label }}</span>
-                  {% endspaceless %}
-                {% endblock %}
-              {% endembed %}
-            {% else %}
-              {% include '@ecl/ec-component-link' with {
-                href: menu_item.link.href,
-                label: menu_item.link.label,
-                extra_classes: 'ecl-footer__link',
-                variant: ['inverted', 'external'],
-              } only %}
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-    {% if corporate_footer.about_eu.items is defined and corporate_footer.about_eu.items is not empty %}
-    <div class="ecl-footer__column ecl-col-sm">
-      <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.about_eu.title }}</h4>
-      <ul class="ecl-footer__menu">
-        {% for menu_item in corporate_footer.about_eu.items %}
-          <li class="ecl-footer__menu-item">
-            {% include '@ecl/ec-component-link' with {
-              href: menu_item.href,
-              label: menu_item.label,
-              extra_classes: 'ecl-footer__link',
-              variant: 'inverted',
-            } only %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-  </div>
 </div>
-{% endset %}
-
-{% set _last_footer %}
-<div class="ecl-container">
-  <div class="ecl-row">
-    <div class="ecl-col">
-      {% if last_menu.items is defined and last_menu.items is not empty %}
-      <ul class="ecl-list--inline ecl-footer__menu">
-        {% for menu_item in last_menu.items %}
-        <li class="ecl-footer__menu-item">
-          {% include '@ecl/ec-component-link' with {
-            'href': menu_item.href,
-            'label': menu_item.label,
-            'extra_classes': 'ecl-footer__link',
-            'variant': 'inverted',
-            }
-          %}
-        </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
+<div class="ecl-footer__corporate-bottom">
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-col">
+        {% if corporate_footer.bottom_links is defined and corporate_footer.bottom_links is not empty %}
+        <ul class="ecl-list--inline ecl-footer__menu">
+          {% for menu_item in corporate_footer.bottom_links %}
+          <li class="ecl-footer__menu-item">
+            {% include '@ecl/ec-component-link' with {
+              'href': menu_item.href,
+              'label': menu_item.label,
+              'extra_classes': 'ecl-footer__link',
+              'variant': 'inverted',
+              }
+            %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
@@ -172,5 +108,4 @@
 {{ macros.footer({
   custom_footer: _custom_footer,
   corporate_footer: _corporate_footer,
-  last_footer: _last_footer
 }) }}

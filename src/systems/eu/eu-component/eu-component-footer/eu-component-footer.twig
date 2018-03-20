@@ -1,1 +1,93 @@
-{% include '@ecl/generic-component-footer' %}
+{% import '@ecl/generic-component-footer' as macros %}
+
+{% set _custom_footer = macros.footer_custom({
+  other_links_inline: true
+}|merge(custom_footer), 'eu') %}
+
+{% set _corporate_footer %}
+<div class="ecl-footer__corporate-top">
+  <div class="ecl-container">
+    <div class="ecl-row">
+      {% if corporate_footer.contact_eu.items is defined and corporate_footer.contact_eu.items is not empty %}
+      <div class="ecl-footer__column ecl-col-sm-8">
+        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.contact_eu.title }}</h4>
+        <ul class="ecl-footer__menu ecl-list ecl-list--unstyled">
+          {% for menu_item in corporate_footer.contact_eu.items %}
+            <li class="ecl-footer__menu-item">
+              {% include '@ecl/eu-component-link' with {
+                href: menu_item.href,
+                label: menu_item.label,
+                extra_classes: 'ecl-footer__link'
+              } %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}
+      <div class="ecl-footer__column ecl-col-sm-4">
+        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.social_media.title }}</h4>
+        <ul class="ecl-footer__menu ecl-list--inline ecl-footer__social-links">
+          {% for menu_item in corporate_footer.social_media.items %}
+            <li class="ecl-footer__menu-item">
+              {% include '@ecl/eu-component-link' with {
+                href: menu_item.href,
+                label: menu_item.label,
+                extra_classes: 'ecl-footer__link'
+              } %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    <div class="ecl-row">
+      {% if corporate_footer.find_institution.items is defined and corporate_footer.find_institution.items is not empty %}
+      <div class="ecl-footer__column ecl-col-sm">
+        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__title">{{ corporate_footer.find_institution.title }}</h4>
+        <ul class="ecl-footer__menu ecl-footer__menu--3-col ecl-list--unstyled">
+          {% for menu_item in corporate_footer.find_institution.items %}
+            <li class="ecl-footer__menu-item">
+              {% include '@ecl/eu-component-link' with {
+                href: menu_item.href,
+                label: menu_item.label,
+                extra_classes: 'ecl-footer__link'
+              } only %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<div class="ecl-footer__corporate-bottom">
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-col">
+        {% if corporate_footer.bottom_links is defined and corporate_footer.bottom_links is not empty %}
+        <ul class="ecl-list--inline ecl-footer__menu">
+          {% for menu_item in corporate_footer.bottom_links %}
+          <li class="ecl-footer__menu-item">
+            {% include '@ecl/eu-component-link' with {
+              'href': menu_item.href,
+              'label': menu_item.label,
+              'extra_classes': 'ecl-footer__link'
+              }
+            %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endset %}
+
+{# Render component #}
+
+{{ macros.footer({
+  custom_footer: _custom_footer,
+  corporate_footer: _corporate_footer,
+}) }}

@@ -1,24 +1,29 @@
 /**
  * Footers component
- * @define footer ; weak
+ * @define footer
  */
 
-.ecl-footer {
-  @include ecl-hidden-print();
+@import '@ecl/generic-base/variables/index';
+@import '@ecl/generic-base/mixins/hidden-print';
 
-  margin: 0;
+@mixin ecl-footer() {
+  .ecl-footer {
+    @include ecl-hidden-print();
 
-  .ecl-link {
-    color: inherit;
+    margin: 0;
+
+    /*
+    .ecl-link {
+      color: inherit;
+    }
+
+    a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-link-patterns})::after {
+      line-height: 2.2;
+      position: absolute;
+    }
+    */
   }
 
-  a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-link-patterns})::after {
-    line-height: 2.2;
-    position: absolute;
-  }
-}
-
-@mixin footers() {
   .ecl-footer__column {
     padding-top: map-get($ecl-spacing, 'm');
   }
@@ -33,10 +38,6 @@
 
   .ecl-footer__spaced-column:last-child {
     padding-bottom: map-get($ecl-spacing, 'xl');
-  }
-
-  .ecl-footer__social-icon::before {
-    margin-right: 8px !important;
   }
 
   .ecl-footer__social-links li:last-child {

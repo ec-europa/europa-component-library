@@ -68,7 +68,7 @@ module.exports = {
           },
         ],
       },
-      follow_ec: {
+      social_media: {
         title: 'Follow the European Commission',
         items: [
           {
@@ -109,9 +109,7 @@ module.exports = {
           },
         ],
       },
-    },
-    last_menu: {
-      items: [
+      bottom_links: [
         {
           href:
             'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
