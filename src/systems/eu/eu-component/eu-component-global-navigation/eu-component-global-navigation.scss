@@ -84,6 +84,7 @@
 
 .ecl-global-navigation__institution-item {
   flex-basis: 100%;
+  width: 100%;
 }
 
 .ecl-global-navigation__institution-link {
@@ -150,6 +151,7 @@
 @include ecl-media-breakpoint-up(md) {
   .ecl-global-navigation__institution-item {
     flex-basis: 50%;
+    width: 50%;
   }
 
   .ecl-global-navigation__option {
@@ -164,11 +166,13 @@
 @include ecl-media-breakpoint-up(lg) {
   .ecl-global-navigation__institution-item {
     flex-basis: 33.33%;
+    width: 33.33%;
   }
 }
 
 @include ecl-media-breakpoint-up(xl) {
   .ecl-global-navigation__institution-item {
     flex-basis: 25%;
+    width: 25%;
   }
 }
