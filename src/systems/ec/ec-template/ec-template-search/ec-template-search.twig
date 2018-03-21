@@ -25,10 +25,10 @@
       </div>
       {% embed '@ecl/ec-component-form-form' with { 'extra_class': 'ecl-u-d-lg-block', 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
         {% block form %}
-          {% embed '@ecl/ec-component-form-fieldset' only %}
+          {% embed '@ecl/ec-component-form-fieldset' with {} only %}
             {% block fieldset %}
               {% include '@ecl/ec-component-form-legend' with { content: 'Search options', level: 1 } only %}
-              {% embed '@ecl/ec-component-form-form-group' %}
+              {% embed '@ecl/ec-component-form-form-group' with {} only %}
                 {% block form_group %}
                   {% include '@ecl/ec-component-form-label' with { 'label': 'Source', 'for_attribute': 'search-option-source' } %}
                   {% embed '@ecl/ec-component-form-select' with { 'name': 'source', 'id': 'search-option-source' } %}
@@ -79,7 +79,7 @@
               {% endembed %}
             {% endblock %}
           {% endembed %}
-          {% embed '@ecl/ec-component-form-fieldset' only %}
+          {% embed '@ecl/ec-component-form-fieldset' with {} only %}
             {% block fieldset %}
               {% include '@ecl/ec-component-form-legend' with { content: 'Filter by topic', level: 1 } only %}
               <p class="ecl-u-ph-m ecl-u-pv-xl" style="background-color:#e3e3e3;text-align:center">Custom component</p>

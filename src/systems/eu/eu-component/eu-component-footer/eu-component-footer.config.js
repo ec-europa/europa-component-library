@@ -68,8 +68,6 @@ module.exports = {
     corporate_footer: {
       contact_eu: {
         title: 'Contact EU',
-        // classes: 'ecl-footer__list ecl-footer__list--2-col ecl-list--unstyled',
-        // extra_classes: 'ecl-col-md-8',
         items: [
           {
             href: '#call',
@@ -99,8 +97,6 @@ module.exports = {
       },
       social_media: {
         title: 'Find EU social media accounts',
-        // classes: 'ecl-footer__list ecl-list--inline ecl-footer__social-links',
-        // extra_classes: 'ecl-col-md-4',
         items: [
           {
             href: '#social-media-tool',
@@ -179,13 +175,6 @@ module.exports = {
         ],
       },
       bottom_links: [
-        // type: 'plain',
-        // wrapper_class: 'ecl-footer__eu',
-        // menus: [
-        //  {
-        //    classes: 'ecl-list--inline ecl-footer__list',
-        //    extra_classes: 'ecl-col',
-        //    items: [
         {
           href: '#',
           label: 'Work for the European Union',
