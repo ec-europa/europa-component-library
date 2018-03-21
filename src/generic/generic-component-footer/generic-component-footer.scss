@@ -1,135 +1,69 @@
 /**
  * Footers component
- * @define footer ; weak
+ * @define footer
  */
 
-.ecl-footer {
-  margin: 0;
-}
+@import '@ecl/generic-base/variables/index';
+@import '@ecl/generic-base/mixins/hidden-print';
 
-.ecl-footer__site-identity,
-.ecl-footer__site-corporate,
-.ecl-footer__ec {
-  @include ecl-hidden-print();
+@mixin ecl-footer() {
+  .ecl-footer {
+    @include ecl-hidden-print();
 
-  a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-link-patterns})::after {
-    line-height: 2.2;
-    position: absolute;
-  }
-}
-
-.ecl-footer__social-icon::before {
-  margin-right: 8px !important;
-}
-
-.ecl-footer__social-links li:last-child {
-  display: block;
-  margin-left: 0;
-}
-
-.ecl-footer__title {
-  border-bottom: 2px solid map-get($ecl-colors, blue-50);
-  color: #fff;
-  margin-bottom: map-get($ecl-spacing, xxxs);
-  padding-bottom: map-get($ecl-spacing, xxxs);
-
-  @include ecl-media-breakpoint-between(md, lg) {
-    min-height: map-get($ecl-spacing, xl);
-    padding-bottom: 0;
+    margin: 0;
+    padding: 0;
   }
 
-  // Make titles height auto on large screens.
-  @include ecl-media-breakpoint-up(xl) {
-    margin-bottom: map-get($ecl-spacing, s);
-    min-height: auto;
-  }
-}
+  /* List hacks */
 
-.ecl-footer__label {
-  display: inline;
-  font-weight: bold;
-
-  /* Any adjusent unordered list to be inlined */
-  + ul {
-    display: inline;
-  }
-}
-
-.ecl-footer__menu {
-  list-style: none;
-  margin: 0;
-  max-width: none;
-  padding-left: 0;
-
-  .ecl-footer__menu-item {
-    font-size: map-get($ecl-font-size, xs);
-    margin-bottom: map-get($ecl-spacing, xxxs);
-  }
-}
-
-.ecl-footer__column {
-  padding-top: map-get($ecl-spacing, m);
-}
-
-.ecl-footer__column:last-child {
-  padding-bottom: map-get($ecl-spacing, m);
-}
-
-.ecl-footer__site-identity {
-  background-color: map-get($ecl-colors, blue-25);
-  color: map-get($ecl-colors, blue-120);
-
-  // Links should have a different color because of their background.
-  .ecl-footer__link {
-    color: map-get($ecl-colors, blue-120);
+  .ecl-footer__list {
+    margin: 0;
+    max-width: none; // specific to the footer
   }
 
-  .ecl-footer__link:hover,
-  .ecl-footer__link:active,
-  .ecl-footer__link:focus {
-    color: map-get($ecl-colors, blue-120);
+  .ecl-footer__list--inline {
+    max-width: none;
+
+    .ecl-footer__list-item {
+      margin-left: 0;
+      margin-right: map-get($ecl-spacing, 'xs');
+    }
+
+    .ecl-footer__list-item:last-child {
+      margin-right: 0;
+    }
+  }
+
+  /* End of: List hacks */
+
+  /* stylelint-disable-next-line */
+  .ecl-footer__list-item {
+    font-size: map-get($ecl-font-size, 's');
+    line-height: 2rem;
   }
 
   .ecl-footer__column {
-    padding-bottom: 0;
-    padding-top: map-get($ecl-spacing, s);
+    padding-top: map-get($ecl-spacing, 'm');
   }
 
   .ecl-footer__column:last-child {
-    padding-bottom: map-get($ecl-spacing, s);
-    padding-top: 0;
-  }
-}
-
-.ecl-footer__site-corporate {
-  background-color: map-get($ecl-colors, blue-75);
-  color: #fff;
-}
-
-.ecl-footer__ec {
-  background-color: $ecl-color-primary;
-  color: #fff;
-  padding: map-get($ecl-spacing, s) 0;
-}
-
-@include ecl-media-breakpoint-up(sm) {
-  .ecl-footer__column {
-    padding-bottom: map-get($ecl-spacing, l);
-    padding-top: map-get($ecl-spacing, l);
+    padding-bottom: map-get($ecl-spacing, 'm');
   }
 
-  /* Specifics for this type of footer when non-mobile */
-  .ecl-footer__site-identity {
-    .ecl-footer__column {
-      padding-bottom: map-get($ecl-spacing, s);
-    }
-
-    .ecl-footer__column:last-child {
-      padding-top: map-get($ecl-spacing, s);
-    }
+  .ecl-footer__spaced-column {
+    padding-top: map-get($ecl-spacing, 'xl');
   }
 
-  .ecl-footer__link {
-    padding: 0;
+  .ecl-footer__spaced-column:last-child {
+    padding-bottom: map-get($ecl-spacing, 'xl');
+  }
+
+  .ecl-footer__custom-label {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .ecl-footer__column-title {
+    max-width: none;
   }
 }

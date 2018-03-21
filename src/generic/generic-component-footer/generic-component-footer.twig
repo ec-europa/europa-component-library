@@ -1,138 +1,88 @@
-{#
+{# We can't use blocks here because of: https://github.com/twigjs/twig.js/issues/352 #}
 
-0. Expected footer variables:
-- footer_menus: (iterable) root list of menus to be rendered
+{% macro footer(options) %}
+  {%
+    set default_options = {
+      custom_footer: '',
+      corporate_footer: ''
+    }
+  %}
+  {% set options = default_options|merge(options|default({})) %}
+  <footer class="ecl-footer">
+    {% if options.custom_footer is not empty %}
+      <div class="ecl-footer__custom">
+        {{ options.custom_footer }}
+      </div>
+    {% endif %}
+    <div class="ecl-footer__corporate">
+      {{ options.corporate_footer }}
+    </div>
+  </footer>
+{% endmacro %}
 
-1. Footer menu headings:
-
-1.1 Heading with a link:
-
-{
-  title: {
-    classes: 'ecl-h4',
-    link: {
-      href: '#',
-      label: 'Digital single market',
-    },
-  },
-},
-
-1.2 Menu with a title without a link:
-
-{
-  label: 'Follow us:',
-  classes: 'ecl-footer__menu ecl-list--inline',
-  items: [],
-},
-
-1.3 Simple menu:
-
-{
-  classes: 'ecl-footer__menu ecl-list--inline',
-  items: [],
-},
-
-2. Footer menus' items:
-
-2.1 With links which contain icons
-
-items: [
-  {
-    classes: 'ecl-footer__menu-item',
-    link: {
-      href: '#',
-      label: 'Facebook',
-      label_wrapper_class:
-        'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
-    },
-  },
-  ...
-],
-
-2.2 With links only
-
-items: [
-  {
-    classes: 'ecl-footer__menu-item',
-    link: {
-      href: '#',
-      label: 'Contact',
-    },
-  },
-  ...
-],
-
-#}
-
-<footer class="ecl-footer">
-  {% if footer_menus is defined and footer_menus is iterable %}
-  {% for footer_menu in footer_menus %}
-  <div class="{{ footer_menu.wrapper_class }}">
-    <div class="ecl-container">
-      <div class="ecl-row">
-        {% for menu in footer_menu.menus %}
-        <div class="ecl-col-sm {{ (footer_menu.type != 'plain') ? 'ecl-footer__column' : '' }}">
-
-          {# If there is a link in the title, respect the link: #}
-          {% if menu.title.link.href is defined %}
-          <h4 class="{{ menu.title.classes }}">
-            {% include '@ecl/generic-component-link' with {
-              'extra_classes': 'ecl-footer__link',
-              }|merge(menu.title.link|default({}))
-            %}
-          </h4>
-          {# otherwise, if it is only a title, without a link, use the title: #}
-          {% elseif menu.title is defined and menu.title.value is defined %}
-          <h4 class="{{ menu.title.classes }}">{{ menu.title.value }}</h4>
-          {# Show a label if there is no title #}
-          {% elseif menu.label is defined %}
-          <p class="ecl-footer__label">{{ menu.label }}</p>
-          {% endif %}
-
-          {% if menu.items is defined and menu.items is not empty %}
-          <ul class="{{ menu.classes }}">
-            {% for menu_item in menu.items %}
-            {% if menu_item.link.label_wrapper_class is defined %}
-            <li class="{{ menu_item.classes }}">
-              {% if footer_menu.type == 'branded' %}
-                {% set link_variant = menu_item.link.variant %}
+{% macro footer_custom(options, system) %}
+  {%
+    set default_options = {
+      identity: {},
+      social_links: [],
+      other_links: [],
+      other_links_inline: false
+    }
+  %}
+  {% set options = default_options|merge(options|default({})) %}
+  {% set system = system|default('generic') %}
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-footer__column ecl-col-md">
+        <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none">
+          {% include '@ecl/' ~ system ~ '-component-link' with {
+            extra_classes: 'ecl-footer__link ecl-footer__custom-title',
+            variant: 'standalone',
+          }|merge(options.identity|default({}))
+          %}
+        </h4>
+      </div>
+      {% if options.social_links is defined and options.social_links.links is defined %}
+      <div class="ecl-footer__column ecl-col-md">
+        <p class="ecl-footer__custom-label">{{ options.social_links.label }}</p>
+        <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline">
+          {% for menu_item in options.social_links.links %}
+            <li class="ecl-footer__list-item">
+              {% if menu_item.type == 'social-network' %}
+                {% embed '@ecl/' ~ system ~ '-component-link' with {
+                  href: menu_item.link.href,
+                  extra_classes: 'ecl-footer__link',
+                  icon: menu_item.icon,
+                  link_label: menu_item.link.label,
+                  system: system
+                } only %}
+                  {% block label %}
+                    {% spaceless %}
+                      {% include '@ecl/' ~ system ~ '-style-icon' with {
+                        modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                      } only %}<span>{{ link_label }}</span>
+                    {% endspaceless %}
+                  {% endblock %}
+                {% endembed %}
               {% else %}
-                {% if menu_item.link.variant is defined %}
-                  {% if menu_item.link.variant is iterable %}
-                    {% set link_variant = ['inverted']|merge(menu_item.link.variant) %}
-                  {% else %}
-                    {% set link_variant = ['inverted']|merge([menu_item.link.variant]) %}
-                  {% endif %}
-                {% else %}
-                  {% set link_variant = 'inverted' %}
-                {% endif %}
+                {% include '@ecl/' ~ system ~ '-component-link' with {
+                  href: menu_item.link.href,
+                  label: menu_item.link.label,
+                  extra_classes: 'ecl-footer__link',
+                  variant: 'external',
+                } only %}
               {% endif %}
-
-              {% include '@ecl/generic-component-link' with {
-                'href': menu_item.link.href,
-                'label': '<span class="' ~ menu_item.link.label_wrapper_class ~ '"></span>' ~ menu_item.link.label,
-                'extra_classes': 'ecl-footer__link',
-                'variant': link_variant,
-                }
-              %}
             </li>
-            {% else %}
-            <li class="{{ menu_item.classes }}">
-              {% if footer_menu.type == 'branded' %}
-                {% set link_variant = menu_item.link.variant %}
-              {% else %}
-                {% if menu_item.link.variant is defined %}
-                  {% if menu_item.link.variant is iterable %}
-                    {% set link_variant = ['inverted']|merge(menu_item.link.variant) %}
-                  {% else %}
-                    {% set link_variant = ['inverted']|merge([menu_item.link.variant]) %}
-                  {% endif %}
-                {% else %}
-                  {% set link_variant = 'inverted' %}
-                {% endif %}
-              {% endif %}
-
-              {% include '@ecl/generic-component-link' with {
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if options.other_links is defined and options.other_links.links is defined %}
+      <div class="ecl-footer__column ecl-col-md">
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list{{ options.other_links_inline ? ' ecl-list--inline ecl-footer__list--inline' : '' }}">
+          {% for menu_item in options.other_links.links %}
+            <li class="ecl-footer__list-item">
+              {% include '@ecl/' ~ system ~ '-component-link' with {
                 'href': menu_item.link.href,
                 'label': menu_item.link.label,
                 'extra_classes': 'ecl-footer__link',
@@ -140,15 +90,10 @@ items: [
                 }
               %}
             </li>
-            {% endif %}
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </div>
-        {% endfor %}
+          {% endfor %}
+        </ul>
       </div>
+      {% endif %}
     </div>
   </div>
-  {% endfor %}
-  {% endif %}
-</footer>
+{% endmacro %}

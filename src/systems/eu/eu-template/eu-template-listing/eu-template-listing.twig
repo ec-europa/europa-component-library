@@ -356,210 +356,197 @@
 </main>
 
 {% include '@ecl/eu-component-footer' with {
-  footer_menus: [
-    {
-      type: 'branded',
-      wrapper_class: 'ecl-footer__site-identity',
-      menus: [
+  custom_footer: {
+    identity: {
+      href: '#homepage',
+      label: 'Site identification',
+    },
+    social_links: {
+      label: 'Follow us:',
+      links: [
         {
-          title: {
-            classes: 'ecl-h4',
-            link: {
-              href: '#',
-              label: 'Digital single market',
-              variant: 'standalone',
-            },
+          type: 'social-network',
+          icon: 'facebook',
+          link: {
+            href: '#facebook',
+            label: 'Facebook',
           },
         },
         {
-          label: 'Follow us:',
-          classes: 'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
-          items: [
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Facebook',
-                label_wrapper_class:
-                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Twitter',
-                label_wrapper_class:
-                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Other social media',
-                variant: 'external',
-              },
-            },
-          ],
-        },
-        {
-          classes: 'ecl-footer__menu ecl-list--unstyled',
-          items: [
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Contact',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Site map',
-              },
-            },
-          ],
+          type: 'social-network',
+          icon: 'twitter',
+          link: {
+            href: '#twitter',
+            label: 'Twitter',
+          },
         },
       ],
     },
-    {
-      type: 'normal',
-      wrapper_class: 'ecl-footer__site-corporate',
-      menus: [
+    other_links: {
+      links: [
         {
-          title: {
-            value: 'European Commission',
-            classes: 'ecl-h4 ecl-footer__title',
+          link: {
+            href: '#contact',
+            label: 'Contact',
           },
-          classes: 'ecl-footer__menu',
-          items: [
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: 'https://ec.europa.eu/commission/index_en',
-                label: 'Commission and its priorities',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: 'https://ec.europa.eu/info/index_en',
-                label: 'Policies information and services',
-              },
-            },
-          ],
         },
         {
-          title: {
-            value: 'Follow the European Commission',
-            classes: 'ecl-h4 ecl-footer__title',
+          link: {
+            href: '#sitemap',
+            label: 'Site map',
           },
-          classes:
-            'ecl-footer__menu ecl-list--inline ecl-footer__social-links',
-          items: [
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Facebook',
-                label_wrapper_class:
-                  'ecl-icon ecl-icon--facebook ecl-footer__social-icon',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Twitter',
-                label_wrapper_class:
-                  'ecl-icon ecl-icon--twitter ecl-footer__social-icon',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'Other social media',
-                variant: 'external',
-              },
-            },
-          ],
         },
         {
-          title: {
-            value: 'European Union',
-            classes: 'ecl-h4 ecl-footer__title',
+          link: {
+            href: '#loremipsum1',
+            label: 'Lorem ipsum',
           },
-          classes: 'ecl-footer__menu',
-          items: [
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'EU institutions',
-                variant: 'external',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: '#',
-                label: 'European Union',
-                variant: 'external',
-              },
-            },
-          ],
+        },
+        {
+          link: {
+            href: '#loremipsum2',
+            label: 'Lorem ipsum',
+          },
+        },
+        {
+          link: {
+            href: '#loremipsum3',
+            label: 'Lorem ipsum',
+          },
         },
       ],
     },
-    {
-      type: 'plain',
-      wrapper_class: 'ecl-footer__ec',
-      menus: [
+  },
+  corporate_footer: {
+    contact_eu: {
+      title: 'Contact EU',
+      items: [
         {
-          classes: 'ecl-list--inline ecl-footer__menu',
-          items: [
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href:
-                  'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
-                label: "About the Commission's new web presence",
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: 'http://ec.europa.eu/info/resources-partners_en',
-                label: 'Resources for partners',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: 'http://ec.europa.eu/info/cookies_en',
-                label: 'Cookies',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: 'http://ec.europa.eu/info/legal-notice_en',
-                label: 'Legal notice',
-              },
-            },
-            {
-              classes: 'ecl-footer__menu-item',
-              link: {
-                href: 'http://ec.europa.eu/info/contact_en',
-                label: 'Contact',
-              },
-            },
-          ],
+          href: '#call',
+          label: 'Call 00 800 6 7 8 9 10 11. See details of service',
+        },
+        {
+          href: '#email',
+          label: 'E-mail your questions about the EU',
+        },
+        {
+          href: '#euinyourcountry',
+          label: 'EU in your country',
+        },
+        {
+          href: '#localinformation',
+          label: 'Local information services in the EU',
+        },
+        {
+          href: '#institutions',
+          label: 'Institutions, bodies and agencies',
+        },
+        {
+          href: '#press',
+          label: 'Press contacts',
         },
       ],
     },
-  ],
+    social_media: {
+      title: 'Find EU social media accounts',
+      items: [
+        {
+          href: '#social-media-tool',
+          label: 'Use this tool to search for EU social media channels.',
+        },
+      ],
+    },
+    find_institution: {
+      title: 'Find a European institution',
+      items: [
+        {
+          href: '#',
+          label: 'European Parliament',
+        },
+        {
+          href: '#',
+          label: 'European Council',
+        },
+
+        {
+          href: '#',
+          label: 'Council of the European Union',
+        },
+        {
+          href: '#',
+          label: 'European Commission',
+        },
+        {
+          href: '#',
+          label: 'Court of Justice of the European Union',
+        },
+        {
+          href: '#',
+          label: 'European Central Bank',
+        },
+        {
+          href: '#',
+          label: 'European Court of Auditors',
+        },
+        {
+          href: '#',
+          label: 'European External Action Service',
+        },
+        {
+          href: '#',
+          label: 'European Economic and Social Committee',
+        },
+        {
+          href: '#',
+          label: 'European Committee of the Regions',
+        },
+        {
+          href: '#',
+          label: 'European Investment Bank',
+        },
+        {
+          href: '#',
+          label: 'European Ombudsman',
+        },
+        {
+          href: '#',
+          label: 'European Data Protection Supervisor',
+        },
+        {
+          href: '#',
+          label: 'European Personnel Selection Office',
+        },
+        {
+          href: '#',
+          label: 'Publications Office of the European Union',
+        },
+        {
+          href: '#',
+          label: 'Agencies',
+        },
+      ],
+    },
+    bottom_links: [
+      {
+        href: '#',
+        label: 'Work for the European Union',
+      },
+      {
+        href: '#',
+        label: 'Sitemap',
+      },
+      {
+        href: 'http://ec.europa.eu/info/cookies_en',
+        label: 'Cookies',
+      },
+      {
+        href: '#',
+        label: 'About this site',
+      },
+      {
+        href: 'http://ec.europa.eu/info/legal-notice_en',
+        label: 'Legal notice',
+      },
+    ],
+  },
 } %}
