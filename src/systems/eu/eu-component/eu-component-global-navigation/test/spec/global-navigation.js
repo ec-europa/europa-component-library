@@ -1,4 +1,4 @@
-const variants = ['default', 'header', 'footer'];
+const variants = ['light', 'dark'];
 
 describe('site-switchers', () => {
   before(() => {
@@ -13,7 +13,7 @@ describe('site-switchers', () => {
   variants.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
-        browser.goToComponent('ec-component-site-switcher', variant);
+        browser.goToComponent('eu-component-global-navigation', variant);
         browser.pause(500);
         browser.injectAxeCore();
       });
@@ -22,13 +22,13 @@ describe('site-switchers', () => {
       context('with plain state', () => {
         it('should match the reference screenshot', () => {
           const screenshots = browser.checkDocument({
-            name: `site-switchers/${variant}`,
+            name: `global-navigation/${variant}`,
           });
           expect(screenshots).to.matchReference();
         });
 
         it('should be accessible', () => {
-          const a11yReport = browser.runAxeCore('ecl-site-switcher').value;
+          const a11yReport = browser.runAxeCore('ecl-global-navigation').value;
           expect(a11yReport).to.be.accessible;
         });
       });

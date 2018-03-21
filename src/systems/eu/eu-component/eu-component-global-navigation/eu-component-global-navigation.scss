@@ -11,15 +11,6 @@
   margin: 0;
 }
 
-.ecl-global-navigation__logo {
-  background: url($ecl-assets-path+'images/logo.svg') no-repeat;
-  background-size: contain;
-  display: block;
-  height: 25px;
-  position: absolute;
-  width: 37px;
-}
-
 .ecl-global-navigation__list {
   display: flex;
   list-style: none;
@@ -55,6 +46,16 @@
 
   .ecl-global-navigation__label {
     padding-left: map-get($ecl-spacing, 'xl');
+  }
+
+  &::before {
+    background: url($ecl-assets-path+'images/logo.svg') no-repeat;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: 25px;
+    position: absolute;
+    width: 37px;
   }
 }
 
