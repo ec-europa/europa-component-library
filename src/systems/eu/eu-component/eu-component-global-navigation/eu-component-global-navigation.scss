@@ -108,6 +108,44 @@
   padding: map-get($ecl-spacing, 'xxs') 0;
 }
 
+/* Dark display */
+.ecl-global-navigation--dark {
+  background-color: map-get($ecl-colors, 'grey-100');
+
+  .ecl-global-navigation__link {
+    color: #fff;
+  }
+
+  .ecl-global-navigation__link:visited {
+    color: #fff;
+  }
+
+  .ecl-global-navigation__link--institution {
+    background-color: map-get($ecl-colors, 'grey-75');
+  }
+
+  .ecl-global-navigation__toggle {
+    background-color: map-get($ecl-colors, 'grey-75');
+  }
+
+  .ecl-global-navigation__institution-link {
+    color: #fff;
+  }
+
+  .ecl-global-navigation__institution-link:visited {
+    color: #fff;
+  }
+
+  .ecl-global-navigation__institution-link:hover,
+  .ecl-global-navigation__institution-link:focus {
+    color: map-get($ecl-colors, 'grey-5');
+  }
+
+  .ecl-global-navigation__info {
+    color: #fff;
+  }
+}
+
 @include ecl-media-breakpoint-up(md) {
   .ecl-global-navigation__institution-item {
     flex-basis: 50%;

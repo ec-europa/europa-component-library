@@ -68,7 +68,6 @@ module.exports = {
       name: 'light',
       label: 'Light',
       context: {
-        variant: 'light',
         official: {
           href: 'http://europa.eu/',
           label: 'An official website of the <u>European Union</u>',
@@ -89,23 +88,21 @@ module.exports = {
       name: 'dark',
       label: 'Dark',
       context: {
-        context: {
-          variant: 'dark',
-          official: {
-            href: 'http://europa.eu/',
-            label: 'An official website of the <u>European Union</u>',
-            label_mobile: 'European Union',
-          },
-          institutions: {
-            href:
-              'https://europa.eu/european-union/about-eu/institutions-bodies_en',
-            label: 'See all EU institutions and bodies',
-            label_mobile: 'Institutions and bodies',
-            links,
-          },
-          info:
-            'All official European Union website addresses are in the "europa.eu" domain',
+        modifier: 'dark',
+        official: {
+          href: 'http://europa.eu/',
+          label: 'An official website of the <u>European Union</u>',
+          label_mobile: 'European Union',
         },
+        institutions: {
+          href:
+            'https://europa.eu/european-union/about-eu/institutions-bodies_en',
+          label: 'See all EU institutions and bodies',
+          label_mobile: 'Institutions and bodies',
+          links,
+        },
+        info:
+          'All official European Union website addresses are in the "europa.eu" domain',
       },
     },
   ],
