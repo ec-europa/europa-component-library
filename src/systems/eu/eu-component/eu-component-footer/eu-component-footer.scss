@@ -9,6 +9,14 @@
 
 .ecl-footer__custom {
   background-color: map-get($ecl-colors, 'grey-5');
+
+  .ecl-footer__column:last-child {
+    padding-top: 0;
+
+    @include ecl-media-breakpoint-up(sm) {
+      padding-top: map-get($ecl-spacing, 'm');
+    }
+  }
 }
 
 .ecl-footer__custom-label {

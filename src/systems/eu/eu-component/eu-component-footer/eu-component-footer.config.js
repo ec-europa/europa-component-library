@@ -7,7 +7,7 @@ module.exports = {
     custom_footer: {
       identity: {
         href: '#homepage',
-        label: 'Digital single market',
+        label: 'Site identification',
       },
       social_links: {
         label: 'Follow us:',
@@ -26,13 +26,6 @@ module.exports = {
             link: {
               href: '#twitter',
               label: 'Twitter',
-            },
-          },
-          {
-            type: 'external',
-            link: {
-              href: '#external-link',
-              label: 'Other social media',
             },
           },
         ],
