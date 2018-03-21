@@ -63,7 +63,7 @@
                     {% if _column.title is defined and _column.title is not empty %}
                     <div class="ecl-navigation-menu__title">{{ _column.title }}</div>
                     {% endif %}
-                    <ul class="ecl-list--unstyled">
+                    <ul class="ecl-navigation-menu__links ecl-list ecl-list--unstyled">
                       {% for _child_link in _column.links %}
                       {% set _child_link_class_name = 'ecl-navigation-menu__link' ~ (_child_link.is_active ? ' ecl-navigation-menu__link--active' : '') %}
                       <li class="ecl-navigation-menu__item"><a href="{{ _child_link.href }}" class="{{ _child_link_class_name }}">{{ _child_link.label }}</a></li>

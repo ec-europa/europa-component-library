@@ -4,17 +4,17 @@
  */
 
 @mixin ecl-navigation-menu-common(
-  $ecl-navigation-menu-bar-bg-mobile,
-  $ecl-navigation-menu-bar-bg-desktop,
-  $ecl-navigation-menu-toggle-btn-color,
-  $ecl-navigation-menu-group-bg,
-  $ecl-navigation-menu-separator-mobile,
-  $ecl-navigation-menu-link-color,
-  $ecl-navigation-menu-active-color,
-  $ecl-navigation-menu-active-bg
+  $bar-bg-mobile,
+  $bar-bg-desktop,
+  $toggle-btn-color,
+  $group-bg,
+  $separator-mobile,
+  $link-color,
+  $active-color,
+  $active-bg
 ) {
   .ecl-navigation-menu {
-    background-color: $ecl-navigation-menu-bar-bg-mobile;
+    background-color: $bar-bg-mobile;
     margin: 0;
   }
 
@@ -38,7 +38,7 @@
   }
 
   .ecl-navigation-menu__root::before {
-    background-color: $ecl-navigation-menu-bar-bg-desktop;
+    background-color: $bar-bg-desktop;
     content: '';
     height: 100%;
     left: 50%;
@@ -49,9 +49,9 @@
   }
 
   .ecl-navigation-menu__toggle {
-    background-color: $ecl-navigation-menu-bar-bg-mobile;
+    background-color: $bar-bg-mobile;
     border-width: 0;
-    color: $ecl-navigation-menu-toggle-btn-color;
+    color: $toggle-btn-color;
     font-size: map-get($ecl-font-size, 'm');
     font-weight: bold;
     padding: map-get($ecl-spacing, 'm') 0;
@@ -69,7 +69,7 @@
   }
 
   .ecl-navigation-menu__group::before {
-    background-color: $ecl-navigation-menu-group-bg;
+    background-color: $group-bg;
     content: '';
     height: 100%;
     left: 50%;
@@ -86,14 +86,18 @@
     padding-top: map-get($ecl-spacing, 'xs');
   }
 
+  .ecl-navigation-menu__links {
+    line-height: 1.25rem;
+  }
+
   .ecl-navigation-menu__link {
     align-items: center;
     background-color: transparent;
-    border-bottom: 1px solid $ecl-navigation-menu-separator-mobile;
+    border-bottom: 1px solid $separator-mobile;
     border-left-width: 0;
     border-right-width: 0;
     border-top: 0;
-    color: $ecl-navigation-menu-link-color;
+    color: $link-color;
     display: flex;
     font-size: map-get($ecl-font-size, 's');
     font-weight: bold;
@@ -105,19 +109,19 @@
   }
 
   .ecl-navigation-menu__root > .ecl-navigation-menu__item {
-    background-color: $ecl-navigation-menu-bar-bg-desktop;
+    background-color: $bar-bg-desktop;
   }
 
   .ecl-navigation-menu__item--active {
-    background-color: $ecl-navigation-menu-active-bg;
+    background-color: $active-bg;
     position: relative;
 
     > .ecl-navigation-menu__link {
-      color: $ecl-navigation-menu-active-color;
+      color: $active-color;
     }
 
     &::before {
-      background-color: $ecl-navigation-menu-active-bg;
+      background-color: $active-bg;
       content: '';
       height: 100%;
       left: 50%;
@@ -129,7 +133,7 @@
   }
 
   .ecl-navigation-menu__root > .ecl-navigation-menu__item--active {
-    background-color: $ecl-navigation-menu-active-bg;
+    background-color: $active-bg;
   }
 
   .ecl-navigation-menu__group .ecl-navigation-menu__link {
@@ -210,7 +214,7 @@
   .ecl-navigation-menu__hamburger-inner,
   .ecl-navigation-menu__hamburger-inner::before,
   .ecl-navigation-menu__hamburger-inner::after {
-    background-color: $ecl-navigation-menu-toggle-btn-color;
+    background-color: $toggle-btn-color;
     border-radius: 0.1em;
     height: 0.2em;
     position: absolute;
@@ -271,13 +275,13 @@
 }
 
 @mixin ecl-navigation-menu-responsive(
-  $ecl-navigation-menu-bar-bg-desktop,
-  $ecl-navigation-menu-group-bg,
-  $ecl-navigation-menu-link-color
+  $bar-bg-desktop,
+  $group-bg,
+  $link-color
 ) {
   @include ecl-media-breakpoint-up(md) {
     .ecl-navigation-menu {
-      background-color: $ecl-navigation-menu-bar-bg-desktop;
+      background-color: $bar-bg-desktop;
     }
 
     .ecl-navigation-menu__root {
@@ -313,7 +317,7 @@
     }
 
     .ecl-navigation-menu__group .ecl-navigation-menu__link {
-      padding: map-get($ecl-spacing, 'xs') 0;
+      padding: map-get($ecl-spacing, 'xxs') 0;
     }
 
     .ecl-navigation-menu__link[aria-expanded]::after {
@@ -321,8 +325,8 @@
     }
 
     .ecl-navigation-menu__link[aria-expanded='true'] {
-      background-color: $ecl-navigation-menu-group-bg;
-      color: $ecl-navigation-menu-link-color;
+      background-color: $group-bg;
+      color: $link-color;
     }
 
     .ecl-navigation-menu__link[aria-expanded='true']
@@ -351,29 +355,29 @@
 }
 
 @mixin ecl-navigation-menu(
-  $ecl-navigation-menu-bar-bg-mobile,
-  $ecl-navigation-menu-bar-bg-desktop,
-  $ecl-navigation-menu-toggle-btn-color,
-  $ecl-navigation-menu-group-bg,
-  $ecl-navigation-menu-separator-mobile,
-  $ecl-navigation-menu-link-color,
-  $ecl-navigation-menu-active-color,
-  $ecl-navigation-menu-active-bg
+  $bar-bg-mobile,
+  $bar-bg-desktop,
+  $toggle-btn-color,
+  $group-bg,
+  $separator-mobile,
+  $link-color,
+  $active-color,
+  $active-bg
 ) {
   @include ecl-navigation-menu-common(
-    $ecl-navigation-menu-bar-bg-mobile,
-    $ecl-navigation-menu-bar-bg-desktop,
-    $ecl-navigation-menu-toggle-btn-color,
-    $ecl-navigation-menu-group-bg,
-    $ecl-navigation-menu-separator-mobile,
-    $ecl-navigation-menu-link-color,
-    $ecl-navigation-menu-active-color,
-    $ecl-navigation-menu-active-bg
+    $bar-bg-mobile,
+    $bar-bg-desktop,
+    $toggle-btn-color,
+    $group-bg,
+    $separator-mobile,
+    $link-color,
+    $active-color,
+    $active-bg
   );
 
   @include ecl-navigation-menu-responsive(
-    $ecl-navigation-menu-bar-bg-desktop,
-    $ecl-navigation-menu-group-bg,
-    $ecl-navigation-menu-link-color
+    $bar-bg-desktop,
+    $group-bg,
+    $link-color
   );
 }

@@ -6,12 +6,12 @@
 @import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
 
 @include ecl-navigation-menu(
-  $ecl-navigation-menu-bar-bg-mobile: map-get($ecl-colors, 'blue-75'),
-  $ecl-navigation-menu-bar-bg-desktop: map-get($ecl-colors, 'blue-25'),
-  $ecl-navigation-menu-toggle-btn-color: #fff,
-  $ecl-navigation-menu-group-bg: map-get($ecl-colors, 'grey-5'),
-  $ecl-navigation-menu-separator-mobile: map-get($ecl-colors, 'blue-50'),
-  $ecl-navigation-menu-link-color: map-get($ecl-colors, 'blue-120'),
-  $ecl-navigation-menu-active-color: #fff,
-  $ecl-navigation-menu-active-bg: map-get($ecl-colors, 'blue-75')
+  $bar-bg-mobile: map-get($ecl-colors, 'blue-75'),
+  $bar-bg-desktop: map-get($ecl-colors, 'blue-25'),
+  $toggle-btn-color: #fff,
+  $group-bg: map-get($ecl-colors, 'grey-5'),
+  $separator-mobile: map-get($ecl-colors, 'blue-50'),
+  $link-color: map-get($ecl-colors, 'blue-120'),
+  $active-color: #fff,
+  $active-bg: map-get($ecl-colors, 'blue-75')
 )
