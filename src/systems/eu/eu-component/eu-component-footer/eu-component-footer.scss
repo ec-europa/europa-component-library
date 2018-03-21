@@ -7,51 +7,15 @@
 
 @include ecl-footer();
 
-@mixin cols-x {
-  @for $i from 2 through 4 {
-    /* stylelint-disable-next-line */
-    .ecl-footer__list--#{$i}-col {
-      column-count: $i;
-      margin: 0;
-    }
-  }
-}
-
-@include cols-x;
-
-// Links in EU footers should look like standalone links
-// The rule is added via CSS in order to allow better context management in twig, i.e. external links having variant
-
-.ecl-footer__link {
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-}
-
-.ecl-footer__title {
-  align-items: flex-end;
-  border-bottom: 2px solid rgba(87, 87, 87, 0.25);
-  color: map-get($ecl-colors, 'grey-100');
-  display: flex;
-  font-size: map-get($ecl-font-size, 'm');
-  font-weight: normal;
-  margin-bottom: map-get($ecl-spacing, 'm');
-  max-width: none;
-  padding-bottom: map-get($ecl-spacing, 'xs');
-}
-
 .ecl-footer__custom {
   background-color: map-get($ecl-colors, 'grey-5');
-
-  .ecl-footer__label {
-    color: map-get($ecl-colors, 'grey-100');
-  }
 }
 
-.ecl-footer__custom-title .ecl-footer__link {
+.ecl-footer__custom-label {
+  color: map-get($ecl-colors, 'grey-100');
+}
+
+.ecl-footer__custom-title {
   color: map-get($ecl-colors, 'grey-100');
 }
 
@@ -70,10 +34,40 @@
   padding: map-get($ecl-spacing, 's') 0;
 }
 
+// Links in EU footers should look like standalone links
+// The rule is added via CSS in order to allow better context management in twig, i.e. external links having variant
+
+.ecl-footer__link {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.ecl-footer__column-title {
+  border-bottom: 2px solid rgba(87, 87, 87, 0.25);
+  color: map-get($ecl-colors, 'grey-100');
+  font-size: map-get($ecl-font-size, 'm');
+  font-weight: normal;
+  margin-bottom: map-get($ecl-spacing, 'm');
+  padding-bottom: map-get($ecl-spacing, 'xs');
+}
+
+.ecl-footer__list--2-col {
+  column-count: 2;
+  margin: 0;
+}
+
+.ecl-footer__list--3-col {
+  column-count: 3;
+  margin: 0;
+}
+
 @include ecl-media-breakpoint-down(sm) {
   .ecl-footer__list--2-col,
-  .ecl-footer__list--3-col,
-  .ecl-footer__list--4-col {
+  .ecl-footer__list--3-col {
     column-count: 1;
   }
 }
