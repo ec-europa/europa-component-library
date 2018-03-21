@@ -1,6 +1,6 @@
 /**
  * Footers component
- * @define footer ; weak
+ * @define footer
  */
 
 @import '@ecl/generic-component-footer/generic-component-footer';
@@ -41,32 +41,6 @@
   margin-bottom: map-get($ecl-spacing, 'm');
   max-width: none;
   padding-bottom: map-get($ecl-spacing, 'xs');
-}
-
-.ecl-footer__list {
-  list-style: none;
-  margin: 0;
-  max-width: none;
-  padding-left: 0;
-}
-
-// Small hack until we fix ecl-list
-/* stylelint-disable */
-.ecl-footer__list.ecl-list--inline {
-  li {
-    margin-left: 0;
-    margin-right: map-get($ecl-spacing, 'xxs');
-  }
-
-  li:last-child {
-    margin-right: 0;
-  }
-}
-/* stylelint-enable */
-
-.ecl-footer__list-item {
-  font-size: map-get($ecl-font-size, 's');
-  line-height: 2rem; // map-get($ecl-font-size, 'xl');
 }
 
 .ecl-footer__custom {

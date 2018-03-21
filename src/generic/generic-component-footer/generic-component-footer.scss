@@ -11,17 +11,35 @@
     @include ecl-hidden-print();
 
     margin: 0;
+    padding: 0;
+  }
 
-    /*
-    .ecl-link {
-      color: inherit;
+  /* List hacks */
+
+  .ecl-footer__list {
+    margin: 0;
+    max-width: none; // specific to the footer
+  }
+
+  .ecl-footer__list--inline {
+    max-width: none;
+
+    .ecl-footer__list-item {
+      margin-left: 0;
+      margin-right: map-get($ecl-spacing, 'xs');
     }
 
-    a[#{$ecl-external-link-pattern}]:not(.is-internal):not(#{$ecl-link-patterns})::after {
-      line-height: 2.2;
-      position: absolute;
+    .ecl-footer__list-item:last-child {
+      margin-right: 0;
     }
-    */
+  }
+
+  /* End of: List hacks */
+
+  /* stylelint-disable-next-line */
+  .ecl-footer__list-item {
+    font-size: map-get($ecl-font-size, 's');
+    line-height: 2rem;
   }
 
   .ecl-footer__column {
@@ -40,18 +58,8 @@
     padding-bottom: map-get($ecl-spacing, 'xl');
   }
 
-  .ecl-footer__social-links li:last-child {
-    display: block;
-    margin-left: 0;
-  }
-
   .ecl-footer__label {
     display: inline;
     font-weight: bold;
-
-    /* Any adjusent unordered list to be inlined */
-    + ul {
-      display: inline;
-    }
   }
 }

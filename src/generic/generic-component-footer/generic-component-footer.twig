@@ -45,7 +45,7 @@
       {% if options.social_links is defined and options.social_links.links is defined %}
       <div class="ecl-footer__column ecl-col-md">
         <p class="ecl-footer__label">{{ options.social_links.label }}</p>
-        <ul class="ecl-footer__list ecl-footer__social-links ecl-list ecl-list--inline">
+        <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline">
           {% for menu_item in options.social_links.links %}
             <li class="ecl-footer__list-item">
               {% if menu_item.type == 'social-network' %}
@@ -79,7 +79,7 @@
       {% endif %}
       {% if options.other_links is defined and options.other_links.links is defined %}
       <div class="ecl-footer__column ecl-col-md">
-        <ul class="ecl-footer__list ecl-list ecl-list--unstyled{{ options.other_links_inline ? ' ecl-list--inline' : '' }}">
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list{{ options.other_links_inline ? ' ecl-list--inline ecl-footer__list--inline' : '' }}">
           {% for menu_item in options.other_links.links %}
             <li class="ecl-footer__list-item">
               {% include '@ecl/' ~ system ~ '-component-link' with {

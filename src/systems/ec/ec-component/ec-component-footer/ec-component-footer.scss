@@ -1,6 +1,6 @@
 /**
  * Footers component
- * @define footer ; weak
+ * @define footer
  */
 
 @import '@ecl/generic-component-footer/generic-component-footer';
@@ -23,18 +23,6 @@
     margin-bottom: map-get($ecl-spacing, s);
     min-height: auto;
   }
-}
-
-.ecl-footer__list {
-  list-style: none;
-  margin: 0;
-  max-width: none;
-  padding-left: 0;
-}
-
-.ecl-footer__list-item {
-  font-size: map-get($ecl-font-size, s);
-  line-height: 2rem;
 }
 
 .ecl-footer__custom {
