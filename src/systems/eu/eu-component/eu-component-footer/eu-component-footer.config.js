@@ -136,11 +136,8 @@ module.exports = {
             label: 'European Commission',
           },
           {
-            classes: 'ecl-footer__list-item',
-            link: {
-              href: '#',
-              label: 'Court of Justice of the European Union',
-            },
+            href: '#',
+            label: 'Court of Justice of the European Union',
           },
           {
             href: '#',
