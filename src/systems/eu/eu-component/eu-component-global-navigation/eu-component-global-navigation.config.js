@@ -70,7 +70,8 @@ module.exports = {
       context: {
         official: {
           href: 'http://europa.eu/',
-          label: 'An official website of the <u>European Union</u>',
+          label:
+            'An official website of the <span class="ecl-u-text-underline">European Union</span>',
           label_mobile: 'European Union',
         },
         institutions: {
