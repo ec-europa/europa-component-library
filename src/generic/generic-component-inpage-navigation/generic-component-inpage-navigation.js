@@ -26,19 +26,21 @@ export const navigationInpages = ({
   // ACTIONS
   function initSticky() {
     // init sticky menu
-    // eslint-disable-next-line no-undef
-    stickybits(stickySelector, { useStickyClasses: true });
+    stickybits(stickySelector, {
+      useStickyClasses: true,
+      parentClass: 'ecl-inpage-navigation__parent',
+      stickyClass: 'ecl-inpage-navigation--sticky',
+      stuckClass: 'ecl-inpage-navigation--stuck',
+    });
   }
 
   function initScrollSpy() {
     // init scrollspy
-    // eslint-disable-next-line no-undef
     gumshoe.init({
       selector: spySelector,
       activeClass: spyClass,
       offset: spyOffset,
       callback(nav) {
-        // eslint-disable-line
         if (!nav) return;
         const navigationTitle = document.querySelector(spyTrigger);
         navigationTitle.innerHTML = nav.nav.innerHTML;
