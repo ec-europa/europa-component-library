@@ -43,6 +43,7 @@
 .ecl-global-navigation__link--official {
   align-items: center;
   display: flex;
+  position: relative;
 
   .ecl-global-navigation__label {
     padding-left: map-get($ecl-spacing, 'xl');
@@ -55,6 +56,8 @@
     display: block;
     height: 25px;
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 37px;
   }
 }
