@@ -67,7 +67,7 @@ module.exports = {
     },
     corporate_footer: {
       contact_eu: {
-        title: 'Contact EU',
+        title: 'Contact the EU',
         items: [
           {
             href: '#call',
@@ -100,7 +100,7 @@ module.exports = {
         items: [
           {
             href: '#social-media-tool',
-            label: 'Use this tool to search for EU social media channels.',
+            label: 'Use this tool to search for EU social media channels',
           },
         ],
       },
@@ -176,24 +176,24 @@ module.exports = {
       },
       bottom_links: [
         {
-          href: '#',
+          href: 'https://europa.eu/european-union/about-eu/working_en',
           label: 'Work for the European Union',
         },
         {
-          href: '#',
-          label: 'Sitemap',
-        },
-        {
-          href: 'http://ec.europa.eu/info/cookies_en',
+          href: 'https://europa.eu/european-union/abouteuropa/cookies_en',
           label: 'Cookies',
         },
         {
-          href: '#',
-          label: 'About this site',
+          href: 'https://europa.eu/european-union/abouteuropa/legal_notices_en',
+          label: 'Legal notice',
         },
         {
-          href: 'http://ec.europa.eu/info/legal-notice_en',
-          label: 'Legal notice',
+          href: '#',
+          label: 'Language policy',
+        },
+        {
+          href: '#',
+          label: 'Web accessibility',
         },
       ],
     },
