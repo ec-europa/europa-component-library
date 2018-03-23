@@ -28,7 +28,6 @@ export const navigationInpages = ({
 
   // ACTIONS
   function initSticky() {
-    // init sticky menu
     stickyInstance = stickybits(stickySelector, {
       stickyBitStickyOffset: stickyOffset,
       useStickyClasses: true,
@@ -46,7 +45,6 @@ export const navigationInpages = ({
   }
 
   function initScrollSpy() {
-    // init scrollspy
     gumshoe.init({
       selector: spySelector,
       activeClass: spyClass,
@@ -63,12 +61,13 @@ export const navigationInpages = ({
     gumshoe.destroy();
   }
 
-  // INIT
+  // Init
   function init() {
     initSticky();
     initScrollSpy();
   }
 
+  // Destroy
   function destroy() {
     destroyScrollSpy();
     destroySticky();
@@ -83,5 +82,4 @@ export const navigationInpages = ({
   };
 };
 
-// module exports
 export default navigationInpages;
