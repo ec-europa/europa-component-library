@@ -59,6 +59,10 @@ export const navigationInpages = ({
     });
   }
 
+  function destroyScrollSpy() {
+    gumshoe.destroy();
+  }
+
   // INIT
   function init() {
     initSticky();
@@ -66,6 +70,7 @@ export const navigationInpages = ({
   }
 
   function destroy() {
+    destroyScrollSpy();
     destroySticky();
   }
 
