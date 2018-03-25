@@ -12,9 +12,9 @@
     padding: 0;
   }
 
-  // Add space before list items
-  .ecl-list--spaced {
-    padding-left: map-get($ecl-spacing, 's');
+  // Add space before nested lists
+  .ecl-list--nested {
+    padding-left: map-get($ecl-spacing, 'm');
   }
 
   // For better readability
@@ -29,6 +29,10 @@
 
   .ecl-list--circle {
     list-style-type: circle;
+  }
+
+  .ecl-list--decimal {
+    list-style-type: decimal;
   }
 
   .ecl-list--disc {
