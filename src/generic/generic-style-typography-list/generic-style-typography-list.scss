@@ -1,38 +1,53 @@
 /**
- * Timeline
+ * Typography List
  * @define list
  */
 
-@import 'lists-mixins';
+@mixin ecl-list() {
+  .ecl-list {
+    line-height: 1.66;
+    list-style-position: inside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 
-.ecl-list {
-  @include list();
-}
+  // Add space before list items
+  .ecl-list--spaced {
+    padding-left: map-get($ecl-spacing, 's');
+  }
 
-// list alpha
-.ecl-list--alpha {
-  list-style-type: lower-latin;
-}
+  // For better readability
+  .ecl-list--optimal-length {
+    max-width: 32em;
+  }
 
-// list ustyled
-.ecl-list--unstyled {
-  list-style: none;
-  padding-left: 0;
-}
+  // List-item marker
+  .ecl-list--alpha {
+    list-style-type: lower-latin;
+  }
 
-// list inline
-.ecl-list--inline {
-  list-style: none;
-  padding-left: 0;
+  .ecl-list--circle {
+    list-style-type: circle;
+  }
 
-  /* stylelint-disable-next-line */
-  li {
-    display: inline-block;
-    margin-left: map-get($ecl-spacing, 'xxs');
+  .ecl-list--disc {
+    list-style-type: disc;
+  }
 
-    /* stylelint-disable-next-line */
-    &:first-child {
-      margin-left: 0;
+  .ecl-list--square {
+    list-style-type: square;
+  }
+
+  // Inline list
+  .ecl-list--inline {
+    .ecl-list__item {
+      display: inline-block;
+      margin-right: map-get($ecl-spacing, 'xxs');
+    }
+
+    .ecl-list__item:last-child {
+      margin-right: 0;
     }
   }
 }
