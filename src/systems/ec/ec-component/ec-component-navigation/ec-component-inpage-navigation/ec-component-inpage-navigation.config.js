@@ -22,6 +22,7 @@ module.exports = {
   context: {
     title: 'Page content',
     links,
+    extra_classes: 'ecl-col-md-3 ecl-u-align-self-start ',
     _demo: {
       scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); ECL.navigationInpages(); });`,
     },
