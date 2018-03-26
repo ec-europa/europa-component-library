@@ -1,32 +1,38 @@
 {#
-  - title: string; title of the navigation block (default: '')
-  - links: array;
-    {
-      href: string; target of the anchor, with a "#". should be an existing id in the page (default: '')
-      label: string; label of the anchor (default: '')
-    }
+  Accepts:
+    - "title" (string): title of the navigation block (default: '')
+    - "links" (array)
+      {
+        "href" (string): target of the anchor, with a "#". should be an existing id in the page (default: '')
+        "label" (string): label of the anchor (default: '')
+      }
+    - "extra_classes" (string): additional classes to add to the component
+    - "extra_attributes" (array of { name: "", value: "" })
+    - "system" (string): name of the current system (default: 'generic')
 #}
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-inpage-navigation' %}
-{% set _extraAttributes = '' %}
+{% set _css_class = 'ecl-inpage-navigation' %}
+{% set _extra_attributes = '' %}
+{% set _extra_classes = extra_classes|default('') %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if _extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _extra_classes %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+{% if extra_attributes is defined and extra_attributes is not empty %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result  #}
 
-<nav class="{{ _cssClass }}" {{ _extraAttributes }}>
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-inpage-navigation__title">{{ title }}</div>
 
   <div class="ecl-inpage-navigation__body">
@@ -35,9 +41,9 @@
     <ul class="ecl-inpage-navigation__list" aria-hidden="true" aria-labelledby="ecl-inpage-navigation-trigger" id="ecl-inpage-navigation-list">
       {% for link in links %}
       <li class="ecl-inpage-navigation__item">
-        {% include '@ecl/generic-component-link' with {
-          'extra_classes': 'ecl-inpage-navigation__link',
-          'variant': 'standalone',
+        {% include '@ecl/' ~ _system ~ '-component-link' with {
+          extra_classes: 'ecl-inpage-navigation__link',
+          variant: 'standalone',
           }|merge(link|default({}))
         %}
       </li>
