@@ -1,6 +1,6 @@
 module.exports = {
   type: 'hero',
-  image: 'http://lorempixel.com/1140/370/abstract/',
+  image: 'https://lorempixel.com/1140/370/abstract/',
   title: 'White Paper on the future of Europe',
   link: '#hero-banner',
   description:

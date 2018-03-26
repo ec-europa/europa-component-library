@@ -1,7 +1,7 @@
 module.exports = {
   type: 'video',
   video: {
-    src: 'http://ec.europa.eu/avservices/play.cfm?ref=I101631',
+    src: 'https://ec.europa.eu/avservices/play.cfm?ref=I101631',
     is_iframe: true,
     ratio: '16-9',
     caption:
