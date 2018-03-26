@@ -40,17 +40,18 @@
     </div>
   </div>
 {% elseif _type == 'video' %}
-  {% set _css_class = _css_class ~ ' ecl-row' %}
   <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-    <div class="ecl-col-md-6">
-      <div class="banner__video">
-        {% include '@ecl/' ~ _system ~ '-component-file' with {
-          variant: 'video',
-        }|merge(video|default({})) %}
+    <div class="ecl-row">
+      <div class="ecl-col-md-6">
+        <div class="banner__video">
+          {% include '@ecl/' ~ _system ~ '-component-file' with {
+            variant: 'video',
+          }|merge(video|default({})) %}
+        </div>
       </div>
-    </div>
-    <div class="ecl-col-md-6">
-      {{ description }}
+      <div class="ecl-col-md-6">
+        {{ description }}
+      </div>
     </div>
   </div>
 {% endif %}
