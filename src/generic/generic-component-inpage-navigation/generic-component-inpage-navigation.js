@@ -10,6 +10,7 @@ import gumshoe from 'gumshoejs';
  */
 export const navigationInpages = ({
   stickySelector: stickySelector = '.ecl-inpage-navigation',
+  stickyOffset: stickyOffset = 0,
   spySelector: spySelector = '.ecl-inpage-navigation__link',
   spyClass: spyClass = 'ecl-inpage-navigation__link--is-active',
   spyTrigger: spyTrigger = '.ecl-inpage-navigation__trigger',
@@ -23,22 +24,32 @@ export const navigationInpages = ({
   )
     return null;
 
+  let stickyInstance;
+
   // ACTIONS
   function initSticky() {
-    // init sticky menu
-    // eslint-disable-next-line no-undef
-    stickybits(stickySelector, { useStickyClasses: true });
+    stickyInstance = stickybits(stickySelector, {
+      stickyBitStickyOffset: stickyOffset,
+      useStickyClasses: true,
+      parentClass: 'ecl-inpage-navigation__parent',
+      stickyClass: 'ecl-inpage-navigation--sticky',
+      stuckClass: 'ecl-inpage-navigation--stuck',
+      stickyChangeClass: 'ecl-inpage-navigation--changed',
+    });
+  }
+
+  function destroySticky() {
+    if (stickyInstance) {
+      stickyInstance.cleanup();
+    }
   }
 
   function initScrollSpy() {
-    // init scrollspy
-    // eslint-disable-next-line no-undef
     gumshoe.init({
       selector: spySelector,
       activeClass: spyClass,
       offset: spyOffset,
       callback(nav) {
-        // eslint-disable-line
         if (!nav) return;
         const navigationTitle = document.querySelector(spyTrigger);
         navigationTitle.innerHTML = nav.nav.innerHTML;
@@ -46,10 +57,20 @@ export const navigationInpages = ({
     });
   }
 
-  // INIT
+  function destroyScrollSpy() {
+    gumshoe.destroy();
+  }
+
+  // Init
   function init() {
     initSticky();
     initScrollSpy();
+  }
+
+  // Destroy
+  function destroy() {
+    destroyScrollSpy();
+    destroySticky();
   }
 
   init();
@@ -57,8 +78,8 @@ export const navigationInpages = ({
   // REVEAL API
   return {
     init,
+    destroy,
   };
 };
 
-// module exports
 export default navigationInpages;
