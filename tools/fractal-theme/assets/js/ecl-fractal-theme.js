@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   $.map($('[data-behaviour="pen"]'), p => new Pen(p));
   search();
 
-  ECL.megamenu();
+  ECL.initExpandables();
+  ECL.navigationSide();
 });
 
 export default events;

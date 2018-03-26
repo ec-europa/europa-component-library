@@ -4,6 +4,8 @@
  */
 @mixin side-navigation() {
   .ecl-side-navigation {
+    background-color: map-get($ecl-colors, 'grey-10');
+    height: 100%;
     margin: 0;
     padding: 0;
   }
@@ -83,7 +85,7 @@
   .ecl-side-navigation__link {
     border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
     color: map-get($ecl-colors, 'grey-100');
-    display: block;
+    display: flex;
     font-size: map-get($ecl-font-size, 'm');
     padding: map-get($ecl-spacing, 's') 0;
     position: relative;
@@ -131,9 +133,6 @@
     border-bottom-width: 0;
   }
 
-  .ecl-side-navigation--depth-1
-    .ecl-side-navigation__item:last-child
-    .ecl-side-navigation__link,
   .ecl-side-navigation--depth-2
     .ecl-side-navigation__item:last-child
     .ecl-side-navigation__link {
