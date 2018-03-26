@@ -5,6 +5,8 @@
 
 @mixin ecl-list() {
   .ecl-list {
+    color: $ecl-color-shade;
+    font-size: map-get($ecl-font-size, 'm');
     line-height: 1.66;
     list-style-position: inside;
     list-style-type: none;
