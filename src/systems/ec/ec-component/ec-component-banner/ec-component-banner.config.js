@@ -1,12 +1,21 @@
+// Load context from generic component
+const hero = require('@ecl/generic-component-banner/context/hero');
+const video = require('@ecl/generic-component-banner/context/video');
+
 module.exports = {
   title: 'Banners',
   label: 'Banners',
   status: 'ready',
   tags: ['molecule'],
-  context: {
-    quote: {
-      body: `Nullam eget gravida sapien. Curabitur nec ligula varius tellus blandit auctor in non felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque in volutpat eros, ut fringilla tortor.`,
-      author: 'President Juncker',
+  variants: [
+    {
+      name: 'hero',
+      context: hero,
     },
-  },
+    {
+      name: 'video',
+      context: video,
+    },
+  ],
+  default: 'hero',
 };

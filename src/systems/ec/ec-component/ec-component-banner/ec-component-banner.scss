@@ -3,7 +3,6 @@
  * @define banner
  */
 
-.ecl-banner {
-  margin: 0;
-  max-width: none;
-}
+@import '@ecl/generic-component-banner/generic-component-banner';
+
+@include ecl-banner();
