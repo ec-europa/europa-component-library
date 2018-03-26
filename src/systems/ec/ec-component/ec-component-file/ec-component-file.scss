@@ -8,12 +8,13 @@
 .ecl-file {
   @include ecl-hidden-print();
 
+  color: $ecl-color-shade;
   margin: 0;
 }
 
 .ecl-file__body {
   background-color: map-get($ecl-colors, 'grey-10');
-  padding: map-get($ecl-spacing, 's');
+  padding: map-get($ecl-spacing, 'm');
 }
 
 .ecl-file__icon {
@@ -27,6 +28,7 @@
 }
 
 .ecl-file__title {
+  font-size: map-get($ecl-font-size, 'm');
   font-weight: bold;
 }
 
@@ -180,6 +182,7 @@
 // Image and video file
 .ecl-file__image,
 .ecl-file__video {
+  display: block;
   height: auto;
   width: 100%;
 }
@@ -188,6 +191,7 @@
   background-color: map-get($ecl-colors, 'grey-10');
   display: block;
   font-size: map-get($ecl-font-size, 'xs');
+  line-height: 1.5;
   padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
 }
 
