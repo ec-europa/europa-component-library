@@ -5,6 +5,11 @@
 
 @mixin ecl-image() {
   .ecl-image {
+    border-style: none;
+    vertical-align: middle;
+  }
+
+  .ecl-image--fluid {
     height: auto;
     max-width: 100%;
   }
