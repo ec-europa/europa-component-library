@@ -56,17 +56,6 @@ module.exports = {
     {
       entry: path.resolve(
         nodeModules,
-        '@ecl/eu-preset-editor/eu-preset-editor.scss'
-      ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/europa-editor.css'),
-      options: {
-        sourceMap: isProd ? 'file' : true,
-        includePaths,
-      },
-    },
-    {
-      entry: path.resolve(
-        nodeModules,
         '@ecl/eu-preset-corporate/eu-preset-corporate.scss'
       ),
       dest: path.resolve(
