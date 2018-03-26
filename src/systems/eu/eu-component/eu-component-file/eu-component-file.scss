@@ -44,7 +44,7 @@
   text-align: center;
 
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('download');
 
@@ -70,7 +70,7 @@
 
 .ecl-file__translations-toggle[aria-expanded='false'] {
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('down');
 
@@ -80,7 +80,7 @@
 
 .ecl-file__translations-toggle[aria-expanded='true'] {
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('up');
 
@@ -127,7 +127,7 @@
   margin-left: -1rem;
 
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('download');
 
