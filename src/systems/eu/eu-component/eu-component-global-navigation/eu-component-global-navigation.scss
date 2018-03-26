@@ -73,12 +73,11 @@
 
 .ecl-global-navigation__toggle-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .ecl-global-navigation__institution-list {
-  display: flex;
-  flex-wrap: wrap;
+  column-count: 1;
   list-style: none;
   margin: 0;
   margin-left:-(map-get($ecl-spacing, 'xxxs'));
@@ -88,6 +87,7 @@
 }
 
 .ecl-global-navigation__institution-item {
+  display: inline-block;
   padding: 0 map-get($ecl-spacing, 'xxxs');
   width: 100%;
 }
@@ -154,8 +154,8 @@
 }
 
 @include ecl-media-breakpoint-up(md) {
-  .ecl-global-navigation__institution-item {
-    width: 50%;
+  .ecl-global-navigation__institution-list {
+    column-count: 2;
   }
 
   .ecl-global-navigation__option {
@@ -168,13 +168,13 @@
 }
 
 @include ecl-media-breakpoint-up(lg) {
-  .ecl-global-navigation__institution-item {
-    width: 33.33%;
+  .ecl-global-navigation__institution-list {
+    column-count: 3;
   }
 }
 
 @include ecl-media-breakpoint-up(xl) {
-  .ecl-global-navigation__institution-item {
-    width: 25%;
+  .ecl-global-navigation__institution-list {
+    column-count: 4;
   }
 }
