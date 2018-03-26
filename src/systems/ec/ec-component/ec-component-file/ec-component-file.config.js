@@ -80,7 +80,7 @@ module.exports = {
       label: 'Image file',
       context: {
         variant: 'image',
-        src: 'http://placehold.it/450x250',
+        src: 'https://placehold.it/450x250',
         alt: 'placeholder image',
         caption:
           'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
@@ -91,7 +91,7 @@ module.exports = {
       label: 'Video file (with iframe)',
       context: {
         variant: 'video',
-        src: 'http://ec.europa.eu/avservices/play.cfm?ref=I101631',
+        src: 'https://ec.europa.eu/avservices/play.cfm?ref=I101631',
         is_iframe: true,
         ratio: '16-9',
         caption:
@@ -103,7 +103,7 @@ module.exports = {
       label: 'Video file (with video tag)',
       context: {
         variant: 'video',
-        src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+        src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
         caption:
           'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
       },
