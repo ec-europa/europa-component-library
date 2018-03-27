@@ -11,6 +11,7 @@
     - responsive (boolean): make the image responsive (default: false)
     - extra_classes (string): additional classes to add to the component
     - extra_attributes (array of { name: '', value: '' })
+    - container_classes (string): additional classes to add to the picture container
 #}
 
 {# Internal properties #}
@@ -19,6 +20,7 @@
 {% set _css_class = 'ecl-image' %}
 {% set _extra_attributes = '' %}
 {% set _responsive = responsive|default(false) %}
+{% set _container_classes = container_classes|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -43,7 +45,7 @@
 {% if srcs is defined %}
 
 <picture
-  {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
+  {% if _container_classes is not empty %}class="{{ _container_classes }}"{% endif %}
   {{ _extra_attributes|raw }}>
 
   {% if srcs.xl is defined and srcs.xl is not empty %}
@@ -66,7 +68,7 @@
   <source media="(max-width: 479px)" srcset="{{ srcs.xs }}">
   {% endif %}
 
-  <img src="{{ _src }}" alt="{{ alt }}">
+  <img src="{{ _src }}" alt="{{ alt }}" class="{{ _css_class }}">
 </picture>
 
 {% else %}
