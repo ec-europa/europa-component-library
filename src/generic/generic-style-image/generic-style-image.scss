@@ -6,11 +6,15 @@
 @mixin ecl-image() {
   .ecl-image {
     border-style: none;
-    vertical-align: middle;
+    vertical-align: baseline;
   }
 
   .ecl-image--fluid {
     height: auto;
     max-width: 100%;
+  }
+
+  .ecl-image--align-middle {
+    vertical-align: middle;
   }
 }
