@@ -59,7 +59,7 @@
       {% if variant == 'date' %}
         {% include '@ecl/generic-component-date-block' with _primary %}
       {% else %}
-        {% include '@ecl/generic-style-image' with { responvive: true }|merge(_primary)  %}
+        {% include '@ecl/generic-style-image' with { responsive: true }|merge(_primary)  %}
       {% endif %}
     </div>
     {% endif %}
@@ -88,7 +88,7 @@
 
     {% if _secondary is not empty %}
     <div class="ecl-list-item__secondary">
-      {% include '@ecl/generic-style-image' with { responvive: true }|merge(_secondary)  %}
+      {% include '@ecl/generic-style-image' with { responsive: true }|merge(_secondary)  %}
     </div>
     {% endif %}
 
