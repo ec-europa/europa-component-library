@@ -14,13 +14,19 @@ const lernaUpdated = async ({
   cacheResults = true,
   since = '',
 } = {}) => {
-  const updatedPackages = await getUpdatedPackages({
-    ignoreCache,
-    cacheResults,
-    since,
-  });
+  try {
+    const updatedPackages = await getUpdatedPackages({
+      ignoreCache,
+      cacheResults,
+      since,
+    });
 
-  if (!updatedPackages || updatedPackages.length === 0) {
+    if (!updatedPackages || updatedPackages.length === 0) {
+      console.error('No updates found');
+      process.exit(1);
+    }
+  } catch (e) {
+    console.error(e.message);
     process.exit(1);
   }
 
