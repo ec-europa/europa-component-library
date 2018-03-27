@@ -30,7 +30,7 @@ $breadcrumb-heigth: 2.778em;
 
   // Add the ">" icon
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('right');
   }

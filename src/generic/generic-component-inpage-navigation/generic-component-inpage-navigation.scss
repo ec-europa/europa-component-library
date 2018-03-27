@@ -16,7 +16,7 @@
     position: relative;
 
     &::after {
-      @extend %ecl-icon--after;
+      @include ecl-icon--after();
 
       @include ecl-icon('arrow-down');
 

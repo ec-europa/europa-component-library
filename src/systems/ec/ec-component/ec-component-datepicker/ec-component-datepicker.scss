@@ -169,9 +169,7 @@ $ecl-datepickers-week-color: #999 !default;
     order: -1;
 
     &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--right;
-
+      @include ecl-icon--after();
       @include ecl-icon('right');
 
       color: #fff;
@@ -187,9 +185,7 @@ $ecl-datepickers-week-color: #999 !default;
     right: 0;
 
     &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--right;
-
+      @include ecl-icon--after();
       @include ecl-icon('right');
 
       color: #fff;
@@ -214,9 +210,7 @@ $ecl-datepickers-week-color: #999 !default;
     right: 0;
 
     &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--right;
-
+      @include ecl-icon--after();
       @include ecl-icon('right');
 
       color: #fff;
@@ -232,9 +226,7 @@ $ecl-datepickers-week-color: #999 !default;
     order: -1;
 
     &::after {
-      @extend %ecl-icon--after;
-      @extend %ecl-icon--right;
-
+      @include ecl-icon--after();
       @include ecl-icon('right');
 
       color: #fff;

@@ -2,13 +2,6 @@
  * EC logo
  */
 
-%logo {
-  background: url($ecl-assets-path+'images/logo.svg') no-repeat;
-  display: block;
-  height: 72px;
-  width: 140px;
-}
-
 // Language generator.
 @mixin logo-background-languages(
   $file_path,
@@ -39,7 +32,10 @@
 
 // Default EC logo.
 .ecl-logo {
-  @extend %logo;
+  background: url($ecl-assets-path+'images/logo.svg') no-repeat;
+  display: block;
+  height: 72px;
+  width: 140px;
 }
 
 .ecl-logo--big {

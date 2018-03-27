@@ -14,7 +14,7 @@
 
 @mixin link-external {
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('external');
 
