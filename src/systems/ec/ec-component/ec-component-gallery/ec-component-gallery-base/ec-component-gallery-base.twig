@@ -17,9 +17,9 @@
     {% for gallery_item in row %}
     <div class="{{ gallery_item.classes }} ecl-gallery__item">
       <div class="ecl-gallery__item-container">
-        {% include '@ecl/ec-style-image' with gallery_item.image %}
+        {% include '@ecl/ec-style-image' with { responvive: true }|merge(gallery_item.image|default({})) %}
         {% if gallery_item.caption is defined %}
-        <span class="ecl-gallery__caption">{{ gallery_item.caption }}</span>
+          <span class="ecl-gallery__caption">{{ gallery_item.caption }}</span>
         {% endif %}
         {% if gallery_item.icon is defined %}
         <span class="ecl-gallery__icon-wrapper">
