@@ -51,6 +51,7 @@
 
 .ecl-comment__meta {
   border-bottom: 1px solid map-get($ecl-colors, 'yellow-100');
+  color: $ecl-color-shade;
   margin-bottom: map-get($ecl-spacing, 'xs');
   padding-bottom: map-get($ecl-spacing, 'xxxs');
 }
@@ -59,4 +60,8 @@
   color: $ecl-color-shade;
   display: block;
   padding: map-get($ecl-spacing, 's') 0;
+}
+
+.ecl-comment__text {
+  font-size: map-get($ecl-font-size, 's');
 }
