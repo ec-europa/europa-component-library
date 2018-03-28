@@ -4,7 +4,9 @@
 
 // Dismiss a selected message.
 function dismissMessage(message) {
-  message.setAttribute('aria-hidden', true);
+  if (message && message.parentNode !== null) {
+    message.parentNode.removeChild(message);
+  }
 }
 
 // Helper method to automatically attach the event listener to all the messages on page load
