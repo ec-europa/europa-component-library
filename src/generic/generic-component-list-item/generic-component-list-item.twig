@@ -22,8 +22,8 @@
 
 {# Internal properties #}
 
-{% set _primary = primary_image|default('') %}
-{% set _secondary = secondary_image|default('') %}
+{% set _primary = primary_image|default({}) %}
+{% set _secondary = secondary_image|default({})) %}
 {% set _screen_reader = screen_reader|default('List item') %}
 {% set _css_class = 'ecl-list-item' %}
 {% set _extra_attributes = '' %}
@@ -59,7 +59,7 @@
       {% if variant == 'date' %}
         {% include '@ecl/generic-component-date-block' with _primary %}
       {% else %}
-        {% include '@ecl/generic-style-image' with _primary %}
+        {% include '@ecl/generic-style-image' with { responsive: true }|merge(_primary)  %}
       {% endif %}
     </div>
     {% endif %}
@@ -88,7 +88,7 @@
 
     {% if _secondary is not empty %}
     <div class="ecl-list-item__secondary">
-      {% include '@ecl/generic-style-image' with _secondary %}
+      {% include '@ecl/generic-style-image' with { responsive: true }|merge(_secondary)  %}
     </div>
     {% endif %}
 
