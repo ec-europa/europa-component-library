@@ -27,7 +27,7 @@
 
 {% if _type == 'hero' %}
   <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-    <img class="ecl-image ecl-banner__image" src="{{ image }}" role="presentation" />
+    <img class="ecl-image ecl-image--fluid ecl-banner__image" src="{{ image }}" role="presentation" />
     <div class="ecl-banner__content">
       <h3 class="ecl-heading ecl-heading--h3 ecl-banner__title">
         {% include '@ecl/' ~ _system ~ '-component-link' with {
