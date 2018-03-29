@@ -1,0 +1,11 @@
+@import 'mixins';
+
+@mixin ecl-editor-blockquote() {
+  .ecl-editor blockquote {
+    @include blockquote-container();
+
+    p {
+      @include blockquote-body();
+    }
+  }
+}

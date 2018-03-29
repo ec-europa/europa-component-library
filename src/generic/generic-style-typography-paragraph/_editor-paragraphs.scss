@@ -1,5 +1,7 @@
-@import 'paragraphs-mixins';
+@import 'mixins';
 
-.ecl-editor p {
-  @include paragraph();
+@mixin ecl-editor-paragraph() {
+  .ecl-editor p {
+    @include paragraph();
+  }
 }

@@ -48,9 +48,7 @@
       'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
       }|merge(title|default({}))
     %}
-    <div class="ecl-comment__text">
-      <p class="ecl-paragraph">{{ body }}</p>
-    </div>
+    <p class="ecl-paragraph ecl-comment__text">{{ body }}</p>
     {% if operations is defined %}
     <ul class="ecl-list ecl-list--inline ecl-comment__operations">
       {% if operations.reply is defined and operations.reply.visible %}

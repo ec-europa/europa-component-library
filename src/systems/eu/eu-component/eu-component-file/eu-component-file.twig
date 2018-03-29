@@ -51,7 +51,8 @@
 {% set _translations_label = translations_label|default('Available languages: 0') %}
 {% set _translations_tooltip = translations_tooltip|default('Click to see translations') %}
 {% set _css_class = 'ecl-file' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = extra_attributes|default([]) %}
+{% set _extra_classes = extra_classes|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -59,12 +60,12 @@
   {% set _css_class = _css_class ~ ' ecl-file--' ~ variant %}
 {% endif %}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% if _extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
+{% if _extra_attributes is not empty %}
+  {% for attr in _extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
