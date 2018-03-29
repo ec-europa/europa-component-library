@@ -23,7 +23,7 @@
 }
 
 .ecl-search-form__button {
-  @extend %ecl-icon;
+  @include ecl-icon--before();
 
   flex-shrink: 0;
   padding: 0 map-get($ecl-spacing, 'm');
@@ -57,7 +57,7 @@
   display: flex;
 
   .ecl-search-form__textfield-wrapper {
-    @extend %ecl-icon;
+    @include ecl-icon--before();
 
     border-color: #fff;
     flex-grow: 1;

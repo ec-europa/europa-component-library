@@ -22,11 +22,11 @@
  */
 
 .ecl-icon {
-  @extend %ecl-icon;
+  @include ecl-icon--before();
 }
 
 .ecl-icon--after {
-  @extend %ecl-icon--after;
+  @include ecl-icon--after();
 }
 
 // Icon component and modifiers.

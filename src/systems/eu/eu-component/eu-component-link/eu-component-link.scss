@@ -42,7 +42,7 @@
   text-transform: uppercase;
 
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('right');
 

@@ -1,29 +1,8 @@
-@import 'paragraphs-mixins';
+/**
+ * Typography: paragraphs
+ * @define paragraph
+ */
 
-.ecl-paragraph {
-  @include paragraph();
-}
+@import '@ecl/generic-style-typography-paragraph/generic-style-typography-paragraph';
 
-.ecl-paragraph--l {
-  font-size: map-get($ecl-font-size, 'l');
-}
-
-.ecl-paragraph--m {
-  font-size: map-get($ecl-font-size, 'm');
-}
-
-.ecl-paragraph--s {
-  font-size: map-get($ecl-font-size, 's');
-}
-
-.ecl-paragraph--xs {
-  font-size: map-get($ecl-font-size, 'xs');
-}
-
-.ecl-paragraph--xxs {
-  font-size: map-get($ecl-font-size, 'xxs');
-}
-
-.text-small {
-  font-size: map-get($ecl-font-size, 'xs');
-}
+@include ecl-paragraph();

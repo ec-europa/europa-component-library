@@ -5,7 +5,7 @@
 
 .ecl-expandable__button {
   &::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-button--caret();
   }

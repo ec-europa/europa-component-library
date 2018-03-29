@@ -39,6 +39,10 @@
   z-index: map-get($ecl-z-index, 'highlight');
 }
 
+.ecl-dialog__overlay[aria-hidden='true'] {
+  display: none;
+}
+
 .ecl-dialog__overlay--blue {
   background-color: rgba($ecl-color-primary, 0.95);
 }

@@ -13,7 +13,6 @@
   Variables for `default`:
   - title: (string) Page title.
   - introduction: (string) The text inside intro area.
-  - paragraph_class: (string) Possible additional classes on the intro paragraph.
   - metas (array): array of strings; each one correspond to a meta item (default: empty)
 #}
 
@@ -59,9 +58,7 @@
       {% endif %}
 
       {% if introduction is defined %}
-      <div class="ecl-page-header__intro">
-        <p class="{{ paragraph_class }}">{{ introduction }}</p>
-      </div>
+      <p class="ecl-page-header__intro">{{ introduction }}</p>
       {% endif %}
 
     </div>

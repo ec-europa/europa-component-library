@@ -1,0 +1,42 @@
+@mixin blockquote-container() {
+  border-left: 8px solid $ecl-color-secondary;
+  margin: 0;
+  padding: map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'xxs')
+    map-get($ecl-spacing, 'm');
+}
+
+@mixin blockquote-container--small() {
+  border-left-width: 6px;
+}
+
+@mixin blockquote-body() {
+  color: $ecl-color-shade;
+  font-size: map-get($ecl-font-size, 'l');
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+
+  &::before {
+    content: open-quote;
+  }
+
+  &::after {
+    content: close-quote;
+  }
+}
+
+@mixin blockquote-body--small() {
+  font-size: map-get($ecl-font-size, 'm');
+}
+
+@mixin blockquote-author() {
+  color: $ecl-color-shade;
+  font-size: map-get($ecl-font-size, 's');
+  font-style: italic;
+  font-weight: 600;
+  margin-top: map-get($ecl-spacing, 'xxs');
+}
+
+@mixin blockquote-author--small() {
+  font-size: map-get($ecl-font-size, 'xs');
+}
