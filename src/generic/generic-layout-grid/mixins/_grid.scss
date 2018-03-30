@@ -3,6 +3,7 @@
 // Generate semantic grid columns with these mixins.
 
 @mixin ecl-make-container($gutters: $ecl-grid-gutter-widths) {
+  box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -42,6 +43,7 @@
 }
 
 @mixin ecl-make-row($gutters: $ecl-grid-gutter-widths) {
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
 
@@ -56,6 +58,7 @@
 }
 
 @mixin ecl-make-col-ready($gutters: $ecl-grid-gutter-widths) {
+  box-sizing: border-box;
   min-height: 1px; // Prevent collapsing
   position: relative;
   // Prevent columns from becoming too narrow when at smaller grid tiers by
@@ -74,6 +77,7 @@
 }
 
 @mixin ecl-make-col($size, $columns: $ecl-grid-columns) {
+  box-sizing: border-box;
   flex: 0 0 percentage($size / $columns);
   // width: percentage($size / $columns);
   // Add a `max-width` to ensure content within each column does not blow out
@@ -95,6 +99,7 @@
 }
 
 @mixin ecl-make-col-modifier($type, $size, $columns) {
+  box-sizing: border-box;
   // Work around the lack of dynamic mixin @include support (https://github.com/sass/sass/issues/626)
   @if $type == push {
     @include ecl-make-col-push($size, $columns);
