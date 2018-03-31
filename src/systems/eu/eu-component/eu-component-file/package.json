@@ -7,7 +7,7 @@
   "style": "eu-component-file.scss",
   "scripts": {
     "build:styles":
-      "node-sass --include-path ../../../../../node_modules eu-component-file.scss dist/file.css"
+      "echo '$color: red;' | cat - eu-component-file.scss | node-sass --include-path ../../../../../node_modules > dist/file.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^0.0.1",
