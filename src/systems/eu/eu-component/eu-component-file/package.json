@@ -7,7 +7,7 @@
   "style": "eu-component-file.scss",
   "scripts": {
     "test:independent-sass":
-      "node-sass --include-path ../../../../../node_modules eu-component-file.scss dist/eu-component-file.css"
+      "node-sass --quiet --include-path ../../../../../node_modules eu-component-file.scss dist/eu-component-file.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^0.0.1",
