@@ -3,6 +3,7 @@
 // Generate semantic grid columns with these mixins.
 
 @mixin ecl-make-container($gutters: $ecl-grid-gutter-widths) {
+  box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -42,6 +43,7 @@
 }
 
 @mixin ecl-make-row($gutters: $ecl-grid-gutter-widths) {
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
 
@@ -56,6 +58,7 @@
 }
 
 @mixin ecl-make-col-ready($gutters: $ecl-grid-gutter-widths) {
+  box-sizing: border-box;
   min-height: 1px; // Prevent collapsing
   position: relative;
   // Prevent columns from becoming too narrow when at smaller grid tiers by
