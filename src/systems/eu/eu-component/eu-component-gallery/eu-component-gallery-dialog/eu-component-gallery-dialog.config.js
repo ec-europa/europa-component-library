@@ -19,7 +19,7 @@ module.exports = {
         // Add necessary demo attributes.
         link.setAttribute('href', '#ecl-carousel');
         link.setAttribute('class', 'ecl-link');
-        link.setAttribute('data-eul-dialog', 'ecl-carousel');
+        link.setAttribute('data-ecl-dialog', 'ecl-carousel');
         link.setAttribute('id', 'open-dialog-demo');
 
         // Show the link

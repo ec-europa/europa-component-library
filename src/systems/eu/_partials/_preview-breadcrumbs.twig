@@ -7,11 +7,8 @@
     <script>document.documentElement.classList.remove('no-js');</script>
     <link media="all" rel="stylesheet" href="{{ '/eu-preset-full/styles/europa.css' | path }}">
   </head>
-  <body>
-    <div style="background-color: #004494; padding: 5px 15px 15px; float: left; width: 100%;">
-      {{ yield }}
-    </div>
-
+  <body style="background-color: #004494">
+    {{ yield }}
     <script src="{{ '/eu-preset-full/scripts/europa.js' | path }}"></script>
     {% if _target.context._demo and _target.context._demo.scripts %}
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
