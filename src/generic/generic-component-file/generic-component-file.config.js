@@ -62,7 +62,7 @@ module.exports = {
           },
           {
             title: 'Link to a presentation .ppt file',
-            icon: 'package',
+            icon: 'slides',
             href: '#',
             type: 'ppt',
           },
