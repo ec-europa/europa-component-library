@@ -9,6 +9,7 @@
     "build":
       "cd ../../src/systems/ec/ec-preset/ec-preset-full && npm run build",
     "clean": "rm -rf ./static/ec-preset-full",
+    "dist": "fractal build",
     "postinstall":
       "copyfiles -f '../../node_modules/@ecl/generic-*/**/*.twig' ../../src/systems/ec/_imports",
     "serve": "fractal start --sync",

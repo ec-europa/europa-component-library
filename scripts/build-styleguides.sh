@@ -13,4 +13,4 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build styleguides
-yarn lerna --parallel --scope "@ecl/*-styleguide" exec "fractal build && cross-env NODE_ENV=production npm run build"
+yarn lerna --parallel --scope "@ecl/*-styleguide" run dist

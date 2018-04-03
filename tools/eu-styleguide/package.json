@@ -9,6 +9,7 @@
     "build":
       "cd ../../src/systems/eu/eu-preset/eu-preset-full && npm run build",
     "clean": "rm -rf ./static/eu-preset-full",
+    "dist": "fractal build",
     "postinstall":
       "copyfiles -f '../../node_modules/@ecl/generic-*/**/*.twig' ../../src/systems/eu/_imports",
     "serve": "fractal start --sync",

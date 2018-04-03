@@ -7,7 +7,7 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "dist":
-      "npm run clean && scripts/build-styleguides.sh && scripts/build-packages.sh",
+      "npm run clean && scripts/build-packages.sh && scripts/build-styleguides.sh",
     "postdist": "copyfiles -f website/* dist/website",
     "gh-pages": "gh-pages -d dist/website",
     "lint:js": "eslint .",

@@ -17,7 +17,7 @@ yarn lerna --parallel --scope "@ecl/*-preset-*" run build
 
 # Copy output to dist
 rm -rf ./dist/packages
-mkdir ./dist/packages
+mkdir -p ./dist/packages
 cp -r ./src/systems/ec/ec-preset/ec-preset-corporate/dist ./dist/packages/ec-preset-corporate
 cp -r ./src/systems/ec/ec-preset/ec-preset-full/dist ./dist/packages/ec-preset-full
 cp -r ./src/systems/eu/eu-preset/eu-preset-corporate/dist ./dist/packages/eu-preset-corporate
