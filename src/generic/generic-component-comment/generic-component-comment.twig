@@ -14,12 +14,14 @@
         - href (string)
         - label (string)
         - visible (boolean)
+    - "system" (string): design system ("ec|eu|generic", default: "generic")
 #}
 
 {# Internal properties #}
 
 {% set _css_class = 'ecl-row ecl-comment' %}
 {% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
@@ -44,7 +46,7 @@
       <span class="ecl-comment__author">{{ author }}</span> |
       <span class="ecl-comment__date">{{ date }}</span>
     </div>
-    {% include '@ecl/generic-component-link' with {
+    {% include '@ecl/' ~ _system ~ '-component-link' with {
       'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
       }|merge(title|default({}))
     %}
@@ -53,7 +55,7 @@
     <ul class="ecl-list ecl-list--inline ecl-comment__operations">
       {% if operations.reply is defined and operations.reply.visible %}
         <li>
-          {% include '@ecl/generic-component-link' with {
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
             'extra_classes': 'ecl-comment__reply',
             }|merge(operations.reply|default({}))
           %}
@@ -61,7 +63,7 @@
       {% endif %}
       {% if operations.edit is defined and operations.edit.visible %}
         <li>
-          {% include '@ecl/generic-component-link' with {
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
             'extra_classes': 'ecl-comment__edit',
             }|merge(operations.edit|default({}))
           %}
@@ -69,7 +71,7 @@
       {% endif %}
       {% if operations.delete is defined and operations.delete.visible %}
         <li>
-          {% include '@ecl/generic-component-link' with {
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
             'extra_classes': 'ecl-comment__delete',
             }|merge(operations.delete|default({}))
           %}
