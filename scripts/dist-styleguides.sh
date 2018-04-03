@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# Heavily inspired by https://github.com/facebookincubator/create-react-app/blob/master/tasks/release.sh
-
 # Exit the script on any command with non 0 return code
 set -e
 
@@ -17,7 +15,6 @@ yarn lerna --parallel --scope "@ecl/*-styleguide" run dist
 
 # Copy builds
 rm -rf ./dist/website
-mkdir -p ./dist/website
 cp -r ./website dist
 cp -r ./tools/ec-styleguide/dist ./dist/website/ec
 cp -r ./tools/eu-styleguide/dist ./dist/website/eu
