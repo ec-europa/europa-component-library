@@ -13,9 +13,9 @@
     "build:styles": "ecl-builder styles",
     "build": "run-p build:* -ln",
     "watch:scripts":
-      "chokidar \"../../src/generic/**/*.js\" \"../../src/systems/eu/**/*.js\" -i \"/node_modules/\" -c \"eslint {path} & npm run build:scripts\"",
+      "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules/\" -c \"npm run build:scripts\"",
     "watch:styles":
-      "chokidar \"../../src/generic/**/*.scss\" \"../../src/systems/eu/**/*.scss\" -i \"/node_modules/\" -c \"stylelint {path} & npm run build:styles\"",
+      "chokidar \"../../../../generic/**/*.scss\" \"../../**/*.scss\" -i \"/node_modules/\" -c \"npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:* -ln"
   },
   "dependencies": {

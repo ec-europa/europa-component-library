@@ -11,7 +11,7 @@ const includePaths = [nodeModules];
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-full.js'),
+      entry: path.resolve(__dirname, 'ec-preset-full.js'),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
@@ -21,7 +21,7 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-full.scss'),
+      entry: path.resolve(__dirname, 'ec-preset-full.scss'),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
@@ -31,30 +31,30 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-form-checkbox/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-form-checkbox/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
       from: path.resolve(
         nodeModules,
-        '@ecl/eu-component-form-feedback-message/images'
+        '@ecl/ec-component-form-feedback-message/images'
       ),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-form-radio/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-form-radio/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-form-select/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-form-select/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-social-icon/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-social-icon/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-message/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-message/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
     {
@@ -62,7 +62,7 @@ module.exports = {
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-logo/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-logo/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
   ],

@@ -19,7 +19,7 @@ symlinkOrCopySync(
 );
 
 const paths = {
-  build: path.resolve(projectRoot, 'dist/eu'),
+  build: path.resolve(projectRoot, 'dist/website/eu'),
   static: staticPath,
 };
 

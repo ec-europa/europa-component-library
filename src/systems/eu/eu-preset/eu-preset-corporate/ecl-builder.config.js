@@ -1,7 +1,7 @@
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
-const outputFolder = isProd ? '../../../../../dist/eu' : './dist';
+const outputFolder = './dist';
 
 const nodeModules = path.resolve(__dirname, '../../../../../node_modules');
 

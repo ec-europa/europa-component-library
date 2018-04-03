@@ -6,9 +6,10 @@
   "scripts": {
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
-    "dist": "scripts/styleguide.sh",
-    "postdist": "copyfiles -f website/* dist",
-    "gh-pages": "gh-pages -d dist",
+    "dist":
+      "npm run clean && scripts/build-styleguides.sh && scripts/build-packages.sh",
+    "postdist": "copyfiles -f website/* dist/website",
+    "gh-pages": "gh-pages -d dist/website",
     "lint:js": "eslint .",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
