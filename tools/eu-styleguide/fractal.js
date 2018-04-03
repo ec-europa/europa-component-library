@@ -3,12 +3,24 @@ const path = require('path');
 const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ecl/fractal-theme');
 const twigAdapter = require('@ecl/fractal-twig')({ handlePrefix: '@ecl/' });
+const symlinkOrCopySync = require('symlink-or-copy').sync;
 
 const projectRoot = path.resolve(__dirname, '../..');
+const presetPath = path.resolve(
+  projectRoot,
+  'node_modules/@ecl/eu-preset-full'
+);
+const staticPath = path.resolve(__dirname, 'static');
+
+// Symlink assets
+symlinkOrCopySync(
+  path.resolve(presetPath, 'dist'),
+  path.resolve(staticPath, 'eu-preset-full')
+);
 
 const paths = {
   build: path.resolve(projectRoot, 'dist/eu'),
-  static: path.resolve(__dirname, 'static'),
+  static: staticPath,
 };
 
 // Create a new theme instance with custom config options

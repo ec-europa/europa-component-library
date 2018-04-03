@@ -1,9 +1,9 @@
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
-const outputFolder = isProd ? '../../dist/eu' : './static';
+const outputFolder = isProd ? '../../../../../dist/eu' : './dist';
 
-const nodeModules = path.resolve(__dirname, '../../node_modules');
+const nodeModules = path.resolve(__dirname, '../../../../../node_modules');
 
 // SCSS includePaths
 const includePaths = [nodeModules];
@@ -11,19 +11,8 @@ const includePaths = [nodeModules];
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(nodeModules, '@ecl/eu-preset-full/eu-preset-full.js'),
+      entry: path.resolve(__dirname, 'eu-preset-full.js'),
       dest: path.resolve(__dirname, outputFolder, 'scripts/europa.js'),
-      options: {
-        sourceMap: isProd ? false : 'inline',
-        moduleName: 'ECL',
-      },
-    },
-    {
-      entry: path.resolve(
-        nodeModules,
-        '@ecl/eu-preset-corporate/eu-preset-corporate.js'
-      ),
-      dest: path.resolve(__dirname, outputFolder, 'scripts/eu-corporate.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -32,37 +21,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(
-        nodeModules,
-        '@ecl/eu-preset-full/eu-preset-full.scss'
-      ),
+      entry: path.resolve(__dirname, 'eu-preset-full.scss'),
       dest: path.resolve(__dirname, outputFolder, 'styles/europa.css'),
-      options: {
-        sourceMap: isProd ? 'file' : true,
-        includePaths,
-      },
-    },
-    {
-      entry: path.resolve(
-        nodeModules,
-        '@ecl/eu-preset-base/eu-preset-base.scss'
-      ),
-      dest: path.resolve(__dirname, outputFolder, 'styles/europa-base.css'),
-      options: {
-        sourceMap: isProd ? 'file' : true,
-        includePaths,
-      },
-    },
-    {
-      entry: path.resolve(
-        nodeModules,
-        '@ecl/eu-preset-corporate/eu-preset-corporate.scss'
-      ),
-      dest: path.resolve(
-        __dirname,
-        outputFolder,
-        'styles/europa-corporate.css'
-      ),
       options: {
         sourceMap: isProd ? 'file' : true,
         includePaths,
