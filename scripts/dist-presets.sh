@@ -13,9 +13,9 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build packages
-yarn lerna --parallel --scope "@ecl/*-preset-*" run build
+yarn lerna --parallel --scope "@ecl/*-preset-*" run dist
 
-# Copy output to dist
+# Copy builds
 rm -rf ./dist/packages
 mkdir -p ./dist/packages
 cp -r ./src/systems/ec/ec-preset/ec-preset-corporate/dist ./dist/packages/ec-preset-corporate

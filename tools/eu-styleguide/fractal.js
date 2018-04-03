@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
+const fs = require('fs');
 const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ecl/fractal-theme');
 const twigAdapter = require('@ecl/fractal-twig')({ handlePrefix: '@ecl/' });
-const symlinkOrCopySync = require('symlink-or-copy').sync;
 
 const projectRoot = path.resolve(__dirname, '../..');
 const presetPath = path.resolve(
@@ -12,14 +12,16 @@ const presetPath = path.resolve(
 );
 const staticPath = path.resolve(__dirname, 'static');
 
-// Symlink assets
-symlinkOrCopySync(
-  path.resolve(presetPath, 'dist'),
-  path.resolve(staticPath, 'eu-preset-full')
-);
+// Symlink dev assets
+if (process.env.NODE_ENV !== 'production') {
+  fs.symlinkSync(
+    path.resolve(presetPath, 'build'),
+    path.resolve(staticPath, 'eu-preset-full')
+  );
+}
 
 const paths = {
-  build: path.resolve(projectRoot, 'dist/website/eu'),
+  build: path.resolve(__dirname, 'dist'),
   static: staticPath,
 };
 

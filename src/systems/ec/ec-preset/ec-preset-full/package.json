@@ -11,7 +11,9 @@
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
-    "build": "run-p build:* -ln",
+    "build": "rimraf build && run-p build:* -ln",
+    "clean": "rimraf build dist",
+    "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln",
     "watch:scripts":
       "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules/\" -c \"npm run build:scripts\"",
     "watch:styles":
@@ -106,7 +108,9 @@
   "devDependencies": {
     "@ecl/builder": "0.1.0",
     "chokidar-cli": "1.2.0",
-    "npm-run-all": "4.1.2"
+    "cross-env": "5.1.4",
+    "npm-run-all": "4.1.2",
+    "rimraf": "2.6.2"
   },
   "keywords": ["ecl", "europa-component-library", "design-system"],
   "homepage": "https://github.com/ec-europa/europa-component-library",
