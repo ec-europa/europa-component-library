@@ -155,15 +155,32 @@ As we lose the advantage of generic components here, it is recommended, when pos
 
 ## Javascript
 
+Apart from [rules that should be applied to all js files](javascript.md), there are some specifications for components:
+
 ### Generic component
+
+TBD
 
 ### Systems component
 
+TBD
+
 ## Config javascript file
+
+Config files are not shared between generic and system components, so they should be duplicated (and possibly altered).
+
+A config.js file should be present in generic and all specific components.
 
 ## package.json
 
+TBD
+
 ## Other assets
 
+TBD
 
 ## Exception: components existing in only one system
+
+If a component exists only in one system, it can be defined in the system only. This means that there is no need to create a generic component, and files in system component should contain all the code/logic needed for the component.
+
+As soon as the component should be available in another system, a generic component has to be created, and the logic deported as explained ahead.
