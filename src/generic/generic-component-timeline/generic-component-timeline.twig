@@ -7,7 +7,7 @@
       - "body" (string): entry's body text (HTML)
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
-
+    - "system" (string): design system ("ec|eu|generic", default: "generic")
 #}
 
 {# Internal properties #}
@@ -15,6 +15,7 @@
 {% set _css_class = 'ecl-timeline' %}
 {% set _extra_attributes = '' %}
 {% set _button_label = button_label|default('Show all timeline') %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
@@ -38,7 +39,7 @@
     {% endfor %}
   </ul>
   {% if limit is defined and limit > 0 %}
-    {% include '@ecl/generic-component-button' with {
+    {% include '@ecl/' ~ _system ~ '-component-button' with {
       'modifier': 'call',
       'label': _button_label,
       'extra_classes': 'ecl-timeline__button',

@@ -1,15 +1,5 @@
 // ECL Reset
 @mixin reset() {
-  html {
-    box-sizing: border-box;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
   body {
     font-family: $ecl-font-family-base;
     -webkit-font-smoothing: antialiased;
