@@ -1,14 +1,28 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
+const fs = require('fs');
 const fractal = require('@frctl/fractal').create();
 const eclTheme = require('@ecl/fractal-theme');
 const twigAdapter = require('@ecl/fractal-twig')({ handlePrefix: '@ecl/' });
 
 const projectRoot = path.resolve(__dirname, '../..');
+const presetPath = path.resolve(
+  projectRoot,
+  'node_modules/@ecl/eu-preset-full'
+);
+const staticPath = path.resolve(__dirname, 'static');
+
+// Symlink dev assets
+if (process.env.NODE_ENV !== 'production') {
+  fs.symlinkSync(
+    path.resolve(presetPath, 'build'),
+    path.resolve(staticPath, 'eu-preset-full')
+  );
+}
 
 const paths = {
-  build: path.resolve(projectRoot, 'dist/eu'),
-  static: path.resolve(__dirname, 'static'),
+  build: path.resolve(__dirname, 'dist'),
+  static: staticPath,
 };
 
 // Create a new theme instance with custom config options
