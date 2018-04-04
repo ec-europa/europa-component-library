@@ -28,6 +28,10 @@ const getRef = async () => {
       return null;
     }
 
+    if (!matchingPullRequests.data || matchingPullRequests.data.length === 0) {
+      throw new Error('No matching PR found');
+    }
+
     const data = matchingPullRequests.data[0];
 
     const { ref } = data.base;

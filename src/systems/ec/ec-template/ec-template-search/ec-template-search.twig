@@ -23,7 +23,7 @@
           ]
         } %}
       </div>
-      {% embed '@ecl/ec-component-form-form' with { 'extra_class': 'ecl-u-d-lg-block', 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+      {% embed '@ecl/ec-component-form-form' with { 'extra_class': 'ecl-u-d-lg-block ecl-u-aria', 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
         {% block form %}
           {% embed '@ecl/ec-component-form-fieldset' with {} only %}
             {% block fieldset %}
@@ -151,7 +151,7 @@
               { 'name': 'id', 'value': 'example-expandable-button-1' }
             ]
           } %}
-          <ul aria-hidden="true" aria-labelledby="example-expandable-button-1" id="example-expandable-1" class="ecl-list ecl-list--unstyled ecl-u-mv-m ecl-u-ml-l">
+          <ul aria-hidden="true" class="ecl-u-aria" aria-labelledby="example-expandable-button-1" id="example-expandable-1" class="ecl-list ecl-list--unstyled ecl-u-mv-m ecl-u-ml-l">
             <li class="ecl-u-mv-m">
               {% include '@ecl/ec-component-meta' with {
                 'meta_item_type_data': 'web',
@@ -368,7 +368,7 @@
             'href': 'https://ec.europa.eu/growth/index_en'
           } %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
-          <div aria-hidden="true" aria-labelledby="example-expandable-button-10" id="example-expandable-10">Related docs</div>
+          <div aria-hidden="true" class="ecl-u-aria" aria-labelledby="example-expandable-button-10" id="example-expandable-10">Related docs</div>
         </li>
       </ul>
       {% include '@ecl/ec-component-pager' with {

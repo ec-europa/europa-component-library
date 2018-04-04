@@ -86,7 +86,7 @@ pipeline:
     image: node:latest
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
-      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated ; then
+      - if [ -d "./dist" ] ; then
           yarn test:functional ;
         fi
     when:

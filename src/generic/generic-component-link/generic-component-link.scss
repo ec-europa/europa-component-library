@@ -1,53 +1,55 @@
 /**
-* Site switcher component
+* Link component
 * @define link
 */
 
-@import 'links-mixins';
+@import './mixins';
 
-.ecl-link {
-  @include link();
-}
-
-.ecl-link--external {
-  @include link-external();
-}
-
-.ecl-link--standalone {
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
+@mixin ecl-link() {
+  .ecl-link {
+    @include link();
   }
-}
 
-.ecl-link--inverted {
-  color: #fff;
+  .ecl-link--external {
+    @include link-external();
+  }
 
-  &:hover,
-  &:focus,
-  &:visited {
+  .ecl-link--standalone {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-link--inverted {
     color: #fff;
+
+    &:hover,
+    &:focus,
+    &:visited {
+      color: #fff;
+    }
   }
-}
 
-.ecl-link--all {
-  clear: right;
-  float: right;
-  text-transform: uppercase;
-}
+  .ecl-link--all {
+    clear: right;
+    float: right;
+    text-transform: uppercase;
+  }
 
-.ecl-link--more {
-  text-transform: uppercase;
+  .ecl-link--more {
+    text-transform: uppercase;
 
-  &::after {
-    @extend %ecl-icon--after;
+    &::after {
+      @include ecl-icon--after();
 
-    @include ecl-icon('right');
+      @include ecl-icon('right');
 
-    font-size: 75%;
-    margin-left: 0.4em;
-    margin-right: 0.2em;
+      font-size: 75%;
+      margin-left: 0.4em;
+      margin-right: 0.2em;
+    }
   }
 }

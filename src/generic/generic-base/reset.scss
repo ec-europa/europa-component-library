@@ -1,28 +1,9 @@
 // ECL Reset
 @mixin reset() {
-  html {
-    box-sizing: border-box;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-
   body {
     font-family: $ecl-font-family-base;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizelegibility;
-  }
-
-  [aria-hidden='true'] {
-    display: none;
-  }
-
-  img {
-    height: auto;
-    max-width: 100%;
   }
 }
