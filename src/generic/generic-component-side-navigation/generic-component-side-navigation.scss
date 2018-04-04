@@ -140,6 +140,8 @@
 
   .ecl-side-navigation--depth-3 .ecl-side-navigation__link {
     border-bottom-width: 0;
+    margin-left: -(map-get($ecl-spacing, 's'));
+    padding-left: map-get($ecl-spacing, 's');
   }
 
   .ecl-side-navigation--depth-2
