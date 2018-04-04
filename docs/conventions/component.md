@@ -91,7 +91,73 @@ Example:
 
 ## Twig
 
+Apart from [rules that should be applied to all twig files](twig.md), there are some specifications for components:
+
+### Generic component
+
+Generic component twig file defines all the markup for the component. It should contains all the logic required to use the component, as it is intended to be used by systems components.
+
+This twig file consists in different sections (see above link for more details):
+* Parameters/Blocks: list of exposed parameters and blocks
+* Internal properties: definition of custom variables
+* Internal logic: preprocess and other custom logic
+* Print: html markup
+
+Example:
+```
+{#
+  Parameters:
+  [...]
+
+  Blocks:
+  [...]
+#}
+
+{# Internal properties #}
+[...]
+
+{# Internal logic - Process properties #}
+[...]
+
+{# Print the result  #}
+[...]
+```
+
+### Systems component
+
+There are 2 possibilities for system based components: they use the exact same markup as generic component, or they alter it.
+
+In both cases, **twig file should always start with available parameters**.
+
+#### Same markup
+
+This is the easy case: system component just has to include generic twig file.
+
+Example:
+```
+{#
+  Parameters:
+  [...]
+
+  Blocks:
+  [...]
+#}
+
+{% include '@ecl/generic-component-navigation-menu' %}
+```
+
+#### Different markup
+
+As soon as there is a difference in markup (even a small one), specific component has to re-write the whole markup (instead of using generic one).
+This is the same structure as generic twig file.
+
+As we lose the advantage of generic components here, it is recommended, when possible, to keep the exact same markup for different systems.
+
 ## Javascript
+
+### Generic component
+
+### Systems component
 
 ## Config javascript file
 
