@@ -20,6 +20,7 @@
     "start:eu": "cd tools/eu-styleguide && npm run start",
     "test:coding-conventions": "npm run lint",
     "test:functional": "node ./scripts/test-functional.js",
+    "test:independent-sass": "lerna run --parallel test:independent-sass",
     "updated": "node ./scripts/lerna-updated"
   },
   "devDependencies": {
