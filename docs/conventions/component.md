@@ -15,9 +15,18 @@ All components should follow the same file structure and naming conventions.
 
 Apart from [rules that should be applied to all scss files](scss.md), there are some specifications for components:
 
+### File name
+
+SCSS file name should be the same as component's name.
+
+Example:
+```
+generic-component-navigation.scss
+```
+
 ### Generic component
 
-All css rules should be put in mixins
+All css rules should be put in mixins.
 
 It could be split in several small mixins, but in any case we should have a main mixin calling the small ones.
 This main mixin should be named following the component's main class.
@@ -89,9 +98,22 @@ Example:
 }
 ```
 
+### Specific case: editor preset
+
+TBD
+
 ## Twig
 
 Apart from [rules that should be applied to all twig files](twig.md), there are some specifications for components:
+
+### File name
+
+Twig file name should be the same as component's name.
+
+Example:
+```
+generic-component-navigation.twig
+```
 
 ### Generic component
 
@@ -155,21 +177,52 @@ As we lose the advantage of generic components here, it is recommended, when pos
 
 ## Javascript
 
+Not all components require a dedicated javascript file. Most of them have simple enough behavior, that could be handled with html/css only. The following rules only concern component with more complex (js) behavior.
+
 Apart from [rules that should be applied to all js files](javascript.md), there are some specifications for components:
+
+### File name
+
+Javascript file name should be the same as component's name.
+
+Example:
+```
+generic-component-navigation.js
+```
 
 ### Generic component
 
-TBD
+Generic component should export a function to handle specific behavior.
+This function should have an explicit name, based on component name (similar to css class).
+
+Example
+```
+export const ecl-navigation-menu = ({ [...] } = {}) => {
+  [...]
+}
+
+export default ecl-navigation-menu;
+```
 
 ### Systems component
 
-TBD
+System components should use exported function from generic.
+
+Example
+```
+export * from '@ecl/generic-component-navigation-menu';
+```
 
 ## Config javascript file
 
 Config files are not shared between generic and system components, so they should be duplicated (and possibly altered).
 
-A config.js file should be present in generic and all specific components.
+A config.js file should be present in generic and all specific components, and its name should be the same as component's name.
+
+Example:
+```
+generic-component-navigation.config.js
+```
 
 ## package.json
 
