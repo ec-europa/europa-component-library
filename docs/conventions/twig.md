@@ -47,23 +47,25 @@ Two parameters should always be available:
 
 ## Internal properties
 
-TBD
+Use this section to initialize variables and get parameters.
 
-Example
+All internal properties should start with "\_"
+
+Example:
 ```
 {# Internal properties #}
 
-{% set menu_label = menu_label|default('') %}
-{% set menu_aria_label = menu_aria_label|default('') %}
+{% set _menu_label = menu_label|default('') %}
+{% set _menu_aria_label = menu_aria_label|default('') %}
 {% set _css_class = 'ecl-navigation-menu' %}
 {% set _extra_attributes = '' %}
 ```
 
 ## Internal logic
 
-TBD
+Preprocess values and other non trivial operations of properties
 
-Example
+Example:
 ```
 {# Internal logic - Process properties #}
 
@@ -80,9 +82,10 @@ Example
 
 ## Print
 
-TBD
+Html markup.
+It should always start with the default class (stored in `_css_class`) and `_extra_attributes`.
 
-Example
+Example:
 ```
 {# Print the result  #}
 

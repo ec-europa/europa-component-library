@@ -68,15 +68,35 @@ Example:
 ### Systems component
 
 SCSS files in system-specific components rely on generic SCSS file.
-It should always include generic component's mixin, with customs parameters.
+It contains 4 main parts
 
-If needed, some extra css rules could be added to specialize the component.
+#### Import base and generic mixins
+
+The file should import generic rules located in `@ecl-generic-base`, and the ones of the generic component.
+
+#### Check dependencies calls
+
+If the component override some other components (like links, buttons, ...), it should ensure that these dependencies are loaded ahead.
+This is done by using the mixin `check-imports`.
+
+#### Generic mixin use
+
+Call of the mixin defined in generic component, with custom parameters
+
+#### Additional css rules
+
+If needed, some extra css rules could be added after to specialize the component.
 
 Example:
 ```
-// Import and call generic mixin
+// Import base and generic
+@import '@ecl/generic-base';
 @import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
 
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-link', 'ec-component-button'))
+
+// Use generic mixin
 @include ecl-navigation-menu(
   $bar-bg-mobile: map-get($ecl-colors, 'grey-15'),
   $bar-bg-desktop: map-get($ecl-colors, 'grey-10'),
@@ -89,7 +109,6 @@ Example:
 )
 
 // Add custom rules
-
 .ecl-navigation-menu__item--active {
   [...]
 }
@@ -195,7 +214,7 @@ generic-component-navigation.js
 Generic component should export a function to handle specific behavior.
 This function should have an explicit name, based on component name (similar to css class).
 
-Example
+Example:
 ```
 export const ecl-navigation-menu = ({ [...] } = {}) => {
   [...]
@@ -208,7 +227,7 @@ export default ecl-navigation-menu;
 
 System components should use exported function from generic.
 
-Example
+Example:
 ```
 export * from '@ecl/generic-component-navigation-menu';
 ```
@@ -226,7 +245,70 @@ generic-component-navigation.config.js
 
 ## package.json
 
-TBD
+package.json files are needed for both generic and system components, and should include dependencies related to the system.
+
+All components have to set a dependency to corresponding base (`generic-base`, `ec-base`, ...).
+
+The only extra rule for system component's package.json is that is should have the generic component as dependency.
+
+Example (generic):
+```
+{
+  "name": "@ecl/generic-component-navigation-menu",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "0.0.1",
+  "description": "ECL Navigation Menu",
+  "main": "generic-component-navigation-menu.js",
+  "module": "generic-component-navigation-menu.js",
+  "style": "generic-component-navigation-menu.scss",
+  "sass": "generic-component-navigation-menu.scss",
+  "dependencies": {
+    "@ecl/generic-base": "^0.0.1",
+    [...]
+  },
+  "publishConfig": { "access": "public" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "keywords": ["ecl", "europa-component-library", "design-system"]
+}
+```
+
+Example (system):
+```
+{
+  "name": "@ecl/eu-component-navigation-menu",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "0.0.1",
+  "description": "ECL Navigation Menu",
+  "main": "eu-component-navigation-menu.js",
+  "module": "eu-component-navigation-menu.js",
+  "style": "eu-component-navigation-menu.scss",
+  "sass": "eu-component-navigation-menu.scss",
+  "dependencies": {
+    "@ecl/eu-base": "^0.0.1",
+    [...]
+    "@ecl/generic-component-navigation-menu": "^0.0.1"
+  },
+  "publishConfig": { "access": "public" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "keywords": ["ecl", "europa-component-library", "design-system"]
+}
+```
 
 ## Other assets
 
