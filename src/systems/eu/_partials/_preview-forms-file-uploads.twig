@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-{% set bodyClass = '' %}
+{% set bodyClass = 'ecl-typography' %}
 {% if _target.context is defined and _target.context.global is defined %}
-  {% if _target.context.global.svg is defined %}
-    {% set bodyClass = 'no-svg' %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
   {% endif %}
 {% endif %}
 <html lang="en" class="no-js">
@@ -13,7 +17,7 @@
     <script>document.documentElement.classList.remove('no-js');</script>
     <link rel="stylesheet" href="{{ '/eu-preset-full/styles/europa.css' | path }}">
   </head>
-  <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
+  <body class="{{ bodyClass }}">
     {{ yield }}
     <script src="{{ '/eu-preset-full/scripts/europa.js' | path }}"></script>
     <script type="text/javascript">document.addEventListener('DOMContentLoaded', function() { ECL.fileUploads(); });</script>
