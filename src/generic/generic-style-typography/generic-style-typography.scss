@@ -1,0 +1,12 @@
+/**
+ * Typography rules
+ * @define typography
+ */
+
+@import './mixins';
+
+@mixin ecl-typography() {
+  .ecl-typography {
+    @include typography();
+  }
+}

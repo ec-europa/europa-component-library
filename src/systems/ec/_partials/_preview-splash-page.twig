@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+{% set bodyClass = 'ecl-typography' %}
+{% if _target.context is defined and _target.context.global is defined %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
+  {% endif %}
+{% endif %}
 <html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
@@ -12,7 +22,7 @@
     }
   </style>
 </head>
-<body>
+<body class="{{ bodyClass }}">
   {{ yield }}
   <script src="{{ '/ec-preset-full/scripts/europa.js' | path }}"></script>
 </body>
