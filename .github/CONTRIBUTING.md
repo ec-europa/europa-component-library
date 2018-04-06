@@ -31,4 +31,4 @@ Please fill in the description following the template.
 
 9.  Finally, create a GitHub Release with the same text as the changelog generated at step 2.
 
-10. Run `yarn dist:presets` from the root folder, then create zip archives with the different folders created in `./dist` and attach those archives to the GitHub release.
+10. Run `yarn dist:presets` from the root folder, then create zip archives with the different folders created in `./dist/packages` and attach those archives to the GitHub release.
