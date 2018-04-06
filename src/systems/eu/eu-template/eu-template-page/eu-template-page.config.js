@@ -6,7 +6,6 @@ module.exports = {
   label: 'Pages',
   status: 'ready',
   tags: ['template'],
-  preview: '@preview-website',
   context: {
     global: {
       language: 'en',

@@ -6,7 +6,9 @@
   "description": "Europa Component Library corporate preset",
   "style": "eu-preset-corporate.scss",
   "module": "eu-preset-corporate.js",
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build:copy": "ecl-builder copy",
     "build:scripts": "ecl-builder scripts",
@@ -22,7 +24,7 @@
     "@ecl/eu-component-site-header": "^0.0.1"
   },
   "devDependencies": {
-    "@ecl/builder": "0.1.0",
+    "@ecl/builder": "0.1.1",
     "cross-env": "5.1.4",
     "npm-run-all": "4.1.2",
     "rimraf": "2.6.2"

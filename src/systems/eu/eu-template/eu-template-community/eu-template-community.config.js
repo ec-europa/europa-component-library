@@ -3,7 +3,6 @@ module.exports = {
   label: 'Communities',
   status: 'ready',
   tags: ['template'],
-  preview: '@preview-website',
   context: {
     menu: {
       menu_aria_label: 'Main Navigation',
