@@ -19,10 +19,10 @@ module.exports = {
       label: 'Standalone block of links',
       context: {
         links: [
-          { href: '#', label: 'European Commission' },
-          { href: '#', label: 'Priorities' },
+          { href: 'https://example.com/', label: 'European Commission' },
+          { href: 'https://example.com/', label: 'Priorities' },
           {
-            href: '#',
+            href: 'https://example.com/',
             label: 'Jobs, Growth and Investment',
           },
         ],
@@ -34,10 +34,10 @@ module.exports = {
       context: {
         title: 'More information',
         links: [
-          { href: '#', label: 'European Commission' },
-          { href: '#', label: 'Priorities' },
+          { href: 'https://example.com/', label: 'European Commission' },
+          { href: 'https://example.com/', label: 'Priorities' },
           {
-            href: '#',
+            href: 'https://example.com/',
             label: 'Jobs, Growth and Investment',
           },
         ],

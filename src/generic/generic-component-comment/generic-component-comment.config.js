@@ -12,24 +12,24 @@ module.exports = {
     author: 'Martin (Not verified)',
     date: '26 March 2015',
     title: {
-      href: '#',
+      href: 'https://example.com/',
       label: 'Nice article',
     },
     body:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem eius enim eos error esse fugiat incidunt iste laudantium nemo, numquam quam quasi repudiandae sapiente soluta sunt tempore ullam voluptatem.',
     operations: {
       delete: {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Delete',
         visible: true,
       },
       edit: {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Edit',
         visible: true,
       },
       reply: {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Reply',
         visible: true,
       },

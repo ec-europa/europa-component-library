@@ -7,9 +7,12 @@ module.exports = {
   tags: ['organism'],
   context: {
     site_switcher: {
-      political: { href: '#', label: 'Commission and its priorities' },
+      political: {
+        href: 'https://example.com/',
+        label: 'Commission and its priorities',
+      },
       info: {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Policies, information and services',
         is_active: true,
       },
@@ -17,9 +20,9 @@ module.exports = {
     user_menu: {
       title: 'User menu',
       links: [
-        { href: '#', label: 'My workbench' },
-        { href: '#', label: 'My account' },
-        { href: '#', label: 'Log out' },
+        { href: 'https://example.com/', label: 'My workbench' },
+        { href: 'https://example.com/', label: 'My account' },
+        { href: 'https://example.com/', label: 'Log out' },
       ],
     },
     languages,

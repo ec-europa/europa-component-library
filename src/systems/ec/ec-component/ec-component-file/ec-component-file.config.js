@@ -47,29 +47,33 @@ module.exports = {
       context: {
         variant: 'link',
         links: [
-          { title: 'Generic file link', icon: 'file', href: '#' },
+          {
+            title: 'Generic file link',
+            icon: 'file',
+            href: 'https://example.com/',
+          },
           {
             title: 'Generic external file link',
             icon: 'file',
-            href: '#',
+            href: 'https://example.com/',
             is_external: true,
           },
           {
             title: 'Link to a .pdf file',
             icon: 'file',
-            href: '#',
+            href: 'https://example.com/',
             type: 'pdf',
           },
           {
             title: 'Link to a presentation .ppt file',
             icon: 'slides',
-            href: '#',
+            href: 'https://example.com/',
             type: 'ppt',
           },
           {
             title: 'Link to an image .jpg file',
             icon: 'image',
-            href: '#',
+            href: 'https://example.com/',
             type: 'jpg',
           },
         ],

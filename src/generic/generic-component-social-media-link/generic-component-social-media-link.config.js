@@ -1,18 +1,18 @@
 const linksDefault = [
   {
-    href: '#',
+    href: 'https://example.com/',
     label: 'Facebook',
     title: 'Facebook',
     variant: 'facebook',
   },
   {
-    href: '#',
+    href: 'https://example.com/',
     label: 'Twitter',
     title: 'Twitter',
     variant: 'twitter',
   },
   {
-    href: '#',
+    href: 'https://example.com/',
     label: 'Instagram',
     title: 'Instagram',
     variant: 'instagram',
@@ -21,19 +21,19 @@ const linksDefault = [
 
 const linksSpecific = [
   {
-    href: '#',
+    href: 'https://example.com/',
     label: 'Jean-Claude Junker',
     title: 'See Jean-Claude Junker on Facebook',
     variant: 'facebook',
   },
   {
-    href: '#',
+    href: 'https://example.com/',
     label: 'European Commission',
     title: 'See European Commission on Facebook',
     variant: 'facebook',
   },
   {
-    href: '#',
+    href: 'https://example.com/',
     label: 'European Commission',
     title: 'See European Commission on Twitter',
     variant: 'twitter',

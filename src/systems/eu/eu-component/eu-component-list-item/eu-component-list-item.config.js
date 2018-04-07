@@ -33,7 +33,7 @@ module.exports = {
           day: '07',
           month: 'Sep',
         },
-        href: '#list-item-2',
+        href: 'https://example.com/list-item-2',
         title:
           "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
         detail:

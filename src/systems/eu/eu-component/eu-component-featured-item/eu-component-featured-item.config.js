@@ -23,7 +23,7 @@ module.exports = {
           alt: 'Technic picture',
         },
         link: {
-          href: '#featured-item-1',
+          href: 'https://example.com/featured-item-1',
           label: 'See more',
         },
         metas: ['announcement', '21 December 2016'],
@@ -42,7 +42,7 @@ module.exports = {
         metas: ['announcement', '21 December 2016'],
         title: 'Energy Union tour',
         link: {
-          href: '#featured-item-2',
+          href: 'https://example.com/featured-item-2',
           label: 'See more',
         },
       },

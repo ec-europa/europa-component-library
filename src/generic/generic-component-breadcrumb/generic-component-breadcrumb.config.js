@@ -7,15 +7,15 @@ module.exports = {
   context: {
     segments: [
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'European Commission',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Priorities',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Jobs, Growth and Investment',
       },
     ],

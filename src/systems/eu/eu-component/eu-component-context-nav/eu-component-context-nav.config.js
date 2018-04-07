@@ -10,31 +10,31 @@ module.exports = {
     label: 'Label for contextual nav',
     items: [
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Item one',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Item two',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Item three',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Item four',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Item five',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Item six',
       },
       {
-        href: '#',
+        href: 'https://example.com/',
         label: 'Item seven',
       },
     ],
