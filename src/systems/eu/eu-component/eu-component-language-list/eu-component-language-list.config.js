@@ -26,7 +26,7 @@ module.exports = {
         {},
         {
           languages,
-          link: '#',
+          href: 'https://example.com/',
           variant: 'overlay',
           messages: {
             dismiss: 'Close',

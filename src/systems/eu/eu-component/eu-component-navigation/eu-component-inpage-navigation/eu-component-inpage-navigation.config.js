@@ -1,14 +1,14 @@
 const links = [
   {
-    href: 'https://example.com/inline-nav-1',
+    href: '#inline-nav-1',
     label: 'Heading 1',
   },
   {
-    href: 'https://example.com/inline-nav-2',
+    href: '#inline-nav-2',
     label: 'Heading 2',
   },
   {
-    href: 'https://example.com/inline-nav-3',
+    href: '#inline-nav-3',
     label: 'Heading 3',
   },
 ];

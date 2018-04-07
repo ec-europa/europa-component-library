@@ -5,7 +5,7 @@ module.exports = {
   tags: ['molecule'],
   context: {
     language: 'English',
-    link: '#',
+    href: 'https://example.com/',
     code: 'en',
   },
 };
