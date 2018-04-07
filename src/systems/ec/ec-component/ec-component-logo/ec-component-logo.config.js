@@ -6,7 +6,7 @@ const variants = languages.map(({ id, name }) => ({
     global: {
       language: id,
     },
-    to: '#top',
+    to: 'https://example.com/top',
     title: 'Home',
   },
 }));
