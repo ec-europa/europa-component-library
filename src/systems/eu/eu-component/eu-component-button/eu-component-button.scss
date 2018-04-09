@@ -5,4 +5,7 @@
 
 @import '@ecl/generic-component-button/generic-component-button';
 
-@include ecl-button();
+@include exports('eu-component-button') {
+  @include ecl-button();
+}
+

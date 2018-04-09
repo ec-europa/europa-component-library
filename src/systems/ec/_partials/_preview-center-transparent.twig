@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-{% set bodyClass = '' %}
+{% set bodyClass = 'ecl-typography' %}
 {% if _target.context is defined and _target.context.global is defined %}
   {% set global = _target.context.global %}
   {% if global.svg is defined %}
-    {% set bodyClass = 'no-svg' %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
   {% endif %}
   {% if global.language is defined %}
-    {% set bodyClass = global.language %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
   {% endif %}
 {% endif %}
 <html lang="en" class="no-js">
