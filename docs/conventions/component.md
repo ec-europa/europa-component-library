@@ -123,6 +123,8 @@ TBD
 
 ## Twig
 
+Every component should have a directly usable twig file. The goal is to be able to include the component in other molecules/organisms (by putting most of the content in context).
+
 Apart from [rules that should be applied to all twig files](twig.md), there are some specifications for components:
 
 ### File name
@@ -234,13 +236,107 @@ export * from '@ecl/generic-component-navigation-menu';
 
 ## Config javascript file
 
-Config files are not shared between generic and system components, so they should be duplicated (and possibly altered).
+### File name
 
-A config.js file should be present in generic and all specific components, and its name should be the same as component's name.
+Config file name should be the same as component's name.
 
 Example:
 ```
 generic-component-navigation.config.js
+```
+
+### Generic component
+
+There is no real config file for generic components, as they are not meant to be used directly.
+However, context should be put in generic component, to be imported in specific ones.
+
+Generic context files should be placed in a `context` folder, inside component's folder.
+* If there is only one variant for the component, the file should be named following component's name.
+* If there are multiple variants, a file should be created for each variant, using the component's name and the variant.
+
+Example (single variant):
+```
+/* File path: context/generic-component-navigation.config.js */
+
+module.exports = {
+  menu_label: 'Menu',
+  menu_aria_label: 'Main Navigation',
+  links: [
+    { [...] },
+    { [...] }
+  ],
+  _demo: {
+    scripts: [...],
+  },
+};
+```
+
+Example (multiple variants):
+```
+/* File path: context/generic-component-banner--hero.config.js */
+
+module.exports = {
+  type: 'hero',
+  image: 'picture.jpg',
+  title: 'Lorem ipsum ...',
+  description: 'Lorem ipsum ...',
+};
+
+/* File path: context/generic-component-banner--video.config.js */
+
+module.exports = {
+  type: 'video',
+  video: {
+    src: 'https://ec.europa.eu/avservices/play.cfm?ref=I101631',
+    is_iframe: true,
+    ratio: '16-9',
+    caption: 'Lorem ipsum ...',
+  },
+  description: Lorem ipsum ...,
+};
+```
+
+### Systems component
+
+System config file should use generic context files, and add missing information.
+If the context is different for a specific system, it may be altered or overriden.
+
+File name should follow component's name
+
+Example:
+```
+/* File path: ec-component-banner.config.js */
+
+// Load context from generic component
+const hero = require('@ecl/generic-component-banner/context/hero');
+const video = require('@ecl/generic-component-banner/context/video');
+
+module.exports = {
+  title: 'Banners',
+  label: 'Banners',
+  status: 'ready',
+  tags: ['molecule'],
+  variants: [
+    {
+      name: 'hero',
+      context: hero,
+    },
+    {
+      name: 'video',
+      context: video,
+    },
+  ],
+  default: 'hero',
+};
+```
+
+### Specific case: links
+
+If the component contains links, they should always lead to an internal example page instead of blank link (`#`) or external links.
+
+Example:
+```
+<realtive_path>/example.html#<component_name>
 ```
 
 ## package.json
