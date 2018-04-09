@@ -8,11 +8,11 @@ module.exports = {
   context: {
     site_switcher: {
       political: {
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'Commission and its priorities',
       },
       info: {
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'Policies, information and services',
         is_active: true,
       },
@@ -20,9 +20,9 @@ module.exports = {
     user_menu: {
       title: 'User menu',
       links: [
-        { href: 'https://example.com/', label: 'My workbench' },
-        { href: 'https://example.com/', label: 'My account' },
-        { href: 'https://example.com/', label: 'Log out' },
+        { href: '../../example.html#', label: 'My workbench' },
+        { href: '../../example.html#', label: 'My account' },
+        { href: '../../example.html#', label: 'Log out' },
       ],
     },
     languages,

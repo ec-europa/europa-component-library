@@ -10,11 +10,11 @@ module.exports = {
       label: 'Default',
       context: {
         political: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Commission and its priorities',
         },
         info: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Policies, information and services',
           is_active: true,
         },
@@ -26,12 +26,12 @@ module.exports = {
       context: {
         variant: 'header',
         political: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Commission and its priorities',
           variant: '',
         },
         info: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Policies, information and services',
           is_active: true,
           variant: '',
@@ -44,12 +44,12 @@ module.exports = {
       context: {
         variant: 'footer',
         political: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Commission and its priorities',
           variant: '',
         },
         info: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Policies, information and services',
           is_active: true,
           variant: '',

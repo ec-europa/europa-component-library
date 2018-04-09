@@ -48,11 +48,11 @@ module.exports = {
       label: 'Department',
       items: [
         {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Trade',
         },
         {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: ' European Anti-Fraud Office',
         },
       ],

@@ -10,23 +10,23 @@ module.exports = {
       links: [
         {
           label: 'Home',
-          href: 'https://example.com/',
+          href: '../../example.html#',
         },
         {
           label: 'Communities',
-          href: 'https://example.com/',
+          href: '../../example.html#',
           is_active: true,
           children_links: [
             {
               links: [
                 {
                   label: 'Homepage',
-                  href: 'https://example.com/',
+                  href: '../../example.html#',
                   is_active: true,
                 },
                 {
                   label: 'Articles',
-                  href: 'https://example.com/',
+                  href: '../../example.html#',
                 },
               ],
             },
@@ -34,11 +34,11 @@ module.exports = {
               links: [
                 {
                   label: 'Events',
-                  href: 'https://example.com/',
+                  href: '../../example.html#',
                 },
                 {
                   label: 'Media gallery',
-                  href: 'https://example.com/',
+                  href: '../../example.html#',
                 },
               ],
             },
@@ -46,11 +46,11 @@ module.exports = {
         },
         {
           label: 'Events',
-          href: 'https://example.com/',
+          href: '../../example.html#',
         },
         {
           label: 'Galleries',
-          href: 'https://example.com/',
+          href: '../../example.html#',
         },
       ],
     },

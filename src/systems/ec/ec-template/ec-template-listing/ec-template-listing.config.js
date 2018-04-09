@@ -14,7 +14,7 @@ module.exports = {
           label: 'European Commission',
         },
         {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           label: 'Example',
         },
       ],

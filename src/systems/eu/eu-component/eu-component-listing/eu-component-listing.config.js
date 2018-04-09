@@ -6,7 +6,7 @@ const itemsDate = [
       day: '07',
       month: 'Sep',
     },
-    href: 'https://example.com/listing-date-1',
+    href: '../../example.html#listing-date-1',
     screen_reader: 'Event 07/09, Bucharest, Romania',
     title:
       "Citizens' Dialogue in Bucharest with Commissioner Corina Crețu and the President of the European Committee of the Regions Karl-Heinz Lambertz",
@@ -20,7 +20,7 @@ const itemsDate = [
       day: '08',
       month: 'Sep',
     },
-    href: 'https://example.com/listing-date-2',
+    href: '../../example.html#listing-date-2',
     screen_reader: 'Event 08/09, Kraków, Poland',
     title: "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
     detail:
@@ -33,7 +33,7 @@ const itemsDate = [
       day: '14',
       month: 'Sep',
     },
-    href: 'https://example.com/listing-date-3',
+    href: '../../example.html#listing-date-3',
     screen_reader: 'Event 14/09, Tallin, Estonia',
     title: "Citizens' Dialogue in Tallin with Vice-President Jyrki Katainen",
     detail:
@@ -45,40 +45,40 @@ const itemsDefault = [
   {
     screen_reader: 'List item: Business, Economy, Euro',
     title: 'Business, Economy, Euro',
-    href: 'https://example.com/listing-three-columns-1',
+    href: '../../example.html#listing-three-columns-1',
     detail:
       'EU economy, the euro, and practical information for EU businesses and entrepreneurs.',
   },
   {
     screen_reader: 'List item: About the European Union',
     title: 'About the European Union',
-    href: 'https://example.com/listing-three-columns-2',
+    href: '../../example.html#listing-three-columns-2',
     detail: 'The EU and its institutions, how to visit and work at the EU.',
   },
   {
     screen_reader: 'List item: Live, Work, Travel in EU',
     title: 'Live, Work, Travel in EU',
-    href: 'https://example.com/listing-three-columns-3',
+    href: '../../example.html#listing-three-columns-3',
     detail:
       'Advice on living, working or travelling in the EU, on visas and immigration for non-EU citizens, European culture.',
   },
   {
     screen_reader: 'List item: Funding, Tenders',
     title: 'Funding, Tenders',
-    href: 'https://example.com/listing-three-columns-4',
+    href: '../../example.html#listing-three-columns-4',
     detail: 'EU funding, grants, tenders, and how to apply.',
   },
   {
     screen_reader: 'List item: Law',
     title: 'Law',
-    href: 'https://example.com/listing-three-columns-5',
+    href: '../../example.html#listing-three-columns-5',
     detail:
       'EU law and judgments, how EU law is applied, public consultations, data protection, infringements, fraud, serious crime.',
   },
   {
     screen_reader: 'List item: Research and innovation',
     title: 'Research and innovation',
-    href: 'https://example.com/listing-three-columns-6',
+    href: '../../example.html#listing-three-columns-6',
     detail:
       'Research funding, partners, results, and EU action to promote innovation.',
   },
@@ -117,7 +117,7 @@ const itemsThumbnails = [
     metas: ['Director-General'],
     screen_reader: 'List item: Director-General John Doe',
     title: 'John Doe',
-    href: 'https://example.com/listing-thumb-1',
+    href: '../../example.html#listing-thumb-1',
     primary_image: {
       src: '../../assets/demo_images/default_profile_image.png',
       alt: 'Director-General John Doe',
@@ -127,7 +127,7 @@ const itemsThumbnails = [
     metas: ['Deputy Director-General'],
     screen_reader: 'List item: Deputy Director-General Jane Doe',
     title: 'Jane Doe',
-    href: 'https://example.com/listing-thumb-2',
+    href: '../../example.html#listing-thumb-2',
     primary_image: {
       src: '../../assets/demo_images/default_profile_image.png',
       alt: 'Deputy Director-General Jane Doe',
@@ -137,7 +137,7 @@ const itemsThumbnails = [
     metas: ['Acting Deputy Director-General'],
     screen_reader: 'List item: Acting Deputy Director-General Jack Doe',
     title: 'Jack Doe',
-    href: 'https://example.com/listing-thumb-3',
+    href: '../../example.html#listing-thumb-3',
     primary_image: {
       src: '../../assets/demo_images/default_profile_image.png',
       alt: 'Acting Deputy Director-General Jack Doe',

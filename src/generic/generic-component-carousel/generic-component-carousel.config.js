@@ -18,12 +18,12 @@ module.exports = {
           alt: 'First item',
         },
         download: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           title: 'Download',
           label: 'Download',
         },
         share: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           title: 'Share',
           label: 'Share',
         },
@@ -37,12 +37,12 @@ module.exports = {
           alt: 'Second item',
         },
         download: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           title: 'Download',
           label: 'Download',
         },
         share: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           title: 'Share',
           label: 'Share',
         },
@@ -56,13 +56,13 @@ module.exports = {
           alt: 'Third item',
         },
         download: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           title: 'Download',
           label: 'Download',
           variant: ['inverted', 'standalone'],
         },
         share: {
-          href: 'https://example.com/',
+          href: '../../example.html#',
           title: 'Share',
           label: 'Share',
           variant: ['inverted', 'standalone'],

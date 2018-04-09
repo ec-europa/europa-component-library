@@ -16,7 +16,7 @@ module.exports = {
       name: 'default',
       label: 'Default',
       context: {
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'in-line link',
       },
     },
@@ -25,7 +25,7 @@ module.exports = {
       label: 'External',
       context: {
         variant: 'external',
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'external link',
       },
     },
@@ -34,7 +34,7 @@ module.exports = {
       label: 'Standalone',
       context: {
         variant: 'standalone',
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'standalone link',
       },
     },
@@ -44,7 +44,7 @@ module.exports = {
       context: {
         variant: 'inverted',
         extra_classes: 'ecl-u-bg-shade',
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'inverted link',
       },
     },
@@ -53,7 +53,7 @@ module.exports = {
       label: 'All',
       context: {
         variant: 'all',
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'all link',
       },
     },
@@ -62,7 +62,7 @@ module.exports = {
       label: 'More',
       context: {
         variant: 'more',
-        href: 'https://example.com/',
+        href: '../../example.html#',
         label: 'more link',
       },
     },

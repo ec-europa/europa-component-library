@@ -1,19 +1,19 @@
 const links = [
   {
-    href: 'https://example.com/',
+    href: '../../example.html#',
     label: 'Home',
   },
   {
-    href: 'https://example.com/',
+    href: '../../example.html#',
     label: 'About Us',
     is_active: true,
   },
   {
-    href: 'https://example.com/',
+    href: '../../example.html#',
     label: 'More Information',
   },
   {
-    href: 'https://example.com/',
+    href: '../../example.html#',
     label: 'Contact Us',
   },
 ];

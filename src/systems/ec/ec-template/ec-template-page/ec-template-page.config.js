@@ -25,7 +25,7 @@ module.exports = {
               label: 'European Commission',
             },
             {
-              href: 'https://example.com/',
+              href: '../../example.html#',
               label: 'Example',
             },
           ],
@@ -56,7 +56,7 @@ module.exports = {
               label: 'European Commission',
             },
             {
-              href: 'https://example.com/',
+              href: '../../example.html#',
               label: 'Example',
             },
           ],
@@ -68,36 +68,36 @@ module.exports = {
           links: [
             {
               label: 'Home',
-              href: 'https://example.com/home',
+              href: '../../example.html#home',
             },
             {
               label: 'Policy',
-              href: 'https://example.com/item1',
+              href: '../../example.html#item1',
               is_active: true,
               children_links: [
                 {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item1-1-1',
+                      href: '../../example.html#item1-1-1',
                     },
                     {
                       label:
                         'Sub item 2 with a very very very (very) long label',
-                      href: 'https://example.com/item1-1-2',
+                      href: '../../example.html#item1-1-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item1-1-3',
+                      href: '../../example.html#item1-1-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item1-1-4',
+                      href: '../../example.html#item1-1-4',
                       is_active: true,
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item1-1-5',
+                      href: '../../example.html#item1-1-5',
                     },
                   ],
                 },
@@ -105,23 +105,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item1-2-1',
+                      href: '../../example.html#item1-2-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item1-2-2',
+                      href: '../../example.html#item1-2-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item1-2-3',
+                      href: '../../example.html#item1-2-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item1-2-4',
+                      href: '../../example.html#item1-2-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item1-2-5',
+                      href: '../../example.html#item1-2-5',
                     },
                   ],
                 },
@@ -129,23 +129,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item1-3-1',
+                      href: '../../example.html#item1-3-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item1-3-2',
+                      href: '../../example.html#item1-3-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item1-3-3',
+                      href: '../../example.html#item1-3-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item1-3-4',
+                      href: '../../example.html#item1-3-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item1-3-5',
+                      href: '../../example.html#item1-3-5',
                     },
                   ],
                 },
@@ -153,23 +153,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item1-4-1',
+                      href: '../../example.html#item1-4-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item1-4-2',
+                      href: '../../example.html#item1-4-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item1-4-3',
+                      href: '../../example.html#item1-4-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item1-4-4',
+                      href: '../../example.html#item1-4-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item1-4-5',
+                      href: '../../example.html#item1-4-5',
                     },
                   ],
                 },
@@ -177,31 +177,31 @@ module.exports = {
             },
             {
               label: 'Advisor Bodies',
-              href: 'https://example.com/item2',
+              href: '../../example.html#item2',
               children_links: [
                 {
                   title: 'Optional title 1',
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item2-1-1',
+                      href: '../../example.html#item2-1-1',
                     },
                     {
                       label:
                         'Sub item 2 with a very very very (very) long label',
-                      href: 'https://example.com/item2-1-2',
+                      href: '../../example.html#item2-1-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item2-1-3',
+                      href: '../../example.html#item2-1-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item2-1-4',
+                      href: '../../example.html#item2-1-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item2-1-5',
+                      href: '../../example.html#item2-1-5',
                     },
                   ],
                 },
@@ -210,23 +210,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item2-2-1',
+                      href: '../../example.html#item2-2-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item2-2-2',
+                      href: '../../example.html#item2-2-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item2-2-3',
+                      href: '../../example.html#item2-2-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item2-2-4',
+                      href: '../../example.html#item2-2-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item2-2-5',
+                      href: '../../example.html#item2-2-5',
                     },
                   ],
                 },
@@ -234,31 +234,31 @@ module.exports = {
             },
             {
               label: 'News & Events',
-              href: 'https://example.com/item3',
+              href: '../../example.html#item3',
               children_links: [
                 {
                   title: 'Optional title 1',
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item3-1-1',
+                      href: '../../example.html#item3-1-1',
                     },
                     {
                       label:
                         'Sub item 2 with a very very very (very) long label',
-                      href: 'https://example.com/item3-1-2',
+                      href: '../../example.html#item3-1-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item3-1-3',
+                      href: '../../example.html#item3-1-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item3-1-4',
+                      href: '../../example.html#item3-1-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item3-1-5',
+                      href: '../../example.html#item3-1-5',
                     },
                   ],
                 },
@@ -267,23 +267,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item3-2-1',
+                      href: '../../example.html#item3-2-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item3-2-2',
+                      href: '../../example.html#item3-2-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item3-2-3',
+                      href: '../../example.html#item3-2-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item3-2-4',
+                      href: '../../example.html#item3-2-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item3-2-5',
+                      href: '../../example.html#item3-2-5',
                     },
                   ],
                 },
@@ -292,23 +292,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item3-3-1',
+                      href: '../../example.html#item3-3-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item3-3-2',
+                      href: '../../example.html#item3-3-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item3-3-3',
+                      href: '../../example.html#item3-3-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item3-3-4',
+                      href: '../../example.html#item3-3-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item3-3-5',
+                      href: '../../example.html#item3-3-5',
                     },
                   ],
                 },
@@ -316,31 +316,31 @@ module.exports = {
             },
             {
               label: 'Contracts and Fundings',
-              href: 'https://example.com/item4',
+              href: '../../example.html#item4',
               children_links: [
                 {
                   title: 'Optional title 1',
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item4-1-1',
+                      href: '../../example.html#item4-1-1',
                     },
                     {
                       label:
                         'Sub item 2 with a very very very (very) long label',
-                      href: 'https://example.com/item4-1-2',
+                      href: '../../example.html#item4-1-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item4-1-3',
+                      href: '../../example.html#item4-1-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item4-1-4',
+                      href: '../../example.html#item4-1-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item4-1-5',
+                      href: '../../example.html#item4-1-5',
                     },
                   ],
                 },
@@ -349,23 +349,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item4-2-1',
+                      href: '../../example.html#item4-2-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item4-2-2',
+                      href: '../../example.html#item4-2-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item4-2-3',
+                      href: '../../example.html#item4-2-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item4-2-4',
+                      href: '../../example.html#item4-2-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item4-2-5',
+                      href: '../../example.html#item4-2-5',
                     },
                   ],
                 },
@@ -374,23 +374,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item4-3-1',
+                      href: '../../example.html#item4-3-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item4-3-2',
+                      href: '../../example.html#item4-3-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item4-3-3',
+                      href: '../../example.html#item4-3-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item4-3-4',
+                      href: '../../example.html#item4-3-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item4-3-5',
+                      href: '../../example.html#item4-3-5',
                     },
                   ],
                 },
@@ -399,23 +399,23 @@ module.exports = {
                   links: [
                     {
                       label: 'Sub item 1',
-                      href: 'https://example.com/item4-4-1',
+                      href: '../../example.html#item4-4-1',
                     },
                     {
                       label: 'Sub item 2',
-                      href: 'https://example.com/item4-4-2',
+                      href: '../../example.html#item4-4-2',
                     },
                     {
                       label: 'Sub item 3',
-                      href: 'https://example.com/item4-4-3',
+                      href: '../../example.html#item4-4-3',
                     },
                     {
                       label: 'Sub item 4',
-                      href: 'https://example.com/item4-4-4',
+                      href: '../../example.html#item4-4-4',
                     },
                     {
                       label: 'Sub item 5',
-                      href: 'https://example.com/item4-4-5',
+                      href: '../../example.html#item4-4-5',
                     },
                   ],
                 },
