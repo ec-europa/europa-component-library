@@ -72,7 +72,7 @@ It contains 4 main parts
 
 #### Import base and generic mixins
 
-The file should import generic rules located in `@ecl-generic-base`, and the ones of the generic component.
+The file should import generic rules located in `@ecl/{system}-base`, and the ones of the generic component.
 
 #### Check dependencies calls
 
@@ -81,39 +81,41 @@ This is done by using the mixin `check-imports`.
 
 #### Generic mixin use
 
-Call of the mixin defined in generic component, with custom parameters
+Call of the mixin defined in generic component, with custom parameters.
 
 #### Additional css rules
 
 If needed, some extra css rules could be added after to specialize the component.
 
 Example:
-```
+```scss
 // Import base and generic
-@import '@ecl/generic-base';
+@import '@ecl/ec-base';
 @import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
 
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('ec-component-link', 'ec-component-button'))
 
 // Use generic mixin
-@include ecl-navigation-menu(
-  $bar-bg-mobile: map-get($ecl-colors, 'grey-15'),
-  $bar-bg-desktop: map-get($ecl-colors, 'grey-10'),
-  $toggle-btn-color: map-get($ecl-colors, 'blue-100'),
-  $group-bg: map-get($ecl-colors, 'grey-5'),
-  $separator-mobile: map-get($ecl-colors, 'grey-15'),
-  $link-color: map-get($ecl-colors, 'blue-100'),
-  $active-color: map-get($ecl-colors, 'blue-100'),
-  $active-bg: map-get($ecl-colors, 'grey-10')
-)
+@include exports('ec-component-navigation-menu') {
+  @include ecl-navigation-menu(
+    $bar-bg-mobile: map-get($ecl-colors, 'grey-15'),
+    $bar-bg-desktop: map-get($ecl-colors, 'grey-10'),
+    $toggle-btn-color: map-get($ecl-colors, 'blue-100'),
+    $group-bg: map-get($ecl-colors, 'grey-5'),
+    $separator-mobile: map-get($ecl-colors, 'grey-15'),
+    $link-color: map-get($ecl-colors, 'blue-100'),
+    $active-color: map-get($ecl-colors, 'blue-100'),
+    $active-bg: map-get($ecl-colors, 'grey-10')
+  )
 
-// Add custom rules
-.ecl-navigation-menu__item--active {
-  [...]
-}
-.ecl-navigation-menu__group::before {
-  [...]
+  // Add custom rules
+  .ecl-navigation-menu__item--active {
+    [...]
+  }
+  .ecl-navigation-menu__group::before {
+    [...]
+  }
 }
 ```
 
