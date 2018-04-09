@@ -64,6 +64,11 @@
 
 .ecl-global-navigation__link--institution {
   background-color: map-get($ecl-colors, 'grey-25');
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 
 .ecl-global-navigation__toggle {
