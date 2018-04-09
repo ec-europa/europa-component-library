@@ -3,7 +3,6 @@ module.exports = {
   label: 'Communities',
   status: 'ready',
   tags: ['template'],
-  preview: '@preview-website',
   context: {
     menu: {
       menu_aria_label: 'Main Navigation',
@@ -11,23 +10,23 @@ module.exports = {
       links: [
         {
           label: 'Home',
-          href: '#',
+          href: '../../example.html#',
         },
         {
           label: 'Communities',
-          href: '#',
+          href: '../../example.html#',
           is_active: true,
           children_links: [
             {
               links: [
                 {
                   label: 'Homepage',
-                  href: '#',
+                  href: '../../example.html#',
                   is_active: true,
                 },
                 {
                   label: 'Articles',
-                  href: '#',
+                  href: '../../example.html#',
                 },
               ],
             },
@@ -35,11 +34,11 @@ module.exports = {
               links: [
                 {
                   label: 'Events',
-                  href: '#',
+                  href: '../../example.html#',
                 },
                 {
                   label: 'Media gallery',
-                  href: '#',
+                  href: '../../example.html#',
                 },
               ],
             },
@@ -47,11 +46,11 @@ module.exports = {
         },
         {
           label: 'Events',
-          href: '#',
+          href: '../../example.html#',
         },
         {
           label: 'Galleries',
-          href: '#',
+          href: '../../example.html#',
         },
       ],
     },
