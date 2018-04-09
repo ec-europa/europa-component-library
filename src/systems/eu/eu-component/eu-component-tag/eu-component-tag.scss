@@ -46,7 +46,7 @@
   }
 
   .ecl-tag__item::after {
-    @extend %ecl-icon--after;
+    @include ecl-icon--after();
 
     @include ecl-icon('tag-close');
 

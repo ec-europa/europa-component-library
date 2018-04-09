@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-{% set bodyClass = '' %}
+{% set bodyClass = 'ecl-typography' %}
 {% if _target.context is defined and _target.context.global is defined %}
-  {% if _target.context.global.svg is defined %}
-    {% set bodyClass = 'no-svg' %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
   {% endif %}
 {% endif %}
 <html lang="en" class="no-js">
@@ -11,11 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Preview Layout for tables</title>
     <script>document.documentElement.classList.remove('no-js');</script>
-    <link rel="stylesheet" href="{{ '/styles/europa.css' | path }}">
+    <link rel="stylesheet" href="{{ '/ec-preset-full/styles/europa.css' | path }}">
   </head>
-  <body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
+  <body class="{{ bodyClass }}">
     {{ yield }}
-    <script src="{{ '/scripts/europa.js' | path }}"></script>
+    <script src="{{ '/ec-preset-full/scripts/europa.js' | path }}"></script>
     {% if _target.context._demo and _target.context._demo.scripts %}
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}

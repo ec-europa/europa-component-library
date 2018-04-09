@@ -1,15 +1,16 @@
 .Status,
 .Status-dots {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .Status-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: white;
+  background-color: #fff;
   border: 1px solid transparent;
   border-radius: 100%;
+  box-sizing: border-box;
+  height: 0.5rem;
+  width: 0.5rem;
 }
 
 .Status-dot + .Status-dot {

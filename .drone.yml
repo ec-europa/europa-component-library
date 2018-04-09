@@ -17,9 +17,9 @@ clone:
 
 matrix:
   TEST:
-    - coding-conventions
+    - conventions
+    - examples
     - functional
-    - webpack
 
 pipeline:
   install:
@@ -27,22 +27,23 @@ pipeline:
     commands:
       - yarn install --frozen-lockfile
 
-  coding-conventions:
+  conventions:
     image: node:latest
     commands:
       - yarn test:coding-conventions
+      - yarn test:independent-sass
     when:
       matrix:
-        TEST: coding-conventions
+        TEST: conventions
 
-  webpack:
+  examples:
     image: node:latest
     commands:
       - cd examples/webpack3 && yarn build --display=errors-only
       - cd ../webpack4 && yarn build --display=errors-only
     when:
       matrix:
-        TEST: webpack
+        TEST: examples
 
   build:
     image: node:latest
@@ -71,7 +72,7 @@ pipeline:
     secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
     commands:
       - if [ -d "./dist" ] ; then
-          cd ./dist ;
+          cd ./dist/website ;
           aws configure set default.s3.max_concurrent_requests 20 ;
           aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
           echo "Transfer complete" ;
@@ -86,7 +87,7 @@ pipeline:
     image: node:latest
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
-      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated ; then
+      - if [ -d "./dist" ] ; then
           yarn test:functional ;
         fi
     when:

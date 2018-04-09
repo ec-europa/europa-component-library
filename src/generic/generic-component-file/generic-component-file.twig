@@ -3,6 +3,7 @@
     - "variant" (string): can be 'translations', 'links', 'images', 'videos' or empty
     - "extra_classes" (string): extra CSS classes to be added
     - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+    - "system" (string): design system ("ec|eu|generic", default: "generic")
 
   Default parameters:
     - "title" (string): title of the file (default: empty)
@@ -51,7 +52,8 @@
 {% set _translations_label = translations_label|default('Available languages: 0') %}
 {% set _translations_tooltip = translations_tooltip|default('Click to see translations') %}
 {% set _css_class = 'ecl-file' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = extra_attributes|default([]) %}
+{% set _extra_classes = extra_classes|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -59,12 +61,12 @@
   {% set _css_class = _css_class ~ ' ecl-file--' ~ variant %}
 {% endif %}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% if _extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
+{% if _extra_attributes is not empty %}
+  {% for attr in _extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
@@ -73,7 +75,7 @@
 
 {% if variant is defined %}
 
-  {% if variant == "translation" %}
+{% if variant == "translation" %}
 
 <!-- Translations -->
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
@@ -84,13 +86,14 @@
         <div class="ecl-file__metadata">
           <div class="ecl-file__title">{{ title }}</div>
           <div class="ecl-file__info">
-            <span class="ecl-file__language">{{ language }}</span> ({{ meta }})
+            <span class="ecl-file__language">{{ language }}</span>
+            <span class="ecl-file__properties">({{ meta }})</span>
           </div>
         </div>
       </div>
 
       <div class="ecl-col-12 ecl-col-md-4">
-        {% include '@ecl/generic-component-button' with {
+        {% include '@ecl/' ~ system ~ '-component-button' with {
           'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
           'is_block': true,
           'extra_classes': 'ecl-file__download',
@@ -101,7 +104,7 @@
   </div>
 
   <div class="ecl-file__translations">
-    {% include '@ecl/generic-component-button' with {
+    {% include '@ecl/' ~ system ~ '-component-button' with {
       'label': translations_label,
       'modifier': 'secondary',
       'extra_classes': 'ecl-file__translations-toggle',
@@ -114,7 +117,7 @@
       ]
     } %}
 
-    <div aria-hidden="false" aria-labelledby="translations-expand-button" id="translations-expand">
+    <div aria-hidden="false" aria-labelledby="translations-expand-button" class="ecl-u-aria" id="translations-expand">
       <ul class="ecl-file__translations-list">
         {% if translations is defined %}
           {% for translation in translations %}
@@ -123,7 +126,7 @@
                 <span class="ecl-file__translations-title">{{ translation.title }}</span>
                 <div class="ecl-file__translations-info">({{ translation.meta }})</div>
               </div>
-              {% include '@ecl/generic-component-button' with {
+              {% include '@ecl/' ~ system ~ '-component-button' with {
                 'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')',
                 'modifier': 'secondary',
                 'extra_classes': 'ecl-file__translations-download',
@@ -143,15 +146,17 @@
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if links is defined %}
     {% for link in links %}
-      <a
-        href="{{ link.href }}"
-        class="ecl-link ecl-file__link {% if link.is_external is defined and link.is_external %}ecl-link--external{% endif %}">
-        <span class="ecl-icon ecl-icon--{{ link.icon }} ecl-file__icon"></span>
-        <span class="ecl-file__title">{{ link.title }}</span>
-        {% if link.type is defined %}
-        <span class="ecl-file__type">{{ link.type }}</span>
-        {% endif %}
-      </a>
+      <div class="ecl-file__link-container">
+        <a
+          href="{{ link.href }}"
+          class="ecl-link ecl-file__link {% if link.is_external is defined and link.is_external %}ecl-link--external{% endif %}">
+          <span class="ecl-icon ecl-icon--{{ link.icon }} ecl-file__icon"></span>
+          <span class="ecl-file__title">{{ link.title }}</span>
+          {% if link.type is defined %}
+          <span class="ecl-file__type">{{ link.type }}</span>
+          {% endif %}
+        </a>
+      </div>
     {% endfor %}
   {% endif %}
 </section>
@@ -195,13 +200,14 @@
         <div class="ecl-file__metadata">
           <div class="ecl-file__title">{{ title }}</div>
           <div class="ecl-file__info">
-            <span class="ecl-file__language">{{ language }}</span> ({{ meta }})
+            <span class="ecl-file__language">{{ language }}</span>
+            <span class="ecl-file__properties">({{ meta }})</span>
           </div>
         </div>
       </div>
 
       <div class="ecl-col-12 ecl-col-md-4">
-        {% include '@ecl/generic-component-button' with {
+        {% include '@ecl/' ~ system ~ '-component-button' with {
           'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
           'is_block': true,
           'extra_classes': 'ecl-file__download',

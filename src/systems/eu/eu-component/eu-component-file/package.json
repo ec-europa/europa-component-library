@@ -5,16 +5,27 @@
   "version": "0.0.1",
   "description": "ECL Buttons",
   "style": "eu-component-file.scss",
+  "scripts": {
+    "test:independent-sass":
+      "node-sass --quiet --include-path ../../../../../node_modules eu-component-file.scss dist/eu-component-file.css"
+  },
   "dependencies": {
     "@ecl/eu-base": "^0.0.1",
     "@ecl/eu-component-button": "^0.0.1",
+    "@ecl/eu-component-link": "^0.0.1",
     "@ecl/eu-layout-grid": "^0.0.1",
     "@ecl/eu-style-icon": "^0.0.1",
-    "@ecl/eu-component-link": "^0.0.1",
+    "@ecl/eu-utility-aria": "^0.0.1",
     "@ecl/eu-utility-ratio": "^0.0.1",
-    "@ecl/eu-utility-screen-reader": "^0.0.1"
+    "@ecl/eu-utility-screen-reader": "^0.0.1",
+    "@ecl/generic-component-file": "^0.0.1"
   },
-  "publishConfig": { "access": "public" },
+  "devDependencies": {
+    "node-sass": "4.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

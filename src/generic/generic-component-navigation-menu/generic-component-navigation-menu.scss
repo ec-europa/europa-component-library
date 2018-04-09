@@ -97,6 +97,7 @@
     border-left-width: 0;
     border-right-width: 0;
     border-top: 0;
+    box-sizing: border-box;
     color: $link-color;
     display: flex;
     font-size: map-get($ecl-font-size, 's');
@@ -158,7 +159,7 @@
 
   .ecl-navigation-menu__link[aria-expanded='false'] {
     &::after {
-      @extend %ecl-icon--after;
+      @include ecl-icon--after();
 
       @include ecl-icon('down');
     }
@@ -168,7 +169,7 @@
     border-bottom-width: 0;
 
     &::after {
-      @extend %ecl-icon--after;
+      @include ecl-icon--after();
 
       @include ecl-icon('up');
     }
@@ -190,7 +191,8 @@
   }
 
   /* Collapsible block display */
-  .ecl-navigation-menu__link[aria-expanded='true'] ~ .ecl-navigation-menu__group {
+  .ecl-navigation-menu__link[aria-expanded='true']
+    ~ .ecl-navigation-menu__group {
     display: block;
   }
 
@@ -235,7 +237,8 @@
     bottom: -0.5em;
   }
 
-  .ecl-navigation-menu__hamburger--squeeze .ecl-navigation-menu__hamburger-inner {
+  .ecl-navigation-menu__hamburger--squeeze
+    .ecl-navigation-menu__hamburger-inner {
     transition-duration: 0.075s;
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
@@ -274,11 +277,7 @@
   }
 }
 
-@mixin ecl-navigation-menu-responsive(
-  $bar-bg-desktop,
-  $group-bg,
-  $link-color
-) {
+@mixin ecl-navigation-menu-responsive($bar-bg-desktop, $group-bg, $link-color) {
   @include ecl-media-breakpoint-up(md) {
     .ecl-navigation-menu {
       background-color: $bar-bg-desktop;

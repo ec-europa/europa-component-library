@@ -2,7 +2,7 @@ describe('breadcrumbs', () => {
   before(() => {
     browser.setViewportSize({
       width: 1400,
-      height: 600,
+      height: 200,
     });
 
     browser.pause(500);

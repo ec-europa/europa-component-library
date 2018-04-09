@@ -16,5 +16,5 @@ fi
 ./node_modules/.bin/gh-pages \
   --silent \
   --repo https://${GH_TOKEN}@github.com/ec-europa/europa-component-library.git \
-  --dist dist \
+  --dist dist/website \
   --message "Update GitHub Pages [SKIP CI]"

@@ -20,6 +20,7 @@ module.exports = {
       context: {
         src: '../../assets/demo_images/nature-demo-1.jpg',
         alt: 'This is a test image',
+        responsive: true,
       },
     },
     {
@@ -34,6 +35,7 @@ module.exports = {
           xl: '../../assets/demo_images/1280x960.png',
         },
         alt: 'This is a test image',
+        responsive: true,
       },
     },
   ],

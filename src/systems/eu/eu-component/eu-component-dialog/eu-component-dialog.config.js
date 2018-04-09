@@ -15,7 +15,7 @@ const context = {
         // Add necessary demo attributes.
         link.setAttribute('href', '#dialog');
         link.setAttribute('class', 'ecl-link');
-        link.setAttribute('data-eul-dialog', 'ecl-dialog');
+        link.setAttribute('data-ecl-dialog', 'ecl-dialog');
 
         // Show the link
         document.body.appendChild(link);
