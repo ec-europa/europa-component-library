@@ -3,8 +3,6 @@ title: Twig coding conventions
 label: Twig
 ---
 
-# Twig coding conventions
-
 ## Parameters
 
 Twig files should expose available parameters and blocks in a comment at the start of the file.
@@ -17,7 +15,7 @@ Each one should present the following information:
 If a parameter uses a more complex structure (objects, array, ...), this structure should be visible too.
 
 Example:
-```
+```twig
 {#
   Parameters:
     - "menu_label" (integer): max number of items to display (0 = display all) (default: 5)
@@ -52,7 +50,7 @@ Use this section to initialize variables and get parameters.
 All internal properties should start with "\_"
 
 Example:
-```
+```twig
 {# Internal properties #}
 
 {% set _menu_label = menu_label|default('') %}
@@ -66,7 +64,7 @@ Example:
 Preprocess values and other non trivial operations of properties
 
 Example:
-```
+```twig
 {# Internal logic - Process properties #}
 
 {% if extra_classes is defined %}
@@ -86,10 +84,10 @@ Html markup.
 It should always start with the default class (stored in `_css_class`) and `_extra_attributes`.
 
 Example:
-```
+```twig
 {# Print the result  #}
 
-<nav class="{{ _css_class }}" aria-label="{{ menu_aria_label }}"{{ _extra_attributes|raw }}>
-  {# [...] #}
+<nav class="{ { _css_class } }" aria-label="{ { menu_aria_label } }"{ { _extra_attributes|raw } }>
+  [...]
 </nav>
 ```

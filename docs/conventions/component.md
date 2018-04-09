@@ -3,8 +3,6 @@ title: Components coding conventions
 label: Components
 ---
 
-# Components
-
 ## General rules
 
 In most cases, components are firstly done as generic components, then specialized for one or more systems.
@@ -28,11 +26,11 @@ generic-component-navigation.scss
 
 All css rules should be put in mixins.
 
-It could be split in several small mixins, but in any case we should have a main mixin calling the small ones.
+It could be split in several small mixins, but in any cases we should have a main mixin calling the small ones.
 This main mixin should be named following the component's main class.
 
 Example:
-```
+```scss
 @mixin ecl-navigation-menu-common() {
   // Some css rules or mixin include
 }
@@ -50,7 +48,7 @@ The css rules in generic components should not define specific display elements 
 If display is different in several systems, these differences should be put as parameters in the mixin. The goal here is to be able to call the same generic code, and just pass some parameters to alter display. There is no need to repeat component's name for these parameters, as they are limited to this mixin.
 
 Example:
-```
+```scss
 @mixin ecl-navigation-menu(
   $bar-bg-mobile,
   $bar-bg-desktop,
@@ -94,7 +92,7 @@ Example:
 @import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-link', 'ec-component-button'))
+@include check-imports(('ec-component-link', 'ec-component-button'));
 
 // Use generic mixin
 @include exports('ec-component-navigation-menu') {
@@ -107,7 +105,7 @@ Example:
     $link-color: map-get($ecl-colors, 'blue-100'),
     $active-color: map-get($ecl-colors, 'blue-100'),
     $active-bg: map-get($ecl-colors, 'grey-10')
-  )
+  );
 
   // Add custom rules
   .ecl-navigation-menu__item--active {
@@ -121,7 +119,24 @@ Example:
 
 ### Specific case: editor preset
 
-TBD
+If the component alters a default html tag display (like links, blockquotes, ...), it should also provide css rules for editing.
+
+In the sass file(s), there should be some extra rules prefixed by `.ecl-editor`, which override default html tag.
+This rules could be put in a separated mixin (for clarity), but should be part of the component anyway (so included in the main mixin).
+
+Example:
+
+```scss
+@mixin ecl-editor-link() {
+  .ecl-editor a {
+    box-sizing: border-box;
+    color: $ecl-color-primary;
+    margin: 0;
+    text-decoration: underline;
+    [...]
+  }
+}
+```
 
 ## Twig
 
@@ -142,14 +157,14 @@ generic-component-navigation.twig
 
 Generic component twig file defines all the markup for the component. It should contains all the logic required to use the component, as it is intended to be used by systems components.
 
-This twig file consists in different sections (see above link for more details):
+This twig file consists in different sections (see link above for more details):
 * Parameters/Blocks: list of exposed parameters and blocks
 * Internal properties: definition of custom variables
 * Internal logic: preprocess and other custom logic
 * Print: html markup
 
 Example:
-```
+```twig
 {#
   Parameters:
   [...]
@@ -179,7 +194,7 @@ In both cases, **twig file should always start with available parameters**.
 This is the easy case: system component just has to include generic twig file.
 
 Example:
-```
+```twig
 {#
   Parameters:
   [...]
@@ -310,8 +325,8 @@ Example:
 /* File path: ec-component-banner.config.js */
 
 // Load context from generic component
-const hero = require('@ecl/generic-component-banner/context/hero');
-const video = require('@ecl/generic-component-banner/context/video');
+const hero = require('@ecl/generic-component-banner/context/generic-component-banner--hero.config');
+const video = require('@ecl/generic-component-banner/context/generic-component-banner--video.config');
 
 module.exports = {
   title: 'Banners',
