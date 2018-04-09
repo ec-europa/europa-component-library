@@ -13,7 +13,7 @@ All components should follow the same file structure and naming conventions.
 
 ## SCSS
 
-Apart from [rules that should be applied to all scss files](scss.md), there are some specifications for components:
+Apart from [rules that should be applied to all scss files](scss), there are some specifications for components:
 
 ### File name
 
@@ -125,7 +125,7 @@ TBD
 
 Every component should have a directly usable twig file. The goal is to be able to include the component in other molecules/organisms (by putting most of the content in context).
 
-Apart from [rules that should be applied to all twig files](twig.md), there are some specifications for components:
+Apart from [rules that should be applied to all twig files](twig), there are some specifications for components:
 
 ### File name
 
@@ -200,7 +200,7 @@ As we lose the advantage of generic components here, it is recommended, when pos
 
 Not all components require a dedicated javascript file. Most of them have simple enough behavior, that could be handled with html/css only. The following rules only concern component with more complex (js) behavior.
 
-Apart from [rules that should be applied to all js files](javascript.md), there are some specifications for components:
+Apart from [rules that should be applied to all js files](javascript), there are some specifications for components:
 
 ### File name
 

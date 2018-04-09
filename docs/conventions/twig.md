@@ -90,6 +90,6 @@ Example:
 {# Print the result  #}
 
 <nav class="{{ _css_class }}" aria-label="{{ menu_aria_label }}"{{ _extra_attributes|raw }}>
-  [...]
+  {# [...] #}
 </nav>
 ```
