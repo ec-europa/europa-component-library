@@ -20,10 +20,10 @@ module.exports = {
       context: {
         label: 'tags',
         tags: [
-          { value: 'apple', href: '#' },
-          { value: 'orange', href: '#' },
-          { value: 'lime', href: '#' },
-          { value: 'strawberry', href: '#' },
+          { value: 'apple', href: '../../example.html#' },
+          { value: 'orange', href: '../../example.html#' },
+          { value: 'lime', href: '../../example.html#' },
+          { value: 'strawberry', href: '../../example.html#' },
         ],
       },
     },

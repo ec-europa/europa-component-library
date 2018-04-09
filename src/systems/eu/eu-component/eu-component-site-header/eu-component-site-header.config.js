@@ -8,9 +8,12 @@ module.exports = {
   context: {
     lang: 'en',
     site_switcher: {
-      political: { href: '#', label: 'Commission and its priorities' },
+      political: {
+        href: '../../example.html#',
+        label: 'Commission and its priorities',
+      },
       info: {
-        href: '#',
+        href: '../../example.html#',
         label: 'Policies, information and services',
         is_active: true,
       },
@@ -18,9 +21,9 @@ module.exports = {
     user_menu: {
       title: 'User menu',
       links: [
-        { href: '#', label: 'My workbench' },
-        { href: '#', label: 'My account' },
-        { href: '#', label: 'Log out' },
+        { href: '../../example.html#', label: 'My workbench' },
+        { href: '../../example.html#', label: 'My account' },
+        { href: '../../example.html#', label: 'Log out' },
       ],
     },
     languages,

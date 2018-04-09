@@ -8,8 +8,8 @@
     <div class="ecl-row">
       {% if corporate_footer.about_ec.items is defined and corporate_footer.about_ec.items is not empty %}
       <div class="ecl-footer__column ecl-col-md">
-        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__column-title">{{ corporate_footer.about_ec.title }}</h4>
-        <ul class="ecl-list ecl-list--unstyled ecl-footer__list">
+        <h2 class="ecl-heading ecl-heading--h4 ecl-footer__column-title" id="footer-corporate-about-ec">{{ corporate_footer.about_ec.title }}</h2>
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-about-ec">
           {% for menu_item in corporate_footer.about_ec.items %}
             <li class="ecl-footer__list-item">
               {% include '@ecl/ec-component-link' with {
@@ -25,8 +25,8 @@
       {% endif %}
       {% if corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}
       <div class="ecl-footer__column ecl-col-md">
-        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__column-title">{{ corporate_footer.social_media.title }}</h4>
-        <ul class="ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline  ecl-footer__social-links">
+        <h2 class="ecl-heading ecl-heading--h4 ecl-footer__column-title" id="footer-corporate-social-media">{{ corporate_footer.social_media.title }}</h2>
+        <ul class="ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline  ecl-footer__social-links" aria-labelledby="footer-corporate-social-media">
           {% for menu_item in corporate_footer.social_media.items %}
             <li class="ecl-footer__list-item">
               {% if menu_item.type == 'social-network' %}
@@ -60,8 +60,8 @@
       {% endif %}
       {% if corporate_footer.about_eu.items is defined and corporate_footer.about_eu.items is not empty %}
       <div class="ecl-footer__column ecl-col-md">
-        <h4 class="ecl-heading ecl-heading--h4 ecl-footer__column-title">{{ corporate_footer.about_eu.title }}</h4>
-        <ul class="ecl-list ecl-list--unstyled ecl-footer__list">
+        <h2 class="ecl-heading ecl-heading--h4 ecl-footer__column-title" id="footer-corporate-about-eu">{{ corporate_footer.about_eu.title }}</h2>
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-about-eu">
           {% for menu_item in corporate_footer.about_eu.items %}
             <li class="ecl-footer__list-item">
               {% include '@ecl/ec-component-link' with {
