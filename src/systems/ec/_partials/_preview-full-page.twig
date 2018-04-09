@@ -25,8 +25,8 @@
   {% include '@ecl/ec-component-site-header' with {
     site_switcher: {
       variant: 'header',
-      political: { href: '#', label: 'Commission and its priorities' },
-      info: { href: '#', label: 'Policies, information and services', is_active: true }
+      political: { href: '../../example.html#', label: 'Commission and its priorities' },
+      info: { href: '../../example.html#', label: 'Policies, information and services', is_active: true }
     }
   } %}
   {% include '@ecl/ec-component-page-header' with {
@@ -34,18 +34,17 @@
     identity: 'Search',
     breadcrumb: [
       { href: 'http://europa.eu/index_en.htm', label: 'European Commission' },
-      { href: '#', label: 'Search' },
+      { href: '../../example.html#', label: 'Search' },
     ]
   } %}
-  <main>
-    <a id="main-content" tabindex="-1"></a>
+  <main id="main-content">
     {{ yield }}
   </main>
 
   {% include '@ecl/ec-component-footer' with {
     custom_footer: {
       identity: {
-        href: '#',
+        href: '../../example.html#',
         label: 'Digital single market',
       },
       social_links: {
@@ -55,7 +54,7 @@
             type: 'social-network',
             icon: 'facebook',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Facebook',
             },
           },
@@ -63,14 +62,14 @@
             type: 'social-network',
             icon: 'twitter',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Twitter',
             },
           },
           {
             type: 'external',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Other social media',
             },
           },
@@ -80,13 +79,13 @@
         links: [
           {
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Contact',
             },
           },
           {
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Site map',
             },
           },
@@ -114,7 +113,7 @@
             type: 'social-network',
             icon: 'facebook',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Facebook',
             },
           },
@@ -122,14 +121,14 @@
             type: 'social-network',
             icon: 'twitter',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Twitter',
             },
           },
           {
             type: 'external',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Other social media',
             },
           },
@@ -139,11 +138,11 @@
         title: 'European Union',
         items: [
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'EU institutions',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Union',
           },
         ],

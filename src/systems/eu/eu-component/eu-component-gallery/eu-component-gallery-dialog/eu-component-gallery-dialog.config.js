@@ -43,12 +43,12 @@ module.exports = {
             alt: 'First item',
           },
           download: {
-            href: '#',
+            href: '../../example.html#',
             title: 'Download',
             label: 'Download',
           },
           share: {
-            href: '#',
+            href: '../../example.html#',
             title: 'Share',
             label: 'Share',
           },
@@ -62,12 +62,12 @@ module.exports = {
             alt: 'Second item',
           },
           download: {
-            href: '#',
+            href: '../../example.html#',
             title: 'Download',
             label: 'Download',
           },
           share: {
-            href: '#',
+            href: '../../example.html#',
             title: 'Share',
             label: 'Share',
           },
@@ -81,12 +81,12 @@ module.exports = {
             alt: 'Third item',
           },
           download: {
-            href: '#',
+            href: '../../example.html#',
             title: 'Download',
             label: 'Download',
           },
           share: {
-            href: '#',
+            href: '../../example.html#',
             title: 'Share',
             label: 'Share',
           },

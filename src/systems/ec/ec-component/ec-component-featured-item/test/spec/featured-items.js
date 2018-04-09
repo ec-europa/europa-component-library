@@ -13,10 +13,8 @@ describe('ecl-featured-items', () => {
       before(() => {
         // Go to url
         browser.goToComponent('ec-component-featured-item', variant);
-
         browser.injectAxeCore();
-
-        browser.pause(500);
+        browser.pause(1000);
       });
 
       // Normal state
