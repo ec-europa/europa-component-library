@@ -11,6 +11,24 @@ All components should follow the same file structure and naming conventions.
 
 If you are not familiar with the concept of systems in ECL, first have a look at [the system documentation](../systems).
 
+### Naming of components
+
+* Throughout the whole project, in `package.json` files, namespace should always be `@ecl/`, regardless whether work is to be done on a generic or system component. One reason is that `@ecl` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
+* Flavored components should be prefixed with the name of their corresponding system and type (component, style, template): `[generic|ec|eu]-[component|style|template|utility]`.
+
+Example:
+```
+// Some full component name (in package.json)
+@ecl/ec-component-logo
+@ecl/generic-component-navigation-menu
+@ecl/eu-utility-flex
+
+// Corresponding component name (used for file name later)
+ec-component-logo
+generic-component-navigation-menu
+eu-utility-flex
+```
+
 ## SCSS
 
 Apart from [rules that should be applied to all scss files](scss), there are some specifications for components:
@@ -124,11 +142,13 @@ Example:
 If the component alters a default html tag display (like links, blockquotes, ...), it should also provide css rules for editing.
 
 In the sass file(s), there should be some extra rules prefixed by `.ecl-editor`, which override default html tag.
-This rules could be put in a separated mixin (for clarity), but should be part of the component anyway (so included in the main mixin).
+This rules should be put in a separated mixin called `{component name}--editor.scss`.
 
 Example:
 
 ```scss
+/* File path: generic-component-navigation--editor.scss */
+
 @mixin ecl-editor-link() {
   .ecl-editor a {
     box-sizing: border-box;
