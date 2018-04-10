@@ -12,7 +12,7 @@ export default () => {
   $.getJSON(searchIndexPath.path, searchIndexJson => {
     const $searchInput = $('#search-components');
     const $navigationMenu = $('.ecl-navigation-menu');
-    const $resultsArea = $('main > .ecl-container > .ecl-row > .ecl-col');
+    const $resultsArea = $('.page-content');
 
     const initialContent = $resultsArea.html();
 
