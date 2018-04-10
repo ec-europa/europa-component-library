@@ -4,12 +4,11 @@ const links = [
     label: 'European Parliament',
   },
   {
-    href:
-      'https://europa.eu/european-union/about-eu/institutions-bodies/european-council_en',
+    href: 'https://www.consilium.europa.eu/en/european-council/',
     label: 'European Council',
   },
   {
-    href: 'http://www.consilium.europa.eu/en/council-eu/',
+    href: 'https://www.consilium.europa.eu/en/council-eu/',
     label: 'Council of the European Union',
   },
   {
@@ -29,8 +28,7 @@ const links = [
     label: 'European Court of Auditors',
   },
   {
-    href:
-      'https://europa.eu/european-union/about-eu/institutions-bodies/eeas_en',
+    href: 'https://eeas.europa.eu',
     label: 'European External Action Service',
   },
   {
@@ -42,7 +40,7 @@ const links = [
     label: 'European Committee of the Regions',
   },
   {
-    href: 'http://www.eib.org/',
+    href: 'http://eib.europa.eu',
     label: 'European Investment Bank',
   },
   {
@@ -50,8 +48,7 @@ const links = [
     label: 'European Ombudsman',
   },
   {
-    href:
-      'https://europa.eu/european-union/about-eu/institutions-bodies/european-data-protection-supervisor_en',
+    href: 'https://edps.europa.eu/',
     label: 'European Data Protection Supervisor',
   },
   {
