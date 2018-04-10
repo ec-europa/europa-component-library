@@ -9,6 +9,8 @@ In most cases, components are firstly done as generic components, then specializ
 
 All components should follow the same file structure and naming conventions.
 
+If you are not familiar with the concept of systems in ECL, first have a look at [the system documentation](../systems).
+
 ## SCSS
 
 Apart from [rules that should be applied to all scss files](scss), there are some specifications for components:
@@ -19,7 +21,7 @@ SCSS file name should be the same as component's name.
 
 Example:
 ```
-generic-component-navigation.scss
+generic-component-navigation-menu.scss
 ```
 
 ### Generic component
