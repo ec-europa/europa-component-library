@@ -6,7 +6,7 @@ module.exports = {
   context: {
     custom_footer: {
       identity: {
-        href: '#homepage',
+        href: '../../example.html#homepage',
         label: 'Site identification',
       },
       social_links: {
@@ -16,7 +16,7 @@ module.exports = {
             type: 'social-network',
             icon: 'facebook',
             link: {
-              href: '#facebook',
+              href: '../../example.html#facebook',
               label: 'Facebook',
             },
           },
@@ -24,7 +24,7 @@ module.exports = {
             type: 'social-network',
             icon: 'twitter',
             link: {
-              href: '#twitter',
+              href: '../../example.html#twitter',
               label: 'Twitter',
             },
           },
@@ -34,31 +34,31 @@ module.exports = {
         links: [
           {
             link: {
-              href: '#contact',
+              href: '../../example.html#contact',
               label: 'Contact',
             },
           },
           {
             link: {
-              href: '#sitemap',
+              href: '../../example.html#sitemap',
               label: 'Site map',
             },
           },
           {
             link: {
-              href: '#loremipsum1',
+              href: '../../example.html#loremipsum1',
               label: 'Lorem ipsum',
             },
           },
           {
             link: {
-              href: '#loremipsum2',
+              href: '../../example.html#loremipsum2',
               label: 'Lorem ipsum',
             },
           },
           {
             link: {
-              href: '#loremipsum3',
+              href: '../../example.html#loremipsum3',
               label: 'Lorem ipsum',
             },
           },
@@ -70,27 +70,27 @@ module.exports = {
         title: 'Contact the EU',
         items: [
           {
-            href: '#call',
+            href: '../../example.html#call',
             label: 'Call 00 800 6 7 8 9 10 11. See details of service',
           },
           {
-            href: '#email',
+            href: '../../example.html#email',
             label: 'E-mail your questions about the EU',
           },
           {
-            href: '#euinyourcountry',
+            href: '../../example.html#euinyourcountry',
             label: 'EU in your country',
           },
           {
-            href: '#localinformation',
+            href: '../../example.html#localinformation',
             label: 'Local information services in the EU',
           },
           {
-            href: '#institutions',
+            href: '../../example.html#institutions',
             label: 'Institutions, bodies and agencies',
           },
           {
-            href: '#press',
+            href: '../../example.html#press',
             label: 'Press contacts',
           },
         ],
@@ -99,7 +99,7 @@ module.exports = {
         title: 'Find EU social media accounts',
         items: [
           {
-            href: '#social-media-tool',
+            href: '../../example.html#social-media-tool',
             label: 'Use this tool to search for EU social media channels',
           },
         ],
@@ -108,68 +108,68 @@ module.exports = {
         title: 'Find a European institution',
         items: [
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Parliament',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Council',
           },
 
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'Council of the European Union',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Commission',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'Court of Justice of the European Union',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Central Bank',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Court of Auditors',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European External Action Service',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Economic and Social Committee',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Committee of the Regions',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Investment Bank',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Ombudsman',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Data Protection Supervisor',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Personnel Selection Office',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'Publications Office of the European Union',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'Agencies',
           },
         ],
@@ -188,11 +188,11 @@ module.exports = {
           label: 'Legal notice',
         },
         {
-          href: '#',
+          href: '../../example.html#',
           label: 'Language policy',
         },
         {
-          href: '#',
+          href: '../../example.html#',
           label: 'Web accessibility',
         },
       ],

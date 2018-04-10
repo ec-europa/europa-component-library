@@ -9,9 +9,12 @@ module.exports = {
       name: 'default',
       label: 'Default',
       context: {
-        political: { href: '#', label: 'Commission and its priorities' },
+        political: {
+          href: '../../example.html#',
+          label: 'Commission and its priorities',
+        },
         info: {
-          href: '#',
+          href: '../../example.html#',
           label: 'Policies, information and services',
           is_active: true,
         },
@@ -23,12 +26,12 @@ module.exports = {
       context: {
         variant: 'header',
         political: {
-          href: '#',
+          href: '../../example.html#',
           label: 'Commission and its priorities',
           variant: '',
         },
         info: {
-          href: '#',
+          href: '../../example.html#',
           label: 'Policies, information and services',
           is_active: true,
           variant: '',
@@ -41,12 +44,12 @@ module.exports = {
       context: {
         variant: 'footer',
         political: {
-          href: '#',
+          href: '../../example.html#',
           label: 'Commission and its priorities',
           variant: '',
         },
         info: {
-          href: '#',
+          href: '../../example.html#',
           label: 'Policies, information and services',
           is_active: true,
           variant: '',

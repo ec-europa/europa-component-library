@@ -6,7 +6,7 @@ module.exports = {
   context: {
     custom_footer: {
       identity: {
-        href: '#',
+        href: '../../example.html#',
         label: 'Digital single market',
       },
       social_links: {
@@ -16,7 +16,7 @@ module.exports = {
             type: 'social-network',
             icon: 'facebook',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Facebook',
             },
           },
@@ -24,14 +24,14 @@ module.exports = {
             type: 'social-network',
             icon: 'twitter',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Twitter',
             },
           },
           {
             type: 'external',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Other social media',
             },
           },
@@ -41,13 +41,13 @@ module.exports = {
         links: [
           {
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Contact',
             },
           },
           {
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Site map',
             },
           },
@@ -75,7 +75,7 @@ module.exports = {
             type: 'social-network',
             icon: 'facebook',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Facebook',
             },
           },
@@ -83,14 +83,14 @@ module.exports = {
             type: 'social-network',
             icon: 'twitter',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Twitter',
             },
           },
           {
             type: 'external',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Other social media',
             },
           },
@@ -100,11 +100,11 @@ module.exports = {
         title: 'European Union',
         items: [
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'EU institutions',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Union',
           },
         ],

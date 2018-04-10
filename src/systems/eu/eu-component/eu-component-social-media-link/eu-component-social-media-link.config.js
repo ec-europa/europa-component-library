@@ -1,18 +1,18 @@
 const linksDefault = [
   {
-    href: '#',
+    href: '../../example.html#',
     label: 'Facebook',
     title: 'Facebook',
     variant: 'facebook',
   },
   {
-    href: '#',
+    href: '../../example.html#',
     label: 'Twitter',
     title: 'Twitter',
     variant: 'twitter',
   },
   {
-    href: '#',
+    href: '../../example.html#',
     label: 'Instagram',
     title: 'Instagram',
     variant: 'instagram',
@@ -21,19 +21,19 @@ const linksDefault = [
 
 const linksSpecific = [
   {
-    href: '#',
+    href: '../../example.html#',
     label: 'Jean-Claude Junker',
     title: 'See Jean-Claude Junker on Facebook',
     variant: 'facebook',
   },
   {
-    href: '#',
+    href: '../../example.html#',
     label: 'European Commission',
     title: 'See European Commission on Facebook',
     variant: 'facebook',
   },
   {
-    href: '#',
+    href: '../../example.html#',
     label: 'European Commission',
     title: 'See European Commission on Twitter',
     variant: 'twitter',
