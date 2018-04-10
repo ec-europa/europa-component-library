@@ -6,10 +6,8 @@ describe('comments-with-form', () => {
     });
 
     browser.goToComponent('ec-template-comments-with-form');
-
     browser.injectAxeCore();
-
-    browser.pause(500);
+    browser.pause(1000);
   });
 
   // Normal state

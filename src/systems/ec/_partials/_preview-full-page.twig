@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+{% set bodyClass = 'ecl-typography' %}
+{% if _target.context is defined and _target.context.global is defined %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
+  {% endif %}
+{% endif %}
 <html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
@@ -7,7 +17,7 @@
   <script>document.documentElement.classList.remove('no-js');</script>
   <link media="all" rel="stylesheet" href="{{ '/ec-preset-full/styles/europa.css' | path }}">
 </head>
-<body{% if _target.context and _target.context.global and _target.context.global.language %} class="language-{{ _target.context.global.language }}"{% endif %}>
+<body class="{{ bodyClass }}">
   {% include '@ecl/ec-component-skip-link' with {
       'href': '#main-content',
       'label': 'Skip to main content'
@@ -15,8 +25,8 @@
   {% include '@ecl/ec-component-site-header' with {
     site_switcher: {
       variant: 'header',
-      political: { href: '#', label: 'Commission and its priorities' },
-      info: { href: '#', label: 'Policies, information and services', is_active: true }
+      political: { href: '../../example.html#', label: 'Commission and its priorities' },
+      info: { href: '../../example.html#', label: 'Policies, information and services', is_active: true }
     }
   } %}
   {% include '@ecl/ec-component-page-header' with {
@@ -24,18 +34,17 @@
     identity: 'Search',
     breadcrumb: [
       { href: 'http://europa.eu/index_en.htm', label: 'European Commission' },
-      { href: '#', label: 'Search' },
+      { href: '../../example.html#', label: 'Search' },
     ]
   } %}
-  <main>
-    <a id="main-content" tabindex="-1"></a>
+  <main id="main-content">
     {{ yield }}
   </main>
 
   {% include '@ecl/ec-component-footer' with {
     custom_footer: {
       identity: {
-        href: '#',
+        href: '../../example.html#',
         label: 'Digital single market',
       },
       social_links: {
@@ -45,7 +54,7 @@
             type: 'social-network',
             icon: 'facebook',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Facebook',
             },
           },
@@ -53,14 +62,14 @@
             type: 'social-network',
             icon: 'twitter',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Twitter',
             },
           },
           {
             type: 'external',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Other social media',
             },
           },
@@ -70,13 +79,13 @@
         links: [
           {
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Contact',
             },
           },
           {
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Site map',
             },
           },
@@ -104,7 +113,7 @@
             type: 'social-network',
             icon: 'facebook',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Facebook',
             },
           },
@@ -112,14 +121,14 @@
             type: 'social-network',
             icon: 'twitter',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Twitter',
             },
           },
           {
             type: 'external',
             link: {
-              href: '#',
+              href: '../../example.html#',
               label: 'Other social media',
             },
           },
@@ -129,11 +138,11 @@
         title: 'European Union',
         items: [
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'EU institutions',
           },
           {
-            href: '#',
+            href: '../../example.html#',
             label: 'European Union',
           },
         ],

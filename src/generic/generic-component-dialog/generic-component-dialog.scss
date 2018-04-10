@@ -38,7 +38,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: map-get($ecl-z-index, 'highlight');
+    z-index: map-get($ecl-z-index, 'modal') - 1;
   }
 
   .ecl-dialog__overlay[aria-hidden='true'] {
