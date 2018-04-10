@@ -3,6 +3,10 @@
  * @define inpage-navigation
  */
 
+@import '@ecl/generic-base/generic-base';
+@import '@ecl/generic-style-icon/variables';
+@import '@ecl/generic-style-icon/mixins';
+
 @mixin ecl-inpage-navigation() {
   .ecl-inpage-navigation {
     margin: 0;
@@ -45,6 +49,14 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+  }
+
+  .ecl-inpage-navigation__list[aria-hidden='true'] {
+    display: none;
+  }
+
+  .ecl-inpage-navigation__link {
+    font-size: map-get($ecl-font-size, 's');
   }
 
   /* stylelint-disable-next-line order/order */

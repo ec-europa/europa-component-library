@@ -3,6 +3,13 @@
  * @define file
  */
 
+@import '@ecl/ec-base/ec-base';
+
+// Warn if external dependencies have not been imported yet
+@include check-imports(('ec-component-button', 'ec-component-link'));
+
 @import '@ecl/generic-component-file/generic-component-file';
 
-@include ecl-file();
+@include exports('ec-component-file') {
+  @include ecl-file();
+}
