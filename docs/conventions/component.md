@@ -141,15 +141,16 @@ Example:
 
 If the component alters a default html tag display (like links, blockquotes, ...), it should also provide css rules for editing.
 
-In the sass file(s), there should be some extra rules prefixed by `.ecl-editor`, which override default html tag.
-This rules should be put in a separated mixin called `{component name}--editor.scss`.
+**Please note that this is a specific case, most components don't have to create editor rules**
+
+To add editor rules, there should be some extra rules (prefixed by `.ecl-editor`), which override default html tag.
+This rules should be put in a mixin called `ecl-editor-{component name}`, in a separated file called `{component name}--editor.scss`.
 
 Example:
-
 ```scss
-/* File path: generic-component-navigation--editor.scss */
+/* File path: generic-component-link--editor.scss */
 
-@mixin ecl-editor-link() {
+@mixin ecl-editor-generic-component-link() {
   .ecl-editor a {
     box-sizing: border-box;
     color: $ecl-color-primary;
@@ -172,7 +173,7 @@ Twig file name should be the same as component's name.
 
 Example:
 ```
-generic-component-navigation.twig
+generic-component-navigation-menu.twig
 ```
 
 ### Generic component
@@ -247,7 +248,7 @@ Javascript file name should be the same as component's name.
 
 Example:
 ```
-generic-component-navigation.js
+generic-component-navigation-menu.js
 ```
 
 ### Generic component
@@ -281,7 +282,7 @@ Config file name should be the same as component's name.
 
 Example:
 ```
-generic-component-navigation.config.js
+generic-component-navigation-menu.config.js
 ```
 
 ### Generic component
@@ -295,7 +296,7 @@ Generic context files should be placed in a `context` folder, inside component's
 
 Example (single variant):
 ```
-/* File path: context/generic-component-navigation.config.js */
+/* File path: context/generic-component-navigation-menu.config.js */
 
 module.exports = {
   menu_label: 'Menu',
