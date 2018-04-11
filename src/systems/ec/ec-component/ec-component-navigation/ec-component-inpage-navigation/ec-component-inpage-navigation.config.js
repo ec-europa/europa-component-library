@@ -20,7 +20,7 @@ module.exports = {
   status: 'ready',
   tags: ['molecule'],
   context: {
-    title: 'Page content',
+    title: 'Page contents',
     links,
     extra_classes: 'ecl-col-md-3 ecl-u-align-self-start ',
     _demo: {
