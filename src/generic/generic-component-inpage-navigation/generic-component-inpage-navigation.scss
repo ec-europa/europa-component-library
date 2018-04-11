@@ -32,6 +32,8 @@ $ecl-inpage-navigation-link-padding-vertical: (
   }
 
   .ecl-inpage-navigation__trigger {
+    background-color: map-get($ecl-colors, 'blue-100');
+    border: 0;
     color: #fff;
     display: none;
     font-size: $ecl-inpage-navigation-trigger-font-size;
@@ -44,8 +46,10 @@ $ecl-inpage-navigation-link-padding-vertical: (
       $ecl-inpage-navigation-trigger-padding-horizontal;
     padding-top: $ecl-inpage-navigation-trigger-padding-vertical;
     position: relative;
+    text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
 
     &::after {
       @include ecl-icon--after();
@@ -65,7 +69,7 @@ $ecl-inpage-navigation-link-padding-vertical: (
   }
 
   .ecl-inpage-navigation__title {
-    color: map-get($ecl-colors, 'grey-75');
+    color: $ecl-color-shade;
     display: none;
     padding-bottom: map-get($ecl-spacing, 'xs');
     padding-left: 0.5rem;
@@ -89,6 +93,13 @@ $ecl-inpage-navigation-link-padding-vertical: (
     padding: $ecl-inpage-navigation-link-padding-vertical 0;
   }
 
+  .ecl-inpage-navigation--sticky,
+  .ecl-inpage-navigation--stuck {
+    .ecl-inpage-navigation__trigger {
+      display: block;
+    }
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-down('sm') {
     .ecl-inpage-navigation--sticky,
@@ -107,10 +118,6 @@ $ecl-inpage-navigation-link-padding-vertical: (
         display: block;
         padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
         text-decoration: underline;
-      }
-
-      .ecl-inpage-navigation__trigger {
-        display: block;
       }
     }
   }
@@ -145,6 +152,13 @@ $ecl-inpage-navigation-link-padding-vertical: (
     .ecl-inpage-navigation__link--is-active {
       background-color: map-get($ecl-colors, 'grey-10');
       border-left-color: $ecl-color-primary;
+    }
+
+    .ecl-inpage-navigation--sticky,
+    .ecl-inpage-navigation--stuck {
+      .ecl-inpage-navigation__trigger {
+        display: none;
+      }
     }
   }
 }
