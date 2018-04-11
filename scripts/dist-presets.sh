@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build packages
-yarn lerna --parallel --scope "@ecl/*-preset-*" run dist
+yarn lerna --concurrency 3 --scope "@ecl/*-preset-*" run dist
 
 # Copy builds
 rm -rf ./dist/packages
