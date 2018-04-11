@@ -7,6 +7,14 @@
 @import '@ecl/generic-style-icon/variables';
 @import '@ecl/generic-style-icon/mixins';
 
+$ecl-inpage-navigation-trigger-font-size: map-get($ecl-font-size, 'm');
+$ecl-inpage-navigation-trigger-line-height: 1;
+$ecl-inpage-navigation-trigger-padding-horizontal: map-get($ecl-spacing, 's');
+$ecl-inpage-navigation-trigger-padding-vertical: map-get($ecl-spacing, 's');
+$ecl-inpage-navigation-trigger-caret-width: $ecl-inpage-navigation-trigger-padding-vertical *
+  2 + $ecl-inpage-navigation-trigger-line-height *
+  $ecl-inpage-navigation-trigger-font-size;
+
 @mixin ecl-inpage-navigation() {
   .ecl-inpage-navigation {
     margin: 0;
@@ -16,12 +24,21 @@
   .ecl-inpage-navigation__trigger {
     color: #fff;
     display: none;
-    padding: map-get($ecl-spacing, 'xxs');
+    font-size: $ecl-inpage-navigation-trigger-font-size;
+    font-weight: 700;
+    line-height: $ecl-inpage-navigation-trigger-line-height;
+    overflow: hidden;
+    padding-bottom: $ecl-inpage-navigation-trigger-padding-vertical;
+    padding-left: $ecl-inpage-navigation-trigger-padding-horizontal;
+    padding-right: $ecl-inpage-navigation-trigger-caret-width +
+      $ecl-inpage-navigation-trigger-padding-horizontal;
+    padding-top: $ecl-inpage-navigation-trigger-padding-vertical;
     position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &::after {
       @include ecl-icon--after();
-
       @include ecl-icon('arrow-down');
 
       align-items: center;
@@ -33,7 +50,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      width: map-get($ecl-spacing, 'l');
+      width: $ecl-inpage-navigation-trigger-caret-width;
     }
   }
 
@@ -57,6 +74,7 @@
 
   .ecl-inpage-navigation__link {
     font-size: map-get($ecl-font-size, 's');
+    line-height: 2.5;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -99,7 +117,7 @@
       color: $ecl-color-shade;
       display: block;
       font-weight: 600;
-      padding: map-get($ecl-spacing, 'xxxs');
+      padding-left: map-get($ecl-spacing, 'xxxs');
 
       &:hover {
         text-decoration: underline;
