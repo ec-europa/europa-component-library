@@ -3,6 +3,9 @@
  * @define inpage-navigation
  */
 
+@import '@ecl/ec-base/ec-base';
 @import '@ecl/generic-component-inpage-navigation/generic-component-inpage-navigation';
 
-@include ecl-inpage-navigation();
+@include exports('ec-component-inpage-navigation') {
+  @include ecl-inpage-navigation();
+}

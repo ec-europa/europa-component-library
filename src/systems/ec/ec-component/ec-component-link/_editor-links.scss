@@ -1,3 +1,6 @@
+@import '@ecl/ec-base/ec-base';
 @import '@ecl/generic-component-link/editor-links';
 
-@include ecl-editor-link();
+@include exports('ec-component-link-editor') {
+  @include ecl-editor-link();
+}
