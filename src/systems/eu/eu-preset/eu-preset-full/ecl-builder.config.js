@@ -65,5 +65,12 @@ module.exports = {
       from: path.resolve(nodeModules, '@ecl/eu-component-logo/images'),
       to: path.resolve(__dirname, outputFolder, 'images'),
     },
+    {
+      from: path.resolve(
+        nodeModules,
+        '@ecl/eu-component-global-navigation/images'
+      ),
+      to: path.resolve(__dirname, outputFolder, 'images'),
+    },
   ],
 };
