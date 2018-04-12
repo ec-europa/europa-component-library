@@ -34,12 +34,5 @@ module.exports = {
       from: path.resolve(nodeModules, '@ecl/generic-style-icon/fonts'),
       to: path.resolve(__dirname, outputFolder, 'fonts'),
     },
-    {
-      from: path.resolve(
-        nodeModules,
-        '@ecl/eu-component-global-navigation/images'
-      ),
-      to: path.resolve(__dirname, outputFolder, 'images'),
-    },
   ],
 };
