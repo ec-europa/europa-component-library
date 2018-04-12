@@ -33,11 +33,6 @@ const onKeydown = (node, menu) => e => {
     case 13:
     case 32:
       onClick(e.currentTarget, menu)(e);
-      /* e.preventDefault();
-      toggleExpandable(e.currentTarget, {
-        context: menu,
-        closeSiblings: true,
-      }); */
       break;
     // ARROWS LEFT and UP
     case 37:
