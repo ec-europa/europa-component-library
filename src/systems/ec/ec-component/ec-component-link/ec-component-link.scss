@@ -3,6 +3,9 @@
 * @define link
 */
 
+@import '@ecl/ec-base/ec-base';
 @import '@ecl/generic-component-link/generic-component-link';
 
-@include ecl-link();
+@include exports('ec-component-link') {
+  @include ecl-link();
+}
