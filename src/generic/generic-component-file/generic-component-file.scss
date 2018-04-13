@@ -246,6 +246,8 @@ $ecl-file-metadata-height: $ecl-file-title-height + $ecl-file-info-height +
   // Image and video file
   .ecl-file__image,
   .ecl-file__video {
+    border: 0;
+    box-sizing: border-box;
     display: block;
     height: auto;
     width: 100%;
