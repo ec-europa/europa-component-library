@@ -15,12 +15,7 @@
     "build:styles": "ecl-builder styles",
     "build": "rimraf build && run-p build:* -ln",
     "clean": "rimraf build dist",
-    "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln",
-    "watch:scripts":
-      "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules|build|dist/\" -c \"npm run build:scripts\"",
-    "watch:styles":
-      "chokidar \"../../../../generic/**/*.scss\" \"../../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
-    "watch": "npm-run-all --parallel watch:* -ln"
+    "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln"
   },
   "dependencies": {
     "@ecl/ec-component-accordion": "^0.0.1",
@@ -87,6 +82,9 @@
     "@ecl/ec-component-timeline": "^0.0.1",
     "@ecl/ec-layout-grid": "^0.0.1",
     "@ecl/ec-preset-base": "^0.0.1",
+    "@ecl/ec-style-typography-heading": "^0.0.1",
+    "@ecl/ec-style-typography-list": "^0.0.1",
+    "@ecl/ec-style-typography-paragraph": "^0.0.1",
     "@ecl/ec-utility-aria": "^0.0.1",
     "@ecl/ec-utility-clearfix": "^0.0.1",
     "@ecl/ec-utility-colorize": "^0.0.1",
@@ -100,12 +98,10 @@
     "@ecl/ec-utility-ratio": "^0.0.1",
     "@ecl/ec-utility-screen-reader": "^0.0.1",
     "@ecl/ec-utility-text": "^0.0.1",
-    "@ecl/ec-utility-z-index": "^0.0.1",
-    "normalize.css": "8.0.0"
+    "@ecl/ec-utility-z-index": "^0.0.1"
   },
   "devDependencies": {
     "@ecl/builder": "0.1.1",
-    "chokidar-cli": "1.2.0",
     "cross-env": "5.1.4",
     "npm-run-all": "4.1.2",
     "rimraf": "2.6.2"
