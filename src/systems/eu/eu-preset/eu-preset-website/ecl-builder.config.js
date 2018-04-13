@@ -11,8 +11,8 @@ const includePaths = [nodeModules];
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-full.js'),
-      dest: path.resolve(outputFolder, 'scripts/ecl-eu-preset-full.js'),
+      entry: path.resolve(__dirname, 'eu-preset-website.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-eu-preset-website.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -21,8 +21,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-full.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-eu-preset-full.css'),
+      entry: path.resolve(__dirname, 'eu-preset-website.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-eu-preset-website.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
         includePaths,

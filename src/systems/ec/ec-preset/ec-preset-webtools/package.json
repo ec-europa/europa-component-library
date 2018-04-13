@@ -11,7 +11,6 @@
   },
   "scripts": {
     "build:copy": "ecl-builder copy",
-    "build:scripts": "ecl-builder scripts",
     "build:styles": "ecl-builder styles",
     "build": "rimraf build && run-p build:* -ln",
     "clean": "rimraf build dist",

@@ -11,8 +11,8 @@ const includePaths = [nodeModules];
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-full.js'),
-      dest: path.resolve(outputFolder, 'scripts/ecl-eu-preset-full.js'),
+      entry: path.resolve(__dirname, 'ec-preset-website.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-ec-preset-website.js'),
       options: {
         sourceMap: isProd ? false : 'inline',
         moduleName: 'ECL',
@@ -21,8 +21,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-full.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-eu-preset-full.css'),
+      entry: path.resolve(__dirname, 'ec-preset-website.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-website.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
         includePaths,
@@ -31,30 +31,30 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-form-checkbox/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-form-checkbox/images'),
       to: path.resolve(outputFolder, 'images'),
     },
     {
       from: path.resolve(
         nodeModules,
-        '@ecl/eu-component-form-feedback-message/images'
+        '@ecl/ec-component-form-feedback-message/images'
       ),
       to: path.resolve(outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-form-radio/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-form-radio/images'),
       to: path.resolve(outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-form-select/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-form-select/images'),
       to: path.resolve(outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-social-icon/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-social-icon/images'),
       to: path.resolve(outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-message/images'),
+      from: path.resolve(nodeModules, '@ecl/ec-component-message/images'),
       to: path.resolve(outputFolder, 'images'),
     },
     {
@@ -62,14 +62,7 @@ module.exports = {
       to: path.resolve(outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-component-logo/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(
-        nodeModules,
-        '@ecl/eu-component-global-navigation/images'
-      ),
+      from: path.resolve(nodeModules, '@ecl/ec-component-logo/images'),
       to: path.resolve(outputFolder, 'images'),
     },
   ],
