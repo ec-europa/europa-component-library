@@ -11,8 +11,8 @@ const includePaths = [nodeModules];
 module.exports = {
   styles: [
     {
-      entry: path.resolve(__dirname, 'ec-preset-webtools.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-webtools.css'),
+      entry: path.resolve(__dirname, 'ec-preset-base.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-base.css'),
       options: {
         sourceMap: isProd ? 'file' : true,
         includePaths,
