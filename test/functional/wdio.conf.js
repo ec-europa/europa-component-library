@@ -108,6 +108,7 @@ exports.config = {
   sauceConnect: useSauceConnect,
   sauceConnectOpts: {
     tunnelIdentifier,
+    connectVersion: '4.4.11',
   },
 
   // Initialize the browser instance with a WebdriverIO plugin
