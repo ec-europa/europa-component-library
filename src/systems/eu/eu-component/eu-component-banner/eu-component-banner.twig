@@ -1,8 +1,14 @@
 {#
   Accepts:
-    - "type" (string): type of banner ("hero" or "video", default "hero")
-    - "extra_classes" (string): additional classes to add to the component
-    - "extra_attributes" (array of { name: "", value: "" })
+    - "type" (string, "hero" or "video") (default: "hero"): type of banner
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          'name': 'name_of_the_attribute',
+          'value': 'value_of_the_attribute'
+        },
+        ...
+      ])
 #}
 
 {% include '@ecl/generic-component-banner' with { system: 'eu' } %}

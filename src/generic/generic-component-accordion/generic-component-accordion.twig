@@ -1,6 +1,6 @@
 {#
   Accepts:
-    - "panels" (array) (default: ""): format [
+    - "panels" (array) (default: []): format [
         {
           "id" (string) (default: '')
           "isExpanded" (boolean) (default: false)
@@ -13,7 +13,7 @@
         },
         ...
       ]
-    - "extra_classes" (string) (default: '')
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
     - "extra_attributes" (array) (default: []): format: [
         {
           'name': 'name_of_the_attribute',
@@ -26,24 +26,26 @@
 {# Internal properties #}
 
 {% set _css_class = 'ecl-accordion' %}
-{% set _extra_attributes = '' %}
+{% set _extra_attributes = extra_attributes|default([]) %}
+{% set _extra_classes = extra_classes|default('') %}
+{% set _panels = panels|default([]) %}
 
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% if _extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ _extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+{% if _extra_attributes is not empty %}
+  {% for attr in _extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result  #}
 
 <dl class="{{ _css_class }}" role="presentation"{{ _extra_attributes|raw }}>
-  {% for panel in panels %}
+  {% for panel in _panels %}
   <dt role="heading"{{ panel.heading.level is defined ? 'aria-level="' ~ panel.heading.level ~ '"' : '' }} >
     <button id="ecl-accordion-header-{{ panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ panel.id }}" aria-expanded="{{ panel.isExpanded ? 'true' : 'false' }}">
       <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--{{ panel.heading.icon }}"></span>

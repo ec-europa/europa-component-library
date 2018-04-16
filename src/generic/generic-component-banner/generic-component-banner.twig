@@ -1,8 +1,15 @@
 {#
   Accepts:
-    - "type" (string): type of banner ("hero" or "video", default "hero")
-    - "extra_classes" (string): additional classes to add to the component
-    - "extra_attributes" (array of { name: "", value: "" })
+    - "type" (string, "hero" or "video") (default: "hero"): type of banner
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          'name': 'name_of_the_attribute',
+          'value': 'value_of_the_attribute'
+        },
+        ...
+      ])
+    - "system" (string) (default: "generic")
 #}
 
 {# Internal properties #}
@@ -12,6 +19,8 @@
 {% set _extra_attributes = extra_attributes|default([]) %}
 {% set _extra_classes = extra_classes|default('') %}
 {% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
 
 {% if _extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _extra_classes %}
