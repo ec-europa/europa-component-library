@@ -5,7 +5,9 @@
   "version": "0.0.1",
   "description": "Europa Component Library base preset",
   "style": "ec-preset-base.scss",
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build:copy": "ecl-builder copy",
     "build:styles": "ecl-builder styles",
@@ -24,7 +26,7 @@
     "@ecl/ec-style-typography-paragraph": "^0.0.1"
   },
   "devDependencies": {
-    "@ecl/builder": "0.1.1",
+    "@ecl/builder": "0.2.0",
     "cross-env": "5.1.4",
     "npm-run-all": "4.1.2",
     "rimraf": "2.6.2"

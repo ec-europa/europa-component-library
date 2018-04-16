@@ -1,4 +1,5 @@
 const path = require('path');
+const pkg = require('./package.json');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
@@ -8,14 +9,19 @@ const nodeModules = path.resolve(__dirname, '../../../../../node_modules');
 // SCSS includePaths
 const includePaths = [nodeModules];
 
+const banner = `${pkg.name} - ${
+  pkg.version
+} Built on ${new Date().toISOString()}`;
+
 module.exports = {
   scripts: [
     {
       entry: path.resolve(__dirname, 'ec-preset-website.js'),
       dest: path.resolve(outputFolder, 'scripts/ecl-ec-preset-website.js'),
       options: {
-        sourceMap: isProd ? false : 'inline',
+        banner,
         moduleName: 'ECL',
+        sourceMap: isProd ? false : 'inline',
       },
     },
   ],
@@ -24,8 +30,9 @@ module.exports = {
       entry: path.resolve(__dirname, 'ec-preset-website.scss'),
       dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-website.css'),
       options: {
-        sourceMap: isProd ? 'file' : true,
+        banner,
         includePaths,
+        sourceMap: isProd ? 'file' : true,
       },
     },
   ],

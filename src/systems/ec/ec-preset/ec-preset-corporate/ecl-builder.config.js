@@ -31,8 +31,8 @@ module.exports = {
       dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-corporate.css'),
       options: {
         banner,
-        sourceMap: isProd ? 'file' : true,
         includePaths,
+        sourceMap: isProd ? 'file' : true,
       },
     },
   ],
