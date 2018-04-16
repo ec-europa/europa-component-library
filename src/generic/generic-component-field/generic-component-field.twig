@@ -22,18 +22,18 @@
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-field' ~ (variant != '' ? ' ecl-field--' ~ variant: '') %}
-{% set _extraAttributes = '' %}
+{% set _css_class = 'ecl-field' ~ (variant != '' ? ' ecl-field--' ~ variant: '') %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
@@ -41,13 +41,13 @@
 
 {% if variant == 'aligned' %}
 
-<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <div class="ecl-field__body">{{ body }}</div>
 </div>
 
 {% else %}
 
-<div class="{{ _cssClass }}" {{ _extraAttributes }}>
+<div class="{{ _css_class }}" {{ _extra_attributes }}>
   <div class="ecl-field__label">{{ label }}</div>
   <div class="ecl-field__body">{{ body }}</div>
 </div>

@@ -12,7 +12,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/380x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '380' },
                 { name: 'height', value: '185' },
@@ -26,7 +26,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
                 { name: 'height', value: '185' },
@@ -39,7 +39,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/190x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '190' },
                 { name: 'height', value: '185' },
@@ -53,7 +53,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
                 { name: 'height', value: '185' },
@@ -67,7 +67,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/190x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '190' },
                 { name: 'height', value: '185' },
@@ -80,7 +80,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
                 { name: 'height', value: '185' },
@@ -92,7 +92,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/285x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '285' },
                 { name: 'height', value: '185' },
@@ -104,7 +104,7 @@ module.exports = {
             image: {
               src: 'http://placehold.it/380x185',
               alt: 'Example alt text',
-              extraAttributes: [
+              extra_attributes: [
                 { name: 'typeof', value: 'foaf:Image' },
                 { name: 'width', value: '380' },
                 { name: 'height', value: '185' },

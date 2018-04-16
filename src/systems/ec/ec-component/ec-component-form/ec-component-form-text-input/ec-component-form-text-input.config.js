@@ -21,7 +21,7 @@ module.exports = {
       label: 'Normal input',
       context: {
         id: 'example-input-id-1',
-        extraAttributes: [
+        extra_attributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
         ],
       },
@@ -31,8 +31,8 @@ module.exports = {
       label: 'Disabled input',
       context: {
         id: 'example-input-id-2',
-        isDisabled: true,
-        extraAttributes: [
+        is_disabled: true,
+        extra_attributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
         ],
       },
@@ -42,8 +42,8 @@ module.exports = {
       label: 'Input with error',
       context: {
         id: 'example-input-id-3',
-        hasError: true,
-        extraAttributes: [
+        has_error: true,
+        extra_attributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
         ],
       },
