@@ -1,4 +1,48 @@
-<dl class="ecl-accordion" role="presentation">
+{#
+  Accepts:
+    - "panels" (array) (default: ""): format [
+        {
+          "id" (string) (default: '')
+          "isExpanded" (boolean) (default: false)
+          "heading": {
+            "level" (string) (default: '')
+            "title" (string) (default: '')
+            "icon" (string) (default: '')
+          },
+          "body" (string) (default: '')
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          'name': 'name_of_the_attribute',
+          'value': 'value_of_the_attribute'
+        },
+        ...
+      ])
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-accordion' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result  #}
+
+<dl class="{{ _css_class }}" role="presentation"{{ _extra_attributes|raw }}>
   {% for panel in panels %}
   <dt role="heading"{{ panel.heading.level is defined ? 'aria-level="' ~ panel.heading.level ~ '"' : '' }} >
     <button id="ecl-accordion-header-{{ panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ panel.id }}" aria-expanded="{{ panel.isExpanded ? 'true' : 'false' }}">
