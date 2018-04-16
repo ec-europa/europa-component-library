@@ -72,7 +72,7 @@ Each system should be named in a distinguishable manner:
 
 In terms of release/dist assets, all should remain the same for compatibility reasons. Few examples would be:
 
-* Keep the ECL JavaScript module in a file `europa.js`.
-* Keep the CSS bundle file `europa.css`
+* Keep the ECL JavaScript module in a file `ecl-{system}-preset-{preset_name}.js`.
+* Keep the CSS bundle file `ecl-{system}-preset-{preset_name}.css`
 
 This holds true for each system.
