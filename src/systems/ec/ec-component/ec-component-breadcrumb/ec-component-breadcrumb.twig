@@ -1,14 +1,14 @@
-<nav class="ecl-breadcrumbs {{extra_classes}}" aria-label="breadcrumbs">
-  <span class="ecl-u-sr-only">You are here:</span>
-  <ol class="ecl-breadcrumbs__segments-wrapper">
-    {% for segment in segments %}
-    <li class="ecl-breadcrumbs__segment{{ loop.first ? " ecl-breadcrumbs__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumbs__segment--last" : "" }}">
-      {% include '@ecl/ec-component-link' with {
-        'extra_classes': 'ecl-breadcrumbs__link',
-        'variant': ['inverted', 'standalone'],
-        }|merge(segment|default({}))
-      %}
-    </li>
-    {% endfor %}
-  </ol>
-</nav>
+{#
+  Accepts:
+    - "segments" (array) (default: []): array of links (context of @ecl/ec-component-link)
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ])
+#}
+
+{% include '@ecl/generic-component-breadcrumb' with { system: 'ec' } %}
