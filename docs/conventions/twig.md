@@ -33,7 +33,7 @@ Example:
         }]
       }]
     - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: ''): format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}]
+    - "extra_attributes" (array) (default: []): format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}]
   Blocks:
     - "navigation": instead of providing an array of links, you can also embed the template and fill the "navigation" block directly
 #}
@@ -43,8 +43,8 @@ Example:
 
 Two parameters should always be available:
 
-* **extra_classes** (allows developers to add css classes)
-* **extra_attributes** (allows developers to add html attributes)
+* **extra_classes** (allows developers to add CSS classes)
+* **extra_attributes** (allows developers to add HTML attributes)
 
 ## Internal properties
 

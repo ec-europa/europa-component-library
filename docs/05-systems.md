@@ -40,6 +40,7 @@ In short summary, the project has been split into per-system/per-family manner, 
 ### Important notes
 
 Same component from 2 systems cannot be used together at the same time in a single page of an application.
+In short: **Don't mix systems**
 
 Example: EC-system logo and EU-system logo should never be used together in the same page.
 

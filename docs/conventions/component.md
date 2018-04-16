@@ -5,9 +5,9 @@ label: Components
 
 ## General rules
 
-Building components in a project with several systems means that first step in the construction of the component is the base of the component.
+Building components in a project with several systems means that first step in the construction of the component is the base of the component, i.e. the generic component containing common rules.
 
-In high-level way of thinking, the base should serve as "an interface" and systems' components as specific implementations. Inheritance, though, should be achieved by composition and not by polymorphism.
+In a high-level way of thinking, the base should serve as an interface and systems' components as specific implementations. Inheritance, though, should be achieved by composition and not by polymorphism.
 
 That's why the base should also be thought of, and managed as, a common layer of re-usable set of rules and guidelines.
 
@@ -17,7 +17,7 @@ If you are not familiar with the concept of systems in ECL, first have a look at
 
 ### Naming of components
 
-* Throughout the whole project, in `package.json` files, namespace should always be `@ecl/`, regardless whether work is to be done on a generic or system component. One reason is that `@ecl` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
+* Throughout the whole project, in `package.json` files, the namespace should always be `@ecl/`, regardless whether work is to be done on a generic or system component. One reason is that `@ecl` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
 * Flavored components should be prefixed with the name of their corresponding system and type (component, style, template): `[generic|ec|eu]-[component|style|template|utility]`.
 
 Example:
@@ -36,7 +36,7 @@ eu-utility-flex
 
 ### Structure of components
 
-Here are some example of overall structure for components.
+Here are some examples of overall structure for components.
 The different files will be detailed below.
 
 Generic component `generic-component-navigation-menu`:
@@ -57,6 +57,7 @@ System component `ec-component-navigation-menu`:
 
 ```text
 .
++-- .npmignore
 +-- ec-component-navigation-menu.config.js
 +-- ec-component-navigation-menu.js
 +-- ec-component-navigation-menu.scss
@@ -71,7 +72,7 @@ System component `ec-component-navigation-menu`:
 
 ## SCSS
 
-Apart from [rules that should be applied to all SCSS files](scss), there are some specifications for components:
+Apart from [rules that should be applied to all SCSS files](scss.md), there are some specifications for components:
 
 ### Generic component
 
@@ -96,9 +97,9 @@ _(File name: generic-component-navigation-menu.scss)_
 }
 ```
 
-The CSS rules in generic components should not define specific display elements (like color, background, and more generally everything specific to a system).
+The CSS rules in generic components should not define any rules specific to a system (like color, background, ...).
 
-If display is different in several systems, these differences should be put as parameters in the mixin. The goal here is to be able to call the same generic code, and just pass some parameters to alter display. There is no need to repeat component's name for these parameters, as they are limited to this mixin.
+If the display is different in several systems, these differences should be put as parameters in the mixin. The goal here is to be able to call the same generic code, and just pass some parameters to alter display. There is no need to repeat the component's name for these parameters, as they are limited to this mixin.
 
 Example:
 _(File name: generic-component-navigation-menu.scss)_
@@ -120,7 +121,7 @@ _(File name: generic-component-navigation-menu.scss)_
 
 ### Systems component
 
-SCSS files in system-specific components rely on SCSS file defined in corresponding generic component.
+The SCSS file in system-specific components relies on SCSS file defined in the corresponding generic component.
 
 The flow of best practices in a system-specific SCSS file would look like the following:
 
@@ -139,14 +140,14 @@ Call of the mixin defined in generic component, with custom parameters.
 
 #### Additional CSS rules
 
-If needed, some extra CSS rules could be added after to specialize the component.
+If needed, some extra CSS rules could be added after to customize the component.
 
 Example:
 _(File name: ec-component-navigation-menu.scss)_
 
 ```scss
 // Import base and generic
-@import '@ecl/ec-base';
+@import '@ecl/ec-base/ec-base';
 @import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
 
 // Check if overridden dependencies are already loaded, if needed
@@ -203,11 +204,11 @@ _(File name: generic-component-link--editor.scss)_
 
 Every component should have a directly usable Twig file. The goal is to be able to include the code in other components or templates (by putting most of the content in context), without having to duplicate it.
 
-Apart from [rules that should be applied to all Twig files](twig), there are some specifications for components:
+Apart from [rules that should be applied to all Twig files](twig.md), there are some specifications for components:
 
 ### Generic component
 
-Generic component Twig file defines all the markup for the component. It should contain all the logic required to use the component, as it is intended to be used by systems components (or anything based on Twig).
+A generic component Twig file defines all the markup for the component. It should contain all the logic required to use the component, as it is intended to be used by systems components (or anything based on Twig).
 
 This Twig file consists of different sections (see link above for more details):
 
@@ -259,13 +260,13 @@ _(File name: generic-component-blockquote.twig)_
 
 ### Systems component
 
-There are 2 possibilities for system-based components: they use the exact same markup as their corresponding generic/base component, or they alter it.
+There are 2 possibilities for system-specific components: they use the exact same markup as their corresponding generic/base component, or they alter it.
 
-In both cases, **Twig file should always start with available parameters**.
+In both cases, **Twig files should always start with the available parameters**.
 
 #### Same markup
 
-This is the easy case: system component just has to include generic Twig file.
+This is the easy case: the system component just has to include the generic Twig file.
 
 Example:
 _(File name: ec-component-blockquote.twig)_
@@ -284,31 +285,31 @@ _(File name: ec-component-blockquote.twig)_
 
 #### Different markup
 
-As soon as there is a difference in markup (even a small one), specific component has to provide the whole markup (instead of using generic one).
-This is the same structure as generic Twig file.
+As soon as there is a difference in markup (even a small one), the specific component has to provide the whole markup (instead of using generic one).
+The structure is the same as for the generic Twig file.
 
 As we lose the advantage of generic components here, it is recommended, when possible, to keep the exact same markup for different systems.
 
-## Javascript
+## JavaScript
 
-Not all components require a dedicated javascript file. Most of them have simple enough behavior, that could be handled with HTML/CSS only. The following rules only concern component with more complex (js) behavior.
+Not all components require a dedicated JavaScript file. Most of them have a simple enough behavior that could be handled with HTML/CSS only. The following rules only apply to components with more complex (JS) behavior.
 
-Apart from [rules that should be applied to all js files](javascript), there are some specifications for components:
+Apart from [rules that should be applied to all js files](javascript.md), there are some specifications for components:
 
 ### Generic component
 
-Generic component should export a function to handle specific behavior.
+Generic components should export a function, so that the complex JavaScript behavior is available in the system components.
 This function should have an explicit name, based on component name, and an action verb (generally "Init"). It should also use camel case.
 
 Example:
 _(File name: generic-component-navigation-menu.js)_
 
 ```
-export const navigationMenuInit = ({ [...] } = {}) => {
+export const initNavigationMenu = ({ [...] } = {}) => {
   [...]
 }
 
-export default navigationMenuInit;
+export default initNavigationMenu;
 ```
 
 ### Systems component
@@ -328,16 +329,17 @@ export * from '@ecl/generic-component-navigation-menu';
 
 #### Different behavior
 
-If we can't reuse behavior from generic component as is, specific component has to provide the whole javascript (instead of using generic one).
-This is the same structure as generic Twig file.
+If we can't reuse the behavior from the generic component as is, the specific component has to provide the whole javascript (instead of using generic one).
+This is the same structure as in the generic Twig file.
 
 As we lose the advantage of generic components here, it is recommended, when possible, to keep the exact same behavior for different systems.
 
 ## Context
 
-All dynamic data of component should be put in context, to allow customization in system components.
+All dynamic data of component should be put in context, and not hardcoded in Twig or JS files.
+This will allow easy customization of components.
 
-In most cases, context is defined in generic component, and used in corresponding system component.
+In most cases, the context is defined in the generic component and used in corresponding system component.
 
 Generic context files should be placed in a `data` folder, inside component's folder.
 
@@ -400,16 +402,16 @@ Example:
 
 ## Fractal config file
 
-Fractal config file should be created for every system-based component (not for generic components). These files should use generic context files, and add missing information.
+A Fractal config file should be created for every system-specific component (not for generic components). These files should use the generic context files and add missing information.
 If the context is different for a specific system, it may be altered or overriden.
 
-File name should follow component's name
+The filename should follow the component's name
 
 Example:
 _(File name: ec-component-banner.config.js)_
 
 ```js
-// Load context from generic component
+// Load context from the generic component
 const hero = require('@ecl/generic-component-banner/data/demo--hero');
 const video = require('@ecl/generic-component-banner/data/demo--video');
 
@@ -434,18 +436,18 @@ module.exports = {
 
 ## package.json
 
-`package.json` files are needed for both generic and system components, and should include dependencies related to the system.
+`package.json` files are needed for both generic and system components, and should include dependencies related to the component.
 
-All components have to set a dependency to corresponding base (`generic-base`, `ec-base`, ...).
+All components have to specify a dependency to the corresponding base (`generic-base`, `ec-base`, ...).
 
-The only extra rule for system components' package.json is that is should have the generic component as a dependency.
+The only extra rule for system components' package.json is that it should have the generic component as a dependency.
 
 SCSS and JS files (if any) should be set in corresponding attributes:
 
-* `sass` (SCSS): path to scss file. HIgher priority than 'style'
-* `style` (SCSS): path to main stylesheet. Similar to 'sass' attribute in our case.
-* `main` (JS): path to js file. Used by non ES6-aware tools (UMD)
-* `module` (JS): path to js file. Used by ES6-aware tools like webpack
+* `sass` (SCSS): the path to scss file. HIgher priority than 'style'
+* `style` (CSS): the path to the main bundled stylesheet (dist/[name].css)
+* `main` (JS): the path to js file. Used by non ES6-aware tools (UMD) (dist/[name].js)
+* `module` (JS): the path to js file. Used by ES6-aware tools like webpack
 
 Example (generic):
 
@@ -511,7 +513,7 @@ Example (system):
 ## Tests
 
 We rely on automated tests to ensure non regression and accessibility compliance of components.
-Full explanation concerning test files can be find in [dedicated documentation](../testing/visual)
+Full explanation concerning test files can be found in the [dedicated documentation](../testing/visual.md)
 
 **All system components have to provide test.**
 Generic components should not contain test (as they are not intended to be used as is).
