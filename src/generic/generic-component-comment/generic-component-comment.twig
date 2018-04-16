@@ -14,7 +14,15 @@
         - href (string)
         - label (string)
         - visible (boolean)
-    - "system" (string): design system ("ec|eu|generic", default: "generic")
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
 #}
 
 {# Internal properties #}
@@ -25,17 +33,19 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+{# Print result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if image is defined %}
   <div class="ecl-comment__image-wrapper">
     <img class="ecl-image ecl-image--fluid ecl-comment__image" src="{{ image.src }}" alt="{{ image.alt }}">
