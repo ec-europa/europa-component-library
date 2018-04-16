@@ -5,16 +5,31 @@
   "version": "0.0.1",
   "description": "Europa Component Library - EU base preset",
   "style": "eu-preset-base.scss",
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:copy": "ecl-builder copy",
+    "build:styles": "ecl-builder styles",
+    "build": "rimraf build && run-p build:* -ln",
+    "clean": "rimraf build dist",
+    "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln"
+  },
   "dependencies": {
     "@ecl/eu-base": "^0.0.1",
+    "@ecl/eu-style-color": "^0.0.1",
     "@ecl/eu-style-icon": "^0.0.1",
     "@ecl/eu-style-image": "^0.0.1",
     "@ecl/eu-style-typography": "^0.0.1",
     "@ecl/eu-style-typography-heading": "^0.0.1",
     "@ecl/eu-style-typography-list": "^0.0.1",
-    "@ecl/eu-style-typography-paragraph": "^0.0.1",
-    "normalize.css": "8.0.0"
+    "@ecl/eu-style-typography-paragraph": "^0.0.1"
+  },
+  "devDependencies": {
+    "@ecl/builder": "0.1.1",
+    "cross-env": "5.1.4",
+    "npm-run-all": "4.1.2",
+    "rimraf": "2.6.2"
   },
   "keywords": ["ecl", "europa-component-library", "design-system"],
   "homepage": "https://github.com/ec-europa/europa-component-library",

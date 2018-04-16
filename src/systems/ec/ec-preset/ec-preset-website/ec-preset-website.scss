@@ -1,0 +1,11 @@
+// Warn on missing dependencies
+$ecl-check-imports-warn: true;
+
+// Import normalize.css
+@import 'normalize.css/normalize';
+
+// Import global rules
+@import './globals';
+
+// Import ECL
+@import '@ecl/ec-preset-full/imports';
