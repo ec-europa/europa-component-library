@@ -7,31 +7,33 @@ label: Twig
 
 Twig files should expose available parameters and blocks in a comment at the start of the file.
 Each one should present the following information:
+
 * parameter name
 * type
-* quick description
 * default value
+  An optional description can be added if needed
 
 If a parameter uses a more complex structure (objects, array, ...), this structure should be visible too.
 
 Example:
+
 ```twig
 {#
   Parameters:
-    - "menu_label" (integer): max number of items to display (0 = display all) (default: 5)
-    - "menu_aria_label" (string): label displayed before the list (default: '')
+    - "menu_label" (integer) (default: 5): max number of items to display (0 = display all)
+    - "menu_aria_label" (string) (default: ''): label displayed before the list
     - "links" (array): [{
-        "href" (string): target of the link (default: '#')
-        "label" (string): label of the link (default: '')
-        "is_active" (boolean): does the menu contains the current page? (default: false)
+        "href" (string) (default: '#')
+        "label" (string) (default: '')
+        "is_active" (boolean) (default: false)
         "children_links" (array): [{
-          "href" (string): target of the link (default: '#')
-          "label" (string): label of the link (default: '')
-          "is_active" (boolean): is it the current page? (default: false)
+          "href" (string) (default: '#')
+          "label" (string) (default: '')
+          "is_active" (boolean) (default: false)
         }]
       }]
-    - "extra_classes" (string): extra CSS classes to be added (default: '')
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}]) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: ''): format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}]
   Blocks:
     - "navigation": instead of providing an array of links, you can also embed the template and fill the "navigation" block directly
 #}
@@ -40,6 +42,7 @@ Example:
 ### Mandatory parameters
 
 Two parameters should always be available:
+
 * **extra_classes** (allows developers to add css classes)
 * **extra_attributes** (allows developers to add html attributes)
 
@@ -50,6 +53,7 @@ Use this section to initialize variables and get parameters.
 All internal properties should start with "\_"
 
 Example:
+
 ```twig
 {# Internal properties #}
 
@@ -64,6 +68,7 @@ Example:
 Preprocess values and other non trivial operations of properties
 
 Example:
+
 ```twig
 {# Internal logic - Process properties #}
 
@@ -84,6 +89,7 @@ Html markup.
 It should always start with the default class (stored in `_css_class`) and `_extra_attributes`.
 
 Example:
+
 ```twig
 {# Print the result  #}
 

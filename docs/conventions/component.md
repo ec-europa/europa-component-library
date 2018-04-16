@@ -21,6 +21,7 @@ If you are not familiar with the concept of systems in ECL, first have a look at
 * Flavored components should be prefixed with the name of their corresponding system and type (component, style, template): `[generic|ec|eu]-[component|style|template|utility]`.
 
 Example:
+
 ```
 // Some full component name (in package.json)
 @ecl/ec-component-logo
@@ -38,12 +39,12 @@ eu-utility-flex
 Here are some example of overall structure for components.
 The different files will be detailed below.
 
-
 Generic component `generic-component-navigation-menu`:
+
 ```text
 .
-+-- context
-|   +-- generic-component-navigation-menu.config.js
++-- data
+|   +-- demo.js
 +-- generic-component-navigation-menu.js
 +-- generic-component-navigation-menu.scss
 +-- generic-component-navigation-menu.twig
@@ -53,6 +54,7 @@ Generic component `generic-component-navigation-menu`:
 ```
 
 System component `ec-component-navigation-menu`:
+
 ```text
 .
 +-- ec-component-navigation-menu.config.js
@@ -71,15 +73,6 @@ System component `ec-component-navigation-menu`:
 
 Apart from [rules that should be applied to all SCSS files](scss), there are some specifications for components:
 
-### File name
-
-SCSS file name should be the same as component's name.
-
-Example:
-```
-generic-component-navigation-menu.scss
-```
-
 ### Generic component
 
 All CSS rules should be organized in mixins in order to make CSS rules easier to compose.
@@ -88,6 +81,8 @@ It could be split in several small mixins, but in any case we should have a main
 This main mixin should be named following the component's main class.
 
 Example:
+_(File name: generic-component-navigation-menu.scss)_
+
 ```scss
 @mixin ecl-navigation-menu-common() {
   // Some CSS rules or mixin include
@@ -106,6 +101,8 @@ The CSS rules in generic components should not define specific display elements 
 If display is different in several systems, these differences should be put as parameters in the mixin. The goal here is to be able to call the same generic code, and just pass some parameters to alter display. There is no need to repeat component's name for these parameters, as they are limited to this mixin.
 
 Example:
+_(File name: generic-component-navigation-menu.scss)_
+
 ```scss
 @mixin ecl-navigation-menu(
   $bar-bg-mobile,
@@ -145,6 +142,8 @@ Call of the mixin defined in generic component, with custom parameters.
 If needed, some extra CSS rules could be added after to specialize the component.
 
 Example:
+_(File name: ec-component-navigation-menu.scss)_
+
 ```scss
 // Import base and generic
 @import '@ecl/ec-base';
@@ -186,9 +185,9 @@ To add editor rules, there should be some extra rules (prefixed by `.ecl-editor`
 This rules should be put in a mixin called `ecl-editor-{component name}`, in a separated file called `{component name}--editor.scss`.
 
 Example:
-```scss
-/* File path: generic-component-link--editor.scss */
+_(File name: generic-component-link--editor.scss)_
 
+```scss
 @mixin ecl-editor-generic-component-link() {
   .ecl-editor a {
     box-sizing: border-box;
@@ -200,39 +199,33 @@ Example:
 }
 ```
 
-## TWIG
+## Twig
 
-Every component should have a directly usable TWIG file. The goal is to be able to include the code in other components or templates (by putting most of the content in context), without having to duplicate it.
+Every component should have a directly usable Twig file. The goal is to be able to include the code in other components or templates (by putting most of the content in context), without having to duplicate it.
 
-Apart from [rules that should be applied to all TWIG files](twig), there are some specifications for components:
-
-### File name
-
-TWIG file name should be the same as component's name.
-
-Example:
-```
-generic-component-navigation-menu.twig
-```
+Apart from [rules that should be applied to all Twig files](twig), there are some specifications for components:
 
 ### Generic component
 
-Generic component TWIG file defines all the markup for the component. It should contain all the logic required to use the component, as it is intended to be used by systems components (or anything based on TWIG).
+Generic component Twig file defines all the markup for the component. It should contain all the logic required to use the component, as it is intended to be used by systems components (or anything based on Twig).
 
-This TWIG file consists of different sections (see link above for more details):
+This Twig file consists of different sections (see link above for more details):
+
 * Parameters/Blocks: list of exposed parameters and blocks
 * Internal properties: definition of custom variables
 * Internal logic: preprocess and other custom logic
 * Print: HTML markup
 
 Example:
+_(File name: generic-component-blockquote.twig)_
+
 ```twig
 {#
   Parameters:
-    - "body" (string): content of the blockquote (default: '')
-    - "author" (string): optional author of the quote (default: '')
-    - "extra_classes" (string): extra CSS classes to be added (default: '')
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}]) (default: '')
+    - "body" (string) (default: '')
+    - "author" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: ''): format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {# Internal properties #}
@@ -268,20 +261,22 @@ Example:
 
 There are 2 possibilities for system-based components: they use the exact same markup as their corresponding generic/base component, or they alter it.
 
-In both cases, **TWIG file should always start with available parameters**.
+In both cases, **Twig file should always start with available parameters**.
 
 #### Same markup
 
-This is the easy case: system component just has to include generic TWIG file.
+This is the easy case: system component just has to include generic Twig file.
 
 Example:
+_(File name: ec-component-blockquote.twig)_
+
 ```twig
 {#
   Parameters:
-    - "body" (string): content of the blockquote (default: '')
-    - "author" (string): optional author of the quote (default: '')
-    - "extra_classes" (string): extra CSS classes to be added (default: '')
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}]) (default: '')
+    - "body" (string) (default: '')
+    - "author" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: ''): format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {% include '@ecl/generic-component-blockquote' %}
@@ -290,7 +285,7 @@ Example:
 #### Different markup
 
 As soon as there is a difference in markup (even a small one), specific component has to provide the whole markup (instead of using generic one).
-This is the same structure as generic TWIG file.
+This is the same structure as generic Twig file.
 
 As we lose the advantage of generic components here, it is recommended, when possible, to keep the exact same markup for different systems.
 
@@ -300,38 +295,33 @@ Not all components require a dedicated javascript file. Most of them have simple
 
 Apart from [rules that should be applied to all js files](javascript), there are some specifications for components:
 
-### File name
-
-Javascript file name should be the same as component's name.
-
-Example:
-```
-generic-component-navigation-menu.js
-```
-
 ### Generic component
 
 Generic component should export a function to handle specific behavior.
-This function should have an explicit name, based on component name, but in camel case.
+This function should have an explicit name, based on component name, and an action verb (generally "Init"). It should also use camel case.
 
 Example:
+_(File name: generic-component-navigation-menu.js)_
+
 ```
-export const eclNavigationMenu = ({ [...] } = {}) => {
+export const navigationMenuInit = ({ [...] } = {}) => {
   [...]
 }
 
-export default eclNavigationMenu;
+export default navigationMenuInit;
 ```
 
 ### Systems component
 
-As for TWIG files, there are 2 cases here: the system component has the same behavior as the corresponding generic component, or behaviors are different.
+As for Twig files, there are 2 cases here: the system component has the same behavior as the corresponding generic component, or behaviors are different.
 
 #### Same behavior
 
 In this case, system components should use exported function from corresponding generic component.
 
 Example:
+_(File name: ec-component-navigation-menu.js)_
+
 ```
 export * from '@ecl/generic-component-navigation-menu';
 ```
@@ -339,34 +329,25 @@ export * from '@ecl/generic-component-navigation-menu';
 #### Different behavior
 
 If we can't reuse behavior from generic component as is, specific component has to provide the whole javascript (instead of using generic one).
-This is the same structure as generic TWIG file.
+This is the same structure as generic Twig file.
 
 As we lose the advantage of generic components here, it is recommended, when possible, to keep the exact same behavior for different systems.
 
-## Config javascript file
+## Context
 
-### File name
+All dynamic data of component should be put in context, to allow customization in system components.
 
-Config file name should be the same as component's name.
+In most cases, context is defined in generic component, and used in corresponding system component.
 
-Example:
-```
-generic-component-navigation-menu.config.js
-```
+Generic context files should be placed in a `data` folder, inside component's folder.
 
-### Generic component
-
-There is no real config file for generic components, as they are not meant to be used directly.
-However, context should be put in generic component, to be imported in specific ones.
-
-Generic context files should be placed in a `context` folder, inside component's folder.
 * If there is only one variant for the component, the file should be named following component's name.
 * If there are multiple variants, a file should be created for each variant, using the component's name and the variant.
 
-Example (single variant):
-```js
-/* File path: context/generic-component-navigation-menu.config.js */
+Example - single variant:
+_(File name: data/demo.js)_
 
+```js
 module.exports = {
   menu_label: 'Menu',
   menu_aria_label: 'Main Navigation',
@@ -380,19 +361,21 @@ module.exports = {
 };
 ```
 
-Example (multiple variants):
-```js
-/* File path: context/generic-component-banner--hero.config.js */
+Example - multiple variants:
+_(File name: data/demo--hero.config.js)_
 
+```js
 module.exports = {
   type: 'hero',
   image: 'picture.jpg',
   title: 'Lorem ipsum ...',
   description: 'Lorem ipsum ...',
 };
+```
 
-/* File path: context/generic-component-banner--video.config.js */
+_(File name: data/demo--video.config.js)_
 
+```js
 module.exports = {
   type: 'video',
   video: {
@@ -405,20 +388,30 @@ module.exports = {
 };
 ```
 
-### Systems component
+### Specific case: links
 
-System config file should use generic context files, and add missing information.
+If the component contains links, they should always lead to an internal example page instead of blank link (`#`) or external links.
+
+Example:
+
+```
+../../example.html#{component_name}
+```
+
+## Fractal config file
+
+Fractal config file should be created for every system-based component (not for generic components). These files should use generic context files, and add missing information.
 If the context is different for a specific system, it may be altered or overriden.
 
 File name should follow component's name
 
 Example:
-```js
-/* File path: ec-component-banner.config.js */
+_(File name: ec-component-banner.config.js)_
 
+```js
 // Load context from generic component
-const hero = require('@ecl/generic-component-banner/context/generic-component-banner--hero.config');
-const video = require('@ecl/generic-component-banner/context/generic-component-banner--video.config');
+const hero = require('@ecl/generic-component-banner/data/demo--hero');
+const video = require('@ecl/generic-component-banner/data/demo--video');
 
 module.exports = {
   title: 'Banners',
@@ -439,15 +432,6 @@ module.exports = {
 };
 ```
 
-### Specific case: links
-
-If the component contains links, they should always lead to an internal example page instead of blank link (`#`) or external links.
-
-Example:
-```
-<realtive_path>/example.html#<component_name>
-```
-
 ## package.json
 
 `package.json` files are needed for both generic and system components, and should include dependencies related to the system.
@@ -456,7 +440,15 @@ All components have to set a dependency to corresponding base (`generic-base`, `
 
 The only extra rule for system components' package.json is that is should have the generic component as a dependency.
 
+SCSS and JS files (if any) should be set in corresponding attributes:
+
+* `sass` (SCSS): path to scss file. HIgher priority than 'style'
+* `style` (SCSS): path to main stylesheet. Similar to 'sass' attribute in our case.
+* `main` (JS): path to js file. Used by non ES6-aware tools (UMD)
+* `module` (JS): path to js file. Used by ES6-aware tools like webpack
+
 Example (generic):
+
 ```
 {
   "name": "@ecl/generic-component-navigation-menu",
@@ -486,6 +478,7 @@ Example (generic):
 ```
 
 Example (system):
+
 ```
 {
   "name": "@ecl/eu-component-navigation-menu",
@@ -525,7 +518,7 @@ Generic components should not contain test (as they are not intended to be used 
 
 ## Other assets
 
-TBD
+If a component rely on other assets (images, fonts, ...), they should be placed in a folder inside the component.
 
 ## Exception: components existing in only one system
 
