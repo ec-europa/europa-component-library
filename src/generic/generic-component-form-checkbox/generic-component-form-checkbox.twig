@@ -25,13 +25,12 @@
     - "system" (string): design system ("ec|eu|generic", default: "generic")
 #}
 
+{# Internal properties #}
+
 {% set id = id|default('default-id') %}
 {% set name = name|default('default-name') %}
 {% set checked = checked|default(false) %}
 {% set _system = system|default('generic') %}
-
-{# Internal properties #}
-
 {% set _css_class = 'ecl-checkbox' %}
 {% set _extra_attributes = '' %}
 {% set _input_attributes = '' %}
