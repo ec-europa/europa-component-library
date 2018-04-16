@@ -226,7 +226,7 @@ _(File name: generic-component-blockquote.twig)_
     - "body" (string) (default: '')
     - "author" (string) (default: '')
     - "extra_classes" (string) (default: '')
-    - "extra_attributes" (array) (default: ''): format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+    - "extra_attributes" (array) (default: []): format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
 #}
 
 {# Internal properties #}
