@@ -1,15 +1,21 @@
 {#
   Accepts:
-    - "modifier" (string): can be "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page" (default: "default")
-    - "type" (string): can be "link" or "button" (default: "button")
-    - "href" (string, if type == "link"): href of the link (default: '#')
-    - "icon" (string): can be empty, "caret-up", "caret-right" or "caret-down"  (default: "")
-    - "label" (string): label of the button (default: "")
+    - "modifier" (string, "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page") (default: "default")
+    - "type" (string, "link" or "button") (default: "button")
+    - "href" (string, if type == "link") (default: '#')
+    - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
+    - "label" (string) (default: "")
     - "link_label_block": (block): block label of the button (when type == "link")
     - "button_label_block":(block): block label of the button (when type == "button")
     - "is_block" (boolean): block-wide button (default: false)
-    - "extra_classes" (string): additional classes to add to the component
-    - "extra_attributes" (array of { name: "", value: "" })
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
 {% include '@ecl/generic-component-button' %}
