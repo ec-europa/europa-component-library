@@ -176,30 +176,6 @@ _(File name: ec-component-navigation-menu.scss)_
 }
 ```
 
-### Specific case: editor preset
-
-If the component alters an element corresponding to a standard HTML tag (like links alters <a\>, blockquotes alters <blockquote\>, ...), it should also provide CSS rules for editing.
-
-**Please note that this is a specific case, most components don't have to create editor rules**
-
-To add editor rules, there should be some extra rules (prefixed by `.ecl-editor`), which override default HTML tag.
-This rules should be put in a mixin called `ecl-editor-{component name}`, in a separated file called `{component name}--editor.scss`.
-
-Example:
-_(File name: generic-component-link--editor.scss)_
-
-```scss
-@mixin ecl-editor-generic-component-link() {
-  .ecl-editor a {
-    box-sizing: border-box;
-    color: $ecl-color-primary;
-    margin: 0;
-    text-decoration: underline;
-    [...]
-  }
-}
-```
-
 ## Twig
 
 Every component should have a directly usable Twig file. The goal is to be able to include the code in other components or templates (by putting most of the content in context), without having to duplicate it.
