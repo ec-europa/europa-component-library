@@ -1,10 +1,10 @@
-<nav class="ecl-breadcrumbs {{extraClass}}" aria-label="breadcrumbs">
+<nav class="ecl-breadcrumb {{extraClass}}" aria-label="breadcrumb">
   <span class="ecl-u-sr-only">You are here:</span>
-  <ol class="ecl-breadcrumbs__segments-wrapper">
+  <ol class="ecl-breadcrumb__segments-wrapper">
     {% for segment in segments %}
-    <li class="ecl-breadcrumbs__segment{{ loop.first ? " ecl-breadcrumbs__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumbs__segment--last" : "" }}">
+    <li class="ecl-breadcrumb__segment{{ loop.first ? " ecl-breadcrumb__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumbs__segment--last" : "" }}">
       {% include '@ecl/eu-component-link' with {
-        'extra_classes': 'ecl-breadcrumbs__link',
+        'extra_classes': 'ecl-breadcrumb__link',
         'variant': ['inverted', 'standalone'],
         }|merge(segment|default({}))
       %}
