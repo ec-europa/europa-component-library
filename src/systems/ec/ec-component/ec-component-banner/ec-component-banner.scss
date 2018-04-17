@@ -9,7 +9,11 @@
 
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(
-  ('ec-style-typography-heading', 'ec-style-typography-paragraph')
+  (
+    'ec-style-typography-heading',
+    'ec-style-typography-paragraph',
+    'ec-style-image'
+  )
 );
 
 // Use generic mixin
