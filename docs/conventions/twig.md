@@ -80,11 +80,11 @@ Example:
 ```twig
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined %}
+{% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
   {% endfor %}
