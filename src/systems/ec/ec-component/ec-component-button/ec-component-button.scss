@@ -3,6 +3,11 @@
  * @define button
  */
 
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
 @import '@ecl/generic-component-button/generic-component-button';
 
-@include ecl-button();
+// Use generic mixin
+@include exports('ec-component-button') {
+  @include ecl-button();
+}
