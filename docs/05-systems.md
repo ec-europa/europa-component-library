@@ -37,7 +37,14 @@ In order to minimize breaking changes an to be as backwards compatible as possib
 
 In short summary, the project has been split into per-system/per-family manner, each one being handled as a separate project under a single repository. Re-usable code should be hoisted into generic layer on top of systems/families.
 
-### Development notes
+### Important notes
+
+Same component from 2 systems cannot be used together at the same time in a single page of an application.
+In short: **Don't mix systems**
+
+Example: EC-system logo and EU-system logo should never be used together in the same page.
+
+### Developer notes
 
 The fact that ECL is to accommodate 2 separate sets of style guides, for each system, means that each system-specific style guide needs to be a separate fractal instance. Being a separate fractal instance bring these benefits:
 
@@ -52,13 +59,6 @@ In short, this means that each system will have an independent set of:
 * `ecl-builder.config.js` configurations about how CSS, JS and other assets are managed.
 * Each project lives and progresses independently from the other.
 
-#### Important notes
-
-* It is acceptable to have exact same HTML markup from per-family "duplicate" components
-* Same component from 2 families cannot be used together at the same time in a single page of an application.
-
-Example: EC-system logo and EU-system logo can have same HTML markup, but should never be used together in the same page.
-
 ### Maintenance notes
 
 The split of the project introduces several important rules which should be followed in order to keep ECL project repository maintainable for contributors, and also easy to integrate by consumers of ECL builds and resources.
@@ -68,13 +68,11 @@ The split of the project introduces several important rules which should be foll
 Each system should be named in a distinguishable manner:
 
 * Existing components are preserved as-is in `generic`. This is a temporary measure to minimize the amount of breaking changes and stay backwards compatible for sufficient amount of time to organize future developments with consumers of ECL.
-* Throughout the whole project, in `package.json` files, namespace should always be `@ecl/`, regardless whether work is to be done on a generic or systemed component. One reason is that `@ecl` namespace should be preserved for correct organization on [npmjs](https://www.npmjs.com/).
-* Flavored components should be prefixed with the name of their corresponding system and type (component, style, template): `[generic|ec|eu]-[component|style|template|utility]`. For example, for EC system there will be `@ecl/ec-component-logo` package name with a twig template `ec-component-logo.twig`, a config file `ec-component-logo.config.js`, etc. Whereas the same component in the EU system will be `@ecl/eu-component-logo` with `eu-component-logo.twig` and `eu-component-logo.config.js`.
 * Twig templates should be prefixed with `@ecl/` in order to be consistently consumable by [Europa Component Library Twig loader](https://github.com/openeuropa/ecl-twig-loader).
 
 In terms of release/dist assets, all should remain the same for compatibility reasons. Few examples would be:
 
-* Keep the ECL JavaScript module in a file `europa.js`.
-* Keep the CSS bundle file `europa.css`
+* Keep the ECL JavaScript module in a file `ecl-{system}-preset-{preset_name}.js`.
+* Keep the CSS bundle file `ecl-{system}-preset-{preset_name}.css`
 
 This holds true for each system.
