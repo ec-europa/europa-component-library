@@ -44,7 +44,7 @@ In short: **Don't mix systems**
 
 Example: EC-system logo and EU-system logo should never be used together in the same page.
 
-### Development notes
+### Developer notes
 
 The fact that ECL is to accommodate 2 separate sets of style guides, for each system, means that each system-specific style guide needs to be a separate fractal instance. Being a separate fractal instance bring these benefits:
 
