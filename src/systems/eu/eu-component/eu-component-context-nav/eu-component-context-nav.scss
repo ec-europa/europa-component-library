@@ -4,13 +4,13 @@
  */
 
 // Import base and generic
-@import '@ecl/ec-base/ec-base';
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-component-context-nav/generic-component-context-nav';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-button', 'ec-component-link'));
+@include check-imports(('eu-component-button', 'eu-component-link'));
 
 // Use generic mixin
-@include exports('ec-component-context-nav') {
+@include exports('eu-component-context-nav') {
   @include ecl-context-nav();
 }
