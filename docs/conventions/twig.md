@@ -50,7 +50,7 @@ Two parameters should always be available:
 
 Use this section to initialize variables and get parameters.
 
-All internal properties should start with "\_"
+All internal properties should start with `_`.
 
 Example:
 
@@ -62,6 +62,14 @@ Example:
 {% set _css_class = 'ecl-navigation-menu' %}
 {% set _extra_attributes = '' %}
 ```
+
+### Modifiers and variants
+
+Modifiers are meant to alter the visual rendering of a component. Examples for a button could include the type (primary, secondary, call to action) or the size (small, medium, big). If possible, don't use the generic term `modifier`, prefer more specific words like `type`, `size`, etc.
+
+A variant is an instance of a component, given a specific context. Don't use the term `variant` in the component's API. If the value of a variable triggers a completely different markup, try to name it semantically: if it rearranges the layout, you can call it `layout`. 
+
+In the end, modifiers and variants are only defining the visual identity of the component. What actually defines a component itself is the content it displays. Thus, we can distinguish 2 types of parameters: visual parameters (modifiers, variants) and content.
 
 ## Internal logic
 
@@ -86,6 +94,7 @@ Example:
 ## Print
 
 Html markup.
+
 It should always start with the default class (stored in `_css_class`) and `_extra_attributes`.
 
 Example:
