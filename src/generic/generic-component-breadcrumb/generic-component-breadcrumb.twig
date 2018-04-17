@@ -14,7 +14,7 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-breadcrumbs' %}
+{% set _css_class = 'ecl-breadcrumb' %}
 {% set _extra_attributes = '' %}
 {% set _system = system|default('generic') %}
 {% set _segments = segments|default([]) %}
@@ -33,13 +33,13 @@
 
 {# Print result #}
 
-<nav class="{{ _css_class }}" aria-label="breadcrumbs"{{ _extra_attributes|raw }}>
+<nav class="{{ _css_class }}" aria-label="breadcrumb"{{ _extra_attributes|raw }}>
   <span class="ecl-u-sr-only">You are here:</span>
-  <ol class="ecl-breadcrumbs__segments-wrapper">
+  <ol class="ecl-breadcrumb__segments-wrapper">
     {% for _segment in _segments %}
-    <li class="ecl-breadcrumbs__segment{{ loop.first ? " ecl-breadcrumbs__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumbs__segment--last" : "" }}">
+    <li class="ecl-breadcrumb__segment{{ loop.first ? " ecl-breadcrumb__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumb__segment--last" : "" }}">
       {% include '@ecl/' ~ _system ~ '-component-link' with {
-        'extra_classes': 'ecl-breadcrumbs__link',
+        'extra_classes': 'ecl-breadcrumb__link',
         'variant': ['inverted', 'standalone'],
         }|merge(_segment|default({}))
       %}
