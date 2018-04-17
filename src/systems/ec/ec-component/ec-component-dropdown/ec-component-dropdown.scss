@@ -3,6 +3,11 @@
  * @define dropdown
  */
 
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
 @import '@ecl/generic-component-dropdown/generic-component-dropdown';
 
-@include ecl-dropdown();
+// Use generic mixin
+@include exports('ec-component-dropdown') {
+  @include ecl-dropdown();
+}
