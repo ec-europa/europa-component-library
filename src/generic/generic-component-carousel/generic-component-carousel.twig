@@ -1,5 +1,5 @@
 {#
-  Accepts:
+  Parameters:
     - carousel_id (string) (default: 'ecl-carousel')
     - heading_attributes (array) (default: []): format: [
         {
@@ -47,6 +47,7 @@
 {% set _css_class = 'ecl-carousel' %}
 {% set _extra_attributes = '' %}
 {% set _carousel_id = carousel_id|default('ecl-carousel') %}
+{% set _carousel_images = carousel_images|default([]) %}
 {% set _heading_id = heading_id|default('ecl-carousel__heading') %}
 {% set _heading_title = heading_title|default('gallery') %}
 {% set _heading_attributes = '' %}
@@ -58,7 +59,7 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined and extra_attributes is not empty %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
@@ -79,41 +80,41 @@
   <h3 class="ecl-headings ecl-headings--h3 ecl-u-sr-only" id="{{ _heading_id }}"{{ _heading_attributes }}>{{ _heading_title }}</h3>
   <div class="ecl-carousel__list-wrapper">
     <ul class="ecl-carousel__list ecl-list--unstyled">
-      {% for carousel_image in carousel_images %}
+      {% for _carousel_image in _carousel_images %}
       <li class="ecl-carousel__item">
-        <img src="{{ carousel_image.image.src }}" alt="{{ carousel_image.image.alt }}" class="ecl-carousel__image" />
+        <img src="{{ _carousel_image.image.src }}" alt="{{ _carousel_image.image.alt }}" class="ecl-carousel__image" />
       </li>
       {% endfor %}
     </ul>
   </div>
   <div class="ecl-carousel__live-region">
-    {% for carousel_image in carousel_images %}
+    {% for _carousel_image in _carousel_images %}
     <div class="ecl-carousel__image-information" data-image={{ loop.index0 }}>
       <div class="ecl-carousel__meta">
         <span class="ecl-carousel__meta-item ecl-carousel__meta-download">
           {% include '@ecl/' ~ _system ~ '-component-link' with {
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--download',
-            'extra_attributes': [ 'name': 'title', 'value': carousel_image.download.title ],
+            'extra_attributes': [ 'name': 'title', 'value': _carousel_image.download.title ],
             'variant': ['inverted', 'standalone'],
-            }|merge(carousel_image.download|default({}))
+            }|merge(_carousel_image.download|default({}))
           %}
         </span>
         <span class="ecl-carousel__meta-item ecl-carousel__meta-share">
           {% include '@ecl/' ~ _system ~ '-component-link' with {
             'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--share',
-            'extra_attributes': [ 'name': 'title', 'value': carousel_image.share.title ],
+            'extra_attributes': [ 'name': 'title', 'value': _carousel_image.share.title ],
             'variant': ['inverted', 'standalone'],
-            }|merge(carousel_image.share|default({}))
+            }|merge(_carousel_image.share|default({}))
           %}
         </span>
       </div>
       <div class="ecl-carousel__image-description">
         {% block description %}
-          {{ carousel_image.description }}
+          {{ _carousel_image.description }}
         {% endblock %}
       </div>
       <div class="ecl-carousel__image-copyright">
-        {{ carousel_image.copyright }}
+        {{ _carousel_image.copyright }}
       </div>
     </div>
     {% endfor %}

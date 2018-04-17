@@ -1,8 +1,8 @@
 {#
-  Accepts:
-    - variant (string, '' or 'aligned' ) (default: '')
-    - label (string) (default: '')
-    - body (string) (default: ''): content of the field
+  Parameters:
+    - "variant" (string, '' or 'aligned' ) (default: '')
+    - "label" (string) (default: '')
+    - "body" (string) (default: ''): content of the field
     - "extra_classes" (string) (default: ''): additional classes to add to the component
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -31,7 +31,7 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined and extra_attributes is not empty %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}

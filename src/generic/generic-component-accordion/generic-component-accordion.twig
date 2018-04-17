@@ -1,5 +1,5 @@
 {#
-  Accepts:
+  Parameters:
     - "panels" (array) (default: []): format [
         {
           "id" (string) (default: '')
@@ -35,7 +35,7 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined and extra_attributes is not empty %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
@@ -44,15 +44,15 @@
 {# Print the result  #}
 
   <dl class="{{ _css_class }}" role="presentation"{{ _extra_attributes|raw }}>
-  {% for panel in _panels %}
-  <dt role="heading"{{ panel.heading.level is defined ? 'aria-level="' ~ panel.heading.level ~ '"' : '' }} >
-    <button id="ecl-accordion-header-{{ panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ panel.id }}" aria-expanded="{{ panel.isExpanded ? 'true' : 'false' }}">
-      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--{{ panel.heading.icon }}"></span>
-      {{ panel.heading.title }}
+  {% for _panel in _panels %}
+  <dt role="heading"{{ _panel.heading.level is defined ? 'aria-level="' ~ _panel.heading.level ~ '"' : '' }} >
+    <button id="ecl-accordion-header-{{ _panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ _panel.id }}" aria-expanded="{{ _panel.isExpanded ? 'true' : 'false' }}">
+      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--{{ _panel.heading.icon }}"></span>
+      {{ _panel.heading.title }}
     </button>
   </dt>
-  <dd id="ecl-accordion-panel-{{ panel.id }}" class="ecl-accordion__panel" role="region" aria-labelledby="ecl-accordion-header-{{ panel.id }}" aria-hidden="{{ panel.isExpanded ? 'false' : 'true' }}">
-    {{ panel.body }}
+  <dd id="ecl-accordion-panel-{{ _panel.id }}" class="ecl-accordion__panel" role="region" aria-labelledby="ecl-accordion-header-{{ _panel.id }}" aria-hidden="{{ _panel.isExpanded ? 'false' : 'true' }}">
+    {{ _panel.body }}
   </dd>
   {% endfor %}
 </dl>

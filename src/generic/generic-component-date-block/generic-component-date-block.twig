@@ -1,5 +1,5 @@
 {#
-  Accepts:
+  Parameters:
     - "variant" (string) (default: ''): display variant
     - "week_day" (string) (default: ''): day(s) of the week of the event
     - "day" (string) (default: ''): day number(s) of the event
@@ -35,7 +35,7 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined and extra_attributes is not empty %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
