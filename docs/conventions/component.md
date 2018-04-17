@@ -72,7 +72,7 @@ System component `ec-component-navigation-menu`:
 
 ## SCSS
 
-Apart from [rules that should be applied to all SCSS files](scss.md), there are some specifications for components:
+Apart from the [rules that should be applied to all SCSS files](scss.md), there are some specifications for components:
 
 ### Generic component
 
@@ -136,7 +136,7 @@ This is done by using the mixin `check-imports`.
 
 #### Generic mixin use
 
-Call of the mixin defined in generic component, with custom parameters.
+Call the mixin defined in the generic component with custom parameters.
 
 #### Additional CSS rules
 
@@ -178,9 +178,9 @@ _(File name: ec-component-navigation-menu.scss)_
 
 ## Twig
 
-Every component should have a directly usable Twig file. The goal is to be able to include the code in other components or templates (by putting most of the content in context), without having to duplicate it.
+Every component should have a directly usable Twig file. The goal is to be able to include the code in other components or templates by putting most of the content in context, without having to duplicate it.
 
-Apart from [rules that should be applied to all Twig files](twig.md), there are some specifications for components:
+Apart from the [rules that should be applied to all Twig files](twig.md), there are some specifications for components:
 
 ### Generic component
 
@@ -270,7 +270,7 @@ As we lose the advantage of generic components here, it is recommended, when pos
 
 Not all components require a dedicated JavaScript file. Most of them have a simple enough behavior that could be handled with HTML/CSS only. The following rules only apply to components with more complex (JS) behavior.
 
-Apart from [rules that should be applied to all js files](javascript.md), there are some specifications for components:
+Apart from [rules that should be applied to all JS files](javascript.md), there are some specifications for components:
 
 ### Generic component
 
@@ -420,10 +420,10 @@ The only extra rule for system components' package.json is that it should have t
 
 SCSS and JS files (if any) should be set in corresponding attributes:
 
-* `sass` (SCSS): the path to scss file. HIgher priority than 'style'
+* `sass` (SCSS): the path to SCSS file. Higher priority than 'style'
 * `style` (CSS): the path to the main bundled stylesheet (dist/[name].css)
-* `main` (JS): the path to js file. Used by non ES6-aware tools (UMD) (dist/[name].js)
-* `module` (JS): the path to js file. Used by ES6-aware tools like webpack
+* `main` (JS): the path to JS file. Used by non ES6-aware tools (UMD) (dist/[name].js)
+* `module` (JS): the path to JS file. Used by ES6-aware tools like webpack
 
 Example (generic):
 
