@@ -1,5 +1,5 @@
 {#
-  Accepts:
+  Parameters:
     - "id" (string): radio group ID (mandatory)
     - "name" (string): radio name (mandatory)
     - "desc" (string): description for screen readers (mandatory)
@@ -15,8 +15,8 @@
 
 {% set _css_class = 'ecl-radio-group' %}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
 {% endif %}
 
 <div class="{{ _css_class }}" role="radiogroup" aria-labelledby="{{ id }}_label" id="{{ id }}">

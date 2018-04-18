@@ -1,5 +1,5 @@
 {#
-  Accepts:
+  Parameters:
     - "language" (string): current language (default: 'English')
     - "code" (string): current language code (default: 'en')
 #}
@@ -14,8 +14,8 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
 {% endif %}
 
 {% if extra_attributes is defined %}

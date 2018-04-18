@@ -1,13 +1,13 @@
 {#
-  Accepts:
+  Parameters:
     - "id" (string): textarea id (optional, default: default-id)
     - "name" (string): textarea name (mandatory, default: default-name)
     - "rows" (int): number of rows (optional, default: 4)
     - "label" (string): label text (optional, default: '')
-    - "isDisabled" (boolean): is disabled (optional, default: false)
-    - "hasError" (boolean): has error (optional, default: false)
-    - "extraClass" (string): extra CSS classes (optional, default: '')
-    - "extraAttributes" (string): extra attributes (optional, default: '')
+    - "is_disabled" (boolean): is disabled (optional, default: false)
+    - "has_error" (boolean): has error (optional, default: false)
+    - "extra_classes" (string): extra CSS classes (optional, default: '')
+    - "extra_attributes" (string): extra attributes (optional, default: '')
 #}
 
 {% set id = id|default('default-id') %}
@@ -17,26 +17,26 @@
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-textarea' %}
-{% set _extraAttributes = '' %}
+{% set _css_class = 'ecl-textarea' %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if hasError is defined and hasError == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-textarea--has-error' %}
+{% if has_error is defined and has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-textarea--has-error' %}
 {% endif %}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if isDisabled is defined and isDisabled == true %}
-  {% set _extraAttributes = _extraAttributes ~ ' disabled' %}
+{% if is_disabled is defined and is_disabled == true %}
+  {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
   {% endfor %}
 {% endif %}
 
@@ -49,10 +49,10 @@
   name="{{ name }}"
   id="{{ id }}"
   rows="{{ rows }}"
-  class="{{ _cssClass }}"
+  class="{{ _css_class }}"
   role="textbox"
   aria-multiline="true"
   aria-labelledby="{{ id }}_label"
-  {{ _extraAttributes }}
+  {{ _extra_attributes }}
 >
 </textarea>

@@ -19,7 +19,7 @@ module.exports = {
       context: {
         label: 'Normal textarea',
         id: 'example-textarea-id-1',
-        extraAttributes: [
+        extra_attributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
         ],
       },
@@ -29,8 +29,8 @@ module.exports = {
       context: {
         label: 'Disabled textarea',
         id: 'example-textarea-id-2',
-        isDisabled: true,
-        extraAttributes: [
+        is_disabled: true,
+        extra_attributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
         ],
       },
@@ -40,8 +40,8 @@ module.exports = {
       context: {
         label: 'Textarea with error',
         id: 'example-textarea-id-3',
-        hasError: true,
-        extraAttributes: [
+        has_error: true,
+        extra_attributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
         ],
       },

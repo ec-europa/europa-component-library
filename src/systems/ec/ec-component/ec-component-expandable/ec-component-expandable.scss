@@ -3,18 +3,11 @@
  * @define expandable
  */
 
-.ecl-expandable__button {
-  &::after {
-    @include ecl-icon--after();
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-expandable/generic-component-expandable';
 
-    @include ecl-button--caret();
-  }
-
-  &[aria-expanded='false']::after {
-    @include ecl-icon('down');
-  }
-
-  &[aria-expanded='true']::after {
-    @include ecl-icon('up');
-  }
+// Use generic mixin
+@include exports('ec-component-expandable') {
+  @include ecl-expandable();
 }
