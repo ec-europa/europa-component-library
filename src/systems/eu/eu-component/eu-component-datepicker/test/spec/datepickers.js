@@ -1,4 +1,4 @@
-describe('datepickers', () => {
+describe('datepicker', () => {
   before(() => {
     browser.setViewportSize({
       width: 420,
@@ -14,13 +14,13 @@ describe('datepickers', () => {
   context('with plain state', () => {
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'datepickers/default',
+        name: 'datepicker/default',
       });
       expect(screenshots).to.matchReference();
     });
 
     it('should be accessible', () => {
-      const a11yReport = browser.runAxeCore('ecl-datepickers').value;
+      const a11yReport = browser.runAxeCore('ecl-datepicker').value;
       expect(a11yReport).to.be.accessible;
     });
   });
@@ -45,7 +45,7 @@ describe('datepickers', () => {
 
     it('should match the reference screenshot', () => {
       const screenshots = browser.checkDocument({
-        name: 'datepickers/open',
+        name: 'datepicker/open',
       });
       expect(screenshots).to.matchReference();
     });
