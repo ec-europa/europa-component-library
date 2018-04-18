@@ -1,28 +1,48 @@
 {#
   Parameters:
-    - "id" (string): radio group ID (mandatory)
-    - "name" (string): radio name (mandatory)
-    - "desc" (string): description for screen readers (mandatory)
-    - "radios" (collection): array of ecl-forms-radios
-    - "extra_class" (string): extra CSS classes (optional, default: '')
+    - "id" (string) (default: 'ecl-radio-1')
+    - "name" (string) (default: 'ecl-radio')
+    - "desc" (string) (default: 'Description'): description for screen readers
+    - "radios" (array): collection of ecl-forms-radios
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
 #}
-
-{% set id = name|default('ecl-radio-1') %}
-{% set name = name|default('ecl-radio') %}
-{% set desc = desc|default('Description') %}
 
 {# Internal properties #}
 
+{% set _id = name|default('ecl-radio-1') %}
+{% set _name = name|default('ecl-radio') %}
+{% set _desc = desc|default('Description') %}
+{% set _radios = radios|default([]) %}
 {% set _css_class = 'ecl-radio-group' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-<div class="{{ _css_class }}" role="radiogroup" aria-labelledby="{{ id }}_label" id="{{ id }}">
-  <p id="{{ id }}_label" class="ecl-u-sr-only">{{ desc }}</p>
-  {% for radio in radios %}
-    {% set options = { 'name': name }|merge(radio) %}
-    {% include '@ecl/generic-component-form-radio' with options %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" role="radiogroup" aria-labelledby="{{ _id }}_label" id="{{ _id }}"{{ _extra_attributes|raw }}>
+  <p id="{{ _id }}_label" class="ecl-u-sr-only">{{ _desc }}</p>
+  {% for _radio in _radios %}
+    {% set _options = { 'name': _name }|merge(_radio) %}
+    {% include '@ecl/' ~ _system ~ '-component-form-radio' with _options only %}
   {% endfor %}
 </div>
