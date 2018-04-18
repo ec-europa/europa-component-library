@@ -3,10 +3,10 @@
  * @define checkbox
  */
 
-// checkbox related variables
-$ecl-checkbox-icon-size: 1.5em;
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-@mixin ecl-checkbox() {
+@mixin ecl-checkbox($icon-size: 1.5em) {
   .ecl-checkbox {
     display: block;
     font-size: map-get($ecl-font-size, 'm');
@@ -32,9 +32,9 @@ $ecl-checkbox-icon-size: 1.5em;
       content: '';
       display: block;
       flex-shrink: 0;
-      height: $ecl-checkbox-icon-size;
+      height: $icon-size;
       margin-right: map-get($ecl-spacing, 'xxs');
-      width: $ecl-checkbox-icon-size;
+      width: $icon-size;
     }
   }
 
@@ -43,8 +43,7 @@ $ecl-checkbox-icon-size: 1.5em;
   }
 
   .ecl-checkbox--is-disabled .ecl-checkbox__label::before {
-    box-shadow: 0 0 $ecl-checkbox-icon-size map-get($ecl-colors, 'grey-15')
-      inset;
+    box-shadow: 0 0 $icon-size map-get($ecl-colors, 'grey-15') inset;
   }
 
   .ecl-checkbox__input:checked + .ecl-checkbox__label::before {
