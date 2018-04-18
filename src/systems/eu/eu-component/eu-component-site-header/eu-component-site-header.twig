@@ -31,12 +31,12 @@
       'to': 'https://europa.eu',
       'title': 'Home - European Union',
       'type': 'right',
-      'extra_class': 'ecl-site-header__logo'
+      'extra_classes': 'ecl-site-header__logo'
     } only %}
 
     {% if _languages is not empty %}
     {% include '@ecl/eu-component-language-list' with {
-      'extra_class': 'ecl-site-header__language-list',
+      'extra_classes': 'ecl-site-header__language-list',
       'languages': _languages,
       'variant': 'overlay',
       'messages': {

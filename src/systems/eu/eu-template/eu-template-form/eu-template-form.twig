@@ -6,7 +6,7 @@
   {% block form %}
     {% embed '@ecl/eu-component-form-fieldset' %}
       {% block fieldset %}
-        {% include '@ecl/eu-component-form-legend' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'Personal information' } %}
+        {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-1', 'content': 'Personal information' } %}
         {% embed '@ecl/eu-component-form-form-group' %}
           {% block form_group %}
             {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-1', 'label': 'First name' } %}
@@ -14,7 +14,7 @@
               'id' : 'field-ID-1',
               'name': 'field-name-1',
               'type': 'text',
-              'extraAttributes': [
+              'extra_attributes': [
                 { 'name': 'placeholder', 'value': 'Some placeholder text.' }
               ]
             } %}
@@ -27,7 +27,7 @@
               'id' : 'field-ID-2',
               'name': 'field-name-2',
               'type': 'text',
-              'extraAttributes': [
+              'extra_attributes': [
                 { 'name': 'placeholder', 'value': 'Some placeholder text.' }
               ]
             } %}
@@ -37,10 +37,10 @@
     {% endembed %}
     {% embed '@ecl/eu-component-form-fieldset' %}
       {% block fieldset %}
-        {% include '@ecl/eu-component-form-legend' with { 'extra_class': 'ecl-form-legend--level-1', 'content': 'Group' } %}
+        {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-1', 'content': 'Group' } %}
         {% embed '@ecl/eu-component-form-fieldset' %}
           {% block fieldset %}
-            {% include '@ecl/eu-component-form-legend' with { 'extra_class': 'ecl-form-legend--level-2', 'content': 'Subgroup 1' } %}
+            {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-2', 'content': 'Subgroup 1' } %}
             {% embed '@ecl/eu-component-form-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-3', 'label': 'Text Input - disabled' } %}
@@ -49,8 +49,8 @@
                   'id' : 'field-ID-3',
                   'name': 'field-name-3',
                   'type': 'text',
-                  'isDisabled': true,
-                  'extraAttributes': [
+                  'is_disabled': true,
+                  'extra_attributes': [
                     { 'name': 'placeholder', 'value': 'Some placeholder text.' }
                   ]
                 } %}
@@ -64,8 +64,8 @@
                   'id' : 'field-ID-4',
                   'name': 'field-name-4',
                   'type': 'text',
-                  'hasError': true,
-                  'extraAttributes': [
+                  'has_error': true,
+                  'extra_attributes': [
                     { 'name': 'placeholder', 'value': 'Some placeholder text.' }
                   ]
                 } %}
@@ -80,7 +80,7 @@
         {% endembed %}
         {% embed '@ecl/eu-component-form-fieldset' %}
           {% block fieldset %}
-            {% include '@ecl/eu-component-form-legend' with { 'extra_class': 'ecl-form-legend--level-2', 'content': 'Subgroup 2' } %}
+            {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-2', 'content': 'Subgroup 2' } %}
             {% embed '@ecl/eu-component-form-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-5', 'label': 'Text Input - disabled' } %}
@@ -89,8 +89,8 @@
                   'id' : 'field-ID-5',
                   'name': 'field-name-5',
                   'type': 'text',
-                  'isDisabled': true,
-                  'extraAttributes': [
+                  'is_disabled': true,
+                  'extra_attributes': [
                     { 'name': 'placeholder', 'value': 'Some placeholder text.' }
                   ]
                 } %}
