@@ -2,8 +2,12 @@
  * Form
  * @define form
  */
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-.ecl-form {
-  margin: 0;
-  padding: 0;
+@mixin ecl-form() {
+  .ecl-form {
+    margin: 0;
+    padding: 0;
+  }
 }
