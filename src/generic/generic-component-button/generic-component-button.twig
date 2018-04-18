@@ -51,7 +51,7 @@
   {% endfor %}
 {% endif %}
 
-{# Print result #}
+{# Print the result #}
 
 {% if _type == 'link' %}
   <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block link_label_block _label %}</a>
