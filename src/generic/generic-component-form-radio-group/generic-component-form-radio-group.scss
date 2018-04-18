@@ -3,7 +3,12 @@
  * @define radio-group
  */
 
-.ecl-radio-group {
-  margin: 0;
-  padding: 0;
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-radio-group() {
+  .ecl-radio-group {
+    margin: 0;
+    padding: 0;
+  }
 }
