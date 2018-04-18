@@ -12,17 +12,5 @@
 
 // Use generic mixin
 @include exports('eu-component-datepicker') {
-  @include ecl-datepicker(
-    $color-select: #4f4f4f,
-    $color-select-separator: #9f9f9f,
-    $text-color: #333,
-    $title-bg: #404040,
-    $title-color: #404040,
-    $arrow-size: 50px,
-    $picker-bg: #eaeaea,
-    $day-bg: #f5f5f5,
-    $day-selected-bg: #ffd617,
-    $day-disabled-color: #999,
-    $week-color: #999
-  );
+  @include ecl-datepicker();
 }
