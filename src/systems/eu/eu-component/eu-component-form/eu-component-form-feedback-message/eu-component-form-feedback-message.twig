@@ -1,34 +1,17 @@
 {#
-  Accepts:
-    - "title" (string): message title (mandatory)
-    - "body" (string): message body (mandatory)
-    - "has_error" (boolean): has error (optional, default: false)
-    - "level": (number): title level (default: 4)
-    - "extra_class" (string): extra CSS classes (optional, default: '')
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "title" (string): message title
+    - "body" (string): message body
+    - "has_error" (boolean) (default: false)
+    - "level" (number) (default: 4): title level
+    - "extra_classes" (string) (default: ''): additional classes to add to the component
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{# Internal properties #}
-
-{% set _css_class = 'ecl-feedback-message' %}
-{% set _extra_attributes = '' %}
-{% set _level = level|default('4') %}
-
-{% if has_error is defined and has_error == true %}
-  {% set _css_class = _css_class ~ ' ecl-feedback-message--error' %}
-{% endif %}
-
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
-{% endif %}
-
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
-  {% endfor %}
-{% endif %}
-
-<div class="{{ _css_class }}" role="alert"{{ _extra_attributes|raw }}>
-  <div class="ecl-feedback-message__title" role="heading" aria-level="{{ _level }}">{{ title }}</div>
-  <p class="ecl-feedback-message__body">{{ body }}</p>
-</div>
+{% include '@ecl/generic-component-form-feedback-message' %}

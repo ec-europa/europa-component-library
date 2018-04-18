@@ -1,5 +1,5 @@
 {#
-  Accepts:
+  Parameters:
     - "unavailable" (string): unavailable language
     - "current" (string): current language
     - "theme" (string): empty or "primary"
@@ -24,8 +24,8 @@
   {% set _css_class = _css_class ~ ' ecl-lang-select-page--' ~ theme %}
 {% endif %}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
 {% endif %}
 
 {% if extra_attributes is defined %}

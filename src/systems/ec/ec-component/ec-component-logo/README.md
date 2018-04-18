@@ -69,6 +69,6 @@ For example:
   'to': 'https://ec.europa.eu',
   'title': 'Home - European Commission',
   'type': 'right',
-  'extra_class': 'site-header__logo'
+  'extra_classes': 'site-header__logo'
 } %}
 ```

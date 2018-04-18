@@ -44,15 +44,12 @@ module.exports = {
     {
       name: 'default',
       label: 'Normal',
-      context: Object.assign({}, context, {
-        variant: 'default',
-      }),
+      context,
     },
     {
       name: 'wide',
       label: 'Wide',
       context: Object.assign({}, context, {
-        variant: 'wide',
         theme: 'wide',
       }),
     },

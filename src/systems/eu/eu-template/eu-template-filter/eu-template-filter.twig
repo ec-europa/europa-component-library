@@ -20,7 +20,7 @@
                   'type': 'text',
                   'name': 'keywords',
                   'id': 'filter-keywords',
-                  'extraAttributes': [
+                  'extra_attributes': [
                     { 'value': '', 'size': '30', 'maxlength': '128' }
                   ]
                 } %}
@@ -110,13 +110,13 @@
             {% embed '@ecl/eu-component-form-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-form-label' with { 'label': 'After', 'for_attribute': 'filter-after' } %}
-                {% include '@ecl/eu-component-datepicker' with { 'id': 'filter-after' } %}
+                {% include '@ecl/eu-component-datepicker' with { 'id': 'filter-after' } only %}
               {% endblock %}
             {% endembed %}
             {% embed '@ecl/eu-component-form-form-group' %}
               {% block form_group %}
                 {% include '@ecl/eu-component-form-label' with { 'label': 'Before', 'for_attribute': 'filter-before' } %}
-                {% include '@ecl/eu-component-datepicker' with { 'id': 'filter-before' } %}
+                {% include '@ecl/eu-component-datepicker' with { 'id': 'filter-before' } only %}
               {% endblock %}
             {% endembed %}
             {% embed '@ecl/eu-component-form-form-group' %}
