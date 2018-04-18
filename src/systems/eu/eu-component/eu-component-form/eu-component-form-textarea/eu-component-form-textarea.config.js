@@ -6,9 +6,12 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
-      <div class="ecl-form-group">\n
-      ${markup}\n
-      </div>\n
+      <div class="ecl-form-group">
+        <label for="${item.context.id}" class="ecl-form-label">
+          ${item.label}
+        </label>\n
+        ${markup}\n
+      </div>
       <!-- End: @${item.handle} -->\n
     `;
   },
@@ -17,7 +20,6 @@ module.exports = {
     {
       name: 'default',
       context: {
-        label: 'Normal textarea',
         id: 'example-textarea-id-1',
         extra_attributes: [
           { name: 'placeholder', value: 'Some placeholder text.' },
@@ -27,7 +29,6 @@ module.exports = {
     {
       name: 'is-disabled',
       context: {
-        label: 'Disabled textarea',
         id: 'example-textarea-id-2',
         is_disabled: true,
         extra_attributes: [
@@ -38,7 +39,6 @@ module.exports = {
     {
       name: 'has-error',
       context: {
-        label: 'Textarea with error',
         id: 'example-textarea-id-3',
         has_error: true,
         extra_attributes: [
