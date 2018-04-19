@@ -2,15 +2,15 @@
   This is an example and should not be used as it is.
 #}
 
-{% embed '@ecl/ec-component-form-form' with {} only %}
+{% embed '@ecl/eu-component-form-form' with {} only %}
   {% block form %}
-    {% embed '@ecl/ec-component-form-fieldset' with {} only %}
+    {% embed '@ecl/eu-component-form-fieldset' with {} only %}
       {% block fieldset %}
-        {% include '@ecl/ec-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-1', 'content': 'Personal information' } only %}
-        {% embed '@ecl/ec-component-form-form-group' with {} only %}
+        {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-1', 'content': 'Personal information' } only %}
+        {% embed '@ecl/eu-component-form-form-group' with {} only %}
           {% block form_group %}
-            {% include '@ecl/ec-component-form-label' with { 'for_attribute': 'field-ID-1', 'label': 'First name' } only %}
-            {% include '@ecl/ec-component-form-text-input' with {
+            {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-1', 'label': 'First name' } only %}
+            {% include '@ecl/eu-component-form-text-input' with {
               'id' : 'field-ID-1',
               'name': 'field-name-1',
               'type': 'text',
@@ -20,10 +20,10 @@
             } only %}
           {% endblock %}
         {% endembed %}
-        {% embed '@ecl/ec-component-form-form-group' with {} only %}
+        {% embed '@ecl/eu-component-form-form-group' with {} only %}
           {% block form_group %}
-            {% include '@ecl/ec-component-form-label' with { 'for_attribute': 'field-ID-2', 'label': 'Last name' } only %}
-            {% include '@ecl/ec-component-form-text-input' with {
+            {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-2', 'label': 'Last name' } only %}
+            {% include '@ecl/eu-component-form-text-input' with {
               'id' : 'field-ID-2',
               'name': 'field-name-2',
               'type': 'text',
@@ -35,17 +35,17 @@
         {% endembed %}
       {% endblock %}
     {% endembed %}
-    {% embed '@ecl/ec-component-form-fieldset' with {} only %}
+    {% embed '@ecl/eu-component-form-fieldset' with {} only %}
       {% block fieldset %}
-        {% include '@ecl/ec-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-1', 'content': 'Group' } only %}
-        {% embed '@ecl/ec-component-form-fieldset' with {} only %}
+        {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-1', 'content': 'Group' } only %}
+        {% embed '@ecl/eu-component-form-fieldset' with {} only %}
           {% block fieldset %}
-            {% include '@ecl/ec-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-2', 'content': 'Subgroup 1' } only %}
-            {% embed '@ecl/ec-component-form-form-group' with {} only %}
+            {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-2', 'content': 'Subgroup 1' } only %}
+            {% embed '@ecl/eu-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'for_attribute': 'field-ID-3', 'label': 'Text Input - disabled' } only %}
-                {% include '@ecl/ec-component-form-help-block' with { 'content': 'This is some placeholder help text', 'is_disabled': true } only %}
-                {% include '@ecl/ec-component-form-text-input' with {
+                {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-3', 'label': 'Text Input - disabled' } only %}
+                {% include '@ecl/eu-component-form-help-block' with { 'content': 'This is some placeholder help text', 'is_disabled': true } only %}
+                {% include '@ecl/eu-component-form-text-input' with {
                   'id' : 'field-ID-3',
                   'name': 'field-name-3',
                   'type': 'text',
@@ -56,11 +56,11 @@
                 } only %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' with {} only %}
+            {% embed '@ecl/eu-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'for_attribute': 'field-ID-4', 'label': 'Text Input - error on a field' } only %}
-                {% include '@ecl/ec-component-form-help-block' with { 'content': 'This is some placeholder help text', 'has_error': true } only %}
-                {% include '@ecl/ec-component-form-text-input' with {
+                {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-4', 'label': 'Text Input - error on a field' } only %}
+                {% include '@ecl/eu-component-form-help-block' with { 'content': 'This is some placeholder help text', 'has_error': true } only %}
+                {% include '@ecl/eu-component-form-text-input' with {
                   'id' : 'field-ID-4',
                   'name': 'field-name-4',
                   'type': 'text',
@@ -69,7 +69,7 @@
                     { 'name': 'placeholder', 'value': 'Some placeholder text.' }
                   ]
                 } only %}
-                {% include '@ecl/ec-component-form-feedback-message' with {
+                {% include '@ecl/eu-component-form-feedback-message' with {
                   'title': 'Some feedback message',
                   'body': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quam urna, elementum eget ultrices non, efficitur quis lectus. Donec mollis felis ac felis tempus mattis',
                   'has_error': true
@@ -78,14 +78,14 @@
             {% endembed %}
           {% endblock %}
         {% endembed %}
-        {% embed '@ecl/ec-component-form-fieldset' with {} only %}
+        {% embed '@ecl/eu-component-form-fieldset' with {} only %}
           {% block fieldset %}
-            {% include '@ecl/ec-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-2', 'content': 'Subgroup 2' } only %}
-            {% embed '@ecl/ec-component-form-form-group' with {} only %}
+            {% include '@ecl/eu-component-form-legend' with { 'extra_classes': 'ecl-form-legend--level-2', 'content': 'Subgroup 2' } only %}
+            {% embed '@ecl/eu-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'for_attribute': 'field-ID-5', 'label': 'Text Input - disabled' } only %}
-                {% include '@ecl/ec-component-form-help-block' with { 'content': 'This is some placeholder help text', 'is_disabled': true } only %}
-                {% include '@ecl/ec-component-form-text-input' with {
+                {% include '@ecl/eu-component-form-label' with { 'for_attribute': 'field-ID-5', 'label': 'Text Input - disabled' } only %}
+                {% include '@ecl/eu-component-form-help-block' with { 'content': 'This is some placeholder help text', 'is_disabled': true } only %}
+                {% include '@ecl/eu-component-form-text-input' with {
                   'id' : 'field-ID-5',
                   'name': 'field-name-5',
                   'type': 'text',
