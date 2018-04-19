@@ -1,0 +1,73 @@
+{#
+  Parameters:
+    - "rows" (array) (default: []): rows of gallery items, format [
+        {
+          - "classes" (string): CSS classes to add
+          - "image" (@ecl-images): Image to add in the gallery
+          - "caption" (string): Textual caption for an image
+          - "icon" (string): An icon class building an icon in the item
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-gallery' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+{% set _rows = rows|default([]) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _rows is not empty and _rows is iterable %}
+    {# We don't use ecl-container-fluid here because of no-gutters #}
+    {# Read more: https://getbootstrap.com/docs/4.0/layout/grid/#no-gutters #}
+    {% for row in _rows %}
+      <div class="ecl-row ecl-no-gutters">
+        {% if row is iterable %}
+          {% for gallery_item in row %}
+            <div class="{{ gallery_item.classes }} ecl-gallery__item">
+              <div class="ecl-gallery__item-container">
+                {% include '@ecl/' ~ _system ~ '-style-image' with {
+                  responsive: true,
+                  extra_classes: 'ecl-gallery__image'
+                }|merge(gallery_item.image|default({})) %}
+                {% if gallery_item.caption is defined %}
+                  <span class="ecl-gallery__caption">{{ gallery_item.caption }}</span>
+                {% endif %}
+                {% if gallery_item.icon is defined %}
+                <span class="ecl-gallery__icon-wrapper">
+                  <span class="ecl-gallery__icon ecl-icon {{ gallery_item.icon }}"></span>
+                </span>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
