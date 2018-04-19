@@ -41,7 +41,7 @@
 
 {# Print the result #}
 
-<div "class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _rows is not empty and _rows is iterable %}
     {% for row in _rows %}
       <div class="ecl-row">
