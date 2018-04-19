@@ -2,30 +2,35 @@
  * ECL meta
  */
 
-.ecl-meta {
-  font-size: map-get($ecl-font-size, 'xs');
-  letter-spacing: 0.03rem;
-  line-height: 1.3;
-  margin: 0;
-  text-transform: uppercase;
-}
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-.ecl-meta__item {
-  white-space: nowrap;
-
-  &::after {
-    color: map-get($ecl-colors, 'grey-50');
-    content: '|';
-    margin: 0 map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'xs');
-    position: relative;
-    top: -1px;
+@mixin ecl-meta() {
+  .ecl-meta {
+    font-size: map-get($ecl-font-size, 'xs');
+    letter-spacing: 0.03rem;
+    line-height: 1.3;
+    margin: 0;
+    text-transform: uppercase;
   }
 
-  &:last-child::after {
-    display: none;
-  }
-}
+  .ecl-meta__item {
+    white-space: nowrap;
 
-.ecl-meta--header {
-  font-size: map-get($ecl-font-size, 's');
+    &::after {
+      color: map-get($ecl-colors, 'grey-50');
+      content: '|';
+      margin: 0 map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'xs');
+      position: relative;
+      top: -1px;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+
+  .ecl-meta--header {
+    font-size: map-get($ecl-font-size, 's');
+  }
 }
