@@ -3,23 +3,11 @@
  * @define form-legend
  */
 
-.ecl-form-legend {
-  font-weight: 600;
-  line-height: 1.66;
-  margin: 0;
-}
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-legend/generic-component-form-legend';
 
-/* Variants */
-
-.ecl-form-legend--level-1 {
-  border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
-  color: $ecl-color-shade;
-  display: block;
-  font-size: map-get($ecl-font-size, 'l');
-  width: 100%;
-}
-
-.ecl-form-legend--level-2 {
-  color: #000;
-  font-size: map-get($ecl-font-size, 'm');
+// Use generic mixin
+@include exports('ec-component-form-legend') {
+  @include ecl-form-legend();
 }
