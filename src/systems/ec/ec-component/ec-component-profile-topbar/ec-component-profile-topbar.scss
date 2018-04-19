@@ -3,28 +3,14 @@
  * @define profile-topbar
  */
 
-.ecl-profile-topbar {
-  margin: 0;
-  padding-bottom: map-get($ecl-spacing, 'm');
-  padding-top: map-get($ecl-spacing, 'm');
-}
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-profile-topbar/generic-component-profile-topbar';
 
-.ecl-profile-topbar__pane {
-  height: 100%;
-  min-height: 160px;
-  position: relative;
-}
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-expandable'));
 
-.ecl-profile-topbar__pane-button {
-  bottom: 0;
-  position: absolute;
-}
-
-.ecl-profile-topbar__collapsible-area {
-  background-color: map-get($ecl-colors, 'grey-10');
-  overflow: hidden;
-}
-
-.ecl-profile-topbar__collapsible-area[aria-hidden='true'] {
-  display: none;
+// Use generic mixin
+@include exports('ec-component-profile-topbar') {
+  @include ecl-profile-topbar();
 }
