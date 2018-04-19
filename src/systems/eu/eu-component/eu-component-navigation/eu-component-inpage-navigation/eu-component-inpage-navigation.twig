@@ -1,10 +1,15 @@
 {#
-  - title: string; title of the navigation block (default: '')
-  - links: array;
-    {
-      href: string; target of the anchor, with a "#". should be an existing id in the page (default: '')
-      label: string; label of the anchor (default: '')
-    }
+  Parameters:
+    - "title" (string) (default: ''): title of the navigation block
+    - "links" (array) (default: []): collection of @ecl/generic-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
 {% include '@ecl/generic-component-inpage-navigation' with { system: 'eu' } %}
