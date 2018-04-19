@@ -3,33 +3,31 @@
  * @define help-block
  */
 
-$ecl-forms-help-block-text-color: map-get($ecl-colors, 'grey-100') !default;
-$ecl-forms-help-block-text-color-disabled: map-get(
-  $ecl-colors,
-  'grey-75'
-) !default;
-$ecl-forms-help-block-text-color-has-error: $ecl-forms-help-block-text-color !default;
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-.ecl-help-block {
-  @include ecl-hidden-print();
+@mixin ecl-help-block() {
+  .ecl-help-block {
+    @include ecl-hidden-print();
 
-  color: $ecl-forms-help-block-text-color;
-  font-size: map-get($ecl-font-size, 'xs');
-  line-height: 1.66;
-  margin: 0;
-}
+    color: map-get($ecl-colors, 'grey-100');
+    font-size: map-get($ecl-font-size, 'xs');
+    line-height: 1.66;
+    margin: 0;
+  }
 
-.ecl-help-block--disabled {
-  color: $ecl-forms-help-block-text-color-disabled;
-}
+  .ecl-help-block--disabled {
+    color: map-get($ecl-colors, 'grey-75');
+  }
 
-.ecl-help-block--has-error {
-  color: $ecl-forms-help-block-text-color-has-error;
-}
+  .ecl-help-block--has-error {
+    color: map-get($ecl-colors, 'grey-100');
+  }
 
-/* Spacing */
+  /* Spacing */
 
-/* stylelint-disable-next-line plugin/selector-bem-pattern */
-* + .ecl-help-block {
-  margin-top: map-get($ecl-spacing, 'xs');
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  * + .ecl-help-block {
+    margin-top: map-get($ecl-spacing, 'xs');
+  }
 }

@@ -3,15 +3,20 @@
  * @define form-group
  */
 
-.ecl-form-group {
-  @include ecl-hidden-print();
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-  margin: 0;
-}
+@mixin ecl-form-group() {
+  .ecl-form-group {
+    @include ecl-hidden-print();
 
-/* Spacing */
+    margin: 0;
+  }
 
-/* stylelint-disable-next-line plugin/selector-bem-pattern */
-* + .ecl-form-group {
-  margin-top: map-get($ecl-spacing, 'm');
+  /* Spacing */
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  * + .ecl-form-group {
+    margin-top: map-get($ecl-spacing, 'm');
+  }
 }

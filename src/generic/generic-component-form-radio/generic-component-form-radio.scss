@@ -3,9 +3,10 @@
  * @define radio
  */
 
-$ecl-radio-icon-size: 1.5rem;
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-@mixin ecl-radio() {
+@mixin ecl-radio($icon-size: 1.5rem) {
   .ecl-radio {
     display: block;
     font-size: map-get($ecl-font-size, 'm');
@@ -31,9 +32,9 @@ $ecl-radio-icon-size: 1.5rem;
       content: '';
       display: block;
       flex-shrink: 0;
-      height: $ecl-radio-icon-size;
+      height: $icon-size;
       margin-right: map-get($ecl-spacing, 'xxs');
-      width: $ecl-radio-icon-size;
+      width: $icon-size;
     }
   }
 
