@@ -1,3 +1,7 @@
+// const contextDefault = require('@ecl/generic-component-tag/data/data-default'); // Unable to resolve path to module
+// const contextFacet = require('@ecl/generic-component-tag/data/data-facet.config');
+// const contextFacetClose = require('@ecl/generic-component-tag/data/data-facet-close.config');
+
 module.exports = {
   title: 'Tags',
   label: 'Tags',
@@ -17,17 +21,17 @@ module.exports = {
     {
       name: 'default',
       label: 'Default tags',
-      context: {},
+      // context: contextDefault,
     },
     {
       name: 'facet',
       label: 'Facet tags',
-      context: {},
+      // context: contextFacet,
     },
     {
       name: 'facet-close',
       label: 'Facet tag with close',
-      context: {},
+      // context: contextFacetClose,
     },
   ],
 };
