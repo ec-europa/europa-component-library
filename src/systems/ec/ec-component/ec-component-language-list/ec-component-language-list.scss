@@ -3,34 +3,20 @@
  * @define language-list
  */
 
-.ecl-language-list {
-  margin: 0;
-}
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-language-list/generic-component-language-list';
 
-.ecl-language-list__button {
-  background-color: #fff;
-  color: $ecl-color-primary;
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'ec-style-typography-heading',
+    'ec-component-button',
+    'ec-component-lang-select-site'
+  )
+);
 
-  &:focus,
-  &:active,
-  &:hover {
-    border-color: map-get($ecl-colors, 'yellow-100');
-    color: #000;
-  }
-
-  &:focus,
-  &:active {
-    background-color: #fff;
-    text-decoration: underline;
-  }
-
-  &:hover {
-    background-color: map-get($ecl-colors, 'yellow-100');
-  }
-}
-
-.ecl-language-list__button--active {
-  background-color: $ecl-color-secondary;
-  box-shadow: none;
-  color: #000;
+// Use generic mixin
+@include exports('ec-component-language-list') {
+  @include ecl-language-list();
 }
