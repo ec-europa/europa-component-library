@@ -3,7 +3,10 @@
  * @define navigation-menu
  */
 
-@mixin ecl-navigation-menu-common(
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-navigation-menu(
   $bar-bg-mobile,
   $bar-bg-desktop,
   $toggle-btn-color,
@@ -275,9 +278,8 @@
     transition: bottom 0.075s ease,
       transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-}
 
-@mixin ecl-navigation-menu-responsive($bar-bg-desktop, $group-bg, $link-color) {
+  /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(md) {
     .ecl-navigation-menu {
       background-color: $bar-bg-desktop;
@@ -351,32 +353,4 @@
       display: none;
     }
   }
-}
-
-@mixin ecl-navigation-menu(
-  $bar-bg-mobile,
-  $bar-bg-desktop,
-  $toggle-btn-color,
-  $group-bg,
-  $separator-mobile,
-  $link-color,
-  $active-color,
-  $active-bg
-) {
-  @include ecl-navigation-menu-common(
-    $bar-bg-mobile,
-    $bar-bg-desktop,
-    $toggle-btn-color,
-    $group-bg,
-    $separator-mobile,
-    $link-color,
-    $active-color,
-    $active-bg
-  );
-
-  @include ecl-navigation-menu-responsive(
-    $bar-bg-desktop,
-    $group-bg,
-    $link-color
-  );
 }
