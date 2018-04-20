@@ -61,7 +61,7 @@ module.exports = {
       title: 'Language select (Page) - Primary',
       label: 'Primary',
       context: Object.assign({}, data, {
-        theme: 'primary',
+        is_primary: true,
       }),
     },
   ],

@@ -1,9 +1,28 @@
 {#
-  - variant: can be 'splash' or 'overlay' (default: 'splash')
-  - link: the link for the lang-select-sites (default: '#')
-  - logo: display or not the European Commission logo. Can be true|false (default: false)
-  - languages (array): array of languages to display
+  Parameters:
+    - "variant" (string) (default: 'splash'): can be 'splash' or 'overlay'
+    - "link" (string) (default: '#'): the link for the lang-select-sites
+    - "logo" (boolean) (default: false): display or not the European Commission logo
+    - "languages" (array) (default: []): array of languages to display, format [
+        {
+          "href" (string),
+          "hreflang" (string),
+          "label" (string),
+          "lang" (string)
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
+
+{# Internal properties #}
 
 {% set _variant = variant|default('splash') %}
 {% set _link = link|default('#') %}
@@ -12,11 +31,19 @@
 {% set _extra_attributes = '' %}
 {% set _languages = languages|default([]) %}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% set languagesSection %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% set languages_section %}
   <section>
     {% if _logo == true %}
       <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
@@ -39,19 +66,19 @@
             {% endif %}
             <div class="ecl-row">
               <div class="ecl-col-md-6">
-                {% for lang in _languages %}
+                {% for _lang in _languages %}
                   {% if loop.index0 == loop.length // 2 %}
                 </div><div class="ecl-col-md-6">
                   {% endif %}
                   {% include '@ecl/ec-component-button' with {
                     'type': 'link',
-                    'label': lang.label ~ (lang.isActive ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
-                    'href': lang.href,
+                    'label': _lang.label ~ (_lang.is_active ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
+                    'href': _lang.href,
                     'is_block': true,
-                    'extra_classes': 'ecl-language-list__button' ~ (lang.isActive ? ' ecl-language-list__button--active'),
+                    'extra_classes': 'ecl-language-list__button' ~ (_lang.is_active ? ' ecl-language-list__button--active'),
                     'extra_attributes': [
-                      { 'name': 'lang', 'value': lang.lang },
-                      { 'name': 'hreflang', 'value': lang.hreflang },
+                      { 'name': 'lang', 'value': _lang.lang },
+                      { 'name': 'hreflang', 'value': _lang.hreflang },
                       { 'name': 'rel', 'value': 'alternate' }
                     ]
                   } %}
@@ -69,6 +96,7 @@
 {% endset %}
 
 {# Print the result #}
+
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _variant == 'overlay' %}
     {# Custom Dialog-overlay for the 'overlay' variant #}
@@ -77,17 +105,22 @@
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_classes': 'ecl-link',
       'link': _link
-    } %}
-    {% embed '@ecl/ec-component-dialog' with { 'variant': 'wide', 'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide', 'dismiss': { 'hide': true } } %}
+    } only %}
+    {% embed '@ecl/ec-component-dialog' with {
+      'variant': 'wide',
+      'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide',
+      'dismiss': { 'hide': true },
+      'languages_section': languages_section
+    } only %}
       {% block dialog_body %}
-        {{ languagesSection }}
+        {{ languages_section }}
       {% endblock %}
     {% endembed %}
   {% elseif _variant == 'splash' %}
     {% include '@ecl/ec-component-skip-link' with {
       'href': '#main-content',
       'label': 'Skip to main content'
-    } %}
-    {{ languagesSection }}
+    } only %}
+    {{ languages_section }}
   {% endif %}
 </div>
