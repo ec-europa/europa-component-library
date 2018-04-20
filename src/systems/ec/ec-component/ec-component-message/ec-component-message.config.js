@@ -25,7 +25,7 @@ module.exports = {
       label: 'Info',
       context: {
         dismiss: true,
-        srOnly: 'Informative message',
+        screen_reader_description: 'Informative message',
         title: 'Some info title',
         messages: [
           'Lorem ipsum lor sit amet, consectetur adipi',
@@ -40,7 +40,7 @@ module.exports = {
       context: {
         modifier: 'warning',
         dismiss: true,
-        srOnly: 'Warning message',
+        screen_reader_description: 'Warning message',
         title: 'Some warning title',
         messages: [
           'Lorem ipsum lor sit amet, consectetur adipi',
@@ -55,7 +55,7 @@ module.exports = {
       context: {
         modifier: 'success',
         dismiss: true,
-        srOnly: 'Success message',
+        screen_reader_description: 'Success message',
         title: 'Some success title',
         messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
       },
@@ -66,7 +66,7 @@ module.exports = {
       context: {
         modifier: 'error',
         dismiss: true,
-        srOnly: 'Error message',
+        screen_reader_description: 'Error message',
         title: 'Some error title',
         messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
       },
@@ -77,7 +77,7 @@ module.exports = {
       context: {
         modifier: 'live',
         dismiss: true,
-        srOnly: 'Livestream message',
+        screen_reader_description: 'Livestream message',
         title: 'Some livestream title',
         messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
       },
