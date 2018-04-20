@@ -18,7 +18,7 @@ module.exports = {
       name: 'upcoming',
       label: 'Upcoming',
       context: {
-        variant: 'upcoming',
+        status: 'upcoming',
         body: 'Call status: upcoming',
       },
     },
@@ -26,7 +26,7 @@ module.exports = {
       name: 'open',
       label: 'Open / Highlight ',
       context: {
-        variant: 'open',
+        status: 'open',
         body: 'Call status: open',
       },
     },
@@ -34,7 +34,7 @@ module.exports = {
       name: 'close',
       label: 'Closed',
       context: {
-        variant: 'close',
+        status: 'close',
         body: 'Call status: closed',
       },
     },
