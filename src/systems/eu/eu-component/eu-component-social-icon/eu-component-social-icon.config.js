@@ -1,3 +1,56 @@
+const arto = require('@ecl/generic-component-social-icon/data/demo--arto');
+const bebo = require('@ecl/generic-component-social-icon/data/demo--bebo');
+const bitly = require('@ecl/generic-component-social-icon/data/demo--bitly');
+// const blinklist = require('@ecl/generic-component-social-icon/data/demo--blinklist');
+// const blog = require('@ecl/generic-component-social-icon/data/demo--blog');
+// const blogger = require('@ecl/generic-component-social-icon/data/demo--blogger');
+// const delicious = require('@ecl/generic-component-social-icon/data/demo--delicious');
+const digg = require('@ecl/generic-component-social-icon/data/demo--digg');
+const diigo = require('@ecl/generic-component-social-icon/data/demo--diigo');
+// const dzone = require('@ecl/generic-component-social-icon/data/demo--dzone');
+// const email = require('@ecl/generic-component-social-icon/data/demo--email');
+// const facebook = require('@ecl/generic-component-social-icon/data/demo--facebook');
+// const flickr = require('@ecl/generic-component-social-icon/data/demo--flickr');
+// const foursquare = require('@ecl/generic-component-social-icon/data/demo--foursquare');
+// const generic = require('@ecl/generic-component-social-icon/data/demo--generic');
+// const google = require('@ecl/generic-component-social-icon/data/demo--google');
+// const gplus = require('@ecl/generic-component-social-icon/data/demo--gplus');
+// const instagram = require('@ecl/generic-component-social-icon/data/demo--instagram');
+// const linkarena = require('@ecl/generic-component-social-icon/data/demo--linkarena');
+// const linkedin = require('@ecl/generic-component-social-icon/data/demo--linkedin');
+// const live = require('@ecl/generic-component-social-icon/data/demo--live');
+// const meneame = require('@ecl/generic-component-social-icon/data/demo--meneame');
+// const misterwong = require('@ecl/generic-component-social-icon/data/demo--misterwong');
+// const myspace = require('@ecl/generic-component-social-icon/data/demo--myspace');
+// const netlog = require('@ecl/generic-component-social-icon/data/demo--netlog');
+// const netvibes = require('@ecl/generic-component-social-icon/data/demo--netvibes');
+// const newsvine = require('@ecl/generic-component-social-icon/data/demo--newsvine');
+// const nujij = require('@ecl/generic-component-social-icon/data/demo--nujij');
+// const pinterest = require('@ecl/generic-component-social-icon/data/demo--pinterest');
+// const pocket = require('@ecl/generic-component-social-icon/data/demo--pocket');
+// const reddit = require('@ecl/generic-component-social-icon/data/demo--reddit');
+// const rss = require('@ecl/generic-component-social-icon/data/demo--rss');
+// const share = require('@ecl/generic-component-social-icon/data/demo--share');
+// const skype = require('@ecl/generic-component-social-icon/data/demo--skype');
+// const slashdot = require('@ecl/generic-component-social-icon/data/demo--slashdot');
+// const sonico = require('@ecl/generic-component-social-icon/data/demo--sonico');
+// const spotify = require('@ecl/generic-component-social-icon/data/demo--spotify');
+// const storify = require('@ecl/generic-component-social-icon/data/demo--storify');
+// const studivz = require('@ecl/generic-component-social-icon/data/demo--studivz');
+// const stumbleupon = require('@ecl/generic-component-social-icon/data/demo--stumbleupon');
+// const technorati = require('@ecl/generic-component-social-icon/data/demo--technorati');
+// const tuenti = require('@ecl/generic-component-social-icon/data/demo--tuenti');
+// const tumblr = require('@ecl/generic-component-social-icon/data/demo--tumblr');
+// const twitter = require('@ecl/generic-component-social-icon/data/demo--twitter');
+// const viadeo = require('@ecl/generic-component-social-icon/data/demo--viadeo');
+// const vine = require('@ecl/generic-component-social-icon/data/demo--vine');
+// const wordpress = require('@ecl/generic-component-social-icon/data/demo--wordpress');
+// const wykop = require('@ecl/generic-component-social-icon/data/demo--wykop');
+// const xerpi = require('@ecl/generic-component-social-icon/data/demo--xerpi');
+// const yammer = require('@ecl/generic-component-social-icon/data/demo--yammer');
+// const youtube = require('@ecl/generic-component-social-icon/data/demo--youtube');
+// const print = require('@ecl/generic-component-social-icon/data/demo--print');
+
 module.exports = {
   title: 'Social icons',
   label: 'Social icons',
@@ -36,26 +89,17 @@ module.exports = {
     {
       name: 'arto',
       label: 'Arto',
-      context: {
-        variant: 'arto',
-        label: 'Arto',
-      },
+      context: arto,
     },
     {
       name: 'bebo',
       label: 'Bebo',
-      context: {
-        variant: 'bebo',
-        label: 'Bebo',
-      },
+      context: bebo,
     },
     {
       name: 'bitly',
       label: 'Bitly',
-      context: {
-        variant: 'bitly',
-        label: 'Bitly',
-      },
+      context: bitly,
     },
     {
       name: 'blinklist',
@@ -92,18 +136,12 @@ module.exports = {
     {
       name: 'digg',
       label: 'Digg',
-      context: {
-        variant: 'digg',
-        label: 'Digg',
-      },
+      context: digg,
     },
     {
       name: 'diigo',
       label: 'Diigo',
-      context: {
-        variant: 'diigo',
-        label: 'Diigo',
-      },
+      context: diigo,
     },
     {
       name: 'dzone',
@@ -367,14 +405,6 @@ module.exports = {
       context: {
         variant: 'tuenti',
         label: 'Tuenti',
-      },
-    },
-    {
-      name: 'tumblr',
-      label: 'Tumblr',
-      context: {
-        variant: 'tumblr',
-        label: 'Tumblr',
       },
     },
     {

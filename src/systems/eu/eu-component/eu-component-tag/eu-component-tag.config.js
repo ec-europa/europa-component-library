@@ -1,6 +1,6 @@
-const contextDefault = require('@ecl/generic-component-tag/data/data-default.config');
-const contextFacet = require('@ecl/generic-component-tag/data/data-facet.config');
-const contextFacetClose = require('@ecl/generic-component-tag/data/data-facet-close.config');
+const contextDefault = require('@ecl/generic-component-tag/data/data--default');
+const contextFacet = require('@ecl/generic-component-tag/data/data--facet');
+const contextFacetClose = require('@ecl/generic-component-tag/data/data--facet-close');
 
 module.exports = {
   title: 'Tags',

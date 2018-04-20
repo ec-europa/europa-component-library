@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-timeline/data/data.config');
+const context = require('@ecl/generic-component-timeline/data/data');
 
 module.exports = {
   title: 'Timelines',
