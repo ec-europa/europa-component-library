@@ -1,27 +1,33 @@
 {#
-  - title (string): the title of the navigation (default: 'Navigation')
-  - variant (string): the variant. Can be 'default' or 'tabs' (default: 'default')
-  - links (array): [
-    - "href" (string): target of the link
-    - "label" (string): label of the link
-    - "is_active" (boolean): set active link
-  ]
-  - "extra_classes" (string): extra CSS classes to be added
-  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "title" (string) (default: 'Navigation'): for screen readers
+    - "display" (string) (default: 'default'): can be 'default' or 'tabs'
+    - "links" (array) (default: []): collection of @ecl/generic-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
 {# Internal properties #}
 
+{% set _title = title|default('Navigation') %}
+{% set _display = display|default('default') %}
+{% set _links = links|default([]) %}
 {% set _css_class = 'ecl-navigation-list-wrapper' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined %}
+{% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
@@ -29,17 +35,18 @@
 
 {# Print the result #}
 
-<nav class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-  <h2 class="ecl-u-sr-only">{{ title|default('Navigation') }}</h2>
-  <ul class="ecl-navigation-list ecl-navigation-list--{{ variant|default('default') }}">
-    {% for link in links %}
-      {% set _active_class = link.is_active is defined and link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
-      <li class="ecl-navigation-list__item">
-        {% include '@ecl/generic-component-link' with {
-          'extra_classes': 'ecl-navigation-list__link' ~ _active_class,
-          }|merge(link|default({}))
-        %}
-      </li>
-    {% endfor %}
-  </ul>
-</nav>
+{% if _links is not empty and _links is iterable %}
+  <nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    <h2 class="ecl-u-sr-only">{{ _title }}</h2>
+    <ul class="ecl-navigation-list ecl-navigation-list--{{ _display }}">
+      {% for _link in _links %}
+        {% set _active_class = _link.is_active is defined and _link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
+        <li class="ecl-navigation-list__item">
+          {% include '@ecl/generic-component-link' with {
+            'extra_classes': 'ecl-navigation-list__link' ~ _active_class,
+          }|merge(_link|default({})) only %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}
