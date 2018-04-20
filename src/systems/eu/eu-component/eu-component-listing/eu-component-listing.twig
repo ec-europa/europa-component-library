@@ -1,40 +1,21 @@
 {#
-  Common parameters:
-    - "variant" (string): can be empty, 'date', date-2 (default: empty)
-    - "items" (array): array of ecl-list-items
-    - "extra_classes" (string): extra CSS classes to be added
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "variant" (string) (default: ''): can be '', 'two-columns', 'three-columns'
+    - "items" (array) (default: []): collection of ecl-list-item
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{# Internal properties #}
-
-{% set _css_class = 'ecl-listing' %}
-{% set _extra_attributes = '' %}
-
-{# Internal logic - Process properties #}
-
-{% if variant is defined and variant is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-listing--' ~ variant %}
-{% endif %}
-
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined and extra_attributes is not empty %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
-
-{# Print the result #}
-
-<ul class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-
-{% for item in items %}
-
-  {% include '@ecl/eu-component-list-item' with item %}
-
-{% endfor %}
-
-</ul>
+{% include '@ecl/generic-component-listing' with {
+  'variant': variant|default(''),
+  'items': items|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'eu'
+} only %}
