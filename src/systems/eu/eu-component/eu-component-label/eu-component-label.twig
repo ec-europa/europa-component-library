@@ -12,4 +12,9 @@
       ]
 #}
 
-{% include '@ecl/generic-component-label' %}
+{% include '@ecl/generic-component-label' with {
+  'status': status|default('upcoming'),
+  'body': body|default(''),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}

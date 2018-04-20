@@ -72,10 +72,10 @@
                   {% endif %}
                   {% include '@ecl/eu-component-button' with {
                     'type': 'link',
-                    'label': _lang.label ~ (_lang.isActive ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
+                    'label': _lang.label ~ (_lang.is_active ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
                     'href': _lang.href,
                     'is_block': true,
-                    'extra_classes': 'ecl-language-list__button' ~ (_lang.isActive ? ' ecl-language-list__button--active'),
+                    'extra_classes': 'ecl-language-list__button' ~ (_lang.is_active ? ' ecl-language-list__button--active'),
                     'extra_attributes': [
                       { 'name': 'lang', 'value': _lang.lang },
                       { 'name': 'hreflang', 'value': _lang.hreflang },

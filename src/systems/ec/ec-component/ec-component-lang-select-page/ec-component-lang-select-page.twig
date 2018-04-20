@@ -22,4 +22,12 @@
       ]
 #}
 
-{% include '@ecl/generic-component-lang-select-page' %}
+{% include '@ecl/generic-component-lang-select-page' with {
+  'unavailable': unavailable|default('English'),
+  'current': current|default(''),
+  'is_primary': is_primary|default(false),
+  'dropdown_label': dropdown_label|default(''),
+  'options': options|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}

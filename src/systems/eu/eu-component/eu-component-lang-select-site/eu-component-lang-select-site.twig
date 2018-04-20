@@ -13,4 +13,10 @@
       ]
 #}
 
-{% include '@ecl/generic-component-lang-select-site' %}
+{% include '@ecl/generic-component-lang-select-site' with {
+  'language': language|default('English'),
+  'code': code|default('en'),
+  'link': link|default('#'),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}
