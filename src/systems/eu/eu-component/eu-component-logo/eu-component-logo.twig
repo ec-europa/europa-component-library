@@ -1,1 +1,22 @@
-{% include '@ecl/generic-component-logo' %}
+{#
+  Parameters:
+    - "type" (string) (default: 'right'): "" or "right"
+    - "title" (string) (default: 'European Union')
+    - "href" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-logo' with {
+  'type': type|default('right'),
+  'title': title|default('European Union'),
+  'href': href|default(''),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}
