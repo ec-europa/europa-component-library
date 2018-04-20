@@ -39,7 +39,7 @@
   {% if _title is not empty %}
     <div class="ecl-link-block__title">{{ _title }}</div>
   {% endif %}
-  {% if _links is not empty %}
+  {% if _links is not empty and _links is iterable %}
     <ul class="ecl-link-block__list">
       {% for _link in _links %}
         <li class="ecl-link-block__item">
