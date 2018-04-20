@@ -1,46 +1,21 @@
 {#
-  - "title" (string): optional title of the link block (default: '')
-  - "links" (array): [
-    "href" (string): target of the link
-    "label" (string): label of the link
-  ]
-  - "extra_classes" (string): extra CSS classes to be added
-  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "title" (string) (default: ''): optional title of the link block
+    - "links" (array) (default: []): collection of standalone @ecl/ec-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{% set title = title|default('') %}
-
-{# Internal properties #}
-
-{% set _css_class = 'ecl-link-block' %}
-{% set _extra_attributes = '' %}
-
-{# Internal logic - Process properties #}
-
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
-
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-  {% if title != '' %}
-    <div class="ecl-link-block__title">{{ title }}</div>
-  {% endif %}
-
-  <ul class="ecl-link-block__list">
-    {% for link in links %}
-    <li class="ecl-link-block__item">
-      {% include '@ecl/ec-component-link' with {
-        'extra_classes': 'ecl-link-block__link',
-        'variant': 'standalone',
-        }|merge(link|default({}))
-      %}
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+{% include '@ecl/generic-component-link-block' with {
+  'title': title|default(''),
+  'links': links|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}
