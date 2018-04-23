@@ -19,17 +19,17 @@
 
 {# Internal properties #}
 
-{% set _css_class = 'ecl-icon-social' %}
+{% set _css_class = 'ecl-social-icon' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if link is defined and link.variant is defined and link.variant is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-icon-social--' ~ link.variant %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-social-icon--' ~ link.variant %}
 {% endif %}
 
 {% if variant is defined and variant is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-icon-social--' ~ variant %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-social-icon--' ~ variant %}
 {% endif %}
 
 {% if extra_classes is defined %}
