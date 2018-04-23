@@ -31,7 +31,6 @@ Also, following script has to be added to your page:
 
 ```js
 document.addEventListener('DOMContentLoaded', function() {
-  ECL.initExpandables();
   ECL.navigationInpages();
 });
 ```

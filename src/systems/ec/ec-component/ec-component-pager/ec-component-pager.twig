@@ -29,8 +29,8 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_class %}
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
 {% endif %}
 
 {% if extra_attributes is defined %}
@@ -39,7 +39,7 @@
   {% endfor %}
 {% endif %}
 
-{# Print the result  #}
+{# Print the result #}
 
 <nav class="ecl-pager__wrapper" aria-label="pagination">
   <ul class="{{ _css_class }}" {{ _extra_attributes|raw }}>

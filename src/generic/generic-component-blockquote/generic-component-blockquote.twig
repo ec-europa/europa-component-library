@@ -1,31 +1,41 @@
 {#
-  Accepts:
-    - "body" (string, default: "")
-    - "author" (string, optional)
-    - "extra_classes" (string): extra CSS classes to be added
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "body" (string) (default: '')
+    - "author" (string) (optional)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
 {# Internal properties #}
 
-{% set _css_classes = 'ecl-blockquote' %}
+{% set _css_class = 'ecl-blockquote' %}
 {% set _extra_attributes = '' %}
+{% set _body = body|default('') %}
+{% set _author = author|default('') %}
 
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined %}
-  {% set _css_classes = _css_classes ~ ' ' ~ extra_classes %}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-<blockquote class="{{ _css_classes }}"{{ _extra_attributes|raw }}>
-  <p class="ecl-paragraph ecl-blockquote__body">{{ body }}</p>
-  {% if author is defined and author is not empty %}
-  <footer class="ecl-blockquote__author">―&thinsp;<cite>{{ author }}</cite></footer>
+{# Print the result #}
+
+<blockquote class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <p class="ecl-paragraph ecl-blockquote__body">{{ _body }}</p>
+  {% if _author is not empty %}
+  <footer class="ecl-blockquote__author">―&thinsp;<cite>{{ _author }}</cite></footer>
   {% endif %}
 </blockquote>

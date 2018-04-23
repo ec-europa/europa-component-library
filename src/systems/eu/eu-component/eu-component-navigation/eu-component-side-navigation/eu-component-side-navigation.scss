@@ -3,15 +3,14 @@
  * @define side-navigation
  */
 
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-component-side-navigation/generic-component-side-navigation';
 
-@include side-navigation(
-  $bg: map-get($ecl-colors, 'grey-10'),
-  $group-bg: map-get($ecl-colors, 'grey-5'),
-  $toggle-btn-bg: map-get($ecl-colors, 'blue-75'),
-  $toggle-btn-color: #fff,
-  $separator: map-get($ecl-colors, 'grey-50'),
-  $group-separator: map-get($ecl-colors, 'grey-25'),
-  $link-color: map-get($ecl-colors, 'grey-100'),
-  $link-active-color: map-get($ecl-colors, 'blue-100')
-);
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-expandable'));
+
+// Use generic mixin
+@include exports('eu-component-side-navigation') {
+  @include ecl-side-navigation();
+}

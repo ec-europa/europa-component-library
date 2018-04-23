@@ -2,16 +2,15 @@
 
 ## Why and how to use this component
 
-Allows the user to see an highlighted element or to indicate a status to the
-user.
+Allows the user to see an highlighted element or to indicate a status to the user.
 
 ### Label types
 
-| Status           | Variant  | Colour        |
-| ---------------- | -------- | ------------- |
-| Upcoming         | upcoming | EC yellow 25  |
-| Open / Highlight | open     | EC yellow 100 |
-| Closed           | close    | EC grey 15    |
+| Status           | Colour        |
+| ---------------- | ------------- |
+| Upcoming         | EC yellow 25  |
+| Open / Highlight | EC yellow 100 |
+| Closed           | EC grey 15    |
 
 ## When to use this component
 

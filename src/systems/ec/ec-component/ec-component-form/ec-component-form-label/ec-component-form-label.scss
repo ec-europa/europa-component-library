@@ -3,12 +3,11 @@
  * @define form-label
  */
 
-.ecl-form-label {
-  color: $ecl-color-shade;
-  display: block;
-  font-size: map-get($ecl-font-size, 's');
-  font-weight: bold;
-  margin-bottom: 0;
-  padding: 0;
-  text-align: left;
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-label/generic-component-form-label';
+
+// Use generic mixin
+@include exports('ec-component-form-label') {
+  @include ecl-form-label();
 }

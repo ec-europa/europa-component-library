@@ -3,26 +3,11 @@
  * @define skip-link
  */
 
-.ecl-skip-link__wrapper {
-  left: map-get($ecl-spacing, 'l');
-  margin: 0;
-  position: fixed;
-  top: map-get($ecl-spacing, 'l');
-  z-index: map-get($ecl-z-index, 'max');
-}
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-skip-link/generic-component-skip-link';
 
-.ecl-skip-link {
-  @include ecl-u-sr-only();
-  @include ecl-u-sr-only-focusable();
-
-  background-color: map-get($ecl-colors, 'blue-75');
-  color: #fff;
-  outline: 4px solid map-get($ecl-colors, 'yellow-100');
-  outline-offset: 0;
-  padding: map-get($ecl-spacing, 'xxs');
-
-  &:focus,
-  &:active {
-    white-space: nowrap;
-  }
+// Use generic mixin
+@include exports('eu-component-skip-link') {
+  @include ecl-skip-link();
 }

@@ -3,36 +3,11 @@
  * @define field
  */
 
-.ecl-field {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  width: 100%;
-}
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-field/generic-component-field';
 
-.ecl-field__label {
-  font-size: map-get($ecl-font-size, 'xs');
-  font-weight: 600;
-  margin-bottom: map-get($ecl-spacing, 'xxxs');
-  width: 20%;
-}
-
-.ecl-field + .ecl-field {
-  margin-top: map-get($ecl-spacing, 'xxs');
-}
-
-@include ecl-media-breakpoint-up(md) {
-  .ecl-field {
-    align-items: center;
-    flex-direction: row;
-  }
-
-  .ecl-field__label {
-    margin-bottom: 0;
-  }
-
-  .ecl-field--aligned .ecl-field__body {
-    margin-left: 20%;
-  }
+// Use generic mixin
+@include exports('ec-component-field') {
+  @include ecl-field();
 }

@@ -32,15 +32,15 @@
   {% endfor %}
 {% endif %}
 
-{# Print result #}
+{# Print the result #}
 <form class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <label class="ecl-search-form__textfield-wrapper">
     <span class="ecl-u-sr-only">{{ _aria_label }}</span>
     {% include '@ecl/generic-component-form-text-input' with {
       'id': _input.id,
       'type': 'search',
-      'extraClass': 'ecl-search-form__textfield',
-      'extraAttributes': _input.extra_attributes
+      'extra_classes': 'ecl-search-form__textfield',
+      'extra_attributes': _input.extra_attributes
     } %}
   </label>
   {% include '@ecl/generic-component-button' with {

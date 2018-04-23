@@ -1,58 +1,59 @@
 {#
-  Accepts:
-    - "id" (string): textarea id (optional, default: default-id)
-    - "name" (string): textarea name (mandatory, default: default-name)
-    - "rows" (int): number of rows (optional, default: 4)
-    - "label" (string): label text (optional, default: '')
-    - "isDisabled" (boolean): is disabled (optional, default: false)
-    - "hasError" (boolean): has error (optional, default: false)
-    - "extraClass" (string): extra CSS classes (optional, default: '')
-    - "extraAttributes" (string): extra attributes (optional, default: '')
+  Parameters:
+    - "id" (string) (default: 'default-id')
+    - "name" (string) (default: 'default-name')
+    - "rows" (integer) (default: 4): number of rows
+    - "is_disabled" (boolean) (default: false)
+    - "has_error" (boolean) (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
-
-{% set id = id|default('default-id') %}
-{% set name = name|default('default-name') %}
-{% set rows = rows|default(4) %}
-{% set label = label|default('') %}
 
 {# Internal properties #}
 
-{% set _cssClass = 'ecl-textarea' %}
-{% set _extraAttributes = '' %}
+{% set _id = id|default('default-id') %}
+{% set _name = name|default('default-name') %}
+{% set _has_error = has_error|default(false) %}
+{% set _is_disabled = is_disabled|default(false) %}
+{% set _rows = rows|default(4) %}
+{% set _css_class = 'ecl-textarea' %}
+{% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if hasError is defined and hasError == true %}
-  {% set _cssClass = _cssClass ~ ' ecl-textarea--has-error' %}
+{% if _has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-textarea--has-error' %}
 {% endif %}
 
-{% if extraClass is defined %}
-  {% set _cssClass = _cssClass ~ ' ' ~ extraClass %}
+{% if _is_disabled == true %}
+  {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
 {% endif %}
 
-{% if isDisabled is defined and isDisabled == true %}
-  {% set _extraAttributes = _extraAttributes ~ ' disabled' %}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extraAttributes is defined %}
-  {% for attr in extraAttributes %}
-    {% set _extraAttributes = _extraAttributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-{# Print the result  #}
+{# Print the result #}
 
-{% if label is defined and label != '' %}
-<label for="{{ id }}" id="{{ id }}_label" aria-label="{{ id }}">{{ label }}</label>
-{% endif %}
 <textarea
-  name="{{ name }}"
-  id="{{ id }}"
-  rows="{{ rows }}"
-  class="{{ _cssClass }}"
+  name="{{ _name }}"
+  id="{{ _id }}"
+  rows="{{ _rows }}"
+  class="{{ _css_class }}"
   role="textbox"
   aria-multiline="true"
-  aria-labelledby="{{ id }}_label"
-  {{ _extraAttributes }}
+  {{ _extra_attributes|raw }}
 >
 </textarea>

@@ -8,7 +8,7 @@ const twigAdapter = require('@ecl/fractal-twig')({ handlePrefix: '@ecl/' });
 const projectRoot = path.resolve(__dirname, '../..');
 const presetPath = path.resolve(
   projectRoot,
-  'node_modules/@ecl/eu-preset-full'
+  'node_modules/@ecl/eu-preset-website'
 );
 const staticPath = path.resolve(__dirname, 'static');
 
@@ -16,7 +16,7 @@ const staticPath = path.resolve(__dirname, 'static');
 if (process.env.NODE_ENV !== 'production') {
   fs.symlinkSync(
     path.resolve(presetPath, 'build'),
-    path.resolve(staticPath, 'eu-preset-full')
+    path.resolve(staticPath, 'eu-preset-website')
   );
 }
 

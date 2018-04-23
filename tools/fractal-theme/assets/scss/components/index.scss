@@ -38,6 +38,21 @@
   * + h3 {
     margin-top: map-get($ecl-spacing, 'l');
   }
+
+  * + h4 {
+    margin-top: map-get($ecl-spacing, 'm');
+  }
+
+  // Code
+  code {
+    background-color: map-get($ecl-colors, 'grey-5');
+  }
+
+  pre {
+    background-color: map-get($ecl-colors, 'grey-5');
+    padding: map-get($ecl-spacing, 'xs');
+    white-space: pre-wrap;
+  }
 }
 
 .ecl-navigation-menu__group {

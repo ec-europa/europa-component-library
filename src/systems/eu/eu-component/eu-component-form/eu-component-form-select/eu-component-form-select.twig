@@ -1,56 +1,70 @@
 {#
-  - "id" (string): id of the select list (default: 'default-id')
-  - "name" (string): name of the select list (default: 'default-name')
-  - "options" (array): [
-    "value" (string): value of the option
-    "label" (string): label of the option
-  ]
-  - "extra_classes" (string): extra CSS classes to be added
-  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
-
-  Options can be defined as a block too.
+  Parameters:
+    - "id" (string) (default: 'default-id'): id of the select list
+    - "name" (string) (default: 'default-name'): name of the select list
+    - "has_error" (boolean) (default: false)
+    - "is_disabled" (boolean) (default: false)
+    - "options" (array) (default: []): select options, collection of objects [
+        {
+          "value" (string): value of the option
+          "label" (string): label of the option
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "options"
 #}
-
-{% set id = id|default('default-id') %}
-{% set name = name|default('default-name') %}
 
 {# Internal properties #}
 
+{% set _id = id|default('default-id') %}
+{% set _name = name|default('default-name') %}
+{% set _has_error = has_error|default(false) %}
+{% set _is_disabled = is_disabled|default(false) %}
+{% set _options = options|default([]) %}
 {% set _css_class = 'ecl-select' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if has_error is defined and has_error == true %}
+{% if _has_error == true %}
   {% set _css_class = _css_class ~ ' ecl-select--has-error' %}
 {% endif %}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if is_disabled is defined and is_disabled == true %}
+{% if _is_disabled == true %}
   {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-{# Print the result  #}
+{# Print the result #}
 
 {% spaceless %}
 <select
   class="{{ _css_class }}"
-  id="{{ id }}"
-  name="{{ name }}"
+  id="{{ _id }}"
+  name="{{ _name }}"
   {{ _extra_attributes|raw }}
 >
 {% block options %}
-  {% for option in options %}
-    <option value="{{ option.value }}">{{ option.label }}</option>
+  {% for _option in _options %}
+    <option value="{{ _option.value }}">{{ _option.label }}</option>
   {% endfor %}
 {% endblock %}
 </select>

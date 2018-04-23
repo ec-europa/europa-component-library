@@ -7,10 +7,10 @@
   "description": "ECL EU Styleguide based on Fractal",
   "scripts": {
     "build:preset":
-      "cd ../../src/systems/eu/eu-preset/eu-preset-full && npm run build",
-    "clean": "rimraf ./static/eu-preset-full",
+      "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run build",
+    "clean": "rimraf ./static/eu-preset-website",
     "copy:preset":
-      "ncp ../../src/systems/eu/eu-preset/eu-preset-full/dist ./static/eu-preset-full",
+      "ncp ../../src/systems/eu/eu-preset/eu-preset-website/dist ./static/eu-preset-website",
     "dist":
       "npm run clean && npm run copy:preset && cross-env NODE_ENV=production fractal build",
     "postinstall":
@@ -18,10 +18,10 @@
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build:preset --parallel serve watch:preset",
     "watch:preset":
-      "cd ../../src/systems/eu/eu-preset/eu-preset-full && npm run watch"
+      "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run watch"
   },
   "devDependencies": {
-    "@ecl/eu-preset-full": "^0.0.1",
+    "@ecl/eu-preset-website": "^0.0.1",
     "@ecl/fractal-theme": "^0.0.1",
     "@ecl/fractal-twig": "^0.0.1",
     "@frctl/fractal": "1.1.7",

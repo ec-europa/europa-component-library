@@ -23,20 +23,20 @@
   {% endfor %}
 {% endif %}
 
-{# Print result #}
+{# Print the result #}
 <header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
 
   <div class="{% if lang is defined %}language-{{ lang }} {% endif %}ecl-container ecl-site-header__banner">
     {% include '@ecl/eu-component-logo' with {
-      'to': 'https://europa.eu',
+      'href': 'https://europa.eu',
       'title': 'Home - European Union',
       'type': 'right',
-      'extra_class': 'ecl-site-header__logo'
+      'extra_classes': 'ecl-site-header__logo'
     } only %}
 
     {% if _languages is not empty %}
     {% include '@ecl/eu-component-language-list' with {
-      'extra_class': 'ecl-site-header__language-list',
+      'extra_classes': 'ecl-site-header__language-list',
       'languages': _languages,
       'variant': 'overlay',
       'messages': {

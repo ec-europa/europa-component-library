@@ -15,11 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Preview Layout</title>
     <script>document.documentElement.classList.remove('no-js');</script>
-    <link rel="stylesheet" href="{{ '/eu-preset-full/styles/europa.css' | path }}">
+    <link rel="stylesheet" href="{{ '/eu-preset-website/styles/ecl-eu-preset-website.css' | path }}">
   </head>
   <body class="{{ bodyClass }}">
     {{ yield }}
-    <script src="{{ '/eu-preset-full/scripts/europa.js' | path }}"></script>
+    <script src="{{ '/eu-preset-website/scripts/ecl-eu-preset-website.js' | path }}"></script>
     {% if _target.context._demo and _target.context._demo.scripts %}
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}

@@ -1,0 +1,43 @@
+{
+  "name": "@ecl/eu-preset-webtools",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "0.0.1",
+  "description": "Europa Component Library webtools preset",
+  "style": "eu-preset-webtools.scss",
+  "module": "eu-preset-webtools.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:copy": "ecl-builder copy",
+    "build:scripts": "ecl-builder scripts",
+    "build:styles": "ecl-builder styles",
+    "build": "rimraf build && run-p build:* -ln",
+    "clean": "rimraf build dist",
+    "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln"
+  },
+  "dependencies": {
+    "@ecl/eu-component-button": "^0.0.1",
+    "@ecl/eu-component-expandable": "^0.0.1",
+    "@ecl/eu-component-global-navigation": "^0.0.1",
+    "@ecl/eu-component-link": "^0.0.1",
+    "@ecl/eu-preset-base": "^0.0.1",
+    "@ecl/eu-utility-aria": "^0.0.1",
+    "@ecl/eu-utility-display": "^0.0.1",
+    "@ecl/eu-utility-text": "^0.0.1"
+  },
+  "devDependencies": {
+    "@ecl/builder": "0.2.0",
+    "cross-env": "5.1.4",
+    "npm-run-all": "4.1.2",
+    "rimraf": "2.6.2"
+  },
+  "keywords": ["ecl", "europa-component-library", "design-system"],
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "sass": "eu-preset-webtools.scss",
+  "main": "eu-preset-webtools.js"
+}

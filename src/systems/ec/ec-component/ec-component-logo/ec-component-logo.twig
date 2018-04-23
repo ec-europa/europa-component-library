@@ -1,21 +1,22 @@
-{% set _class = "" %}
+{#
+  Parameters:
+    - "type" (string) (default: ''): "", "below", "right"
+    - "title" (string) (default: 'European Commission')
+    - "href" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
 
-{% if type is defined %}
-  {% if type == "below" %}
-    {% set _class = " ecl-logo--logotypebelow" %}
-  {% elseif type == "right" %}
-    {% set _class = " ecl-logo--logotype" %}
-  {% endif %}
-{% endif %}
-
-{% if extra_class %}
-  {% set _class = _class ~ " " ~ extra_class %}
-{% endif %}
-
-{% if to is defined %}
-<a href="{{ to }}" class="ecl-logo{{ _class }}" title="{{ title }}">
-  <span class="ecl-u-sr-only">{{ title }}</span>
-</a>
-{% else %}
-<span class="ecl-logo{{ _class }}" role="img" aria-label="{{ title }}"></span>
-{% endif %}
+{% include '@ecl/generic-component-logo' with {
+  'type': type|default(''),
+  'title': title|default('European Commission'),
+  'href': href|default(''),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}

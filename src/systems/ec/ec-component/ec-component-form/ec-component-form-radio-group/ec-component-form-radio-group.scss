@@ -3,7 +3,11 @@
  * @define radio-group
  */
 
-.ecl-radio-group {
-  margin: 0;
-  padding: 0;
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-radio-group/generic-component-form-radio-group';
+
+// Use generic mixin
+@include exports('ec-component-form-radio-group') {
+  @include ecl-radio-group();
 }

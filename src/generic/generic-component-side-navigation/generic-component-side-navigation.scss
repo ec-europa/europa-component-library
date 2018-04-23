@@ -2,15 +2,19 @@
  * ECL Side menus
  * @define side-navigation
  */
-@mixin side-navigation(
-  $bg,
-  $group-bg,
-  $toggle-btn-bg,
-  $toggle-btn-color,
-  $separator,
-  $group-separator,
-  $link-color,
-  $link-active-color
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-side-navigation(
+  $bg: map-get($ecl-colors, 'grey-10'),
+  $group-bg: map-get($ecl-colors, 'grey-5'),
+  $toggle-btn-bg: map-get($ecl-colors, 'blue-75'),
+  $toggle-btn-color: #fff,
+  $separator: map-get($ecl-colors, 'grey-50'),
+  $group-separator: map-get($ecl-colors, 'grey-25'),
+  $link-color: map-get($ecl-colors, 'grey-100'),
+  $link-active-color: map-get($ecl-colors, 'blue-100')
 ) {
   .ecl-side-navigation {
     background-color: $bg;
@@ -243,7 +247,7 @@
       transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
-  /* stylelint-disable-next-line */
+  /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(md) {
     .ecl-side-navigation__toggle {
       display: none;

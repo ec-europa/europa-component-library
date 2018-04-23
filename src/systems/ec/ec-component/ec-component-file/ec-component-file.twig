@@ -1,8 +1,15 @@
 {#
-  Common parameters:
+  Parameters:
     - "variant" (string): can be 'translations', 'links', 'images', 'videos' or empty
-    - "extra_classes" (string): extra CSS classes to be added
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
 
   Default parameters:
     - "title" (string): title of the file (default: empty)

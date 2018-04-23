@@ -1,13 +1,18 @@
 {#
-  Accepts:
-    - "id" (string): textarea id (optional, default: default-id)
-    - "name" (string): textarea name (mandatory, default: default-name)
-    - "rows" (int): number of rows (optional, default: 4)
-    - "label" (string): label text (optional, default: '')
-    - "isDisabled" (boolean): is disabled (optional, default: false)
-    - "hasError" (boolean): has error (optional, default: false)
-    - "extraClass" (string): extra CSS classes (optional, default: '')
-    - "extraAttributes" (string): extra attributes (optional, default: '')
+  Parameters:
+    - "id" (string) (default: 'default-id')
+    - "name" (string) (default: 'default-name')
+    - "rows" (integer) (default: 4): number of rows
+    - "is_disabled" (boolean) (default: false)
+    - "has_error" (boolean) (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
 {% include '@ecl/generic-component-form-textarea' %}

@@ -1,61 +1,18 @@
 {#
-  - "label" (string): label displayed before the list (default: '')
-  - "items" (array): [{
-    "href" (string): target of the link (default: '#')
-    "label" (string): label of the link (default: '')
-  }]
-  - "limit" (integer): max number of items to display (0 = display all) (default: 5)
-  - "more_label": label of the "see more items" button (default: "More")
-  - "extra_classes" (string): extra CSS classes to be added
-  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "label" (string)  (default: ''): label displayed before the list
+    - "items" (array): array of contexts of "@ecl/ec-component-link"
+    - "limit" (integer) (default: 5): max number of items to display (0 = display all)
+    - "more_label" (string) (default: "More"): label of the "see more items" button
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
 #}
 
-{% set label = label|default('') %}
-{% set limit = limit|default(4) %}
-{% set more_label = more_label|default('More') %}
-
-{# Internal properties #}
-
-{% set _css_class = 'ecl-context-nav' %}
-{% set _extra_attributes = '' %}
-
-{# Internal logic - Process properties #}
-
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_Class %}
-{% endif %}
-
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
-  {% endfor %}
-{% endif %}
-
-{# Print the result  #}
-
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-  <span class="ecl-context-nav__label">{{ label }}</span>
-  {% if items is defined and items is iterable %}
-  <ul class="ecl-context-nav__list">
-    {% for item in items %}
-    <li class="ecl-context-nav__item{{ limit > 0 and loop.index > limit ? ' ecl-context-nav__item--over-limit' : '' }}">
-      {% include '@ecl/ec-component-link' with {
-        'variant': 'standalone',
-        }|merge(item|default({}))
-      %}
-    </li>
-    {% endfor %}
-
-    {% if items|length > limit %}
-    <li class="ecl-context-nav__item ecl-context-nav__more">
-      {% include '@ecl/ec-component-button' with {
-        'modifier': 'none',
-        'label': more_label,
-        'extra_classes': 'ecl-context-nav__button ecl-link ecl-link--standalone',
-        'icon': 'caret-right'
-      } %}
-    </li>
-    {% endif %}
-  </ul>
-  {% endif %}
-</div>
+{% include '@ecl/generic-component-context-nav' with { system: 'ec' } %}

@@ -3,6 +3,11 @@
  * @define tabs
  */
 
-.ecl-tabs__tabpanel[aria-hidden='true'] {
-  display: none;
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-tabs() {
+  .ecl-tabs__tabpanel[aria-hidden='true'] {
+    display: none;
+  }
 }

@@ -48,13 +48,13 @@
   {% endfor %}
 {% endif %}
 
-{# Print result #}
+{# Print the result #}
 <header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
 
   {% if user_menu is defined and user_menu is iterable %}
   <div class="ecl-container">
     {% include '@ecl/generic-component-navigation-list' with {
-      variant: 'small',
+      display: 'small',
       extra_classes: 'ecl-u-f-r'
     }|merge(user_menu|default({})) %}
   </div>
@@ -68,13 +68,13 @@
 
   <div class="ecl-container ecl-site-header__banner">
     {% include '@ecl/generic-component-logo' with {
-      'to': 'https://ec.europa.eu',
+      'href': 'https://ec.europa.eu',
       'title': 'Home - European Commission',
       'type': 'right',
-      'extra_class': 'ecl-site-header__logo'
+      'extra_classes': 'ecl-site-header__logo'
     } only %}
     {% include '@ecl/generic-component-language-list' with {
-      'extra_class': 'ecl-site-header__language-list',
+      'extra_classes': 'ecl-site-header__language-list',
       'languages': _languages,
       'variant': 'overlay',
       'messages': {

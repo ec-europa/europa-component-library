@@ -1,58 +1,18 @@
 {#
-  - "variant" (string); display variant (default: '')
-  - "week_day" (string); day(s) of the week of the event (default: '')
-  - "day" (string); day number(s) of the event (default: '')
-  - "month" (string); month(s) of the event (default: '')
-  - "year" (string); year(s) of the event (default: '')
-  - "extra_classes" (string): extra CSS classes to be added
-  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "variant" (string) (default: ''): display variant
+    - "week_day" (string) (default: ''): day(s) of the week of the event
+    - "day" (string) (default: ''): day number(s) of the event
+    - "month" (string) (default: ''): month(s) of the event
+    - "year" (string) (default: ''): year(s) of the event
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{% set variant = variant|default('') %}
-{% set week_day = week_day|default('') %}
-{% set day = day|default('') %}
-{% set month = month|default('') %}
-{% set year = year|default('') %}
-
-{# Internal properties #}
-
-{% set _css_class = 'ecl-date-block' %}
-{% set _extra_attributes = '' %}
-
-{# Internal logic - Process properties #}
-
-{% if variant != '' %}
-  {% set _css_class = _css_class ~ ' ecl-date-block--' ~ variant %}
-{% endif %}
-
-{% if extra_class is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_Class %}
-{% endif %}
-
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
-  {% endfor %}
-{% endif %}
-
-{# Print the result  #}
-
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-  <div class="ecl-date-block__body">
-    {% if week_day != '' %}
-    <span class="ecl-date-block__week-day">{{ week_day }}</span>
-    {% endif %}
-
-    {% if day != '' %}
-    <span class="ecl-date-block__day">{{ day }}</span>
-    {% endif %}
-
-    {% if month != '' %}
-    <span class="ecl-date-block__month">{{ month }}</span>
-    {% endif %}
-
-    {% if year != '' %}
-    <span class="ecl-date-block__year">{{ year }}</span>
-    {% endif %}
-  </div>
-</div>
+{% include '@ecl/generic-component-date-block' %}

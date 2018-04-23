@@ -3,6 +3,11 @@
 * @define link
 */
 
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-component-link/generic-component-link';
 
-@include ecl-link();
+// Use generic mixin
+@include exports('eu-component-link') {
+  @include ecl-link();
+}

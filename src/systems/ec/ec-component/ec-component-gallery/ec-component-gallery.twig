@@ -1,0 +1,22 @@
+{#
+  Parameters:
+    - "rows" (array) (default: []): rows of gallery items, format [
+        {
+          - "classes" (string): CSS classes to add
+          - "image" (@ecl-images): Image to add in the gallery
+          - "caption" (string): Textual caption for an image
+          - "icon" (string): An icon class building an icon in the item
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-gallery' with { system: 'ec' } %}

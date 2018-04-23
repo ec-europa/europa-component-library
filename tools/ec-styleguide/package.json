@@ -7,10 +7,10 @@
   "description": "ECL EC Styleguide based on Fractal",
   "scripts": {
     "build:preset":
-      "cd ../../src/systems/ec/ec-preset/ec-preset-full && npm run build",
-    "clean": "rimraf ./static/ec-preset-full",
+      "cd ../../src/systems/ec/ec-preset/ec-preset-website && npm run build",
+    "clean": "rimraf ./static/ec-preset-website",
     "copy:preset":
-      "ncp ../../src/systems/ec/ec-preset/ec-preset-full/dist ./static/ec-preset-full",
+      "ncp ../../src/systems/ec/ec-preset/ec-preset-website/dist ./static/ec-preset-website",
     "dist":
       "npm run clean && npm run copy:preset && cross-env NODE_ENV=production fractal build",
     "postinstall":
@@ -18,10 +18,10 @@
     "serve": "fractal start --sync",
     "start": "npm-run-all clean build:preset --parallel serve watch:preset",
     "watch:preset":
-      "cd ../../src/systems/ec/ec-preset/ec-preset-full && npm run watch"
+      "cd ../../src/systems/ec/ec-preset/ec-preset-website && npm run watch"
   },
   "devDependencies": {
-    "@ecl/ec-preset-full": "^0.0.1",
+    "@ecl/ec-preset-website": "^0.0.1",
     "@ecl/fractal-theme": "^0.0.1",
     "@ecl/fractal-twig": "^0.0.1",
     "@frctl/fractal": "1.1.7",
