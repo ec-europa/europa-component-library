@@ -1,3 +1,7 @@
 @import '@ecl/generic-component-table/generic-component-table--editor';
 
-@include ecl-editor-table();
+@import '@ecl/eu-base/eu-base';
+
+@include exports('eu-component-table-editor') {
+  @include ecl-editor-table();
+}
