@@ -3,6 +3,14 @@
  * @define tabs
  */
 
-.ecl-tabs__tabpanel[aria-hidden='true'] {
-  display: none;
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-tab/generic-component-tab';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-navigation-list'));
+
+// Use generic mixin
+@include exports('eu-component-tabs') {
+  @include ecl-tabs();
 }
