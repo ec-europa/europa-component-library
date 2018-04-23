@@ -1,3 +1,10 @@
+const contextDefault = require('@ecl/generic-component-link/data/data--default');
+const contextExternal = require('@ecl/generic-component-link/data/data--external');
+const contextStandalone = require('@ecl/generic-component-link/data/data--standalone');
+const contextInverted = require('@ecl/generic-component-link/data/data--inverted');
+const contextAll = require('@ecl/generic-component-link/data/data--all');
+const contextMore = require('@ecl/generic-component-link/data/data--more');
+
 module.exports = {
   title: 'Links',
   label: 'Links',
@@ -15,56 +22,32 @@ module.exports = {
     {
       name: 'default',
       label: 'Default',
-      context: {
-        href: '../../example.html#',
-        label: 'in-line link',
-      },
+      context: contextDefault,
     },
     {
       name: 'external',
       label: 'External',
-      context: {
-        variant: 'external',
-        href: '../../example.html#',
-        label: 'external link',
-      },
+      context: contextExternal,
     },
     {
       name: 'standalone',
       label: 'Standalone',
-      context: {
-        variant: 'standalone',
-        href: '../../example.html#',
-        label: 'standalone link',
-      },
+      context: contextStandalone,
     },
     {
       name: 'inverted',
       label: 'Inverted',
-      context: {
-        variant: 'inverted',
-        extra_classes: 'ecl-u-bg-shade',
-        href: '../../example.html#',
-        label: 'inverted link',
-      },
+      context: contextInverted,
     },
     {
       name: 'all',
       label: 'All',
-      context: {
-        variant: 'all',
-        href: '../../example.html#',
-        label: 'all link',
-      },
+      context: contextAll,
     },
     {
       name: 'more',
       label: 'More',
-      context: {
-        variant: 'more',
-        href: '../../example.html#',
-        label: 'more link',
-      },
+      context: contextMore,
     },
   ],
 };
