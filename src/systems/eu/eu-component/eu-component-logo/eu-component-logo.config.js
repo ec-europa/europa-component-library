@@ -6,7 +6,7 @@ const variants = languages.map(({ id, name }) => ({
     global: {
       language: id,
     },
-    to: '../../example.html#top',
+    href: '../../example.html#top',
     title: 'Home',
   },
 }));
@@ -23,7 +23,7 @@ module.exports = {
       <!-- Start: @${item.handle} -->\n
       <div class="language-${item.context.global.language}">\n
         <a href="${
-          item.context.to
+          item.context.href
         }" class="ecl-logo ecl-logo--logotype" title="${item.context.title}">
           <span class="ecl-u-sr-only">${item.context.title}</span>
         </a>

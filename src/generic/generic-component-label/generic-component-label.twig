@@ -1,34 +1,40 @@
 {#
-  - "variant" (string): variant of the label (default: '')
-  - "body" (string): content of the label (default: '')
-  - "extra_classes" (string): extra CSS classes to be added
-  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "status" (string) (default: 'upcoming'): one of 'upcoming', 'open', 'close'
+    - "body" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
-
-{% set variant = variant|default('') %}
-{% set body = body|default('') %}
 
 {# Internal properties #}
 
+{% set _status = status|default('upcoming') %}
+{% set _body = body|default('') %}
 {% set _css_class = 'ecl-label' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
-{% if variant != '' %}
-  {% set _css_class = _css_class ~ ' ecl-label--' ~ variant %}
+{% if _status != '' %}
+  {% set _css_class = _css_class ~ ' ecl-label--' ~ _status %}
 {% endif %}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
 
-<span class="{{ _css_class }}" {{ _extra_attributes|raw }}>{{ body }}</span>
+<span class="{{ _css_class }}"{{ _extra_attributes|raw }}>{{ _body }}</span>

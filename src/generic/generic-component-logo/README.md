@@ -3,7 +3,7 @@
 Default EC logo.
 
 ```html
-<a href="https://ec.europa.eu" class="logo" title="European Commission">
+<a href="https://ec.europa.eu" class="ecl-logo" title="European Commission">
   <span class="ecl-u-sr-only">European Commission</span>
 </a>
 ```
@@ -12,7 +12,7 @@ Or using Twig:
 
 ```twig
 {% include '@ecl/generic-component-logo' with {
-  'to': 'https://ec.europa.eu',
+  'href': 'https://ec.europa.eu',
   'title': 'European Commission',
 } %}
 ```
@@ -31,7 +31,7 @@ Or using Twig:
 
 ```twig
 {% include '@ecl/generic-component-logo' with {
-  'to': 'https://ec.europa.eu',
+  'href': 'https://ec.europa.eu',
   'title': 'European Commission',
   'type': 'right',
 } %}
@@ -51,7 +51,7 @@ Or using Twig:
 
 ```twig
 {% include '@ecl/generic-component-logo' with {
-  'to': 'https://ec.europa.eu',
+  'href': 'https://ec.europa.eu',
   'title': 'European Commission',
   'type': 'below',
 } %}
@@ -66,7 +66,7 @@ For example:
 
 ```twig
 {% include '@ecl/generic-component-logo' with {
-  'to': 'https://ec.europa.eu',
+  'href': 'https://ec.europa.eu',
   'title': 'Home - European Commission',
   'type': 'right',
   'extra_classes': 'site-header__logo'
