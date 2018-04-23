@@ -1,67 +1,27 @@
 {#
-  Accepts the following context variables:
-  - variant: (string) Could be: default, basic, highlight
-
-  Variables for `basic` and `default`:
-  - identity: (string) The name of the site, i.e. "Digital single market"
-  - breadcrumb: (array) Array of links for the breadcrumb. Structure: [{'target': '#', 'title': 'lorem ipsum'}]
-
-  Variables for `highlight`:
-  - label: (string) The label of the text box.
-  - highlight: (string) The value of the text box.
-
-  Variables for `default`:
-  - title: (string) Page title.
-  - introduction: (string) The text inside intro area.
-  - metas (array): array of strings; each one correspond to a meta item (default: empty)
+  Parameters:
+    - "identity" (string) (default: ''): name of the site, i.e. "Digital single market"
+    - "breadcrumb" (array)  (default: []): collection of @ecl/generic-component-link
+    - "title" (string) (default: ''): page title
+    - "introduction" (string) (default: '')
+    - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{% if variant is defined and variant == "highlight" %}
-
-<div class="ecl-page-header ecl-page-header--highlight">
-  <div class="ecl-page-header__body">
-    <div class="ecl-page-header__label">{{ label }}</div>
-    <div class="ecl-page-header__highlight">
-      {{ highlight }}
-    </div>
-  </div>
-</div>
-
-{% else %}
-
-<div class="ecl-page-header">
-  <div class="ecl-container">
-
-    {% include '@ecl/ec-component-breadcrumb' with { 'segments': breadcrumb } %}
-
-    <div class="ecl-page-header__body">
-
-      {% if identity is defined %}
-      <div class="ecl-page-header__identity">
-        {{ identity }}
-      </div>
-      {% endif %}
-
-      {% if metas is defined %}
-      <div class="ecl-page-header__meta">
-        {% include '@ecl/ec-component-meta' with {
-          'variant': 'header',
-          'metas': metas }
-        %}
-      </div>
-      {% endif %}
-
-      {% if title is defined %}
-      <div class="ecl-page-header__title">
-        <h1 class="ecl-heading ecl-heading--h1 ecl-u-color-white">{{ title }}</h1>
-      </div>
-      {% endif %}
-
-      {% if introduction is defined %}
-      <p class="ecl-page-header__intro">{{ introduction }}</p>
-      {% endif %}
-
-    </div>
-  </div>
-</div>
-{% endif %}
+{% include '@ecl/generic-component-page-header' with {
+  'identity': identity|default(''),
+  'breadcrumb': breadcrumb|default([]),
+  'title': title|default(''),
+  'introduction': introduction|default(''),
+  'metas': metas|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}
