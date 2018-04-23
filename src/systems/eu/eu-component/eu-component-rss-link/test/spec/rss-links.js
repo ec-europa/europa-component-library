@@ -25,7 +25,7 @@ describe('rss links', () => {
     });
 
     it('should be accessible', () => {
-      const a11yReport = browser.runAxeCore('ecl-rss-links').value;
+      const a11yReport = browser.runAxeCore('ecl-rss-link').value;
       expect(a11yReport).to.be.accessible;
     });
   });
