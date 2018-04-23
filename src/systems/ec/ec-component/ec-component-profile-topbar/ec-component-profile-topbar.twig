@@ -1,10 +1,10 @@
 {#
   Parameters:
-    - "context_nav" (object) - data for @ecl/generic-context-navs component composition
+    - "context_nav" (object) - data for @ecl/ec-component-context-nav component composition
     - "profile" (object): profile-specific information
-      - "image" (object): data for @ecl/generic-images component composition
+      - "image" (object): data for @ecl/ec-style-image component composition
       - "expandable" (object): data related to the expandable part of the component
-        - "button" (object): data for @ecl/generic-component-buttons component composition
+        - "button" (object): data for @ecl/ec-component-button component composition
         - "expandable_body" (array): accepts `extra_attributes` for the expandable
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -14,9 +14,9 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
   Blocks:
-    - "body": content in the expandable area (default: lorem ipsum text)
-
+    - "body" (default: lorem ipsum text): content in the expandable area
 #}
 
 {# Internal properties #}
