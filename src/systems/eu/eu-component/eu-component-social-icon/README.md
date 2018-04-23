@@ -8,7 +8,7 @@ Few possibilities to do so:
 * As a link:
 
 ```html
-<a href="#" class="ecl-link ecl-icon-social ecl-icon-social--facebook">Facebook</a>
+<a href="#" class="ecl-link ecl-social-icon ecl-social-icon--facebook">Facebook</a>
 ```
 
 Note that the `ecl-link` class is an optional extension you can have for links
@@ -17,11 +17,11 @@ formatting.
 * As a span:
 
 ```html
-<span class="ecl-icon-social ecl-icon-social--facebook">Facebook</span>
+<span class="ecl-social-icon ecl-social-icon--facebook">Facebook</span>
 ```
 
 * Making an icon smaller:
 
 ```html
-  <span class="ecl-icon-social ecl-icon-social--smaller ecl-icon-social--facebook">Facebook</span>
+  <span class="ecl-social-icon ecl-social-icon--smaller ecl-social-icon--facebook">Facebook</span>
 ```
