@@ -2,7 +2,11 @@
  * ECL Side menus
  * @define side-navigation
  */
-@mixin side-navigation() {
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-side-navigation() {
   .ecl-side-navigation {
     margin: 0;
     padding: 0;
@@ -232,9 +236,8 @@
     transition: bottom 0.075s ease,
       transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-}
 
-@mixin side-navigation-responsive {
+  /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(md) {
     .ecl-side-navigation__toggle {
       display: none;
