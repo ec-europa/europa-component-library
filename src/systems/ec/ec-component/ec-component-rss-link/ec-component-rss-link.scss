@@ -1,33 +1,16 @@
 /**
  * Blockquotes
- * @define rss-links
+ * @define rss-link
  */
 
-.ecl-rss-links {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0;
-}
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-rss-link/generic-component-rss-link';
 
-.ecl-rss-links__label {
-  color: $ecl-color-shade;
-  flex-shrink: 0;
-  font-size: map-get($ecl-font-size, 's');
-  font-weight: bold;
-  margin: map-get($ecl-font-size, 'xxxs') map-get($ecl-font-size, 'xxs')
-    map-get($ecl-font-size, 'xxxs') 0;
-}
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-social-icon'));
 
-.ecl-rss-links__link {
-  align-items: center;
-  display: flex;
-  flex-shrink: 0;
-  font-size: map-get($ecl-font-size, 's');
-  justify-content: center;
-
-  &::before {
-    flex-shrink: 0;
-  }
+// Use generic mixin
+@include exports('ec-component-rss-link') {
+  @include ecl-rss-link();
 }
