@@ -1,7 +1,5 @@
 {#
   Parameters:
-    - "site_switcher" (object) (default: {}): shape of @ecl/eu-component-site-switcher
-    - "user_menu" (object) (default: {}): shape of @ecl/eu-component-navigation-list
     - "logo" (object) (default: {
         'href': 'https://europa.eu',
         'title': 'Home - European Union'
@@ -24,8 +22,6 @@
 #}
 
 {% include '@ecl/generic-component-site-header' with {
-  'site_switcher': site_switcher|default({}),
-  'user_menu': user_menu|default({}),
   'logo': {
     'href': 'https://europa.eu',
     'title': 'Home - European Union'
