@@ -1,3 +1,6 @@
+const contextDefault = require('@ecl/generic-component-meta/data/data--default');
+const contextHeader = require('@ecl/generic-component-meta/data/data--header');
+
 module.exports = {
   title: 'Meta',
   label: 'Meta',
@@ -16,17 +19,12 @@ module.exports = {
     {
       name: 'default',
       label: 'Default meta',
-      context: {
-        metas: ['news article', '17 September 2014'],
-      },
+      context: contextDefault,
     },
     {
       name: 'header',
       label: 'Header meta',
-      context: {
-        variant: 'header',
-        metas: ['news article', '17 September 2014'],
-      },
+      context: contextHeader,
     },
   ],
 };
