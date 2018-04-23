@@ -5,17 +5,17 @@
 <div class="ecl-container ecl-u-mv-l">
   <div class="ecl-row ecl-u-mb-l">
     <div class="ecl-col">
-      {% include '@ecl/ec-component-search-form' with { 'variant': 'internal' } %}
+      {% include '@ecl/ec-component-search-form' with { 'variant': 'internal' } only %}
     </div>
   </div>
   <div class="ecl-row">
     <aside class="ecl-col-lg-3" role="complementary">
       <h3 class="ecl-heading ecl-heading--h3">Filter by</h3>
-        {% embed '@ecl/ec-component-form-form' with { 'extra_attributes': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+        {% embed '@ecl/ec-component-form-form' with { 'extra_attributes': [{ 'name': 'action', 'value': '#' }, { 'name': 'method', 'value': 'get'  }, { 'name': 'id', 'value': 'form-filter' } ] } only %}
           {% block form %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'label': 'Keyword', 'for_attribute': 'filter-keywords' } %}
+                {% include '@ecl/ec-component-form-label' with { 'label': 'Keyword', 'for_attribute': 'filter-keywords' } only %}
                 {% include '@ecl/ec-component-form-text-input' with {
                   'type': 'text',
                   'name': 'keywords',
@@ -23,13 +23,13 @@
                   'extra_attributes': [
                     { 'value': '', 'size': '30', 'maxlength': '128' }
                   ]
-                } %}
+                } only %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'label': 'Topic', 'for_attribute': 'filter-topic' } %}
-                {% embed '@ecl/ec-component-form-select' with { 'name': 'topic', 'id': 'filter-topic' } %}
+                {% include '@ecl/ec-component-form-label' with { 'label': 'Topic', 'for_attribute': 'filter-topic' } only %}
+                {% embed '@ecl/ec-component-form-select' with { 'name': 'topic', 'id': 'filter-topic' } only %}
                   {% block options %}
                     <option value="0">Any topic</option>
                     <option value="354">Banking and financial services</option>
@@ -39,10 +39,10 @@
                 {% endembed %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'label': 'Location', 'for_attribute': 'filter-location' } %}
-                {% embed '@ecl/ec-component-form-select' with { 'name': 'location', 'id': 'filter-location' } %}
+                {% include '@ecl/ec-component-form-label' with { 'label': 'Location', 'for_attribute': 'filter-location' } only %}
+                {% embed '@ecl/ec-component-form-select' with { 'name': 'location', 'id': 'filter-location' } only %}
                   {% block options %}
                   <option value="0">Any country</option>
                   <option value="BE">Belgium</option>
@@ -74,29 +74,29 @@
                 {% endembed %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
                 {% include '@ecl/ec-component-form-checkbox' with {
                   'name': 'event_is_online',
                   'id': 'event_is_online',
                   'label': 'Online only events'
-                } %}
+                } only %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
                 {% include '@ecl/ec-component-form-checkbox' with {
                   'name': 'event_is_live_streaming',
                   'id': 'event_is_live_streaming',
                   'label': 'Events with live streaming available',
                   'checked': true
-                } %}
+                } only %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'label': 'Organiser', 'for_attribute': 'filter-organiser' } %}
-                {% embed '@ecl/ec-component-form-select' with { 'name': 'organiser', 'id': 'filter-organiser' } %}
+                {% include '@ecl/ec-component-form-label' with { 'label': 'Organiser', 'for_attribute': 'filter-organiser' } only %}
+                {% embed '@ecl/ec-component-form-select' with { 'name': 'organiser', 'id': 'filter-organiser' } only %}
                   {% block options %}
                     <option value="0">Any organiser</option>
                     <option value="881">Financial Stability, Financial Services and Capital Markets Union</option>
@@ -107,22 +107,22 @@
                 {% endembed %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'label': 'After', 'for_attribute': 'filter-after' } %}
+                {% include '@ecl/ec-component-form-label' with { 'label': 'After', 'for_attribute': 'filter-after' } only %}
                 {% include '@ecl/ec-component-datepicker' with { 'id': 'filter-after' } only %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'label': 'Before', 'for_attribute': 'filter-before' } %}
+                {% include '@ecl/ec-component-form-label' with { 'label': 'Before', 'for_attribute': 'filter-before' } only %}
                 {% include '@ecl/ec-component-datepicker' with { 'id': 'filter-before' } only %}
               {% endblock %}
             {% endembed %}
-            {% embed '@ecl/ec-component-form-form-group' %}
+            {% embed '@ecl/ec-component-form-form-group' with {} only %}
               {% block form_group %}
-                {% include '@ecl/ec-component-form-label' with { 'label': 'Collection', 'for_attribute': 'filter-collection' } %}
-                {% embed '@ecl/ec-component-form-select' with { 'name': 'collection', 'id': 'filter-collection' } %}
+                {% include '@ecl/ec-component-form-label' with { 'label': 'Collection', 'for_attribute': 'filter-collection' } only %}
+                {% embed '@ecl/ec-component-form-select' with { 'name': 'collection', 'id': 'filter-collection' } only %}
                   {% block options %}
                     <option value="0">Any collection</option>
                     <option value="2065">Citizens' Dialogues</option>
@@ -142,7 +142,7 @@
                 { 'name': 'value', 'value': 'Refine results'},
                 { 'name': 'type', 'value': 'submit'}
               ]
-            } %}
+            } only %}
             {% include '@ecl/ec-component-button' with {
               'modifier': 'default',
               'label': 'Clear filters',
@@ -152,7 +152,7 @@
                 { 'name': 'value', 'value': 'Clear filters'},
                 { 'name': 'type', 'value': 'reset'}
               ]
-            } %}
+            } only %}
           {% endblock %}
         {% endembed %}
         <h3 class="ecl-heading ecl-heading--h3">Filter by topic</h3>
@@ -165,13 +165,13 @@
         'modifier': 'facet-close',
         'label': 'Live streaming available',
         'tags': [{ 'value': 'Yes'}]
-      } %}
+      } only %}
       <section class="ecl-u-mv-m">CONTENT HERE</section>
 
       {% include '@ecl/ec-component-pager' with {
         'current_page': 1,
         'max_page': 20
-      } %}
+      } only %}
     </section>
   </div>
 </div>

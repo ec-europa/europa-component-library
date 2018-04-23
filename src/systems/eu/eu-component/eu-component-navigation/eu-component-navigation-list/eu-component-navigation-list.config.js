@@ -37,7 +37,7 @@ module.exports = {
       name: 'default',
       label: 'Default',
       context: {
-        variant: 'default',
+        display: 'default',
         title: 'Default Navigation Menu',
         links,
       },
@@ -46,7 +46,7 @@ module.exports = {
       name: 'tabs',
       label: 'Tabs',
       context: {
-        variant: 'tabs',
+        display: 'tabs',
         title: 'Tabs Navigation Menu',
         links,
       },
@@ -55,7 +55,7 @@ module.exports = {
       name: 'small',
       label: 'Small',
       context: {
-        variant: 'small',
+        display: 'small',
         title: 'Small Navigation Menu',
         links,
       },

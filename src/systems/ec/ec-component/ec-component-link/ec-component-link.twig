@@ -1,10 +1,18 @@
 {#
   Parameters:
-    - variant (string): can be empty,'external','standalone', 'inverted', 'all', 'more', or an array (default: empty)
-    - href (string): target of the link (default: '#')
-    - label (string or block): label of the link (default: '')
-    - extra_classes (string): additional classes to add to the component
-    - extra_attributes (array of { name: '', value: '' })
+    - "variant" (string or array) (default: ''): can be '','external','standalone', 'inverted', 'all', 'more', or an array
+    - "href" (string) (default: '#')
+    - "label" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "label"
 #}
 
 {# Internal properties #}
@@ -13,16 +21,17 @@
 {% set _extra_attributes = '' %}
 {% set _href = href|default('#') %}
 {% set _label = label|default('') %}
+{% set _variant = variant|default('') %}
 
 {# Internal logic - Process properties #}
 
-{% if variant is defined and variant is not empty %}
-  {% if variant is iterable %}
-    {% for var in variant %}
-      {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ var %}
+{% if _variant is not empty %}
+  {% if _variant is iterable %}
+    {% for _var in _variant %}
+      {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ _var %}
     {% endfor %}
   {% else %}
-    {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ variant %}
+    {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ _variant %}
   {% endif %}
 {% endif %}
 
@@ -30,11 +39,12 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined and extra_attributes is not empty %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
+
 <a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>{% block label _label %}</a>

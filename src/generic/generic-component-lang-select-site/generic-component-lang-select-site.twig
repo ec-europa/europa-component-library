@@ -1,7 +1,16 @@
 {#
   Parameters:
-    - "language" (string): current language (default: 'English')
-    - "code" (string): current language code (default: 'en')
+    - "language" (string) (default: 'English'): current language
+    - "code" (string) (default: 'en'): current language ISO code
+    - "link" (string) (default: '#')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
 {# Internal properties #}
@@ -14,17 +23,19 @@
 
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes%}
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <a href="{{ _link }}" class="ecl-lang-select-sites__link">
     <span class="ecl-lang-select-sites__label">{{ _language }}</span>
     <span class="ecl-lang-select-sites__code">
