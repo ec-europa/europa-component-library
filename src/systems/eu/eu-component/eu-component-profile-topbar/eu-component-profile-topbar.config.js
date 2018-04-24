@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-profile-topbar/data/data');
+const context = require('@ecl/generic-component-profile-topbar/data/demo');
 
 module.exports = {
   title: 'Profile topbars',

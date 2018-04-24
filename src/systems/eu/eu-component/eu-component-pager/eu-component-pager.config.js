@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-pager/data/data');
+const context = require('@ecl/generic-component-pager/data/demo');
 
 module.exports = {
   title: 'Pagers',
