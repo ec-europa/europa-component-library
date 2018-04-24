@@ -1,5 +1,5 @@
-const contextDefault = require('@ecl/generic-component-search-form/data/data--default');
-const contextInternal = require('@ecl/generic-component-search-form/data/data--internal');
+const contextDefault = require('@ecl/generic-component-search-form/data/demo--default');
+const contextInternal = require('@ecl/generic-component-search-form/data/demo--internal');
 
 module.exports = {
   title: 'Search forms',

@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-side-navigation/data/data');
+const context = require('@ecl/generic-component-side-navigation/data/demo');
 
 module.exports = {
   title: 'Side navigation',
