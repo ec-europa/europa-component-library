@@ -1,6 +1,6 @@
-const contextDefault = require('@ecl/generic-component-navigation-list/data/data--default');
-const contextTabs = require('@ecl/generic-component-navigation-list/data/data--tabs');
-const contextSmall = require('@ecl/generic-component-navigation-list/data/data--small');
+const contextDefault = require('@ecl/generic-component-navigation-list/data/demo--default');
+const contextTabs = require('@ecl/generic-component-navigation-list/data/demo--tabs');
+const contextSmall = require('@ecl/generic-component-navigation-list/data/demo--small');
 
 module.exports = {
   title: 'Navigation lists',

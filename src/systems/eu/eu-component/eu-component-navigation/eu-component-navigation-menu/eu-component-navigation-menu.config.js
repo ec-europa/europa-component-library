@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-navigation-menu/data/data');
+const context = require('@ecl/generic-component-navigation-menu/data/demo');
 
 module.exports = {
   title: 'Navigation menus',

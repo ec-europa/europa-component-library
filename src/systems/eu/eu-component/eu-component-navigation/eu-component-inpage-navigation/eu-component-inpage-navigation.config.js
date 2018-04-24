@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-inpage-navigation/data/data');
+const context = require('@ecl/generic-component-inpage-navigation/data/demo');
 
 module.exports = {
   title: 'Inpage navigations',
