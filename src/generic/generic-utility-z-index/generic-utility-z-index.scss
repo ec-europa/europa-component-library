@@ -1,13 +1,14 @@
-/*
-  ECL Z-index
-  ===========
+/**
+ * Z-index utilities
+ */
 
-  Base:
-    z = z-index
-*/
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-@each $key, $value in $ecl-z-index {
-  .ecl-u-z-#{$key} {
-    z-index: $value;
+@mixin ecl-utility-z-index() {
+  @each $key, $value in $ecl-z-index {
+    .ecl-u-z-#{$key} {
+      z-index: $value;
+    }
   }
 }

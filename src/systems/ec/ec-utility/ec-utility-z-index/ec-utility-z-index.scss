@@ -1,13 +1,12 @@
-/*
-  ECL Z-index
-  ===========
+/**
+ * Z-index utilities
+ */
 
-  Base:
-    z = z-index
-*/
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-utility-z-index/generic-utility-z-index';
 
-@each $key, $value in $ecl-z-index {
-  .ecl-u-z-#{$key} {
-    z-index: $value;
-  }
+// Use generic mixin
+@include exports('ec-utility-z-index') {
+  @include ecl-utility-z-index();
 }
