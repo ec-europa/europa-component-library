@@ -1,13 +1,20 @@
 {#
   Parameters:
-    - "modifier" (string): could be "facet", "facet-close" or left empty (default: "")
-    - "label" (string): label to print before the group of tags (default: "")
-    - "tags" (array):
-      - "label" (string): label to print before the current tag (default: "")
-      - "value" (string): text to display (default: "")
-      - "href" (string): if "modifier" is different from "facet" or "facet-close", then a link is printed (default: "")
-    - "extra_classes" (string): extra CSS classes to be added
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+    - "modifier" (string) (default: ''): '', 'facet', 'facet-close'
+    - "label" (string) (default: ''): label to print before the group of tags
+    - "tags" (array) (default: []):
+      - "label" (string) (default: ''): label to print before the current tag
+      - "value" (string) (default: ''): text to display
+      - "href" (string) (default: ''): if "modifier" is different from "facet" or "facet-close", then a link is printed (default: "")
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
 #}
 
 {# Internal properties #}
@@ -17,42 +24,45 @@
 {% set _tags = tags|default([]) %}
 {% set _css_class = 'ecl-tag' %}
 {% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
 
 {% if _modifier is not empty %}
   {% set _css_class = _css_class ~ ' ecl-tag--' ~ _modifier %}
 {% endif %}
 
-{% if extra_classes is defined %}
+{% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
+{# Print the result #}
+
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _label is not empty %}
     <span class="ecl-tag__label">{{ label }}</span>
   {% endif %}
-
-  {% if _tags is not empty %}
+  {% if _tags is not empty and _tags is iterable %}
     {% for _tag in _tags %}
       {% if _tag.label is defined and _tag.label is not empty %}
         <span class="ecl-tag__label">{{ _tag.label }}</span>
       {% endif %}
-
       {% if _modifier == 'facet' %}
-        <span class="ecl-tag__item">{{ _tag.value }}</span>
+        <span class="ecl-tag__item">{{ _tag.value|default('') }}</span>
       {% elseif _modifier == 'facet-close' %}
-        {% include '@ecl/generic-component-button' with {
-          'label': _tag.value,
+        {% include '@ecl/' ~ _system ~ '-component-button' with {
+          'label': _tag.value|default(''),
           'extra_classes': 'ecl-tag__item',
           'extra_attributes': [{ 'name': 'type', 'value': 'button'}]
-        } %}
+        } only %}
       {% else %}
-        <a class="ecl-tag__item" href="{{ _tag.href }}">{{ _tag.value }}</a>
+        <a class="ecl-tag__item" href="{{ _tag.href|default('') }}">{{ _tag.value|default('') }}</a>
       {% endif %}
     {% endfor %}
   {% endif %}
