@@ -3,42 +3,11 @@
  * @define table ; weak
  */
 
-@import 'tables-mixins';
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-table/generic-component-table';
 
-.ecl-table {
-  @include table();
-}
-
-@media (max-width: map-get($ecl-grid-breakpoints, 'md')) {
-  .ecl-table {
-    @include table-max-width-md();
-  }
-
-  .ecl-table__heading {
-    background-color: $ecl-color-shade;
-    color: #fff;
-    font-weight: bold;
-  }
-
-  .ecl-table__group-label {
-    &::after {
-      content: attr(data-th-group);
-      display: block;
-      font-weight: bold;
-      left: map-get($ecl-spacing, 'xxs');
-      position: absolute;
-      top: -(map-get($ecl-spacing, 'm'));
-    }
-
-    ~ .ecl-table__group_element {
-      margin: 0;
-      padding-left: map-get($ecl-spacing, 'm');
-    }
-  }
-}
-
-@include ecl-media-breakpoint-up('md') {
-  .ecl-table {
-    @include table-min-width-md();
-  }
+// Use generic mixin
+@include exports('eu-component-table') {
+  @include ecl-table();
 }

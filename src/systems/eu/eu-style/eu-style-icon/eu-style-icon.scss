@@ -2,46 +2,11 @@
  * Icons
  */
 
-@import '@ecl/ec-base/ec-base';
-
-// Get re-usable variables and mixins from /generic/content/ecl-icons
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-style-icon/generic-style-icon';
 
-/**
- * Icon classes
- * @define icon
- */
-
+// Use generic mixin
 @include exports('eu-style-icon') {
-  .ecl-icon {
-    @include ecl-icon--before();
-  }
-
-  .ecl-icon--after {
-    @include ecl-icon--after();
-  }
-
-  // Icon component and modifiers.
-  @each $modifier, $char in $ecl-icons {
-    .ecl-icon--#{$modifier} {
-      &::before {
-        @include ecl-icon($modifier);
-      }
-    }
-  }
-
-  .ecl-icon--rounded {
-    border-radius: 50%;
-    display: inline-block;
-    font-size: map-get($ecl-font-size, 'xs');
-    height: map-get($ecl-spacing, 'l');
-    line-height: map-get($ecl-spacing, 'l');
-    text-align: center;
-    width: map-get($ecl-spacing, 'l');
-  }
-
-  .ecl-icon--rounded::before {
-    line-height: inherit;
-    margin-right: 0;
-  }
+  @include ecl-icons();
 }
