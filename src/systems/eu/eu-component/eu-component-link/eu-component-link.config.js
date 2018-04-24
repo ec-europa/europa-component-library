@@ -1,9 +1,9 @@
-const contextDefault = require('@ecl/generic-component-link/data/data--default');
-const contextExternal = require('@ecl/generic-component-link/data/data--external');
-const contextStandalone = require('@ecl/generic-component-link/data/data--standalone');
-const contextInverted = require('@ecl/generic-component-link/data/data--inverted');
-const contextAll = require('@ecl/generic-component-link/data/data--all');
-const contextMore = require('@ecl/generic-component-link/data/data--more');
+const contextDefault = require('@ecl/generic-component-link/data/demo--default');
+const contextExternal = require('@ecl/generic-component-link/data/demo--external');
+const contextStandalone = require('@ecl/generic-component-link/data/demo--standalone');
+const contextInverted = require('@ecl/generic-component-link/data/demo--inverted');
+const contextAll = require('@ecl/generic-component-link/data/demo--all');
+const contextMore = require('@ecl/generic-component-link/data/demo--more');
 
 module.exports = {
   title: 'Links',

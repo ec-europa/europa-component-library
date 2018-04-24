@@ -1,6 +1,6 @@
-const contextOne = require('@ecl/generic-component-listing/data/data--one-column');
-const contextTwo = require('@ecl/generic-component-listing/data/data--two-column');
-const contextThree = require('@ecl/generic-component-listing/data/data--three-column');
+const contextOne = require('@ecl/generic-component-listing/data/demo--one-column');
+const contextTwo = require('@ecl/generic-component-listing/data/demo--two-column');
+const contextThree = require('@ecl/generic-component-listing/data/demo--three-column');
 
 module.exports = {
   title: 'Listings',

@@ -1,7 +1,7 @@
-const contextDefault = require('@ecl/generic-component-list-item/data/data--default');
-const contextDate = require('@ecl/generic-component-list-item/data/data--date');
-const contextThumbnail = require('@ecl/generic-component-list-item/data/data--thumbnail');
-const contextHighlight = require('@ecl/generic-component-list-item/data/data--highlight');
+const contextDefault = require('@ecl/generic-component-list-item/data/demo--default');
+const contextDate = require('@ecl/generic-component-list-item/data/demo--date');
+const contextThumbnail = require('@ecl/generic-component-list-item/data/demo--thumbnail');
+const contextHighlight = require('@ecl/generic-component-list-item/data/demo--highlight');
 
 module.exports = {
   title: 'List items',

@@ -1,6 +1,6 @@
-const contextUpcoming = require('@ecl/generic-component-label/data/data--upcoming');
-const contextOpen = require('@ecl/generic-component-label/data/data--open');
-const contextClose = require('@ecl/generic-component-label/data/data--close');
+const contextUpcoming = require('@ecl/generic-component-label/data/demo--upcoming');
+const contextOpen = require('@ecl/generic-component-label/data/demo--open');
+const contextClose = require('@ecl/generic-component-label/data/demo--close');
 
 module.exports = {
   title: 'Labels',

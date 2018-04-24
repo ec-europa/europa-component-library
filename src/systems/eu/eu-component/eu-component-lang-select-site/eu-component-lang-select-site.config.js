@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-lang-select-site/data/data');
+const context = require('@ecl/generic-component-lang-select-site/data/demo');
 
 module.exports = {
   title: 'Language select (Site)',
