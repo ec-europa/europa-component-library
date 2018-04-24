@@ -7,24 +7,7 @@
   'label': 'Skip to main content'
 } %}
 
-{% include '@ecl/eu-component-site-header' with {
-  site_switcher: {
-    political: { href: '../../example.html#', label: 'Commission and its priorities' },
-    info: {
-      href: '../../example.html#',
-      label: 'Policies, information and services',
-      is_active: true,
-    },
-  },
-  user_menu: {
-    title: 'User menu',
-    links: [
-      { href: '../../example.html#', label: 'My workbench' },
-      { href: '../../example.html#', label: 'My account' },
-      { href: '../../example.html#', label: 'Log out' },
-    ],
-  }
-} %}
+{% include '@ecl/eu-component-site-header' %}
 
 {% include '@ecl/eu-component-page-header' with {
   variant: 'basic',

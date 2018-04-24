@@ -6,27 +6,10 @@ module.exports = {
   status: 'ready',
   tags: ['organism'],
   context: {
-    lang: 'en',
-    site_switcher: {
-      political: {
-        href: '../../example.html#',
-        label: 'Commission and its priorities',
-      },
-      info: {
-        href: '../../example.html#',
-        label: 'Policies, information and services',
-        is_active: true,
-      },
-    },
-    user_menu: {
-      title: 'User menu',
-      links: [
-        { href: '../../example.html#', label: 'My workbench' },
-        { href: '../../example.html#', label: 'My account' },
-        { href: '../../example.html#', label: 'Log out' },
-      ],
-    },
     languages,
+    global: {
+      language: 'en',
+    },
     _demo: {
       scripts: `
         document.addEventListener('DOMContentLoaded', function () {

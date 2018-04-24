@@ -4,4 +4,9 @@ module.exports = {
   status: 'ready',
   preview: '@preview-center-transparent',
   tags: ['molecule'],
+  context: {
+    title: 'Get updates:',
+    label: 'RSS',
+    href: '../../example.html#rss',
+  },
 };
