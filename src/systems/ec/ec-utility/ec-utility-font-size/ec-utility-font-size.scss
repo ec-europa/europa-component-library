@@ -1,13 +1,12 @@
-/*
-  ECL Font size
-  ===========
+/**
+ * Font size utilities
+ */
 
-  Base:
-    fs = font size
-*/
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-utility-font-size/generic-utility-font-size';
 
-@each $key, $value in $ecl-font-size {
-  .ecl-u-fs-#{$key} {
-    font-size: $value;
-  }
+// Use generic mixin
+@include exports('ec-utility-font-size') {
+  @include ecl-utility-font-size();
 }

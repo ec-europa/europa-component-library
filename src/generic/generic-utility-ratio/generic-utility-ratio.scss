@@ -1,7 +1,9 @@
 /**
  * Ratio utilities
- * @define ratio
  */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
 
 @mixin ecl-aspect-ratio($width, $height) {
   position: relative;
@@ -24,10 +26,12 @@
   }
 }
 
-.ecl-u-ratio-16-9 {
-  @include ecl-aspect-ratio(16, 9);
-}
+@mixin ecl-utility-ratio() {
+  .ecl-u-ratio-16-9 {
+    @include ecl-aspect-ratio(16, 9);
+  }
 
-.ecl-u-ratio-4-3 {
-  @include ecl-aspect-ratio(4, 3);
+  .ecl-u-ratio-4-3 {
+    @include ecl-aspect-ratio(4, 3);
+  }
 }
