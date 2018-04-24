@@ -12,7 +12,6 @@ module.exports = {
     {
       name: 'default',
       context: {
-        variant: 'default',
         breadcrumb: breadcrumbSegments,
         identity: 'Digital single market',
         title: 'Business, Economy, Euro',
@@ -28,16 +27,5 @@ module.exports = {
         breadcrumb: breadcrumbSegments,
       },
     },
-    /*
-    {
-      name: 'highlight',
-      context: {
-        variant: 'highlight',
-        label: 'Highlight',
-        highlight:
-          'Maecenas at mi <strong>molestie nulla</strong> tempor interdum sed sit amet ipsum.',
-      },
-    },
-    */
   ],
 };
