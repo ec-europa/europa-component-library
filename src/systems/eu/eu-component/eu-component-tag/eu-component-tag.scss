@@ -7,6 +7,9 @@
 @import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-component-tag/generic-component-tag';
 
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-button'));
+
 // Use generic mixin
 @include exports('eu-component-tag') {
   @include ecl-tag();
