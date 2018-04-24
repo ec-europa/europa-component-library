@@ -3,13 +3,12 @@
  * @define timeline
  */
 
-$ecl-timeline-bullet-size: 14px !default;
-$ecl-timeline-border-width: 4px !default;
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-@mixin ecl-timeline() {
+@mixin ecl-timeline($bullet-size: 14px, $border-width: 4px) {
   .ecl-timeline {
-    border-left: $ecl-timeline-border-width solid
-      map-get($ecl-colors, 'yellow-100');
+    border-left: $border-width solid map-get($ecl-colors, 'yellow-100');
     margin: 0;
     padding: 0;
   }
@@ -56,12 +55,12 @@ $ecl-timeline-border-width: 4px !default;
       border-radius: 50%;
       box-sizing: border-box;
       content: '';
-      height: $ecl-timeline-bullet-size;
-      left: -(($ecl-timeline-bullet-size + $ecl-timeline-border-width) / 2);
+      height: $bullet-size;
+      left: -(($bullet-size + $border-width) / 2);
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: $ecl-timeline-bullet-size;
+      width: $bullet-size;
     }
   }
 
