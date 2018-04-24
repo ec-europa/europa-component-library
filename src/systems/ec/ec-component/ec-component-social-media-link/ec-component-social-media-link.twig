@@ -1,73 +1,31 @@
 {#
   Parameters:
-    - "variant" (string): can be empty or 'horizontal' (default: empty)
-    - "has_text" (bool): display text before links or not (default: true)
-    - "text" (string): additional text displayed before the links (default: 'View European Commission on:')
-    - "links" (array): [{
-        "href" (string): target of the link (default: empty)
-        "label" (string): label of the link (default: empty)
-        "title" (string): title of the link (default: empty)
-        "variant" (string): variant of the social network. Should be one of the variant listed in Social icons component (default: empty)
-      }]
-      - "more" {object}: {
-        - "href" (string): target of the "more" link (default: empty)
-        - "label" (string): label of the "more" link (default: 'Other social networks')
-      }
-    - "extra_classes" (string): extra CSS classes to be added
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
-  Blocks:
-    - "text_block": instead of providing additional text as a string, you can also embed the template and fill the "text" block directly
+    - "variant" (string) (default: ''): '' or 'horizontal'
+    - "text" (string) (default: ''): additional text displayed before the links
+    - "social_icons" (array) (default: []): collection of @ecl/ec-component-social-icon
+    - "more" (object): {
+      - "href" (string) (default: ''): target of the "more" link
+      - "label" (string) (default: 'Other social networks'): label of the "more" link
+    }
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{# Internal properties #}
-
-{% set _has_text = has_text|default(false) %}
-{% set _text = text|default('View European Commission on:') %}
-{% set _more = more|default({
-  label: more.label|default('Other social networks'),
-  href: more.href|default('')
-}) %}
-{% set _css_class = 'ecl-social-media-link' %}
-{% set _extra_attributes = '' %}
-
-{# Internal logic - Process properties #}
-
-{% if variant is defined and variant is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ 'ecl-social-media-link--' ~ variant %}
-{% endif %}
-
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined and extra_attributes is not empty %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
-
-{# Print the result #}
-
-<div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
-  {% block text_block %}
-  {% if has_text == true %}
-  <p class="ecl-paragraph">{{ _text }}</p>
-  {% endif %}
-  {% endblock %}
-
-  <ul class="ecl-social-media-link__list ecl-list ecl-list--unstyled{% if variant == 'horizontal' %} ecl-list--inline{% endif %}">
-  {% for _link in links %}
-    <li class="ecl-social-media-link__item">
-      {% include '@ecl/ec-component-social-icon' with {
-        link: _link,
-        extra_attributes: [{ name: 'title', value: _link.title}],
-        extra_classes: 'ecl-social-media-link__link',
-      } %}
-    </li>
-  {% endfor %}
-
-    <li class="ecl-social-media-link__item">
-      <a class="ecl-social-media-link__link" href="{{ _more.href }}">{{ _more.label }}</a>
-    </li>
-  </ul>
-</div>
+{% include '@ecl/generic-component-social-media-link' with {
+  'variant': variant|default(''),
+  'text': text|default(''),
+  'social_icons': social_icons|default([]),
+  'more':{
+    'label': 'Other social networks',
+    'href': ''
+  }|merge(more|default({})),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} %}
