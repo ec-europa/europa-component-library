@@ -1,7 +1,7 @@
-const contextDefault = require('@ecl/generic-component-social-media-link/data/data--default');
-const contextDefaultSpecific = require('@ecl/generic-component-social-media-link/data/data--default-specific');
-const contextHorizontal = require('@ecl/generic-component-social-media-link/data/data--horizontal');
-const contextHorizontalSpecific = require('@ecl/generic-component-social-media-link/data/data--horizontal-specific');
+const contextDefault = require('@ecl/generic-component-social-media-link/data/demo--default');
+const contextDefaultSpecific = require('@ecl/generic-component-social-media-link/data/demo--default-specific');
+const contextHorizontal = require('@ecl/generic-component-social-media-link/data/demo--horizontal');
+const contextHorizontalSpecific = require('@ecl/generic-component-social-media-link/data/demo--horizontal-specific');
 
 module.exports = {
   title: 'Social Media Links',

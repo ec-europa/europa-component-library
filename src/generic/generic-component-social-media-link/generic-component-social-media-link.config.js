@@ -1,44 +1,7 @@
-const linksDefault = [
-  {
-    href: '../../example.html#',
-    label: 'Facebook',
-    title: 'Facebook',
-    variant: 'facebook',
-  },
-  {
-    href: '../../example.html#',
-    label: 'Twitter',
-    title: 'Twitter',
-    variant: 'twitter',
-  },
-  {
-    href: '../../example.html#',
-    label: 'Instagram',
-    title: 'Instagram',
-    variant: 'instagram',
-  },
-];
-
-const linksSpecific = [
-  {
-    href: '../../example.html#',
-    label: 'Jean-Claude Junker',
-    title: 'See Jean-Claude Junker on Facebook',
-    variant: 'facebook',
-  },
-  {
-    href: '../../example.html#',
-    label: 'European Commission',
-    title: 'See European Commission on Facebook',
-    variant: 'facebook',
-  },
-  {
-    href: '../../example.html#',
-    label: 'European Commission',
-    title: 'See European Commission on Twitter',
-    variant: 'twitter',
-  },
-];
+const contextDefault = require('./data/demo--default');
+const contextDefaultSpecific = require('./data/demo--default-specific');
+const contextHorizontal = require('./data/demo--horizontal');
+const contextHorizontalSpecific = require('./data/demo--horizontal-specific');
 
 module.exports = {
   title: 'Social Media Links',
@@ -58,34 +21,22 @@ module.exports = {
     {
       name: 'default',
       label: 'Default list with default display',
-      context: {
-        links: linksDefault,
-        has_text: true,
-      },
+      context: contextDefault,
     },
     {
       name: 'default-specific',
       label: 'Specific list with default display',
-      context: {
-        links: linksSpecific,
-      },
+      context: contextDefaultSpecific,
     },
     {
       name: ' horizontal',
       label: ' Default list with horizontal display',
-      context: {
-        variant: 'horizontal',
-        links: linksDefault,
-        has_text: true,
-      },
+      context: contextHorizontal,
     },
     {
       name: 'horizontal-specific',
       label: 'Specific list with horizontal display',
-      context: {
-        variant: 'horizontal',
-        links: linksSpecific,
-      },
+      context: contextHorizontalSpecific,
     },
   ],
 };
