@@ -1,3 +1,7 @@
+const contextDefault = require('./data/demo--default');
+const contextFacet = require('./data/demo--facet');
+const contextFacetClose = require('./data/demo--facet-close');
+
 module.exports = {
   title: 'Tags',
   label: 'Tags',
@@ -17,35 +21,17 @@ module.exports = {
     {
       name: 'default',
       label: 'Default tags',
-      context: {
-        label: 'tags',
-        tags: [
-          { value: 'apple', href: '../../example.html#' },
-          { value: 'orange', href: '../../example.html#' },
-          { value: 'lime', href: '../../example.html#' },
-          { value: 'strawberry', href: '../../example.html#' },
-        ],
-      },
+      context: contextDefault,
     },
     {
       name: 'facet',
       label: 'Facet tags',
-      context: {
-        modifier: 'facet',
-        label: 'containing',
-        tags: [{ value: 'Words that the facet is containing' }],
-      },
+      context: contextFacet,
     },
     {
       name: 'facet-close',
       label: 'Facet tag with close',
-      context: {
-        modifier: 'facet-close',
-        tags: [
-          { label: 'type', value: 'atom' },
-          { label: 'status', value: 'wip' },
-        ],
-      },
+      context: contextFacetClose,
     },
   ],
 };
