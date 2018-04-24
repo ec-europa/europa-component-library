@@ -1,6 +1,6 @@
-const contextDefault = require('@ecl/generic-component-form-select/data/data--default');
-const contextDisabled = require('@ecl/generic-component-form-select/data/data--disabled');
-const contextWithErrors = require('@ecl/generic-component-form-select/data/data--with-errors');
+const contextDefault = require('@ecl/generic-component-form-select/data/demo--default');
+const contextDisabled = require('@ecl/generic-component-form-select/data/demo--disabled');
+const contextWithErrors = require('@ecl/generic-component-form-select/data/demo--with-errors');
 
 module.exports = {
   title: 'Selects',

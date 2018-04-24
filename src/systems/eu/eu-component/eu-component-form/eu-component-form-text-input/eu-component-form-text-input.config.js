@@ -1,6 +1,6 @@
-const contextDefault = require('@ecl/generic-component-form-text-input/data/data--default');
-const contextDisabled = require('@ecl/generic-component-form-text-input/data/data--disabled');
-const contextWithError = require('@ecl/generic-component-form-text-input/data/data--with-error');
+const contextDefault = require('@ecl/generic-component-form-text-input/data/demo--default');
+const contextDisabled = require('@ecl/generic-component-form-text-input/data/demo--disabled');
+const contextWithError = require('@ecl/generic-component-form-text-input/data/demo--with-error');
 
 module.exports = {
   title: 'Text inputs',

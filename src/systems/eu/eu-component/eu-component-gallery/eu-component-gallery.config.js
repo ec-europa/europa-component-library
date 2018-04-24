@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-gallery/data/data');
+const context = require('@ecl/generic-component-gallery/data/demo');
 
 module.exports = {
   title: 'Gallery',

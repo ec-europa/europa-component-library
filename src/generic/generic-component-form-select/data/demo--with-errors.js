@@ -1,4 +1,4 @@
-const data = require('./data');
+const data = require('./shared');
 
 module.exports = {
   id: 'example-select-id-3',

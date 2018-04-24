@@ -1,6 +1,6 @@
-const contextDefault = require('@ecl/generic-component-form-textarea/data/data--default');
-const contextIsDisabled = require('@ecl/generic-component-form-textarea/data/data--is-disabled');
-const contextHasError = require('@ecl/generic-component-form-textarea/data/data--has-error');
+const contextDefault = require('@ecl/generic-component-form-textarea/data/demo--default');
+const contextIsDisabled = require('@ecl/generic-component-form-textarea/data/demo--is-disabled');
+const contextHasError = require('@ecl/generic-component-form-textarea/data/demo--has-error');
 
 module.exports = {
   title: 'Text areas',
