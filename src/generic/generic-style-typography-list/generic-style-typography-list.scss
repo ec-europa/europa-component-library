@@ -1,38 +1,43 @@
 /**
- * Timeline
+ * List
  * @define list
  */
 
-@import 'lists-mixins';
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-.ecl-list {
-  @include list();
-}
+@import 'mixins';
 
-// list alpha
-.ecl-list--alpha {
-  list-style-type: lower-latin;
-}
+@mixin ecl-typography-list() {
+  .ecl-list {
+    @include list();
+  }
 
-// list ustyled
-.ecl-list--unstyled {
-  list-style: none;
-  padding-left: 0;
-}
+  // list alpha
+  .ecl-list--alpha {
+    list-style-type: lower-latin;
+  }
 
-// list inline
-.ecl-list--inline {
-  list-style: none;
-  padding-left: 0;
+  // list ustyled
+  .ecl-list--unstyled {
+    list-style: none;
+    padding-left: 0;
+  }
 
-  /* stylelint-disable-next-line */
-  li {
-    display: inline-block;
-    margin-left: map-get($ecl-spacing, 'xxs');
+  // list inline
+  .ecl-list--inline {
+    list-style: none;
+    padding-left: 0;
 
     /* stylelint-disable-next-line */
-    &:first-child {
-      margin-left: 0;
+    li {
+      display: inline-block;
+      margin-left: map-get($ecl-spacing, 'xxs');
+
+      /* stylelint-disable-next-line */
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 }
