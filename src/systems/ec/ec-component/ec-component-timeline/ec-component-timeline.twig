@@ -1,13 +1,25 @@
 {#
   Parameters:
-    - "limit" (integer): max number of items to display (0 = display all)
-    - "button_label" (string): button label
-    - "items" (array): array of objects containing
-      - "title" (string): entry's title
-      - "body" (string): entry's body text (HTML)
-    - "extra_classes" (string): extra CSS classes to be added
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
-
+    - "limit" (integer) (default: 0): max number of items to display (0 = display all)
+    - "button_label" (string) (default: 'Show all timeline')
+    - "items" (array) (default: []): array of objects containing
+      - "title" (string)
+      - "body" (string)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{% include '@ecl/generic-component-timeline' with { system: 'ec' } %}
+{% include '@ecl/generic-component-timeline' with {
+  'limit': limit|default(0),
+  'button_label': button_label|default('Show all timeline'),
+  'items': items|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}

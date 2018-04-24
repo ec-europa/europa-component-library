@@ -5,7 +5,7 @@
 <div class="ecl-container ecl-u-mv-l">
   <div class="ecl-row ecl-u-mb-l">
     <div class="ecl-col">
-      {% include '@ecl/eu-component-search-form' with { 'variant': 'internal', 'input': { 'id': 'internal-search' } } %}
+      {% include '@ecl/eu-component-search-form' with { 'variant': 'internal', 'input': { 'id': 'internal-search' } } only %}
     </div>
   </div>
   <div class="ecl-row">
@@ -21,17 +21,17 @@
             { 'name': 'aria-expanded', 'value': 'true' },
             { 'name': 'type', 'value': 'button' }
           ]
-        } %}
+        } only %}
       </div>
-      {% embed '@ecl/eu-component-form-form' with { 'extra_classes': 'ecl-u-d-lg-block ecl-u-aria', 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } %}
+      {% embed '@ecl/eu-component-form-form' with { 'extra_classes': 'ecl-u-d-lg-block ecl-u-aria', 'extra_attributes': [{ 'name': 'aria-hidden', 'value': 'false' }, { 'name': 'method', 'value': 'get' }, { 'name': 'id', 'value': 'form-filter' } ] } only %}
         {% block form %}
           {% embed '@ecl/eu-component-form-fieldset' with {} only %}
             {% block fieldset %}
               {% include '@ecl/eu-component-form-legend' with { content: 'Search options', level: 1 } only %}
               {% embed '@ecl/eu-component-form-form-group' with {} only %}
                 {% block form_group %}
-                  {% include '@ecl/eu-component-form-label' with { 'label': 'Source', 'for_attribute': 'search-option-source' } %}
-                  {% embed '@ecl/eu-component-form-select' with { 'name': 'source', 'id': 'search-option-source' } %}
+                  {% include '@ecl/eu-component-form-label' with { 'label': 'Source', 'for_attribute': 'search-option-source' } only %}
+                  {% embed '@ecl/eu-component-form-select' with { 'name': 'source', 'id': 'search-option-source' } only %}
                     {% block options %}
                       <option value="all">All sources</option>
                       <option value="dg-trade" selected>DG Trade</option>
@@ -41,8 +41,8 @@
               {% endembed %}
               {% embed '@ecl/eu-component-form-form-group' %}
                 {% block form_group %}
-                  {% include '@ecl/eu-component-form-label' with { 'label': 'Date', 'for_attribute': 'search-option-date' } %}
-                  {% embed '@ecl/eu-component-form-select' with { 'name': 'date', 'id': 'search-option-date' } %}
+                  {% include '@ecl/eu-component-form-label' with { 'label': 'Date', 'for_attribute': 'search-option-date' } only %}
+                  {% embed '@ecl/eu-component-form-select' with { 'name': 'date', 'id': 'search-option-date' } only %}
                     {% block options %}
                       <option value="all">All dates</option>
                       <option value="today">Today</option>
@@ -54,8 +54,8 @@
                 {% endembed %}
               {% embed '@ecl/eu-component-form-form-group' %}
                 {% block form_group %}
-                  {% include '@ecl/eu-component-form-label' with { 'label': 'Language', 'for_attribute': 'search-option-language' } %}
-                  {% embed '@ecl/eu-component-form-select' with { 'name': 'language', 'id': 'search-option-language' } %}
+                  {% include '@ecl/eu-component-form-label' with { 'label': 'Language', 'for_attribute': 'search-option-language' } only %}
+                  {% embed '@ecl/eu-component-form-select' with { 'name': 'language', 'id': 'search-option-language' } only %}
                     {% block options %}
                       <option value="en">English</option>
                       <option value="de">Deutsch</option>
@@ -66,8 +66,8 @@
               {% endembed %}
               {% embed '@ecl/eu-component-form-form-group' %}
                 {% block form_group %}
-                  {% include '@ecl/eu-component-form-label' with { 'label': 'File Format', 'for_attribute': 'search-option-file-format' } %}
-                  {% embed '@ecl/eu-component-form-select' with { 'name': 'file-format', 'id': 'search-option-file-format' } %}
+                  {% include '@ecl/eu-component-form-label' with { 'label': 'File Format', 'for_attribute': 'search-option-file-format' } only %}
+                  {% embed '@ecl/eu-component-form-select' with { 'name': 'file-format', 'id': 'search-option-file-format' } only %}
                     {% block options %}
                       <option value="all">All formats</option>
                       <option value="doc">Doc</option>
@@ -94,7 +94,7 @@
               'extra_attributes': [
                 { 'name': 'type', 'value': 'submit'}
               ]
-            } %}
+            } only %}
             {% include '@ecl/eu-component-button' with {
               'label': 'Clear all',
               'is_block': true,
@@ -102,7 +102,7 @@
               'extra_attributes': [
                 { 'name': 'type', 'value': 'reset'}
               ]
-            } %}
+            } only %}
           </div>
         {% endblock %}
       {% endembed %}
@@ -114,32 +114,32 @@
         {% include '@ecl/eu-component-tag' with {
           'modifier': 'facet-close',
           'label': 'Source',
-          'tags': [{ 'value': 'DG Trade' }],
+          'tags': [{ 'value': 'DG Trade', 'href': '../../example.html#remove-filter' }],
           'extra_classes': 'ecl-u-mv-xxxs'
-        } %}
+        } only %}
         {% include '@ecl/eu-component-tag' with {
           'modifier': 'facet-close',
           'label': 'Topics',
-          'tags': [{ 'value': 'Health, wellbeing & Consumer protection' }],
+          'tags': [{ 'value': 'Health, wellbeing & Consumer protection', 'href': '../../example.html#remove-filter' }],
           'extra_classes': 'ecl-u-mv-xxxs'
-        } %}
+        } only %}
       </div>
       <ul class="ecl-list ecl-list--unstyled ecl-u-mv-m">
         <li class="ecl-u-mv-m">
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'web',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           {% include '@ecl/eu-component-link' with {
             'label': 'Related docs',
@@ -150,23 +150,23 @@
               { 'name': 'aria-expanded', 'value': 'false'},
               { 'name': 'id', 'value': 'example-expandable-button-1' }
             ]
-          } %}
+          } only %}
           <ul aria-hidden="true" class="ecl-u-aria" aria-labelledby="example-expandable-button-1" id="example-expandable-1" class="ecl-list ecl-list--unstyled ecl-u-mv-m ecl-u-ml-l">
             <li class="ecl-u-mv-m">
               {% include '@ecl/eu-component-meta' with {
                 'meta_item_type_data': 'web',
                 'meta_item_data': '17 October 2015',
-              } %}
+              } only %}
               <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
                 {% include '@ecl/eu-component-link' with {
                   'label': 'EU funded Ebola treatment delivers encouraging results',
                   'href': 'https://ec.europa.eu/growth/index_en'
-                } %}
+                } only %}
               </h4>
               {% include '@ecl/eu-component-link' with {
                 'label': 'ec.europa.eu/growth/index_en',
                 'href': 'https://ec.europa.eu/growth/index_en'
-              } %}
+              } only %}
               <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
               <hr class="ecl-u-mt-m" />
             </li>
@@ -174,17 +174,17 @@
               {% include '@ecl/eu-component-meta' with {
                 'meta_item_type_data': 'web',
                 'meta_item_data': '17 October 2015',
-              } %}
+              } only %}
               <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
                 {% include '@ecl/eu-component-link' with {
                   'label': 'EU funded Ebola treatment delivers encouraging results',
                   'href': 'https://ec.europa.eu/growth/index_en'
-                } %}
+                } only %}
               </h4>
               {% include '@ecl/eu-component-link' with {
                 'label': 'ec.europa.eu/growth/index_en',
                 'href': 'https://ec.europa.eu/growth/index_en'
-              } %}
+              } only %}
               <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
               <hr class="ecl-u-mt-m" />
             </li>
@@ -192,17 +192,17 @@
               {% include '@ecl/eu-component-meta' with {
                 'meta_item_type_data': 'web',
                 'meta_item_data': '17 October 2015',
-              } %}
+              } only %}
               <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
                 {% include '@ecl/eu-component-link' with {
                   'label': 'EU funded Ebola treatment delivers encouraging results',
                   'href': 'https://ec.europa.eu/growth/index_en'
-                } %}
+                } only %}
               </h4>
               {% include '@ecl/eu-component-link' with {
                 'label': 'ec.europa.eu/growth/index_en',
                 'href': 'https://ec.europa.eu/growth/index_en'
-              } %}
+              } only %}
               <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
             </li>
           </ul>
@@ -212,17 +212,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'pdf',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -230,17 +230,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'web',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -248,17 +248,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'doc',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -266,17 +266,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'doc',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -284,17 +284,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'web',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -302,17 +302,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'pdf',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -320,17 +320,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'web',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -338,17 +338,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'web',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <hr class="ecl-u-mt-m" />
         </li>
@@ -356,17 +356,17 @@
           {% include '@ecl/eu-component-meta' with {
             'meta_item_type_data': 'web',
             'meta_item_data': '17 October 2015',
-          } %}
+          } only %}
           <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxs ecl-u-mb-xxxs">
             {% include '@ecl/eu-component-link' with {
               'label': 'EU funded Ebola treatment delivers encouraging results',
               'href': 'https://ec.europa.eu/growth/index_en'
-            } %}
+            } only %}
           </h4>
           {% include '@ecl/eu-component-link' with {
             'label': 'ec.europa.eu/growth/index_en',
             'href': 'https://ec.europa.eu/growth/index_en'
-          } %}
+          } only %}
           <p class="ecl-paragraph ecl-u-mv-xxxs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu iaculis elit. Aliquam luctus elit eget tellus ultrices venenatis. Morbi rutrum malesuada nibh nec sollicitudin.</p>
           <div aria-hidden="true" class="ecl-u-aria" aria-labelledby="example-expandable-button-10" id="example-expandable-10">Related docs</div>
         </li>
@@ -374,7 +374,7 @@
       {% include '@ecl/eu-component-pager' with {
         'current_page': 2,
         'max_page': 7
-      } %}
+      } only %}
     </section>
   </div>
 </div>
