@@ -1,42 +1,61 @@
 const linksDefault = [
   {
-    href: '../../example.html#',
-    label: 'Facebook',
-    title: 'Facebook',
+    link: {
+      href: '../../example.html#',
+      label: 'Facebook',
+    },
     variant: 'facebook',
+    extra_attributes: [{ name: 'title', value: 'Facebook' }],
   },
   {
-    href: '../../example.html#',
-    label: 'Twitter',
-    title: 'Twitter',
+    link: {
+      href: '../../example.html#',
+      label: 'Twitter',
+    },
     variant: 'twitter',
+    extra_attributes: [{ name: 'title', value: 'Twitter' }],
   },
   {
-    href: '../../example.html#',
-    label: 'Instagram',
+    link: {
+      href: '../../example.html#',
+      label: 'Instagram',
+    },
     title: 'Instagram',
     variant: 'instagram',
+    extra_attributes: [{ name: 'title', value: 'Instagram' }],
   },
 ];
 
 const linksSpecific = [
   {
-    href: '../../example.html#',
-    label: 'Jean-Claude Junker',
-    title: 'See Jean-Claude Junker on Facebook',
+    link: {
+      href: '../../example.html#',
+      label: 'Jean-Claude Junker',
+    },
     variant: 'facebook',
+    extra_attributes: [
+      { name: 'title', value: 'See Jean-Claude Junker on Facebook' },
+    ],
   },
   {
-    href: '../../example.html#',
-    label: 'European Commission',
-    title: 'See European Commission on Facebook',
+    link: {
+      href: '../../example.html#',
+      label: 'European Commission',
+    },
     variant: 'facebook',
+    extra_attributes: [
+      { name: 'title', value: 'See European Commission on Facebook' },
+    ],
   },
   {
-    href: '../../example.html#',
-    label: 'European Commission',
-    title: 'See European Commission on Twitter',
+    link: {
+      href: '../../example.html#',
+      label: 'European Commission',
+    },
     variant: 'twitter',
+    extra_attributes: [
+      { name: 'title', value: 'See European Commission on Twitter' },
+    ],
   },
 ];
 
@@ -59,15 +78,15 @@ module.exports = {
       name: 'default',
       label: 'Default list with default display',
       context: {
-        links: linksDefault,
-        has_text: true,
+        social_icons: linksDefault,
+        text: 'View European Commission on:',
       },
     },
     {
       name: 'default-specific',
       label: 'Specific list with default display',
       context: {
-        links: linksSpecific,
+        social_icons: linksSpecific,
       },
     },
     {
@@ -75,8 +94,8 @@ module.exports = {
       label: ' Default list with horizontal display',
       context: {
         variant: 'horizontal',
-        links: linksDefault,
-        has_text: true,
+        social_icons: linksDefault,
+        text: 'View European Commission on:',
       },
     },
     {
@@ -84,7 +103,7 @@ module.exports = {
       label: 'Specific list with horizontal display',
       context: {
         variant: 'horizontal',
-        links: linksSpecific,
+        social_icons: linksSpecific,
       },
     },
   ],

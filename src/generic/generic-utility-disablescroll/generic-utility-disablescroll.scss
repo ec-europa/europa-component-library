@@ -1,8 +1,12 @@
 /**
- * Disablescroll
- * @define u-disablescroll
+ * Disablescroll utilities
  */
 
-.ecl-u-disablescroll {
-  overflow: hidden;
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-utility-disablescroll() {
+  .ecl-u-disablescroll {
+    overflow: hidden;
+  }
 }

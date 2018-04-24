@@ -3,6 +3,11 @@
  * @define image 
  */
 
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-style-image/generic-style-image';
 
-@include ecl-image();
+// Use generic mixin
+@include exports('eu-style-image') {
+  @include ecl-image();
+}

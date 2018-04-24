@@ -40,11 +40,12 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <span class="ecl-rss-link__label">{{ _title }}</span>
   {% include '@ecl/' ~ _system ~ '-component-social-icon' with {
+    'variant': 'rss',
     'link': {
       'href': _href,
-      'variant': 'rss',
       'extra_classes': 'ecl-rss-link__link',
       'label': _label
-    }
+    },
+    'system': _system
   } only %}
 </div>
