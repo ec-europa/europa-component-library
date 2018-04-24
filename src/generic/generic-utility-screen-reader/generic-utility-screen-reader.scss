@@ -1,12 +1,16 @@
 /**
  * Screen readers utilities
- * @define sr-only
  */
 
-.ecl-u-sr-only {
-  @include ecl-u-sr-only();
-}
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-.ecl-u-sr-only--focusable {
-  @include ecl-u-sr-only-focusable();
+@mixin ecl-utility-screen-reader() {
+  .ecl-u-sr-only {
+    @include ecl-u-sr-only();
+  }
+
+  .ecl-u-sr-only--focusable {
+    @include ecl-u-sr-only-focusable();
+  }
 }

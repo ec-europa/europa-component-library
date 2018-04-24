@@ -1,57 +1,13 @@
-// Headers
-@import 'headings-mixins';
+/**
+ * Headings
+ * @define heading
+ */
 
-.ecl-heading {
-  @include heading();
-}
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-style-typography-heading/generic-style-typography-heading';
 
-.ecl-heading--h1 {
-  @include heading-1();
-}
-
-.ecl-heading--h2 {
-  @include heading-2();
-}
-
-.ecl-heading--h3 {
-  @include heading-3();
-}
-
-.ecl-heading--h4 {
-  @include heading-4();
-}
-
-.ecl-heading--h5 {
-  @include heading-5();
-}
-
-.ecl-heading--headline {
-  color: #fff;
-  font-size: map-get($ecl-font-size, 'm');
-  font-weight: 600;
-  line-height: 2.2;
-}
-
-// Spacing
-* + .ecl-heading--h1 {
-  margin-top: map-get($ecl-spacing, 'xxl');
-}
-
-* + .ecl-heading--h2 {
-  margin-top: map-get($ecl-spacing, 'xl');
-}
-
-* + .ecl-heading--h3 {
-  margin-top: map-get($ecl-spacing, 'l');
-}
-
-// Deprecated
-.ecl-h1,
-.ecl-h2,
-.ecl-h3,
-.ecl-h4,
-.ecl-h5,
-.ecl-h6 {
-  margin: 0;
-  padding: 0;
+// Use generic mixin
+@include exports('eu-style-typography-heading') {
+  @include ecl-typography-heading();
 }

@@ -1,8 +1,12 @@
 /**
- * Clearfix
- * @define clearfix
+ * Clearfix utilities
  */
 
-.ecl-u-clearfix {
-  @include ecl-clearfix();
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-utility-clearfix/generic-utility-clearfix';
+
+// Use generic mixin
+@include exports('eu-utility-clearfix') {
+  @include ecl-utility-clearfix();
 }
