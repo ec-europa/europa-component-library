@@ -3,6 +3,11 @@
  * @define typography
  */
 
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-style-typography/generic-style-typography';
 
-@include ecl-typography();
+// Use generic mixin
+@include exports('eu-style-typography') {
+  @include ecl-typography();
+}

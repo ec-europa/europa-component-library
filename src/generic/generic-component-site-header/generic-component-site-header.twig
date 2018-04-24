@@ -1,90 +1,89 @@
 {#
-  For site switcher:
-    - "site_switcher" (object) {
-      - "political":  {
-        - "href" (string): target of the link (default: '')
-        - "label" (string): label of the link (default: '')
-        - "is_active" (boolean): set active link (default: false)
+  Parameters:
+    - "site_switcher" (object) (default: {}): shape of @ecl/generic-component-site-switcher
+    - "user_menu" (object) (default: {}): shape of @ecl/generic-component-navigation-list
+    - "logo" (object) (default: {
+        'href': 'https://ec.europa.eu',
+        'title': 'Home - European Commission'
+      }): shape of @ecl/generic-component-logo
+    - "messages" (object): shape of
+      {
+        "dismiss" (string) (default: 'Close'),
+        "heading" (string) (default: 'Select your language')
       }
-      - "info":  {
-        - "href" (string): target of the link (default: '')
-        - "label" (string): label of the link (default: '')
-        - "is_active" (boolean): set active link (default: false)
-      }
-    }
-
-  For user menu:
-    - "user_menu" (object){
-      - "title" (string): the title of the user menu (default: 'Navigation')
-      - "links" (array): [
-        - "href" (string): target of the link
-        - "label" (string): label of the link
-        - "is_active" (boolean): set active link
+    - "languages" (array) (default: []): array of languages to display
+    - "search_id" (string) (default: 'global-search')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
       ]
-    }
-
-  Generic:
-    - "extra_classes" (string): extra CSS classes to be added
-    - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
-    - "languages" (array): array of languages to display
+    - "system" (string) (default: "generic")
 #}
 
 {# Internal properties #}
 
+{% set _user_menu = user_menu|default({}) %}
+{% set _site_switcher = site_switcher|default({}) %}
+{% set _logo = {
+  'href': 'https://ec.europa.eu',
+  'title': 'Home - European Commission'
+}|merge(logo|default({})) %}
+{% set _messages = {
+  'dismiss': 'Close',
+  'heading': 'Select your language'
+}|merge(messages|default({})) %}
+{% set _languages = languages|default([]) %}
+{% set _search_id = search_id|default('global-search') %}
 {% set _css_class = 'ecl-site-header' %}
 {% set _extra_attributes = '' %}
-{% set _languages = languages|default([]) %}
-
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
-{% if extra_classes is defined %}
+{% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined %}
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
+
 <header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
-
-  {% if user_menu is defined and user_menu is iterable %}
-  <div class="ecl-container">
-    {% include '@ecl/generic-component-navigation-list' with {
-      display: 'small',
-      extra_classes: 'ecl-u-f-r'
-    }|merge(user_menu|default({})) %}
-  </div>
+  {% if _user_menu is not empty %}
+    <div class="ecl-container">
+      {% include '@ecl/' ~ _system ~ '-component-navigation-list' with {
+        'display': 'small',
+        'extra_classes': 'ecl-u-f-r'
+      }|merge(_user_menu) only %}
+    </div>
   {% endif %}
-
-  {% if site_switcher is defined %}
-  {% include '@ecl/generic-component-site-switcher' with {
-    variant: 'header'
-    }|merge(site_switcher|default({})) %}
+  {% if _site_switcher is not empty %}
+    {% include '@ecl/' ~ _system ~ '-component-site-switcher' with {
+      'variant': 'header'
+    }|merge(_site_switcher) only %}
   {% endif %}
-
   <div class="ecl-container ecl-site-header__banner">
-    {% include '@ecl/generic-component-logo' with {
-      'href': 'https://ec.europa.eu',
-      'title': 'Home - European Commission',
+    {% include '@ecl/' ~ _system ~ '-component-logo' with {
       'type': 'right',
       'extra_classes': 'ecl-site-header__logo'
-    } only %}
-    {% include '@ecl/generic-component-language-list' with {
+    }|merge(_logo) only %}
+    {% include '@ecl/' ~ _system ~ '-component-language-list' with {
       'extra_classes': 'ecl-site-header__language-list',
       'languages': _languages,
       'variant': 'overlay',
-      'messages': {
-        'dismiss': 'Close',
-        'heading': 'Select your language'
-      }
-    } %}
-    {% include '@ecl/generic-component-search-form' with {
-      'input': { 'id': 'global-search' },
+      'messages': _messages
+    } only %}
+    {% include '@ecl/' ~ _system ~ '-component-search-form' with {
+      'input': { 'id': _search_id },
       'extra_classes': 'ecl-site-header__search'
-    } %}
+    } only %}
   </div>
 </header>

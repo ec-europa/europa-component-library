@@ -1,7 +1,12 @@
-// Flex variation
-//
-// Custom styles for additional flex alignment options.
+/**
+ * Flex utilities
+ */
 
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-utility-flex/generic-utility-flex';
 
-@include u-flex();
+// Use generic mixin
+@include exports('eu-utility-flex') {
+  @include ecl-utility-flex();
+}
