@@ -1,5 +1,5 @@
-const contextDefault = require('@ecl/generic-component-meta/data/data--default');
-const contextHeader = require('@ecl/generic-component-meta/data/data--header');
+const contextDefault = require('@ecl/generic-component-meta/data/demo--default');
+const contextHeader = require('@ecl/generic-component-meta/data/demo--header');
 
 module.exports = {
   title: 'Meta',
