@@ -1,51 +1,39 @@
 {#
-  - "variant": can be '', 'header', 'footer' (default: '')
-  - "political":  {
-    - "href": target of the link (default: '')
-    - "label": label of the link (default: '')
-    - "is_active" (boolean): set active link
-
-  }
-  - "info":  {
-    - "href": target of the link (default: '')
-    - "label": label of the link (default: '')
-    - "is_active" (boolean): set active link
-  }
-  - "extra_classes" (string): extra CSS classes to be added
-  - "extra_attributes" (array): extra attributes classes (optional, format: [{ 'name': 'name_of_the_attribute', 'value': 'value_of_the_attribute'}])
+  Parameters:
+    - "variant" (string) (default: ''): can be '', 'header', 'footer'
+    - "political" (object):  {
+      - "href" (default: '')
+      - "label" (default: '')
+      - "is_active" (boolean) (default: false)
+    }
+    - "info" (object):  {
+      - "href" (default: '')
+      - "label" (default: '')
+      - "is_active" (boolean) (default: false)
+    }
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
-{# Internal properties #}
-
-{% set _css_class = 'ecl-site-switcher' ~ (variant != '' ? ' ecl-site-switcher--' ~ variant: '') %}
-{% set _extra_attributes = '' %}
-
-{# Internal logic - Process properties #}
-
-{% if extra_classes is defined %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
-
-{# Print the result #}
-<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <ul class="ecl-site-switcher__list ecl-container">
-    <li class="ecl-site-switcher__option{{ political.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
-      {% include '@ecl/ec-component-link' with {
-        'extra_classes': 'ecl-site-switcher__link',
-        }|merge(political|default({}))
-      %}
-    </li>
-    <li class="ecl-site-switcher__option{{ info.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
-      {% include '@ecl/ec-component-link' with {
-        'extra_classes': 'ecl-site-switcher__link',
-        }|merge(info|default({}))
-      %}
-    </li>
-  </ul>
-</div>
+{% include '@ecl/generic-component-site-switcher' with {
+  'variant': variant|default(''),
+  'political': {
+    'href': '',
+    'label': '',
+    'is_active': false
+  }|merge(political|default({})),
+  'info': {
+    'href': '',
+    'label': '',
+    'is_active': false
+  }|merge(info|default({})),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}

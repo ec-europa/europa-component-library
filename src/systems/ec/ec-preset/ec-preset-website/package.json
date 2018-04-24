@@ -17,7 +17,7 @@
     "clean": "rimraf build dist",
     "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln",
     "watch:scripts":
-      "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules|build|dist/\" -c \"npm run build:scripts\"",
+      "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
     "watch:styles":
       "chokidar \"../../../../generic/**/*.scss\" \"../../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:* -ln"
