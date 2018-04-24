@@ -1,6 +1,3 @@
-const contextStandalone = require('@ecl/generic-component-link-block/data/data--standalone');
-const contextWrapper = require('@ecl/generic-component-link-block/data/data--wrapper');
-
 module.exports = {
   title: 'Link blocks',
   label: 'Link blocks',
@@ -20,12 +17,31 @@ module.exports = {
     {
       name: 'standalone',
       label: 'Standalone block of links',
-      context: contextStandalone,
+      context: {
+        links: [
+          { href: '../../example.html#', label: 'European Commission' },
+          { href: '../../example.html#', label: 'Priorities' },
+          {
+            href: '../../example.html#',
+            label: 'Jobs, Growth and Investment',
+          },
+        ],
+      },
     },
     {
       name: 'wrapper',
       label: 'Block of links with title',
-      context: contextWrapper,
+      context: {
+        title: 'More information',
+        links: [
+          { href: '../../example.html#', label: 'European Commission' },
+          { href: '../../example.html#', label: 'Priorities' },
+          {
+            href: '../../example.html#',
+            label: 'Jobs, Growth and Investment',
+          },
+        ],
+      },
     },
   ],
 };
