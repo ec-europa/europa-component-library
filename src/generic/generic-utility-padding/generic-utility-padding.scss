@@ -1,7 +1,8 @@
-/*
-  ECL Padding
-  ===========
+/**
+ * Padding utilities
+ */
 
+/* 
   Base:
     p = padding
   Modifiers:
@@ -14,34 +15,39 @@
     l = left
 */
 
-@each $key, $value in $ecl-spacing {
-  .ecl-u-pa-#{$key} {
-    padding: $value;
-  }
+// Import base
+@import '@ecl/generic-base/generic-base';
 
-  .ecl-u-ph-#{$key} {
-    padding-left: $value;
-    padding-right: $value;
-  }
+@mixin ecl-utility-padding() {
+  @each $key, $value in $ecl-spacing {
+    .ecl-u-pa-#{$key} {
+      padding: $value;
+    }
 
-  .ecl-u-pv-#{$key} {
-    padding-bottom: $value;
-    padding-top: $value;
-  }
+    .ecl-u-ph-#{$key} {
+      padding-left: $value;
+      padding-right: $value;
+    }
 
-  .ecl-u-pt-#{$key} {
-    padding-top: $value;
-  }
+    .ecl-u-pv-#{$key} {
+      padding-bottom: $value;
+      padding-top: $value;
+    }
 
-  .ecl-u-pr-#{$key} {
-    padding-right: $value;
-  }
+    .ecl-u-pt-#{$key} {
+      padding-top: $value;
+    }
 
-  .ecl-u-pb-#{$key} {
-    padding-bottom: $value;
-  }
+    .ecl-u-pr-#{$key} {
+      padding-right: $value;
+    }
 
-  .ecl-u-pl-#{$key} {
-    padding-left: $value;
+    .ecl-u-pb-#{$key} {
+      padding-bottom: $value;
+    }
+
+    .ecl-u-pl-#{$key} {
+      padding-left: $value;
+    }
   }
 }

@@ -1,8 +1,11 @@
-// Flex variation
-//
-// Custom styles for additional flex alignment options.
+/**
+ * Flex utilities
+ */
 
-@mixin u-flex() {
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-utility-flex() {
   @each $breakpoint in map-keys($ecl-grid-breakpoints) {
     @include ecl-media-breakpoint-up($breakpoint) {
       $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);

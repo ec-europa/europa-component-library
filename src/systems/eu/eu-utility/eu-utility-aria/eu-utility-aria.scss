@@ -1,10 +1,13 @@
 /**
- * Aria
+ * Aria utilities
  * Automatically apply certain styles depending on the aria attributes
- * @define aria
  */
 
-/* stylelint-disable-next-line plugin/selector-bem-pattern */
-.ecl-u-aria[aria-hidden='true'] {
-  display: none;
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-utility-aria/generic-utility-aria';
+
+// Use generic mixin
+@include exports('eu-utility-aria') {
+  @include ecl-utility-aria();
 }
