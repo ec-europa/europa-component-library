@@ -42,10 +42,10 @@
 {# Print the result #}
 
 {% if _link is not empty %}
-  {% include '@ecl/' ~ _system ~ '-component-link' with {
-    extra_classes: _css_class,
-    extra_attributes: extra_attributes
-  }|merge(_link) %}
+  {% include '@ecl/' ~ _system ~ '-component-link' with _link|merge({
+    'extra_classes': _link.extra_classes|default('') ~ ' ' ~ _css_class,
+    'extra_attributes': (_link.extra_attributes|default([]))|merge(extra_attributes|default([]))
+  }) only %}
 {% else %}
   <span class="{{ _css_class }}"{{ _extra_attributes|raw }}>{{ _label }}</span>
 {% endif %}
