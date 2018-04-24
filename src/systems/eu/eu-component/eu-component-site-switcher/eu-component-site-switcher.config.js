@@ -1,6 +1,6 @@
-const contextDefault = require('@ecl/generic-component-site-switcher/data/data--default');
-const contextFooter = require('@ecl/generic-component-site-switcher/data/data--footer');
-const contextHeader = require('@ecl/generic-component-site-switcher/data/data--header');
+const contextDefault = require('@ecl/generic-component-site-switcher/data/demo--default');
+const contextFooter = require('@ecl/generic-component-site-switcher/data/demo--footer');
+const contextHeader = require('@ecl/generic-component-site-switcher/data/demo--header');
 
 module.exports = {
   title: 'Site switchers',

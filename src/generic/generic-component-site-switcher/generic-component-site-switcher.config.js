@@ -1,3 +1,7 @@
+const contextDefault = require('./data/demo--default');
+const contextFooter = require('./data/demo--footer');
+const contextHeader = require('./data/demo--header');
+
 module.exports = {
   title: 'Site switchers',
   label: 'Site switchers',
@@ -8,53 +12,17 @@ module.exports = {
     {
       name: 'default',
       label: 'Default',
-      context: {
-        political: {
-          href: '../../example.html#',
-          label: 'Commission and its priorities',
-        },
-        info: {
-          href: '../../example.html#',
-          label: 'Policies, information and services',
-          is_active: true,
-        },
-      },
+      context: contextDefault,
     },
     {
       name: 'header',
       label: 'Header',
-      context: {
-        variant: 'header',
-        political: {
-          href: '../../example.html#',
-          label: 'Commission and its priorities',
-          variant: '',
-        },
-        info: {
-          href: '../../example.html#',
-          label: 'Policies, information and services',
-          is_active: true,
-          variant: '',
-        },
-      },
+      context: contextHeader,
     },
     {
       name: 'footer',
       label: 'Footer',
-      context: {
-        variant: 'footer',
-        political: {
-          href: '../../example.html#',
-          label: 'Commission and its priorities',
-          variant: '',
-        },
-        info: {
-          href: '../../example.html#',
-          label: 'Policies, information and services',
-          is_active: true,
-          variant: '',
-        },
-      },
+      context: contextFooter,
     },
   ],
 };

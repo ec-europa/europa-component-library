@@ -1,4 +1,4 @@
-const data = require('@ecl/generic-component-social-icon/data/index');
+const data = require('@ecl/generic-component-social-icon/data/demo');
 
 module.exports = {
   title: 'Social icons',
