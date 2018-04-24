@@ -14,7 +14,7 @@
   $separator: map-get($ecl-colors, 'grey-50'),
   $group-separator: map-get($ecl-colors, 'grey-25'),
   $link-color: map-get($ecl-colors, 'grey-100'),
-  $link-active-color: map-get($ecl-colors, 'blue-100')
+  $link-active-color: map-get($ecl-colors, 'grey-100')
 ) {
   .ecl-side-navigation {
     background-color: $bg;
@@ -121,6 +121,7 @@
 
     &--active {
       color: $link-active-color;
+      text-decoration: underline;
     }
   }
 

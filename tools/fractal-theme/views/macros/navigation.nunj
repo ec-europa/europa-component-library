@@ -26,7 +26,7 @@
         {% else %}
         {% set isCurrent = true if (current and (current.id == item.id)) else false %}
         <li class="ecl-side-navigation__item" {% if isCurrent %} data-state="current"{% endif %} data-role="item">
-          <a href="{{ path( (item | url), request) }}" class="ecl-side-navigation__link {% if isCurrent %} ecl-navigation-menu__link--active{% endif %}">
+          <a href="{{ path( (item | url), request) }}" class="ecl-side-navigation__link {% if isCurrent %} ecl-side-navigation__link--active{% endif %}">
             {% if item.status %}{{ status.unlabelled(item.status) }}{% endif %}
             <span>{{ item.label }}</span>
           </a>
