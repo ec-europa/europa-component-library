@@ -1,5 +1,5 @@
-const contextStandalone = require('@ecl/generic-component-link-block/data/data--standalone');
-const contextWrapper = require('@ecl/generic-component-link-block/data/data--wrapper');
+const contextStandalone = require('@ecl/generic-component-link-block/data/demo--standalone');
+const contextWrapper = require('@ecl/generic-component-link-block/data/demo--wrapper');
 
 module.exports = {
   title: 'Link blocks',
