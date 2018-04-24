@@ -1,6 +1,6 @@
 /**
  * Headings
- * @define heading; weak
+ * @define heading
  */
 
 // Import base
@@ -41,17 +41,18 @@
   }
 
   // Spacing
-  /* stylelint-disable */
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
   * + .ecl-heading--h1 {
     margin-top: map-get($ecl-spacing, 'xxl');
   }
 
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
   * + .ecl-heading--h2 {
     margin-top: map-get($ecl-spacing, 'xl');
   }
 
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
   * + .ecl-heading--h3 {
     margin-top: map-get($ecl-spacing, 'l');
   }
-  /* stylelint-enable */
 }
