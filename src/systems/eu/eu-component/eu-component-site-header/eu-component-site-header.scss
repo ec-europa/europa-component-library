@@ -9,7 +9,11 @@
 
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(
-  ('eu-component-logo', 'eu-component-language-list', 'eu-component-search-form')
+  (
+    'eu-component-logo',
+    'eu-component-language-list',
+    'eu-component-search-form'
+  )
 );
 
 // Use generic mixin

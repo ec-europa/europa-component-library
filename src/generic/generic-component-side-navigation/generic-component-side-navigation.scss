@@ -6,8 +6,19 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
-@mixin ecl-side-navigation() {
+@mixin ecl-side-navigation(
+  $bg: map-get($ecl-colors, 'grey-10'),
+  $group-bg: map-get($ecl-colors, 'grey-5'),
+  $toggle-btn-bg: map-get($ecl-colors, 'blue-75'),
+  $toggle-btn-color: #fff,
+  $separator: map-get($ecl-colors, 'grey-50'),
+  $group-separator: map-get($ecl-colors, 'grey-25'),
+  $link-color: map-get($ecl-colors, 'grey-100'),
+  $link-active-color: map-get($ecl-colors, 'grey-100')
+) {
   .ecl-side-navigation {
+    background-color: $bg;
+    height: 100%;
     margin: 0;
     padding: 0;
   }
@@ -21,7 +32,7 @@
   }
 
   .ecl-side-navigation__root::before {
-    background-color: map-get($ecl-colors, 'grey-10');
+    background-color: $bg;
     content: '';
     height: 100%;
     left: 50%;
@@ -42,7 +53,7 @@
 
   .ecl-side-navigation__toggle {
     border-width: 0;
-    color: #fff;
+    color: $toggle-btn-color;
     font-size: map-get($ecl-font-size, 'm');
     font-weight: bold;
     padding: map-get($ecl-spacing, 'm') map-get($ecl-spacing, 's');
@@ -54,7 +65,7 @@
   }
 
   .ecl-side-navigation__toggle::before {
-    background-color: map-get($ecl-colors, 'blue-75');
+    background-color: $toggle-btn-bg;
     content: '';
     height: 100%;
     left: 50%;
@@ -74,7 +85,7 @@
   }
 
   .ecl-side-navigation__group::before {
-    background-color: map-get($ecl-colors, 'grey-5');
+    background-color: $group-bg;
     content: '';
     height: 100%;
     left: 50%;
@@ -85,9 +96,9 @@
   }
 
   .ecl-side-navigation__link {
-    border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
-    color: map-get($ecl-colors, 'grey-100');
-    display: block;
+    border-bottom: 1px solid $separator;
+    color: $link-color;
+    display: flex;
     font-size: map-get($ecl-font-size, 'm');
     padding: map-get($ecl-spacing, 's') 0;
     position: relative;
@@ -109,7 +120,8 @@
     }
 
     &--active {
-      color: map-get($ecl-colors, 'blue-100');
+      color: $link-active-color;
+      text-decoration: underline;
     }
   }
 
@@ -118,7 +130,7 @@
   }
 
   .ecl-side-navigation--depth-2 .ecl-side-navigation__link {
-    border-bottom-color: map-get($ecl-colors, 'grey-25');
+    border-bottom-color: $group-separator;
     font-weight: normal;
 
     &[aria-expanded='true'],
@@ -133,11 +145,10 @@
 
   .ecl-side-navigation--depth-3 .ecl-side-navigation__link {
     border-bottom-width: 0;
+    margin-left: -(map-get($ecl-spacing, 's'));
+    padding-left: map-get($ecl-spacing, 's');
   }
 
-  .ecl-side-navigation--depth-1
-    .ecl-side-navigation__item:last-child
-    .ecl-side-navigation__link,
   .ecl-side-navigation--depth-2
     .ecl-side-navigation__item:last-child
     .ecl-side-navigation__link {
@@ -245,7 +256,7 @@
 
     .ecl-side-navigation__root,
     .ecl-side-navigation__root[aria-hidden='true'] {
-      background-color: map-get($ecl-colors, 'grey-10');
+      background-color: $bg;
       display: block;
     }
 
@@ -254,7 +265,7 @@
     }
 
     .ecl-side-navigation__group {
-      background-color: map-get($ecl-colors, 'grey-5');
+      background-color: $group-bg;
     }
 
     .ecl-side-navigation__group::before {

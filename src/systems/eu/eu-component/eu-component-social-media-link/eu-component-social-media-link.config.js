@@ -1,63 +1,7 @@
-const linksDefault = [
-  {
-    link: {
-      href: '../../example.html#',
-      label: 'Facebook',
-    },
-    variant: 'facebook',
-    extra_attributes: [{ name: 'title', value: 'Facebook' }],
-  },
-  {
-    link: {
-      href: '../../example.html#',
-      label: 'Twitter',
-    },
-    variant: 'twitter',
-    extra_attributes: [{ name: 'title', value: 'Twitter' }],
-  },
-  {
-    link: {
-      href: '../../example.html#',
-      label: 'Instagram',
-    },
-    title: 'Instagram',
-    variant: 'instagram',
-    extra_attributes: [{ name: 'title', value: 'Instagram' }],
-  },
-];
-
-const linksSpecific = [
-  {
-    link: {
-      href: '../../example.html#',
-      label: 'Jean-Claude Junker',
-    },
-    variant: 'facebook',
-    extra_attributes: [
-      { name: 'title', value: 'See Jean-Claude Junker on Facebook' },
-    ],
-  },
-  {
-    link: {
-      href: '../../example.html#',
-      label: 'European Commission',
-    },
-    variant: 'facebook',
-    extra_attributes: [
-      { name: 'title', value: 'See European Commission on Facebook' },
-    ],
-  },
-  {
-    link: {
-      href: '../../example.html#',
-      label: 'European Commission',
-    },
-    variant: 'twitter',
-    extra_attributes: [
-      { name: 'title', value: 'See European Commission on Twitter' },
-    ],
-  },
-];
+const contextDefault = require('@ecl/generic-component-social-media-link/data/demo--default');
+const contextDefaultSpecific = require('@ecl/generic-component-social-media-link/data/demo--default-specific');
+const contextHorizontal = require('@ecl/generic-component-social-media-link/data/demo--horizontal');
+const contextHorizontalSpecific = require('@ecl/generic-component-social-media-link/data/demo--horizontal-specific');
 
 module.exports = {
   title: 'Social Media Links',
@@ -77,34 +21,22 @@ module.exports = {
     {
       name: 'default',
       label: 'Default list with default display',
-      context: {
-        social_icons: linksDefault,
-        text: 'View European Commission on:',
-      },
+      context: contextDefault,
     },
     {
       name: 'default-specific',
       label: 'Specific list with default display',
-      context: {
-        social_icons: linksSpecific,
-      },
+      context: contextDefaultSpecific,
     },
     {
       name: ' horizontal',
       label: ' Default list with horizontal display',
-      context: {
-        variant: 'horizontal',
-        social_icons: linksDefault,
-        text: 'View European Commission on:',
-      },
+      context: contextHorizontal,
     },
     {
       name: 'horizontal-specific',
       label: 'Specific list with horizontal display',
-      context: {
-        variant: 'horizontal',
-        social_icons: linksSpecific,
-      },
+      context: contextHorizontalSpecific,
     },
   ],
 };
