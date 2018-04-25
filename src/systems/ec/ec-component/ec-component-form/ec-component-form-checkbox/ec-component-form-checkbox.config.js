@@ -1,3 +1,8 @@
+const contextDefault = require('@ecl/generic-component-form-checkbox/data/demo--default');
+const contextDisabled = require('@ecl/generic-component-form-checkbox/data/demo--disabled');
+const contextChecked = require('@ecl/generic-component-form-checkbox/data/demo--checked');
+const contextError = require('@ecl/generic-component-form-checkbox/data/demo--error');
+
 module.exports = {
   title: 'Checkboxes',
   label: 'Checkboxes',
@@ -16,42 +21,19 @@ module.exports = {
   variants: [
     {
       name: 'default',
-      context: {
-        label: 'Normal checkbox',
-        id: 'example-checkbox-id-1',
-        name: 'example-checkbox-name-1',
-        value: 'some value',
-      },
+      context: contextDefault,
     },
     {
       name: 'disabled',
-      context: {
-        label: 'Disabled checkbox',
-        id: 'example-checkbox-id-2',
-        name: 'example-checkbox-name-2',
-        is_disabled: true,
-        value: 'some value',
-      },
+      context: contextDisabled,
     },
     {
       name: 'with-error',
-      context: {
-        label: 'Checkbox with error',
-        id: 'example-checkbox-id-3',
-        name: 'example-checkbox-name-3',
-        has_error: true,
-        value: 'some value',
-      },
+      context: contextError,
     },
     {
       name: 'checked',
-      context: {
-        label: 'Checked by default',
-        id: 'example-checkbox-id-4',
-        name: 'example-checkbox-name-4',
-        checked: true,
-        value: 'some value',
-      },
+      context: contextChecked,
     },
   ],
 };
