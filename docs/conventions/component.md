@@ -13,7 +13,7 @@ That's why the base should also be thought of, and managed as, a common layer of
 
 All components should follow the same file structure and naming conventions.
 
-If you are not familiar with the concept of systems in ECL, first have a look at [the system documentation](../systems).
+If you are not familiar with the concept of systems in ECL, first have a look at [the system documentation](../05-systems.md).
 
 ### Naming of components
 

@@ -1,4 +1,4 @@
-const data = require('./demo');
+const data = require('./shared');
 
 module.exports = {
   links: data.linksDefault,
