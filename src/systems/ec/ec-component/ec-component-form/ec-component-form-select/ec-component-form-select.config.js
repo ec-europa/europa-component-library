@@ -1,10 +1,6 @@
-const optionsList = [
-  { value: '1', label: 'Delhi' },
-  { value: '2', label: 'Hong Kong' },
-  { value: '3', label: 'Mumbai' },
-  { value: '4', label: 'Tokyo' },
-  { value: '5', label: 'Amsterdam' },
-];
+const contextDefault = require('@ecl/generic-component-form-select/data/demo--default');
+const contextDisabled = require('@ecl/generic-component-form-select/data/demo--disabled');
+const contextWithErrors = require('@ecl/generic-component-form-select/data/demo--with-errors');
 
 module.exports = {
   title: 'Selects',
@@ -24,28 +20,17 @@ module.exports = {
     {
       name: 'default',
       label: 'Default select list',
-      context: {
-        id: 'example-select-id-1',
-        options: optionsList,
-      },
+      context: contextDefault,
     },
     {
       name: 'disabled',
       label: 'Disabled select list',
-      context: {
-        id: 'example-selectid-2',
-        is_disabled: true,
-        options: optionsList,
-      },
+      context: contextDisabled,
     },
     {
       name: 'with-error',
       label: 'Select list with error',
-      context: {
-        id: 'example-select-id-3',
-        has_error: true,
-        options: optionsList,
-      },
+      context: contextWithErrors,
     },
   ],
 };

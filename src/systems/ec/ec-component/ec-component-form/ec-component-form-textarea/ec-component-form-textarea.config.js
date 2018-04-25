@@ -1,3 +1,7 @@
+const contextDefault = require('@ecl/generic-component-form-textarea/data/demo--default');
+const contextIsDisabled = require('@ecl/generic-component-form-textarea/data/demo--is-disabled');
+const contextHasError = require('@ecl/generic-component-form-textarea/data/demo--has-error');
+
 module.exports = {
   title: 'Text areas',
   label: 'Text areas',
@@ -19,32 +23,15 @@ module.exports = {
   variants: [
     {
       name: 'default',
-      context: {
-        id: 'example-textarea-id-1',
-        extra_attributes: [
-          { name: 'placeholder', value: 'Some placeholder text.' },
-        ],
-      },
+      context: contextDefault,
     },
     {
       name: 'is-disabled',
-      context: {
-        id: 'example-textarea-id-2',
-        is_disabled: true,
-        extra_attributes: [
-          { name: 'placeholder', value: 'Some placeholder text.' },
-        ],
-      },
+      context: contextIsDisabled,
     },
     {
       name: 'has-error',
-      context: {
-        id: 'example-textarea-id-3',
-        has_error: true,
-        extra_attributes: [
-          { name: 'placeholder', value: 'Some placeholder text.' },
-        ],
-      },
+      context: contextHasError,
     },
   ],
 };
