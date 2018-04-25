@@ -1,3 +1,7 @@
+const contextUpcoming = require('@ecl/generic-component-label/data/demo--upcoming');
+const contextOpen = require('@ecl/generic-component-label/data/demo--open');
+const contextClose = require('@ecl/generic-component-label/data/demo--close');
+
 module.exports = {
   title: 'Labels',
   label: 'Labels',
@@ -17,26 +21,17 @@ module.exports = {
     {
       name: 'upcoming',
       label: 'Upcoming',
-      context: {
-        status: 'upcoming',
-        body: 'Call status: upcoming',
-      },
+      context: contextUpcoming,
     },
     {
       name: 'open',
       label: 'Open / Highlight ',
-      context: {
-        status: 'open',
-        body: 'Call status: open',
-      },
+      context: contextOpen,
     },
     {
       name: 'close',
       label: 'Closed',
-      context: {
-        status: 'close',
-        body: 'Call status: closed',
-      },
+      context: contextClose,
     },
   ],
 };
