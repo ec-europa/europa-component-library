@@ -1,3 +1,8 @@
+const contextDefault = require('@ecl/generic-component-list-item/data/demo--default');
+const contextDate = require('@ecl/generic-component-list-item/data/demo--date');
+const contextThumbnail = require('@ecl/generic-component-list-item/data/demo--thumbnail');
+const contextHighlight = require('@ecl/generic-component-list-item/data/demo--highlight');
+
 module.exports = {
   title: 'List items',
   label: 'List items',
@@ -17,54 +22,22 @@ module.exports = {
     {
       name: 'default',
       label: 'Default list item',
-      context: {
-        href: '../../example.html#list-item-1',
-        metas: ['Service department', 'PMO'],
-        title: 'Administration and Payment of Individual Entitlements',
-      },
+      context: contextDefault,
     },
     {
       name: 'date',
       label: 'Date list item',
-      context: {
-        variant: 'date',
-        date: {
-          week_day: 'Tue',
-          day: '07',
-          month: 'Sep',
-        },
-        href: '../../example.html#list-item-2',
-        title:
-          "Citizens' Dialogue in Kraków with Commissioner Elżbieta Bieńkowska",
-        detail:
-          '<small><span class="ecl-icon ecl-icon--location">Kraków, Poland</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
-      },
+      context: contextDate,
     },
     {
       name: 'thumbnail',
       label: 'Thumbnail list item',
-      context: {
-        metas: ['Director-General'],
-        title: 'John Doe',
-        href: '../../example.html#list-item-3',
-        primary_image: {
-          src: '../../assets/demo_images/default_profile_image.png',
-          alt: 'Director-General John Doe',
-        },
-      },
+      context: contextThumbnail,
     },
     {
       name: 'higlight',
       label: 'Highlight list item',
-      context: {
-        variant: 'highlight',
-        title: 'State of European Union 2017',
-        href: '../../example.html#list-item-4',
-        primary_image: {
-          src: '../../assets/demo_images/nature-demo-1.jpg',
-          alt: 'Highlighted image',
-        },
-      },
+      context: contextHighlight,
     },
   ],
 };
