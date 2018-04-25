@@ -340,7 +340,7 @@ module.exports = {
 ```
 
 Example - multiple variants:
-_(File name: data/demo--hero.config.js)_
+_(File name: data/demo--hero.js)_
 
 ```js
 module.exports = {
@@ -351,7 +351,7 @@ module.exports = {
 };
 ```
 
-_(File name: data/demo--video.config.js)_
+_(File name: data/demo--video.js)_
 
 ```js
 module.exports = {
