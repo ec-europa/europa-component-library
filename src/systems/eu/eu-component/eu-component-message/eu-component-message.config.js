@@ -1,3 +1,9 @@
+const contextInfo = require('@ecl/generic-component-message/data/demo--info');
+const contextWarning = require('@ecl/generic-component-message/data/demo--warning');
+const contextSuccess = require('@ecl/generic-component-message/data/demo--success');
+const contextError = require('@ecl/generic-component-message/data/demo--error');
+const contextLivestream = require('@ecl/generic-component-message/data/demo--livestream');
+
 module.exports = {
   title: 'Messages',
   label: 'Messages',
@@ -23,64 +29,27 @@ module.exports = {
     {
       name: 'info',
       label: 'Info',
-      context: {
-        dismiss: true,
-        screen_reader_description: 'Informative message',
-        title: 'Some info title',
-        messages: [
-          'Lorem ipsum lor sit amet, consectetur adipi',
-          'Lorem ipsum lor sit amet, consectetur adipi',
-          'Lorem ipsum lor sit amet, consectetur adipi',
-        ],
-      },
+      context: contextInfo,
     },
     {
       name: 'warning',
       label: 'Warning',
-      context: {
-        modifier: 'warning',
-        dismiss: true,
-        screen_reader_description: 'Warning message',
-        title: 'Some warning title',
-        messages: [
-          'Lorem ipsum lor sit amet, consectetur adipi',
-          'Lorem ipsum lor sit amet, consectetur adipi',
-          'Lorem ipsum lor sit amet, consectetur adipi',
-        ],
-      },
+      context: contextWarning,
     },
     {
       name: 'success',
       label: 'Success',
-      context: {
-        modifier: 'success',
-        dismiss: true,
-        screen_reader_description: 'Success message',
-        title: 'Some success title',
-        messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
-      },
+      context: contextSuccess,
     },
     {
       name: 'error',
       label: 'Error',
-      context: {
-        modifier: 'error',
-        dismiss: true,
-        screen_reader_description: 'Error message',
-        title: 'Some error title',
-        messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
-      },
+      context: contextError,
     },
     {
       name: 'livestream',
       label: 'Livestream',
-      context: {
-        modifier: 'live',
-        dismiss: true,
-        screen_reader_description: 'Livestream message',
-        title: 'Some livestream title',
-        messages: ['Lorem ipsum lor sit amet, consectetur adipi'],
-      },
+      context: contextLivestream,
     },
   ],
 };
