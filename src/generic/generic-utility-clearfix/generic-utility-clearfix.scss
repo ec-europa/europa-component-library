@@ -1,8 +1,12 @@
 /**
- * Clearfix
- * @define clearfix
+ * Clearfix utilities
  */
 
-.ecl-u-clearfix {
-  @include ecl-clearfix();
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-utility-clearfix() {
+  .ecl-u-clearfix {
+    @include ecl-clearfix();
+  }
 }

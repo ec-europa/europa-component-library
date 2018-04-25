@@ -160,14 +160,12 @@
     </aside>
     <section class="ecl-col-lg-9">
       <div class="ecl-heading ecl-heading--h2 ecl-u-mb-m">Events (90)</div>
-
       {% include '@ecl/ec-component-tag' with {
         'modifier': 'facet-close',
         'label': 'Live streaming available',
-        'tags': [{ 'value': 'Yes'}]
+        'tags': [{ 'value': 'Yes', 'href': '../../example.html#remove-filter' }]
       } only %}
       <section class="ecl-u-mv-m">CONTENT HERE</section>
-
       {% include '@ecl/ec-component-pager' with {
         'current_page': 1,
         'max_page': 20
