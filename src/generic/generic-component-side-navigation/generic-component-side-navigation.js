@@ -9,6 +9,7 @@ import stickybits from 'stickybits';
  */
 export const navigationSide = ({
   stickySelector: stickySelector = '.ecl-side-navigation__toggle',
+  activeSelector: activeSelector = '.ecl-side-navigation__link--active',
 } = {}) => {
   // SUPPORTS
   if (
@@ -39,10 +40,40 @@ export const navigationSide = ({
     }
   }
 
+  function unfoldToActive() {
+    const active = document.getElementsByClassName(
+      activeSelector.substring(1)
+    )[0];
+
+    // Browse parents
+    if (active) {
+      let node = active;
+      const els = [];
+      while (node) {
+        els.unshift(node);
+        node = node.parentNode;
+
+        // Check if parent is an expandable menu item
+        if (node.matches('.ecl-side-navigation__group')) {
+          const link = node.previousElementSibling;
+          if (link.matches('.ecl-side-navigation__link')) {
+            link.setAttribute('aria-expanded', 'true');
+          }
+        }
+
+        // No need to check outside of menu
+        if (node.matches('.ecl-side-navigation')) {
+          break;
+        }
+      }
+    }
+  }
+
   // INIT
   function init() {
     initSticky();
     scrollToTop();
+    unfoldToActive();
   }
 
   init();

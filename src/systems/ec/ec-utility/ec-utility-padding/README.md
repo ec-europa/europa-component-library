@@ -11,4 +11,6 @@ Use the following classes to quickly set a padding:
 * **ecl-u-pa-xxs**: Extra extra small padding
 
 You can also set a specific padding (top, right bottom, left, horizontal,
-vertical). See examples for more information.
+vertical), and/or a specific breakpoint.
+
+See examples for more information.
