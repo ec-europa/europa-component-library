@@ -1,3 +1,7 @@
+const contextDefault = require('@ecl/generic-component-form-help-block/data/demo--default');
+const contextDisabled = require('@ecl/generic-component-form-help-block/data/demo--disabled');
+const contextError = require('@ecl/generic-component-form-help-block/data/demo--error');
+
 module.exports = {
   title: 'Help blocks',
   label: 'Help blocks',
@@ -6,23 +10,15 @@ module.exports = {
   variants: [
     {
       name: 'default',
-      context: {
-        content: 'This is some placeholder help text.',
-      },
+      context: contextDefault,
     },
     {
       name: 'disabled',
-      context: {
-        content: 'Disabled: This is some placeholder help text.',
-        is_disabled: true,
-      },
+      context: contextDisabled,
     },
     {
       name: 'error',
-      context: {
-        content: 'On error: This is some placeholder help text.',
-        has_error: true,
-      },
+      context: contextError,
     },
   ],
 };
