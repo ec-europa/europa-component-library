@@ -1,3 +1,8 @@
+const contextDefault = require('@ecl/generic-component-form-file-upload/data/demo--default');
+const contextDisabled = require('@ecl/generic-component-form-file-upload/data/demo--disabled');
+const contextMultiple = require('@ecl/generic-component-form-file-upload/data/demo--multiple');
+const contextError = require('@ecl/generic-component-form-file-upload/data/demo--error');
+
 module.exports = {
   title: 'File uploads',
   label: 'File uploads',
@@ -16,37 +21,22 @@ module.exports = {
     {
       name: 'default',
       label: 'Normal file upload',
-      context: {
-        id: 'example-input-id-1',
-        name: 'example-input-name-1',
-      },
+      context: contextDefault,
     },
     {
       name: 'is-disabled',
       label: 'Disabled file upload',
-      context: {
-        id: 'example-input-id-2',
-        name: 'example-input-name-2',
-        is_disabled: true,
-      },
+      context: contextDisabled,
     },
     {
       name: 'is-multiple',
       label: 'Multiple file upload',
-      context: {
-        id: 'example-input-id-3',
-        name: 'example-input-name-3',
-        is_multiple: true,
-      },
+      context: contextMultiple,
     },
     {
       name: 'has-error',
       label: 'File upload with error',
-      context: {
-        id: 'example-input-id-4',
-        name: 'example-input-name-4',
-        has_error: true,
-      },
+      context: contextError,
     },
   ],
 };

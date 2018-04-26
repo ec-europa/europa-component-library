@@ -1,3 +1,6 @@
+const contextDefault = require('@ecl/generic-component-field/data/demo--default');
+const contextAligned = require('@ecl/generic-component-field/data/demo--aligned');
+
 module.exports = {
   title: 'Fields',
   label: 'Fields',
@@ -16,18 +19,12 @@ module.exports = {
     {
       name: 'default',
       label: 'Default',
-      context: {
-        label: 'Name',
-        body: 'John Doe',
-      },
+      context: contextDefault,
     },
     {
       name: 'aligned',
       label: 'Aligned',
-      context: {
-        variant: 'aligned',
-        body: 'Text without label',
-      },
+      context: contextAligned,
     },
   ],
 };

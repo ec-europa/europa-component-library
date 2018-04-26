@@ -58,18 +58,18 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <ul class="ecl-site-switcher__list ecl-container">
-    <li class="ecl-site-switcher__option{{ _political.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
-      {% include '@ecl/' ~ _system ~ '-component-link' with {
-        'extra_classes': 'ecl-site-switcher__link'
-        }|merge(_political)
-      %}
-    </li>
-    <li class="ecl-site-switcher__option{{ _info.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
-      {% include '@ecl/' ~ _system ~ '-component-link' with {
-        'extra_classes': 'ecl-site-switcher__link'
-        }|merge(_info)
-      %}
-    </li>
-  </ul>
+  <div class="ecl-container">
+    <ul class="ecl-site-switcher__list">
+      <li class="ecl-site-switcher__option{{ _political.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
+        {% include '@ecl/' ~ _system ~ '-component-link' with {
+          'extra_classes': 'ecl-site-switcher__link'
+        }|merge(_political) only %}
+      </li>
+      <li class="ecl-site-switcher__option{{ _info.is_active ? ' ecl-site-switcher__option--is-selected' : '' }}">
+        {% include '@ecl/' ~ _system ~ '-component-link' with {
+          'extra_classes': 'ecl-site-switcher__link'
+        }|merge(_info) only %}
+      </li>
+    </ul>
+  </div>
 </div>

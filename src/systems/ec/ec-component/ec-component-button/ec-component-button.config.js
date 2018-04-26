@@ -1,4 +1,4 @@
-const variants = require('./variants.json');
+const { variants } = require('@ecl/generic-component-button/data/demo');
 
 module.exports = {
   title: 'Buttons',
