@@ -1,42 +1,61 @@
 module.exports = {
   linksDefault: [
     {
-      href: '../../example.html#',
-      label: 'Facebook',
-      title: 'Facebook',
+      link: {
+        href: '../../example.html#',
+        label: 'Facebook',
+      },
       variant: 'facebook',
+      extra_attributes: [{ name: 'title', value: 'Facebook' }],
     },
     {
-      href: '../../example.html#',
-      label: 'Twitter',
-      title: 'Twitter',
+      link: {
+        href: '../../example.html#',
+        label: 'Twitter',
+      },
       variant: 'twitter',
+      extra_attributes: [{ name: 'title', value: 'Twitter' }],
     },
     {
-      href: '../../example.html#',
-      label: 'Instagram',
+      link: {
+        href: '../../example.html#',
+        label: 'Instagram',
+      },
       title: 'Instagram',
       variant: 'instagram',
+      extra_attributes: [{ name: 'title', value: 'Instagram' }],
     },
   ],
   linksSpecific: [
     {
-      href: '../../example.html#',
-      label: 'Jean-Claude Junker',
-      title: 'See Jean-Claude Junker on Facebook',
+      link: {
+        href: '../../example.html#',
+        label: 'Jean-Claude Junker',
+      },
       variant: 'facebook',
+      extra_attributes: [
+        { name: 'title', value: 'See Jean-Claude Junker on Facebook' },
+      ],
     },
     {
-      href: '../../example.html#',
-      label: 'European Commission',
-      title: 'See European Commission on Facebook',
+      link: {
+        href: '../../example.html#',
+        label: 'European Commission',
+      },
       variant: 'facebook',
+      extra_attributes: [
+        { name: 'title', value: 'See European Commission on Facebook' },
+      ],
     },
     {
-      href: '../../example.html#',
-      label: 'European Commission',
-      title: 'See European Commission on Twitter',
+      link: {
+        href: '../../example.html#',
+        label: 'European Commission',
+      },
       variant: 'twitter',
+      extra_attributes: [
+        { name: 'title', value: 'See European Commission on Twitter' },
+      ],
     },
   ],
 };

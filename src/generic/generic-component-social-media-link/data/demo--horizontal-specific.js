@@ -2,5 +2,5 @@ const data = require('./shared');
 
 module.exports = {
   variant: 'horizontal',
-  links: data.linksSpecific,
+  social_icons: data.linksSpecific,
 };

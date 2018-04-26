@@ -1,7 +1,6 @@
+@import '@ecl/eu-base/eu-base';
 @import '@ecl/generic-style-typography-paragraph/generic-style-typography-paragraph--editor';
 
-@import '@ecl/eu-base/eu-base';
-
-@include exports('eu-style-typography-paragraph') {
+@include exports('eu-style-typography-paragraph--editor') {
   @include ecl-editor-typography-paragraph();
 }

@@ -1,7 +1,6 @@
+@import '@ecl/ec-base/ec-base';
 @import '@ecl/generic-style-typography-list/generic-style-typography-list--editor';
 
-@import '@ecl/ec-base/ec-base';
-
-@include exports('ec-style-typography-list') {
+@include exports('ec-style-typography-list--editor') {
   @include ecl-editor-typography-list();
 }
