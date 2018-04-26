@@ -1,3 +1,6 @@
+const contextDefault = require('@ecl/generic-component-featured-item/data/demo--default');
+const contextExtended = require('@ecl/generic-component-featured-item/data/demo--extended');
+
 module.exports = {
   title: 'Featured items',
   label: 'Featured items',
@@ -17,35 +20,12 @@ module.exports = {
     {
       name: 'default',
       label: 'Featured item',
-      context: {
-        image: {
-          src: '../../assets/demo_images/technics-demo-1.jpg',
-          alt: 'Technic picture',
-        },
-        link: {
-          href: '../../example.html#featured-item-1',
-          label: 'See more',
-        },
-        metas: ['announcement', '21 December 2016'],
-        title: 'Energy Union tour',
-      },
+      context: contextDefault,
     },
     {
       name: 'extended',
       label: 'Featured item extended',
-      context: {
-        variant: 'extended',
-        image: {
-          src: '../../assets/demo_images/technics-demo-1.jpg',
-          alt: 'Technic picture',
-        },
-        metas: ['announcement', '21 December 2016'],
-        title: 'Energy Union tour',
-        link: {
-          href: '../../example.html#featured-item-2',
-          label: 'See more',
-        },
-      },
+      context: contextExtended,
     },
   ],
 };

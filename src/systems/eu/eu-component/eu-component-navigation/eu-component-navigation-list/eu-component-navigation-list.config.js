@@ -1,22 +1,6 @@
-const links = [
-  {
-    href: '../../example.html#',
-    label: 'Home',
-  },
-  {
-    href: '../../example.html#',
-    label: 'About Us',
-    is_active: true,
-  },
-  {
-    href: '../../example.html#',
-    label: 'More Information',
-  },
-  {
-    href: '../../example.html#',
-    label: 'Contact Us',
-  },
-];
+const contextDefault = require('@ecl/generic-component-navigation-list/data/demo--default');
+const contextTabs = require('@ecl/generic-component-navigation-list/data/demo--tabs');
+const contextSmall = require('@ecl/generic-component-navigation-list/data/demo--small');
 
 module.exports = {
   title: 'Navigation lists',
@@ -36,29 +20,17 @@ module.exports = {
     {
       name: 'default',
       label: 'Default',
-      context: {
-        display: 'default',
-        title: 'Default Navigation Menu',
-        links,
-      },
+      context: contextDefault,
     },
     {
       name: 'tabs',
       label: 'Tabs',
-      context: {
-        display: 'tabs',
-        title: 'Tabs Navigation Menu',
-        links,
-      },
+      context: contextTabs,
     },
     {
       name: 'small',
       label: 'Small',
-      context: {
-        display: 'small',
-        title: 'Small Navigation Menu',
-        links,
-      },
+      context: contextSmall,
     },
   ],
 };
