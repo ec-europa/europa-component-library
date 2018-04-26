@@ -57,10 +57,10 @@ export const toggleExpandable = (
 };
 
 // Helper method to automatically attach the event listener to all the expandables on page load
-export const initExpandables = (
-  selector = '[aria-controls][aria-expanded]',
-  context = document
-) => {
+export const initExpandables = (selector, context = document) => {
+  // Exit if no selector was provided
+  if (!selector) return;
+
   const nodesArray = Array.prototype.slice.call(
     context.querySelectorAll(selector)
   );

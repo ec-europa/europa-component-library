@@ -16,11 +16,11 @@ sub-sections in a structured way.
 ## Implementation
 
 In order to automatically attach event listeners on your expandables, add the
-following script to your page:
+following script to your page (keep in mind that the selector is mandatory):
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
-  ECL.initExpandables();
+  ECL.initExpandables('#selector-of-my-expandable');
 });
 ```
 

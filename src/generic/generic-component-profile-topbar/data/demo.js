@@ -1,7 +1,7 @@
 module.exports = {
   _demo: {
     scripts:
-      "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables(); });",
+      "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables('#ecl-profile-topbar__expandable-button-1'); });",
   },
   profile: {
     image: {
