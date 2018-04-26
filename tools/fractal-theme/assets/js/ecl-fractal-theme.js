@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   $.map($('[data-behaviour="pen"]'), p => new Pen(p));
   search();
 
+  ECL.initExpandables('.ecl-side-navigation__link.ecl-expandable__button');
   ECL.navigationSide();
 });
 
