@@ -31,7 +31,7 @@ We currently offer 5 presets for each system:
 * [corporate](src/systems/ec/ec-preset/ec-preset-corporate/README.md)
 * [full](src/systems/ec/ec-preset/ec-preset-full/README.md)
 * [website](src/systems/ec/ec-preset/ec-preset-website/README.md)
-* [webstools](src/systems/ec/ec-preset/ec-preset-webtools/README.md)
+* [webtools](src/systems/ec/ec-preset/ec-preset-webtools/README.md)
 
 ### EU presets
 
@@ -39,7 +39,7 @@ We currently offer 5 presets for each system:
 * [corporate](src/systems/eu/eu-preset/eu-preset-corporate/README.md)
 * [full](src/systems/eu/eu-preset/eu-preset-full/README.md)
 * [website](src/systems/eu/eu-preset/eu-preset-website/README.md)
-* [webstools](src/systems/eu/eu-preset/eu-preset-webtools/README.md)
+* [webtools](src/systems/eu/eu-preset/eu-preset-webtools/README.md)
 
 ## Getting started
 

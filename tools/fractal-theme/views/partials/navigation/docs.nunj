@@ -1,15 +1,13 @@
 {% if frctl.docs.size %}
-<nav class="ecl-navigation-menu" aria-label="Main Navigation">
-  <div class="ecl-container">
-    <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="false">
-      <span class="ecl-navigation-menu__hamburger-box">
-        <span class="ecl-navigation-menu__hamburger-inner"></span>
-      </span>
-      <span class="ecl-navigation-menu__hamburger-label">Menu</span>
-    </button>
-    <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root" aria-hidden="true">
-      {{ nav.tree(frctl.docs, doc, request) }}
-    </ul>
-  </div>
+<nav class="ecl-side-navigation" aria-label="Main Navigation">
+  <button class="ecl-side-navigation__toggle ecl-side-navigation__hamburger ecl-side-navigation__hamburger--squeeze" aria-controls="side-menu-expandable-root" aria-expanded="false">
+    <span class="ecl-side-navigation__hamburger-box">
+      <span class="ecl-side-navigation__hamburger-inner"></span>
+    </span>
+    <span class="ecl-side-navigation__hamburger-label">Menu</span>
+  </button>
+  <ul class="ecl-side-navigation__root" id="side-menu-expandable-root" aria-hidden="true">
+    {{ nav.tree(frctl.docs, doc, request) }}
+  </ul>
 </nav>
 {% endif %}
