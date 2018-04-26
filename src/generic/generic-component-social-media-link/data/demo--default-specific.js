@@ -1,5 +1,5 @@
 const data = require('./shared');
 
 module.exports = {
-  links: data.linksSpecific,
+  social_icons: data.linksSpecific,
 };

@@ -1,6 +1,6 @@
-const buttonVariants = require('../../variants.json');
+const { variants } = require('@ecl/generic-component-button/data/demo');
 
-const variants = buttonVariants.map(variant => variant.name);
+const variantsName = variants.map(variant => variant.name);
 
 describe('buttons', () => {
   before(() => {
@@ -10,7 +10,7 @@ describe('buttons', () => {
     });
   });
 
-  variants.forEach(variant => {
+  variantsName.forEach(variant => {
     describe(`--${variant}`, () => {
       before(() => {
         // Go to url
