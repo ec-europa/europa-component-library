@@ -1,6 +1,6 @@
 // Load context from generic component
-const hero = require('@ecl/generic-component-banner/context/hero');
-const video = require('@ecl/generic-component-banner/context/video');
+const hero = require('@ecl/generic-component-banner/data/demo--hero');
+const video = require('@ecl/generic-component-banner/data/demo--video');
 
 module.exports = {
   title: 'Banners',

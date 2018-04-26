@@ -1,0 +1,35 @@
+module.exports = {
+  variants: [
+    {
+      name: 'default',
+      label: 'Default',
+      context: {
+        label: 'Default',
+        modifier: 'default',
+      },
+    },
+    {
+      name: 'primary',
+      context: {
+        label: 'Primary',
+        modifier: 'primary',
+      },
+    },
+    {
+      name: 'secondary',
+      context: {
+        label: 'Secondary',
+        modifier: 'secondary',
+      },
+    },
+    {
+      name: 'call',
+      label: 'Call-to-action',
+      context: {
+        label: 'Call-to-action',
+        modifier: 'call',
+        icon: 'caret-right',
+      },
+    },
+  ],
+};

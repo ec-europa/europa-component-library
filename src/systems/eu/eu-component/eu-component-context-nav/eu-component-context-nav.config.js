@@ -1,42 +1,9 @@
+const context = require('@ecl/generic-component-context-nav/data/demo');
+
 module.exports = {
   title: 'Contextual navigations',
   label: 'Contextual navigations',
   status: 'ready',
   tags: ['atom'],
-  context: {
-    _demo: {
-      scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.contextualNavs(); });`,
-    },
-    label: 'Label for contextual nav',
-    items: [
-      {
-        href: '../../example.html#',
-        label: 'Item one',
-      },
-      {
-        href: '../../example.html#',
-        label: 'Item two',
-      },
-      {
-        href: '../../example.html#',
-        label: 'Item three',
-      },
-      {
-        href: '../../example.html#',
-        label: 'Item four',
-      },
-      {
-        href: '../../example.html#',
-        label: 'Item five',
-      },
-      {
-        href: '../../example.html#',
-        label: 'Item six',
-      },
-      {
-        href: '../../example.html#',
-        label: 'Item seven',
-      },
-    ],
-  },
+  context,
 };
