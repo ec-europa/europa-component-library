@@ -1,0 +1,29 @@
+/**
+ * ECL Expandable
+ * @define expandable
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-expandable() {
+  .ecl-expandable {
+    margin: 0;
+  }
+
+  .ecl-expandable__button {
+    &::after {
+      @include ecl-icon--after();
+
+      @include ecl-button--caret();
+    }
+
+    &[aria-expanded='false']::after {
+      @include ecl-icon('down');
+    }
+
+    &[aria-expanded='true']::after {
+      @include ecl-icon('up');
+    }
+  }
+}

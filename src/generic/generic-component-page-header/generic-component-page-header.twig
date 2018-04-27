@@ -1,0 +1,74 @@
+{#
+  Parameters:
+    - "identity" (string) (default: ''): name of the site, i.e. "Digital single market"
+    - "breadcrumb" (array)  (default: []): collection of @ecl/generic-component-link
+    - "title" (string) (default: ''): page title
+    - "introduction" (string) (default: '')
+    - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _identity = identity|default('') %}
+{% set _breadcrumb = breadcrumb|default([]) %}
+{% set _title = title|default('') %}
+{% set _introduction = introduction|default('') %}
+{% set _metas = metas|default([]) %}
+{% set _css_class = 'ecl-page-header' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-container">
+    {% include '@ecl/generic-component-breadcrumb' with {
+      'segments': _breadcrumb,
+      'system': _system
+    } only %}
+    <div class="ecl-page-header__body">
+      {% if _identity is not empty %}
+        <div class="ecl-page-header__identity">
+          {{ _identity }}
+        </div>
+      {% endif %}
+      {% if _metas is not empty %}
+        <div class="ecl-page-header__meta">
+          {% include '@ecl/generic-component-meta' with {
+            'variant': 'header',
+            'metas': _metas
+          } only %}
+        </div>
+      {% endif %}
+      {% if _title is not empty %}
+        <div class="ecl-page-header__title">
+          <h1 class="ecl-heading ecl-heading--h1 ecl-u-color-white">{{ _title }}</h1>
+        </div>
+      {% endif %}
+      {% if _introduction is not empty %}
+        <p class="ecl-page-header__intro">{{ _introduction }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>

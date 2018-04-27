@@ -1,0 +1,14 @@
+{#
+  Parameters:
+    - "segments" (array) (default: []): array of links (context of @ecl/ec-component-link)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-breadcrumb' with { system: 'ec' } %}

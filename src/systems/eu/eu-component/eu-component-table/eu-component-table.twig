@@ -1,0 +1,36 @@
+{#
+  Parameters:
+    - "headers" (array) (default: []): Each item represents a tr; each item inside represents a th
+      [
+        [
+          {
+            - "label" (string)
+            - "attributes" (string): extra attributes for this header
+          }
+        ]
+      ]
+    - "rows" (array) (default: []): Each item represents a tr; each item inside represents a td
+      [
+        [
+          {
+            - "label" (string)
+            - "attributes" (string): extra attributes for this cell
+          }
+        ]
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-table' with {
+  'headers': headers|default([]),
+  'rows': rows|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}

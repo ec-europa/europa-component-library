@@ -1,0 +1,31 @@
+const breadcrumbSegments = [
+  { href: '../../example.html#', label: 'European Commission' },
+  { href: '../../example.html#', label: 'Announcements' },
+];
+
+module.exports = {
+  title: 'Page Headers',
+  label: 'Page Headers',
+  tags: ['organism'],
+  status: 'ready',
+  variants: [
+    {
+      name: 'default',
+      context: {
+        breadcrumb: breadcrumbSegments,
+        identity: 'Digital single market',
+        title: 'Business, Economy, Euro',
+        introduction:
+          'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
+        metas: ['News article', '6 July 2015', 'Brussels'],
+      },
+    },
+    {
+      name: 'basic',
+      context: {
+        identity: 'Digital single market',
+        breadcrumb: breadcrumbSegments,
+      },
+    },
+  ],
+};

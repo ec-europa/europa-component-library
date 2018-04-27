@@ -1,0 +1,70 @@
+/**
+ * Social icons
+ * @define social-icon
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+// Brings in the long list for $ecl-social-icons.
+@import './icons-list';
+
+// Define variables
+$img-path: $ecl-assets-path + 'images/social/';
+
+// Social icons image.
+@mixin generate-icon(
+  $selector,
+  $img-path,
+  $image,
+  $img-hover,
+  $extra: null,
+  $extra_hover: null
+) {
+  // Ignoring next 2 selectors since the dynamic selector is problematic for the linter.
+
+  /* postcss-bem-linter: ignore */
+  #{$selector}::before {
+    background: url($img-path+$image) no-repeat $extra;
+  }
+
+  /* postcss-bem-linter: ignore */
+  #{$selector}:hover::before {
+    background-image: url($img-path+$img-hover) $extra_hover;
+  }
+}
+
+@mixin ecl-social-icon() {
+  .ecl-social-icon {
+    align-items: center;
+    display: flex;
+    margin: 0;
+  }
+
+  .ecl-social-icon::before {
+    content: '';
+    display: block;
+    height: 2rem;
+    margin-right: 1rem;
+    width: 2rem;
+  }
+
+  .ecl-social-icon--smaller {
+    min-height: 1.5rem;
+
+    &::before {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  @each $icon, $extra in $ecl-social-icons {
+    @include generate-icon(
+      '.ecl-social-icon--' + $icon,
+      $img-path,
+      $icon + '.svg',
+      $icon + '_hover.svg',
+      #{$extra}
+    );
+  }
+}

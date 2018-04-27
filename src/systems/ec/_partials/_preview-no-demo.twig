@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% set bodyClass = 'ecl-typography' %}
+{% if _target.context is defined and _target.context.global is defined %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
+  {% endif %}
+{% endif %}
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>No demo available...</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body class="{{ bodyClass }}">
+    <h1>No demo available...</h1>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+{#
+  Parameters:
+    - "variant" (string) (default: ''): can be '' or 'internal'
+    - "aria_label" (string) (default: 'Search this website')
+    - "button" (object) (default: { 'label': 'Search' }): shape of @ecl/generic-component-button
+    - "input" (object) (default: { 'id': 'search' }): shape of @ecl/generic-component-form-text-input
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _aria_label = aria_label|default('Search this website') %}
+{% set _button = { 'label': 'Search' }|merge(button|default({})) %}
+{% set _input = { 'id': 'search' }|merge(input|default({})) %}
+{% set _css_class = 'ecl-search-form' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-search-form--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<form class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <label class="ecl-search-form__textfield-wrapper">
+    <span class="ecl-u-sr-only">{{ _aria_label }}</span>
+    {% include '@ecl/' ~ _system ~ '-component-form-text-input' with {
+      'type': 'search',
+      'extra_classes': 'ecl-search-form__textfield'
+    }|merge(_input) only %}
+  </label>
+  {% include '@ecl/' ~ _system ~ '-component-button' with {
+    'modifier': _variant == 'internal' ? 'form-primary' : 'form',
+    'extra_classes': 'ecl-search-form__button',
+    'extra_attributes': [{ 'name': 'type', 'value': 'submit'}]
+  }|merge(_button) only %}
+</form>

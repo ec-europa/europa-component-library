@@ -1,0 +1,160 @@
+.Pen {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  overflow: hidden;
+  background: white;
+
+  &.is-resizing {
+    cursor: grabbing;
+
+    .Pen-handle {
+      cursor: grabbing;
+    }
+  }
+}
+
+.Pen-header {
+  display: flex;
+  flex: 0 0 auto;
+  max-height: 3rem;
+  padding: map-get($ecl-spacing, 'm') 0;
+  align-items: center;
+
+  .Status {
+    @include margin-inline(start, auto);
+    @include padding-inline(start, 0.5rem);
+  }
+
+  @include mq($until: navCollapse) {
+    margin: 0;
+    border-bottom: 1px solid $color-frame-border;
+    padding: 0.75rem;
+
+    .Status .Status-label {
+      position: relative;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      background-color: #fff !important;
+      border-radius: 100%;
+      border-style: solid;
+      border-width: 0.125rem;
+      padding: 0.25rem;
+      color: transparent !important;
+    }
+  }
+}
+
+.Pen-title {
+  @include font(subHeading);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: inherit;
+}
+
+.Pen-previewLink {
+  @include link-default($color-heading, none);
+
+  font-size: map-get($ecl-font-size, 'l');
+
+  svg {
+    fill: $color-link;
+    opacity: 0.75;
+  }
+
+  &:hover svg {
+    opacity: 1;
+  }
+}
+
+.Pen-preview {
+  flex: 0 0 auto;
+  height: 50%;
+  max-height: calc(100% - 3.75rem);
+  margin: 0 $handle-size;
+
+  @include mq($until: navCollapse) {
+    flex: 1 1 auto;
+    height: auto !important;
+    max-height: 100%;
+    margin: 0;
+  }
+}
+
+.Pen-handle {
+  @include dragHandle;
+
+  flex: 0 0 auto;
+  height: $handle-size;
+  margin: 0 $handle-size;
+  background: transparent url('../img/icon-drag--horizontal.svg') no-repeat 50%
+    50%;
+  background-size: 16px 3px;
+  cursor: ns-resize;
+}
+
+.Pen-handle--browser {
+  display: block;
+  pointer-events: all;
+  visibility: visible;
+}
+
+.Pen-info {
+  border: 1px solid $color-frame-border;
+  flex: 1 1 auto;
+  margin: 0 $handle-size map-get($ecl-spacing, 's');
+  overflow: hidden;
+  position: relative;
+
+  @include mq($until: navCollapse) {
+    margin: 0 0 map-get($ecl-spacing, 's');
+  }
+}
+
+.Pen-tabs {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+
+.Pen-tabs-nav {
+  margin: 0 map-get($ecl-spacing, 's');
+
+  a,
+  a:link {
+    color: $ecl-color-primary;
+
+    &:hover,
+    &:focus {
+      color: $ecl-color-shade;
+    }
+  }
+}
+
+.Pen-tabs-nav .active {
+  font-weight: 600;
+}
+
+.Pen-documentation {
+  padding: 0;
+}
+
+.Pen-playground {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.Pen-tabs > div:not(.active) {
+  position: absolute;
+  visibility: hidden;
+}

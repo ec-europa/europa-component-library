@@ -1,0 +1,38 @@
+{#
+  Parameters:
+    - "logo" (object) (default: {
+        'href': 'https://europa.eu',
+        'title': 'Home - European Union'
+      }): shape of @ecl/eu-component-logo
+    - "messages" (object): shape of
+      {
+        "dismiss" (string) (default: 'Close'),
+        "heading" (string) (default: 'Select your language')
+      }
+    - "languages" (array) (default: []): array of languages to display
+    - "search_id" (string) (default: 'global-search')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-site-header' with {
+  'logo': {
+    'href': 'https://europa.eu',
+    'title': 'Home - European Union'
+  }|merge(logo|default({})),
+  'messages': {
+    'dismiss': 'Close',
+    'heading': 'Select your language'
+  }|merge(messages|default({})),
+  'languages': languages|default([]),
+  'search_id': search_id|default('global-search'),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'eu'
+} only %}

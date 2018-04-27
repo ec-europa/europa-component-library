@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+{% set bodyClass = 'ecl-typography' %}
+{% if _target.context is defined and _target.context.global is defined %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
+  {% endif %}
+{% endif %}
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preview Layout</title>
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <link media="all" rel="stylesheet" href="{{ '/eu-preset-website/styles/ecl-eu-preset-website.css' | path }}">
+</head>
+<body class="{{ bodyClass }}">
+  {% include '@ecl/eu-component-skip-link' with {
+      'href': '#main-content',
+      'label': 'Skip to main content'
+  } %}
+  {% include '@ecl/eu-component-site-header' %}
+  {% include '@ecl/eu-component-page-header' with {
+    variant: 'default',
+    identity: 'Search',
+    breadcrumb: [
+      { href: 'http://europa.eu/index_en.htm', label: 'European Commission' },
+      { href: '../../example.html#', label: 'Search' },
+    ]
+  } %}
+  <main id="main-content">
+    {{ yield }}
+  </main>
+
+  {% include '@ecl/eu-component-footer' with {
+    custom_footer: {
+      identity: {
+        href: '../../example.html#homepage',
+        label: 'Site identification',
+      },
+      social_links: {
+        label: 'Follow us:',
+        links: [
+          {
+            type: 'social-network',
+            icon: 'facebook',
+            link: {
+              href: '../../example.html#facebook',
+              label: 'Facebook',
+            },
+          },
+          {
+            type: 'social-network',
+            icon: 'twitter',
+            link: {
+              href: '../../example.html#twitter',
+              label: 'Twitter',
+            },
+          },
+        ],
+      },
+      other_links: {
+        links: [
+          {
+            link: {
+              href: '../../example.html#contact',
+              label: 'Contact',
+            },
+          },
+          {
+            link: {
+              href: '../../example.html#sitemap',
+              label: 'Site map',
+            },
+          },
+          {
+            link: {
+              href: '../../example.html#loremipsum1',
+              label: 'Lorem ipsum',
+            },
+          },
+          {
+            link: {
+              href: '../../example.html#loremipsum2',
+              label: 'Lorem ipsum',
+            },
+          },
+          {
+            link: {
+              href: '../../example.html#loremipsum3',
+              label: 'Lorem ipsum',
+            },
+          },
+        ],
+      },
+    },
+    corporate_footer: {
+      contact_eu: {
+        title: 'Contact the EU',
+        items: [
+          {
+            href: '../../example.html#call',
+            label: 'Call 00 800 6 7 8 9 10 11. See details of service',
+          },
+          {
+            href: '../../example.html#email',
+            label: 'E-mail your questions about the EU',
+          },
+          {
+            href: '../../example.html#euinyourcountry',
+            label: 'EU in your country',
+          },
+          {
+            href: '../../example.html#localinformation',
+            label: 'Local information services in the EU',
+          },
+          {
+            href: '../../example.html#institutions',
+            label: 'Institutions, bodies and agencies',
+          },
+          {
+            href: '../../example.html#press',
+            label: 'Press contacts',
+          },
+        ],
+      },
+      social_media: {
+        title: 'Find EU social media accounts',
+        items: [
+          {
+            href: '../../example.html#social-media-tool',
+            label: 'Use this tool to search for EU social media channels',
+          },
+        ],
+      },
+      find_institution: {
+        title: 'Find a European institution',
+        items: [
+          {
+            href: '../../example.html#',
+            label: 'European Parliament',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Council',
+          },
+
+          {
+            href: '../../example.html#',
+            label: 'Council of the European Union',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Commission',
+          },
+          {
+            href: '../../example.html#',
+            label: 'Court of Justice of the European Union',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Central Bank',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Court of Auditors',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European External Action Service',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Economic and Social Committee',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Committee of the Regions',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Investment Bank',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Ombudsman',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Data Protection Supervisor',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Personnel Selection Office',
+          },
+          {
+            href: '../../example.html#',
+            label: 'Publications Office of the European Union',
+          },
+          {
+            href: '../../example.html#',
+            label: 'Agencies',
+          },
+        ],
+      },
+      bottom_links: [
+        {
+          href: 'https://europa.eu/european-union/about-eu/working_en',
+          label: 'Work for the European Union',
+        },
+        {
+          href: 'https://europa.eu/european-union/abouteuropa/cookies_en',
+          label: 'Cookies',
+        },
+        {
+          href: 'https://europa.eu/european-union/abouteuropa/legal_notices_en',
+          label: 'Legal notice',
+        },
+        {
+          href: '../../example.html#',
+          label: 'Language policy',
+        },
+        {
+          href: '../../example.html#',
+          label: 'Web accessibility',
+        },
+      ]
+    }
+  } %}
+
+  <script src="{{ '/eu-preset-website/scripts/ecl-eu-preset-website.js' | path }}"></script>
+  {% if _target.context._demo and _target.context._demo.scripts %}
+  <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+/**
+ * Logos
+ * @define logo
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-logo/generic-component-logo';
+
+// Use generic mixin
+@include exports('ec-component-logo') {
+  @include ecl-logo();
+}

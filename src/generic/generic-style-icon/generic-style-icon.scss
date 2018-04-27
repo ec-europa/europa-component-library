@@ -1,0 +1,46 @@
+/**
+ * Icons
+ * @define icon
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@import './font-faces';
+@import './variables';
+@import './mixins';
+
+@mixin ecl-icons() {
+  .ecl-icon {
+    @include ecl-icon--before();
+  }
+
+  .ecl-icon--after {
+    @include ecl-icon--after();
+  }
+
+  // Icon component and modifiers.
+  @each $modifier, $char in $ecl-icons {
+    .ecl-icon--#{$modifier} {
+      /* stylelint-disable-next-line */
+      &::before {
+        @include ecl-icon($modifier);
+      }
+    }
+  }
+
+  .ecl-icon--rounded {
+    border-radius: 50%;
+    display: inline-block;
+    font-size: map-get($ecl-font-size, 'xs');
+    height: map-get($ecl-spacing, 'l');
+    line-height: map-get($ecl-spacing, 'l');
+    text-align: center;
+    width: map-get($ecl-spacing, 'l');
+  }
+
+  .ecl-icon--rounded::before {
+    line-height: inherit;
+    margin-right: 0;
+  }
+}

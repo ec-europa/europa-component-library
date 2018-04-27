@@ -1,0 +1,32 @@
+@mixin link() {
+  box-sizing: border-box;
+  color: $ecl-color-primary;
+  margin: 0;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: #000;
+  }
+
+  &:focus {
+    outline: 3px solid map-get($ecl-colors, 'yellow-100');
+    outline-offset: 2px;
+  }
+
+  &:visited {
+    color: map-get($ecl-colors, 'purple-100');
+  }
+}
+
+@mixin link-external {
+  &::after {
+    @include ecl-icon--after();
+
+    @include ecl-icon('external');
+
+    font-size: 75%;
+    margin-left: 0.4em;
+    margin-right: 0.2em;
+  }
+}

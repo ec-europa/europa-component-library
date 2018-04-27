@@ -1,0 +1,19 @@
+/**
+ * Buttons component
+ * @define form-label
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-form-label() {
+  .ecl-form-label {
+    color: $ecl-color-shade;
+    display: block;
+    font-size: map-get($ecl-font-size, 's');
+    font-weight: bold;
+    margin-bottom: 0;
+    padding: 0;
+    text-align: left;
+  }
+}

@@ -1,0 +1,17 @@
+{#
+  Parameters:
+    - "variant" (string, '' or 'aligned' ) (default: '')
+    - "label" (string) (default: '')
+    - "body" (string) (default: ''): content of the field
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+
+{% include '@ecl/generic-component-field' %}

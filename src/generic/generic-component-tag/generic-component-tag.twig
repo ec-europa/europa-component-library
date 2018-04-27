@@ -1,0 +1,63 @@
+{#
+  Parameters:
+    - "modifier" (string) (default: ''): '', 'facet', 'facet-close'
+    - "label" (string) (default: ''): label to print before the group of tags
+    - "tags" (array) (default: []):
+      - "label" (string) (default: ''): label to print before the current tag
+      - "value" (string) (default: ''): text to display
+      - "href" (string) (default: ''): if not provided, a <span> would be printed
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _modifier = modifier|default('') %}
+{% set _label = label|default('') %}
+{% set _tags = tags|default([]) %}
+{% set _css_class = 'ecl-tag' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if _modifier is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-tag--' ~ _modifier %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _label is not empty %}
+    <span class="ecl-tag__label">{{ label }}</span>
+  {% endif %}
+  {% if _tags is not empty and _tags is iterable %}
+    {% for _tag in _tags %}
+      {% if _tag.label is defined and _tag.label is not empty %}
+        <span class="ecl-tag__label">{{ _tag.label }}</span>
+      {% endif %}
+      {% if _tag.href is defined and _tag.href is not empty %}
+        <a class="ecl-tag__item" href="{{ _tag.href }}">{{ _tag.value|default('') }}</a>
+      {% else %}
+        <span class="ecl-tag__item">{{ _tag.value|default('') }}</span>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>

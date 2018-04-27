@@ -1,0 +1,33 @@
+/*
+ * Help Block
+ * @define help-block
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-help-block() {
+  .ecl-help-block {
+    @include ecl-hidden-print();
+
+    color: map-get($ecl-colors, 'grey-100');
+    font-size: map-get($ecl-font-size, 'xs');
+    line-height: 1.66;
+    margin: 0;
+  }
+
+  .ecl-help-block--disabled {
+    color: map-get($ecl-colors, 'grey-75');
+  }
+
+  .ecl-help-block--has-error {
+    color: map-get($ecl-colors, 'grey-100');
+  }
+
+  /* Spacing */
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  * + .ecl-help-block {
+    margin-top: map-get($ecl-spacing, 'xs');
+  }
+}

@@ -1,0 +1,18 @@
+{#
+  Parameters:
+    - "id" (string) (default: 'default-id')
+    - "name" (string) (default: 'default-name')
+    - "has_error" (boolean) (default: false)
+    - "is_disabled" (boolean) (default: false)
+    - "type" (string) (default: 'text')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-form-text-input' %}

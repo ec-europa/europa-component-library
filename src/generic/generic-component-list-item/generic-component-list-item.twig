@@ -1,0 +1,96 @@
+{#
+  Parameters:
+    - "variant" (string) (default: ''): can be '', 'date' or 'thumbnail'
+    - "href" (string) (default: '')
+    - "title" (string) (default: '')
+    - "primary_image" (object) (default: {}): should follow ecl-image structure
+    - "secondary_image" (object) (default: {}): should follow ecl-image structure
+    - "screen_reader" (string) (default: "List item"): alternative text for screen readers
+    - "detail" (string) (default: ''): detail concerning the list item
+    - "metas" (array)  (default: []): array of meta item, as in 'ecl-meta' component
+    - "action" (string)  (default: ''): extra actions related to this list item
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  If "variant" == "date":
+    - "date" (object) (default: {}): contains all parameters of ecl-date-block
+  Blocks:
+    - "meta_block": instead of providing metas as an array, you can also embed the template and fill the 'meta_block' block directly
+    - "detail_block": instead of providing detail as a string, you can also embed the template and fill the 'detail_block' block directly
+    - "action_block": instead of providing action as a string, you can also embed the template and fill the 'action_block' block directly
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _href = href|default('') %}
+{% set _primary_image = primary_image|default({}) %}
+{% set _secondary_image = secondary_image|default({}) %}
+{% set _screen_reader = screen_reader|default('List item') %}
+{% set _detail = detail|default('') %}
+{% set _metas = metas|default([]) %}
+{% set _action = action|default('') %}
+{% set _date = date|default({}) %}
+{% set _css_class = 'ecl-list-item' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-list-item--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <a href="{{ _href }}" class="ecl-link ecl-list-item__link">
+    <div class="ecl-u-sr-only">{{ _screen_reader }}</div>
+    {% if (_primary_image is not empty) or (_variant == 'date' and _date is not empty) %}
+      <div class="ecl-list-item__primary">
+        {% if _variant == 'date' %}
+          {% include '@ecl/generic-component-date-block' with _date only %}
+        {% else %}
+          {% include '@ecl/generic-style-image' with { responsive: true }|merge(_primary_image) only %}
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="ecl-list-item__body">
+      <div class="ecl-list-item__meta">
+        {% block meta_block %}
+          {% include '@ecl/generic-component-meta' with { metas: _metas } only %}
+        {% endblock %}
+      </div>
+      <h3 class="ecl-list-item__title ecl-heading ecl-heading--h3">{{ title }}</h3>
+      <p class="ecl-list-item__detail ecl-paragraph">
+        {% block detail_block %}
+          {{ _detail }}
+        {% endblock %}
+      </p>
+      <div class="ecl-list-item__action">
+        {% block action_block %}
+          {{ _action }}
+        {% endblock %}
+      </div>
+    </div>
+    {% if _secondary_image is not empty %}
+    <div class="ecl-list-item__secondary">
+      {% include '@ecl/generic-style-image' with { responsive: true }|merge(_secondary_image) only %}
+    </div>
+    {% endif %}
+  </a>
+</li>

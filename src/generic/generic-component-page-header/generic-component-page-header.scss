@@ -1,0 +1,89 @@
+/**
+ * Page header
+ * @define page-header
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-page-header() {
+  .ecl-page-header {
+    background-color: $ecl-color-primary;
+    color: #fff;
+    margin: 0;
+
+    &__body {
+      padding: map-get($ecl-spacing, 'xxs') 0;
+    }
+
+    &__meta {
+      margin-top: map-get($ecl-spacing, 'm');
+    }
+
+    &__title {
+      margin-top: map-get($ecl-spacing, 'm');
+    }
+
+    &__identity {
+      color: map-get($ecl-colors, 'blue-25');
+      font-size: map-get($ecl-font-size, 'l');
+      margin-bottom: map-get($ecl-spacing, 'xxs');
+      margin-top: map-get($ecl-spacing, 'xxs');
+    }
+
+    &__intro {
+      color: #fff;
+      font-size: map-get($ecl-font-size, 'l');
+      line-height: 1.45;
+      max-width: 40em;
+    }
+
+    &__label {
+      font-size: map-get($ecl-font-size, 'xs');
+      text-transform: uppercase;
+    }
+  }
+
+  .ecl-page-header--image {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .ecl-page-header--highlight {
+    padding-bottom: map-get($ecl-spacing, 'm');
+
+    .ecl-page-header__body {
+      background-color: map-get($ecl-colors, 'blue-120');
+      padding-bottom: map-get($ecl-spacing, 'xs');
+    }
+  }
+
+  @media (min-width: map-get($ecl-grid-breakpoints, 'sm')) {
+    .ecl-page-header--highlight {
+      padding-bottom: 0;
+
+      .ecl-page-header__body {
+        background-color: $ecl-color-primary;
+        padding-bottom: map-get($ecl-spacing, 'xxl');
+        padding-top: map-get($ecl-spacing, 'xxl');
+      }
+    }
+
+    .ecl-page-header__label {
+      background-color: map-get($ecl-colors, 'blue-120');
+      display: inline-block;
+      line-height: 2.4;
+      padding-left: map-get($ecl-spacing, 'm');
+      padding-right: map-get($ecl-spacing, 'm');
+    }
+
+    .ecl-page-header__highlight {
+      background-color: #fff;
+      color: $ecl-color-primary;
+      font-size: map-get($ecl-font-size, 'l');
+      max-width: 22em;
+      padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm');
+    }
+  }
+}

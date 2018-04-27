@@ -15,7 +15,7 @@ Testing a new component is quite simple. Follow the guide!
 
 ### Write a test
 
-Tests are located under `test/functional`. Create a new `my-component.js` file here and paste:
+Tests are located under `test/spec`. Create a new `my-component.js` file here and paste:
 
 ```js
 describe('my-component', () => {
@@ -28,11 +28,14 @@ describe('my-component', () => {
 
     browser.pause(1000);
 
-    // Go to url
-    browser.url('my-component.html');
+    // Go to the URL of the component
+    browser.goToComponent('my-component-system');
 
     // Make sure the browser has finished painting
     browser.pause(1000);
+
+    // Adds necessary scripts for accessibility testing
+    browser.injectAxeCore();
   });
 
   // Normal state
@@ -43,13 +46,19 @@ describe('my-component', () => {
       });
       expect(screenshots).to.matchReference();
     });
+
+    // This assertion is mostly the same for each test
+    it('should be accessible', () => {
+      const a11yReport = browser.runAxeCore('ecl-component-class').value;
+      expect(a11yReport).to.be.accessible;
+    });
   });
 });
 ```
 
 Of course, replace `my-component` by the name of the actual component and make sure the URL you provide exists.
 
-**Under the hood, the URL will be prefixed by `http://localhost:3000/components/preview/`**.
+**Under the hood, the URL will be prefixed by `http://localhost:3000/{system}/components/preview/`**.
 
 ### Get the reference screenshots
 
@@ -64,14 +73,54 @@ SAUCE_USERNAME=username
 SAUCE_ACCESS_KEY=my-sauce-labs-access-key
 ```
 
-Then, build the style guide with `yarn dist` and run: `yarn test:functional`.
+Then, build the style guide with `yarn dist`.
 
-Tip: it can take a while to run all the tests, but you can also target your test only:
+#### Run all the tests
+
+You can run all the tests with the following command:
 
 ```shell
-yarn test:functional -- --spec ./framework/components/my-component/test/spec/my-component.js
+yarn test:functional
 ```
 
-If everything went well, you should now have a new folder `./framework/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
+It can take a while to run all the tests, so here come some shortcuts.
+
+#### Run the tests for the updated packages only
+
+Test your changes against the branch you want to merge in with:
+
+```shell
+yarn test:functional --since target-branch
+```
+
+The list of the updated packages is cached by default the first time it is generated, so if you encounter some strange behaviors, you can force the list to be rebuilt with: `--ignoreCache`.
+
+Example:
+
+```shell
+yarn test:functional --since master --ignoreCache
+```
+
+#### Run 1 specific test
+
+You can also decide to run only one specific test file:
+
+```shell
+yarn test:functional --spec ./src/systems/{system}/components/my-component/test/spec/my-component.js
+```
+
+#### Target 1 specific browser
+
+Prepend your command with `TEST_BROWSER=[browser you want to target]` to target 1 specific browser.
+
+Example:
+
+```shell
+TEST_BROWSER=firefox yarn test:functional
+```
+
+##### Finally
+
+If everything went well, you should now have a new folder `./src/systems/{system}/components/my-component/test/screenshots/reference/my-component` containing the reference screenshots. Add them to your Pull Request.
 
 That's it!

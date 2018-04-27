@@ -1,0 +1,48 @@
+/**
+ * Text input component
+ * @define text-input
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-text-input() {
+  .ecl-text-input {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid $ecl-color-shade;
+    box-sizing: border-box;
+    color: $ecl-color-shade;
+    display: block;
+    font-family: $ecl-font-family-sans-serif;
+    font-size: map-get($ecl-font-size, 's');
+    line-height: 1.6;
+    margin: 0;
+    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+    width: 100%;
+
+    /* stylelint-disable-next-line plugin/selector-bem-pattern */
+    * + & {
+      margin-top: map-get($ecl-spacing, 'xs');
+    }
+
+    &:focus {
+      border-color: map-get($ecl-colors, 'yellow-110');
+      outline: 3px solid map-get($ecl-colors, 'yellow-110');
+      outline-offset: 0;
+      text-decoration: none;
+    }
+
+    &[disabled],
+    &[readonly] {
+      background-color: #eee;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+  }
+
+  .ecl-text-input--has-error {
+    border-color: $ecl-color-error;
+    border-width: 2px;
+  }
+}

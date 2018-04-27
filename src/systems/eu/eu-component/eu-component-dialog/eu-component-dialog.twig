@@ -1,0 +1,86 @@
+{#
+  Parameters:
+    - "theme" (string): possible variation of the component. `dark` is supported at the moment.
+    - dialog_id (string) (default: 'ecl-dialog'): overrideable `id` of the dialog
+    - dialog_aria_hidden (string) (default: 'true'): overrideable `aria-hidden` of the dialog
+    - dialog_title (object): {
+        - value (string) (default: 'Dialog'): the title of the dialog
+        - id (string) (default: 'ecl-dialog-title'): the id to match an `aria-labelledby` attribute
+        - classes (string) (default: 'ecl-u-sr-only'): classes to apply to dialog title field
+      }
+    - dialog_description (object): {
+        - value (string) (default: ''): the description of the dialog
+        - id (string) (default: 'ecl-dialog-description'): the id to match an `aria-describedby` attribute
+        - classes (string) (default: 'ecl-u-sr-only'): classes to apply to dialog description field
+      }
+    - dismiss (object): {
+        - hide (boolean) (default: false): hide the default dismiss button in case you want to include a custom one in the "dialog_body" block
+        - label (string) (default: 'Dismiss this dialog window'): the value for the button label to close the dialog window
+      }
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - dialog_body (default: lorem ipsum text): content of the dialog
+#}
+
+{# Internal properties #}
+
+{% set _dialog_id = dialog_id|default('ecl-dialog') %}
+{% set _dialog_aria_hidden = dialog_aria_hidden|default(true) %}
+
+{% set _dialog_title = {
+  value: 'Dialog',
+  id: 'ecl-dialog-title',
+  classes: 'ecl-u-sr-only'
+}|merge(dialog_title|default({})) %}
+
+{% set _dialog_description = {
+  value: '',
+  id: 'ecl-dialog-description',
+  classes: 'ecl-u-sr-only'
+}|merge(dialog_description|default({})) %}
+
+{% set _dismiss = {
+  hide: false,
+  label: 'Dismiss this dialog window'
+}|merge(dismiss|default({})) %}
+
+{% set _css_class = 'ecl-dialog' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if theme is defined and theme is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-dialog--' ~ theme %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" id="{{ _dialog_id }}" aria-labelledby="{{ _dialog_title.id }}" aria-describedby="{{ _dialog_description.id }}" aria-hidden="{{ _dialog_aria_hidden }}" role="dialog"{{ _extra_attributes|raw }}>
+  <h3 id="{{ _dialog_title.id }}" class="ecl-heading ecl-heading--h3 {{ _dialog_title.classes }}">{{ _dialog_title.value }}</h3>
+  <p id="{{ _dialog_description.id }}" class="{{ _dialog_description.classes }}">{{ _dialog_description.value }}</p>
+  <div class="ecl-dialog__body">
+    {% block dialog_body %}
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+    {% endblock %}
+  </div>
+  {% if not _dismiss.hide %}
+    <button type="button" class="ecl-message__dismiss" aria-label="{{ _dismiss.label }}">&times;</button>
+  {% endif %}
+</div>

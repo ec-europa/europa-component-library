@@ -1,0 +1,18 @@
+{#
+  Parameters:
+    - "variant" (string) (default: ''): display variant
+    - "week_day" (string) (default: ''): day(s) of the week of the event
+    - "day" (string) (default: ''): day number(s) of the event
+    - "month" (string) (default: ''): month(s) of the event
+    - "year" (string) (default: ''): year(s) of the event
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-date-block' %}

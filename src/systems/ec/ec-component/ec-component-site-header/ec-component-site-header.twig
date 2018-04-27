@@ -1,0 +1,42 @@
+{#
+  Parameters:
+    - "site_switcher" (object) (default: {}): shape of @ecl/ec-component-site-switcher
+    - "user_menu" (object) (default: {}): shape of @ecl/ec-component-navigation-list
+    - "logo" (object) (default: {
+        'href': 'https://ec.europa.eu',
+        'title': 'Home - European Commission'
+      }): shape of @ecl/ec-component-logo
+    - "messages" (object): shape of
+      {
+        "dismiss" (string) (default: 'Close'),
+        "heading" (string) (default: 'Select your language')
+      }
+    - "languages" (array) (default: []): array of languages to display
+    - "search_id" (string) (default: 'global-search')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-site-header' with {
+  'site_switcher': site_switcher|default({}),
+  'user_menu': user_menu|default({}),
+  'logo': {
+    'href': 'https://ec.europa.eu',
+    'title': 'Home - European Commission'
+  }|merge(logo|default({})),
+  'messages': {
+    'dismiss': 'Close',
+    'heading': 'Select your language'
+  }|merge(messages|default({})),
+  'languages': languages|default([]),
+  'search_id': search_id|default('global-search'),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}

@@ -1,0 +1,54 @@
+{#
+  Parameters:
+    - "title" (string) (default: ''): title of the navigation block
+    - "links" (array) (default: []): collection of @ecl/generic-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-inpage-navigation' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+{% set _links = links|default([]) %}
+{% set _title = title|default([]) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-inpage-navigation__title">{{ _title }}</div>
+  <div class="ecl-inpage-navigation__body">
+    <button class="ecl-inpage-navigation__trigger" aria-controls="ecl-inpage-navigation-list" aria-expanded="false" id="ecl-inpage-navigation-trigger">&nbsp;</button>
+    <ul class="ecl-inpage-navigation__list" aria-hidden="true" aria-labelledby="ecl-inpage-navigation-trigger" id="ecl-inpage-navigation-list">
+      {% for _link in _links %}
+        <li class="ecl-inpage-navigation__item">
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
+            extra_classes: 'ecl-inpage-navigation__link',
+            variant: 'standalone',
+            }|merge(_link|default({}))
+          %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,26 @@
+{#
+  Parameters:
+    - "panels" (array) (default: ""): format [
+        {
+          "id" (string) (default: '')
+          "isExpanded" (boolean) (default: false)
+          "heading": {
+            "level" (string) (default: '')
+            "title" (string) (default: '')
+            "icon" (string) (default: '')
+          },
+          "body" (string) (default: '')
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          'name': 'name_of_the_attribute',
+          'value': 'value_of_the_attribute'
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-accordion' %}

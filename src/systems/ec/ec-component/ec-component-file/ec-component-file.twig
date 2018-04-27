@@ -1,0 +1,55 @@
+{#
+  Parameters:
+    - "variant" (string): can be 'translations', 'links', 'images', 'videos' or empty
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+
+  Default parameters:
+    - "title" (string): title of the file (default: empty)
+    - "language" (string): language of the file (default: empty)
+    - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
+    - "button_label" (string): label of the download button (default: "Download")
+    - "icon" (string): icon corresponding to the file type. Should be one of ecl-icons (default: empty)
+
+  Translations variant parameters:
+    - "title" (string): title of the file (default: empty)
+    - "language" (string): language of the file (default: empty)
+    - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
+    - "button_label" (string): label of the download button (default: "Download")
+    - "icon" (string): icon corresponding to the file type. Should be one of ecl-icons (default: empty)
+    - "translations" (array) [{
+      - "title" (string): title of the translated file (default: empty)
+      - "meta" (string): additional information concerning the translated file: size, type, number of page (default: empty)
+    }]
+    - "translations_label" (string): global label for translations area. Shoud display number of translations (default: "Available languages: 0")
+    - "translations_tooltip" (string): tooltip when hovering global label (default: "Click to see translations")
+
+  Links variant parameters:
+    - "links" (array): [{
+      - "title" (string): title of the link (default: empty)
+      - "icon" (string): icon corresponding to the file type. Should be one of ecl-icons (default: empty)
+      - "href" (string): target of the link (default: empty)
+      - "is_external" (boolean): is the link an external link or not (default: false)
+      - "type" (string): (optional) extension of the file (default: empty)
+    }]
+
+  Images variant parameters:
+    - "src" (string): source of the image (default: empty)
+    - "alt" (string): alternative text for the image (default: empty)
+    - "caption" (string): description of the image (default: empty)
+
+  Videos variant parameters:
+    - "src" (string): source of the video (default: empty)
+    - "caption" (string): description of the video (default: empty)
+    - "is_iframe" (boolean): video is displayed in an iframe or not (default: false)
+    - "ratio" (string): ratio of the video. Should be one of ecl-ratio. Format: '16-9' (default: empty)
+#}
+
+{% include '@ecl/generic-component-file' with { system: 'ec' } %}

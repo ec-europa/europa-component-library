@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+{% set bodyClass = 'ecl-typography' %}
+{% if _target.context is defined and _target.context.global is defined %}
+  {% set global = _target.context.global %}
+  {% if global.svg is defined %}
+    {% set bodyClass = bodyClass ~ ' no-svg' %}
+  {% endif %}
+  {% if global.language is defined %}
+    {% set bodyClass = bodyClass ~ ' language-' ~ global.language %}
+  {% endif %}
+{% endif %}
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preview Layout</title>
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <link media="all" rel="stylesheet" href="{{ '/ec-preset-website/styles/ecl-ec-preset-website.css' | path }}">
+</head>
+<body class="{{ bodyClass }}">
+  {% include '@ecl/ec-component-skip-link' with {
+      'href': '#main-content',
+      'label': 'Skip to main content'
+  } %}
+  {% include '@ecl/ec-component-site-header' with {
+    site_switcher: {
+      variant: 'header',
+      political: { href: '../../example.html#', label: 'Commission and its priorities' },
+      info: { href: '../../example.html#', label: 'Policies, information and services', is_active: true }
+    }
+  } %}
+  {% include '@ecl/ec-component-page-header' with {
+    variant: 'default',
+    identity: 'Search',
+    breadcrumb: [
+      { href: 'http://europa.eu/index_en.htm', label: 'European Commission' },
+      { href: '../../example.html#', label: 'Search' },
+    ]
+  } %}
+  <main id="main-content">
+    {{ yield }}
+  </main>
+
+  {% include '@ecl/ec-component-footer' with {
+    custom_footer: {
+      identity: {
+        href: '../../example.html#',
+        label: 'Digital single market',
+      },
+      social_links: {
+        label: 'Follow us:',
+        links: [
+          {
+            type: 'social-network',
+            icon: 'facebook',
+            link: {
+              href: '../../example.html#',
+              label: 'Facebook',
+            },
+          },
+          {
+            type: 'social-network',
+            icon: 'twitter',
+            link: {
+              href: '../../example.html#',
+              label: 'Twitter',
+            },
+          },
+          {
+            type: 'external',
+            link: {
+              href: '../../example.html#',
+              label: 'Other social media',
+            },
+          },
+        ],
+      },
+      other_links: {
+        links: [
+          {
+            link: {
+              href: '../../example.html#',
+              label: 'Contact',
+            },
+          },
+          {
+            link: {
+              href: '../../example.html#',
+              label: 'Site map',
+            },
+          },
+        ],
+      },
+    },
+    corporate_footer: {
+      about_ec: {
+        title: 'European Commission',
+        items: [
+          {
+            href: 'https://ec.europa.eu/commission/index_en',
+            label: 'Commission and its priorities',
+          },
+          {
+            href: 'https://ec.europa.eu/info/index_en',
+            label: 'Policies information and services',
+          },
+        ],
+      },
+      social_media: {
+        title: 'Follow the European Commission',
+        items: [
+          {
+            type: 'social-network',
+            icon: 'facebook',
+            link: {
+              href: '../../example.html#',
+              label: 'Facebook',
+            },
+          },
+          {
+            type: 'social-network',
+            icon: 'twitter',
+            link: {
+              href: '../../example.html#',
+              label: 'Twitter',
+            },
+          },
+          {
+            type: 'external',
+            link: {
+              href: '../../example.html#',
+              label: 'Other social media',
+            },
+          },
+        ],
+      },
+      about_eu: {
+        title: 'European Union',
+        items: [
+          {
+            href: '../../example.html#',
+            label: 'EU institutions',
+          },
+          {
+            href: '../../example.html#',
+            label: 'European Union',
+          },
+        ],
+      },
+      bottom_links: [
+        {
+          href:
+            'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
+          label: "About the Commission's new web presence",
+        },
+        {
+          href: 'http://ec.europa.eu/info/resources-partners_en',
+          label: 'Resources for partners',
+        },
+        {
+          href: 'http://ec.europa.eu/info/cookies_en',
+          label: 'Cookies',
+        },
+        {
+          href: 'http://ec.europa.eu/info/legal-notice_en',
+          label: 'Legal notice',
+        },
+        {
+          href: 'http://ec.europa.eu/info/contact_en',
+          label: 'Contact',
+        },
+      ],
+    },
+  } %}
+
+  <script src="{{ '/ec-preset-website/scripts/ecl-ec-preset-website.js' | path }}"></script>
+  {% if _target.context._demo and _target.context._demo.scripts %}
+  <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
+  {% endif %}
+</body>
+</html>

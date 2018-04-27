@@ -1,0 +1,61 @@
+{#
+  Parameters:
+    - "variant" (string) (default: ''): display variant
+    - "week_day" (string) (default: ''): day(s) of the week of the event
+    - "day" (string) (default: ''): day number(s) of the event
+    - "month" (string) (default: ''): month(s) of the event
+    - "year" (string) (default: ''): year(s) of the event
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _week_day = week_day|default('') %}
+{% set _day = day|default('') %}
+{% set _month = month|default('') %}
+{% set _year = year|default('') %}
+{% set _css_class = 'ecl-date-block' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant != '' %}
+  {% set _css_class = _css_class ~ ' ecl-date-block--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-date-block__body">
+    {% if _week_day != '' %}
+    <span class="ecl-date-block__week-day">{{ _week_day }}</span>
+    {% endif %}
+    {% if _day != '' %}
+    <span class="ecl-date-block__day">{{ _day }}</span>
+    {% endif %}
+    {% if _month != '' %}
+    <span class="ecl-date-block__month">{{ _month }}</span>
+    {% endif %}
+    {% if _year != '' %}
+    <span class="ecl-date-block__year">{{ _year }}</span>
+    {% endif %}
+  </div>
+</div>

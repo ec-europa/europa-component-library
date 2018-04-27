@@ -17,7 +17,8 @@ clone:
 
 matrix:
   TEST:
-    - coding-conventions
+    - conventions
+    - examples
     - functional
 
 pipeline:
@@ -26,18 +27,30 @@ pipeline:
     commands:
       - yarn install --frozen-lockfile
 
-  coding-conventions:
+  conventions:
     image: node:latest
     commands:
       - yarn test:coding-conventions
+      - yarn test:independent-sass
     when:
       matrix:
-        TEST: coding-conventions
+        TEST: conventions
+
+  examples:
+    image: node:latest
+    commands:
+      - cd examples/webpack3 && yarn build --display=errors-only
+      - cd ../webpack4 && yarn build --display=errors-only
+    when:
+      matrix:
+        TEST: examples
 
   build:
     image: node:latest
     commands:
-      - yarn dist
+      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
+          yarn dist ;
+        fi
     when:
       event: [push]
       matrix:
@@ -58,10 +71,13 @@ pipeline:
     image: garland/aws-cli-docker
     secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
     commands:
-      - cd ./dist
-      - aws configure set default.s3.max_concurrent_requests 20
-      - aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/
-      - echo "Transfer complete"
+      - if [ -d "./dist" ] ; then
+          cd ./dist/website ;
+          aws configure set default.s3.max_concurrent_requests 20 ;
+          aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
+          echo "Transfer complete" ;
+        fi
+
     when:
       event: [push]
       matrix:
@@ -71,8 +87,8 @@ pipeline:
     image: node:latest
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
-      - if [ "${DRONE_BRANCH}" = "master" ] || yarn lerna updated -- --since master ; then
-          yarn test:functional;
+      - if [ -d "./dist" ] ; then
+          yarn test:functional ;
         fi
     when:
       event: [push]

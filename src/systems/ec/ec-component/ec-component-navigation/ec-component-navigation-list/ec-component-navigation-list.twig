@@ -1,0 +1,22 @@
+{#
+  Parameters:
+    - "title" (string) (default: 'Navigation'): for screen readers
+    - "display" (string) (default: 'default'): can be 'default', 'tabs' or 'small'
+    - "links" (array) (default: []): collection of @ecl/ec-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-navigation-list' with {
+  'title': title|default('Navigation'),
+  'display': display|default('default'),
+  'links': links|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}

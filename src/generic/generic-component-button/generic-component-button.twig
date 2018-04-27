@@ -1,0 +1,60 @@
+{#
+  Parameters:
+    - "modifier" (string, "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page") (default: "default")
+    - "type" (string, "link" or "button") (default: "button")
+    - "href" (string, if type == "link") (default: '#')
+    - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
+    - "label" (string) (default: "")
+    - "is_block" (boolean): block-wide button (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "link_label_block": block label of the button (when "type" == "link")
+    - "button_label_block": block label of the button (when "type" == "button")
+
+#}
+
+{# Internal properties #}
+
+{% set _modifier = modifier|default('default') %}
+{% set _type = type|default('button') %}
+{% set _icon = icon|default('') %}
+{% set _label = label|default('') %}
+{% set _href = href|default('#') %}
+{% set _is_block = is_block|default(false) %}
+{% set _css_class = 'ecl-button ecl-button--' ~ _modifier %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _is_block == true %}
+  {% set _css_class = _css_class ~ ' ecl-button--block' %}
+{% endif %}
+
+{% if _icon is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-button--' ~ _icon %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _type == 'link' %}
+  <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block link_label_block _label %}</a>
+{% else %}
+  <button class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block button_label_block _label %}</button>
+{% endif %}

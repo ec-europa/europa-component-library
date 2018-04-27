@@ -1,0 +1,20 @@
+{#
+  Parameters:
+    - "status" (string) (default: 'upcoming'): one of 'upcoming', 'open', 'close'
+    - "body" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-label' with {
+  'status': status|default('upcoming'),
+  'body': body|default(''),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}

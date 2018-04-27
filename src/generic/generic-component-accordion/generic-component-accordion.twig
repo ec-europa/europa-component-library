@@ -1,0 +1,58 @@
+{#
+  Parameters:
+    - "panels" (array) (default: []): format [
+        {
+          "id" (string) (default: '')
+          "isExpanded" (boolean) (default: false)
+          "heading": {
+            "level" (string) (default: '')
+            "title" (string) (default: '')
+            "icon" (string) (default: '')
+          },
+          "body" (string) (default: '')
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-accordion' %}
+{% set _extra_attributes = '' %}
+{% set _panels = panels|default([]) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+  <dl class="{{ _css_class }}" role="presentation"{{ _extra_attributes|raw }}>
+  {% for _panel in _panels %}
+  <dt role="heading"{{ _panel.heading.level is defined ? 'aria-level="' ~ _panel.heading.level ~ '"' : '' }} >
+    <button id="ecl-accordion-header-{{ _panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ _panel.id }}" aria-expanded="{{ _panel.isExpanded ? 'true' : 'false' }}">
+      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--{{ _panel.heading.icon }}"></span>
+      {{ _panel.heading.title }}
+    </button>
+  </dt>
+  <dd id="ecl-accordion-panel-{{ _panel.id }}" class="ecl-accordion__panel" role="region" aria-labelledby="ecl-accordion-header-{{ _panel.id }}" aria-hidden="{{ _panel.isExpanded ? 'false' : 'true' }}">
+    {{ _panel.body }}
+  </dd>
+  {% endfor %}
+</dl>

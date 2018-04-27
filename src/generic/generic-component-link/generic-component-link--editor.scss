@@ -1,0 +1,7 @@
+@import './mixins';
+
+@mixin ecl-editor-link() {
+  .ecl-editor a {
+    @include link();
+  }
+}

@@ -1,0 +1,56 @@
+{#
+  Parameters:
+    - "id" (string) (default: 'default-id')
+    - "name" (string) (default: 'default-name')
+    - "has_error" (boolean) (default: false)
+    - "is_disabled" (boolean) (default: false)
+    - "type" (string) (default: 'text')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _type = type|default('text') %}
+{% set _id = id|default('default-id') %}
+{% set _name = name|default('default-name') %}
+{% set _has_error = has_error|default(false) %}
+{% set _is_disabled = is_disabled|default(false) %}
+{% set _css_class = 'ecl-text-input' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-text-input--has-error' %}
+{% endif %}
+
+{% if _is_disabled == true %}
+  {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<input
+  type="{{ _type }}"
+  class="{{ _css_class }}"
+  id="{{ _id }}"
+  name="{{ _name }}"
+  {{ _extra_attributes|raw }}
+/>

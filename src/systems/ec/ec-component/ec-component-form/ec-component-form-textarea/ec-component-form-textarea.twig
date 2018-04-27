@@ -1,0 +1,17 @@
+{#
+  Parameters:
+    - "id" (string) (default: 'default-id')
+    - "name" (string) (default: 'default-name')
+    - "rows" (integer) (default: 4): number of rows
+    - "is_disabled" (boolean) (default: false)
+    - "has_error" (boolean) (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+{% include '@ecl/generic-component-form-textarea' %}

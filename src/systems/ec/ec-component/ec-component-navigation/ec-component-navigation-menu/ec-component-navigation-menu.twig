@@ -1,0 +1,91 @@
+{#
+  Parameters:
+    - "menu_label" (string) (default: ''): visible on mobile
+    - "menu_aria_label" (string)  (default: ''): label displayed before the list
+    - "links" (array) (default: []): [{
+        "href" (string): target of the link
+        "label" (string): label of the link
+        "is_active" (boolean): does the menu contains the current page? (default: false)
+        "children_links" (array): [{
+          "href" (string)
+          "label" (string)
+          "is_active" (boolean): is it the current page?
+        }]
+      }]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "navigation": instead of providing an array of links, you can also embed the template and fill the "navigation" block directly
+#}
+
+{# Internal properties #}
+
+{% set _menu_label = menu_label|default('') %}
+{% set _menu_aria_label = menu_aria_label|default('') %}
+{% set _links = links|default([]) %}
+{% set _css_class = 'ecl-navigation-menu' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}" aria-label="{{ _menu_aria_label }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-container">
+    <button class="ecl-navigation-menu__toggle ecl-navigation-menu__hamburger ecl-navigation-menu__hamburger--squeeze" aria-controls="nav-menu-expandable-root" aria-expanded="false">
+      <span class="ecl-navigation-menu__hamburger-box">
+        <span class="ecl-navigation-menu__hamburger-inner"></span>
+      </span>
+      <span class="ecl-navigation-menu__hamburger-label">{{ _menu_label }}</span>
+    </button>
+    <ul class="ecl-navigation-menu__root" id="nav-menu-expandable-root" aria-hidden="true">
+      {% block navigation %}
+        {% if _links is not empty and _links is iterable %}
+          {% for _link in _links %}
+            {% set _link_class_name = 'ecl-navigation-menu__item' ~ (_link.is_active ? ' ecl-navigation-menu__item--active' : '') %}
+            <li class="{{ _link_class_name }}">
+              {% if _link.children_links is not defined or _link.children_links is empty %}
+                <a href="{{ _link.href }}" class="ecl-navigation-menu__link">{{ _link.label }}</a>
+              {% else %}
+                <a href="{{ _link.href }}" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">{{ _link.label }}</a>
+                <div class="ecl-navigation-menu__group ecl-row" id="nav-menu-expandable-group-{{ loop.index }}">
+                  {% for _column in _link.children_links %}
+                    <div class="ecl-col">
+                      {% if _column.title is defined and _column.title is not empty %}
+                        <div class="ecl-navigation-menu__title">{{ _column.title }}</div>
+                      {% endif %}
+                      <ul class="ecl-navigation-menu__links ecl-list ecl-list--unstyled">
+                        {% for _child_link in _column.links %}
+                          {% set _child_link_class_name = 'ecl-navigation-menu__link' ~ (_child_link.is_active ? ' ecl-navigation-menu__link--active' : '') %}
+                          <li class="ecl-navigation-menu__item">
+                            <a href="{{ _child_link.href }}" class="{{ _child_link_class_name }}">{{ _child_link.label }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      {% endblock %}
+    </ul>
+  </div>
+</nav>

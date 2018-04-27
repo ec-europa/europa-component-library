@@ -1,0 +1,6 @@
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-blockquote/generic-component-blockquote--editor';
+
+@include exports('ec-component-blockquote--editor') {
+  @include ecl-editor-blockquote();
+}

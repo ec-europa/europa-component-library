@@ -1,0 +1,16 @@
+/**
+ * ECL Navigation inpage
+ * @define inpage-navigation
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-inpage-navigation/generic-component-inpage-navigation';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-link'));
+
+// Use generic mixin
+@include exports('ec-component-npage-navigation') {
+  @include ecl-inpage-navigation();
+}

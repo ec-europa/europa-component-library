@@ -1,0 +1,98 @@
+/**
+ * Messages
+ * @define message
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-message() {
+  .ecl-message {
+    background: transparent url($ecl-assets-path+'images/messages-info.svg')
+      no-repeat 1.2rem 1.2rem;
+    border: 2px solid map-get($ecl-colors, 'blue-75');
+    color: $ecl-color-shade;
+    font-size: map-get($ecl-font-size, 's');
+    margin-bottom: map-get($ecl-spacing, 's');
+    min-height: map-get($ecl-spacing, 'l');
+    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l')
+      map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+    position: relative;
+
+    &--success {
+      background-image: url($ecl-assets-path+'images/messages-success.svg');
+      border-color: $ecl-color-success;
+    }
+
+    &--warning {
+      background-image: url($ecl-assets-path+'images/messages-warning.svg');
+      border-color: map-get($ecl-colors, 'yellow-110');
+    }
+
+    &--error {
+      background-image: url($ecl-assets-path+'images/messages-error.svg');
+      border-color: $ecl-color-error;
+    }
+
+    &--live {
+      background-image: url($ecl-assets-path+'images/live_streaming.svg');
+      border-color: map-get($ecl-colors, 'yellow-110');
+    }
+  }
+
+  .ecl-message__title {
+    font-weight: bold;
+    margin-bottom: map-get($ecl-spacing, 'xs');
+  }
+
+  .ecl-message__body {
+    margin: 0;
+    padding-left: map-get($ecl-spacing, 'xs');
+  }
+
+  .ecl-message__dismiss {
+    background: transparent url($ecl-assets-path+'images/close.svg') no-repeat
+      center center;
+    border-width: 0;
+    color: transparent;
+    display: block;
+    font-size: map-get($ecl-font-size, 'xxl');
+    line-height: map-get($ecl-font-size, 'l');
+    padding: 0;
+    position: absolute;
+    right: map-get($ecl-spacing, 'xxs');
+    text-decoration: none;
+    text-shadow: none;
+    top: map-get($ecl-spacing, 'xxs');
+
+    &:hover {
+      background-image: url($ecl-assets-path+'images/close_hover.svg');
+    }
+  }
+
+  .ecl-message__dismiss--inverted {
+    background-image: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.889em;
+    text-decoration: underline;
+
+    &::after {
+      align-items: center;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      box-sizing: border-box;
+      content: '\00D7';
+      display: flex;
+      float: right;
+      height: 1.5em;
+      justify-content: center;
+      margin-left: 0.5em;
+      width: 1.5em;
+    }
+
+    &:hover {
+      background-image: none;
+    }
+  }
+}

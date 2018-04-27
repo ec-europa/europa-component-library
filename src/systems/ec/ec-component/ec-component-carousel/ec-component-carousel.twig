@@ -1,0 +1,44 @@
+{#
+  Parameters:
+    - carousel_id (string) (default: 'ecl-carousel')
+    - heading_attributes (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - heading_id (string) (default: 'ecl-carousel__heading'): the ID of carousel heading.
+    - heading_title: (string) (default: 'gallery')
+    - carousel_images (array) (default: []): format: [
+        {
+          "image" (object) format: {
+            src (string),
+            alt (string)
+          },
+          "download" (object) format: {
+            target: (string),
+            title (string),
+            label (string)
+          },
+          "share" (object) format: {
+            target: (string),
+            title (string),
+            label (string)
+          },
+          "description" (string or block).
+          "copyright" (string)
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-carousel' with { system: 'ec' } %}

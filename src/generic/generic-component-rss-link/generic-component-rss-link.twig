@@ -1,0 +1,51 @@
+{#
+  Parameters:
+    - "title" (string) (default: 'Get updates:')
+    - "label" (string) (default: 'RSS')
+    - "href" (string) (default: '')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _title = title|default('Get updates:') %}
+{% set _label = label|default('RSS') %}
+{% set _href = href|default('') %}
+{% set _css_class = 'ecl-rss-link' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <span class="ecl-rss-link__label">{{ _title }}</span>
+  {% include '@ecl/' ~ _system ~ '-component-social-icon' with {
+    'variant': 'rss',
+    'link': {
+      'href': _href,
+      'extra_classes': 'ecl-rss-link__link',
+      'label': _label
+    },
+    'system': _system
+  } only %}
+</div>

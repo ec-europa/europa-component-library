@@ -1,0 +1,37 @@
+.Status,
+.Status-dots {
+  align-items: center;
+  display: flex;
+}
+
+.Status-dot {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 100%;
+  box-sizing: border-box;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.Status-dot + .Status-dot {
+  @include margin-inline(start, 3px);
+}
+
+.Status-label {
+  @include font(label);
+  display: inline-block;
+  border-radius: 2rem;
+  padding: 0.125rem 0.75rem;
+  color: white;
+  white-space: nowrap;
+}
+
+.Status-label + .Status-label {
+  @include margin-inline(start, 0.25rem);
+}
+
+.Status--labelled {
+  .Status-label {
+    @include margin-inline(end, 0.75rem);
+  }
+}

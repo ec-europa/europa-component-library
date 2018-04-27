@@ -1,0 +1,37 @@
+{
+  "name": "@ecl/fractal-theme",
+  "author": "European Commission",
+  "version": "0.0.1",
+  "license": "EUPL-1.1",
+  "description": "The default Fractal theme for ECL.",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "src/theme.js",
+  "scripts": {
+    "build": "npm-run-all --parallel build:* -ln",
+    "build:copy": "ecl-builder copy",
+    "build:scripts": "ecl-builder scripts",
+    "build:styles": "ecl-builder styles",
+    "clean": "rimraf dist",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "devDependencies": {
+    "@ecl/builder": "0.2.0",
+    "@ecl/ec-preset-full": "^0.0.1",
+    "highlight.js": "9.12.0",
+    "jquery": "3.3.1",
+    "jquery-resizable-dom": "0.16.0",
+    "npm-run-all": "4.1.2",
+    "rimraf": "2.6.2",
+    "sass-mq": "3.3.2",
+    "select2": "4.0.5"
+  },
+  "dependencies": {
+    "@frctl/fractal": "1.1.7",
+    "js-beautify": "1.7.5",
+    "lodash": "4.17.5",
+    "lunr": "1.0.0",
+    "normalize.css": "8.0.0"
+  }
+}

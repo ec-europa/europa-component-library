@@ -1,0 +1,66 @@
+{#
+  Parameters:
+    - "label" (string)  (default: ''): label displayed before the list
+    - "items" (array): array of contexts of "@ecl/generic-component-link"
+    - "limit" (integer) (default: 5): max number of items to display (0 = display all)
+    - "more_label" (string) (default: "More"): label of the "see more items" button
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _label = label|default('') %}
+{% set _limit = limit|default(4) %}
+{% set _more_label = more_label|default('More') %}
+{% set _css_class = 'ecl-context-nav' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+{% set _items = items|default([]) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <span class="ecl-context-nav__label">{{ _label }}</span>
+  {% if _items is not empty and _items is iterable %}
+  <ul class="ecl-context-nav__list">
+    {% for _item in _items %}
+    <li class="ecl-context-nav__item{{ _limit > 0 and loop.index > _limit ? ' ecl-context-nav__item--over-limit' : '' }}">
+      {% include '@ecl/' ~ _system ~ '-component-link' with {
+        'variant': 'standalone',
+        }|merge(_item|default({}))
+      %}
+    </li>
+    {% endfor %}
+    {% if _items|length > _limit %}
+    <li class="ecl-context-nav__item ecl-context-nav__more">
+      {% include '@ecl/' ~ _system ~ '-component-button' with {
+        'modifier': 'none',
+        'label': _more_label,
+        'extra_classes': 'ecl-context-nav__button ecl-link ecl-link--standalone',
+        'icon': 'caret-right'
+      } %}
+    </li>
+    {% endif %}
+  </ul>
+  {% endif %}
+</div>

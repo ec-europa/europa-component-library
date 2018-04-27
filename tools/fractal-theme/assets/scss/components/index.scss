@@ -1,0 +1,97 @@
+@import './asset-list';
+@import './browser';
+@import './code';
+@import './error';
+@import './file-browser';
+@import './header';
+@import './meta';
+@import './navigation';
+@import './pen';
+@import './preview';
+@import './status';
+@import './tree';
+
+// Hacks
+.Status {
+  margin: 0 0.5rem;
+}
+
+.ecl-editor {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0 0 map-get($ecl-spacing, 'm');
+    padding: 0;
+  }
+
+  // Spacing
+  * + h1 {
+    margin-top: map-get($ecl-spacing, 'xxl');
+  }
+
+  * + h2 {
+    margin-top: map-get($ecl-spacing, 'xl');
+  }
+
+  * + h3 {
+    margin-top: map-get($ecl-spacing, 'l');
+  }
+
+  * + h4 {
+    margin-top: map-get($ecl-spacing, 'm');
+  }
+
+  // Code
+  code {
+    background-color: map-get($ecl-colors, 'grey-5');
+  }
+
+  pre {
+    background-color: map-get($ecl-colors, 'grey-5');
+    padding: map-get($ecl-spacing, 'xs');
+    white-space: pre-wrap;
+  }
+}
+
+.ecl-navigation-menu__group {
+  @media (min-width: 768px) {
+    column-count: 4;
+  }
+}
+
+.ecl-navigation-menu__link[aria-expanded='true'] ~ .ecl-navigation-menu__group {
+  @media (min-width: 768px) {
+    display: block;
+    z-index: 200;
+  }
+}
+
+.ecl-navigation-menu__group::before {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.ecl-navigation-menu__link {
+  justify-content: flex-start;
+}
+
+.ecl-navigation-menu__item {
+  flex-direction: column;
+}
+
+.ecl-navigation-menu__heading {
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.ecl-navigation-menu__item-list {
+  line-height: 1;
+  margin-left: 1rem;
+}
+
+.ecl-navigation-menu__group .ecl-navigation-menu__item {
+  @media (min-width: 768px) {
+    break-inside: avoid;
+  }
+}

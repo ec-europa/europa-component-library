@@ -1,0 +1,99 @@
+{# We can't use blocks here because of: https://github.com/twigjs/twig.js/issues/352 #}
+
+{% macro footer(options) %}
+  {%
+    set default_options = {
+      custom_footer: '',
+      corporate_footer: ''
+    }
+  %}
+  {% set options = default_options|merge(options|default({})) %}
+  <footer class="ecl-footer">
+    {% if options.custom_footer is not empty %}
+      <div class="ecl-footer__custom">
+        {{ options.custom_footer }}
+      </div>
+    {% endif %}
+    <div class="ecl-footer__corporate">
+      {{ options.corporate_footer }}
+    </div>
+  </footer>
+{% endmacro %}
+
+{% macro footer_custom(options, system) %}
+  {%
+    set default_options = {
+      identity: {},
+      social_links: [],
+      other_links: [],
+      other_links_inline: false
+    }
+  %}
+  {% set options = default_options|merge(options|default({})) %}
+  {% set system = system|default('generic') %}
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-footer__column ecl-col-md">
+        <h2 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none">
+          {% include '@ecl/' ~ system ~ '-component-link' with {
+            extra_classes: 'ecl-footer__link ecl-footer__custom-title',
+            variant: 'standalone',
+          }|merge(options.identity|default({}))
+          %}
+        </h2>
+      </div>
+      {% if options.social_links is defined and options.social_links.links is defined %}
+      <div class="ecl-footer__column ecl-col-md">
+        <p class="ecl-footer__custom-label">{{ options.social_links.label }}</p>
+        <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline">
+          {% for menu_item in options.social_links.links %}
+            <li class="ecl-footer__list-item">
+              {% if menu_item.type == 'social-network' %}
+                {% embed '@ecl/' ~ system ~ '-component-link' with {
+                  href: menu_item.link.href,
+                  extra_classes: 'ecl-footer__link',
+                  icon: menu_item.icon,
+                  link_label: menu_item.link.label,
+                  system: system
+                } only %}
+                  {% block label %}
+                    {% spaceless %}
+                      {% include '@ecl/' ~ system ~ '-style-icon' with {
+                        modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                      } only %}<span>{{ link_label }}</span>
+                    {% endspaceless %}
+                  {% endblock %}
+                {% endembed %}
+              {% else %}
+                {% include '@ecl/' ~ system ~ '-component-link' with {
+                  href: menu_item.link.href,
+                  label: menu_item.link.label,
+                  extra_classes: 'ecl-footer__link',
+                  variant: 'external',
+                } only %}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if options.other_links is defined and options.other_links.links is defined %}
+      <div class="ecl-footer__column ecl-col-md">
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list{{ options.other_links_inline ? ' ecl-list--inline ecl-footer__list--inline' : '' }}">
+          {% for menu_item in options.other_links.links %}
+            <li class="ecl-footer__list-item">
+              {% include '@ecl/' ~ system ~ '-component-link' with {
+                'href': menu_item.link.href,
+                'label': menu_item.link.label,
+                'extra_classes': 'ecl-footer__link',
+                'variant': link_variant,
+                }
+              %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}

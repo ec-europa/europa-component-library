@@ -1,0 +1,12 @@
+//
+// Grid mixins
+//
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-layout-grid/generic-layout-grid';
+
+// Use generic mixin
+@include exports('eu-layout-grid') {
+  @include ecl-grid();
+}

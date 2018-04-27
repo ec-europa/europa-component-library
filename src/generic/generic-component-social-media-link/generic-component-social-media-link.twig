@@ -1,0 +1,67 @@
+{#
+  Parameters:
+    - "variant" (string) (default: ''): '' or 'horizontal'
+    - "text" (string) (default: ''): additional text displayed before the links
+    - "social_icons" (array) (default: []): collection of @ecl/generic-component-social-icon
+    - "more" (object): {
+      - "href" (string) (default: ''): target of the "more" link
+      - "label" (string) (default: 'Other social networks'): label of the "more" link
+    }
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _text = text|default('') %}
+{% set _more = {
+  'label': 'Other social networks',
+  'href': ''
+}|merge(more|default({})) %}
+{% set _css_class = 'ecl-social-media-link' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-social-media-link--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _text is not empty %}
+    <p class="ecl-paragraph">{{ _text }}</p>
+  {% endif %}
+  <ul class="ecl-social-media-link__list ecl-list ecl-list--unstyled{% if variant == 'horizontal' %} ecl-list--inline{% endif %}">
+    {% for _social_icon in social_icons %}
+      <li class="ecl-social-media-link__item">
+        {% include '@ecl/' ~ _system ~ '-component-social-icon' with {
+          extra_classes: 'ecl-social-media-link__link',
+        }|merge(_social_icon) %}
+      </li>
+    {% endfor %}
+    <li class="ecl-social-media-link__item">
+      <a class="ecl-social-media-link__link" href="{{ _more.href }}" title="{{ _more.label }}">{{ _more.label }}</a>
+    </li>
+  </ul>
+</div>

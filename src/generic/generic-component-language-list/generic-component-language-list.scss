@@ -1,0 +1,41 @@
+/**
+ * Language list component
+ * @define language-list
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-language-list() {
+  .ecl-language-list {
+    margin: 0;
+  }
+
+  .ecl-language-list__button {
+    background-color: #fff;
+    color: $ecl-color-primary;
+
+    &:focus,
+    &:active,
+    &:hover {
+      border-color: map-get($ecl-colors, 'yellow-100');
+      color: #000;
+    }
+
+    &:focus,
+    &:active {
+      background-color: #fff;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      background-color: map-get($ecl-colors, 'yellow-100');
+    }
+  }
+
+  .ecl-language-list__button--active {
+    background-color: $ecl-color-secondary;
+    box-shadow: none;
+    color: #000;
+  }
+}

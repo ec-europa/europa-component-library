@@ -1,0 +1,16 @@
+/*
+* Datepicker styles based on Pikaday.
+* @define datepicker
+*/
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-datepicker/generic-component-datepicker';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-style-icon'));
+
+// Use generic mixin
+@include exports('ec-component-datepicker') {
+  @include ecl-datepicker();
+}

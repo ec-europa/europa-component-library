@@ -1,0 +1,22 @@
+/**
+ * Form Group
+ * @define form-group
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-form-group() {
+  .ecl-form-group {
+    @include ecl-hidden-print();
+
+    margin: 0;
+  }
+
+  /* Spacing */
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  * + .ecl-form-group {
+    margin-top: map-get($ecl-spacing, 'm');
+  }
+}

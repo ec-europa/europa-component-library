@@ -1,0 +1,21 @@
+{#
+  Parameters:
+    - "title" (string) (default: ''): optional title of the link block
+    - "links" (array) (default: []): collection of standalone @ecl/ec-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-link-block' with {
+  'title': title|default(''),
+  'links': links|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}

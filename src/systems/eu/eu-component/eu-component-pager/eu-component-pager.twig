@@ -1,0 +1,36 @@
+{#
+  Parameters:
+    - "aria_label" (string) (default: 'Pagination navigation')
+    - "current_page" (integer)  (default: 1): page currently displayed
+    - "max_page" (integer) (default: 0): total number of pages
+    - "fragment_url" (string) (default: '/page'): url parameter to identify current page
+    - "title_previous" (string) (default: 'Go to previous page'): helper when hovering previous page button
+    - "title_page" (string) (default: 'Go to page'): helper when hovering a page button
+    - "title_next" (string) (default: 'Go to next page'): helper when hovering next page button
+    - "label_previous" (string) (default: '‹ Previous')
+    - "label_page" (string) (default: 'Page'): page label displayed on small screens
+    - "label_next" (string)  (default: 'Next ›')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-pager' with {
+  'aria_label': aria_label|default('Pagination navigation'),
+  'current_page': current_page|default(1),
+  'max_page': max_page|default(0),
+  'fragment_url': fragment_url|default('/page'),
+  'title_previous': title_previous|default('Go to previous page'),
+  'title_page': title_page|default('Go to page'),
+  'title_next': title_next|default('Go to next page'),
+  'label_previous': label_previous|default('‹ Previous'),
+  'label_page': label_page|default('Page'),
+  'label_next': label_next|default('Next ›'),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}

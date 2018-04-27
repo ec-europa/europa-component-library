@@ -1,0 +1,155 @@
+/**
+ * Buttons component
+ * @define button
+ */
+
+// Import base and mixins
+@import '@ecl/generic-base/generic-base';
+@import './mixins';
+
+@mixin ecl-button() {
+  .ecl-button {
+    background: none;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    display: inline-block;
+    font-family: $ecl-font-family-sans-serif;
+    font-size: map-get($ecl-font-size, 's');
+    font-weight: 600;
+    line-height: 1;
+    margin: 0;
+    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: 3px solid map-get($ecl-colors, 'yellow-100');
+      outline-offset: -3px;
+    }
+  }
+
+  .ecl-button:link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-button--default {
+    border-color: $ecl-color-primary;
+    color: $ecl-color-primary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $ecl-color-primary;
+      color: #fff;
+    }
+  }
+
+  .ecl-button--primary {
+    background-color: $ecl-color-primary;
+    border-color: $ecl-color-primary;
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      color: $ecl-color-primary;
+    }
+  }
+
+  .ecl-button--secondary {
+    color: $ecl-color-primary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $ecl-color-shade;
+    }
+  }
+
+  .ecl-button--call {
+    background-color: map-get($ecl-colors, 'yellow-100');
+    border-color: map-get($ecl-colors, 'yellow-100');
+    color: #000;
+
+    &:focus {
+      border-color: #000;
+      outline-color: #000;
+    }
+  }
+
+  .ecl-button--form {
+    background-color: map-get($ecl-colors, 'grey-15');
+    border-color: map-get($ecl-colors, 'grey-15');
+    color: $ecl-color-primary;
+
+    &:hover {
+      color: $ecl-color-shade;
+    }
+
+    &:focus,
+    &:active {
+      background-color: $ecl-color-primary;
+      color: #fff;
+    }
+  }
+
+  .ecl-button--form-primary {
+    background-color: $ecl-color-primary;
+    border-color: $ecl-color-primary;
+    color: #fff;
+
+    &:hover {
+      background-color: map-get($ecl-colors, 'grey-15');
+      border-color: map-get($ecl-colors, 'grey-15');
+      color: $ecl-color-shade;
+    }
+
+    &:focus,
+    &:active {
+      background-color: $ecl-color-primary;
+      color: #fff;
+    }
+  }
+
+  .ecl-button--block {
+    display: block;
+    width: 100%;
+  }
+
+  .ecl-button--caret-up {
+    &::after {
+      @include ecl-icon--after();
+
+      @include ecl-icon('up');
+      @include ecl-button--caret();
+    }
+  }
+
+  .ecl-button--caret-right {
+    &::after {
+      @include ecl-icon--after();
+
+      @include ecl-icon('right');
+      @include ecl-button--caret();
+    }
+  }
+
+  .ecl-button--caret-down {
+    &::after {
+      @include ecl-icon--after();
+
+      @include ecl-icon('down');
+      @include ecl-button--caret();
+    }
+  }
+}

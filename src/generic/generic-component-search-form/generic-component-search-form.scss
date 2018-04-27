@@ -1,0 +1,90 @@
+/**
+ * Search form
+ * @define search-form
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-search-form() {
+  .ecl-search-form {
+    @include ecl-hidden-print();
+
+    border: 1px solid map-get($ecl-colors, 'grey-50');
+    display: flex;
+    margin: 0;
+  }
+
+  .ecl-search-form__textfield-wrapper {
+    border: 3px solid transparent; // Keeps the focus in the container
+    flex-grow: 1;
+  }
+
+  .ecl-search-form__textfield {
+    border: 0;
+    margin-top: 0;
+    padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+  }
+
+  .ecl-search-form__button {
+    @include ecl-icon--before();
+
+    flex-shrink: 0;
+    padding: 0 map-get($ecl-spacing, 'm');
+    position: relative;
+    text-indent: -999em;
+
+    &::before {
+      @include ecl-icon('search');
+
+      font-size: map-get($ecl-font-size, 'l');
+      left: 50%;
+      position: absolute;
+      text-indent: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-search-form__button {
+      padding: 0 map-get($ecl-spacing, 's');
+      text-indent: 0;
+
+      &::before {
+        display: none !important;
+      }
+    }
+  }
+
+  .ecl-search-form--internal {
+    display: flex;
+
+    .ecl-search-form__textfield-wrapper {
+      @include ecl-icon--before();
+
+      border-color: #fff;
+      flex-grow: 1;
+      position: relative;
+
+      /* stylelint-disable-next-line */
+      &::before {
+        @include ecl-icon('search');
+
+        color: map-get($ecl-colors, 'grey-25');
+        font-size: map-get($ecl-font-size, 'm');
+        left: map-get($ecl-spacing, 'xxs');
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .ecl-search-form__textfield {
+      // ~ 1 * icon's width + 1 * icon's left space + 1 * space between icon and input
+      padding-left: map-get($ecl-font-size, 'm') + 2 *
+        map-get($ecl-spacing, 'xxs');
+    }
+  }
+}

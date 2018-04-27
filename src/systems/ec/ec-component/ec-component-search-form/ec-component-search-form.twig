@@ -1,0 +1,25 @@
+{#
+  Parameters:
+    - "variant" (string) (default: ''): can be '' or 'internal'
+    - "aria_label" (string) (default: 'Search this website')
+    - "button" (object) (default: { 'label': 'Search' }): shape of @ecl/ec-component-button
+    - "input" (object) (default: { 'id': 'search' }): shape of @ecl/ec-component-form-text-input
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-search-form' with {
+  'variant': variant|default(''),
+  'aria_label': aria_label|default('Search this website'),
+  'button': { 'label': 'Search' }|merge(button|default({})),
+  'input': { 'id': 'search' }|merge(input|default({})),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}

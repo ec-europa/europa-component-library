@@ -1,0 +1,63 @@
+/**
+ * Banners component
+ * @define banner
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-banner() {
+  .ecl-banner {
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .ecl-banner__content {
+    background-color: #fff;
+    border-top: 3px solid $ecl-color-primary;
+    box-sizing: border-box;
+    padding: map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-banner__title {
+    color: $ecl-color-primary;
+    margin: 0;
+  }
+
+  .ecl-banner__description {
+    font-size: map-get($ecl-font-size, 'm');
+    margin: map-get($ecl-spacing, 's') 0 0;
+  }
+
+  .ecl-banner__image {
+    display: block;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(md) {
+    .ecl-banner--hero {
+      min-height: 23rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ecl-banner__image {
+      left: 50%;
+      max-width: none;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ecl-banner__content {
+      float: right;
+      margin: map-get($ecl-spacing, 'xl') map-get($ecl-spacing, 'xl')
+        map-get($ecl-spacing, 'xl') 0;
+      position: relative;
+      width: 50%;
+    }
+  }
+}

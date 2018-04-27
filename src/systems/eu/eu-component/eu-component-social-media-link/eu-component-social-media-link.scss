@@ -1,0 +1,16 @@
+/**
+ * Social media
+ * @define social-media-link
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-social-media-link/generic-component-social-media-link';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-social-icon'));
+
+// Use generic mixin
+@include exports('eu-component-social-media-link') {
+  @include ecl-social-media-link();
+}

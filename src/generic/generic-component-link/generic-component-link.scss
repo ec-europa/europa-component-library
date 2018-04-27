@@ -1,0 +1,59 @@
+/**
+* Link component
+* @define link
+*/
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+@import '@ecl/generic-style-icon/variables';
+@import '@ecl/generic-style-icon/mixins';
+@import './mixins';
+
+@mixin ecl-link() {
+  .ecl-link {
+    @include link();
+  }
+
+  .ecl-link--external {
+    @include link-external();
+  }
+
+  .ecl-link--standalone {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-link--inverted {
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:visited {
+      color: #fff;
+    }
+  }
+
+  .ecl-link--all {
+    clear: right;
+    float: right;
+    text-transform: uppercase;
+  }
+
+  .ecl-link--more {
+    text-transform: uppercase;
+
+    &::after {
+      @include ecl-icon--after();
+
+      @include ecl-icon('right');
+
+      font-size: 75%;
+      margin-left: 0.4em;
+      margin-right: 0.2em;
+    }
+  }
+}

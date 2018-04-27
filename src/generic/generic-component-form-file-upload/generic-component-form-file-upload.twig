@@ -1,0 +1,69 @@
+{#
+  Parameters:
+    - "id" (string) (default: 'default-id'): the id of the file input
+    - "name" (string) (default: 'default-name'): the name of the file input
+    - "value" (string) (default: 'No file selected.'): the name of the file selected
+    - "label_browse" (string) (default: 'Browse'): the label of the Browse button
+    - "has_upload" (boolean) (default: true): define if form upload has a "upload" button
+    - "label_upload" (string)  (default: 'Upload'): the label of the Upload button
+    - "is_disabled" (boolean) (default: false): define if form upload is disabled
+    - "is_multiple" (boolean) (default: false): define if form upload is multiple
+    - "has_error" (boolean) (default: false): define if form upload has error
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('default-id') %}
+{% set _name = name|default('default-name') %}
+{% set _value = value|default('No file selected.') %}
+{% set _label_browse = label_browse|default('Browse') %}
+{% set _has_upload = has_upload|default(true) %}
+{% set _label_upload = label_upload|default('Upload') %}
+{% set _is_disabled = is_disabled|default(false) %}
+{% set _is_multiple = is_multiple|default(false) %}
+{% set _has_error = has_error|default(false) %}
+{% set _css_class = 'ecl-file-upload' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-file-upload--has-error' %}
+{% endif %}
+
+{% if _is_disabled == true %}
+  {% set _css_class = _css_class ~ ' ecl-file-upload--is-disabled' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-file-upload__value" tabindex="0">{{ _value }}</div>
+  <label for="{{ _id }}">
+    <span class="ecl-file-upload__browse" role="button" aria-controls="{{ _id }}" tabindex="0">{{ _label_browse }}</span>
+  </label>
+  {% if _has_upload == true and _is_disabled == false %}
+  <button class="ecl-file-upload__upload" tabindex="0" type="submit">
+    {{ _label_upload }}
+  </button>
+  {% endif %}
+  <input class="ecl-file-upload__input" name="{{ _name }}" type="file" id="{{ _id }}" {% if _is_disabled == true %}disabled{% endif %} {% if _is_multiple == true %}multiple{% endif %}>
+</div>

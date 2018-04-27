@@ -1,0 +1,46 @@
+{
+  "private": "true",
+  "name": "@ecl/eu-styleguide",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "0.0.1",
+  "description": "ECL EU Styleguide based on Fractal",
+  "scripts": {
+    "build:preset":
+      "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run build",
+    "clean": "rimraf ./static/eu-preset-website",
+    "copy:preset":
+      "ncp ../../src/systems/eu/eu-preset/eu-preset-website/dist ./static/eu-preset-website",
+    "dist":
+      "npm run clean && npm run copy:preset && cross-env NODE_ENV=production fractal build",
+    "postinstall":
+      "copyfiles -f '../../node_modules/@ecl/generic-*/**/*.twig' ../../src/systems/eu/_imports",
+    "serve": "fractal start --sync",
+    "start": "npm-run-all clean build:preset --parallel serve watch:preset",
+    "watch:preset":
+      "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run watch"
+  },
+  "devDependencies": {
+    "@ecl/eu-preset-website": "^0.0.1",
+    "@ecl/fractal-theme": "^0.0.1",
+    "@ecl/fractal-twig": "^0.0.1",
+    "@frctl/fractal": "1.1.7",
+    "copyfiles": "2.0.0",
+    "cross-env": "5.1.4",
+    "ncp": "2.0.0",
+    "npm-run-all": "4.1.2",
+    "rimraf": "2.6.2"
+  },
+  "main": "fractal.js",
+  "fractal": {
+    "main": "fractal.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library#readme"
+}

@@ -1,0 +1,13 @@
+/**
+ * Page header
+ * @define page-header
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-page-header/generic-component-page-header';
+
+// Use generic mixin
+@include exports('eu-component-page-header') {
+  @include ecl-page-header();
+}

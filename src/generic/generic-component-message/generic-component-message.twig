@@ -1,0 +1,67 @@
+{#
+  Parameters:
+    - "screen_reader_description" (string) (default: '')
+    - "messages" (array) (default: []): array of string messages
+    - "title" (string) (default: '')
+    - "dismiss" (boolean) (default: false)
+    - "dismiss_label" (string) (default: 'Dismiss this alert')
+    - "modifier" (string) (default: ''): "", "warning", "success", "error" or "live"
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _screen_reader_description = screen_reader_description|default('') %}
+{% set _messages = messages|default([]) %}
+{% set _title = title|default('') %}
+{% set _dismiss = dismiss|default(false) %}
+{% set _dismiss_label = dismiss_label|default('Dismiss this alert') %}
+{% set _modifier = modifier|default('') %}
+{% set _css_class = 'ecl-message' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _modifier is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-message--' ~ modifier %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" role="alert"{{ _extra_attributes|raw }}>
+  <span class="ecl-u-sr-only">{{ _screen_reader_description }}</span>
+  {% if _dismiss == true %}
+    <button type="button" class="ecl-message__dismiss" aria-label="{{ _dismiss_label }}">&times;</button>
+  {% endif %}
+  {% if _title is not empty %}
+    <div class="ecl-message__title">{{ _title }}</div>
+  {% endif %}
+  {% if _messages is not empty %}
+    <ul class="ecl-list ecl-message__body">
+      {% if _messages is iterable %}
+        {% for _message in _messages %}
+          <li>{{ _message }}</li>
+        {% endfor %}
+      {% else %}
+        <li>{{ _messages }}</li>
+      {% endif %}
+    </ul>
+  {% endif %}
+</div>

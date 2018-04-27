@@ -1,0 +1,13 @@
+/**
+ * Legend component
+ * @define form-legend
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-legend/generic-component-form-legend';
+
+// Use generic mixin
+@include exports('ec-component-form-legend') {
+  @include ecl-form-legend();
+}

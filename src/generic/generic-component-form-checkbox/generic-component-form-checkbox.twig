@@ -1,0 +1,88 @@
+{#
+  Parameters:
+    - "id" (string) (default: 'default-id')
+    - "name" (string) (default: 'default-name')
+    - "value" (string) (default: '')
+    - "label" (string) (default: '')
+    - "checked" (boolean) (default: false): is checkbox checked?
+    - "is_disabled" (boolean) (default: false)
+    - "has_error" (boolean) (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "input_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string): design system ("ec|eu|generic", default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _id = id|default('default-id') %}
+{% set _name = name|default('default-name') %}
+{% set _value = value|default('') %}
+{% set _label = label|default('') %}
+{% set _checked = checked|default(false) %}
+{% set _is_disabled = is_disabled|default(false) %}
+{% set _system = system|default('generic') %}
+{% set _css_class = 'ecl-checkbox' %}
+{% set _extra_attributes = '' %}
+{% set _input_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if has_error is defined and has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-checkbox--has-error' %}
+{% endif %}
+
+{% if _is_disabled == true %}
+  {% set _css_class = _css_class ~ ' ecl-checkbox--is-disabled' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% if input_attributes is defined and input_attributes is not empty and input_attributes is iterable %}
+  {% for attr in input_attributes %}
+    {% set _input_attributes = _input_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% spaceless %}
+{% embed '@ecl/' ~ _system ~ '-component-form-label' with {
+  for: _id,
+  extra_classes: _css_class,
+  extra_attributes: _extra_attributes,
+  _id: _id,
+  _value: _value,
+  _name: _name,
+  _label: _label,
+  _checked: _checked,
+  _input_attributes: _input_attributes,
+  _is_disabled: _is_disabled,
+  _system: _system
+} only %}
+  {% block label %}
+    <input class="ecl-checkbox__input ecl-u-sr-only" type="checkbox" id="{{ _id }}" value="{{ _value }}" name="{{ _name }}"{{ _checked ? ' checked' : '' }}{{ (_is_disabled is defined and _is_disabled == true) ? ' disabled' : '' }}{{ _input_attributes|raw }} />
+    <span class="ecl-checkbox__label">{{ _label }}</span>
+  {% endblock %}
+{% endembed %}
+{% endspaceless %}

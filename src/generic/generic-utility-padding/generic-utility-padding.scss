@@ -1,0 +1,60 @@
+/**
+ * Padding utilities
+ */
+
+/* 
+  Base:
+    p = padding
+  Modifiers:
+    a = all
+    h = horizontal
+    v = vertical
+    t = top
+    r = right
+    b = bottom
+    l = left
+*/
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-utility-padding() {
+  /* stylelint-disable max-nesting-depth */
+  @each $breakpoint in map-keys($ecl-grid-breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint) {
+      $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+      @each $key, $value in $ecl-spacing {
+        .ecl-u-pa#{$infix}-#{$key} {
+          padding: $value;
+        }
+
+        .ecl-u-ph#{$infix}-#{$key} {
+          padding-left: $value;
+          padding-right: $value;
+        }
+
+        .ecl-u-pv#{$infix}-#{$key} {
+          padding-bottom: $value;
+          padding-top: $value;
+        }
+
+        .ecl-u-pt#{$infix}-#{$key} {
+          padding-top: $value;
+        }
+
+        .ecl-u-pr#{$infix}-#{$key} {
+          padding-right: $value;
+        }
+
+        .ecl-u-pb#{$infix}-#{$key} {
+          padding-bottom: $value;
+        }
+
+        .ecl-u-pl#{$infix}-#{$key} {
+          padding-left: $value;
+        }
+      }
+    }
+  }
+}

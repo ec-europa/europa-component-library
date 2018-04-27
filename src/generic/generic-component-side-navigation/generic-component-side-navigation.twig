@@ -1,0 +1,92 @@
+{#
+  Parameters:
+    - "menu_label" (string) (default: ''): visible on mobile
+    - "menu_aria_label" (string)  (default: ''): label displayed before the list
+    - "links" (array) (default: []): [{
+        "href" (string): target of the link
+        "label" (string): label of the link
+        "is_active" (boolean): does the menu contains the current page? (default: false)
+        "children_links" (array): [{
+          "href" (string)
+          "label" (string)
+          "is_active" (boolean): is it the current page?
+        }]
+      }]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "navigation": instead of providing an array of links, you can also embed the template and fill the "navigation" block directly
+#}
+
+{# Internal properties #}
+
+{% set _menu_label = menu_label|default('') %}
+{% set _menu_aria_label = menu_aria_label|default('') %}
+{% set _links = links|default([]) %}
+{% set _css_class = 'ecl-side-navigation' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}" aria-label="{{ _menu_aria_label }}"{{ _extra_attributes|raw }}>
+  <button class="ecl-side-navigation__toggle ecl-side-navigation__hamburger ecl-side-navigation__hamburger--squeeze" aria-controls="side-menu-expandable-root" aria-expanded="false">
+    <span class="ecl-side-navigation__hamburger-box">
+      <span class="ecl-side-navigation__hamburger-inner"></span>
+    </span>
+    <span class="ecl-side-navigation__hamburger-label">{{ _menu_label }}</span>
+  </button>
+  <ul class="ecl-side-navigation__root ecl-side-navigation--depth-1" id="side-menu-expandable-root" aria-hidden="true">
+    {% block navigation %}
+      {% if _links is not empty and _links is iterable %}
+        {% for _link in _links %}
+          {% set _link_class_name = 'ecl-side-navigation__link' ~ (_link.is_active ? ' ecl-side-navigation__link--active' : '') %}
+          <li class="ecl-side-navigation__item">
+            {% if _link.children_links is not defined or _link.children_links is empty %}
+              <a href="{{ _link.href }}" class="{{ _link_class_name }}">{{ _link.label }}</a>
+            {% else %}
+              <a href="{{ _link.href }}" class="{{ _link_class_name }} ecl-expandable__button" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">{{ _link.label }}</a>
+              <ul class="ecl-side-navigation__group ecl-side-navigation--depth-2" id="nav-menu-expandable-group-{{ loop.index }}">
+                {% for _child_link in _link.children_links %}
+                  {% set _child_link_class_name = 'ecl-side-navigation__link' ~ (_child_link.is_active ? ' ecl-side-navigation__link--active' : '') %}
+                  <li class="ecl-side-navigation__item">
+                    {% if _child_link.children_links is not defined or _child_link.children_links is empty %}
+                      <a href="{{ _child_link.href }}" class="{{ _child_link_class_name }}">{{ _child_link.label }}</a>
+                    {% else %}
+                      <a href="{{ _child_link.href }}" class="{{ _child_link_class_name }} ecl-expandable__button" aria-controls="nav-menu-expandable-group-{{ loop.parent.loop.index }}-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">{{ _child_link.label }}</a>
+                      <ul class="ecl-side-navigation__group ecl-side-navigation--depth-3" id="nav-menu-expandable-group-{{ loop.parent.loop.index }}-{{ loop.index }}">
+                        {% for _grandchild_link in _child_link.children_links %}
+                          {% set _grandchild_link_class_name = 'ecl-side-navigation__link' ~ (_grandchild_link.is_active ? ' ecl-side-navigation__link--active' : '') %}
+                          <li class="ecl-side-navigation__item">
+                            <a href="{{ _grandchild_link.href }}" class="{{ _grandchild_link_class_name }}">{{ _grandchild_link.label }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      {% endif %}
+    {% endblock %}
+  </ul>
+</nav>

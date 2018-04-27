@@ -1,0 +1,13 @@
+/**
+ * ECL Expandable
+ * @define expandable
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-expandable/generic-component-expandable';
+
+// Use generic mixin
+@include exports('eu-component-expandable') {
+  @include ecl-expandable();
+}

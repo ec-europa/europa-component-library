@@ -1,0 +1,55 @@
+{#
+  Parameters:
+    - "id" (string) (default: 'datepicker'): the input ID
+    - "name" (string) (default: 'datepicker'): the input name
+    - "value" (string) (default: ''): the default value (mm/dd/yyyy)
+    - "aria_label" (string) (default: 'Use the arrow keys to pick a date'): ARIA label
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _value = value|default('') %}
+{% set _aria_label = aria_label|default('Use the arrow keys to pick a date') %}
+{% set _css_class = 'ecl-datepicker' %}
+{% set _id = id|default('datepicker') %}
+{% set _name = name|default('datepicker') %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% spaceless %}
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% include '@ecl/' ~ _system ~ '-component-form-text-input' with {
+    'type': 'text',
+    'id': _id,
+    'name': _name,
+    'extra_attributes': [
+      { 'name': 'aria-label', 'value': _aria_label },
+      { 'name': 'value', 'value': _value }
+    ]
+  } %}
+  <span class="ecl-datepicker__icon ecl-icon ecl-icon--calendar"></span>
+</div>
+{% endspaceless %}

@@ -1,0 +1,16 @@
+/**
+ * Search form
+ * @define search-form
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-search-form/generic-component-search-form';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-form-text-input', 'ec-component-button'));
+
+// Use generic mixin
+@include exports('ec-component-search-form') {
+  @include ecl-search-form();
+}

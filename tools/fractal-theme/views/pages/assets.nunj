@@ -1,0 +1,31 @@
+{% extends "layouts/doc.nunj" %}
+
+{% set assetSource = frctl.assets.find(request.params.name) %}
+{% if not assetSource or assetSource.isHidden %}{{ throw(404, 'Asset source not found') }}{% endif %}
+
+{% set page = {
+    title: assetSource.title
+} %}
+
+{% block docContent %}
+
+{% if assetSource.notes %}
+<div class="ecl-editor">
+    {{ frctl.docs.renderString(assetSource.notes) | async }}
+</div>
+{% endif %}
+
+<ul class="AssetList">
+    {% for asset in assetSource.flatten().items() %}
+    <li class="AssetList-asset">
+        <a class="AssetList-link" href="{{ path( asset | url ) }}">
+            <span class="AssetList-icon">
+            {% include 'icons/asset.svg' %}
+            </span>
+            <span class="AssetList-name">{{ asset.relPath | replace(asset.base, '')  }}<strong>{{ asset.base }}</strong></span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

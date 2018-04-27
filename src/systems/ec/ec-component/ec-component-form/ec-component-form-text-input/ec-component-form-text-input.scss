@@ -1,0 +1,13 @@
+/**
+ * Text input component
+ * @define text-input
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-text-input/generic-component-form-text-input';
+
+// Use generic mixin
+@include exports('ec-component-form-text-input') {
+  @include ecl-text-input();
+}

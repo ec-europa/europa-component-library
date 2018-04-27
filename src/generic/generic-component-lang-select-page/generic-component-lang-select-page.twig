@@ -1,0 +1,82 @@
+{#
+  Parameters:
+    - "unavailable" (string) (default: 'English'): unavailable language
+    - "current" (string) (default: ''): current language
+    - "is_primary" (string) (default: false)
+    - "dropdown_label" (string) (default: 'Choose your language'): if a the component is a dropdown, this option will set the aria-label
+    - "options" (array) (default: []): array of objects [
+        {
+          "href" (string),
+          "hreflang" (string),
+          "label" (string),
+          "lang" (string)
+        }
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-lang-select-page' %}
+{% set _extra_attributes = '' %}
+{% set _unavailable = unavailable|default('English') %}
+{% set _current = current|default('') %}
+{% set _dropdown_label = dropdown_label|default('Choose your language') %}
+{% set _options = options|default([]) %}
+{% set _is_primary = is_primary|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if _is_primary == true %}
+  {% set _css_class = _css_class ~ ' ecl-lang-select-page--primary' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <span class="ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"></span>
+  <span class="ecl-lang-select-page__unavailable">{{ _unavailable }}</span>
+  <select class="ecl-lang-select-page__dropdown" aria-label="{{ _dropdown_label }}">
+    <option class="ecl-lang-select-page__dropdown-option" value="" selected>{{ _current }}</option>
+    {% for _opt in _options %}
+      <option class="ecl-lang-select-page__dropdown-option" value="{{ _opt.lang }}" lang="{{ _opt.lang }}">{{ _opt.label }}</option>
+    {% endfor %}
+  </select>
+  <ul class="ecl-lang-select-page__list">
+    <li class="ecl-lang-select-page__option ecl-lang-select-page__option--is-selected">{{ _current }}</li>
+    {% for _opt in _options %}
+    <li class="ecl-lang-select-page__option">
+      {% set _link_variant = '' %}
+      {% if _is_primary == true %}
+        {% set _link_variant = 'inverted' %}
+      {% endif %}
+      {% include '@ecl/generic-component-link' with {
+        'extra_attributes': [
+          { 'name': 'hreflang', 'value': _opt.hreflang },
+          { 'name': 'lang', 'value': _opt.lang },
+          { 'name': 'rel', 'value': 'alternate' }
+        ],
+        'variant': _link_variant
+        }|merge(_opt|default({}))
+      %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>

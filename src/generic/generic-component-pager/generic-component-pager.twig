@@ -1,0 +1,116 @@
+{#
+  Parameters:
+    - "aria_label" (string) (default: 'Pagination navigation')
+    - "current_page" (integer)  (default: 1): page currently displayed
+    - "max_page" (integer) (default: 0): total number of pages
+    - "fragment_url" (string) (default: '/page'): url parameter to identify current page
+    - "title_previous" (string) (default: 'Go to previous page'): helper when hovering previous page button
+    - "title_page" (string) (default: 'Go to page'): helper when hovering a page button
+    - "title_next" (string) (default: 'Go to next page'): helper when hovering next page button
+    - "label_previous" (string) (default: '‹ Previous')
+    - "label_page" (string) (default: 'Page'): page label displayed on small screens
+    - "label_next" (string)  (default: 'Next ›')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _aria_label = aria_label|default('Pagination navigation') %}
+{% set _current_page = current_page|default(1) %}
+{% set _max_page = max_page|default(0) %}
+{% set _fragment_url = fragment_url|default('/page') %}
+{% set _title_previous = title_previous|default('Go to previous page') %}
+{% set _title_page = title_page|default('Go to page') %}
+{% set _title_next = title_next|default('Go to next page') %}
+{% set _label_previous = label_previous|default('‹ Previous') %}
+{% set _label_page = label_page|default('Page') %}
+{% set _label_next = label_next|default('Next ›') %}
+{% set _css_class = 'ecl-pager' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}" aria-label="{{ _aria_label }}"{{ _extra_attributes|raw }}>
+  <ul class="ecl-pager__list">
+    {% if _current_page > 1 %}
+      <li class="ecl-pager__item ecl-pager__item--previous">
+        <a class="ecl-pager__link" title="{{ _title_previous }}" href="{{ _fragment_url }}={{ _current_page - 1 }}">{{ _label_previous }}</a>
+      </li>
+    {% endif %}
+    {% if _current_page > 1 %}
+      <li class="ecl-pager__item ecl-pager__item--first">
+        <a class="ecl-pager__link" title="{{ _title_page }} 1" href="{{ _fragment_url }}=1">
+          <span class="ecl-u-sr-only" >{{ _label_page }} </span>1
+        </a>
+      </li>
+    {% endif %}
+    {% if _current_page > 4 %}
+      <li class="ecl-pager__item ecl-pager__item--ellipsis">…</li>
+    {% endif %}
+    {% if _current_page > 3 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="{{ _title_page }} {{ _current_page - 2 }}" href="{{ _fragment_url }}={{ _current_page - 2 }}">
+          <span class="ecl-u-sr-only" >{{ _label_page }} </span>{{ _current_page - 2 }}
+        </a>
+      </li>
+    {% endif %}
+    {% if _current_page > 2 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="{{ _title_page }} {{ _current_page - 1 }}" href="{{ _fragment_url }}={{ _current_page - 1 }}">
+          <span class="ecl-u-sr-only" >{{ _label_page }} </span>{{ _current_page - 1 }}
+        </a>
+      </li>
+    {% endif %}
+    <li class="ecl-pager__item ecl-pager__item--current" aria-current="true">
+      <span class="ecl-pager__item-text" >{{ _label_page }}</span> {{ _current_page }}
+    </li>
+    {% if _max_page - _current_page > 1 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="{{ _title_page }} {{ _current_page + 1 }}" href="{{ _fragment_url }}={{ _current_page + 1 }}">
+          <span class="ecl-u-sr-only" >{{ _label_page }} </span>{{ _current_page + 1 }}
+        </a>
+      </li>
+    {% endif %}
+    {% if _max_page - _current_page > 2 %}
+      <li class="ecl-pager__item">
+        <a class="ecl-pager__link" title="{{ _title_page }} {{ _current_page + 2 }}" href="{{ _fragment_url }}={{ _current_page + 2 }}">
+          <span class="ecl-u-sr-only" >{{ _label_page }} </span>{{ _current_page + 2 }}
+        </a>
+      </li>
+    {% endif %}
+    {% if _max_page - _current_page > 3 %}
+      <li class="ecl-pager__item ecl-pager__item--ellipsis">…</li>
+    {% endif %}
+    {% if _current_page != _max_page %}
+      <li class="ecl-pager__item ecl-pager__item--last">
+        <a class="ecl-pager__link" title="{{ _title_page }} {{ _max_page }}" href="{{ _fragment_url }}={{ _max_page }}">
+          <span class="ecl-u-sr-only" >{{ _label_page }} </span>{{ _max_page }}
+        </a>
+      </li>
+    {% endif %}
+    {% if _current_page != _max_page %}
+      <li class="ecl-pager__item ecl-pager__item--next">
+        <a class="ecl-pager__link" title="{{ _title_next }}" href="{{ _fragment_url }}={{ _current_page + 1 }}">{{ _label_next }}</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>

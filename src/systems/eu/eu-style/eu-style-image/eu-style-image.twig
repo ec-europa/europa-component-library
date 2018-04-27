@@ -1,0 +1,15 @@
+{#
+  Parameters:
+    - src (string): specifies the URL of the image, for single image tag
+    - srcs (object): different image URL, depending in screen size; used with picture tag
+      - xs: very small image URL
+      - sm: small image URL
+      - md: medium image URL
+      - lg: large image URL
+      - xl: extra large image URL (also default image)
+    - alt (string): specifies an alternate text for the image
+    - extra_classes (string): additional classes to add to the component
+    - extra_attributes (array of { name: '', value: '' })
+#}
+
+{% include '@ecl/generic-style-image' %}

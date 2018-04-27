@@ -1,0 +1,52 @@
+{#
+  The following snippets are examples.
+  The template should not be reused direclty.
+#}
+
+<!-- Button collapse -->
+
+<div style="margin-top:1rem">
+  {% include '@ecl/generic-component-button' with {
+    'label': 'What is this all about?',
+    'extra_classes': 'ecl-expandable__button',
+    'extra_attributes': [
+      { 'name': 'aria-controls', 'value': 'example-expandable-1'},
+      { 'name': 'aria-expanded', 'value': 'false'},
+      { 'name': 'data-label-expanded', 'value': 'Hide me'},
+      { 'name': 'data-label-collapsed', 'value': 'What is this all about?'},
+      { 'name': 'id', 'value': 'example-expandable-button-1' },
+      { 'name': 'type', 'value': 'button'},
+    ]
+  } %}
+  <div
+    aria-hidden="true"
+    aria-labelledby="example-expandable-button-1"
+    class="ecl-u-aria"
+    id="example-expandable-1"
+  >
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+  </div>
+</div>
+
+<!-- Expandable link -->
+
+<div style="margin-top:1rem">
+  <a
+    aria-controls="example-expandable-2"
+    aria-expanded="false"
+    class="ecl-link ecl-expandable__button"
+    href="#"
+    id="example-expandable-button-2"
+  >
+    Expandable link
+  </a>
+  <div
+    aria-hidden="true"
+    aria-labelledby="example-expandable-button-2"
+    id="example-expandable-2"
+  >
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
+  </div>
+</div>

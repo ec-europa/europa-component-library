@@ -1,0 +1,49 @@
+{#
+  Parameters:
+    - "segments" (array) (default: []): array of links (context of @ecl/generic-component-link)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-breadcrumb' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+{% set _segments = segments|default([]) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<nav class="{{ _css_class }}" aria-label="breadcrumb"{{ _extra_attributes|raw }}>
+  <span class="ecl-u-sr-only">You are here:</span>
+  <ol class="ecl-breadcrumb__segments-wrapper">
+    {% for _segment in _segments %}
+    <li class="ecl-breadcrumb__segment{{ loop.first ? " ecl-breadcrumb__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumb__segment--last" : "" }}">
+      {% include '@ecl/' ~ _system ~ '-component-link' with {
+        'extra_classes': 'ecl-breadcrumb__link',
+        'variant': ['inverted', 'standalone'],
+        }|merge(_segment|default({}))
+      %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>

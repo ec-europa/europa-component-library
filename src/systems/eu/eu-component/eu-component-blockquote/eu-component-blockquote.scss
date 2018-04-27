@@ -1,0 +1,16 @@
+/**
+ * Blockquotes
+ * @define blockquote
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-blockquote/generic-component-blockquote';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-style-typography-paragraph'));
+
+// Use generic mixin
+@include exports('eu-component-blockquote') {
+  @include ecl-blockquote();
+}

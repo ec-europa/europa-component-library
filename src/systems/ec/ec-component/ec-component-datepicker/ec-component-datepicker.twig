@@ -1,0 +1,17 @@
+{#
+  Parameters:
+    - "id" (string) (default: 'datepicker'): the input ID
+    - "name" (string) (default: 'datepicker'): the input name
+    - "value" (string) (default: ''): the default value (mm/dd/yyyy)
+    - "aria_label" (string) (default: 'Use the arrow keys to pick a date'): ARIA label
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% include '@ecl/generic-component-datepicker' with { system: 'ec' } %}
