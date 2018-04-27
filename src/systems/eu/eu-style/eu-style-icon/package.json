@@ -2,7 +2,7 @@
   "name": "@ecl/eu-style-icon",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "ECL Icons -> EU flavor",
   "style": "eu-style-icon.scss",
   "scripts": {
@@ -10,13 +10,15 @@
       "node-sass --quiet --include-path ../../../../../node_modules eu-style-icon.scss dist/eu-style-icon.css"
   },
   "dependencies": {
-    "@ecl/eu-base": "^0.0.1",
-    "@ecl/generic-style-icon": "^0.0.1"
+    "@ecl/eu-base": "^1.0.0",
+    "@ecl/generic-style-icon": "^1.0.0"
   },
   "devDependencies": {
     "node-sass": "4.8.3"
   },
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"

@@ -2,7 +2,7 @@
   "name": "@ecl/ec-component-file",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "ECL Buttons",
   "style": "ec-component-file.scss",
   "scripts": {
@@ -10,20 +10,22 @@
       "node-sass --quiet --include-path ../../../../../node_modules ec-component-file.scss dist/ec-component-file.css"
   },
   "dependencies": {
-    "@ecl/ec-base": "^0.0.1",
-    "@ecl/ec-component-button": "^0.0.1",
-    "@ecl/ec-component-link": "^0.0.1",
-    "@ecl/ec-layout-grid": "^0.0.1",
-    "@ecl/ec-style-icon": "^0.0.1",
-    "@ecl/ec-utility-aria": "^0.0.1",
-    "@ecl/ec-utility-ratio": "^0.0.1",
-    "@ecl/ec-utility-screen-reader": "^0.0.1",
-    "@ecl/generic-component-file": "^0.0.1"
+    "@ecl/ec-base": "^1.0.0",
+    "@ecl/ec-component-button": "^1.0.0",
+    "@ecl/ec-component-link": "^1.0.0",
+    "@ecl/ec-layout-grid": "^1.0.0",
+    "@ecl/ec-style-icon": "^1.0.0",
+    "@ecl/ec-utility-aria": "^1.0.0",
+    "@ecl/ec-utility-ratio": "^1.0.0",
+    "@ecl/ec-utility-screen-reader": "^1.0.0",
+    "@ecl/generic-component-file": "^1.0.0"
   },
   "devDependencies": {
     "node-sass": "4.8.3"
   },
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ec-europa/europa-component-library.git"
