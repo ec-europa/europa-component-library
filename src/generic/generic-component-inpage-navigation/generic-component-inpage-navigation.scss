@@ -94,8 +94,7 @@ $ecl-inpage-navigation-link-padding-vertical: (
     padding: $ecl-inpage-navigation-link-padding-vertical 0;
   }
 
-  .ecl-inpage-navigation--sticky,
-  .ecl-inpage-navigation--stuck {
+  .ecl-inpage-navigation--visible {
     .ecl-inpage-navigation__trigger {
       display: block;
     }
@@ -103,8 +102,7 @@ $ecl-inpage-navigation-link-padding-vertical: (
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-down('sm') {
-    .ecl-inpage-navigation--sticky,
-    .ecl-inpage-navigation--stuck {
+    .ecl-inpage-navigation--visible {
       .ecl-inpage-navigation__body {
         background-color: $ecl-color-primary;
         left: 0;
@@ -120,10 +118,21 @@ $ecl-inpage-navigation-link-padding-vertical: (
         padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
         text-decoration: underline;
       }
+
+      .ecl-inpage-navigation__link:visited {
+        color: #fff;
+      }
     }
   }
 
   @include ecl-media-breakpoint-up('md') {
+    .ecl-inpage-navigation {
+      @supports (position: sticky) {
+        position: sticky;
+        top: 0;
+      }
+    }
+
     .ecl-inpage-navigation__title {
       display: block;
     }
@@ -155,8 +164,7 @@ $ecl-inpage-navigation-link-padding-vertical: (
       border-left-color: $ecl-color-primary;
     }
 
-    .ecl-inpage-navigation--sticky,
-    .ecl-inpage-navigation--stuck {
+    .ecl-inpage-navigation--visible {
       .ecl-inpage-navigation__trigger {
         display: none;
       }
