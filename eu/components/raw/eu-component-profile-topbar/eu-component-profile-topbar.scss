@@ -1,0 +1,16 @@
+/**
+ * ECL Profile Topbar
+ * @define profile-topbar
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-profile-topbar/generic-component-profile-topbar';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-expandable'));
+
+// Use generic mixin
+@include exports('eu-component-profile-topbar') {
+  @include ecl-profile-topbar();
+}

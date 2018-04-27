@@ -1,0 +1,22 @@
+/**
+ * list-items
+ * @define list-item
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-list-item/generic-component-list-item';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'ec-component-link',
+    'ec-style-typography-heading',
+    'ec-style-typography-paragraph'
+  )
+);
+
+// Use generic mixin
+@include exports('ec-component-list-item') {
+  @include ecl-list-item();
+}

@@ -1,0 +1,19 @@
+/*
+ * Language selector (page level)
+ * @define lang-select-page
+ *
+ * Note: `.ecl-lang-select-page--dropdown` is automatically added/removed (JS)
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-lang-select-page/generic-component-lang-select-page';
+@import '@ecl/eu-component-form-select/eu-component-form-select';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-style-icon', 'eu-component-link'));
+
+// Use generic mixin
+@include exports('eu-component-lang-select-page') {
+  @include ecl-lang-select-page();
+}

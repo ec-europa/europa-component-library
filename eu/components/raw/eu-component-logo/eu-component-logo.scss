@@ -1,0 +1,45 @@
+/**
+ * Logos
+ * @define logo
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-logo/generic-component-logo';
+
+// Use generic mixin
+@include exports('eu-component-logo') {
+  @include ecl-logo();
+
+  .ecl-logo {
+    background-size: contain;
+    height: 40px;
+    width: 59px;
+  }
+
+  .ecl-logo--big {
+    height: 80px;
+    width: 118px;
+  }
+
+  .ecl-logo--logotype {
+    width: 234px;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(md) {
+    .ecl-logo {
+      height: 56px;
+      width: 83px;
+    }
+
+    .ecl-logo--big {
+      height: 112px;
+      width: 166px;
+    }
+
+    .ecl-logo--logotype {
+      width: 325px;
+    }
+  }
+}

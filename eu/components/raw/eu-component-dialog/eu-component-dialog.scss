@@ -1,0 +1,16 @@
+/**
+ * Dialog
+ * @define dialog
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-dialog/generic-component-dialog';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-style-typography-heading', 'eu-component-message'));
+
+// Use generic mixin
+@include exports('eu-component-dialog') {
+  @include ecl-dialog();
+}

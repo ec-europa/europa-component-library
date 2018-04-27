@@ -1,0 +1,12 @@
+/**
+ * Screen reader utilities
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-utility-screen-reader/generic-utility-screen-reader';
+
+// Use generic mixin
+@include exports('ec-utility-screen-reader') {
+  @include ecl-utility-screen-reader();
+}

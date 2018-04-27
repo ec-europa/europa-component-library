@@ -1,0 +1,12 @@
+/**
+ * Font size utilities
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-utility-font-size/generic-utility-font-size';
+
+// Use generic mixin
+@include exports('ec-utility-font-size') {
+  @include ecl-utility-font-size();
+}

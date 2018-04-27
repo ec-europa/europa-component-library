@@ -1,0 +1,13 @@
+/**
+ * ECL Pager
+ * @define pager
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-pager/generic-component-pager';
+
+// Use generic mixin
+@include exports('ec-component-pager') {
+  @include ecl-pager();
+}

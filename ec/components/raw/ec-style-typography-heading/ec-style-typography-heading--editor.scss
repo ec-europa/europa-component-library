@@ -1,0 +1,6 @@
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-style-typography-heading/generic-style-typography-heading--editor';
+
+@include exports('ec-style-typography-heading--editor') {
+  @include ecl-editor-typography-heading();
+}

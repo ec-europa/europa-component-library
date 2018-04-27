@@ -1,0 +1,16 @@
+/**
+* Gallery
+* @define gallery ; weak
+*/
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-gallery/generic-component-gallery';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-style-icon'));
+
+// Use generic mixin
+@include exports('ec-component-gallery') {
+  @include ecl-gallery();
+}

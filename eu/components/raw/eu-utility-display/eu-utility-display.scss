@@ -1,0 +1,12 @@
+/**
+ * Display utilities
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-utility-display/generic-utility-display';
+
+// Use generic mixin
+@include exports('eu-utility-display') {
+  @include ecl-utility-display();
+}
