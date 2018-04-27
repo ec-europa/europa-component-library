@@ -84,7 +84,9 @@ module.exports = {
     },
   ],
   _demo: {
-    scripts:
-      "document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables('.ecl-expandable__button'); ECL.navigationSide(); });",
+    scripts: `document.addEventListener('DOMContentLoaded', function () {
+      ECL.initExpandables('.ecl-expandable__button');
+      ECL.navigationSide();
+    });`,
   },
 };

@@ -1,9 +1,11 @@
 module.exports = {
   _demo: {
     scripts: `
-      document.addEventListener('DOMContentLoaded', function () { ECL.initExpandables('#example-button-dropdown'); });
-      ECL.dropdown('.ecl-dropdown');
-      `,
+      document.addEventListener('DOMContentLoaded', function () {
+        ECL.initExpandables('#example-expandable-button');
+        ECL.dropdown('.ecl-dropdown');
+      });
+    `,
   },
   links: [
     {
