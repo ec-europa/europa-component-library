@@ -18,6 +18,10 @@ module.exports = {
   links,
   extra_classes: 'ecl-col-md-3 ecl-u-align-self-start ',
   _demo: {
-    scripts: `document.addEventListener('DOMContentLoaded', function () { ECL.navigationInpages(); });`,
+    scripts: `
+      document.addEventListener('DOMContentLoaded', function () {
+        ECL.navigationInpages();
+      });
+    `,
   },
 };

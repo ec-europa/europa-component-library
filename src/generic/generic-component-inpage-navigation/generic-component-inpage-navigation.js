@@ -2,7 +2,6 @@
  * Navigation inpage related behaviors.
  */
 
-import stickybits from 'stickybits';
 import gumshoe from 'gumshoejs';
 import { toggleExpandable } from '@ecl/generic-component-expandable';
 
@@ -11,7 +10,6 @@ import { toggleExpandable } from '@ecl/generic-component-expandable';
  */
 export const navigationInpages = ({
   stickySelector: stickySelector = '.ecl-inpage-navigation',
-  stickyOffset: stickyOffset = 0,
   spySelector: spySelector = '.ecl-inpage-navigation__link',
   spyClass: spyClass = 'ecl-inpage-navigation__link--is-active',
   spyTrigger: spyTrigger = '.ecl-inpage-navigation__trigger',
@@ -27,35 +25,23 @@ export const navigationInpages = ({
   )
     return null;
 
-  let stickyInstance;
-
   // ACTIONS
-  function initSticky() {
-    stickyInstance = stickybits(stickySelector, {
-      stickyBitStickyOffset: stickyOffset,
-      useStickyClasses: true,
-      parentClass: 'ecl-inpage-navigation__parent',
-      stickyClass: 'ecl-inpage-navigation--sticky',
-      stuckClass: 'ecl-inpage-navigation--stuck',
-      stickyChangeClass: 'ecl-inpage-navigation--changed',
-    });
-  }
 
-  function destroySticky() {
-    if (stickyInstance) {
-      stickyInstance.cleanup();
-    }
-  }
-
-  function initScrollSpy() {
+  function initScrollSpy(inpageNavElement) {
     gumshoe.init({
       selector: spySelector,
       activeClass: spyClass,
       offset: spyOffset,
       callback(nav) {
-        if (!nav) return;
         const navigationTitle = document.querySelector(spyTrigger);
-        navigationTitle.innerHTML = nav.nav.innerHTML;
+
+        if (!nav) {
+          inpageNavElement.classList.remove('ecl-inpage-navigation--visible');
+          navigationTitle.innerHTML = '';
+        } else {
+          inpageNavElement.classList.add('ecl-inpage-navigation--visible');
+          navigationTitle.innerHTML = nav.nav.innerHTML;
+        }
       },
     });
   }
@@ -70,8 +56,8 @@ export const navigationInpages = ({
     const toggleElement = inpageNavElement.querySelector(toggleSelector);
     const navLinks = inpageNavElement.querySelectorAll(linksSelector);
 
-    initSticky();
-    initScrollSpy();
+    // initSticky();
+    initScrollSpy(inpageNavElement);
 
     toggleElement.addEventListener('click', e => {
       toggleExpandable(toggleElement, { context: inpageNavElement });
@@ -91,7 +77,6 @@ export const navigationInpages = ({
   // Destroy
   function destroy() {
     destroyScrollSpy();
-    destroySticky();
   }
 
   init();
