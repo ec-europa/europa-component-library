@@ -6,16 +6,16 @@ We currently offer 5 presets for each system:
 
 ## EC presets
 
-* [base](../src/systems/ec/ec-preset/ec-preset-base/README.md)
-* [corporate](../src/systems/ec/ec-preset/ec-preset-corporate/README.md)
-* [full](../src/systems/ec/ec-preset/ec-preset-full/README.md)
-* [website](../src/systems/ec/ec-preset/ec-preset-website/README.md)
-* [webtools](../src/systems/ec/ec-preset/ec-preset-webtools/README.md)
+* [base](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/ec/ec-preset/ec-preset-base)
+* [corporate](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/ec/ec-preset/ec-preset-corporate)
+* [full](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/ec/ec-preset/ec-preset-full)
+* [website](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/ec/ec-preset/ec-preset-website)
+* [webtools](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/ec/ec-preset/ec-preset-webtools)
 
 ## EU presets
 
-* [base](../src/systems/eu/eu-preset/eu-preset-base/README.md)
-* [corporate](../src/systems/eu/eu-preset/eu-preset-corporate/README.md)
-* [full](../src/systems/eu/eu-preset/eu-preset-full/README.md)
-* [website](../src/systems/eu/eu-preset/eu-preset-website/README.md)
-* [webtools](../src/systems/eu/eu-preset/eu-preset-webtools/README.md)
+* [base](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/eu/eu-preset/eu-preset-base/eu-preset-base)
+* [corporate](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/eu/eu-preset/eu-preset-base/eu-preset-corporate)
+* [full](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/eu/eu-preset/eu-preset-base/eu-preset-full)
+* [website](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/eu/eu-preset/eu-preset-base/eu-preset-website)
+* [webtools](https://github.com/ec-europa/europa-component-library/tree/master/src/systems/eu/eu-preset/eu-preset-base/eu-preset-webtools)
