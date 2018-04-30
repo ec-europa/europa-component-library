@@ -9,26 +9,25 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start demo of: @${item.handle} -->\n
-      <div>
-        <h3>@${item.handle}</h3>
-        <div class="ecl-container">
-          <div class="ecl-row">
-            <div class="ecl-col">
-              <a href="#" class="ecl-link ecl-social-icon ecl-social-icon--${
-                item.context.variant
-              }">${item.label}</a>
-            </div>
-            <div class="ecl-col">
-              <span class="ecl-social-icon ecl-social-icon--${
-                item.context.variant
-              }">${item.label}</span>
-            </div>
-            <div class="ecl-col">
-              <span class="ecl-social-icon ecl-social-icon--smaller ecl-social-icon--${
-                item.context.variant
-              }">${item.label}</span>
-            </div>
-          </div>
+      <div class="ecl-row">
+        <div class="ecl-col-12 ecl-col-md ecl-u-mt-xs ecl-u-mt-md-none">
+          <strong>.ecl-social-icon--${item.context.variant}</strong>
+        </div>
+        <div class="ecl-col">
+          <a href="#" class="ecl-link ecl-social-icon ecl-social-icon--${
+            item.context.variant
+          }">${item.label}</a>
+        </div>
+        <div class="ecl-col">
+          <span class="ecl-social-icon ecl-social-icon--${
+            item.context.variant
+          }">${item.label}</span>
+        </div>
+        <div class="ecl-col">
+          <span class="ecl-social-icon ecl-social-icon--smaller ecl-social-icon--${
+            item.context.variant
+          }">${item.label}</span>
+        </div>
       </div>
       <!-- End: @${item.handle} -->\n
     `;
