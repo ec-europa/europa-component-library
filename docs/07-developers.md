@@ -55,4 +55,4 @@ Then you can run:
 yarn test:functional
 ```
 
-For more details, [see the testing documentation](docs/testing/visual.md)
+For more details, [see the testing documentation](testing/visual.md)
