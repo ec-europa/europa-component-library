@@ -4,89 +4,31 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
-Component library based on [Fractal](http://fractal.build/).
+The Europa Component Library (ECL) is a library of components applicable to all European Commission websites (hosted under ec.europa.eu domain). The library contains all available components which you can use to build your website.
 
-Requirements:
+The Digital Transformation team (DTT) - a cross European Commission team led by DGs COMM, DIGIT, and DTT - is the owner of this library.
 
-* Node.js current (8.x)
-* yarn >= 1.0.2
+All library elements are accompanied with
 
-We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` followed by `nvm use` to get the right Node.js version.
+* documentation: what the component is intended for and recommendations regarding its usage
+* demo: visual representation of the component
+* code: technologically agnostic HTML/CSS code for implementation
 
-Tested on:
+## Documentation
+
+Read the documentation [on GitHub](docs/README.md) or on the [website](https://ec-europa.github.io/europa-component-library/ec/docs/overview).
+
+## Quick start
+
+The ECL is bundled in various [presets](docs/06-presets.md) in order to accomodate the different needs of everyone. Once you know which preset you want to use, you can:
+
+* download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
+* install the preset with npm or yarn, e.g. `npm install @ecl/ec-preset-website` or `yarn add @ecl/ec-preset-website`
+
+## Tested on
 
 [![Build Status](https://saucelabs.com/browser-matrix/europa-component-library.svg)](https://saucelabs.com/u/europa-component-library)
 
-## Presets
+## Need help?
 
-A preset is a set of components from a specific system (EC or EU) bundled together for distribution.
-
-We currently offer 5 presets for each system:
-
-### EC presets
-
-* [base](src/systems/ec/ec-preset/ec-preset-base/README.md)
-* [corporate](src/systems/ec/ec-preset/ec-preset-corporate/README.md)
-* [full](src/systems/ec/ec-preset/ec-preset-full/README.md)
-* [website](src/systems/ec/ec-preset/ec-preset-website/README.md)
-* [webtools](src/systems/ec/ec-preset/ec-preset-webtools/README.md)
-
-### EU presets
-
-* [base](src/systems/eu/eu-preset/eu-preset-base/README.md)
-* [corporate](src/systems/eu/eu-preset/eu-preset-corporate/README.md)
-* [full](src/systems/eu/eu-preset/eu-preset-full/README.md)
-* [website](src/systems/eu/eu-preset/eu-preset-website/README.md)
-* [webtools](src/systems/eu/eu-preset/eu-preset-webtools/README.md)
-
-## Getting started
-
-### Setup
-
-```bash
-yarn
-```
-
-### Develop
-
-EC system:
-
-```bash
-yarn start:ec
-```
-
-EU system:
-
-```bash
-yarn start:eu
-```
-
-### Lint
-
-```bash
-yarn lint
-```
-
-### Functional testing
-
-In order to run the functional tests, you need a Sauce Labs account. If you
-don't have a Sauce Labs account yet,
-[you can sign up here](https://saucelabs.com/beta/signup/OSS/None).
-
-Then, configure the 2 environment variables `SAUCE_USERNAME` and
-`SAUCE_ACCESS_KEY`. You can either create a local `.env` file from
-`.env.example` template or set the variables manually.
-
-Be sure that you have built the framework before running the tests:
-
-```bash
-yarn dist
-```
-
-Then you can run:
-
-```bash
-yarn test:functional
-```
-
-For more details, [see the testing documentation](docs/testing/visual.md)
+Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) for support on using this resource for a European Commission website.
