@@ -127,10 +127,8 @@ $ecl-inpage-navigation-link-padding-vertical: (
 
   @include ecl-media-breakpoint-up('md') {
     .ecl-inpage-navigation {
-      @supports (position: sticky) {
-        position: sticky;
-        top: 0;
-      }
+      position: sticky;
+      top: 0;
     }
 
     .ecl-inpage-navigation__title {

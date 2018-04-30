@@ -12,7 +12,6 @@ import { toggleExpandable } from '@ecl/generic-component-expandable';
  */
 export const navigationInpages = ({
   stickySelector: stickySelector = '.ecl-inpage-navigation',
-  // stickyOffset: stickyOffset = 0,
   spySelector: spySelector = '.ecl-inpage-navigation__link',
   spyClass: spyClass = 'ecl-inpage-navigation__link--is-active',
   spyTrigger: spyTrigger = '.ecl-inpage-navigation__trigger',
@@ -32,11 +31,7 @@ export const navigationInpages = ({
 
   // ACTIONS
   function initSticky(element) {
-    Stickyfill.add(element);
-    // console.log(element);
-    // stickyInstance = new Stickyfill.Sticky(element);
-    // stickyInstance.refresh();
-    // console.log('stickied');
+    stickyInstance = new Stickyfill.Sticky(element);
   }
 
   function destroySticky() {
