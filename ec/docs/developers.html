@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="../themes/ecl-fractal-theme/css/fractal.css?cachebust=1.0.0" type="text/css">
 
 
-<title>Components | EC System</title>
+<title>Developers | EC System</title>
 
 </head>
 <body class="ecl-typography language-en">
@@ -122,8 +122,8 @@
     
         
         
-        <li class="ecl-side-navigation__item"  data-state="current" data-role="item">
-          <a href="" class="ecl-side-navigation__link  ecl-side-navigation__link--active">
+        <li class="ecl-side-navigation__item"  data-role="item">
+          <a href="overview" class="ecl-side-navigation__link ">
             
             <span>Components</span>
           </a>
@@ -182,8 +182,8 @@
     
         
         
-        <li class="ecl-side-navigation__item"  data-role="item">
-          <a href="developers" class="ecl-side-navigation__link ">
+        <li class="ecl-side-navigation__item"  data-state="current" data-role="item">
+          <a href="" class="ecl-side-navigation__link  ecl-side-navigation__link--active">
             
             <span>Developers</span>
           </a>
@@ -302,7 +302,7 @@
 <div class="ecl-u-mv-m">
   <div class="ecl-u-mb-s">
   
-    <h1 class="ecl-heading ecl-heading--h1">Components</h1>
+    <h1 class="ecl-heading ecl-heading--h1">Developers</h1>
     
 
 
@@ -316,9 +316,28 @@
 
     
     
-    <h1 id="europa-component-library-ecl">Europa Component Library - ECL</h1>
-<p>This is the component library for the new Europa visual identity. <strong>Feel free to
-look around!</strong></p>
+    <h1 id="developers-getting-started">Developers - Getting started</h1>
+<p>Requirements:</p>
+<ul>
+<li>Node.js current (8.x)</li>
+<li>yarn &gt;= 1.0.2</li>
+</ul>
+<p>We recommend you to use <a href="https://github.com/creationix/nvm">Node Version Manager</a> and to run <code>nvm install</code> followed by <code>nvm use</code> to get the right Node.js version.</p>
+<h2 id="setup">Setup</h2>
+<code class="lang-bash"><pre>yarn</pre></code><h2 id="develop">Develop</h2>
+<p>EC system:</p>
+<code class="lang-bash"><pre>yarn start:ec</pre></code><p>EU system:</p>
+<code class="lang-bash"><pre>yarn start:eu</pre></code><h2 id="lint">Lint</h2>
+<code class="lang-bash"><pre>yarn lint</pre></code><h2 id="functional-testing">Functional testing</h2>
+<p>In order to run the functional tests, you need a Sauce Labs account. If you
+don’t have a Sauce Labs account yet,
+<a href="https://saucelabs.com/beta/signup/OSS/None">you can sign up here</a>.</p>
+<p>Then, configure the 2 environment variables <code>SAUCE_USERNAME</code> and
+<code>SAUCE_ACCESS_KEY</code>. You can either create a local <code>.env</code> file from
+<code>.env.example</code> template or set the variables manually.</p>
+<p>Be sure that you have built the framework before running the tests:</p>
+<code class="lang-bash"><pre>yarn dist</pre></code><p>Then you can run:</p>
+<code class="lang-bash"><pre>yarn <span class="hljs-built_in">test</span>:functional</pre></code><p>For more details, <a href="testing/visual.md">see the testing documentation</a></p>
 
     
 
