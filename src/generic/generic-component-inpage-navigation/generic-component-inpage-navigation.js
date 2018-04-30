@@ -14,6 +14,7 @@ export const navigationInpages = ({
   stickySelector: stickySelector = '.ecl-inpage-navigation',
   spySelector: spySelector = '.ecl-inpage-navigation__link',
   spyClass: spyClass = 'ecl-inpage-navigation__link--is-active',
+  spyActiveContainer: spyActiveContainer = 'ecl-inpage-navigation--visible',
   spyTrigger: spyTrigger = '.ecl-inpage-navigation__trigger',
   spyOffset: spyOffset = 20,
   toggleSelector: toggleSelector = '.ecl-inpage-navigation__trigger',
@@ -40,15 +41,21 @@ export const navigationInpages = ({
     }
   }
 
-  function initScrollSpy() {
+  function initScrollSpy(inpageNavElement) {
     gumshoe.init({
       selector: spySelector,
       activeClass: spyClass,
       offset: spyOffset,
       callback(nav) {
-        if (!nav) return;
         const navigationTitle = document.querySelector(spyTrigger);
-        navigationTitle.innerHTML = nav.nav.innerHTML;
+
+        if (!nav) {
+          inpageNavElement.classList.remove(spyActiveContainer);
+          navigationTitle.innerHTML = '';
+        } else {
+          inpageNavElement.classList.add(spyActiveContainer);
+          navigationTitle.innerHTML = nav.nav.innerHTML;
+        }
       },
     });
   }
@@ -64,7 +71,7 @@ export const navigationInpages = ({
     const navLinks = queryAll(linksSelector, inpageNavElement);
 
     initSticky(inpageNavElement);
-    initScrollSpy();
+    initScrollSpy(inpageNavElement);
 
     toggleElement.addEventListener('click', e => {
       toggleExpandable(toggleElement, { context: inpageNavElement });
