@@ -31,8 +31,12 @@
         width: 50%;
       }
 
-      .ecl-list-item__link {
+      .ecl-list-item:nth-child(2n + 0) .ecl-list-item__link {
         padding-left: map-get($ecl-spacing, 's');
+        padding-right: 0;
+      }
+      .ecl-list-item:nth-child(2n + 1) .ecl-list-item__link {
+        padding-left: 0;
         padding-right: map-get($ecl-spacing, 's');
       }
     }
@@ -57,9 +61,17 @@
         width: 33%;
       }
 
-      .ecl-list-item__link {
+      .ecl-list-item:nth-child(3n + 0) .ecl-list-item__link {
         padding-left: map-get($ecl-spacing, 's');
+        padding-right: 0;
+      }
+      .ecl-list-item:nth-child(3n + 1) .ecl-list-item__link {
+        padding-left: 0;
         padding-right: map-get($ecl-spacing, 's');
+      }
+      .ecl-list-item:nth-child(3n + 2) .ecl-list-item__link {
+        padding-left: map-get($ecl-spacing, 's') / 2;
+        padding-right: map-get($ecl-spacing, 's') / 2;
       }
     }
   }
