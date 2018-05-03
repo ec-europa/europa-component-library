@@ -2,8 +2,9 @@
  * Navigation inpage related behaviors.
  */
 
-import stickybits from 'stickybits';
+import Stickyfill from 'stickyfilljs';
 import gumshoe from 'gumshoejs';
+import { queryAll } from '@ecl/generic-base/helpers/dom';
 import { toggleExpandable } from '@ecl/generic-component-expandable';
 
 /**
@@ -11,9 +12,9 @@ import { toggleExpandable } from '@ecl/generic-component-expandable';
  */
 export const navigationInpages = ({
   stickySelector: stickySelector = '.ecl-inpage-navigation',
-  stickyOffset: stickyOffset = 0,
   spySelector: spySelector = '.ecl-inpage-navigation__link',
   spyClass: spyClass = 'ecl-inpage-navigation__link--is-active',
+  spyActiveContainer: spyActiveContainer = 'ecl-inpage-navigation--visible',
   spyTrigger: spyTrigger = '.ecl-inpage-navigation__trigger',
   spyOffset: spyOffset = 20,
   toggleSelector: toggleSelector = '.ecl-inpage-navigation__trigger',
@@ -30,32 +31,31 @@ export const navigationInpages = ({
   let stickyInstance;
 
   // ACTIONS
-  function initSticky() {
-    stickyInstance = stickybits(stickySelector, {
-      stickyBitStickyOffset: stickyOffset,
-      useStickyClasses: true,
-      parentClass: 'ecl-inpage-navigation__parent',
-      stickyClass: 'ecl-inpage-navigation--sticky',
-      stuckClass: 'ecl-inpage-navigation--stuck',
-      stickyChangeClass: 'ecl-inpage-navigation--changed',
-    });
+  function initSticky(element) {
+    stickyInstance = new Stickyfill.Sticky(element);
   }
 
   function destroySticky() {
     if (stickyInstance) {
-      stickyInstance.cleanup();
+      stickyInstance.remove();
     }
   }
 
-  function initScrollSpy() {
+  function initScrollSpy(inpageNavElement) {
     gumshoe.init({
       selector: spySelector,
       activeClass: spyClass,
       offset: spyOffset,
       callback(nav) {
-        if (!nav) return;
         const navigationTitle = document.querySelector(spyTrigger);
-        navigationTitle.innerHTML = nav.nav.innerHTML;
+
+        if (!nav) {
+          inpageNavElement.classList.remove(spyActiveContainer);
+          navigationTitle.innerHTML = '';
+        } else {
+          inpageNavElement.classList.add(spyActiveContainer);
+          navigationTitle.innerHTML = nav.nav.innerHTML;
+        }
       },
     });
   }
@@ -68,10 +68,10 @@ export const navigationInpages = ({
   function init() {
     const inpageNavElement = document.querySelector(stickySelector);
     const toggleElement = inpageNavElement.querySelector(toggleSelector);
-    const navLinks = inpageNavElement.querySelectorAll(linksSelector);
+    const navLinks = queryAll(linksSelector, inpageNavElement);
 
-    initSticky();
-    initScrollSpy();
+    initSticky(inpageNavElement);
+    initScrollSpy(inpageNavElement);
 
     toggleElement.addEventListener('click', e => {
       toggleExpandable(toggleElement, { context: inpageNavElement });
