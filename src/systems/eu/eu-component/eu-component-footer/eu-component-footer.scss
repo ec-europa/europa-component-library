@@ -23,22 +23,20 @@
 
   .ecl-footer__custom {
     background-color: map-get($ecl-colors, 'grey-5');
-
-    .ecl-footer__column:last-child {
-      padding-top: 0;
-
-      @include ecl-media-breakpoint-up(sm) {
-        padding-top: map-get($ecl-spacing, 'm');
-      }
-    }
+    padding-bottom: map-get($ecl-spacing, 'm');
+    padding-top: map-get($ecl-spacing, 'm');
   }
 
   .ecl-footer__custom-label {
     color: map-get($ecl-colors, 'grey-100');
+    font-weight: normal;
   }
 
   .ecl-footer__custom-title {
     color: map-get($ecl-colors, 'grey-100');
+    display: inline-block;
+    font-size: map-get($ecl-font-size, 'm');
+    margin-bottom: map-get($ecl-spacing, 'xs');
   }
 
   .ecl-footer__corporate {
@@ -53,17 +51,39 @@
   .ecl-footer__corporate-bottom {
     background-color: #d9d9d9;
     color: map-get($ecl-colors, 'blue-110');
-    padding: map-get($ecl-spacing, 's') 0;
+    padding-bottom: map-get($ecl-spacing, 'm');
+    padding-top: map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-footer__list {
+    margin-top: -(map-get($ecl-spacing, 's'));
+  }
+
+  .ecl-footer__list-item {
+    line-height: 1.1;
+    padding-top: map-get($ecl-spacing, 's');
+  }
+
+  .ecl-footer__list--inline {
+    margin-top: 0;
+
+    .ecl-footer__list-item {
+      margin-left: 0;
+      margin-right: map-get($ecl-spacing, 'xs');
+      padding-top: 0;
+    }
   }
 
   // Links in EU footers should look like standalone links
   // The rule is added via CSS in order to allow better context management in twig, i.e. external links having variant
 
   .ecl-footer__link {
+    font-size: map-get($ecl-font-size, 's');
     text-decoration: none;
 
     &:hover,
     &:focus {
+      color: map-get($ecl-colors, 'blue-100');
       text-decoration: underline;
     }
   }
@@ -79,12 +99,14 @@
 
   .ecl-footer__list--2-col {
     column-count: 2;
-    margin: 0;
   }
 
   .ecl-footer__list--3-col {
     column-count: 3;
-    margin: 0;
+  }
+
+  .ecl-footer__social-links {
+    display: inline-block;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -92,6 +114,24 @@
     .ecl-footer__list--2-col,
     .ecl-footer__list--3-col {
       column-count: 1;
+    }
+
+    .ecl-footer__custom {
+      padding-bottom: map-get($ecl-spacing, 's');
+      padding-top: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__spaced-column {
+      padding-top: map-get($ecl-spacing, 'l');
+    }
+
+    .ecl-footer__spaced-column:last-child {
+      padding-bottom: map-get($ecl-spacing, 'l');
+    }
+
+    .ecl-footer__corporate-bottom {
+      padding-bottom: map-get($ecl-spacing, 's');
+      padding-top: map-get($ecl-spacing, 's');
     }
   }
 }
