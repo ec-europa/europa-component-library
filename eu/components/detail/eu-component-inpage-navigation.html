@@ -3076,7 +3076,7 @@ scrolling)</li>
 <h2 id="implementation">Implementation</h2>
 <p>Inpage navigation relies on expandable component, and two javascript libraries.</p>
 <ul>
-<li><a href="https://github.com/dollarshaveclub/stickybits"><strong>stickybits</strong></a></li>
+<li><a href="https://github.com/wilddeer/stickyfill"><strong>stickyfilljs</strong></a></li>
 <li><a href="https://github.com/cferdinandi/gumshoe/"><strong>gumshoe</strong></a></li>
 </ul>
 <p>Also, following script has to be added to your page:</p>
@@ -3195,9 +3195,8 @@ scrolling)</li>
       <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Heading 3"</span>
     }
   ],
-  <span class="hljs-attr">"extra_classes"</span>: <span class="hljs-string">"ecl-col-md-3 ecl-u-align-self-start "</span>,
   <span class="hljs-attr">"_demo"</span>: {
-    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () { ECL.navigationInpages(); });"</span>
+    <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"\n      document.addEventListener('DOMContentLoaded', function () {\n        ECL.navigationInpages();\n      });\n    "</span>
   }
 }</pre>
             
@@ -3210,7 +3209,7 @@ scrolling)</li>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-b2a32a519ac5d434377f8e5af7684a3d-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-inpage-navigation ecl-col-md-3 ecl-u-align-self-start "</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-inpage-navigation"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-inpage-navigation__title"</span>&gt;</span>Page contents<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-inpage-navigation__body"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-inpage-navigation__trigger"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"ecl-inpage-navigation-list"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-inpage-navigation-trigger"</span>&gt;</span>&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
