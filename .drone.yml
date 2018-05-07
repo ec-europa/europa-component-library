@@ -23,12 +23,12 @@ matrix:
 
 pipeline:
   install:
-    image: node:latest
+    image: node:9.11.1
     commands:
       - yarn install --frozen-lockfile
 
   conventions:
-    image: node:latest
+    image: node:9.11.1
     commands:
       - yarn test:coding-conventions
       - yarn test:independent-sass
@@ -37,7 +37,7 @@ pipeline:
         TEST: conventions
 
   examples:
-    image: node:latest
+    image: node:9.11.1
     commands:
       - cd examples/webpack3 && yarn build --display=errors-only
       - cd ../webpack4 && yarn build --display=errors-only
@@ -46,7 +46,7 @@ pipeline:
         TEST: examples
 
   build:
-    image: node:latest
+    image: node:9.11.1
     commands:
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
           yarn dist ;
@@ -57,7 +57,7 @@ pipeline:
         TEST: functional
 
   deploy-pages:
-    image: node:latest
+    image: node:9.11.1
     secrets: [ GH_TOKEN ]
     commands:
       - ./scripts/deploy.sh
@@ -84,7 +84,7 @@ pipeline:
         TEST: functional
 
   functional:
-    image: node:latest
+    image: node:9.11.1
     secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
     commands:
       - if [ -d "./dist" ] ; then
