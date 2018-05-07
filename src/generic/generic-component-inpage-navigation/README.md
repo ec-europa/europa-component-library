@@ -24,7 +24,7 @@ content when shared.
 
 Inpage navigation relies on expandable component, and two javascript libraries.
 
-* [**stickybits**](https://github.com/dollarshaveclub/stickybits)
+* [**stickyfilljs**](https://github.com/wilddeer/stickyfill)
 * [**gumshoe**](https://github.com/cferdinandi/gumshoe/)
 
 Also, following script has to be added to your page:
