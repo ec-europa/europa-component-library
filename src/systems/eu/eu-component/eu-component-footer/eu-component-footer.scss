@@ -36,7 +36,7 @@
     color: map-get($ecl-colors, 'grey-100');
     display: inline-block;
     font-size: map-get($ecl-font-size, 'm');
-    margin-bottom: map-get($ecl-spacing, 'xs');
+    margin-bottom: map-get($ecl-spacing, 'xxxs');
   }
 
   .ecl-footer__corporate {
@@ -46,6 +46,8 @@
   .ecl-footer__corporate-top {
     background-color: #e3e3e3;
     color: map-get($ecl-colors, 'blue-100');
+    padding-bottom: map-get($ecl-spacing, 'xl');
+    padding-top: map-get($ecl-spacing, 'xl');
   }
 
   .ecl-footer__corporate-bottom {
@@ -61,7 +63,7 @@
 
   .ecl-footer__list-item {
     line-height: 1.1;
-    padding-top: map-get($ecl-spacing, 's');
+    padding-top: map-get($ecl-spacing, 'xxs');
   }
 
   .ecl-footer__list--inline {
@@ -69,9 +71,21 @@
 
     .ecl-footer__list-item {
       margin-left: 0;
-      margin-right: map-get($ecl-spacing, 'xs');
+      margin-right: map-get($ecl-spacing, 'm');
       padding-top: 0;
     }
+  }
+
+  .ecl-footer__spaced-column {
+    padding-top: 0;
+  }
+
+  .ecl-footer__spaced-column:last-child {
+    padding-bottom: 0;
+  }
+
+  .ecl-footer__row + .ecl-footer__row {
+    padding-top: map-get($ecl-spacing, 'xl');
   }
 
   // Links in EU footers should look like standalone links
@@ -94,7 +108,7 @@
     font-size: map-get($ecl-font-size, 'm');
     font-weight: normal;
     margin-bottom: map-get($ecl-spacing, 'm');
-    padding-bottom: map-get($ecl-spacing, 'xs');
+    padding-bottom: map-get($ecl-spacing, 'xxxs');
   }
 
   .ecl-footer__list--2-col {
@@ -121,17 +135,39 @@
       padding-top: map-get($ecl-spacing, 's');
     }
 
-    .ecl-footer__spaced-column {
-      padding-top: map-get($ecl-spacing, 'l');
+    .ecl-footer__custom-title {
+      margin-bottom: map-get($ecl-spacing, 'xs');
     }
 
-    .ecl-footer__spaced-column:last-child {
-      padding-bottom: map-get($ecl-spacing, 'l');
+    .ecl-footer__custom-label {
+      display: block;
+      margin-bottom: map-get($ecl-spacing, 'xxxs');
+    }
+
+    .ecl-footer__corporate-top {
+      padding-bottom: map-get($ecl-spacing, 'm');
+      padding-top: map-get($ecl-spacing, 'm');
+    }
+
+    .ecl-footer__column-title {
+      margin-bottom: map-get($ecl-spacing, 'xs');
+    }
+
+    .ecl-footer__spaced-column + .ecl-footer__spaced-column {
+      padding-top: map-get($ecl-spacing, 'xs');
     }
 
     .ecl-footer__corporate-bottom {
       padding-bottom: map-get($ecl-spacing, 's');
       padding-top: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__list {
+      margin-top: 0;
+    }
+
+    .ecl-footer__list--inline .ecl-footer__list-item {
+      margin-right: map-get($ecl-spacing, 's');
     }
   }
 }
