@@ -1,16 +1,77 @@
 {% import '@ecl/generic-component-footer' as macros %}
 
-{% set _custom_footer = macros.footer_custom({
-  other_links_inline: true
-}|merge(custom_footer), 'eu') %}
+{% set system = 'eu' %}
+{% set _custom_footer %}
+<div class="ecl-container">
+  {% include '@ecl/' ~ system ~ '-component-link' with {
+    extra_classes: 'ecl-footer__custom-title',
+    variant: 'standalone',
+  }|merge(custom_footer.identity|default({}))
+  %}
+  <div class="ecl-row">
+    {% if custom_footer.social_links is defined and custom_footer.social_links.links is defined %}
+    <div class="ecl-col-md">
+      <div class="ecl-footer__custom-label">{{ custom_footer.social_links.label }}</div>
+      <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links">
+        {% for menu_item in custom_footer.social_links.links %}
+          <li class="ecl-footer__list-item">
+            {% if menu_item.type == 'social-network' %}
+              {% embed '@ecl/' ~ system ~ '-component-link' with {
+                href: menu_item.link.href,
+                extra_classes: 'ecl-footer__link',
+                icon: menu_item.icon,
+                link_label: menu_item.link.label,
+                system: system
+              } only %}
+                {% block label %}
+                  {% spaceless %}
+                    {% include '@ecl/' ~ system ~ '-style-icon' with {
+                      modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                    } only %}<span>{{ link_label }}</span>
+                  {% endspaceless %}
+                {% endblock %}
+              {% endembed %}
+            {% else %}
+              {% include '@ecl/' ~ system ~ '-component-link' with {
+                href: menu_item.link.href,
+                label: menu_item.link.label,
+                extra_classes: 'ecl-footer__link',
+                variant: 'external',
+              } only %}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if custom_footer.other_links is defined and custom_footer.other_links.links is defined %}
+    <div class="ecl-col-md">
+      <ul class="ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline">
+        {% for menu_item in custom_footer.other_links.links %}
+          <li class="ecl-footer__list-item">
+            {% include '@ecl/' ~ system ~ '-component-link' with {
+              'href': menu_item.link.href,
+              'label': menu_item.link.label,
+              'extra_classes': 'ecl-footer__link',
+              'variant': link_variant,
+              }
+            %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endset %}
 
 {% set _corporate_footer %}
 <div class="ecl-footer__corporate-top">
   <div class="ecl-container">
-    <div class="ecl-row">
+    <div class="ecl-row ecl-footer__row">
       {% if corporate_footer.contact_eu.items is defined and corporate_footer.contact_eu.items is not empty %}
       <div class="ecl-footer__column ecl-col-md-8 ecl-footer__spaced-column">
-        <h2 class="ecl-heading ecl-heading--h4 ecl-footer__column-title" id="footer-corporate-contact-eu">{{ corporate_footer.contact_eu.title }}</h2>
+        <div class="ecl-footer__column-title" id="footer-corporate-contact-eu">{{ corporate_footer.contact_eu.title }}</div>
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col" aria-labelledby="footer-corporate-contact-eu">
           {% for menu_item in corporate_footer.contact_eu.items %}
             <li class="ecl-footer__list-item">
@@ -26,8 +87,8 @@
       {% endif %}
       {% if corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}
       <div class="ecl-footer__column ecl-col-md-4 ecl-footer__spaced-column">
-        <h2 class="ecl-heading ecl-heading--h4 ecl-footer__column-title" id="footer-corporate-social-media">{{ corporate_footer.social_media.title }}</h2>
-        <ul class="ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links" aria-labelledby="footer-corporate-social-media">
+        <div class="ecl-footer__column-title" id="footer-corporate-social-media">{{ corporate_footer.social_media.title }}</div>
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-social-media">
           {% for menu_item in corporate_footer.social_media.items %}
             <li class="ecl-footer__list-item">
               {% include '@ecl/eu-component-link' with {
@@ -41,10 +102,10 @@
       </div>
       {% endif %}
     </div>
-    <div class="ecl-row ecl-u-d-none ecl-u-d-md-block">
+    <div class="ecl-row ecl-footer__row ecl-u-d-none ecl-u-d-md-block">
       {% if corporate_footer.find_institution.items is defined and corporate_footer.find_institution.items is not empty %}
       <div class="ecl-footer__column ecl-col ecl-footer__spaced-column">
-        <h2 class="ecl-heading ecl-heading--h4 ecl-footer__column-title" id="footer-corporate-find-institution">{{ corporate_footer.find_institution.title }}</h2>
+        <div class="ecl-footer__column-title" id="footer-corporate-find-institution">{{ corporate_footer.find_institution.title }}</div>
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--3-col" aria-labelledby="footer-corporate-find-institution">
           {% for menu_item in corporate_footer.find_institution.items %}
             <li class="ecl-footer__list-item">
@@ -63,7 +124,7 @@
 </div>
 <div class="ecl-footer__corporate-bottom">
   <div class="ecl-container">
-    <div class="ecl-row">
+    <div class="ecl-row ecl-footer__row">
       <div class="ecl-col">
         {% if corporate_footer.bottom_links is defined and corporate_footer.bottom_links is not empty %}
         <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline">
