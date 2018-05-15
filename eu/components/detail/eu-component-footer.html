@@ -3179,17 +3179,78 @@ There can be no overlap with other links in the corporate footer.</p>
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">import</span></span> '@ecl/generic-component-footer' as macros %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _custom_footer = macros.footer_custom({
-  other_links_inline: true
-}|<span class="hljs-keyword">merge</span>(custom_footer), 'eu') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> system = 'eu' %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _custom_footer %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-link' with {
+    extra_classes: 'ecl-footer__custom-title',
+    variant: 'standalone',
+  }|<span class="hljs-keyword">merge</span>(custom_footer.identity|<span class="hljs-keyword">default</span>({}))
+  %}</span><span class="xml">
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> custom_footer.social_links is defined and custom_footer.social_links.links is defined %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom-label"</span>&gt;</span></span><span class="hljs-template-variable">{{ custom_footer.social_links.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in custom_footer.social_links.links %}</span><span class="xml">
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> menu_item.type == 'social-network' %}</span><span class="xml">
+              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ecl/' ~ system ~ '-component-link' with {
+                href: menu_item.link.href,
+                extra_classes: 'ecl-footer__link',
+                icon: menu_item.icon,
+                link_label: menu_item.link.label,
+                system: system
+              } only %}</span><span class="xml">
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> label %}</span><span class="xml">
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">spaceless</span></span> %}</span><span class="xml">
+                    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-style-icon' with {
+                      modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                    } only %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">{{ link_label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endspaceless</span></span> %}</span><span class="xml">
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-link' with {
+                href: menu_item.link.href,
+                label: menu_item.link.label,
+                extra_classes: 'ecl-footer__link',
+                variant: 'external',
+              } only %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> custom_footer.other_links is defined and custom_footer.other_links.links is defined %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline"</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in custom_footer.other_links.links %}</span><span class="xml">
+          <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-link' with {
+              'href': menu_item.link.href,
+              'label': menu_item.link.label,
+              'extra_classes': 'ecl-footer__link',
+              'variant': link_variant,
+              }
+            %}</span><span class="xml">
+          <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endset</span></span> %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _corporate_footer %}</span><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate-top"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-footer__row"</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> corporate_footer.contact_eu.items is defined and corporate_footer.contact_eu.items is not empty %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md-8 ecl-footer__spaced-column"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-contact-eu"</span>&gt;</span></span><span class="hljs-template-variable">{{ corporate_footer.contact_eu.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-contact-eu"</span>&gt;</span></span><span class="hljs-template-variable">{{ corporate_footer.contact_eu.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-contact-eu"</span>&gt;</span>
           </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in corporate_footer.contact_eu.items %}</span><span class="xml">
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
@@ -3205,8 +3266,8 @@ There can be no overlap with other links in the corporate footer.</p>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md-4 ecl-footer__spaced-column"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span></span><span class="hljs-template-variable">{{ corporate_footer.social_media.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span></span><span class="hljs-template-variable">{{ corporate_footer.social_media.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span>
           </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in corporate_footer.social_media.items %}</span><span class="xml">
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
               </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-link' with {
@@ -3220,10 +3281,10 @@ There can be no overlap with other links in the corporate footer.</p>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-u-d-none ecl-u-d-md-block"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-footer__row ecl-u-d-none ecl-u-d-md-block"</span>&gt;</span>
       </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> corporate_footer.find_institution.items is defined and corporate_footer.find_institution.items is not empty %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col ecl-footer__spaced-column"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-find-institution"</span>&gt;</span></span><span class="hljs-template-variable">{{ corporate_footer.find_institution.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-find-institution"</span>&gt;</span></span><span class="hljs-template-variable">{{ corporate_footer.find_institution.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--3-col"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-find-institution"</span>&gt;</span>
           </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in corporate_footer.find_institution.items %}</span><span class="xml">
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
@@ -3242,7 +3303,7 @@ There can be no overlap with other links in the corporate footer.</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate-bottom"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-footer__row"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col"</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> corporate_footer.bottom_links is defined and corporate_footer.bottom_links is not empty %}</span><span class="xml">
         <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline"</span>&gt;</span>
@@ -3485,28 +3546,24 @@ There can be no overlap with other links in the corporate footer.</p>
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none"</span>&gt;</span>
 
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-footer__link ecl-footer__custom-title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#homepage"</span>&gt;</span>Site identification<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom-label"</span>&gt;</span>Follow us:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-footer__custom-title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#homepage"</span>&gt;</span>Site identification<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom-label"</span>&gt;</span>Follow us:<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#facebook"</span>&gt;</span>                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--facebook ecl-footer__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>                  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#facebook"</span>&gt;</span>                  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--facebook ecl-footer__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Facebook<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
-              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#twitter"</span>&gt;</span>                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--twitter ecl-footer__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>                  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#twitter"</span>&gt;</span>                  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--twitter ecl-footer__social-icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Twitter<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list ecl-list--inline ecl-footer__list--inline"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
               <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#contact"</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -3536,9 +3593,9 @@ There can be no overlap with other links in the corporate footer.</p>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate-top"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-footer__row"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md-8 ecl-footer__spaced-column"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-contact-eu"</span>&gt;</span>Contact the EU<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-contact-eu"</span>&gt;</span>Contact the EU<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-contact-eu"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
@@ -3567,8 +3624,8 @@ There can be no overlap with other links in the corporate footer.</p>
             <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md-4 ecl-footer__spaced-column"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span>Find EU social media accounts<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span>Find EU social media accounts<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-social-media"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#social-media-tool"</span>&gt;</span>Use this tool to search for EU social media channels<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -3576,9 +3633,9 @@ There can be no overlap with other links in the corporate footer.</p>
             <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-u-d-none ecl-u-d-md-block"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-footer__row ecl-u-d-none ecl-u-d-md-block"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col ecl-footer__spaced-column"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-find-institution"</span>&gt;</span>Find a European institution<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column-title"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"footer-corporate-find-institution"</span>&gt;</span>Find a European institution<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--3-col"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"footer-corporate-find-institution"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
@@ -3651,7 +3708,7 @@ There can be no overlap with other links in the corporate footer.</p>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate-bottom"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row ecl-footer__row"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline"</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
@@ -3736,22 +3793,20 @@ There can be no overlap with other links in the corporate footer.</p>
 
   <span class="hljs-selector-class">.ecl-footer__custom</span> {
     <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-5'</span>);
-
-    <span class="hljs-selector-class">.ecl-footer__column</span>:last-child {
-      <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
-
-      @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
-        <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
-      }
-    }
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
   }
 
   <span class="hljs-selector-class">.ecl-footer__custom-label</span> {
     <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
+    <span class="hljs-attribute">font-weight</span>: normal;
   }
 
   <span class="hljs-selector-class">.ecl-footer__custom-title</span> {
     <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-100'</span>);
+    <span class="hljs-attribute">display</span>: inline-block;
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
   }
 
   <span class="hljs-selector-class">.ecl-footer__corporate</span> {
@@ -3761,22 +3816,58 @@ There can be no overlap with other links in the corporate footer.</p>
   <span class="hljs-selector-class">.ecl-footer__corporate-top</span> {
     <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e3e3e3</span>;
     <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xl'</span>);
+    <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xl'</span>);
   }
 
   <span class="hljs-selector-class">.ecl-footer__corporate-bottom</span> {
     <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#d9d9d9</span>;
     <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-110'</span>);
-    <span class="hljs-attribute">padding</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>) <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+    <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-footer__list</span> {
+    <span class="hljs-attribute">margin-top</span>: -(map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>));
+  }
+
+  <span class="hljs-selector-class">.ecl-footer__list-item</span> {
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.625</span>;
+    <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxs'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-footer__list--inline</span> {
+    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+
+    <span class="hljs-selector-class">.ecl-footer__list-item</span> {
+      <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">0</span>;
+      <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+      <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
+    }
+  }
+
+  <span class="hljs-selector-class">.ecl-footer__spaced-column</span> {
+    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-footer__spaced-column</span>:last-child {
+    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-footer__row</span> + <span class="hljs-selector-class">.ecl-footer__row</span> {
+    <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xl'</span>);
   }
 
   <span class="hljs-comment">// Links in EU footers should look like standalone links</span>
   <span class="hljs-comment">// The rule is added via CSS in order to allow better context management in twig, i.e. external links having variant</span>
 
   <span class="hljs-selector-class">.ecl-footer__link</span> {
+    <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'s'</span>);
     <span class="hljs-attribute">text-decoration</span>: none;
 
     &amp;:hover,
     &amp;:focus {
+      <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-100'</span>);
       <span class="hljs-attribute">text-decoration</span>: underline;
     }
   }
@@ -3787,17 +3878,19 @@ There can be no overlap with other links in the corporate footer.</p>
     <span class="hljs-attribute">font-size</span>: map-get(<span class="hljs-variable">$ecl-font-size</span>, <span class="hljs-string">'m'</span>);
     <span class="hljs-attribute">font-weight</span>: normal;
     <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
-    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+    <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
   }
 
   <span class="hljs-selector-class">.ecl-footer__list--2-col</span> {
     <span class="hljs-attribute">column-count</span>: <span class="hljs-number">2</span>;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
   }
 
   <span class="hljs-selector-class">.ecl-footer__list--3-col</span> {
     <span class="hljs-attribute">column-count</span>: <span class="hljs-number">3</span>;
-    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  }
+
+  <span class="hljs-selector-class">.ecl-footer__social-links</span> {
+    <span class="hljs-attribute">display</span>: inline-block;
   }
 
   <span class="hljs-comment">/* stylelint-disable-next-line order/order */</span>
@@ -3805,6 +3898,46 @@ There can be no overlap with other links in the corporate footer.</p>
     <span class="hljs-selector-class">.ecl-footer__list--2-col</span>,
     <span class="hljs-selector-class">.ecl-footer__list--3-col</span> {
       <span class="hljs-attribute">column-count</span>: <span class="hljs-number">1</span>;
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__custom</span> {
+      <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+      <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__custom-title</span> {
+      <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__custom-label</span> {
+      <span class="hljs-attribute">display</span>: block;
+      <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xxxs'</span>);
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__corporate-top</span> {
+      <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+      <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'m'</span>);
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__column-title</span> {
+      <span class="hljs-attribute">margin-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__spaced-column</span> + <span class="hljs-selector-class">.ecl-footer__spaced-column</span> {
+      <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'xs'</span>);
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__corporate-bottom</span> {
+      <span class="hljs-attribute">padding-bottom</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+      <span class="hljs-attribute">padding-top</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__list</span> {
+      <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-selector-class">.ecl-footer__list--inline</span> <span class="hljs-selector-class">.ecl-footer__list-item</span> {
+      <span class="hljs-attribute">margin-right</span>: map-get(<span class="hljs-variable">$ecl-spacing</span>, <span class="hljs-string">'s'</span>);
     }
   }
 }
@@ -3824,7 +3957,7 @@ There can be no overlap with other links in the corporate footer.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.2 KB</span>
+                    <span class="Meta-value">4.1 KB</span>
                 </li>
             </ul>
         </div>
