@@ -40,7 +40,7 @@ module.exports = {
     {
       from: path.resolve(
         __dirname,
-        '../../node_modules/@ecl/generic-component-logo/images'
+        '../../node_modules/@ecl/ec-component-logo/images'
       ),
       to: path.resolve(__dirname, 'dist/images'),
     },
