@@ -13,6 +13,9 @@ module.exports = {
       context: Object.assign(
         {},
         {
+          global: {
+            language: 'en',
+          },
           languages,
           variant: 'splash',
           logo: true,
