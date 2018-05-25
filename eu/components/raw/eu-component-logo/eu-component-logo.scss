@@ -5,14 +5,13 @@
 
 // Import base and generic
 @import '@ecl/eu-base/eu-base';
-@import '@ecl/generic-component-logo/generic-component-logo';
 
-// Use generic mixin
-@include exports('eu-component-logo') {
-  @include ecl-logo();
-
+@mixin ecl-logo() {
+  // Default EU logo.
   .ecl-logo {
+    background: url($ecl-assets-path+'images/logo.svg') no-repeat;
     background-size: contain;
+    display: block;
     height: 40px;
     width: 59px;
   }
@@ -22,8 +21,27 @@
     width: 118px;
   }
 
+  // EU logotype
+  //
+  // EU logo with text.
+
+  // Sets language-specific background image on .ecl-logo--logotype element nested
+  // in {{modifier_class}} modifier.
+  /* stylelint-disable-next-line order/order */
+  @include logo-background-languages(
+    $ecl-assets-path + 'images/logo/logo--',
+    '.svg'
+  );
+
   .ecl-logo--logotype {
     width: 234px;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-logo--logotype {
+      width: 290px;
+    }
   }
 
   /* stylelint-disable-next-line order/order */
@@ -42,4 +60,36 @@
       width: 325px;
     }
   }
+}
+
+/**
+ * EU logo
+ */
+
+// Language generator.
+@mixin logo-background-languages(
+  $file_path,
+  $file_extension,
+  $logo_class: ecl-logo--logotype
+) {
+  @each $item in $ecl-languages {
+    /* stylelint-disable */
+    .language-#{$item} {
+      .#{$logo_class} {
+        background-image: url('#{$file_path}#{$item}#{$file_extension}');
+      }
+
+      @media print {
+        .#{$logo_class}::before {
+          content: url('#{$file_path}#{$item}#{$file_extension}');
+        }
+      }
+    }
+    /* stylelint-enable */
+  }
+}
+
+// Use mixin
+@include exports('eu-component-logo') {
+  @include ecl-logo();
 }

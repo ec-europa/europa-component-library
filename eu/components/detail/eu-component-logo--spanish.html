@@ -3223,14 +3223,13 @@
 
 <span class="hljs-comment">// Import base and generic</span>
 @<span class="hljs-keyword">import</span> <span class="hljs-string">'@ecl/eu-base/eu-base'</span>;
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'@ecl/generic-component-logo/generic-component-logo'</span>;
 
-<span class="hljs-comment">// Use generic mixin</span>
-@<span class="hljs-keyword">include</span> exports(<span class="hljs-string">'eu-component-logo'</span>) {
-  @<span class="hljs-keyword">include</span> ecl-logo();
-
+@<span class="hljs-keyword">mixin</span> ecl-logo() {
+  <span class="hljs-comment">// Default EU logo.</span>
   <span class="hljs-selector-class">.ecl-logo</span> {
+    <span class="hljs-attribute">background</span>: url(<span class="hljs-variable">$ecl-assets-path</span>+<span class="hljs-string">'images/logo.svg'</span>) no-repeat;
     <span class="hljs-attribute">background-size</span>: contain;
+    <span class="hljs-attribute">display</span>: block;
     <span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>;
     <span class="hljs-attribute">width</span>: <span class="hljs-number">59px</span>;
   }
@@ -3240,8 +3239,27 @@
     <span class="hljs-attribute">width</span>: <span class="hljs-number">118px</span>;
   }
 
+  <span class="hljs-comment">// EU logotype</span>
+  <span class="hljs-comment">//</span>
+  <span class="hljs-comment">// EU logo with text.</span>
+
+  <span class="hljs-comment">// Sets language-specific background image on .ecl-logo--logotype element nested</span>
+  <span class="hljs-comment">// in {{modifier_class}} modifier.</span>
+  <span class="hljs-comment">/* stylelint-disable-next-line order/order */</span>
+  @<span class="hljs-keyword">include</span> logo-background-languages(
+    <span class="hljs-variable">$ecl-assets-path</span> + <span class="hljs-string">'images/logo/logo--'</span>,
+    <span class="hljs-string">'.svg'</span>
+  );
+
   <span class="hljs-selector-class">.ecl-logo--logotype</span> {
     <span class="hljs-attribute">width</span>: <span class="hljs-number">234px</span>;
+  }
+
+  <span class="hljs-comment">/* stylelint-disable-next-line order/order */</span>
+  @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
+    <span class="hljs-selector-class">.ecl-logo--logotype</span> {
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">290px</span>;
+    }
   }
 
   <span class="hljs-comment">/* stylelint-disable-next-line order/order */</span>
@@ -3261,6 +3279,38 @@
     }
   }
 }
+
+<span class="hljs-comment">/**
+ * EU logo
+ */</span>
+
+<span class="hljs-comment">// Language generator.</span>
+@<span class="hljs-keyword">mixin</span> logo-background-languages(
+  <span class="hljs-variable">$file_path</span>,
+  <span class="hljs-variable">$file_extension</span>,
+  <span class="hljs-variable">$logo_class</span>: ecl-logo--logotype
+) {
+  @<span class="hljs-keyword">each</span> <span class="hljs-variable">$item</span> in <span class="hljs-variable">$ecl-languages</span> {
+    <span class="hljs-comment">/* stylelint-disable */</span>
+    <span class="hljs-selector-class">.language-</span>#{<span class="hljs-variable">$item</span>} {
+      .#{<span class="hljs-variable">$logo_class</span>} {
+        <span class="hljs-attribute">background-image</span>: url(<span class="hljs-string">'#{$file_path}#{$item}#{$file_extension}'</span>);
+      }
+
+      @<span class="hljs-keyword">media</span> print {
+        .#{<span class="hljs-variable">$logo_class</span>}::before {
+          <span class="hljs-attribute">content</span>: url(<span class="hljs-string">'#{$file_path}#{$item}#{$file_extension}'</span>);
+        }
+      }
+    }
+    <span class="hljs-comment">/* stylelint-enable */</span>
+  }
+}
+
+<span class="hljs-comment">// Use mixin</span>
+@<span class="hljs-keyword">include</span> exports(<span class="hljs-string">'eu-component-logo'</span>) {
+  @<span class="hljs-keyword">include</span> ecl-logo();
+}
 </pre>
                             </code>
                             
@@ -3277,7 +3327,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">710 Bytes</span>
+                    <span class="Meta-value">1.8 KB</span>
                 </li>
             </ul>
         </div>
