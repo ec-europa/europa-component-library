@@ -41,6 +41,7 @@ pipeline:
     commands:
       - cd examples/webpack3 && yarn build --display=errors-only
       - cd ../webpack4 && yarn build --display=errors-only
+      - cd ../webpack4-eu && yarn build --display=errors-only
     when:
       matrix:
         TEST: examples
