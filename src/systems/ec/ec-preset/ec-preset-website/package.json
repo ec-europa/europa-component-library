@@ -20,7 +20,8 @@
       "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
     "watch:styles":
       "chokidar \"../../../../generic/**/*.scss\" \"../../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
-    "watch": "npm-run-all --parallel watch:* -ln"
+    "watch": "npm-run-all --parallel watch:* -ln",
+    "prepublish": "npm run dist"
   },
   "dependencies": {
     "@ecl/ec-preset-full": "^1.0.0",
