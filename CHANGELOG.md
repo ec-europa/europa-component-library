@@ -1,5 +1,45 @@
 # Changelog
 
+## 1.1.0 (2018-05-25)
+
+#### :bug: Bug Fix
+
+* [#692](https://github.com/ec-europa/europa-component-library/pull/692) fix(logos): fix logo in EU distribution - INNO-1078. ([@yhuard](https://github.com/yhuard))
+* [#687](https://github.com/ec-europa/europa-component-library/pull/687) fix(templates-search): correct usage of flex utility class - noissue. ([@kalinchernev](https://github.com/kalinchernev))
+* [#685](https://github.com/ec-europa/europa-component-library/pull/685) fix(inpage-nav): try with stickfilljs - INNO-943. ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+* [#688](https://github.com/ec-europa/europa-component-library/pull/688) feat(eu-footer): apply latest design - INNO-1048. ([@emeryro](https://github.com/emeryro))
+* [#686](https://github.com/ec-europa/europa-component-library/pull/686) fix(listing): remove extra padding - INNO-916. ([@emeryro](https://github.com/emeryro))
+* [#683](https://github.com/ec-europa/europa-component-library/pull/683) feat(social-icon): update icons and fix display. ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+* [#684](https://github.com/ec-europa/europa-component-library/pull/684) docs(ownership): add "Need help?" section - INNO-1022. ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+* [#693](https://github.com/ec-europa/europa-component-library/pull/693) chore(dist): add dist folder to npm packages - no issue. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+* Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+* Romain Emery ([emeryro](https://github.com/emeryro))
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+
+## 1.0.0 (2018-04-27)
+
+This is the first major version of the ECL. 🎉
+
+#### Committers: 5
+
+* Kalin Chernev ([kalinchernev](https://github.com/kalinchernev))
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+* Romain Emery ([emeryro](https://github.com/emeryro))
+* wesley deglise ([degliwe](https://github.com/degliwe))
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 0.24.0 (2018-03-09)
 
 #### :bug: Bug Fix
