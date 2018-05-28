@@ -25,6 +25,9 @@ module.exports = {
         { href: '../../example.html#', label: 'Log out' },
       ],
     },
+    global: {
+      language: 'en',
+    },
     languages,
     _demo: {
       scripts: `
