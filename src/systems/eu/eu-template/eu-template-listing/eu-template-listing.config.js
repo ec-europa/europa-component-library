@@ -21,7 +21,7 @@ module.exports = {
       breadcrumb: [
         {
           href: 'https://ec.europa.eu/commission/index_en',
-          label: 'European Commission',
+          label: 'Home',
         },
         {
           href: '../../example.html#',

@@ -2,7 +2,7 @@ module.exports = {
   segments: [
     {
       href: '../../example.html#',
-      label: 'European Commission',
+      label: 'Home',
     },
     {
       href: '../../example.html#',
