@@ -68,6 +68,17 @@
     &:hover {
       background-image: url($ecl-assets-path+'images/close_hover.svg');
     }
+
+    &:hover::before,
+    &:focus::before,
+    &:active::before {
+      color: #000;
+      content: 'Close';
+      font-size: map-get($ecl-font-size, 'xs');
+      margin-left: - map-get($ecl-spacing, 'xxs');
+      position: absolute;
+      transform: translate(-100%, 0);
+    }
   }
 
   .ecl-message__dismiss--inverted {
