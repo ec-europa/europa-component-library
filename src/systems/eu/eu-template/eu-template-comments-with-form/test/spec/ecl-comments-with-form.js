@@ -10,6 +10,10 @@ describe('comments-with-form', () => {
     browser.pause(500);
   });
 
+  if (browser.desiredCapabilities.browserName === 'safari') {
+    return;
+  }
+
   // Normal state
   it('should match the reference screenshot', () => {
     const screenshots = browser.checkDocument({
