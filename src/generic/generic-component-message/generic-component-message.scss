@@ -71,7 +71,9 @@
     &::after {
       background-color: transparent;
       content: url($ecl-assets-path+'images/close.svg');
+      line-height: 0;
       margin: 0 0 0 map-get($ecl-spacing, 'xxs');
+      overflow: hidden;
       width: map-get($ecl-font-size, 'l');
     }
   }
