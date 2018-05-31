@@ -51,12 +51,11 @@
   }
 
   .ecl-message__dismiss {
-    background: transparent url($ecl-assets-path+'images/close.svg') no-repeat
-      center center;
+    background-color: transparent;
     border-width: 0;
-    color: transparent;
-    display: block;
-    font-size: map-get($ecl-font-size, 'xxl');
+    color: #000;
+    display: flex;
+    font-size: map-get($ecl-font-size, 'xs');
     line-height: map-get($ecl-font-size, 'l');
     padding: 0;
     position: absolute;
@@ -66,18 +65,14 @@
     top: map-get($ecl-spacing, 'xxs');
 
     &:hover {
-      background-image: url($ecl-assets-path+'images/close_hover.svg');
+      text-decoration: underline;
     }
 
-    &:hover::before,
-    &:focus::before,
-    &:active::before {
-      color: #000;
-      content: 'Close';
-      font-size: map-get($ecl-font-size, 'xs');
-      margin-left: - map-get($ecl-spacing, 'xxs');
-      position: absolute;
-      transform: translate(-100%, 0);
+    &::after {
+      background-color: transparent;
+      content: url($ecl-assets-path+'images/close.svg');
+      margin: 0 0 0 map-get($ecl-spacing, 'xxs');
+      width: map-get($ecl-font-size, 'l');
     }
   }
 
