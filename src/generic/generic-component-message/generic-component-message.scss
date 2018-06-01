@@ -57,6 +57,7 @@
       $offset: 3px
     );
 
+    align-items: center;
     background-color: transparent;
     border-width: 0;
     color: #000;
@@ -107,6 +108,14 @@
 
     &:hover {
       background-image: none;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-down('xs') {
+    .ecl-message__dismiss {
+      bottom: map-get($ecl-spacing, 'xxs');
+      top: auto;
     }
   }
 }
