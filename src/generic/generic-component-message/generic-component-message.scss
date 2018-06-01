@@ -51,6 +51,12 @@
   }
 
   .ecl-message__dismiss {
+    @include ecl-focus-outline-border(
+      $thicknes: 3px,
+      $color: map-get($ecl-colors, 'yellow-100'),
+      $offset: 3px
+    );
+
     background-color: transparent;
     border-width: 0;
     color: #000;
