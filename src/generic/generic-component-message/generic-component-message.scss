@@ -63,6 +63,7 @@
     color: #000;
     display: flex;
     font-size: map-get($ecl-font-size, 'xs');
+    height: map-get($ecl-font-size, 'l');
     line-height: map-get($ecl-font-size, 'l');
     padding: 0;
     position: absolute;
@@ -78,6 +79,7 @@
     &::after {
       background-color: transparent;
       content: url($ecl-assets-path+'images/close.svg');
+      display: block;
       line-height: 0;
       margin: 0 0 0 map-get($ecl-spacing, 'xxs');
       overflow: hidden;
