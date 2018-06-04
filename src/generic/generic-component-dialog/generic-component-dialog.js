@@ -140,8 +140,8 @@ export const dialogs = ({
   function bindDialogEvents(elements) {
     elements.forEach(element => element.addEventListener('click', open));
 
-    // const closeButtons = document.querySelectorAll('.ecl-message__dismiss');
-    queryAll('.ecl-message__dismiss').forEach(button => {
+    // const closeButtons = document.querySelectorAll('.ecl-dialog__dismiss');
+    queryAll('.ecl-dialog__dismiss').forEach(button => {
       button.addEventListener('click', close);
     });
   }
@@ -150,8 +150,8 @@ export const dialogs = ({
   function unbindDialogEvents(elements) {
     elements.forEach(element => element.removeEventListener('click', open));
 
-    // const closeButtons = document.querySelectorAll('.ecl-message__dismiss');
-    queryAll('.ecl-message__dismiss').forEach(button => {
+    // const closeButtons = document.querySelectorAll('.ecl-dialog__dismiss');
+    queryAll('.ecl-dialog__dismiss').forEach(button => {
       button.removeEventListener('click', close);
     });
   }
