@@ -83,6 +83,32 @@
     }
   }
 
+  .ecl-dialog__dismiss--inverted {
+    background-image: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.889em;
+    text-decoration: underline;
+
+    &::after {
+      align-items: center;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      box-sizing: border-box;
+      content: '\00D7';
+      display: flex;
+      float: right;
+      height: 1.5em;
+      justify-content: center;
+      margin-left: 0.5em;
+      width: 1.5em;
+    }
+
+    &:hover {
+      background-image: none;
+    }
+  }
+
   .ecl-dialog__title {
     clear: both;
     color: #fff;
