@@ -13,7 +13,7 @@
     border: 2px solid map-get($ecl-colors, 'blue-75');
     color: $ecl-color-shade;
     font-size: map-get($ecl-font-size, 's');
-    margin-bottom: map-get($ecl-spacing, 's');
+    margin-bottom: 0;
     min-height: map-get($ecl-spacing, 'l');
     padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l')
       map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
@@ -64,7 +64,7 @@
     display: flex;
     font-size: map-get($ecl-font-size, 'xs');
     height: map-get($ecl-font-size, 'l');
-    line-height: map-get($ecl-font-size, 'l');
+    line-height: 1.1;
     padding: 0;
     position: absolute;
     right: map-get($ecl-spacing, 'xxs');
@@ -83,7 +83,7 @@
       line-height: 0;
       margin: 0 0 0 map-get($ecl-spacing, 'xxs');
       overflow: hidden;
-      width: map-get($ecl-font-size, 'l');
+      width: 1.5rem;
     }
   }
 
@@ -102,10 +102,10 @@
       content: '\00D7';
       display: flex;
       float: right;
-      height: 1.5em;
+      height: 1.5rem;
       justify-content: center;
       margin-left: 0.5em;
-      width: 1.5em;
+      width: 1.5rem;
     }
 
     &:hover {
@@ -115,6 +115,10 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-down('xs') {
+    .ecl-message {
+      padding-bottom: map-get($ecl-spacing, 'xs') + 2 *
+        map-get($ecl-spacing, 'xxs') + 1.5rem;
+    }
     .ecl-message__dismiss {
       bottom: map-get($ecl-spacing, 'xxs');
       top: auto;

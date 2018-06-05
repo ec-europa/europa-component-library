@@ -58,6 +58,12 @@
   }
 
   .ecl-dialog__dismiss {
+    @include ecl-focus-outline-border(
+      $thicknes: 3px,
+      $color: map-get($ecl-colors, 'yellow-100'),
+      $offset: 3px
+    );
+
     background: transparent url($ecl-assets-path+'images/close.svg') no-repeat
       center center;
     border-width: 0;
