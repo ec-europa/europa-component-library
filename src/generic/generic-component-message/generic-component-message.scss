@@ -15,8 +15,9 @@
     font-size: map-get($ecl-font-size, 's');
     margin-bottom: 0;
     min-height: map-get($ecl-spacing, 'l');
-    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l')
-      map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl') +
+      map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs')
+      map-get($ecl-spacing, 'xxl');
     position: relative;
 
     &--success {
