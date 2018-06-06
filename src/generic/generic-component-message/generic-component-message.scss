@@ -12,12 +12,13 @@
       no-repeat 1.2rem 1.2rem;
     border: 2px solid map-get($ecl-colors, 'blue-75');
     color: $ecl-color-shade;
+    display: grid;
     font-size: map-get($ecl-font-size, 's');
+    grid-template-columns: auto max-content;
     margin-bottom: 0;
     min-height: map-get($ecl-spacing, 'l');
-    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl') +
-      map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs')
-      map-get($ecl-spacing, 'xxl');
+    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xs')
+      map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
     position: relative;
 
     &--success {
@@ -43,10 +44,12 @@
 
   .ecl-message__title {
     font-weight: bold;
+    grid-column-start: 1;
     margin-bottom: map-get($ecl-spacing, 'xs');
   }
 
   .ecl-message__body {
+    grid-column-start: 1;
     margin: 0;
     padding-left: map-get($ecl-spacing, 'xs');
   }
@@ -59,19 +62,20 @@
     );
 
     align-items: center;
+    align-self: self-start;
     background-color: transparent;
     border-width: 0;
     color: #000;
     display: flex;
     font-size: map-get($ecl-font-size, 'xs');
+    grid-column-start: 2;
+    grid-row-end: span 2;
+    grid-row-start: 1;
     height: map-get($ecl-font-size, 'l');
     line-height: 1.1;
     padding: 0;
-    position: absolute;
-    right: map-get($ecl-spacing, 'xxs');
     text-decoration: none;
     text-shadow: none;
-    top: map-get($ecl-spacing, 'xxs');
 
     &:hover {
       text-decoration: underline;
@@ -117,12 +121,14 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-down('xs') {
     .ecl-message {
-      padding-bottom: map-get($ecl-spacing, 'xs') + 2 *
-        map-get($ecl-spacing, 'xxs') + 1.5rem;
+      grid-template-rows: auto auto map-get($ecl-spacing, 'l');
     }
     .ecl-message__dismiss {
-      bottom: map-get($ecl-spacing, 'xxs');
-      top: auto;
+      align-self: self-end;
+      grid-column-start: 1;
+      grid-row-end: 4;
+      grid-row-start: 3;
+      justify-self: end;
     }
   }
 }
