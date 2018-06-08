@@ -73,6 +73,21 @@
       $offset: 3px
     );
 
+    align-items: center;
+    background-color: transparent;
+    border-width: 0;
+    color: #000;
+    display: flex;
+    font-size: map-get($ecl-font-size, 'xs');
+    height: 1.5rem;
+    line-height: 1.15;
+    padding: 0;
+    position: absolute;
+    right: map-get($ecl-spacing, 'xxs');
+    text-decoration: none;
+    text-shadow: none;
+    top: map-get($ecl-spacing, 'xxs');
+
     @supports (display: grid) {
       align-self: self-start;
       grid-column-start: 2;
@@ -82,21 +97,6 @@
       right: auto;
       top: auto;
     }
-
-    align-items: center;
-    background-color: transparent;
-    border-width: 0;
-    color: #000;
-    display: flex;
-    font-size: map-get($ecl-font-size, 'xs');
-    height: 1.5rem;
-    line-height: 1.1;
-    padding: 0;
-    position: absolute;
-    right: map-get($ecl-spacing, 'xxs');
-    text-decoration: none;
-    text-shadow: none;
-    top: map-get($ecl-spacing, 'xxs');
 
     &:hover {
       text-decoration: underline;
@@ -142,15 +142,18 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-down('xs') {
     .ecl-message {
+      padding-bottom: map-get($ecl-spacing, 'xs') + 2 *
+        map-get($ecl-spacing, 'xxs') + 1.5rem;
+
       @supports (display: grid) {
         grid-template-rows: auto auto map-get($ecl-spacing, 'l');
         padding-bottom: map-get($ecl-spacing, 'xs');
       }
-
-      padding-bottom: map-get($ecl-spacing, 'xs') + 2 *
-        map-get($ecl-spacing, 'xxs') + 1.5rem;
     }
     .ecl-message__dismiss {
+      bottom: map-get($ecl-spacing, 'xxs');
+      top: auto;
+
       @supports (display: grid) {
         align-self: self-end;
         bottom: auto;
@@ -160,9 +163,6 @@
         justify-self: end;
         top: auto;
       }
-
-      bottom: map-get($ecl-spacing, 'xxs');
-      top: auto;
     }
   }
 }
