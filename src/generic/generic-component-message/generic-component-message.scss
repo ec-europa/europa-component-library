@@ -49,21 +49,21 @@
   }
 
   .ecl-message__title {
+    font-weight: bold;
+    margin-bottom: map-get($ecl-spacing, 'xs');
+
     @supports (display: grid) {
       grid-column-start: 1;
     }
-
-    font-weight: bold;
-    margin-bottom: map-get($ecl-spacing, 'xs');
   }
 
   .ecl-message__body {
+    margin: 0;
+    padding-left: map-get($ecl-spacing, 'xs');
+
     @supports (display: grid) {
       grid-column-start: 1;
     }
-
-    margin: 0;
-    padding-left: map-get($ecl-spacing, 'xs');
   }
 
   .ecl-message__dismiss {
