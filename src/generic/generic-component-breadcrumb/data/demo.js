@@ -12,5 +12,8 @@ module.exports = {
       href: '../../example.html#',
       label: 'Jobs, Growth and Investment',
     },
+    {
+      label: 'Page title',
+    },
   ],
 };

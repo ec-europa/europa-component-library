@@ -27,6 +27,7 @@ module.exports = {
           href: '../../example.html#',
           label: 'Example',
         },
+        { label: 'Business, Economy, Euro' },
       ],
       identity: 'Digital single market',
       title: 'Business, Economy, Euro',
