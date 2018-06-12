@@ -2992,35 +2992,27 @@
         <div class="Pen-documentation active ecl-u-mv-s" id="documentation">
           <div class="ecl-editor">
             
-            <h1 id="breadcrumbs">Breadcrumbs</h1>
+            <h1 id="breadcrumb">Breadcrumb</h1>
 <h2 id="why-and-how-to-use-this-component">Why and how to use this component</h2>
-<p>Users need a way to see a page’s location in the site hierarchy. They also need
-a way to navigate to higher levels in the site architecture.</p>
-<p>The breadcrumb - included on every page except the homepage itself - provides
-the user with a ‘sense of place’ and a relationship to the site’s hierarchy and
-structure. This is particularly useful for a user who has arrived at a page
-directly through a link, bookmark/favourite or a search engine</p>
+<p>Users need a way to see a page’s location in the site hierarchy. They also need a way to navigate to higher levels in the site architecture.</p>
+<p>The breadcrumb - included on every page except the homepage itself - provides the user with a ‘sense of place’ and a relationship to the site’s hierarchy and structure. This is particularly useful for a user who has arrived at a page directly through a link, bookmark/favourite or a search engine</p>
 <h3 id="general">General</h3>
 <ul>
-<li>breadcrumbs start on the highest level of the site</li>
-<li>the links in the breadcrumb must point to pages in the same language as the
-current page</li>
-<li>clicking an item in the breadcrumb directs the user to that level in the
-hierarchy above the current page</li>
-<li>the title of the current page is not repeated in the breadcrumb</li>
-<li>labels should provide continuity to the website. This is done by ensuring each
-tab label is styled the same</li>
+<li>breadcrumbs start on the highest level of the site with the label “Home” to reduce the length of the breadcrumb</li>
+<li>short titles can be used to create a shorter version of the title which will be displayed only in the breadcrumb and not in the headline</li>
+<li>the links in the breadcrumb must point to pages in the same language as the current page</li>
+<li>clicking an item in the breadcrumb directs the user to that level in the hierarchy above the current page</li>
+<li>the title of the current page is displayed on the last element of the breadcrumb</li>
+<li>the last element of the breadcrumb will have a slightly different style to indicate users that it’s not a clickable element</li>
+<li>labels should provide continuity to the website. This is done by ensuring each tab label is styled the same</li>
 <li>each label is parted with a separating character</li>
-<li>the separating characters and the spaces between the links and the labels are
-not linked</li>
+<li>the separating characters and the spaces between the links and the labels are not linked</li>
 </ul>
-<h3 id="when-to-use-this-component">When to use this component</h3>
+<h2 id="when-to-use-this-component">When to use this component</h2>
 <ul>
-<li>breadcrumbs are required and should appear in the page header on every page of
-the site (except on the homepage of European Commission’s political and
-information sites)</li>
+<li>breadcrumbs are required and should appear in the page header on every page of the site (except on the homepage of European Commission’s political and information sites)</li>
 </ul>
-<h3 id="do-not-use-this-component">Do not use this component</h3>
+<h2 id="do-not-use-this-component">Do not use this component</h2>
 <ul>
 <li>if there is no second level to show</li>
 </ul>
@@ -3133,6 +3125,9 @@ information sites)</li>
     {
       <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#"</span>,
       <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Jobs, Growth and Investment"</span>
+    },
+    {
+      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Page title"</span>
     }
   ]
 }</pre>
@@ -3157,9 +3152,12 @@ information sites)</li>
 
       <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumb__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#"</span>&gt;</span>Priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumb__segment ecl-breadcrumb__segment--last"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumb__segment"</span>&gt;</span>
 
       <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumb__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#"</span>&gt;</span>Jobs, Growth and Investment<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumb__segment ecl-breadcrumb__segment--last"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Page title<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></pre>
