@@ -18,7 +18,9 @@ module.exports = {
   ],
   _demo: {
     scripts: `
-      document.addEventListener('DOMContentLoaded', function () { ECL.breadcrumb(); });
+      document.addEventListener('DOMContentLoaded', function () { 
+        ECL.initBreadcrumb(); 
+        ECL.initExpandables('#example-expandable-button'); });
       `,
   },
 };
