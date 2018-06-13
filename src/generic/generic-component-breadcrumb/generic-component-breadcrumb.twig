@@ -38,11 +38,15 @@
   <ol class="ecl-breadcrumb__segments-wrapper">
     {% for _segment in _segments %}
     <li class="ecl-breadcrumb__segment{{ loop.first ? " ecl-breadcrumb__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumb__segment--last" : "" }}">
+      {% if loop.last %}
+      <span>{{ _segment.label }}</span>
+      {% else %}
       {% include '@ecl/' ~ _system ~ '-component-link' with {
         'extra_classes': 'ecl-breadcrumb__link',
         'variant': ['inverted', 'standalone'],
         }|merge(_segment|default({}))
       %}
+      {% endif %}
     </li>
     {% endfor %}
   </ol>
