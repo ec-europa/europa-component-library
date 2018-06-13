@@ -13,4 +13,9 @@ module.exports = {
       label: 'Jobs, Growth and Investment',
     },
   ],
+  _demo: {
+    scripts: `
+      document.addEventListener('DOMContentLoaded', function () { ECL.breadcrumb(); });
+      `,
+  },
 };
