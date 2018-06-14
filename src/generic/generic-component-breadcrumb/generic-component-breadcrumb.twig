@@ -47,10 +47,10 @@
     </li>
 
     {# Ellipsis #} 
-    <li class="ecl-breadcrumb__segment ecl-u-aria">
+    <li class="ecl-breadcrumb__segment ecl-breadcrumb__segment--ellipsis ecl-u-aria" aria-hidden="true">
       {% include '@ecl/' ~ _system ~ '-component-link' with {
         'label': '...',
-        'extra_classes': 'ecl-breadcrumb__link ecl-breadcrumb__expand',
+        'extra_classes': 'ecl-breadcrumb__link ecl-breadcrumb__expand-btn',
         'variant': ['inverted', 'standalone'],
         'extra_attributes': [
           {'name': 'aria-controls', 'value': 'example-expandable'},
@@ -61,20 +61,22 @@
       %}
     </li>
 
-    {# Expandable segments (so every segment except first and last #}
-    <span aria-hidden="true" aria-labelledby="example-expandable-button" class="ecl-u-aria" id="example-expandable">
-      {% for _segment in _segments %}
-      {% if not loop.first and not loop.last %}
-      <li class="ecl-breadcrumb__segment">
-        {% include '@ecl/' ~ _system ~ '-component-link' with {
-          'extra_classes': 'ecl-breadcrumb__link',
-          'variant': ['inverted', 'standalone'],
-          }|merge(_segment|default({}))
-        %}
-      </li>
-      {% endif %}
-      {% endfor %}
+    {# Expandable segments (empty by default, filled with js) #}
+    <span aria-hidden="true" aria-labelledby="example-expandable-button" class="ecl-u-aria ecl-breadcrumb__expand-area" id="example-expandable">
     </span>
+
+    {# Dynamic segments (so every segment except first and last) #}
+    {% for _segment in _segments %}
+    {% if not loop.first and not loop.last %}
+    <li class="ecl-breadcrumb__segment ecl-u-aria">
+      {% include '@ecl/' ~ _system ~ '-component-link' with {
+        'extra_classes': 'ecl-breadcrumb__link',
+        'variant': ['inverted', 'standalone'],
+        }|merge(_segment|default({}))
+      %}
+    </li>
+    {% endif %}
+    {% endfor %}
 
     {# Last segment (always displayed) #}
     <li class="ecl-breadcrumb__segment ecl-breadcrumb__segment--last">
