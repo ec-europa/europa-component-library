@@ -22,12 +22,12 @@
 
   .ecl-breadcrumb__segment {
     display: inline-block;
+    font-weight: bold;
     margin: map-get($ecl-spacing, 's') 0 map-get($ecl-spacing, 'xxs');
   }
 
   .ecl-breadcrumb__link {
     display: inline-block;
-    font-weight: bold;
     margin-right: map-get($ecl-spacing, 'xxxs');
 
     // Add the ">" icon
@@ -43,5 +43,9 @@
       color: #fff;
       text-decoration: underline;
     }
+  }
+
+  .ecl-breadcrumb__segment--last {
+    color: map-get($ecl-colors, 'blue-25');
   }
 }
