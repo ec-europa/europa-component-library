@@ -28,13 +28,13 @@ export const initBreadcrumb = ({
 
   function breadcrumbIsTooLarge(breadcrumbContainer) {
     // get wrapper width
-    const wrapperWidth = breadcrumbContainer.offsetWidth;
+    const wrapperWidth = breadcrumbContainer.clientWidth;
 
     // get displayed segments width
     const breadcrumbSegments = queryAll(segmentSelector, breadcrumbContainer);
     let segmentWidth = 0;
     breadcrumbSegments.forEach(breadcrumbSegment => {
-      segmentWidth += breadcrumbSegment.offsetWidth;
+      segmentWidth += breadcrumbSegment.clientWidth;
     });
 
     return segmentWidth > wrapperWidth;

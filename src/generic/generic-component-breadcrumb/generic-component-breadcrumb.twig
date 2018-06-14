@@ -61,10 +61,6 @@
       %}
     </li>
 
-    {# Expandable segments (empty by default, filled with js) #}
-    <span aria-hidden="true" aria-labelledby="example-expandable-button" class="ecl-u-aria ecl-breadcrumb__expand-area" id="example-expandable">
-    </span>
-
     {# Dynamic segments (so every segment except first and last) #}
     {% for _segment in _segments %}
     {% if not loop.first and not loop.last %}
