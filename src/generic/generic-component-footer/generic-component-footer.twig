@@ -31,11 +31,13 @@
   %}
   {% set options = default_options|merge(options|default({})) %}
   {% set system = system|default('generic') %}
+  {% set _identity = options.identity.label is defined ? options.identity.label : options.identity %}
+
   <div class="ecl-container">
     <div class="ecl-row">
       <div class="ecl-footer__column ecl-col-md">
         <h2 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none ecl-footer__column-title ecl-footer__custom-title-identity">
-          {{ options.identity|default('') }}
+          {{ _identity }}
         </h2>
       </div>
       {% if options.social_links is defined and options.social_links.links is defined %}
