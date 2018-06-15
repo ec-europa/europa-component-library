@@ -2,9 +2,11 @@
 
 {% set system = 'eu' %}
 {% set _custom_footer %}
+{% set _identity = custom_footer.identity.label is defined ? custom_footer.identity.label : custom_footer.identity %}
+
 <div class="ecl-container">
   <div class="ecl-footer__custom-title">
-    {{ custom_footer.identity|default('') }}
+    {{ _identity|default('') }}
   </div>
   <div class="ecl-row">
     {% if custom_footer.social_links is defined and custom_footer.social_links.links is defined %}
