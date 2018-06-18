@@ -50,13 +50,14 @@ export const initBreadcrumb = ({
       segmentVisibleSelector,
       breadcrumbContainer
     );
+
     if (breadcrumbVisibleSegments.length > 0) {
       breadcrumbVisibleSegments[0].setAttribute('aria-hidden', 'true');
-    }
 
-    // check if there is another segment to be hidden
-    if (breadcrumbIsTooLarge(breadcrumbContainer)) {
-      hideSegment(breadcrumbContainer);
+      // check if there is another segment to be hidden
+      if (breadcrumbIsTooLarge(breadcrumbContainer)) {
+        hideSegment(breadcrumbContainer);
+      }
     }
   }
 
