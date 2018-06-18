@@ -28,13 +28,14 @@ export const initBreadcrumb = ({
 
   function breadcrumbIsTooLarge(breadcrumbContainer) {
     // get wrapper width
-    const wrapperWidth = breadcrumbContainer.clientWidth;
+    const wrapperWidth = breadcrumbContainer.getBoundingClientRect().width;
 
     // get displayed segments width
     const breadcrumbSegments = queryAll(segmentSelector, breadcrumbContainer);
     let segmentWidth = 0;
+    const delta = 6;
     breadcrumbSegments.forEach(breadcrumbSegment => {
-      segmentWidth += breadcrumbSegment.clientWidth;
+      segmentWidth += breadcrumbSegment.getBoundingClientRect().width + delta;
     });
 
     return segmentWidth > wrapperWidth;
@@ -142,7 +143,7 @@ export const initBreadcrumb = ({
       breadcrumbContainers.forEach(breadcrumbContainer => {
         bindBreadcrumbEvents(breadcrumbContainer);
 
-        // trigger resize event to init collapse
+        // trigger resize event once
         eventResize(breadcrumbContainer);
       });
     }
