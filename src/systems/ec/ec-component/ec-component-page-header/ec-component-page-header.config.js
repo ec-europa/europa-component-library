@@ -1,7 +1,6 @@
 const breadcrumbSegments = [
   { href: '../../example.html#', label: 'European Commission' },
   { href: '../../example.html#', label: 'Announcements' },
-  { href: '../../example.html#', label: 'Announcements2' },
   { label: 'Business, Economy, Euro' },
 ];
 
