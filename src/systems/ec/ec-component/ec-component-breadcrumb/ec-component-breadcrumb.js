@@ -28,17 +28,20 @@ export const initBreadcrumb = ({
 
   function breadcrumbIsTooLarge(breadcrumbContainer) {
     // get wrapper width
-    const wrapperWidth = breadcrumbContainer.getBoundingClientRect().width;
+    const wrapperWidth = Math.floor(
+      breadcrumbContainer.getBoundingClientRect().width
+    );
 
     // get displayed segments width
     const breadcrumbSegments = queryAll(segmentSelector, breadcrumbContainer);
     let segmentWidth = 0;
-    const delta = 6;
     breadcrumbSegments.forEach(breadcrumbSegment => {
-      segmentWidth += breadcrumbSegment.getBoundingClientRect().width + delta;
+      segmentWidth += Math.ceil(
+        breadcrumbSegment.getBoundingClientRect().width
+      );
     });
 
-    return segmentWidth > wrapperWidth;
+    return segmentWidth >= wrapperWidth;
   }
 
   function hideSegment(breadcrumbContainer) {
