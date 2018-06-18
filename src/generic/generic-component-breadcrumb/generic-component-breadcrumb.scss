@@ -35,8 +35,9 @@
     // Add the ">" icon
     &::after {
       @include ecl-icon--after();
-
       @include ecl-icon('right');
+
+      width: 1rem;
     }
 
     &:hover,
