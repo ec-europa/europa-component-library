@@ -33,22 +33,19 @@ export const initBreadcrumb = ({
     const breadcrumbFirst = queryAll(segmentFirstSelector, breadcrumbContainer);
     breadcrumbFirst.forEach(segment => {
       const ellipsis = document.createElement('a');
-      ellipsis.classList.add(
-        'ecl-link',
-        'ecl-link--inverted',
-        'ecl-link--standalone',
-        'ecl-breadcrumb__link',
-        'ecl-breadcrumb__expand-btn'
-      );
+      // we can't add multipls classes at once, because... IE
+      ellipsis.classList.add('ecl-link');
+      ellipsis.classList.add('ecl-link--inverted');
+      ellipsis.classList.add('ecl-link--standalone');
+      ellipsis.classList.add('ecl-breadcrumb__link');
+      ellipsis.classList.add('ecl-breadcrumb__expand-btn');
       ellipsis.setAttribute('href', '#');
       ellipsis.innerHTML = '...';
 
       const listItem = document.createElement('li');
-      listItem.classList.add(
-        'ecl-breadcrumb__segment',
-        'ecl-breadcrumb__segment--ellipsis',
-        'ecl-u-aria'
-      );
+      listItem.classList.add('ecl-breadcrumb__segment');
+      listItem.classList.add('ecl-breadcrumb__segment--ellipsis');
+      listItem.classList.add('ecl-u-aria');
       listItem.setAttribute('aria-hidden', 'true');
 
       listItem.appendChild(ellipsis);
