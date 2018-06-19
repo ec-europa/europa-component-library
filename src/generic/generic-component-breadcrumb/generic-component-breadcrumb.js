@@ -8,6 +8,7 @@ export const initBreadcrumb = ({
   breadcrumbSelector: breadcrumbSelector = '.ecl-breadcrumb',
   expandButtonSelector: expandButtonSelector = '.ecl-breadcrumb__expand-btn',
   segmentSelector: segmentSelector = '.ecl-breadcrumb__segment',
+  segmentFirstSelector: segmentFirstSelector = '.ecl-breadcrumb__segment--first',
   segmentVisibleSelector: segmentVisibleSelector = '.ecl-breadcrumb__segment:not(.ecl-breadcrumb__segment--first):not(.ecl-breadcrumb__segment--ellipsis):not(.ecl-breadcrumb__segment--last):not([aria-hidden="true"])',
   ellipsisSelector: ellipsisSelector = '.ecl-breadcrumb__segment--ellipsis',
 } = {}) => {
@@ -19,7 +20,44 @@ export const initBreadcrumb = ({
     return null;
 
   // ACTIONS
+  function initSegment(breadcrumbContainer) {
+    // add utility class to all segments
+    const breadcrumbSegments = queryAll(segmentSelector, breadcrumbContainer);
+    breadcrumbSegments.forEach(breadcrumbSegment => {
+      breadcrumbSegment.classList.add('ecl-u-aria');
+    });
+  }
+
+  function initEllipsis(breadcrumbContainer) {
+    // add ellipsis to DOM
+    const breadcrumbFirst = queryAll(segmentFirstSelector, breadcrumbContainer);
+    breadcrumbFirst.forEach(segment => {
+      const ellipsis = document.createElement('a');
+      ellipsis.classList.add(
+        'ecl-link',
+        'ecl-link--inverted',
+        'ecl-link--standalone',
+        'ecl-breadcrumb__link',
+        'ecl-breadcrumb__expand-btn'
+      );
+      ellipsis.setAttribute('href', '#');
+      ellipsis.innerHTML = '...';
+
+      const listItem = document.createElement('li');
+      listItem.classList.add(
+        'ecl-breadcrumb__segment',
+        'ecl-breadcrumb__segment--ellipsis',
+        'ecl-u-aria'
+      );
+      listItem.setAttribute('aria-hidden', 'true');
+
+      listItem.appendChild(ellipsis);
+      segment.parentNode.insertBefore(listItem, segment.nextSibling);
+    });
+  }
+
   function displayEllipsis(breadcrumbContainer) {
+    // display ellipsis when needed
     const breadcrumbEllipsis = queryAll(ellipsisSelector, breadcrumbContainer);
     breadcrumbEllipsis.forEach(ellipsis => {
       ellipsis.setAttribute('aria-hidden', 'false');
@@ -145,6 +183,8 @@ export const initBreadcrumb = ({
   function init() {
     if (breadcrumbContainers.length) {
       breadcrumbContainers.forEach(breadcrumbContainer => {
+        initSegment(breadcrumbContainer);
+        initEllipsis(breadcrumbContainer);
         bindBreadcrumbEvents(breadcrumbContainer);
 
         // trigger resize event once

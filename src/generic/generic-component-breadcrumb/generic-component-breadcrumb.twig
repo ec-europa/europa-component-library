@@ -36,50 +36,18 @@
 <nav class="{{ _css_class }}" aria-label="breadcrumb"{{ _extra_attributes|raw }}>
   <span class="ecl-u-sr-only">You are here:</span>
   <ol class="ecl-breadcrumb__segments-wrapper">
-    {% if _segments is iterable %}
-    {# First item (always displayed) #} 
-    <li class="ecl-breadcrumb__segment ecl-breadcrumb__segment--first">
-      {% include '@ecl/' ~ _system ~ '-component-link' with {
-        'extra_classes': 'ecl-breadcrumb__link',
-        'variant': ['inverted', 'standalone'],
-        }|merge(_segments[0]|default({}))
-      %}
-    </li>
-
-    {# Ellipsis #} 
-    <li class="ecl-breadcrumb__segment ecl-breadcrumb__segment--ellipsis ecl-u-aria" aria-hidden="true">
-      {% include '@ecl/' ~ _system ~ '-component-link' with {
-        'label': '...',
-        'extra_classes': 'ecl-breadcrumb__link ecl-breadcrumb__expand-btn',
-        'variant': ['inverted', 'standalone'],
-        'extra_attributes': [
-          {'name': 'aria-controls', 'value': 'example-expandable'},
-          {'name': 'aria-expanded', 'value': 'false'},
-          {'name': 'id', 'value': 'example-expandable-button'},
-        ],
-        }
-      %}
-    </li>
-
-    {# Dynamic segments (so every segment except first and last) #}
     {% for _segment in _segments %}
-    {% if not loop.first and not loop.last %}
-    <li class="ecl-breadcrumb__segment ecl-u-aria">
+    <li class="ecl-breadcrumb__segment{{ loop.first ? " ecl-breadcrumb__segment--first" : "" }}{{ loop.last ? " ecl-breadcrumb__segment--last" : "" }}">
+      {% if loop.last %}
+      <span>{{ _segment.label }}</span>
+      {% else %}
       {% include '@ecl/' ~ _system ~ '-component-link' with {
         'extra_classes': 'ecl-breadcrumb__link',
         'variant': ['inverted', 'standalone'],
         }|merge(_segment|default({}))
       %}
+      {% endif %}
     </li>
-    {% endif %}
     {% endfor %}
-
-    {# Last segment (always displayed) #}
-    <li class="ecl-breadcrumb__segment ecl-breadcrumb__segment--last">
-      {% set _last_segment = _segments|last %}
-      <span>{{ _last_segment.label }}</span>
-    </li>
-
-    {% endif %}
   </ol>
 </nav>
