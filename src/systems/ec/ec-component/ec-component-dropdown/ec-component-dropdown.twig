@@ -1,3 +1,5 @@
+{% set _links = links|default([]) %}
+
 <!-- Button dropdown -->
 <div class="ecl-dropdown" id="dropdown1">
   {% include '@ecl/ec-component-button' with {
@@ -17,10 +19,6 @@
       { 'name': 'aria-labelledby', 'value': 'example-expandable-button1'},
       { 'name': 'aria-hidden', 'value': 'true'},
     ],
-    'links': [
-      { 'href': '#', 'label': 'European Commission' },
-      { 'href': '#', 'label': 'Priorities' },
-      { 'href': '#', 'label': 'Jobs, Growth and Investment' },
-    ],
+    'links': _links,
   } %}
 </div>

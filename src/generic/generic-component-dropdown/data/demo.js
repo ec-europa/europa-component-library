@@ -9,16 +9,16 @@ module.exports = {
   },
   links: [
     {
-      target: '#',
-      title: 'Article',
+      href: '#',
+      label: 'Article',
     },
     {
-      target: '#',
-      title: 'Page',
+      href: '#',
+      label: 'Page',
     },
     {
-      target: '#',
-      title: 'Community',
+      href: '#',
+      label: 'Community',
     },
   ],
 };
