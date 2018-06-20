@@ -29,4 +29,12 @@ module.exports = {
       },
     },
   ],
+  context: {
+    _demo: {
+      scripts: `
+        document.addEventListener('DOMContentLoaded', function () { 
+          ECL.initBreadcrumb();
+        });`,
+    },
+  },
 };
