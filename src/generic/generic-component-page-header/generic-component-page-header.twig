@@ -43,10 +43,12 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   <div class="ecl-container">
-    {% include '@ecl/generic-component-breadcrumb' with {
-      'segments': _breadcrumb,
-      'system': _system
-    } only %}
+    {% if _breadcrumb is not empty %}
+      {% include '@ecl/generic-component-breadcrumb' with {
+        'segments': _breadcrumb,
+        'system': _system
+      } only %}
+    {% endif %} 
     <div class="ecl-page-header__body">
       {% if _identity is not empty %}
         <div class="ecl-page-header__identity">
