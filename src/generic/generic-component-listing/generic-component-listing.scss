@@ -61,13 +61,15 @@
     border-top: 3px solid map-get($ecl-colors, 'yellow-100');
 
     .ecl-list-item__detail {
+      font-size: map-get($ecl-font-size, 's');
       margin: 0;
     }
+
     .ecl-list-item__meta {
       margin: 0;
     }
     .ecl-list-item__title {
-      font-size: map-get($ecl-font-size, 'm');
+      font-size: map-get($ecl-font-size, 's');
       margin: 0;
       padding: map-get($ecl-spacing, 'xs') 0;
     }
@@ -93,6 +95,7 @@
       }
 
       .ecl-list-item__body .ecl-list-item__title {
+        font-size: map-get($ecl-font-size, 'm');
         padding: map-get($ecl-spacing, 'xs') 0 map-get($ecl-spacing, 'm');
       }
 
