@@ -3185,12 +3185,20 @@ see the Language selector (page level) that locally overrules their selection.</
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes|<span class="hljs-keyword">raw</span> }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _variant == 'overlay' %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _selected_language = [] %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> _language in _languages %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _language.is_active %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _selected_language = _language %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
     </span><span class="hljs-comment">{# Custom Dialog-overlay for the 'overlay' variant #}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-overlay-language-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dialog__overlay ecl-dialog__overlay--blue"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-lang-select-site' with {
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_classes': 'ecl-link',
-      'link': _link
+      'link': _link,
+      'language': _selected_language.label,
+      'code': _selected_language.lang
     } only %}</span><span class="xml">
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ecl/ec-component-dialog' with {
       'variant': 'wide',
