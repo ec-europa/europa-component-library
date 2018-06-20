@@ -59,6 +59,18 @@
 
   .ecl-listing--three-columns-hover .ecl-list-item__body {
     border-top: 3px solid map-get($ecl-colors, 'yellow-100');
+
+    .ecl-list-item__detail {
+      margin: 0;
+    }
+    .ecl-list-item__meta {
+      margin: 0;
+    }
+    .ecl-list-item__title {
+      font-size: map-get($ecl-font-size, 'm');
+      margin: 0;
+      padding: map-get($ecl-spacing, 'xs') 0;
+    }
   }
 
   .ecl-listing--three-columns-hover .ecl-list-item:hover {
@@ -78,6 +90,10 @@
     .ecl-listing--three-columns-hover {
       .ecl-list-item {
         width: 33%;
+      }
+
+      .ecl-list-item__body .ecl-list-item__title {
+        padding: map-get($ecl-spacing, 'xs') 0 map-get($ecl-spacing, 'm');
       }
 
       // First column
