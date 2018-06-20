@@ -97,8 +97,7 @@
             {% include '@ecl/' ~ system ~ '-component-button' with {
               'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
               'is_block': true,
-              'extra_classes': 'ecl-file__download',
-              'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
+              'extra_classes': 'ecl-file__download'
             } %}
           </div>
         </div>
@@ -111,8 +110,7 @@
           'extra_attributes': [
             { 'name': 'aria-controls', 'value': 'translations-expand' },
             { 'name': 'aria-expanded', 'value': 'true' },
-            { 'name': 'id', 'value': 'translations-expand-button' },
-            { 'name': 'type', 'value': 'button' },
+            { 'name': 'id', 'value': 'translations-expand-button' }
             { 'name': 'title', 'value': translations_tooltip }
           ]
         } %}

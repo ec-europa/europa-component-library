@@ -19,7 +19,6 @@ module.exports = {
           },
           { name: 'aria-expanded', value: 'false' },
           { name: 'id', value: 'ecl-profile-topbar__expandable-button-1' },
-          { name: 'type', value: 'button' },
         ],
       },
       expandable_body: {
