@@ -14,6 +14,7 @@
         <h2 class="ecl-heading ecl-heading--h2">Search results (65)</h2>
         {% include '@ecl/eu-component-button' with {
           'modifier': 'primary',
+          'type_attribute': 'button',
           'label': 'Refine',
           'extra_classes': 'ecl-u-d-lg-none ecl-expandable__button',
           'extra_attributes': [
@@ -89,18 +90,13 @@
               'modifier': 'primary',
               'is_block': true,
               'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto',
-              'label': 'Refine results',
-              'extra_attributes': [
-                { 'name': 'type', 'value': 'submit'}
-              ]
+              'label': 'Refine results'
             } only %}
             {% include '@ecl/eu-component-button' with {
               'label': 'Clear all',
+              'type_attribute': 'reset',
               'is_block': true,
-              'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto',
-              'extra_attributes': [
-                { 'name': 'type', 'value': 'reset'}
-              ]
+              'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto'
             } only %}
           </div>
         {% endblock %}

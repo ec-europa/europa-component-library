@@ -135,7 +135,6 @@
             {% endembed %}
             {% include '@ecl/ec-component-button' with {
               'modifier': 'primary',
-              'type': 'submit',
               'label': 'Refine results',
               'is_block': true,
               'extra_classes': 'ecl-u-mt-s',
@@ -145,7 +144,7 @@
             } only %}
             {% include '@ecl/ec-component-button' with {
               'modifier': 'default',
-              'type': 'reset',
+              'type_attribute': 'reset',
               'label': 'Clear filters',
               'is_block': true,
               'extra_classes': 'ecl-u-mt-s',

@@ -1,7 +1,7 @@
 {#
   Parameters:
     - "modifier" (string, "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page") (default: "default")
-    - "type" (string) (default: "button")
+    - "type_attribute" (string) (default: "submit")
     - "href" (string) (default: ''): display button as a link, with this href
     - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
     - "label" (string) (default: "")
@@ -22,7 +22,7 @@
 {# Internal properties #}
 
 {% set _modifier = modifier|default('default') %}
-{% set _type = type|default('button') %}
+{% set _type = type_attribute|default('submit') %}
 {% set _icon = icon|default('') %}
 {% set _label = label|default('') %}
 {% set _href = href|default('') %}

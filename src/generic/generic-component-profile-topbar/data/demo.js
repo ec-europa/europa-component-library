@@ -11,6 +11,7 @@ module.exports = {
     expandable: {
       button: {
         label: 'See details',
+        type_attribute: 'button',
         extra_classes: 'ecl-expandable__button ecl-profile-topbar__pane-button',
         extra_attributes: [
           {
