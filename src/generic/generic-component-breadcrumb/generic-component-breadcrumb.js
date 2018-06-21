@@ -67,8 +67,10 @@ export const initBreadcrumb = ({
       breadcrumbContainer.getBoundingClientRect().width
     );
 
-    // get displayed segments width
+    // get displayed segments
     const breadcrumbSegments = queryAll(segmentSelector, breadcrumbContainer);
+
+    // get segments width
     let segmentWidth = 0;
     breadcrumbSegments.forEach(breadcrumbSegment => {
       segmentWidth += Math.ceil(
@@ -80,14 +82,18 @@ export const initBreadcrumb = ({
   }
 
   function hideSegment(breadcrumbContainer) {
-    // hide segments if needed
+    // get visible segments
     const breadcrumbVisibleSegments = queryAll(
       segmentVisibleSelector,
       breadcrumbContainer
     );
 
-    if (breadcrumbVisibleSegments.length > 0) {
+    // hide segments if needed
+    // we do not hide the last two segments
+    if (breadcrumbVisibleSegments.length > 1) {
       breadcrumbVisibleSegments[0].setAttribute('aria-hidden', 'true');
+
+      displayEllipsis(breadcrumbContainer);
 
       // check if there is another segment to be hidden
       if (breadcrumbIsTooLarge(breadcrumbContainer)) {
@@ -113,7 +119,6 @@ export const initBreadcrumb = ({
   function eventResize(breadcrumbContainer) {
     if (breadcrumbIsTooLarge(breadcrumbContainer)) {
       hideSegment(breadcrumbContainer);
-      displayEllipsis(breadcrumbContainer);
     }
   }
 
