@@ -1,8 +1,6 @@
 {#
   Parameters:
-    - "title" (string) (default: 'Navigation'): for screen readers
-    - "display" (string) (default: 'default'): can be 'default', 'tabs' or 'small'
-    - "links" (array) (default: []): collection of @ecl/generic-component-link
+    - "title" (string) (default: 'Block list'): for screen readers
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -15,10 +13,8 @@
 
 {# Internal properties #}
 
-{% set _title = title|default('Block list') %}
-{% set _display = display|default('default') %}
-{% set _list = links|default([]) %}
-{% set _css_class = 'ecl-block-list-wrapper' %}
+{% set _title = title|default('') %}
+{% set _css_class = 'ecl-block-list' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -34,9 +30,7 @@
 {% endif %}
 
 {# Print the result #}
-
-tototo
-
-{% if _list is not empty and _list is iterable %}
-  Block list
-{% endif %}
+<div class={{ _css_class }}>
+  <div class="ecl-block-list--title">{{ _title }}</div>
+  <div class="ecl-block-list--description">{{ description }}</div>
+</div>
