@@ -1,7 +1,6 @@
 const contextOne = require('@ecl/generic-component-listing/data/demo--one-column');
 const contextTwo = require('@ecl/generic-component-listing/data/demo--two-column');
 const contextThree = require('@ecl/generic-component-listing/data/demo--three-column');
-const contextThreeHover = require('@ecl/generic-component-listing/data/demo--three-column-hover');
 
 module.exports = {
   title: 'Listings',
@@ -33,11 +32,6 @@ module.exports = {
       name: 'three-columns',
       label: 'Three columns listing',
       context: contextThree,
-    },
-    {
-      name: 'three-columns-hover',
-      label: 'Three columns listing with hover',
-      context: contextThreeHover,
     },
   ],
 };

@@ -45,8 +45,7 @@
   }
 
   // Three columns
-  .ecl-listing--three-columns,
-  .ecl-listing--three-columns-hover {
+  .ecl-listing--three-columns {
     display: flex;
     flex-wrap: wrap;
 
@@ -57,46 +56,11 @@
     }
   }
 
-  .ecl-listing--three-columns-hover .ecl-list-item__body {
-    border-top: 3px solid map-get($ecl-colors, 'yellow-100');
-
-    .ecl-list-item__detail {
-      font-size: map-get($ecl-font-size, 's');
-      margin: 0;
-    }
-
-    .ecl-list-item__meta {
-      margin: 0;
-    }
-    .ecl-list-item__title {
-      font-size: map-get($ecl-font-size, 's');
-      margin: 0;
-      padding: map-get($ecl-spacing, 'xs') 0;
-    }
-  }
-
-  .ecl-listing--three-columns-hover .ecl-list-item:hover {
-    .ecl-list-item__body {
-      border-top-color: map-get($ecl-colors, 'blue-100');
-    }
-
-    .ecl-list-item__title {
-      color: map-get($ecl-colors, 'blue-100');
-      text-decoration: none;
-    }
-  }
-
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
-    .ecl-listing--three-columns,
-    .ecl-listing--three-columns-hover {
+    .ecl-listing--three-columns {
       .ecl-list-item {
         width: 33%;
-      }
-
-      .ecl-list-item__body .ecl-list-item__title {
-        font-size: map-get($ecl-font-size, 'm');
-        padding: map-get($ecl-spacing, 'xs') 0 map-get($ecl-spacing, 'm');
       }
 
       // First column
