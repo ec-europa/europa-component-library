@@ -2,23 +2,23 @@ module.exports = {
   _demo: {
     scripts: `
       document.addEventListener('DOMContentLoaded', function () {
-        ECL.initExpandables('#example-expandable-button');
-        ECL.dropdown('.ecl-dropdown');
+        ECL.initExpandables('#example-expandable-button1');
+        ECL.dropdown('#dropdown1');
       });
     `,
   },
   links: [
     {
-      target: '#',
-      title: 'Article',
+      href: '#',
+      label: 'Article',
     },
     {
-      target: '#',
-      title: 'Page',
+      href: '#',
+      label: 'Page',
     },
     {
-      target: '#',
-      title: 'Community',
+      href: '#',
+      label: 'Community',
     },
   ],
 };
