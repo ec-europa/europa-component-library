@@ -3,6 +3,17 @@
 Dropdown components contain elements that, when tapped, reveal additional
 content.
 
+## Implementation notes
+
+If you plan on using multiple dropdown components on the same page, make sure you give them unique IDs to the component itself but also to the button component that it contains. Initialization can be acheived like this:
+
+```javascript
+ECL.initExpandables('#news-expandable-button1');
+ECL.initExpandables('#news-expandable-button2');
+ECL.dropdown('#dropdown1');
+ECL.dropdown('#dropdown2');
+```
+
 ## Resources
 
 Menu Button General Information
