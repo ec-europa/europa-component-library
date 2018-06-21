@@ -70,11 +70,13 @@
       </div>
     {% endif %}
     <div class="ecl-list-item__body">
-      <div class="ecl-list-item__meta">
-        {% block meta_block %}
-          {% include '@ecl/generic-component-meta' with { metas: _metas } only %}
-        {% endblock %}
-      </div>
+      {% if _variant != 'navigation' %}
+        <div class="ecl-list-item__meta">
+          {% block meta_block %}
+            {% include '@ecl/generic-component-meta' with { metas: _metas } only %}
+          {% endblock %}
+        </div>
+      {% endif %}
       <h3 class="ecl-list-item__title ecl-heading ecl-heading--h3">{{ title }}</h3>
       <p class="ecl-list-item__detail ecl-paragraph">
         {% block detail_block %}

@@ -1,4 +1,5 @@
 module.exports = {
+  variant: 'navigation',
   screen_reader: 'List item: Business, Economy, Euro',
   title: 'Business, Economy, Euro',
   href: '../../example.html#listing-three-columns-1',
