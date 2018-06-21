@@ -3062,31 +3062,28 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-4344e346a799cab71310180ee6cc977c-panel-view">
     <code class="Code Code--lang-twig">
-        <pre><span class="xml"><span class="hljs-comment">&lt;!-- Button dropdown --&gt;</span>
+        <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _links = links|<span class="hljs-keyword">default</span>([]) %}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dropdown"</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Button dropdown --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dropdown"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dropdown1"</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-button' with {
     'label': 'Create',
     'extra_classes': 'ecl-expandable__button',
     'extra_attributes': [
-      { 'name': 'aria-controls', 'value': 'example-button-dropdown'},
+      { 'name': 'aria-controls', 'value': 'example-button-dropdown1'},
       { 'name': 'aria-expanded', 'value': 'false'},
-      { 'name': 'id', 'value': 'example-expandable-button' },
+      { 'name': 'id', 'value': 'example-expandable-button1' },
       { 'name': 'type', 'value': 'button'},
     ]
   } %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-link-<span class="hljs-name">block</span>' with {
     'extra_classes': 'ecl-dropdown__body',
     'extra_attributes': [
-      { 'name': 'id', 'value': 'example-button-dropdown'},
-      { 'name': 'aria-labelledby', 'value': 'example-expandable-button'},
+      { 'name': 'id', 'value': 'example-button-dropdown1'},
+      { 'name': 'aria-labelledby', 'value': 'example-expandable-button1'},
       { 'name': 'aria-hidden', 'value': 'true'},
     ],
-    'links': [
-      { 'href': '#', 'label': 'European Commission' },
-      { 'href': '#', 'label': 'Priorities' },
-      { 'href': '#', 'label': 'Jobs, Growth and Investment' },
-    ],
+    'links': _links,
   } %}</span><span class="xml">
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
@@ -3109,26 +3106,11 @@
     <code class="Code Code--lang-html">
         
         <pre><span class="hljs-comment">&lt;!-- Button dropdown --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dropdown"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dropdown1"</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dropdown"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-button-dropdown1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button1"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>Create<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-button-dropdown"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>Create<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link-block ecl-dropdown__body"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-button-dropdown"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link-block__list"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link-block__item"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-link-block__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link-block__item"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-link-block__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Priorities<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link-block__item"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-link-block__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Jobs, Growth and Investment<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link-block ecl-dropdown__body"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-button-dropdown1"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button1"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         

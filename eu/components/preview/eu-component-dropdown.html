@@ -20,9 +20,9 @@
   </head>
   <body class="ecl-typography">
     <main>
-      <!-- Button dropdown -->
-
-<div class="ecl-dropdown">
+      
+<!-- Button dropdown -->
+<div class="ecl-dropdown" id="dropdown1">
   
 
 
@@ -38,7 +38,7 @@
                           
 
 
-  <button class="ecl-button ecl-button--default ecl-expandable__button" aria-controls="example-button-dropdown" aria-expanded="false" id="example-expandable-button" type="button">Create</button>
+  <button class="ecl-button ecl-button--default ecl-expandable__button" aria-controls="example-button-dropdown1" aria-expanded="false" id="example-expandable-button1" type="button">Create</button>
   
 
 
@@ -52,7 +52,7 @@
                     
 
 
-<div class="ecl-link-block ecl-dropdown__body" id="example-button-dropdown" aria-labelledby="example-expandable-button" aria-hidden="true">
+<div class="ecl-link-block ecl-dropdown__body" id="example-button-dropdown1" aria-labelledby="example-expandable-button1" aria-hidden="true">
         <ul class="ecl-link-block__list">
               <li class="ecl-link-block__item">
           
@@ -67,7 +67,7 @@
 
 
 
-<a class="ecl-link ecl-link--standalone ecl-link-block__link" href="#">European Commission</a>
+<a class="ecl-link ecl-link--standalone ecl-link-block__link" href="#">Article</a>
         </li>
               <li class="ecl-link-block__item">
           
@@ -82,7 +82,7 @@
 
 
 
-<a class="ecl-link ecl-link--standalone ecl-link-block__link" href="#">Priorities</a>
+<a class="ecl-link ecl-link--standalone ecl-link-block__link" href="#">Page</a>
         </li>
               <li class="ecl-link-block__item">
           
@@ -97,7 +97,7 @@
 
 
 
-<a class="ecl-link ecl-link--standalone ecl-link-block__link" href="#">Jobs, Growth and Investment</a>
+<a class="ecl-link ecl-link--standalone ecl-link-block__link" href="#">Community</a>
         </li>
           </ul>
   </div>
@@ -107,8 +107,8 @@
     <script src="../../eu-preset-website/scripts/ecl-eu-preset-website.js"></script>
         <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', function () {
-        ECL.initExpandables('#example-expandable-button');
-        ECL.dropdown('.ecl-dropdown');
+        ECL.initExpandables('#example-expandable-button1');
+        ECL.dropdown('#dropdown1');
       });
     </script>
       </body>
