@@ -1,0 +1,18 @@
+/**
+ * ECL block list
+ * @define block-list
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-block-list() {
+  .ecl-block-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}

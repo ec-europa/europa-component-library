@@ -1,0 +1,83 @@
+/**
+ * ECL block
+ * @define block-list
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-block-list($border-width: 2px) {
+  .ecl-block-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ecl-block-list__item {
+    flex-shrink: 0;
+  }
+
+  .ecl-block-list__link {
+    border-bottom: $border-width solid transparent;
+    display: block;
+    font-weight: bold;
+    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      background-color: $ecl-color-secondary;
+      border-bottom-color: $ecl-color-secondary;
+    }
+  }
+
+  .ecl-block-list__link--active,
+  .ecl-block-list__link[aria-selected='true'] {
+    color: $ecl-color-shade;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /**
+   * Variants
+   */
+
+  // Tabs
+
+  .ecl-block-list--tabs {
+    border-bottom: $border-width solid map-get($ecl-colors, 'grey-50');
+  }
+
+  .ecl-block-list--tabs .ecl-block-list__item {
+    margin-bottom: -$border-width;
+  }
+
+  .ecl-block-list--tabs .ecl-block-list__link--active,
+  .ecl-block-list--tabs .ecl-block-list__link[aria-selected='true'] {
+    border: $border-width solid map-get($ecl-colors, 'grey-50');
+    border-bottom-color: #fff;
+    text-decoration: none;
+
+    &:focus {
+      border-bottom-color: transparent;
+    }
+  }
+
+  // Small
+
+  .ecl-block-list--small .ecl-block-list__link {
+    border-bottom-width: 0;
+    font-size: map-get($ecl-font-size, 's');
+    font-weight: normal;
+    line-height: 1.3;
+    padding: map-get($ecl-spacing, 'xxs');
+  }
+}
