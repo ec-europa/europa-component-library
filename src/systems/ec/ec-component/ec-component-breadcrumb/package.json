@@ -2,6 +2,7 @@
   "name": "@ecl/ec-component-breadcrumb",
   "version": "1.0.1",
   "description": "The means to navigate through pages.",
+  "module": "ec-component-breadcrumb.js",
   "style": "ec-component-breadcrumb.scss",
   "author": "European Commission",
   "license": "EUPL-1.1",
@@ -10,6 +11,9 @@
     "@ecl/ec-component-link": "^1.0.1",
     "@ecl/ec-utility-screen-reader": "^1.0.0",
     "@ecl/generic-component-breadcrumb": "^1.0.0"
+  },
+  "devDependencies": {
+    "@ecl/ec-utility-aria": "^1.0.0"
   },
   "publishConfig": {
     "access": "public"
@@ -23,5 +27,6 @@
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
   "keywords": ["ecl", "europa-component-library", "design-system"],
+  "main": "ec-component-breadcrumb.js",
   "sass": "ec-component-breadcrumb.scss"
 }
