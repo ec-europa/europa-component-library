@@ -38,6 +38,7 @@ module.exports = {
         },
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
+            ECL.initBreadcrumb();
             ECL.dialogs({
               dialogOverlayId: 'ecl-overlay-language-list',
               triggerElementsSelector: '#ecl-lang-select-sites__overlay'
@@ -427,6 +428,7 @@ module.exports = {
         },
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
+            ECL.initBreadcrumb();
             ECL.megamenu();
             ECL.dialogs({
               dialogOverlayId: 'ecl-overlay-language-list',
