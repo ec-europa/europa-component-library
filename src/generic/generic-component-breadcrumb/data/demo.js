@@ -16,4 +16,10 @@ module.exports = {
       label: 'Page title',
     },
   ],
+  _demo: {
+    scripts: `
+      document.addEventListener('DOMContentLoaded', function () { 
+        ECL.initBreadcrumb();
+      });`,
+  },
 };
