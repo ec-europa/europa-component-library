@@ -70,7 +70,7 @@
       </div>
     {% endif %}
     <div class="ecl-list-item__body">
-      {% if _variant in ['default', 'thumbnail'] %}
+      {% if _variant not in ['navigation'] %}
         <div class="ecl-list-item__meta">
           {% block meta_block %}
             {% include '@ecl/ec-component-meta' with { metas: _metas } only %}
