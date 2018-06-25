@@ -139,18 +139,17 @@
               'is_block': true,
               'extra_classes': 'ecl-u-mt-s',
               'extra_attributes': [
-                { 'name': 'value', 'value': 'Refine results'},
-                { 'name': 'type', 'value': 'submit'}
+                { 'name': 'value', 'value': 'Refine results'}
               ]
             } only %}
             {% include '@ecl/ec-component-button' with {
               'modifier': 'default',
+              'type_attribute': 'reset',
               'label': 'Clear filters',
               'is_block': true,
               'extra_classes': 'ecl-u-mt-s',
               'extra_attributes': [
-                { 'name': 'value', 'value': 'Clear filters'},
-                { 'name': 'type', 'value': 'reset'}
+                { 'name': 'value', 'value': 'Clear filters'}
               ]
             } only %}
           {% endblock %}

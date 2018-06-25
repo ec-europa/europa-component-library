@@ -5,10 +5,7 @@ module.exports = {
   tags: ['organism'],
   context: {
     custom_footer: {
-      identity: {
-        href: '../../example.html#',
-        label: 'Digital single market',
-      },
+      identity: 'Digital single market',
       social_links: {
         label: 'Follow us:',
         links: [
