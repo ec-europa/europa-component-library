@@ -1,6 +1,6 @@
 {#
   Parameters:
-    - "variant" (string) (default: ''): can be '', 'date' or 'thumbnail'
+    - "variant" (string) (default: ''): can be '', 'date' or 'thumbnail' or 'navigation'
     - "href" (string) (default: '')
     - "title" (string) (default: '')
     - "primary_image" (object) (default: {}): should follow ecl-image structure
@@ -70,7 +70,7 @@
       </div>
     {% endif %}
     <div class="ecl-list-item__body">
-      {% if _variant != 'navigation' %}
+      {% if _variant in ['default', 'thumbnail'] %}
         <div class="ecl-list-item__meta">
           {% block meta_block %}
             {% include '@ecl/eu-component-meta' with { metas: _metas } only %}

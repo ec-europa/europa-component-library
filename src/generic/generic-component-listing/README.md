@@ -52,7 +52,7 @@ Read
 [About Pool listings](https://webgate.ec.europa.eu/CITnet/confluence/x/vQJvK) to
 find out more about where and how to use listings in your website.
 
-## When to use this component
+### When to use this component
 
 Use this component when you want to display content from similar data types with
 a visual clue. Either on a separate dedicated page or embedded in a detail page.
@@ -77,3 +77,17 @@ way.
 Do not use this component
 
 * on detail pages
+
+## Navigation listings
+
+### When to use
+
+Show hierarchy of content and create a parent-child structure of links.
+
+### When not to use
+
+When you want to display temporary information that it's not part of the site's architecture
+
+### Layout
+
+The navigational list views are arranged with three columns.
