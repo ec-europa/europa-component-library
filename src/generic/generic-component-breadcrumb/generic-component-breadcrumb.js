@@ -10,6 +10,7 @@ export const initBreadcrumb = ({
   segmentSelector: segmentSelector = '.ecl-breadcrumb__segment',
   segmentFirstSelector: segmentFirstSelector = '.ecl-breadcrumb__segment--first',
   segmentVisibleSelector: segmentVisibleSelector = '.ecl-breadcrumb__segment:not(.ecl-breadcrumb__segment--first):not(.ecl-breadcrumb__segment--ellipsis):not(.ecl-breadcrumb__segment--last):not([aria-hidden="true"])',
+  segmentHiddenSelector: segmentHiddenSelector = '.ecl-breadcrumb__segment[aria-hidden="true"]:not(.ecl-breadcrumb__segment--ellipsis)',
   ellipsisSelector: ellipsisSelector = '.ecl-breadcrumb__segment--ellipsis',
 } = {}) => {
   if (
@@ -61,6 +62,14 @@ export const initBreadcrumb = ({
     });
   }
 
+  function hideEllipsis(breadcrumbContainer) {
+    // hide ellipsis when needed
+    const breadcrumbEllipsis = queryAll(ellipsisSelector, breadcrumbContainer);
+    breadcrumbEllipsis.forEach(ellipsis => {
+      ellipsis.setAttribute('aria-hidden', 'true');
+    });
+  }
+
   function breadcrumbIsTooLarge(breadcrumbContainer) {
     // get wrapper width
     const wrapperWidth = Math.floor(
@@ -102,6 +111,27 @@ export const initBreadcrumb = ({
     }
   }
 
+  function showSegment(breadcrumbContainer) {
+    // get hidden segments
+    const breadcrumbHiddenSegments = queryAll(
+      segmentHiddenSelector,
+      breadcrumbContainer
+    );
+
+    // show segments if there is enough space
+    if (breadcrumbHiddenSegments.length > 0) {
+      breadcrumbHiddenSegments[
+        breadcrumbHiddenSegments.length - 1
+      ].setAttribute('aria-hidden', 'false');
+
+      if (breadcrumbIsTooLarge(breadcrumbContainer)) {
+        hideSegment(breadcrumbContainer);
+      }
+    } else {
+      hideEllipsis(breadcrumbContainer);
+    }
+  }
+
   // EVENTS
   function eventExpandClick(e, breadcrumbContainer) {
     e.preventDefault();
@@ -117,8 +147,11 @@ export const initBreadcrumb = ({
   }
 
   function eventResize(breadcrumbContainer) {
+    // check if there are segments to be hidden or shown
     if (breadcrumbIsTooLarge(breadcrumbContainer)) {
       hideSegment(breadcrumbContainer);
+    } else {
+      showSegment(breadcrumbContainer);
     }
   }
 
