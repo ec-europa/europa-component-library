@@ -3142,12 +3142,12 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h2"</span>&gt;</span>Search results (65)<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-button' with {
           'modifier': 'primary',
+          'type_attribute': 'button',
           'label': 'Refine',
           'extra_classes': 'ecl-u-d-lg-none ecl-expandable__button',
           'extra_attributes': [
             { 'name': 'aria-controls', 'value': 'form-filter' },
-            { 'name': 'aria-expanded', 'value': 'true' },
-            { 'name': 'type', 'value': 'button' }
+            { 'name': 'aria-expanded', 'value': 'true' }
           ]
         } only %}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3218,18 +3218,13 @@
               'modifier': 'primary',
               'is_block': true,
               'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto',
-              'label': 'Refine results',
-              'extra_attributes': [
-                { 'name': 'type', 'value': 'submit'}
-              ]
+              'label': 'Refine results'
             } only %}</span><span class="xml">
             </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-button' with {
               'label': 'Clear all',
+              'type_attribute': 'reset',
               'is_block': true,
-              'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto',
-              'extra_attributes': [
-                { 'name': 'type', 'value': 'reset'}
-              ]
+              'extra_classes': 'ecl-u-mv-s ecl-u-mh-auto'
             } only %}</span><span class="xml">
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
@@ -3563,7 +3558,7 @@
 /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--form-primary ecl-search-form__button"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--form-primary ecl-search-form__button"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3572,7 +3567,7 @@
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-d-flex ecl-u-d-lg-none ecl-u-justify-content-between ecl-u-align-items-baseline"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h2"</span>&gt;</span>Search results (65)<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-u-d-lg-none ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"form-filter"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>Refine<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-u-d-lg-none ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"form-filter"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>&gt;</span>Refine<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
       <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-form ecl-u-d-lg-block ecl-u-aria"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"get"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"form-filter"</span>&gt;</span>
@@ -3613,9 +3608,9 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-mv-m"</span>&gt;</span>
 
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-button--block ecl-u-mv-s ecl-u-mh-auto"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Refine results<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-button--block ecl-u-mv-s ecl-u-mh-auto"</span>&gt;</span>Refine results<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
-          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-u-mv-s ecl-u-mh-auto"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span>&gt;</span>Clear all<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-u-mv-s ecl-u-mh-auto"</span>&gt;</span>Clear all<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">aside</span>&gt;</span>

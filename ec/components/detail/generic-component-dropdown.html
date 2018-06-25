@@ -3068,12 +3068,12 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dropdown"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dropdown1"</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-button' with {
     'label': 'Create',
+    'type_attribute': 'button',
     'extra_classes': 'ecl-expandable__button',
     'extra_attributes': [
       { 'name': 'aria-controls', 'value': 'example-button-dropdown1'},
       { 'name': 'aria-expanded', 'value': 'false'},
       { 'name': 'id', 'value': 'example-expandable-button1' },
-      { 'name': 'type', 'value': 'button'},
     ]
   } %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-link-<span class="hljs-name">block</span>' with {
@@ -3108,7 +3108,7 @@
         <pre><span class="hljs-comment">&lt;!-- Button dropdown --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dropdown"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dropdown1"</span>&gt;</span>
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-button-dropdown1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button1"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>Create<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-expandable__button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"example-button-dropdown1"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-expandable-button1"</span>&gt;</span>Create<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link-block ecl-dropdown__body"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"example-button-dropdown1"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"example-expandable-button1"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>

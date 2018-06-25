@@ -3165,10 +3165,10 @@
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-12 ecl-col-md-4"</span>&gt;</span>
             </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-button' with {
+              'type_attribute': 'button',
               'label': _button_label ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ meta ~ ')',
               'is_block': true,
-              'extra_classes': 'ecl-file__download',
-              'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
+              'extra_classes': 'ecl-file__download'
             } %}</span><span class="xml">
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3177,12 +3177,12 @@
         </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-button' with {
           'label': translations_label,
           'modifier': 'secondary',
+          'type_attribute': 'button',
           'extra_classes': 'ecl-file__translations-toggle',
           'extra_attributes': [
             { 'name': 'aria-controls', 'value': 'translations-expand' },
             { 'name': 'aria-expanded', 'value': 'true' },
             { 'name': 'id', 'value': 'translations-expand-button' },
-            { 'name': 'type', 'value': 'button' },
             { 'name': 'title', 'value': translations_tooltip }
           ]
         } %}</span><span class="xml">
@@ -3198,8 +3198,8 @@
                   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-button' with {
                     'label': _button_label ~ '&lt;span class="ecl-u-sr-only"&gt;(' ~ translation.meta ~ ')',
                     'modifier': 'secondary',
-                    'extra_classes': 'ecl-file__translations-download',
-                    'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
+                    'type_attribute': 'button',
+                    'extra_classes': 'ecl-file__translations-download'
                   } %}</span><span class="xml">
                 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
               </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">

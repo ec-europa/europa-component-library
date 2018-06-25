@@ -3189,8 +3189,9 @@ page on a website, use a link instead.</li>
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Parameters:
     - "modifier" (string, "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page") (default: "default")
-    - "type" (string, "link" or "button") (default: "button")
-    - "href" (string, if type == "link") (default: '#')
+    - "type" (string): deprecated
+    - "type_attribute" (string) (default: "submit")
+    - "href" (string) (default: ''): display button as a link, with this href
     - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
     - "label" (string) (default: "")
     - "is_block" (boolean): block-wide button (default: false)
@@ -3205,10 +3206,18 @@ page on a website, use a link instead.</li>
   Blocks:
     - "link_label_block": block label of the button (when "type" == "link")
     - "button_label_block": block label of the button (when "type" == "button")
-
 #}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-button' %}</span><span class="xml"></span></pre>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-button' with {
+  'modifier': modifier|<span class="hljs-keyword">default</span>('default'),
+  'type_attribute': type_attribute|<span class="hljs-keyword">default</span>('submit'),
+  'href': href|<span class="hljs-keyword">default</span>(''),
+  'icon': icon|<span class="hljs-keyword">default</span>(''),
+  'label': label|<span class="hljs-keyword">default</span>(''),
+  'is_block': is_block|<span class="hljs-keyword">default</span>(false),
+  'extra_classes': extra_classes|<span class="hljs-keyword">default</span>(''),
+  'extra_attributes': extra_attributes|<span class="hljs-keyword">default</span>([])
+} only %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -3265,22 +3274,22 @@ page on a website, use a link instead.</li>
         
         
             <pre><span class="hljs-comment">&lt;!-- Default --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default"</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default"</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Primary --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Secondary --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--secondary"</span>&gt;</span>Secondary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 </pre>
         
             <pre><span class="hljs-comment">&lt;!-- Call-to-action --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-right"</span>&gt;</span>Call-to-action<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-right"</span>&gt;</span>Call-to-action<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 </pre>
         

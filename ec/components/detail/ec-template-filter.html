@@ -3217,18 +3217,17 @@ displayed items</li>
               'is_block': true,
               'extra_classes': 'ecl-u-mt-s',
               'extra_attributes': [
-                { 'name': 'value', 'value': 'Refine results'},
-                { 'name': 'type', 'value': 'submit'}
+                { 'name': 'value', 'value': 'Refine results'}
               ]
             } only %}</span><span class="xml">
             </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-button' with {
               'modifier': 'default',
+              'type_attribute': 'reset',
               'label': 'Clear filters',
               'is_block': true,
               'extra_classes': 'ecl-u-mt-s',
               'extra_attributes': [
-                { 'name': 'value', 'value': 'Clear filters'},
-                { 'name': 'type', 'value': 'reset'}
+                { 'name': 'value', 'value': 'Clear filters'}
               ]
             } only %}</span><span class="xml">
           </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
@@ -3305,7 +3304,7 @@ displayed items</li>
 /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--form-primary ecl-search-form__button"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--form-primary ecl-search-form__button"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3368,9 +3367,9 @@ displayed items</li>
 
           <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-select"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-collection"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"collection"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>&gt;</span>Any collection<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2065"</span>&gt;</span>Citizens' Dialogues<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"48422"</span>&gt;</span>Cities events<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"35343"</span>&gt;</span>FISMA Events collectoin<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"54309"</span>&gt;</span>Sustainable Development Goals<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-button--block ecl-u-mt-s"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Refine results"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Refine results<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary ecl-button--block ecl-u-mt-s"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Refine results"</span>&gt;</span>Refine results<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-u-mt-s"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Clear filters"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span>&gt;</span>Clear filters<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default ecl-button--block ecl-u-mt-s"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Clear filters"</span>&gt;</span>Clear filters<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h3"</span>&gt;</span>Filter by topic<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-paragraph"</span>&gt;</span>Custom component<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
