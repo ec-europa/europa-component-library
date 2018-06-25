@@ -95,6 +95,7 @@
           </div>
           <div class="ecl-col-12 ecl-col-md-4">
             {% include '@ecl/' ~ system ~ '-component-button' with {
+              'type_attribute': 'button',
               'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
               'is_block': true,
               'extra_classes': 'ecl-file__download'
@@ -128,8 +129,7 @@
                     'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')',
                     'modifier': 'secondary',
                     'type_attribute': 'button',
-                    'extra_classes': 'ecl-file__translations-download',
-                    'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
+                    'extra_classes': 'ecl-file__translations-download'
                   } %}
                 </li>
               {% endfor %}

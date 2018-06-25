@@ -20,4 +20,13 @@
     - "button_label_block": block label of the button (when "type" == "button")
 #}
 
-{% include '@ecl/generic-component-button' %}
+{% include '@ecl/generic-component-button' with {
+  'modifier': modifier|default('default'),
+  'type_attribute': type_attribute|default('submit'),
+  'href': href|default(''),
+  'icon': icon|default(''),
+  'label': label|default(''),
+  'is_block': is_block|default(false),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([])
+} only %}
