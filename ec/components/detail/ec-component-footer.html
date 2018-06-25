@@ -3245,10 +3245,7 @@ the page’s requirements.</p>
             
             <pre>{
   <span class="hljs-attr">"custom_footer"</span>: {
-    <span class="hljs-attr">"identity"</span>: {
-      <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#"</span>,
-      <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Digital single market"</span>
-    },
+    <span class="hljs-attr">"identity"</span>: <span class="hljs-string">"Digital single market"</span>,
     <span class="hljs-attr">"social_links"</span>: {
       <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Follow us:"</span>,
       <span class="hljs-attr">"links"</span>: [
@@ -3385,12 +3382,12 @@ the page’s requirements.</p>
         
         <pre><span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom"</span>&gt;</span>
+
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none"</span>&gt;</span>
-
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--standalone ecl-footer__link ecl-footer__custom-title"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#"</span>&gt;</span>Digital single market<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none ecl-footer__column-title ecl-footer__custom-title-identity"</span>&gt;</span>
+            Digital single market
           <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
@@ -3618,6 +3615,11 @@ the page’s requirements.</p>
     }
   }
 
+  <span class="hljs-selector-class">.ecl-footer__custom-title-identity</span> {
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'blue-120'</span>);
+  }
+
   <span class="hljs-comment">/* stylelint-disable-next-line order/order */</span>
   @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(sm) {
     <span class="hljs-selector-class">.ecl-footer__column</span> {
@@ -3657,7 +3659,7 @@ the page’s requirements.</p>
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2.4 KB</span>
+                    <span class="Meta-value">2.6 KB</span>
                 </li>
             </ul>
         </div>
@@ -3776,8 +3778,8 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
     <div class="ecl-container">
       <div class="ecl-row">
         <div class="ecl-col-sm ecl-footer__column">
-          <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none">
-  <a class="ecl-link ecl-link--standalone ecl-footer__link ecl-footer__custom-title" href="https://ec-europa.github.io/europa-component-library/ec/">Europa Component Library</a>
+          <h4 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none ecl-footer__custom-title ecl-footer__custom-title-identity">
+  Europa Component Library
 </h4>
 
         </div>
