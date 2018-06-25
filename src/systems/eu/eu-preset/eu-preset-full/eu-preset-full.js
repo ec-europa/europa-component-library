@@ -1,6 +1,7 @@
 // Export components
 
 export * from '@ecl/eu-component-accordion';
+export * from '@ecl/eu-component-breadcrumb';
 export * from '@ecl/eu-component-carousel';
 export * from '@ecl/eu-component-context-nav';
 export * from '@ecl/eu-component-dropdown';

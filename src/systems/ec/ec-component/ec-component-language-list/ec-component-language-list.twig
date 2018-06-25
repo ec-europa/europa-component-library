@@ -80,7 +80,6 @@
                 </div><div class="ecl-col-md-6">
                   {% endif %}
                   {% include '@ecl/ec-component-button' with {
-                    'type': 'link',
                     'label': _lang.label ~ (_lang.is_active ? '<span class="ecl-icon ecl-icon--check ecl-u-f-r"></span>'),
                     'href': _lang.href,
                     'is_block': true,
@@ -108,12 +107,20 @@
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% if _variant == 'overlay' %}
+    {% set _selected_language = [] %}
+    {% for _language in _languages %}
+      {% if _language.is_active %}
+        {% set _selected_language = _language %}
+      {% endif %}
+    {% endfor %}
     {# Custom Dialog-overlay for the 'overlay' variant #}
     <div id="ecl-overlay-language-list" class="ecl-dialog__overlay ecl-dialog__overlay--blue" aria-hidden="true"></div>
     {% include '@ecl/ec-component-lang-select-site' with {
       'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
       'extra_classes': 'ecl-link',
-      'link': _link
+      'link': _link,
+      'language': _selected_language.label,
+      'code': _selected_language.lang
     } only %}
     {% embed '@ecl/ec-component-dialog' with {
       'variant': 'wide',
