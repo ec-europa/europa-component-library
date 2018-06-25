@@ -53,7 +53,6 @@
   </label>
   {% include '@ecl/' ~ _system ~ '-component-button' with {
     'modifier': _variant == 'internal' ? 'form-primary' : 'form',
-    'extra_classes': 'ecl-search-form__button',
-    'extra_attributes': [{ 'name': 'type', 'value': 'submit'}]
+    'extra_classes': 'ecl-search-form__button'
   }|merge(_button) only %}
 </form>
