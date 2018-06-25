@@ -4,12 +4,12 @@
 <div class="ecl-dropdown" id="dropdown1">
   {% include '@ecl/eu-component-button' with {
     'label': 'Create',
+    'type_attribute': 'button',
     'extra_classes': 'ecl-expandable__button',
     'extra_attributes': [
       { 'name': 'aria-controls', 'value': 'example-button-dropdown1'},
       { 'name': 'aria-expanded', 'value': 'false'},
       { 'name': 'id', 'value': 'example-expandable-button1' },
-      { 'name': 'type', 'value': 'button'},
     ]
   } %}
   {% include '@ecl/eu-component-link-block' with {

@@ -27,7 +27,7 @@ describe('dropdowns', () => {
       browser.pause(500);
 
       // Click the input
-      browser.moveToObject('#example-expandable-button');
+      browser.moveToObject('#example-expandable-button1');
       browser.buttonPress(0); // press left button
     });
 

@@ -11,6 +11,7 @@ module.exports = {
     expandable: {
       button: {
         label: 'See details',
+        type_attribute: 'button',
         extra_classes: 'ecl-expandable__button ecl-profile-topbar__pane-button',
         extra_attributes: [
           {
@@ -19,7 +20,6 @@ module.exports = {
           },
           { name: 'aria-expanded', value: 'false' },
           { name: 'id', value: 'ecl-profile-topbar__expandable-button-1' },
-          { name: 'type', value: 'button' },
         ],
       },
       expandable_body: {

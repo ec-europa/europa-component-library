@@ -1,8 +1,9 @@
 {#
   Parameters:
     - "modifier" (string, "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page") (default: "default")
-    - "type" (string, "link" or "button") (default: "button")
-    - "href" (string, if type == "link") (default: '#')
+    - "type" (string): deprecated
+    - "type_attribute" (string) (default: "submit")
+    - "href" (string) (default: ''): display button as a link, with this href
     - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
     - "label" (string) (default: "")
     - "is_block" (boolean): block-wide button (default: false)
@@ -17,16 +18,15 @@
   Blocks:
     - "link_label_block": block label of the button (when "type" == "link")
     - "button_label_block": block label of the button (when "type" == "button")
-
 #}
 
 {# Internal properties #}
 
 {% set _modifier = modifier|default('default') %}
-{% set _type = type|default('button') %}
+{% set _type_attribute = type_attribute|default('submit') %}
 {% set _icon = icon|default('') %}
 {% set _label = label|default('') %}
-{% set _href = href|default('#') %}
+{% set _href = href|default('') %}
 {% set _is_block = is_block|default(false) %}
 {% set _css_class = 'ecl-button ecl-button--' ~ _modifier %}
 {% set _extra_attributes = '' %}
@@ -53,8 +53,8 @@
 
 {# Print the result #}
 
-{% if _type == 'link' %}
+{% if _href != '' %}
   <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block link_label_block _label|raw %}</a>
 {% else %}
-  <button class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block button_label_block _label|raw %}</button>
+  <button type="{{ _type_attribute }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block button_label_block _label|raw %}</button>
 {% endif %}
