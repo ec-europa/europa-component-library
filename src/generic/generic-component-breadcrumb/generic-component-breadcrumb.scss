@@ -27,6 +27,10 @@
     display: block;
     font-weight: bold;
     margin: map-get($ecl-spacing, 's') 0 map-get($ecl-spacing, 'xxs');
+
+    &[aria-hidden='true'] {
+      display: none;
+    }
   }
 
   .ecl-breadcrumb__link {
