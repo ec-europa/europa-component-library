@@ -94,4 +94,47 @@
     padding-left: map-get($ecl-spacing, 's');
     padding-right: map-get($ecl-spacing, 's');
   }
+
+  .ecl-list-item--block {
+    background-color: map-get($ecl-colors, 'blue-100');
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    .ecl-list-item__link {
+      color: inherit;
+      padding: map-get($ecl-spacing, 's');
+      text-decoration: none;
+    }
+
+    .ecl-list-item__link:hover {
+      color: #fff;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .ecl-list-item__title {
+      color: inherit;
+      font-size: map-get($ecl-font-size, 'm');
+      margin: map-get($ecl-spacing, 'xxxs') 0 map-get($ecl-spacing, 'xxs');
+    }
+
+    .ecl-list-item__link:hover .ecl-list-item__title {
+      color: #fff;
+    }
+
+    .ecl-list-item__detail {
+      color: inherit;
+    }
+  }
+
+  // Block item
+  // Add the ">" icon
+  .ecl-list-item--block .ecl-list-item__title::after {
+    @include ecl-icon--after();
+    @include ecl-icon('right');
+
+    width: 1rem;
+  }
 }
