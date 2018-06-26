@@ -20,16 +20,23 @@
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: map-get($ecl-spacing, 's') 0;
   }
 
   .ecl-breadcrumb__segment {
     display: block;
+    font-size: map-get($ecl-font-size, 'xxs');
     font-weight: bold;
-    margin: map-get($ecl-spacing, 's') 0 map-get($ecl-spacing, 'xxs');
+    line-height: 1.875;
 
     &[aria-hidden='true'] {
       display: none;
+    }
+
+    /* stylelint-disable-next-line order/order */
+    @include ecl-media-breakpoint-up(sm) {
+      font-size: map-get($ecl-font-size, 'xs');
+      line-height: 1.375;
     }
   }
 
