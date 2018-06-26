@@ -30,7 +30,9 @@
 {% endif %}
 
 {# Print the result #}
-<div class={{ _css_class }}>
-  <div class="ecl-block-list--title">{{ _title }}</div>
-  <div class="ecl-block-list--description">{{ description }}</div>
-</div>
+<li class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <a href="{{ _href }}" class="ecl-link ecl-block-list__link">
+    <h3 class="ecl-block-list__title ecl-heading ecl-heading--h3">{{ title }}</h3>
+    <div class="ecl-block-list__description">{{ description }}</div>
+  </a>
+</li>
