@@ -78,6 +78,11 @@
     }
   }
 
+  .ecl-footer__custom-title-identity {
+    border-bottom: 0;
+    color: map-get($ecl-colors, 'blue-120');
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
     .ecl-footer__column {

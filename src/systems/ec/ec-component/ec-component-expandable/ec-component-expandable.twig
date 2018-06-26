@@ -8,6 +8,7 @@
 <div style="margin-top:1rem">
   {% include '@ecl/ec-component-button' with {
     'label': 'What is this all about?',
+    'type_attribute': 'button',
     'extra_classes': 'ecl-expandable__button',
     'extra_attributes': [
       { 'name': 'aria-controls', 'value': 'example-expandable-1'},
@@ -15,7 +16,6 @@
       { 'name': 'data-label-expanded', 'value': 'Hide me'},
       { 'name': 'data-label-collapsed', 'value': 'What is this all about?'},
       { 'name': 'id', 'value': 'example-expandable-button-1' },
-      { 'name': 'type', 'value': 'button'},
     ]
   } %}
   <div
