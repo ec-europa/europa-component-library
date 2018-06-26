@@ -48,7 +48,77 @@
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+
+    /* stylelint-disable-next-line */
+    .ecl-container {
+      z-index: map-get($ecl-z-index, 'highlight') + 1;
+    }
   }
+
+  /* Blue gradient */
+
+  .ecl-page-header--image::after {
+    clear: both;
+    content: '';
+    height: 100%;
+    left: 0%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: map-get($ecl-z-index, 'highlight');
+
+    /* stylelint-disable */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#004494+0,004494+100&1+0,0.75+80,0.5+100 */
+    background: -moz-linear-gradient(
+      left,
+      rgba(0, 68, 148, 1) 0%,
+      rgba(0, 68, 148, 0.75) 80%,
+      rgba(0, 68, 148, 0.5) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      left,
+      rgba(0, 68, 148, 1) 0%,
+      rgba(0, 68, 148, 0.75) 80%,
+      rgba(0, 68, 148, 0.5) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to right,
+      rgba(0, 68, 148, 1) 0%,
+      rgba(0, 68, 148, 0.75) 80%,
+      rgba(0, 68, 148, 0.5) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004494', endColorstr='#80004494',GradientType=1 ); /* IE6-9 */
+    /* stylelint-enable */
+  }
+  @media (max-width: map-get($ecl-grid-breakpoints, 'md')) {
+    .ecl-page-header--image::after {
+      /* stylelint-disable */
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#004494+0,004494+100&1+0,0.9+80,0.8+100 */
+      background: -moz-linear-gradient(
+        left,
+        rgba(0, 68, 148, 1) 0%,
+        rgba(0, 68, 148, 0.9) 80%,
+        rgba(0, 68, 148, 0.8) 100%
+      ); /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        left,
+        rgba(0, 68, 148, 1) 0%,
+        rgba(0, 68, 148, 0.9) 80%,
+        rgba(0, 68, 148, 0.8) 100%
+      ); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(
+        to right,
+        rgba(0, 68, 148, 1) 0%,
+        rgba(0, 68, 148, 0.9) 80%,
+        rgba(0, 68, 148, 0.8) 100%
+      ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004494', endColorstr='#cc004494',GradientType=1 ); /* IE6-9 */
+      /* stylelint-enable */
+    }
+  }
+
+  /* End Blue gradient */
 
   .ecl-page-header--highlight {
     padding-bottom: map-get($ecl-spacing, 'm');
