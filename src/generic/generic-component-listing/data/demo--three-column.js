@@ -68,5 +68,23 @@ module.exports = {
         alt: 'EU solidarity',
       },
     },
+    {
+      variant: 'navigation',
+      title: 'Jobs, growth and investment',
+      detail:
+        'Mollit et cupidatat fugiat consequat exercitation irure est enim in incididunt.',
+    },
+    {
+      variant: 'navigation',
+      title: 'Energy union and climate',
+      detail:
+        'Ad cillum qui anim amet ea dolore excepteur amet esse sunt duis labore ullamco enim.',
+    },
+    {
+      variant: 'navigation',
+      title: 'A stronger global actor',
+      detail:
+        'Proident enim excepteur voluptate cillum officia. Nisi ad mollit minim excepteur sunt officia exercitation dolore eiusmod est officia do laborum.',
+    },
   ],
 };
