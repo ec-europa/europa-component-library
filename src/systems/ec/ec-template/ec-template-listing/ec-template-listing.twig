@@ -352,6 +352,37 @@
       ]
     } %}
 
+    <h3 class="ecl-heading ecl-heading--h3">Navigation listing (one column)</h3>
+
+    {% include '@ecl/ec-component-listing' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'navigation',
+          title: 'Jobs, growth and investment',
+          detail: 'Mollit et cupidatat fugiat consequat exercitation irure est enim in incididunt.'
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Navigation listing (two columns)</h3>
+
+    {% include '@ecl/ec-component-listing' with {
+      variant: 'two-columns',
+      items: [
+        {
+          variant: 'navigation',
+          title: 'A stronger global actor',
+          detail: 'Proident enim excepteur voluptate cillum officia. Nisi ad mollit minim excepteur sunt officia exercitation dolore eiusmod est officia do laborum.'
+        },
+        {
+          variant: 'navigation',
+          title: 'Democratic change',
+          detail: 'Amet tempor laboris amet sit deserunt cupidatat esse officia. Anim commodo laborum ea quis ullamco velit enim velit nisi commodo reprehenderit.'
+        },
+      ]
+    } %}
+
     <h3 class="ecl-heading ecl-heading--h3">Navigation listing (three columns)</h3>
 
     {% include '@ecl/ec-component-listing' with {
@@ -389,6 +420,42 @@
         },
       ]
     } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Block listing (one column)</h3>
+
+     {% include '@ecl/ec-component-listing' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'block',
+          title: 'Contact the EU',
+          detail:
+            'Consectetur sint eiusmod ut Lorem consequat quis laboris sit irure est ad dolore ad.',
+        },
+      ]
+     } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Block listing (two columns)</h3>
+
+    {% include '@ecl/ec-component-listing' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'block',
+          title: 'EU by topic',
+          detail:
+            'Anim irure ipsum dolore anim est Lorem cupidatat occaecat est consectetur.',
+        },
+        {
+          variant: 'block',
+          title: 'Doing business',
+          detail:
+            'Ipsum cupidatat amet qui labore aliquip dolor. Pariatur amet esse excepteur exercitation magna do enim amet.',
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Block listing (three columns)</h3>
 
     {% include '@ecl/ec-component-listing' with {
       variant: 'three-columns',

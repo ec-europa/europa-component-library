@@ -31,5 +31,30 @@ module.exports = {
         alt: 'Acting Deputy Director-General Jack Doe',
       },
     },
+    { variant: '' },
+    {
+      variant: 'navigation',
+      title: 'Energy union and climate',
+      detail:
+        'Ad cillum qui anim amet ea dolore excepteur amet esse sunt duis labore ullamco enim.',
+    },
+    {
+      variant: 'navigation',
+      title: 'A stronger global actor',
+      detail:
+        'Proident enim excepteur voluptate cillum officia. Nisi ad mollit minim excepteur sunt officia exercitation dolore eiusmod est officia do laborum.',
+    },
+    {
+      variant: 'block',
+      title: 'Climate action',
+      detail:
+        'In eu consectetur aute incididunt quis quis do labore in ut consectetur.',
+    },
+    {
+      variant: 'block',
+      title: 'EU by topic',
+      detail:
+        'Anim irure ipsum dolore anim est Lorem cupidatat occaecat est consectetur.',
+    },
   ],
 };
