@@ -31,7 +31,16 @@ module.exports = {
         alt: 'Acting Deputy Director-General Jack Doe',
       },
     },
-    { variant: '' },
+    {
+      metas: ['Deputy Director-General'],
+      screen_reader: 'List item: Deputy Director-General Bill Doe',
+      title: 'Bill Doe',
+      href: '../../example.html#listing-thumb-4',
+      primary_image: {
+        src: '../../assets/demo_images/default_profile_image.png',
+        alt: 'Deputy Director-General',
+      },
+    },
     {
       variant: 'navigation',
       title: 'Energy union and climate',
