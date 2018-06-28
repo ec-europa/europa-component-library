@@ -2,6 +2,7 @@ const contextDefault = require('@ecl/generic-component-list-item/data/demo--defa
 const contextDate = require('@ecl/generic-component-list-item/data/demo--date');
 const contextThumbnail = require('@ecl/generic-component-list-item/data/demo--thumbnail');
 const contextHighlight = require('@ecl/generic-component-list-item/data/demo--highlight');
+const contextBlock = require('@ecl/generic-component-list-item/data/demo--block');
 const contextNavigation = require('@ecl/generic-component-list-item/data/demo--navigation');
 
 module.exports = {
@@ -44,6 +45,11 @@ module.exports = {
       name: 'navigation',
       label: 'Navigation list item',
       context: contextNavigation,
+    },
+    {
+      name: 'block',
+      label: 'Block list item',
+      context: contextBlock,
     },
   ],
 };
