@@ -167,12 +167,4 @@
       text-decoration: none;
     }
   }
-
-  /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-down(md) {
-    .ecl-list-item--navigation .ecl-list-item__link .ecl-list-item__title {
-      font-size: map-get($ecl-font-size, 's');
-      padding: map-get($ecl-spacing, 'xs') 0;
-    }
-  }
 }
