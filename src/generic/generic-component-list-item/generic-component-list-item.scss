@@ -103,6 +103,10 @@
     margin: 0 0 map-get($ecl-spacing, 's') 0;
     padding: 0;
 
+    .ecl-list-item__detail {
+      color: inherit;
+    }
+
     .ecl-list-item__link {
       background-color: map-get($ecl-colors, 'blue-100');
       color: inherit;
@@ -114,19 +118,15 @@
       color: #fff;
     }
 
+    .ecl-list-item__link:hover .ecl-list-item__title {
+      color: #fff;
+    }
+
     /* stylelint-disable-next-line no-descending-specificity */
     .ecl-list-item__title {
       color: inherit;
       font-size: map-get($ecl-font-size, 'm');
       margin: map-get($ecl-spacing, 'xxxs') 0 map-get($ecl-spacing, 'xxs');
-    }
-
-    .ecl-list-item__link:hover .ecl-list-item__title {
-      color: #fff;
-    }
-
-    .ecl-list-item__detail {
-      color: inherit;
     }
   }
 
@@ -147,16 +147,16 @@
   .ecl-list-item--navigation .ecl-list-item__link {
     border-top: 3px solid map-get($ecl-colors, 'yellow-100');
     padding: 0;
+  }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    .ecl-list-item__title {
-      font-size: map-get($ecl-font-size, 'm');
-      margin: 0;
-      padding: map-get($ecl-spacing, 'xs') 0 map-get($ecl-spacing, 'm');
-    }
-    .ecl-list-item__detail {
-      margin: 0 0 map-get($ecl-spacing, 'xs');
-    }
+  /* stylelint-disable-next-line no-descending-specificity */
+  .ecl-list-item--navigation .ecl-list-item__title {
+    font-size: map-get($ecl-font-size, 's');
+    margin: 0;
+    padding: map-get($ecl-spacing, 'xs') 0;
+  }
+  .ecl-list-item--navigation .ecl-list-item__detail {
+    margin: 0 0 map-get($ecl-spacing, 'xs');
   }
 
   .ecl-list-item--navigation .ecl-list-item__link:hover {
@@ -169,10 +169,10 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-down(md) {
-    .ecl-list-item--navigation .ecl-list-item__link .ecl-list-item__title {
-      font-size: map-get($ecl-font-size, 's');
-      padding: map-get($ecl-spacing, 'xs') 0;
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-list-item--navigation .ecl-list-item__title {
+      font-size: map-get($ecl-font-size, 'm');
+      padding: map-get($ecl-spacing, 'xs') 0 map-get($ecl-spacing, 'm');
     }
   }
 }
