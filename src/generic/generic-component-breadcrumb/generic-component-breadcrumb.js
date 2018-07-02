@@ -114,7 +114,11 @@ export const initBreadcrumb = ({
       ].setAttribute('aria-hidden', 'false');
 
       if (breadcrumbIsTooLarge(breadcrumbContainer)) {
+        // breadcrumb is too large, we hide the last segment
         hideSegment(breadcrumbContainer);
+      } else {
+        // check if there is another segment to be displayed
+        showSegment(breadcrumbContainer);
       }
     }
   }
