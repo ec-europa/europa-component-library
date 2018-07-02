@@ -3145,10 +3145,11 @@ right piece of content.</li>
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Parameters:
+    - "variant" (string) (default: 'default'): could be "basic" or "default"
     - "identity" (string) (default: ''): name of the site, i.e. "Digital single market"
     - "breadcrumb" (array)  (default: []): collection of @ecl/ec-component-link
     - "title" (string) (default: ''): page title
-    - "introduction" (string) (default: '')
+    - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
     - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -3161,6 +3162,7 @@ right piece of content.</li>
 #}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-page-header' with {
+  'variant': variant|<span class="hljs-keyword">default</span>('default'),
   'identity': identity|<span class="hljs-keyword">default</span>(''),
   'breadcrumb': breadcrumb|<span class="hljs-keyword">default</span>([]),
   'title': title|<span class="hljs-keyword">default</span>(''),
@@ -3207,7 +3209,7 @@ right piece of content.</li>
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-bb463ebb7328c51deda9b1f629d379b6-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header ecl-page-header--default"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumb"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumb"</span>&gt;</span>

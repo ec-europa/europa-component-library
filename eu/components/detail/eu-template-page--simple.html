@@ -1952,7 +1952,7 @@
         
         
         <li class="ecl-side-navigation__item"  data-role="item">
-          <a href="eu-component-page-header--default" class="ecl-side-navigation__link ">
+          <a href="eu-component-page-header--homepage" class="ecl-side-navigation__link ">
             
 
 <div class="Status Status--unlabelled">
@@ -1968,7 +1968,31 @@
 </div>
 
 
-            <span>Default</span>
+            <span>Homepage</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-side-navigation__item"  data-role="item">
+          <a href="eu-component-page-header--branded-homepage" class="ecl-side-navigation__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Branded Homepage</span>
           </a>
         </li>
         
@@ -3136,7 +3160,7 @@
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-site-header' with { 'languages': languages } %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-page-header' with { variant: 'default' }|<span class="hljs-keyword">merge</span>(page_header|<span class="hljs-keyword">default</span>({})) %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-page-header' with { variant: 'basic' }|<span class="hljs-keyword">merge</span>(page_header|<span class="hljs-keyword">default</span>({})) %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> menu is defined and menu is not empty %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-navigation-menu' with menu %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
@@ -3514,14 +3538,7 @@
         <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Business, Economy, Euro"</span>
       }
     ],
-    <span class="hljs-attr">"identity"</span>: <span class="hljs-string">"Digital single market"</span>,
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Business, Economy, Euro"</span>,
-    <span class="hljs-attr">"introduction"</span>: <span class="hljs-string">"EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules."</span>,
-    <span class="hljs-attr">"metas"</span>: [
-      <span class="hljs-string">"News article"</span>,
-      <span class="hljs-string">"6 July 2015"</span>,
-      <span class="hljs-string">"Brussels"</span>
-    ]
+    <span class="hljs-attr">"identity"</span>: <span class="hljs-string">"Digital single market"</span>
   },
   <span class="hljs-attr">"_demo"</span>: {
     <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n            ECL.initBreadcrumb();\n            ECL.dialogs({\n              dialogOverlayId: 'ecl-overlay-language-list',\n              triggerElementsSelector: '#ecl-lang-select-sites__overlay'\n            });\n          });"</span>
@@ -3671,7 +3688,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header ecl-page-header--basic"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">nav</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-breadcrumb"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"breadcrumb"</span>&gt;</span>
@@ -3695,18 +3712,6 @@
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__identity"</span>&gt;</span>
         Digital single market
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__meta"</span>&gt;</span>
-
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta ecl-meta--header"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>News article<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>6 July 2015<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-meta__item"</span>&gt;</span>Brussels<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__title"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h1 ecl-u-color-white"</span>&gt;</span>Business, Economy, Euro<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__intro"</span>&gt;</span>EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
