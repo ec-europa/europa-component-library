@@ -10,6 +10,10 @@ module.exports = {
     },
     {
       href: '../../example.html#',
+      label: 'Category',
+    },
+    {
+      href: '../../example.html#',
       label: 'Jobs, Growth and Investment',
     },
     {
