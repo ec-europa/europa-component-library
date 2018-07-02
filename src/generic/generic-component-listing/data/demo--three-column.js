@@ -86,5 +86,41 @@ module.exports = {
       detail:
         'Proident enim excepteur voluptate cillum officia. Nisi ad mollit minim excepteur sunt officia exercitation dolore eiusmod est officia do laborum.',
     },
+    {
+      variant: 'block',
+      title: 'Climate action',
+      detail:
+        'In eu consectetur aute incididunt quis quis do labore in ut consectetur.',
+    },
+    {
+      variant: 'block',
+      title: 'EU by topic',
+      detail:
+        'Anim irure ipsum dolore anim est Lorem cupidatat occaecat est consectetur.',
+    },
+    {
+      variant: 'block',
+      title: 'Doing business',
+      detail:
+        'Ipsum cupidatat amet qui labore aliquip dolor. Pariatur amet esse excepteur exercitation magna do enim amet.',
+    },
+    {
+      variant: 'block',
+      title: 'About the EU',
+      detail:
+        'Ut laborum ullamco tempor duis veniam elit duis exercitation id excepteur.',
+    },
+    {
+      variant: 'block',
+      title: 'The Questions Corner',
+      detail:
+        'Do in cupidatat ea duis id. In sunt irure minim aliquip. Mollit eu aliqua et quis velit do.',
+    },
+    {
+      variant: 'block',
+      title: 'Contact the EU',
+      detail:
+        'Consectetur sint eiusmod ut Lorem consequat quis laboris sit irure est ad dolore ad.',
+    },
   ],
 };
