@@ -1,4 +1,4 @@
-const variants = ['basic', 'default'];
+const variants = ['basic', 'homepage', 'branded-homepage'];
 
 describe('ecl-page-headers', () => {
   before(() => {

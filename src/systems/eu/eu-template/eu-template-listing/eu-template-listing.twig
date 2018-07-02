@@ -9,7 +9,7 @@
 
 {% include '@ecl/eu-component-site-header' %}
 
-{% include '@ecl/eu-component-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
+{% include '@ecl/eu-component-page-header' with { variant: 'basic' }|merge(page_header|default({})) %}
 {% if menu is defined and menu is not empty %}
   {% include '@ecl/eu-component-navigation-menu' with menu %}
 {% endif %}
