@@ -9,23 +9,33 @@ module.exports = {
   label: 'Page Headers',
   tags: ['organism'],
   status: 'ready',
+  default: 'homepage',
   variants: [
     {
-      name: 'default',
+      name: 'homepage',
       context: {
+        variant: 'homepage',
+        identity: 'Your gateway',
+        introduction: 'To the European Union',
+        background_image: '../../assets/demo_images/pexels-photo-335393@2x.png',
+      },
+    },
+    {
+      name: 'branded-homepage',
+      context: {
+        variant: 'branded-homepage',
         breadcrumb: breadcrumbSegments,
-        identity: 'Digital single market',
-        title: 'Business, Economy, Euro',
-        introduction:
-          'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
-        metas: ['News article', '6 July 2015', 'Brussels'],
+        identity: 'Your gateway',
+        introduction: 'To the European Union',
+        background_image: '../../assets/demo_images/pexels-photo-335393@2x.png',
       },
     },
     {
       name: 'basic',
       context: {
-        identity: 'Digital single market',
+        variant: 'basic',
         breadcrumb: breadcrumbSegments,
+        identity: 'Your gateway',
       },
     },
   ],
