@@ -19,4 +19,20 @@
 // Use generic mixin
 @include exports('eu-component-language-list') {
   @include ecl-language-list();
+
+  .ecl-language-list__wrapper {
+    background-color: map-get($ecl-colors, 'grey-15');
+  }
+
+  .ecl-language-list__button {
+    border-color: map-get($ecl-colors, 'grey-15');
+  }
+
+  .ecl-language-list__button--active:link {
+    text-decoration: underline;
+  }
+
+  .ecl-language-list--overlay .ecl-language-list__button {
+    border-color: rgba(0, 0, 0, 0.7); // same color as dialog overlay background
+  }
 }
