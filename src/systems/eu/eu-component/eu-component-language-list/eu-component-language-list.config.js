@@ -18,7 +18,10 @@ module.exports = {
           },
           languages,
           variant: 'splash',
-          logo: true,
+          logo: {
+            type: 'single',
+            title: 'European Union',
+          },
         }
       ),
     },
