@@ -205,6 +205,13 @@ module.exports = {
       },
     },
     {
+      name: 'gear',
+      label: 'Gear',
+      context: {
+        modifier: 'ecl-icon--gear',
+      },
+    },
+    {
       name: 'generic-lang',
       label: 'Generic language icon',
       context: {
