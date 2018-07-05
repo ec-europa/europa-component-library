@@ -3163,6 +3163,7 @@
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Parameters:
+    - "variant" (string) (default: ''): "", or "big"
     - "type" (string) (default: 'right'): "" or "right"
     - "title" (string) (default: 'European Union')
     - "href" (string) (default: '')
@@ -3177,6 +3178,7 @@
 #}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-logo' with {
+  'variant': variant|<span class="hljs-keyword">default</span>(''),
   'type': type|<span class="hljs-keyword">default</span>('right'),
   'title': title|<span class="hljs-keyword">default</span>('European Union'),
   'href': href|<span class="hljs-keyword">default</span>(''),
@@ -3700,8 +3702,8 @@
     <span class="hljs-attribute">background</span>: url(<span class="hljs-variable">$ecl-assets-path</span>+<span class="hljs-string">'images/logo.svg'</span>) no-repeat;
     <span class="hljs-attribute">background-size</span>: contain;
     <span class="hljs-attribute">display</span>: block;
-    <span class="hljs-attribute">height</span>: <span class="hljs-number">40px</span>;
-    <span class="hljs-attribute">width</span>: <span class="hljs-number">59px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">41px</span>;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">62px</span>;
   }
 
   <span class="hljs-selector-class">.ecl-logo--big</span> {
@@ -3722,6 +3724,7 @@
   );
 
   <span class="hljs-selector-class">.ecl-logo--logotype</span> {
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">41px</span>;
     <span class="hljs-attribute">width</span>: <span class="hljs-number">234px</span>;
   }
 
@@ -3735,8 +3738,8 @@
   <span class="hljs-comment">/* stylelint-disable-next-line order/order */</span>
   @<span class="hljs-keyword">include</span> ecl-media-breakpoint-up(md) {
     <span class="hljs-selector-class">.ecl-logo</span> {
-      <span class="hljs-attribute">height</span>: <span class="hljs-number">56px</span>;
-      <span class="hljs-attribute">width</span>: <span class="hljs-number">83px</span>;
+      <span class="hljs-attribute">height</span>: <span class="hljs-number">52px</span>;
+      <span class="hljs-attribute">width</span>: <span class="hljs-number">78px</span>;
     }
 
     <span class="hljs-selector-class">.ecl-logo--big</span> {
@@ -3745,6 +3748,7 @@
     }
 
     <span class="hljs-selector-class">.ecl-logo--logotype</span> {
+      <span class="hljs-attribute">height</span>: <span class="hljs-number">56px</span>;
       <span class="hljs-attribute">width</span>: <span class="hljs-number">325px</span>;
     }
   }

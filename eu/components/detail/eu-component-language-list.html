@@ -3165,7 +3165,12 @@ see the Language selector (page level) that locally overrules their selection.</
   Parameters:
     - "variant" (string) (default: 'splash'): can be 'splash' or 'overlay'
     - "link" (string) (default: '#'): the link for the lang-select-sites
-    - "logo" (boolean) (default: false): display or not the European Commission logo
+    - "logo" (object) (default: {}): object of type ecl-logo
+    {
+      "type" (string)
+    - "title" (string)
+    - "href" (string)
+    }
     - "languages" (array) (default: []): array of languages to display, format [
         {
           "href" (string),
@@ -3188,121 +3193,19 @@ see the Language selector (page level) that locally overrules their selection.</
         },
         ...
       ]
+    - "system" (string) (default: "generic")
 #}</span><span class="xml">
 
-</span><span class="hljs-comment">{# Internal properties #}</span><span class="xml">
-
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _variant = variant|<span class="hljs-keyword">default</span>('splash') %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _link = link|<span class="hljs-keyword">default</span>('#') %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _logo = logo|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _languages = languages|<span class="hljs-keyword">default</span>([]) %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _messages = {
-  'dismiss': 'Close',
-  'heading': 'Select your language'
-}|<span class="hljs-keyword">merge</span>(messages|<span class="hljs-keyword">default</span>({})) %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-language-list ecl-language-list--' ~ variant %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
-
-</span><span class="hljs-comment">{# Internal logic - Process properties #}</span><span class="xml">
-
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_classes is defined and extra_classes is not empty %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = _css_class ~ ' ' ~ extra_classes %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> attr in extra_attributes %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> languages_section %}</span><span class="xml">
-  <span class="hljs-tag">&lt;<span class="hljs-name">section</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _logo == true %}</span><span class="xml">
-      <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-bg-default ecl-u-pv-l"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-logo' with {
-            'extra_classes': 'ecl-logo--big ecl-u-mh-auto',
-            'title': 'European Commission'
-          } %}</span><span class="xml">
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><span class="hljs-template-variable">{{ _variant == 'splash' ? ' class="ecl-u-bg-primary ecl-u-pv-xl" id="main-content"' : '' }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-8 ecl-offset-lg-2"</span>&gt;</span>
-            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _variant == 'overlay' %}</span><span class="xml">
-              <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h2 ecl-dialog__title"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--generic-lang"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> </span><span class="hljs-template-variable">{{ _messages.heading }}</span><span class="xml">
-              <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
-                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> _lang in _languages %}</span><span class="xml">
-                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> loop.index0 == loop.length // 2 %}</span><span class="xml">
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-md-6"</span>&gt;</span>
-                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-button' with {
-                    'label': _lang.label ~ (_lang.is_active ? '&lt;span class="ecl-icon ecl-icon--check ecl-u-f-r"&gt;&lt;/span&gt;'),
-                    'href': _lang.href,
-                    'is_block': true,
-                    'extra_classes': 'ecl-language-list__button' ~ (_lang.is_active ? ' ecl-language-list__button--active'),
-                    'extra_attributes': [
-                      { 'name': 'lang', 'value': _lang.lang },
-                      { 'name': 'hreflang', 'value': _lang.hreflang },
-                      { 'name': 'rel', 'value': 'alternate' }
-                    ]
-                  } %}</span><span class="xml">
-                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _variant == 'overlay' %}</span><span class="xml">
-                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss ecl-message__dismiss--inverted"</span>&gt;</span></span><span class="hljs-template-variable">{{ _messages.dismiss }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endset</span></span> %}</span><span class="xml">
-
-</span><span class="hljs-comment">{# Print the result #}</span><span class="xml">
-
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes|<span class="hljs-keyword">raw</span> }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _variant == 'overlay' %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _selected_language = [] %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> _language in _languages %}</span><span class="xml">
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _language.is_active %}</span><span class="xml">
-        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _selected_language = _language %}</span><span class="xml">
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-    </span><span class="hljs-comment">{# Custom Dialog-overlay for the 'overlay' variant #}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ecl-overlay-language-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-dialog__overlay ecl-dialog__overlay--blue"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-lang-select-site' with {
-      'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
-      'extra_classes': 'ecl-link',
-      'link': _link,
-      'language': _selected_language.label,
-      'code': _selected_language.lang
-    } only %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ecl/eu-component-dialog' with {
-      'variant': 'wide',
-      'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide',
-      'dismiss': { 'hide': true },
-      'languages_section': languages_section
-    } only %}</span><span class="xml">
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> dialog_body %}</span><span class="xml">
-        </span><span class="hljs-template-variable">{{ languages_section }}</span><span class="xml">
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> _variant == 'splash' %}</span><span class="xml">
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-skip-link' with {
-      'href': '#main-content',
-      'label': 'Skip to main content'
-    } only %}</span><span class="xml">
-    </span><span class="hljs-template-variable">{{ languages_section }}</span><span class="xml">
-  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-language-list' with {
+  'variant': variant|<span class="hljs-keyword">default</span>('splash'),
+  'link': linf|<span class="hljs-keyword">default</span>('#'),
+  'logo': logo|<span class="hljs-keyword">default</span>({}),
+  'languages': languages|<span class="hljs-keyword">default</span>([]),
+  'messages': messages|<span class="hljs-keyword">default</span>({}),
+  'extra_classes': extra_classes|<span class="hljs-keyword">default</span>(''),
+  'extra_attributes': extra_attributes|<span class="hljs-keyword">default</span>([]),
+  'system': 'eu'
+} only %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -3331,10 +3234,10 @@ see the Language selector (page level) that locally overrules their selection.</
     <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-bg-default ecl-u-pv-l"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"banner"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
 
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype ecl-logo--big ecl-u-mh-auto"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"img"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"European Commission"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--splash ecl-u-mh-auto"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"img"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"European Union"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-bg-primary ecl-u-pv-xl"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main-content"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-language-list__wrapper"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"main-content"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-col-lg-8 ecl-offset-lg-2"</span>&gt;</span>
@@ -3449,6 +3352,22 @@ see the Language selector (page level) that locally overrules their selection.</
 <span class="hljs-comment">// Use generic mixin</span>
 @<span class="hljs-keyword">include</span> exports(<span class="hljs-string">'eu-component-language-list'</span>) {
   @<span class="hljs-keyword">include</span> ecl-language-list();
+
+  <span class="hljs-selector-class">.ecl-language-list__wrapper</span> {
+    <span class="hljs-attribute">background-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-15'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-language-list__button</span> {
+    <span class="hljs-attribute">border-color</span>: map-get(<span class="hljs-variable">$ecl-colors</span>, <span class="hljs-string">'grey-15'</span>);
+  }
+
+  <span class="hljs-selector-class">.ecl-language-list__button--active</span>:link {
+    <span class="hljs-attribute">text-decoration</span>: underline;
+  }
+
+  <span class="hljs-selector-class">.ecl-language-list--overlay</span> <span class="hljs-selector-class">.ecl-language-list__button</span> {
+    <span class="hljs-attribute">border-color</span>: rgba(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0.7</span>); <span class="hljs-comment">// same color as dialog overlay background</span>
+  }
 }
 </pre>
                             </code>
@@ -3466,7 +3385,7 @@ see the Language selector (page level) that locally overrules their selection.</
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">505 Bytes</span>
+                    <span class="Meta-value">910 Bytes</span>
                 </li>
             </ul>
         </div>

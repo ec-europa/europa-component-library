@@ -3103,6 +3103,7 @@ parameter.</p>
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-comment">{#
   Parameters:
+    - "variant" (string) (default: ''): "", or "big"
     - "type" (string) (default: ''): "", "below", "right"
     - "title" (string) (default: 'European Commission')
     - "href" (string) (default: '')
@@ -3117,6 +3118,7 @@ parameter.</p>
 #}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-logo' with {
+  'variant': variant|<span class="hljs-keyword">default</span>(''),
   'type': type|<span class="hljs-keyword">default</span>(''),
   'title': title|<span class="hljs-keyword">default</span>('European Commission'),
   'href': href|<span class="hljs-keyword">default</span>(''),
