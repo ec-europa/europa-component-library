@@ -1,5 +1,6 @@
 {#
   Parameters:
+    - "variant" (string) (default: ''): "", or "big"
     - "type" (string) (default: 'right'): "" or "right"
     - "title" (string) (default: 'European Union')
     - "href" (string) (default: '')
@@ -14,6 +15,7 @@
 #}
 
 {% include '@ecl/generic-component-logo' with {
+  'variant': variant|default(''),
   'type': type|default('right'),
   'title': title|default('European Union'),
   'href': href|default(''),
