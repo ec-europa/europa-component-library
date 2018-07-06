@@ -3170,7 +3170,13 @@
         },
         ...
       ]
-    - "system" (string) (default: "generic")
+    - "input_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-form-radio' with { system: 'eu' } %}</span><span class="xml"></span></pre>
