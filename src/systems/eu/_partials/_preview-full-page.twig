@@ -24,7 +24,7 @@
   } %}
   {% include '@ecl/eu-component-site-header' %}
   {% include '@ecl/eu-component-page-header' with {
-    variant: 'default',
+    variant: 'basic',
     identity: 'Search',
     breadcrumb: [
       { href: 'https://ec.europa.eu/commission/index_en', label: 'Home' },
@@ -37,10 +37,7 @@
 
   {% include '@ecl/eu-component-footer' with {
     custom_footer: {
-      identity: {
-        href: '../../example.html#homepage',
-        label: 'Site identification',
-      },
+      identity: 'Site identification',
       social_links: {
         label: 'Follow us:',
         links: [

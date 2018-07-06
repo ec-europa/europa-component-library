@@ -41,5 +41,17 @@ module.exports = {
       detail:
         '<small><span class="ecl-icon ecl-icon--location">Tallin, Estonia</span> <span class="ecl-icon ecl-icon--livestreaming ecl-u-ml-s">live streaming available</span></small>',
     },
+    {
+      variant: 'navigation',
+      title: 'A stronger global actor',
+      detail:
+        'Proident enim excepteur voluptate cillum officia. Nisi ad mollit minim excepteur sunt officia exercitation dolore eiusmod est officia do laborum.',
+    },
+    {
+      variant: 'block',
+      title: 'Climate action',
+      detail:
+        'In eu consectetur aute incididunt quis quis do labore in ut consectetur.',
+    },
   ],
 };

@@ -9,7 +9,7 @@
 
 {% include '@ecl/eu-component-site-header' %}
 
-{% include '@ecl/eu-component-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
+{% include '@ecl/eu-component-page-header' with { variant: 'basic' }|merge(page_header|default({})) %}
 {% if menu is defined and menu is not empty %}
   {% include '@ecl/eu-component-navigation-menu' with menu %}
 {% endif %}
@@ -336,15 +336,158 @@
         },
       ]
     } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Navigation listing (one column)</h3>
+
+    {% include '@ecl/eu-component-listing' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'navigation',
+          title: 'Jobs, growth and investment',
+          detail: 'Mollit et cupidatat fugiat consequat exercitation irure est enim in incididunt.'
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Navigation listing (two columns)</h3>
+
+    {% include '@ecl/eu-component-listing' with {
+      variant: 'two-columns',
+      items: [
+        {
+          variant: 'navigation',
+          title: 'A stronger global actor',
+          detail: 'Proident enim excepteur voluptate cillum officia. Nisi ad mollit minim excepteur sunt officia exercitation dolore eiusmod est officia do laborum.'
+        },
+        {
+          variant: 'navigation',
+          title: 'Democratic change',
+          detail: 'Amet tempor laboris amet sit deserunt cupidatat esse officia. Anim commodo laborum ea quis ullamco velit enim velit nisi commodo reprehenderit.'
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Navigation listing (three columns)</h3>
+
+    {% include '@ecl/eu-component-listing' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'navigation',
+          title: 'Jobs, growth and investment',
+          detail: 'Mollit et cupidatat fugiat consequat exercitation irure est enim in incididunt.'
+        },
+        {
+          variant: 'navigation',
+          title: 'Energy union and climate',
+          detail: 'Ad cillum qui anim amet ea dolore excepteur amet esse sunt duis labore ullamco enim.'
+        },
+        {
+          variant: 'navigation',
+          title: 'A stronger global actor',
+          detail: 'Proident enim excepteur voluptate cillum officia. Nisi ad mollit minim excepteur sunt officia exercitation dolore eiusmod est officia do laborum.'
+        },
+        {
+          variant: 'navigation',
+          title: 'Democratic change',
+          detail: 'Amet tempor laboris amet sit deserunt cupidatat esse officia. Anim commodo laborum ea quis ullamco velit enim velit nisi commodo reprehenderit.'
+        },
+        {
+          variant: 'navigation',
+          title: 'Justice and fundamental rights',
+          detail: 'Duis pariatur do nostrud consectetur nisi anim.'
+        },
+        {
+          variant: 'navigation',
+          title: 'The 2018 Work Programme',
+          detail: 'Elit amet in non adipisicing irure in cupidatat enim aliqua proident laborum.'
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Block listing (one column)</h3>
+
+     {% include '@ecl/eu-component-listing' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'block',
+          title: 'Contact the EU',
+          detail:
+            'Consectetur sint eiusmod ut Lorem consequat quis laboris sit irure est ad dolore ad.',
+        },
+      ]
+     } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Block listing (two columns)</h3>
+
+    {% include '@ecl/eu-component-listing' with {
+      variant: 'three-columns',
+      items: [
+        {
+          variant: 'block',
+          title: 'EU by topic',
+          detail:
+            'Anim irure ipsum dolore anim est Lorem cupidatat occaecat est consectetur.',
+        },
+        {
+          variant: 'block',
+          title: 'Doing business',
+          detail:
+            'Ipsum cupidatat amet qui labore aliquip dolor. Pariatur amet esse excepteur exercitation magna do enim amet.',
+        },
+      ]
+    } %}
+
+    <h3 class="ecl-heading ecl-heading--h3">Block listing (three columns)</h3>
+
+    {% include '@ecl/eu-component-listing' with {
+      variant: 'three-columns',
+      items: [{
+        variant: 'block',
+        title: 'Climate action',
+        detail:
+          'In eu consectetur aute incididunt quis quis do labore in ut consectetur.',
+      },
+      {
+        variant: 'block',
+        title: 'EU by topic',
+        detail:
+          'Anim irure ipsum dolore anim est Lorem cupidatat occaecat est consectetur.',
+      },
+      {
+        variant: 'block',
+        title: 'Doing business',
+        detail:
+          'Ipsum cupidatat amet qui labore aliquip dolor. Pariatur amet esse excepteur exercitation magna do enim amet.',
+      },
+      {
+        variant: 'block',
+        title: 'About the EU',
+        detail:
+          'Ut laborum ullamco tempor duis veniam elit duis exercitation id excepteur.',
+      },
+      {
+        variant: 'block',
+        title: 'The Questions Corner',
+        detail:
+          'Do in cupidatat ea duis id. In sunt irure minim aliquip. Mollit eu aliqua et quis velit do.',
+      },
+      {
+        variant: 'block',
+        title: 'Contact the EU',
+        detail:
+          'Consectetur sint eiusmod ut Lorem consequat quis laboris sit irure est ad dolore ad.',
+      },
+    ]
+  } %}
   </div>
 </main>
 
 {% include '@ecl/eu-component-footer' with {
   custom_footer: {
-    identity: {
-      href: '../../example.html#homepage',
-      label: 'Site identification',
-    },
+    identity: 'Site identification',
     social_links: {
       label: 'Follow us:',
       links: [

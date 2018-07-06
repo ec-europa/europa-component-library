@@ -1,10 +1,10 @@
 {#
   Parameters:
+    - "variant" (string) (default: 'basic'): could be "basic", "homepage" or "branded-homepage"
     - "identity" (string) (default: ''): name of the site, i.e. "Digital single market"
     - "breadcrumb" (array)  (default: []): collection of @ecl/eu-component-link
-    - "title" (string) (default: ''): page title
-    - "introduction" (string) (default: '')
-    - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
+    - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
+    - "background_image" (default: ''): path to background image
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -16,11 +16,11 @@
 #}
 
 {% include '@ecl/generic-component-page-header' with {
+  'variant': variant|default('basic'),
   'identity': identity|default(''),
   'breadcrumb': breadcrumb|default([]),
-  'title': title|default(''),
   'introduction': introduction|default(''),
-  'metas': metas|default([]),
+  'background_image': background_image|default(),
   'extra_classes': extra_classes|default(''),
   'extra_attributes': extra_attributes|default([]),
   'system': 'eu'

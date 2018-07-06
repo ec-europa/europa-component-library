@@ -10,6 +10,7 @@ export const initBreadcrumb = ({
   segmentSelector: segmentSelector = '.ecl-breadcrumb__segment',
   segmentFirstSelector: segmentFirstSelector = '.ecl-breadcrumb__segment--first',
   segmentVisibleSelector: segmentVisibleSelector = '.ecl-breadcrumb__segment:not(.ecl-breadcrumb__segment--first):not(.ecl-breadcrumb__segment--ellipsis):not(.ecl-breadcrumb__segment--last):not([aria-hidden="true"])',
+  segmentHiddenSelector: segmentHiddenSelector = '.ecl-breadcrumb__segment[aria-hidden="true"]:not(.ecl-breadcrumb__segment--ellipsis)',
   ellipsisSelector: ellipsisSelector = '.ecl-breadcrumb__segment--ellipsis',
 } = {}) => {
   if (
@@ -20,14 +21,6 @@ export const initBreadcrumb = ({
     return null;
 
   // ACTIONS
-  function initSegment(breadcrumbContainer) {
-    // add utility class to all segments
-    const breadcrumbSegments = queryAll(segmentSelector, breadcrumbContainer);
-    breadcrumbSegments.forEach(breadcrumbSegment => {
-      breadcrumbSegment.classList.add('ecl-u-aria');
-    });
-  }
-
   function initEllipsis(breadcrumbContainer) {
     // add ellipsis to DOM
     const breadcrumbFirst = queryAll(segmentFirstSelector, breadcrumbContainer);
@@ -40,7 +33,7 @@ export const initBreadcrumb = ({
       ellipsis.classList.add('ecl-breadcrumb__link');
       ellipsis.classList.add('ecl-breadcrumb__expand-btn');
       ellipsis.setAttribute('href', '#');
-      ellipsis.innerHTML = '...';
+      ellipsis.innerHTML = '…';
 
       const listItem = document.createElement('li');
       listItem.classList.add('ecl-breadcrumb__segment');
@@ -53,11 +46,18 @@ export const initBreadcrumb = ({
     });
   }
 
-  function displayEllipsis(breadcrumbContainer) {
+  function toggleEllipsis(breadcrumbContainer) {
+    // get hidden segments
+    const breadcrumbHiddenSegments = queryAll(
+      segmentHiddenSelector,
+      breadcrumbContainer
+    );
+    const hidden = breadcrumbHiddenSegments.length > 0 ? 'false' : 'true';
+
     // display ellipsis when needed
     const breadcrumbEllipsis = queryAll(ellipsisSelector, breadcrumbContainer);
     breadcrumbEllipsis.forEach(ellipsis => {
-      ellipsis.setAttribute('aria-hidden', 'false');
+      ellipsis.setAttribute('aria-hidden', hidden);
     });
   }
 
@@ -67,8 +67,10 @@ export const initBreadcrumb = ({
       breadcrumbContainer.getBoundingClientRect().width
     );
 
-    // get displayed segments width
+    // get displayed segments
     const breadcrumbSegments = queryAll(segmentSelector, breadcrumbContainer);
+
+    // get segments width
     let segmentWidth = 0;
     breadcrumbSegments.forEach(breadcrumbSegment => {
       segmentWidth += Math.ceil(
@@ -80,18 +82,43 @@ export const initBreadcrumb = ({
   }
 
   function hideSegment(breadcrumbContainer) {
-    // hide segments if needed
+    // get visible segments
     const breadcrumbVisibleSegments = queryAll(
       segmentVisibleSelector,
       breadcrumbContainer
     );
 
-    if (breadcrumbVisibleSegments.length > 0) {
+    // hide segments if needed
+    // we do not hide the last two segments
+    if (breadcrumbVisibleSegments.length > 1) {
       breadcrumbVisibleSegments[0].setAttribute('aria-hidden', 'true');
 
       // check if there is another segment to be hidden
       if (breadcrumbIsTooLarge(breadcrumbContainer)) {
         hideSegment(breadcrumbContainer);
+      }
+    }
+  }
+
+  function showSegment(breadcrumbContainer) {
+    // get hidden segments
+    const breadcrumbHiddenSegments = queryAll(
+      segmentHiddenSelector,
+      breadcrumbContainer
+    );
+
+    // show segments if there is enough space
+    if (breadcrumbHiddenSegments.length > 0) {
+      breadcrumbHiddenSegments[
+        breadcrumbHiddenSegments.length - 1
+      ].setAttribute('aria-hidden', 'false');
+
+      if (breadcrumbIsTooLarge(breadcrumbContainer)) {
+        // breadcrumb is too large, we hide the last segment
+        hideSegment(breadcrumbContainer);
+      } else {
+        // check if there is another segment to be displayed
+        showSegment(breadcrumbContainer);
       }
     }
   }
@@ -111,10 +138,13 @@ export const initBreadcrumb = ({
   }
 
   function eventResize(breadcrumbContainer) {
+    // check if there are segments to be hidden or shown
     if (breadcrumbIsTooLarge(breadcrumbContainer)) {
       hideSegment(breadcrumbContainer);
-      displayEllipsis(breadcrumbContainer);
+    } else {
+      showSegment(breadcrumbContainer);
     }
+    toggleEllipsis(breadcrumbContainer);
   }
 
   // SETUP
@@ -180,7 +210,6 @@ export const initBreadcrumb = ({
   function init() {
     if (breadcrumbContainers.length) {
       breadcrumbContainers.forEach(breadcrumbContainer => {
-        initSegment(breadcrumbContainer);
         initEllipsis(breadcrumbContainer);
         bindBreadcrumbEvents(breadcrumbContainer);
 
