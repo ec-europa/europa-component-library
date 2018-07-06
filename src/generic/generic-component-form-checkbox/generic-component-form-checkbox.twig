@@ -35,7 +35,6 @@
 {% set _is_disabled = is_disabled|default(false) %}
 {% set _system = system|default('generic') %}
 {% set _css_class = 'ecl-checkbox' %}
-{% set _extra_attributes = '' %}
 {% set _input_attributes = '' %}
 
 {# Internal logic - Process properties #}
@@ -50,12 +49,6 @@
 
 {% if extra_classes is defined and extra_classes is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
 {% endif %}
 
 {% if input_attributes is defined and input_attributes is not empty and input_attributes is iterable %}
@@ -80,9 +73,9 @@
   _is_disabled: _is_disabled,
   _system: _system
 } only %}
-  {% block label %}
+  {% block label %}{% spaceless %}
     <input class="ecl-checkbox__input ecl-u-sr-only" type="checkbox" id="{{ _id }}" value="{{ _value }}" name="{{ _name }}"{{ _checked ? ' checked' : '' }}{{ (_is_disabled is defined and _is_disabled == true) ? ' disabled' : '' }}{{ _input_attributes|raw }} />
     <span class="ecl-checkbox__label">{{ _label }}</span>
-  {% endblock %}
+  {% endspaceless %}{% endblock %}
 {% endembed %}
 {% endspaceless %}
