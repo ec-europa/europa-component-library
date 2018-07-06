@@ -3001,8 +3001,8 @@
   'href': 'https://ec.europa.eu',
   'title': 'European Commission',
 } %}</span><span class="xml"></span></pre></code><h2 id="ec-logotype">EC logotype</h2>
-<p>EC logo with text. Add <code>logo--logotype</code> class to use it:</p>
-<code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"European Commission"</span>&gt;</span>
+<p>EC logo with text. Add <code>ecl-logo--logotype</code> class to use it:</p>
+<code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"European Commission"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre></code><p>Or using Twig:</p>
 <code class="lang-twig"><pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-logo' with {
@@ -3010,8 +3010,8 @@
   'title': 'European Commission',
   'type': 'right',
 } %}</span><span class="xml"></span></pre></code><h2 id="ec-logotype-with-text-below-the-logo">EC logotype with text below the logo</h2>
-<p>EC logo with text below. Add <code>logo--logotypebelow</code> class to use it:</p>
-<code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"logo logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"European Commission"</span>&gt;</span>
+<p>EC logo with text below. Add <code>ecl-logo--logotypebelow</code> class to use it:</p>
+<code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"European Commission"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre></code><p>Or using Twig:</p>
 <code class="lang-twig"><pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-logo' with {
@@ -3134,289 +3134,634 @@ parameter.</p>
         
         
             <pre>
-<span class="hljs-comment">/* Bulgarian */</span>
+<span class="hljs-comment">/* Default (no language) */</span>
+{
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Bulgarian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"bg"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* English */</span>
+<span class="hljs-comment">/* Bulgarian Below */</span>
 {
   <span class="hljs-attr">"global"</span>: {
-    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"en"</span>
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"bg"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Czech */</span>
+<span class="hljs-comment">/* Czech Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"cs"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Danish */</span>
+<span class="hljs-comment">/* Czech Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"cs"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Danish Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"da"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* German */</span>
+<span class="hljs-comment">/* Danish Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"da"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* German Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"de"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Estonian */</span>
+<span class="hljs-comment">/* German Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"de"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Estonian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"et"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Greek */</span>
+<span class="hljs-comment">/* Estonian Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"et"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Greek Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"el"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Spanish */</span>
+<span class="hljs-comment">/* Greek Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"el"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* English Right */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"en"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* English Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"en"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Spanish Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"es"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* French */</span>
+<span class="hljs-comment">/* Spanish Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"es"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* French Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fr"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Irish Gaeilge */</span>
+<span class="hljs-comment">/* French Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fr"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Irish Gaeilge Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ga"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Croatian */</span>
+<span class="hljs-comment">/* Irish Gaeilge Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ga"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Croatian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"hr"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Italian */</span>
+<span class="hljs-comment">/* Croatian Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"hr"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Italian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"it"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Latvian */</span>
+<span class="hljs-comment">/* Italian Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"it"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Latvian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"lv"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Lithuanian */</span>
+<span class="hljs-comment">/* Latvian Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"lv"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Lithuanian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"lt"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Hungarian */</span>
+<span class="hljs-comment">/* Lithuanian Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"lt"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Hungarian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"hu"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Maltese */</span>
+<span class="hljs-comment">/* Hungarian Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"hu"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Maltese Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"mt"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Dutch */</span>
+<span class="hljs-comment">/* Maltese Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"mt"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Dutch Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"nl"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Polish */</span>
+<span class="hljs-comment">/* Dutch Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"nl"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Polish Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"pl"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Portuguese */</span>
+<span class="hljs-comment">/* Polish Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"pl"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Portuguese Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"pt"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Romanian */</span>
+<span class="hljs-comment">/* Portuguese Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"pt"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Romanian Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ro"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Slovak */</span>
+<span class="hljs-comment">/* Romanian Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"ro"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Slovak Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sk"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Slovene */</span>
+<span class="hljs-comment">/* Slovak Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sk"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Slovene Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sl"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Finnish */</span>
+<span class="hljs-comment">/* Slovene Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sl"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Finnish Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fi"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }
 
 </pre>
         
             <pre>
-<span class="hljs-comment">/* Swedish */</span>
+<span class="hljs-comment">/* Finnish Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"fi"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Swedish Right */</span>
 {
   <span class="hljs-attr">"global"</span>: {
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sv"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Swedish Below */</span>
+{
+  <span class="hljs-attr">"global"</span>: {
+    <span class="hljs-attr">"language"</span>: <span class="hljs-string">"sv"</span>
+  },
+  <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"below"</span>
 }
 
 </pre>
@@ -3431,171 +3776,248 @@ parameter.</p>
     <code class="Code Code--lang-html">
         
         
-            <pre><span class="hljs-comment">&lt;!-- Bulgarian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Default (no language) --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- English --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Bulgarian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Czech --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Bulgarian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Danish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Czech Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- German --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Czech Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Estonian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Danish Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Greek --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Danish Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Spanish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- German Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- French --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- German Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Irish Gaeilge --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Estonian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Croatian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Estonian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Italian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Greek Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Latvian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Greek Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Lithuanian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- English Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Hungarian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- English Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Maltese --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Spanish Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Dutch --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Spanish Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Polish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- French Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Portuguese --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- French Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Romanian --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Irish Gaeilge Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Slovak --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Irish Gaeilge Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Slovene --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Croatian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Finnish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Croatian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         
-            <pre><span class="hljs-comment">&lt;!-- Swedish --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <pre><span class="hljs-comment">&lt;!-- Italian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Italian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Latvian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Latvian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Lithuanian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Lithuanian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Hungarian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Hungarian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Maltese Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Maltese Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Dutch Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Dutch Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Polish Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Polish Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Portuguese Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Portuguese Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Romanian Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Romanian Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Slovak Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Slovak Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Slovene Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Slovene Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Finnish Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Finnish Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Swedish Right --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Swedish Below --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotypebelow"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 
 </pre>
         

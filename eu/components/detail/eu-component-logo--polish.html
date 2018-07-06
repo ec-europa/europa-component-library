@@ -3083,10 +3083,10 @@
 <code class="lang-html"><pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"European Commission"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>European Commission<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre></code><p>Or using Twig:</p>
-<code class="lang-twig"><pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-logo' with {
-  'type': type|<span class="hljs-keyword">default</span>('right'),
+<code class="lang-twig"><pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/eu-component-logo' with {
   'title': 'European Union',
-  'href': 'https://europa.eu'
+  'href': 'https://europa.eu',
+  'type': 'right'
 } only %}</span><span class="xml"></span></pre></code>
             
           </div>
@@ -3198,7 +3198,8 @@
     <span class="hljs-attr">"language"</span>: <span class="hljs-string">"pl"</span>
   },
   <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#top"</span>,
-  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Home"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"right"</span>
 }</pre>
             
         
@@ -3210,9 +3211,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-a2c2598d492d6ef5c9f22d062729d41f-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../example.html#top"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-logo ecl-logo--logotype"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Home"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span>Home<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre>
         
     </code>
 </div>
