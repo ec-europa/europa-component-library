@@ -1,15 +1,38 @@
 const languages = require('./lang.json');
 
-const variants = languages.map(({ id, name }) => ({
-  name,
-  context: {
-    global: {
-      language: id,
+const variants = [
+  {
+    name: 'default',
+    label: 'Default (no language)',
+    context: {
+      href: '../../example.html#top',
+      title: 'Home',
+      type: ' ',
     },
-    href: '../../example.html#top',
-    title: 'Home',
   },
-}));
+  {
+    name: 'big',
+    label: 'Big logo (no language)',
+    context: {
+      href: '../../example.html#top',
+      title: 'Home',
+      variant: 'big',
+      type: ' ',
+    },
+  },
+].concat(
+  ...languages.map(({ id, name }) => ({
+    name,
+    context: {
+      global: {
+        language: id,
+      },
+      href: '../../example.html#top',
+      title: 'Home',
+      type: 'right',
+    },
+  }))
+);
 
 module.exports = {
   title: 'Logos',
@@ -21,16 +44,18 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
-      <div class="language-${item.context.global.language}">\n
-        <a href="${
-          item.context.href
-        }" class="ecl-logo ecl-logo--logotype" title="${item.context.title}">
-          <span class="ecl-u-sr-only">${item.context.title}</span>
-        </a>
+      ${
+        item.context.global && item.context.global.language
+          ? `<div class="language-${
+              item.context.global.language
+            } ecl-u-mt-l">\n`
+          : `<div class="ecl-u-mt-l">\n`
+      }
+        <h3 class="ecl-heading ecl-heading--h3">${item.label}\n</h3>\n
+        ${markup}
       </div>
       <!-- End: @${item.handle} -->\n
     `;
   },
-  default: 'english',
   variants,
 };
