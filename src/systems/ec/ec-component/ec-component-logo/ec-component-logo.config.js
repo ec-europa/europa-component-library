@@ -8,6 +8,7 @@ const variants = languages.map(({ id, name }) => ({
     },
     href: '../../example.html#top',
     title: 'Home',
+    type: 'right',
   },
 }));
 

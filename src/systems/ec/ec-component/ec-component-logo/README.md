@@ -19,10 +19,10 @@ Or using Twig:
 
 ## EC logotype
 
-EC logo with text. Add `logo--logotype` class to use it:
+EC logo with text. Add `ecl-logo--logotype` class to use it:
 
 ```html
-<a href="https://ec.europa.eu" class="logo logo--logotype" title="European Commission">
+<a href="https://ec.europa.eu" class="ecl-logo ecl-logo--logotype" title="European Commission">
   <span class="ecl-u-sr-only">European Commission</span>
 </a>
 ```
@@ -39,10 +39,10 @@ Or using Twig:
 
 ## EC logotype with text below the logo
 
-EC logo with text below. Add `logo--logotypebelow` class to use it:
+EC logo with text below. Add `ecl-logo--logotypebelow` class to use it:
 
 ```html
-<a href="https://ec.europa.eu" class="logo logo--logotypebelow" title="European Commission">
+<a href="https://ec.europa.eu" class="ecl-logo ecl-logo--logotypebelow" title="European Commission">
   <span class="ecl-u-sr-only">European Commission</span>
 </a>
 ```
