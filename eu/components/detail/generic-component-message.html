@@ -3154,7 +3154,8 @@
     - "messages" (array) (default: []): array of string messages
     - "title" (string) (default: '')
     - "dismiss" (boolean) (default: false)
-    - "dismiss_label" (string) (default: 'Dismiss this alert')
+    - "dismiss_label" (string) (default: 'Close this message')
+    - "dismiss_text" (string) (default: 'Close)
     - "modifier" (string) (default: ''): "", "warning", "success", "error" or "live"
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -3172,7 +3173,8 @@
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _messages = messages|<span class="hljs-keyword">default</span>([]) %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _title = title|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dismiss = dismiss|<span class="hljs-keyword">default</span>(false) %}</span><span class="xml">
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dismiss_label = dismiss_label|<span class="hljs-keyword">default</span>('Dismiss this alert') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dismiss_label = dismiss_label|<span class="hljs-keyword">default</span>('Close this message') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _dismiss_text = dismiss_text|<span class="hljs-keyword">default</span>('Close') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _modifier = modifier|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _css_class = 'ecl-message' %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _extra_attributes = '' %}</span><span class="xml">
@@ -3198,7 +3200,7 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _css_class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span></span></span><span class="hljs-template-variable">{{ _extra_attributes|<span class="hljs-keyword">raw</span> }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-u-sr-only"</span>&gt;</span></span><span class="hljs-template-variable">{{ _screen_reader_description }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _dismiss == true %}</span><span class="xml">
-    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dismiss_label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__dismiss"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ _dismiss_label }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ _dismiss_text }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _title is not empty %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-message__title"</span>&gt;</span></span><span class="hljs-template-variable">{{ _title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
