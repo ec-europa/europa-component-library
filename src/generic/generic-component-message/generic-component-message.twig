@@ -4,7 +4,8 @@
     - "messages" (array) (default: []): array of string messages
     - "title" (string) (default: '')
     - "dismiss" (boolean) (default: false)
-    - "dismiss_label" (string) (default: 'Dismiss this alert')
+    - "dismiss_label" (string) (default: 'Close this message')
+    - "dismiss_text" (string) (default: 'Close)
     - "modifier" (string) (default: ''): "", "warning", "success", "error" or "live"
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -22,7 +23,8 @@
 {% set _messages = messages|default([]) %}
 {% set _title = title|default('') %}
 {% set _dismiss = dismiss|default(false) %}
-{% set _dismiss_label = dismiss_label|default('Dismiss this alert') %}
+{% set _dismiss_label = dismiss_label|default('Close this message') %}
+{% set _dismiss_text = dismiss_text|default('Close') %}
 {% set _modifier = modifier|default('') %}
 {% set _css_class = 'ecl-message' %}
 {% set _extra_attributes = '' %}
@@ -48,7 +50,7 @@
 <div class="{{ _css_class }}" role="alert"{{ _extra_attributes|raw }}>
   <span class="ecl-u-sr-only">{{ _screen_reader_description }}</span>
   {% if _dismiss == true %}
-    <button type="button" class="ecl-message__dismiss" aria-label="{{ _dismiss_label }}">&times;</button>
+    <button type="button" class="ecl-message__dismiss" aria-label="{{ _dismiss_label }}">{{ _dismiss_text }}</button>
   {% endif %}
   {% if _title is not empty %}
     <div class="ecl-message__title">{{ _title }}</div>

@@ -15,6 +15,13 @@
         },
         ...
       ]
+    - "input_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
     - "system" (string) (default: "generic")
 #}
 
@@ -29,7 +36,7 @@
 {% set _has_error = has_error|default(false) %}
 {% set _system = system|default('generic') %}
 {% set _css_class = 'ecl-radio' %}
-{% set _extra_attributes = '' %}
+{% set _input_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
@@ -45,17 +52,28 @@
   {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
 {% endif %}
 
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+{% if input_attributes is defined and input_attributes is not empty and input_attributes is iterable %}
+  {% for attr in input_attributes %}
+    {% set _input_attributes = _input_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
 {% endif %}
 
 {# Print the result #}
 
-{% embed '@ecl/' ~ _system ~ '-component-form-label' with { 'for': _id, 'extra_classes': _css_class, 'extra_attributes': _extra_attributes, _id: _id, _value: _value, _name: _name, _label: _label, _checked: _checked, _is_disabled: _is_disabled, _system: _system } only %}
+{% embed '@ecl/' ~ _system ~ '-component-form-label' with {
+  'for': _id,
+  'extra_classes': _css_class,
+  'extra_attributes': extra_attributes,
+  _id: _id,
+  _value: _value,
+  _name: _name,
+  _label: _label,
+  _checked: _checked,
+  _is_disabled: _is_disabled,
+  _system: _system
+} only %}
   {% block label %}{% spaceless %}
-    <input class="ecl-radio__input ecl-u-sr-only" type="radio" id="{{ _id }}" value="{{ _value }}" name="{{ _name }}"{{ _checked ? ' checked' : '' }}{{ (_is_disabled is defined and _is_disabled == true) ? ' disabled' : '' }} />
+    <input class="ecl-radio__input ecl-u-sr-only" type="radio" id="{{ _id }}" value="{{ _value }}" name="{{ _name }}"{{ _checked ? ' checked' : '' }}{{ (_is_disabled is defined and _is_disabled == true) ? ' disabled' : '' }}{{ _input_attributes|raw }} />
     <span class="ecl-radio__label">{{ _label }}</span>
   {% endspaceless %}{% endblock %}
 {% endembed %}
