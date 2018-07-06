@@ -1,16 +1,32 @@
 const languages = require('./lang.json');
 
-const variants = languages.map(({ id, name }) => ({
-  name,
-  context: {
-    global: {
-      language: id,
+const variants = [].concat(
+  [],
+  ...languages.map(({ id, name }) => [
+    {
+      name: `${name}-right`,
+      context: {
+        global: {
+          language: id,
+        },
+        href: '../../example.html#top',
+        title: 'Home',
+        type: 'right',
+      },
     },
-    href: '../../example.html#top',
-    title: 'Home',
-    type: 'right',
-  },
-}));
+    {
+      name: `${name}-below`,
+      context: {
+        global: {
+          language: id,
+        },
+        href: '../../example.html#top',
+        title: 'Home',
+        type: 'below',
+      },
+    },
+  ])
+);
 
 module.exports = {
   title: 'Logos',
@@ -20,7 +36,8 @@ module.exports = {
   collated: true,
   hide: true,
   collator(markup, item) {
-    return `
+    return item.context.global
+      ? `
       <!-- Start: @${item.handle} -->\n
       <div class="clearfix">
         <div class="language-${item.context.global.language}">\n
@@ -32,15 +49,16 @@ module.exports = {
           <a href="${
             item.context.href
           }" class="ecl-logo ecl-logo--logotypebelow" title="${
-      item.context.title
-    }">
+          item.context.title
+        }">
             <span class="ecl-u-sr-only">${item.context.title}</span>
           </a>
         </div>
       </div>\n
       <!-- End: @${item.handle} -->\n
-    `;
+    `
+      : '';
   },
-  default: 'english',
+  // default: 'english',
   variants,
 };
