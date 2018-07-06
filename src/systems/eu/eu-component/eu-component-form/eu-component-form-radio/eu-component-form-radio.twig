@@ -15,7 +15,13 @@
         },
         ...
       ]
-    - "system" (string) (default: "generic")
+    - "input_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
 #}
 
 {% include '@ecl/generic-component-form-radio' with { system: 'eu' } %}
