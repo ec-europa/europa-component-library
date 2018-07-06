@@ -1,7 +1,15 @@
 const languages = require('./lang.json');
 
-const variants = [].concat(
-  [],
+const variants = [
+  {
+    name: 'default',
+    label: 'Default (no language)',
+    context: {
+      href: '../../example.html#top',
+      title: 'Home',
+    },
+  },
+].concat(
   ...languages.map(({ id, name }) => [
     {
       name: `${name}-right`,
@@ -36,29 +44,17 @@ module.exports = {
   collated: true,
   hide: true,
   collator(markup, item) {
-    return item.context.global
-      ? `
+    return `
       <!-- Start: @${item.handle} -->\n
-      <div class="clearfix">
-        <div class="language-${item.context.global.language}">\n
-          <a href="${
-            item.context.href
-          }" class="ecl-logo ecl-logo--logotype" title="${item.context.title}">
-            <span class="ecl-u-sr-only">${item.context.title}</span>
-          </a>
-          <a href="${
-            item.context.href
-          }" class="ecl-logo ecl-logo--logotypebelow" title="${
-          item.context.title
-        }">
-            <span class="ecl-u-sr-only">${item.context.title}</span>
-          </a>
-        </div>
-      </div>\n
+      ${
+        item.context.global && item.context.global.language
+          ? `<div class="language-${item.context.global.language}">\n`
+          : `<div>\n`
+      }
+        ${markup}
+      </div>
       <!-- End: @${item.handle} -->\n
-    `
-      : '';
+    `;
   },
-  // default: 'english',
   variants,
 };
