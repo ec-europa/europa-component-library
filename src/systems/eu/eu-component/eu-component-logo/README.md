@@ -11,9 +11,9 @@ Default EU logo.
 Or using Twig:
 
 ```twig
-{% include '@ecl/generic-component-logo' with {
-  'type': type|default('right'),
+{% include '@ecl/eu-component-logo' with {
   'title': 'European Union',
-  'href': 'https://europa.eu'
+  'href': 'https://europa.eu',
+  'type': 'right'
 } only %}
 ```

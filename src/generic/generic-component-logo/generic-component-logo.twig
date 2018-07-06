@@ -49,9 +49,7 @@
 {# Print the result #}
 
 {% if _href is not empty %}
-  <a href="{{ _href }}" class="{{ _css_class }}" title="{{ _title }}"{{ _extra_attributes|raw }}>
-    <span class="ecl-u-sr-only">{{ _title }}</span>
-  </a>
+  <a href="{{ _href }}" class="{{ _css_class }}" title="{{ _title }}"{{ _extra_attributes|raw }}><span class="ecl-u-sr-only">{{ _title }}</span></a>
 {% else %}
   <span class="{{ _css_class }}" role="img" aria-label="{{ _title }}"{{ _extra_attributes|raw }}></span>
 {% endif %}

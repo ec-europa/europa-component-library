@@ -1,15 +1,40 @@
 const languages = require('./lang.json');
 
-const variants = languages.map(({ id, name }) => ({
-  name,
-  context: {
-    global: {
-      language: id,
+const variants = [
+  {
+    name: 'default',
+    label: 'Default (no language)',
+    context: {
+      href: '../../example.html#top',
+      title: 'Home',
     },
-    href: '../../example.html#top',
-    title: 'Home',
   },
-}));
+].concat(
+  ...languages.map(({ id, name }) => [
+    {
+      name: `${name}-right`,
+      context: {
+        global: {
+          language: id,
+        },
+        href: '../../example.html#top',
+        title: 'Home',
+        type: 'right',
+      },
+    },
+    {
+      name: `${name}-below`,
+      context: {
+        global: {
+          language: id,
+        },
+        href: '../../example.html#top',
+        title: 'Home',
+        type: 'below',
+      },
+    },
+  ])
+);
 
 module.exports = {
   title: 'Logos',
@@ -21,25 +46,18 @@ module.exports = {
   collator(markup, item) {
     return `
       <!-- Start: @${item.handle} -->\n
-      <div class="clearfix">
-        <div class="language-${item.context.global.language}">\n
-          <a href="${
-            item.context.href
-          }" class="ecl-logo ecl-logo--logotype" title="${item.context.title}">
-            <span class="ecl-u-sr-only">${item.context.title}</span>
-          </a>
-          <a href="${
-            item.context.href
-          }" class="ecl-logo ecl-logo--logotypebelow" title="${
-      item.context.title
-    }">
-            <span class="ecl-u-sr-only">${item.context.title}</span>
-          </a>
-        </div>
-      </div>\n
+      ${
+        item.context.global && item.context.global.language
+          ? `<div class="language-${
+              item.context.global.language
+            } ecl-u-mt-l">\n`
+          : `<div class="ecl-u-mt-l">\n`
+      }
+        <h3 class="ecl-heading ecl-heading--h3">${item.label}\n</h3>\n
+        ${markup}
+      </div>
       <!-- End: @${item.handle} -->\n
     `;
   },
-  default: 'english',
   variants,
 };
