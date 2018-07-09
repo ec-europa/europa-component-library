@@ -1,5 +1,53 @@
 # Changelog
 
+## 1.2.0 (2018-07-09)
+
+#### :rocket: New Feature
+
+* [#721](https://github.com/ec-europa/europa-component-library/pull/721) feat(radio): add input attributes - INNO-1108. ([@yhuard](https://github.com/yhuard))
+* [#717](https://github.com/ec-europa/europa-component-library/pull/717) feat(language-list): update eu splash page design - INNO-1103. ([@emeryro](https://github.com/emeryro))
+* [#715](https://github.com/ec-europa/europa-component-library/pull/715) feat(icon): add a new icon - INNO-953. ([@raduchiriac](https://github.com/raduchiriac))
+* [#711](https://github.com/ec-europa/europa-component-library/pull/711) feat(page-header): apply display of EU page header - INNO-1100. ([@emeryro](https://github.com/emeryro))
+* [#703](https://github.com/ec-europa/europa-component-library/pull/703) feat(breadcrumb): add expandable behavior - INNO-1093. ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+* [#720](https://github.com/ec-europa/europa-component-library/pull/720) fix(checkbox): fix extra attributes - INNO-1108. ([@emeryro](https://github.com/emeryro))
+* [#716](https://github.com/ec-europa/europa-component-library/pull/716) fix(breadcrumb): add "expand all" behavior - INNO-1104. ([@emeryro](https://github.com/emeryro))
+* [#714](https://github.com/ec-europa/europa-component-library/pull/714) fix(files): display translation for language not title - INNO-909. ([@raduchiriac](https://github.com/raduchiriac))
+* [#705](https://github.com/ec-europa/europa-component-library/pull/705) fix(dropdown): fix multiple dropdowns - INNO-1089. ([@raduchiriac](https://github.com/raduchiriac))
+* [#694](https://github.com/ec-europa/europa-component-library/pull/694) fix(breadcrumb): update breadcrumb and logo - INNO-1079. ([@raduchiriac](https://github.com/raduchiriac))
+* [#695](https://github.com/ec-europa/europa-component-library/pull/695) fix(accordion): add class to paragraph - INNO-1080. ([@raduchiriac](https://github.com/raduchiriac))
+
+#### :nail_care: Enhancement
+
+* [#698](https://github.com/ec-europa/europa-component-library/pull/698) refactor(messages): add text label next to close button - INNO-1047. ([@raduchiriac](https://github.com/raduchiriac))
+* [#710](https://github.com/ec-europa/europa-component-library/pull/710) feat(breadcrumb): expand when possible -INNO-1098. ([@emeryro](https://github.com/emeryro))
+* [#712](https://github.com/ec-europa/europa-component-library/pull/712) feat(list-item): add new variant - INNO-1097. ([@raduchiriac](https://github.com/raduchiriac))
+* [#707](https://github.com/ec-europa/europa-component-library/pull/707) feat(listing): add new variant - INNO-1096. ([@raduchiriac](https://github.com/raduchiriac))
+* [#696](https://github.com/ec-europa/europa-component-library/pull/696) refactor(footer): rewrite site identification - INNO-1077. ([@raduchiriac](https://github.com/raduchiriac))
+* [#708](https://github.com/ec-europa/europa-component-library/pull/708) fix(buttons): add default type to every button - INNO-1041. ([@emeryro](https://github.com/emeryro))
+* [#709](https://github.com/ec-europa/europa-component-library/pull/709) fix(page-header): update context for breadcrumb - INNO-1098. ([@emeryro](https://github.com/emeryro))
+* [#704](https://github.com/ec-europa/europa-component-library/pull/704) fix(patches): apply some patches from Open Europa - INNO-1090. ([@emeryro](https://github.com/emeryro))
+* [#706](https://github.com/ec-europa/europa-component-library/pull/706) fix(patches): apply some patches from Open Europa - INNO-1090. ([@emeryro](https://github.com/emeryro))
+* [#701](https://github.com/ec-europa/europa-component-library/pull/701) feat(breadcrumb): add page title - INNO-1092. ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+* [#722](https://github.com/ec-europa/europa-component-library/pull/722) fix(logo): fix documentation and demo's HTML - INNO-1107. ([@raduchiriac](https://github.com/raduchiriac))
+* [#702](https://github.com/ec-europa/europa-component-library/pull/702) docs(site-header): update doc - INNO-1094. ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+* [#713](https://github.com/ec-europa/europa-component-library/pull/713) fix(list-item): improve code quality - INNO-1102. ([@raduchiriac](https://github.com/raduchiriac))
+* [#697](https://github.com/ec-europa/europa-component-library/pull/697) chore(build): copy generic templates on change - INNO-994. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+* Radu Chiriac ([raduchiriac](https://github.com/raduchiriac))
+* Romain Emery ([emeryro](https://github.com/emeryro))
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.1.0 (2018-05-25)
 
 #### :bug: Bug Fix
