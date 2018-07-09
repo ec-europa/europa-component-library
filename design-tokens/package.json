@@ -1,12 +1,12 @@
 {
-  "name": "@ecl/generic-base",
+  "name": "@ecl/design-tokens",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "1.0.0",
-  "description": "ECL Base",
-  "style": "generic-base.scss",
-  "dependencies": {
-    "@ecl/design-tokens": "^1.0.0"
+  "description": "ECL Design Tokens",
+  "scripts": {
+    "build": "node scripts/build-tokens.js",
+    "prepublish": "npm run build"
   },
   "publishConfig": {
     "access": "public"
@@ -19,6 +19,14 @@
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": ["ecl", "europa-component-library", "design-system"],
-  "sass": "generic-base.scss"
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system",
+    "design-tokens"
+  ],
+  "devDependencies": {
+    "mkdirp": "0.5.1",
+    "theo": "7.0.1"
+  }
 }
