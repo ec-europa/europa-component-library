@@ -1,4 +1,4 @@
-# ECL - Europa Component Library
+# ECL - Europa Component Library v1
 
 [![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
@@ -32,3 +32,7 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 ## Need help?
 
 Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) for support on using this resource for a European Commission website.
+
+## Previous versions
+
+* v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)
