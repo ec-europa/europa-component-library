@@ -57,16 +57,16 @@ module.exports = {
       to: path.resolve(outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/ec-component-social-icon/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
       from: path.resolve(nodeModules, '@ecl/ec-component-message/images'),
       to: path.resolve(outputFolder, 'images'),
     },
     {
       from: path.resolve(nodeModules, '@ecl/generic-style-icon/fonts'),
       to: path.resolve(outputFolder, 'fonts'),
+    },
+    {
+      from: path.resolve(nodeModules, '@ecl/ec-resources/icons'),
+      to: path.resolve(outputFolder, 'images/icons'),
     },
     {
       from: path.resolve(nodeModules, '@ecl/ec-component-logo/images'),
