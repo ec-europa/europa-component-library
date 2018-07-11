@@ -1,0 +1,17 @@
+global:
+  type: all
+  category: color
+
+imports:
+  - ../../tokens/colors.yml
+
+aliases:
+  COLOR_PRIMARY: "{!YELLOW_100}"
+  BUTTON_DEFAULT_BACKGROUND_COLOR: "black"
+
+# Export
+props:
+  COLOR_PRIMARY:
+    value: "{!COLOR_PRIMARY}"
+    comment: "Primary color"
+    type: "color"

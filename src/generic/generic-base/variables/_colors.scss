@@ -1,7 +1,5 @@
 // ECL Colors
 
-@import '@ecl/design-tokens/dist/index';
-
 $ecl-colors: (
   blue-120: #012b58,
   blue-110: #003776,
@@ -15,13 +13,13 @@ $ecl-colors: (
   yellow-75: #ffde39,
   yellow-50: #ffe879,
   yellow-25: #fff4bb,
-  grey-100: $ecl-color-grey-100,
-  grey-75: $ecl-color-grey-75,
-  grey-50: $ecl-color-grey-50,
-  grey-25: $ecl-color-grey-25,
-  grey-15: $ecl-color-grey-15,
-  grey-10: $ecl-color-grey-10,
-  grey-5: $ecl-color-grey-5,
+  grey-100: #404040,
+  grey-75: #707070,
+  grey-50: #9f9f9f,
+  grey-25: #cfcfcf,
+  grey-15: #e3e3e3,
+  grey-10: #ebebeb,
+  grey-5: #f5f5f5,
   purple-100: #550745
 ) !default;
 
@@ -31,7 +29,7 @@ $ecl-colors: (
 
 $ecl-color-primary: map-get($ecl-colors, 'blue-100') !default;
 $ecl-color-secondary: map-get($ecl-colors, 'yellow-100') !default;
-// $ecl-color-shade: map-get($ecl-colors, 'grey-100') !default;
+$ecl-color-shade: map-get($ecl-colors, 'grey-100') !default;
 
 $ecl-color-info: #006fb4 !default;
 $ecl-color-warning: #f29527 !default;

@@ -1,0 +1,16 @@
+global:
+  type: all
+  category: color
+
+imports:
+  - ../../tokens/colors.yml
+
+aliases:
+  COLOR_PRIMARY: "{!BLUE_100}"
+
+# Export
+props:
+  COLOR_PRIMARY:
+    value: "{!COLOR_PRIMARY}"
+    comment: "Primary color"
+    type: "color"
