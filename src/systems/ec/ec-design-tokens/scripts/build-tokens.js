@@ -14,7 +14,7 @@ const inputs = [
   },
 ];
 
-const writeDir = path.join(__dirname, '../dist');
+const writeDir = path.join(__dirname, '../exports');
 mkdirp.sync(writeDir);
 
 // Based on https://github.com/salesforce-ux/theo/blob/master/lib/formats/default.scss.hbs
