@@ -4,9 +4,9 @@ global:
 
 # Define aliases
 aliases:
-  BUTTON_DEFAULT_COLOR: "{!THEME_BUTTON_DEFAULT_COLOR}"
-  BUTTON_DEFAULT_BORDER_COLOR: "{!THEME_BUTTON_DEFAULT_BORDER_COLOR}"
-  BUTTON_DEFAULT_BACKGROUND_COLOR: "{!THEME_BUTTON_DEFAULT_BACKGROUND_COLOR}"
+  _BUTTON_DEFAULT_COLOR: "{!BUTTON_DEFAULT_COLOR}"
+  _BUTTON_DEFAULT_BORDER_COLOR: "{!BUTTON_DEFAULT_BORDER_COLOR}"
+  _BUTTON_DEFAULT_BACKGROUND_COLOR: "{!BUTTON_DEFAULT_BACKGROUND_COLOR}"
 
 # Export properties
 props:
@@ -15,15 +15,15 @@ props:
 
   # Plain state
   BUTTON_DEFAULT_COLOR:
-    value: "{!BUTTON_DEFAULT_COLOR}"
+    value: "{!_BUTTON_DEFAULT_COLOR}"
     comment: "Default button color"
     type: "color"
   BUTTON_DEFAULT_BORDER_COLOR:
-    value: "{!BUTTON_DEFAULT_BORDER_COLOR}"
+    value: "{!_BUTTON_DEFAULT_BORDER_COLOR}"
     comment: "Default button border color"
     type: "color"
   BUTTON_DEFAULT_BACKGROUND_COLOR:
-    value: "{!BUTTON_DEFAULT_BACKGROUND_COLOR}"
+    value: "{!_BUTTON_DEFAULT_BACKGROUND_COLOR}"
     comment: "Default button background color"
     type: "color"
 

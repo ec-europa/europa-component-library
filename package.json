@@ -64,11 +64,11 @@
     "*.scss": ["prettier --parser scss --write", "stylelint", "git add"]
   },
   "workspaces": [
-    "design-tokens",
     "examples/*",
     "src/generic/*",
     "src/systems/ec/ec-base",
     "src/systems/ec/ec-component/**",
+    "src/systems/ec/ec-design-tokens",
     "src/systems/ec/ec-layout/*",
     "src/systems/ec/ec-preset/*",
     "src/systems/ec/ec-style/**",
