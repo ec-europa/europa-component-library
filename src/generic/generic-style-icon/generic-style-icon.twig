@@ -1,0 +1,59 @@
+{#
+  - "icon_path" (string) (default: ''): path to the icons folder 
+  - "icon" (string) (default: ''): name of the icon 
+  - "size" (string) (default: 'm')
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (string) (default: '')
+      },
+      ...
+    ]
+#}
+
+{# Internal properties #}
+
+{% set _icon_path = icon_path|default('') %}
+{% set _icon = icon|default('') %}
+{% set _size = size|default('m') %}
+{% set _css_class = 'ecl-icon' %}
+{% set _extra_attributes = '' %}
+
+
+{# Internal logic - Process properties #}
+
+{% if _size is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-icon--' ~ _size %}
+{% endif %}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~'"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{# Backward compatibility #}
+{% if modifier is defined %}
+
+<span class="ecl-icon {{modifier}}"></span>
+
+{% else %}
+
+<!--
+<svg class="{{ _css_class }}" version="1.1" xmlns="http://www.w3.org/2000/svg" width="39" height="32" viewBox="0 0 39 32">
+  <path id="arrow-down" d="M0 0.376l19.943 32.063 19.045-32.063z"></path>
+</svg>
+-->
+
+<svg class="{{ _css_class }}" {{ _extra_attributes }}>
+  <use xlink:href="{{ _icon_path }}#ecl-icon--{{ _icon }}"></use>
+</svg>
+
+{% endif %}

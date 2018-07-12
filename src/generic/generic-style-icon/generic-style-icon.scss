@@ -43,4 +43,18 @@
     line-height: inherit;
     margin-right: 0;
   }
+
+  @each $size, $value in $ecl-font-size {
+    /* stylelint-disable */
+    .ecl-icon--#{$size} {
+      height: $value;
+      width: $value;
+
+      image {
+        height: $value;
+        width: $value;
+      }
+    }
+    /* stylelint-enable */
+  }
 }
