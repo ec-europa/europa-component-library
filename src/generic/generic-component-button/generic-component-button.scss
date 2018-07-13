@@ -7,6 +7,10 @@
 @import '@ecl/generic-base/generic-base';
 @import './mixins';
 
+$ecl-button-default-color: $ecl-color-primary !default;
+$ecl-button-default-border-color: $ecl-color-primary !default;
+$ecl-button-default-background-color: transparent !default;
+
 @mixin ecl-button() {
   .ecl-button {
     background: none;
@@ -42,8 +46,9 @@
   }
 
   .ecl-button--default {
-    border-color: $ecl-color-primary;
-    color: $ecl-color-primary;
+    background-color: $ecl-button-default-background-color;
+    border-color: $ecl-button-default-border-color;
+    color: $ecl-button-default-color;
 
     &:hover,
     &:focus,
