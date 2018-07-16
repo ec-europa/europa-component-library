@@ -9,6 +9,7 @@ aliases:
   _BUTTON_DEFAULT_BACKGROUND_COLOR: "{!BUTTON_DEFAULT_BACKGROUND_COLOR}"
 
   _BUTTON_HORIZONTAL_INNER_SPACING: "{!BUTTON_HORIZONTAL_INNER_SPACING}"
+  _BUTTON_VERTICAL_INNER_SPACING: "{!BUTTON_VERTICAL_INNER_SPACING}"
 
 # Export properties
 props:
@@ -31,7 +32,11 @@ props:
 
   BUTTON_HORIZONTAL_INNER_SPACING:
     value: "{!_BUTTON_HORIZONTAL_INNER_SPACING}"
-    comment: "Default button spacing (xs)"
+    comment: "Default button horizontal spacing (s)"
+    type: "spacing"
+  BUTTON_VERTICAL_INNER_SPACING:
+    value: "{!_BUTTON_VERTICAL_INNER_SPACING}"
+    comment: "Default button vertical spacing (xs)"
     type: "spacing"
 
   # Hover state
