@@ -4,6 +4,14 @@ Icons available on ECL.
 
 All icons are provided as a svg file.
 
+**Icon size**
+
+Icons are available in different sizes. Available sizes goes from `ecl-icon--xxxs` to `ecl-icon--xxl`
+
+**Icon color**
+
+Use [Colorize utilities](https://ec-europa.github.io/europa-component-library/eu/components/detail/eu-utility-colorize) to change icon color
+
 **Internet explorer support**
 
 If you wish to display icons on Internet explorer, you have to add a third part javascript library.
