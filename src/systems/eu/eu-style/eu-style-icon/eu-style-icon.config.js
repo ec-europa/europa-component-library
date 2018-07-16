@@ -2,6 +2,7 @@ module.exports = {
   title: 'Icons',
   label: 'Icons',
   status: 'ready',
+  preview: '@preview-icons',
   order: 3,
   collated: true,
   collator(markup, item) {
@@ -15,10 +16,6 @@ module.exports = {
     `;
   },
   default: 'external',
-  context: {
-    icon_path: '../../ec-preset-website/images/icons/symbol-defs.svg',
-    size: 'l',
-  },
   variants: [
     {
       name: 'arrow-down',
@@ -427,4 +424,8 @@ module.exports = {
       },
     },
   ],
+  context: {
+    icon_path: '../../eu-preset-website/images/icons/symbol-defs.svg',
+    size: 'xl',
+  },
 };
