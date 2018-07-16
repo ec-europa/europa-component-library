@@ -13,10 +13,11 @@ $ecl-button-default-background-color: transparent !default;
 
 @mixin ecl-button() {
   .ecl-button {
+    align-items: center;
     background: none;
     border: 2px solid transparent;
     box-sizing: border-box;
-    display: inline-block;
+    display: flex;
     font-family: $ecl-font-family-sans-serif;
     font-size: map-get($ecl-font-size, 's');
     font-weight: 600;
@@ -43,6 +44,10 @@ $ecl-button-default-background-color: transparent !default;
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  .ecl-button__icon {
+    margin-left: map-get($ecl-spacing, 'xxs');
   }
 
   .ecl-button--default {
@@ -129,32 +134,5 @@ $ecl-button-default-background-color: transparent !default;
   .ecl-button--block {
     display: block;
     width: 100%;
-  }
-
-  .ecl-button--caret-up {
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('up');
-      @include ecl-button--caret();
-    }
-  }
-
-  .ecl-button--caret-right {
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('right');
-      @include ecl-button--caret();
-    }
-  }
-
-  .ecl-button--caret-down {
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('down');
-      @include ecl-button--caret();
-    }
   }
 }

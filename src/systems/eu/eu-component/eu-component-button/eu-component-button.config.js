@@ -3,7 +3,7 @@ const { variants } = require('@ecl/generic-component-button/data/demo');
 module.exports = {
   title: 'Buttons',
   label: 'Buttons',
-  preview: '@preview-center-transparent',
+  preview: '@preview-icons-center-transparent',
   tags: ['atom'],
   status: 'ready',
   collated: true,
@@ -16,4 +16,9 @@ module.exports = {
     `;
   },
   variants,
+  context: {
+    icon: {
+      icon_path: '../../eu-preset-website/images/icons/symbol-defs.svg',
+    },
+  },
 };

@@ -28,7 +28,10 @@ module.exports = {
       context: {
         label: 'Call-to-action',
         modifier: 'call',
-        icon: 'caret-right',
+        icon: {
+          icon: 'right',
+          size: 'xs',
+        },
       },
     },
   ],
