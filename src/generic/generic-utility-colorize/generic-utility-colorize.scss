@@ -12,6 +12,7 @@
     @if not str-index($key, 'yellow-') {
       .ecl-u-color-#{$key} {
         color: $value;
+        fill: $value;
       }
     }
     /* stylelint-enable */
@@ -25,26 +26,34 @@
 
   .ecl-u-color-primary {
     color: $ecl-color-primary;
+    fill: $ecl-color-primary;
   }
   .ecl-u-color-secondary {
     color: $ecl-color-secondary;
+    fill: $ecl-color-secondary;
   }
   .ecl-u-color-shade {
     color: $ecl-color-shade;
+    fill: $ecl-color-shade;
   }
   .ecl-u-color-info {
     color: $ecl-color-info;
+    fill: $ecl-color-info;
   }
   .ecl-u-color-warning {
     color: $ecl-color-warning;
+    fill: $ecl-color-warning;
   }
   .ecl-u-color-success {
     color: $ecl-color-success;
+    fill: $ecl-color-success;
   }
   .ecl-u-color-error {
     color: $ecl-color-error;
+    fill: $ecl-color-error;
   }
   .ecl-u-color-white {
     color: #fff;
+    fill: #fff;
   }
 }
