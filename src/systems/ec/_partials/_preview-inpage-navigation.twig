@@ -54,6 +54,10 @@
       </div>
     </div>
     <script src="{{ '/ec-preset-website/scripts/ecl-ec-preset-website.js' | path }}"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js"></script>
+    <script type="text/javascript">document.addEventListener('DOMContentLoaded', function() { svg4everybody(); });</script>
+
     {% if _target.context._demo and _target.context._demo.scripts %}
     <script type="text/javascript">{{ _target.context._demo.scripts | raw }}</script>
     {% endif %}

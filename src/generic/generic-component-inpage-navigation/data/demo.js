@@ -13,14 +13,23 @@ const links = [
   },
 ];
 
-module.exports = {
-  title: 'Page contents',
-  links,
-  _demo: {
-    scripts: `
-      document.addEventListener('DOMContentLoaded', function () {
-        ECL.navigationInpages();
-      });
-    `,
-  },
+module.exports = function context(system) {
+  const c = {
+    title: 'Page contents',
+    icon: {
+      icon_path: `../../${system}-preset-website/images/icons/symbol-defs.svg`,
+      icon: 'arrow-down',
+      size: 's',
+    },
+    links,
+    _demo: {
+      scripts: `
+        document.addEventListener('DOMContentLoaded', function () {
+          ECL.navigationInpages();
+        });
+      `,
+    },
+  };
+
+  return c;
 };

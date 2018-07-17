@@ -15,7 +15,7 @@ export const navigationInpages = ({
   spySelector: spySelector = '.ecl-inpage-navigation__link',
   spyClass: spyClass = 'ecl-inpage-navigation__link--is-active',
   spyActiveContainer: spyActiveContainer = 'ecl-inpage-navigation--visible',
-  spyTrigger: spyTrigger = '.ecl-inpage-navigation__trigger',
+  spyTitle: spyTitle = '.ecl-inpage-navigation__trigger-title',
   spyOffset: spyOffset = 20,
   toggleSelector: toggleSelector = '.ecl-inpage-navigation__trigger',
   linksSelector: linksSelector = '.ecl-inpage-navigation__link',
@@ -47,7 +47,7 @@ export const navigationInpages = ({
       activeClass: spyClass,
       offset: spyOffset,
       callback(nav) {
-        const navigationTitle = document.querySelector(spyTrigger);
+        const navigationTitle = document.querySelector(spyTitle);
 
         if (!nav) {
           inpageNavElement.classList.remove(spyActiveContainer);
