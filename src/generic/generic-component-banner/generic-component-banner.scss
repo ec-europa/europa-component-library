@@ -6,6 +6,11 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
+$ecl-banner-content-horizontal-inner-spacing: 0 !default;
+$ecl-banner-content-vertical-inner-spacing: 0 !default;
+$ecl-banner-padding: $ecl-banner-content-vertical-inner-spacing
+  $ecl-banner-content-horizontal-inner-spacing !default;
+
 @mixin ecl-banner() {
   .ecl-banner {
     margin: 0;
@@ -17,7 +22,7 @@
     background-color: #fff;
     border-top: 3px solid $ecl-color-primary;
     box-sizing: border-box;
-    padding: map-get($ecl-spacing, 'l') map-get($ecl-spacing, 'm');
+    padding: $ecl-banner-padding;
   }
 
   .ecl-banner__title {

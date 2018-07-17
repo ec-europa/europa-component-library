@@ -1,0 +1,22 @@
+global:
+  type: all
+  category: banner
+
+# Define aliases
+aliases:
+  _BANNER_CONTENT_HORIZONTAL_INNER_SPACING: "{!BANNER_CONTENT_HORIZONTAL_INNER_SPACING}"
+  _BANNER_CONTENT_VERTICAL_INNER_SPACING: "{!BANNER_CONTENT_VERTICAL_INNER_SPACING}"
+
+# Export properties
+props:
+
+  # Plain state
+  BANNER_CONTENT_HORIZONTAL_INNER_SPACING:
+    value: "{!_BANNER_CONTENT_HORIZONTAL_INNER_SPACING}"
+    comment: "Banner's content horizontal inner spacing"
+    type: "spacing"
+
+  BANNER_CONTENT_VERTICAL_INNER_SPACING:
+    value: "{!_BANNER_CONTENT_VERTICAL_INNER_SPACING}"
+    comment: "Banner's content vertical inner spacing"
+    type: "spacing"

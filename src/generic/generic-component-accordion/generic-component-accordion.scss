@@ -6,6 +6,9 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
+$ecl-accordion-header-inner-spacing: 0 !default;
+$ecl-accordion-panel-inner-spacing: 0 !default;
+
 @mixin ecl-accordion() {
   .ecl-accordion {
     margin: 0;
@@ -20,7 +23,7 @@
     font-size: map-get($ecl-font-size, 'm');
     font-weight: 600;
     margin: 0;
-    padding: map-get($ecl-spacing, 'xs');
+    padding: $ecl-accordion-header-inner-spacing;
     text-align: left;
     width: 100%;
 
@@ -46,7 +49,7 @@
     background-color: map-get($ecl-colors, 'grey-5');
     font-size: map-get($ecl-font-size, 's');
     margin: 0;
-    padding: map-get($ecl-spacing, 's');
+    padding: $ecl-accordion-panel-inner-spacing;
 
     @include ecl-media-breakpoint-up(md) {
       padding-left: map-get($ecl-spacing, 'xxl');
