@@ -1,8 +1,17 @@
+$ecl-blockquote-container-top-inner-spacing: 0 !default;
+$ecl-blockquote-container-right-inner-spacing: 0 !default;
+$ecl-blockquote-container-bottom-inner-spacing: 0 !default;
+$ecl-blockquote-container-left-inner-spacing: 0 !default;
+
+$ecl-blockquote-padding: $ecl-blockquote-container-top-inner-spacing
+  $ecl-blockquote-container-right-inner-spacing
+  $ecl-blockquote-container-bottom-inner-spacing
+  $ecl-blockquote-container-left-inner-spacing !default;
+
 @mixin blockquote-container() {
   border-left: 8px solid $ecl-color-secondary;
   margin: 0;
-  padding: map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'xxs')
-    map-get($ecl-spacing, 'm');
+  padding: $ecl-blockquote-padding;
 }
 
 @mixin blockquote-container--small() {
