@@ -6,6 +6,9 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
+$ecl-breadcrumb-segments-wrapper-vertical-inner-spacing: 0 !default;
+$ecl-breadcrumb-link-inner-spacing: 0 !default;
+
 @mixin ecl-breadcrumb() {
   .ecl-breadcrumb {
     @include ecl-hidden-print();
@@ -20,7 +23,7 @@
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
-    padding: map-get($ecl-spacing, 's') 0;
+    padding: $ecl-breadcrumb-segments-wrapper-vertical-inner-spacing 0;
   }
 
   .ecl-breadcrumb__segment {
@@ -41,7 +44,7 @@
   }
 
   .ecl-breadcrumb__link {
-    margin-right: map-get($ecl-spacing, 'xxxs');
+    margin-right: $ecl-breadcrumb-link-inner-spacing;
 
     // Add the ">" icon
     &::after {
