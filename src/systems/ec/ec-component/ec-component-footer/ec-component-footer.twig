@@ -39,9 +39,9 @@
                 } only %}
                   {% block label %}
                     {% spaceless %}
-                      {% include '@ecl/ec-style-icon' with {
-                        modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
-                      } only %}<span>{{ link_label }}</span>
+                      {% include '@ecl/' ~ system ~ '-style-icon' with {
+                        'extra_classes': 'ecl-footer__social-icon'
+                      }|merge(icon|default({})) only %}<span>{{ link_label }}</span>
                     {% endspaceless %}
                   {% endblock %}
                 {% endembed %}

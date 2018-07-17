@@ -21,6 +21,10 @@
 @include exports('eu-component-footer') {
   @include ecl-footer();
 
+  .ecl-footer__social-icon {
+    fill: $ecl-color-primary;
+  }
+
   .ecl-footer__custom {
     background-color: map-get($ecl-colors, 'grey-5');
     padding-bottom: map-get($ecl-spacing, 'm');
