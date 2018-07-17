@@ -46,13 +46,6 @@ module.exports = {
       },
     },
     {
-      name: 'breadcrumb',
-      label: 'Breadcrumb icon',
-      context: {
-        icon: 'breadcrumb',
-      },
-    },
-    {
       name: 'brochure',
       label: 'Brochure icon',
       context: {
@@ -70,14 +63,7 @@ module.exports = {
       name: 'calendar',
       label: 'Calendar icon',
       context: {
-        icon: 'calendar',
-      },
-    },
-    {
-      name: 'camera',
-      label: 'Camera icon',
-      context: {
-        icon: 'camera',
+        icon: 'icon-calendar',
       },
     },
     {
@@ -203,7 +189,7 @@ module.exports = {
       name: 'gear',
       label: 'Gear',
       context: {
-        icon: 'gear',
+        icon: 'if_gear_298781',
       },
     },
     {
@@ -239,13 +225,6 @@ module.exports = {
       label: 'Image icon',
       context: {
         icon: 'image',
-      },
-    },
-    {
-      name: 'in',
-      label: 'In icon',
-      context: {
-        icon: 'in',
       },
     },
     {
@@ -361,13 +340,6 @@ module.exports = {
       },
     },
     {
-      name: 'slides',
-      label: 'Slides icon',
-      context: {
-        icon: 'slides',
-      },
-    },
-    {
       name: 'spinner',
       label: 'Spinner icon',
       context: {
@@ -386,13 +358,6 @@ module.exports = {
       label: 'Success icon',
       context: {
         icon: 'success',
-      },
-    },
-    {
-      name: 'tag-close',
-      label: 'Tag-close icon',
-      context: {
-        icon: 'tag-close',
       },
     },
     {
