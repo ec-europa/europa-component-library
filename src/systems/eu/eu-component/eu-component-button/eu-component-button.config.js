@@ -1,4 +1,9 @@
-const { variants } = require('@ecl/generic-component-button/data/demo');
+const contextDefault = require('@ecl/generic-component-button/data/demo--default');
+const contextPrimary = require('@ecl/generic-component-button/data/demo--primary');
+const contextSecondary = require('@ecl/generic-component-button/data/demo--secondary');
+const contextCall = require('@ecl/generic-component-button/data/demo--call')(
+  'eu'
+);
 
 module.exports = {
   title: 'Buttons',
@@ -15,10 +20,23 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
-  variants,
-  context: {
-    icon: {
-      icon_path: '../../eu-preset-website/images/icons/symbol-defs.svg',
+  default: 'default',
+  variants: [
+    {
+      name: 'default',
+      context: contextDefault,
     },
-  },
+    {
+      name: 'primary',
+      context: contextPrimary,
+    },
+    {
+      name: 'secondary',
+      context: contextSecondary,
+    },
+    {
+      name: 'call',
+      context: contextCall,
+    },
+  ],
 };
