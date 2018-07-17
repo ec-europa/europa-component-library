@@ -52,7 +52,7 @@
       { 'name': 'value', 'value': _value }
     ]
   } %}
-  {% include '@ecl/' ~ system ~ '-style-icon' with {
+  {% include '@ecl/' ~ _system ~ '-style-icon' with {
     'extra_classes': 'ecl-datepicker__icon'
   }|merge(_icon|default({})) only %}
 </div>

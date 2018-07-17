@@ -48,16 +48,10 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
   }
 
   .ecl-file__icon {
+    fill: map-get($ecl-colors, 'grey-50');
     float: left;
     padding-bottom: $icon-padding-bottom;
     padding-top: $icon-padding-top;
-
-    &::before {
-      color: map-get($ecl-colors, 'grey-50');
-      font-size: $metadata-height - $icon-padding-top - $icon-padding-bottom;
-      line-height: 1;
-      margin-right: map-get($ecl-spacing, 'xxxs');
-    }
   }
 
   .ecl-file__title {
@@ -104,10 +98,12 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
   // With translations
 
   .ecl-file__translations {
-    text-align: right;
+    display: flex;
+    flex-direction: column;
   }
 
   .ecl-file__translations-toggle {
+    align-self: flex-end;
     font-weight: normal;
   }
 

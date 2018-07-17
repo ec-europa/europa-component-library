@@ -56,7 +56,7 @@
 <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% block link_label_block _label|raw %}
 
-  {% if _icon is not empty and _icon.icon is not empty %}
+  {% if _icon is not empty %}
   {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
   {% endif %}
 %}
@@ -67,7 +67,7 @@
 <button type="{{ _type_attribute }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
   {% block button_label_block _label|raw %}
 
-  {% if _icon is not empty and _icon.icon is not empty %}
+  {% if _icon is not empty %}
   <span class="ecl-button__icon">
   {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
   </span>
