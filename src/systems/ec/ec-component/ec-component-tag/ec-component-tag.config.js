@@ -1,12 +1,15 @@
 const contextDefault = require('@ecl/generic-component-tag/data/demo--default');
 const contextFacet = require('@ecl/generic-component-tag/data/demo--facet');
-const contextFacetClose = require('@ecl/generic-component-tag/data/demo--facet-close');
+const contextFacetClose = require('@ecl/generic-component-tag/data/demo--facet-close')(
+  'ec'
+);
 
 module.exports = {
   title: 'Tags',
   label: 'Tags',
   status: 'ready',
   tags: ['atom'],
+  preview: '@preview-icons',
   collated: true,
   collator(markup, item) {
     return `
