@@ -3,6 +3,7 @@
     - "variant" (string or array) (default: ''): can be '','external','standalone', 'inverted', 'all', 'more', or an array
     - "href" (string) (default: '#')
     - "label" (string) (default: '')
+    - "icon" (object) (default: {}): object of type ecl-icon
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -11,6 +12,7 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
   Blocks:
     - "label"
 #}
@@ -22,6 +24,8 @@
 {% set _href = href|default('#') %}
 {% set _label = label|default('') %}
 {% set _variant = variant|default('') %}
+{% set _icon = icon|default({}) %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
@@ -47,4 +51,10 @@
 
 {# Print the result #}
 
-<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>{% block label _label %}</a>
+<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>{% block label _label %}
+{% if _icon is not empty %}
+{% include '@ecl/' ~ _system ~ '-style-icon' with {
+  'extra_classes': 'ecl-link__icon'
+}|merge(_icon|default({})) only %}
+{% endif %}
+</a>

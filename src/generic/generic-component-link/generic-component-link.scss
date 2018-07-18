@@ -14,8 +14,9 @@
     @include link();
   }
 
-  .ecl-link--external {
-    @include link-external();
+  .ecl-link__icon {
+    fill: currentColor;
+    margin-left: map-get($ecl-spacing, 'xxxs');
   }
 
   .ecl-link--standalone {
@@ -45,15 +46,5 @@
 
   .ecl-link--more {
     text-transform: uppercase;
-
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('right');
-
-      font-size: 75%;
-      margin-left: 0.4em;
-      margin-right: 0.2em;
-    }
   }
 }
