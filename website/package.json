@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "@ecl/website",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "rimraf build",
+    "start": "react-scripts start",
+    "build": "npm run clean && react-scripts build && react-snap",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "serve": "serve build"
+  },
+  "dependencies": {
+    "@ecl/ec-preset-website": "^1.2.0",
+    "eslint-config-react-app": "2.1.0",
+    "react": "16.4.1",
+    "react-dom": "16.4.1",
+    "react-helmet": "5.2.0",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {
+    "eslint-config-react-app": "2.1.0",
+    "react-snap": "1.15.0",
+    "rimraf": "2.6.2",
+    "serve": "9.2.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "react-app"
+  }
+}
