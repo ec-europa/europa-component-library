@@ -1,11 +1,16 @@
-const contextDefault = require('@ecl/generic-component-search-form/data/demo--default');
-const contextInternal = require('@ecl/generic-component-search-form/data/demo--internal');
+const contextDefault = require('@ecl/generic-component-search-form/data/demo--default')(
+  'ec'
+);
+const contextInternal = require('@ecl/generic-component-search-form/data/demo--internal')(
+  'ec'
+);
 
 module.exports = {
   title: 'Search forms',
   label: 'Search forms',
   status: 'ready',
   tags: ['molecule'],
+  preview: '@preview-icons',
   variants: [
     {
       name: 'default',
