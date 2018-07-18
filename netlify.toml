@@ -1,2 +1,3 @@
 [build]
-  publish = "dist/website"
+  command = "yarn && cd website && yarn build"
+  publish = "website/build"
