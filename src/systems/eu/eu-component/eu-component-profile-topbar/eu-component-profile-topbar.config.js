@@ -5,5 +5,6 @@ module.exports = {
   label: 'Profile topbars',
   status: 'ready',
   tags: ['organism'],
+  preview: '@preview-icons',
   context,
 };
