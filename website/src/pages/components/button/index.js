@@ -7,8 +7,7 @@ import PageHeader from '../../../components/PageHeader';
 const ButtonPage = () => (
   <Fragment>
     <PageHeader />
-    <main>
-      <a id="main-content" tabindex="-1" />
+    <main id="main-content" tabindex="-1">
       <div class="ecl-container">
         <h3>Component</h3>
         <h1>Button</h1>

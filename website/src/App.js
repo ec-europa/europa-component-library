@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
+import './hack.css';
 
+// Layout
 import Header from './components/Header';
 import PageHeader from './components/PageHeader';
 import Footer from './components/Footer';
@@ -25,8 +27,7 @@ class App extends Component {
             render={() => (
               <Fragment>
                 <PageHeader />
-                <main>
-                  <a id="main-content" tabindex="-1" />
+                <main id="main-content" tabindex="-1">
                   <div class="ecl-container">
                     <h3>TEST.</h3>
                     <Link to="/">Go to homepage</Link>
