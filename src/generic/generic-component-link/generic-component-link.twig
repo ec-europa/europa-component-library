@@ -4,6 +4,7 @@
     - "href" (string) (default: '#')
     - "label" (string) (default: '')
     - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon_position" (string) (default: 'after'): can be 'before' or 'after'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -25,9 +26,14 @@
 {% set _label = label|default('') %}
 {% set _variant = variant|default('') %}
 {% set _icon = icon|default({}) %}
+{% set _icon_position = icon_position|default('after') %}
 {% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
+
+{% if _icon is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--icon-' ~ _icon_position %}
+{% endif %}
 
 {% if _variant is not empty %}
   {% if _variant is iterable %}
@@ -52,11 +58,17 @@
 {# Print the result #}
 
 <a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>
+  {% if _icon is not empty and _icon_position == 'before' %}
+  <span class="ecl-link__icon">
+  {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
+  </span>
+  {% endif %}
+
   <span class="ecl-link__label ecl-expandable__label">
   {% block label _label %}
   </span>
 
-  {% if _icon is not empty %}
+  {% if _icon is not empty and _icon_position != 'before' %}
   <span class="ecl-link__icon">
   {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
   </span>

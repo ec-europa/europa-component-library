@@ -1,6 +1,8 @@
 {#
   Parameters:
     - "link" (object) (default: {}): shape of @ecl/generic-component-link
+    - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon_hover" (object) (default: {}): object of type ecl-icon
     - "variant" (string) (default: ''): correspond to the social network
     - "label" (string) (default: ''): used if "link" is not provided
     - "extra_classes" (string) (default: '')
@@ -18,6 +20,8 @@
 
 {% set _link = link|default({}) %}
 {% set _label = label|default('') %}
+{% set _icon = icon|default({}) %}
+{% set _icon_hover = icon_hover|default({}) %}
 {% set _variant = variant|default('') %}
 {% set _css_class = 'ecl-social-icon' %}
 {% set _extra_attributes = '' %}
@@ -42,10 +46,37 @@
 {# Print the result #}
 
 {% if _link is not empty %}
-  {% include '@ecl/' ~ _system ~ '-component-link' with _link|merge({
-    'extra_classes': _link.extra_classes|default('') ~ ' ' ~ _css_class,
-    'extra_attributes': (_link.extra_attributes|default([]))|merge(extra_attributes|default([]))
-  }) only %}
+
+  <a href="{{ _link.href }}" class="ecl-link ecl-link--icon-before {{ _css_class }} {{ _link.extra_classes }}" {{ _link.extra_attributes }}>
+    {# Default icon #}
+    <span class="ecl-social-icon__icon ecl-social-icon__icon--default">
+    {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
+    </span>
+    {# Hover icon #}
+    <span class="ecl-social-icon__icon ecl-social-icon__icon--hover">
+    {% include '@ecl/' ~ _system ~ '-style-icon' with _icon_hover only %}
+    </span>
+
+    <span class="ecl-social-icon__label">
+    {{ _link.label }}
+    </span>
+  </a>
+
 {% else %}
-  <span class="{{ _css_class }}"{{ _extra_attributes|raw }}>{{ _label }}</span>
+
+  <span class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    {# Default icon #}
+    <span class="ecl-social-icon__icon ecl-social-icon__icon--default">
+    {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
+    </span>
+    {# Hover icon #}
+    <span class="ecl-social-icon__icon ecl-social-icon__icon--hover">
+    {% include '@ecl/' ~ _system ~ '-style-icon' with _icon_hover only %}
+    </span>
+
+    <span class="ecl-social-icon__label">
+    {{ _label }}
+    </span>
+  </span>
+
 {% endif %}
