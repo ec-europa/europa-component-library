@@ -2,6 +2,7 @@
   Parameters:
     - "variant" (string) (default: 'splash'): can be 'splash' or 'overlay'
     - "link" (string) (default: '#'): the link for the lang-select-sites
+    - "icon" (object) (default: {}): object of type ecl-icon; used for active language
     - "logo" (object) (default: {}): object of type ecl-logo
     {
       "type" (string)
@@ -36,6 +37,7 @@
 {% include '@ecl/generic-component-language-list' with {
   'variant': variant|default('splash'),
   'link': link|default('#'),
+  'icon': icon|default({}),
   'logo': logo|default({}),
   'languages': languages|default([]),
   'messages': messages|default({}),

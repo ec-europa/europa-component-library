@@ -26,6 +26,7 @@ module.exports = {
   label: 'Social icons',
   status: 'ready',
   tags: ['atom'],
+  preview: '@preview-icons',
   collated: true,
   collator(markup, item) {
     return `
