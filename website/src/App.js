@@ -5,9 +5,7 @@ import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 import './hack.css';
 
 // Layout
-import Header from './components/Header';
-import PageHeader from './components/PageHeader';
-import Footer from './components/Footer';
+import Navigation from './components/Navigation';
 
 // Pages
 import HomePage from './pages/index';
@@ -18,15 +16,22 @@ class App extends Component {
     return (
       <Router>
         <div className="language-en ecl-typography">
-          <Helmet title="ECL 2.0" />
-          <Header />
+          <Helmet
+            titleTemplate="%s - ECL 2.0"
+            defaultTitle="Europa Component Library"
+          />
+          <div class="ecl-skip-link__wrapper" id="skip-link">
+            <a href="#main-content" class="ecl-skip-link">
+              Skip to main content
+            </a>
+          </div>
+          <Navigation />
           <Route exact path="/" component={HomePage} />
           <Route
             exact
             path="/test"
             render={() => (
               <Fragment>
-                <PageHeader />
                 <main id="main-content" tabindex="-1">
                   <div class="ecl-container">
                     <h3>TEST.</h3>
@@ -36,8 +41,7 @@ class App extends Component {
               </Fragment>
             )}
           />
-          <Route path="/components/button*" component={ButtonPage} />
-          <Footer />
+          <Route path="/components/button" component={ButtonPage} />
         </div>
       </Router>
     );

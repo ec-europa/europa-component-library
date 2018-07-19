@@ -1,0 +1,39 @@
+.tmp-nav {
+  background-color: #f5f5f5;
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+  position: fixed;
+  top: 0;
+  transition: transform 300ms;
+  width: 15rem;
+  z-index: 1000;
+}
+
+.tmp-nav--closed {
+  transform: translate(-15rem, 0);
+}
+
+.tmp-nav__button-toggle {
+  height: 2rem;
+  left: 13rem;
+  position: fixed;
+  top: 0;
+  transition: transform 300ms;
+  width: 2rem;
+  z-index: 1001;
+}
+
+.tmp-nav__button-toggle--closed {
+  transform: translate(-13rem);
+}
+
+.tmp-nav__system-list {
+  display: flex;
+}
+
+.tmp-nav__system-list-item {
+  flex-grow: 1;
+  font-weight: bold;
+  text-align: center;
+}
