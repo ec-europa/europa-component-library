@@ -9,6 +9,11 @@
   {% include '@ecl/eu-component-button' with {
     'label': 'What is this all about?',
     'type_attribute': 'button',
+    'icon': {
+      'icon_path': '../../eu-preset-website/images/icons/symbol-defs.svg',
+      'icon': 'down',
+      'size': 'xs',
+    },
     'extra_classes': 'ecl-expandable__button',
     'extra_attributes': [
       { 'name': 'aria-controls', 'value': 'example-expandable-1'},
@@ -17,7 +22,7 @@
       { 'name': 'data-label-collapsed', 'value': 'What is this all about?'},
       { 'name': 'id', 'value': 'example-expandable-button-1' },
     ]
-  } %}
+  } only %}
   <div
     aria-hidden="true"
     aria-labelledby="example-expandable-button-1"
@@ -32,15 +37,21 @@
 <!-- Expandable link -->
 
 <div style="margin-top:1rem">
-  <a
-    aria-controls="example-expandable-2"
-    aria-expanded="false"
-    class="ecl-link ecl-expandable__button"
-    href="#"
-    id="example-expandable-button-2"
-  >
-    Expandable link
-  </a>
+  {% include '@ecl/eu-component-link' with {
+    'variant': 'standalone',
+    'label': 'Expandable link',
+    'icon': {
+      'icon_path': '../../eu-preset-website/images/icons/symbol-defs.svg',
+      'icon': 'down',
+      'size': 'xs',
+    },
+    'extra_classes': 'ecl-expandable__button',
+    'extra_attributes': [
+      { 'name': 'aria-controls', 'value': 'example-expandable-2'},
+      { 'name': 'aria-expanded', 'value': 'false'},
+      { 'name': 'id', 'value': 'example-expandable-button-2' },
+    ]
+  } only %}
   <div
     aria-hidden="true"
     aria-labelledby="example-expandable-button-2"

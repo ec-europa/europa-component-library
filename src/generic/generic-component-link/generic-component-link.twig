@@ -51,10 +51,14 @@
 
 {# Print the result #}
 
-<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>{% block label _label %}
-{% if _icon is not empty %}
-{% include '@ecl/' ~ _system ~ '-style-icon' with {
-  'extra_classes': 'ecl-link__icon'
-}|merge(_icon|default({})) only %}
-{% endif %}
+<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>
+  <span class="ecl-link__label ecl-expandable__label">
+  {% block label _label %}
+  </span>
+
+  {% if _icon is not empty %}
+  <span class="ecl-link__icon">
+  {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
+  </span>
+  {% endif %}
 </a>

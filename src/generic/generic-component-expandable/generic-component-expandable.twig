@@ -9,6 +9,11 @@
   {% include '@ecl/generic-component-button' with {
     'label': 'What is this all about?',
     'type_attribute': 'button',
+    'icon': {
+      'icon_path': '../../generic-preset-website/images/icons/symbol-defs.svg',
+      'icon': 'down',
+      'size': 'xs',
+    },
     'extra_classes': 'ecl-expandable__button',
     'extra_attributes': [
       { 'name': 'aria-controls', 'value': 'example-expandable-1'},

@@ -33,12 +33,20 @@ export const toggleExpandable = (
   target.setAttribute('aria-hidden', isExpanded);
 
   // Toggle label if possible
-  if (!isExpanded && toggleElement.hasAttribute('data-label-expanded')) {
-    toggleElement.innerHTML = toggleElement.getAttribute('data-label-expanded');
-  } else if (isExpanded && toggleElement.hasAttribute('data-label-collapsed')) {
-    toggleElement.innerHTML = toggleElement.getAttribute(
-      'data-label-collapsed'
-    );
+  const expandableLabel = toggleElement.querySelector('.ecl-expandable__label');
+  if (expandableLabel) {
+    if (!isExpanded && toggleElement.hasAttribute('data-label-expanded')) {
+      expandableLabel.innerHTML = toggleElement.getAttribute(
+        'data-label-expanded'
+      );
+    } else if (
+      isExpanded &&
+      toggleElement.hasAttribute('data-label-collapsed')
+    ) {
+      expandableLabel.innerHTML = toggleElement.getAttribute(
+        'data-label-collapsed'
+      );
+    }
   }
 
   // Close siblings if requested

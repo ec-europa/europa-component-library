@@ -27,8 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
 ## Change button label when the component is collapsed/expanded
 
 You can attach `data-label-expanded` and `data-label-collapsed` attributes to
-your button. The button label will be updated dynamically according to these
-values. Check the first example for more information.
+your button.
+
+The button label has to have a class `ecl-expandable__label` on it.
+
+It will then be updated dynamically according to these values. Check the first example for more information.
 
 ## Resources
 
