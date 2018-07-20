@@ -1,15 +1,11 @@
-global:
-  type: all
-  category: button
-
-# Define aliases
+# Assign values to the paramters exposed by the button component
 aliases:
   BUTTON_DEFAULT_COLOR: "{!COLOR_PRIMARY}"
   BUTTON_DEFAULT_BORDER_COLOR: "{!COLOR_PRIMARY}"
   BUTTON_DEFAULT_BACKGROUND_COLOR: "transparent"
-
   BUTTON_HORIZONTAL_INNER_SPACING: "{!SPACING_S}"
   BUTTON_VERTICAL_INNER_SPACING: "{!SPACING_XS}"
 
+# Import component
 imports:
   - ../../../../ec-component/ec-component-button/tokens.yml
