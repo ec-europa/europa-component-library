@@ -2,15 +2,15 @@ import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { Route, Link, Redirect, Switch } from 'react-router-dom';
 
-import PageHeader from '../../../components/PageHeader';
+import PageHeader from '../../../../components/PageHeader';
 
 const ButtonPage = ({ match }) => {
   return (
     <Fragment>
       <Helmet title="Button" />
       <PageHeader />
-      <main id="main-content" tabindex="-1">
-        <div class="ecl-container">
+      <main id="main-content" tabIndex="-1">
+        <div className="ecl-container">
           <h3>Component</h3>
           <h1>Button</h1>
           <ul>

@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 import './hack.css';
 
@@ -9,7 +9,9 @@ import Navigation from './components/Navigation';
 
 // Pages
 import HomePage from './pages/index';
-import ButtonPage from './pages/components/button/index';
+import PageNotFound from './pages/404';
+import ECHomePage from './pages/ec/index';
+import ButtonPage from './pages/ec/components/button/index';
 
 class App extends Component {
   render() {
@@ -20,28 +22,20 @@ class App extends Component {
             titleTemplate="%s - ECL 2.0"
             defaultTitle="Europa Component Library"
           />
-          <div class="ecl-skip-link__wrapper" id="skip-link">
-            <a href="#main-content" class="ecl-skip-link">
+          <div className="ecl-skip-link__wrapper" id="skip-link">
+            <a href="#main-content" className="ecl-skip-link">
               Skip to main content
             </a>
           </div>
           <Navigation />
-          <Route exact path="/" component={HomePage} />
-          <Route
-            exact
-            path="/test"
-            render={() => (
-              <Fragment>
-                <main id="main-content" tabindex="-1">
-                  <div class="ecl-container">
-                    <h3>TEST.</h3>
-                    <Link to="/">Go to homepage</Link>
-                  </div>
-                </main>
-              </Fragment>
-            )}
-          />
-          <Route path="/components/button" component={ButtonPage} />
+          <div className="tmp-main-contianer">
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/ec" component={ECHomePage} />
+              <Route path="/ec/components/button" component={ButtonPage} />
+              <Route component={PageNotFound} />
+            </Switch>
+          </div>
         </div>
       </Router>
     );
