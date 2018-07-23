@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 import './ComponentHeader.css';
 
-const ComponentHeader = ({ match, title }) => (
+const ComponentHeader = ({ match, sectionTitle, pageTitle }) => (
   <header className="tmp-component-header">
-    <h3>Components</h3>
-    <h1>{title}</h1>
+    <h3>{sectionTitle}</h3>
+    <h1>{pageTitle}</h1>
     <ul className="tmp-component-header__tabs">
       <li>
         <NavLink

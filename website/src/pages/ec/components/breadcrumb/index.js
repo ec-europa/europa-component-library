@@ -8,7 +8,11 @@ const BreadcrumbPage = ({ match }) => {
   return (
     <Fragment>
       <Helmet title="Breadcrumb" />
-      <ComponentHeader match={match} title="Breadcrumb" />
+      <ComponentHeader
+        match={match}
+        sectionTitle="Components"
+        pageTitle="Breadcrumb"
+      />
       <main id="main-content" tabIndex="-1">
         <div className="ecl-container">
           <Switch>

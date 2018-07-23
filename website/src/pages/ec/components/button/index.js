@@ -8,7 +8,11 @@ const ButtonPage = ({ match }) => {
   return (
     <Fragment>
       <Helmet title="Button" />
-      <ComponentHeader match={match} title="Button" />
+      <ComponentHeader
+        match={match}
+        sectionTitle="Components"
+        pageTitle="Button"
+      />
       <main id="main-content" tabIndex="-1">
         <div className="ecl-container">
           <Switch>
