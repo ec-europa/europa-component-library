@@ -1,0 +1,21 @@
+global:
+  type: all
+  category: banner
+
+# Define aliases
+aliases:
+  _BREADCRUMB_SEGMENTS_WRAPPER_VERTICAL_INNER_SPACING: "{!BREADCRUMB_SEGMENTS_WRAPPER_VERTICAL_INNER_SPACING}"
+  _BREADCRUMB_LINK_INNER_SPACING: "{!BREADCRUMB_LINK_INNER_SPACING}"
+
+# Export properties
+props:
+
+  BREADCRUMB_SEGMENTS_WRAPPER_VERTICAL_INNER_SPACING:
+    value: "{!_BREADCRUMB_SEGMENTS_WRAPPER_VERTICAL_INNER_SPACING}"
+    comment: "Breadcrumb's wrapper inner spacing"
+    type: "spacing"
+
+  BREADCRUMB_LINK_INNER_SPACING:
+    value: "{!_BREADCRUMB_LINK_INNER_SPACING}"
+    comment: "Breadcrumb's link inner spacing"
+    type: "spacing"

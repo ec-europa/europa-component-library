@@ -11,6 +11,11 @@ $ecl-button-default-color: $ecl-color-primary !default;
 $ecl-button-default-border-color: $ecl-color-primary !default;
 $ecl-button-default-background-color: transparent !default;
 
+$ecl-button-horizontal-inner-spacing: 0 !default;
+$ecl-button-vertical-inner-spacing: 0 !default;
+$ecl-button-padding: $ecl-button-vertical-inner-spacing
+  $ecl-button-horizontal-inner-spacing !default;
+
 @mixin ecl-button() {
   .ecl-button {
     align-items: center;
@@ -23,7 +28,7 @@ $ecl-button-default-background-color: transparent !default;
     font-weight: 600;
     line-height: 1;
     margin: 0;
-    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 's');
+    padding: $ecl-button-padding;
     text-decoration: none;
 
     &:hover,

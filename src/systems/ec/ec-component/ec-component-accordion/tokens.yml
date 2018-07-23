@@ -1,0 +1,22 @@
+global:
+  type: all
+  category: accordion
+
+# Define aliases
+aliases:
+  _ACCORDION_HEADER_INNER_SPACING: "{!ACCORDION_HEADER_INNER_SPACING}"
+  _ACCORDION_PANEL_INNER_SPACING: "{!ACCORDION_PANEL_INNER_SPACING}"
+
+# Export properties
+props:
+
+  # Header spacing
+  ACCORDION_HEADER_INNER_SPACING:
+    value: "{!_ACCORDION_HEADER_INNER_SPACING}"
+    comment: "Accordion's header inner spacing"
+    type: "spacing"
+  # Panel spacing
+  ACCORDION_PANEL_INNER_SPACING:
+    value: "{!_ACCORDION_PANEL_INNER_SPACING}"
+    comment: "Accordion's panel inner spacing"
+    type: "spacing"
