@@ -54,6 +54,11 @@ module.exports = {
           icon: 'generic-lang',
           size: 'l',
         },
+        icon_close: {
+          icon_path: `../../eu-preset-website/images/icons/symbol-defs.svg`,
+          icon: 'close',
+          size: 'l',
+        },
         _demo: {
           scripts: `
             document.addEventListener('DOMContentLoaded', function () {

@@ -3,6 +3,7 @@
     - "variant" (string) (default: 'splash'): can be 'splash' or 'overlay'
     - "link" (string) (default: '#'): the link for the lang-select-sites
     - "icon" (object) (default: {}): object of type ecl-icon; used for active language
+    - "icon_close" (object) (default: {}): object of type ecl-icon; used for close button
     - "icon_language" (object) (default: {}): object of type ecl-icon; used for language icon
     - "icon_language_generic" (object) (default: {}): object of type ecl-icon; used for generic language icon
     - "logo" (object) (default: {}): object of type ecl-logo
@@ -41,6 +42,7 @@
 {% set _variant = variant|default('splash') %}
 {% set _link = link|default('#') %}
 {% set _icon = icon|default({}) %}
+{% set _icon_close = icon_close|default({}) %}
 {% set _icon_language = icon_language|default({}) %}
 {% set _icon_language_generic = icon_language_generic|default({}) %}
 {% set _logo = logo|default({}) %}
@@ -115,7 +117,16 @@
                 {% endfor %}
               </div>
               {% if _variant == 'overlay' %}
-                <button class="ecl-dialog__dismiss ecl-dialog__dismiss--inverted">{{ _messages.dismiss }}</button>
+                {% include '@ecl/' ~ _system ~ '-component-button' with {
+                  'modifier': 'secondary',
+                  'label': _messages.dismiss,
+                  'type_attribute': 'button',
+                  'icon': _icon_close,
+                  'extra_classes': 'ecl-language-list__dismiss ecl-dialog__dismiss ecl-dialog__dismiss--inverted',
+                  'extra_attributes': [
+                    { 'name': 'aria-label', 'value': _messages.dismiss },
+                  ]
+                } %}
               {% endif %}
             </div>
           </div>

@@ -1,10 +1,10 @@
-const context = require('@ecl/generic-component-dialog/data/demo');
+const context = require('@ecl/generic-component-dialog/data/demo')('eu');
 
 module.exports = {
   title: 'Dialogs',
   label: 'Dialogs',
   collated: false,
-  preview: '@preview-center-transparent',
+  preview: '@preview-icons-center-transparent',
   status: 'ready',
   tags: ['molecule'],
   default: 'default',

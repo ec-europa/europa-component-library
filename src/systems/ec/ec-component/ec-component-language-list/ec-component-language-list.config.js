@@ -46,6 +46,11 @@ module.exports = {
           icon: 'generic-lang',
           size: 'l',
         },
+        icon_close: {
+          icon_path: `../../ec-preset-website/images/icons/symbol-defs.svg`,
+          icon: 'close',
+          size: 'l',
+        },
         variant: 'overlay',
         messages: {
           dismiss: 'Close',
