@@ -11,8 +11,6 @@ import Navigation from './components/Navigation';
 import HomePage from './pages/index';
 import PageNotFound from './pages/404';
 import ECHomePage from './pages/ec/index';
-import BreadcrumbPage from './pages/ec/components/breadcrumb/index';
-import ButtonPage from './pages/ec/components/button/index';
 
 const pages = require.context(
   './pages/ec/components',
@@ -39,10 +37,6 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/ec" component={ECHomePage} />
-              <Route
-                path="/ec/components/breadcrumb"
-                component={BreadcrumbPage}
-              />
               {pages.keys().map(key => {
                 const component = pages(key);
                 const meta = component.meta;
@@ -54,7 +48,6 @@ class App extends Component {
 
                 return null;
               })}
-              <Route path="/ec/components/button" component={ButtonPage} />
               <Route component={PageNotFound} />
             </Switch>
           </div>
