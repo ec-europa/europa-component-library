@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
-import { Route, Link, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import ComponentHeader from '../../../../components/ComponentHeader';
-import PageHeader from '../../../../components/PageHeader';
 
 const ButtonPage = ({ match }) => {
   return (

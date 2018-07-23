@@ -1,18 +1,13 @@
-import React, { Fragment } from 'react';
-
-import PageHeader from '../components/PageHeader';
+import React from 'react';
 
 const PageNotFound = () => (
-  <Fragment>
-    <PageHeader />
-    <main id="main-content" tabIndex="-1">
-      <div className="ecl-container ecl-u-pv-xl">
-        <div className="ecl-row ecl-u-mt-xl ecl-editor">
-          <h1>Page not found</h1>
-        </div>
+  <main id="main-content" tabIndex="-1">
+    <div className="ecl-container ecl-u-pv-xl">
+      <div className="ecl-row ecl-u-mt-xl ecl-editor">
+        <h1>Page not found</h1>
       </div>
-    </main>
-  </Fragment>
+    </div>
+  </main>
 );
 
 export default PageNotFound;
