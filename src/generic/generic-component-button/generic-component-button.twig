@@ -54,12 +54,12 @@
 {% if _href != '' %}
 
 <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <span class="ecl-button__label">
+  <span class="ecl-button__label ecl-expandable__label">
   {% block link_label_block _label|raw %}
   </span>
 
   {% if _icon is not empty %}
-  <span class="ecl-button__icon">
+  <span class="ecl-button__icon ecl-expandable__icon">
   {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
   </span>
   {% endif %}
@@ -73,7 +73,7 @@
   </span>
 
   {% if _icon is not empty %}
-  <span class="ecl-button__icon">
+  <span class="ecl-button__icon ecl-expandable__icon">
   {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
   </span>
   {% endif %}

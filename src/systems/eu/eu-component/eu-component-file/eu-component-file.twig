@@ -16,14 +16,17 @@
     - "language" (string): language of the file (default: empty)
     - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
     - "button_label" (string): label of the download button (default: "Download")
-    - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon" (object) (default: {}): object of type ecl-icon; type of file
+    - "icon_download" (object) (default: {}): object of type ecl-icon; for download button
 
   Translations variant parameters:
     - "title" (string): title of the file (default: empty)
     - "language" (string): language of the file (default: empty)
     - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
     - "button_label" (string): label of the download button (default: "Download")
-    - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon" (object) (default: {}): object of type ecl-icon; type of file
+    - "icon_download" (object) (default: {}): object of type ecl-icon; for download button
+    - "icon_expand" (object) (default: {}): object of type ecl-icon; to expand list of translations
     - "translations" (array) [{
       - "title" (string): title of the translated file (default: empty)
       - "meta" (string): additional information concerning the translated file: size, type, number of page (default: empty)
@@ -34,7 +37,8 @@
   Links variant parameters:
     - "links" (array): [{
       - "title" (string): title of the link (default: empty)
-      - "icon" (object) (default: {}): object of type ecl-icon
+      - "icon" (object) (default: {}): object of type ecl-icon; type of file
+      - "icon_download" (object) (default: {}): object of type ecl-icon; for download button
       - "href" (string): target of the link (default: empty)
       - "is_external" (boolean): is the link an external link or not (default: false)
       - "type" (string): (optional) extension of the file (default: empty)

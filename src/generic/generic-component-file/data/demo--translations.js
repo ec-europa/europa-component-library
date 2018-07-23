@@ -10,6 +10,16 @@ module.exports = function context(system) {
       icon: 'file',
       size: 'xxl',
     },
+    icon_download: {
+      icon_path: `../../${system}-preset-website/images/icons/symbol-defs.svg`,
+      icon: 'download',
+      size: 's',
+    },
+    icon_expand: {
+      icon_path: `../../${system}-preset-website/images/icons/symbol-defs.svg`,
+      icon: 'down',
+      size: 's',
+    },
     translations: [
       { title: 'español', meta: '228.84 kB - PDF - 4 pages' },
       { title: 'German', meta: '232.12 kB - PDF - 4 pages' },

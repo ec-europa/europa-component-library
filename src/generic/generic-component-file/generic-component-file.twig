@@ -16,14 +16,17 @@
     - "language" (string): language of the file (default: empty)
     - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
     - "button_label" (string): label of the download button (default: "Download")
-    - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon" (object) (default: {}): object of type ecl-icon; type of file
+    - "icon_download" (object) (default: {}): object of type ecl-icon; for download button
 
   Translations variant parameters:
     - "title" (string): title of the file (default: empty)
     - "language" (string): language of the file (default: empty)
     - "meta" (string): additional information concerning the file: size, type, number of page (default: empty)
     - "button_label" (string): label of the download button (default: "Download")
-    - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon" (object) (default: {}): object of type ecl-icon; type of file
+    - "icon_download" (object) (default: {}): object of type ecl-icon; for download button
+    - "icon_expand" (object) (default: {}): object of type ecl-icon; to expand list of translations
     - "translations" (array) [{
       - "title" (string): title of the translated file (default: empty)
       - "meta" (string): additional information concerning the translated file: size, type, number of page (default: empty)
@@ -34,7 +37,8 @@
   Links variant parameters:
     - "links" (array): [{
       - "title" (string): title of the link (default: empty)
-      - "icon" (object) (default: {}): object of type ecl-icon
+      - "icon" (object) (default: {}): object of type ecl-icon; type of file
+      - "icon_download" (object) (default: {}): object of type ecl-icon; for download button
       - "href" (string): target of the link (default: empty)
       - "is_external" (boolean): is the link an external link or not (default: false)
       - "type" (string): (optional) extension of the file (default: empty)
@@ -58,6 +62,8 @@
 {% set _translations_label = translations_label|default('Available languages: 0') %}
 {% set _translations_tooltip = translations_tooltip|default('Click to see translations') %}
 {% set _icon = icon|default({}) %}
+{% set _icon_download = icon_download|default({}) %}
+{% set _icon_expand = icon_expand|default({}) %}
 {% set _css_class = 'ecl-file' %}
 {% set _extra_attributes = '' %}
 {% set _system = system|default('generic') %}
@@ -100,8 +106,9 @@
           <div class="ecl-col-12 ecl-col-md-4">
             {% include '@ecl/' ~ _system ~ '-component-button' with {
               'type_attribute': 'button',
-              'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
+              'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')</span>',
               'is_block': true,
+              'icon': _icon_download,
               'extra_classes': 'ecl-file__download'
             } only %}
           </div>
@@ -112,7 +119,8 @@
           'label': translations_label,
           'modifier': 'secondary',
           'type_attribute': 'button',
-          'extra_classes': 'ecl-file__translations-toggle',
+          'icon': _icon_expand,
+          'extra_classes': 'ecl-file__translations-toggle ecl-expandable__button',
           'extra_attributes': [
             { 'name': 'aria-controls', 'value': 'translations-expand' },
             { 'name': 'aria-expanded', 'value': 'true' },
@@ -130,9 +138,10 @@
                     <div class="ecl-file__translations-info">({{ translation.meta }})</div>
                   </div>
                   {% include '@ecl/' ~ _system ~ '-component-button' with {
-                    'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')',
+                    'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ translation.meta ~ ')</span>',
                     'modifier': 'secondary',
                     'type_attribute': 'button',
+                    'icon': _icon_download,
                     'extra_classes': 'ecl-file__translations-download'
                   } only %}
                 </li>
@@ -201,8 +210,9 @@
         </div>
         <div class="ecl-col-12 ecl-col-md-4">
           {% include '@ecl/' ~ _system ~ '-component-button' with {
-            'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')',
+            'label': _button_label ~ '<span class="ecl-u-sr-only">(' ~ meta ~ ')</span>',
             'is_block': true,
+            'icon': _icon_download,
             'extra_classes': 'ecl-file__download',
             'extra_attributes': [{ 'name': 'type', 'value': 'button' }]
           } only %}

@@ -9,6 +9,11 @@ module.exports = function context(system) {
       icon: 'file',
       size: 'xxl',
     },
+    icon_download: {
+      icon_path: `../../${system}-preset-website/images/icons/symbol-defs.svg`,
+      icon: 'download',
+      size: 's',
+    },
   };
 
   return c;
