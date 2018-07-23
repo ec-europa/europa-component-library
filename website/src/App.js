@@ -11,6 +11,7 @@ import Navigation from './components/Navigation';
 import HomePage from './pages/index';
 import PageNotFound from './pages/404';
 import ECHomePage from './pages/ec/index';
+import BreadcrumbPage from './pages/ec/components/breadcrumb/index';
 import ButtonPage from './pages/ec/components/button/index';
 
 class App extends Component {
@@ -28,10 +29,14 @@ class App extends Component {
             </a>
           </div>
           <Navigation />
-          <div className="tmp-main-contianer">
+          <div className="tmp-main-container">
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/ec" component={ECHomePage} />
+              <Route
+                path="/ec/components/breadcrumb"
+                component={BreadcrumbPage}
+              />
               <Route path="/ec/components/button" component={ButtonPage} />
               <Route component={PageNotFound} />
             </Switch>

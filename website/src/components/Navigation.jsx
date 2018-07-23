@@ -8,25 +8,11 @@ class Navigation extends Component {
     super(props);
     this.state = { open: true, tab: 'ec' };
     this.toggleSidebar = this.toggleSidebar.bind(this);
-    this.openECTab = this.openECTab.bind(this);
-    this.openEUTab = this.openEUTab.bind(this);
   }
 
   toggleSidebar() {
     this.setState(prevState => ({
       open: !prevState.open,
-    }));
-  }
-
-  openECTab() {
-    this.setState(prevState => ({
-      tab: 'ec',
-    }));
-  }
-
-  openEUTab() {
-    this.setState(prevState => ({
-      tab: 'eu',
     }));
   }
 
@@ -81,6 +67,15 @@ class Navigation extends Component {
               path="/ec"
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
+                  <li>
+                    <NavLink
+                      to="/ec/components/breadcrumb"
+                      className="tmp-nav__page-list-item"
+                      activeClassName="tmp-nav__page-list-item--active"
+                    >
+                      Breadcrumb
+                    </NavLink>
+                  </li>
                   <li>
                     <NavLink
                       to="/ec/components/button"

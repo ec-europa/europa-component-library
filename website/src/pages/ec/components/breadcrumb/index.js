@@ -5,11 +5,11 @@ import { Route, Link, Redirect, Switch } from 'react-router-dom';
 import ComponentHeader from '../../../../components/ComponentHeader';
 import PageHeader from '../../../../components/PageHeader';
 
-const ButtonPage = ({ match }) => {
+const BreadcrumbPage = ({ match }) => {
   return (
     <Fragment>
-      <Helmet title="Button" />
-      <ComponentHeader match={match} title="Button" />
+      <Helmet title="Breadcrumb" />
+      <ComponentHeader match={match} title="Breadcrumb" />
       <main id="main-content" tabIndex="-1">
         <div className="ecl-container">
           <Switch>
@@ -57,4 +57,4 @@ const ButtonPage = ({ match }) => {
   );
 };
 
-export default ButtonPage;
+export default BreadcrumbPage;
