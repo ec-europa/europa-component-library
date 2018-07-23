@@ -56,4 +56,9 @@ const ButtonPage = ({ match }) => {
   );
 };
 
+export const meta = {
+  url: '/ec/components/button',
+  title: 'Button',
+};
+
 export default ButtonPage;

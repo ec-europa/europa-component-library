@@ -14,6 +14,12 @@ import ECHomePage from './pages/ec/index';
 import BreadcrumbPage from './pages/ec/components/breadcrumb/index';
 import ButtonPage from './pages/ec/components/button/index';
 
+const pages = require.context(
+  './pages/ec/components',
+  true, // Load files recursively. Pass false to skip recursion.
+  /\.js$/ // Match files ending with .md.
+);
+
 class App extends Component {
   render() {
     return (
@@ -28,7 +34,7 @@ class App extends Component {
               Skip to main content
             </a>
           </div>
-          <Navigation />
+          <Navigation pages={pages} />
           <div className="tmp-main-container">
             <Switch>
               <Route exact path="/" component={HomePage} />
@@ -37,6 +43,17 @@ class App extends Component {
                 path="/ec/components/breadcrumb"
                 component={BreadcrumbPage}
               />
+              {pages.keys().map(key => {
+                const component = pages(key);
+                const meta = component.meta;
+                if (meta) {
+                  return (
+                    <Route path={meta.url} component={component.default} />
+                  );
+                }
+
+                return null;
+              })}
               <Route path="/ec/components/button" component={ButtonPage} />
               <Route component={PageNotFound} />
             </Switch>

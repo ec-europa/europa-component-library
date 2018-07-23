@@ -67,24 +67,24 @@ class Navigation extends Component {
               path="/ec"
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
-                  <li>
-                    <NavLink
-                      to="/ec/components/breadcrumb"
-                      className="tmp-nav__page-list-item"
-                      activeClassName="tmp-nav__page-list-item--active"
-                    >
-                      Breadcrumb
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/ec/components/button"
-                      className="tmp-nav__page-list-item"
-                      activeClassName="tmp-nav__page-list-item--active"
-                    >
-                      Button
-                    </NavLink>
-                  </li>
+                  {this.props.pages.keys().map(key => {
+                    const meta = this.props.pages(key).meta;
+                    if (meta) {
+                      return (
+                        <li>
+                          <NavLink
+                            to={meta.url}
+                            className="tmp-nav__page-list-item"
+                            activeClassName="tmp-nav__page-list-item--active"
+                          >
+                            {meta.title}
+                          </NavLink>
+                        </li>
+                      );
+                    }
+
+                    return null;
+                  })}
                 </ul>
               )}
             />{' '}

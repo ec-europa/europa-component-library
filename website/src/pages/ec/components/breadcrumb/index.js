@@ -56,4 +56,9 @@ const BreadcrumbPage = ({ match }) => {
   );
 };
 
+export const meta = {
+  url: '/ec/components/breadcrumb',
+  title: 'Breadcrumb',
+};
+
 export default BreadcrumbPage;
