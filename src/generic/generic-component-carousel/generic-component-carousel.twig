@@ -93,7 +93,8 @@
       <div class="ecl-carousel__meta">
         <span class="ecl-carousel__meta-item ecl-carousel__meta-download">
           {% include '@ecl/' ~ _system ~ '-component-link' with {
-            'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--download',
+            'icon': _carousel_image.download.icon,
+            'extra_classes': 'ecl-carousel__meta-link',
             'extra_attributes': [ 'name': 'title', 'value': _carousel_image.download.title ],
             'variant': ['inverted', 'standalone'],
             }|merge(_carousel_image.download|default({}))
@@ -101,7 +102,8 @@
         </span>
         <span class="ecl-carousel__meta-item ecl-carousel__meta-share">
           {% include '@ecl/' ~ _system ~ '-component-link' with {
-            'extra_classes': 'ecl-carousel__meta-link ecl-icon ecl-icon--share',
+            'icon': _carousel_image.share.icon,
+            'extra_classes': 'ecl-carousel__meta-link',
             'extra_attributes': [ 'name': 'title', 'value': _carousel_image.share.title ],
             'variant': ['inverted', 'standalone'],
             }|merge(_carousel_image.share|default({}))

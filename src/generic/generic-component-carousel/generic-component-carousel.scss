@@ -78,11 +78,17 @@
     background-color: #000;
     border: 0;
     color: #fff;
-    font-size: map-get($ecl-font-size, 'xxl');
+    // Custom font size due to temporary replacement of icon by a charatcter
+    // The component will be replaced or removed soon anyway
+    font-size: 5rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: map-get($ecl-z-index, 'navigation');
+
+    &:focus {
+      text-decoration: none;
+    }
   }
 
   .ecl-carousel__button--previous {
