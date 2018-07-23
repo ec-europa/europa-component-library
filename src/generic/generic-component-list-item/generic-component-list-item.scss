@@ -72,6 +72,7 @@
 
   // Highlited item
   .ecl-list-item--highlight .ecl-list-item__link {
+    align-items: initial;
     flex-direction: column;
     padding-top: 0;
   }
@@ -124,18 +125,17 @@
 
     /* stylelint-disable-next-line no-descending-specificity */
     .ecl-list-item__title {
+      align-items: center;
       color: inherit;
+      display: flex;
+      fill: currentColor;
       font-size: map-get($ecl-font-size, 'm');
       margin: map-get($ecl-spacing, 'xxxs') 0 map-get($ecl-spacing, 'xxs');
     }
-  }
 
-  // Block item, add the ">" icon
-  .ecl-list-item--block .ecl-list-item__title::after {
-    @include ecl-icon--after();
-    @include ecl-icon('right');
-
-    width: 1rem;
+    .ecl-list-item__title-icon {
+      margin-left: map-get($ecl-spacing, 'xxs');
+    }
   }
 
   // Navigation item
