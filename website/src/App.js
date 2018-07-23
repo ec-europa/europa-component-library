@@ -17,7 +17,7 @@ import ButtonPage from './pages/ec/components/button/index';
 const pages = require.context(
   './pages/ec/components',
   true, // Load files recursively. Pass false to skip recursion.
-  /\.js$/ // Match files ending with .md.
+  /index\.js$/ // Match index.js files
 );
 
 class App extends Component {
