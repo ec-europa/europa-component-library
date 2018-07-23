@@ -71,7 +71,7 @@ class Navigation extends Component {
                     const meta = this.props.pages(key).meta;
                     if (meta) {
                       return (
-                        <li>
+                        <li key={meta.url}>
                           <NavLink
                             to={meta.url}
                             className="tmp-nav__page-list-item"

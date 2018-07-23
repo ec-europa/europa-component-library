@@ -42,7 +42,11 @@ class App extends Component {
                 const meta = component.meta;
                 if (meta) {
                   return (
-                    <Route path={meta.url} component={component.default} />
+                    <Route
+                      key={meta.url}
+                      path={meta.url}
+                      component={component.default}
+                    />
                   );
                 }
 
