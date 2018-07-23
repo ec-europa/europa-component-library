@@ -44,6 +44,16 @@ module.exports = {
           icon: 'check',
           size: 'm',
         },
+        icon_language: {
+          icon_path: `../../eu-preset-website/images/icons/symbol-defs.svg`,
+          icon: 'language',
+          size: 'l',
+        },
+        icon_language_generic: {
+          icon_path: `../../eu-preset-website/images/icons/symbol-defs.svg`,
+          icon: 'generic-lang',
+          size: 'l',
+        },
         _demo: {
           scripts: `
             document.addEventListener('DOMContentLoaded', function () {

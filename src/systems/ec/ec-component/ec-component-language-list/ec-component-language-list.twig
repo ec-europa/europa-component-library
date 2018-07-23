@@ -3,6 +3,8 @@
     - "variant" (string) (default: 'splash'): can be 'splash' or 'overlay'
     - "link" (string) (default: '#'): the link for the lang-select-sites
     - "icon" (object) (default: {}): object of type ecl-icon; used for active language
+    - "icon_language" (object) (default: {}): object of type ecl-icon; used for language icon
+    - "icon_language_generic" (object) (default: {}): object of type ecl-icon; used for generic language icon
     - "logo" (object) (default: {}): object of type ecl-logo
     {
       "type" (string)
@@ -38,6 +40,8 @@
   'variant': variant|default('splash'),
   'link': link|default('#'),
   'icon': icon|default({}),
+  'icon_language': icon_language|default({}),
+  'icon_language_generic': icon_language_generic|default({}),
   'logo': logo|default({}),
   'languages': languages|default([]),
   'messages': messages|default({}),
