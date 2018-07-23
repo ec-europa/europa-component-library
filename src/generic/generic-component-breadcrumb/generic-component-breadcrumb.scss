@@ -43,14 +43,6 @@
   .ecl-breadcrumb__link {
     margin-right: map-get($ecl-spacing, 'xxxs');
 
-    // Add the ">" icon
-    &::after {
-      @include ecl-icon--after();
-      @include ecl-icon('right');
-
-      width: 1rem;
-    }
-
     &:hover,
     &:active,
     &:focus {
