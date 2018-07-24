@@ -15,9 +15,10 @@
   }
 
   .ecl-lang-select-sites__link {
+    align-items: center;
     border: 3px solid transparent;
     color: $ecl-color-primary;
-    display: inline-block;
+    display: inline-flex;
     font-size: map-get($ecl-font-size, s);
     font-weight: bold;
     padding: map-get($ecl-spacing, xxs) map-get($ecl-spacing, xs);
@@ -39,7 +40,8 @@
   }
 
   .ecl-lang-select-sites__code {
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
     position: relative;
     text-transform: uppercase;
     width: $icon-width;
@@ -48,13 +50,12 @@
   .ecl-lang-select-sites__code-text {
     background-color: $ecl-color-primary;
     color: #fff;
-    font-size: map-get($ecl-font-size, xxs);
+    font-size: map-get($ecl-font-size, 'xxs');
     position: relative;
   }
 
   .ecl-lang-select-sites__icon {
-    color: $ecl-color-primary;
-    font-size: $icon-width;
+    fill: $ecl-color-primary;
     left: 0;
     position: absolute;
     top: -2px;

@@ -5,8 +5,6 @@
 
 // Import base and mixin
 @import '@ecl/generic-base/generic-base';
-@import '@ecl/generic-style-icon/variables';
-@import '@ecl/generic-style-icon/mixins';
 
 $generic-component-file-line-height: 1.3;
 $generic-component-file-title-line-height: $generic-component-file-line-height;
@@ -28,8 +26,6 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
   $info-line-height: $generic-component-file-info-line-height,
   $info-font-size: $generic-component-file-info-font-size,
   $info-margin-top: $generic-component-file-info-margin-top,
-  $icon-padding-top: 0.2rem,
-  $icon-padding-bottom: 0.1rem,
   $title-height: $generic-component-file-title-height,
   $info-height: $generic-component-file-info-height,
   $metadata-height: $generic-component-file-metadata-height
@@ -48,16 +44,8 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
   }
 
   .ecl-file__icon {
+    fill: map-get($ecl-colors, 'grey-50');
     float: left;
-    padding-bottom: $icon-padding-bottom;
-    padding-top: $icon-padding-top;
-
-    &::before {
-      color: map-get($ecl-colors, 'grey-50');
-      font-size: $metadata-height - $icon-padding-top - $icon-padding-bottom;
-      line-height: 1;
-      margin-right: map-get($ecl-spacing, 'xxxs');
-    }
   }
 
   .ecl-file__title {
@@ -84,14 +72,6 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
   .ecl-file__download {
     margin: map-get($ecl-font-size, 'xs') auto 0;
     text-align: center;
-
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('download');
-
-      margin-left: 0.8em;
-    }
   }
 
   /* stylelint-disable-next-line order/order */
@@ -104,31 +84,13 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
   // With translations
 
   .ecl-file__translations {
-    text-align: right;
+    display: flex;
+    flex-direction: column;
   }
 
   .ecl-file__translations-toggle {
+    align-self: flex-end;
     font-weight: normal;
-  }
-
-  .ecl-file__translations-toggle[aria-expanded='false'] {
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('down');
-
-      margin-left: 0.8em;
-    }
-  }
-
-  .ecl-file__translations-toggle[aria-expanded='true'] {
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('up');
-
-      margin-left: 0.8em;
-    }
   }
 
   .ecl-file__translations-list {
@@ -168,14 +130,6 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
     align-self: flex-start;
     font-weight: normal;
     margin-left: -1rem;
-
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('download');
-
-      margin-left: 0.8em;
-    }
   }
 
   /* stylelint-disable-next-line order/order */
@@ -206,31 +160,8 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
     flex-direction: row;
     text-decoration: none;
 
-    .ecl-file__icon {
-      padding: 0;
-
-      /*
-      Ugly hacks: set icons' size manually
-     */
-
-      /* stylelint-disable-next-line */
-      &::before {
-        font-size: 2.7rem;
-      }
-
-      /* stylelint-disable-next-line */
-      &.ecl-icon--slides::before {
-        font-size: 2.1rem;
-      }
-
-      /* stylelint-disable-next-line */
-      &.ecl-icon--image::before {
-        font-size: 1.8rem;
-      }
-    }
-
     .ecl-file__title {
-      margin-left: map-get($ecl-spacing, 'xxxs');
+      margin-left: map-get($ecl-spacing, 'xxs');
       text-decoration: underline;
     }
   }

@@ -30,5 +30,9 @@ module.exports = {
       from: path.resolve(nodeModules, '@ecl/generic-style-icon/fonts'),
       to: path.resolve(outputFolder, 'fonts'),
     },
+    {
+      from: path.resolve(nodeModules, '@ecl/ec-resources/icons'),
+      to: path.resolve(outputFolder, 'images/icons'),
+    },
   ],
 };

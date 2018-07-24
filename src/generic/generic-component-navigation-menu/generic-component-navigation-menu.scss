@@ -152,30 +152,19 @@
   }
 
   /* Icon display */
-  .ecl-navigation-menu__link[aria-expanded]::after {
-    padding-left: map-get($ecl-spacing, 'xxxs');
+  .ecl-navigation-menu__icon {
+    fill: currentColor;
+    margin-left: map-get($ecl-spacing, 'xxs');
+    transform-origin: 50% 45%;
+    transition: transform 300ms cubic-bezier(0.5, 0, 0.1, 1);
 
     .no-js & {
       display: none;
     }
   }
 
-  .ecl-navigation-menu__link[aria-expanded='false'] {
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('down');
-    }
-  }
-
-  .ecl-navigation-menu__link[aria-expanded='true'] {
-    border-bottom-width: 0;
-
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('up');
-    }
+  .ecl-navigation-menu__link[aria-expanded='true'] .ecl-navigation-menu__icon {
+    transform: rotate(-180deg);
   }
 
   .ecl-navigation-menu__link

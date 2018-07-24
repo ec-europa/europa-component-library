@@ -2,6 +2,7 @@
   Parameters:
     - "menu_label" (string) (default: ''): visible on mobile
     - "menu_aria_label" (string)  (default: ''): label displayed before the list
+    - "icon" (object) (default: {}): object of type ecl-icon; used for expandable menu items
     - "links" (array) (default: []): [{
         "href" (string): target of the link
         "label" (string): label of the link
@@ -20,6 +21,7 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
   Blocks:
     - "navigation": instead of providing an array of links, you can also embed the template and fill the "navigation" block directly
 #}
@@ -28,9 +30,11 @@
 
 {% set _menu_label = menu_label|default('') %}
 {% set _menu_aria_label = menu_aria_label|default('') %}
+{% set _icon = icon|default({}) %}
 {% set _links = links|default([]) %}
 {% set _css_class = 'ecl-navigation-menu' %}
 {% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
@@ -63,7 +67,12 @@
               {% if _link.children_links is not defined or _link.children_links is empty %}
                 <a href="{{ _link.href }}" class="ecl-navigation-menu__link">{{ _link.label }}</a>
               {% else %}
-                <a href="{{ _link.href }}" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">{{ _link.label }}</a>
+                <a href="{{ _link.href }}" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">
+                  {{ _link.label }}
+                  {% include '@ecl/' ~ _system ~ '-style-icon' with {
+                    'extra_classes': 'ecl-navigation-menu__icon'
+                  }|merge(_icon|default({})) only %}
+                </a>
                 <div class="ecl-navigation-menu__group ecl-row" id="nav-menu-expandable-group-{{ loop.index }}">
                   {% for _column in _link.children_links %}
                     <div class="ecl-col">

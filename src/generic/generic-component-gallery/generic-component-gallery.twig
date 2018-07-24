@@ -5,7 +5,7 @@
           - "classes" (string): CSS classes to add
           - "image" (@ecl-images): Image to add in the gallery
           - "caption" (string): Textual caption for an image
-          - "icon" (string): An icon class building an icon in the item
+          - "icon" (object) (default: {}): object of type ecl-icon
         },
         ...
       ]
@@ -60,7 +60,9 @@
                 {% endif %}
                 {% if gallery_item.icon is defined %}
                 <span class="ecl-gallery__icon-wrapper">
-                  <span class="ecl-gallery__icon ecl-icon {{ gallery_item.icon }}"></span>
+                  {% include '@ecl/' ~ _system ~ '-style-icon' with {
+                    'extra_classes': 'ecl-gallery__icon'
+                  }|merge(gallery_item.icon|default({})) only %}
                 </span>
                 {% endif %}
               </div>

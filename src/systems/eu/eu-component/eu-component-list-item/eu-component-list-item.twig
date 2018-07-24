@@ -19,6 +19,8 @@
       ]
   If "variant" == "date":
     - "date" (object) (default: {}): contains all parameters of ecl-date-block
+  If "variant" == "block":
+    - "icon" (object) (default: {}): object of type ecl-icon
   Blocks:
     - "meta_block": instead of providing metas as an array, you can also embed the template and fill the 'meta_block' block directly
     - "detail_block": instead of providing detail as a string, you can also embed the template and fill the 'detail_block' block directly
@@ -35,6 +37,7 @@
 {% set _detail = detail|default('') %}
 {% set _metas = metas|default([]) %}
 {% set _action = action|default('') %}
+{% set _icon = icon|default({}) %}
 {% set _date = date|default({}) %}
 {% set _css_class = 'ecl-list-item' %}
 {% set _extra_attributes = '' %}
@@ -77,7 +80,13 @@
           {% endblock %}
         </div>
       {% endif %}
-      <h3 class="ecl-list-item__title ecl-heading ecl-heading--h3">{{ title }}</h3>
+      <h3 class="ecl-list-item__title ecl-heading ecl-heading--h3">{{ title }}
+      {% if _variant == 'block' %}
+        {% include '@ecl/generic-style-icon' with {
+          'extra_classes': 'ecl-list-item__title-icon'
+        }|merge(_icon|default({})) only %}
+      {% endif %}
+      </h3>
       <p class="ecl-list-item__detail ecl-paragraph">
         {% block detail_block %}
           {{ _detail }}

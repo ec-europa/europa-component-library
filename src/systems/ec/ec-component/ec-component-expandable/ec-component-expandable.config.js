@@ -5,5 +5,6 @@ module.exports = {
   label: 'Expandables',
   status: 'ready',
   tags: ['molecule'],
+  preview: '@preview-icons',
   context,
 };

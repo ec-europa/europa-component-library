@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-datepicker/data/demo');
+const context = require('@ecl/generic-component-datepicker/data/demo')('ec');
 
 module.exports = {
   title: 'Datepickers',

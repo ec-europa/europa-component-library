@@ -1,4 +1,4 @@
-const context = require('@ecl/generic-component-breadcrumb/data/demo');
+const context = require('@ecl/generic-component-breadcrumb/data/demo')('eu');
 
 module.exports = {
   title: 'Breadcrumbs',

@@ -2,7 +2,9 @@ const contextDefault = require('@ecl/generic-component-list-item/data/demo--defa
 const contextDate = require('@ecl/generic-component-list-item/data/demo--date');
 const contextThumbnail = require('@ecl/generic-component-list-item/data/demo--thumbnail');
 const contextHighlight = require('@ecl/generic-component-list-item/data/demo--highlight');
-const contextBlock = require('@ecl/generic-component-list-item/data/demo--block');
+const contextBlock = require('@ecl/generic-component-list-item/data/demo--block')(
+  'ec'
+);
 const contextNavigation = require('@ecl/generic-component-list-item/data/demo--navigation');
 
 module.exports = {
@@ -10,6 +12,7 @@ module.exports = {
   label: 'List items',
   status: 'ready',
   tags: ['molecule'],
+  preview: '@preview-icons',
   collated: true,
   collator(markup, item) {
     return `

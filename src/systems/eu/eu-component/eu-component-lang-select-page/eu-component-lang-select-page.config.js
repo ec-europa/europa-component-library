@@ -1,4 +1,9 @@
 const data = {
+  icon: {
+    icon_path: '../../eu-preset-website/images/icons/symbol-defs.svg',
+    icon: 'generic-lang',
+    size: 'xl',
+  },
   unavailable: 'français',
   current: 'Nederlands',
   options: [
@@ -39,6 +44,7 @@ module.exports = {
   title: 'Language select (Page)',
   label: 'Language select (Page)',
   tags: ['molecule'],
+  preview: '@preview-icons',
   status: 'ready',
   context: {
     _demo: {

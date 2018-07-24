@@ -5,8 +5,6 @@
 
 // Import base
 @import '@ecl/generic-base/generic-base';
-@import '@ecl/generic-style-icon/variables';
-@import '@ecl/generic-style-icon/mixins';
 
 // Trigger
 $ecl-inpage-navigation-trigger-font-size: map-get($ecl-font-size, 'm');
@@ -36,36 +34,24 @@ $ecl-inpage-navigation-link-padding-vertical: (
     border: 0;
     color: #fff;
     display: none;
+    fill: #fff;
     font-size: $ecl-inpage-navigation-trigger-font-size;
     font-weight: 700;
     line-height: $ecl-inpage-navigation-trigger-line-height;
     overflow: hidden;
     padding-bottom: $ecl-inpage-navigation-trigger-padding-vertical;
     padding-left: $ecl-inpage-navigation-trigger-padding-horizontal;
-    padding-right: $ecl-inpage-navigation-trigger-caret-width +
-      $ecl-inpage-navigation-trigger-padding-horizontal;
+    padding-right: $ecl-inpage-navigation-trigger-padding-horizontal;
     padding-top: $ecl-inpage-navigation-trigger-padding-vertical;
     position: relative;
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+  }
 
-    &::after {
-      @include ecl-icon--after();
-      @include ecl-icon('arrow-down');
-
-      align-items: center;
-      background-color: map-get($ecl-colors, 'blue-110');
-      display: flex;
-      font-size: map-get($ecl-font-size, 'xxxs');
-      height: 100%;
-      justify-content: center;
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: $ecl-inpage-navigation-trigger-caret-width;
-    }
+  .ecl-inpage-navigation__trigger-title {
+    flex-grow: 1;
   }
 
   .ecl-inpage-navigation__title {
@@ -95,7 +81,7 @@ $ecl-inpage-navigation-link-padding-vertical: (
 
   .ecl-inpage-navigation--visible {
     .ecl-inpage-navigation__trigger {
-      display: block;
+      display: flex;
     }
   }
 

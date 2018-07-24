@@ -7,7 +7,7 @@
           "heading": {
             "level" (string) (default: '')
             "title" (string) (default: '')
-            "icon" (string) (default: '')
+            "icon" (object) (default: {}): object of type ecl-icon
           },
           "body" (string) (default: '')
         },
@@ -21,6 +21,7 @@
         },
         ...
       ]
+     - "system" (string) (default: "generic") 
 #}
 
 {# Internal properties #}
@@ -28,6 +29,7 @@
 {% set _css_class = 'ecl-accordion' %}
 {% set _extra_attributes = '' %}
 {% set _panels = panels|default([]) %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
@@ -47,7 +49,11 @@
   {% for _panel in _panels %}
   <dt role="heading"{{ _panel.heading.level is defined ? 'aria-level="' ~ _panel.heading.level ~ '"' : '' }} >
     <button id="ecl-accordion-header-{{ _panel.id }}" class="ecl-accordion__header" aria-controls="ecl-accordion-panel-{{ _panel.id }}" aria-expanded="{{ _panel.isExpanded ? 'true' : 'false' }}">
-      <span class="ecl-accordion__header-icon ecl-icon ecl-icon--rounded ecl-u-bg-secondary ecl-icon--{{ _panel.heading.icon }}"></span>
+      {% if _panel.heading.icon is not empty %}
+      {% include '@ecl/' ~ _system ~ '-style-icon' with {
+        'extra_classes': 'ecl-accordion__header-icon'
+      }|merge(_panel.heading.icon|default({})) only %}
+      {% endif %}
       {{ _panel.heading.title }}
     </button>
   </dt>

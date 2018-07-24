@@ -6,6 +6,7 @@
       - "label" (string) (default: ''): label to print before the current tag
       - "value" (string) (default: ''): text to display
       - "href" (string) (default: ''): if not provided, a <span> would be printed
+      - "icon" (object) (default: {}): object of type ecl-icon
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -54,9 +55,23 @@
         <span class="ecl-tag__label">{{ _tag.label }}</span>
       {% endif %}
       {% if _tag.href is defined and _tag.href is not empty %}
-        <a class="ecl-tag__item" href="{{ _tag.href }}">{{ _tag.value|default('') }}</a>
+        <a class="ecl-tag__item" href="{{ _tag.href }}">
+          {{ _tag.value|default('') }}
+          {% if _tag.icon is defined and _tag.icon is not empty %}
+          {% include '@ecl/' ~ _system ~ '-style-icon' with {
+            'extra_classes': 'ecl-tag__icon'
+          }|merge(_tag.icon|default({})) only %}
+          {% endif %}
+        </a>
       {% else %}
-        <span class="ecl-tag__item">{{ _tag.value|default('') }}</span>
+        <span class="ecl-tag__item">
+          {{ _tag.value|default('') }}
+          {% if _tag.icon is defined and _tag.icon is not empty %}
+          {% include '@ecl/' ~ _system ~ '-style-icon' with {
+            'extra_classes': 'ecl-tag__icon'
+          }|merge(_tag.icon|default({})) only %}
+          {% endif %}
+        </span>
       {% endif %}
     {% endfor %}
   {% endif %}

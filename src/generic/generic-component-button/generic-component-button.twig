@@ -4,7 +4,7 @@
     - "type" (string): deprecated
     - "type_attribute" (string) (default: "submit")
     - "href" (string) (default: ''): display button as a link, with this href
-    - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
+    - "icon" (object) (default: {}): object of type ecl-icon
     - "label" (string) (default: "")
     - "is_block" (boolean): block-wide button (default: false)
     - "extra_classes" (string) (default: '')
@@ -15,6 +15,7 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
   Blocks:
     - "link_label_block": block label of the button (when "type" == "link")
     - "button_label_block": block label of the button (when "type" == "button")
@@ -24,21 +25,18 @@
 
 {% set _modifier = modifier|default('default') %}
 {% set _type_attribute = type_attribute|default('submit') %}
-{% set _icon = icon|default('') %}
+{% set _icon = icon|default({}) %}
 {% set _label = label|default('') %}
 {% set _href = href|default('') %}
 {% set _is_block = is_block|default(false) %}
 {% set _css_class = 'ecl-button ecl-button--' ~ _modifier %}
 {% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
 {% if _is_block == true %}
   {% set _css_class = _css_class ~ ' ecl-button--block' %}
-{% endif %}
-
-{% if _icon is not empty %}
-  {% set _css_class = _css_class ~ ' ecl-button--' ~ _icon %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
@@ -54,7 +52,31 @@
 {# Print the result #}
 
 {% if _href != '' %}
-  <a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block link_label_block _label|raw %}</a>
+
+<a href="{{ _href }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <span class="ecl-button__label ecl-expandable__label">
+  {% block link_label_block _label|raw %}
+  </span>
+
+  {% if _icon is not empty %}
+  <span class="ecl-button__icon ecl-expandable__icon">
+  {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
+  </span>
+  {% endif %}
+</a>
+
 {% else %}
-  <button type="{{ _type_attribute }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block button_label_block _label|raw %}</button>
+
+<button type="{{ _type_attribute }}" class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <span class="ecl-button__label ecl-expandable__label">
+  {% block button_label_block _label|raw %}
+  </span>
+
+  {% if _icon is not empty %}
+  <span class="ecl-button__icon ecl-expandable__icon">
+  {% include '@ecl/' ~ _system ~ '-style-icon' with _icon only %}
+  </span>
+  {% endif %}
+</button>
+
 {% endif %}

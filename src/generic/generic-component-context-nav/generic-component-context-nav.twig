@@ -57,7 +57,11 @@
         'modifier': 'none',
         'label': _more_label,
         'extra_classes': 'ecl-context-nav__button ecl-link ecl-link--standalone',
-        'icon': 'caret-right'
+        'icon': {
+          'icon_path': '../../' ~ _system ~ '-preset-website/images/icons/symbol-defs.svg',
+          'icon': 'right',
+          'size': 'xs',
+        }
       } %}
     </li>
     {% endif %}

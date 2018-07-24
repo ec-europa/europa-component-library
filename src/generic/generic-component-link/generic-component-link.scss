@@ -5,8 +5,6 @@
 
 // Import base
 @import '@ecl/generic-base/generic-base';
-@import '@ecl/generic-style-icon/variables';
-@import '@ecl/generic-style-icon/mixins';
 @import './mixins';
 
 @mixin ecl-link() {
@@ -14,8 +12,14 @@
     @include link();
   }
 
-  .ecl-link--external {
-    @include link-external();
+  .ecl-link__icon {
+    fill: currentColor;
+  }
+  .ecl-link--icon-before .ecl-link__icon {
+    margin-right: map-get($ecl-spacing, 'xxxs');
+  }
+  .ecl-link--icon-after .ecl-link__icon {
+    margin-left: map-get($ecl-spacing, 'xxxs');
   }
 
   .ecl-link--standalone {
@@ -45,15 +49,5 @@
 
   .ecl-link--more {
     text-transform: uppercase;
-
-    &::after {
-      @include ecl-icon--after();
-
-      @include ecl-icon('right');
-
-      font-size: 75%;
-      margin-left: 0.4em;
-      margin-right: 0.2em;
-    }
   }
 }

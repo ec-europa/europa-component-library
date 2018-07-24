@@ -1,15 +1,20 @@
 const contextDefault = require('@ecl/generic-component-link/data/demo--default');
-const contextExternal = require('@ecl/generic-component-link/data/demo--external');
+const contextExternal = require('@ecl/generic-component-link/data/demo--external')(
+  'eu'
+);
 const contextStandalone = require('@ecl/generic-component-link/data/demo--standalone');
 const contextInverted = require('@ecl/generic-component-link/data/demo--inverted');
 const contextAll = require('@ecl/generic-component-link/data/demo--all');
-const contextMore = require('@ecl/generic-component-link/data/demo--more');
+const contextMore = require('@ecl/generic-component-link/data/demo--more')(
+  'eu'
+);
 
 module.exports = {
   title: 'Links',
   label: 'Links',
   status: 'ready',
   tags: ['atom'],
+  preview: '@preview-icons',
   collated: true,
   collator(markup, item) {
     return `
