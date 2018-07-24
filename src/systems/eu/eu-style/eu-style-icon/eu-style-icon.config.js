@@ -189,7 +189,7 @@ module.exports = {
       name: 'gear',
       label: 'Gear',
       context: {
-        icon: 'if_gear_298781',
+        icon: 'gear',
       },
     },
     {
