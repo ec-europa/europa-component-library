@@ -8,7 +8,7 @@ module.exports = {
   collator(markup, item) {
     return `
     <!-- Start demo of: @${item.handle} -->\n
-    <div class="ecl-u-d-inline-flex">
+    <div class="ecl-u-d-inline-flex ecl-u-align-items-center">
       ${markup}
       <div class="ecl-u-ml-xs">${item.context.icon}</div>
     </div><br />
