@@ -3,48 +3,23 @@ import { NavLink } from 'react-router-dom';
 
 import './ComponentHeader.css';
 
-const ComponentHeader = ({ match, sectionTitle, pageTitle }) => (
+const ComponentHeader = ({ match, sectionTitle, pageTitle, tabs }) => (
   <header className="tmp-component-header">
     <div className="ecl-container">
       <h3>{sectionTitle}</h3>
       <h1>{pageTitle}</h1>
       <ul className="tmp-component-header__tabs">
-        <li>
-          <NavLink
-            to={`${match.url}/usage`}
-            className="tmp-component-header__tabs-item"
-            activeClassName="tmp-component-header__tabs-item--active"
-          >
-            Usage
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to={`${match.url}/code`}
-            className="tmp-component-header__tabs-item"
-            activeClassName="tmp-component-header__tabs-item--active"
-          >
-            Code
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to={`${match.url}/style`}
-            className="tmp-component-header__tabs-item"
-            activeClassName="tmp-component-header__tabs-item--active"
-          >
-            Style
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to={`${match.url}/accessibility`}
-            className="tmp-component-header__tabs-item"
-            activeClassName="tmp-component-header__tabs-item--active"
-          >
-            Accessibility
-          </NavLink>
-        </li>
+        {tabs.map(tab => (
+          <li key={tab.url}>
+            <NavLink
+              to={`${match.url}/${tab.url}`}
+              className="tmp-component-header__tabs-item"
+              activeClassName="tmp-component-header__tabs-item--active"
+            >
+              {tab.name}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </div>
   </header>

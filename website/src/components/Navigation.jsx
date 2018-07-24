@@ -68,7 +68,7 @@ class Navigation extends Component {
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
                   {this.props.pages.keys().map(key => {
-                    const meta = this.props.pages(key).meta;
+                    const meta = this.props.pages(key).default;
                     if (meta) {
                       return (
                         <li key={meta.url}>

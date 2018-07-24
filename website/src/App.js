@@ -12,10 +12,12 @@ import HomePage from './pages/index';
 import PageNotFound from './pages/404';
 import ECHomePage from './pages/ec/index';
 
+import ComponentPage from './components/ComponentPage';
+
 const pages = require.context(
-  './pages/ec/components',
+  '../../src/systems/ec/specs',
   true, // Load files recursively. Pass false to skip recursion.
-  /index\.js$/ // Match index.js files
+  /config\.js$/ // Match index.js files
 );
 
 class App extends Component {
@@ -39,13 +41,16 @@ class App extends Component {
               <Route exact path="/ec" component={ECHomePage} />
               {pages.keys().map(key => {
                 const component = pages(key);
-                const meta = component.meta;
+                const meta = component.default;
                 if (meta) {
                   return (
                     <Route
                       key={meta.url}
                       path={meta.url}
-                      component={component.default}
+                      // component={component.default}
+                      render={props => (
+                        <ComponentPage {...props} component={meta} />
+                      )}
                     />
                   );
                 }
