@@ -17,7 +17,7 @@ import ComponentPage from './components/ComponentPage';
 const pages = require.context(
   '../../src/systems/ec/specs',
   true, // Load files recursively. Pass false to skip recursion.
-  /config\.js$/ // Match index.js files
+  /config\.js$/
 );
 
 class App extends Component {
@@ -47,7 +47,6 @@ class App extends Component {
                     <Route
                       key={meta.url}
                       path={meta.url}
-                      // component={component.default}
                       render={props => (
                         <ComponentPage {...props} component={meta} />
                       )}
