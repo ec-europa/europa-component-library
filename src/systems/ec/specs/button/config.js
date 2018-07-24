@@ -1,4 +1,4 @@
-import a11y from './docs/accessibility.mdx';
+import a11y from './docs/accessibility.md';
 
 export default {
   url: '/ec/components/button',

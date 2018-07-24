@@ -8,8 +8,8 @@ Some guidelines.
 
 TODO:
 
-- something
-- hello?
+* something
+* hello?
 
 > Cite something
 

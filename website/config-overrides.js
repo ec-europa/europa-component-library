@@ -10,7 +10,7 @@ module.exports = (config, env) => {
     }
 
     rule.oneOf.unshift({
-      test: /\.mdx$/,
+      test: /\.(md|mdx)$/,
       // include: babelLoader.include,
       use: [
         {

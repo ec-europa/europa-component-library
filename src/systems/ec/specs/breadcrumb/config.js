@@ -1,7 +1,7 @@
-import a11y from './docs/accessibility.mdx';
-import code from './docs/code.mdx';
-import usage from './docs/usage.mdx';
-import style from './docs/style.mdx';
+import a11y from './docs/accessibility.md';
+import code from './docs/code.md';
+import usage from './docs/usage.md';
+import style from './docs/style.md';
 
 export default {
   url: '/ec/components/breadcrumb',
@@ -29,5 +29,5 @@ export default {
       url: 'style',
     },
   ],
-  defaultTab: 'a11y',
+  defaultTab: 'usage',
 };
