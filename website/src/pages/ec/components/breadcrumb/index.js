@@ -4,10 +4,10 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import ComponentHeader from '../../../../components/ComponentHeader';
 
-import CodeTab from './tabs/code';
-import StyleTab from './tabs/style';
-import UsageTab from './tabs/usage';
-import AccessibilityTab from './tabs/accessibility';
+import CodeTab from '@ecl/ec-specs-breadcrumb/docs/code.mdx';
+import StyleTab from '@ecl/ec-specs-breadcrumb/docs/style.mdx';
+import UsageTab from '@ecl/ec-specs-breadcrumb/docs/usage.mdx';
+import AccessibilityTab from '@ecl/ec-specs-breadcrumb/docs/accessibility.mdx';
 
 const BreadcrumbPage = ({ match }) => {
   return (
@@ -19,7 +19,7 @@ const BreadcrumbPage = ({ match }) => {
         pageTitle="Breadcrumb"
       />
       <main id="main-content" tabIndex="-1">
-        <div className="ecl-container">
+        <div className="ecl-container ecl-u-pv-l ecl-editor">
           <Switch>
             <Route exact path={`${match.url}/code`} component={CodeTab} />
             <Route exact path={`${match.url}/style`} component={StyleTab} />

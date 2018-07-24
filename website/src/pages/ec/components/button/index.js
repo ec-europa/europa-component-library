@@ -4,6 +4,8 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import ComponentHeader from '../../../../components/ComponentHeader';
 
+import AccessibilityTab from '@ecl/ec-specs-button/docs/accessibility.mdx';
+
 const ButtonPage = ({ match }) => {
   return (
     <Fragment>
@@ -14,7 +16,7 @@ const ButtonPage = ({ match }) => {
         pageTitle="Button"
       />
       <main id="main-content" tabIndex="-1">
-        <div className="ecl-container">
+        <div className="ecl-container ecl-u-pv-l ecl-editor">
           <Switch>
             <Route
               exact
@@ -46,11 +48,7 @@ const ButtonPage = ({ match }) => {
             <Route
               exact
               path={`${match.url}/accessibility`}
-              render={() => (
-                <Fragment>
-                  <h2>Accessibility</h2>
-                </Fragment>
-              )}
+              component={AccessibilityTab}
             />
             <Route render={() => <Redirect to={`${match.url}/usage`} />} />
           </Switch>

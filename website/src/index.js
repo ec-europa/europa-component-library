@@ -11,3 +11,10 @@ if (rootElement.hasChildNodes()) {
 }
 
 registerServiceWorker();
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    render(<App />, rootElement);
+  });
+}
