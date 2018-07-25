@@ -138,7 +138,7 @@ exports.config = {
   staticServerFolders: [
     {
       mount: '/',
-      path: './dist/website',
+      path: './dist/styleguide',
     },
   ],
   staticServerPort: 3000,
