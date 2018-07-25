@@ -20,7 +20,7 @@ cp -r ./tools/ec-styleguide/dist ./dist/styleguide/ec
 cp -r ./tools/eu-styleguide/dist ./dist/styleguide/eu
 
 # Build website
-yarn lerna --scope "@ecl/website" run build
+cd ./website && yarn build && cd ..
 
 # Copy builds
 rm -rf ./dist/website
