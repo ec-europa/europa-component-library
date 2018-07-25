@@ -47,8 +47,10 @@ pipeline:
         TEST: examples
 
   build:
-    image: alekzonder/puppeteer:latest
+    image: hivelocityinc/docker-node-chromium
+    shm_size: 1g
     commands:
+      - yarn install
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
           yarn dist ;
         fi
