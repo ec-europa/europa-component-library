@@ -47,7 +47,7 @@ pipeline:
         TEST: examples
 
   build:
-    image: node:9.11.1
+    image: alekzonder/puppeteer:latest
     commands:
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
           yarn dist ;

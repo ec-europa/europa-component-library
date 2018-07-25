@@ -23,7 +23,7 @@ const pages = require.context(
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={`${process.env.PUBLIC_URL}/`}>
         <div className="language-en ecl-typography">
           <Helmet
             titleTemplate="%s - ECL 2.0"
