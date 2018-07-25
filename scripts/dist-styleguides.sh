@@ -15,6 +15,7 @@ yarn lerna --parallel --scope "@ecl/*-styleguide" run dist
 
 # Copy builds
 rm -rf ./dist/styleguide
+mkdir ./dist/styleguide
 cp -r ./tools/ec-styleguide/dist ./dist/styleguide/ec
 cp -r ./tools/eu-styleguide/dist ./dist/styleguide/eu
 
