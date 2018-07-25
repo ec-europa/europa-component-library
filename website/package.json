@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rimraf build",
     "start": "react-app-rewired start",
-    "build": "npm run clean && react-app-rewired build && react-snap",
+    "build": "npm run clean && react-app-rewired build",
+    "postbuild": "react-snap",
     "test": "react-app-rewired test --env=jsdom",
     "serve": "serve build"
   },
@@ -35,5 +36,8 @@
   "eslintConfig": {
     "root": true,
     "extends": "react-app"
+  },
+  "reactSnap": {
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   }
 }
