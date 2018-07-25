@@ -1,21 +1,22 @@
 {#
   Parameters:
     - "theme" (string): possible variation of the component. `dark` is supported at the moment.
-    - dialog_id (string) (default: 'ecl-dialog'): overrideable `id` of the dialog
-    - dialog_aria_hidden (string) (default: 'true'): overrideable `aria-hidden` of the dialog
-    - dialog_title (object): {
-        - value (string) (default: 'Dialog'): the title of the dialog
-        - id (string) (default: 'ecl-dialog-title'): the id to match an `aria-labelledby` attribute
-        - classes (string) (default: 'ecl-u-sr-only'): classes to apply to dialog title field
+    - "dialog_id" (string) (default: 'ecl-dialog'): overrideable `id` of the dialog
+    - "dialog_aria_hidden" (string) (default: 'true'): overrideable `aria-hidden` of the dialog
+    - "dialog_title" (object): {
+        - "value" (string) (default: 'Dialog'): the title of the dialog
+        - "id" (string) (default: 'ecl-dialog-title'): the id to match an `aria-labelledby` attribute
+        - "classes" (string) (default: 'ecl-u-sr-only'): classes to apply to dialog title field
       }
-    - dialog_description (object): {
-        - value (string) (default: ''): the description of the dialog
-        - id (string) (default: 'ecl-dialog-description'): the id to match an `aria-describedby` attribute
-        - classes (string) (default: 'ecl-u-sr-only'): classes to apply to dialog description field
+    - "dialog_description" (object): {
+        - "value" (string) (default: ''): the description of the dialog
+        - "id" (string) (default: 'ecl-dialog-description'): the id to match an `aria-describedby` attribute
+        - "classes" (string) (default: 'ecl-u-sr-only'): classes to apply to dialog description field
       }
-    - dismiss (object): {
-        - hide (boolean) (default: false): hide the default dismiss button in case you want to include a custom one in the "dialog_body" block
-        - label (string) (default: 'Dismiss this dialog window'): the value for the button label to close the dialog window
+    - "dismiss" (object): {
+        - "hide" (boolean) (default: false): hide the default dismiss button in case you want to include a custom one in the "dialog_body" block
+        - "label" (string) (default: 'Dismiss this dialog window'): the value for the button label to close the dialog window
+        - "icon" (object) (default: {}): object of type ecl-icon
       }
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -81,6 +82,15 @@
     {% endblock %}
   </div>
   {% if not _dismiss.hide %}
-    <button type="button" class="ecl-dialog__dismiss" aria-label="{{ _dismiss.label }}">&times;</button>
+    {% include '@ecl/ec-component-button' with {
+      'modifier': 'secondary',
+      'label': '',
+      'type_attribute': 'button',
+      'icon': _dismiss.icon,
+      'extra_classes': 'ecl-dialog__dismiss',
+      'extra_attributes': [
+        { 'name': 'aria-label', 'value': _dismiss.label },
+      ]
+    } %}
   {% endif %}
 </div>

@@ -21,6 +21,12 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic") 
 #}
 
-{% include '@ecl/generic-component-accordion' %}
+{% include '@ecl/generic-component-accordion' with {
+  'panels': panels|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'eu'
+} only %}

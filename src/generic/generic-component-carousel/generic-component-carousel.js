@@ -78,12 +78,13 @@ export const carousels = ({ selectorId: selectorId = 'ecl-carousel' } = {}) => {
 
     navControls.innerHTML = `
       <li>
-        <button type="button" class="ecl-icon ecl-icon--left ecl-carousel__button ecl-carousel__button--previous">
-          <span class="ecl-u-sr-only">Previous</span></button>
+        <button type="button" class="ecl-carousel__button ecl-carousel__button--previous">
+          <span class="ecl-u-sr-only">Previous</span>&lsaquo;
+        </button>
       </li>
       <li>
-        <button type="button" class="ecl-icon ecl-icon--right ecl-carousel__button ecl-carousel__button--next">
-          <span class="ecl-u-sr-only">Next</span>
+        <button type="button" class="ecl-carousel__button ecl-carousel__button--next">
+          <span class="ecl-u-sr-only">Next</span>&rsaquo;
         </button>
       </li>
     `;

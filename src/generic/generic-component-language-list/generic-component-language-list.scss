@@ -1,6 +1,6 @@
 /**
  * Language list component
- * @define language-list
+ * @define language-list; weak
  */
 
 // Import base
@@ -20,6 +20,7 @@
   .ecl-language-list__button {
     background-color: #fff;
     color: $ecl-color-primary;
+    display: flex;
 
     &:focus,
     &:active,
@@ -37,11 +38,30 @@
     &:hover {
       background-color: map-get($ecl-colors, 'yellow-100');
     }
+
+    .ecl-button__label {
+      flex-grow: 1;
+    }
+
+    .ecl-button__icon {
+      display: none;
+      fill: currentColor;
+    }
+  }
+
+  .ecl-language-list__dismiss {
+    .ecl-button__icon {
+      margin-left: map-get($ecl-spacing, 'xxxs');
+    }
   }
 
   .ecl-language-list__button--active {
     background-color: $ecl-color-secondary;
     box-shadow: none;
     color: #000;
+
+    .ecl-button__icon {
+      display: block;
+    }
   }
 }

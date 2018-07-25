@@ -3,6 +3,7 @@ module.exports = {
   label: 'Footers',
   status: 'ready',
   tags: ['organism'],
+  preview: '@preview-icons',
   context: {
     custom_footer: {
       identity: 'Site identification',
@@ -11,7 +12,11 @@ module.exports = {
         links: [
           {
             type: 'social-network',
-            icon: 'facebook',
+            icon: {
+              icon_path: '../../eu-preset-website/images/icons/symbol-defs.svg',
+              icon: 'facebook',
+              size: 'm',
+            },
             link: {
               href: '../../example.html#facebook',
               label: 'Facebook',
@@ -19,7 +24,11 @@ module.exports = {
           },
           {
             type: 'social-network',
-            icon: 'twitter',
+            icon: {
+              icon_path: '../../eu-preset-website/images/icons/symbol-defs.svg',
+              icon: 'twitter',
+              size: 'm',
+            },
             link: {
               href: '../../example.html#twitter',
               label: 'Twitter',

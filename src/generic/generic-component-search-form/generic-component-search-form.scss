@@ -1,6 +1,6 @@
 /**
  * Search form
- * @define search-form
+ * @define search-form; weak
  */
 
 // Import base
@@ -27,34 +27,31 @@
   }
 
   .ecl-search-form__button {
-    @include ecl-icon--before();
+    padding: 0 map-get($ecl-spacing, 'xs');
+  }
 
-    flex-shrink: 0;
-    padding: 0 map-get($ecl-spacing, 'm');
-    position: relative;
-    text-indent: -999em;
+  .ecl-search-form__button .ecl-button__label {
+    display: none;
+  }
 
-    &::before {
-      @include ecl-icon('search');
-
-      font-size: map-get($ecl-font-size, 'l');
-      left: 50%;
-      position: absolute;
-      text-indent: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
+  .ecl-search-form__button .ecl-button__icon {
+    display: block;
+    fill: currentColor;
+    margin: 0;
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
     .ecl-search-form__button {
       padding: 0 map-get($ecl-spacing, 's');
-      text-indent: 0;
+    }
 
-      &::before {
-        display: none !important;
-      }
+    .ecl-search-form__button .ecl-button__label {
+      display: block;
+    }
+
+    .ecl-search-form__button .ecl-button__icon {
+      display: none;
     }
   }
 

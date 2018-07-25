@@ -2,6 +2,7 @@
   Parameters:
     - "id" (string) (default: 'datepicker'): the input ID
     - "name" (string) (default: 'datepicker'): the input name
+    - "icon" (object) (default: {}): object of type ecl-icon
     - "value" (string) (default: ''): the default value (mm/dd/yyyy)
     - "aria_label" (string) (default: 'Use the arrow keys to pick a date'): ARIA label
     - "extra_classes" (string) (default: '')
@@ -22,6 +23,7 @@
 {% set _css_class = 'ecl-datepicker' %}
 {% set _id = id|default('datepicker') %}
 {% set _name = name|default('datepicker') %}
+{% set _icon = icon|default({}) %}
 {% set _extra_attributes = '' %}
 {% set _system = system|default('generic') %}
 
@@ -50,6 +52,8 @@
       { 'name': 'value', 'value': _value }
     ]
   } %}
-  <span class="ecl-datepicker__icon ecl-icon ecl-icon--calendar"></span>
+  {% include '@ecl/' ~ _system ~ '-style-icon' with {
+    'extra_classes': 'ecl-datepicker__icon'
+  }|merge(_icon|default({})) only %}
 </div>
 {% endspaceless %}

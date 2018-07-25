@@ -1,6 +1,4 @@
-const { variants } = require('@ecl/generic-component-button/data/demo');
-
-const variantsName = variants.map(variant => variant.name);
+const variantsName = ['default', 'primary', 'secondary', 'call'];
 
 describe('buttons', () => {
   before(() => {

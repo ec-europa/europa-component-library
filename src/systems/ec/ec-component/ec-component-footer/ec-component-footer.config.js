@@ -3,6 +3,7 @@ module.exports = {
   label: 'Footers',
   status: 'ready',
   tags: ['organism'],
+  preview: '@preview-icons',
   context: {
     custom_footer: {
       identity: 'Digital single market',
@@ -11,7 +12,11 @@ module.exports = {
         links: [
           {
             type: 'social-network',
-            icon: 'facebook',
+            icon: {
+              icon_path: '../../ec-preset-website/images/icons/symbol-defs.svg',
+              icon: 'facebook',
+              size: 'm',
+            },
             link: {
               href: '../../example.html#',
               label: 'Facebook',
@@ -19,7 +24,11 @@ module.exports = {
           },
           {
             type: 'social-network',
-            icon: 'twitter',
+            icon: {
+              icon_path: '../../ec-preset-website/images/icons/symbol-defs.svg',
+              icon: 'twitter',
+              size: 'm',
+            },
             link: {
               href: '../../example.html#',
               label: 'Twitter',
@@ -70,7 +79,11 @@ module.exports = {
         items: [
           {
             type: 'social-network',
-            icon: 'facebook',
+            icon: {
+              icon_path: '../../ec-preset-website/images/icons/symbol-defs.svg',
+              icon: 'facebook',
+              size: 'm',
+            },
             link: {
               href: '../../example.html#',
               label: 'Facebook',
@@ -78,7 +91,11 @@ module.exports = {
           },
           {
             type: 'social-network',
-            icon: 'twitter',
+            icon: {
+              icon_path: '../../ec-preset-website/images/icons/symbol-defs.svg',
+              icon: 'twitter',
+              size: 'm',
+            },
             link: {
               href: '../../example.html#',
               label: 'Twitter',

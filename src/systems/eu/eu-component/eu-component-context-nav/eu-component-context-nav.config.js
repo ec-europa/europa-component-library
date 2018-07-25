@@ -5,5 +5,6 @@ module.exports = {
   label: 'Contextual navigations',
   status: 'ready',
   tags: ['atom'],
+  preview: '@preview-icons',
   context,
 };

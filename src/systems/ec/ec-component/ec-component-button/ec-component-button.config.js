@@ -1,9 +1,14 @@
-const { variants } = require('@ecl/generic-component-button/data/demo');
+const contextDefault = require('@ecl/generic-component-button/data/demo--default');
+const contextPrimary = require('@ecl/generic-component-button/data/demo--primary');
+const contextSecondary = require('@ecl/generic-component-button/data/demo--secondary');
+const contextCall = require('@ecl/generic-component-button/data/demo--call')(
+  'ec'
+);
 
 module.exports = {
   title: 'Buttons',
   label: 'Buttons',
-  preview: '@preview-center-transparent',
+  preview: '@preview-icons-center-transparent',
   tags: ['atom'],
   status: 'ready',
   collated: true,
@@ -15,5 +20,23 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
-  variants,
+  default: 'default',
+  variants: [
+    {
+      name: 'default',
+      context: contextDefault,
+    },
+    {
+      name: 'primary',
+      context: contextPrimary,
+    },
+    {
+      name: 'secondary',
+      context: contextSecondary,
+    },
+    {
+      name: 'call',
+      context: contextCall,
+    },
+  ],
 };

@@ -1,6 +1,8 @@
 @mixin link() {
+  align-items: center;
   box-sizing: border-box;
   color: $ecl-color-primary;
+  display: inline-flex;
   margin: 0;
   text-decoration: underline;
 
@@ -16,17 +18,5 @@
 
   &:visited {
     color: map-get($ecl-colors, 'purple-100');
-  }
-}
-
-@mixin link-external {
-  &::after {
-    @include ecl-icon--after();
-
-    @include ecl-icon('external');
-
-    font-size: 75%;
-    margin-left: 0.4em;
-    margin-right: 0.2em;
   }
 }

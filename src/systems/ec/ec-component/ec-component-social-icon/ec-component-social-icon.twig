@@ -1,6 +1,8 @@
 {#
   Parameters:
     - "link" (object) (default: {}): shape of @ecl/ec-component-link
+    - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon_hover" (object) (default: {}): object of type ecl-icon
     - "variant" (string) (default: ''): correspond to the social network
     - "label" (string) (default: ''): used if "link" is not provided
     - "extra_classes" (string) (default: '')
@@ -11,10 +13,13 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
 #}
 
 {% include '@ecl/generic-component-social-icon' with {
   'link': link|default({}),
+  'icon': icon|default({}),
+  'icon_hover': icon_hover|default({}),
   'variant': variant|default(''),
   'label': label|default(''),
   'extra_classes': extra_classes|default(''),

@@ -1,6 +1,12 @@
-const contextDefault = require('@ecl/generic-component-file/data/demo--default');
-const contextTranslations = require('@ecl/generic-component-file/data/demo--translations');
-const contextLinks = require('@ecl/generic-component-file/data/demo--links');
+const contextDefault = require('@ecl/generic-component-file/data/demo--default')(
+  'eu'
+);
+const contextTranslations = require('@ecl/generic-component-file/data/demo--translations')(
+  'eu'
+);
+const contextLinks = require('@ecl/generic-component-file/data/demo--links')(
+  'eu'
+);
 const contextImages = require('@ecl/generic-component-file/data/demo--images');
 const contextVideosIframe = require('@ecl/generic-component-file/data/demo--videos-iframe');
 const contextVideosTag = require('@ecl/generic-component-file/data/demo--videos-tag');
@@ -10,6 +16,7 @@ module.exports = {
   label: 'Files',
   status: 'ready',
   tags: ['molecule'],
+  preview: '@preview-icons',
   collated: false,
   default: 'default',
   variants: [

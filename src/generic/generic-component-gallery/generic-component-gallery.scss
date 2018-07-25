@@ -63,31 +63,22 @@
   }
 
   .ecl-gallery__icon-wrapper {
+    align-items: center;
     background-color: $ecl-color-shade;
     bottom: 0;
     color: #fff;
+    display: flex;
     height: 2.667em;
+    justify-content: center;
     overflow: hidden;
     padding: 0;
     position: absolute;
     right: 0;
-    text-align: center;
     width: 2.667em;
-
-    // Camera icon needs to be smaller in this context.
-    .ecl-icon--camera {
-      font-size: map-get($ecl-font-size, 'xxs');
-      line-height: 4em;
-    }
   }
 
   .ecl-gallery__icon {
-    font-size: map-get($ecl-font-size, 'm');
-    line-height: 2.667em;
-
-    &::before {
-      margin-right: 0;
-    }
+    fill: #fff;
   }
 
   // That's how we show the caption on hover

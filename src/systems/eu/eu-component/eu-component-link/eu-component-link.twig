@@ -3,6 +3,8 @@
     - "variant" (string or array) (default: ''): can be '','external','standalone', 'inverted', 'all', 'more', or an array
     - "href" (string) (default: '#')
     - "label" (string) (default: '')
+    - "icon" (object) (default: {}): object of type ecl-icon
+    - "icon_position" (string) (default: 'after'): can be 'before' or 'after'
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -15,36 +17,13 @@
     - "label"
 #}
 
-{# Internal properties #}
-
-{% set _css_class = 'ecl-link' %}
-{% set _extra_attributes = '' %}
-{% set _href = href|default('#') %}
-{% set _label = label|default('') %}
-{% set _variant = variant|default('') %}
-
-{# Internal logic - Process properties #}
-
-{% if _variant is not empty %}
-  {% if _variant is iterable %}
-    {% for _var in _variant %}
-      {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ _var %}
-    {% endfor %}
-  {% else %}
-    {% set _css_class = _css_class ~ ' ' ~ 'ecl-link--' ~ _variant %}
-  {% endif %}
-{% endif %}
-
-{% if extra_classes is defined and extra_classes is not empty %}
-  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
-{% endif %}
-
-{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
-  {% for attr in extra_attributes %}
-    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
-  {% endfor %}
-{% endif %}
-
-{# Print the result #}
-
-<a class="{{ _css_class }}" href="{{ _href }}"{{ _extra_attributes|raw }}>{% block label _label %}</a>
+{% include '@ecl/generic-component-link' with {
+  'variant': variant|default(''),
+  'href': href|default('#'),
+  'label': label|default(),
+  'icon': icon|default({}),
+  'icon_position': icon_position|default('after'),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'eu'
+} only %}

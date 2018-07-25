@@ -1,9 +1,24 @@
 # Icons
 
-Icons using europa icons font.
+Icons available on ECL.
 
-You can change icon color and display by using color utilities and additional
-modifiers:
+All icons are provided as a svg file.
 
-* **ecl-u-color-primary**: blue icon
-* **ecl-icon--rounded ecl-u-bg-secondary**: adds a yellow circle background
+**Icon size**
+
+Icons are available in different sizes. Available sizes goes from `ecl-icon--xxxs` to `ecl-icon--xxl`
+
+**Icon color**
+
+Use [Colorize utilities](https://ec-europa.github.io/europa-component-library/eu/components/detail/eu-utility-colorize) to change icon color
+
+**Internet explorer support**
+
+If you wish to display icons on Internet explorer, you have to add a third part javascript library.
+
+Here is the code to use [SVG for Everybody](https://www.npmjs.com/package/svg4everybody):
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg4everybody/2.1.9/svg4everybody.min.js"></script>
+<script type="text/javascript">document.addEventListener('DOMContentLoaded', function() { svg4everybody(); });</script>
+```

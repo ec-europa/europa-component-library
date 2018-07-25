@@ -1,6 +1,7 @@
 {#
   Parameters:
     - "segments" (array) (default: []): array of links (context of @ecl/generic-component-link)
+    - "icon" (object) (default: {}): object of type ecl-icon
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -18,6 +19,7 @@
 {% set _extra_attributes = '' %}
 {% set _system = system|default('generic') %}
 {% set _segments = segments|default([]) %}
+{% set _icon = icon|default({}) %}
 
 {# Internal logic - Process properties #}
 
@@ -42,6 +44,7 @@
       <span>{{ _segment.label }}</span>
       {% else %}
       {% include '@ecl/' ~ _system ~ '-component-link' with {
+        'icon': _icon,
         'extra_classes': 'ecl-breadcrumb__link',
         'variant': ['inverted', 'standalone'],
         }|merge(_segment|default({}))

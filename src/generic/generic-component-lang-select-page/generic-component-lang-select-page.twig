@@ -3,6 +3,7 @@
     - "unavailable" (string) (default: 'English'): unavailable language
     - "current" (string) (default: ''): current language
     - "is_primary" (string) (default: false)
+    - "icon" (object) (default: {}): object of type ecl-icon
     - "dropdown_label" (string) (default: 'Choose your language'): if a the component is a dropdown, this option will set the aria-label
     - "options" (array) (default: []): array of objects [
         {
@@ -20,6 +21,7 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
 #}
 
 {# Internal properties #}
@@ -31,6 +33,8 @@
 {% set _dropdown_label = dropdown_label|default('Choose your language') %}
 {% set _options = options|default([]) %}
 {% set _is_primary = is_primary|default(false) %}
+{% set _icon = icon|default({}) %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
@@ -51,7 +55,9 @@
 {# Print the result #}
 
 <section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <span class="ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"></span>
+  {% include '@ecl/' ~ _system ~ '-style-icon' with {
+    'extra_classes': 'ecl-lang-select-page__icon'
+  }|merge(_icon|default({})) only %}
   <span class="ecl-lang-select-page__unavailable">{{ _unavailable }}</span>
   <select class="ecl-lang-select-page__dropdown" aria-label="{{ _dropdown_label }}">
     <option class="ecl-lang-select-page__dropdown-option" value="" selected>{{ _current }}</option>
