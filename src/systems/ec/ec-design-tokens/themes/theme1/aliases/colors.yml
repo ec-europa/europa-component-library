@@ -1,4 +1,29 @@
-# Custom aliases used in theme1
+# Custom aliases used in the default theme
 aliases:
-  COLOR_PRIMARY: "{!COLOR_YELLOW_100}"
-  COLOR_SECONDARY: "{!COLOR_BLUE_100}"
+  _COLOR_PRIMARY: "{!COLOR_GREY_100}"
+  _COLOR_SECONDARY: "{!COLOR_BLUE_50}"
+  _COLOR_SURFACE: "{!COLOR_GREY_15}"
+  _COLOR_TEXT: "{!COLOR_GREY_100}"
+
+# Export properties
+props:
+  COLOR_PRIMARY:
+    value: "{!_COLOR_PRIMARY}"
+    comment: Primary color
+    type: color
+    category: color
+  COLOR_SECONDARY:
+    value: "{!_COLOR_SECONDARY}"
+    comment: Secondary color
+    type: color
+    category: color
+  COLOR_SURFACE:
+    value: "{!_COLOR_SURFACE}"
+    comment: Surface color
+    type: color
+    category: color
+  COLOR_TEXT:
+    value: "{!_COLOR_TEXT}"
+    comment: Text color
+    type: color
+    category: color
