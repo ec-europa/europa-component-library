@@ -101,7 +101,7 @@ class Navigation extends Component {
                           return (
                             <li key={meta.url}>
                               <NavLink
-                                to={meta.url}
+                                to={`${meta.url}/${meta.defaultTab}`}
                                 className="tmp-nav__page-list-item"
                                 activeClassName="tmp-nav__page-list-item--active"
                               >
