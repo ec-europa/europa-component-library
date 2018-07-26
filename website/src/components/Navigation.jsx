@@ -93,9 +93,7 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={`${
-                        this.state.components ? 'true' : 'false'
-                      }`}
+                      aria-hidden={this.state.components ? true : false}
                     >
                       {this.props.pages.keys().map(key => {
                         const meta = this.props.pages(key).default;
