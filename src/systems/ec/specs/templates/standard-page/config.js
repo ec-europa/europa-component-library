@@ -4,6 +4,7 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
+  order: 1,
   url: '/ec/templates/standard-page',
   title: 'Standard Page',
   section: 'Templates',

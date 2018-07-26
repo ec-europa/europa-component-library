@@ -227,7 +227,7 @@ class Navigation extends Component {
                       onClick={this.toggleTemplates}
                     >
                       <span>
-                        Tempaltes
+                        Templates
                         <svg className="ecl-icon ecl-icon--xs">
                           {this.state.templates ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
@@ -245,6 +245,8 @@ class Navigation extends Component {
                         .keys()
                         .filter(key => key.indexOf('./templates') === 0)
                         .map(key => this.props.pages(key).default)
+                        .filter(meta => meta)
+                        .sort((a, b) => a.order > b.order)
                         .map(meta => {
                           if (meta) {
                             return (

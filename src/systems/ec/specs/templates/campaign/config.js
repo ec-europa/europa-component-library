@@ -4,6 +4,7 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
+  order: 2,
   url: '/ec/templates/campaign',
   title: 'Campaign',
   section: 'Templates',
