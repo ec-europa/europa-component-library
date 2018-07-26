@@ -11,11 +11,18 @@ import Navigation from './components/Navigation';
 import HomePage from './pages/index';
 import PageNotFound from './pages/404';
 import ECHomePage from './pages/ec/index';
+import EUHomePage from './pages/eu/index';
 
 import ComponentPage from './components/ComponentPage';
 
-const pages = require.context(
+const ecPages = require.context(
   '../../src/systems/ec/specs',
+  true, // Load files recursively. Pass false to skip recursion.
+  /config\.js$/
+);
+
+const euPages = require.context(
+  '../../src/systems/eu/specs',
   true, // Load files recursively. Pass false to skip recursion.
   /config\.js$/
 );
@@ -34,28 +41,38 @@ class App extends Component {
               Skip to main content
             </a>
           </div>
-          <Navigation pages={pages} />
+          <Navigation ecPages={ecPages} euPages={euPages} />
           <div className="tmp-main-container">
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/ec" component={ECHomePage} />
-              {pages.keys().map(key => {
-                const component = pages(key);
-                const meta = component.default;
-                if (meta) {
-                  return (
-                    <Route
-                      key={meta.url}
-                      path={meta.url}
-                      render={props => (
-                        <ComponentPage {...props} component={meta} />
-                      )}
-                    />
-                  );
-                }
-
-                return null;
-              })}
+              {ecPages
+                .keys()
+                .map(key => ecPages(key).default)
+                .filter(meta => meta)
+                .map(meta => (
+                  <Route
+                    key={meta.url}
+                    path={meta.url}
+                    render={props => (
+                      <ComponentPage {...props} component={meta} />
+                    )}
+                  />
+                ))}
+              <Route exact path="/eu" component={EUHomePage} />
+              {euPages
+                .keys()
+                .map(key => euPages(key).default)
+                .filter(meta => meta)
+                .map(meta => (
+                  <Route
+                    key={meta.url}
+                    path={meta.url}
+                    render={props => (
+                      <ComponentPage {...props} component={meta} />
+                    )}
+                  />
+                ))}
               <Route component={PageNotFound} />
             </Switch>
           </div>
