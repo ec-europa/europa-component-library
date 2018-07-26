@@ -4,20 +4,10 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/breadcrumb',
-  title: 'Breadcrumb',
+  url: '/ec/components/footer',
+  title: 'Footer',
   section: 'Components',
   tabs: [
-    {
-      name: 'Style',
-      component: style,
-      url: 'style',
-    },
-    {
-      name: 'Accessibility',
-      component: a11y,
-      url: 'a11y',
-    },
     {
       name: 'Usage',
       component: usage,
@@ -27,6 +17,16 @@ export default {
       name: 'Code',
       component: code,
       url: 'code',
+    },
+    {
+      name: 'Style',
+      component: style,
+      url: 'style',
+    },
+    {
+      name: 'Accessibility',
+      component: a11y,
+      url: 'a11y',
     },
   ],
   defaultTab: 'usage',
