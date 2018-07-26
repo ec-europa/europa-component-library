@@ -14,7 +14,14 @@ cd ..
 yarn lerna --parallel --scope "@ecl/*-styleguide" run dist
 
 # Copy builds
+rm -rf ./dist/styleguide
+mkdir ./dist/styleguide
+cp -r ./tools/ec-styleguide/dist ./dist/styleguide/ec
+cp -r ./tools/eu-styleguide/dist ./dist/styleguide/eu
+
+# Build website
+cd ./website && yarn build && cd ..
+
+# Copy builds
 rm -rf ./dist/website
-cp -r ./website dist
-cp -r ./tools/ec-styleguide/dist ./dist/website/ec
-cp -r ./tools/eu-styleguide/dist ./dist/website/eu
+cp -r ./website/build dist/website

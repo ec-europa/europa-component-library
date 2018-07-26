@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "name": "@ecl/website",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "rimraf build",
+    "start": "react-app-rewired start",
+    "build": "npm run clean && react-app-rewired build",
+    "postbuild": "react-snap",
+    "test": "react-app-rewired test --env=jsdom",
+    "serve": "serve build"
+  },
+  "dependencies": {
+    "@ecl/ec-preset-website": "^1.2.0",
+    "@mdx-js/mdx": "0.15.0-0",
+    "react": "16.4.1",
+    "react-app-rewire-hot-loader": "1.0.1",
+    "react-app-rewired": "1.5.2",
+    "react-dom": "16.4.1",
+    "react-helmet": "5.2.0",
+    "react-hot-loader": "4.3.3",
+    "react-router-dom": "4.3.1"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "0.15.0-0",
+    "eslint-config-react-app": "2.1.0",
+    "eslint-plugin-flowtype": "2.50.0",
+    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.10.0",
+    "react-scripts": "1.1.4",
+    "react-snap": "yhuard/react-snap",
+    "rimraf": "2.6.2",
+    "serve": "9.3.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "react-app"
+  },
+  "reactSnap": {
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+  }
+}

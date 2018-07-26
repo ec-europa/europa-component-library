@@ -1,13 +1,9 @@
 {
-  "name": "@ecl/ec-design-tokens",
+  "name": "@ecl/ec-specs-breadcrumb",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "1.0.0",
-  "description": "ECL Design Tokens",
-  "scripts": {
-    "build": "node scripts/build-tokens.js",
-    "prepublish": "npm run build"
-  },
+  "description": "ECL Button Specs",
   "publishConfig": {
     "access": "public"
   },
@@ -19,17 +15,8 @@
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": [
-    "ecl",
-    "europa-component-library",
-    "design-system",
-    "design-tokens"
-  ],
-  "dependencies": {
-    "@ecl/ec-specs-button": "^1.0.0"
-  },
-  "devDependencies": {
-    "mkdirp": "0.5.1",
-    "theo": "7.0.1"
+  "keywords": ["ecl", "europa-component-library", "design-system"],
+  "babel": {
+    "presets": ["es2015", "react"]
   }
 }
