@@ -8,6 +8,7 @@
   "scripts": {
     "build:preset":
       "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run build",
+    "build:tokens": "cd ../../src/systems/eu/eu-design-tokens && npm run build",
     "clean": "rimraf ./static/eu-preset-website ../../src/systems/eu/_imports",
     "copy:preset":
       "ncp ../../src/systems/eu/eu-preset/eu-preset-website/dist ./static/eu-preset-website",
@@ -21,7 +22,9 @@
     "watch:preset":
       "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run watch",
     "watch:templates":
-      "chokidar \"../../src/generic/**/*.twig\" --c \"npm run copy:templates\""
+      "chokidar \"../../src/generic/**/*.twig\" --c \"npm run copy:templates\"",
+    "watch:tokens":
+      "chokidar \"../../src/systems/eu/eu-design-tokens/**/*.yml\" --c \"npm run build:tokens\""
   },
   "devDependencies": {
     "@ecl/eu-preset-website": "^1.2.0",
