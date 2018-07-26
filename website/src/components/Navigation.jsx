@@ -1,18 +1,26 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Link, NavLink, Switch } from 'react-router-dom';
 
+import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
 import './Navigation.css';
 
 class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: true, tab: 'ec' };
+    this.state = { open: true, components: false };
     this.toggleSidebar = this.toggleSidebar.bind(this);
+    this.toggleComponents = this.toggleComponents.bind(this);
   }
 
   toggleSidebar() {
     this.setState(prevState => ({
       open: !prevState.open,
+    }));
+  }
+
+  toggleComponents() {
+    this.setState(prevState => ({
+      components: !prevState.components,
     }));
   }
 
@@ -67,24 +75,46 @@ class Navigation extends Component {
               path="/ec"
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
-                  {this.props.pages.keys().map(key => {
-                    const meta = this.props.pages(key).default;
-                    if (meta) {
-                      return (
-                        <li key={meta.url}>
-                          <NavLink
-                            to={meta.url}
-                            className="tmp-nav__page-list-item"
-                            activeClassName="tmp-nav__page-list-item--active"
-                          >
-                            {meta.title}
-                          </NavLink>
-                        </li>
-                      );
-                    }
+                  <li>
+                    <button
+                      className="tmp-nav__group-list-item"
+                      onClick={this.toggleComponents}
+                    >
+                      <span>
+                        Components
+                        <svg className="ecl-icon ecl-icon--xs">
+                          {this.state.components ? (
+                            <use xlinkHref={`${icons}#ecl-icon--right`} />
+                          ) : (
+                            <use xlinkHref={`${icons}#ecl-icon--down`} />
+                          )}
+                        </svg>
+                      </span>
+                    </button>
+                    <ul
+                      className="ecl-list ecl-list--unstyled ecl-u-aria"
+                      aria-hidden={this.state.components ? true : false}
+                    >
+                      {this.props.pages.keys().map(key => {
+                        const meta = this.props.pages(key).default;
+                        if (meta) {
+                          return (
+                            <li key={meta.url}>
+                              <NavLink
+                                to={`${meta.url}/${meta.defaultTab}`}
+                                className="tmp-nav__page-list-item"
+                                activeClassName="tmp-nav__page-list-item--active"
+                              >
+                                {meta.title}
+                              </NavLink>
+                            </li>
+                          );
+                        }
 
-                    return null;
-                  })}
+                        return null;
+                      })}
+                    </ul>
+                  </li>
                 </ul>
               )}
             />{' '}
