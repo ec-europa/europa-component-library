@@ -18,6 +18,7 @@
     "publish": "scripts/release.sh",
     "start:ec": "cd tools/ec-styleguide && npm run start",
     "start:eu": "cd tools/eu-styleguide && npm run start",
+    "start:website": "cd website && npm run start",
     "test:coding-conventions": "npm run lint",
     "test:functional": "node ./scripts/test-functional.js",
     "test:independent-sass": "lerna run --parallel test:independent-sass",
@@ -75,6 +76,7 @@
     "src/systems/ec/ec-style/**",
     "src/systems/ec/ec-template/*",
     "src/systems/ec/ec-utility/*",
+    "src/systems/ec/specs/*",
     "src/systems/eu/eu-base",
     "src/systems/eu/eu-component/**",
     "src/systems/eu/eu-layout/*",
@@ -83,6 +85,7 @@
     "src/systems/eu/eu-style/**",
     "src/systems/eu/eu-template/*",
     "src/systems/eu/eu-utility/*",
-    "tools/*"
+    "tools/*",
+    "website"
   ]
 }
