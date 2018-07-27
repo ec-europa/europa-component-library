@@ -45,19 +45,21 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% if _label is not empty %}
-    <span class="ecl-tag__label">{{ label }}</span>
-  {% endif %}
-  {% if _tags is not empty and _tags is iterable %}
-    {% for _tag in _tags %}
-      {% if _tag.label is defined and _tag.label is not empty %}
-        <span class="ecl-tag__label">{{ _tag.label }}</span>
-      {% endif %}
-      {% if _tag.href is defined and _tag.href is not empty %}
-        <a class="ecl-tag__item" href="{{ _tag.href }}">{{ _tag.value|default('') }}</a>
-      {% else %}
-        <span class="ecl-tag__item">{{ _tag.value|default('') }}</span>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
+  <div class="ecl-tag__container">
+    {% if _label is not empty %}
+      <span class="ecl-tag__label">{{ label }}</span>
+    {% endif %}
+    {% if _tags is not empty and _tags is iterable %}
+      {% for _tag in _tags %}
+        {% if _tag.label is defined and _tag.label is not empty %}
+          <span class="ecl-tag__label">{{ _tag.label }}</span>
+        {% endif %}
+        {% if _tag.href is defined and _tag.href is not empty %}
+          <a class="ecl-tag__item" href="{{ _tag.href }}">{{ _tag.value|default('') }}</a>
+        {% else %}
+          <span class="ecl-tag__item">{{ _tag.value|default('') }}</span>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
 </div>
