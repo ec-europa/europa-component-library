@@ -8,14 +8,20 @@
 
 @mixin ecl-tag() {
   .ecl-tag {
+    margin: 0;
+  }
+
+  .ecl-tag__container {
     align-items: center;
     display: flex;
-    margin: 0;
+    flex-wrap: wrap;
+    margin-top: - map-get($ecl-spacing, 'xxxs');
   }
 
   .ecl-tag__label {
     font-size: map-get($ecl-font-size, 'xs');
     margin-right: map-get($ecl-spacing, 'xs');
+    margin-top: map-get($ecl-spacing, 'xxxs');
     text-transform: uppercase;
   }
 
@@ -29,7 +35,9 @@
     font-weight: normal;
     line-height: 1;
     margin-right: map-get($ecl-spacing, 's');
+    margin-top: map-get($ecl-spacing, 'xxxs');
     padding: map-get($ecl-spacing, 'xxxs');
+    white-space: nowrap;
 
     &:hover,
     &:active,
