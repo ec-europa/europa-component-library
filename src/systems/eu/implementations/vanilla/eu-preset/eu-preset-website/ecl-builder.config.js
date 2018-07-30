@@ -4,7 +4,10 @@ const pkg = require('./package.json');
 const isProd = process.env.NODE_ENV === 'production';
 const outputFolder = path.resolve(__dirname, isProd ? './dist' : './build');
 
-const nodeModules = path.resolve(__dirname, '../../../../../../node_modules');
+const nodeModules = path.resolve(
+  __dirname,
+  '../../../../../../../node_modules'
+);
 
 // SCSS includePaths
 const includePaths = [nodeModules];
@@ -16,8 +19,8 @@ const banner = `${pkg.name} - ${
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-corporate.js'),
-      dest: path.resolve(outputFolder, 'scripts/ecl-eu-preset-corporate.js'),
+      entry: path.resolve(__dirname, 'eu-preset-website.js'),
+      dest: path.resolve(outputFolder, 'scripts/ecl-eu-preset-website.js'),
       options: {
         banner,
         moduleName: 'ECL',
@@ -27,8 +30,8 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'eu-preset-corporate.scss'),
-      dest: path.resolve(outputFolder, 'styles/ecl-eu-preset-corporate.css'),
+      entry: path.resolve(__dirname, 'eu-preset-website.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-eu-preset-website.css'),
       options: {
         banner,
         includePaths,
@@ -36,10 +39,10 @@ module.exports = {
       },
     },
     {
-      entry: path.resolve(__dirname, 'eu-preset-corporate-theme1.scss'),
+      entry: path.resolve(__dirname, 'eu-preset-website-theme1.scss'),
       dest: path.resolve(
         outputFolder,
-        'styles/ecl-eu-preset-corporate-theme1.css'
+        'styles/ecl-eu-preset-website-theme1.css'
       ),
       options: {
         banner,
@@ -82,6 +85,13 @@ module.exports = {
     },
     {
       from: path.resolve(nodeModules, '@ecl/eu-component-logo/images'),
+      to: path.resolve(outputFolder, 'images'),
+    },
+    {
+      from: path.resolve(
+        nodeModules,
+        '@ecl/eu-component-global-navigation/images'
+      ),
       to: path.resolve(outputFolder, 'images'),
     },
   ],
