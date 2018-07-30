@@ -1,7 +1,7 @@
 ## Code
 
 ```html
-<breadcrumb />
+<page-header />
 ```
 
 Some guidelines.
@@ -9,7 +9,6 @@ Some guidelines.
 TODO:
 
 * something
-* hello?
 
 > Cite something
 

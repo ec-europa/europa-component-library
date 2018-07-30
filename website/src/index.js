@@ -1,7 +1,7 @@
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) {
@@ -10,7 +10,7 @@ if (rootElement.hasChildNodes()) {
   render(<App />, rootElement);
 }
 
-registerServiceWorker();
+// registerServiceWorker();
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
