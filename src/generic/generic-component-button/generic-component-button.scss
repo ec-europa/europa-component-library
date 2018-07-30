@@ -7,15 +7,6 @@
 @import '@ecl/generic-base/generic-base';
 @import './mixins';
 
-$ecl-button-default-color: $ecl-color-primary !default;
-$ecl-button-default-border-color: $ecl-color-primary !default;
-$ecl-button-default-background-color: transparent !default;
-
-$ecl-button-horizontal-inner-spacing: 0 !default;
-$ecl-button-vertical-inner-spacing: 0 !default;
-$ecl-button-padding: $ecl-button-vertical-inner-spacing
-  $ecl-button-horizontal-inner-spacing !default;
-
 @mixin ecl-button() {
   .ecl-button {
     align-items: center;
@@ -23,12 +14,9 @@ $ecl-button-padding: $ecl-button-vertical-inner-spacing
     border: 2px solid transparent;
     box-sizing: border-box;
     display: flex;
-    font-family: $ecl-font-family-sans-serif;
-    font-size: map-get($ecl-font-size, 's');
-    font-weight: 600;
-    line-height: 1;
+    font: $ecl-font-s;
     margin: 0;
-    padding: $ecl-button-padding;
+    padding: $ecl-spacing-s $ecl-spacing-m;
     text-decoration: none;
 
     &:hover,
@@ -38,7 +26,7 @@ $ecl-button-padding: $ecl-button-vertical-inner-spacing
     }
 
     &:focus {
-      outline: 3px solid map-get($ecl-colors, 'yellow-100');
+      outline: 3px solid $ecl-color-secondary;
       outline-offset: -3px;
     }
   }
@@ -53,13 +41,13 @@ $ecl-button-padding: $ecl-button-vertical-inner-spacing
 
   .ecl-button__icon {
     fill: currentColor;
-    margin-left: map-get($ecl-spacing, 'xxs');
+    margin-left: $ecl-spacing-xs;
   }
 
   .ecl-button--default {
-    background-color: $ecl-button-default-background-color;
-    border-color: $ecl-button-default-border-color;
-    color: $ecl-button-default-color;
+    background-color: transparent;
+    border-color: $ecl-color-primary;
+    color: $ecl-color-primary;
 
     &:hover,
     &:focus,
@@ -88,13 +76,13 @@ $ecl-button-padding: $ecl-button-vertical-inner-spacing
     &:hover,
     &:focus,
     &:active {
-      color: $ecl-color-shade;
+      color: $ecl-color-text;
     }
   }
 
   .ecl-button--call {
-    background-color: map-get($ecl-colors, 'yellow-100');
-    border-color: map-get($ecl-colors, 'yellow-100');
+    background-color: $ecl-color-secondary;
+    border-color: $ecl-color-secondary;
     color: #000;
 
     &:focus {
@@ -104,12 +92,12 @@ $ecl-button-padding: $ecl-button-vertical-inner-spacing
   }
 
   .ecl-button--form {
-    background-color: map-get($ecl-colors, 'grey-15');
-    border-color: map-get($ecl-colors, 'grey-15');
+    background-color: $ecl-color-tertiary;
+    border-color: $ecl-color-tertiary;
     color: $ecl-color-primary;
 
     &:hover {
-      color: $ecl-color-shade;
+      color: $ecl-color-text;
     }
 
     &:focus,
@@ -125,9 +113,9 @@ $ecl-button-padding: $ecl-button-vertical-inner-spacing
     color: #fff;
 
     &:hover {
-      background-color: map-get($ecl-colors, 'grey-15');
-      border-color: map-get($ecl-colors, 'grey-15');
-      color: $ecl-color-shade;
+      background-color: $ecl-color-tertiary;
+      border-color: $ecl-color-tertiary;
+      color: $ecl-color-text;
     }
 
     &:focus,

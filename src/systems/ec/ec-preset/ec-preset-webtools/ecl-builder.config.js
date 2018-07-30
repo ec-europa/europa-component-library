@@ -24,6 +24,18 @@ module.exports = {
         sourceMap: isProd ? 'file' : true,
       },
     },
+    {
+      entry: path.resolve(__dirname, 'ec-preset-webtools-theme1.scss'),
+      dest: path.resolve(
+        outputFolder,
+        'styles/ecl-ec-preset-webtools-theme1.css'
+      ),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
   ],
   copy: [
     {
