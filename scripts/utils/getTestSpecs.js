@@ -23,7 +23,7 @@ module.exports.getTestSpecs = async options => {
     specs = [].concat(
       ...updatedPackages.map(update =>
         glob.sync(path.resolve(update.location, 'test/spec/**/*.js'), {
-          ignore: ['**/node_modules/**', '**/packages/**', 'demo/**'],
+          ignore: ['**/node_modules/**'],
         })
       )
       // filter if is in specs
