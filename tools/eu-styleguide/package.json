@@ -7,24 +7,25 @@
   "description": "ECL EU Styleguide based on Fractal",
   "scripts": {
     "build:preset":
-      "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run build",
-    "build:tokens": "cd ../../src/systems/eu/eu-design-tokens && npm run build",
-    "clean": "rimraf ./static/eu-preset-website ../../src/systems/eu/_imports",
+      "cd ../../src/systems/eu/vanilla-components/eu-preset/eu-preset-website && npm run build",
+    "build:tokens": "cd ../../src/systems/eu/design-tokens && npm run build",
+    "clean":
+      "rimraf ./static/eu-preset-website ../../src/systems/eu/vanilla-components/_imports",
     "copy:preset":
-      "ncp ../../src/systems/eu/eu-preset/eu-preset-website/dist ./static/eu-preset-website",
+      "ncp ../../src/systems/eu/vanilla-components/eu-preset/eu-preset-website/dist ./static/eu-preset-website",
     "copy:templates":
-      "copyfiles -f '../../node_modules/@ecl/generic-*/**/*.twig' ../../src/systems/eu/_imports",
+      "copyfiles -f '../../node_modules/@ecl/generic-*/**/*.twig' ../../src/systems/eu/vanilla-components/_imports",
     "dist":
       "npm run clean && npm run copy:preset && npm run copy:templates && cross-env NODE_ENV=production fractal build",
     "serve": "fractal start --sync",
     "start":
       "npm-run-all clean copy:templates build:preset --parallel serve watch:*",
     "watch:preset":
-      "cd ../../src/systems/eu/eu-preset/eu-preset-website && npm run watch",
+      "cd ../../src/systems/eu/vanilla-components/eu-preset/eu-preset-website && npm run watch",
     "watch:templates":
       "chokidar \"../../src/generic/**/*.twig\" --c \"npm run copy:templates\"",
     "watch:tokens":
-      "chokidar \"../../src/systems/eu/eu-design-tokens/**/*.yml\" --c \"npm run build:tokens\""
+      "chokidar \"../../src/systems/eu/design-tokens/**/*.yml\" --c \"npm run build:tokens\""
   },
   "devDependencies": {
     "@ecl/eu-preset-website": "^1.2.0",

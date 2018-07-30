@@ -72,7 +72,10 @@ fractal.components.set('statuses', {
   },
 });
 fractal.components.set('default.status', 'planned');
-fractal.components.set('path', path.resolve(projectRoot, 'src/systems/eu'));
+fractal.components.set(
+  'path',
+  path.resolve(projectRoot, 'src/systems/eu/vanilla-components')
+);
 fractal.components.engine(twigAdapter); // use Twig for components
 fractal.components.set('ext', '.twig');
 

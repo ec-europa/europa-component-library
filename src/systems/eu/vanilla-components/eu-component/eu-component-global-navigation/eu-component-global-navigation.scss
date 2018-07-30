@@ -23,7 +23,7 @@
 }
 
 .ecl-global-navigation__link {
-  color: map-get($ecl-colors, 'grey-100');;
+  color: map-get($ecl-colors, 'grey-100');
   display: block;
   line-height: 1.3;
   padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 's');
@@ -36,7 +36,7 @@
   }
 
   &:visited {
-    color: map-get($ecl-colors, 'grey-100');;
+    color: map-get($ecl-colors, 'grey-100');
   }
 }
 
@@ -73,7 +73,8 @@
 
 .ecl-global-navigation__toggle {
   background-color: map-get($ecl-colors, 'grey-25');
-  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm') map-get($ecl-spacing, 'm');
+  padding: map-get($ecl-spacing, 's') map-get($ecl-spacing, 'm')
+    map-get($ecl-spacing, 'm');
 }
 
 .ecl-global-navigation__toggle-content {
@@ -85,8 +86,8 @@
   column-count: 1;
   list-style: none;
   margin: 0;
-  margin-left:-(map-get($ecl-spacing, 'xxxs'));
-  margin-right:-(map-get($ecl-spacing, 'xxxs'));
+  margin-left: -(map-get($ecl-spacing, 'xxxs'));
+  margin-right: -(map-get($ecl-spacing, 'xxxs'));
   order: 1;
   padding: 0;
 }
