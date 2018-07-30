@@ -1,0 +1,46 @@
+{#
+  Parameters:
+    - "variant" (string) (default: ''): can be '' or 'header'
+    - "metas" (array) (default: []): array of strings; each one correspond to a meta item
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _metas = metas|default([]) %}
+{% set _css_class = 'ecl-meta' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ 'ecl-meta--' ~ _variant %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _metas is not empty and _metas is iterable %}
+  <div class="{{ _css_class }}" {{ _extra_attributes|raw }}>
+    {% for _meta in _metas %}
+      <span class="ecl-meta__item">{{ _meta }}</span>
+    {% endfor %}
+  </div>
+{% endif %}

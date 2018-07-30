@@ -1,0 +1,46 @@
+{#
+  Parameters:
+    - "content" (string) (default: '')
+    - "level" (integer) (default: 1): 1 (in a top-level fieldset) or 2 (in a nested fieldset)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "legend": main content
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-form-legend' %}
+{% set _extra_attributes = '' %}
+{% set _content = content|default('') %}
+{% set _level = level|default(1) %}
+
+{# Internal logic - Process properties #}
+
+{% if _level is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-form-legend--level-' ~ _level %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% spaceless %}
+<legend class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {%- block legend _content -%}
+</legend>
+{% endspaceless %}

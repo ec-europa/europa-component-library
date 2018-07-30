@@ -17,7 +17,8 @@
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
     "start:ec": "cd tools/ec-styleguide && npm run start",
-    "start:eu": "cd tools/eu-styleguide && npm run start",
+    "start:eu":
+      "cd src/systems/eu/implementations/vanilla/styleguide && npm run start",
     "start:website": "cd website && npm run start",
     "test:coding-conventions": "npm run lint",
     "test:functional": "node ./scripts/test-functional.js",
@@ -80,7 +81,8 @@
     "src/systems/eu/design-tokens",
     "src/systems/eu/resources",
     "src/systems/eu/specs/**",
-    "src/systems/eu/implementations/vanilla/*",
+    "src/systems/eu/implementations/vanilla/packages/*",
+    "src/systems/eu/implementations/vanilla/styleguide",
     "tools/*",
     "website"
   ]

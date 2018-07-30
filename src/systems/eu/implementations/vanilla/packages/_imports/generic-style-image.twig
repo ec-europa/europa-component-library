@@ -1,0 +1,82 @@
+{#
+  Parameters:
+    - src (string): specifies the URL of the image, for single image tag
+    - srcs (object): different image URL, depending in screen size; used with picture tag
+      - xs: very small image URL
+      - sm: small image URL
+      - md: medium image URL
+      - lg: large image URL
+      - xl: extra large image URL (also default image)
+    - alt (string): specifies an alternate text for the image
+    - responsive (boolean): make the image responsive (default: false)
+    - extra_classes (string): additional classes to add to the component
+    - extra_attributes (array of { name: '', value: '' })
+    - container_classes (string): additional classes to add to the picture container
+#}
+
+{# Internal properties #}
+
+{% set _src = src|default('') %}
+{% set _css_class = 'ecl-image' %}
+{% set _extra_attributes = '' %}
+{% set _responsive = responsive|default(false) %}
+{% set _container_classes = container_classes|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if srcs is defined and srcs.xl is defined and srcs.xl is not empty %}
+  {% set _src = srcs.xl %}
+{% endif %}
+
+{% if _responsive == true %}
+  {% set _css_class = _css_class ~ ' ecl-image--fluid' %}
+{% endif %}
+
+{% if extra_classes is defined %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% if srcs is defined %}
+
+<picture
+  {% if _container_classes is not empty %}class="{{ _container_classes }}"{% endif %}
+  {{ _extra_attributes|raw }}>
+
+  {% if srcs.xl is defined and srcs.xl is not empty %}
+  <source media="(min-width: 1200px)" srcset="{{ srcs.xl }}">
+    {% endif %}
+
+  {% if srcs.lg is defined and srcs.lg is not empty %}
+    <source media="(min-width: 992px)" srcset="{{ srcs.lg }}">
+  {% endif %}
+
+  {% if srcs.md is defined and srcs.md is not empty %}
+  <source media="(min-width: 768px)" srcset="{{ srcs.md }}">
+    {% endif %}
+
+  {% if srcs.sm is defined and srcs.sm is not empty %}
+  <source media="(min-width: 480px)" srcset="{{ srcs.sm }}">
+  {% endif %}
+
+  {% if srcs.xs is defined and srcs.xs is not empty %}
+  <source media="(max-width: 479px)" srcset="{{ srcs.xs }}">
+  {% endif %}
+
+  <img src="{{ _src }}" alt="{{ alt }}" class="{{ _css_class }}">
+</picture>
+
+{% else %}
+
+<img
+  {% if _css_class is not empty %}class="{{ _css_class }}"{% endif %}
+  alt="{{ alt }}"
+  src="{{ _src }}"
+  {{ _extra_attributes|raw }} />
+
+{% endif %}

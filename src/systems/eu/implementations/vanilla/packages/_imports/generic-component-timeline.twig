@@ -1,0 +1,61 @@
+{#
+  Parameters:
+    - "limit" (integer) (default: 0): max number of items to display (0 = display all)
+    - "button_label" (string) (default: 'Show all timeline')
+    - "items" (array) (default: []): array of objects containing
+      - "title" (string)
+      - "body" (string)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _limit = limit|default(0) %}
+{% set _button_label = button_label|default('Show all timeline') %}
+{% set _items = items|default([]) %}
+{% set _css_class = 'ecl-timeline' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<section class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _items is not empty and _items is iterable %}
+    <ul class="ecl-timeline__list">
+      {% for _item in _items %}
+        <li class="ecl-timeline__item{{ _limit > 0 and loop.index > _limit ? ' ecl-timeline__item--over-limit' : '' }}">
+          <div class="ecl-heading ecl-heading--h4 ecl-timeline__title">{{ _item.title }}</div>
+          <div class="ecl-timeline__body">{{ _item.body }}</div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if _limit > 0 %}
+    {% include '@ecl/' ~ _system ~ '-component-button' with {
+      'modifier': 'call',
+      'label': _button_label,
+      'extra_classes': 'ecl-timeline__button',
+      'icon': 'caret-down'
+    } only %}
+  {% endif %}
+</section>

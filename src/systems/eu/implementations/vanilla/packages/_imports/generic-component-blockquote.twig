@@ -1,0 +1,41 @@
+{#
+  Parameters:
+    - "body" (string) (default: '')
+    - "author" (string) (optional)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-blockquote' %}
+{% set _extra_attributes = '' %}
+{% set _body = body|default('') %}
+{% set _author = author|default('') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<blockquote class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <p class="ecl-paragraph ecl-blockquote__body">{{ _body }}</p>
+  {% if _author is not empty %}
+  <footer class="ecl-blockquote__author">―&thinsp;<cite>{{ _author }}</cite></footer>
+  {% endif %}
+</blockquote>

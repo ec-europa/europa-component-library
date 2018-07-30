@@ -1,0 +1,177 @@
+{#
+  Parameters:
+    - "variant" (string) (default: 'splash'): can be 'splash' or 'overlay'
+    - "link" (string) (default: '#'): the link for the lang-select-sites
+    - "icon" (object) (default: {}): object of type ecl-icon; used for active language
+    - "icon_close" (object) (default: {}): object of type ecl-icon; used for close button
+    - "icon_language" (object) (default: {}): object of type ecl-icon; used for language icon
+    - "icon_language_generic" (object) (default: {}): object of type ecl-icon; used for generic language icon
+    - "logo" (object) (default: {}): object of type ecl-logo
+    {
+      "type" (string)
+    - "title" (string)
+    - "href" (string)
+    }
+    - "languages" (array) (default: []): array of languages to display, format [
+        {
+          "href" (string),
+          "hreflang" (string),
+          "label" (string),
+          "lang" (string)
+        },
+        ...
+      ]
+    - "messages" (object): shape of
+      {
+        "dismiss" (string) (default: 'Close'),
+        "heading" (string) (default: 'Select your language')
+      }
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('splash') %}
+{% set _link = link|default('#') %}
+{% set _icon = icon|default({}) %}
+{% set _icon_close = icon_close|default({}) %}
+{% set _icon_language = icon_language|default({}) %}
+{% set _icon_language_generic = icon_language_generic|default({}) %}
+{% set _logo = logo|default({}) %}
+{% set _languages = languages|default([]) %}
+{% set _messages = {
+  'dismiss': 'Close',
+  'heading': 'Select your language'
+}|merge(messages|default({})) %}
+{% set _css_class = 'ecl-language-list ecl-language-list--' ~ variant %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+{# backward compatibility for logo #}
+{% if _logo == true %}
+  {% set _logo = {
+    'variant': 'big',
+    'type': '',
+    'title': 'European Commission'
+  } %}
+{% elseif _logo == false %}
+  {% set _logo = {} %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{% set languages_section %}
+  <section>
+    {% if _logo is not empty %}
+      <header class="ecl-u-bg-default ecl-u-pv-l" role="banner">
+        <div class="ecl-container">
+          {% include '@ecl/' ~ _system ~ '-component-logo' with {
+            'extra_classes': 'ecl-u-mh-auto'
+          }|merge(_logo|default({})) %}
+        </div>
+      </header>
+    {% endif %}
+    <div{{ _variant == 'splash' ? ' class="ecl-language-list__wrapper" id="main-content"' : '' }}>
+      <div class="ecl-container">
+        <div class="ecl-row">
+          <div class="ecl-col-lg-8 ecl-offset-lg-2">
+            {% if _variant == 'overlay' %}
+              <h2 lang="en" class="ecl-heading ecl-heading--h2 ecl-dialog__title">
+                {% include '@ecl/' ~ _system ~ '-style-icon' with _icon_language_generic only %} {{ _messages.heading }}
+              </h2>
+            {% endif %}
+            <div class="ecl-row">
+              <div class="ecl-col-md-6">
+                {% for _lang in _languages %}
+                  {% if loop.index0 == loop.length // 2 %}
+                </div><div class="ecl-col-md-6">
+                  {% endif %}
+                  {% include '@ecl/' ~ _system ~ '-component-button' with {
+                    'label': _lang.label,
+                    'icon': _icon,
+                    'href': _lang.href,
+                    'extra_classes': 'ecl-language-list__button' ~ (_lang.is_active ? ' ecl-language-list__button--active'),
+                    'extra_attributes': [
+                      { 'name': 'lang', 'value': _lang.lang },
+                      { 'name': 'hreflang', 'value': _lang.hreflang },
+                      { 'name': 'rel', 'value': 'alternate' }
+                    ]
+                  } %}
+                {% endfor %}
+              </div>
+              {% if _variant == 'overlay' %}
+                {% include '@ecl/' ~ _system ~ '-component-button' with {
+                  'modifier': 'secondary',
+                  'label': _messages.dismiss,
+                  'type_attribute': 'button',
+                  'icon': _icon_close,
+                  'extra_classes': 'ecl-language-list__dismiss ecl-dialog__dismiss ecl-dialog__dismiss--inverted',
+                  'extra_attributes': [
+                    { 'name': 'aria-label', 'value': _messages.dismiss },
+                  ]
+                } %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endset %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _variant == 'overlay' %}
+  {% set _selected_language = [] %}
+    {% for _language in _languages %}
+      {% if _language.is_active %}
+        {% set _selected_language = _language %}
+      {% endif %}
+    {% endfor %}
+    {# Custom Dialog-overlay for the 'overlay' variant #}
+    <div id="ecl-overlay-language-list" class="ecl-dialog__overlay{% if _system != 'eu' %} ecl-dialog__overlay--blue{% endif %}" aria-hidden="true"></div>
+    {% include '@ecl/' ~ _system ~ '-component-lang-select-site' with {
+      'extra_attributes': [{name: 'data-ecl-dialog', value: 'ecl-dialog'}, {name: 'id', value: 'ecl-lang-select-sites__overlay'}],
+      'extra_classes': 'ecl-link',
+      'link': _link,
+      'language': _selected_language.label,
+      'code': _selected_language.lang,
+      'icon': _icon_language,
+    } only %}
+    {% embed '@ecl/' ~ _system ~ '-component-dialog' with {
+      'variant': 'wide',
+      'extra_classes': 'ecl-dialog--transparent ecl-dialog--wide',
+      'dismiss': { 'hide': true },
+      'languages_section': languages_section,
+      '_system': _system,
+    } only %}
+      {% block dialog_body %}
+        {{ languages_section }}
+      {% endblock %}
+    {% endembed %}
+  {% elseif _variant == 'splash' %}
+    {% include '@ecl/' ~ _system ~ '-component-skip-link' with {
+      'href': '#main-content',
+      'label': 'Skip to main content'
+    } only %}
+    {{ languages_section }}
+  {% endif %}
+</div>

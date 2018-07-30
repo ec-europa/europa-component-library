@@ -1,0 +1,97 @@
+{#
+  Parameters:
+
+    Common:
+    - "identity" (string) (default: ''): name of the site, i.e. "Digital single market"
+    - "breadcrumb" (array)  (default: []): collection of @ecl/generic-component-link
+    - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+
+    EC only:
+    - "variant" (string) (default: 'default'): could be "basic" or "default"
+    - "title" (string) (default: ''): page title
+    - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
+
+    EU only:
+    - "variant" (string) (default: 'basic'): could be "basic", "homepage" or "branded-homepage"
+    - "background_image" (default: ''): path to background image
+#}
+
+{# Internal properties #}
+
+{% set _variant = variant|default('') %}
+{% set _identity = identity|default('') %}
+{% set _breadcrumb = breadcrumb|default([]) %}
+{% set _title = title|default('') %}
+{% set _introduction = introduction|default('') %}
+{% set _metas = metas|default([]) %}
+{% set _background_image = background_image|default('') %}
+{% set _css_class = 'ecl-page-header' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if _variant is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--' ~ _variant %}
+{% endif %}
+
+{% if _background_image is not empty %}
+  {% set _css_class = _css_class ~ ' ecl-page-header--image' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}{% if _background_image is not empty %} style="background-image: url('{{ _background_image }}')"{% endif %}>
+  <div class="ecl-container">
+    {% if _breadcrumb is not empty %}
+      {% include '@ecl/generic-component-breadcrumb' with {
+        'segments': _breadcrumb,
+        'system': _system
+      } only %}
+    {% endif %} 
+    {% if _identity is not empty or _metas is not empty or _title is not empty or _introduction is not empty %}
+    <div class="ecl-page-header__body">
+      {% if _identity is not empty %}
+        <div class="ecl-page-header__identity">
+          {{ _identity }}
+        </div>
+      {% endif %}
+      {% if _metas is not empty %}
+        <div class="ecl-page-header__meta">
+          {% include '@ecl/generic-component-meta' with {
+            'variant': 'header',
+            'metas': _metas
+          } only %}
+        </div>
+      {% endif %}
+      {% if _title is not empty %}
+        <div class="ecl-page-header__title">
+          <h1 class="ecl-heading ecl-heading--h1 ecl-u-color-white">{{ _title }}</h1>
+        </div>
+      {% endif %}
+      {% if _introduction is not empty %}
+        <p class="ecl-page-header__intro">{{ _introduction }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
