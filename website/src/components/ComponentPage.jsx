@@ -23,21 +23,25 @@ const ComponentPage = ({ match, component }) => {
       />
       <main id="main-content" tabIndex="-1">
         <div className="ecl-container ecl-u-pv-l ecl-editor">
-          <Switch>
-            {component.tabs.map(tab => (
+          {component.page ? (
+            <component.page />
+          ) : (
+            <Switch>
+              {component.tabs.map(tab => (
+                <Route
+                  exact
+                  path={`${match.url}/${tab.url}`}
+                  component={tab.component}
+                  key={tab.url}
+                />
+              ))}
               <Route
-                exact
-                path={`${match.url}/${tab.url}`}
-                component={tab.component}
-                key={tab.url}
+                render={() => (
+                  <Redirect to={`${match.url}/${component.defaultTab}`} />
+                )}
               />
-            ))}
-            <Route
-              render={() => (
-                <Redirect to={`${match.url}/${component.defaultTab}`} />
-              )}
-            />
-          </Switch>
+            </Switch>
+          )}
         </div>
       </main>
     </Fragment>

@@ -9,17 +9,18 @@ const ComponentHeader = ({ match, sectionTitle, pageTitle, tabs }) => (
       <h3>{sectionTitle}</h3>
       <h1>{pageTitle}</h1>
       <ul className="tmp-component-header__tabs">
-        {tabs.map(tab => (
-          <li key={tab.url}>
-            <NavLink
-              to={`${match.url}/${tab.url}`}
-              className="tmp-component-header__tabs-item"
-              activeClassName="tmp-component-header__tabs-item--active"
-            >
-              {tab.name}
-            </NavLink>
-          </li>
-        ))}
+        {tabs &&
+          tabs.map(tab => (
+            <li key={tab.url}>
+              <NavLink
+                to={`${match.url}/${tab.url}`}
+                className="tmp-component-header__tabs-item"
+                activeClassName="tmp-component-header__tabs-item--active"
+              >
+                {tab.name}
+              </NavLink>
+            </li>
+          ))}
       </ul>
     </div>
   </header>

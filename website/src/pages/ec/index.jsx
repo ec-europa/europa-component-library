@@ -5,7 +5,7 @@ const HomePage = () => (
     <div className="ecl-container ecl-u-pv-xl">
       <div className="ecl-row">
         <div className="ecl-col ecl-editor">
-          <h1>Europa Component Library</h1>
+          <h1>Europa Component Library (EC)</h1>
           <p>
             The Europa Component Library (ECL) is a library of components
             applicable to all European Commission websites (hosted under
