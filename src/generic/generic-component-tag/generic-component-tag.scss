@@ -10,11 +10,13 @@
   .ecl-tag {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     margin: 0;
   }
 
   .ecl-tag__label {
     font-size: map-get($ecl-font-size, 'xs');
+    margin-bottom: map-get($ecl-spacing, 'xxxs');
     margin-right: map-get($ecl-spacing, 'xs');
     text-transform: uppercase;
   }
@@ -28,8 +30,10 @@
     font-size: map-get($ecl-font-size, 'xs');
     font-weight: normal;
     line-height: 1;
+    margin-bottom: map-get($ecl-spacing, 'xxxs');
     margin-right: map-get($ecl-spacing, 's');
     padding: map-get($ecl-spacing, 'xxxs');
+    white-space: nowrap;
 
     &:hover,
     &:active,
