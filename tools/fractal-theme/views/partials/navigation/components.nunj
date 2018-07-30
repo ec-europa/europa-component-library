@@ -8,9 +8,7 @@
   </button>
 
   <ul class="ecl-side-navigation__root ecl-side-navigation--depth-1" id="side-menu-expandable-root" aria-hidden="true">
-    {% for item in frctl.components.filter('isHidden', false).items() %}
-      {{ nav.tree(item, entity, request) }}
-    {% endfor %}
+    {{ nav.tree(frctl.components, entity, request) }}
   </ul>
 </nav>
 {% endif %}
