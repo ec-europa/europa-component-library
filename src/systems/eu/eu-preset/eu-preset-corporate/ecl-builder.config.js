@@ -35,6 +35,18 @@ module.exports = {
         sourceMap: isProd ? 'file' : true,
       },
     },
+    {
+      entry: path.resolve(__dirname, 'eu-preset-corporate-theme1.scss'),
+      dest: path.resolve(
+        outputFolder,
+        'styles/ecl-eu-preset-corporate-theme1.css'
+      ),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
   ],
   copy: [
     {
