@@ -1,16 +1,16 @@
 {
-  "name": "@ecl/eu-style-icon",
+  "name": "@ecl/ec-style-icon",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "1.1.0",
-  "description": "ECL Icons -> EU flavor",
-  "style": "eu-style-icon.scss",
+  "description": "ECL Icons -> EC flavor",
+  "style": "ec-style-icon.scss",
   "scripts": {
     "test:independent-sass":
-      "node-sass --quiet --include-path ../../../../../../../node_modules eu-style-icon.scss dist/eu-style-icon.css"
+      "node-sass --quiet --include-path ../../../../../../../node_modules ec-style-icon.scss dist/ec-style-icon.css"
   },
   "dependencies": {
-    "@ecl/eu-base": "^1.0.0",
+    "@ecl/ec-base": "^1.0.0",
     "@ecl/generic-style-icon": "^1.1.0"
   },
   "peerDependencies": {
@@ -31,5 +31,5 @@
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
   "keywords": ["ecl", "europa-component-library", "design-system"],
-  "sass": "eu-style-icon.scss"
+  "sass": "ec-style-icon.scss"
 }
