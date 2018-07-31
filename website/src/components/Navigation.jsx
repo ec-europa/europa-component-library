@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Route, Link, NavLink, Switch, withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
 import './Navigation.css';
@@ -8,25 +8,33 @@ class Navigation extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      open: true,
+    const hasPathname = props && props.location && props.location.pathname;
 
+    this.state = {
       // EC
-      ECstyle: false,
-      ECcomponents: false,
-      ECtemplates: false,
-      ECguidelines: false,
-      ECresources: false,
+      ECstyle:
+        hasPathname && props.location.pathname.indexOf('/ec/style') === 0,
+      ECcomponents:
+        hasPathname && props.location.pathname.indexOf('/ec/components') === 0,
+      ECtemplates:
+        hasPathname && props.location.pathname.indexOf('/ec/templates') === 0,
+      ECguidelines:
+        hasPathname && props.location.pathname.indexOf('/ec/guidelines') === 0,
+      ECresources:
+        hasPathname && props.location.pathname.indexOf('/ec/resources') === 0,
 
       // EU
-      EUstyle: false,
-      EUcomponents: false,
-      EUtemplates: false,
-      EUguidelines: false,
-      EUresources: false,
+      EUstyle:
+        hasPathname && props.location.pathname.indexOf('/eu/style') === 0,
+      EUcomponents:
+        hasPathname && props.location.pathname.indexOf('/eu/components') === 0,
+      EUtemplates:
+        hasPathname && props.location.pathname.indexOf('/eu/templates') === 0,
+      EUguidelines:
+        hasPathname && props.location.pathname.indexOf('/eu/guidelines') === 0,
+      EUresources:
+        hasPathname && props.location.pathname.indexOf('/eu/resources') === 0,
     };
-
-    this.toggleSidebar = this.toggleSidebar.bind(this);
 
     // EC
     this.toggleECStyle = this.toggleECStyle.bind(this);
@@ -41,12 +49,6 @@ class Navigation extends Component {
     this.toggleEUTemplates = this.toggleEUTemplates.bind(this);
     this.toggleEUGuidelines = this.toggleEUGuidelines.bind(this);
     this.toggleEUResources = this.toggleEUResources.bind(this);
-  }
-
-  toggleSidebar() {
-    this.setState(prevState => ({
-      open: !prevState.open,
-    }));
   }
 
   // EC
@@ -116,17 +118,21 @@ class Navigation extends Component {
       <Fragment>
         <button
           className={`tmp-nav__button-toggle${
-            this.state.open
+            this.props.sidebarOpen
               ? ' tmp-nav__button-toggle--open'
               : ' tmp-nav__button-toggle--closed'
           } `}
-          onClick={this.toggleSidebar}
+          onClick={this.props.onToggleSidebar}
         >
           <span className="tmp-nav__hamburger-box">
             <span className="tmp-nav__hamburger-inner" />
           </span>
         </button>
-        <nav className={`tmp-nav${this.state.open ? '' : ' tmp-nav--closed'} `}>
+        <nav
+          className={`tmp-nav${
+            this.props.sidebarOpen ? '' : ' tmp-nav--closed'
+          } `}
+        >
           <div className="tmp-nav__header">
             <Link
               to="/"
@@ -651,4 +657,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default withRouter(Navigation);

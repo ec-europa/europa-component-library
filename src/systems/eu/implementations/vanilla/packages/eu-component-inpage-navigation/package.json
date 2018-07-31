@@ -9,8 +9,7 @@
   "sass": "eu-component-inpage-navigation.scss",
   "style": "eu-component-inpage-navigation.scss",
   "scripts": {
-    "test:independent-sass":
-      "node-sass --quiet --include-path ../../../../../../../node_modules eu-component-inpage-navigation.scss dist/eu-component-inpage-navigation.css"
+    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules eu-component-inpage-navigation.scss dist/eu-component-inpage-navigation.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^1.0.0",
@@ -23,7 +22,7 @@
   },
   "devDependencies": {
     "@ecl/eu-style-typography-paragraph": "^1.0.0",
-    "node-sass": "4.9.0"
+    "node-sass": "4.9.2"
   },
   "publishConfig": {
     "access": "public"

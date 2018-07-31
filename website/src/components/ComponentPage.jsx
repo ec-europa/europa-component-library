@@ -4,13 +4,6 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import ComponentHeader from './ComponentHeader';
 
-/*
-import CodeTab from '@ecl/ec-specs-breadcrumb/docs/code.mdx';
-import StyleTab from '@ecl/ec-specs-breadcrumb/docs/style.mdx';
-import UsageTab from '@ecl/ec-specs-breadcrumb/docs/usage.mdx';
-import AccessibilityTab from '@ecl/ec-specs-breadcrumb/docs/accessibility.mdx';
-*/
-
 const ComponentPage = ({ match, component }) => {
   return (
     <Fragment>
@@ -22,7 +15,7 @@ const ComponentPage = ({ match, component }) => {
         tabs={component.tabs}
       />
       <main id="main-content" tabIndex="-1">
-        <div className="ecl-container ecl-u-pv-l ecl-editor">
+        <div className="custom-container ecl-u-pv-l ecl-editor">
           {component.page ? (
             <component.page />
           ) : (
@@ -46,11 +39,6 @@ const ComponentPage = ({ match, component }) => {
       </main>
     </Fragment>
   );
-};
-
-export const meta = {
-  url: '/ec/components/breadcrumb',
-  title: 'Breadcrumb',
 };
 
 export default ComponentPage;

@@ -26,33 +26,33 @@
 
       @each $key, $value in $ecl-spacing {
         .ecl-u-ma#{$infix}-#{$key} {
-          margin: $value;
+          margin: $value !important;
         }
 
         .ecl-u-mh#{$infix}-#{$key} {
-          margin-left: $value;
-          margin-right: $value;
+          margin-left: $value !important;
+          margin-right: $value !important;
         }
 
         .ecl-u-mv#{$infix}-#{$key} {
-          margin-bottom: $value;
-          margin-top: $value;
+          margin-bottom: $value !important;
+          margin-top: $value !important;
         }
 
         .ecl-u-mt#{$infix}-#{$key} {
-          margin-top: $value;
+          margin-top: $value !important;
         }
 
         .ecl-u-mr#{$infix}-#{$key} {
-          margin-right: $value;
+          margin-right: $value !important;
         }
 
         .ecl-u-mb#{$infix}-#{$key} {
-          margin-bottom: $value;
+          margin-bottom: $value !important;
         }
 
         .ecl-u-ml#{$infix}-#{$key} {
-          margin-left: $value;
+          margin-left: $value !important;
         }
       }
 
@@ -69,20 +69,20 @@
       */
 
       .ecl-u-ma#{$infix}-auto {
-        margin: auto;
+        margin: auto !important;
       }
 
       .ecl-u-mh#{$infix}-auto {
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: auto !important;
+        margin-right: auto !important;
       }
 
       .ecl-u-mr#{$infix}-auto {
-        margin-right: auto;
+        margin-right: auto !important;
       }
 
       .ecl-u-ml#{$infix}-auto {
-        margin-left: auto;
+        margin-left: auto !important;
       }
     }
   }

@@ -6,8 +6,7 @@
   "description": "ECL Buttons",
   "style": "eu-component-file.scss",
   "scripts": {
-    "test:independent-sass":
-      "node-sass --quiet --include-path ../../../../../../../node_modules eu-component-file.scss dist/eu-component-file.css"
+    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules eu-component-file.scss dist/eu-component-file.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^1.0.0",
@@ -22,7 +21,7 @@
     "@ecl/generic-component-file": "^1.1.0"
   },
   "devDependencies": {
-    "node-sass": "4.9.0"
+    "node-sass": "4.9.2"
   },
   "publishConfig": {
     "access": "public"

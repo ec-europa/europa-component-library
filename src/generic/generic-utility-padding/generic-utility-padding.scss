@@ -2,7 +2,7 @@
  * Padding utilities
  */
 
-/* 
+/*
   Base:
     p = padding
   Modifiers:
@@ -26,33 +26,33 @@
 
       @each $key, $value in $ecl-spacing {
         .ecl-u-pa#{$infix}-#{$key} {
-          padding: $value;
+          padding: $value !important;
         }
 
         .ecl-u-ph#{$infix}-#{$key} {
-          padding-left: $value;
-          padding-right: $value;
+          padding-left: $value !important;
+          padding-right: $value !important;
         }
 
         .ecl-u-pv#{$infix}-#{$key} {
-          padding-bottom: $value;
-          padding-top: $value;
+          padding-bottom: $value !important;
+          padding-top: $value !important;
         }
 
         .ecl-u-pt#{$infix}-#{$key} {
-          padding-top: $value;
+          padding-top: $value !important;
         }
 
         .ecl-u-pr#{$infix}-#{$key} {
-          padding-right: $value;
+          padding-right: $value !important;
         }
 
         .ecl-u-pb#{$infix}-#{$key} {
-          padding-bottom: $value;
+          padding-bottom: $value !important;
         }
 
         .ecl-u-pl#{$infix}-#{$key} {
-          padding-left: $value;
+          padding-left: $value !important;
         }
       }
     }

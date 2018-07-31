@@ -5,7 +5,7 @@ import './ComponentHeader.css';
 
 const ComponentHeader = ({ match, sectionTitle, pageTitle, tabs }) => (
   <header className="tmp-component-header">
-    <div className="ecl-container">
+    <div className="custom-container">
       <h3>{sectionTitle}</h3>
       <h1>{pageTitle}</h1>
       <ul className="tmp-component-header__tabs">
