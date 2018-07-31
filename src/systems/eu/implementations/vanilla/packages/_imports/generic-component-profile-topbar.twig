@@ -1,0 +1,75 @@
+{#
+  Parameters:
+    - "context_nav" (object) - data for @ecl/generic-component-context-nav component composition
+    - "profile" (object): profile-specific information
+      - "image" (object): data for @ecl/generic-style-image component composition
+      - "expandable" (object): data related to the expandable part of the component
+        - "button" (object): data for @ecl/generic-component-button component composition
+        - "expandable_body" (array): accepts `extra_attributes` for the expandable
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+  Blocks:
+    - "body" (default: lorem ipsum text): content in the expandable area
+#}
+
+{# Internal properties #}
+
+{% set _context_nav = context_nav|default({}) %}
+{% set _css_class = 'ecl-profile-topbar' %}
+{% set _profile = {
+  'image': {},
+  'expandable': {},
+}|merge(profile|default({})) %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  <div class="ecl-container">
+    <div class="ecl-row">
+      <div class="ecl-col-md-2">
+        {% include '@ecl/' ~ _system ~ '-style-image' with profile.image only %}
+      </div>
+      <div class="ecl-col-md-10 ecl-profile-topbar__pane">
+        {% include '@ecl/' ~ _system ~ '-component-context-nav' with _context_nav only %}
+        {% include '@ecl/' ~ _system ~ '-component-button' with profile.expandable.button only %}
+      </div>
+    </div>
+  </div>
+  <div
+    {% if profile.expandable.expandable_body.extra_attributes is defined %}
+      {% for attr in profile.expandable.expandable_body.extra_attributes %}
+        {% set attribute = attr.name ~ '="' ~ attr.value ~ '"' %}
+        {{ attribute }}
+      {% endfor %}
+    {% endif %}
+  >
+    <div class="ecl-container">
+      {% block body %}
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et augue quis est dignissim lacinia. Curabitur interdum iaculis sagittis. Maecenas sodales elit est, et suscipit nisl vulputate eget. Mauris vel pulvinar odio. Sed diam turpis, cursus vel congue vel, lobortis a ipsum. Donec vel quam nec enim tristique efficitur at eget nisl.
+        </p>
+      {% endblock %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+{#
+  Parameters:
+    - "title" (string) (default: 'Navigation'): for screen readers
+    - "display" (string) (default: 'default'): can be 'default', 'tabs' or 'small'
+    - "links" (array) (default: []): collection of @ecl/generic-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _title = title|default('Navigation') %}
+{% set _display = display|default('default') %}
+{% set _links = links|default([]) %}
+{% set _css_class = 'ecl-navigation-list-wrapper' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _links is not empty and _links is iterable %}
+  <nav class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    <h2 class="ecl-u-sr-only">{{ _title }}</h2>
+    <ul class="ecl-navigation-list ecl-navigation-list--{{ _display }}">
+      {% for _link in _links %}
+        {% set _active_class = _link.is_active is defined and _link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
+        <li class="ecl-navigation-list__item">
+          {% include '@ecl/generic-component-link' with {
+            'extra_classes': 'ecl-navigation-list__link' ~ _active_class,
+          }|merge(_link|default({})) only %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

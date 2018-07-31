@@ -6,7 +6,7 @@ const HomePage = () => (
     <div className="ecl-container ecl-u-pv-xl">
       <div className="ecl-row ecl-u-mt-xl ecl-editor">
         <div class="ecl-col-12">
-          <h1>Global Homepage</h1>
+          <h1>Splash page</h1>
         </div>
         <div className="ecl-col-6">
           <p>

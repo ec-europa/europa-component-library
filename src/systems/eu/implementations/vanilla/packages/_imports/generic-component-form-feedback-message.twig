@@ -1,0 +1,44 @@
+{#
+  Parameters:
+    - "title" (string): message title
+    - "body" (string): message body
+    - "has_error" (boolean) (default: false)
+    - "level" (number) (default: 4): title level
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-feedback-message' %}
+{% set _extra_attributes = '' %}
+{% set _level = level|default('4') %}
+
+{# Internal logic - Process properties #}
+
+{% if has_error is defined and has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-feedback-message--error' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}" role="alert"{{ _extra_attributes|raw }}>
+  <div class="ecl-feedback-message__title" role="heading" aria-level="{{ _level }}">{{ title }}</div>
+  <p class="ecl-feedback-message__body">{{ body }}</p>
+</div>

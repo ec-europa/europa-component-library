@@ -1,0 +1,48 @@
+{#
+  Parameters:
+    - "content" (string) (default: '')
+    - "has_error" (boolean) (default: false)
+    - "is_disabled" (boolean) (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "help_block": main content
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-help-block' %}
+{% set _extra_attributes = '' %}
+{% set _content = content|default('') %}
+{% set _has_error = has_error|default(false) %}
+{% set _is_disabled = is_disabled|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% if _has_error == true %}
+  {% set _css_class = _css_class ~ ' ecl-help-block--has-error' %}
+{% endif %}
+
+{% if _is_disabled == true %}
+  {% set _css_class = _css_class ~ ' ecl-help-block--disabled' %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<p class="{{ _css_class }}"{{ _extra_attributes|raw }}>{% block help_block _content %}</p>

@@ -1,0 +1,105 @@
+{#
+  Parameters:
+    - "image" (object) (default: {}): image to display on the left
+      - "src" (string): image's URL
+      - "alt" (string): alt text
+    - "author" (string) (default: ''): author's name
+    - "date" (string) (default: ''): formatted date
+    - "title" (object) (default: {}): comment's title, context for @ecl/generic-component-link
+    - "body" (string) (default: ''): text of the comment
+    - "operations" (object) (default: {}): object of operations (reply, edit, delete)
+      - "delete" (object):
+        - href (string)
+        - label (string)
+        - visible (boolean)
+      - "edit" (object):
+        - href (string)
+        - label (string)
+        - visible (boolean)
+      - "reply" (object):
+        - href (string)
+        - label (string)
+        - visible (boolean)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-row ecl-comment' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+{% set _title = title|default({}) %}
+{% set _image = image|default({}) %}
+{% set _author = author|default('') %}
+{% set _date = date|default('') %}
+{% set _body = body|default('') %}
+{% set _operations = operations|default({}) %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _image is not empty %}
+  <div class="ecl-comment__image-wrapper">
+    <img class="ecl-image ecl-image--fluid ecl-comment__image" src="{{ _image.src }}" alt="{{ _image.alt }}">
+  </div>
+  {% endif %}
+  <div class="ecl-comment__body">
+    <div class="ecl-comment__meta">
+      <span class="ecl-comment__author">{{ _author }}</span> |
+      <span class="ecl-comment__date">{{ _date }}</span>
+    </div>
+    {% include '@ecl/' ~ _system ~ '-component-link' with {
+      'extra_classes': 'ecl-heading ecl-heading--h3 ecl-comment__title',
+      }|merge(_title)
+    %}
+    <p class="ecl-paragraph ecl-comment__text">{{ _body }}</p>
+    {% if _operations is not empty %}
+    <ul class="ecl-list ecl-list--inline ecl-comment__operations">
+      {% if _operations.reply is defined and _operations.reply.visible %}
+        <li>
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
+            'extra_classes': 'ecl-comment__reply',
+            }|merge(_operations.reply|default({}))
+          %}
+        </li>
+      {% endif %}
+      {% if _operations.edit is defined and _operations.edit.visible %}
+        <li>
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
+            'extra_classes': 'ecl-comment__edit',
+            }|merge(_operations.edit|default({}))
+          %}
+        </li>
+      {% endif %}
+      {% if _operations.delete is defined and _operations.delete.visible %}
+        <li>
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
+            'extra_classes': 'ecl-comment__delete',
+            }|merge(_operations.delete|default({}))
+          %}
+        </li>
+      {% endif %}
+    </ul>
+    {% endif %}
+  </div>
+</div>

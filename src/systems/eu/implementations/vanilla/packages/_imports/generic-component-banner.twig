@@ -1,0 +1,81 @@
+{#
+  Parameters:
+    - "type" (string, "hero" or "video") (default: "hero"): type of banner
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+
+    If "type"=="hero":
+      - "image" (string) (default: ''): path to the background image
+      - "title" (string) (default: '')
+      - "href" (string) (default: '')
+
+    If "type"="video":
+      - "video" (object): context for @ecl/generic-component-file (with "variant"="video")
+#}
+
+{# Internal properties #}
+
+{% set _type = type|default('hero') %}
+{% set _css_class = 'ecl-banner ecl-banner--' ~ _type %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{% if _type == 'hero' %}
+  {% set _image = image|default('') %}
+  {% set _title = title|default('') %}
+  {% set _href = href|default('') %}
+{% elseif _type == 'video' %}
+  {% set _video = video|default({}) %}
+{% endif %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _type == 'hero' %}
+  <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    <img class="ecl-image ecl-image--fluid ecl-banner__image" src="{{ _image }}" role="presentation" />
+    <div class="ecl-banner__content">
+      <h3 class="ecl-heading ecl-heading--h3 ecl-banner__title">
+        {% include '@ecl/' ~ _system ~ '-component-link' with {
+          href: _href,
+          label: _title,
+          variant: 'standalone'
+        } %}
+      </h3>
+      <p class="ecl-paragraph ecl-banner__description">{{ description }}</p>
+    </div>
+  </div>
+{% elseif _type == 'video' %}
+  <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+    <div class="ecl-row">
+      <div class="ecl-col-lg-6">
+        <div class="ecl-banner__video">
+          {% include '@ecl/' ~ _system ~ '-component-file' with {
+            variant: 'video',
+          }|merge(_video) %}
+        </div>
+      </div>
+      <div class="ecl-col-lg-6">
+        {{ description }}
+      </div>
+    </div>
+  </div>
+{% endif %}

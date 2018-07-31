@@ -1,0 +1,54 @@
+{#
+  Parameters:
+    - "title" (string) (default: ''): optional title of the link block
+    - "links" (array) (default: []): collection of standalone @ecl/generic-component-link
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _title = title|default('') %}
+{% set _links = links|default([]) %}
+{% set _css_class = 'ecl-link-block' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _title is not empty %}
+    <div class="ecl-link-block__title">{{ _title }}</div>
+  {% endif %}
+  {% if _links is not empty and _links is iterable %}
+    <ul class="ecl-link-block__list">
+      {% for _link in _links %}
+        <li class="ecl-link-block__item">
+          {% include '@ecl/' ~ _system ~ '-component-link' with {
+            'extra_classes': 'ecl-link-block__link',
+            'variant': 'standalone'
+          }|merge(_link|default({})) only %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

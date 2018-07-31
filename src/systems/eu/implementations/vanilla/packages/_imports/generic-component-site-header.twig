@@ -1,0 +1,89 @@
+{#
+  Parameters:
+    - "site_switcher" (object) (default: {}): shape of @ecl/generic-component-site-switcher
+    - "user_menu" (object) (default: {}): shape of @ecl/generic-component-navigation-list
+    - "logo" (object) (default: {
+        'href': 'https://ec.europa.eu',
+        'title': 'Home - European Commission'
+      }): shape of @ecl/generic-component-logo
+    - "messages" (object): shape of
+      {
+        "dismiss" (string) (default: 'Close'),
+        "heading" (string) (default: 'Select your language')
+      }
+    - "languages" (array) (default: []): array of languages to display
+    - "search_id" (string) (default: 'global-search')
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic")
+#}
+
+{# Internal properties #}
+
+{% set _user_menu = user_menu|default({}) %}
+{% set _site_switcher = site_switcher|default({}) %}
+{% set _logo = {
+  'href': 'https://ec.europa.eu',
+  'title': 'Home - European Commission'
+}|merge(logo|default({})) %}
+{% set _messages = {
+  'dismiss': 'Close',
+  'heading': 'Select your language'
+}|merge(messages|default({})) %}
+{% set _languages = languages|default([]) %}
+{% set _search_id = search_id|default('global-search') %}
+{% set _css_class = 'ecl-site-header' %}
+{% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<header class="{{ _css_class }}" role="banner"{{ _extra_attributes|raw }}>
+  {% if _user_menu is not empty %}
+    <div class="ecl-container">
+      {% include '@ecl/' ~ _system ~ '-component-navigation-list' with {
+        'display': 'small',
+        'extra_classes': 'ecl-u-f-r'
+      }|merge(_user_menu) only %}
+    </div>
+  {% endif %}
+  {% if _site_switcher is not empty %}
+    {% include '@ecl/' ~ _system ~ '-component-site-switcher' with {
+      'variant': 'header'
+    }|merge(_site_switcher) only %}
+  {% endif %}
+  <div class="ecl-container ecl-site-header__banner">
+    {% include '@ecl/' ~ _system ~ '-component-logo' with {
+      'type': 'right',
+      'extra_classes': 'ecl-site-header__logo'
+    }|merge(_logo) only %}
+    {% include '@ecl/' ~ _system ~ '-component-language-list' with {
+      'extra_classes': 'ecl-site-header__language-list',
+      'languages': _languages,
+      'variant': 'overlay',
+      'messages': _messages
+    } only %}
+    {% include '@ecl/' ~ _system ~ '-component-search-form' with {
+      'input': { 'id': _search_id },
+      'extra_classes': 'ecl-site-header__search'
+    } only %}
+  </div>
+</header>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
@@ -17,13 +17,13 @@ import ComponentPage from './components/ComponentPage';
 
 const ecPages = require.context(
   '../../src/systems/ec/specs',
-  true, // Load files recursively. Pass false to skip recursion.
+  true,
   /config\.js$/
 );
 
 const euPages = require.context(
   '../../src/systems/eu/specs',
-  true, // Load files recursively. Pass false to skip recursion.
+  true,
   /config\.js$/
 );
 
@@ -41,41 +41,51 @@ class App extends Component {
               Skip to main content
             </a>
           </div>
-          <Navigation ecPages={ecPages} euPages={euPages} />
-          <div className="tmp-main-container">
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/ec" component={ECHomePage} />
-              {ecPages
-                .keys()
-                .map(key => ecPages(key).default)
-                .filter(meta => meta)
-                .map(meta => (
-                  <Route
-                    key={meta.url}
-                    path={meta.url}
-                    render={props => (
-                      <ComponentPage {...props} component={meta} />
-                    )}
-                  />
-                ))}
-              <Route exact path="/eu" component={EUHomePage} />
-              {euPages
-                .keys()
-                .map(key => euPages(key).default)
-                .filter(meta => meta)
-                .map(meta => (
-                  <Route
-                    key={meta.url}
-                    path={meta.url}
-                    render={props => (
-                      <ComponentPage {...props} component={meta} />
-                    )}
-                  />
-                ))}
-              <Route component={PageNotFound} />
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route
+              path="/(ec|eu)"
+              render={() => (
+                <Fragment>
+                  <Navigation ecPages={ecPages} euPages={euPages} />
+                  <div className="tmp-main-container">
+                    <Switch>
+                      <Route exact path="/ec" component={ECHomePage} />
+                      {ecPages
+                        .keys()
+                        .map(key => ecPages(key).default)
+                        .filter(meta => meta)
+                        .map(meta => (
+                          <Route
+                            key={meta.url}
+                            path={meta.url}
+                            render={props => (
+                              <ComponentPage {...props} component={meta} />
+                            )}
+                          />
+                        ))}
+                      <Route exact path="/eu" component={EUHomePage} />
+                      {euPages
+                        .keys()
+                        .map(key => euPages(key).default)
+                        .filter(meta => meta)
+                        .map(meta => (
+                          <Route
+                            key={meta.url}
+                            path={meta.url}
+                            render={props => (
+                              <ComponentPage {...props} component={meta} />
+                            )}
+                          />
+                        ))}
+                      <Route component={PageNotFound} />
+                    </Switch>
+                  </div>
+                </Fragment>
+              )}
+            />
+            <Route component={PageNotFound} />
+          </Switch>
         </div>
       </Router>
     );

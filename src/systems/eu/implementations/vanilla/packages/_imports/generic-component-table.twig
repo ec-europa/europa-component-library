@@ -1,0 +1,79 @@
+{#
+  Parameters:
+    - "headers" (array) (default: []): Each item represents a tr; each item inside represents a th
+      [
+        [
+          {
+            - "label" (string)
+            - "attributes" (string): extra attributes for this header
+          }
+        ]
+      ]
+    - "rows" (array) (default: []): Each item represents a tr; each item inside represents a td
+      [
+        [
+          {
+            - "label" (string)
+            - "attributes" (string): extra attributes for this cell
+          }
+        ]
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{# Internal properties #}
+
+{% set _headers = headers|default([]) %}
+{% set _rows = rows|default([]) %}
+{% set _css_class = 'ecl-table' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+<table class="{{ _css_class }}"{{ _extra_attributes|raw }}>
+  {% if _headers is not empty and _headers is iterable %}
+    <thead>
+      {% for _header in _headers %}
+        {% if _header is not empty and _header is iterable %}
+          <tr>
+            {% for _col in _header %}
+              <th scope="col" {{ _col.attributes|default('') }}>{{ _col.label|default('') }}</th>
+            {% endfor %}
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </thead>
+  {% endif %}
+  {% if _rows is not empty and _rows is iterable %}
+    <tbody>
+      {% for _row in _rows %}
+        {% if _row is not empty and _row is iterable %}
+          <tr>
+            {% for _col in _row %}
+              <td {{ _col.attributes|default('') }}>{{ _col.label|default('') }}</td>
+            {% endfor %}
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  {% endif %}
+</table>
