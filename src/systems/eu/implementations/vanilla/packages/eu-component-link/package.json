@@ -6,8 +6,7 @@
   "description": "ECL Links",
   "style": "eu-component-link.scss",
   "scripts": {
-    "test:independent-sass":
-      "node-sass --quiet --include-path ../../../../../../../node_modules eu-component-link.scss dist/eu-component-link.css"
+    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules eu-component-link.scss dist/eu-component-link.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^1.0.0",
@@ -15,7 +14,7 @@
     "@ecl/generic-component-link": "^1.1.0"
   },
   "devDependencies": {
-    "node-sass": "4.9.0"
+    "node-sass": "4.9.2"
   },
   "publishConfig": {
     "access": "public"
