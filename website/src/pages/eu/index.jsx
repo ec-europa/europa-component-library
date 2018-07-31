@@ -2,9 +2,9 @@ import React from 'react';
 
 const HomePage = () => (
   <main id="main-content" tabIndex="-1">
-    <div className="ecl-container ecl-u-pv-xl">
-      <div className="ecl-row">
-        <div className="ecl-col ecl-editor">
+    <div className="custom-container ecl-u-pv-xl">
+      <div className="custom-row">
+        <div className="custom-col ecl-editor">
           <h1>Europa Component Library (EU)</h1>
           <p>
             The Europa Component Library (ECL) is a library of components
@@ -36,40 +36,40 @@ const HomePage = () => (
           </p>
         </div>
       </div>
-      <div className="ecl-row ecl-u-mt-xl ecl-editor">
-        <div className="ecl-col-6">
+      <div className="custom-row ecl-u-mt-xl ecl-editor">
+        <div className="custom-col-2/4">
           <h2>Overview</h2>
           <p>Text</p>
         </div>
-        <div className="ecl-col-6">
+        <div className="custom-col-2/4">
           <h2>Components</h2>
           <p>Text</p>
         </div>
-        <div className="ecl-col-6">
+        <div className="custom-col-2/4">
           <h2>Icons</h2>
           <p>Text</p>
         </div>
-        <div className="ecl-col-6">
+        <div className="custom-col-2/4">
           <h2>Grid</h2>
           <p>Text</p>
         </div>
       </div>
-      <div className="ecl-row ecl-u-mt-xl ecl-editor">
-        <div className="ecl-col-4">
+      <div className="custom-row ecl-u-mt-xl ecl-editor">
+        <div className="custom-col-4 custom-col-md-4">
           <h2>Latest Releases</h2>
           <p>Text</p>
         </div>
-        <div className="ecl-col-4">
+        <div className="custom-col-4/4 custom-col-md-4/12">
           <h2>Upcoming Releases</h2>
           <p>Text</p>
         </div>
-        <div className="ecl-col-4">
+        <div className="custom-col-4/4 custom-col-md-4/12">
           <h2>Section title</h2>
           <p>Text</p>
         </div>
       </div>
-      <div className="ecl-row ecl-u-mt-xl ecl-editor">
-        <div className="ecl-col">
+      <div className="custom-row ecl-u-mt-xl ecl-editor">
+        <div className="custom-col">
           <h2>Component statuses</h2>
           <p>
             Components and their variants have been given statuses reflecting

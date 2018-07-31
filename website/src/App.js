@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// ECl, hacks and custom styles
 import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 import './hack.css';
+import './styles/custom-grid.css';
+import './styles/app.css';
 
 // Layout
 import Navigation from './components/Navigation';
@@ -28,6 +32,24 @@ const euPages = require.context(
 );
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      sidebarOpen:
+        Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
+        1140,
+    };
+
+    this.toggleSidebar = this.toggleSidebar.bind(this);
+  }
+
+  toggleSidebar() {
+    this.setState(prevState => ({
+      sidebarOpen: !prevState.sidebarOpen,
+    }));
+  }
+
   render() {
     return (
       <Router basename={`${process.env.PUBLIC_URL}/`}>
@@ -47,8 +69,19 @@ class App extends Component {
               path="/(ec|eu)"
               render={() => (
                 <Fragment>
-                  <Navigation ecPages={ecPages} euPages={euPages} />
-                  <div className="tmp-main-container">
+                  <Navigation
+                    ecPages={ecPages}
+                    euPages={euPages}
+                    sidebarOpen={this.state.sidebarOpen}
+                    onToggleSidebar={this.toggleSidebar}
+                  />
+                  <div
+                    className={
+                      this.state.sidebarOpen
+                        ? 'tmp-main-container--with-sidebar'
+                        : ''
+                    }
+                  >
                     <Switch>
                       <Route exact path="/ec" component={ECHomePage} />
                       {ecPages

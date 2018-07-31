@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Route, Link, NavLink, Switch } from 'react-router-dom';
+import { Route, Link, NavLink, Switch, withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
 import './Navigation.css';
@@ -9,8 +9,6 @@ class Navigation extends Component {
     super(props);
 
     this.state = {
-      open: true,
-
       // EC
       ECstyle: false,
       ECcomponents: false,
@@ -26,8 +24,6 @@ class Navigation extends Component {
       EUresources: false,
     };
 
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-
     // EC
     this.toggleECStyle = this.toggleECStyle.bind(this);
     this.toggleECComponents = this.toggleECComponents.bind(this);
@@ -41,12 +37,6 @@ class Navigation extends Component {
     this.toggleEUTemplates = this.toggleEUTemplates.bind(this);
     this.toggleEUGuidelines = this.toggleEUGuidelines.bind(this);
     this.toggleEUResources = this.toggleEUResources.bind(this);
-  }
-
-  toggleSidebar() {
-    this.setState(prevState => ({
-      open: !prevState.open,
-    }));
   }
 
   // EC
@@ -116,17 +106,21 @@ class Navigation extends Component {
       <Fragment>
         <button
           className={`tmp-nav__button-toggle${
-            this.state.open
+            this.props.sidebarOpen
               ? ' tmp-nav__button-toggle--open'
               : ' tmp-nav__button-toggle--closed'
           } `}
-          onClick={this.toggleSidebar}
+          onClick={this.props.onToggleSidebar}
         >
           <span className="tmp-nav__hamburger-box">
             <span className="tmp-nav__hamburger-inner" />
           </span>
         </button>
-        <nav className={`tmp-nav${this.state.open ? '' : ' tmp-nav--closed'} `}>
+        <nav
+          className={`tmp-nav${
+            this.props.sidebarOpen ? '' : ' tmp-nav--closed'
+          } `}
+        >
           <div className="tmp-nav__header">
             <Link
               to="/"
@@ -651,4 +645,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default withRouter(Navigation);
