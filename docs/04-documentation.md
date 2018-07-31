@@ -150,9 +150,9 @@ Thank you!
 ### Note: writing convention
 
 We are using writing conventions for both
-[pull requests](https://ec-europa.github.io/europa-component-library/docs/conventions/git)
+[pull requests](https://ec-europa.github.io/europa-component-library/ec/docs/conventions/git)
 and
-[markdown](https://ec-europa.github.io/europa-component-library/docs/conventions/markdown).
+[markdown](https://ec-europa.github.io/europa-component-library/ec/docs/conventions/markdown).
 You can optionally apply these conventions to facilitate documentation update
 process.
 
