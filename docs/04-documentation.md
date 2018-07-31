@@ -88,7 +88,7 @@ component (example: `framework/components/ecl-footers/README.md`)
   in your branch.
 
 * Enter title and description based on
-  [naming conventions](https://ec-europa.github.io/europa-component-library/docs/conventions/git).
+  [naming conventions](https://ec-europa.github.io/europa-component-library/ec/docs/conventions/git).
 
 * Click on "Commit directly to the
   `docs/update-{component-name}-{ticket-number}`".
@@ -150,9 +150,9 @@ Thank you!
 ### Note: writing convention
 
 We are using writing conventions for both
-[pull requests](https://ec-europa.github.io/europa-component-library/docs/conventions/git)
+[pull requests](https://ec-europa.github.io/europa-component-library/ec/docs/conventions/git)
 and
-[markdown](https://ec-europa.github.io/europa-component-library/docs/conventions/markdown).
+[markdown](https://ec-europa.github.io/europa-component-library/ec/docs/conventions/markdown).
 You can optionally apply these conventions to facilitate documentation update
 process.
 
