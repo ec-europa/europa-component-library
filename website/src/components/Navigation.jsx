@@ -8,20 +8,32 @@ class Navigation extends Component {
   constructor(props) {
     super(props);
 
+    const hasPathname = props && props.location && props.location.pathname;
+
     this.state = {
       // EC
-      ECstyle: false,
-      ECcomponents: false,
-      ECtemplates: false,
-      ECguidelines: false,
-      ECresources: false,
+      ECstyle:
+        hasPathname && props.location.pathname.indexOf('/ec/style') === 0,
+      ECcomponents:
+        hasPathname && props.location.pathname.indexOf('/ec/components') === 0,
+      ECtemplates:
+        hasPathname && props.location.pathname.indexOf('/ec/templates') === 0,
+      ECguidelines:
+        hasPathname && props.location.pathname.indexOf('/ec/guidelines') === 0,
+      ECresources:
+        hasPathname && props.location.pathname.indexOf('/ec/resources') === 0,
 
       // EU
-      EUstyle: false,
-      EUcomponents: false,
-      EUtemplates: false,
-      EUguidelines: false,
-      EUresources: false,
+      EUstyle:
+        hasPathname && props.location.pathname.indexOf('/eu/style') === 0,
+      EUcomponents:
+        hasPathname && props.location.pathname.indexOf('/eu/components') === 0,
+      EUtemplates:
+        hasPathname && props.location.pathname.indexOf('/eu/templates') === 0,
+      EUguidelines:
+        hasPathname && props.location.pathname.indexOf('/eu/guidelines') === 0,
+      EUresources:
+        hasPathname && props.location.pathname.indexOf('/eu/resources') === 0,
     };
 
     // EC
