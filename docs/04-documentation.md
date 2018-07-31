@@ -88,7 +88,7 @@ component (example: `framework/components/ecl-footers/README.md`)
   in your branch.
 
 * Enter title and description based on
-  [naming conventions](https://ec-europa.github.io/europa-component-library/docs/conventions/git).
+  [naming conventions](https://ec-europa.github.io/europa-component-library/ec/docs/conventions/git).
 
 * Click on "Commit directly to the
   `docs/update-{component-name}-{ticket-number}`".
