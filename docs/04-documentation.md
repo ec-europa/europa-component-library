@@ -22,7 +22,7 @@ Go to [ECL repository](https://github.com/ec-europa/europa-component-library)
 ###  Browsing the repository
 
 Locate the page to edit
-europa-component-library/src/systems/{SYSTEM}/specs/components/{COMPONENT}/docs/{PAGE}.md
+```europa-component-library/src/systems/{SYSTEM}/specs/components/{COMPONENT}/docs/{PAGE}.md```
 
 ## Step 2: Create a new branch for your changes
 
