@@ -7,7 +7,7 @@ import ComponentHeader from './ComponentHeader';
 const ComponentPage = ({ match, component }) => {
   return (
     <Fragment>
-      <Helmet title="Breadcrumb" />
+      <Helmet title={component.title} />
       <ComponentHeader
         match={match}
         sectionTitle={component.section}
