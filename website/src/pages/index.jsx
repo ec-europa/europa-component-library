@@ -1,22 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import LogoLink from '../components/LogoLink';
+import ECLogo from '@ecl/ec-preset-website/dist/images/logo/logo--en.svg';
+import EULogo from '@ecl/eu-preset-website/dist/images/logo/logo--en.svg';
 
 const HomePage = () => (
-  <main id="main-content" tabIndex="-1">
-    <div className="custom-container ecl-u-pv-xl">
-      <div className="custom-row ecl-u-mt-xl ecl-editor">
-        <div className="custom-col-4/4">
-          <h1>Splash page</h1>
+  <main id="main-content" tabIndex="-1" className="tmp-splash-page">
+    <div className="custom-container">
+      <div className="ecl-editor tmp-splash-page-editor">
+        <h1>Component Library</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis
+          metus non lectus dignissim, ac viverra elit convallis. Pellentesque
+          tempus purus id facilisis lacinia.
+        </p>
+        <p>
+          Nulla consequat suscipit commodo. Fusce sollicitudin orci id volutpat
+          tempor. Duis vestibulum, diam vel gravida dapibus, odio velit eleifend
+          felis, id elementum dolor nisi id arcu.
+        </p>
+        <p>Select between the available libraries:</p>
+      </div>
+      <div className="custom-row tmp-splash-page-actions-row">
+        <div className="custom-col-4/4 custom-col-md-4/8 ecl-u-d-flex">
+          <LogoLink to="/ec">
+            <img src={ECLogo} />
+          </LogoLink>
         </div>
-        <div className="custom-col-2/4">
-          <p>
-            <Link to="/ec">Explore EC system</Link>
-          </p>
-        </div>
-        <div className="custom-col-2/4">
-          <p>
-            <Link to="/eu">Explore EU system</Link>
-          </p>
+        <div className="custom-col-4/4 custom-col-md-4/8 ecl-u-d-flex">
+          <LogoLink to="/eu">
+            <img src={EULogo} />
+          </LogoLink>
         </div>
       </div>
     </div>
