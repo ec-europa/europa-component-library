@@ -19,7 +19,7 @@
 }
 
 .tmp-splash-page-actions-row {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .tmp-splash-page-actions-row .custom-col-4\/4 + .custom-col-4\/4 {
@@ -45,9 +45,16 @@
 
 .tmp-splash-page-editor h1 {
   color: #404040;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.143;
+}
+
+@media screen and (min-width: 768px) {
+  .tmp-splash-page-editor h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
 }
 
 .tmp-splash-page-editor p {
