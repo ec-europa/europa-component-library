@@ -19,26 +19,10 @@ an invite, please contact an owner of
 
 Go to [ECL repository](https://github.com/ec-europa/europa-component-library)
 
-### Option 1) Search
+###  Browsing the repository
 
-Make a search query and filter for `Markdown` type of files, which are the
-documentation format.
-
-<details><summary>_See how to do this step_</summary>
-
-![Locate ECL component in GitHub repository]({{ path
-'/assets/screenshots/locate-ecl-component.gif' }})
-
-</details>
-
-### Option 2) Browsing the repository
-
-<details><summary>_See how to do this step_</summary>
-
-![Brose ECL GitHub repository to find a component]({{ path
-'/assets/screenshots/locate-ecl-component-browsing.gif' }})
-
-</details>
+Locate the page to edit
+europa-component-library/src/systems/{SYSTEM}/specs/components/{COMPONENT}/docs/{PAGE}.md
 
 ## Step 2: Create a new branch for your changes
 
