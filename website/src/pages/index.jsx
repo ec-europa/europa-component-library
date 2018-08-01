@@ -23,13 +23,13 @@ const HomePage = () => (
       </div>
       <div className="custom-row tmp-splash-page-actions-row">
         <div className="custom-col-4/4 custom-col-md-4/8 ecl-u-d-flex">
-          <LogoLink to="/ec">
-            <img src={ECLogo} />
+          <LogoLink to="/ec" aria-label="Open EU system">
+            <img src={ECLogo} alt="EC Logo" />
           </LogoLink>
         </div>
         <div className="custom-col-4/4 custom-col-md-4/8 ecl-u-d-flex">
-          <LogoLink to="/eu">
-            <img src={EULogo} />
+          <LogoLink to="/eu" aria-label="Open EU system">
+            <img src={EULogo} alt="EU Logo" />
           </LogoLink>
         </div>
       </div>
