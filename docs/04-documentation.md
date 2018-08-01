@@ -24,36 +24,8 @@ Go to [ECL repository](https://github.com/ec-europa/europa-component-library)
 Locate the page to edit
 ```europa-component-library/src/systems/{SYSTEM}/specs/components/{COMPONENT}/docs/{PAGE}.md```
 
-## Step 2: Create a new branch for your changes
 
-In this step we will make a copy of the main version of the documentaiton in a
-temporary branch which helps us in the process of updates and reviews.
-
-Name the branch `docs/update-{component-name}-{ticket-number}`, i.e.
-`docs/update-footer-INNO-123` or `docs/update-footer-noissue` if there is no
-Jira ticket corresponding to the update.
-
-<details><summary>_See how to do this step_</summary>
-
-![Create a new branch for documentation u* pdates]({{ path
-'/assets/screenshots/create-new-branch.gif' }})
-
-</details>
-
-## Step 3: Open documentation file for editing
-
-Ensure that you have switched to your new branch which is a good place to
-suggest changes. Then click on the button to open the README.md file in that
-component (example: `framework/components/ecl-footers/README.md`)
-
-<details><summary>_See how to do this step_</summary>
-
-![Edit documentaiton file]({{ path
-'/assets/screenshots/edit-documentation-file.gif' }})
-
-</details>
-
-## Step 4: Edit the documentation
+## Step 2: Edit the documentation
 
 * Make any modification you wish by using the markdown editor. Here is a
   [cheatsheet for markdown syntax](https://guides.github.com/features/mastering-markdown/)
@@ -66,7 +38,7 @@ component (example: `framework/components/ecl-footers/README.md`)
 
 </details>
 
-## Step 5: Save updates to the branch
+## Step 3: Save updates to a new branch
 
 * After you have modified the file, you have to commit the changes to save them
   in your branch.
@@ -74,19 +46,12 @@ component (example: `framework/components/ecl-footers/README.md`)
 * Enter title and description based on
   [naming conventions](https://ec-europa.github.io/europa-component-library/docs/conventions/git).
 
-* Click on "Commit directly to the
-  `docs/update-{component-name}-{ticket-number}`".
+* Click on "create a new branch"
 
 * This will save changes on your branch.
 
-<details><summary>_See how to do this step_</summary>
 
-![Save changes to branch]({{ path
-'/assets/screenshots/save-changes-on-branch.gif' }})
-
-</details>
-
-## Step 6: Open a pull request
+## Step 4: Open a pull request
 
 * Once you made sure you have saved changes on your particular branch, you are
   ready to proceed on proposing these changes to the main `master` branch which
@@ -101,23 +66,6 @@ component (example: `framework/components/ecl-footers/README.md`)
 <details><summary>_See how to do this step_</summary>
 
 ![Open a pull request]({{ path '/assets/screenshots/open-pull-request.gif' }})
-
-</details>
-
-## Step 7: Preview your changes and follow-up
-
-* When the pull request is open, our `HAL-Patch-INNO` bot will show you a
-  preview of the ECL style guide with the updates provided by you.
-
-* You can review them and make further changes on the branch repeating steps
-  1-5. Once the changes are saved, the pull request is automatically updated, no
-  need to open another pull request.
-
-* Changes on the pull request update the preview automatically.
-
-<details><summary>_See how to do this step_</summary>
-
-![Preview changes]({{ path '/assets/screenshots/preview-changes.gif' }})
 
 </details>
 
