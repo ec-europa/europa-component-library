@@ -1,7 +1,4 @@
----
-title: How to update documentation on ECL
-label: Edit documentation
----
+# How to update documentation on ECL
 
 This page explains how to update the documentation directly on GitHub.
 
@@ -17,13 +14,7 @@ an invite, please contact an owner of
 
 ## Step 1: Locate the file you want to update
 
-Go to [ECL repository](https://github.com/ec-europa/europa-component-library)
-
-###  Browsing the repository
-
-Locate the page to edit
-```europa-component-library/src/systems/{SYSTEM}/specs/components/{COMPONENT}/docs/{PAGE}.md```
-
+Locate the page to edit: `europa-component-library/src/systems/{SYSTEM}/specs/{SECTION}/**/{PAGE}.md`
 
 ## Step 2: Edit the documentation
 
@@ -32,9 +23,9 @@ Locate the page to edit
 
 * You can see the result directly by switching to the "Preview" tab
 
-<details><summary>_See how to do this step_</summary>
+<details><summary>See how to do this step</summary>
 
-![Preview changes]({{ path '/assets/screenshots/edit-preview-changes.gif' }})
+![Preview changes](../src/systems/ec/implementations/vanilla/styleguide/static/assets/screenshots/edit-preview-changes.gif)
 
 </details>
 
