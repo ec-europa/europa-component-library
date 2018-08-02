@@ -22,15 +22,15 @@ To edit components related pages
 or more generally
 `europa-component-library/src/systems/{SYSTEM}/specs/{SECTION}/**/{PAGE}.md`
 
-To edit pages from the site (not linked to a specific item like the splash page)
+To edit pages from the site (not linked to a specific item like the splash page):
 `europa-component-library/website/src/pages/index.md`
 
 ## Step 2: Edit the documentation
 
 * Make any modification you wish by using the markdown editor. Here is a
-  [cheatsheet for markdown syntax](https://guides.github.com/features/mastering-markdown/)
+  [cheatsheet for markdown syntax](https://guides.github.com/features/mastering-markdown/).
 
-* You can see the result directly by switching to the "Preview" tab
+* You can see the result directly by switching to the "Preview" tab.
 
 <details><summary>See how to do this step</summary>
 
@@ -43,10 +43,9 @@ To edit pages from the site (not linked to a specific item like the splash page)
 * After you have modified the file, you have to commit the changes to save them
   in your branch.
 
-* Enter title and description based on
-  [naming conventions](https://ec-europa.github.io/europa-component-library/docs/conventions/git).
+* Enter title and description based on our [naming conventions](./conventions/git).
 
-* Click on "create a new branch"
+* Click on "create a new branch".
 
 * This will save changes on your branch.
 
