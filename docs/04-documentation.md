@@ -82,9 +82,9 @@ Thank you!
 ### Note: writing convention
 
 We are using writing conventions for both
-[pull requests](https://ec-europa.github.io/europa-component-library/docs/conventions/git)
+[pull requests](./conventions/git.md)
 and
-[markdown](https://ec-europa.github.io/europa-component-library/docs/conventions/markdown).
+[markdown](./conventions/markdown.md).
 You can optionally apply these conventions to facilitate documentation update
 process.
 
