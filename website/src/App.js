@@ -78,8 +78,8 @@ class App extends Component {
                   <div
                     className={
                       this.state.sidebarOpen
-                        ? 'tmp-main-container--with-sidebar'
-                        : ''
+                        ? 'tmp-main-container tmp-main-container--with-sidebar'
+                        : 'tmp-main-container'
                     }
                   >
                     <Switch>
