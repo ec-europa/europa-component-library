@@ -62,7 +62,8 @@
     "*.md": ["prettier --parser markdown --write", "git add"],
     "*.js": ["prettier --parser babylon --write", "eslint", "git add"],
     "*.json": ["prettier --parser json --write", "git add"],
-    "*.scss": ["prettier --parser scss --write", "stylelint", "git add"]
+    "*.scss": ["prettier --parser scss --write", "stylelint", "git add"],
+    "*.yml": ["prettier --parser yaml --write", "git add"]
   },
   "workspaces": [
     "examples/*",
