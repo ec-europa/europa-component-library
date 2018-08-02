@@ -14,7 +14,16 @@ an invite, please contact an owner of
 
 ## Step 1: Locate the file you want to update
 
-Locate the page to edit: `europa-component-library/src/systems/{SYSTEM}/specs/{SECTION}/**/{PAGE}.md`
+Locate the page to edit.
+
+To edit components related pages
+`europa-component-library/src/systems/{SYSTEM}/specs/components/{COMPONENT}/docs/{PAGE}.md`
+
+or more generally
+`europa-component-library/src/systems/{SYSTEM}/specs/{SECTION}/**/{PAGE}.md`
+
+To edit pages from the site (not linked to a specific item like the splash page)
+`europa-component-library/website/src/pages/index.md`
 
 ## Step 2: Edit the documentation
 
