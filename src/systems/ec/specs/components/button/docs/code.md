@@ -9,7 +9,7 @@
 <iframe 
   width="300"
   height="100"
-  src="../../../_imports/ec/components/preview/ec-component-button--default.html">
+  src="/_imports/ec/components/preview/ec-component-button--default.html">
 </iframe>
 
 ### Primary button
