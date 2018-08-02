@@ -54,7 +54,7 @@ Locate the page to edit
 ## Step 4: Open a pull request
 
 * Once you made sure you have saved changes on your particular branch, you are
-  ready to proceed on proposing these changes to the main `master` branch which
+  ready to proceed on proposing these changes to the main `next-v2` branch which
   is where you see the documentation in production.
 
 * You can simply use the hints which GitHub gives you when you go to the root of
