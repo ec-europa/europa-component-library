@@ -2,8 +2,21 @@ body {
   background-color: #fafafa;
 }
 
-main {
-  display: block; /* IE hack */
+/**
+ * Add the correct display in IE 9-.
+ * Was removed from normalize.css...
+ */
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section {
+  display: block;
 }
 
 main:focus {
