@@ -65,7 +65,7 @@ To edit pages from the site (not linked to a specific item like the splash page)
 
 <details><summary>_See how to do this step_</summary>
 
-![Open a pull request]({{ path '/assets/screenshots/open-pull-request.gif' }})
+![Open a pull request](../src/systems/ec/implementations/vanilla/styleguide/static/assets/screenshots/open-pull-request.gif)
 
 </details>
 
