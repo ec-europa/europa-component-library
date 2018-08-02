@@ -55,15 +55,15 @@ const HomePage = () => (
         </div>
       </div>
       <div className="custom-row ecl-u-mt-xl ecl-editor">
-        <div className="custom-col-4 custom-col-md-4">
+        <div className="custom-col-4 custom-col-md-4/8 custom-col-xl-4/12">
           <h2>Latest Releases</h2>
           <p>Text</p>
         </div>
-        <div className="custom-col-4/4 custom-col-md-4/12">
+        <div className="custom-col-4/4 custom-col-md-4/8 custom-col-xl-4/12">
           <h2>Upcoming Releases</h2>
           <p>Text</p>
         </div>
-        <div className="custom-col-4/4 custom-col-md-4/12">
+        <div className="custom-col-4/4 custom-col-md-4/8 custom-col-xl-4/12">
           <h2>Section title</h2>
           <p>Text</p>
         </div>
