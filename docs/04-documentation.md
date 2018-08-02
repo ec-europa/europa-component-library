@@ -63,7 +63,7 @@ To edit pages from the site (not linked to a specific item like the splash page)
 * Do not forget to add `tag: documentation` on your pull request which is used
   for the release log.
 
-<details><summary>_See how to do this step_</summary>
+<details><summary>See how to do this step</summary>
 
 ![Open a pull request](../src/systems/ec/implementations/vanilla/styleguide/static/assets/screenshots/open-pull-request.gif)
 
