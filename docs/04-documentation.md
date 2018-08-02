@@ -43,7 +43,7 @@ To edit pages from the site (not linked to a specific item like the splash page)
 * After you have modified the file, you have to commit the changes to save them
   in your branch.
 
-* Enter title and description based on our [naming conventions](./conventions/git).
+* Enter title and description based on our [naming conventions](./conventions/git.md).
 
 * Click on "create a new branch".
 
