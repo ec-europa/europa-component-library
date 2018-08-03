@@ -51,6 +51,8 @@ class App extends Component {
   }
 
   render() {
+    const { sidebarOpen } = this.state;
+
     return (
       <Router basename={`${process.env.PUBLIC_URL}/`}>
         <div className="language-en ecl-typography">
@@ -72,12 +74,12 @@ class App extends Component {
                   <Navigation
                     ecPages={ecPages}
                     euPages={euPages}
-                    sidebarOpen={this.state.sidebarOpen}
+                    sidebarOpen={sidebarOpen}
                     onToggleSidebar={this.toggleSidebar}
                   />
                   <div
                     className={
-                      this.state.sidebarOpen
+                      sidebarOpen
                         ? 'tmp-main-container tmp-main-container--with-sidebar'
                         : 'tmp-main-container'
                     }

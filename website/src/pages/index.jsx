@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Document from './index.md';
-import LogoLink from '../components/LogoLink';
 import ECLogo from '@ecl/ec-preset-website/dist/images/logo/logo--en.svg';
 import EULogo from '@ecl/eu-preset-website/dist/images/logo/logo--en.svg';
+import Document from './index.md';
+import LogoLink from '../components/LogoLink';
 
 const HomePage = () => (
   <main id="main-content" tabIndex="-1" className="tmp-splash-page">

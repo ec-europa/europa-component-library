@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './ComponentHeader.css';
 
@@ -25,5 +26,27 @@ const ComponentHeader = ({ match, sectionTitle, pageTitle, tabs }) => (
     </div>
   </header>
 );
+
+ComponentHeader.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }),
+  sectionTitle: PropTypes.string,
+  pageTitle: PropTypes.string.isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ),
+};
+
+ComponentHeader.defaultProps = {
+  match: {
+    url: '',
+  },
+  sectionTitle: '',
+  tabs: [],
+};
 
 export default ComponentHeader;

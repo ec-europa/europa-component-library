@@ -86,14 +86,14 @@ const HomePage = () => (
               <tr>
                 <td>
                   <div className="Status Status--tag">
-                    <label
+                    <span
                       style={{
                         backgroundColor: '#467a39',
                         borderColor: '#467a39',
                       }}
                     >
                       Ready
-                    </label>
+                    </span>
                   </div>
                 </td>
                 <td>Can be used in production.</td>
@@ -102,14 +102,14 @@ const HomePage = () => (
               <tr>
                 <td>
                   <div className="Status Status--tag">
-                    <label
+                    <span
                       style={{
                         backgroundColor: '#006fb4',
                         borderColor: '#006fb4',
                       }}
                     >
                       Planned
-                    </label>
+                    </span>
                   </div>
                 </td>
                 <td>Still under discussion.</td>
@@ -118,14 +118,14 @@ const HomePage = () => (
               <tr>
                 <td>
                   <div className="Status Status--tag">
-                    <label
+                    <span
                       style={{
                         backgroundColor: '#fbc11d',
                         borderColor: '#fbc11d',
                       }}
                     >
                       WIP
-                    </label>
+                    </span>
                   </div>
                 </td>
                 <td>Work in progress. Implement with caution.</td>
@@ -134,14 +134,14 @@ const HomePage = () => (
               <tr>
                 <td>
                   <div className="Status Status--tag">
-                    <label
+                    <span
                       style={{
                         backgroundColor: '#f29527',
                         borderColor: '#f29527',
                       }}
                     >
                       Legacy
-                    </label>
+                    </span>
                   </div>
                 </td>
                 <td>Not to be used on new applications. Kept temporarily.</td>
@@ -150,15 +150,15 @@ const HomePage = () => (
               <tr>
                 <td>
                   <div className="Status Status--tag">
-                    <label
-                      className="Status-label"
+                    <span
+                      className="Status-span"
                       style={{
                         backgroundColor: '#da2130',
                         borderColor: '#da2130',
                       }}
                     >
                       Broken
-                    </label>
+                    </span>
                   </div>
                 </td>
                 <td>Cannot be used.</td>
