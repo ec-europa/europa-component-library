@@ -12,10 +12,10 @@ import './styles/app.css';
 import Navigation from './components/Navigation';
 
 // Pages
-import HomePage from './pages/index';
-import PageNotFound from './pages/404';
-import ECHomePage from './pages/ec/index';
-import EUHomePage from './pages/eu/index';
+import HomePage from './routes/index';
+import PageNotFound from './routes/404';
+import ECHomePage from './routes/ec/index';
+import EUHomePage from './routes/eu/index';
 
 import ComponentPage from './components/ComponentPage';
 

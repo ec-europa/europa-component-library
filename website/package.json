@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "clean": "rimraf build",
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --config webpack.config.dev.js --mode development --open --hot",
+    "build": "webpack --config webpack.config.prod.js --mode production",
     "postbuild": "react-snap",
     "serve": "serve build"
   },
@@ -13,27 +13,16 @@
     "@ecl/ec-preset-website": "^1.2.0",
     "@ecl/eu-preset-website": "^1.2.0",
     "@mdx-js/mdx": "0.15.0-2",
-    "autoprefixer": "9.1.0",
-    "case-sensitive-paths-webpack-plugin": "2.1.2",
-    "chalk": "2.4.1",
-    "dotenv": "6.0.0",
-    "dotenv-expand": "4.2.0",
-    "fs-extra": "7.0.0",
-    "jest": "23.4.2",
-    "object-assign": "4.1.1",
-    "promise": "8.0.1",
-    "raf": "3.4.0",
     "prop-types": "15.6.2",
     "react": "16.4.2",
     "react-dom": "16.4.2",
     "react-helmet": "5.2.0",
     "react-hot-loader": "4.3.4",
-    "react-router-dom": "4.3.1",
-    "resolve": "1.8.1",
-    "whatwg-fetch": "2.0.4"
+    "react-router-dom": "4.3.1"
   },
   "devDependencies": {
     "@mdx-js/loader": "0.15.0-2",
+    "autoprefixer": "9.1.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.6",
     "babel-loader": "7.1.5",
@@ -51,10 +40,11 @@
     "eslint-plugin-jsx-a11y": "6.1.1",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-react": "7.10.0",
-    "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.11",
     "html-webpack-plugin": "4.0.0-alpha",
+    "mini-css-extract-plugin": "0.4.1",
     "node-sass": "4.9.2",
+    "optimize-css-assets-webpack-plugin": "5.0.0",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "2.1.6",
     "react-dev-utils": "5.0.1",
@@ -64,6 +54,7 @@
     "serve": "9.4.0",
     "style-loader": "0.21.0",
     "sw-precache-webpack-plugin": "0.11.5",
+    "uglifyjs-webpack-plugin": "1.2.7",
     "url-loader": "1.0.1",
     "webpack": "4.16.4",
     "webpack-cli": "3.1.0",
@@ -71,6 +62,9 @@
     "webpack-manifest-plugin": "2.0.3"
   },
   "reactSnap": {
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }

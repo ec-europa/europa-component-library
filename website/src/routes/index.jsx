@@ -2,7 +2,7 @@ import React from 'react';
 
 import ECLogo from '@ecl/ec-preset-website/dist/images/logo/logo--en.svg';
 import EULogo from '@ecl/eu-preset-website/dist/images/logo/logo--en.svg';
-import Document from './index.md';
+import Document from '../pages/index.md';
 import LogoLink from '../components/LogoLink';
 
 const HomePage = () => (
