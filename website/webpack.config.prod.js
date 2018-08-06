@@ -11,6 +11,7 @@ const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const babelConfig = require('./config/babel.config');
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const includePaths = [path.resolve(__dirname, '../node_modules')];
 
 module.exports = {
   mode: 'production',
@@ -95,6 +96,52 @@ module.exports = {
                       flexbox: 'no-2009',
                     }),
                   ],
+                },
+              },
+            ],
+          },
+          {
+            test: /\.scss$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  // you can specify a publicPath here
+                  // by default it use publicPath in webpackOptions.output
+                  // publicPath: '../',
+                },
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 2,
+                  minimize: true,
+                  sourceMap: shouldUseSourceMap,
+                },
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  plugins: () => [
+                    postcssFlexbugFixes,
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                },
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                  includePaths,
                 },
               },
             ],
