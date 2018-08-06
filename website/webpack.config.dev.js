@@ -171,9 +171,8 @@ module.exports = {
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify({
-        PUBLIC_URL: '',
-      }),
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.PUBLIC_URL': JSON.stringify(''),
     }),
   ],
   // Turn off performance hints during development because we don't do any

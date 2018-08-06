@@ -16,4 +16,9 @@ module.exports = {
     'stage-0',
   ],
   plugins: ['react-hot-loader/babel'],
+  env: {
+    production: {
+      plugins: ['transform-react-remove-prop-types'],
+    },
+  },
 };
