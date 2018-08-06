@@ -1,4 +1,4 @@
-import a11y from './docs/accessibility.md';
+import code from './docs/code.md';
 
 export default {
   order: 3,
@@ -7,10 +7,10 @@ export default {
   section: 'Style',
   tabs: [
     {
-      name: 'Accessibility',
-      component: a11y,
-      url: 'a11y',
+      name: 'Code',
+      component: code,
+      url: 'code',
     },
   ],
-  defaultTab: 'a11y',
+  defaultTab: 'code',
 };
