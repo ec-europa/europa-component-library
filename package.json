@@ -28,10 +28,10 @@
     "@ecl/eslint-config": "0.1.2",
     "@ecl/qa": "0.2.0",
     "@ecl/stylelint-config": "0.2.0",
-    "@octokit/rest": "15.9.4",
+    "@octokit/rest": "15.9.5",
     "chai": "4.1.2",
     "dotenv": "6.0.0",
-    "eslint": "4.19.1",
+    "eslint": "5.3.0",
     "gh-pages": "1.2.0",
     "glob": "7.1.2",
     "husky": "0.14.3",
@@ -59,11 +59,28 @@
     "node": ">=8.9.1"
   },
   "lint-staged": {
-    "*.md": ["prettier --parser markdown --write", "git add"],
-    "*.js": ["prettier --parser babylon --write", "eslint", "git add"],
-    "*.json": ["prettier --parser json --write", "git add"],
-    "*.scss": ["prettier --parser scss --write", "stylelint", "git add"],
-    "*.yml": ["prettier --parser yaml --write", "git add"]
+    "*.md": [
+      "prettier --parser markdown --write",
+      "git add"
+    ],
+    "*.js": [
+      "prettier --parser babylon --write",
+      "eslint",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --parser json --write",
+      "git add"
+    ],
+    "*.scss": [
+      "prettier --parser scss --write",
+      "stylelint",
+      "git add"
+    ],
+    "*.yml": [
+      "prettier --parser yaml --write",
+      "git add"
+    ]
   },
   "workspaces": [
     "examples/*",

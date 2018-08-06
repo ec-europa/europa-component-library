@@ -1,11 +1,14 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 const babelConfig = require('./config/babel.config');
 
 module.exports = {
+  mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: './src/index.jsx',
   output: {
@@ -30,6 +33,7 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
   },
   module: {
+    strictExportPresence: true,
     rules: [
       {
         test: /\.(js|jsx|mjs)$/,
@@ -44,12 +48,44 @@ module.exports = {
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
-              options: babelConfig,
+              options: Object.assign({}, babelConfig, {
+                // This is a feature of `babel-loader` for webpack (not Babel itself).
+                // It enables caching results in ./node_modules/.cache/babel-loader/
+                // directory for faster rebuilds.
+                cacheDirectory: true,
+                babelrc: false,
+              }),
             },
           },
           {
             test: /\.css$/,
-            use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+            use: [
+              { loader: 'style-loader' },
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,
+                },
+              },
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  ident: 'postcss',
+                  plugins: () => [
+                    postcssFlexbugFixes,
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9', // React doesn't support IE8 anyway
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                },
+              },
+            ],
           },
           {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -99,13 +135,13 @@ module.exports = {
       template: './public/index.html',
       // filename: './index.html',
     }),
+    // Add module names to factory functions so they appear in browser profiler.
+    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify({
         PUBLIC_URL: '',
       }),
     }),
-    // HMR
-    new webpack.HotModuleReplacementPlugin(),
   ],
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become

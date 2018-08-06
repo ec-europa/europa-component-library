@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "scripts": {
     "clean": "rimraf build",
-    "start": "webpack-dev-server --config webpack.config.dev.js --mode development --open --hot",
-    "build": "webpack --config webpack.config.prod.js --mode production",
+    "start": "webpack-serve --config webpack.config.dev.js --open",
+    "prebuild": "npm run clean",
+    "build": "webpack --config webpack.config.prod.js",
     "postbuild": "react-snap",
     "serve": "serve build"
   },
@@ -32,7 +33,7 @@
     "babel-preset-stage-2": "6.24.1",
     "babel-runtime": "6.26.0",
     "css-loader": "1.0.0",
-    "eslint": "5.2.0",
+    "eslint": "5.3.0",
     "eslint-config-airbnb": "17.0.0",
     "eslint-config-prettier": "2.9.0",
     "eslint-loader": "2.1.0",
@@ -58,8 +59,8 @@
     "url-loader": "1.0.1",
     "webpack": "4.16.4",
     "webpack-cli": "3.1.0",
-    "webpack-dev-server": "3.1.5",
-    "webpack-manifest-plugin": "2.0.3"
+    "webpack-manifest-plugin": "2.0.3",
+    "webpack-serve": "2.0.2"
   },
   "reactSnap": {
     "puppeteerArgs": [
