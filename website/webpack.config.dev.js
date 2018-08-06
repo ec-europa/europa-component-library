@@ -5,10 +5,12 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
-const includePaths = [path.resolve(__dirname, '../node_modules')];
-
 const babelConfig = require('./config/babel.config');
 const browsers = require('./config/browserslist');
+
+const includePaths = [path.resolve(__dirname, '../node_modules')];
+const publicPath = '/';
+const publicUrl = publicPath.slice(0, -1);
 
 module.exports = {
   mode: 'development',
@@ -27,7 +29,7 @@ module.exports = {
     // There are also additional JS chunk files if you use code splitting.
     chunkFilename: 'static/js/[name].chunk.js',
     // This is the URL that app is served from. We use "/" in development.
-    publicPath: '/',
+    publicPath,
   },
   resolve: {
     // These are the reasonable defaults supported by the Node ecosystem.
@@ -114,7 +116,6 @@ module.exports = {
               {
                 loader: 'sass-loader',
                 options: {
-                  sourceMap: true,
                   includePaths,
                 },
               },
@@ -172,7 +173,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
-      'process.env.PUBLIC_URL': JSON.stringify(''),
+      'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
     }),
   ],
   // Turn off performance hints during development because we don't do any
