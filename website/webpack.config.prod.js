@@ -9,6 +9,7 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 
 const babelConfig = require('./config/babel.config');
+const browsers = require('./config/browserslist');
 
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const includePaths = [path.resolve(__dirname, '../node_modules')];
@@ -20,7 +21,10 @@ module.exports = {
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
-  entry: './src/index.jsx',
+  entry: [
+    path.resolve(__dirname, 'config/polyfills.js'),
+    path.resolve(__dirname, 'src/index.jsx'),
+  ],
   output: {
     // The build folder.
     path: path.resolve(__dirname, 'build'),
@@ -87,12 +91,7 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
+                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],
@@ -126,12 +125,7 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
+                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],

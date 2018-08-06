@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 
 // ECl, hacks and custom styles
 import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
@@ -127,4 +128,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(module)(App);

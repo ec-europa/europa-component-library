@@ -8,11 +8,15 @@ const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const includePaths = [path.resolve(__dirname, '../node_modules')];
 
 const babelConfig = require('./config/babel.config');
+const browsers = require('./config/browserslist');
 
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
-  entry: './src/index.jsx',
+  entry: [
+    path.resolve(__dirname, 'config/polyfills.js'),
+    path.resolve(__dirname, 'src/index.jsx'),
+  ],
   output: {
     // Add /* filename */ comments to generated require()s in the output.
     pathinfo: true,
@@ -76,12 +80,7 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
+                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],
@@ -106,12 +105,7 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
+                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],
