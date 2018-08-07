@@ -89,6 +89,11 @@ $tmp-nav-toggle-bar-spacing-between: 0.375rem;
   background-color: $ecl-color-grey-10;
 }
 
+.tmp-nav__group-list-item--active {
+  border-left: 4px solid $ecl-color-yellow-100;
+  padding-left: calc(#{$ecl-spacing-m} - 4px);
+}
+
 .tmp-nav__group-list-item:active {
   background-color: $ecl-color-grey-25;
 }

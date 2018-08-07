@@ -195,7 +195,7 @@ class Navigation extends Component {
                               : `${meta.url}`
                           }
                           className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__page-list-item--active"
+                          activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
                         </NavLink>
@@ -375,7 +375,7 @@ class Navigation extends Component {
                               : `${meta.url}`
                           }
                           className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__page-list-item--active"
+                          activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
                         </NavLink>
@@ -443,7 +443,7 @@ class Navigation extends Component {
                               : `${meta.url}`
                           }
                           className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__page-list-item--active"
+                          activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
                         </NavLink>
@@ -547,7 +547,7 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={EUtemplates}
+                      aria-hidden={!EUtemplates}
                     >
                       {euPages
                         .keys()
@@ -623,7 +623,7 @@ class Navigation extends Component {
                               : `${meta.url}`
                           }
                           className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__page-list-item--active"
+                          activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
                         </NavLink>
@@ -648,7 +648,7 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={EUresources}
+                      aria-hidden={!EUresources}
                     >
                       {euPages
                         .keys()
