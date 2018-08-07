@@ -12,7 +12,7 @@ import './styles/app.css';
 // Layout
 import Navigation from './components/Navigation/Navigation';
 
-// Pages
+// Static routes
 import HomePage from './routes/index';
 import PageNotFound from './routes/404';
 import ECHomePage from './routes/ec/index';
@@ -67,9 +67,10 @@ class App extends Component {
             </a>
           </div>
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact strict path="/" component={HomePage} />
             <Route
-              path="/(ec|eu)"
+              path="/(ec|eu)/"
+              strict
               render={() => (
                 <Fragment>
                   <Navigation
@@ -86,7 +87,7 @@ class App extends Component {
                     }
                   >
                     <Switch>
-                      <Route exact path="/ec" component={ECHomePage} />
+                      <Route exact strict path="/ec/" component={ECHomePage} />
                       {ecPages
                         .keys()
                         .map(key => ecPages(key).default)
@@ -94,13 +95,14 @@ class App extends Component {
                         .map(meta => (
                           <Route
                             key={meta.url}
-                            path={meta.url}
+                            path={`${meta.url}/`}
+                            strict
                             render={props => (
                               <DocPage {...props} component={meta} />
                             )}
                           />
                         ))}
-                      <Route exact path="/eu" component={EUHomePage} />
+                      <Route exact strict path="/eu/" component={EUHomePage} />
                       {euPages
                         .keys()
                         .map(key => euPages(key).default)
@@ -108,7 +110,8 @@ class App extends Component {
                         .map(meta => (
                           <Route
                             key={meta.url}
-                            path={meta.url}
+                            path={`${meta.url}/`}
+                            strict
                             render={props => (
                               <DocPage {...props} component={meta} />
                             )}

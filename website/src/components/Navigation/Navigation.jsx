@@ -158,7 +158,8 @@ class Navigation extends Component {
           <ul className="ecl-list ecl-list--unstyled tmp-nav__system-list">
             <li className="tmp-nav__system-list-item">
               <NavLink
-                to="/ec"
+                to="/ec/"
+                strict
                 className="tmp-nav__system-list-item-link"
                 activeClassName="tmp-nav__system-list-item-link--selected"
               >
@@ -167,7 +168,8 @@ class Navigation extends Component {
             </li>
             <li className="tmp-nav__system-list-item">
               <NavLink
-                to="/eu"
+                to="/eu/"
+                strict
                 className="tmp-nav__system-list-item-link"
                 activeClassName="tmp-nav__system-list-item-link--selected"
               >
@@ -177,7 +179,8 @@ class Navigation extends Component {
           </ul>
           <Switch>
             <Route
-              path="/ec"
+              path="/ec/"
+              strict
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
                   {ecPages
@@ -189,11 +192,7 @@ class Navigation extends Component {
                     .map(meta => (
                       <li key={meta.url}>
                         <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                          to={`${meta.url}/`}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
@@ -231,7 +230,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -270,7 +269,8 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
+                              strict
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -310,7 +310,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -350,7 +350,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -369,11 +369,7 @@ class Navigation extends Component {
                     .map(meta => (
                       <li key={meta.url}>
                         <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                          to={`${meta.url}/`}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
@@ -411,7 +407,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -437,11 +433,7 @@ class Navigation extends Component {
                     .map(meta => (
                       <li key={meta.url}>
                         <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                          to={`${meta.url}/`}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
@@ -479,7 +471,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -518,7 +510,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -558,7 +550,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -598,7 +590,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
@@ -617,11 +609,7 @@ class Navigation extends Component {
                     .map(meta => (
                       <li key={meta.url}>
                         <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                          to={`${meta.url}/`}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
@@ -659,7 +647,7 @@ class Navigation extends Component {
                         .map(meta => (
                           <li key={meta.url}>
                             <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                              to={`${meta.url}/`}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
