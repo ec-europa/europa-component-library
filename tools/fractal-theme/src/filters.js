@@ -9,13 +9,20 @@ module.exports = (theme, env, app) => {
         return '/';
       }
       return theme.urlFromRoute('page', { path: item.path });
-    } else if (item.isComponent || item.isVariant) {
+    }
+
+    if (item.isComponent || item.isVariant) {
       return theme.urlFromRoute('component', { handle: item.handle });
-    } else if (item.isAssetSource) {
+    }
+
+    if (item.isAssetSource) {
       return theme.urlFromRoute('asset-source', { name: item.name });
-    } else if (item.isAsset) {
+    }
+
+    if (item.isAsset) {
       return path.join('/', app.get('web.assets.mount'), item.srcPath);
     }
+
     throw new Error(`Cannot generate URL for ${item}`);
   });
 

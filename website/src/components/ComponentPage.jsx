@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
@@ -7,9 +8,9 @@ import ComponentHeader from './ComponentHeader';
 class ComponentPage extends Component {
   componentDidMount() {
     // Get showcase elements
-    const showcases = document.getElementsByClassName("tmp-showcase");
+    const showcases = document.getElementsByClassName('tmp-showcase');
 
-    [].forEach.call(showcases, function (element) {
+    showcases.forEach(element => {
       // Create iframe
       const frame = document.createElement('iframe');
       frame.className = 'tmp-showcase__frame';
@@ -21,7 +22,7 @@ class ComponentPage extends Component {
 
       // Create preview link
       const a = document.createElement('a');
-      const linkText = document.createTextNode("Full page preview");
+      const linkText = document.createTextNode('Full page preview');
       a.appendChild(linkText);
       a.className = 'tmp-showcase__preview-link';
       a.href = element.getAttribute('data-src');
@@ -32,8 +33,8 @@ class ComponentPage extends Component {
   }
 
   render() {
-    const component = this.props.component;
-    const match = this.props.match;
+    const { component } = this.props;
+    const { match } = this.props;
 
     return (
       <Fragment>
@@ -71,5 +72,28 @@ class ComponentPage extends Component {
     );
   }
 }
+
+ComponentPage.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }).isRequired,
+  component: PropTypes.shape({
+    section: PropTypes.string,
+    title: PropTypes.string,
+    tabs: PropTypes.arrayOf(
+      PropTypes.shape({
+        url: PropTypes.string,
+        name: PropTypes.string,
+        component: PropTypes.element,
+      })
+    ),
+    defaultTab: PropTypes.string,
+    page: PropTypes.element,
+  }),
+};
+
+ComponentPage.defaultProps = {
+  component: {},
+};
 
 export default ComponentPage;
