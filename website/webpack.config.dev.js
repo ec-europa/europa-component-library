@@ -190,12 +190,6 @@ module.exports = {
 module.exports.serve = {
   content: [__dirname],
   add: app => {
-    /*
-    const historyOptions = {
-      // ... see: https://github.com/bripkens/connect-history-api-fallback#options
-    };
-    */
-
     app.use(convert(history({})));
   },
 };
