@@ -39,7 +39,7 @@ class ComponentPage extends Component {
     return (
       <Fragment>
         <Helmet title={component.title} />
-        <ComponentHeader
+        <Header
           match={match}
           sectionTitle={component.section}
           pageTitle={component.title}
