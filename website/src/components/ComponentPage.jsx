@@ -24,7 +24,7 @@ class ComponentPage extends Component {
       const linkText = document.createTextNode("Full page preview");
       a.appendChild(linkText);
       a.className = 'tmp-showcase__preview-link';
-      a.href = element.getAttribute('src');
+      a.href = element.getAttribute('data-src');
 
       // Add link to showcase
       element.appendChild(a);
