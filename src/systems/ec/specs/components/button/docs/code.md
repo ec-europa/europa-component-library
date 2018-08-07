@@ -6,35 +6,31 @@
 
 ### Default button
 
-<iframe 
-  width="300"
-  height="100"
-  src="/_imports/ec/components/preview/ec-component-button--default.html">
-</iframe>
+<div 
+  class="tmp-showcase" 
+  data-height="80" 
+  data-src="/_imports/ec/components/preview/ec-component-button--default.html"></div>
 
 ### Primary button
 
-<iframe 
-  width="300"
-  height="100"
-  src="/_imports/ec/components/preview/ec-component-button--primary.html">
-</iframe>
+<div 
+  class="tmp-showcase" 
+  data-height="80" 
+  data-src="/_imports/ec/components/preview/ec-component-button--primary.html"></div>
 
 ### Secondary button
 
-<iframe 
-  width="300"
-  height="100"
-  src="/_imports/ec/components/preview/ec-component-button--secondary.html">
-</iframe>
+<div 
+  class="tmp-showcase" 
+  data-height="80" 
+  data-src="/_imports/ec/components/preview/ec-component-button--secondary.html"></div>
 
 ### Call to action button
 
-<iframe 
-  width="300"
-  height="100"
-  src="/_imports/ec/components/preview/ec-component-button--call.html">
-</iframe>
+<div 
+  class="tmp-showcase" 
+  data-height="80" 
+  data-src="/_imports/ec/components/preview/ec-component-button--call.html"></div>
 
 Some guidelines.
 
