@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './LogoLink.css';
+import './LogoLink.scss';
 
 const LogoLink = props => <Link {...props} className="tmp-logo-link" />;
 

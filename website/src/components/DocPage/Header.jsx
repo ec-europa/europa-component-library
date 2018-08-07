@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './ComponentHeader.scss';
+import './Header.scss';
 
-const ComponentHeader = ({ match, sectionTitle, pageTitle, tabs }) => (
+const Header = ({ match, sectionTitle, pageTitle, tabs }) => (
   <header className="tmp-component-header">
     <div className="custom-container">
       <h3>{sectionTitle}</h3>
@@ -27,7 +27,7 @@ const ComponentHeader = ({ match, sectionTitle, pageTitle, tabs }) => (
   </header>
 );
 
-ComponentHeader.propTypes = {
+Header.propTypes = {
   match: PropTypes.shape({
     url: PropTypes.string,
   }),
@@ -41,7 +41,7 @@ ComponentHeader.propTypes = {
   ),
 };
 
-ComponentHeader.defaultProps = {
+Header.defaultProps = {
   match: {
     url: '',
   },
@@ -49,4 +49,4 @@ ComponentHeader.defaultProps = {
   tabs: [],
 };
 
-export default ComponentHeader;
+export default Header;

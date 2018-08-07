@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
-import ComponentHeader from './ComponentHeader';
+import Header from './Header';
 
 class ComponentPage extends Component {
   componentDidMount() {

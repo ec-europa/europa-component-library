@@ -6,6 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 
@@ -242,6 +243,7 @@ module.exports = {
     */
   },
   plugins: [
+    new CopyWebpackPlugin([path.resolve(__dirname, 'public')], {}),
     // new InterpolateHtmlPlugin(process.env),
     new HtmlWebPackPlugin({
       inject: true,
