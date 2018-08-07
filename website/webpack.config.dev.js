@@ -188,7 +188,7 @@ module.exports = {
 
 // Dev server config
 module.exports.serve = {
-  content: [__dirname],
+  content: [path.resolve(__dirname, 'public')],
   add: app => {
     app.use(convert(history({})));
   },
