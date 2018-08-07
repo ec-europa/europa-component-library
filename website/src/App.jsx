@@ -10,7 +10,7 @@ import './styles/custom-grid.css';
 import './styles/app.css';
 
 // Layout
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 
 // Pages
 import HomePage from './routes/index';
@@ -18,7 +18,7 @@ import PageNotFound from './routes/404';
 import ECHomePage from './routes/ec/index';
 import EUHomePage from './routes/eu/index';
 
-import ComponentPage from './components/ComponentPage';
+import DocPage from './components/DocPage/DocPage';
 
 const ecPages = require.context(
   '../../src/systems/ec/specs',
@@ -96,7 +96,7 @@ class App extends Component {
                             key={meta.url}
                             path={meta.url}
                             render={props => (
-                              <ComponentPage {...props} component={meta} />
+                              <DocPage {...props} component={meta} />
                             )}
                           />
                         ))}
@@ -110,7 +110,7 @@ class App extends Component {
                             key={meta.url}
                             path={meta.url}
                             render={props => (
-                              <ComponentPage {...props} component={meta} />
+                              <DocPage {...props} component={meta} />
                             )}
                           />
                         ))}

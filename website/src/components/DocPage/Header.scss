@@ -1,7 +1,10 @@
 @import '@ecl/ec-theme-default/exports/index';
 
+$custom-header-bg-color: #f2f5f9;
+$custom-header-tabs-border-width: 4px;
+
 .tmp-component-header {
-  background-color: #f2f5f9;
+  background-color: $custom-header-bg-color;
   margin: 0;
   padding: $ecl-spacing-m 0 0;
 }
@@ -16,21 +19,21 @@
 }
 
 .tmp-component-header__tabs-item {
-  border-bottom: 4px solid transparent;
+  border-bottom: $custom-header-tabs-border-width solid transparent;
   color: #000;
   display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-right: 2rem;
-  padding: 0.5rem 0;
+  font: $ecl-font-m;
+  font-weight: $ecl-font-weight-bold;
+  margin-right: $ecl-spacing-xl;
+  padding: $ecl-spacing-xs 0;
   text-decoration: none;
 }
 
 .tmp-component-header__tabs-item:hover,
 .tmp-component-header__tabs-item:focus {
-  background-color: #e3e3e3;
+  background-color: $ecl-color-grey-15;
 }
 
 .tmp-component-header__tabs-item--active {
-  border-bottom: 4px solid #ffd617;
+  border-bottom: $custom-header-tabs-border-width solid $ecl-color-yellow-100;
 }

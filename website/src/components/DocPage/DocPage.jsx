@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
-import ComponentHeader from './ComponentHeader';
+import Header from './Header';
 
 const ComponentPage = ({ match, component }) => (
   <Fragment>
-    <Helmet title="Breadcrumb" />
-    <ComponentHeader
+    <Helmet title={component.title} />
+    <Header
       match={match}
       sectionTitle={component.section}
       pageTitle={component.title}

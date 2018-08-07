@@ -1,15 +1,13 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-const PageNotFound = () => (
-  <main id="main-content" tabIndex="-1">
+import PageNotFound from '../components/PageNotFound/PageNotFound';
+
+const Route404 = () => (
+  <PageNotFound>
     <Helmet title="404 - Page not found" />
-    <div className="custom-container ecl-u-pv-xl">
-      <div className="custom-row ecl-u-mt-xl ecl-editor">
-        <h1>Page not found</h1>
-      </div>
-    </div>
-  </main>
+    <h1>Page not found</h1>
+  </PageNotFound>
 );
 
-export default PageNotFound;
+export default Route404;

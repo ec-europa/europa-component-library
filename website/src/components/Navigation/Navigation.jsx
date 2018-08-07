@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Route, Link, NavLink, Switch, withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
-import './Navigation.css';
+import './Navigation.scss';
 
 class Navigation extends Component {
   constructor(props) {
