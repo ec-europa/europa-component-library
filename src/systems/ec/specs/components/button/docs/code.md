@@ -37,6 +37,3 @@ Some guidelines.
 TODO:
 
 - something
-- hello?
-
-> Cite something

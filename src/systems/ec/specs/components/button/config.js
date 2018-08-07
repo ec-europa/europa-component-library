@@ -17,5 +17,5 @@ export default {
       url: 'a11y',
     },
   ],
-  defaultTab: 'a11y',
+  defaultTab: 'code',
 };
