@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Route, Link, NavLink, Switch, withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
@@ -114,25 +115,36 @@ class Navigation extends Component {
   }
 
   render() {
+    const { sidebarOpen, onToggleSidebar, ecPages, euPages } = this.props;
+    const {
+      ECstyle,
+      ECcomponents,
+      ECtemplates,
+      ECguidelines,
+      ECresources,
+      EUstyle,
+      EUcomponents,
+      EUtemplates,
+      EUguidelines,
+      EUresources,
+    } = this.state;
+
     return (
       <Fragment>
         <button
+          type="button"
           className={`tmp-nav__button-toggle${
-            this.props.sidebarOpen
+            sidebarOpen
               ? ' tmp-nav__button-toggle--open'
               : ' tmp-nav__button-toggle--closed'
           } `}
-          onClick={this.props.onToggleSidebar}
+          onClick={onToggleSidebar}
         >
           <span className="tmp-nav__hamburger-box">
             <span className="tmp-nav__hamburger-inner" />
           </span>
         </button>
-        <nav
-          className={`tmp-nav${
-            this.props.sidebarOpen ? '' : ' tmp-nav--closed'
-          } `}
-        >
+        <nav className={`tmp-nav${sidebarOpen ? '' : ' tmp-nav--closed'} `}>
           <div className="tmp-nav__header">
             <Link
               to="/"
@@ -168,10 +180,10 @@ class Navigation extends Component {
               path="/ec"
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
-                  {this.props.ecPages
+                  {ecPages
                     .keys()
                     .filter(key => key.indexOf('./getting-started') === 0)
-                    .map(key => this.props.ecPages(key).default)
+                    .map(key => ecPages(key).default)
                     .filter(meta => meta)
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
@@ -191,13 +203,14 @@ class Navigation extends Component {
                     ))}
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleECStyle}
                     >
                       <span>
                         Style
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.ECstyle ? (
+                          {ECstyle ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -207,12 +220,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.ECstyle ? false : true}
+                      aria-hidden={!ECstyle}
                     >
-                      {this.props.ecPages
+                      {ecPages
                         .keys()
                         .filter(key => key.indexOf('./style') === 0)
-                        .map(key => this.props.ecPages(key).default)
+                        .map(key => ecPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -230,13 +243,14 @@ class Navigation extends Component {
                   </li>
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleECComponents}
                     >
                       <span>
                         Components
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.ECcomponents ? (
+                          {ECcomponents ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -246,12 +260,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.ECcomponents ? false : true}
+                      aria-hidden={!ECcomponents}
                     >
-                      {this.props.ecPages
+                      {ecPages
                         .keys()
                         .filter(key => key.indexOf('./components') === 0)
-                        .map(key => this.props.ecPages(key).default)
+                        .map(key => ecPages(key).default)
                         .filter(meta => meta)
                         .map(meta => (
                           <li key={meta.url}>
@@ -268,13 +282,14 @@ class Navigation extends Component {
                   </li>
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleECTemplates}
                     >
                       <span>
                         Templates
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.ECtemplates ? (
+                          {ECtemplates ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -284,12 +299,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.ECtemplates ? false : true}
+                      aria-hidden={!ECtemplates}
                     >
-                      {this.props.ecPages
+                      {ecPages
                         .keys()
                         .filter(key => key.indexOf('./templates') === 0)
-                        .map(key => this.props.ecPages(key).default)
+                        .map(key => ecPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -307,13 +322,14 @@ class Navigation extends Component {
                   </li>
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleECGuidelines}
                     >
                       <span>
                         Guidelines
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.ECguidelines ? (
+                          {ECguidelines ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -323,12 +339,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.ECguidelines ? false : true}
+                      aria-hidden={!ECguidelines}
                     >
-                      {this.props.ecPages
+                      {ecPages
                         .keys()
                         .filter(key => key.indexOf('./guidelines') === 0)
-                        .map(key => this.props.ecPages(key).default)
+                        .map(key => ecPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -344,10 +360,10 @@ class Navigation extends Component {
                         ))}
                     </ul>
                   </li>
-                  {this.props.ecPages
+                  {ecPages
                     .keys()
                     .filter(key => key.indexOf('./whats-new') === 0)
-                    .map(key => this.props.ecPages(key).default)
+                    .map(key => ecPages(key).default)
                     .filter(meta => meta)
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
@@ -367,13 +383,14 @@ class Navigation extends Component {
                     ))}
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleECResources}
                     >
                       <span>
                         Resources
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.ECresources ? (
+                          {ECresources ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -383,12 +400,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.ECresources ? false : true}
+                      aria-hidden={!ECresources}
                     >
-                      {this.props.ecPages
+                      {ecPages
                         .keys()
                         .filter(key => key.indexOf('./resources') === 0)
-                        .map(key => this.props.ecPages(key).default)
+                        .map(key => ecPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -411,10 +428,10 @@ class Navigation extends Component {
               path="/eu"
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
-                  {this.props.euPages
+                  {euPages
                     .keys()
                     .filter(key => key.indexOf('./getting-started') === 0)
-                    .map(key => this.props.euPages(key).default)
+                    .map(key => euPages(key).default)
                     .filter(meta => meta)
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
@@ -434,13 +451,14 @@ class Navigation extends Component {
                     ))}
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleEUStyle}
                     >
                       <span>
                         Style
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.EUstyle ? (
+                          {EUstyle ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -450,12 +468,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.EUstyle ? false : true}
+                      aria-hidden={!EUstyle}
                     >
-                      {this.props.euPages
+                      {euPages
                         .keys()
                         .filter(key => key.indexOf('./style') === 0)
-                        .map(key => this.props.euPages(key).default)
+                        .map(key => euPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -473,13 +491,14 @@ class Navigation extends Component {
                   </li>
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleEUComponents}
                     >
                       <span>
                         Components
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.EUcomponents ? (
+                          {EUcomponents ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -489,12 +508,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.EUcomponents ? false : true}
+                      aria-hidden={!EUcomponents}
                     >
-                      {this.props.euPages
+                      {euPages
                         .keys()
                         .filter(key => key.indexOf('./components') === 0)
-                        .map(key => this.props.euPages(key).default)
+                        .map(key => euPages(key).default)
                         .filter(meta => meta)
                         .map(meta => (
                           <li key={meta.url}>
@@ -511,13 +530,14 @@ class Navigation extends Component {
                   </li>
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleEUTemplates}
                     >
                       <span>
                         Templates
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.EUtemplates ? (
+                          {EUtemplates ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -527,12 +547,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.EUtemplates ? false : true}
+                      aria-hidden={EUtemplates}
                     >
-                      {this.props.euPages
+                      {euPages
                         .keys()
                         .filter(key => key.indexOf('./templates') === 0)
-                        .map(key => this.props.euPages(key).default)
+                        .map(key => euPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -550,13 +570,14 @@ class Navigation extends Component {
                   </li>
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleEUGuidelines}
                     >
                       <span>
                         Guidelines
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.EUguidelines ? (
+                          {EUguidelines ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -566,12 +587,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.EUguidelines ? false : true}
+                      aria-hidden={!EUguidelines}
                     >
-                      {this.props.euPages
+                      {euPages
                         .keys()
                         .filter(key => key.indexOf('./guidelines') === 0)
-                        .map(key => this.props.euPages(key).default)
+                        .map(key => euPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -587,10 +608,10 @@ class Navigation extends Component {
                         ))}
                     </ul>
                   </li>
-                  {this.props.euPages
+                  {euPages
                     .keys()
                     .filter(key => key.indexOf('./whats-new') === 0)
-                    .map(key => this.props.euPages(key).default)
+                    .map(key => euPages(key).default)
                     .filter(meta => meta)
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
@@ -610,13 +631,14 @@ class Navigation extends Component {
                     ))}
                   <li>
                     <button
+                      type="button"
                       className="tmp-nav__group-list-item"
                       onClick={this.toggleEUResources}
                     >
                       <span>
                         Resources
                         <svg className="ecl-icon ecl-icon--xs">
-                          {this.state.EUresources ? (
+                          {EUresources ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
                             <use xlinkHref={`${icons}#ecl-icon--right`} />
@@ -626,12 +648,12 @@ class Navigation extends Component {
                     </button>
                     <ul
                       className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={this.state.EUresources ? false : true}
+                      aria-hidden={EUresources}
                     >
-                      {this.props.euPages
+                      {euPages
                         .keys()
                         .filter(key => key.indexOf('./resources') === 0)
-                        .map(key => this.props.euPages(key).default)
+                        .map(key => euPages(key).default)
                         .filter(meta => meta)
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
@@ -656,5 +678,20 @@ class Navigation extends Component {
     );
   }
 }
+
+Navigation.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+  sidebarOpen: PropTypes.bool,
+  onToggleSidebar: PropTypes.func,
+  ecPages: PropTypes.object.isRequired, // eslint-disable-line
+  euPages: PropTypes.object.isRequired, // eslint-disable-line
+};
+
+Navigation.defaultProps = {
+  sidebarOpen: true,
+  onToggleSidebar: () => {},
+};
 
 export default withRouter(Navigation);

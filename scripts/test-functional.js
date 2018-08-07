@@ -9,8 +9,8 @@
 
 const path = require('path');
 const { Launcher } = require('webdriverio');
-const { getTestSpecs } = require('./utils/getTestSpecs');
 const minimist = require('minimist');
+const { getTestSpecs } = require('./utils/getTestSpecs');
 
 const testFunctional = async ({
   ignoreCache = false,
