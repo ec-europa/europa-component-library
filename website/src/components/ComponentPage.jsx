@@ -8,7 +8,7 @@ import ComponentHeader from './ComponentHeader';
 class ComponentPage extends Component {
   componentDidMount() {
     // Get showcase elements
-    const showcases = document.getElementsByClassName('tmp-showcase');
+    const showcases = document.querySelectorAll('.tmp-showcase');
 
     showcases.forEach(element => {
       // Create iframe
