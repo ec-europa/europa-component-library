@@ -6,7 +6,8 @@
     "clean": "rimraf build",
     "start": "webpack-serve --config webpack.config.dev.js --open",
     "prebuild": "npm run clean",
-    "build": "webpack --config webpack.config.prod.js",
+    "build:copy": "./scripts/copy.sh",
+    "build": "npm run build:copy && webpack --config webpack.config.prod.js",
     "postbuild": "react-snap",
     "serve": "serve build"
   },
