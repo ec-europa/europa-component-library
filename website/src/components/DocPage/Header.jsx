@@ -14,7 +14,8 @@ const Header = ({ match, sectionTitle, pageTitle, tabs }) => (
           tabs.map(tab => (
             <li key={tab.url}>
               <NavLink
-                to={`${match.url}/${tab.url}`}
+                to={`${match.url}${tab.url}/`}
+                strict
                 className="tmp-component-header__tabs-item"
                 activeClassName="tmp-component-header__tabs-item--active"
               >

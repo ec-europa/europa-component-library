@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Link, NavLink, Switch, withRouter } from 'react-router-dom';
-
 import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
+
+import NavigationLink from './NavigationLink';
 import './Navigation.scss';
 
 class Navigation extends Component {
@@ -158,7 +159,8 @@ class Navigation extends Component {
           <ul className="ecl-list ecl-list--unstyled tmp-nav__system-list">
             <li className="tmp-nav__system-list-item">
               <NavLink
-                to="/ec"
+                to="/ec/"
+                strict
                 className="tmp-nav__system-list-item-link"
                 activeClassName="tmp-nav__system-list-item-link--selected"
               >
@@ -167,7 +169,8 @@ class Navigation extends Component {
             </li>
             <li className="tmp-nav__system-list-item">
               <NavLink
-                to="/eu"
+                to="/eu/"
+                strict
                 className="tmp-nav__system-list-item-link"
                 activeClassName="tmp-nav__system-list-item-link--selected"
               >
@@ -177,7 +180,8 @@ class Navigation extends Component {
           </ul>
           <Switch>
             <Route
-              path="/ec"
+              path="/ec/"
+              strict
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
                   {ecPages
@@ -188,17 +192,13 @@ class Navigation extends Component {
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
                       <li key={meta.url}>
-                        <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                        <NavigationLink
+                          meta={meta}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
-                        </NavLink>
+                        </NavigationLink>
                       </li>
                     ))}
                   <li>
@@ -230,13 +230,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -269,13 +269,13 @@ class Navigation extends Component {
                         .filter(meta => meta)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -309,13 +309,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -349,13 +349,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -368,17 +368,13 @@ class Navigation extends Component {
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
                       <li key={meta.url}>
-                        <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                        <NavigationLink
+                          meta={meta}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
-                        </NavLink>
+                        </NavigationLink>
                       </li>
                     ))}
                   <li>
@@ -410,13 +406,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -425,7 +421,8 @@ class Navigation extends Component {
               )}
             />
             <Route
-              path="/eu"
+              path="/eu/"
+              strict
               render={() => (
                 <ul className="ecl-list ecl-list--unstyled">
                   {euPages
@@ -436,17 +433,13 @@ class Navigation extends Component {
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
                       <li key={meta.url}>
-                        <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                        <NavigationLink
+                          meta={meta}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
-                        </NavLink>
+                        </NavigationLink>
                       </li>
                     ))}
                   <li>
@@ -478,13 +471,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -517,13 +510,13 @@ class Navigation extends Component {
                         .filter(meta => meta)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -557,13 +550,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -597,13 +590,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
@@ -616,17 +609,13 @@ class Navigation extends Component {
                     .sort((a, b) => a.order > b.order)
                     .map(meta => (
                       <li key={meta.url}>
-                        <NavLink
-                          to={
-                            meta.defaultTab
-                              ? `${meta.url}/${meta.defaultTab}`
-                              : `${meta.url}`
-                          }
+                        <NavigationLink
+                          meta={meta}
                           className="tmp-nav__group-list-item"
                           activeClassName="tmp-nav__group-list-item--active"
                         >
                           {meta.title}
-                        </NavLink>
+                        </NavigationLink>
                       </li>
                     ))}
                   <li>
@@ -658,13 +647,13 @@ class Navigation extends Component {
                         .sort((a, b) => a.order > b.order)
                         .map(meta => (
                           <li key={meta.url}>
-                            <NavLink
-                              to={`${meta.url}/${meta.defaultTab}`}
+                            <NavigationLink
+                              meta={meta}
                               className="tmp-nav__page-list-item"
                               activeClassName="tmp-nav__page-list-item--active"
                             >
                               {meta.title}
-                            </NavLink>
+                            </NavigationLink>
                           </li>
                         ))}
                     </ul>
