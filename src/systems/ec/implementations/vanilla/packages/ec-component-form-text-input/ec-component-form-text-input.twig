@@ -5,6 +5,7 @@
     - "has_error" (boolean) (default: false)
     - "is_disabled" (boolean) (default: false)
     - "type" (string) (default: 'text')
+    - "icon" (object) (default: {}): object of type ecl-icon; type of file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -13,6 +14,17 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
 #}
 
-{% include '@ecl/generic-component-form-text-input' %}
+{% include '@ecl/generic-component-form-text-input' with {
+  'id': id|default('default-id'),
+  'name': name|default('default-name'),
+  'has_error': has_error|default(false),
+  'is_diabled': is_disabled|default(false),
+  'type': type|default('text'),
+  'icon': icon|default({}),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}

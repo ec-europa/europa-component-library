@@ -1,9 +1,4 @@
-const contextDefault = require('@ecl/generic-component-search-form/data/demo--default')(
-  'eu'
-);
-const contextInternal = require('@ecl/generic-component-search-form/data/demo--internal')(
-  'eu'
-);
+const context = require('@ecl/generic-component-search-form/data/demo')('eu');
 
 module.exports = {
   title: 'Search forms',
@@ -11,16 +6,5 @@ module.exports = {
   status: 'ready',
   tags: ['molecule'],
   preview: '@preview-icons',
-  variants: [
-    {
-      name: 'default',
-      label: 'Corporate',
-      context: contextDefault,
-    },
-    {
-      name: 'internal',
-      label: 'Internal',
-      context: contextInternal,
-    },
-  ],
+  context,
 };

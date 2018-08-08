@@ -46,13 +46,10 @@
 {# Print the result #}
 
 <form class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <label class="ecl-search-form__textfield-wrapper">
-    <span class="ecl-u-sr-only">{{ _aria_label }}</span>
-    {% include '@ecl/' ~ _system ~ '-component-form-text-input' with {
-      'type': 'search',
-      'extra_classes': 'ecl-search-form__textfield'
-    }|merge(_input) only %}
-  </label>
+  {% include '@ecl/' ~ _system ~ '-component-form-text-input' with {
+    'type': 'search',
+    'extra_classes': 'ecl-search-form__textfield'
+  }|merge(_input) only %}
   {% include '@ecl/' ~ _system ~ '-component-button' with {
     'modifier': _variant == 'internal' ? 'form-primary' : 'form',
     'extra_classes': 'ecl-search-form__button'

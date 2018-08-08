@@ -10,24 +10,51 @@
   .ecl-search-form {
     @include ecl-hidden-print();
 
-    border: 1px solid map-get($ecl-colors, 'grey-50');
     display: flex;
     margin: 0;
+    width: 100%;
+
+    .ecl-text-input__wrapper {
+      flex-grow: 1;
+    }
+
+    .ecl-text-input__icon {
+      display: none;
+      // position calculation should integrate border width...
+      left: calc(#{$ecl-spacing-s} + 1px);
+      top: calc(#{$ecl-spacing-s} + 1px);
+    }
   }
 
-  .ecl-search-form__textfield-wrapper {
-    border: 3px solid transparent; // Keeps the focus in the container
-    flex-grow: 1;
+  // :valid is used to check if the field is empty
+  // https://stackoverflow.com/a/16956610
+  .ecl-search-form .ecl-text-input:focus + .ecl-text-input__icon,
+  .ecl-search-form .ecl-text-input:valid + .ecl-text-input__icon {
+    display: none;
   }
 
   .ecl-search-form__textfield {
-    border: 0;
-    margin-top: 0;
-    padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+    border-bottom: 1px solid $ecl-color-grey-50;
+    border-left: 1px solid $ecl-color-grey-50;
+    border-right-width: 0;
+    border-top: 1px solid $ecl-color-grey-50;
+    flex-grow: 1;
+    font: $ecl-font-m;
+    margin: 0;
+    padding: $ecl-spacing-s 0 $ecl-spacing-s $ecl-spacing-s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $ecl-color-secondary inset;
+      outline: none;
+    }
   }
 
   .ecl-search-form__button {
-    padding: 0 map-get($ecl-spacing, 'xs');
+    border-bottom: 1px solid $ecl-color-grey-50;
+    border-left-width: 0;
+    border-right: 1px solid $ecl-color-grey-50;
+    border-top: 1px solid $ecl-color-grey-50;
+    padding: $ecl-spacing-s;
   }
 
   .ecl-search-form__button .ecl-button__label {
@@ -42,8 +69,16 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
+    .ecl-search-form {
+      max-width: 31.25rem;
+    }
+
+    .ecl-search-form .ecl-text-input__icon {
+      display: block;
+    }
+
     .ecl-search-form__button {
-      padding: 0 map-get($ecl-spacing, 's');
+      padding: $ecl-spacing-s $ecl-spacing-l;
     }
 
     .ecl-search-form__button .ecl-button__label {
@@ -52,36 +87,6 @@
 
     .ecl-search-form__button .ecl-button__icon {
       display: none;
-    }
-  }
-
-  .ecl-search-form--internal {
-    display: flex;
-
-    .ecl-search-form__textfield-wrapper {
-      @include ecl-icon--before();
-
-      border-color: #fff;
-      flex-grow: 1;
-      position: relative;
-
-      /* stylelint-disable-next-line */
-      &::before {
-        @include ecl-icon('search');
-
-        color: map-get($ecl-colors, 'grey-25');
-        font-size: map-get($ecl-font-size, 'm');
-        left: map-get($ecl-spacing, 'xxs');
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    }
-
-    .ecl-search-form__textfield {
-      // ~ 1 * icon's width + 1 * icon's left space + 1 * space between icon and input
-      padding-left: map-get($ecl-font-size, 'm') + 2 *
-        map-get($ecl-spacing, 'xxs');
     }
   }
 }

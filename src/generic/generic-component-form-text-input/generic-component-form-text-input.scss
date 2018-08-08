@@ -7,6 +7,13 @@
 @import '@ecl/generic-base/generic-base';
 
 @mixin ecl-text-input() {
+  .ecl-text-input__wrapper {
+    display: block;
+    margin: 0;
+    position: relative;
+    width: 100%;
+  }
+
   .ecl-text-input {
     background-color: #fff;
     background-image: none;
@@ -39,6 +46,13 @@
       cursor: not-allowed;
       opacity: 1;
     }
+  }
+
+  .ecl-text-input__icon {
+    fill: $ecl-color-grey-50;
+    left: map-get($ecl-spacing, 'xxs');
+    position: absolute;
+    top: map-get($ecl-spacing, 'xxxs');
   }
 
   .ecl-text-input--has-error {

@@ -5,6 +5,7 @@
     - "has_error" (boolean) (default: false)
     - "is_disabled" (boolean) (default: false)
     - "type" (string) (default: 'text')
+    - "icon" (object) (default: {}): object of type ecl-icon; type of file
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -13,6 +14,7 @@
         },
         ...
       ]
+    - "system" (string) (default: "generic")
 #}
 
 {# Internal properties #}
@@ -22,8 +24,10 @@
 {% set _name = name|default('default-name') %}
 {% set _has_error = has_error|default(false) %}
 {% set _is_disabled = is_disabled|default(false) %}
+{% set _icon = icon|default({}) %}
 {% set _css_class = 'ecl-text-input' %}
 {% set _extra_attributes = '' %}
+{% set _system = system|default('generic') %}
 
 {# Internal logic - Process properties #}
 
@@ -47,6 +51,10 @@
 
 {# Print the result #}
 
+{% if _icon is not empty %}
+<span class="ecl-text-input__wrapper">
+{% endif %}
+
 <input
   type="{{ _type }}"
   class="{{ _css_class }}"
@@ -54,3 +62,10 @@
   name="{{ _name }}"
   {{ _extra_attributes|raw }}
 />
+
+{% if _icon is not empty %}
+  {% include '@ecl/' ~ _system ~ '-style-icon' with {
+    'extra_classes': 'ecl-text-input__icon'
+  }|merge(_icon|default({})) only %}
+</span>
+{% endif %}

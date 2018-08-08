@@ -12,7 +12,8 @@
     background: none;
     border: 2px solid transparent;
     box-sizing: border-box;
-    font: $ecl-font-s;
+    font: $ecl-font-m;
+    font-weight: $ecl-font-weight-bold;
     margin: 0;
     padding: $ecl-spacing-s $ecl-spacing-m;
     text-decoration: none;
@@ -99,14 +100,10 @@
     border-color: $ecl-color-tertiary;
     color: $ecl-color-primary;
 
-    &:hover {
-      color: $ecl-color-text;
-    }
-
+    &:hover,
     &:focus,
     &:active {
-      background-color: $ecl-color-primary;
-      color: #fff;
+      color: $ecl-color-text;
     }
   }
 

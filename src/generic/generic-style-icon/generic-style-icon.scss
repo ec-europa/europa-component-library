@@ -13,6 +13,8 @@
 @mixin ecl-icons() {
   .ecl-icon {
     @include ecl-icon--before();
+
+    display: block;
   }
 
   .ecl-icon--after {
