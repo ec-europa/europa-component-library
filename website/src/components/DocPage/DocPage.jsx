@@ -54,14 +54,15 @@ class ComponentPage extends Component {
                 {component.tabs.map(tab => (
                   <Route
                     exact
-                    path={`${match.url}/${tab.url}`}
+                    strict
+                    path={`${match.url}${tab.url}/`}
                     component={tab.component}
                     key={tab.url}
                   />
                 ))}
                 <Route
                   render={() => (
-                    <Redirect to={`${match.url}/${component.defaultTab}`} />
+                    <Redirect to={`${match.url}${component.defaultTab}/`} />
                   )}
                 />
               </Switch>
