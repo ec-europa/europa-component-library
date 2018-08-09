@@ -97,9 +97,7 @@ class App extends Component {
                             key={meta.url}
                             path={`${meta.url}/`}
                             strict
-                            render={props => (
-                              <DocPage {...props} component={meta} />
-                            )}
+                            render={() => <DocPage component={meta} />}
                           />
                         ))}
                       <Route exact strict path="/eu/" component={EUHomePage} />
@@ -112,9 +110,7 @@ class App extends Component {
                             key={meta.url}
                             path={`${meta.url}/`}
                             strict
-                            render={props => (
-                              <DocPage {...props} component={meta} />
-                            )}
+                            render={() => <DocPage component={meta} />}
                           />
                         ))}
                       <Route component={PageNotFound} />

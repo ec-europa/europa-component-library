@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './Header.scss';
 
-const Header = ({ match, sectionTitle, pageTitle, tabs }) => (
+const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
   <header className="tmp-component-header">
     <div className="custom-container">
       <h3>{sectionTitle}</h3>
@@ -14,7 +14,7 @@ const Header = ({ match, sectionTitle, pageTitle, tabs }) => (
           tabs.map(tab => (
             <li key={tab.url}>
               <NavLink
-                to={`${match.url}${tab.url}/`}
+                to={`${component.url}/${tab.url}/`}
                 strict
                 className="tmp-component-header__tabs-item"
                 activeClassName="tmp-component-header__tabs-item--active"
@@ -29,7 +29,7 @@ const Header = ({ match, sectionTitle, pageTitle, tabs }) => (
 );
 
 Header.propTypes = {
-  match: PropTypes.shape({
+  component: PropTypes.shape({
     url: PropTypes.string,
   }),
   sectionTitle: PropTypes.string,
@@ -43,7 +43,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  match: {
+  component: {
     url: '',
   },
   sectionTitle: '',
