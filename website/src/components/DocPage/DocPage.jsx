@@ -5,7 +5,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Header from './Header';
 
-class ComponentPage extends Component {
+class DocPage extends Component {
   componentDidMount() {
     // Get showcase elements
     const showcases = document.querySelectorAll('.tmp-showcase');
@@ -34,13 +34,11 @@ class ComponentPage extends Component {
 
   render() {
     const { component } = this.props;
-    const { match } = this.props;
-
     return (
       <Fragment>
         <Helmet title={component.title} />
         <Header
-          match={match}
+          component={component}
           sectionTitle={component.section}
           pageTitle={component.title}
           tabs={component.tabs}
@@ -55,14 +53,16 @@ class ComponentPage extends Component {
                   <Route
                     exact
                     strict
-                    path={`${match.url}${tab.url}/`}
+                    path={`${component.url}/${tab.url}/`}
                     component={tab.component}
                     key={tab.url}
                   />
                 ))}
                 <Route
                   render={() => (
-                    <Redirect to={`${match.url}${component.defaultTab}/`} />
+                    <Redirect
+                      to={`${component.url}/${component.defaultTab}/`}
+                    />
                   )}
                 />
               </Switch>
@@ -74,10 +74,7 @@ class ComponentPage extends Component {
   }
 }
 
-ComponentPage.propTypes = {
-  match: PropTypes.shape({
-    url: PropTypes.string,
-  }).isRequired,
+DocPage.propTypes = {
   component: PropTypes.shape({
     section: PropTypes.string,
     title: PropTypes.string,
@@ -85,16 +82,16 @@ ComponentPage.propTypes = {
       PropTypes.shape({
         url: PropTypes.string,
         name: PropTypes.string,
-        component: PropTypes.element,
+        component: PropTypes.func,
       })
     ),
     defaultTab: PropTypes.string,
-    page: PropTypes.element,
+    page: PropTypes.func,
   }),
 };
 
-ComponentPage.defaultProps = {
+DocPage.defaultProps = {
   component: {},
 };
 
-export default ComponentPage;
+export default DocPage;
