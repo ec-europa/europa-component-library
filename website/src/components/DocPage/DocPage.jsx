@@ -5,11 +5,11 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Header from './Header';
 
-const ComponentPage = ({ match, component }) => (
+const DocPage = ({ component }) => (
   <Fragment>
     <Helmet title={component.title} />
     <Header
-      match={match}
+      component={component}
       sectionTitle={component.section}
       pageTitle={component.title}
       tabs={component.tabs}
@@ -24,14 +24,14 @@ const ComponentPage = ({ match, component }) => (
               <Route
                 exact
                 strict
-                path={`${match.url}${tab.url}/`}
+                path={`${component.url}/${tab.url}/`}
                 component={tab.component}
                 key={tab.url}
               />
             ))}
             <Route
               render={() => (
-                <Redirect to={`${match.url}${component.defaultTab}/`} />
+                <Redirect to={`${component.url}/${component.defaultTab}/`} />
               )}
             />
           </Switch>
@@ -41,10 +41,7 @@ const ComponentPage = ({ match, component }) => (
   </Fragment>
 );
 
-ComponentPage.propTypes = {
-  match: PropTypes.shape({
-    url: PropTypes.string,
-  }).isRequired,
+DocPage.propTypes = {
   component: PropTypes.shape({
     section: PropTypes.string,
     title: PropTypes.string,
@@ -52,16 +49,16 @@ ComponentPage.propTypes = {
       PropTypes.shape({
         url: PropTypes.string,
         name: PropTypes.string,
-        component: PropTypes.element,
+        component: PropTypes.func,
       })
     ),
     defaultTab: PropTypes.string,
-    page: PropTypes.element,
+    page: PropTypes.func,
   }),
 };
 
-ComponentPage.defaultProps = {
+DocPage.defaultProps = {
   component: {},
 };
 
-export default ComponentPage;
+export default DocPage;

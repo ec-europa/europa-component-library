@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Link, NavLink, Switch, withRouter } from 'react-router-dom';
 import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
@@ -6,7 +6,7 @@ import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
 import NavigationLink from './NavigationLink';
 import './Navigation.scss';
 
-class Navigation extends Component {
+class Navigation extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -674,8 +674,8 @@ Navigation.propTypes = {
   }).isRequired,
   sidebarOpen: PropTypes.bool,
   onToggleSidebar: PropTypes.func,
-  ecPages: PropTypes.object.isRequired, // eslint-disable-line
-  euPages: PropTypes.object.isRequired, // eslint-disable-line
+  ecPages: PropTypes.func.isRequired,
+  euPages: PropTypes.func.isRequired,
 };
 
 Navigation.defaultProps = {
