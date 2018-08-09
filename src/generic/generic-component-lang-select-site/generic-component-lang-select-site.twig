@@ -2,7 +2,7 @@
   Parameters:
     - "language" (string) (default: 'English'): current language
     - "code" (string) (default: 'en'): current language ISO code
-    - "link" (string) (default: '#')
+    - "href" (string) (default: '#')
     - "icon" (object) (default: {}): object of type ecl-icon
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -21,7 +21,7 @@
 {% set _extra_attributes = '' %}
 {% set _language = language|default('English') %}
 {% set _code = code|default('en') %}
-{% set _link = link|default('#') %}
+{% set _href = href|default('#') %}
 {% set _icon = icon|default({}) %}
 {% set _system = system|default('generic') %}
 
@@ -40,13 +40,22 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  <a href="{{ _link }}" class="ecl-lang-select-sites__link">
-    <span class="ecl-lang-select-sites__label">{{ _language }}</span>
-    <span class="ecl-lang-select-sites__code">
-      {% include '@ecl/' ~ _system ~ '-style-icon' with {
-        'extra_classes': 'ecl-lang-select-sites__icon'
-      }|merge(_icon|default({})) only %}
-      <span class="ecl-lang-select-sites__code-text">{{ _code }}</span>
-    </span>
-  </a>
+  {% embed '@ecl/generic-component-link' with { '_system': _system, '_language': _language, '_icon': _icon, '_code': _code, 'href': _href, 'variant': 'standalone', 'extra_classes': 'ecl-lang-select-sites__link' } only %}
+    {% block label %}
+      <span class="ecl-lang-select-sites__label">{{ _language }}</span>
+      <span class="ecl-lang-select-sites__code">
+        {% include '@ecl/' ~ _system ~ '-style-icon' with {
+          'extra_classes': 'ecl-lang-select-sites__icon'
+        }|merge(_icon|default({})) only %}
+        <span class="ecl-lang-select-sites__code-text">{{ _code }}</span>
+      </span>
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@ecl/generic-component-link' with { '_system': _system, '_language': _language, '_code': _code, 'href': _href, 'icon': _icon, 'variant': 'standalone', 'extra_classes': 'ecl-lang-select-sites__link' } only %}
+    {% block label %}
+      <span class="ecl-lang-select-sites__label">{{ _language }}</span>
+      <span class="ecl-lang-select-sites__code">{{ _code }}</span>
+    {% endblock %}
+  {% endembed %}
 </div>
