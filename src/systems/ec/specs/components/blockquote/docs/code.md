@@ -1,15 +1,9 @@
+import Blockquote from '@ecl/react-component-blockquote/Blockquote'
+
 ## Code
 
+<Blockquote author="Clint Eastwood">We boil at different degrees.</Blockquote>
+
 ```html
-<blockquote />
+<Blockquote author="Clint Eastwood">We boil at different degrees.</Blockquote>
 ```
-
-Some guidelines.
-
-TODO:
-
-* something
-
-> Cite something
-
-### test
