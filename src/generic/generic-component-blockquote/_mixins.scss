@@ -8,10 +8,15 @@ $ecl-blockquote-border-width: 0.625rem;
 
 @mixin blockquote-body() {
   color: $ecl-color-shade;
-  font: $ecl-font-prolonged-xl;
+  font: $ecl-font-prolonged-m;
   font-style: italic;
   margin: 0;
   quotes: '\201C\2009' '\201D\2009';
+
+  @include ecl-media-breakpoint-up(md) {
+    font: $ecl-font-prolonged-xl;
+    font-style: italic;
+  }
 
   &::before {
     content: open-quote;
@@ -23,13 +28,22 @@ $ecl-blockquote-border-width: 0.625rem;
 }
 
 @mixin blockquote-attribution() {
-  margin-top: $ecl-spacing-xl;
+  margin-top: $ecl-spacing-l;
+
+  @include ecl-media-breakpoint-up(md) {
+    margin-top: $ecl-spacing-xl;
+  }
 }
 
 @mixin blockquote-author() {
   color: #000;
-  font: $ecl-font-prolonged-l;
+  font: $ecl-font-prolonged-m;
   font-weight: $ecl-font-weight-bold;
+
+  @include ecl-media-breakpoint-up(md) {
+    font: $ecl-font-prolonged-l;
+    font-weight: $ecl-font-weight-bold;
+  }
 
   &::before {
     content: '\2014\2009'; /* Em dash followed by thin space */
