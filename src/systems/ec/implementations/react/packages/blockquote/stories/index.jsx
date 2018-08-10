@@ -9,7 +9,8 @@ import './index.scss';
 storiesOf('Blockquote', module)
   .addDecorator(withKnobs)
   .add('interactive', () => (
-    <Blockquote author={text('Author', 'Clint Eastwood')}>
-      {text('Citation', 'We boil at different degrees.')}
-    </Blockquote>
+    <Blockquote
+      author={text('Author', 'Clint Eastwood')}
+      citation={text('Citation', 'We boil at different degrees.')}
+    />
   ));
