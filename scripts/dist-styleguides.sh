@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build styleguides
-yarn lerna --parallel --scope "@ecl/*-styleguide" run dist
+yarn lerna --scope "@ecl/*-styleguide" run dist
 
 # Copy builds
 rm -rf ./dist/styleguide

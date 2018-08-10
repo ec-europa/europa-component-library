@@ -5,31 +5,39 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Header from './Header';
 
+const replaceByFrame = () => {
+  // Get showcase elements
+  const showcases = document.querySelectorAll('.tmp-showcase');
+
+  [].forEach.call(showcases, element => {
+    // Create iframe
+    const frame = document.createElement('iframe');
+    frame.className = 'tmp-showcase__frame';
+    frame.setAttribute('height', element.getAttribute('data-height'));
+    frame.setAttribute('src', element.getAttribute('data-src'));
+
+    // Add frame to showcase
+    element.appendChild(frame);
+
+    // Create preview link
+    const a = document.createElement('a');
+    const linkText = document.createTextNode('Full page preview');
+    a.appendChild(linkText);
+    a.className = 'tmp-showcase__preview-link';
+    a.href = element.getAttribute('data-src');
+
+    // Add link to showcase
+    element.appendChild(a);
+  });
+};
+
 class DocPage extends Component {
   componentDidMount() {
-    // Get showcase elements
-    const showcases = document.querySelectorAll('.tmp-showcase');
+    replaceByFrame();
+  }
 
-    showcases.forEach(element => {
-      // Create iframe
-      const frame = document.createElement('iframe');
-      frame.className = 'tmp-showcase__frame';
-      frame.setAttribute('height', element.getAttribute('data-height'));
-      frame.setAttribute('src', element.getAttribute('data-src'));
-
-      // Add frame to showcase
-      element.appendChild(frame);
-
-      // Create preview link
-      const a = document.createElement('a');
-      const linkText = document.createTextNode('Full page preview');
-      a.appendChild(linkText);
-      a.className = 'tmp-showcase__preview-link';
-      a.href = element.getAttribute('data-src');
-
-      // Add link to showcase
-      element.appendChild(a);
-    });
+  componentDidUpdate() {
+    replaceByFrame();
   }
 
   render() {
