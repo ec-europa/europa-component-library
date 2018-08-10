@@ -1,5 +1,5 @@
 module.exports = {
   body:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
-  author: 'Lorem ipsum',
+    'An interconnected grid will help deliver the ultimate goal of the Energy Union, to ensure affordable, secure and sustainable energy, and also growth across the EU.',
+  author: 'President Juncker',
 };

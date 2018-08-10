@@ -10,7 +10,10 @@ storiesOf('Blockquote', module)
   .addDecorator(withKnobs)
   .add('interactive', () => (
     <Blockquote
-      author={text('Author', 'Clint Eastwood')}
-      citation={text('Citation', 'We boil at different degrees.')}
+      author={text('Author', 'President Juncker')}
+      citation={text(
+        'Citation',
+        'An interconnected grid will help deliver the ultimate goal of the Energy Union, to ensure affordable, secure and sustainable energy, and also growth across the EU.'
+      )}
     />
   ));
