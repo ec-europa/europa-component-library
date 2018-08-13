@@ -12,12 +12,22 @@ const Playground = ({ children }) => {
     <div>
       <div
         style={{
-          padding: '2rem',
           backgroundColor: '#f3f3f3',
           border: '1px solid #ddd',
         }}
       >
-        {children}
+        <div
+          style={{
+            backgroundColor: '#f9f9f9',
+            border: '1px solid #ddd',
+            maxWidth: 'calc(100% - 4rem)',
+            padding: '2rem',
+            resize: 'horizontal',
+            overflow: 'auto',
+          }}
+        >
+          {children}
+        </div>
       </div>
       <div
         style={{
