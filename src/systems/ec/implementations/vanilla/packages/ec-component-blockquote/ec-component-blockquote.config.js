@@ -1,8 +1,12 @@
-const context = require('@ecl/generic-component-blockquote/data/demo');
+/* eslint-disable import/no-extraneous-dependencies */
+const context = require('@ecl/ec-specs-blockquote/demo/data');
 
 module.exports = {
   title: 'Blockquotes',
   label: 'Blockquotes',
   status: 'ready',
-  context,
+  context: {
+    author: context.author,
+    body: context.citation,
+  },
 };
