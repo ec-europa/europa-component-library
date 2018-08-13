@@ -7,6 +7,7 @@
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
     "dist:presets": "./scripts/dist-presets.sh",
+    "dist:storybook": "./scripts/dist-storybook.sh",
     "dist:styleguides": "./scripts/dist-styleguides.sh",
     "dist:website": "./scripts/dist-website.sh",
     "dist": "npm run clean && npm run dist:presets && npm run dist:styleguides",
