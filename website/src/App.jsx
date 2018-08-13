@@ -3,6 +3,8 @@ import Helmet from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
+import 'prismjs/themes/prism.css';
+
 // ECl, hacks and custom styles
 import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 import './hack.css';
