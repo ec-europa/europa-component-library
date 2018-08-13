@@ -21,9 +21,10 @@ const Playground = ({ children }) => {
             backgroundColor: '#f9f9f9',
             borderRight: '1px solid #ddd',
             maxWidth: 'calc(100% - 2rem)',
+            overflow: 'auto',
             padding: '1rem',
             resize: 'horizontal',
-            overflow: 'auto',
+            width: '100%',
           }}
         >
           {children}
