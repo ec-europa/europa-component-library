@@ -19,9 +19,9 @@ const Playground = ({ children }) => {
         <div
           style={{
             backgroundColor: '#f9f9f9',
-            border: '1px solid #ddd',
-            maxWidth: 'calc(100% - 4rem)',
-            padding: '2rem',
+            borderRight: '1px solid #ddd',
+            maxWidth: 'calc(100% - 2rem)',
+            padding: '1rem',
             resize: 'horizontal',
             overflow: 'auto',
           }}
