@@ -7,15 +7,39 @@ import { html as beautifyHtml } from 'js-beautify';
 
 import './Playground.scss';
 
-const Playground = ({ children }) => {
+const Playground = ({ playgroundLink, fullscreenLink, children }) => {
   if (!children) return null;
 
   return (
     <div>
-      <div className="tmp-playground-showcase">
-        <div className="tmp-playground-showcase-resizable">{children}</div>
-      </div>
-      <div className="tmp-playground-code-box">
+      <div className="tmp-playground-showcase">{children}</div>
+      <ul className="ecl-list ecl-list--inline tmp-playground-links">
+        <li>
+          {playgroundLink && (
+            <a
+              href={playgroundLink}
+              className="ecl-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Playground
+            </a>
+          )}
+        </li>
+        <li>
+          {fullscreenLink && (
+            <a
+              href={fullscreenLink}
+              className="ecl-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Fullscreen
+            </a>
+          )}
+        </li>
+      </ul>
+      <div className="tmp-playground-code">
         <pre className="tmp-playground-code-pre language-html">
           <code
             className="language-html"
@@ -35,6 +59,13 @@ const Playground = ({ children }) => {
 
 Playground.propTypes = {
   children: PropTypes.node.isRequired,
+  playgroundLink: PropTypes.string,
+  fullscreenLink: PropTypes.string,
+};
+
+Playground.defaultProps = {
+  playgroundLink: '',
+  fullscreenLink: '',
 };
 
 export default Playground;

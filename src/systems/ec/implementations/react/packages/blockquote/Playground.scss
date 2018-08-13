@@ -1,19 +1,21 @@
 .tmp-playground-showcase {
-  background-color: #f3f3f3;
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
 }
 
-.tmp-playground-showcase-resizable {
-  background-color: #f9f9f9;
+.tmp-playground-links {
+  background-color: #f5f2f0;
+  border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
-  max-width: calc(100% - 2rem);
-  overflow: auto;
-  padding: 1rem;
-  resize: horizontal;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 100% !important;
+  padding: 0.5rem 1rem;
   width: 100%;
 }
 
-.tmp-playground-code-box {
+.tmp-playground-code {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-top-width: 0;
