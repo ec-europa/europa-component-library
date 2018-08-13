@@ -1,12 +1,12 @@
 /**
  * Language select (Site)
- * @define lang-select-sites
+ * @define lang-select-sites; weak
  */
 
 // Import base
 @import '@ecl/generic-base/generic-base';
 
-@mixin ecl-lang-select-site($icon-width: 1.4rem) {
+@mixin ecl-lang-select-site($icon-width: 1.875rem) {
   .ecl-lang-select-sites {
     @include ecl-hidden-print();
 
@@ -16,52 +16,37 @@
 
   .ecl-lang-select-sites__link {
     align-items: center;
-    border: 3px solid transparent;
     color: $ecl-color-primary;
     display: inline-flex;
-    font-size: map-get($ecl-font-size, s);
-    font-weight: bold;
-    padding: map-get($ecl-spacing, xxs) map-get($ecl-spacing, xs);
-    text-align: center;
+    font: $ecl-font-m;
+    position: relative;
+
+    &:visited {
+      color: $ecl-color-primary;
+    }
+  }
+
+  .ecl-lang-select-sites__link:hover {
     text-decoration: none;
   }
 
-  .ecl-lang-select-sites__link:focus {
-    border-color: map-get($ecl-colors, yellow-100);
-    outline: none;
-  }
-
-  .ecl-lang-select-sites__label {
-    margin-right: map-get($ecl-spacing, xxs);
-  }
-
-  .ecl-lang-select-sites__label:hover {
+  .ecl-lang-select-sites__link:hover .ecl-lang-select-sites__label {
     text-decoration: underline;
   }
 
   .ecl-lang-select-sites__code {
-    display: inline-flex;
+    color: #fff;
+    display: flex;
+    font-weight: $ecl-font-weight-bold;
     justify-content: center;
-    position: relative;
+    position: absolute;
+    right: 0;
     text-transform: uppercase;
+    top: $ecl-spacing-2-xs;
     width: $icon-width;
   }
 
-  .ecl-lang-select-sites__code-text {
-    background-color: $ecl-color-primary;
-    color: #fff;
-    font-size: map-get($ecl-font-size, 'xxs');
-    position: relative;
-  }
-
-  .ecl-lang-select-sites__icon {
-    fill: $ecl-color-primary;
-    left: 0;
-    position: absolute;
-    top: -2px;
-  }
-
-  .ecl-lang-select-sites__icon::before {
-    font-weight: inherit;
+  .ecl-lang-select-sites .ecl-link__icon {
+    margin-left: $ecl-spacing-s;
   }
 }
