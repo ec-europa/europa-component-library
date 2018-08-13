@@ -6,8 +6,8 @@
  * --since [branch] - Force comparison with the branch
  */
 
-const { getUpdatedPackages } = require('./utils/getUpdatedPackages');
 const minimist = require('minimist');
+const { getUpdatedPackages } = require('./utils/getUpdatedPackages');
 
 const lernaUpdated = async ({
   ignoreCache = false,

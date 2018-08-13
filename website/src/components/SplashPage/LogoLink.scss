@@ -1,0 +1,24 @@
+@import '@ecl/ec-theme-default/exports/index';
+
+.tmp-logo-link {
+  align-items: center;
+  background-color: $ecl-color-grey-5;
+  border: 1px solid $ecl-color-grey-10;
+  box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding: $ecl-spacing-xl;
+}
+
+.tmp-logo-link:hover,
+.tmp-logo-link:focus {
+  border: 3px solid #ffd617;
+  outline: none;
+  padding: calc(#{$ecl-spacing-xl} - 2px);
+}
+
+.tmp-logo-link img {
+  max-width: 20rem;
+  width: 100%;
+}
