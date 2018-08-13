@@ -1,14 +1,14 @@
-const contextDefault = require('@ecl/generic-component-button/data/demo--default');
 const contextPrimary = require('@ecl/generic-component-button/data/demo--primary');
 const contextSecondary = require('@ecl/generic-component-button/data/demo--secondary');
+const contextGhost = require('@ecl/generic-component-button/data/demo--ghost');
 const contextCall = require('@ecl/generic-component-button/data/demo--call')(
   'ec'
 );
+const contextSearch = require('@ecl/generic-component-button/data/demo--search');
 
 module.exports = {
   title: 'Buttons',
   label: 'Buttons',
-  preview: '@preview-icons-center-transparent',
   tags: ['atom'],
   status: 'ready',
   collated: true,
@@ -20,12 +20,8 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
-  default: 'default',
+  default: 'primary',
   variants: [
-    {
-      name: 'default',
-      context: contextDefault,
-    },
     {
       name: 'primary',
       context: contextPrimary,
@@ -35,8 +31,16 @@ module.exports = {
       context: contextSecondary,
     },
     {
+      name: 'ghost',
+      context: contextGhost,
+    },
+    {
       name: 'call',
       context: contextCall,
+    },
+    {
+      name: 'search',
+      context: contextSearch,
     },
   ],
 };

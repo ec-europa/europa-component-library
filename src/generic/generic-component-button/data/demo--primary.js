@@ -1,4 +1,4 @@
 module.exports = {
   label: 'Primary',
-  modifier: 'primary',
+  variant: 'primary',
 };
