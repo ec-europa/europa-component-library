@@ -17,7 +17,6 @@ const Playground = ({ children }) => {
           border: '1px solid #ddd',
         }}
       >
-        {beautifyHtml('<div><div>Test</div></div>')}
         {children}
       </div>
       <div
