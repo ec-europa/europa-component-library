@@ -10,6 +10,10 @@ const replaceByFrame = () => {
   const showcases = document.querySelectorAll('.tmp-showcase');
 
   [].forEach.call(showcases, element => {
+    if (element.hasAttribute('data-frame-mounted')) {
+      return;
+    }
+
     // Create iframe
     const frame = document.createElement('iframe');
     frame.className = 'tmp-showcase__frame';
@@ -18,6 +22,9 @@ const replaceByFrame = () => {
 
     // Add frame to showcase
     element.appendChild(frame);
+
+    // Set marker
+    element.setAttribute('data-frame-mounted', '');
 
     // Create preview link
     const a = document.createElement('a');

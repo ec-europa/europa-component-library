@@ -5,7 +5,7 @@ import Blockquote from '@ecl/react-component-blockquote/Blockquote'
 ### Twig
 
 <div
-  class="tmp-showcase"
+  className="tmp-showcase"
   data-height="120"
   data-src="/_imports/ec/components/preview/ec-component-blockquote.html"></div>
 
