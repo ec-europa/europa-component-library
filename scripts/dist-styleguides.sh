@@ -19,10 +19,3 @@ rm -rf ./dist/styleguide
 mkdir -p ./dist/styleguide
 cp -r ./src/systems/ec/implementations/vanilla/styleguide/dist ./dist/styleguide/ec
 cp -r ./src/systems/eu/implementations/vanilla/styleguide/dist ./dist/styleguide/eu
-
-# Build website
-cd ./website && yarn build && cd ..
-
-# Copy builds
-rm -rf ./dist/website
-cp -r ./website/build dist/website
