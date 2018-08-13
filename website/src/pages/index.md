@@ -1,11 +1,5 @@
-# Component Library
+# Europa Component Library
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis
-metus non lectus dignissim, ac viverra elit convallis. Pellentesque
-tempus purus id facilisis lacinia.
+The **Europa Component Library** (ECL) is a living style guide containing the design standards and visual assets for the European Commission websites hosted under the ec.europa.eu domain and the European Union website hosted under the europa.eu domain.
 
-Nulla consequat suscipit commodo. Fusce sollicitudin orci id volutpat
-tempor. Duis vestibulum, diam vel gravida dapibus, odio velit eleifend
-felis, id elementum dolor nisi id arcu.
-
-Select between the available libraries:
+Get started using the ECL components for your projects. Choose one the component libraries below.
