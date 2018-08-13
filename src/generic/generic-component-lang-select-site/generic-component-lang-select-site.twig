@@ -40,18 +40,6 @@
 {# Print the result #}
 
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}>
-  {% embed '@ecl/generic-component-link' with { '_system': _system, '_language': _language, '_icon': _icon, '_code': _code, 'href': _href, 'variant': 'standalone', 'extra_classes': 'ecl-lang-select-sites__link' } only %}
-    {% block label %}
-      <span class="ecl-lang-select-sites__label">{{ _language }}</span>
-      <span class="ecl-lang-select-sites__code">
-        {% include '@ecl/' ~ _system ~ '-style-icon' with {
-          'extra_classes': 'ecl-lang-select-sites__icon'
-        }|merge(_icon|default({})) only %}
-        <span class="ecl-lang-select-sites__code-text">{{ _code }}</span>
-      </span>
-    {% endblock %}
-  {% endembed %}
-
   {% embed '@ecl/generic-component-link' with { '_system': _system, '_language': _language, '_code': _code, 'href': _href, 'icon': _icon, 'variant': 'standalone', 'extra_classes': 'ecl-lang-select-sites__link' } only %}
     {% block label %}
       <span class="ecl-lang-select-sites__label">{{ _language }}</span>

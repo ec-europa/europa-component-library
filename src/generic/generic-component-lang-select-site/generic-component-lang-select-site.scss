@@ -6,7 +6,7 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
-@mixin ecl-lang-select-site($icon-width: 1.4rem) {
+@mixin ecl-lang-select-site($icon-width: 1.875rem) {
   .ecl-lang-select-sites {
     @include ecl-hidden-print();
 
@@ -35,16 +35,14 @@
   }
 
   .ecl-lang-select-sites__code {
-    background-color: $ecl-color-primary;
     color: #fff;
-    display: inline-flex;
+    display: block;
     font-weight: $ecl-font-weight-bold;
     justify-content: center;
     position: absolute;
-    right: 0;
+    right: $ecl-spacing-2-xs;
     text-transform: uppercase;
-    top: 0;
-    width: $icon-width;
+    top: $ecl-spacing-2-xs;
   }
 
   .ecl-lang-select-sites .ecl-link__icon {
