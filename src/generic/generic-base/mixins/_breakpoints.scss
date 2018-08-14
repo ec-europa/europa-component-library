@@ -63,10 +63,14 @@
 // Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
 // Makes the @content apply to the given breakpoint and wider.
 @mixin ecl-media-breakpoint-up($name, $breakpoints: $ecl-grid-breakpoints) {
-  $min: ecl-breakpoint-min($name, $breakpoints);
+  @if map_has_key($breakpoints, $name) {
+    $min: ecl-breakpoint-min($name, $breakpoints);
 
-  @if $min {
-    @media (min-width: $min) {
+    @if $min {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else {
       @content;
     }
   } @else {
@@ -77,10 +81,14 @@
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
 @mixin ecl-media-breakpoint-down($name, $breakpoints: $ecl-grid-breakpoints) {
-  $max: ecl-breakpoint-max($name, $breakpoints);
+  @if map_has_key($breakpoints, $name) {
+    $max: ecl-breakpoint-max($name, $breakpoints);
 
-  @if $max {
-    @media (max-width: $max) {
+    @if $max {
+      @media (max-width: $max) {
+        @content;
+      }
+    } @else {
       @content;
     }
   } @else {
