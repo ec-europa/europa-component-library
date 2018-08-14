@@ -10,6 +10,6 @@ When there is a large amount of text in quotation.
 
 When indent a block of text, not used as quotation.
 
-Style
+### Style
 
 The layout of the block quote should be left aligned. The text for the testimonial should be limited to three or four lines to stay inside the vertical space occupied by the yellow bar.
