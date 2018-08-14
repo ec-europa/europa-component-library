@@ -31,8 +31,8 @@
       }
     }
 
-    /* stylelint-disable-next-line order/order */
-    @include ecl-media-breakpoint-up($breakpoint, $breakpoints) {
+    // Special treatment for "xs" breakpoint, allow it to scale
+    @if ($infix == '') {
       @for $i from 1 through $columns {
         .ecl-col#{$infix}-#{$i} {
           @include ecl-make-col($i, $columns);
@@ -53,6 +53,37 @@
           // Avoid emitting useless .offset-xs-0
           .ecl-offset#{$infix}-#{$i} {
             @include ecl-make-col-modifier(offset, $i, $columns);
+          }
+        }
+      }
+    } @else {
+      /* stylelint-disable-next-line order/order */
+      @include ecl-media-breakpoint-between(
+        $breakpoint,
+        $breakpoint,
+        $breakpoints
+      ) {
+        @for $i from 1 through $columns {
+          .ecl-col#{$infix}-#{$i} {
+            @include ecl-make-col($i, $columns);
+          }
+        }
+
+        @each $modifier in (pull, push) {
+          @for $i from 0 through $columns {
+            .ecl-#{$modifier}#{$infix}-#{$i} {
+              @include ecl-make-col-modifier($modifier, $i, $columns);
+            }
+          }
+        }
+
+        // `$columns - 1` because offsetting by the width of an entire row isn't possible
+        @for $i from 0 through ($columns - 1) {
+          @if not($infix == '' and $i == 0) {
+            // Avoid emitting useless .offset-xs-0
+            .ecl-offset#{$infix}-#{$i} {
+              @include ecl-make-col-modifier(offset, $i, $columns);
+            }
           }
         }
       }
