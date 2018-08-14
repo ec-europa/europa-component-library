@@ -6,7 +6,7 @@
 /* stylelint-disable max-nesting-depth */
 
 @mixin ecl-make-grid-columns(
-  $columns: $ecl-grid-columns,
+  $columns-list: $ecl-grid-columns,
   $gutters: $ecl-grid-gutter-widths,
   $breakpoints: $ecl-grid-breakpoints
 ) {
@@ -22,6 +22,7 @@
 
   @each $breakpoint in map-keys($breakpoints) {
     $infix: ecl-breakpoint-infix($breakpoint, $breakpoints);
+    $columns: map-get($columns-list, $breakpoint);
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
@@ -29,24 +30,9 @@
         @extend %ecl-grid-column;
       }
     }
-    .ecl-col#{$infix} {
-      @extend %ecl-grid-column;
-    }
 
     /* stylelint-disable-next-line order/order */
     @include ecl-media-breakpoint-up($breakpoint, $breakpoints) {
-      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
-      .ecl-col#{$infix} {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-      }
-
-      .ecl-col#{$infix}-auto {
-        flex: 0 0 auto;
-        width: auto;
-      }
-
       @for $i from 1 through $columns {
         .ecl-col#{$infix}-#{$i} {
           @include ecl-make-col($i, $columns);

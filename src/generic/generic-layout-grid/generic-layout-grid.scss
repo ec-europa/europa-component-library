@@ -16,14 +16,6 @@
     @include ecl-make-container-max-widths();
   }
 
-  // Fluid container
-  //
-  // Utilizes the mixin meant for fixed width containers, but without any defined
-  // width for fluid, full width layouts.
-  .ecl-container-fluid {
-    @include ecl-make-container();
-  }
-
   // Row
   //
   // Rows contain and clear the floats of your columns.
