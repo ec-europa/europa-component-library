@@ -16,21 +16,10 @@
     @include blockquote-body();
   }
 
+  .ecl-blockquote__attribution {
+    @include blockquote-attribution();
+  }
   .ecl-blockquote__author {
     @include blockquote-author();
-  }
-
-  // Variants
-
-  .ecl-blockquote--small {
-    @include blockquote-container--small();
-
-    .ecl-blockquote__body {
-      @include blockquote-body--small();
-    }
-
-    .ecl-blockquote__author {
-      @include blockquote-author--small();
-    }
   }
 }
