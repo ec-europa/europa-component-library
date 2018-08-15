@@ -6,7 +6,9 @@ const includePaths = [
 
 module.exports = (baseConfig, env, defaultConfig) => {
   // Trick webpack, allow it to include .js(x) files from ../..
+  defaultConfig.module.rules[0].test = /\.jsx?$/;
   defaultConfig.module.rules[0].include = [path.resolve(__dirname, '../..')];
+  defaultConfig.resolve.extensions.push('.jsx');
 
   defaultConfig.module.rules.push(
     ...[

@@ -1,7 +1,3 @@
-const fs = require('fs');
-
-// const prettierOptions = JSON.parse(fs.readFileSync('../.prettierrc', 'utf8'));
-
 module.exports = {
   parser: 'babel-eslint',
   extends: ['airbnb', 'prettier', 'prettier/react'],
@@ -19,6 +15,6 @@ module.exports = {
     },
   },
   rules: {
-    // 'prettier/prettier': ['error', prettierOptions],
+    'prettier/prettier': 'error',
   },
 };
