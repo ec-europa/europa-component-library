@@ -1,15 +1,15 @@
 ## Usage
 
-**When there is an extended amount of text as quotation. In most content, use double quotation marks (" ") not single quotation marks (' ').**
+**When quotes are used for testimonials or to emphasize excerpts of text. It is regarded as a standalone design component with a dominant appearance in the page.**
 
 ### When to use it
 
-When there is a large amount of text in quotation.
+This is used for testimonials where organizations present quotes from someone prominant. In such cases quotations are usually big, bold and clearly visible.
 
 ### When not to use it
 
-When indent a block of text, not used as quotation.
+When indent a block of text.
 
 ### Style
 
-The layout of the block quote should be left aligned. The text for the testimonial should be limited to three or four lines to stay inside the vertical space occupied by the yellow bar.
+The layout of the block quote is left aligned alongside the yellow bar. The text for the quotation or testimonial should be limited to three or four lines. Author of the quote should appear below the text.
