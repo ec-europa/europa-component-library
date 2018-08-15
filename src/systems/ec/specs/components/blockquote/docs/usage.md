@@ -4,7 +4,7 @@
 
 ### When to use it
 
-This is used for testimonials where organizations present quotes from someone prominant. In such cases quotations are usually big, bold and clearly visible.
+This is used for testimonials where organizations present quotes from someone prominant. 
 
 ### When not to use it
 
