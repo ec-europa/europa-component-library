@@ -1,6 +1,6 @@
 {
-  "lerna": "2.11.0",
-  "version": "independent",
+  "lerna": "3.0.6",
+  "version": "2.0.0-alpha.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "changelog": {
@@ -15,10 +15,10 @@
     },
     "cacheDir": ".changelog"
   },
-  "commands": {
+  "command": {
     "publish": {
       "allowBranch": "master",
-      "ignore": ["*.md", "test/**"]
+      "ignoreChanges": ["CHANGELOG.md"]
     }
   }
 }
