@@ -19,4 +19,4 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # Publish
-./node_modules/.bin/lerna publish --conventional-commits --independent --skip-git "$@"
+./node_modules/.bin/lerna version --no-push --no-git-tag-version "$@"
