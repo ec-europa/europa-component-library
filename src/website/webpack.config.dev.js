@@ -10,7 +10,7 @@ const convert = require('koa-connect');
 const babelConfig = require('./config/babel.config');
 const browsers = require('./config/browserslist');
 
-const includePaths = [path.resolve(__dirname, '../node_modules')];
+const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const publicPath = '/';
 const publicUrl = publicPath.slice(0, -1);
 
@@ -137,7 +137,7 @@ module.exports = {
             test: /\.(md|mdx)$/,
             include: [
               path.resolve(__dirname, 'src'),
-              path.resolve(__dirname, '../src'),
+              path.resolve(__dirname, '../systems'),
             ],
             use: [
               {

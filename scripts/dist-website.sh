@@ -11,8 +11,8 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build website
-cd ./website && yarn build && cd ..
+cd ./src/website && yarn build && cd ../..
 
 # Copy builds
 rm -rf ./dist/website
-cp -r ./website/build dist/website
+cp -r ./src/website/build dist/website

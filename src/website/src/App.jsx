@@ -22,17 +22,9 @@ import EUHomePage from './routes/eu/index';
 
 import DocPage from './components/DocPage/DocPage';
 
-const ecPages = require.context(
-  '../../src/systems/ec/specs',
-  true,
-  /config\.js$/
-);
+const ecPages = require.context('../../systems/ec/specs', true, /config\.js$/);
 
-const euPages = require.context(
-  '../../src/systems/eu/specs',
-  true,
-  /config\.js$/
-);
+const euPages = require.context('../../systems/eu/specs', true, /config\.js$/);
 
 class App extends Component {
   constructor(props) {
