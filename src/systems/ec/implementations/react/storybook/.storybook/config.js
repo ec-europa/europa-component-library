@@ -1,4 +1,3 @@
-import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 import { checkA11y } from '@storybook/addon-a11y';
@@ -6,6 +5,7 @@ import { checkA11y } from '@storybook/addon-a11y';
 setOptions({
   name: 'ECL v2',
   url: 'https://github.com/ec-europa/europa-component-library',
+  sidebarAnimations: false,
 });
 
 const contexts = [require.context('../../packages', true, /stories.*\.jsx?$/)];
