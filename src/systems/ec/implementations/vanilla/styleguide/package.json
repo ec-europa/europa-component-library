@@ -3,7 +3,7 @@
   "name": "@ecl/ec-styleguide",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "1.1.0",
+  "version": "2.0.0-alpha.0",
   "description": "ECL EC Styleguide based on Fractal",
   "scripts": {
     "build:preset": "cd ../packages/ec-preset-website && npm run build",
@@ -19,9 +19,9 @@
     "watch:tokens": "chokidar \"../../design-tokens/**/*.yml\" --c \"npm run build:tokens\""
   },
   "devDependencies": {
-    "@ecl/ec-preset-website": "^1.2.0",
-    "@ecl/fractal-theme": "^1.1.0",
-    "@ecl/fractal-twig": "^1.0.1",
+    "@ecl/ec-preset-website": "^2.0.0-alpha.0",
+    "@ecl/fractal-theme": "^2.0.0-alpha.0",
+    "@ecl/fractal-twig": "^2.0.0-alpha.0",
     "@frctl/fractal": "1.1.7",
     "chokidar-cli": "1.2.0",
     "copyfiles": "2.0.0",
