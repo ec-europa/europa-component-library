@@ -16,10 +16,11 @@
   },
   "command": {
     "publish": {
-      "allowBranch": "chore/lerna",
+      "allowBranch": "master",
       "bump": "prerelease",
-      "ignoreChanges": ["CHANGELOG.md"],
+
       "preid": "alpha"
-    }
+    },
+    "ignoreChanges": ["**/test/**", "**/*.md"]
   }
 }
