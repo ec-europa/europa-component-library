@@ -1,0 +1,43 @@
+{
+  "name": "@ecl/ec-twig-component-inpage-navigation",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "2.0.0-alpha.0",
+  "description": "ECL Inpage Navigation",
+  "main": "ec-component-inpage-navigation.js",
+  "module": "ec-component-inpage-navigation.js",
+  "sass": "ec-component-inpage-navigation.scss",
+  "style": "ec-component-inpage-navigation.scss",
+  "scripts": {
+    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules ec-component-inpage-navigation.scss dist/ec-component-inpage-navigation.css"
+  },
+  "dependencies": {
+    "@ecl/ec-base": "^2.0.0-alpha.0",
+    "@ecl/ec-twig-component-expandable": "^2.0.0-alpha.0",
+    "@ecl/ec-twig-component-link": "^2.0.0-alpha.0",
+    "@ecl/ec-twig-style-icon": "^2.0.0-alpha.0",
+    "@ecl/generic-twig-component-inpage-navigation": "^2.0.0-alpha.0",
+    "gumshoejs": "3.5.0",
+    "stickyfilljs": "2.1.0"
+  },
+  "devDependencies": {
+    "@ecl/ec-twig-style-typography-paragraph": "^2.0.0-alpha.0",
+    "node-sass": "4.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ]
+}

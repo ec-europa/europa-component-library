@@ -1,0 +1,32 @@
+{#
+  Parameters:
+    - "panels" (array) (default: ""): format [
+        {
+          "id" (string) (default: '')
+          "isExpanded" (boolean) (default: false)
+          "heading": {
+            "level" (string) (default: '')
+            "title" (string) (default: '')
+            "icon" (string) (default: '')
+          },
+          "body" (string) (default: '')
+        },
+        ...
+      ]
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          'name': 'name_of_the_attribute',
+          'value': 'value_of_the_attribute'
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic") 
+#}
+
+{% include '@ecl/generic-twig-component-accordion' with {
+  'panels': panels|default([]),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}
