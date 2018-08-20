@@ -2,7 +2,7 @@ const contextPrimary = require('@ecl/generic-component-button/data/demo--primary
 const contextSecondary = require('@ecl/generic-component-button/data/demo--secondary');
 const contextGhost = require('@ecl/generic-component-button/data/demo--ghost');
 const contextCall = require('@ecl/generic-component-button/data/demo--call')(
-  'eu'
+  'ec'
 );
 const contextSearch = require('@ecl/generic-component-button/data/demo--search');
 
