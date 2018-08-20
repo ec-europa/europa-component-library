@@ -1,7 +1,8 @@
 // Simple content for demo
 module.exports = {
-  label: 'Secondary',
+  label: 'Secondary button',
   variant: 'secondary',
-  type: 'button',
+  typeAttribute: 'button',
   extraClasses: '',
+  extraAttributes: '',
 };

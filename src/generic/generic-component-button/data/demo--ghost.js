@@ -1,4 +1,4 @@
 module.exports = {
-  label: 'Ghost',
+  label: 'Ghost button',
   variant: 'ghost',
 };

@@ -1,4 +1,4 @@
 module.exports = {
-  label: 'Primary',
+  label: 'Primary button',
   variant: 'primary',
 };

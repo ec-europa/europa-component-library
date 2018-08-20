@@ -1,7 +1,8 @@
 // Simple content for demo
 module.exports = {
-  label: 'Primary',
+  label: 'Primary button',
   variant: 'primary',
-  type: 'submit',
+  typeAttribute: 'submit',
   extraClasses: '',
+  extraAttributes: '',
 };

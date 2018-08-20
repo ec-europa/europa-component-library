@@ -1,4 +1,4 @@
 module.exports = {
-  label: 'Search',
+  label: 'Search button',
   variant: 'search',
 };

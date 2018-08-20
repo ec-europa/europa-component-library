@@ -1,7 +1,8 @@
 // Simple content for demo
 module.exports = {
-  label: 'Search',
+  label: 'Search button',
   variant: 'search',
-  type: 'button',
+  typeAttribute: 'button',
   extraClasses: '',
+  extraAttributes: '',
 };

@@ -1,4 +1,4 @@
 module.exports = {
-  label: 'Secondary',
+  label: 'Secondary button',
   variant: 'secondary',
 };

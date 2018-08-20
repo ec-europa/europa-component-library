@@ -26,6 +26,10 @@ storiesOf('Button', module)
         demoContentPrimary.typeAttribute
       )}
       extraClasses={text('Extra classes', demoContentPrimary.extraClasses)}
+      extraAttributes={text(
+        'Extra attributes',
+        demoContentPrimary.extraAttributes
+      )}
     />
   ))
   .add('secondary', () => (
@@ -38,6 +42,10 @@ storiesOf('Button', module)
         demoContentSecondary.typeAttribute
       )}
       extraClasses={text('Extra classes', demoContentSecondary.extraClasses)}
+      extraAttributes={text(
+        'Extra attributes',
+        demoContentSecondary.extraAttributes
+      )}
     />
   ))
   .add('call to action', () => (
@@ -50,6 +58,10 @@ storiesOf('Button', module)
         demoContentCall.typeAttribute
       )}
       extraClasses={text('Extra classes', demoContentCall.extraClasses)}
+      extraAttributes={text(
+        'Extra attributes',
+        demoContentCall.extraAttributes
+      )}
     />
   ))
   .add('ghost', () => (
@@ -62,6 +74,10 @@ storiesOf('Button', module)
         demoContentGhost.typeAttribute
       )}
       extraClasses={text('Extra classes', demoContentGhost.extraClasses)}
+      extraAttributes={text(
+        'Extra attributes',
+        demoContentGhost.extraAttributes
+      )}
     />
   ))
   .add('search', () => (
@@ -74,5 +90,9 @@ storiesOf('Button', module)
         demoContentSearch.typeAttribute
       )}
       extraClasses={text('Extra classes', demoContentSearch.extraClasses)}
+      extraAttributes={text(
+        'Extra attributes',
+        demoContentSearch.extraAttributes
+      )}
     />
   ));
