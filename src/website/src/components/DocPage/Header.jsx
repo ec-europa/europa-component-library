@@ -7,8 +7,8 @@ import './Header.scss';
 const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
   <header className="tmp-component-header">
     <div className="custom-container">
-      <h3>{sectionTitle}</h3>
-      <h1>{pageTitle}</h1>
+      <h3 className="tmp-component-header__section-header">{sectionTitle}</h3>
+      <h1 className="tmp-component-header__page-title">{pageTitle}</h1>
       <ul className="tmp-component-header__tabs">
         {tabs &&
           tabs.map(tab => (

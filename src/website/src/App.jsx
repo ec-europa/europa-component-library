@@ -5,11 +5,11 @@ import { hot } from 'react-hot-loader';
 
 import 'prismjs/themes/prism.css';
 
-// ECl, hacks and custom styles
+// Hacks and custom styles
 import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 import './hack.css';
 import './styles/custom-grid.css';
-import './styles/app.css';
+import './styles/app.scss';
 
 // Layout
 import Navigation from './components/Navigation/Navigation';
@@ -50,16 +50,11 @@ class App extends Component {
 
     return (
       <Router basename={`${process.env.PUBLIC_URL}/`}>
-        <div className="language-en ecl-typography">
+        <Fragment>
           <Helmet
             titleTemplate="%s - ECL 2.0"
             defaultTitle="Europa Component Library"
           />
-          <div className="ecl-skip-link__wrapper" id="skip-link">
-            <a href="#main-content" className="ecl-skip-link">
-              Skip to main content
-            </a>
-          </div>
           <Switch>
             <Route exact strict path="/" component={HomePage} />
             <Route
@@ -115,7 +110,7 @@ class App extends Component {
             />
             <Route component={PageNotFound} />
           </Switch>
-        </div>
+        </Fragment>
       </Router>
     );
   }

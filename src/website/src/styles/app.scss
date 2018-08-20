@@ -1,3 +1,5 @@
+@import '@ecl/ec-theme-default/exports/index';
+
 .tmp-main-container {
   box-sizing: border-box;
   max-width: 100%;
@@ -84,4 +86,92 @@
   min-width: 3rem;
   resize: both;
   width: 100%;
+}
+
+.tmp-u-pv-l {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.tmp-u-pv-xl {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.tmp-u-mt-xl {
+  margin-top: 2rem;
+}
+
+.tmp-u-d-flex {
+  display: flex;
+}
+
+.tmp-editor h1 {
+  color: #000;
+  font: $ecl-font-4-xl;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: 0;
+}
+
+.tmp-editor h2 {
+  color: #000;
+  font: $ecl-font-3-xl;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: 0;
+}
+
+.tmp-editor h3 {
+  color: $ecl-color-text;
+  font: $ecl-font-2-xl;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: 0;
+}
+
+.tmp-editor h4 {
+  color: $ecl-color-text;
+  font: $ecl-font-xl;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: 0;
+}
+
+.tmp-editor h5 {
+  color: $ecl-color-text;
+  font: $ecl-font-l;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: 0;
+}
+
+.tmp-editor p {
+  color: $ecl-color-text;
+  font: $ecl-font-prolonged-m;
+  margin: 0;
+  max-width: 38em;
+  padding: 0;
+}
+
+.tmp-editor {
+  * + h1 {
+    margin-top: $ecl-spacing-2-xl;
+  }
+
+  * + h2 {
+    margin-top: $ecl-spacing-xl;
+  }
+
+  * + h3 {
+    margin-top: $ecl-spacing-l;
+  }
+
+  * + p {
+    margin-top: $ecl-spacing-m;
+  }
+
+  h1 + p {
+    margin-top: $ecl-spacing-l;
+  }
 }

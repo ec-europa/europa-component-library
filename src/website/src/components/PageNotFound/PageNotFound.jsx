@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const PageNotFound = ({ children }) => (
   <main id="main-content" tabIndex="-1">
-    <div className="custom-container ecl-u-pv-xl">
-      <div className="custom-row ecl-u-mt-xl ecl-editor">{children}</div>
+    <div className="custom-container tmp-u-pv-xl">
+      <div className="custom-row tmp-u-mt-xl tmp-editor">{children}</div>
     </div>
   </main>
 );

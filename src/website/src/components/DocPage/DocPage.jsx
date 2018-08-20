@@ -15,7 +15,7 @@ const DocPage = ({ component }) => (
       tabs={component.tabs}
     />
     <main id="main-content" tabIndex="-1">
-      <div className="custom-container ecl-u-pv-l ecl-editor">
+      <div className="custom-container tmp-u-pv-l tmp-editor">
         {component.page ? (
           <component.page />
         ) : (

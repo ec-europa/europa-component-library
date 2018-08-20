@@ -29,9 +29,15 @@ $tmp-nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .tmp-nav__logo {
+  background-image: url('~@ecl/ec-preset-website/dist/images/logo/logo--en.svg');
+  display: block;
   height: $tmp-nav-logo-height;
   margin: $ecl-spacing-xl auto 0;
   max-width: $tmp-nav-logo-max-width;
+}
+
+.tmp-nav__logo-sr {
+  display: none;
 }
 
 .tmp-nav__title {
@@ -39,6 +45,21 @@ $tmp-nav-toggle-bar-spacing-between: 0.375rem;
   font: $ecl-font-m;
   margin: $ecl-spacing-xl auto $ecl-spacing-m;
   text-align: center;
+}
+
+.tmp-nav__icon {
+  height: 0.875rem;
+  width: 0.875rem;
+}
+
+.tmp-nav__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  &[aria-hidden='true'] {
+    display: none;
+  }
 }
 
 .tmp-nav__system-list {

@@ -147,16 +147,12 @@ class Navigation extends PureComponent {
         </button>
         <nav className={`tmp-nav${sidebarOpen ? '' : ' tmp-nav--closed'} `}>
           <div className="tmp-nav__header">
-            <Link
-              to="/"
-              className="ecl-logo ecl-logo--logotype tmp-nav__logo"
-              title="European Commission"
-            >
-              <span className="ecl-u-sr-only">European Commission</span>
+            <Link to="/" className="tmp-nav__logo" title="European Commission">
+              <span className="tmp-nav__logo-sr">European Commission</span>
             </Link>
             <h2 className="tmp-nav__title">Europa Component Library</h2>
           </div>
-          <ul className="ecl-list ecl-list--unstyled tmp-nav__system-list">
+          <ul className="tmp-nav__list tmp-nav__system-list">
             <li className="tmp-nav__system-list-item">
               <NavLink
                 to="/ec/"
@@ -183,7 +179,7 @@ class Navigation extends PureComponent {
               path="/ec/"
               strict
               render={() => (
-                <ul className="ecl-list ecl-list--unstyled">
+                <ul className="tmp-nav__list">
                   {ecPages
                     .keys()
                     .filter(key => key.indexOf('./getting-started') === 0)
@@ -209,7 +205,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Style
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {ECstyle ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -218,10 +214,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!ECstyle}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!ECstyle}>
                       {ecPages
                         .keys()
                         .filter(key => key.indexOf('./style') === 0)
@@ -249,7 +242,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Components
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {ECcomponents ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -258,10 +251,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!ECcomponents}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!ECcomponents}>
                       {ecPages
                         .keys()
                         .filter(key => key.indexOf('./components') === 0)
@@ -288,7 +278,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Templates
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {ECtemplates ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -297,10 +287,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!ECtemplates}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!ECtemplates}>
                       {ecPages
                         .keys()
                         .filter(key => key.indexOf('./templates') === 0)
@@ -328,7 +315,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Guidelines
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {ECguidelines ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -337,10 +324,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!ECguidelines}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!ECguidelines}>
                       {ecPages
                         .keys()
                         .filter(key => key.indexOf('./guidelines') === 0)
@@ -385,7 +369,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Resources
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {ECresources ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -394,10 +378,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!ECresources}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!ECresources}>
                       {ecPages
                         .keys()
                         .filter(key => key.indexOf('./resources') === 0)
@@ -424,7 +405,7 @@ class Navigation extends PureComponent {
               path="/eu/"
               strict
               render={() => (
-                <ul className="ecl-list ecl-list--unstyled">
+                <ul className="tmp-nav__list">
                   {euPages
                     .keys()
                     .filter(key => key.indexOf('./getting-started') === 0)
@@ -450,7 +431,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Style
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {EUstyle ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -459,10 +440,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!EUstyle}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!EUstyle}>
                       {euPages
                         .keys()
                         .filter(key => key.indexOf('./style') === 0)
@@ -490,7 +468,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Components
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {EUcomponents ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -499,10 +477,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!EUcomponents}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!EUcomponents}>
                       {euPages
                         .keys()
                         .filter(key => key.indexOf('./components') === 0)
@@ -529,7 +504,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Templates
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {EUtemplates ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -538,10 +513,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!EUtemplates}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!EUtemplates}>
                       {euPages
                         .keys()
                         .filter(key => key.indexOf('./templates') === 0)
@@ -569,7 +541,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Guidelines
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {EUguidelines ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -578,10 +550,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!EUguidelines}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!EUguidelines}>
                       {euPages
                         .keys()
                         .filter(key => key.indexOf('./guidelines') === 0)
@@ -626,7 +595,7 @@ class Navigation extends PureComponent {
                     >
                       <span>
                         Resources
-                        <svg className="ecl-icon ecl-icon--xs">
+                        <svg className="tmp-nav__icon">
                           {EUresources ? (
                             <use xlinkHref={`${icons}#ecl-icon--down`} />
                           ) : (
@@ -635,10 +604,7 @@ class Navigation extends PureComponent {
                         </svg>
                       </span>
                     </button>
-                    <ul
-                      className="ecl-list ecl-list--unstyled ecl-u-aria"
-                      aria-hidden={!EUresources}
-                    >
+                    <ul className="tmp-nav__list" aria-hidden={!EUresources}>
                       {euPages
                         .keys()
                         .filter(key => key.indexOf('./resources') === 0)

@@ -2,9 +2,9 @@ import React from 'react';
 
 const HomePage = () => (
   <main id="main-content" tabIndex="-1">
-    <div className="custom-container ecl-u-pv-xl">
+    <div className="custom-container tmp-u-pv-xl">
       <div className="custom-row">
-        <div className="custom-col ecl-editor">
+        <div className="custom-col tmp-editor">
           <h1>Europa Component Library (EU)</h1>
           <p>
             The Europa Component Library (ECL) is a library of components
@@ -36,7 +36,7 @@ const HomePage = () => (
           </p>
         </div>
       </div>
-      <div className="custom-row ecl-u-mt-xl ecl-editor">
+      <div className="custom-row tmp-u-mt-xl tmp-editor">
         <div className="custom-col-2/4">
           <h2>Overview</h2>
           <p>Text</p>
@@ -54,7 +54,7 @@ const HomePage = () => (
           <p>Text</p>
         </div>
       </div>
-      <div className="custom-row ecl-u-mt-xl ecl-editor">
+      <div className="custom-row tmp-u-mt-xl tmp-editor">
         <div className="custom-col-4 custom-col-md-4/8 custom-col-xl-4/12">
           <h2>Latest Releases</h2>
           <p>Text</p>
@@ -68,7 +68,7 @@ const HomePage = () => (
           <p>Text</p>
         </div>
       </div>
-      <div className="custom-row ecl-u-mt-xl ecl-editor">
+      <div className="custom-row tmp-u-mt-xl tmp-editor">
         <div className="custom-col">
           <h2>Component statuses</h2>
           <p>
