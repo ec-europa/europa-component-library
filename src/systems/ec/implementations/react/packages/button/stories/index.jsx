@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 
 import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
 import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
@@ -11,8 +11,6 @@ import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
 
 import Button from '../Button';
 import './index.scss';
-
-const typeAttributes = { submit: 'Submit', button: 'Button', reset: 'Reset' };
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
