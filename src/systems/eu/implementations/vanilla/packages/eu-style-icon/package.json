@@ -2,21 +2,21 @@
   "name": "@ecl/eu-style-icon",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "1.1.0",
+  "version": "2.0.0-alpha.0",
   "description": "ECL Icons -> EU flavor",
   "style": "eu-style-icon.scss",
   "scripts": {
     "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules eu-style-icon.scss dist/eu-style-icon.css"
   },
   "dependencies": {
-    "@ecl/eu-base": "^1.0.0",
-    "@ecl/generic-style-icon": "^1.1.0"
+    "@ecl/eu-base": "^2.0.0-alpha.0",
+    "@ecl/generic-style-icon": "^2.0.0-alpha.0"
   },
   "peerDependencies": {
     "svg4everybody": "^2.1.9"
   },
   "devDependencies": {
-    "node-sass": "4.9.2"
+    "node-sass": "4.9.3"
   },
   "publishConfig": {
     "access": "public"
@@ -29,6 +29,10 @@
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": ["ecl", "europa-component-library", "design-system"],
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ],
   "sass": "eu-style-icon.scss"
 }

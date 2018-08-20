@@ -1,6 +1,5 @@
 {
-  "lerna": "2.11.0",
-  "version": "independent",
+  "version": "2.0.0-alpha.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "changelog": {
@@ -15,10 +14,13 @@
     },
     "cacheDir": ".changelog"
   },
-  "commands": {
+  "command": {
     "publish": {
       "allowBranch": "master",
-      "ignore": ["*.md", "test/**"]
-    }
+      "bump": "prerelease",
+
+      "preid": "alpha"
+    },
+    "ignoreChanges": ["**/test/**", "**/*.md"]
   }
 }

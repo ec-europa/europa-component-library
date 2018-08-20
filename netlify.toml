@@ -1,3 +1,9 @@
 [build]
-  command = "yarn run dist:styleguides && cd website && yarn build"
-  publish = "website/build"
+  command = "yarn run dist:styleguides && yarn run dist:storybook && yarn run dist:website"
+  publish = "dist/website"
+
+
+[build.environment]
+  NODE_VERSION = "8"
+  YARN_VERSION = "1.9.4"
+  YARN_FLAGS = "--frozen-lockfile"

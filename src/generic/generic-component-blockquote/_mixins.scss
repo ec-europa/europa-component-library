@@ -1,20 +1,23 @@
-@mixin blockquote-container() {
-  border-left: 8px solid $ecl-color-secondary;
-  margin: 0;
-  padding: map-get($ecl-spacing, 'xxs') 0 map-get($ecl-spacing, 'xxs')
-    map-get($ecl-spacing, 'm');
-}
+$ecl-blockquote-border-width: 0.625rem;
 
-@mixin blockquote-container--small() {
-  border-left-width: 6px;
+@mixin blockquote-container() {
+  border-left: $ecl-blockquote-border-width solid $ecl-color-secondary;
+  margin: 0;
+  padding: $ecl-spacing-m 0 $ecl-spacing-m $ecl-spacing-l;
 }
 
 @mixin blockquote-body() {
   color: $ecl-color-shade;
-  font-size: map-get($ecl-font-size, 'l');
+  font: $ecl-font-prolonged-m;
   font-style: italic;
-  line-height: 1.5;
   margin: 0;
+  max-width: 38em; // Limit to ~85 chars max
+  quotes: '\201C' '\201D';
+
+  @include ecl-media-breakpoint-up(md) {
+    font: $ecl-font-prolonged-xl;
+    font-style: italic;
+  }
 
   &::before {
     content: open-quote;
@@ -25,18 +28,25 @@
   }
 }
 
-@mixin blockquote-body--small() {
-  font-size: map-get($ecl-font-size, 'm');
+@mixin blockquote-attribution() {
+  margin-top: $ecl-spacing-l;
+
+  @include ecl-media-breakpoint-up(md) {
+    margin-top: $ecl-spacing-xl;
+  }
 }
 
 @mixin blockquote-author() {
-  color: $ecl-color-shade;
-  font-size: map-get($ecl-font-size, 's');
-  font-style: italic;
-  font-weight: 600;
-  margin-top: map-get($ecl-spacing, 'xxs');
-}
+  color: #000;
+  font: $ecl-font-prolonged-m;
+  font-weight: $ecl-font-weight-bold;
 
-@mixin blockquote-author--small() {
-  font-size: map-get($ecl-font-size, 'xs');
+  @include ecl-media-breakpoint-up(md) {
+    font: $ecl-font-prolonged-l;
+    font-weight: $ecl-font-weight-bold;
+  }
+
+  &::before {
+    content: '\2014\2009'; /* Em dash followed by thin space */
+  }
 }
