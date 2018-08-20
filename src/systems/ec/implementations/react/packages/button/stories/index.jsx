@@ -18,81 +18,36 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('primary', () => (
     <Button
-      variant={text('Variant', demoContentPrimary.variant)}
+      variant='primary'
       label={text('Label', demoContentPrimary.label)}
-      typeAttribute={select(
-        'Type attribute',
-        typeAttributes,
-        demoContentPrimary.typeAttribute
-      )}
-      extraClasses={text('Extra classes', demoContentPrimary.extraClasses)}
-      extraAttributes={text(
-        'Extra attributes',
-        demoContentPrimary.extraAttributes
-      )}
+      typeAttribute='submit'
     />
   ))
   .add('secondary', () => (
     <Button
-      variant={text('Variant', demoContentSecondary.variant)}
+      variant='secondary'
       label={text('Label', demoContentSecondary.label)}
-      typeAttribute={select(
-        'Type attribute',
-        typeAttributes,
-        demoContentSecondary.typeAttribute
-      )}
-      extraClasses={text('Extra classes', demoContentSecondary.extraClasses)}
-      extraAttributes={text(
-        'Extra attributes',
-        demoContentSecondary.extraAttributes
-      )}
+      typeAttribute='button'
     />
   ))
   .add('call to action', () => (
     <Button
-      variant={text('Variant', demoContentCall.variant)}
+      variant='call'
       label={text('Label', demoContentCall.label)}
-      typeAttribute={select(
-        'Type attribute',
-        typeAttributes,
-        demoContentCall.typeAttribute
-      )}
-      extraClasses={text('Extra classes', demoContentCall.extraClasses)}
-      extraAttributes={text(
-        'Extra attributes',
-        demoContentCall.extraAttributes
-      )}
+      typeAttribute='submit'
     />
   ))
   .add('ghost', () => (
     <Button
-      variant={text('Variant', demoContentGhost.variant)}
+      variant='ghost'
       label={text('Label', demoContentGhost.label)}
-      typeAttribute={select(
-        'Type attribute',
-        typeAttributes,
-        demoContentGhost.typeAttribute
-      )}
-      extraClasses={text('Extra classes', demoContentGhost.extraClasses)}
-      extraAttributes={text(
-        'Extra attributes',
-        demoContentGhost.extraAttributes
-      )}
+      typeAttribute='button'
     />
   ))
   .add('search', () => (
     <Button
-      variant={text('Variant', demoContentSearch.variant)}
+      variant='search'
       label={text('Label', demoContentSearch.label)}
-      typeAttribute={select(
-        'Type attribute',
-        typeAttributes,
-        demoContentSearch.typeAttribute
-      )}
-      extraClasses={text('Extra classes', demoContentSearch.extraClasses)}
-      extraAttributes={text(
-        'Extra attributes',
-        demoContentSearch.extraAttributes
-      )}
+      typeAttribute='submit'
     />
   ));
