@@ -10,7 +10,7 @@
     "dist:storybook": "./scripts/dist-storybook.sh",
     "dist:styleguides": "./scripts/dist-styleguides.sh",
     "dist:website": "./scripts/dist-website.sh",
-    "dist": "npm run clean && npm run dist:presets && npm run dist:styleguides",
+    "dist": "npm run clean && npm run dist:presets && npm run dist:styleguides && npm run dist:storybook && npm run dist:website",
     "gh-pages": "gh-pages -d dist/website",
     "lint:js": "eslint .",
     "lint:scss": "stylelint \"./src/**/*.scss\"",
