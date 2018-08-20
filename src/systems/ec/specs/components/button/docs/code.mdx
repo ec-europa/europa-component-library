@@ -1,0 +1,60 @@
+import Playground from '@ecl/ec-react-component-button/Playground'
+import Button from '@ecl/ec-react-component-button/Button'
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=primary&stories=0"
+fullscreenLink="/_imports/ec/components/preview/ec-component-button--primary.html"
+>
+  <Button
+    variant="primary"
+    label="Primary button"
+    typeAttribute="submit"
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=secondary&stories=0"
+fullscreenLink="/_imports/ec/components/preview/ec-component-button--secondary.html"
+>
+  <Button
+    variant="secondary"
+    label="Secondary button"
+    typeAttribute="button"
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=call to action&stories=0"
+fullscreenLink="/_imports/ec/components/preview/ec-component-button--call.html"
+>
+  <Button
+    variant="call"
+    label="Call to action button"
+    typeAttribute="submit"
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=ghost&stories=0"
+fullscreenLink="/_imports/ec/components/preview/ec-component-button--ghost.html"
+>
+  <Button
+    variant="ghost"
+    label="Ghost button"
+    typeAttribute="button"
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=search&stories=0"
+fullscreenLink="/_imports/ec/components/preview/ec-component-button--search.html"
+>
+  <Button
+    variant="search"
+    label="Search button"
+    typeAttribute="submit"
+  />
+</Playground>
+
+The component expects 5 parameters:
+
+- variant (string)
+- label (string)
+- typeAttribute (string)
+- (optional) extraClasses (string)
+- (optional) extraAttributes (string)
