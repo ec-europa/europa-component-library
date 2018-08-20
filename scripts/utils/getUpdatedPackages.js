@@ -1,20 +1,12 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const mkdirp = require('mkdirp');
 const octokit = require('@octokit/rest')();
 const simpleGit = require('simple-git/promise');
 
-// Lerna related imports
-const log = require('npmlog');
-const UpdatedPackagesCollector = require('lerna/lib/UpdatedPackagesCollector');
-const Repository = require('lerna/lib/Repository');
-const PackageUtilities = require('lerna/lib/PackageUtilities');
-
 // Utils
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
-
-// handle log.success() used by lerna
-log.addLevel('success', 3001, { fg: 'green', bold: true });
 
 const getRef = async () => {
   if (isDrone && process.env.DRONE_BRANCH !== 'master') {
@@ -75,10 +67,6 @@ const getUpdatedPackages = async ({
     }
   }
 
-  // Only test the updated components when the branch is not the master
-  // if (process.env.DRONE_BRANCH !== 'master') {
-  log.level = 'silent';
-
   // Fetch reference branch for comparison if not already there
   try {
     const branches = await git.branch();
@@ -91,42 +79,43 @@ const getUpdatedPackages = async ({
     return [];
   }
 
-  const repo = new Repository(cwd);
-  const packages = PackageUtilities.getPackages(repo);
-  const packageGraph = PackageUtilities.getPackageGraph(packages);
-
   // Get updated packages
-  const collector = new UpdatedPackagesCollector({
-    logger: log.newGroup('lerna'),
-    repository: repo,
-    filteredPackages: packages,
-    packageGraph,
-    options: { since: ref },
-    execOpts: { cwd },
-  });
-
-  const updatedPackages = collector.getUpdates();
-
-  const sanitizedPackages = updatedPackages.map(updatedPackage => ({
-    package: updatedPackage.package.toJSON(),
-    location: updatedPackage.package.location,
-  }));
-
-  // Save to cache
-  if (cacheResults) {
-    try {
-      // Make sure the .tmp directoy exists
-      mkdirp.sync(path.dirname(cacheFile));
-      fs.writeFileSync(cacheFile, JSON.stringify(sanitizedPackages), {
-        encoding: 'utf8',
-      });
-      console.log('Cache updated');
-    } catch (e) {
-      console.log('Error while updating cache:', e.message);
-    }
+  let result = '';
+  try {
+    const command = `node ./node_modules/.bin/lerna ls --since ${ref} --all --json`;
+    console.log(`Running command: ${command}`);
+    result = execSync(command, {
+      cwd,
+      encoding: 'utf-8',
+    });
+  } catch (e) {
+    console.log('Error while getting updated packages:', e.message);
+    return [];
   }
 
-  return sanitizedPackages;
+  if (result) {
+    result = JSON.parse(result);
+
+    // Save to cache
+    if (cacheResults) {
+      try {
+        // Make sure the .tmp directoy exists
+        mkdirp.sync(path.dirname(cacheFile));
+        fs.writeFileSync(cacheFile, JSON.stringify(result), {
+          encoding: 'utf8',
+        });
+        console.log('Cache updated');
+      } catch (e) {
+        console.log('Error while updating cache:', e.message);
+      }
+    }
+
+    return result;
+  }
+
+  return [];
 };
 
 module.exports.getUpdatedPackages = getUpdatedPackages;
+
+getUpdatedPackages();
