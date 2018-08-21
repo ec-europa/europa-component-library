@@ -7,7 +7,7 @@ import { html as beautifyHtml } from 'js-beautify';
 
 import './Playground.scss';
 
-const Playground = ({ playgroundLink, fullscreenLink, children }) => {
+const Playground = ({ playgroundLink, children }) => {
   if (!children) return null;
 
   return (
@@ -23,18 +23,6 @@ const Playground = ({ playgroundLink, fullscreenLink, children }) => {
               rel="noopener noreferrer"
             >
               Playground
-            </a>
-          )}
-        </li>
-        <li>
-          {fullscreenLink && (
-            <a
-              href={fullscreenLink}
-              className="tmp-playground__link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Fullscreen
             </a>
           )}
         </li>
@@ -60,12 +48,10 @@ const Playground = ({ playgroundLink, fullscreenLink, children }) => {
 Playground.propTypes = {
   children: PropTypes.node.isRequired,
   playgroundLink: PropTypes.string,
-  fullscreenLink: PropTypes.string,
 };
 
 Playground.defaultProps = {
   playgroundLink: '',
-  fullscreenLink: '',
 };
 
 export default Playground;
