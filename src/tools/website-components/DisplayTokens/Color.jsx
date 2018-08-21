@@ -24,7 +24,9 @@ class Color extends PureComponent {
 
     return (
       <figure>
-        <figcaption>{tokenKey}:</figcaption>
+        <figcaption>
+          {tokenKey}: {tokenProps.value}
+        </figcaption>
         <svg
           width="3em"
           height="3em"
