@@ -14,9 +14,25 @@
   box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
+  list-style-type: none;
+  margin: 0;
   max-width: 100% !important;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   width: 100%;
+}
+
+.tmp-playground__link {
+  align-items: center;
+  box-sizing: border-box;
+  color: #004494;
+  display: inline-flex;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.tmp-playground__link:focus {
+  outline: 3px solid #ffd617;
+  outline-offset: 2px;
 }
 
 .tmp-playground__code {

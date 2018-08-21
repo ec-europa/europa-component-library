@@ -13,12 +13,12 @@ const Playground = ({ playgroundLink, fullscreenLink, children }) => {
   return (
     <div className="tmp-playground">
       <div className="tmp-playground__showcase">{children}</div>
-      <ul className="ecl-list ecl-list--inline tmp-playground__links">
+      <ul className="tmp-playground__links">
         <li>
           {playgroundLink && (
             <a
               href={playgroundLink}
-              className="ecl-link"
+              className="tmp-playground__link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -30,7 +30,7 @@ const Playground = ({ playgroundLink, fullscreenLink, children }) => {
           {fullscreenLink && (
             <a
               href={fullscreenLink}
-              className="ecl-link"
+              className="tmp-playground__link"
               target="_blank"
               rel="noopener noreferrer"
             >
