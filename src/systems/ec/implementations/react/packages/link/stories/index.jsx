@@ -14,14 +14,14 @@ storiesOf('Link', module)
   .add('default', () => (
     <Link
       variant="default"
-      href="http://example.com"
+      href="/example#default-link"
       label={text('Label', demoContentDefault.label)}
     />
   ))
   .add('standalone', () => (
     <Link
       variant="standalone"
-      href="http://example.com"
+      href="/example#standalone-link"
       label={text('Label', demoContentStandalone.label)}
     />
   ));
