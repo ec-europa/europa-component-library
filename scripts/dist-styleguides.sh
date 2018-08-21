@@ -11,11 +11,11 @@ cd "$(dirname "$0")"
 cd ..
 
 # Build styleguides
-yarn --cwd "./src/systems/ec/implementations/vanilla/styleguide" dist
-yarn --cwd "./src/systems/eu/implementations/vanilla/styleguide" dist
+yarn --cwd "./src/systems/ec/implementations/twig/styleguide" dist
+yarn --cwd "./src/systems/eu/implementations/twig/styleguide" dist
 
 # Copy builds
 rm -rf ./dist/styleguide
 mkdir -p ./dist/styleguide
-cp -r ./src/systems/ec/implementations/vanilla/styleguide/dist ./dist/styleguide/ec
-cp -r ./src/systems/eu/implementations/vanilla/styleguide/dist ./dist/styleguide/eu
+cp -r ./src/systems/ec/implementations/twig/styleguide/dist ./dist/styleguide/ec
+cp -r ./src/systems/eu/implementations/twig/styleguide/dist ./dist/styleguide/eu

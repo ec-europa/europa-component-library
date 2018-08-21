@@ -1,0 +1,36 @@
+{
+  "name": "@ecl/ec-twig-component-link",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "2.0.0-alpha.0",
+  "description": "ECL Links",
+  "style": "ec-component-link.scss",
+  "scripts": {
+    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules ec-component-link.scss dist/ec-component-link.css"
+  },
+  "dependencies": {
+    "@ecl/ec-base": "^2.0.0-alpha.0",
+    "@ecl/ec-twig-style-icon": "^2.0.0-alpha.0",
+    "@ecl/generic-twig-component-link": "^2.0.0-alpha.0"
+  },
+  "devDependencies": {
+    "node-sass": "4.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ec-europa/europa-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  },
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ],
+  "sass": "ec-component-link.scss"
+}

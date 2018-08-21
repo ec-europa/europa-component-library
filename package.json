@@ -18,10 +18,10 @@
     "postinstall": "lerna run postinstall && lerna run prepublish",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
-    "start:ec": "cd src/systems/ec/implementations/vanilla/styleguide && npm run start",
     "start:ec-react": "cd src/systems/ec/implementations/react/storybook && npm run start",
-    "start:eu": "cd src/systems/eu/implementations/vanilla/styleguide && npm run start",
-    "start:website": "cd website && npm run start",
+    "start:ec-twig": "cd src/systems/ec/implementations/twig/styleguide && npm run start",
+    "start:eu": "cd src/systems/eu/implementations/twig/styleguide && npm run start",
+    "start:website": "cd src/website && npm run start",
     "test:coding-conventions": "npm run lint",
     "test:functional": "node ./scripts/test-functional.js",
     "test:independent-sass": "lerna run --parallel test:independent-sass",
@@ -29,10 +29,10 @@
   },
   "devDependencies": {
     "@ecl/qa": "0.2.1",
-    "@octokit/rest": "15.9.6",
+    "@octokit/rest": "15.10.0",
     "chai": "4.1.2",
     "dotenv": "6.0.0",
-    "eslint": "5.3.0",
+    "eslint": "5.4.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-config-prettier": "3.0.1",
@@ -43,7 +43,7 @@
     "gh-pages": "1.2.0",
     "glob": "7.1.2",
     "husky": "0.14.3",
-    "lerna": "3.0.6",
+    "lerna": "3.1.1",
     "lerna-changelog": "0.8.0",
     "lint-staged": "7.2.2",
     "minimist": "1.2.0",
@@ -52,7 +52,7 @@
     "prettier": "1.14.2",
     "rimraf": "2.6.2",
     "simple-git": "1.96.0",
-    "stylelint": "9.4.0",
+    "stylelint": "9.5.0",
     "stylelint-config-prettier": "4.0.0",
     "stylelint-config-sass-guidelines": "5.0.0",
     "stylelint-config-standard": "18.2.0",
@@ -66,7 +66,7 @@
     "wdio-spec-reporter": "0.1.5",
     "wdio-static-server-service": "1.0.1",
     "wdio-visual-regression-service": "0.9.0",
-    "webdriverio": "4.13.1"
+    "webdriverio": "4.13.2"
   },
   "engines": {
     "node": ">=8.9.1"
@@ -97,12 +97,15 @@
   },
   "workspaces": [
     "examples/*",
-    "src/generic/*",
+    "src/systems/generic/design-tokens",
+    "src/systems/generic/implementations/twig/*",
+    "src/systems/generic/implementations/vanilla/*",
     "src/systems/ec/design-tokens",
     "src/systems/ec/implementations/react/packages/*",
     "src/systems/ec/implementations/react/storybook",
+    "src/systems/ec/implementations/twig/packages/*",
+    "src/systems/ec/implementations/twig/styleguide",
     "src/systems/ec/implementations/vanilla/packages/*",
-    "src/systems/ec/implementations/vanilla/styleguide",
     "src/systems/ec/resources",
     "src/systems/ec/specs/**",
     "src/systems/ec/themes/*",
@@ -112,7 +115,7 @@
     "src/systems/eu/resources",
     "src/systems/eu/specs/**",
     "src/systems/eu/themes/*",
-    "tools/*",
-    "website"
+    "src/tools/*",
+    "src/website"
   ]
 }
