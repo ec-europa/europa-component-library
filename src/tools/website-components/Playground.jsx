@@ -7,34 +7,22 @@ import { html as beautifyHtml } from 'js-beautify';
 
 import './Playground.scss';
 
-const Playground = ({ playgroundLink, fullscreenLink, children }) => {
+const Playground = ({ playgroundLink, children }) => {
   if (!children) return null;
 
   return (
     <div className="tmp-playground">
       <div className="tmp-playground__showcase">{children}</div>
-      <ul className="ecl-list ecl-list--inline tmp-playground__links">
+      <ul className="tmp-playground__links">
         <li>
           {playgroundLink && (
             <a
               href={playgroundLink}
-              className="ecl-link"
+              className="tmp-playground__link"
               target="_blank"
               rel="noopener noreferrer"
             >
               Playground
-            </a>
-          )}
-        </li>
-        <li>
-          {fullscreenLink && (
-            <a
-              href={fullscreenLink}
-              className="ecl-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Fullscreen
             </a>
           )}
         </li>
@@ -60,12 +48,10 @@ const Playground = ({ playgroundLink, fullscreenLink, children }) => {
 Playground.propTypes = {
   children: PropTypes.node.isRequired,
   playgroundLink: PropTypes.string,
-  fullscreenLink: PropTypes.string,
 };
 
 Playground.defaultProps = {
   playgroundLink: '',
-  fullscreenLink: '',
 };
 
 export default Playground;
