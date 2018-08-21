@@ -58,7 +58,7 @@ class App extends Component {
           />
           <Switch>
             <Route exact strict path="/" component={HomePage} />
-            <Route exact strict path="/example" component={Example} />
+            <Route strict path="/example" component={Example} />
             <Route
               path="/(ec|eu)/"
               strict
