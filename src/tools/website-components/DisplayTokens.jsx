@@ -1,37 +1,32 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-const DisplayTokens = ({ tokens, category }) => (
-  <ul>
-    {Object.keys(tokens.props)
-      .filter(key => !category || tokens.props[key].category === category)
-      .map(key => (
-        <li>
-          {tokens.props[key].type === 'color' ? (
-            <figure>
-              <figcaption>{key}:</figcaption>
-              <svg
-                width="3em"
-                height="3em"
-                aria-label={tokens.props[key].value}
-              >
-                <rect
-                  fill={tokens.props[key].value}
-                  width="100%"
-                  height="100%"
-                />
-              </svg>
-            </figure>
-          ) : (
-            <span>
-              {key}: {tokens.props[key].value}
-            </span>
-          )}
-        </li>
-      ))}
-  </ul>
-);
+import Color from './DisplayTokens/Color';
+
+class DisplayTokens extends PureComponent {
+  render() {
+    const { tokens, category } = this.props;
+
+    return (
+      <ul>
+        {Object.keys(tokens.props)
+          .filter(key => !category || tokens.props[key].category === category)
+          .map(key => (
+            <li key={key}>
+              {tokens.props[key].type === 'color' ? (
+                <Color tokenKey={key} tokenProps={tokens.props[key]} />
+              ) : (
+                <span>
+                  {key}: {tokens.props[key].value}
+                </span>
+              )}
+            </li>
+          ))}
+      </ul>
+    );
+  }
+}
 
 DisplayTokens.propTypes = {
   tokens: PropTypes.shape({
