@@ -6,7 +6,7 @@
   "description": "ECL Buttons",
   "style": "eu-component-file.scss",
   "scripts": {
-    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules eu-component-file.scss dist/eu-component-file.css"
+    "test:independent-sass": "mkdir -p dist && cat ../../../../themes/default/exports/index.scss eu-component-file.scss | node-sass --quiet --include-path ../../../../../../../node_modules > dist/eu-component-file.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^2.0.0-alpha.0",

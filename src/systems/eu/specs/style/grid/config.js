@@ -1,4 +1,4 @@
-import code from './docs/code.md';
+import usage from './docs/usage.md';
 
 export default {
   order: 3,
@@ -7,10 +7,10 @@ export default {
   section: 'Style',
   tabs: [
     {
-      name: 'Code',
-      component: code,
-      url: 'code',
+      name: 'Usage',
+      component: usage,
+      url: 'usage',
     },
   ],
-  defaultTab: 'code',
+  defaultTab: 'usage',
 };
