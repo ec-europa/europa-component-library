@@ -1,7 +1,17 @@
 @import './mixins';
 
-@mixin ecl-editor-link() {
+@mixin ecl-editor-link(
+  $link-color: $ecl-color-primary,
+  $link-color-hover: $ecl-color-black-100,
+  $link-color-focus: $ecl-color-secondary,
+  $link-color-visited: $ecl-color-purple-100
+) {
   .ecl-editor a {
-    @include link();
+    @include link(
+      $link-color,
+      $link-color-hover,
+      $link-color-focus,
+      $link-color-visited
+    );
   }
 }

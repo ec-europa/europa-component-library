@@ -1,22 +1,26 @@
-@mixin link() {
-  align-items: center;
+@mixin link(
+  $link-color,
+  $link-color-hover,
+  $link-color-focus,
+  $link-color-visited
+) {
   box-sizing: border-box;
-  color: $ecl-color-primary;
-  display: inline-flex;
+  color: $link-color;
+  font: $ecl-font-m;
   margin: 0;
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: #000;
+    color: $link-color-hover;
   }
 
   &:focus {
-    outline: 3px solid map-get($ecl-colors, 'yellow-100');
+    outline: 3px solid $link-color-focus;
     outline-offset: 2px;
   }
 
   &:visited {
-    color: map-get($ecl-colors, 'purple-100');
+    color: $link-color-visited;
   }
 }
