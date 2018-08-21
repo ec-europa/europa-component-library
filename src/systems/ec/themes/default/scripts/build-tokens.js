@@ -5,6 +5,8 @@ const theo = require('theo');
 
 const inputFile = path.join(__dirname, '../index.yml');
 const outputFile = 'index.scss';
+const outputJson = 'tokens.json';
+
 const writeDir = path.join(__dirname, '../exports');
 mkdirp.sync(writeDir);
 
@@ -36,6 +38,26 @@ theo
   .then(result => {
     fs.writeFile(
       path.join(writeDir, outputFile),
+      result,
+      error => error && console.log('Error writing file: ', error)
+    );
+  })
+  .catch(error => error && console.log('Error converting tokens: ', error));
+
+// Export raw JSON
+theo
+  .convert({
+    transform: {
+      type: 'raw',
+      file: inputFile,
+    },
+    format: {
+      type: 'raw.json',
+    },
+  })
+  .then(result => {
+    fs.writeFile(
+      path.join(writeDir, outputJson),
       result,
       error => error && console.log('Error writing file: ', error)
     );

@@ -1,0 +1,34 @@
+{#
+  Parameters:
+    - "modifier" (string, "default", "primary", "secondary", "call", "form", "form-primary" or "splash-page") (default: "default")
+    - "type" (string): deprecated
+    - "type_attribute" (string) (default: "submit")
+    - "href" (string) (default: ''): display button as a link, with this href
+    - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
+    - "label" (string) (default: "")
+    - "is_block" (boolean): block-wide button (default: false)
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+    - "system" (string) (default: "generic") 
+  Blocks:
+    - "link_label_block": block label of the button (when "type" == "link")
+    - "button_label_block": block label of the button (when "type" == "button")
+#}
+
+{% include '@ecl/generic-twig-component-button' with {
+  'modifier': modifier|default('default'),
+  'type_attribute': type_attribute|default('submit'),
+  'href': href|default(''),
+  'icon': icon|default(''),
+  'label': label|default(''),
+  'is_block': is_block|default(false),
+  'extra_classes': extra_classes|default(''),
+  'extra_attributes': extra_attributes|default([]),
+  'system': 'ec'
+} only %}
