@@ -6,7 +6,6 @@ const DisplayTokens = ({ tokens, category }) => (
   <ul>
     {Object.keys(tokens.props)
       .filter(key => !category || tokens.props[key].category === category)
-      .sort()
       .map(key => (
         <li>
           {tokens.props[key].type === 'color' ? (
