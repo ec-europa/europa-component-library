@@ -16,6 +16,7 @@ import Navigation from './components/Navigation/Navigation';
 
 // Static routes
 import HomePage from './routes/index';
+import Example from './routes/example';
 import PageNotFound from './routes/404';
 import ECHomePage from './routes/ec/index';
 import EUHomePage from './routes/eu/index';
@@ -57,6 +58,7 @@ class App extends Component {
           />
           <Switch>
             <Route exact strict path="/" component={HomePage} />
+            <Route strict path="/example" component={Example} />
             <Route
               path="/(ec|eu)/"
               strict

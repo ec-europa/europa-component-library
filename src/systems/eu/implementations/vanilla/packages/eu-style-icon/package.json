@@ -6,7 +6,7 @@
   "description": "ECL Icons -> EU flavor",
   "style": "eu-style-icon.scss",
   "scripts": {
-    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules eu-style-icon.scss dist/eu-style-icon.css"
+    "test:independent-sass": "mkdir -p dist && cat ../../../../themes/default/exports/index.scss eu-style-icon.scss | node-sass --quiet --include-path ../../../../../../../node_modules > dist/eu-style-icon.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^2.0.0-alpha.0",

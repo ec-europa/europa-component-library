@@ -7,19 +7,29 @@
 @import '@ecl/generic-base/generic-base';
 @import './mixins';
 
-@mixin ecl-link() {
+@mixin ecl-link(
+  $link-color: $ecl-color-primary,
+  $link-color-hover: $ecl-color-black-100,
+  $link-color-focus: $ecl-color-secondary,
+  $link-color-visited: $ecl-color-purple-100
+) {
   .ecl-link {
-    @include link();
+    @include link(
+      $link-color,
+      $link-color-hover,
+      $link-color-focus,
+      $link-color-visited
+    );
   }
 
   .ecl-link__icon {
     fill: currentColor;
   }
   .ecl-link--icon-before .ecl-link__icon {
-    margin-right: map-get($ecl-spacing, 'xxxs');
+    margin-right: $ecl-spacing-xs;
   }
   .ecl-link--icon-after .ecl-link__icon {
-    margin-left: map-get($ecl-spacing, 'xxxs');
+    margin-left: $ecl-spacing-xs;
   }
 
   .ecl-link--standalone {
@@ -29,25 +39,5 @@
     &:focus {
       text-decoration: underline;
     }
-  }
-
-  .ecl-link--inverted {
-    color: #fff;
-
-    &:hover,
-    &:focus,
-    &:visited {
-      color: #fff;
-    }
-  }
-
-  .ecl-link--all {
-    clear: right;
-    float: right;
-    text-transform: uppercase;
-  }
-
-  .ecl-link--more {
-    text-transform: uppercase;
   }
 }

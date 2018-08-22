@@ -6,7 +6,7 @@
   "description": "ECL Links",
   "style": "ec-component-link.scss",
   "scripts": {
-    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../../node_modules ec-component-link.scss dist/ec-component-link.css"
+    "test:independent-sass": "mkdir -p dist && cat ../../../../themes/default/exports/index.scss ec-component-link.scss | node-sass --quiet --include-path ../../../../../../../node_modules > dist/ec-component-link.css"
   },
   "dependencies": {
     "@ecl/ec-base": "^2.0.0-alpha.0",
