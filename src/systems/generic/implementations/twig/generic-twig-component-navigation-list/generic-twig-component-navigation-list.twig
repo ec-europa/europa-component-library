@@ -42,7 +42,7 @@
       {% for _link in _links %}
         {% set _active_class = _link.is_active is defined and _link.is_active == true ? ' ecl-navigation-list__link--active' : '' %}
         <li class="ecl-navigation-list__item">
-          {% include '@ecl/generic-component-link' with {
+          {% include '@ecl/generic-twig-component-link' with {
             'extra_classes': 'ecl-navigation-list__link' ~ _active_class,
           }|merge(_link|default({})) only %}
         </li>

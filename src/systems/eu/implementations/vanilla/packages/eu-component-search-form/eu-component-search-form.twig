@@ -15,7 +15,7 @@
       ]
 #}
 
-{% include '@ecl/generic-component-search-form' with {
+{% include '@ecl/generic-twig-component-search-form' with {
   'variant': variant|default(''),
   'aria_label': aria_label|default('Search this website'),
   'button': { 'label': 'Search' }|merge(button|default({})),

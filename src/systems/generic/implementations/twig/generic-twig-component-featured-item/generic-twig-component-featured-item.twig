@@ -56,11 +56,11 @@
     <img src="{{ _image.src }}" alt="{{ _image.alt }}" class="ecl-image ecl-image--fluid" />
   </div>
   <div class="ecl-featured-item__body">
-    {% include '@ecl/generic-component-meta' with {
+    {% include '@ecl/generic-twig-component-meta' with {
       modifier: 'ecl-meta--header',
       metas: _metas,
     } %}
-    {% include '@ecl/generic-component-link' with {
+    {% include '@ecl/generic-twig-component-link' with {
       'href': _link.href,
       'label': _title,
       'extra_classes': 'ecl-featured-item__title',

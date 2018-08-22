@@ -66,7 +66,7 @@
     {% if (_primary_image is not empty) or (_variant == 'date' and _date is not empty) %}
       <div class="ecl-list-item__primary">
         {% if _variant == 'date' %}
-          {% include '@ecl/ec-component-date-block' with _date only %}
+          {% include '@ecl/ec-twig-component-date-block' with _date only %}
         {% else %}
           {% include '@ecl/ec-twig-style-image' with { responsive: true }|merge(_primary_image) only %}
         {% endif %}
@@ -76,7 +76,7 @@
       {% if _variant is empty or _variant == 'thumbnail' %}
         <div class="ecl-list-item__meta">
           {% block meta_block %}
-            {% include '@ecl/ec-component-meta' with { metas: _metas } only %}
+            {% include '@ecl/ec-twig-component-meta' with { metas: _metas } only %}
           {% endblock %}
         </div>
       {% endif %}

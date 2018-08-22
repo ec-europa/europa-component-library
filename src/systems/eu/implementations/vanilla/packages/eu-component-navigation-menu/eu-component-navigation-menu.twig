@@ -69,7 +69,7 @@
               {% else %}
                 <a href="{{ _link.href }}" class="ecl-navigation-menu__link" aria-controls="nav-menu-expandable-group-{{ loop.index }}" aria-expanded="false" aria-haspopup="true">
                   {{ _link.label }}
-                  {% include '@ecl/' ~ _system ~ '-style-icon' with {
+                  {% include '@ecl/' ~ _system ~ '-twig-style-icon' with {
                     'extra_classes': 'ecl-navigation-menu__icon'
                   }|merge(_icon|default({})) only %}
                 </a>
