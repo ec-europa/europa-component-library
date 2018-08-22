@@ -21,4 +21,22 @@
     height: 3.75rem;
     width: 7.5rem;
   }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-logo--horizontal {
+      height: 4.5rem;
+      width: 17rem;
+    }
+
+    .ecl-logo--mute {
+      height: 5.5rem;
+      width: 11.25rem;
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-logo') {
+  @include ecl-logo();
 }
