@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ class LinkGroup extends PureComponent {
   }
 
   render() {
-    const { pages, title } = this.props;
+    const { pages, title, showStatus } = this.props;
     const { isOpen } = this.state;
 
     return (
@@ -58,7 +58,28 @@ class LinkGroup extends PureComponent {
                 className="tmp-nav__page-list-item"
                 activeClassName="tmp-nav__page-list-item--active"
               >
-                {page.title}
+                {page.title}{' '}
+                {showStatus && (
+                  <Fragment>
+                    {page.ready ? (
+                      <span
+                        className="tmp-nav__page-status"
+                        style={{
+                          backgroundColor: '#467a39',
+                        }}
+                        title="Ready"
+                      />
+                    ) : (
+                      <span
+                        className="tmp-nav__page-status"
+                        style={{
+                          backgroundColor: '#f29527',
+                        }}
+                        title="Not ready"
+                      />
+                    )}
+                  </Fragment>
+                )}
               </NavigationLink>
             </li>
           ))}
@@ -79,7 +100,12 @@ LinkGroup.propTypes = {
       title: PropTypes.string,
     })
   ).isRequired,
+  showStatus: PropTypes.bool,
   title: PropTypes.string.isRequired,
+};
+
+LinkGroup.defaultProps = {
+  showStatus: false,
 };
 
 export default withRouter(LinkGroup);

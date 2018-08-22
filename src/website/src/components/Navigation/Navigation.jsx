@@ -87,6 +87,7 @@ class Navigation extends PureComponent {
               )}
               groupUrl={`${prefix}/components`}
               title="Components"
+              showStatus
             />
             <LinkGroup
               pages={pages
