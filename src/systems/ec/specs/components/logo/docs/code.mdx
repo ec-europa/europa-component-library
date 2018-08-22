@@ -1,0 +1,26 @@
+import Playground from '@ecl/website-components/Playground'
+import Logo from '@ecl/ec-react-component-logo/Logo'
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Logo&selectedStory=horizontal&stories=0">
+  <Logo
+    variant="horizontal"
+    title="European Commission"
+    alt="European Commission logo"
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Logo&selectedStory=mute&stories=0">
+  <Logo
+    variant="mute"
+    title="European Commission"
+    alt="European Commission logo"
+  />
+</Playground>
+
+The component expects 5 parameters:
+
+- variant (string)
+- title (string)
+- alt (string)
+- (optional) extraClasses (string)
+- (optional) extraAttributes (string)
