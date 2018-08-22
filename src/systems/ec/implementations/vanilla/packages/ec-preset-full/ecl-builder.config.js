@@ -72,8 +72,8 @@ module.exports = {
       to: path.resolve(outputFolder, 'images/icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/ec-component-logo/images'),
-      to: path.resolve(outputFolder, 'images'),
+      from: path.resolve(nodeModules, '@ecl/ec-resources/logo'),
+      to: path.resolve(outputFolder, 'images/logo'),
     },
   ],
 };

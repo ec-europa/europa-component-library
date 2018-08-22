@@ -10,6 +10,11 @@ module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.module.rules[0].include = [path.resolve(__dirname, '../..')];
   defaultConfig.resolve.extensions.push('.jsx');
 
+  // Add "limit" to svg-url-loader
+  defaultConfig.module.rules[4].query = {
+    limit: 4 * 1024, // above 4 kB, file-loader will be used
+  };
+
   defaultConfig.module.rules.push(
     ...[
       {
