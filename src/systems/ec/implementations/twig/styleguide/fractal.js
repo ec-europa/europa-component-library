@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 const fractal = require('@frctl/fractal').create();
-const eclTheme = require('@ecl/fractal-theme');
+const fractalTheme = require('@frctl/mandelbrot');
 const twigAdapter = require('@ecl/fractal-twig')({ handlePrefix: '@ecl/' });
 
 const projectRoot = path.resolve(__dirname, '../../../../../..');
@@ -26,10 +26,7 @@ const paths = {
 };
 
 // Create a new theme instance with custom config options
-const theme = eclTheme();
-
-// Add overrides
-theme.addLoadPath(path.resolve(__dirname, './theme-overrides'));
+const theme = fractalTheme();
 
 // Project config
 fractal.set('project.title', 'EC System');
