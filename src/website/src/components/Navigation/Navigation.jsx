@@ -1,85 +1,14 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink, withRouter } from 'react-router-dom';
-import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
 
+import LinkGroup from './LinkGroup';
 import NavigationLink from './NavigationLink';
 import './Navigation.scss';
 
 class Navigation extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    const hasPathname = props && props.location && props.location.pathname;
-
-    const { prefix } = props;
-
-    this.state = {
-      // EC
-      styleGroup:
-        hasPathname && props.location.pathname.indexOf(`${prefix}/style`) === 0,
-      componentsGroup:
-        hasPathname &&
-        props.location.pathname.indexOf(`${prefix}/components`) === 0,
-      templatesGroup:
-        hasPathname &&
-        props.location.pathname.indexOf(`${prefix}/templates`) === 0,
-      guidelinesGroup:
-        hasPathname &&
-        props.location.pathname.indexOf(`${prefix}/guidelines`) === 0,
-      resourcesGroup:
-        hasPathname &&
-        props.location.pathname.indexOf(`${prefix}/resources`) === 0,
-    };
-
-    // EC
-    this.toggleStyleGroup = this.toggleStyleGroup.bind(this);
-    this.toggleComponentsGroup = this.toggleComponentsGroup.bind(this);
-    this.toggleTemplatesGroup = this.toggleTemplatesGroup.bind(this);
-    this.toggleGuidelinesGroup = this.toggleGuidelinesGroup.bind(this);
-    this.toggleResourcesGroup = this.toggleResourcesGroup.bind(this);
-  }
-
-  // EC
-  toggleStyleGroup() {
-    this.setState(prevState => ({
-      styleGroup: !prevState.styleGroup,
-    }));
-  }
-
-  toggleComponentsGroup() {
-    this.setState(prevState => ({
-      componentsGroup: !prevState.componentsGroup,
-    }));
-  }
-
-  toggleTemplatesGroup() {
-    this.setState(prevState => ({
-      templatesGroup: !prevState.templatesGroup,
-    }));
-  }
-
-  toggleGuidelinesGroup() {
-    this.setState(prevState => ({
-      guidelinesGroup: !prevState.guidelinesGroup,
-    }));
-  }
-
-  toggleResourcesGroup() {
-    this.setState(prevState => ({
-      resourcesGroup: !prevState.resourcesGroup,
-    }));
-  }
-
   render() {
     const { sidebarOpen, onToggleSidebar, pages, prefix } = this.props;
-    const {
-      styleGroup,
-      componentsGroup,
-      templatesGroup,
-      guidelinesGroup,
-      resourcesGroup,
-    } = this.state;
 
     return (
       <Fragment>
@@ -130,7 +59,6 @@ class Navigation extends PureComponent {
               .filter(
                 page => page.url.indexOf(`${prefix}/getting-started`) === 0
               )
-              .sort((a, b) => a.order > b.order)
               .map(page => (
                 <li key={page.url}>
                   <NavigationLink
@@ -142,148 +70,36 @@ class Navigation extends PureComponent {
                   </NavigationLink>
                 </li>
               ))}
-            <li>
-              <button
-                type="button"
-                className="tmp-nav__group-list-item"
-                onClick={this.toggleStyleGroup}
-              >
-                <span>
-                  Style
-                  <svg className="tmp-nav__icon">
-                    {styleGroup ? (
-                      <use xlinkHref={`${icons}#ecl-icon--down`} />
-                    ) : (
-                      <use xlinkHref={`${icons}#ecl-icon--right`} />
-                    )}
-                  </svg>
-                </span>
-              </button>
-              <ul className="tmp-nav__list" aria-hidden={!styleGroup}>
-                {pages
-                  .filter(page => page.url.indexOf(`${prefix}/style`) === 0)
-                  .sort((a, b) => a.order > b.order)
-                  .map(page => (
-                    <li key={page.url}>
-                      <NavigationLink
-                        meta={page}
-                        className="tmp-nav__page-list-item"
-                        activeClassName="tmp-nav__page-list-item--active"
-                      >
-                        {page.title}
-                      </NavigationLink>
-                    </li>
-                  ))}
-              </ul>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="tmp-nav__group-list-item"
-                onClick={this.toggleComponentsGroup}
-              >
-                <span>
-                  Components
-                  <svg className="tmp-nav__icon">
-                    {componentsGroup ? (
-                      <use xlinkHref={`${icons}#ecl-icon--down`} />
-                    ) : (
-                      <use xlinkHref={`${icons}#ecl-icon--right`} />
-                    )}
-                  </svg>
-                </span>
-              </button>
-              <ul className="tmp-nav__list" aria-hidden={!componentsGroup}>
-                {pages
-                  .filter(
-                    page => page.url.indexOf(`${prefix}/components`) === 0
-                  )
-                  .map(page => (
-                    <li key={page.url}>
-                      <NavigationLink
-                        meta={page}
-                        className="tmp-nav__page-list-item"
-                        activeClassName="tmp-nav__page-list-item--active"
-                      >
-                        {page.title}
-                      </NavigationLink>
-                    </li>
-                  ))}
-              </ul>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="tmp-nav__group-list-item"
-                onClick={this.toggleTemplatesGroup}
-              >
-                <span>
-                  Templates
-                  <svg className="tmp-nav__icon">
-                    {templatesGroup ? (
-                      <use xlinkHref={`${icons}#ecl-icon--down`} />
-                    ) : (
-                      <use xlinkHref={`${icons}#ecl-icon--right`} />
-                    )}
-                  </svg>
-                </span>
-              </button>
-              <ul className="tmp-nav__list" aria-hidden={!templatesGroup}>
-                {pages
-                  .filter(page => page.url.indexOf(`${prefix}/templates`) === 0)
-                  .sort((a, b) => a.order > b.order)
-                  .map(page => (
-                    <li key={page.url}>
-                      <NavigationLink
-                        meta={page}
-                        className="tmp-nav__page-list-item"
-                        activeClassName="tmp-nav__page-list-item--active"
-                      >
-                        {page.title}
-                      </NavigationLink>
-                    </li>
-                  ))}
-              </ul>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="tmp-nav__group-list-item"
-                onClick={this.toggleGuidelinesGroup}
-              >
-                <span>
-                  Guidelines
-                  <svg className="tmp-nav__icon">
-                    {guidelinesGroup ? (
-                      <use xlinkHref={`${icons}#ecl-icon--down`} />
-                    ) : (
-                      <use xlinkHref={`${icons}#ecl-icon--right`} />
-                    )}
-                  </svg>
-                </span>
-              </button>
-              <ul className="tmp-nav__list" aria-hidden={!guidelinesGroup}>
-                {pages
-                  .filter(
-                    page => page.url.indexOf(`${prefix}/guidelines`) === 0
-                  )
-                  .sort((a, b) => a.order > b.order)
-                  .map(page => (
-                    <li key={page.url}>
-                      <NavigationLink
-                        meta={page}
-                        className="tmp-nav__page-list-item"
-                        activeClassName="tmp-nav__page-list-item--active"
-                      >
-                        {page.title}
-                      </NavigationLink>
-                    </li>
-                  ))}
-              </ul>
-            </li>
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/style`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/style`}
+              title="Style"
+            />
+            <LinkGroup
+              pages={pages.filter(
+                page => page.url.indexOf(`${prefix}/components`) === 0
+              )}
+              groupUrl={`${prefix}/components`}
+              title="Components"
+            />
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/templates`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/templates`}
+              title="Templates"
+            />
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/guidelines`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/guidelines`}
+              title="Guidelines"
+            />
             {pages
               .filter(page => page.url.indexOf(`${prefix}/whats-new`) === 0)
-              .sort((a, b) => a.order > b.order)
               .map(page => (
                 <li key={page.url}>
                   <NavigationLink
@@ -295,40 +111,13 @@ class Navigation extends PureComponent {
                   </NavigationLink>
                 </li>
               ))}
-            <li>
-              <button
-                type="button"
-                className="tmp-nav__group-list-item"
-                onClick={this.toggleResourcesGroup}
-              >
-                <span>
-                  Resources
-                  <svg className="tmp-nav__icon">
-                    {resourcesGroup ? (
-                      <use xlinkHref={`${icons}#ecl-icon--down`} />
-                    ) : (
-                      <use xlinkHref={`${icons}#ecl-icon--right`} />
-                    )}
-                  </svg>
-                </span>
-              </button>
-              <ul className="tmp-nav__list" aria-hidden={!resourcesGroup}>
-                {pages
-                  .filter(page => page.url.indexOf(`${prefix}/resources`) === 0)
-                  .sort((a, b) => a.order > b.order)
-                  .map(page => (
-                    <li key={page.url}>
-                      <NavigationLink
-                        meta={page}
-                        className="tmp-nav__page-list-item"
-                        activeClassName="tmp-nav__page-list-item--active"
-                      >
-                        {page.title}
-                      </NavigationLink>
-                    </li>
-                  ))}
-              </ul>
-            </li>
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/resources`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/resources`}
+              title="Resources"
+            />
           </ul>
         </nav>
       </Fragment>
@@ -337,9 +126,6 @@ class Navigation extends PureComponent {
 }
 
 Navigation.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   sidebarOpen: PropTypes.bool,
   onToggleSidebar: PropTypes.func,
   pages: PropTypes.arrayOf(
@@ -356,4 +142,5 @@ Navigation.defaultProps = {
   onToggleSidebar: () => {},
 };
 
+// Use withRouter to update links when they become active
 export default withRouter(Navigation);
