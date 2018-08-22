@@ -10,6 +10,14 @@ class Navigation extends PureComponent {
   render() {
     const { sidebarOpen, onToggleSidebar, pages, prefix } = this.props;
 
+    const gettingStartedPage = (pages.filter(
+      page => page.url.indexOf(`${prefix}/getting-started`) === 0
+    ) || [])[0];
+
+    const whatNewPage = (pages.filter(
+      page => page.url.indexOf(`${prefix}/whats-new`) === 0
+    ) || [])[0];
+
     return (
       <Fragment>
         <button
@@ -55,21 +63,17 @@ class Navigation extends PureComponent {
             </li>
           </ul>
           <ul className="tmp-nav__list">
-            {pages
-              .filter(
-                page => page.url.indexOf(`${prefix}/getting-started`) === 0
-              )
-              .map(page => (
-                <li key={page.url}>
-                  <NavigationLink
-                    meta={page}
-                    className="tmp-nav__group-list-item"
-                    activeClassName="tmp-nav__group-list-item--active"
-                  >
-                    {page.title}
-                  </NavigationLink>
-                </li>
-              ))}
+            {gettingStartedPage && (
+              <li>
+                <NavigationLink
+                  meta={gettingStartedPage}
+                  className="tmp-nav__group-list-item"
+                  activeClassName="tmp-nav__group-list-item--active"
+                >
+                  {gettingStartedPage.title}
+                </NavigationLink>
+              </li>
+            )}
             <LinkGroup
               pages={pages
                 .filter(page => page.url.indexOf(`${prefix}/style`) === 0)
@@ -98,19 +102,17 @@ class Navigation extends PureComponent {
               groupUrl={`${prefix}/guidelines`}
               title="Guidelines"
             />
-            {pages
-              .filter(page => page.url.indexOf(`${prefix}/whats-new`) === 0)
-              .map(page => (
-                <li key={page.url}>
-                  <NavigationLink
-                    meta={page}
-                    className="tmp-nav__group-list-item"
-                    activeClassName="tmp-nav__group-list-item--active"
-                  >
-                    {page.title}
-                  </NavigationLink>
-                </li>
-              ))}
+            {whatNewPage && (
+              <li>
+                <NavigationLink
+                  meta={whatNewPage}
+                  className="tmp-nav__group-list-item"
+                  activeClassName="tmp-nav__group-list-item--active"
+                >
+                  {whatNewPage.title}
+                </NavigationLink>
+              </li>
+            )}
             <LinkGroup
               pages={pages
                 .filter(page => page.url.indexOf(`${prefix}/resources`) === 0)
