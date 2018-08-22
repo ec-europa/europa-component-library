@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logoHorizontal from './resources/EC-logo-horizontal-desktop.svg';
-import logoMute from './resources/EC_logo-desktop.svg';
+import logoHorizontal from '../../../../resources/logo/EC-logo-horizontal-desktop.svg';
+import logoMute from '../../../../resources/logo/EC_logo-desktop.svg';
 
 const Logo = ({
   variant,
