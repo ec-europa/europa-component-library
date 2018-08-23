@@ -2,7 +2,7 @@
 
 <!-- Button dropdown -->
 <div class="ecl-dropdown" id="dropdown1">
-  {% include '@ecl/ec-component-button' with {
+  {% include '@ecl/ec-twig-component-button' with {
     'label': 'Create',
     'type_attribute': 'button',
     'extra_classes': 'ecl-expandable__button',
@@ -12,7 +12,7 @@
       { 'name': 'id', 'value': 'example-expandable-button1' },
     ]
   } %}
-  {% include '@ecl/ec-component-link-block' with {
+  {% include '@ecl/ec-twig-component-link-block' with {
     'extra_classes': 'ecl-dropdown__body',
     'extra_attributes': [
       { 'name': 'id', 'value': 'example-button-dropdown1'},

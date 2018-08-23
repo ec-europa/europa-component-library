@@ -18,18 +18,18 @@
   <link media="all" rel="stylesheet" href="{{ '/ec-preset-website/styles/ecl-ec-preset-website.css' | path }}">
 </head>
 <body class="{{ bodyClass }}">
-  {% include '@ecl/ec-component-skip-link' with {
+  {% include '@ecl/ec-twig-component-skip-link' with {
       'href': '#main-content',
       'label': 'Skip to main content'
   } %}
-  {% include '@ecl/ec-component-site-header' with {
+  {% include '@ecl/ec-twig-component-site-header' with {
     site_switcher: {
       variant: 'header',
       political: { href: '../../example.html#', label: 'Commission and its priorities' },
       info: { href: '../../example.html#', label: 'Policies, information and services', is_active: true }
     }
   } %}
-  {% include '@ecl/ec-component-page-header' with {
+  {% include '@ecl/ec-twig-component-page-header' with {
     variant: 'default',
     identity: 'Search',
     breadcrumb: [
@@ -41,7 +41,7 @@
     {{ yield }}
   </main>
 
-  {% include '@ecl/ec-component-footer' with {
+  {% include '@ecl/ec-twig-component-footer' with {
     custom_footer: {
       identity: 'Digital single market',
       social_links: {

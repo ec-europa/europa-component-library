@@ -63,11 +63,11 @@
 <div class="{{ _css_class }}"{{ _extra_attributes|raw }}{% if _background_image is not empty %} style="background-image: url('{{ _background_image }}')"{% endif %}>
   <div class="ecl-container">
     {% if _breadcrumb is not empty %}
-      {% include '@ecl/generic-component-breadcrumb' with {
+      {% include '@ecl/generic-twig-component-breadcrumb' with {
         'segments': _breadcrumb,
         'system': _system
       } only %}
-    {% endif %} 
+    {% endif %}
     {% if _identity is not empty or _metas is not empty or _title is not empty or _introduction is not empty %}
     <div class="ecl-page-header__body">
       {% if _identity is not empty %}
@@ -77,7 +77,7 @@
       {% endif %}
       {% if _metas is not empty %}
         <div class="ecl-page-header__meta">
-          {% include '@ecl/generic-component-meta' with {
+          {% include '@ecl/generic-twig-component-meta' with {
             'variant': 'header',
             'metas': _metas
           } only %}

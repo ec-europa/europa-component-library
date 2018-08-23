@@ -73,7 +73,7 @@
       {% if _is_primary == true %}
         {% set _link_variant = 'inverted' %}
       {% endif %}
-      {% include '@ecl/generic-component-link' with {
+      {% include '@ecl/generic-twig-component-link' with {
         'extra_attributes': [
           { 'name': 'hreflang', 'value': _opt.hreflang },
           { 'name': 'lang', 'value': _opt.lang },

@@ -12,7 +12,7 @@
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-about-ec">
           {% for menu_item in corporate_footer.about_ec.items %}
             <li class="ecl-footer__list-item">
-              {% include '@ecl/ec-component-link' with {
+              {% include '@ecl/ec-twig-component-link' with {
                 href: menu_item.href,
                 label: menu_item.label,
                 extra_classes: 'ecl-footer__link',
@@ -30,7 +30,7 @@
           {% for menu_item in corporate_footer.social_media.items %}
             <li class="ecl-footer__list-item">
               {% if menu_item.type == 'social-network' %}
-                {% embed '@ecl/ec-component-link' with {
+                {% embed '@ecl/ec-twig-component-link' with {
                   href: menu_item.link.href,
                   extra_classes: 'ecl-footer__link',
                   variant: 'inverted',
@@ -46,7 +46,7 @@
                   {% endblock %}
                 {% endembed %}
               {% else %}
-                {% include '@ecl/ec-component-link' with {
+                {% include '@ecl/ec-twig-component-link' with {
                   href: menu_item.link.href,
                   label: menu_item.link.label,
                   extra_classes: 'ecl-footer__link',
@@ -64,7 +64,7 @@
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-about-eu">
           {% for menu_item in corporate_footer.about_eu.items %}
             <li class="ecl-footer__list-item">
-              {% include '@ecl/ec-component-link' with {
+              {% include '@ecl/ec-twig-component-link' with {
                 href: menu_item.href,
                 label: menu_item.label,
                 extra_classes: 'ecl-footer__link',
@@ -86,7 +86,7 @@
         <ul class="ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline">
           {% for menu_item in corporate_footer.bottom_links %}
           <li class="ecl-footer__list-item">
-            {% include '@ecl/ec-component-link' with {
+            {% include '@ecl/ec-twig-component-link' with {
               'href': menu_item.href,
               'label': menu_item.label,
               'extra_classes': 'ecl-footer__link',

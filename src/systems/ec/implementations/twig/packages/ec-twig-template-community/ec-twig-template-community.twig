@@ -2,12 +2,12 @@
   This is an example and should not be used as it is.
 #}
 
-{% include '@ecl/ec-component-skip-link' with {
+{% include '@ecl/ec-twig-component-skip-link' with {
   'href': '#main-content',
   'label': 'Skip to main content'
 } %}
 
-{% include '@ecl/ec-component-site-header' with {
+{% include '@ecl/ec-twig-component-site-header' with {
   site_switcher: {
     political: { href: '../../example.html#', label: 'Commission and its priorities' },
     info: {
@@ -26,7 +26,7 @@
   }
 } %}
 
-{% include '@ecl/ec-component-page-header' with {
+{% include '@ecl/ec-twig-component-page-header' with {
   variant: 'basic',
   identity: 'Template community',
   breadcrumb: [
@@ -44,12 +44,12 @@
 
     <div class="ecl-row">
       <div class="ecl-col-md-3">
-        {% include '@ecl/ec-component-form-label' with {
+        {% include '@ecl/ec-twig-component-form-label' with {
           for_attribute: 'create-content',
           label: 'Create content'
         } %}
 
-        {% embed '@ecl/ec-component-form-select' with { 'id': 'create-content', 'name': 'create-content' }%}
+        {% embed '@ecl/ec-twig-component-form-select' with { 'id': 'create-content', 'name': 'create-content' }%}
           {% block options %}
             <option>Article</option>
             <option>Event</option>
@@ -58,7 +58,7 @@
           {% endblock %}
         {% endembed %}
 
-        {% include '@ecl/ec-component-link-block' with {
+        {% include '@ecl/ec-twig-component-link-block' with {
           wrapper: true,
           title: 'Members list',
           links: [
@@ -76,7 +76,7 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elit nisi, scelerisque non elementum ac, placerat in eros. Integer volutpat mi eros. Nunc at nibh eros.
         </p>
 
-        {% include '@ecl/ec-component-gallery' with {
+        {% include '@ecl/ec-twig-component-gallery' with {
           rows: [
             [
               {
@@ -196,7 +196,7 @@
           ]
         } %}
 
-        {% include '@ecl/ec-component-button' with {
+        {% include '@ecl/ec-twig-component-button' with {
           label: "Unsubscribe",
           modifier: "default",
           extra_classes: "ecl-u-mt-m",
@@ -206,7 +206,7 @@
   </div>
 </main>
 
-{% include '@ecl/ec-component-footer' with {
+{% include '@ecl/ec-twig-component-footer' with {
   custom_footer: {
     identity: 'Europa Component Library',
     social_links: {
