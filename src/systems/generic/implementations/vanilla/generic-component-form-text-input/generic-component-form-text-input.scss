@@ -6,30 +6,33 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
-@mixin ecl-text-input() {
+@mixin ecl-text-input(
+  $border-color: $ecl-color-grey-50,
+  $border-width: 1px,
+  $border-color-focus: $ecl-color-secondary,
+  $border-width-focus: 3px,
+  $padding-vertical: $ecl-spacing-s,
+  $padding-horizontal: $ecl-spacing-s
+) {
   .ecl-text-input {
-    background-color: #fff;
+    background-color: $ecl-color-white-100;
     background-image: none;
-    border: 1px solid $ecl-color-shade;
+    border: $border-width solid $border-color;
     box-sizing: border-box;
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: block;
-    font-family: $ecl-font-family-sans-serif;
-    font-size: map-get($ecl-font-size, 's');
-    line-height: 1.6;
+    font: $ecl-font-m;
     margin: 0;
-    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+    padding: $padding-vertical $padding-horizontal;
     width: 100%;
 
-    /* stylelint-disable-next-line plugin/selector-bem-pattern */
-    * + & {
-      margin-top: map-get($ecl-spacing, 'xs');
-    }
-
     &:focus {
-      border-color: map-get($ecl-colors, 'yellow-110');
-      outline: 3px solid map-get($ecl-colors, 'yellow-110');
-      outline-offset: 0;
+      border-color: $border-color-focus;
+      border-width: $border-width-focus;
+      padding: calc(
+          #{$padding-vertical} - #{$border-width-focus} + #{$border-width}
+        )
+        calc(#{$padding-horizontal} - #{$border-width-focus} + #{$border-width});
       text-decoration: none;
     }
 
