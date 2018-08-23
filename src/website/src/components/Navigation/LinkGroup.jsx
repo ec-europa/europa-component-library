@@ -58,7 +58,6 @@ class LinkGroup extends PureComponent {
                 className="tmp-nav__page-list-item"
                 activeClassName="tmp-nav__page-list-item--active"
               >
-                {page.title}{' '}
                 {showStatus && (
                   <Fragment>
                     {page.ready ? (
@@ -80,6 +79,7 @@ class LinkGroup extends PureComponent {
                     )}
                   </Fragment>
                 )}
+                {page.title}
               </NavigationLink>
             </li>
           ))}
