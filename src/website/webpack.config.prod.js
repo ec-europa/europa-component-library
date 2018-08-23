@@ -74,6 +74,11 @@ module.exports = {
             },
           },
           {
+            // CSS imported to showcase components
+            test: /preset-website\.css$/,
+            use: ['style-loader/useable', 'css-loader'],
+          },
+          {
             test: /\.css$/,
             use: [
               {
