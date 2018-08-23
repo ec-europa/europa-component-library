@@ -26,6 +26,9 @@ class ECRoutes extends Component {
   constructor(props) {
     super(props);
 
+    // Load EC CSS
+    import('@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css');
+
     this.state = {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >

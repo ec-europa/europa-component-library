@@ -6,7 +6,6 @@ import { hot } from 'react-hot-loader';
 import 'prismjs/themes/prism.css';
 
 // Hacks and custom styles
-import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 import './hack.css';
 import './styles/custom-grid.css';
 import './styles/app.scss';

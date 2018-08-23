@@ -26,6 +26,9 @@ class EURoutes extends Component {
   constructor(props) {
     super(props);
 
+    // Load EU CSS
+    import('@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css');
+
     this.state = {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
