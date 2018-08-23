@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
-
+import ECStyles from '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 // Layout
 import Navigation from '../components/Navigation/Navigation';
 
@@ -26,9 +26,6 @@ class ECRoutes extends Component {
   constructor(props) {
     super(props);
 
-    // Load EC CSS
-    import('@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css');
-
     this.state = {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
@@ -36,6 +33,14 @@ class ECRoutes extends Component {
     };
 
     this.toggleSidebar = this.toggleSidebar.bind(this);
+  }
+
+  componentDidMount() {
+    ECStyles.use();
+  }
+
+  componentWillUnmount() {
+    ECStyles.unuse();
   }
 
   toggleSidebar() {

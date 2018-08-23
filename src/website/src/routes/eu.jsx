@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import EUStyles from '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css';
+
 // Layout
 import Navigation from '../components/Navigation/Navigation';
 
@@ -26,9 +28,6 @@ class EURoutes extends Component {
   constructor(props) {
     super(props);
 
-    // Load EU CSS
-    import('@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css');
-
     this.state = {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
@@ -36,6 +35,14 @@ class EURoutes extends Component {
     };
 
     this.toggleSidebar = this.toggleSidebar.bind(this);
+  }
+
+  componentDidMount() {
+    EUStyles.use();
+  }
+
+  componentWillUnmount() {
+    EUStyles.unuse();
   }
 
   toggleSidebar() {
