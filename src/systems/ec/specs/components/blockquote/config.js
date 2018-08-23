@@ -6,6 +6,7 @@ export default {
   url: '/ec/components/blockquote',
   title: 'Blockquote',
   section: 'Components',
+  ready: true,
   tabs: [
     {
       name: 'Usage',

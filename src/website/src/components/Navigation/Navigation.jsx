@@ -1,134 +1,22 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Link, NavLink, Switch, withRouter } from 'react-router-dom';
-import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
+import LinkGroup from './LinkGroup';
 import NavigationLink from './NavigationLink';
 import './Navigation.scss';
 
 class Navigation extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    const hasPathname = props && props.location && props.location.pathname;
-
-    this.state = {
-      // EC
-      ECstyle:
-        hasPathname && props.location.pathname.indexOf('/ec/style') === 0,
-      ECcomponents:
-        hasPathname && props.location.pathname.indexOf('/ec/components') === 0,
-      ECtemplates:
-        hasPathname && props.location.pathname.indexOf('/ec/templates') === 0,
-      ECguidelines:
-        hasPathname && props.location.pathname.indexOf('/ec/guidelines') === 0,
-      ECresources:
-        hasPathname && props.location.pathname.indexOf('/ec/resources') === 0,
-
-      // EU
-      EUstyle:
-        hasPathname && props.location.pathname.indexOf('/eu/style') === 0,
-      EUcomponents:
-        hasPathname && props.location.pathname.indexOf('/eu/components') === 0,
-      EUtemplates:
-        hasPathname && props.location.pathname.indexOf('/eu/templates') === 0,
-      EUguidelines:
-        hasPathname && props.location.pathname.indexOf('/eu/guidelines') === 0,
-      EUresources:
-        hasPathname && props.location.pathname.indexOf('/eu/resources') === 0,
-    };
-
-    // EC
-    this.toggleECStyle = this.toggleECStyle.bind(this);
-    this.toggleECComponents = this.toggleECComponents.bind(this);
-    this.toggleECTemplates = this.toggleECTemplates.bind(this);
-    this.toggleECGuidelines = this.toggleECGuidelines.bind(this);
-    this.toggleECResources = this.toggleECResources.bind(this);
-
-    // EU
-    this.toggleEUStyle = this.toggleEUStyle.bind(this);
-    this.toggleEUComponents = this.toggleEUComponents.bind(this);
-    this.toggleEUTemplates = this.toggleEUTemplates.bind(this);
-    this.toggleEUGuidelines = this.toggleEUGuidelines.bind(this);
-    this.toggleEUResources = this.toggleEUResources.bind(this);
-  }
-
-  // EC
-  toggleECStyle() {
-    this.setState(prevState => ({
-      ECstyle: !prevState.ECstyle,
-    }));
-  }
-
-  toggleECComponents() {
-    this.setState(prevState => ({
-      ECcomponents: !prevState.ECcomponents,
-    }));
-  }
-
-  toggleECTemplates() {
-    this.setState(prevState => ({
-      ECtemplates: !prevState.ECtemplates,
-    }));
-  }
-
-  toggleECGuidelines() {
-    this.setState(prevState => ({
-      ECguidelines: !prevState.ECguidelines,
-    }));
-  }
-
-  toggleECResources() {
-    this.setState(prevState => ({
-      ECresources: !prevState.ECresources,
-    }));
-  }
-
-  // EU
-  toggleEUStyle() {
-    this.setState(prevState => ({
-      EUstyle: !prevState.EUstyle,
-    }));
-  }
-
-  toggleEUComponents() {
-    this.setState(prevState => ({
-      EUcomponents: !prevState.EUcomponents,
-    }));
-  }
-
-  toggleEUTemplates() {
-    this.setState(prevState => ({
-      EUtemplates: !prevState.EUtemplates,
-    }));
-  }
-
-  toggleEUGuidelines() {
-    this.setState(prevState => ({
-      EUguidelines: !prevState.EUguidelines,
-    }));
-  }
-
-  toggleEUResources() {
-    this.setState(prevState => ({
-      EUresources: !prevState.EUresources,
-    }));
-  }
-
   render() {
-    const { sidebarOpen, onToggleSidebar, ecPages, euPages } = this.props;
-    const {
-      ECstyle,
-      ECcomponents,
-      ECtemplates,
-      ECguidelines,
-      ECresources,
-      EUstyle,
-      EUcomponents,
-      EUtemplates,
-      EUguidelines,
-      EUresources,
-    } = this.state;
+    const { sidebarOpen, onToggleSidebar, pages, prefix } = this.props;
+
+    const gettingStartedPage = (pages.filter(
+      page => page.url.indexOf(`${prefix}/getting-started`) === 0
+    ) || [])[0];
+
+    const whatNewPage = (pages.filter(
+      page => page.url.indexOf(`${prefix}/whats-new`) === 0
+    ) || [])[0];
 
     return (
       <Fragment>
@@ -174,460 +62,66 @@ class Navigation extends PureComponent {
               </NavLink>
             </li>
           </ul>
-          <Switch>
-            <Route
-              path="/ec/"
-              strict
-              render={() => (
-                <ul className="tmp-nav__list">
-                  {ecPages
-                    .keys()
-                    .filter(key => key.indexOf('./getting-started') === 0)
-                    .map(key => ecPages(key).default)
-                    .filter(meta => meta)
-                    .sort((a, b) => a.order > b.order)
-                    .map(meta => (
-                      <li key={meta.url}>
-                        <NavigationLink
-                          meta={meta}
-                          className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__group-list-item--active"
-                        >
-                          {meta.title}
-                        </NavigationLink>
-                      </li>
-                    ))}
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleECStyle}
-                    >
-                      <span>
-                        Style
-                        <svg className="tmp-nav__icon">
-                          {ECstyle ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!ECstyle}>
-                      {ecPages
-                        .keys()
-                        .filter(key => key.indexOf('./style') === 0)
-                        .map(key => ecPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleECComponents}
-                    >
-                      <span>
-                        Components
-                        <svg className="tmp-nav__icon">
-                          {ECcomponents ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!ECcomponents}>
-                      {ecPages
-                        .keys()
-                        .filter(key => key.indexOf('./components') === 0)
-                        .map(key => ecPages(key).default)
-                        .filter(meta => meta)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleECTemplates}
-                    >
-                      <span>
-                        Templates
-                        <svg className="tmp-nav__icon">
-                          {ECtemplates ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!ECtemplates}>
-                      {ecPages
-                        .keys()
-                        .filter(key => key.indexOf('./templates') === 0)
-                        .map(key => ecPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleECGuidelines}
-                    >
-                      <span>
-                        Guidelines
-                        <svg className="tmp-nav__icon">
-                          {ECguidelines ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!ECguidelines}>
-                      {ecPages
-                        .keys()
-                        .filter(key => key.indexOf('./guidelines') === 0)
-                        .map(key => ecPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  {ecPages
-                    .keys()
-                    .filter(key => key.indexOf('./whats-new') === 0)
-                    .map(key => ecPages(key).default)
-                    .filter(meta => meta)
-                    .sort((a, b) => a.order > b.order)
-                    .map(meta => (
-                      <li key={meta.url}>
-                        <NavigationLink
-                          meta={meta}
-                          className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__group-list-item--active"
-                        >
-                          {meta.title}
-                        </NavigationLink>
-                      </li>
-                    ))}
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleECResources}
-                    >
-                      <span>
-                        Resources
-                        <svg className="tmp-nav__icon">
-                          {ECresources ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!ECresources}>
-                      {ecPages
-                        .keys()
-                        .filter(key => key.indexOf('./resources') === 0)
-                        .map(key => ecPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                </ul>
-              )}
+          <ul className="tmp-nav__list">
+            {gettingStartedPage && (
+              <li>
+                <NavigationLink
+                  meta={gettingStartedPage}
+                  className="tmp-nav__group-list-item"
+                  activeClassName="tmp-nav__group-list-item--active"
+                >
+                  {gettingStartedPage.title}
+                </NavigationLink>
+              </li>
+            )}
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/style`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/style`}
+              title="Style"
             />
-            <Route
-              path="/eu/"
-              strict
-              render={() => (
-                <ul className="tmp-nav__list">
-                  {euPages
-                    .keys()
-                    .filter(key => key.indexOf('./getting-started') === 0)
-                    .map(key => euPages(key).default)
-                    .filter(meta => meta)
-                    .sort((a, b) => a.order > b.order)
-                    .map(meta => (
-                      <li key={meta.url}>
-                        <NavigationLink
-                          meta={meta}
-                          className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__group-list-item--active"
-                        >
-                          {meta.title}
-                        </NavigationLink>
-                      </li>
-                    ))}
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleEUStyle}
-                    >
-                      <span>
-                        Style
-                        <svg className="tmp-nav__icon">
-                          {EUstyle ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!EUstyle}>
-                      {euPages
-                        .keys()
-                        .filter(key => key.indexOf('./style') === 0)
-                        .map(key => euPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleEUComponents}
-                    >
-                      <span>
-                        Components
-                        <svg className="tmp-nav__icon">
-                          {EUcomponents ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!EUcomponents}>
-                      {euPages
-                        .keys()
-                        .filter(key => key.indexOf('./components') === 0)
-                        .map(key => euPages(key).default)
-                        .filter(meta => meta)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleEUTemplates}
-                    >
-                      <span>
-                        Templates
-                        <svg className="tmp-nav__icon">
-                          {EUtemplates ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!EUtemplates}>
-                      {euPages
-                        .keys()
-                        .filter(key => key.indexOf('./templates') === 0)
-                        .map(key => euPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleEUGuidelines}
-                    >
-                      <span>
-                        Guidelines
-                        <svg className="tmp-nav__icon">
-                          {EUguidelines ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!EUguidelines}>
-                      {euPages
-                        .keys()
-                        .filter(key => key.indexOf('./guidelines') === 0)
-                        .map(key => euPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                  {euPages
-                    .keys()
-                    .filter(key => key.indexOf('./whats-new') === 0)
-                    .map(key => euPages(key).default)
-                    .filter(meta => meta)
-                    .sort((a, b) => a.order > b.order)
-                    .map(meta => (
-                      <li key={meta.url}>
-                        <NavigationLink
-                          meta={meta}
-                          className="tmp-nav__group-list-item"
-                          activeClassName="tmp-nav__group-list-item--active"
-                        >
-                          {meta.title}
-                        </NavigationLink>
-                      </li>
-                    ))}
-                  <li>
-                    <button
-                      type="button"
-                      className="tmp-nav__group-list-item"
-                      onClick={this.toggleEUResources}
-                    >
-                      <span>
-                        Resources
-                        <svg className="tmp-nav__icon">
-                          {EUresources ? (
-                            <use xlinkHref={`${icons}#ecl-icon--down`} />
-                          ) : (
-                            <use xlinkHref={`${icons}#ecl-icon--right`} />
-                          )}
-                        </svg>
-                      </span>
-                    </button>
-                    <ul className="tmp-nav__list" aria-hidden={!EUresources}>
-                      {euPages
-                        .keys()
-                        .filter(key => key.indexOf('./resources') === 0)
-                        .map(key => euPages(key).default)
-                        .filter(meta => meta)
-                        .sort((a, b) => a.order > b.order)
-                        .map(meta => (
-                          <li key={meta.url}>
-                            <NavigationLink
-                              meta={meta}
-                              className="tmp-nav__page-list-item"
-                              activeClassName="tmp-nav__page-list-item--active"
-                            >
-                              {meta.title}
-                            </NavigationLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </li>
-                </ul>
+            <LinkGroup
+              pages={pages.filter(
+                page => page.url.indexOf(`${prefix}/components`) === 0
               )}
+              groupUrl={`${prefix}/components`}
+              title="Components"
+              showStatus
             />
-          </Switch>
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/templates`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/templates`}
+              title="Templates"
+            />
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/guidelines`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/guidelines`}
+              title="Guidelines"
+            />
+            {whatNewPage && (
+              <li>
+                <NavigationLink
+                  meta={whatNewPage}
+                  className="tmp-nav__group-list-item"
+                  activeClassName="tmp-nav__group-list-item--active"
+                >
+                  {whatNewPage.title}
+                </NavigationLink>
+              </li>
+            )}
+            <LinkGroup
+              pages={pages
+                .filter(page => page.url.indexOf(`${prefix}/resources`) === 0)
+                .sort((a, b) => a.order > b.order)}
+              groupUrl={`${prefix}/resources`}
+              title="Resources"
+            />
+          </ul>
         </nav>
       </Fragment>
     );
@@ -635,13 +129,15 @@ class Navigation extends PureComponent {
 }
 
 Navigation.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
   sidebarOpen: PropTypes.bool,
   onToggleSidebar: PropTypes.func,
-  ecPages: PropTypes.func.isRequired,
-  euPages: PropTypes.func.isRequired,
+  pages: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ).isRequired,
+  prefix: PropTypes.string.isRequired,
 };
 
 Navigation.defaultProps = {
@@ -649,4 +145,5 @@ Navigation.defaultProps = {
   onToggleSidebar: () => {},
 };
 
+// Use withRouter to update links when they become active
 export default withRouter(Navigation);
