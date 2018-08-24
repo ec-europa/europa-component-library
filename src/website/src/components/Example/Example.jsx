@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TextContainer from '../TextContainer/TextContainer';
+import grid from '../../styles/grid.scss';
 import utilities from '../../styles/utilities.scss';
 
 const Example = ({ children }) => (
   <main id="main-content" tabIndex="-1">
-    <div className={`custom-container ${utilities['pv-xl']}`}>
+    <div className={`${grid.container} ${utilities['pv-xl']}`}>
       <TextContainer>{children}</TextContainer>
     </div>
   </main>

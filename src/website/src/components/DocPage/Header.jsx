@@ -2,11 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import grid from '../../styles/grid.scss';
 import styles from './Header.scss';
 
 const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
   <header className={styles.header}>
-    <div className="custom-container">
+    <div className={grid.container}>
       <h3 className={styles['header__section-header']}>{sectionTitle}</h3>
       <h1 className={styles['header__page-title']}>{pageTitle}</h1>
       <ul className={styles.header__tabs}>

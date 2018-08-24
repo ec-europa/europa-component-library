@@ -6,7 +6,6 @@ import { hot } from 'react-hot-loader';
 // Global styles
 import 'normalize.css/normalize.css';
 import './styles/app.scss';
-import './styles/custom-grid.scss';
 import 'prismjs/themes/prism.css';
 
 // Static routes

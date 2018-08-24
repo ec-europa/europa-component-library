@@ -1,10 +1,10 @@
 @import '@ecl/ec-theme-default/exports/index';
 
-$custom-header-bg-color: #f2f5f9;
-$custom-header-tabs-border-width: 4px;
+$header-bg-color: #f2f5f9;
+$header-tabs-border-width: 4px;
 
 .header {
-  background-color: $custom-header-bg-color;
+  background-color: $header-bg-color;
   margin: 0;
   padding: $ecl-spacing-l 0 0;
 }
@@ -35,7 +35,7 @@ $custom-header-tabs-border-width: 4px;
 }
 
 .header__tabs-item {
-  border-bottom: $custom-header-tabs-border-width solid transparent;
+  border-bottom: $header-tabs-border-width solid transparent;
   color: #000;
   display: block;
   font: $ecl-font-m;
@@ -51,5 +51,5 @@ $custom-header-tabs-border-width: 4px;
 }
 
 .header__tabs-item--active {
-  border-bottom: $custom-header-tabs-border-width solid $ecl-color-yellow-100;
+  border-bottom: $header-tabs-border-width solid $ecl-color-yellow-100;
 }

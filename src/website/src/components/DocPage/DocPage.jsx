@@ -6,6 +6,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import Header from './Header';
 import TextContainer from '../TextContainer/TextContainer';
 
+import grid from '../../styles/grid.scss';
 import utilities from '../../styles/utilities.scss';
 
 const DocPage = ({ component }) => (
@@ -18,7 +19,7 @@ const DocPage = ({ component }) => (
       tabs={component.tabs}
     />
     <main id="main-content" tabIndex="-1">
-      <div className={`custom-container ${utilities['pv-l']}`}>
+      <div className={`${grid.container} ${utilities['pv-l']}`}>
         <TextContainer>
           {component.page ? (
             <component.page />
