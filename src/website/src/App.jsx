@@ -3,11 +3,11 @@ import Helmet from 'react-helmet';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
-import 'prismjs/themes/prism.css';
-
 // Global styles
+import 'normalize.css/normalize.css';
 import './styles/app.scss';
 import './styles/custom-grid.scss';
+import 'prismjs/themes/prism.css';
 
 // Static routes
 import HomePage from './routes/index';
