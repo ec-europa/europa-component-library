@@ -4,6 +4,9 @@ import Helmet from 'react-helmet';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Header from './Header';
+import TextContainer from '../TextContainer/TextContainer';
+
+import utilities from '../../styles/utilities.scss';
 
 const DocPage = ({ component }) => (
   <Fragment>
@@ -15,27 +18,29 @@ const DocPage = ({ component }) => (
       tabs={component.tabs}
     />
     <main id="main-content" tabIndex="-1">
-      <div className="custom-container tmp-u-pv-l tmp-editor">
-        {component.page ? (
-          <component.page />
-        ) : (
-          <Switch>
-            {component.tabs.map(tab => (
+      <div className={`custom-container ${utilities['pv-l']}`}>
+        <TextContainer>
+          {component.page ? (
+            <component.page />
+          ) : (
+            <Switch>
+              {component.tabs.map(tab => (
+                <Route
+                  exact
+                  strict
+                  path={`${component.url}/${tab.url}/`}
+                  component={tab.component}
+                  key={tab.url}
+                />
+              ))}
               <Route
-                exact
-                strict
-                path={`${component.url}/${tab.url}/`}
-                component={tab.component}
-                key={tab.url}
+                render={() => (
+                  <Redirect to={`${component.url}/${component.defaultTab}/`} />
+                )}
               />
-            ))}
-            <Route
-              render={() => (
-                <Redirect to={`${component.url}/${component.defaultTab}/`} />
-              )}
-            />
-          </Switch>
-        )}
+            </Switch>
+          )}
+        </TextContainer>
       </div>
     </main>
   </Fragment>

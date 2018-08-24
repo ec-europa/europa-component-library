@@ -5,10 +5,9 @@ import { hot } from 'react-hot-loader';
 
 import 'prismjs/themes/prism.css';
 
-// Hacks and custom styles
-import './hack.css';
-import './styles/custom-grid.css';
+// Global styles
 import './styles/app.scss';
+import './styles/custom-grid.scss';
 
 // Static routes
 import HomePage from './routes/index';

@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ECStyles from '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
+
 // Layout
 import Navigation from '../components/Navigation/Navigation';
+import MainContainer from '../components/MainContainer/MainContainer';
 
 // Static routes
 import HomePage from '../pages/ec/index';
@@ -60,13 +62,7 @@ class ECRoutes extends Component {
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}
         />
-        <div
-          className={
-            sidebarOpen
-              ? 'tmp-main-container tmp-main-container--with-sidebar'
-              : 'tmp-main-container'
-          }
-        >
+        <MainContainer sidebarOpen={sidebarOpen}>
           <Switch>
             <Route exact strict path="/ec/" component={HomePage} />
             {pages.map(page => (
@@ -79,7 +75,7 @@ class ECRoutes extends Component {
             ))}
             <Route component={PageNotFound} />
           </Switch>
-        </div>
+        </MainContainer>
       </Fragment>
     );
   }

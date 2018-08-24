@@ -4,7 +4,7 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 
 import LinkGroup from './LinkGroup';
 import NavigationLink from './NavigationLink';
-import './Navigation.scss';
+import styles from './Navigation.scss';
 
 class Navigation extends PureComponent {
   render() {
@@ -22,53 +22,57 @@ class Navigation extends PureComponent {
       <Fragment>
         <button
           type="button"
-          className={`tmp-nav__button-toggle${
+          className={`${styles['button-toggle']} ${
             sidebarOpen
-              ? ' tmp-nav__button-toggle--open'
-              : ' tmp-nav__button-toggle--closed'
+              ? styles['button-toggle--open']
+              : styles['button-toggle--closed']
           } `}
           onClick={onToggleSidebar}
         >
-          <span className="tmp-nav__hamburger-box">
-            <span className="tmp-nav__hamburger-inner" />
+          <span className={styles['hamburger-box']}>
+            <span className={styles['hamburger-inner']} />
           </span>
         </button>
-        <nav className={`tmp-nav${sidebarOpen ? '' : ' tmp-nav--closed'} `}>
-          <div className="tmp-nav__header">
-            <Link to="/" className="tmp-nav__logo" title="European Commission">
-              <span className="tmp-nav__logo-sr">European Commission</span>
+        <nav
+          className={`${styles.nav}${
+            sidebarOpen ? '' : ` ${styles['nav--closed']}`
+          }`}
+        >
+          <div className={styles.header}>
+            <Link to="/" className={styles.logo} title="European Commission">
+              <span className={styles['logo-sr']}>European Commission</span>
             </Link>
-            <h2 className="tmp-nav__title">Europa Component Library</h2>
+            <h2 className={styles.title}>Europa Component Library</h2>
           </div>
-          <ul className="tmp-nav__list tmp-nav__system-list">
-            <li className="tmp-nav__system-list-item">
+          <ul className={`${styles.list} ${styles['system-list']}`}>
+            <li className={styles['system-list-item']}>
               <NavLink
                 to="/ec/"
                 strict
-                className="tmp-nav__system-list-item-link"
-                activeClassName="tmp-nav__system-list-item-link--selected"
+                className={styles['system-list-item-link']}
+                activeClassName={styles['system-list-item-link--selected']}
               >
                 EC
               </NavLink>
             </li>
-            <li className="tmp-nav__system-list-item">
+            <li className={styles['system-list-item']}>
               <NavLink
                 to="/eu/"
                 strict
-                className="tmp-nav__system-list-item-link"
-                activeClassName="tmp-nav__system-list-item-link--selected"
+                className={styles['system-list-item-link']}
+                activeClassName={styles['system-list-item-link--selected']}
               >
                 EU
               </NavLink>
             </li>
           </ul>
-          <ul className="tmp-nav__list">
+          <ul className={styles.list}>
             {gettingStartedPage && (
               <li>
                 <NavigationLink
                   meta={gettingStartedPage}
-                  className="tmp-nav__group-list-item"
-                  activeClassName="tmp-nav__group-list-item--active"
+                  className={styles['group-list-item']}
+                  activeClassName={styles['group-list-item--active']}
                 >
                   {gettingStartedPage.title}
                 </NavigationLink>
@@ -107,8 +111,8 @@ class Navigation extends PureComponent {
               <li>
                 <NavigationLink
                   meta={whatNewPage}
-                  className="tmp-nav__group-list-item"
-                  activeClassName="tmp-nav__group-list-item--active"
+                  className={styles['group-list-item']}
+                  activeClassName={styles['group-list-item--active']}
                 >
                   {whatNewPage.title}
                 </NavigationLink>
