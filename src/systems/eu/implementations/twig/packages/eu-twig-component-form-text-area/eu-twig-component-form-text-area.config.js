@@ -1,6 +1,7 @@
-const contextDefault = require('@ecl/generic-twig-component-form-text-area/data/demo--default');
-const contextIsDisabled = require('@ecl/generic-twig-component-form-text-area/data/demo--is-disabled');
-const contextHasError = require('@ecl/generic-twig-component-form-text-area/data/demo--has-error');
+/* eslint-disable import/no-extraneous-dependencies */
+const contextDefault = require('@ecl/eu-specs-text-area/demo/data--default');
+const contextIsDisabled = require('@ecl/eu-specs-text-area/demo/data--is-disabled');
+const contextHasError = require('@ecl/eu-specs-text-area/demo/data--has-error');
 
 module.exports = {
   title: 'Text areas',

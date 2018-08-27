@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const contextDefault = require('@ecl/ec-specs-text-input/demo/data--default');
-const contextDisabled = require('@ecl/ec-specs-text-input/demo/data--disabled');
-const contextWithError = require('@ecl/ec-specs-text-input/demo/data--with-error');
+const contextDefault = require('@ecl/eu-specs-text-input/demo/data--default');
+const contextDisabled = require('@ecl/eu-specs-text-input/demo/data--disabled');
+const contextWithError = require('@ecl/eu-specs-text-input/demo/data--with-error');
 
 module.exports = {
   title: 'Text inputs',

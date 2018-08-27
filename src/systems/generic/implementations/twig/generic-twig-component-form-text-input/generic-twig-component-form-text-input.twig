@@ -18,6 +18,7 @@
 {# Internal properties #}
 
 {% set _type = type|default('text') %}
+{% set _placeholder = placeholder|default('') %}
 {% set _id = id|default('default-id') %}
 {% set _name = name|default('default-name') %}
 {% set _has_error = has_error|default(false) %}
@@ -28,7 +29,7 @@
 {# Internal logic - Process properties #}
 
 {% if _has_error == true %}
-  {% set _css_class = _css_class ~ ' ecl-text-input--has-error' %}
+  {% set _css_class = _css_class ~ ' ecl-text-input--invalid' %}
 {% endif %}
 
 {% if _is_disabled == true %}
@@ -51,6 +52,7 @@
   type="{{ _type }}"
   class="{{ _css_class }}"
   id="{{ _id }}"
+  {% if _placeholder is not empty %}placeholder="{{ _placeholder }}"{% endif %}
   name="{{ _name }}"
   {{ _extra_attributes|raw }}
 />

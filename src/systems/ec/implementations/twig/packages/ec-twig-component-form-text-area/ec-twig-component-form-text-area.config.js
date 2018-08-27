@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const contextDefault = require('@ecl/ec-specs-text-input/demo/data--default');
-const contextDisabled = require('@ecl/ec-specs-text-input/demo/data--disabled');
-const contextWithError = require('@ecl/ec-specs-text-input/demo/data--with-error');
+const contextDefault = require('@ecl/ec-specs-text-area/demo/data--default');
+const contextIsDisabled = require('@ecl/ec-specs-text-area/demo/data--is-disabled');
+const contextHasError = require('@ecl/ec-specs-text-area/demo/data--has-error');
 
 module.exports = {
-  title: 'Text inputs',
-  label: 'Text inputs',
+  title: 'Text areas',
+  label: 'Text areas',
   status: 'ready',
   collated: true,
   collator(markup, item) {
@@ -20,21 +20,19 @@ module.exports = {
       <!-- End: @${item.handle} -->\n
     `;
   },
+  default: 'default',
   variants: [
     {
       name: 'default',
-      label: 'Normal input',
       context: contextDefault,
     },
     {
-      name: 'disabled',
-      label: 'Disabled input',
-      context: contextDisabled,
+      name: 'is-disabled',
+      context: contextIsDisabled,
     },
     {
-      name: 'with-error',
-      label: 'Input with error',
-      context: contextWithError,
+      name: 'has-error',
+      context: contextHasError,
     },
   ],
 };
