@@ -1,34 +1,30 @@
 /* custom grid */
 
-.custom-container {
+.container {
   box-sizing: border-box;
   margin: 0 auto;
   max-width: 100%;
   padding: 0 1rem;
   position: relative;
   width: 480px;
-}
 
-@media (min-width: 768px) {
-  .custom-container {
+  @media (min-width: 768px) {
     width: 768px;
   }
-}
 
-@media (min-width: 1500px) {
-  .custom-container {
+  @media (min-width: 1500px) {
     width: 1140px;
   }
 }
 
-.custom-row {
+.row {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   margin: 0 -1rem;
 }
 
-[class*='custom-col'] {
+.col {
   box-sizing: border-box;
   flex-basis: 0;
   flex-grow: 1;
@@ -40,104 +36,128 @@
   width: 100%;
 }
 
-.custom-col-1\/4 {
+.col-1\/4 {
+  composes: col;
   flex-basis: 25%;
   max-width: 25%; /* IE10+ hack */
 }
-.custom-col-2\/4 {
+.col-2\/4 {
+  composes: col;
   flex-basis: 50%;
   max-width: 50%;
 }
-.custom-col-3\/4 {
+.col-3\/4 {
+  composes: col;
   flex-basis: 75%;
   max-width: 75%;
 }
-.custom-col-4\/4 {
+.col-4\/4 {
+  composes: col;
   flex-basis: 100%;
   max-width: 100%;
 }
 
 @media (min-width: 768px) and (max-width: 1500px) {
-  .custom-col-md-1\/8 {
+  .col-md-1\/8 {
+    composes: col;
     flex-basis: 12.5%;
     max-width: 12.5%;
   }
-  .custom-col-md-2\/8 {
+  .col-md-2\/8 {
+    composes: col;
     flex-basis: 25%;
     max-width: 25%;
   }
-  .custom-col-md-3\/8 {
+  .col-md-3\/8 {
+    composes: col;
     flex-basis: 37.5%;
     max-width: 37.5%;
   }
-  .custom-col-md-4\/8 {
+  .col-md-4\/8 {
+    composes: col;
     flex-basis: 50%;
     max-width: 50%;
   }
-  .custom-col-md-5\/8 {
+  .col-md-5\/8 {
+    composes: col;
     flex-basis: 62.5%;
     max-width: 62.5%;
   }
-  .custom-col-md-6\/8 {
+  .col-md-6\/8 {
+    composes: col;
     flex-basis: 75%;
     max-width: 75%;
   }
-  .custom-col-md-7\/8 {
+  .col-md-7\/8 {
+    composes: col;
     flex-basis: 87.5%;
     max-width: 87.5%;
   }
-  .custom-col-md-8\/8 {
+  .col-md-8\/8 {
+    composes: col;
     flex-basis: 100%;
     max-width: 100%;
   }
 }
 
 @media (min-width: 1500px) {
-  .custom-col-xl-1\/12 {
+  .col-xl-1\/12 {
+    composes: col;
     flex-basis: 8.33%;
     max-width: 8.33%;
   }
-  .custom-col-xl-2\/12 {
+  .col-xl-2\/12 {
+    composes: col;
     flex-basis: 16.67%;
     max-width: 16.67%;
   }
-  .custom-col-xl-3\/12 {
+  .col-xl-3\/12 {
+    composes: col;
     flex-basis: 25%;
     max-width: 25%;
   }
-  .custom-col-xl-4\/12 {
+  .col-xl-4\/12 {
+    composes: col;
     flex-basis: 33.33%;
     max-width: 33.33%;
   }
-  .custom-col-xl-5\/12 {
+  .col-xl-5\/12 {
+    composes: col;
     flex-basis: 41.67%;
     max-width: 41.67%;
   }
-  .custom-col-xl-6\/12 {
+  .col-xl-6\/12 {
+    composes: col;
     flex-basis: 50%;
     max-width: 50%;
   }
-  .custom-col-xl-7\/12 {
+  .col-xl-7\/12 {
+    composes: col;
     flex-basis: 58.33%;
     max-width: 58.33%;
   }
-  .custom-col-xl-8\/12 {
+  .col-xl-8\/12 {
+    composes: col;
     flex-basis: 66.67%;
     max-width: 66.67%;
   }
-  .custom-col-xl-9\/12 {
+  .col-xl-9\/12 {
+    composes: col;
     flex-basis: 75%;
     max-width: 75%;
   }
-  .custom-col-xl-10\/12 {
+  .col-xl-10\/12 {
+    composes: col;
     flex-basis: 83.33%;
     max-width: 83.33%;
   }
-  .custom-col-xl-11\/12 {
+  .col-xl-11\/12 {
+    composes: col;
     flex-basis: 91.67%;
     max-width: 91.67%;
   }
-  .custom-col-xl-12\/12 {
+  .col-xl-12\/12 {
+    composes: col;
     flex-basis: 100%;
     max-width: 100%;
   }

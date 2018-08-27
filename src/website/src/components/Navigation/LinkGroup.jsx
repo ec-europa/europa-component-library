@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
 import NavigationLink from './NavigationLink';
+import styles from './LinkGroup.scss';
 
 class LinkGroup extends PureComponent {
   constructor(props) {
@@ -36,12 +37,12 @@ class LinkGroup extends PureComponent {
       <li>
         <button
           type="button"
-          className="tmp-nav__group-list-item"
+          className={styles['group-list-item']}
           onClick={this.toggleGroup}
         >
           <span>
             {title}
-            <svg className="tmp-nav__icon">
+            <svg className={styles.icon}>
               {isOpen ? (
                 <use xlinkHref={`${icons}#ecl-icon--down`} />
               ) : (
@@ -50,19 +51,19 @@ class LinkGroup extends PureComponent {
             </svg>
           </span>
         </button>
-        <ul className="tmp-nav__list" aria-hidden={!isOpen}>
+        <ul className={styles.list} aria-hidden={!isOpen}>
           {pages.map(page => (
             <li key={page.url}>
               <NavigationLink
                 meta={page}
-                className="tmp-nav__page-list-item"
-                activeClassName="tmp-nav__page-list-item--active"
+                className={styles['page-list-item']}
+                activeClassName={styles['page-list-item--active']}
               >
                 {showStatus && (
                   <Fragment>
                     {page.ready ? (
                       <span
-                        className="tmp-nav__page-status"
+                        className={styles['page-status']}
                         style={{
                           backgroundColor: '#467a39',
                         }}
@@ -70,7 +71,7 @@ class LinkGroup extends PureComponent {
                       />
                     ) : (
                       <span
-                        className="tmp-nav__page-status"
+                        className={styles['page-status']}
                         style={{
                           backgroundColor: '#f29527',
                         }}

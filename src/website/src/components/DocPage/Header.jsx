@@ -2,22 +2,23 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './Header.scss';
+import grid from '../../styles/grid.scss';
+import styles from './Header.scss';
 
 const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
-  <header className="tmp-component-header">
-    <div className="custom-container">
-      <h3 className="tmp-component-header__section-header">{sectionTitle}</h3>
-      <h1 className="tmp-component-header__page-title">{pageTitle}</h1>
-      <ul className="tmp-component-header__tabs">
+  <header className={styles.header}>
+    <div className={grid.container}>
+      <h3 className={styles['header__section-header']}>{sectionTitle}</h3>
+      <h1 className={styles['header__page-title']}>{pageTitle}</h1>
+      <ul className={styles.header__tabs}>
         {tabs &&
           tabs.map(tab => (
             <li key={tab.url}>
               <NavLink
                 to={`${component.url}/${tab.url}/`}
                 strict
-                className="tmp-component-header__tabs-item"
-                activeClassName="tmp-component-header__tabs-item--active"
+                className={styles['header__tabs-item']}
+                activeClassName={styles['header__tabs-item--active']}
               >
                 {tab.name}
               </NavLink>

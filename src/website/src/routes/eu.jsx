@@ -5,6 +5,7 @@ import EUStyles from '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.c
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
+import MainContainer from '../components/MainContainer/MainContainer';
 
 // Static routes
 import HomePage from '../pages/eu/index';
@@ -62,13 +63,7 @@ class EURoutes extends Component {
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}
         />
-        <div
-          className={
-            sidebarOpen
-              ? 'tmp-main-container tmp-main-container--with-sidebar'
-              : 'tmp-main-container'
-          }
-        >
+        <MainContainer sidebarOpen={sidebarOpen}>
           <Switch>
             <Route exact strict path="/eu/" component={HomePage} />
             {pages.map(page => (
@@ -81,7 +76,7 @@ class EURoutes extends Component {
             ))}
             <Route component={PageNotFound} />
           </Switch>
-        </div>
+        </MainContainer>
       </Fragment>
     );
   }
