@@ -7,45 +7,50 @@
 @import '@ecl/generic-base/generic-base';
 
 @mixin ecl-text-input(
-  $border-color: $ecl-color-grey-50,
+  $border-color: $ecl-color-grey-100,
   $border-width: 1px,
   $border-color-focus: $ecl-color-secondary,
   $border-width-focus: 3px,
+  $max-width: 31.25rem,
+  $min-width: 15rem,
   $padding-vertical: $ecl-spacing-s,
   $padding-horizontal: $ecl-spacing-s
 ) {
   .ecl-text-input {
     background-color: $ecl-color-white-100;
-    background-image: none;
     border: $border-width solid $border-color;
     box-sizing: border-box;
     color: $ecl-color-text;
     display: block;
     font: $ecl-font-m;
     margin: 0;
-    padding: $padding-vertical $padding-horizontal;
+    max-width: $max-width;
+    min-width: $min-width;
+    padding: calc(#{$padding-vertical} - #{$border-width})
+      calc(#{$padding-horizontal} - #{$border-width});
     width: 100%;
 
     &:focus {
       border-color: $border-color-focus;
       border-width: $border-width-focus;
-      padding: calc(
-          #{$padding-vertical} - #{$border-width-focus} + #{$border-width}
-        )
-        calc(#{$padding-horizontal} - #{$border-width-focus} + #{$border-width});
-      text-decoration: none;
+      outline-width: 0;
+      padding: calc(#{$padding-vertical} - #{$border-width-focus})
+        calc(#{$padding-horizontal} - #{$border-width-focus});
     }
 
     &[disabled],
     &[readonly] {
-      background-color: #eee;
+      background-color: $ecl-color-grey-10;
       cursor: not-allowed;
       opacity: 1;
     }
   }
 
-  .ecl-text-input--has-error {
+  .ecl-text-input:invalid,
+  .ecl-text-input--invalid {
     border-color: $ecl-color-error;
-    border-width: 2px;
+    border-width: 1px;
+    box-shadow: none;
+    color: $ecl-color-error;
   }
 }
