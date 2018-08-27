@@ -22,13 +22,13 @@
 {% set _has_error = has_error|default(false) %}
 {% set _is_disabled = is_disabled|default(false) %}
 {% set _rows = rows|default(4) %}
-{% set _css_class = 'ecl-textarea' %}
+{% set _css_class = 'ecl-text-area' %}
 {% set _extra_attributes = '' %}
 
 {# Internal logic - Process properties #}
 
 {% if _has_error == true %}
-  {% set _css_class = _css_class ~ ' ecl-textarea--has-error' %}
+  {% set _css_class = _css_class ~ ' ecl-text-area--has-error' %}
 {% endif %}
 
 {% if _is_disabled == true %}

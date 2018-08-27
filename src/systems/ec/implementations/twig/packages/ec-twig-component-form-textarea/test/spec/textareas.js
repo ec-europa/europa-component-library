@@ -5,7 +5,7 @@ describe('ecl-forms-textareas', () => {
       height: 300,
     });
 
-    browser.goToComponent('ec-component-form-textarea');
+    browser.goToComponent('ec-component-form-text-area');
     browser.injectAxeCore();
     browser.pause(500);
   });
@@ -19,7 +19,7 @@ describe('ecl-forms-textareas', () => {
   });
 
   it('should be accessible', () => {
-    const a11yReport = browser.runAxeCore('ecl-textarea').value;
+    const a11yReport = browser.runAxeCore('ecl-text-area').value;
     expect(a11yReport).to.be.accessible;
   });
 });

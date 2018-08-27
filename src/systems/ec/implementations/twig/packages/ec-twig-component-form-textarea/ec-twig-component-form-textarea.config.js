@@ -1,6 +1,6 @@
-const contextDefault = require('@ecl/generic-twig-component-form-textarea/data/demo--default');
-const contextIsDisabled = require('@ecl/generic-twig-component-form-textarea/data/demo--is-disabled');
-const contextHasError = require('@ecl/generic-twig-component-form-textarea/data/demo--has-error');
+const contextDefault = require('@ecl/generic-twig-component-form-text-area/data/demo--default');
+const contextIsDisabled = require('@ecl/generic-twig-component-form-text-area/data/demo--is-disabled');
+const contextHasError = require('@ecl/generic-twig-component-form-text-area/data/demo--has-error');
 
 module.exports = {
   title: 'Text areas',
