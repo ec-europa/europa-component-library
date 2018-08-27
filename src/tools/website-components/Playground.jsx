@@ -5,20 +5,20 @@ import PropTypes from 'prop-types';
 import Prism from 'prismjs';
 import { html as beautifyHtml } from 'js-beautify';
 
-import './Playground.scss';
+import styles from './Playground.scss';
 
 const Playground = ({ playgroundLink, children }) => {
   if (!children) return null;
 
   return (
-    <div className="tmp-playground">
-      <div className="tmp-playground__showcase">{children}</div>
-      <ul className="tmp-playground__links">
+    <div className={styles.playground}>
+      <div className={styles.showcase}>{children}</div>
+      <ul className={styles.links}>
         <li>
           {playgroundLink && (
             <a
               href={playgroundLink}
-              className="tmp-playground__link"
+              className={styles.link}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -27,8 +27,8 @@ const Playground = ({ playgroundLink, children }) => {
           )}
         </li>
       </ul>
-      <div className="tmp-playground__code">
-        <pre className="tmp-playground__code-pre language-html">
+      <div className={styles.code}>
+        <pre className={`${styles['code-pre']} language-html`}>
           <code
             className="language-html"
             dangerouslySetInnerHTML={{
