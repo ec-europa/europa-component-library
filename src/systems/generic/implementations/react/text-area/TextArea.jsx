@@ -8,7 +8,7 @@ const TextArea = ({
   invalid,
   name,
   placeholder,
-  type,
+  rows,
   extraClasses,
   extraAttributes,
   ...props
@@ -23,7 +23,7 @@ const TextArea = ({
       {...props}
       id={id}
       name={name || undefined}
-      type={type}
+      rows={rows}
       placeholder={placeholder || undefined}
       className={classes}
       disabled={disabled}
@@ -38,7 +38,7 @@ TextArea.propTypes = {
   invalid: PropTypes.bool,
   name: PropTypes.string,
   placeholder: PropTypes.string,
-  type: PropTypes.string,
+  rows: PropTypes.number,
   extraClasses: PropTypes.string,
   extraAttributes: PropTypes.string,
 };
@@ -48,7 +48,7 @@ TextArea.defaultProps = {
   invalid: false,
   name: '',
   placeholder: '',
-  type: 'text',
+  rows: 4,
   extraClasses: '',
   extraAttributes: '',
 };

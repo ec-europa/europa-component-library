@@ -4,8 +4,8 @@ import usage from './docs/usage.md';
 
 export default {
   ready: true,
-  url: '/ec/components/text-input',
-  title: 'Text input',
+  url: '/ec/components/text-area',
+  title: 'Text area',
   section: 'Components',
   tabs: [
     {

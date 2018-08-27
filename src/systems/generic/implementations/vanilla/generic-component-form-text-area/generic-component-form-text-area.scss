@@ -6,49 +6,56 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
-@mixin ecl-text-area() {
+@mixin ecl-text-area(
+  $border-color: $ecl-color-grey-100,
+  $border-width: 1px,
+  $border-color-focus: $ecl-color-secondary,
+  $border-width-focus: 3px,
+  $max-width: 36.25rem,
+  $min-width: 15rem,
+  $padding-vertical: $ecl-spacing-s,
+  $padding-horizontal: $ecl-spacing-s
+) {
   .ecl-text-area {
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid $ecl-color-shade;
+    background-color: $ecl-color-white-100;
+    border: $border-width solid $border-color;
+    border-radius: 0;
     box-sizing: border-box;
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: block;
-    font-family: $ecl-font-family-sans-serif;
-    font-size: map-get($ecl-font-size, 's');
-    line-height: 1.6;
+    font: $ecl-font-m;
     margin: 0;
-    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+    max-width: $max-width;
+    min-width: $min-width;
+    padding: calc(#{$padding-vertical} - #{$border-width})
+      calc(#{$padding-horizontal} - #{$border-width});
     width: 100%;
 
-    /* stylelint-disable-next-line plugin/selector-bem-pattern */
-    * + & {
-      margin-top: map-get($ecl-spacing, 'xs');
-    }
-
     &:focus {
-      border-color: map-get($ecl-colors, 'yellow-110');
-      outline: 3px solid map-get($ecl-colors, 'yellow-110');
-      outline-offset: 0;
-      text-decoration: none;
-    }
-
-    &[disabled],
-    &--is-disabled,
-    &[readonly],
-    &--is-readonly {
-      background-color: #eee;
-      cursor: not-allowed;
-      opacity: 1;
+      border-color: $border-color-focus;
+      border-width: $border-width-focus;
+      outline: none;
+      padding: calc(#{$padding-vertical} - #{$border-width-focus})
+        calc(#{$padding-horizontal} - #{$border-width-focus});
     }
   }
 
-  .ecl-text-area--has-error {
+  .ecl-text-area[disabled],
+  .ecl-text-area--disabled,
+  .ecl-text-area[readonly],
+  .ecl-text-area--readonly {
+    background-color: $ecl-color-grey-10;
+    cursor: not-allowed;
+  }
+
+  .ecl-text-area--invalid {
     border-color: $ecl-color-error;
+    border-width: 1px;
+    box-shadow: none;
+    color: $ecl-color-error;
 
     &:focus {
-      border-color: darken($ecl-color-error, 10%);
-      outline-color: darken($ecl-color-error, 10%);
+      border-width: 3px;
     }
   }
 }

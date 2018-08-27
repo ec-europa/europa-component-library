@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, text } from '@storybook/addon-knobs/react';
 import { configureA11y } from '@storybook/addon-a11y';
 
-import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
+import demoContentDefault from '@ecl/eu-specs-text-area/demo/data--default';
 
 import TextArea from '../TextArea';
 import './index.scss';
