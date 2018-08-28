@@ -2,9 +2,9 @@ import Playground from '@ecl/website-components/Playground'
 import Icon from '@ecl/ec-react-component-icon/Icon'
 
 import svgSprite from "@ecl/ec-resources/icons/svgsprite.svg"
-import svgSprite2 from "@ecl/ec-resources/icons/symbol-defs.svg"
 
 import demoContentFacebook from '@ecl/ec-specs-icon/demo/data--facebook';
+import demoContentAudio from '@ecl/ec-specs-icon/demo/data--audio';
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Icon&selectedStory=facebook&stories=0">
   <Icon
@@ -17,8 +17,8 @@ import demoContentFacebook from '@ecl/ec-specs-icon/demo/data--facebook';
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Icon&selectedStory=facebook&stories=0">
   <Icon
     variant=""
-    iconPath={svgSprite2}
-    icon="ecl-icon--facebook"
+    iconPath={svgSprite}
+    icon={demoContentAudio.icon}
   />
 </Playground>
 

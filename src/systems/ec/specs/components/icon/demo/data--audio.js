@@ -1,4 +1,4 @@
 // Simple content for demo
 module.exports = {
-  icon: 'twitter',
+  icon: 'Icon_Audio',
 };
