@@ -10,10 +10,12 @@
   .ecl-form-label {
     color: $ecl-color-shade;
     display: block;
-    font-size: map-get($ecl-font-size, 's');
-    font-weight: bold;
-    margin-bottom: 0;
+    font: $ecl-font-s;
+    margin: 0;
     padding: 0;
-    text-align: left;
+  }
+
+  .ecl-form-label--invalid {
+    color: $ecl-color-error;
   }
 }
