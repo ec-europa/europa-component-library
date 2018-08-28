@@ -8,12 +8,15 @@
 
 @mixin ecl-form-label() {
   .ecl-form-label {
+    box-sizing: border-box;
     color: $ecl-color-shade;
     display: block;
-    font-size: map-get($ecl-font-size, 's');
-    font-weight: bold;
-    margin-bottom: 0;
+    font: $ecl-font-m;
+    margin: 0;
     padding: 0;
-    text-align: left;
+  }
+
+  .ecl-form-label--invalid {
+    color: $ecl-color-error;
   }
 }
