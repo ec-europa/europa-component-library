@@ -18,6 +18,7 @@ aliases:
   _FONT_PROLONGED_XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_XL}/{!LINE_HEIGHT_PROLONGED_XL} {!FONT_FAMILY}'
   _FONT_WEIGHT_REGULAR: '{!FONT_WEIGHT_REGULAR}'
   _FONT_WEIGHT_BOLD: '{!FONT_WEIGHT_BOLD}'
+  _FONT_FAMILY: '{!FONT_FAMILY}'
 
 # Export properties
 props:
@@ -89,5 +90,10 @@ props:
   - name: FONT_WEIGHT_BOLD
     value: '{!_FONT_WEIGHT_BOLD}'
     comment: Font weight bold
+    type: font
+    category: font
+  - name: FONT_FAMILY
+    value: '{!_FONT_FAMILY}'
+    comment: Font family
     type: font
     category: font

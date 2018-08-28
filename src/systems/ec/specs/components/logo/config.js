@@ -6,6 +6,7 @@ export default {
   url: '/ec/components/logo',
   title: 'Logo',
   section: 'Components',
+  ready: true,
   tabs: [
     {
       name: 'Usage',

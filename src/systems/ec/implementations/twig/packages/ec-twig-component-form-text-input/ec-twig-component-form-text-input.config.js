@@ -1,6 +1,7 @@
-const contextDefault = require('@ecl/generic-twig-component-form-text-input/data/demo--default');
-const contextDisabled = require('@ecl/generic-twig-component-form-text-input/data/demo--disabled');
-const contextWithError = require('@ecl/generic-twig-component-form-text-input/data/demo--with-error');
+/* eslint-disable import/no-extraneous-dependencies */
+const contextDefault = require('@ecl/ec-specs-text-input/demo/data--default');
+const contextDisabled = require('@ecl/ec-specs-text-input/demo/data--disabled');
+const contextWithError = require('@ecl/ec-specs-text-input/demo/data--with-error');
 
 module.exports = {
   title: 'Text inputs',

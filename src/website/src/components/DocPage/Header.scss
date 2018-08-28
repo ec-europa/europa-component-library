@@ -1,15 +1,15 @@
 @import '@ecl/ec-theme-default/exports/index';
 
-$custom-header-bg-color: #f2f5f9;
-$custom-header-tabs-border-width: 4px;
+$header-bg-color: #f2f5f9;
+$header-tabs-border-width: 4px;
 
-.tmp-component-header {
-  background-color: $custom-header-bg-color;
+.header {
+  background-color: $header-bg-color;
   margin: 0;
   padding: $ecl-spacing-l 0 0;
 }
 
-.tmp-component-header__page-title {
+.header__page-title {
   color: #000;
   font: $ecl-font-4-xl;
   font-weight: $ecl-font-weight-bold;
@@ -17,7 +17,7 @@ $custom-header-tabs-border-width: 4px;
   padding: 0;
 }
 
-.tmp-component-header__section-header {
+.header__section-header {
   color: #000;
   font: $ecl-font-xl;
   font-weight: $ecl-font-weight-bold;
@@ -25,7 +25,7 @@ $custom-header-tabs-border-width: 4px;
   padding: 0;
 }
 
-.tmp-component-header__tabs {
+.header__tabs {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -34,8 +34,8 @@ $custom-header-tabs-border-width: 4px;
   padding: 0;
 }
 
-.tmp-component-header__tabs-item {
-  border-bottom: $custom-header-tabs-border-width solid transparent;
+.header__tabs-item {
+  border-bottom: $header-tabs-border-width solid transparent;
   color: #000;
   display: block;
   font: $ecl-font-m;
@@ -45,11 +45,11 @@ $custom-header-tabs-border-width: 4px;
   text-decoration: none;
 }
 
-.tmp-component-header__tabs-item:hover,
-.tmp-component-header__tabs-item:focus {
+.header__tabs-item:hover,
+.header__tabs-item:focus {
   background-color: $ecl-color-grey-15;
 }
 
-.tmp-component-header__tabs-item--active {
-  border-bottom: $custom-header-tabs-border-width solid $ecl-color-yellow-100;
+.header__tabs-item--active {
+  border-bottom: $header-tabs-border-width solid $ecl-color-yellow-100;
 }
