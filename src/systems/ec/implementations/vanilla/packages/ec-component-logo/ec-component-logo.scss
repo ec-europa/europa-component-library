@@ -9,29 +9,16 @@
 @mixin ecl-logo() {
   .ecl-logo {
     display: block;
-    margin: 0;
-  }
-
-  .ecl-logo--horizontal {
     height: 3rem;
+    margin: 0;
     width: 11.25rem;
-  }
-
-  .ecl-logo--mute {
-    height: 3.75rem;
-    width: 7.5rem;
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(sm) {
-    .ecl-logo--horizontal {
+    .ecl-logo {
       height: 4.5rem;
       width: 17rem;
-    }
-
-    .ecl-logo--mute {
-      height: 5.5rem;
-      width: 11.25rem;
     }
   }
 }
