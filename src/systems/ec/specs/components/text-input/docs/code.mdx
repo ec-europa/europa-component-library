@@ -1,0 +1,23 @@
+import Playground from '@ecl/website-components/Playground'
+import TextInput from '@ecl/ec-react-component-text-input/TextInput'
+
+import demoContentDefault from '../demo/data--default';
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=TextInput&selectedStory=default&stories=0">
+  <TextInput
+    id="text-input-id"
+    name="text-input-name"
+    type="text"
+    placeholder={demoContentDefault.placeholder}
+  />
+</Playground>
+
+The component expects 7 parameters:
+
+- variant (string)
+- id (string)
+- name (string)
+- type (string)
+- placeholder (string)
+- (optional) extraClasses (string)
+- (optional) extraAttributes (string)
