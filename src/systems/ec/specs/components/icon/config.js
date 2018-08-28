@@ -6,6 +6,7 @@ export default {
   url: '/ec/components/icon',
   title: 'Icon',
   section: 'Components',
+  ready: true,
   tabs: [
     {
       name: 'Usage',
