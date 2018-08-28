@@ -1,12 +1,11 @@
 {
-  "name": "@ecl/ec-twig-component-form-label",
+  "name": "@ecl/generic-react-component-label",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.0",
-  "description": "ECL Form Labels",
-  "dependencies": {
-    "@ecl/ec-specs-label": "^2.0.0-alpha.0"
-  },
+  "description": "ECL Generic React Label",
+  "main": "Label.jsx",
+  "module": "Label.jsx",
   "publishConfig": {
     "access": "public"
   },
@@ -21,6 +20,12 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
-  ]
+    "design-system",
+    "react"
+  ],
+  "peerDependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "prop-types": "^15.6.2"
+  }
 }

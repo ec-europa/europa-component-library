@@ -1,0 +1,15 @@
+import Playground from '@ecl/website-components/Playground'
+import Label from '@ecl/ec-react-component-label/Label'
+import demoContentDefault from '../demo/data';
+
+## Default state
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Label&selectedStory=default&stories=0">
+  <Label>{demoContentDefault.label}</Label>
+</Playground>
+
+## With error
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Label&selectedStory=default&stories=0">
+  <Label invalid>{demoContentDefault.label}</Label>
+</Playground>

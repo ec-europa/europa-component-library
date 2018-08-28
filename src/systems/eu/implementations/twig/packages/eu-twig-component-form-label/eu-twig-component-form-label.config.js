@@ -1,4 +1,4 @@
-const context = require('@ecl/ec-specs-label/demo/data');
+const context = require('@ecl/eu-specs-label/demo/data');
 
 module.exports = {
   title: 'Labels',
