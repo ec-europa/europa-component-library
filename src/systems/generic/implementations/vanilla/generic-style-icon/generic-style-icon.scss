@@ -10,15 +10,16 @@
 @import './variables';
 @import './mixins';
 
-@mixin ecl-icons($highlight-background: $ecl-color-secondary) {
+@mixin ecl-icons(
+  $_highlight-background: $ecl-color-secondary,
+  $_highlight-color: $ecl-color-black-100,
+  $_color-primary: $ecl-color-primary,
+  $_color-inverted: $ecl-color-white-100,
+  $_color-default: currentColor
+) {
   .ecl-icon {
+    fill: $_color-default;
     margin: 0;
-  }
-
-  .ecl-icon--highlight {
-    background-color: $highlight-background;
-    border-radius: 50%;
-    padding: $ecl-spacing-xs;
   }
 
   .ecl-icon--xs {
@@ -44,5 +45,20 @@
   .ecl-icon--xl {
     height: $ecl-icon-xl;
     width: $ecl-icon-xl;
+  }
+
+  .ecl-icon--primary {
+    fill: $_color-primary;
+  }
+
+  .ecl-icon--inverted {
+    fill: $_color-inverted;
+  }
+
+  .ecl-icon--highlight {
+    background-color: $_highlight-background;
+    border-radius: 50%;
+    fill: $_highlight-color;
+    padding: $ecl-spacing-xs;
   }
 }

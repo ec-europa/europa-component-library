@@ -19,12 +19,20 @@ const sizes = {
 };
 const defaultSize = 'm';
 
+const colors = {
+  Default: '',
+  Inverted: 'inverted',
+  Primary: 'primary',
+};
+const defaultColor = '';
+
 storiesOf('Icon', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <Icon
       variant=""
       size={selectV2('Size', sizes, defaultSize)}
+      color={selectV2('Color', colors, defaultColor)}
       iconPath={svgSprite}
       icon={demoContentAudio.icon}
     />
