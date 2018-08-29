@@ -1,9 +1,9 @@
 {
-  "name": "@ecl/ec-specs-banner",
+  "name": "@ecl/ec-react-component-hero-banner",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.0",
-  "description": "ECL Banner Specs",
+  "description": "ECL EC React Hero Banner",
   "publishConfig": {
     "access": "public"
   },
@@ -18,6 +18,15 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
-  ]
+    "design-system",
+    "react"
+  ],
+  "devDependencies": {
+    "@ecl/ec-specs-hero-banner": "^2.0.0-alpha.0"
+  },
+  "peerDependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "prop-types": "^15.6.2"
+  }
 }

@@ -1,0 +1,45 @@
+import Playground from '@ecl/website-components/Playground'
+import HeroBanner from '@ecl/ec-react-component-hero-banner/HeroBanner'
+
+import demoContentImage from '../demo/data--image';
+import demoContentImageShade from '../demo/data--image-shade';
+import demoContentPrimary from '../demo/data--primary';
+import demoContentDefault from '../demo/data--default';
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=image&stories=0">
+  <HeroBanner
+    variant="image"
+    title={demoContentImage.title}
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=image-shade&stories=0">
+  <HeroBanner
+    variant="image-shade"
+    title={demoContentImageShade.title}
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=primary&stories=0">
+  <HeroBanner
+    variant="primary"
+    title={demoContentPrimary.title}
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=default&stories=0">
+  <HeroBanner
+    variant="default"
+    title={demoContentDefault.title}
+  />
+</Playground>
+
+The component expects 7 parameters:
+
+- variant (string)
+- position (string)
+- title (string)
+- description (string)
+- button (string)
+- (optional) extraClasses (string)
+- (optional) extraAttributes (string)
