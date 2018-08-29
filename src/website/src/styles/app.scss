@@ -28,4 +28,72 @@
   main:focus {
     outline: none;
   }
+
+  h1 {
+    color: #000;
+    font: $ecl-font-4-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    color: #000;
+    font: $ecl-font-3-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    color: $ecl-color-text;
+    font: $ecl-font-2-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  h4 {
+    color: $ecl-color-text;
+    font: $ecl-font-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  h5 {
+    color: $ecl-color-text;
+    font: $ecl-font-l;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    color: $ecl-color-text;
+    font: $ecl-font-prolonged-m;
+    margin: 0;
+    max-width: 38em;
+    padding: 0;
+  }
+
+  * + h1 {
+    margin-top: $ecl-spacing-2-xl;
+  }
+
+  * + h2 {
+    margin-top: $ecl-spacing-xl;
+  }
+
+  * + h3 {
+    margin-top: $ecl-spacing-l;
+  }
+
+  * + p {
+    margin-top: $ecl-spacing-m;
+  }
+
+  h1 + p {
+    margin-top: $ecl-spacing-l;
+  }
 }
