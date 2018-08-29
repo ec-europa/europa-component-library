@@ -3,28 +3,34 @@ import Icon from '@ecl/ec-react-component-icon/Icon'
 
 import svgSprite from "@ecl/ec-resources/icons/svgsprite.svg"
 
-import demoContentFacebook from '@ecl/ec-specs-icon/demo/data--facebook';
 import demoContentAudio from '@ecl/ec-specs-icon/demo/data--audio';
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Icon&selectedStory=facebook&stories=0">
-  <Icon
-    variant=""
-    iconPath={svgSprite}
-    icon={demoContentFacebook.icon}
-  />
-</Playground>
+## Default icon
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Icon&selectedStory=facebook&stories=0">
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Icon&selectedStory=default&stories=0">
   <Icon
     variant=""
+    size="l"
     iconPath={svgSprite}
     icon={demoContentAudio.icon}
   />
 </Playground>
 
-The component expects 5 parameters:
+## Higlighted icon
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Icon&selectedStory=highlight&stories=0">
+  <Icon
+    variant="highlight"
+    size="l"
+    iconPath={svgSprite}
+    icon={demoContentAudio.icon}
+  />
+</Playground>
+
+The component expects 6 parameters:
 
 - variant (string)
+- size (string)
 - iconPath (string)
 - icon (string)
 - (optional) extraClasses (string)
