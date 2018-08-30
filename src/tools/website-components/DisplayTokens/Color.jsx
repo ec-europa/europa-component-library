@@ -21,22 +21,59 @@ class Color extends PureComponent {
 
   render() {
     const { tokenKey, tokenProps } = this.props;
+    const { docs = {} } = tokenProps;
+
+    console.log(docs);
 
     return (
-      <figure>
-        <figcaption>
-          {tokenKey}: {tokenProps.value}
-        </figcaption>
-        <svg
-          width="3em"
-          height="3em"
-          aria-label={tokenProps.value}
-          id={tokenKey}
-          data-clipboard-text={tokenProps.value}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: tokenProps.value,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: '2rem 0',
+          }}
         >
-          <rect fill={tokenProps.value} width="100%" height="100%" />
-        </svg>
-      </figure>
+          <h3
+            style={{
+              color: docs.complementColor,
+            }}
+          >
+            {docs.title || tokenKey}
+          </h3>
+          <button
+            type="button"
+            id={tokenKey}
+            data-clipboard-text={tokenProps.value}
+            style={{
+              background: 'none',
+              border: `1px solid ${docs.complementColor}`,
+              color: docs.complementColor,
+              padding: '0.5rem 0.75rem',
+              marginTop: '1rem',
+            }}
+          >
+            {tokenProps.value}
+          </button>
+        </div>
+        {docs.description && (
+          <div
+            style={{
+              backgroundColor: '#f3f3f3',
+              padding: '1rem',
+            }}
+          >
+            {docs.description}
+          </div>
+        )}
+      </div>
     );
   }
 }

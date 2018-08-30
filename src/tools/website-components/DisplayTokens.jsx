@@ -6,12 +6,17 @@ import Color from './DisplayTokens/Color';
 
 class DisplayTokens extends PureComponent {
   render() {
-    const { tokens, category } = this.props;
+    const { tokens, category, name } = this.props;
 
     return (
       <ul>
         {Object.keys(tokens.props)
-          .filter(key => !category || tokens.props[key].category === category)
+          .filter(
+            key =>
+              (!category && !name) ||
+              (category && tokens.props[key].category === category) ||
+              (name && tokens.props[key].name === name)
+          )
           .map(key => (
             <li key={key}>
               {tokens.props[key].type === 'color' ? (
@@ -33,11 +38,13 @@ DisplayTokens.propTypes = {
     props: PropTypes.object,
   }),
   category: PropTypes.string,
+  name: PropTypes.string,
 };
 
 DisplayTokens.defaultProps = {
   tokens: {},
   category: '',
+  name: '',
 };
 
 export default DisplayTokens;
