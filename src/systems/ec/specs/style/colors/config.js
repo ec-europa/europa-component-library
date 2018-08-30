@@ -7,10 +7,10 @@ export default {
   section: 'Style',
   tabs: [
     {
-      name: 'Usage',
+      name: 'Palette',
       component: usage,
-      url: 'usage',
+      url: 'palette',
     },
   ],
-  defaultTab: 'usage',
+  defaultTab: 'palette',
 };
