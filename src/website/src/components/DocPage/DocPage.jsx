@@ -4,7 +4,6 @@ import Helmet from 'react-helmet';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Header from './Header';
-import TextContainer from '../TextContainer/TextContainer';
 
 import grid from '../../styles/grid.scss';
 import utilities from '../../styles/utilities.scss';
@@ -20,28 +19,26 @@ const DocPage = ({ component }) => (
     />
     <main id="main-content" tabIndex="-1">
       <div className={`${grid.container} ${utilities['pv-l']}`}>
-        <TextContainer>
-          {component.page ? (
-            <component.page />
-          ) : (
-            <Switch>
-              {component.tabs.map(tab => (
-                <Route
-                  exact
-                  strict
-                  path={`${component.url}/${tab.url}/`}
-                  component={tab.component}
-                  key={tab.url}
-                />
-              ))}
+        {component.page ? (
+          <component.page />
+        ) : (
+          <Switch>
+            {component.tabs.map(tab => (
               <Route
-                render={() => (
-                  <Redirect to={`${component.url}/${component.defaultTab}/`} />
-                )}
+                exact
+                strict
+                path={`${component.url}/${tab.url}/`}
+                component={tab.component}
+                key={tab.url}
               />
-            </Switch>
-          )}
-        </TextContainer>
+            ))}
+            <Route
+              render={() => (
+                <Redirect to={`${component.url}/${component.defaultTab}/`} />
+              )}
+            />
+          </Switch>
+        )}
       </div>
     </main>
   </Fragment>
