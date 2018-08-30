@@ -17,7 +17,7 @@ clone:
 
 matrix:
   TEST:
-    - functional
+    - deploy-pages
     - conventions
     - examples
 
@@ -56,8 +56,9 @@ pipeline:
         fi
     when:
       event: [push]
+      branch: master
       matrix:
-        TEST: functional
+        TEST: deploy-pages
 
   deploy-pages:
     image: node:9.11.1
@@ -68,32 +69,4 @@ pipeline:
       event: [push]
       branch: master
       matrix:
-        TEST: functional
-
-  s3:
-    image: garland/aws-cli-docker
-    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
-    commands:
-      - if [ -d "./dist" ] ; then
-          cd ./dist/styleguide ;
-          aws configure set default.s3.max_concurrent_requests 20 ;
-          aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
-          echo "Transfer complete" ;
-        fi
-
-    when:
-      event: [push]
-      matrix:
-        TEST: functional
-
-  functional:
-    image: node:9.11.1
-    secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
-    commands:
-      - if [ -d "./dist" ] ; then
-          yarn test:functional ;
-        fi
-    when:
-      event: [push]
-      matrix:
-        TEST: functional
+        TEST: deploy-pages
