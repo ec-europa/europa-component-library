@@ -1,10 +1,13 @@
 import React from 'react';
 
+import ScrollToTopOnMount from '../../components/ScrollToTopOnMount/ScrollToTopOnMount';
+
 import grid from '../../styles/grid.scss';
 import utilities from '../../styles/utilities.scss';
 
 const HomePage = () => (
   <main id="main-content" tabIndex="-1">
+    <ScrollToTopOnMount />
     <div className={`${grid.container} ${utilities['pv-xl']}`}>
       <div className={grid.row}>
         <div className={grid.col}>
