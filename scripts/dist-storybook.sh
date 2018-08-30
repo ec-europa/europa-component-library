@@ -10,7 +10,7 @@ set -x
 cd "$(dirname "$0")"
 cd ..
 
-# Build styleguides
+# Build storybook
 yarn --cwd "./src/systems/ec/implementations/react/storybook" build
 yarn --cwd "./src/systems/eu/implementations/react/storybook" build
 
