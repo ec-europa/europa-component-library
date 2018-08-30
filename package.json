@@ -25,7 +25,7 @@
     "start:website": "cd src/website && npm run start",
     "svg:ec": "npm run svg-clean:ec && npm run svg-merge:ec",
     "svg-clean:ec": "svgo src/systems/ec/resources/icons/svg/**/*.svg -q",
-    "svg-merge:ec": "svg-sprite -s --dest src/systems/ec/resources/icons --symbol-dest . --symbol-sprite svgsprite.svg -l src/systems/ec/resources/icons/svg/**/*.svg",
+    "svg-merge:ec": "svg-sprite -s --dest src/systems/ec/resources/icons --symbol-dest . --symbol-sprite svgsprite.svg -l info --shape-dim-attributes=true --svg-dimattrs=true src/systems/ec/resources/icons/svg/**/*.svg",
     "test:coding-conventions": "npm run lint",
     "test:functional": "node ./scripts/test-functional.js",
     "test:independent-sass": "lerna run --parallel test:independent-sass",
