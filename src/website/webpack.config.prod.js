@@ -11,7 +11,6 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 
 const babelConfig = require('./config/babel.config');
-const browsers = require('./config/browserslist');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -98,7 +97,6 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],
@@ -129,7 +127,6 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],
