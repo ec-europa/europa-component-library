@@ -5,9 +5,6 @@ import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
 
 svg4everybody({
   validate: function(src) {
-    // src: current xlink:href String
-    console.log('---');
-    console.log(src);
     return src && src.indexOf('#') !== 0;
   },
 });

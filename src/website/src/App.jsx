@@ -36,7 +36,11 @@ const customComponents = {
 
 class App extends React.Component {
   componentDidMount() {
-    svg4everybody();
+    svg4everybody({
+      validate(src) {
+        return src && src.indexOf('#') !== 0;
+      },
+    });
   }
 
   render() {
