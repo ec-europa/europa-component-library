@@ -3,7 +3,18 @@ import { setOptions } from '@storybook/addon-options';
 import { checkA11y } from '@storybook/addon-a11y';
 import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
 
-svg4everybody();
+svg4everybody({
+  validate: function(src, svg, use) {
+    // src: current xlink:href String
+    // svg: current SVG Element
+    // use: current USE Element
+    console.log('---');
+    console.log(src);
+    console.log(svg);
+    console.log(use);
+    return false; // ok, everything is valid
+  },
+});
 
 setOptions({
   name: 'ECL v2 - EC',
