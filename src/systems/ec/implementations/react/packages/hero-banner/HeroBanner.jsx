@@ -2,11 +2,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '@ecl/ec-react-component-button/Button';
+
 const HeroBanner = ({
   variant,
   position,
   title,
   description,
+  image,
+  centered,
   button,
   extraClasses,
   extraAttributes,
@@ -16,9 +20,41 @@ const HeroBanner = ({
   if (variant) classes += ` ecl-hero-banner--${variant}`;
   if (extraClasses) classes += ` ${extraClasses}`;
 
+  if (centered) {
+    return (
+      <div {...props} className={classes} {...extraAttributes}>
+        <div
+          className="ecl-hero-banner__image"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+        <div className="ecl-hero-banner__content">
+          <div className="ecl-hero-banner__title">{title}</div>
+          <div className="ecl-hero-banner__description">{description}</div>
+          <Button
+            variant={button.variant}
+            label={button.label}
+            extraClasses="ecl-hero-banner__button"
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div {...props} className={classes} {...extraAttributes}>
-      <span className="ecl-hero-banner__title">{title}</span>
+      <div
+        className="ecl-hero-banner__image"
+        style={{ backgroundImage: `url(${image})` }}
+      />
+      <div className="ecl-hero-banner__content">
+        <div className="ecl-hero-banner__title">{title}</div>
+        <div className="ecl-hero-banner__description">{description}</div>
+        <Button
+          variant={button.variant}
+          label={button.label}
+          extraClasses="ecl-hero-banner__button"
+        />
+      </div>
     </div>
   );
 };
@@ -28,7 +64,12 @@ HeroBanner.propTypes = {
   position: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
-  button: PropTypes.string,
+  image: PropTypes.string,
+  centered: PropTypes.bool,
+  button: PropTypes.shape({
+    variant: PropTypes.string,
+    label: PropTypes.string,
+  }),
   extraClasses: PropTypes.string,
   extraAttributes: PropTypes.string,
 };
@@ -38,7 +79,9 @@ HeroBanner.defaultProps = {
   position: 'center',
   title: '',
   description: '',
-  button: '',
+  image: '',
+  centered: false,
+  button: {},
   extraClasses: '',
   extraAttributes: '',
 };
