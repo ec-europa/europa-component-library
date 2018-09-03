@@ -13,7 +13,6 @@ const TextArea = ({
   placeholder,
   rows,
   className,
-  extraAttributes,
   ...props
 }) => {
   let classes = 'ecl-text-area';
