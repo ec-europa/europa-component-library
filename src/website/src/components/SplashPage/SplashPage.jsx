@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ECLogo from '@ecl/ec-preset-website/dist/images/logo/EC-logo.svg';
 import EULogo from '@ecl/eu-preset-website/dist/images/logo/logo--en.svg';
 import LogoLink from './LogoLink';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
 import grid from '../../styles/grid.scss';
 import utilities from '../../styles/utilities.scss';
@@ -12,6 +13,7 @@ import styles from './SplashPage.scss';
 
 const SplashPage = ({ children }) => (
   <main id="main-content" tabIndex="-1" className={styles['splash-page']}>
+    <ScrollToTopOnMount />
     <div className={grid.container}>
       <div className={styles['splash-page-editor']}>{children}</div>
       <div className={`${grid.row} ${styles['splash-page-actions-row']}`}>

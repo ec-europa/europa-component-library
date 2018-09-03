@@ -48,14 +48,9 @@
     cursor: not-allowed;
   }
 
+  .ecl-text-area:invalid,
   .ecl-text-area--invalid {
     border-color: $ecl-color-error;
-    border-width: 1px;
     box-shadow: none;
-    color: $ecl-color-error;
-
-    &:focus {
-      border-width: 3px;
-    }
   }
 }

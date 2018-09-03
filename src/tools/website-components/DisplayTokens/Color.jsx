@@ -23,8 +23,6 @@ class Color extends PureComponent {
     const { tokenKey, tokenProps } = this.props;
     const { docs = {} } = tokenProps;
 
-    console.log(docs);
-
     return (
       <div
         style={{
