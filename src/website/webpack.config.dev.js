@@ -8,7 +8,6 @@ const history = require('connect-history-api-fallback');
 const convert = require('koa-connect');
 
 const babelConfig = require('./config/babel.config');
-const browsers = require('./config/browserslist');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const publicPath = '/';
@@ -89,7 +88,6 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],
@@ -115,7 +113,6 @@ module.exports = {
                   plugins: () => [
                     postcssFlexbugFixes,
                     autoprefixer({
-                      browsers,
                       flexbox: 'no-2009',
                     }),
                   ],
