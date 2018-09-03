@@ -22,7 +22,7 @@ const TextArea = ({
   if (className) classes += ` ${className}`;
 
   return (
-    <div className="ecl-form-group">
+    <div className="ecl-form-group ecl-form-group--text-area">
       <label
         className={`ecl-form-label${invalid ? ' ecl-form-label--invalid' : ''}`}
         htmlFor={id}
