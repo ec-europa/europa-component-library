@@ -12,7 +12,7 @@ svg4everybody({
     console.log(src);
     console.log(svg);
     console.log(use);
-    return false; // ok, everything is valid
+    return true; // ok, everything is valid
   },
 });
 
