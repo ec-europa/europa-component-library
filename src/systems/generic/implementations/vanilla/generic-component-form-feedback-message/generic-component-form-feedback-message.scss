@@ -11,9 +11,15 @@
   .ecl-feedback-message {
     box-sizing: border-box;
     color: $ecl-color-error;
-    display: block;
+    display: flex;
     font: $ecl-font-prolonged-m;
     margin: 0;
     padding: 0;
+  }
+
+  .ecl-feedback-message__logo {
+    height: $ecl-font-size-m * $ecl-line-height-prolonged-m;
+    margin-right: $ecl-spacing-s;
+    width: $ecl-font-size-m * $ecl-line-height-prolonged-m;
   }
 }
