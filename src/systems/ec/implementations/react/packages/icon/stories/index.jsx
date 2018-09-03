@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, selectV2 } from '@storybook/addon-knobs/react';
 
-import svgSprite from '@ecl/ec-resources/icons/svgsprite.svg';
+import svgSprite from '@ecl/ec-resources/dist/icons.svg';
 
 import demoContentAudio from '@ecl/ec-specs-icon/demo/data--audio';
 
