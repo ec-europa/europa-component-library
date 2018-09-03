@@ -9,39 +9,17 @@
 
 @mixin ecl-feedback-message() {
   .ecl-feedback-message {
-    @include ecl-hidden-print();
-
-    background: transparent url($ecl-assets-path+'images/messages-info.svg')
-      no-repeat 1.2rem 1.2rem;
-    color: $ecl-color-shade;
-    font-size: map-get($ecl-font-size, 's');
+    box-sizing: border-box;
+    color: $ecl-color-error;
+    display: flex;
+    font: $ecl-font-prolonged-m;
     margin: 0;
-    min-height: map-get($ecl-spacing, 'l');
-    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'l')
-      map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+    padding: 0;
   }
 
-  .ecl-feedback-message--error {
-    background-color: map-get($ecl-colors, 'grey-5');
-    background-image: url($ecl-assets-path+'images/messages-error.svg');
-  }
-
-  .ecl-feedback-message__title {
-    font-weight: bold;
-    margin-bottom: map-get($ecl-spacing, 'xs');
-  }
-
-  .ecl-feedback-message__body {
-    @include paragraph();
-
-    font-size: map-get($ecl-font-size, 's');
-    margin: 0;
-  }
-
-  /* Spacing */
-
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  * + .ecl-feedback-message {
-    margin-top: map-get($ecl-spacing, 'xs');
+  .ecl-feedback-message__logo {
+    height: $ecl-font-size-m * $ecl-line-height-prolonged-m;
+    margin-right: $ecl-spacing-s;
+    width: $ecl-font-size-m * $ecl-line-height-prolonged-m;
   }
 }

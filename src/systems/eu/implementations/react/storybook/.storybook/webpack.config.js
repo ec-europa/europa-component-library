@@ -16,6 +16,8 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // Add "limit" to svg-url-loader
   defaultConfig.module.rules[4].query = {
     limit: 4 * 1024, // above 4 kB, file-loader will be used
+    stripdeclarations: true,
+    encoding: 'base64',
   };
 
   defaultConfig.module.rules.push(

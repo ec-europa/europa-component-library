@@ -8,7 +8,38 @@ import demoContentDefault from '../demo/data--default';
     id="text-input-id"
     name="text-input-name"
     type="text"
+    label={demoContentDefault.label}
     placeholder={demoContentDefault.placeholder}
+    helperText="Help message"
+  />
+</Playground>
+
+## Disabled
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=TextInput&selectedStory=default&stories=0">
+  <TextInput
+    id="text-input-id-2"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    helperText="Help message"
+    disabled
+  />
+</Playground>
+
+## With error
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=TextInput&selectedStory=default&stories=0">
+  <TextInput
+    id="text-input-id-3"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    helperText="Help message"
+    invalid
+    invalidText="Error message"
   />
 </Playground>
 

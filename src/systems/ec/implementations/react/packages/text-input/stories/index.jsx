@@ -19,8 +19,11 @@ storiesOf('TextInput', module)
   .add('default', () => (
     <TextInput
       id="example"
+      label={text('Label', demoContentDefault.label)}
       placeholder={text('Placeholder', demoContentDefault.placeholder)}
       invalid={boolean('Invalid', false)}
+      invalidText={text('invalidText', 'Error')}
+      helperText={text('helperText', 'Help message')}
       disabled={boolean('Disabled', false)}
     />
   ));

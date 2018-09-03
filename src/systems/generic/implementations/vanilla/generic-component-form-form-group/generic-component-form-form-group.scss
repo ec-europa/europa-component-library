@@ -1,6 +1,6 @@
 /**
  * Form Group
- * @define form-group
+ * @define form-group; weak
  */
 
 // Import base
@@ -8,15 +8,20 @@
 
 @mixin ecl-form-group() {
   .ecl-form-group {
-    @include ecl-hidden-print();
-
+    box-sizing: border-box;
+    display: block;
     margin: 0;
+
+    > * + * {
+      margin-top: $ecl-spacing-s;
+    }
   }
 
-  /* Spacing */
+  .ecl-form-group--text-input {
+    max-width: 31.25rem;
+  }
 
-  /* stylelint-disable-next-line plugin/selector-bem-pattern */
-  * + .ecl-form-group {
-    margin-top: map-get($ecl-spacing, 'm');
+  .ecl-form-group--text-area {
+    max-width: 36.25rem;
   }
 }
