@@ -1,0 +1,62 @@
+import Playground from '@ecl/website-components/Playground'
+import Button from '@ecl/ec-react-component-button/Button'
+
+import demoContentPrimary from '@ecl/eu-specs-button/demo/data--primary';
+import demoContentSecondary from '@ecl/eu-specs-button/demo/data--secondary';
+import demoContentCall from '@ecl/eu-specs-button/demo/data--call';
+import demoContentGhost from '@ecl/eu-specs-button/demo/data--ghost';
+import demoContentSearch from '@ecl/eu-specs-button/demo/data--search';
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Button&selectedStory=primary&stories=0">
+  <Button
+    variant="primary"
+    label={demoContentPrimary.label}
+    typeAttribute="submit"
+    icon={demoContentPrimary.icon}
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Button&selectedStory=secondary&stories=0">
+  <Button
+    variant="secondary"
+    label={demoContentSecondary.label}
+    typeAttribute="button"
+    icon={demoContentSecondary.icon}
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Button&selectedStory=call to action&stories=0">
+  <Button
+    variant="call"
+    label={demoContentCall.label}
+    typeAttribute="submit"
+    icon={demoContentCall.icon}
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Button&selectedStory=ghost&stories=0">
+  <Button
+    variant="ghost"
+    label={demoContentGhost.label}
+    typeAttribute="button"
+    icon={demoContentGhost.icon}
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Button&selectedStory=search&stories=0">
+  <Button
+    variant="search"
+    label={demoContentSearch.label}
+    typeAttribute="submit"
+    icon={demoContentSearch.icon}
+  />
+</Playground>
+
+The component expects 6 parameters:
+
+- variant (string)
+- label (string)
+- typeAttribute (string)
+- icon (Icon object)
+- (optional) extraClasses (string)
+- (optional) extraAttributes (string)
