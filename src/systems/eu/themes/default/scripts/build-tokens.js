@@ -39,6 +39,29 @@ buildTokens({
   format: 'spacing.scss.map',
 });
 
+// Font size SCSS map
+const fontSizePrefix = 'FONT_SIZE_';
+theo.registerFormat(
+  'font-size.scss.map',
+  scssMap({
+    mapName: '$ecl-font-size',
+    keyName: prop =>
+      prop
+        .get('name')
+        .substr(fontSizePrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: prop => prop.get('name').indexOf(fontSizePrefix) === 0,
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/typography.yml'),
+  output: path.join(__dirname, '../exports/font-size.scss'),
+  type: 'web',
+  format: 'font-size.scss.map',
+});
+
 // Colors SCSS map
 const colorPrefix = 'COLOR_';
 theo.registerFormat(
