@@ -31,7 +31,6 @@ pipeline:
     image: node:9.11.1
     commands:
       - yarn test:coding-conventions
-      - yarn test:independent-sass
     when:
       matrix:
         TEST: conventions

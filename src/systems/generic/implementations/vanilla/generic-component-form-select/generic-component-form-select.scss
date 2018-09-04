@@ -9,7 +9,7 @@
 // Variables
 $ecl-select-icon-size: map-get($ecl-font-size, 's');
 $ecl-select-background-width: $ecl-select-icon-size + 2 *
-  map-get($ecl-spacing, 'xxs');
+  map-get($ecl-spacing, '2xs');
 
 // Select list arrow styling.
 @mixin ecl-select-list-arrow($background-color, $arrow-grey: false) {
@@ -30,20 +30,20 @@ $ecl-select-background-width: $ecl-select-icon-size + 2 *
 
 @mixin ecl-select() {
   .ecl-select {
-    @include ecl-select-list-arrow($ecl-color-shade);
+    @include ecl-select-list-arrow($ecl-color-text);
 
     appearance: none;
     background-color: #fff;
-    border: 1px solid $ecl-color-shade;
+    border: 1px solid $ecl-color-text;
     border-radius: 0;
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: block;
-    font-family: $ecl-font-family-sans-serif;
+    font-family: $ecl-font-family;
     font-size: map-get($ecl-font-size, 's');
     margin: 0;
-    padding: map-get($ecl-spacing, 'xxs')
-      ($ecl-select-background-width + map-get($ecl-spacing, 'xxxs'))
-      map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xxs');
+    padding: map-get($ecl-spacing, '2xs')
+      ($ecl-select-background-width + map-get($ecl-spacing, '2xs'))
+      map-get($ecl-spacing, '2xs') map-get($ecl-spacing, '2xs');
     width: 100%;
 
     /* Spacing */

@@ -18,7 +18,7 @@
     }
 
     .ecl-table__heading {
-      background-color: $ecl-color-shade;
+      background-color: $ecl-color-text;
       color: #fff;
       font-weight: bold;
     }
@@ -28,7 +28,7 @@
         content: attr(data-th-group);
         display: block;
         font-weight: bold;
-        left: map-get($ecl-spacing, 'xxs');
+        left: map-get($ecl-spacing, '2xs');
         position: absolute;
         top: -(map-get($ecl-spacing, 'm'));
       }
