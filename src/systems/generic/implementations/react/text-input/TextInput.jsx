@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
-import invalidIcon from '@ecl/generic-resources/images/messages-error.svg';
 
 const TextInput = ({
   id,
@@ -42,16 +41,9 @@ const TextInput = ({
       />
       {invalid &&
         invalidText && (
-          <p className="ecl-feedback-message">
-            <img
-              src={invalidIcon}
-              alt={invalidIconLabel}
-              className="ecl-feedback-message__logo"
-            />
-            {invalidText}
-          </p>
+          <div className="ecl-feedback-message">{invalidText}</div>
         )}
-      {helperText && <p className="ecl-help-block">{helperText}</p>}
+      {helperText && <div className="ecl-help-block">{helperText}</div>}
     </div>
   );
 };
