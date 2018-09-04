@@ -1,50 +1,62 @@
 import Playground from '@ecl/website-components/Playground'
 import Button from '@ecl/ec-react-component-button/Button'
 
+import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
+import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
+import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
+import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
+import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=primary&stories=0">
   <Button
     variant="primary"
-    label="Primary button"
+    label={demoContentPrimary.label}
     typeAttribute="submit"
+    icon={demoContentPrimary.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=secondary&stories=0">
   <Button
     variant="secondary"
-    label="Secondary button"
+    label={demoContentSecondary.label}
     typeAttribute="button"
+    icon={demoContentSecondary.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=call to action&stories=0">
   <Button
     variant="call"
-    label="Call to action button"
+    label={demoContentCall.label}
     typeAttribute="submit"
+    icon={demoContentCall.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=ghost&stories=0">
   <Button
     variant="ghost"
-    label="Ghost button"
+    label={demoContentGhost.label}
     typeAttribute="button"
+    icon={demoContentGhost.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=search&stories=0">
   <Button
     variant="search"
-    label="Search button"
+    label={demoContentSearch.label}
     typeAttribute="submit"
+    icon={demoContentSearch.icon}
   />
 </Playground>
 
-The component expects 5 parameters:
+The component expects 6 parameters:
 
 - variant (string)
 - label (string)
 - typeAttribute (string)
+- icon (Icon object)
 - (optional) extraClasses (string)
 - (optional) extraAttributes (string)
