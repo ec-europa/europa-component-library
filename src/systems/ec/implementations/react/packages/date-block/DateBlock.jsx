@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DateBlock = ({
-  variant,
-  href,
-  label,
+  variant, // ongoing, cancelled, past
+  weekDay,
+  day,
+  month,
   className,
   extraAttributes,
   ...props
@@ -16,26 +17,26 @@ const DateBlock = ({
 
   return (
     <div className={classes} {...props}>
-      <div className="ecl-date-block__body">
-        <span className="ecl-date-block__week-day">Tue</span>
-        <span className="ecl-date-block__day">12</span>
-        <span className="ecl-date-block__month">Jan</span>
-      </div>
+      <div className="ecl-date-block__week-day">{weekDay}</div>
+      <div className="ecl-date-block__day">{day}</div>
+      <div className="ecl-date-block__month">{month}</div>
     </div>
   );
 };
 
 DateBlock.propTypes = {
   variant: PropTypes.string,
-  href: PropTypes.string,
-  label: PropTypes.string,
+  weekDay: PropTypes.string,
+  day: PropTypes.string,
+  month: PropTypes.string,
   className: PropTypes.string,
 };
 
 DateBlock.defaultProps = {
   variant: 'primary',
-  href: 'submit',
-  label: '',
+  weekDay: '',
+  day: '',
+  month: '',
   className: '',
 };
 
