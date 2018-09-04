@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
 
 import demoContentImage from '@ecl/ec-specs-hero-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
@@ -13,37 +13,65 @@ import './index.scss';
 
 storiesOf('HeroBanner', module)
   .addDecorator(withKnobs)
-  .add('image', () => (
-    <HeroBanner
-      variant="image"
-      title={text('Title', demoContentImage.title)}
-      description={text('Descripiton', demoContentImage.description)}
-      button={demoContentImage.button}
-      image={text('Image', demoContentImage.image)}
-    />
-  ))
-  .add('image-shade', () => (
-    <HeroBanner
-      variant="image-shade"
-      title={text('Title', demoContentImageShade.title)}
-      description={text('Descripiton', demoContentImageShade.description)}
-      button={demoContentImageShade.button}
-      image={text('Image', demoContentImageShade.image)}
-    />
-  ))
-  .add('primary', () => (
-    <HeroBanner
-      variant="primary"
-      title={text('Title', demoContentPrimary.title)}
-      description={text('Descripiton', demoContentPrimary.description)}
-      button={demoContentPrimary.button}
-    />
-  ))
-  .add('default', () => (
-    <HeroBanner
-      variant="default"
-      title={text('Title', demoContentDefault.title)}
-      description={text('Descripiton', demoContentDefault.description)}
-      button={demoContentDefault.button}
-    />
-  ));
+  .add('image', () => {
+    const buttonImage = {
+      variant: demoContentImage.button.variant,
+      label: text('Button label', demoContentImage.button.label),
+    };
+    return (
+      <HeroBanner
+        variant="image"
+        title={text('Title', demoContentImage.title)}
+        description={text('Description', demoContentImage.description)}
+        button={buttonImage}
+        centered={boolean('Centered', true)}
+        image={text('Image', demoContentImage.image)}
+      />
+    );
+  })
+  .add('image-shade', () => {
+    const buttonImageShade = {
+      variant: demoContentImageShade.button.variant,
+      label: text('Button label', demoContentImageShade.button.label),
+    };
+    return (
+      <HeroBanner
+        variant="image-shade"
+        title={text('Title', demoContentImageShade.title)}
+        description={text('Description', demoContentImageShade.description)}
+        button={buttonImageShade}
+        centered={boolean('Centered', true)}
+        image={text('Image', demoContentImageShade.image)}
+      />
+    );
+  })
+  .add('primary', () => {
+    const buttonPrimary = {
+      variant: demoContentPrimary.button.variant,
+      label: text('Button label', demoContentPrimary.button.label),
+    };
+    return (
+      <HeroBanner
+        variant="primary"
+        title={text('Title', demoContentPrimary.title)}
+        description={text('Description', demoContentPrimary.description)}
+        button={buttonPrimary}
+        centered={boolean('Centered', true)}
+      />
+    );
+  })
+  .add('default', () => {
+    const buttonDefault = {
+      variant: demoContentDefault.button.variant,
+      label: text('Button label', demoContentDefault.button.label),
+    };
+    return (
+      <HeroBanner
+        variant="default"
+        title={text('Title', demoContentDefault.title)}
+        description={text('Description', demoContentDefault.description)}
+        button={buttonDefault}
+        centered={boolean('Centered', true)}
+      />
+    );
+  });

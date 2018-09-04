@@ -15,6 +15,7 @@ import demoContentDefault from '../demo/data--default';
     description={demoContentImage.description}
     button={demoContentImage.button}
     image={demoContentImage.image}
+    centered={demoContentImage.centered}
   />
 </Playground>
 
@@ -27,6 +28,7 @@ import demoContentDefault from '../demo/data--default';
     description={demoContentImageShade.description}
     button={demoContentImageShade.button}
     image={demoContentImageShade.image}
+    centered={demoContentImageShade.centered}
   />
 </Playground>
 
@@ -38,6 +40,7 @@ import demoContentDefault from '../demo/data--default';
     title={demoContentPrimary.title}
     description={demoContentPrimary.description}
     button={demoContentPrimary.button}
+    centered={demoContentPrimary.centered}
   />
 </Playground>
 
@@ -49,15 +52,19 @@ import demoContentDefault from '../demo/data--default';
     title={demoContentDefault.title}
     description={demoContentDefault.description}
     button={demoContentDefault.button}
+    centered={demoContentDefault.centered}
   />
 </Playground>
 
-The component expects 7 parameters:
+The component expects 8 parameters:
 
 - variant (string)
 - position (string)
 - title (string)
 - description (string)
+- centered (boolean)
 - button (object)
+  - variant (string)
+  - label (string)
 - (optional) extraClasses (string)
 - (optional) extraAttributes (string)

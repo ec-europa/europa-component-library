@@ -18,27 +18,8 @@ const HeroBanner = ({
 }) => {
   let classes = 'ecl-hero-banner';
   if (variant) classes += ` ecl-hero-banner--${variant}`;
+  if (centered) classes += ' ecl-hero-banner--centered';
   if (extraClasses) classes += ` ${extraClasses}`;
-
-  if (centered) {
-    return (
-      <div {...props} className={classes} {...extraAttributes}>
-        <div
-          className="ecl-hero-banner__image"
-          style={{ backgroundImage: `url(${image})` }}
-        />
-        <div className="ecl-hero-banner__content">
-          <div className="ecl-hero-banner__title">{title}</div>
-          <div className="ecl-hero-banner__description">{description}</div>
-          <Button
-            variant={button.variant}
-            label={button.label}
-            extraClasses="ecl-hero-banner__button"
-          />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div {...props} className={classes} {...extraAttributes}>
@@ -46,14 +27,21 @@ const HeroBanner = ({
         className="ecl-hero-banner__image"
         style={{ backgroundImage: `url(${image})` }}
       />
-      <div className="ecl-hero-banner__content">
-        <div className="ecl-hero-banner__title">{title}</div>
-        <div className="ecl-hero-banner__description">{description}</div>
-        <Button
-          variant={button.variant}
-          label={button.label}
-          extraClasses="ecl-hero-banner__button"
-        />
+      <div className="ecl-container ecl-hero-banner__container">
+        <div className="ecl-hero-banner__content">
+          {title && <div className="ecl-hero-banner__title">{title}</div>}
+          {description && (
+            <div className="ecl-hero-banner__description">{description}</div>
+          )}
+          {button &&
+            button.label && (
+              <Button
+                variant={button.variant}
+                label={button.label}
+                extraClasses="ecl-hero-banner__button"
+              />
+            )}
+        </div>
       </div>
     </div>
   );

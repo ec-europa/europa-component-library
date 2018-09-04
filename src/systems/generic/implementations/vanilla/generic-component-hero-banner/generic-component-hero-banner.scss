@@ -7,21 +7,26 @@
 @import '@ecl/generic-base/generic-base';
 
 @mixin ecl-hero-banner(
-  $background-color-default: $ecl-color-grey-5,
+  // variant: default
+    $background-color-default: $ecl-color-grey-5,
   $title-color-default: $ecl-color-black-100,
   $description-color-default: $ecl-color-grey-100,
-  $background-color-primary: $ecl-color-primary,
+  // variant: primary
+    $background-color-primary: $ecl-color-primary,
   $title-color-primary: $ecl-color-white-100,
   $description-color-primary: $ecl-color-white-100,
-  $background-color-image: $ecl-color-white-100,
+  // variant: image
+    $background-color-image: $ecl-color-white-100,
   $title-color-image: $ecl-color-black-100,
   $description-color-image: $ecl-color-grey-100,
   $border-color-image: $ecl-color-yellow-100,
-  $background-color-image-shade: rgba(0, 0, 0, 0.7),
+  // variant: image-shape
+    $background-color-image-shade: rgba(0, 0, 0, 0.7),
   $title-color-image-shade: $ecl-color-white-100,
   $description-color-image-shade: $ecl-color-white-100,
-  $min-height: 20rem,
-  $max-height: 40rem
+  // common $min-height: 20rem,
+  $max-height: 40rem,
+  $content-width: 42.5rem
 ) {
   .ecl-hero-banner {
     align-items: center;
@@ -34,11 +39,8 @@
     position: relative;
   }
 
-  .ecl-hero-banner__image {
-    background-size: cover;
-    display: block;
-    min-height: $min-height;
-    width: 100%;
+  .ecl-hero-banner__container {
+    display: flex;
   }
 
   .ecl-hero-banner__content {
@@ -48,14 +50,81 @@
     padding: $ecl-spacing-xl;
   }
 
+  .ecl-hero-banner__image {
+    background-size: cover;
+    display: block;
+    min-height: $min-height;
+    width: 100%;
+  }
+
   .ecl-hero-banner__title {
     font: $ecl-font-4-xl;
+    margin-bottom: $ecl-spacing-m;
   }
 
   .ecl-hero-banner__description {
     font: $ecl-font-prolonged-l;
+    margin-bottom: $ecl-spacing-l;
   }
 
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-down(lg) {
+    .ecl-hero-banner__container {
+      width: 100%;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-hero-banner {
+      // manage ratio 3:1
+      &::before {
+        content: '';
+        display: block;
+        padding-top: (1 / 3) * 100%;
+        width: 100%;
+      }
+    }
+    .ecl-hero-banner__container {
+      position: absolute;
+    }
+
+    .ecl-hero-banner__content {
+      max-width: $content-width;
+    }
+
+    .ecl-hero-banner__image {
+      left: 50%;
+      max-width: none;
+      min-height: 100%;
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  /*
+   * centered
+   */
+  .ecl-hero-banner--centered {
+    .ecl-hero-banner__container {
+      justify-content: center;
+    }
+
+    .ecl-hero-banner__content {
+      align-items: center;
+    }
+
+    .ecl-hero-banner__title,
+    .ecl-hero-banner__description {
+      text-align: center;
+    }
+  }
+
+  /*
+   * variant: default
+   */
   .ecl-hero-banner--default {
     background-color: $background-color-default;
 
@@ -72,6 +141,9 @@
     }
   }
 
+  /*
+   * variant: primary
+   */
   .ecl-hero-banner--primary {
     background-color: $background-color-primary;
 
@@ -88,6 +160,9 @@
     }
   }
 
+  /*
+   * variant: image
+   */
   .ecl-hero-banner--image {
     .ecl-hero-banner__content {
       background-color: $background-color-image;
@@ -101,12 +176,19 @@
       color: $description-color-image;
     }
   }
-
-  .ecl-hero-banner--image-shade {
-    .ecl-hero-banner__image {
-      display: none;
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-hero-banner--image {
+      .ecl-hero-banner__content {
+        border-bottom: 4px solid $border-color-image;
+      }
     }
+  }
 
+  /*
+   * variant: image-shade
+   */
+  .ecl-hero-banner--image-shade {
     .ecl-hero-banner__title {
       color: $title-color-default;
     }
@@ -115,60 +197,16 @@
       color: $description-color-default;
     }
   }
-
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
-    .ecl-hero-banner {
-      // manage ratio 3:1
-      &::before {
+    .ecl-hero-banner--image-shade {
+      .ecl-hero-banner__image::before {
+        background-color: $background-color-image-shade;
         content: '';
         display: block;
-        padding-top: (1 / 3) * 100%;
+        height: 100%;
+        position: absolute;
         width: 100%;
-      }
-    }
-    .ecl-hero-banner__content {
-      align-items: center;
-      max-width: 40em;
-      position: absolute;
-    }
-
-    .ecl-hero-banner__title {
-      text-align: center;
-    }
-
-    .ecl-hero-banner__description {
-      text-align: center;
-    }
-
-    .ecl-hero-banner__image {
-      left: 50%;
-      max-width: none;
-      min-height: 100%;
-      min-width: 100%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .ecl-hero-banner--image {
-      .ecl-hero-banner__content {
-        border-bottom: 4px solid $border-color-image;
-      }
-    }
-
-    .ecl-hero-banner--image-shade {
-      .ecl-hero-banner__image {
-        display: block;
-
-        &::before {
-          background-color: $background-color-image-shade;
-          content: '';
-          display: block;
-          height: 100%;
-          position: absolute;
-          width: 100%;
-        }
       }
 
       .ecl-hero-banner__title {
