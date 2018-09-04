@@ -12,19 +12,19 @@
       display: grid;
       grid-template-columns: auto max-content;
       padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xs')
-        map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl');
+        map-get($ecl-spacing, 'xs') map-get($ecl-spacing, '2xl');
     }
 
     background: transparent url($ecl-assets-path+'images/messages-info.svg')
       no-repeat 1.2rem 1.2rem;
     border: 2px solid map-get($ecl-colors, 'blue-75');
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     font-size: map-get($ecl-font-size, 's');
     margin: 0;
     min-height: map-get($ecl-spacing, 'l');
-    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, 'xxl') +
-      map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs')
-      map-get($ecl-spacing, 'xxl');
+    padding: map-get($ecl-spacing, 'xs') map-get($ecl-spacing, '2xl') +
+      map-get($ecl-spacing, '2xs') map-get($ecl-spacing, 'xs')
+      map-get($ecl-spacing, '2xl');
     position: relative;
 
     &--success {
@@ -83,10 +83,10 @@
     line-height: 1.15;
     padding: 0;
     position: absolute;
-    right: map-get($ecl-spacing, 'xxs');
+    right: map-get($ecl-spacing, '2xs');
     text-decoration: none;
     text-shadow: none;
-    top: map-get($ecl-spacing, 'xxs');
+    top: map-get($ecl-spacing, '2xs');
 
     @supports (display: grid) {
       align-self: self-start;
@@ -107,7 +107,7 @@
       content: url($ecl-assets-path+'images/close.svg');
       display: block;
       line-height: 0;
-      margin: 0 0 0 map-get($ecl-spacing, 'xxs');
+      margin: 0 0 0 map-get($ecl-spacing, '2xs');
       overflow: hidden;
       width: 1.5rem;
     }
@@ -143,7 +143,7 @@
   @include ecl-media-breakpoint-down('xs') {
     .ecl-message {
       padding-bottom: map-get($ecl-spacing, 'xs') + 2 *
-        map-get($ecl-spacing, 'xxs') + 1.5rem;
+        map-get($ecl-spacing, '2xs') + 1.5rem;
 
       @supports (display: grid) {
         grid-template-rows: auto auto map-get($ecl-spacing, 'l');
@@ -151,7 +151,7 @@
       }
     }
     .ecl-message__dismiss {
-      bottom: map-get($ecl-spacing, 'xxs');
+      bottom: map-get($ecl-spacing, '2xs');
       top: auto;
 
       @supports (display: grid) {

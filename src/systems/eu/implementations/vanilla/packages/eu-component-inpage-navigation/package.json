@@ -8,9 +8,6 @@
   "module": "eu-component-inpage-navigation.js",
   "sass": "eu-component-inpage-navigation.scss",
   "style": "eu-component-inpage-navigation.scss",
-  "scripts": {
-    "test:independent-sass": "mkdir -p dist && cat ../../../../themes/default/exports/index.scss eu-component-inpage-navigation.scss | node-sass --quiet --include-path ../../../../../../../node_modules > dist/eu-component-inpage-navigation.css"
-  },
   "dependencies": {
     "@ecl/eu-base": "^2.0.0-alpha.0",
     "@ecl/eu-component-expandable": "^2.0.0-alpha.0",
@@ -21,8 +18,7 @@
     "stickyfilljs": "2.1.0"
   },
   "devDependencies": {
-    "@ecl/eu-style-typography-paragraph": "^2.0.0-alpha.0",
-    "node-sass": "4.9.3"
+    "@ecl/eu-style-typography-paragraph": "^2.0.0-alpha.0"
   },
   "publishConfig": {
     "access": "public"
