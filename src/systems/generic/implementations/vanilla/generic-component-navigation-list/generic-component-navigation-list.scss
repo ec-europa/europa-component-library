@@ -39,7 +39,7 @@
 
   .ecl-navigation-list__link--active,
   .ecl-navigation-list__link[aria-selected='true'] {
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
 
     &:hover {
       text-decoration: none;
@@ -78,6 +78,6 @@
     font-size: map-get($ecl-font-size, 's');
     font-weight: normal;
     line-height: 1.3;
-    padding: map-get($ecl-spacing, 'xxs');
+    padding: map-get($ecl-spacing, '2xs');
   }
 }

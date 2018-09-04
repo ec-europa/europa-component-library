@@ -23,7 +23,7 @@
   .ecl-search-form__textfield {
     border: 0;
     margin-top: 0;
-    padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+    padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, 'xs');
   }
 
   .ecl-search-form__button {
@@ -71,7 +71,7 @@
 
         color: map-get($ecl-colors, 'grey-25');
         font-size: map-get($ecl-font-size, 'm');
-        left: map-get($ecl-spacing, 'xxs');
+        left: map-get($ecl-spacing, '2xs');
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -81,7 +81,7 @@
     .ecl-search-form__textfield {
       // ~ 1 * icon's width + 1 * icon's left space + 1 * space between icon and input
       padding-left: map-get($ecl-font-size, 'm') + 2 *
-        map-get($ecl-spacing, 'xxs');
+        map-get($ecl-spacing, '2xs');
     }
   }
 }

@@ -16,16 +16,16 @@
   .ecl-file-upload__value {
     background-color: #fff;
     background-image: none;
-    border: 1px solid $ecl-color-shade;
-    color: $ecl-color-shade;
+    border: 1px solid $ecl-color-text;
+    color: $ecl-color-text;
     display: block;
     flex-grow: 1;
-    font-family: $ecl-font-family-sans-serif;
+    font-family: $ecl-font-family;
     font-size: map-get($ecl-font-size, 's');
     line-height: 1.6;
     margin: 0;
     overflow: hidden;
-    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+    padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, '2xs');
     text-overflow: ellipsis;
     white-space: nowrap;
 
@@ -38,16 +38,16 @@
   }
 
   .ecl-file-upload__browse {
-    background-color: $ecl-color-shade;
+    background-color: $ecl-color-text;
     border: 2px solid transparent;
     color: #fff;
     display: inline-block;
-    font-family: $ecl-font-family-sans-serif;
+    font-family: $ecl-font-family;
     font-size: map-get($ecl-font-size, 's');
     font-weight: 600;
     line-height: 1.6;
     margin: 0;
-    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xs');
+    padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, 'xs');
 
     &:hover,
     &:focus,
@@ -63,12 +63,12 @@
     border: 2px solid transparent;
     color: #fff;
     display: inline-block;
-    font-family: $ecl-font-family-sans-serif;
+    font-family: $ecl-font-family;
     font-size: map-get($ecl-font-size, 's');
     font-weight: 600;
     line-height: 1.6;
-    margin-left: map-get($ecl-spacing, 'xxxs');
-    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xs');
+    margin-left: map-get($ecl-spacing, '2xs');
+    padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, 'xs');
 
     &:hover,
     &:focus,
