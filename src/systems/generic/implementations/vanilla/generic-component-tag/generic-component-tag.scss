@@ -16,7 +16,7 @@
 
   .ecl-tag__label {
     font-size: map-get($ecl-font-size, 'xs');
-    margin-bottom: map-get($ecl-spacing, 'xxxs');
+    margin-bottom: map-get($ecl-spacing, '2xs');
     margin-right: map-get($ecl-spacing, 'xs');
     text-transform: uppercase;
   }
@@ -25,15 +25,15 @@
     background-color: map-get($ecl-colors, 'grey-15');
     border-radius: 5px;
     border-width: 0;
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: flex;
     font-family: $ecl-font-family-base;
     font-size: map-get($ecl-font-size, 'xs');
     font-weight: normal;
     line-height: 1;
-    margin-bottom: map-get($ecl-spacing, 'xxxs');
+    margin-bottom: map-get($ecl-spacing, '2xs');
     margin-right: map-get($ecl-spacing, 's');
-    padding: map-get($ecl-spacing, 'xxxs');
+    padding: map-get($ecl-spacing, '2xs');
     white-space: nowrap;
 
     &:hover,
@@ -50,13 +50,13 @@
 
   .ecl-tag--facet-close {
     .ecl-tag__item:hover {
-      background-color: $ecl-color-shade;
+      background-color: $ecl-color-text;
       color: #fff;
     }
   }
 
   .ecl-tag__icon {
     fill: currentColor;
-    margin-left: map-get($ecl-spacing, 'xxs');
+    margin-left: map-get($ecl-spacing, '2xs');
   }
 }

@@ -8,13 +8,13 @@
 
 @mixin ecl-label() {
   .ecl-label {
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: inline-block;
     font-size: map-get($ecl-font-size, 'xs');
     font-weight: 600;
     letter-spacing: 0.12em;
     margin: 0;
-    padding: map-get($ecl-spacing, 'xxxs') map-get($ecl-spacing, 'xxs');
+    padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, '2xs');
     text-transform: uppercase;
   }
 

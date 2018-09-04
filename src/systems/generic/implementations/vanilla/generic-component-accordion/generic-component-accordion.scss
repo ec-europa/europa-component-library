@@ -15,7 +15,7 @@
     align-items: center;
     background-color: transparent;
     border-width: 0;
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: flex;
     font-size: map-get($ecl-font-size, 'm');
     font-weight: 600;
@@ -49,7 +49,7 @@
     padding: map-get($ecl-spacing, 's');
 
     @include ecl-media-breakpoint-up(md) {
-      padding-left: map-get($ecl-spacing, 'xxl');
+      padding-left: map-get($ecl-spacing, '2xl');
     }
   }
 
