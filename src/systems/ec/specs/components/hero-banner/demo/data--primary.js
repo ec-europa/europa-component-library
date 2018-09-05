@@ -1,4 +1,6 @@
 // Simple content for demo
+const svgSprite = require('@ecl/ec-resources/dist/icons.svg');
+
 module.exports = {
   title: 'EU Budget for the future (primary)',
   description:
@@ -6,6 +8,11 @@ module.exports = {
   button: {
     variant: 'call',
     label: 'Subscribe',
+    icon: {
+      icon: 'Icon_Corner-arrow-right',
+      iconPath: svgSprite,
+      size: 'xs',
+    },
   },
   centered: true,
 };
