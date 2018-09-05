@@ -37,13 +37,16 @@
 
   .ecl-hero-banner__container {
     display: flex;
+    left: 50%;
   }
 
   .ecl-hero-banner__content {
     align-items: baseline;
     display: flex;
     flex-direction: column;
+    left: -50%;
     padding: $ecl-spacing-xl;
+    position: relative;
   }
 
   .ecl-hero-banner__image {
@@ -54,11 +57,13 @@
   }
 
   .ecl-hero-banner__title {
+    align-self: stretch;
     font: $ecl-font-4-xl;
     margin-bottom: $ecl-spacing-m;
   }
 
   .ecl-hero-banner__description {
+    align-self: stretch;
     font: $ecl-font-prolonged-l;
     margin-bottom: $ecl-spacing-l;
   }
