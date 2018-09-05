@@ -8,14 +8,14 @@
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  padding: $ecl-spacing-xl;
+  padding: calc(#{$ecl-spacing-xl} - 1px);
 }
 
 .logo-link:hover,
 .logo-link:focus {
-  border: 3px solid #ffd617;
+  border: 3px solid $ecl-color-yellow-100;
   outline: none;
-  padding: calc(#{$ecl-spacing-xl} - 2px);
+  padding: calc(#{$ecl-spacing-xl} - 3px);
 }
 
 .logo-link img {
