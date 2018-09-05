@@ -17,6 +17,7 @@ storiesOf('HeroBanner', module)
     const buttonImage = {
       variant: demoContentImage.button.variant,
       label: text('Button label', demoContentImage.button.label),
+      icon: demoContentImage.button.icon,
     };
     return (
       <HeroBanner
@@ -33,6 +34,7 @@ storiesOf('HeroBanner', module)
     const buttonImageShade = {
       variant: demoContentImageShade.button.variant,
       label: text('Button label', demoContentImageShade.button.label),
+      icon: demoContentImageShade.button.icon,
     };
     return (
       <HeroBanner
@@ -49,6 +51,7 @@ storiesOf('HeroBanner', module)
     const buttonPrimary = {
       variant: demoContentPrimary.button.variant,
       label: text('Button label', demoContentPrimary.button.label),
+      icon: demoContentPrimary.button.icon,
     };
     return (
       <HeroBanner
@@ -64,6 +67,7 @@ storiesOf('HeroBanner', module)
     const buttonDefault = {
       variant: demoContentDefault.button.variant,
       label: text('Button label', demoContentDefault.button.label),
+      icon: demoContentDefault.button.icon,
     };
     return (
       <HeroBanner
