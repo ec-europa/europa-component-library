@@ -66,6 +66,20 @@
   max-width: 38em;
 }
 
+.table {
+}
+
+.th {
+  color: $ecl-color-text;
+  font: $ecl-font-prolonged-m;
+  font-weight: $ecl-font-weight-bold;
+}
+
+.td {
+  color: $ecl-color-text;
+  font: $ecl-font-prolonged-m;
+}
+
 * + .h1 {
   margin-top: $ecl-spacing-2-xl;
 }
@@ -91,6 +105,10 @@
 }
 
 * + .ol {
+  margin-top: $ecl-spacing-m;
+}
+
+* + .table {
   margin-top: $ecl-spacing-m;
 }
 
