@@ -55,7 +55,7 @@ HeroBanner.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   centered: PropTypes.bool,
-  button: Button,
+  button: PropTypes.shape(Button.propTypes),
   extraClasses: PropTypes.string,
   extraAttributes: PropTypes.string,
 };
