@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon/Icon';
 
 const Button = ({
@@ -8,26 +9,20 @@ const Button = ({
   typeAttribute,
   label,
   icon,
-  extraClasses,
-  extraAttributes,
+  className,
   ...props
 }) => {
-  let classes = 'ecl-button';
-  if (variant) classes += ` ecl-button--${variant}`;
-  if (extraClasses) classes += ` ${extraClasses}`;
+  const classNames = classnames(className, {
+    'ecl-button': true,
+    [`ecl-button--${variant}`]: variant,
+  });
 
   return (
     /* eslint-disable react/button-has-type */
-    <button
-      {...props}
-      type={typeAttribute}
-      className={classes}
-      {...extraAttributes}
-    >
+    <button type={typeAttribute} className={classNames} {...props}>
       <span className="ecl-button__container">
         <span className="ecl-button__label">{label}</span>
-        {icon &&
-          icon.icon && <Icon {...icon} extraClasses="ecl-button__icon" />}
+        {icon && icon.icon && <Icon {...icon} className="ecl-button__icon" />}
       </span>
     </button>
     /* eslint-enable react/button-has-type */
@@ -39,8 +34,7 @@ Button.propTypes = {
   typeAttribute: PropTypes.string,
   label: PropTypes.string,
   icon: Icon,
-  extraClasses: PropTypes.string,
-  extraAttributes: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -48,8 +42,7 @@ Button.defaultProps = {
   typeAttribute: 'submit',
   label: '',
   icon: {},
-  extraClasses: '',
-  extraAttributes: '',
+  className: '',
 };
 
 export default Button;
