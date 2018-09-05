@@ -26,7 +26,7 @@ Button.propTypes = {
   variant: PropTypes.string,
   type: PropTypes.string,
   label: PropTypes.string,
-  icon: Icon,
+  icon: PropTypes.shape(Icon.propTypes),
   className: PropTypes.string,
 };
 
