@@ -2,42 +2,67 @@
 
 .h1 {
   color: #000;
-  font: $ecl-font-4-xl;
-  font-weight: $ecl-font-weight-bold;
-  margin: 0;
-  padding: 0;
-}
-
-.h2 {
-  color: #000;
   font: $ecl-font-3-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
   padding: 0;
+
+  @media screen and (min-width: 768px) {
+    font: $ecl-font-4-xl;
+    font-weight: $ecl-font-weight-bold;
+  }
 }
 
-.h3 {
-  color: $ecl-color-text;
+.h2 {
+  color: #000;
   font: $ecl-font-2-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
   padding: 0;
+
+  @media screen and (min-width: 768px) {
+    font: $ecl-font-3-xl;
+    font-weight: $ecl-font-weight-bold;
+  }
 }
 
-.h4 {
+.h3 {
   color: $ecl-color-text;
   font: $ecl-font-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
   padding: 0;
+
+  @media screen and (min-width: 768px) {
+    font: $ecl-font-2-xl;
+    font-weight: $ecl-font-weight-bold;
+  }
 }
 
-.h5 {
+.h4 {
   color: $ecl-color-text;
   font: $ecl-font-l;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
   padding: 0;
+
+  @media screen and (min-width: 768px) {
+    font: $ecl-font-xl;
+    font-weight: $ecl-font-weight-bold;
+  }
+}
+
+.h5 {
+  color: $ecl-color-text;
+  font: $ecl-font-m;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: 0;
+
+  @media screen and (min-width: 768px) {
+    font: $ecl-font-l;
+    font-weight: $ecl-font-weight-bold;
+  }
 }
 
 .p {
