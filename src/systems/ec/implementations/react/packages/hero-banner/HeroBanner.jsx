@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button/Button';
 
@@ -12,17 +13,17 @@ const HeroBanner = ({
   image,
   centered,
   button,
-  extraClasses,
-  extraAttributes,
+  className,
   ...props
 }) => {
-  let classes = 'ecl-hero-banner';
-  if (variant) classes += ` ecl-hero-banner--${variant}`;
-  if (centered) classes += ' ecl-hero-banner--centered';
-  if (extraClasses) classes += ` ${extraClasses}`;
+  const classNames = classnames(className, {
+    'ecl-hero-banner': true,
+    [`ecl-hero-banner--${variant}`]: variant,
+    [`ecl-hero-banner--centered`]: centered,
+  });
 
   return (
-    <div {...props} className={classes} {...extraAttributes}>
+    <div className={classNames} {...props}>
       <div
         className="ecl-hero-banner__image"
         style={{ backgroundImage: `url(${image})` }}
@@ -54,10 +55,7 @@ HeroBanner.propTypes = {
   description: PropTypes.string,
   image: PropTypes.string,
   centered: PropTypes.bool,
-  button: PropTypes.shape({
-    variant: PropTypes.string,
-    label: PropTypes.string,
-  }),
+  button: Button,
   extraClasses: PropTypes.string,
   extraAttributes: PropTypes.string,
 };

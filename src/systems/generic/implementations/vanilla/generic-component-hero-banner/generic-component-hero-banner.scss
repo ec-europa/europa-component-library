@@ -7,24 +7,20 @@
 @import '@ecl/generic-base/generic-base';
 
 @mixin ecl-hero-banner(
-  // variant: default
-    $background-color-default: $ecl-color-grey-5,
+  /* variant: default */ $background-color-default: $ecl-color-grey-5,
   $title-color-default: $ecl-color-black-100,
   $description-color-default: $ecl-color-grey-100,
-  // variant: primary
-    $background-color-primary: $ecl-color-primary,
+  /* variant: primary */ $background-color-primary: $ecl-color-primary,
   $title-color-primary: $ecl-color-white-100,
   $description-color-primary: $ecl-color-white-100,
-  // variant: image
-    $background-color-image: $ecl-color-white-100,
+  /* variant: image */ $background-color-image: $ecl-color-white-100,
   $title-color-image: $ecl-color-black-100,
   $description-color-image: $ecl-color-grey-100,
   $border-color-image: $ecl-color-yellow-100,
-  // variant: image-shape
-    $background-color-image-shade: rgba(0, 0, 0, 0.7),
+  /* variant: image-shape */ $background-color-image-shade: rgba(0, 0, 0, 0.7),
   $title-color-image-shade: $ecl-color-white-100,
   $description-color-image-shade: $ecl-color-white-100,
-  // common $min-height: 20rem,
+  /* common */ $min-height: 20rem,
   $max-height: 40rem,
   $content-width: 42.5rem
 ) {
