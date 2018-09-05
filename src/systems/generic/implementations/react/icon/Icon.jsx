@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 const Icon = ({
   variant,
@@ -8,18 +9,18 @@ const Icon = ({
   color,
   iconPath,
   icon,
-  extraClasses,
-  extraAttributes,
+  className,
   ...props
 }) => {
-  let classes = 'ecl-icon';
-  if (variant) classes += ` ecl-icon--${variant}`;
-  if (size) classes += ` ecl-icon--${size}`;
-  if (color) classes += ` ecl-icon--${color}`;
-  if (extraClasses) classes += ` ${extraClasses}`;
+  const classNames = classnames(className, {
+    'ecl-icon': true,
+    [`ecl-icon--${variant}`]: variant,
+    [`ecl-icon--${size}`]: size,
+    [`ecl-icon--${color}`]: color,
+  });
 
   return (
-    <svg {...props} className={classes} {...extraAttributes}>
+    <svg className={classNames} {...props}>
       <use xlinkHref={`${iconPath}#${icon}`} />
     </svg>
   );
@@ -31,8 +32,7 @@ Icon.propTypes = {
   color: PropTypes.string,
   iconPath: PropTypes.string,
   icon: PropTypes.string,
-  extraClasses: PropTypes.string,
-  extraAttributes: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Icon.defaultProps = {
@@ -41,8 +41,7 @@ Icon.defaultProps = {
   size: 'm',
   iconPath: '',
   icon: '',
-  extraClasses: '',
-  extraAttributes: '',
+  className: '',
 };
 
 export default Icon;

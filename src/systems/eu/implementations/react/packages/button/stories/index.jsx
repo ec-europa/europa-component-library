@@ -3,13 +3,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
-import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
-import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+import demoContentPrimary from '@ecl/eu-specs-button/demo/data--primary';
+import demoContentSecondary from '@ecl/eu-specs-button/demo/data--secondary';
+import demoContentCall from '@ecl/eu-specs-button/demo/data--call';
+import demoContentGhost from '@ecl/eu-specs-button/demo/data--ghost';
+import demoContentSearch from '@ecl/eu-specs-button/demo/data--search';
 
-import svgSprite from '@ecl/ec-resources/dist/icons.svg';
+import svgSprite from '@ecl/eu-resources/dist/icons.svg';
 import Button from '../Button';
 import './index.scss';
 
