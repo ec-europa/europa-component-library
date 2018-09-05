@@ -36,11 +36,7 @@ const HeroBanner = ({
           )}
           {button &&
             button.label && (
-              <Button
-                variant={button.variant}
-                label={button.label}
-                extraClasses="ecl-hero-banner__button"
-              />
+              <Button {...button} className="ecl-hero-banner__button" />
             )}
         </div>
       </div>
