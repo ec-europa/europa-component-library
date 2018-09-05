@@ -1,0 +1,55 @@
+@import '@ecl/ec-theme-default/index';
+
+$header-bg-color: #f2f5f9;
+$header-tabs-border-width: 4px;
+
+.header {
+  background-color: $header-bg-color;
+  margin: 0;
+  padding: $ecl-spacing-l 0 0;
+}
+
+.header__page-title {
+  color: #000;
+  font: $ecl-font-4-xl;
+  font-weight: $ecl-font-weight-bold;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.header__section-header {
+  color: #000;
+  font: $ecl-font-xl;
+  font-weight: $ecl-font-weight-bold;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.header__tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.header__tabs-item {
+  border-bottom: $header-tabs-border-width solid transparent;
+  color: #000;
+  display: block;
+  font: $ecl-font-m;
+  font-weight: $ecl-font-weight-bold;
+  margin-right: $ecl-spacing-xl;
+  padding: $ecl-spacing-xs 0;
+  text-decoration: none;
+}
+
+.header__tabs-item:hover,
+.header__tabs-item:focus {
+  background-color: $ecl-color-grey-15;
+}
+
+.header__tabs-item--active {
+  border-bottom: $header-tabs-border-width solid $ecl-color-yellow-100;
+}

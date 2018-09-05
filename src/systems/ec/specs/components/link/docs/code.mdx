@@ -1,0 +1,26 @@
+import Playground from '@ecl/website-components/Playground'
+import Link from '@ecl/ec-react-component-link/Link'
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Link&selectedStory=default&stories=0">
+  <Link
+    variant="default"
+    label="Default link"
+    href="/example#default-link"
+  />
+</Playground>
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Link&selectedStory=standalone&stories=0">
+  <Link
+    variant="standalone"
+    label="Standalone link"
+    href="/example#standalone-link"
+  />
+</Playground>
+
+The component expects 5 parameters:
+
+- variant (string)
+- label (string)
+- href (string)
+- (optional) extraClasses (string)
+- (optional) extraAttributes (string)

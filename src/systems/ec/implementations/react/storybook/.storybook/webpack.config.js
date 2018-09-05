@@ -7,8 +7,18 @@ const includePaths = [
 module.exports = (baseConfig, env, defaultConfig) => {
   // Trick webpack, allow it to include .js(x) files from ../..
   defaultConfig.module.rules[0].test = /\.jsx?$/;
-  defaultConfig.module.rules[0].include = [path.resolve(__dirname, '../..')];
+  defaultConfig.module.rules[0].include = [
+    path.resolve(__dirname, '../..'), // EC packages
+    path.resolve(__dirname, '../../../../../generic'), // Generic packages
+  ];
   defaultConfig.resolve.extensions.push('.jsx');
+
+  // Add "limit" to svg-url-loader
+  defaultConfig.module.rules[4].query = {
+    limit: 4 * 1024, // above 4 kB, file-loader will be used
+    stripdeclarations: true,
+    encoding: 'base64',
+  };
 
   defaultConfig.module.rules.push(
     ...[

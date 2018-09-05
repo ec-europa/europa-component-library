@@ -1,0 +1,41 @@
+@mixin ecl-form-control() {
+  @include ecl-hidden-print();
+  @include ecl-focus-outline-border(
+    3px,
+    map-get($ecl-colors, 'yellow-100'),
+    0,
+    none
+  );
+
+  background-color: #fff;
+  border: 1px solid $ecl-color-text;
+  border-radius: 0;
+  box-shadow: none;
+  color: $ecl-color-text;
+  font-size: map-get($ecl-font-size, 's');
+  margin-bottom: 1.1em;
+  min-height: 2.75rem;
+
+  &.has-error {
+    border-width: 2px;
+    padding: 5px 11px;
+  }
+
+  // Focus state.
+  &:focus,
+  &.is-focused,
+  .has-error &:focus {
+    box-shadow: none;
+    color: #000;
+  }
+
+  // Disabled modifier.
+  &.is-disabled {
+    background-color: map-get($ecl-colors, 'grey-15');
+    color: map-get($ecl-colors, 'grey-50');
+  }
+
+  &.select {
+    border-width: 1px;
+  }
+}
