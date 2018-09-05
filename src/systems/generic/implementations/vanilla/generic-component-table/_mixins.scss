@@ -8,7 +8,7 @@
 
   th {
     background-color: transparent;
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     font-weight: bold;
     text-align: left;
   }
@@ -36,7 +36,7 @@
 
   td {
     display: block;
-    padding: map-get($ecl-spacing, 'xxs');
+    padding: map-get($ecl-spacing, '2xs');
     position: relative;
   }
 
@@ -72,13 +72,13 @@
 
     /* stylelint-disable-next-line max-nesting-depth, selector-max-compound-selectors */
     tr:first-child th {
-      border-bottom: 1px solid $ecl-color-shade;
+      border-bottom: 1px solid $ecl-color-text;
       vertical-align: top;
     }
 
     /* stylelint-disable-next-line max-nesting-depth */
     tr:last-child:not(:first-child) {
-      border-bottom: 3px solid $ecl-color-shade;
+      border-bottom: 3px solid $ecl-color-text;
     }
   }
 }

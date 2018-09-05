@@ -18,7 +18,7 @@
     align-items: center;
     background-color: map-get($ecl-colors, 'grey-5');
     border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: flex;
     flex-wrap: nowrap;
     font-size: map-get($ecl-font-size, 'xs');
@@ -91,7 +91,7 @@
     appearance: none;
     border: 0;
     border-radius: 0;
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     cursor: pointer;
     font-size: map-get($ecl-font-size, 'xs');
     font-weight: bold;
@@ -113,7 +113,7 @@
 
   // Useful in Firefox
   .ecl-lang-select-page__dropdown-option {
-    padding: map-get($ecl-spacing, 'xxs');
+    padding: map-get($ecl-spacing, '2xs');
   }
 
   /* Variant */

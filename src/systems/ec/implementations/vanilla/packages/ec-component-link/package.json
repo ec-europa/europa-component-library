@@ -5,16 +5,10 @@
   "version": "2.0.0-alpha.0",
   "description": "ECL Links",
   "style": "ec-component-link.scss",
-  "scripts": {
-    "test:independent-sass": "mkdir -p dist && cat ../../../../themes/default/exports/index.scss ec-component-link.scss | node-sass --quiet --include-path ../../../../../../../node_modules > dist/ec-component-link.css"
-  },
   "dependencies": {
     "@ecl/ec-base": "^2.0.0-alpha.0",
     "@ecl/ec-style-icon": "^2.0.0-alpha.0",
     "@ecl/generic-component-link": "^2.0.0-alpha.0"
-  },
-  "devDependencies": {
-    "node-sass": "4.9.3"
   },
   "publishConfig": {
     "access": "public"
