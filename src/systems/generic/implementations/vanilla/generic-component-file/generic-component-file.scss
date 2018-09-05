@@ -11,7 +11,7 @@ $generic-component-file-title-line-height: $generic-component-file-line-height;
 $generic-component-file-title-font-size: map-get($ecl-font-size, 'm');
 $generic-component-file-info-line-height: $generic-component-file-line-height;
 $generic-component-file-info-font-size: map-get($ecl-font-size, 'xs');
-$generic-component-file-info-margin-top: map-get($ecl-spacing, 'xxxs');
+$generic-component-file-info-margin-top: map-get($ecl-spacing, '2xs');
 $generic-component-file-title-height: $generic-component-file-title-line-height *
   $generic-component-file-title-font-size;
 $generic-component-file-info-height: $generic-component-file-info-line-height *
@@ -34,7 +34,7 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
   .ecl-file {
     @include ecl-hidden-print();
 
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     margin: 0;
   }
 
@@ -104,8 +104,8 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
     border-top: 1px solid map-get($ecl-colors, 'grey-50');
     display: flex;
     flex-direction: column;
-    padding-bottom: map-get($ecl-spacing, 'xxs');
-    padding-top: map-get($ecl-spacing, 'xxs');
+    padding-bottom: map-get($ecl-spacing, '2xs');
+    padding-top: map-get($ecl-spacing, '2xs');
 
     &:last-child {
       border-bottom: 1px solid map-get($ecl-colors, 'grey-50');
@@ -123,7 +123,7 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
 
   .ecl-file__translations-info {
     font-size: map-get($ecl-font-size, 'xs');
-    margin-top: map-get($ecl-spacing, 'xxs');
+    margin-top: map-get($ecl-spacing, '2xs');
   }
 
   .ecl-file__translations-download {
@@ -161,7 +161,7 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
     text-decoration: none;
 
     .ecl-file__title {
-      margin-left: map-get($ecl-spacing, 'xxs');
+      margin-left: map-get($ecl-spacing, '2xs');
       text-decoration: underline;
     }
   }
@@ -172,8 +172,8 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
     border-left: 2px solid map-get($ecl-colors, 'grey-50');
     color: map-get($ecl-colors, 'grey-100');
     font-weight: bold;
-    margin-left: map-get($ecl-spacing, 'xxxs');
-    padding-left: map-get($ecl-spacing, 'xxxs');
+    margin-left: map-get($ecl-spacing, '2xs');
+    padding-left: map-get($ecl-spacing, '2xs');
     text-transform: uppercase;
   }
 
@@ -192,7 +192,7 @@ $generic-component-file-metadata-height: $generic-component-file-title-height +
     display: block;
     font-size: map-get($ecl-font-size, 'xs');
     line-height: $line-height;
-    padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+    padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, 'xs');
   }
 
   /* stylelint-disable */

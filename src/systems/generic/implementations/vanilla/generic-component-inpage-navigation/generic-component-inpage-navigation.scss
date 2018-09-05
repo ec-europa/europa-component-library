@@ -55,11 +55,11 @@ $ecl-inpage-navigation-link-padding-vertical: (
   }
 
   .ecl-inpage-navigation__title {
-    color: $ecl-color-shade;
+    color: $ecl-color-text;
     display: none;
     padding-bottom: map-get($ecl-spacing, 'xs');
     padding-left: 0.5rem;
-    padding-top: map-get($ecl-spacing, 'xxs');
+    padding-top: map-get($ecl-spacing, '2xs');
     text-transform: uppercase;
   }
 
@@ -100,7 +100,7 @@ $ecl-inpage-navigation-link-padding-vertical: (
         border-top: 1px solid map-get($ecl-colors, 'blue-110');
         color: #fff;
         display: block;
-        padding: map-get($ecl-spacing, 'xxs') map-get($ecl-spacing, 'xs');
+        padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, 'xs');
         text-decoration: underline;
       }
 
@@ -129,7 +129,7 @@ $ecl-inpage-navigation-link-padding-vertical: (
       color: #000;
       display: block;
       font-weight: 700;
-      padding-left: map-get($ecl-spacing, 'xxxs');
+      padding-left: map-get($ecl-spacing, '2xs');
 
       &:hover {
         text-decoration: underline;

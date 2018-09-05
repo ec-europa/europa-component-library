@@ -1,6 +1,6 @@
-@import '@ecl/ec-theme-default/exports/index';
+@import '@ecl/ec-theme-default/index';
 
-.tmp-logo-link {
+.logo-link {
   align-items: center;
   background-color: $ecl-color-grey-5;
   border: 1px solid $ecl-color-grey-10;
@@ -11,14 +11,14 @@
   padding: $ecl-spacing-xl;
 }
 
-.tmp-logo-link:hover,
-.tmp-logo-link:focus {
+.logo-link:hover,
+.logo-link:focus {
   border: 3px solid #ffd617;
   outline: none;
   padding: calc(#{$ecl-spacing-xl} - 2px);
 }
 
-.tmp-logo-link img {
+.logo-link img {
   max-width: 20rem;
   width: 100%;
 }

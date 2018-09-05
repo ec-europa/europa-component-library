@@ -2,23 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logoHorizontal from '@ecl/ec-resources/logo/EC-logo-horizontal-desktop.svg';
-import logoMute from '@ecl/ec-resources/logo/EC_logo-desktop.svg';
+import logoSrc from '@ecl/ec-resources/logo/EC-logo.svg';
 
-const Logo = ({
-  variant,
-  title,
-  alt,
-  extraClasses,
-  extraAttributes,
-  ...props
-}) => {
+const Logo = ({ title, alt, extraClasses, extraAttributes, ...props }) => {
   let classes = 'ecl-logo';
-  if (variant) classes += ` ecl-logo--${variant}`;
   if (extraClasses) classes += ` ${extraClasses}`;
-
-  let logoSrc = logoMute;
-  if (variant === 'horizontal') logoSrc = logoHorizontal;
 
   return (
     <img
@@ -33,7 +21,6 @@ const Logo = ({
 };
 
 Logo.propTypes = {
-  variant: PropTypes.string,
   title: PropTypes.string,
   alt: PropTypes.string,
   extraClasses: PropTypes.string,
@@ -41,7 +28,6 @@ Logo.propTypes = {
 };
 
 Logo.defaultProps = {
-  variant: 'large',
   title: '',
   alt: '',
   extraClasses: '',

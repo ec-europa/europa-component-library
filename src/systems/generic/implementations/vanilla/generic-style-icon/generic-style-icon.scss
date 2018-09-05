@@ -10,51 +10,55 @@
 @import './variables';
 @import './mixins';
 
-@mixin ecl-icons() {
+@mixin ecl-icons(
+  $_highlight-background: $ecl-color-secondary,
+  $_highlight-color: $ecl-color-black-100,
+  $_color-primary: $ecl-color-primary,
+  $_color-inverted: $ecl-color-white-100,
+  $_color-default: currentColor
+) {
   .ecl-icon {
-    @include ecl-icon--before();
+    fill: $_color-default;
+    margin: 0;
   }
 
-  .ecl-icon--after {
-    @include ecl-icon--after();
+  .ecl-icon--xs {
+    height: $ecl-icon-xs;
+    width: $ecl-icon-xs;
   }
 
-  // Icon component and modifiers.
-  @each $modifier, $char in $ecl-icons {
-    .ecl-icon--#{$modifier} {
-      /* stylelint-disable-next-line */
-      &::before {
-        @include ecl-icon($modifier);
-      }
-    }
+  .ecl-icon--s {
+    height: $ecl-icon-s;
+    width: $ecl-icon-s;
   }
 
-  .ecl-icon--rounded {
+  .ecl-icon--m {
+    height: $ecl-icon-m;
+    width: $ecl-icon-m;
+  }
+
+  .ecl-icon--l {
+    height: $ecl-icon-l;
+    width: $ecl-icon-l;
+  }
+
+  .ecl-icon--xl {
+    height: $ecl-icon-xl;
+    width: $ecl-icon-xl;
+  }
+
+  .ecl-icon--primary {
+    fill: $_color-primary;
+  }
+
+  .ecl-icon--inverted {
+    fill: $_color-inverted;
+  }
+
+  .ecl-icon--highlight {
+    background-color: $_highlight-background;
     border-radius: 50%;
-    display: inline-block;
-    font-size: map-get($ecl-font-size, 'xs');
-    height: map-get($ecl-spacing, 'l');
-    line-height: map-get($ecl-spacing, 'l');
-    text-align: center;
-    width: map-get($ecl-spacing, 'l');
-  }
-
-  .ecl-icon--rounded::before {
-    line-height: inherit;
-    margin-right: 0;
-  }
-
-  @each $size, $value in $ecl-font-size {
-    /* stylelint-disable */
-    .ecl-icon--#{$size} {
-      height: $value;
-      width: $value;
-
-      image {
-        height: $value;
-        width: $value;
-      }
-    }
-    /* stylelint-enable */
+    fill: $_highlight-color;
+    padding: $ecl-spacing-xs;
   }
 }

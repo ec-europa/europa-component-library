@@ -5,18 +5,12 @@
   "version": "2.0.0-alpha.0",
   "description": "ECL Icons -> EC flavor",
   "style": "ec-style-icon.scss",
-  "scripts": {
-    "test:independent-sass": "mkdir -p dist && cat ../../../../themes/default/exports/index.scss ec-style-icon.scss | node-sass --quiet --include-path ../../../../../../../node_modules > dist/ec-style-icon.css"
-  },
   "dependencies": {
     "@ecl/ec-base": "^2.0.0-alpha.0",
     "@ecl/generic-style-icon": "^2.0.0-alpha.0"
   },
   "peerDependencies": {
     "svg4everybody": "^2.1.9"
-  },
-  "devDependencies": {
-    "node-sass": "4.9.3"
   },
   "publishConfig": {
     "access": "public"

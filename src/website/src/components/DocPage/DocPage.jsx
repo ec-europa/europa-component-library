@@ -4,9 +4,14 @@ import Helmet from 'react-helmet';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Header from './Header';
+import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
+
+import grid from '../../styles/grid.scss';
+import utilities from '../../styles/utilities.scss';
 
 const DocPage = ({ component }) => (
   <Fragment>
+    <ScrollToTopOnMount />
     <Helmet title={component.title} />
     <Header
       component={component}
@@ -15,7 +20,7 @@ const DocPage = ({ component }) => (
       tabs={component.tabs}
     />
     <main id="main-content" tabIndex="-1">
-      <div className="custom-container tmp-u-pv-l tmp-editor">
+      <div className={`${grid.container} ${utilities['pv-l']}`}>
         {component.page ? (
           <component.page />
         ) : (
