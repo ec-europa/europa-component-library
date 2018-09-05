@@ -26,6 +26,8 @@ const customComponents = {
   h4: ({ children }) => <h4 className={styles.h4}>{children}</h4>,
   h5: ({ children }) => <h5 className={styles.h5}>{children}</h5>,
   p: ({ children }) => <p className={styles.p}>{children}</p>,
+  ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
+  ol: ({ children }) => <ol className={styles.ol}>{children}</ol>,
   img: ({ alt, src }) => (
     <a href={src} target="_blank" rel="noopener noreferrer">
       <img alt={alt} src={src} className={styles.img} />
