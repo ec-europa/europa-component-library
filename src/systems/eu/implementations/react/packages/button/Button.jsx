@@ -4,14 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/eu-react-component-icon/Icon';
 
-const Button = ({
-  variant,
-  typeAttribute,
-  label,
-  icon,
-  className,
-  ...props
-}) => {
+const Button = ({ variant, type, label, icon, className, ...props }) => {
   const classNames = classnames(className, {
     'ecl-button': true,
     [`ecl-button--${variant}`]: variant,
@@ -19,7 +12,7 @@ const Button = ({
 
   return (
     /* eslint-disable react/button-has-type */
-    <button type={typeAttribute} className={classNames} {...props}>
+    <button {...props} type={type} className={classNames}>
       <span className="ecl-button__container">
         <span className="ecl-button__label">{label}</span>
         {icon && icon.icon && <Icon {...icon} className="ecl-button__icon" />}
@@ -31,7 +24,7 @@ const Button = ({
 
 Button.propTypes = {
   variant: PropTypes.string,
-  typeAttribute: PropTypes.string,
+  type: PropTypes.string,
   label: PropTypes.string,
   icon: Icon,
   className: PropTypes.string,
@@ -39,7 +32,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   variant: 'primary',
-  typeAttribute: 'submit',
+  type: 'submit',
   label: '',
   icon: {},
   className: '',

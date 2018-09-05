@@ -32,7 +32,7 @@ storiesOf('Button', module)
       <Button
         variant="primary"
         label={text('Label', demoContentPrimary.label)}
-        typeAttribute="submit"
+        type="submit"
         icon={buttonIcon}
       />
     );
@@ -48,7 +48,7 @@ storiesOf('Button', module)
       <Button
         variant="secondary"
         label={text('Label', demoContentSecondary.label)}
-        typeAttribute="button"
+        type="button"
         icon={buttonIcon}
       />
     );
@@ -64,7 +64,7 @@ storiesOf('Button', module)
       <Button
         variant="call"
         label={text('Label', demoContentCall.label)}
-        typeAttribute="submit"
+        type="submit"
         icon={buttonIcon}
       />
     );
@@ -80,7 +80,7 @@ storiesOf('Button', module)
       <Button
         variant="ghost"
         label={text('Label', demoContentGhost.label)}
-        typeAttribute="button"
+        type="button"
         icon={buttonIcon}
       />
     );
@@ -96,7 +96,7 @@ storiesOf('Button', module)
       <Button
         variant="search"
         label={text('Label', demoContentSearch.label)}
-        typeAttribute="button"
+        type="button"
         icon={buttonIcon}
       />
     );
