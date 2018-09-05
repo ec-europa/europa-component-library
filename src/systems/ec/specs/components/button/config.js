@@ -6,6 +6,7 @@ export default {
   url: '/ec/components/button',
   title: 'Button',
   section: 'Components',
+  ready: true,
   tabs: [
     {
       name: 'Usage',
