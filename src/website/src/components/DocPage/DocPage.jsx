@@ -5,9 +5,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
-
-import grid from '../../styles/grid.scss';
-import utilities from '../../styles/utilities.scss';
+import Container from '../Grid/Container';
 
 const DocPage = ({ component }) => (
   <Fragment>
@@ -20,7 +18,7 @@ const DocPage = ({ component }) => (
       tabs={component.tabs}
     />
     <main id="main-content" tabIndex="-1">
-      <div className={`${grid.container} ${utilities['pv-2xl']}`}>
+      <Container spacing="pv-2xl">
         {component.page ? (
           <component.page />
         ) : (
@@ -41,7 +39,7 @@ const DocPage = ({ component }) => (
             />
           </Switch>
         )}
-      </div>
+      </Container>
     </main>
   </Fragment>
 );

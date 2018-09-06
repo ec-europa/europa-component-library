@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
-import grid from '../../styles/grid.scss';
-import utilities from '../../styles/utilities.scss';
+import Container from '../Grid/Container';
 
 const HomePage = ({ children }) => (
   <main id="main-content" tabIndex="-1">
     <ScrollToTopOnMount />
-    <div className={`${grid.container} ${utilities['pv-xl']}`}>{children}</div>
+    <Container spacing="pv-2xl">{children}</Container>
   </main>
 );
 

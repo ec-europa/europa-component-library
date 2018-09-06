@@ -7,36 +7,41 @@ import EULogo from '@ecl/eu-preset-website/dist/images/logo/logo--en.svg';
 import LogoLink from './LogoLink';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
-import grid from '../../styles/grid.scss';
+import Container from '../Grid/Container';
+import Row from '../Grid/Row';
+import Col from '../Grid/Col';
+
 import utilities from '../../styles/utilities.scss';
 import styles from './SplashPage.scss';
 
 const SplashPage = ({ children }) => (
   <main id="main-content" tabIndex="-1" className={styles['splash-page']}>
     <ScrollToTopOnMount />
-    <div className={grid.container}>
+    <Container>
       {children}
-      <div className={`${grid.row} ${styles['splash-page-actions-row']}`}>
-        <div
-          className={`${grid['col-4/4']} ${grid['col-md-4/8']} ${
-            grid['col-xl-6/12']
-          } ${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
+      <Row className={styles['splash-page-actions-row']}>
+        <Col
+          col="col-4/4 col-md-4/8 col-xl-6/12"
+          className={`${utilities['d-flex']} ${
+            styles['splash-page-actions-col']
+          }`}
         >
           <LogoLink to="/ec/" aria-label="Open EU system">
             <img src={ECLogo} alt="EC Logo" />
           </LogoLink>
-        </div>
-        <div
-          className={`${grid['col-4/4']} ${grid['col-md-4/8']} ${
-            grid['col-xl-6/12']
-          } ${utilities['d-flex']} ${styles['splash-page-actions-col']}`}
+        </Col>
+        <Col
+          col="col-4/4 col-md-4/8 col-xl-6/12"
+          className={`${utilities['d-flex']} ${
+            styles['splash-page-actions-col']
+          }`}
         >
           <LogoLink to="/eu/" aria-label="Open EU system">
             <img src={EULogo} alt="EU Logo" />
           </LogoLink>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   </main>
 );
 
