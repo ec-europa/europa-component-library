@@ -20,7 +20,7 @@ const DocPage = ({ component }) => (
       tabs={component.tabs}
     />
     <main id="main-content" tabIndex="-1">
-      <div className={`${grid.container} ${utilities['pv-l']}`}>
+      <div className={`${grid.container} ${utilities['pv-2xl']}`}>
         {component.page ? (
           <component.page />
         ) : (
