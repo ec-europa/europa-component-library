@@ -9,7 +9,6 @@ import demoContentCall from '@ecl/eu-specs-button/demo/data--call';
 import demoContentGhost from '@ecl/eu-specs-button/demo/data--ghost';
 import demoContentSearch from '@ecl/eu-specs-button/demo/data--search';
 
-import svgSprite from '@ecl/eu-resources/dist/icons.svg';
 import Button from '../Button';
 import './index.scss';
 
@@ -23,7 +22,6 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('primary', () => {
     const buttonIcon = {
-      iconPath: svgSprite,
       icon: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
@@ -39,7 +37,6 @@ storiesOf('Button', module)
   })
   .add('secondary', () => {
     const buttonIcon = {
-      iconPath: svgSprite,
       icon: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
@@ -55,7 +52,6 @@ storiesOf('Button', module)
   })
   .add('call to action', () => {
     const buttonIcon = {
-      iconPath: svgSprite,
       icon: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
@@ -71,7 +67,6 @@ storiesOf('Button', module)
   })
   .add('ghost', () => {
     const buttonIcon = {
-      iconPath: svgSprite,
       icon: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
@@ -87,7 +82,6 @@ storiesOf('Button', module)
   })
   .add('search', () => {
     const buttonIcon = {
-      iconPath: svgSprite,
       icon: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
