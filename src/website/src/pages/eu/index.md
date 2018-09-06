@@ -1,5 +1,6 @@
 import Row from '../../components/Grid/Row'
 import Col from '../../components/Grid/Col'
+import ComponentStatus from '../../components/ComponentStatus/ComponentStatus'
 
 # Europa Component Library (EU)
 
@@ -46,23 +47,62 @@ Text
 </Col>
 </Row>
 <Row spacing="mt-xl">
-<Col col="col-4/4 col-md-4/8">
+<Col col="col-4/4 col-md-4/8 col-xl-4/12">
 
 ## Latest Releases
 
 Text
 
 </Col>
-<Col col="col-4/4 col-md-4/8">
+<Col col="col-4/4 col-md-4/8 col-xl-4/12">
 
 ## Upcoming Releases
 
 Text
 
 </Col>
-<Col col="col-4/4 col-md-4/8">
+<Col col="col-4/4 col-md-4/8 col-xl-4/12">
 
 ## Section title
+
+Text
+
+</Col>
+</Row>
+
+## Component statuses
+
+Components and their variants have been given statuses reflecting their state of completion. The available statuses are listed below.
+
+<ComponentStatus />
+
+## Frequently asked questions
+
+<Row spacing="mt-xl">
+<Col col="col-4/4 col-md-4/8">
+
+### Sample title
+
+Text
+
+</Col>
+<Col col="col-4/4 col-md-4/8">
+
+### Sample title
+
+Text
+
+</Col>
+<Col col="col-4/4 col-md-4/8">
+
+### Sample title
+
+Text
+
+</Col>
+<Col col="col-4/4 col-md-4/8">
+
+### Sample title
 
 Text
 
