@@ -15,7 +15,7 @@ const SplashPage = ({ children }) => (
   <main id="main-content" tabIndex="-1" className={styles['splash-page']}>
     <ScrollToTopOnMount />
     <div className={grid.container}>
-      <div className={styles['splash-page-editor']}>{children}</div>
+      {children}
       <div className={`${grid.row} ${styles['splash-page-actions-row']}`}>
         <div
           className={`${grid['col-4/4']} ${grid['col-md-4/8']} ${
