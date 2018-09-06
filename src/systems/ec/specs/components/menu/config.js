@@ -13,9 +13,9 @@ export default {
       url: 'usage',
     },
     {
-      name: 'Code',
+      name: 'Showcase',
       component: code,
-      url: 'code',
+      url: 'showcase',
     },
     {
       name: 'Style',

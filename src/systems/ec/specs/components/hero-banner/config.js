@@ -1,10 +1,11 @@
 import style from './docs/style.md';
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/banner',
-  title: 'Banner',
+  ready: true,
+  url: '/ec/components/hero-banner',
+  title: 'Hero banner',
   section: 'Components',
   tabs: [
     {
@@ -13,9 +14,9 @@ export default {
       url: 'usage',
     },
     {
-      name: 'Code',
+      name: 'Showcase',
       component: code,
-      url: 'code',
+      url: 'showcase',
     },
     {
       name: 'Style',

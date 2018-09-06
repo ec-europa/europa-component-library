@@ -1,0 +1,16 @@
+/**
+ * Hero Banner component
+ * @define banner
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-hero-banner/generic-component-hero-banner';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-button'));
+
+// Use generic mixin
+@include exports('ec-component-hero-banner') {
+  @include ecl-hero-banner();
+}

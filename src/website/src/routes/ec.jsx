@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import ECStyles from '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
 
 // Layout
@@ -7,9 +8,10 @@ import Navigation from '../components/Navigation/Navigation';
 import MainContainer from '../components/MainContainer/MainContainer';
 
 // Static routes
-import HomePage from '../pages/ec/index';
+import HomePage from '../pages/ec/index.md';
 import PageNotFound from './404';
 
+import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
 const ecPages = require.context('../pages/ec', true, /config\.js$/);
@@ -64,7 +66,17 @@ class ECRoutes extends Component {
         />
         <MainContainer sidebarOpen={sidebarOpen}>
           <Switch>
-            <Route exact strict path="/ec/" component={HomePage} />
+            <Route
+              exact
+              strict
+              path="/ec/"
+              component={() => (
+                <SimplePage>
+                  <Helmet title="EC Homepage" />
+                  <HomePage />
+                </SimplePage>
+              )}
+            />
             {pages.map(page => (
               <Route
                 key={page.url}
