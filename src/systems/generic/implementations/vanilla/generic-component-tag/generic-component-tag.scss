@@ -23,17 +23,16 @@
 
   .ecl-tag__item {
     background-color: map-get($ecl-colors, 'grey-15');
-    border-radius: 5px;
+    border-radius: (2 * $ecl-spacing-xs + $ecl-font-size-s * $ecl-line-height-s) /
+      2;
     border-width: 0;
+    box-sizing: border-box;
     color: $ecl-color-text;
     display: flex;
-    font-family: $ecl-font-family;
-    font-size: map-get($ecl-font-size, 'xs');
-    font-weight: normal;
-    line-height: 1;
+    font: $ecl-font-s;
     margin-bottom: map-get($ecl-spacing, '2xs');
     margin-right: map-get($ecl-spacing, 's');
-    padding: map-get($ecl-spacing, '2xs');
+    padding: $ecl-spacing-xs $ecl-spacing-s;
     white-space: nowrap;
 
     &:hover,
@@ -43,12 +42,16 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px map-get($ecl-colors, 'yellow-100');
+      box-shadow: inset 0 0 0 3px map-get($ecl-colors, 'yellow-100');
       outline: none;
     }
   }
 
   .ecl-tag--facet-close {
+    .ecl-tag__item {
+      text-decoration: none;
+    }
+
     .ecl-tag__item:hover {
       background-color: $ecl-color-text;
       color: #fff;
