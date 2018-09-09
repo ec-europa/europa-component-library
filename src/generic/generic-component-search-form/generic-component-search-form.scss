@@ -1,0 +1,92 @@
+/**
+ * Search form
+ * @define search-form; weak
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-search-form() {
+  .ecl-search-form {
+    @include ecl-hidden-print();
+
+    display: flex;
+    margin: 0;
+    width: 100%;
+
+    .ecl-text-input__wrapper {
+      flex-grow: 1;
+    }
+
+    .ecl-text-input__icon {
+      display: none;
+      // position calculation should integrate border width...
+      left: calc(#{$ecl-spacing-s} + 1px);
+      top: calc(#{$ecl-spacing-s} + 1px);
+    }
+  }
+
+  // :valid is used to check if the field is empty
+  // https://stackoverflow.com/a/16956610
+  .ecl-search-form .ecl-text-input:focus + .ecl-text-input__icon,
+  .ecl-search-form .ecl-text-input:valid + .ecl-text-input__icon {
+    display: none;
+  }
+
+  .ecl-search-form__textfield {
+    border-bottom: 1px solid $ecl-color-grey-50;
+    border-left: 1px solid $ecl-color-grey-50;
+    border-right-width: 0;
+    border-top: 1px solid $ecl-color-grey-50;
+    flex-grow: 1;
+    font: $ecl-font-m;
+    margin: 0;
+    padding: $ecl-spacing-s 0 $ecl-spacing-s $ecl-spacing-s;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $ecl-color-secondary inset;
+      outline: none;
+    }
+  }
+
+  .ecl-search-form__button {
+    border-bottom: 1px solid $ecl-color-grey-50;
+    border-left-width: 0;
+    border-right: 1px solid $ecl-color-grey-50;
+    border-top: 1px solid $ecl-color-grey-50;
+    padding: $ecl-spacing-s;
+  }
+
+  .ecl-search-form__button .ecl-button__label {
+    display: none;
+  }
+
+  .ecl-search-form__button .ecl-button__icon {
+    display: block;
+    fill: currentColor;
+    margin: 0;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-search-form {
+      max-width: 31.25rem;
+    }
+
+    .ecl-search-form .ecl-text-input__icon {
+      display: block;
+    }
+
+    .ecl-search-form__button {
+      padding: $ecl-spacing-s $ecl-spacing-l;
+    }
+
+    .ecl-search-form__button .ecl-button__label {
+      display: block;
+    }
+
+    .ecl-search-form__button .ecl-button__icon {
+      display: none;
+    }
+  }
+}
