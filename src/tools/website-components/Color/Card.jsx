@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { PureComponent } from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ClipboardJS from 'clipboard';
 
@@ -29,12 +30,17 @@ class Card extends PureComponent {
     const {
       name,
       value,
-      docs = { title: '', complementColor: '#000' },
+      docs = { title: '', complementColor: '#000', border: false },
     } = this.color;
 
     return (
       <div className={styles.card}>
-        <div className={styles.header} style={{ backgroundColor: value }}>
+        <div
+          className={classnames(styles.header, {
+            [styles['header--bordered']]: docs.border,
+          })}
+          style={{ backgroundColor: value }}
+        >
           <h3
             className={styles.title}
             style={{
@@ -53,7 +59,10 @@ class Card extends PureComponent {
               color: docs.complementColor,
             }}
           >
-            {value.toUpperCase()}
+            <span className={styles['button-hover-hidden']}>
+              {value.toUpperCase()}
+            </span>
+            <span className={styles['button-hover-only']}>COPY</span>
           </button>
         </div>
         {docs.description && (

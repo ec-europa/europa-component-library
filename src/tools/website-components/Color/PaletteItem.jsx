@@ -50,7 +50,10 @@ class PaletteItem extends PureComponent {
             color: docs.complementColor,
           }}
         >
-          {value.toUpperCase()}
+          <span className={styles['button-hover-hidden']}>
+            {value.toUpperCase()}
+          </span>
+          <span className={styles['button-hover-only']}>COPY</span>
         </button>
       </li>
     );
