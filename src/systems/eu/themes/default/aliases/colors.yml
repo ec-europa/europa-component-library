@@ -2,32 +2,165 @@
 imports:
   - '@ecl/eu-design-tokens/tokens/colors.yml'
 
-# Custom aliases used in the "default" theme
-aliases:
-  _COLOR_PRIMARY: '{!COLOR_BLUE_100}'
-  _COLOR_SECONDARY: '{!COLOR_YELLOW_100}'
-  _COLOR_TERTIARY: '{!COLOR_GREY_15}'
-  _COLOR_TEXT: '{!COLOR_GREY_100}'
-
 # Export properties
 props:
-  COLOR_PRIMARY:
-    value: '{!_COLOR_PRIMARY}'
+  - name: COLOR_PRIMARY
+    value: '{!COLOR_BLUE_100}'
     comment: Primary color
     type: color
     category: color
-  COLOR_SECONDARY:
-    value: '{!_COLOR_SECONDARY}'
+  - name: COLOR_SECONDARY
+    value: '{!COLOR_YELLOW_100}'
     comment: Secondary color
     type: color
     category: color
-  COLOR_TERTIARY:
-    value: '{!_COLOR_TERTIARY}'
+  - name: COLOR_TERTIARY
+    value: '{!COLOR_GREY_15}'
     comment: Tertiary color
     type: color
     category: color
-  COLOR_TEXT:
-    value: '{!_COLOR_TEXT}'
+  - name: COLOR_TEXT
+    value: '{!COLOR_GREY_100}'
     comment: Text color
+    type: color
+    category: color
+  - name: COLOR_BLACK_100
+    value: '{!COLOR_BLACK_100}'
+    comment: Black 100
+    type: color
+    category: color
+  - name: COLOR_WHITE_100
+    value: '{!COLOR_WHITE_100}'
+    comment: White 100
+    type: color
+    category: color
+  - name: COLOR_BLUE_120
+    value: '{!COLOR_BLUE_120}'
+    comment: Blue 120
+    type: color
+    category: color
+  - name: COLOR_BLUE_110
+    value: '{!COLOR_BLUE_110}'
+    comment: Blue 110
+    type: color
+    category: color
+  - name: COLOR_BLUE_100
+    value: '{!COLOR_BLUE_100}'
+    comment: Blue 100
+    type: color
+    category: color
+  - name: COLOR_BLUE_75
+    value: '{!COLOR_BLUE_75}'
+    comment: Blue 75
+    type: color
+    category: color
+  - name: COLOR_BLUE_50
+    value: '{!COLOR_BLUE_50}'
+    comment: Blue 50
+    type: color
+    category: color
+  - name: COLOR_BLUE_25
+    value: '{!COLOR_BLUE_25}'
+    comment: Blue 25
+    type: color
+    category: color
+  - name: COLOR_YELLOW_120
+    value: '{!COLOR_YELLOW_120}'
+    comment: Yellow 120
+    type: color
+    category: color
+  - name: COLOR_YELLOW_110
+    value: '{!COLOR_YELLOW_110}'
+    comment: Yellow 110
+    type: color
+    category: color
+  - name: COLOR_YELLOW_100
+    value: '{!COLOR_YELLOW_100}'
+    comment: Yellow 100
+    type: color
+    category: color
+  - name: COLOR_YELLOW_75
+    value: '{!COLOR_YELLOW_75}'
+    comment: Yellow 75
+    type: color
+    category: color
+  - name: COLOR_YELLOW_50
+    value: '{!COLOR_YELLOW_50}'
+    comment: Yellow 50
+    type: color
+    category: color
+  - name: COLOR_YELLOW_25
+    value: '{!COLOR_YELLOW_25}'
+    comment: Yellow 25
+    type: color
+    category: color
+  - name: COLOR_GREY_100
+    value: '{!COLOR_GREY_100}'
+    comment: Grey 100
+    type: color
+    category: color
+  - name: COLOR_GREY_75
+    value: '{!COLOR_GREY_75}'
+    comment: Grey 75
+    type: color
+    category: color
+  - name: COLOR_GREY_50
+    value: '{!COLOR_GREY_50}'
+    comment: Grey 50
+    type: color
+    category: color
+  - name: COLOR_GREY_25
+    value: '{!COLOR_GREY_25}'
+    comment: Grey 25
+    type: color
+    category: color
+  - name: COLOR_GREY_15
+    value: '{!COLOR_GREY_15}'
+    comment: Grey 15
+    type: color
+    category: color
+  - name: COLOR_GREY_10
+    value: '{!COLOR_GREY_10}'
+    comment: Grey 120
+    type: color
+    category: color
+  - name: COLOR_GREY_5
+    value: '{!COLOR_GREY_5}'
+    comment: Grey 5
+    type: color
+    category: color
+  - name: COLOR_PURPLE_100
+    value: '{!COLOR_PURPLE_100}'
+    comment: Purple 100
+    type: color
+    category: color
+  - name: COLOR_GREEN_100
+    value: '{!COLOR_GREEN_100}'
+    comment: Green 100
+    type: color
+    category: color
+  - name: COLOR_ORANGE_100
+    value: '{!COLOR_ORANGE_100}'
+    comment: Orange 100
+    type: color
+    category: color
+  - name: COLOR_ERROR
+    value: '{!COLOR_RED_100}'
+    comment: Error color
+    type: color
+    category: color
+  - name: COLOR_INFO
+    value: '{!COLOR_BLUE_70}'
+    comment: Info color
+    type: color
+    category: color
+  - name: COLOR_SUCCESS
+    value: '{!COLOR_GREEN_100}'
+    comment: Success color
+    type: color
+    category: color
+  - name: COLOR_WARNING
+    value: '{!COLOR_ORANGE_100}'
+    comment: Warning color
     type: color
     category: color

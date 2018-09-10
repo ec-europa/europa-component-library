@@ -2,9 +2,21 @@
   "name": "@ecl/eu-resources",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "1.0.0",
+  "version": "2.0.0-alpha.0",
   "description": "Resources for EU system of ECL",
   "style": "",
+  "scripts": {
+    "clean": "rimraf build dist",
+    "prepublish": "npm run svg",
+    "svg": "npm run clean && npm run svg-clean && npm run svg-merge",
+    "svg-clean": "svgo icons/svg/**/*.svg -q",
+    "svg-merge": "svg-sprite -s --dest dist --symbol-dest . --symbol-sprite icons.svg -l info --shape-dim-attributes=true --svg-dimattrs=true icons/svg/**/*.svg"
+  },
+  "devDependencies": {
+    "rimraf": "2.6.2",
+    "svgo": "1.0.5",
+    "svg-sprite": "1.4.0"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -16,6 +28,10 @@
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": ["ecl", "europa-component-library", "design-system"],
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ],
   "sass": ""
 }
