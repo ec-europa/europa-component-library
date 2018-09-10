@@ -1,7 +1,7 @@
 @import '@ecl/ec-theme-default/index';
 
 .h1 {
-  color: #000;
+  color: $ecl-color-grey-100;
   font: $ecl-font-3-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
@@ -14,7 +14,7 @@
 }
 
 .h2 {
-  color: #000;
+  color: $ecl-color-grey-100;
   font: $ecl-font-2-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
@@ -27,7 +27,7 @@
 }
 
 .h3 {
-  color: $ecl-color-text;
+  color: $ecl-color-grey-100;
   font: $ecl-font-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
@@ -40,8 +40,8 @@
 }
 
 .h4 {
-  color: $ecl-color-text;
-  font: $ecl-font-l;
+  color: $ecl-color-grey-100;
+  font: $ecl-font-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
   padding: 0;
@@ -52,21 +52,8 @@
   }
 }
 
-.h5 {
-  color: $ecl-color-text;
-  font: $ecl-font-m;
-  font-weight: $ecl-font-weight-bold;
-  margin: 0;
-  padding: 0;
-
-  @media screen and (min-width: 768px) {
-    font: $ecl-font-l;
-    font-weight: $ecl-font-weight-bold;
-  }
-}
-
 .p {
-  color: $ecl-color-text;
+  color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-m;
   margin: 0;
   max-width: 38em;
@@ -75,20 +62,63 @@
 
 .img {
   max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .ul {
   box-sizing: border-box;
-  color: $ecl-color-text;
+  color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-m;
   max-width: 38em;
+  margin: 0;
 }
 
 .ol {
   box-sizing: border-box;
-  color: $ecl-color-text;
+  color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-m;
   max-width: 38em;
+  margin: 0;
+}
+
+.table {
+  border-collapse: collapse;
+  border-width: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.thead {
+  border-bottom: 1px solid $ecl-color-grey-75;
+}
+
+.th {
+  background-color: transparent;
+  color: $ecl-color-grey-75;
+  font: $ecl-font-prolonged-m;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: $ecl-spacing-m $ecl-spacing-l $ecl-spacing-s;
+  text-align: left;
+}
+
+.td {
+  color: $ecl-color-grey-75;
+  font: $ecl-font-prolonged-m;
+  margin: 0;
+  padding: $ecl-spacing-s $ecl-spacing-l;
+}
+
+.td,
+.th {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.hr {
+  margin: 0;
+  padding: 0;
 }
 
 * + .h1 {
@@ -96,29 +126,45 @@
 }
 
 * + .h2 {
-  margin-top: $ecl-spacing-xl;
+  margin-top: $ecl-spacing-2-xl;
+
+  @media screen and (min-width: 768px) {
+    margin-top: $ecl-spacing-3-xl;
+  }
 }
 
 * + .h3 {
-  margin-top: $ecl-spacing-l;
+  margin-top: $ecl-spacing-xl;
+
+  @media screen and (min-width: 768px) {
+    margin-top: $ecl-spacing-2-xl;
+  }
 }
 
-* + .p {
+* + .h4 {
+  margin-top: $ecl-spacing-xl;
+
+  @media screen and (min-width: 768px) {
+    margin-top: $ecl-spacing-2-xl;
+  }
+}
+
+* + .p,
+* + .img,
+* + .ul,
+* + .ol,
+* + .table {
+  margin-top: $ecl-spacing-s;
+}
+
+.h1 + .p,
+.h1 + .img,
+.h1 + .ul,
+.h1 + .ol,
+.h1 + .table {
   margin-top: $ecl-spacing-m;
 }
 
-* + .img {
-  margin-top: $ecl-spacing-m;
-}
-
-* + .ul {
-  margin-top: $ecl-spacing-m;
-}
-
-* + .ol {
-  margin-top: $ecl-spacing-m;
-}
-
-.h1 + .p {
-  margin-top: $ecl-spacing-l;
+* + .hr {
+  margin-top: $ecl-spacing-s;
 }
