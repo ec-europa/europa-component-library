@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { PureComponent } from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ClipboardJS from 'clipboard';
 
@@ -24,31 +25,25 @@ class PaletteItem extends PureComponent {
 
   render() {
     const { color } = this.props;
-    const {
-      name,
-      value,
-      docs = { title: '', complementColor: '#000' },
-    } = color;
+    const { name, value } = color;
+    const docs = Object.assign(
+      { title: '', ui: 'light', border: false },
+      color.docs
+    );
 
     return (
-      <li className={styles.item} style={{ backgroundColor: value }}>
-        <h3
-          className={styles.title}
-          style={{
-            color: docs.complementColor,
-          }}
-        >
-          {docs.title || name}
-        </h3>
+      <li
+        className={classnames(styles.item, {
+          [styles[`item--${docs.ui}`]]: true,
+        })}
+        style={{ backgroundColor: value }}
+      >
+        <h3 className={styles.title}>{docs.title || name}</h3>
         <button
           type="button"
           id={name}
           data-clipboard-text={value.toUpperCase()}
           className={styles.button}
-          style={{
-            borderColor: docs.complementColor,
-            color: docs.complementColor,
-          }}
         >
           <span className={styles['button-hover-hidden']}>
             {value.toUpperCase()}
@@ -66,7 +61,6 @@ PaletteItem.propTypes = {
     value: PropTypes.string,
     docs: PropTypes.shape({
       title: PropTypes.string,
-      complementColor: PropTypes.string,
     }),
   }).isRequired,
 };

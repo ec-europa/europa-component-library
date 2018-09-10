@@ -27,6 +27,14 @@
   font: $ecl-font-m;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
+
+  .card--light & {
+    color: #fff;
+  }
+
+  .card--dark & {
+    color: #000;
+  }
 }
 
 .button {
@@ -36,7 +44,40 @@
   font: $ecl-font-s;
   height: 2.5rem;
   margin-top: $ecl-spacing-m;
-  min-width: 7em;
+  width: 5rem;
+
+  .card--light & {
+    border-color: #fff;
+    color: #fff;
+
+    /* stylelint-disable-next-line */
+    &:focus {
+      background-color: rgba(#fff, 0.1);
+    }
+
+    /* stylelint-disable-next-line */
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .card--dark & {
+    border-color: $ecl-color-grey-100;
+    color: #000;
+
+    /* stylelint-disable-next-line */
+    &:focus {
+      background-color: rgba($ecl-color-grey-100, 0.1);
+    }
+
+    /* stylelint-disable-next-line */
+    &:hover {
+      background-color: $ecl-color-grey-100;
+      color: #fff;
+    }
+  }
 }
 
 .button:hover .button-hover-hidden {

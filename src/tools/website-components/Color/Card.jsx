@@ -27,37 +27,30 @@ class Card extends PureComponent {
   }
 
   render() {
-    const {
-      name,
-      value,
-      docs = { title: '', complementColor: '#000', border: false },
-    } = this.color;
+    const { name, value } = this.color;
+    const docs = Object.assign(
+      { title: '', ui: 'light', border: false },
+      this.color.docs
+    );
 
     return (
-      <div className={styles.card}>
+      <div
+        className={classnames(styles.card, {
+          [styles[`card--${docs.ui}`]]: true,
+        })}
+      >
         <div
           className={classnames(styles.header, {
             [styles['header--bordered']]: docs.border,
           })}
           style={{ backgroundColor: value }}
         >
-          <h3
-            className={styles.title}
-            style={{
-              color: docs.complementColor,
-            }}
-          >
-            {docs.title || name}
-          </h3>
+          <h3 className={styles.title}>{docs.title || name}</h3>
           <button
             type="button"
             id={name}
             data-clipboard-text={value.toUpperCase()}
             className={styles.button}
-            style={{
-              borderColor: docs.complementColor,
-              color: docs.complementColor,
-            }}
           >
             <span className={styles['button-hover-hidden']}>
               {value.toUpperCase()}

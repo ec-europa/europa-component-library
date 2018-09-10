@@ -12,7 +12,7 @@ props:
     docs:
       title: EC Blue
       description: Blue is commonly...
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_SECONDARY
     value: '{!COLOR_YELLOW_100}'
     comment: Secondary color
@@ -21,7 +21,7 @@ props:
     docs:
       title: EC Yellow
       description: Yellow is commonly...
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_TERTIARY
     value: '{!COLOR_GREY_15}'
     comment: Tertiary color
@@ -35,7 +35,7 @@ props:
     docs:
       title: EC Grey
       description: Grey (just as black)...
-      complementColor: '#fff'
+      ui: light
 
   # B&W
 
@@ -46,7 +46,7 @@ props:
     category: color
     docs:
       title: Black
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_WHITE_100
     value: '{!COLOR_WHITE_100}'
     comment: White 100
@@ -55,7 +55,7 @@ props:
     docs:
       title: White
       description: The color white is color at its most complete and pure, the color of perfection.
-      complementColor: '#000'
+      ui: dark
       border: true
 
   # Blues
@@ -67,7 +67,7 @@ props:
     category: color.variations.1
     docs:
       title: EC Blue 120
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_BLUE_110
     value: '{!COLOR_BLUE_110}'
     comment: Blue 110
@@ -75,7 +75,7 @@ props:
     category: color.variations.1
     docs:
       title: EC Blue 110
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_BLUE_100
     value: '{!COLOR_BLUE_100}'
     comment: Blue 100
@@ -83,7 +83,7 @@ props:
     category: color.variations.1
     docs:
       title: EC Blue 100
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_BLUE_75
     value: '{!COLOR_BLUE_75}'
     comment: Blue 75
@@ -91,7 +91,7 @@ props:
     category: color.variations.1
     docs:
       title: EC Blue 75
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_BLUE_50
     value: '{!COLOR_BLUE_50}'
     comment: Blue 50
@@ -99,7 +99,7 @@ props:
     category: color.variations.1
     docs:
       title: EC Blue 50
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_BLUE_25
     value: '{!COLOR_BLUE_25}'
     comment: Blue 25
@@ -107,7 +107,7 @@ props:
     category: color.variations.1
     docs:
       title: EC Blue 25
-      complementColor: '#000'
+      ui: dark
 
   # Yellows
 
@@ -118,7 +118,7 @@ props:
     category: color.variations.2
     docs:
       title: EC Yellow 120
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_YELLOW_110
     value: '{!COLOR_YELLOW_110}'
     comment: Yellow 110
@@ -126,7 +126,7 @@ props:
     category: color.variations.2
     docs:
       title: EC Yellow 110
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_YELLOW_100
     value: '{!COLOR_YELLOW_100}'
     comment: Yellow 100
@@ -134,7 +134,7 @@ props:
     category: color.variations.2
     docs:
       title: EC Yellow 100
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_YELLOW_75
     value: '{!COLOR_YELLOW_75}'
     comment: Yellow 75
@@ -142,7 +142,7 @@ props:
     category: color.variations.2
     docs:
       title: EC Yellow 75
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_YELLOW_50
     value: '{!COLOR_YELLOW_50}'
     comment: Yellow 50
@@ -150,7 +150,7 @@ props:
     category: color.variations.2
     docs:
       title: EC Yellow 50
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_YELLOW_25
     value: '{!COLOR_YELLOW_25}'
     comment: Yellow 25
@@ -158,7 +158,7 @@ props:
     category: color.variations.2
     docs:
       title: EC Yellow 25
-      complementColor: '#000'
+      ui: dark
 
   # Greys
 
@@ -169,7 +169,7 @@ props:
     category: color.variations.3
     docs:
       title: EC Grey 100
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_GREY_75
     value: '{!COLOR_GREY_75}'
     comment: Grey 75
@@ -177,7 +177,7 @@ props:
     category: color.variations.3
     docs:
       title: EC Grey 75
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_GREY_50
     value: '{!COLOR_GREY_50}'
     comment: Grey 50
@@ -185,7 +185,7 @@ props:
     category: color.variations.3
     docs:
       title: EC Grey 50
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_GREY_25
     value: '{!COLOR_GREY_25}'
     comment: Grey 25
@@ -193,7 +193,7 @@ props:
     category: color.variations.3
     docs:
       title: EC Grey 25
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_GREY_15
     value: '{!COLOR_GREY_15}'
     comment: Grey 15
@@ -201,7 +201,7 @@ props:
     category: color.variations.3
     docs:
       title: EC Grey 15
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_GREY_10
     value: '{!COLOR_GREY_10}'
     comment: Grey 10
@@ -209,7 +209,7 @@ props:
     category: color.variations.3
     docs:
       title: EC Grey 10
-      complementColor: '#000'
+      ui: dark
   - name: COLOR_GREY_5
     value: '{!COLOR_GREY_5}'
     comment: Grey 5
@@ -217,7 +217,7 @@ props:
     category: color.variations.3
     docs:
       title: EC Grey 5
-      complementColor: '#000'
+      ui: dark
 
   # Extra colors
 
@@ -247,7 +247,7 @@ props:
     docs:
       title: EC Red
       description: Red for error messages
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_INFO
     value: '{!COLOR_BLUE_70}'
     comment: Info color
@@ -256,7 +256,7 @@ props:
     docs:
       title: EC Blue N
       description: Blue for informative messages
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_SUCCESS
     value: '{!COLOR_GREEN_100}'
     comment: Success color
@@ -265,7 +265,7 @@ props:
     docs:
       title: EC Green
       description: Green for success messages
-      complementColor: '#fff'
+      ui: light
   - name: COLOR_WARNING
     value: '{!COLOR_ORANGE_100}'
     comment: Warning color
@@ -274,4 +274,4 @@ props:
     docs:
       title: EC Orange
       description: Orange for warnings
-      complementColor: '#000'
+      ui: dark
