@@ -1,43 +1,54 @@
 import Playground from '@ecl/website-components/Playground'
 import Button from '@ecl/ec-react-component-button/Button'
 
+import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
+import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
+import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
+import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
+import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=primary&stories=0">
   <Button
     variant="primary"
-    label="Primary button"
-    typeAttribute="submit"
+    label={demoContentPrimary.label}
+    type="submit"
+    icon={demoContentPrimary.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=secondary&stories=0">
   <Button
     variant="secondary"
-    label="Secondary button"
-    typeAttribute="button"
+    label={demoContentSecondary.label}
+    type="button"
+    icon={demoContentSecondary.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=call to action&stories=0">
   <Button
     variant="call"
-    label="Call to action button"
-    typeAttribute="submit"
+    label={demoContentCall.label}
+    type="submit"
+    icon={demoContentCall.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=ghost&stories=0">
   <Button
     variant="ghost"
-    label="Ghost button"
-    typeAttribute="button"
+    label={demoContentGhost.label}
+    type="button"
+    icon={demoContentGhost.icon}
   />
 </Playground>
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=search&stories=0">
   <Button
     variant="search"
-    label="Search button"
-    typeAttribute="submit"
+    label={demoContentSearch.label}
+    type="submit"
+    icon={demoContentSearch.icon}
   />
 </Playground>
 
@@ -45,6 +56,6 @@ The component expects 5 parameters:
 
 - variant (string)
 - label (string)
-- typeAttribute (string)
-- (optional) extraClasses (string)
-- (optional) extraAttributes (string)
+- type (string)
+- icon (Icon object)
+- (optional) className (string)

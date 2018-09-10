@@ -5,6 +5,8 @@ The colour palette is designed to support a flexible, modular visual style that 
 
 ## Primary colours
 
+---
+
 The **primary color palette** is comprised of....
 
 <DisplayTokens tokens={tokens} name="COLOR_PRIMARY" />
@@ -17,8 +19,12 @@ The **primary color palette** is comprised of....
 
 ## Notification colours
 
+---
+
 The secondary colour palette is mainly used for notification colours.
 
 ## Background colour
+
+---
 
 White is the background colour of the EC-website.
