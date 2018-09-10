@@ -17,7 +17,7 @@ const Tag = ({ label, variant, href, className, ...props }) => {
 
   const tagProps = {
     ...props,
-    ...(href ? { href } : { type: 'button' }),
+    ...(href && { href }),
   };
 
   return (
