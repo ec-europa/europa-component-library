@@ -7,12 +7,12 @@ import Row from '../../../website/src/components/Grid/Row';
 
 class Layout extends PureComponent {
   render() {
-    const { children } = this.props;
+    const { cols, children } = this.props;
 
     return (
       <Row style={{ border: 'red' }}>
         {React.Children.map(children, child => (
-          <Col col="col-4/4 col-md-4/8 col-xl-4/12" spacing="mt-m">
+          <Col col={cols} spacing="mt-m" flex>
             {child}
           </Col>
         ))}
@@ -22,7 +22,12 @@ class Layout extends PureComponent {
 }
 
 Layout.propTypes = {
+  cols: PropTypes.string,
   children: PropTypes.node.isRequired,
+};
+
+Layout.defaultProps = {
+  cols: 'col-4/4 col-md-4/8 col-xl-4/12',
 };
 
 export default Layout;

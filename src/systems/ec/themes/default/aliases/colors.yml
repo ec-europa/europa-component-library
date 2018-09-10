@@ -36,16 +36,29 @@ props:
       title: EC Grey
       description: Grey (just as black)...
       complementColor: '#fff'
+
+  # B&W
+
   - name: COLOR_BLACK_100
     value: '{!COLOR_BLACK_100}'
     comment: Black 100
     type: color
     category: color
+    docs:
+      title: Black
+      complementColor: '#fff'
   - name: COLOR_WHITE_100
     value: '{!COLOR_WHITE_100}'
     comment: White 100
     type: color
     category: color
+    docs:
+      title: White
+      description: The color white is color at its most complete and pure, the color of perfection.
+      complementColor: '#000'
+
+  # Blues
+
   - name: COLOR_BLUE_120
     value: '{!COLOR_BLUE_120}'
     comment: Blue 120
@@ -94,6 +107,9 @@ props:
     docs:
       title: EC Blue 25
       complementColor: '#000'
+
+  # Yellows
+
   - name: COLOR_YELLOW_120
     value: '{!COLOR_YELLOW_120}'
     comment: Yellow 120
@@ -142,6 +158,9 @@ props:
     docs:
       title: EC Yellow 25
       complementColor: '#000'
+
+  # Greys
+
   - name: COLOR_GREY_100
     value: '{!COLOR_GREY_100}'
     comment: Grey 100
@@ -198,6 +217,9 @@ props:
     docs:
       title: EC Grey 5
       complementColor: '#000'
+
+  # Extra colors
+
   - name: COLOR_PURPLE_100
     value: '{!COLOR_PURPLE_100}'
     comment: Purple 100
@@ -213,23 +235,42 @@ props:
     comment: Orange 100
     type: color
     category: color
+
+  # Notification colors
+
   - name: COLOR_ERROR
     value: '{!COLOR_RED_100}'
     comment: Error color
     type: color
     category: color
+    docs:
+      title: EC Red
+      description: Red for error messages
+      complementColor: '#fff'
   - name: COLOR_INFO
     value: '{!COLOR_BLUE_70}'
     comment: Info color
     type: color
     category: color
+    docs:
+      title: EC Blue N
+      description: Blue for informative messages
+      complementColor: '#fff'
   - name: COLOR_SUCCESS
     value: '{!COLOR_GREEN_100}'
     comment: Success color
     type: color
     category: color
+    docs:
+      title: EC Green
+      description: Green for success messages
+      complementColor: '#fff'
   - name: COLOR_WARNING
     value: '{!COLOR_ORANGE_100}'
     comment: Warning color
     type: color
     category: color
+    docs:
+      title: EC Orange
+      description: Orange for warnings
+      complementColor: '#000'

@@ -26,7 +26,11 @@ class Card extends PureComponent {
   }
 
   render() {
-    const { name, value, docs } = this.color;
+    const {
+      name,
+      value,
+      docs = { title: '', complementColor: '#000' },
+    } = this.color;
 
     return (
       <div className={styles.card}>

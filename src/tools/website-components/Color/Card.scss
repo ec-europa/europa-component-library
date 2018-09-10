@@ -3,6 +3,7 @@
 .card {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .header {
@@ -29,6 +30,7 @@
 .body {
   background-color: #f3f3f3;
   color: $ecl-color-text;
+  flex-grow: 1;
   font: $ecl-font-prolonged-m;
   padding: $ecl-spacing-s $ecl-spacing-m;
 }
