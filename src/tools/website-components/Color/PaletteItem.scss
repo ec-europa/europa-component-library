@@ -1,0 +1,26 @@
+@import '@ecl/ec-theme-default/index';
+
+.item {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: $ecl-spacing-m;
+}
+
+.title {
+  font: $ecl-font-l;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+}
+
+.button {
+  background: none;
+  border-style: solid;
+  border-width: 2px;
+  font: $ecl-font-m;
+  margin-top: $ecl-spacing-s;
+  min-width: 7em;
+  padding: 0.5rem 0.75rem;
+}

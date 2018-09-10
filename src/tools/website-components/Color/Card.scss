@@ -1,0 +1,38 @@
+@import '@ecl/ec-theme-default/index';
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem $ecl-spacing-m;
+}
+
+.title {
+  font: $ecl-font-xl;
+  margin: 0;
+}
+
+.button {
+  background: none;
+  border-style: solid;
+  border-width: 2px;
+  font: $ecl-font-m;
+  margin-top: $ecl-spacing-s;
+  padding: 0.5rem 0.75rem;
+}
+
+.body {
+  background-color: #f3f3f3;
+  color: $ecl-color-text;
+  font: $ecl-font-prolonged-m;
+  padding: $ecl-spacing-s $ecl-spacing-m;
+}
+
+* + .card {
+  margin-top: $ecl-spacing-m;
+}
