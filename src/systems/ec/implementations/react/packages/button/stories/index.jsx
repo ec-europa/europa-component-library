@@ -10,7 +10,6 @@ import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
 
 import Button from '../Button';
-import './index.scss';
 
 const icons = {
   none: '',
