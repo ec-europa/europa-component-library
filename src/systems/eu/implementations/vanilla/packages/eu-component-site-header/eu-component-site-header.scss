@@ -7,42 +7,67 @@
 @import '@ecl/eu-base/eu-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('eu-component-logo', 'eu-component-search-form'));
+@include check-imports(
+  ('eu-style-icon', 'eu-component-logo', 'eu-component-search-form')
+);
 
 @include exports('eu-component-site-header') {
   .ecl-site-header {
-    background-color: #fff;
+    background-color: $ecl-color-white-100;
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    padding-bottom: $ecl-spacing-m;
+    padding-top: $ecl-spacing-l;
     width: 100%;
   }
 
   .ecl-site-header__banner {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: map-get($ecl-spacing, 's');
-    padding-top: map-get($ecl-spacing, 's');
-  }
-
-  .ecl-site-header__banner > * {
-    margin-top: map-get($ecl-spacing, 's');
-  }
-
-  // If the logo is linking to an external page do not show the external icon.
-  .ecl-site-header__logo {
-    flex-grow: 0;
-    flex-shrink: 0;
-  }
-
-  .ecl-site-header__language-list {
     display: flex;
     flex-grow: 1;
-    flex-shrink: 0;
-    justify-content: flex-end;
+    justify-content: space-between;
+  }
+
+  .ecl-site-header__selector {
+    align-items: center;
+    display: flex;
+  }
+
+  .ecl-site-header__language-icon {
+    margin-left: $ecl-spacing-s;
+    position: relative;
+  }
+
+  .ecl-site-header__language-code {
+    color: $ecl-color-white-100;
+    font: $ecl-font-s;
+    font-weight: $ecl-font-weight-bold;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .ecl-site-header__search {
-    flex-grow: 1;
+    margin-top: $ecl-spacing-m;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('sm') {
+    .ecl-site-header {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: $ecl-spacing-xl;
+      padding-top: $ecl-spacing-xl;
+    }
+
+    .ecl-site-header__search {
+      margin-top: 0;
+    }
+
+    .ecl-site-header__banner {
+      padding-right: $ecl-spacing-xl;
+    }
   }
 }

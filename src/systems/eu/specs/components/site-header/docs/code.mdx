@@ -4,5 +4,10 @@ import SiteHeader from '@ecl/eu-react-component-site-header/SiteHeader'
 import demoContent from '../demo/data';
 
 <Playground playgroundLink="/storybook/eu/index.html?selectedKind=SiteHeader&selectedStory=default&stories=0">
-  <SiteHeader />
+  <SiteHeader
+    logoHref={demoContent.logoHref}
+    selectorHref={demoContent.selectorHref}
+    languageName={demoContent.languageName}
+    languageCode={demoContent.languageCode}
+  />
 </Playground>
