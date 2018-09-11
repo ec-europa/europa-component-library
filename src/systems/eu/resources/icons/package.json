@@ -1,16 +1,15 @@
 {
-  "name": "@ecl/eu-resources",
+  "name": "@ecl/eu-resources-icons",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.0",
-  "description": "Resources for EU system of ECL",
-  "style": "",
+  "description": "Icons for EU system of ECL",
   "scripts": {
     "clean": "rimraf build dist",
     "prepublish": "npm run svg",
     "svg": "npm run clean && npm run svg-clean && npm run svg-merge",
-    "svg-clean": "svgo icons/svg/**/*.svg -q",
-    "svg-merge": "svg-sprite -s --dest dist --symbol-dest . --symbol-sprite icons.svg -l info --shape-dim-attributes=true --svg-dimattrs=true icons/svg/**/*.svg"
+    "svg-clean": "svgo src/**/*.svg -q",
+    "svg-merge": "svg-sprite -s --dest dist --symbol-dest . --symbol-sprite icons.svg -l info --shape-dim-attributes=true --svg-dimattrs=true src/**/*.svg"
   },
   "devDependencies": {
     "rimraf": "2.6.2",
@@ -32,6 +31,5 @@
     "ecl",
     "europa-component-library",
     "design-system"
-  ],
-  "sass": ""
+  ]
 }

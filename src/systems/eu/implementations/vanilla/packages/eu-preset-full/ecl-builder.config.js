@@ -68,11 +68,11 @@ module.exports = {
       to: path.resolve(outputFolder, 'fonts'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-resources/icons'),
+      from: path.resolve(nodeModules, '@ecl/eu-resources-icons'),
       to: path.resolve(outputFolder, 'images/icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-resources/logo'),
+      from: path.resolve(nodeModules, '@ecl/eu-resources-logo'),
       to: path.resolve(outputFolder, 'images/logo'),
     },
     {

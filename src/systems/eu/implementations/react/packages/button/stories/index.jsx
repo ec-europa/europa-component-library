@@ -9,7 +9,7 @@ import demoContentCall from '@ecl/eu-specs-button/demo/data--call';
 import demoContentGhost from '@ecl/eu-specs-button/demo/data--ghost';
 import demoContentSearch from '@ecl/eu-specs-button/demo/data--search';
 
-import svgSprite from '@ecl/eu-resources/dist/icons.svg';
+import svgSprite from '@ecl/eu-resources-icons/dist/icons.svg';
 import Button from '../Button';
 import './index.scss';
 

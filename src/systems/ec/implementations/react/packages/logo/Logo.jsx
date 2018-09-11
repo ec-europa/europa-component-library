@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logoSrc from '@ecl/ec-resources/logo/EC-logo.svg';
+import logoSrc from '@ecl/ec-resources-logo/EC-logo.svg';
 
 const Logo = ({ title, alt, extraClasses, extraAttributes, ...props }) => {
   let classes = 'ecl-logo';

@@ -1,4 +1,4 @@
-const svgSprite = require('@ecl/eu-resources/dist/icons.svg');
+const svgSprite = require('@ecl/eu-resources-icons/dist/icons.svg');
 
 // Simple content for demo
 module.exports = {
