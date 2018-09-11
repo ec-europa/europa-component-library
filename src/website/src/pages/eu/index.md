@@ -1,7 +1,3 @@
-import Row from '../../components/Grid/Row'
-import Col from '../../components/Grid/Col'
-import ComponentStatus from '../../components/ComponentStatus/ComponentStatus'
-
 # Europa Component Library (European Union)
 
 The Europa Component Library (European Union) is a library of components used to create all websites hosted under the europa.eu domain. 
