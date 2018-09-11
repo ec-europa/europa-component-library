@@ -1,11 +1,9 @@
 {
-  "name": "@ecl/ec-react-component-icon",
+  "name": "@ecl/ec-react-component-search-form",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.0",
-  "description": "ECL EC React Icon",
-  "main": "Icon.jsx",
-  "module": "Icon.jsx",
+  "description": "ECL EC React Search Form",
   "publishConfig": {
     "access": "public"
   },
@@ -24,13 +22,14 @@
     "react"
   ],
   "dependencies": {
-    "@ecl/ec-resources": "^2.0.0-alpha.0"
+    "@ecl/ec-react-component-button": "^2.0.0-alpha.0",
+    "@ecl/ec-react-component-text-input": "^2.0.0-alpha.0"
   },
   "devDependencies": {
-    "@ecl/ec-specs-icon": "^2.0.0-alpha.0",
-    "@ecl/ec-theme-default": "^2.0.0-alpha.0"
+    "@ecl/ec-specs-search-form": "^2.0.0-alpha.0"
   },
   "peerDependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "prop-types": "^15.6.2"

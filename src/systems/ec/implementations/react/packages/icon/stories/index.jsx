@@ -3,12 +3,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, selectV2 } from '@storybook/addon-knobs/react';
 
-import svgSprite from '@ecl/ec-resources/dist/icons.svg';
-
 import demoContentAudio from '@ecl/ec-specs-icon/demo/data--audio';
 
 import Icon from '../Icon';
-import './index.scss';
 
 const sizes = {
   XS: 'xs',
@@ -33,7 +30,6 @@ storiesOf('Icon', module)
       variant=""
       size={selectV2('Size', sizes, defaultSize)}
       color={selectV2('Color', colors, defaultColor)}
-      iconPath={svgSprite}
       icon={demoContentAudio.icon}
     />
   ))
@@ -41,7 +37,6 @@ storiesOf('Icon', module)
     <Icon
       variant="highlight"
       size={selectV2('Size', sizes, defaultSize)}
-      iconPath={svgSprite}
       icon={demoContentAudio.icon}
     />
   ));
