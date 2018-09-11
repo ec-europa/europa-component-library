@@ -21,17 +21,6 @@
     flex-grow: 1;
   }
 
-  .ecl-search-form__icon {
-    display: none;
-  }
-
-  // :valid is used to check if the field is empty
-  // https://stackoverflow.com/a/16956610
-  .ecl-search-form .ecl-text-input:focus + .ecl-text-input__icon,
-  .ecl-search-form .ecl-text-input:valid + .ecl-text-input__icon {
-    display: none;
-  }
-
   .ecl-search-form .ecl-form-group--text-input {
     flex-grow: 1;
     max-width: 100%;
@@ -68,14 +57,6 @@
   @include ecl-media-breakpoint-up(lg) {
     .ecl-search-form {
       max-width: $form-width-desktop;
-    }
-
-    .ecl-search-form__icon {
-      display: block;
-      // position calculation should integrate border width...
-      left: calc(#{$ecl-spacing-s} + 1px);
-      position: absolute;
-      top: calc(#{$ecl-spacing-s} + 1px);
     }
 
     .ecl-search-form__button {

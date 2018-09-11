@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button/Button';
-import Icon from '@ecl/ec-react-component-icon/Icon';
 import TextInput from '@ecl/ec-react-component-text-input/TextInput';
 
 const SearchForm = ({ textInputId, buttonLabel, className, ...props }) => {
@@ -14,11 +13,6 @@ const SearchForm = ({ textInputId, buttonLabel, className, ...props }) => {
   const searchTextInput = {
     id: textInputId,
     className: 'ecl-search-form__text-input',
-  };
-  const searchIcon = {
-    className: 'ecl-search-form__icon',
-    icon: 'Icon_Search',
-    size: 'xs',
   };
   const searchButton = {
     variant: 'search',
@@ -33,7 +27,6 @@ const SearchForm = ({ textInputId, buttonLabel, className, ...props }) => {
   return (
     <form {...props} className={classNames}>
       <TextInput {...searchTextInput} />
-      <Icon {...searchIcon} />
       <Button {...searchButton} />
     </form>
   );
