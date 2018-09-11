@@ -14,12 +14,15 @@
 @include exports('eu-component-site-header') {
   .ecl-site-header {
     background-color: $ecl-color-white-100;
+    margin: 0;
+    width: 100%;
+  }
+
+  .ecl-site-header__container {
     display: flex;
     flex-direction: column;
-    margin: 0;
     padding-bottom: $ecl-spacing-m;
     padding-top: $ecl-spacing-l;
-    width: 100%;
   }
 
   .ecl-site-header__banner {
@@ -44,6 +47,7 @@
     font-weight: $ecl-font-weight-bold;
     left: 50%;
     position: absolute;
+    text-transform: uppercase;
     top: 50%;
     transform: translate(-50%, -50%);
   }
@@ -54,7 +58,7 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('sm') {
-    .ecl-site-header {
+    .ecl-site-header__container {
       align-items: center;
       flex-direction: row;
       justify-content: space-between;
