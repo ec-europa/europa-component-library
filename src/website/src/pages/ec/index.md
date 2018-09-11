@@ -1,7 +1,3 @@
-import Row from '../../components/Grid/Row'
-import Col from '../../components/Grid/Col'
-import ComponentStatus from '../../components/ComponentStatus/ComponentStatus'
-
 # Europa Component Library (European Commission)
 
 The Europa Component Library (European Commission) is a library of components used to create all European Commission websites hosted under ec.europa.eu domain. 
