@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-import icons from '@ecl/ec-preset-website/dist/images/icons/symbol-defs.svg';
+import icons from '@ecl/ec-resources-icons/dist/sprites/icons-ui.svg';
 import NavigationLink from './NavigationLink';
 import styles from './LinkGroup.scss';
 
@@ -44,9 +44,9 @@ class LinkGroup extends PureComponent {
             {title}
             <svg className={styles.icon}>
               {isOpen ? (
-                <use xlinkHref={`${icons}#ecl-icon--down`} />
+                <use xlinkHref={`${icons}#Icon_Rounded-arrow-down`} />
               ) : (
-                <use xlinkHref={`${icons}#ecl-icon--right`} />
+                <use xlinkHref={`${icons}#Icon_Rounded-arrow-right`} />
               )}
             </svg>
           </span>
