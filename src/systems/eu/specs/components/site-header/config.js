@@ -1,10 +1,11 @@
 import style from './docs/style.md';
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/site-header',
-  title: 'Site Header',
+  ready: true,
+  url: '/eu/components/site-header',
+  title: 'Site header',
   section: 'Components',
   tabs: [
     {
