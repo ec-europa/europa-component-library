@@ -20,6 +20,9 @@ module.exports = (baseConfig, env, defaultConfig) => {
     encoding: 'base64',
   };
 
+  // Exclude SVG sprites
+  defaultConfig.module.rules[4].exclude = /sprites\/icons/;
+
   defaultConfig.module.rules.push(
     ...[
       {
@@ -49,6 +52,11 @@ module.exports = (baseConfig, env, defaultConfig) => {
             },
           },
         ],
+      },
+      // SVG sprites
+      {
+        test: /sprites\/icons\-(.*)\.svg/,
+        use: ['file-loader'],
       },
     ]
   );
