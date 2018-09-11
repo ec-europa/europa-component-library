@@ -7,7 +7,6 @@ import demoContentDefault from '@ecl/ec-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/ec-specs-link/demo/data--standalone';
 
 import Link from '../Link';
-import './index.scss';
 
 storiesOf('Link', module)
   .addDecorator(withKnobs)

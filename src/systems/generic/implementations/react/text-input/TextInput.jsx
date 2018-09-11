@@ -23,12 +23,17 @@ const TextInput = ({
 
   return (
     <div className="ecl-form-group ecl-form-group--text-input">
-      <label
-        className={`ecl-form-label${invalid ? ' ecl-form-label--invalid' : ''}`}
-        htmlFor={id}
-      >
-        {label}
-      </label>
+      {label && (
+        /* eslint-disable jsx-a11y/label-has-for */
+        <label
+          className={`ecl-form-label${
+            invalid ? ' ecl-form-label--invalid' : ''
+          }`}
+          htmlFor={id}
+        >
+          {label}
+        </label>
+      )}
       <input
         {...props}
         id={id}
