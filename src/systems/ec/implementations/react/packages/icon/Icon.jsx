@@ -39,7 +39,7 @@ const Icon = ({
   const iconHref = iconPath || getPath(iconSet);
 
   return (
-    <svg className={classNames} {...props}>
+    <svg {...props} className={classNames}>
       <use xlinkHref={`${iconHref}#${icon}`} />
     </svg>
   );

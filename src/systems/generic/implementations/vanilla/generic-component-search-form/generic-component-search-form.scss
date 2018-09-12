@@ -6,28 +6,41 @@
 // Import base
 @import '@ecl/generic-base/generic-base';
 
-@mixin ecl-search-form() {
+@mixin ecl-search-form(
+  $form-width-desktop: 31.25rem,
+  $border-color: $ecl-color-grey-50
+) {
   .ecl-search-form {
-    @include ecl-hidden-print();
-
-    border: 1px solid map-get($ecl-colors, 'grey-50');
     display: flex;
     margin: 0;
+    position: relative;
+    width: 100%;
   }
 
-  .ecl-search-form__textfield-wrapper {
-    border: 3px solid transparent; // Keeps the focus in the container
+  .ecl-search-form .ecl-text-input__wrapper {
     flex-grow: 1;
   }
 
-  .ecl-search-form__textfield {
-    border: 0;
-    margin-top: 0;
-    padding: map-get($ecl-spacing, '2xs') map-get($ecl-spacing, 'xs');
+  .ecl-search-form .ecl-form-group--text-input {
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  .ecl-search-form__text-input {
+    border-bottom-color: $border-color;
+    border-left-color: $border-color;
+    border-right-width: 0;
+    border-top-color: $border-color;
+    margin: 0;
+    max-width: 100%;
   }
 
   .ecl-search-form__button {
-    padding: 0 map-get($ecl-spacing, 'xs');
+    border-bottom: 1px solid $border-color;
+    border-left-width: 0;
+    border-right: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    padding: calc(#{$ecl-spacing-s} - 1px);
   }
 
   .ecl-search-form__button .ecl-button__label {
@@ -42,8 +55,13 @@
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
+    .ecl-search-form {
+      max-width: $form-width-desktop;
+    }
+
     .ecl-search-form__button {
-      padding: 0 map-get($ecl-spacing, 's');
+      padding-left: calc(#{$ecl-spacing-m} - 1px);
+      padding-right: calc(#{$ecl-spacing-m} - 1px);
     }
 
     .ecl-search-form__button .ecl-button__label {
@@ -52,36 +70,6 @@
 
     .ecl-search-form__button .ecl-button__icon {
       display: none;
-    }
-  }
-
-  .ecl-search-form--internal {
-    display: flex;
-
-    .ecl-search-form__textfield-wrapper {
-      @include ecl-icon--before();
-
-      border-color: #fff;
-      flex-grow: 1;
-      position: relative;
-
-      /* stylelint-disable-next-line */
-      &::before {
-        @include ecl-icon('search');
-
-        color: map-get($ecl-colors, 'grey-25');
-        font-size: map-get($ecl-font-size, 'm');
-        left: map-get($ecl-spacing, '2xs');
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    }
-
-    .ecl-search-form__textfield {
-      // ~ 1 * icon's width + 1 * icon's left space + 1 * space between icon and input
-      padding-left: map-get($ecl-font-size, 'm') + 2 *
-        map-get($ecl-spacing, '2xs');
     }
   }
 }

@@ -10,7 +10,6 @@ import socialIcons from '@ecl/ec-resources-icons/dist/lists/social.json';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 import Icon from '../Icon';
-import './index.scss';
 
 const sizes = {
   XS: 'xs',

@@ -6,7 +6,6 @@ import { withKnobs, text } from '@storybook/addon-knobs/react';
 import demoContent from '@ecl/ec-specs-logo/demo/data';
 
 import Logo from '../Logo';
-import './index.scss';
 
 storiesOf('Logo', module)
   .addDecorator(withKnobs)
