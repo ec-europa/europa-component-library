@@ -19,14 +19,15 @@ const SiteHeader = ({
   });
 
   return (
-    <div className={classNames} {...props}>
+    <header {...props} className={classNames} role="banner">
       <div className="ecl-site-header__container ecl-container">
         <div className="ecl-site-header__banner">
           <a
             className="ecl-site-header__logo ecl-link ecl-link--standalone"
             href={logo.href}
+            aria-label={logo.title}
           >
-            <Logo title={logo.title} alt={logo.alt} language={logo.language} />
+            <Logo {...logo} />
           </a>
 
           <div className="ecl-site-header__selector">
@@ -45,13 +46,9 @@ const SiteHeader = ({
           </div>
         </div>
 
-        <SearchForm
-          className="ecl-site-header__search"
-          buttonLabel={searchForm.buttonLabel}
-          textInputId={searchForm.textInputId}
-        />
+        <SearchForm {...searchForm} className="ecl-site-header__search" />
       </div>
-    </div>
+    </header>
   );
 };
 
