@@ -25,8 +25,8 @@ const SearchForm = ({ textInputId, buttonLabel, className, ...props }) => {
   };
 
   return (
-    <form {...props} className={classNames}>
-      <TextInput {...searchTextInput} />
+    <form {...props} className={classNames} role="search">
+      <TextInput {...searchTextInput} type="search" />
       <Button {...searchButton} />
     </form>
   );
