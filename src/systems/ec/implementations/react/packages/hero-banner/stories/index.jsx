@@ -9,7 +9,6 @@ import demoContentPrimary from '@ecl/ec-specs-hero-banner/demo/data--primary';
 import demoContentDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
 
 import HeroBanner from '../HeroBanner';
-import './index.scss';
 
 storiesOf('HeroBanner', module)
   .addDecorator(withKnobs)
