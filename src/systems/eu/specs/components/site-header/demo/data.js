@@ -10,7 +10,7 @@ module.exports = {
     code: 'en',
   },
   searchForm: {
-    textInputId: '',
+    textInputId: 'search-form',
     buttonLabel: 'Search',
   },
 };
