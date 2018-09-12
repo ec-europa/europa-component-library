@@ -63,7 +63,8 @@
     // position top and left has to be set like this because IE...
     // also ugly magic numbers to center the text on the icon
     top: 50%;
-    transform: translate(calc(-50% - 0.01rem), calc(-50% - 0.1rem));
+    transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+      translateY(-0.1rem);
   }
 
   .ecl-site-header__search {
