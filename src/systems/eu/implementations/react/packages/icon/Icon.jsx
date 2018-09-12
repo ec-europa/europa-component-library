@@ -7,20 +7,17 @@ import classnames from 'classnames';
 import brandedSprite from '@ecl/eu-resources-icons/dist/sprites/icons-branded.svg';
 import generalSprite from '@ecl/eu-resources-icons/dist/sprites/icons-general.svg';
 import notificationsSprite from '@ecl/eu-resources-icons/dist/sprites/icons-notifications.svg';
-import socialSprite from '@ecl/eu-resources-icons/dist/sprites/icons-social.svg';
 import uiSprite from '@ecl/eu-resources-icons/dist/sprites/icons-ui.svg';
 
 const getPath = iconSet => {
   if (iconSet === 'branded') return brandedSprite;
   if (iconSet === 'general') return generalSprite;
   if (iconSet === 'notifications') return notificationsSprite;
-  if (iconSet === 'social') return socialSprite;
   if (iconSet === 'ui') return uiSprite;
 
   return '';
 };
 const Icon = ({
-  variant,
   size,
   color,
   icon,
@@ -31,7 +28,6 @@ const Icon = ({
 }) => {
   const classNames = classnames(className, {
     'ecl-icon': true,
-    [`ecl-icon--${variant}`]: variant,
     [`ecl-icon--${size}`]: size,
     [`ecl-icon--${color}`]: color,
   });
@@ -46,7 +42,6 @@ const Icon = ({
 };
 
 Icon.propTypes = {
-  variant: PropTypes.string,
   size: PropTypes.string,
   color: PropTypes.string,
   icon: PropTypes.string,
@@ -56,7 +51,6 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  variant: '',
   color: '',
   size: 'm',
   icon: '',

@@ -7,14 +7,12 @@ import classnames from 'classnames';
 import brandedSprite from '@ecl/ec-resources-icons/dist/sprites/icons-branded.svg';
 import generalSprite from '@ecl/ec-resources-icons/dist/sprites/icons-general.svg';
 import notificationsSprite from '@ecl/ec-resources-icons/dist/sprites/icons-notifications.svg';
-import socialSprite from '@ecl/ec-resources-icons/dist/sprites/icons-social.svg';
 import uiSprite from '@ecl/ec-resources-icons/dist/sprites/icons-ui.svg';
 
 const getPath = iconSet => {
   if (iconSet === 'branded') return brandedSprite;
   if (iconSet === 'general') return generalSprite;
   if (iconSet === 'notifications') return notificationsSprite;
-  if (iconSet === 'social') return socialSprite;
   if (iconSet === 'ui') return uiSprite;
 
   return '';
