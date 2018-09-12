@@ -3,14 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import languagesList from '@ecl/eu-resources/languages';
 import Icon from '@ecl/eu-react-component-icon/Icon';
 import Logo from '@ecl/eu-react-component-logo/Logo';
+import SearchForm from '@ecl/eu-react-component-search-form/SearchForm';
 
 const SiteHeader = ({
-  logoHref,
-  selectorHref,
-  language,
+  logo,
+  languageSelector,
+  searchForm,
   className,
   ...props
 }) => {
@@ -18,48 +18,78 @@ const SiteHeader = ({
     'ecl-site-header': true,
   });
 
-  const languageName = languagesList.language || languagesList.en;
-
   return (
     <div className={classNames} {...props}>
       <div className="ecl-site-header__container ecl-container">
         <div className="ecl-site-header__banner">
           <a
             className="ecl-site-header__logo ecl-link ecl-link--standalone"
-            href={logoHref}
+            href={logo.href}
           >
-            <Logo />
+            <Logo title={logo.title} alt={logo.alt} language={logo.language} />
           </a>
 
-          <a
-            className="ecl-site-header__selector ecl-link ecl-link--standalone"
-            href={selectorHref}
-          >
-            {languageName}
-            <span className="ecl-site-header__language-icon">
-              <Icon icon="Icon_Language" size="l" />
-              <span className="ecl-site-header__language-code">{language}</span>
-            </span>
-          </a>
+          <div className="ecl-site-header__selector">
+            <a
+              className="ecl-link ecl-link--standalone"
+              href={languageSelector.href}
+            >
+              {languageSelector.name}
+              <span className="ecl-site-header__language-icon">
+                <Icon icon="Icon_Language" size="m" />
+                <span className="ecl-site-header__language-code">
+                  {languageSelector.code}
+                </span>
+              </span>
+            </a>
+          </div>
         </div>
 
-        <div className="ecl-site-header__search">Search form</div>
+        <SearchForm
+          className="ecl-site-header__search"
+          buttonLabel={searchForm.buttonLabel}
+          textInputId={searchForm.textInputId}
+        />
       </div>
     </div>
   );
 };
 
 SiteHeader.propTypes = {
-  logoHref: PropTypes.string,
-  selectorHref: PropTypes.string,
-  language: PropTypes.string,
+  logo: PropTypes.shape({
+    title: PropTypes.string,
+    alt: PropTypes.string,
+    language: PropTypes.string,
+    href: PropTypes.string,
+  }),
+  languageSelector: PropTypes.shape({
+    href: PropTypes.string,
+    name: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  searchForm: PropTypes.shape({
+    textInputId: PropTypes.string,
+    buttonLabel: PropTypes.string,
+  }),
   className: PropTypes.string,
 };
 
 SiteHeader.defaultProps = {
-  logoHref: '#',
-  selectorHref: '#',
-  language: 'en',
+  logo: {
+    title: '',
+    alt: '',
+    language: '',
+    href: '#',
+  },
+  languageSelector: {
+    href: '#',
+    name: '',
+    code: '',
+  },
+  searchForm: {
+    textInputId: '',
+    buttonLabel: '',
+  },
   className: '',
 };
 

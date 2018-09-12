@@ -36,20 +36,30 @@
     display: flex;
   }
 
+  .ecl-site-header__selector .ecl-link {
+    align-items: center;
+    display: flex;
+
+    &:visited {
+      color: $ecl-color-primary;
+    }
+  }
+
   .ecl-site-header__language-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     margin-left: $ecl-spacing-s;
     position: relative;
   }
 
   .ecl-site-header__language-code {
     color: $ecl-color-white-100;
-    font: $ecl-font-s;
+    font: $ecl-font-xs;
     font-weight: $ecl-font-weight-bold;
-    left: 50%;
+    margin-bottom: 0.1875rem; // adjust position of text on icon
     position: absolute;
     text-transform: uppercase;
-    top: 50%;
-    transform: translate(-50%, -50%);
   }
 
   .ecl-site-header__search {
@@ -57,7 +67,7 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('sm') {
+  @include ecl-media-breakpoint-up('md') {
     .ecl-site-header__container {
       align-items: center;
       flex-direction: row;
