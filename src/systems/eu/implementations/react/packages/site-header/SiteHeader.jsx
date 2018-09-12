@@ -19,7 +19,7 @@ const SiteHeader = ({
   });
 
   return (
-    <header {...props} className={classNames} role="banner">
+    <header {...props} className={classNames}>
       <div className="ecl-site-header__container ecl-container">
         <div className="ecl-site-header__banner">
           <a
