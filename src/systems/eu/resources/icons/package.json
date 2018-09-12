@@ -6,15 +6,16 @@
   "description": "Icons for EU system of ECL",
   "scripts": {
     "clean": "rimraf build dist",
-    "prepublish": "npm run svg",
-    "svg": "npm run clean && npm run svg-clean && npm run svg-merge",
-    "svg-clean": "svgo src/**/*.svg -q",
-    "svg-merge": "svg-sprite -s --dest dist --symbol-dest . --symbol-sprite icons.svg -l info --shape-dim-attributes=true --svg-dimattrs=true src/**/*.svg"
+    "dist:list": "node ./scripts/generate-lists.js",
+    "dist:svg": "node ./scripts/clean-svg.js",
+    "dist:sprites": "node ./scripts/build-sprites.js",
+    "dist": "npm run clean && npm run dist:list && npm run dist:svg && npm run dist:sprites",
+    "prepublish": "npm run dist"
   },
   "devDependencies": {
     "rimraf": "2.6.2",
-    "svgo": "1.0.5",
-    "svg-sprite": "1.4.0"
+    "svg-sprite": "1.4.0",
+    "svgo": "1.0.5"
   },
   "publishConfig": {
     "access": "public"

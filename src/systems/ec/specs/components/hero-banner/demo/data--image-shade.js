@@ -1,6 +1,4 @@
 // Simple content for demo
-const svgSprite = require('@ecl/ec-resources-icons/dist/sprites/icons-ui.svg');
-
 module.exports = {
   title: 'EU Budget for the future (image shade)',
   description:
@@ -10,7 +8,7 @@ module.exports = {
     label: 'Subscribe',
     icon: {
       icon: 'Icon_Corner-arrow-right',
-      iconPath: svgSprite,
+      iconSet: 'ui',
       size: 'xs',
     },
   },

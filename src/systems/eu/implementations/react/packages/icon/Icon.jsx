@@ -3,14 +3,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import svgSprite from '@ecl/eu-resources/dist/icons.svg';
+// Predefined sprites
+import brandedSprite from '@ecl/eu-resources-icons/dist/sprites/icons-branded.svg';
+import generalSprite from '@ecl/eu-resources-icons/dist/sprites/icons-general.svg';
+import notificationsSprite from '@ecl/eu-resources-icons/dist/sprites/icons-notifications.svg';
+import socialSprite from '@ecl/eu-resources-icons/dist/sprites/icons-social.svg';
+import uiSprite from '@ecl/eu-resources-icons/dist/sprites/icons-ui.svg';
 
+const getPath = iconSet => {
+  if (iconSet === 'branded') return brandedSprite;
+  if (iconSet === 'general') return generalSprite;
+  if (iconSet === 'notifications') return notificationsSprite;
+  if (iconSet === 'social') return socialSprite;
+  if (iconSet === 'ui') return uiSprite;
+
+  return '';
+};
 const Icon = ({
   variant,
   size,
   color,
-  iconPath,
   icon,
+  iconPath,
+  iconSet,
   className,
   ...props
 }) => {
@@ -20,11 +35,12 @@ const Icon = ({
     [`ecl-icon--${size}`]: size,
     [`ecl-icon--${color}`]: color,
   });
-  const path = iconPath || svgSprite;
+
+  const iconHref = iconPath || getPath(iconSet);
 
   return (
-    <svg className={classNames} {...props}>
-      <use xlinkHref={`${path}#${icon}`} />
+    <svg {...props} className={classNames}>
+      <use xlinkHref={`${iconHref}#${icon}`} />
     </svg>
   );
 };
@@ -33,8 +49,9 @@ Icon.propTypes = {
   variant: PropTypes.string,
   size: PropTypes.string,
   color: PropTypes.string,
-  iconPath: PropTypes.string,
   icon: PropTypes.string,
+  iconPath: PropTypes.string,
+  iconSet: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -42,8 +59,9 @@ Icon.defaultProps = {
   variant: '',
   color: '',
   size: 'm',
-  iconPath: '',
   icon: '',
+  iconPath: '',
+  iconSet: '',
   className: '',
 };
 

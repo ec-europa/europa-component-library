@@ -20,6 +20,7 @@ const SearchForm = ({ textInputId, buttonLabel, className, ...props }) => {
     label: buttonLabel,
     icon: {
       icon: 'Icon_Search',
+      iconSet: 'general',
       size: 'xs',
     },
   };
