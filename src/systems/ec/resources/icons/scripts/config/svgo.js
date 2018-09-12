@@ -1,3 +1,3 @@
 module.exports = {
-  // use the default config
+  plugins: [{ removeViewBox: false }],
 };
