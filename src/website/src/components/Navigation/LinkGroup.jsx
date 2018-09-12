@@ -1,5 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-resources-icons/dist/sprites/icons-ui.svg';
@@ -42,12 +43,12 @@ class LinkGroup extends PureComponent {
         >
           <span>
             {title}
-            <svg className={styles.icon}>
-              {isOpen ? (
-                <use xlinkHref={`${icons}#Icon_Rounded-arrow-down`} />
-              ) : (
-                <use xlinkHref={`${icons}#Icon_Rounded-arrow-right`} />
-              )}
+            <svg
+              className={classnames(styles.icon, {
+                [styles['icon-rotate-90']]: isOpen,
+              })}
+            >
+              <use xlinkHref={`${icons}#Icon_Rounded-arrow-right`} />
             </svg>
           </span>
         </button>
