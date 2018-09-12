@@ -57,9 +57,13 @@
     color: $ecl-color-white-100;
     font: $ecl-font-xs;
     font-weight: $ecl-font-weight-bold;
-    margin-bottom: 0.1875rem; // adjust position of text on icon
+    left: 50%;
     position: absolute;
     text-transform: uppercase;
+    // position top and left has to be set like this because IE...
+    // also ugly magic numbers to center the text on the icon
+    top: 50%;
+    transform: translate(calc(-50% - 0.01rem), calc(-50% - 0.1rem));
   }
 
   .ecl-site-header__search {
