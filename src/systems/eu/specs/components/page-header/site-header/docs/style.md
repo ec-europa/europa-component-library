@@ -1,3 +1,0 @@
-## Style
-
-Design guidelines
