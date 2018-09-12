@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import grid from './grid.scss';
 import utilities from '../../styles/utilities.scss';
 
-const Col = ({ col, spacing, className, children, ...props }) => {
+const Col = ({ col, spacing, flex, className, children, ...props }) => {
   const colClasses = col
     .split(' ')
     .map(c => grid[c])
@@ -20,7 +20,8 @@ const Col = ({ col, spacing, className, children, ...props }) => {
     className,
     grid.col,
     colClasses,
-    spacingClasses
+    spacingClasses,
+    { [utilities['d-flex']]: flex }
   );
 
   return (
@@ -33,6 +34,7 @@ const Col = ({ col, spacing, className, children, ...props }) => {
 Col.propTypes = {
   col: PropTypes.string,
   spacing: PropTypes.string,
+  flex: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
 };
@@ -40,6 +42,7 @@ Col.propTypes = {
 Col.defaultProps = {
   col: '',
   spacing: '',
+  flex: false,
   className: '',
   children: null,
 };
