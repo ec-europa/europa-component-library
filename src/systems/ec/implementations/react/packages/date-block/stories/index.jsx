@@ -6,7 +6,6 @@ import { withKnobs, select, text } from '@storybook/addon-knobs/react';
 import demoContentDefault from '@ecl/ec-specs-date-block/demo/data--default';
 
 import DateBlock from '../DateBlock';
-import './index.scss';
 
 storiesOf('DateBlock', module)
   .addDecorator(withKnobs)
