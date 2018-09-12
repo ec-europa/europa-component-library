@@ -6,7 +6,6 @@ import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 import demoContent from '@ecl/eu-specs-logo/demo/data';
 
 import Logo from '../Logo';
-import './index.scss';
 
 const languages = {
   bulgarian: 'bg',
