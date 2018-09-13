@@ -1,16 +1,54 @@
 /*
  * Breadcrumbs
- * @define breadcrumbs
+ * @define breadcrumb
  */
 
 // Import base and generic
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-component-breadcrumb/generic-component-breadcrumb';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-link'));
+@include check-imports(('ec-component-link', 'ec-style-icon'));
 
-// Use generic mixin
+@mixin ecl-breadcrumb(
+  $link-color: $ecl-color-white-100,
+  $last-link-color: $ecl-color-blue-25
+) {
+  .ecl-breadcrumb {
+    margin: 0;
+  }
+
+  .ecl-breadcrumb__container {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ecl-breadcrumb__link {
+    color: $link-color;
+    font: $ecl-font-s;
+    font-weight: $ecl-font-weight-bold;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:visited {
+      color: $link-color;
+    }
+  }
+
+  .ecl-breadcrumb__segment:last-child .ecl-breadcrumb__link {
+    color: $last-link-color;
+
+    &:hover,
+    &:active,
+    &:focus,
+    &:visited {
+      color: $last-link-color;
+    }
+  }
+}
+
+// Use mixin
 @include exports('ec-component-breadcrumb') {
   @include ecl-breadcrumb();
 }
