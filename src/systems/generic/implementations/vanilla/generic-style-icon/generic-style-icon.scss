@@ -20,7 +20,7 @@
   .ecl-icon {
     fill: $_color-default;
     margin: 0;
-    transform: scale(1) rotateX(0deg) rotateY(0deg);
+    transform: scaleX(1) scaleY(1) rotateZ(0deg);
     transition: transform 300ms ease-in-out;
   }
 
@@ -70,10 +70,10 @@
   }
 
   .ecl-icon--flip-horizontal {
-    transform: scale(-1) rotateX(180deg);
+    transform: scaleX(-1);
   }
 
   .ecl-icon--flip-vertical {
-    transform: scale(-1) rotateY(180deg);
+    transform: scaleY(-1);
   }
 }

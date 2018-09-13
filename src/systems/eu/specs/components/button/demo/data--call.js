@@ -4,6 +4,7 @@ module.exports = {
   icon: {
     shape: 'ui--corner-arrow',
     size: 'xs',
+    transform: 'rotate-90',
   },
   variant: 'call',
 };

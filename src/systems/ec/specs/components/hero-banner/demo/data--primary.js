@@ -8,6 +8,7 @@ module.exports = {
     label: 'Subscribe',
     icon: {
       shape: 'ui--corner-arrow',
+      transform: 'rotate-90',
       size: 'xs',
     },
   },
