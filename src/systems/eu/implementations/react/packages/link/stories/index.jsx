@@ -3,8 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
-import demoContentDefault from '@ecl/ec-specs-link/demo/data--default';
-import demoContentStandalone from '@ecl/ec-specs-link/demo/data--standalone';
+import demoContentDefault from '@ecl/eu-specs-link/demo/data--default';
+import demoContentStandalone from '@ecl/eu-specs-link/demo/data--standalone';
 
 import Link from '../Link';
 
