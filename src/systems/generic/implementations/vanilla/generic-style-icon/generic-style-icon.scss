@@ -20,6 +20,8 @@
   .ecl-icon {
     fill: $_color-default;
     margin: 0;
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+    transition: transform 300ms ease-in-out;
   }
 
   .ecl-icon--xs {
@@ -55,10 +57,23 @@
     fill: $_color-inverted;
   }
 
-  .ecl-icon--highlight {
-    background-color: $_highlight-background;
-    border-radius: 50%;
-    fill: $_highlight-color;
-    padding: $ecl-spacing-xs;
+  .ecl-icon--rotate-90 {
+    transform: rotateZ(90deg);
+  }
+
+  .ecl-icon--rotate-180 {
+    transform: rotateZ(180deg);
+  }
+
+  .ecl-icon--rotate-270 {
+    transform: rotateZ(270deg);
+  }
+
+  .ecl-icon--flip-horizontal {
+    transform: scale(-1) rotateX(180deg);
+  }
+
+  .ecl-icon--flip-vertical {
+    transform: scale(-1) rotateY(180deg);
   }
 }

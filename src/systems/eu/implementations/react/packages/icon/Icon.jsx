@@ -2,14 +2,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
-// Predefined sprites
 import defaultSprite from '@ecl/eu-resources-icons/dist/sprites/icons.svg';
 
-const Icon = ({ className, color, iconPath, shape, size, ...props }) => {
+const Icon = ({
+  className,
+  color,
+  iconPath,
+  shape,
+  size,
+  transform,
+  ...props
+}) => {
   const classNames = classnames(className, 'ecl-icon', {
     [`ecl-icon--${size}`]: size,
     [`ecl-icon--${color}`]: color,
+    [`ecl-icon--${transform}`]: transform,
   });
 
   return (
@@ -25,6 +32,7 @@ Icon.propTypes = {
   iconPath: PropTypes.string,
   shape: PropTypes.string,
   size: PropTypes.string,
+  transform: PropTypes.string,
 };
 
 Icon.defaultProps = {
@@ -33,6 +41,7 @@ Icon.defaultProps = {
   iconPath: defaultSprite,
   shape: '',
   size: 'm',
+  transform: '',
 };
 
 export default Icon;
