@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
 
-import icons from '@ecl/ec-resources-icons/dist/sprites/icons-ui.svg';
+import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import NavigationLink from './NavigationLink';
 import styles from './LinkGroup.scss';
 
@@ -45,10 +45,11 @@ class LinkGroup extends PureComponent {
             {title}
             <svg
               className={classnames(styles.icon, {
-                [styles['icon-rotate-90']]: isOpen,
+                [styles['icon-rotate-90']]: !isOpen,
+                [styles['icon-rotate-180']]: isOpen,
               })}
             >
-              <use xlinkHref={`${icons}#Icon_Rounded-arrow-right`} />
+              <use xlinkHref={`${icons}#ui--rounded-arrow`} />
             </svg>
           </span>
         </button>

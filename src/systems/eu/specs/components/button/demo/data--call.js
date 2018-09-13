@@ -2,8 +2,7 @@
 module.exports = {
   label: 'Call to action button',
   icon: {
-    icon: 'Icon_Corner-arrow-right',
-    iconSet: 'ui',
+    icon: 'ui--corner-arrow',
     size: 'xs',
   },
 };

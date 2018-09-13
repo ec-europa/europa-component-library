@@ -1,5 +1,4 @@
 // Simple content for demo
 module.exports = {
-  icon: 'Icon_Success',
-  iconSet: 'notifications',
+  icon: 'notifications-success',
 };

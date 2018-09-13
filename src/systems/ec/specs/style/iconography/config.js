@@ -1,4 +1,5 @@
-import icons from './docs/icons.md';
+import library from './docs/library.md';
+import usage from './docs/usage.md';
 
 export default {
   order: 2,
@@ -7,10 +8,15 @@ export default {
   section: 'Style',
   tabs: [
     {
-      name: 'Icons',
-      component: icons,
-      url: 'icons',
+      name: 'Library',
+      component: library,
+      url: 'library',
+    },
+    {
+      name: 'Usage',
+      component: usage,
+      url: 'usage',
     },
   ],
-  defaultTab: 'icons',
+  defaultTab: 'library',
 };

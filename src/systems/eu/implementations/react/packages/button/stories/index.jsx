@@ -13,8 +13,8 @@ import Button from '../Button';
 
 const icons = {
   none: '',
-  arrow: 'Icon_Corner-arrow-right',
-  external: 'Icon_External',
+  arrow: 'ui--corner-arrow',
+  external: 'ui--external',
 };
 
 storiesOf('Button', module)

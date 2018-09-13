@@ -13,8 +13,8 @@ import Button from '../Button';
 
 const icons = {
   none: '',
-  arrow: 'Icon_Corner-arrow-right',
-  external: 'Icon_External',
+  arrow: 'ui--corner-arrow',
+  external: 'ui--external',
 };
 
 storiesOf('Button', module)
@@ -22,7 +22,6 @@ storiesOf('Button', module)
   .add('primary', () => {
     const buttonIcon = {
       icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
       size: 'xs',
     };
 
@@ -38,7 +37,6 @@ storiesOf('Button', module)
   .add('secondary', () => {
     const buttonIcon = {
       icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
       size: 'xs',
     };
 
@@ -54,7 +52,6 @@ storiesOf('Button', module)
   .add('call to action', () => {
     const buttonIcon = {
       icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
       size: 'xs',
     };
 
@@ -70,7 +67,6 @@ storiesOf('Button', module)
   .add('ghost', () => {
     const buttonIcon = {
       icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
       size: 'xs',
     };
 
@@ -86,7 +82,6 @@ storiesOf('Button', module)
   .add('search', () => {
     const buttonIcon = {
       icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
       size: 'xs',
     };
 

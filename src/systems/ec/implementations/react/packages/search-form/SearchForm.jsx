@@ -19,8 +19,7 @@ const SearchForm = ({ textInputId, buttonLabel, className, ...props }) => {
     className: 'ecl-search-form__button',
     label: buttonLabel,
     icon: {
-      icon: 'Icon_Search',
-      iconSet: 'general',
+      icon: 'general--search',
       size: 'xs',
     },
   };
