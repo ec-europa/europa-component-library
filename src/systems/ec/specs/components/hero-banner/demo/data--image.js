@@ -7,7 +7,7 @@ module.exports = {
     variant: 'call',
     label: 'Subscribe',
     icon: {
-      icon: 'ui--corner-arrow',
+      shape: 'ui--corner-arrow',
       size: 'xs',
     },
   },

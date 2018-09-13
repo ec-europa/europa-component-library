@@ -6,34 +6,33 @@ import classnames from 'classnames';
 // Predefined sprites
 import defaultSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
-const Icon = ({ size, color, icon, iconPath, className, ...props }) => {
-  const classNames = classnames(className, {
-    'ecl-icon': true,
+const Icon = ({ className, color, iconPath, shape, size, ...props }) => {
+  const classNames = classnames(className, 'ecl-icon', {
     [`ecl-icon--${size}`]: size,
     [`ecl-icon--${color}`]: color,
   });
 
   return (
     <svg {...props} className={classNames}>
-      <use xlinkHref={`${iconPath}#${icon}`} />
+      <use xlinkHref={`${iconPath}#${shape}`} />
     </svg>
   );
 };
 
 Icon.propTypes = {
-  size: PropTypes.string,
-  color: PropTypes.string,
-  icon: PropTypes.string,
-  iconPath: PropTypes.string,
   className: PropTypes.string,
+  color: PropTypes.string,
+  iconPath: PropTypes.string,
+  shape: PropTypes.string,
+  size: PropTypes.string,
 };
 
 Icon.defaultProps = {
-  color: '',
-  size: 'm',
-  icon: '',
-  iconPath: defaultSprite,
   className: '',
+  color: '',
+  iconPath: defaultSprite,
+  shape: '',
+  size: 'm',
 };
 
 export default Icon;

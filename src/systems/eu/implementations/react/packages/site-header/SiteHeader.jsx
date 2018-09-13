@@ -37,7 +37,7 @@ const SiteHeader = ({
             >
               {languageSelector.name}
               <span className="ecl-site-header__language-icon">
-                <Icon icon="general--language" size="m" />
+                <Icon shape="general--language" size="m" />
                 <span className="ecl-site-header__language-code">
                   {languageSelector.code}
                 </span>

@@ -1,35 +1,9 @@
 import Playground from '@ecl/website-components/Playground'
 import Icon from '@ecl/eu-react-component-icon/Icon'
-import demoContentAudio from '@ecl/eu-specs-icon/demo/data--audio';
-
-## Default icon
+import demoContentAudio from '../demo/data--audio';
 
 <Playground playgroundLink="/storybook/eu/index.html?selectedKind=Icon&selectedStory=default&stories=0">
-  <Icon
-    variant=""
-    size="l"
-    icon={demoContentAudio.icon}
-    iconSet={demoContentAudio.iconSet}
-  />
+  <Icon {...demoContentAudio} />
 </Playground>
-
-## Higlighted icon
-
-<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Icon&selectedStory=highlight&stories=0">
-  <Icon
-    variant="highlight"
-    size="l"
-    icon={demoContentAudio.icon}
-    iconSet={demoContentAudio.iconSet}
-  />
-</Playground>
-
-The component expects 5 parameters:
-
-- variant (string)
-- size (string)
-- iconPath (string)
-- icon (string)
-- (optional) className (string)
 
 Note: display of icons on Internet Explorer is made possible by the use of [svg4everybody](https://github.com/jonathantneal/svg4everybody)

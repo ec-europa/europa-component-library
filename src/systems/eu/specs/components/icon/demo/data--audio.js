@@ -1,4 +1,5 @@
 // Simple content for demo
 module.exports = {
-  icon: 'general--audio',
+  shape: 'general--audio',
+  size: 'l',
 };

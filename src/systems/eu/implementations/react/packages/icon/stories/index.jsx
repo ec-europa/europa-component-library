@@ -29,32 +29,30 @@ const defaultColor = '';
 storiesOf('Icon', module)
   .addDecorator(withKnobs)
   .add('branded', () => {
-    const icon = selectV2('Icon', brandedIcons, brandedIcons[0]);
+    const shape = selectV2('Icon', brandedIcons, brandedIcons[0]);
     const size = selectV2('Size', sizes, defaultSize);
     const color = selectV2('Color', colors, defaultColor);
 
-    return <Icon icon={icon} iconSet="branded" size={size} color={color} />;
+    return <Icon shape={`branded--${shape}`} size={size} color={color} />;
   })
   .add('general', () => {
-    const icon = selectV2('Icon', generalIcons, generalIcons[0]);
+    const shape = selectV2('Icon', generalIcons, generalIcons[0]);
     const size = selectV2('Size', sizes, defaultSize);
     const color = selectV2('Color', colors, defaultColor);
 
-    return <Icon icon={icon} iconSet="general" size={size} color={color} />;
+    return <Icon shape={`general--${shape}`} size={size} color={color} />;
   })
   .add('notifications', () => {
-    const icon = selectV2('Icon', notificationsIcons, notificationsIcons[0]);
+    const shape = selectV2('Icon', notificationsIcons, notificationsIcons[0]);
     const size = selectV2('Size', sizes, defaultSize);
     const color = selectV2('Color', colors, defaultColor);
 
-    return (
-      <Icon icon={icon} iconSet="notifications" size={size} color={color} />
-    );
+    return <Icon shape={`notifications--${shape}`} size={size} color={color} />;
   })
   .add('ui', () => {
-    const icon = selectV2('Icon', uiIcons, uiIcons[0]);
+    const shape = selectV2('Icon', uiIcons, uiIcons[0]);
     const size = selectV2('Size', sizes, defaultSize);
     const color = selectV2('Color', colors, defaultColor);
 
-    return <Icon icon={icon} iconSet="ui" size={size} color={color} />;
+    return <Icon shape={`ui--${shape}`} size={size} color={color} />;
   });

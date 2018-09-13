@@ -55,7 +55,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
       },
       // SVG sprites
       {
-        test: /sprites\/icons\-(.*)\.svg/,
+        test: /sprites\/icons(.*)\.svg/,
         use: ['file-loader'],
       },
     ]

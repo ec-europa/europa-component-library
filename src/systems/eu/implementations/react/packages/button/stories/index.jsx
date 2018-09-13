@@ -21,8 +21,7 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('primary', () => {
     const buttonIcon = {
-      icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
+      shape: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
 
@@ -37,8 +36,7 @@ storiesOf('Button', module)
   })
   .add('secondary', () => {
     const buttonIcon = {
-      icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
+      shape: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
 
@@ -53,8 +51,7 @@ storiesOf('Button', module)
   })
   .add('call to action', () => {
     const buttonIcon = {
-      icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
+      shape: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
 
@@ -69,8 +66,7 @@ storiesOf('Button', module)
   })
   .add('ghost', () => {
     const buttonIcon = {
-      icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
+      shape: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
 
@@ -85,8 +81,7 @@ storiesOf('Button', module)
   })
   .add('search', () => {
     const buttonIcon = {
-      icon: select('Icon (sample)', icons, ''),
-      iconSet: 'ui',
+      shape: select('Icon (sample)', icons, ''),
       size: 'xs',
     };
 

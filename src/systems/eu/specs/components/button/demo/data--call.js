@@ -2,7 +2,8 @@
 module.exports = {
   label: 'Call to action button',
   icon: {
-    icon: 'ui--corner-arrow',
+    shape: 'ui--corner-arrow',
     size: 'xs',
   },
+  variant: 'call',
 };

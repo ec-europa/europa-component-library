@@ -6,10 +6,10 @@
   "description": "Icons for EU system of ECL",
   "scripts": {
     "clean": "rimraf build dist",
-    "dist:list": "node ./scripts/generate-lists.js",
+    "dist:lists": "node ./scripts/build-lists.js",
     "dist:svg": "node ./scripts/clean-svg.js",
     "dist:sprites": "node ./scripts/build-sprites.js",
-    "dist": "npm run clean && npm run dist:list && npm run dist:svg && npm run dist:sprites",
+    "dist": "npm run clean && npm run dist:lists && npm run dist:svg && npm run dist:sprites",
     "prepublish": "npm run dist"
   },
   "devDependencies": {
