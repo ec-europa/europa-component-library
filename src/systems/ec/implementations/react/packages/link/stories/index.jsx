@@ -24,7 +24,7 @@ storiesOf('Link', module)
   .add('default', () => {
     const linkIcon = {
       icon: select('Icon (sample)', icons, ''),
-      size: 'xs',
+      size: 'fluid',
     };
 
     return (
@@ -40,7 +40,7 @@ storiesOf('Link', module)
   .add('standalone', () => {
     const linkIcon = {
       icon: select('Icon (sample)', icons, ''),
-      size: 'xs',
+      size: 'fluid',
     };
 
     return (
