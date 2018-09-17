@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Icon from '@ecl/ec-react-component-icon/Icon';
+import Icon from '@ecl/eu-react-component-icon/Icon';
 
 const Link = ({
   variant,
