@@ -3,9 +3,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
-import demoContentDefault from '@ecl/ec-specs-link/demo/data--default';
-import demoContentStandalone from '@ecl/ec-specs-link/demo/data--standalone';
-import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
+import demoContentDefault from '@ecl/eu-specs-link/demo/data--default';
+import demoContentStandalone from '@ecl/eu-specs-link/demo/data--standalone';
+import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
 
 import Link from '../Link';
 

@@ -16,8 +16,6 @@
   .ecl-icon {
     fill: $_color-default;
     margin: 0;
-    transform: scaleX(1) scaleY(1) rotateZ(0deg);
-    transition: transform 300ms ease-in-out;
   }
 
   .ecl-icon--xs {
@@ -35,6 +33,11 @@
     width: $ecl-icon-m;
   }
 
+  .ecl-icon--fluid {
+    height: $ecl-icon-fluid;
+    width: $ecl-icon-fluid;
+  }
+
   .ecl-icon--primary {
     fill: $_color-primary;
   }
@@ -43,23 +46,10 @@
     fill: $_color-inverted;
   }
 
-  .ecl-icon--rotate-90 {
-    transform: rotateZ(90deg);
-  }
-
-  .ecl-icon--rotate-180 {
-    transform: rotateZ(180deg);
-  }
-
-  .ecl-icon--rotate-270 {
-    transform: rotateZ(270deg);
-  }
-
-  .ecl-icon--flip-horizontal {
-    transform: scaleX(-1);
-  }
-
-  .ecl-icon--flip-vertical {
-    transform: scaleY(-1);
+  .ecl-icon--highlight {
+    background-color: $_highlight-background;
+    border-radius: 50%;
+    fill: $_highlight-color;
+    padding: $ecl-spacing-xs;
   }
 }

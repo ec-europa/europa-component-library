@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Icon from '@ecl/ec-react-component-icon/Icon';
+import Icon from '@ecl/eu-react-component-icon/Icon';
 
 const Link = ({
   variant,
@@ -32,7 +32,6 @@ const Link = ({
         </a>
       );
     }
-
     return (
       <a {...props} href={href} className={classNames}>
         <span className="ecl-link__label">{label}</span>
@@ -44,7 +43,6 @@ const Link = ({
       </a>
     );
   }
-
   return (
     <a {...props} href={href} className={classNames}>
       {label}
