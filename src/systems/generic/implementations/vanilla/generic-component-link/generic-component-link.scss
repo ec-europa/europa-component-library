@@ -14,16 +14,23 @@
   $link-color-visited: $ecl-color-purple-100
 ) {
   .ecl-link {
-    @include link(
-      $link-color,
-      $link-color-hover,
-      $link-color-focus,
-      $link-color-visited
-    );
-  }
+    color: $link-color;
+    margin: 0;
+    text-decoration: underline;
 
-  .ecl-link__icon {
-    fill: currentColor;
+    &:hover,
+    &:focus {
+      color: $link-color-hover;
+    }
+
+    &:focus {
+      outline: 3px solid $link-color-focus;
+      outline-offset: 2px;
+    }
+
+    &:visited {
+      color: $link-color-visited;
+    }
   }
 
   .ecl-link--icon-before,
@@ -32,21 +39,36 @@
     display: inline-flex;
   }
 
-  .ecl-link--icon-before .ecl-link__icon {
-    margin-right: $ecl-spacing-xs;
-  }
+  .ecl-link--icon {
+    text-decoration: none;
 
-  .ecl-link--icon-after .ecl-link__icon {
-    margin-left: $ecl-spacing-xs;
+    .ecl-link__icon {
+      fill: currentColor;
+    }
+
+    &:not(.ecl-link--standalone) .ecl-link__label {
+      text-decoration: underline;
+    }
   }
 
   .ecl-link--standalone {
     font-family: $ecl-font-family;
     text-decoration: none;
 
-    &:hover,
-    &:focus {
-      text-decoration: underline;
+    /* stylelint-disable */
+    &:not(.ecl-link--icon) {
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
     }
+
+    &.ecl-link--icon {
+      &:hover .ecl-link__label,
+      &:focus .ecl-link__label {
+        text-decoration: underline;
+      }
+    }
+    /* stylelint-enable */
   }
 }
