@@ -2,5 +2,9 @@
 module.exports = {
   variant: 'default',
   label: 'the European Union',
-  href: '/example#link-default',
+  href: '/example#link-icon',
+  icon: {
+    icon: 'Icon_External',
+    size: 'fluid',
+  },
 };

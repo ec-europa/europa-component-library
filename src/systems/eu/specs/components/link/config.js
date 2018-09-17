@@ -3,7 +3,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/link',
+  url: '/eu/components/link',
   title: 'Link',
   section: 'Components',
   ready: true,
