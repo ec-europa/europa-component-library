@@ -31,6 +31,11 @@ const customComponents = {
   td: ({ children }) => <td className={styles.td}>{children}</td>,
   th: ({ children }) => <th className={styles.th}>{children}</th>,
   hr: () => <hr className={styles.hr} />,
+  a: ({ href, children }) => (
+    <a href={href} className={styles.a}>
+      {children}
+    </a>
+  ),
   img: ({ alt, src }) => (
     <a href={src} target="_blank" rel="noopener noreferrer">
       <img alt={alt} src={src} className={styles.img} />
@@ -41,11 +46,7 @@ const customComponents = {
 
 class App extends React.Component {
   componentDidMount() {
-    svg4everybody({
-      validate(src) {
-        return src && src.indexOf('#') !== 0;
-      },
-    });
+    svg4everybody();
   }
 
   render() {

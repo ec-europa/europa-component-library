@@ -1,0 +1,12 @@
+/**
+ * Icons
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-icon/generic-component-icon';
+
+// Use generic mixin
+@include exports('ec-component-icon') {
+  @include ecl-icons();
+}

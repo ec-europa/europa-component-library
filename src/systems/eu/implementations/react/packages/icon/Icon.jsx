@@ -2,49 +2,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
-import svgSprite from '@ecl/eu-resources/dist/icons.svg';
+import defaultSprite from '@ecl/eu-resources-icons/dist/sprites/icons.svg';
 
 const Icon = ({
-  variant,
-  size,
+  className,
   color,
   iconPath,
-  icon,
-  className,
+  shape,
+  size,
+  transform,
   ...props
 }) => {
-  const classNames = classnames(className, {
-    'ecl-icon': true,
-    [`ecl-icon--${variant}`]: variant,
+  const classNames = classnames(className, 'ecl-icon', {
     [`ecl-icon--${size}`]: size,
     [`ecl-icon--${color}`]: color,
+    [`ecl-icon--${transform}`]: transform,
   });
-  const path = iconPath || svgSprite;
 
   return (
-    <svg className={classNames} {...props}>
-      <use xlinkHref={`${path}#${icon}`} />
+    <svg {...props} className={classNames}>
+      <use xlinkHref={`${iconPath}#${shape}`} />
     </svg>
   );
 };
 
 Icon.propTypes = {
-  variant: PropTypes.string,
-  size: PropTypes.string,
+  className: PropTypes.string,
   color: PropTypes.string,
   iconPath: PropTypes.string,
-  icon: PropTypes.string,
-  className: PropTypes.string,
+  shape: PropTypes.string,
+  size: PropTypes.string,
+  transform: PropTypes.string,
 };
 
 Icon.defaultProps = {
-  variant: '',
-  color: '',
-  size: 'm',
-  iconPath: '',
-  icon: '',
   className: '',
+  color: '',
+  iconPath: defaultSprite,
+  shape: '',
+  size: 'm',
+  transform: '',
 };
 
 export default Icon;

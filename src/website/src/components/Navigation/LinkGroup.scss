@@ -34,6 +34,7 @@
 .page-list-item:hover,
 .page-list-item:focus {
   background-color: $ecl-color-grey-10;
+  outline: none;
 }
 
 .page-list-item:active {
@@ -69,6 +70,7 @@
 .group-list-item:hover,
 .group-list-item:focus {
   background-color: $ecl-color-grey-10;
+  outline: none;
 }
 
 .group-list-item--active {
@@ -83,4 +85,13 @@
 .icon {
   height: 0.875rem;
   width: 0.875rem;
+  transition: transform 200ms ease-in-out;
+}
+
+.icon-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.icon-rotate-180 {
+  transform: rotate(180deg);
 }
