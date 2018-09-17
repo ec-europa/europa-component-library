@@ -14,38 +14,38 @@ const Link = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, {
-    'ecl-link': true,
+  const classNames = classnames(className, 'ecl-link', {
     [`ecl-link--${variant}`]: variant,
     [`ecl-link--icon-${iconPosition}`]: icon && icon.icon,
   });
 
-  let link = '';
   if (icon && icon.icon) {
     if (iconPosition === 'before') {
-      link = (
+      return (
         <a {...props} href={href} className={classNames}>
-          <Icon {...icon} className="ecl-link__icon" />
+          <Icon
+            {...icon}
+            className={classnames(icon.className, 'ecl-link__icon')}
+          />
           <span className="ecl-link__label">{label}</span>
-        </a>
-      );
-    } else {
-      link = (
-        <a {...props} href={href} className={classNames}>
-          <span className="ecl-link__label">{label}</span>
-          <Icon {...icon} className="ecl-link__icon" />
         </a>
       );
     }
-  } else {
-    link = (
+    return (
       <a {...props} href={href} className={classNames}>
-        {label}
+        <span className="ecl-link__label">{label}</span>
+        <Icon
+          {...icon}
+          className={classnames(icon.className, 'ecl-link__icon')}
+        />
       </a>
     );
   }
-
-  return link;
+  return (
+    <a {...props} href={href} className={classNames}>
+      {label}
+    </a>
+  );
 };
 
 Link.propTypes = {

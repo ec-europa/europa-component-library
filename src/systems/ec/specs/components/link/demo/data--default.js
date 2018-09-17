@@ -1,5 +1,6 @@
 // Simple content for demo
 module.exports = {
-  label: 'Default link',
+  variant: 'default',
+  label: 'the European Union',
   href: '/example#link-default',
 };

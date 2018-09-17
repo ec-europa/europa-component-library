@@ -25,19 +25,23 @@
   .ecl-link__icon {
     fill: currentColor;
   }
+
   .ecl-link--icon-before,
   .ecl-link--icon-after {
     align-items: center;
     display: inline-flex;
   }
+
   .ecl-link--icon-before .ecl-link__icon {
     margin-right: $ecl-spacing-xs;
   }
+
   .ecl-link--icon-after .ecl-link__icon {
     margin-left: $ecl-spacing-xs;
   }
 
   .ecl-link--standalone {
+    font-family: $ecl-font-family;
     text-decoration: none;
 
     &:hover,

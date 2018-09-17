@@ -1,9 +1,10 @@
 // Simple content for demo
 module.exports = {
-  label: 'Link with icon',
+  variant: 'default',
+  label: 'the European Union',
   href: '/example#link-icon',
   icon: {
-    icon: 'Icon_Corner-arrow-right',
-    size: 'xs',
+    icon: 'Icon_External',
+    size: 'fluid',
   },
 };
