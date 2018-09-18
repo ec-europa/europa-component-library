@@ -1,6 +1,6 @@
 /*
  * Breadcrumbs
- * @define breadcrumb
+ * @define breadcrumb; weak;
  */
 
 // Import base and generic
@@ -10,17 +10,38 @@
 @include check-imports(('ec-component-link', 'ec-style-icon'));
 
 @mixin ecl-breadcrumb(
+  $background-color: $ecl-color-blue-100,
+  $background-color-hover: $ecl-color-blue-120,
   $link-color: $ecl-color-white-100,
-  $last-link-color: $ecl-color-blue-25
+  $last-link-color: $ecl-color-blue-25,
+  $border-color: $ecl-color-white-100
 ) {
   .ecl-breadcrumb {
+    background-color: $background-color;
     margin: 0;
+
+    .ecl-container {
+      border-bottom: 1px solid $border-color;
+    }
   }
 
   .ecl-breadcrumb__container {
     display: flex;
+    flex-wrap: wrap;
+    list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 $ecl-spacing-m;
+  }
+
+  .ecl-breadcrumb__segment {
+    align-items: center;
+    display: inline-flex;
+    margin-top: $ecl-spacing-m;
+    white-space: nowrap;
+
+    &[aria-hidden='true'] {
+      display: none;
+    }
   }
 
   .ecl-breadcrumb__link {
@@ -36,15 +57,33 @@
     }
   }
 
-  .ecl-breadcrumb__segment:last-child .ecl-breadcrumb__link {
-    color: $last-link-color;
+  .ecl-breadcrumb__icon {
+    fill: $link-color;
+    margin-left: $ecl-spacing-xs;
+    margin-right: $ecl-spacing-xs;
+  }
 
-    &:hover,
-    &:active,
-    &:focus,
-    &:visited {
+  /* stylelint-disable max-nesting-depth */
+  .ecl-breadcrumb__segment:last-child {
+    .ecl-breadcrumb__link {
       color: $last-link-color;
+
+      &:hover,
+      &:active,
+      &:focus,
+      &:visited {
+        color: $last-link-color;
+      }
     }
+
+    .ecl-breadcrumb__icon {
+      display: none;
+    }
+  }
+  /* stylelint-enable max-nesting-depth */
+
+  .ecl-breadcrumb__expand-btn:hover {
+    background-color: $background-color-hover;
   }
 }
 

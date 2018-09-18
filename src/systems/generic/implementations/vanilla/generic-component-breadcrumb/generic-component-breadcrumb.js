@@ -5,7 +5,7 @@ import { queryAll } from '@ecl/generic-base/helpers/dom';
  * @param {object} options Object containing configuration overrides
  */
 export const initBreadcrumb = ({
-  breadcrumbSelector: breadcrumbSelector = '.ecl-breadcrumb',
+  breadcrumbSelector: breadcrumbSelector = '.ecl-breadcrumb__container',
   expandButtonSelector: expandButtonSelector = '.ecl-breadcrumb__expand-btn',
   segmentSelector: segmentSelector = '.ecl-breadcrumb__segment',
   segmentFirstSelector: segmentFirstSelector = '.ecl-breadcrumb__segment--first',
@@ -77,7 +77,6 @@ export const initBreadcrumb = ({
         breadcrumbSegment.getBoundingClientRect().width
       );
     });
-
     return segmentWidth >= wrapperWidth;
   }
 
