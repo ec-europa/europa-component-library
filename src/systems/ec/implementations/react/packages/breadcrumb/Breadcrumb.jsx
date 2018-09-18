@@ -17,6 +17,10 @@ export default class Breadcrumb extends React.Component {
     initBreadcrumb().update();
   }
 
+  componentWillUnmount() {
+    initBreadcrumb().destroy();
+  }
+
   render() {
     const { items, label, className, ...props } = this.props;
 
