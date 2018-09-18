@@ -4,7 +4,7 @@ module.exports = {
   label: 'the European Union',
   href: '/example#link-icon',
   icon: {
-    icon: 'Icon_External',
+    shape: 'ui--external',
     size: 'fluid',
   },
 };

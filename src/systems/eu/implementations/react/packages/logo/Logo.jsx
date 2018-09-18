@@ -9,7 +9,7 @@ const Logo = ({ title, alt, language, className, ...props }) => {
   });
 
   /* eslint-disable-next-line */
-  const path = require(`@ecl/eu-resources/logo/logo--${language}.svg`);
+  const path = require(`@ecl/eu-resources-logo/logo--${language}.svg`);
 
   return (
     <img {...props} title={title} className={classNames} src={path} alt={alt} />

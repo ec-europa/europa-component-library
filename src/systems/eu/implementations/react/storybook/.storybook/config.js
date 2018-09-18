@@ -5,11 +5,7 @@ import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
 
 import '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css';
 
-svg4everybody({
-  validate: function(src) {
-    return src && src.indexOf('#') !== 0;
-  },
-});
+svg4everybody();
 
 setOptions({
   name: 'ECL v2 - EU',

@@ -5,13 +5,16 @@ import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
 import demoContentDefault from '@ecl/ec-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/ec-specs-link/demo/data--standalone';
+import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
 import Link from '../Link';
 
 const icons = {
   none: '',
-  arrow: 'Icon_Corner-arrow-right',
-  external: 'Icon_External',
+  ...uiIcons.map(icon => ({ [`${icon}`]: `ui--${icon}` })).reduce((a, b) => ({
+    ...a,
+    ...b,
+  })),
 };
 
 const iconPosition = {
@@ -23,7 +26,7 @@ storiesOf('Link', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     const linkIcon = {
-      icon: select('Icon (sample)', icons, ''),
+      shape: select('Icon (sample)', icons, ''),
       size: 'fluid',
     };
 
@@ -39,7 +42,7 @@ storiesOf('Link', module)
   })
   .add('standalone', () => {
     const linkIcon = {
-      icon: select('Icon (sample)', icons, ''),
+      shape: select('Icon (sample)', icons, ''),
       size: 'fluid',
     };
 

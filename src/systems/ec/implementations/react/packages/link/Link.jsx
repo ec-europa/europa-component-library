@@ -16,10 +16,10 @@ const Link = ({
 }) => {
   const classNames = classnames(className, 'ecl-link', {
     [`ecl-link--${variant}`]: variant,
-    [`ecl-link--icon ecl-link--icon-${iconPosition}`]: icon && icon.icon,
+    [`ecl-link--icon ecl-link--icon-${iconPosition}`]: icon && icon.shape,
   });
 
-  if (icon && icon.icon) {
+  if (icon && icon.shape) {
     if (iconPosition === 'before') {
       return (
         <a {...props} href={href} className={classNames}>
@@ -32,6 +32,7 @@ const Link = ({
         </a>
       );
     }
+
     return (
       <a {...props} href={href} className={classNames}>
         <span className="ecl-link__label">{label}</span>
@@ -43,6 +44,7 @@ const Link = ({
       </a>
     );
   }
+
   return (
     <a {...props} href={href} className={classNames}>
       {label}

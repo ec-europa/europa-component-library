@@ -16,8 +16,7 @@ const HeroBanner = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, {
-    'ecl-hero-banner': true,
+  const classNames = classnames(className, 'ecl-hero-banner', {
     [`ecl-hero-banner--${variant}`]: variant,
     [`ecl-hero-banner--centered`]: centered,
   });
