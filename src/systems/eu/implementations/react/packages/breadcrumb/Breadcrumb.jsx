@@ -10,7 +10,11 @@ import initBreadcrumb from '@ecl/eu-component-breadcrumb/eu-component-breadcrumb
 
 export default class Breadcrumb extends React.Component {
   componentDidMount() {
-    initBreadcrumb();
+    initBreadcrumb().init();
+  }
+
+  componentDidUpdate() {
+    initBreadcrumb().update();
   }
 
   render() {
@@ -24,50 +28,26 @@ export default class Breadcrumb extends React.Component {
       <nav {...props} className={classNames} role="search" aria-label={label}>
         <div className="ecl-container">
           <ol className="ecl-breadcrumb__container">
-            {items.map((item, index) => {
-              const segment = (
-                <li
-                  className={
-                    index === 0
-                      ? 'ecl-breadcrumb__segment ecl-breadcrumb__segment--first'
-                      : 'ecl-breadcrumb__segment'
-                  }
-                >
-                  <Link
-                    {...item}
-                    variant="standalone"
-                    className="ecl-breadcrumb__link"
-                  />
-                  <Icon
-                    className="ecl-breadcrumb__icon"
-                    icon="Icon_Corner-arrow-right"
-                    size="xs"
-                  />
-                </li>
-              );
-
-              if (index !== 0) {
-                return segment;
-              }
-
-              return [
-                segment,
-                <li className="ecl-breadcrumb__segment ecl-breadcrumb__segment--ellipsis">
-                  <Link
-                    label="…"
-                    href="#expand-breadcrumb"
-                    variant="standalone"
-                    className="ecl-breadcrumb__link ecl-breadcrumb__expand-btn"
-                    style={{ ariaHidden: 'true' }}
-                  />
-                  <Icon
-                    className="ecl-breadcrumb__icon"
-                    icon="Icon_Corner-arrow-right"
-                    size="xs"
-                  />
-                </li>,
-              ];
-            })}
+            {items.map((item, index) => (
+              <li
+                className={
+                  index === 0
+                    ? 'ecl-breadcrumb__segment ecl-breadcrumb__segment--first'
+                    : 'ecl-breadcrumb__segment'
+                }
+              >
+                <Link
+                  {...item}
+                  variant="standalone"
+                  className="ecl-breadcrumb__link"
+                />
+                <Icon
+                  className="ecl-breadcrumb__icon"
+                  icon="Icon_Corner-arrow-right"
+                  size="xs"
+                />
+              </li>
+            ))}
           </ol>
         </div>
       </nav>

@@ -232,11 +232,20 @@ export const initBreadcrumb = ({
     }
   }
 
-  init();
+  // UPDATE
+  function update() {
+    if (breadcrumbContainers.length) {
+      breadcrumbContainers.forEach(breadcrumbContainer => {
+        // trigger resize event once
+        eventResize(breadcrumbContainer);
+      });
+    }
+  }
 
   // REVEAL API
   return {
     init,
+    update,
     destroy,
   };
 };

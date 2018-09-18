@@ -10,7 +10,11 @@ import initBreadcrumb from '@ecl/ec-component-breadcrumb/ec-component-breadcrumb
 
 export default class Breadcrumb extends React.Component {
   componentDidMount() {
-    initBreadcrumb();
+    initBreadcrumb().init();
+  }
+
+  componentDidUpdate() {
+    initBreadcrumb().update();
   }
 
   render() {
