@@ -40,12 +40,13 @@ export const initBreadcrumb = ({
       use.setAttributeNS(
         'http://www.w3.org/1999/xlink',
         'xlink:href',
-        `${svgSprite}#Icon_Corner-arrow-right`
+        `${svgSprite}#ui--corner-arrow`
       );
 
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.classList.add('ecl-icon');
       svg.classList.add('ecl-icon--xs');
+      svg.classList.add('ecl-icon--rotate-90');
       svg.classList.add('ecl-breadcrumb__icon');
       svg.appendChild(use);
 

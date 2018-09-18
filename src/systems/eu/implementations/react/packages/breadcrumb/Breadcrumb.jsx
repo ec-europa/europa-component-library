@@ -43,7 +43,8 @@ export default class Breadcrumb extends React.Component {
                 />
                 <Icon
                   className="ecl-breadcrumb__icon"
-                  icon="Icon_Corner-arrow-right"
+                  shape="ui--corner-arrow"
+                  transform="rotate-90"
                   size="xs"
                 />
               </li>
