@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { queryAll } from '@ecl/eu-base/helpers/dom';
 
-import svgSprite from '@ecl/eu-resources/dist/icons.svg';
+import svgSprite from '@ecl/eu-resources-icons/dist/sprites/icons.svg';
 
 /**
  * @param {object} options Object containing configuration overrides
