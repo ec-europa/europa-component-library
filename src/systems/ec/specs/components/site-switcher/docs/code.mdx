@@ -1,11 +1,12 @@
 import Playground from '@ecl/website-components/Playground'
-import SiteSwitcher from '@ecl/ec-react-component-search-form/SiteSwicther'
+import SiteSwitcher from '@ecl/ec-react-component-site-switcher/SiteSwicther'
 
-import demoContent from '@ecl/ec-specs-search-form/demo/data';
+import demoContent from '@ecl/ec-specs-site-switcher/demo/data';
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=SiteSwitcher&selectedStory=default&stories=0">
   <SiteSwitcher
-    textInputId={demoContent.textInputId}
-    buttonLabel={demoContent.buttonLabel}
+    item1={demoContent.item1}
+    item2={demoContent.item2}
+    variant={demoContent.variant}
   />
 </Playground>
