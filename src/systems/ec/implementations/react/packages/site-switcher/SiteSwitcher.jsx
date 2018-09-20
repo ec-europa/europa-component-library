@@ -17,10 +17,7 @@ const SiteSwitcher = ({ item1, item2, className, variant, ...props }) => {
               'ecl-site-switcher__option--is-selected': item1.isSelected,
             })}
           >
-            <a
-              className="ecl-link ecl-site-switcher__link"
-              href="../../example.html#"
-            >
+            <a className="ecl-link ecl-site-switcher__link" href={item1.href}>
               {item1.label}
             </a>
           </li>
@@ -29,10 +26,7 @@ const SiteSwitcher = ({ item1, item2, className, variant, ...props }) => {
               'ecl-site-switcher__option--is-selected': item2.isSelected,
             })}
           >
-            <a
-              className="ecl-link ecl-site-switcher__link"
-              href="../../example.html#"
-            >
+            <a className="ecl-link ecl-site-switcher__link" href={item2.href}>
               {item2.label}
             </a>
           </li>
@@ -42,17 +36,16 @@ const SiteSwitcher = ({ item1, item2, className, variant, ...props }) => {
   );
 };
 
+const item = PropTypes.shape({
+  label: PropTypes.string,
+  className: PropTypes.string,
+  href: PropTypes.string,
+  isSelected: PropTypes.bool,
+});
+
 SiteSwitcher.propTypes = {
-  item1: PropTypes.shape({
-    label: PropTypes.string,
-    className: PropTypes.string,
-    isSelected: PropTypes.bool,
-  }),
-  item2: PropTypes.shape({
-    label: PropTypes.string,
-    className: PropTypes.string,
-    isSelected: PropTypes.bool,
-  }),
+  item1: item,
+  item2: item,
   className: PropTypes.string,
   variant: PropTypes.string,
 };
@@ -61,10 +54,12 @@ SiteSwitcher.defaultProps = {
   item1: {
     label: 'Commission and its priorities',
     isSelected: false,
+    href: '../../example.html#',
   },
   item2: {
     label: 'Policies, information and services',
     isSelected: true,
+    href: '../../example.html#',
   },
   variant: 'header',
   className: '',
