@@ -1,5 +1,7 @@
 // Simple content for demo
 module.exports = {
+  closeLabel: 'close',
+  title: 'Select your language',
   items: [
     { label: 'български', href: '/example#language_bg' },
     { label: 'čeština', href: '/example#language_cs' },

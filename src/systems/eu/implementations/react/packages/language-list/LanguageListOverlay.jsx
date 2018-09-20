@@ -21,7 +21,13 @@ const LanguageListOverlay = ({
   return (
     <div {...props} className={classNames}>
       <div className="ecl-language-list__container">
-        <LanguageList {...items} />
+        <div className="ecl-row">
+          <div className="ecl-col-12 ecl-col-sm-8 ecl-offset-sm-2">
+            {closeLabel}
+          </div>
+          <div className="ecl-col-12 ecl-col-sm-8 ecl-offset-sm-2">{title}</div>
+        </div>
+        <LanguageList items={items} />
       </div>
     </div>
   );
