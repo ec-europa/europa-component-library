@@ -20,7 +20,7 @@ storiesOf('SiteSwitcher', module)
       variant={select('variant', variant, 'header')}
       item1={{
         label: text('first item', demoContent.item1.label),
-        href: text('first item link', demoContent.item1.href),
+        href: demoContent.item1.href,
         isSelected: boolean(
           'first item selected',
           demoContent.item1.isSelected
@@ -28,7 +28,7 @@ storiesOf('SiteSwitcher', module)
       }}
       item2={{
         label: text('second item label', demoContent.item2.label),
-        href: text('second item link', demoContent.item2.href),
+        href: demoContent.item2.href,
         isSelected: boolean(
           'second item selected',
           demoContent.item2.isSelected

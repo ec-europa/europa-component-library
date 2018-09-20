@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import Link from '@ecl/ec-react-component-link/Link';
+
 const SiteSwitcher = ({ item1, item2, className, variant, ...props }) => {
   const classNames = classnames(className, 'ecl-site-switcher', {
     [`ecl-site-switcher--${variant}`]: variant,
@@ -17,18 +19,14 @@ const SiteSwitcher = ({ item1, item2, className, variant, ...props }) => {
               'ecl-site-switcher__option--is-selected': item1.isSelected,
             })}
           >
-            <a className="ecl-link ecl-site-switcher__link" href={item1.href}>
-              {item1.label}
-            </a>
+            <Link {...item1} className="ecl-site-switcher__link" />
           </li>
           <li
             className={classnames('ecl-site-switcher__option', {
               'ecl-site-switcher__option--is-selected': item2.isSelected,
             })}
           >
-            <a className="ecl-link ecl-site-switcher__link" href={item2.href}>
-              {item2.label}
-            </a>
+            <Link {...item2} className="ecl-site-switcher__link" />
           </li>
         </ul>
       </div>
@@ -38,7 +36,6 @@ const SiteSwitcher = ({ item1, item2, className, variant, ...props }) => {
 
 const item = PropTypes.shape({
   label: PropTypes.string,
-  className: PropTypes.string,
   href: PropTypes.string,
   isSelected: PropTypes.bool,
 });
@@ -52,14 +49,14 @@ SiteSwitcher.propTypes = {
 
 SiteSwitcher.defaultProps = {
   item1: {
-    label: 'Commission and its priorities',
+    label: '',
+    href: '',
     isSelected: false,
-    href: '../../example.html#',
   },
   item2: {
-    label: 'Policies, information and services',
-    isSelected: true,
-    href: '../../example.html#',
+    label: '',
+    href: '',
+    isSelected: false,
   },
   variant: 'header',
   className: '',
