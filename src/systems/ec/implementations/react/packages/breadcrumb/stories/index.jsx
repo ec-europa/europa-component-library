@@ -5,7 +5,8 @@ import { withKnobs, text } from '@storybook/addon-knobs/react';
 
 import demoContent from '@ecl/ec-specs-breadcrumb/demo/data';
 
-import Breadcrumb from '../Breadcrumb';
+import Breadcrumb from '../src/Breadcrumb';
+import BreadcrumbItem from '../src/BreadcrumbItem';
 
 storiesOf('Breadcrumb', module)
   .addDecorator(withKnobs)
@@ -15,5 +16,11 @@ storiesOf('Breadcrumb', module)
       href: item.href,
     }));
 
-    return <Breadcrumb items={items} label={demoContent.label} />;
+    return (
+      <Breadcrumb label={demoContent.label}>
+        {items.map((item, index) => (
+          <BreadcrumbItem item={item} key={index} />
+        ))}
+      </Breadcrumb>
+    );
   });

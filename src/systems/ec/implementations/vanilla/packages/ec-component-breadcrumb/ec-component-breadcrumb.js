@@ -1,8 +1,6 @@
 import debounce from 'lodash.debounce';
 import { queryAll } from '@ecl/ec-base/helpers/dom';
 
-import svgSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-
 /**
  * @param {object} options Object containing configuration overrides
  */
@@ -10,7 +8,6 @@ export const initBreadcrumb = ({
   breadcrumbSelector: breadcrumbSelector = '.ecl-breadcrumb__container',
   expandButtonSelector: expandButtonSelector = '.ecl-breadcrumb__expand-btn',
   segmentSelector: segmentSelector = '.ecl-breadcrumb__segment',
-  segmentFirstSelector: segmentFirstSelector = '.ecl-breadcrumb__segment--first',
   segmentVisibleSelector: segmentVisibleSelector = '.ecl-breadcrumb__segment:not(.ecl-breadcrumb__segment--first):not(.ecl-breadcrumb__segment--ellipsis):not(.ecl-breadcrumb__segment--last):not([aria-hidden="true"])',
   segmentHiddenSelector: segmentHiddenSelector = '.ecl-breadcrumb__segment[aria-hidden="true"]:not(.ecl-breadcrumb__segment--ellipsis)',
   ellipsisSelector: ellipsisSelector = '.ecl-breadcrumb__segment--ellipsis',
@@ -23,44 +20,6 @@ export const initBreadcrumb = ({
     return null;
 
   // ACTIONS
-  function initEllipsis(breadcrumbContainer) {
-    // add ellipsis to DOM
-    const breadcrumbFirst = queryAll(segmentFirstSelector, breadcrumbContainer);
-    breadcrumbFirst.forEach(segment => {
-      const ellipsis = document.createElement('a');
-      // we can't add multipls classes at once, because... IE
-      ellipsis.classList.add('ecl-link');
-      ellipsis.classList.add('ecl-link--standalone');
-      ellipsis.classList.add('ecl-breadcrumb__link');
-      ellipsis.classList.add('ecl-breadcrumb__expand-btn');
-      ellipsis.setAttribute('href', '#');
-      ellipsis.innerHTML = '…';
-
-      const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-      use.setAttributeNS(
-        'http://www.w3.org/1999/xlink',
-        'xlink:href',
-        `${svgSprite}#ui--corner-arrow`
-      );
-
-      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svg.classList.add('ecl-icon');
-      svg.classList.add('ecl-icon--xs');
-      svg.classList.add('ecl-icon--rotate-90');
-      svg.classList.add('ecl-breadcrumb__icon');
-      svg.appendChild(use);
-
-      const listItem = document.createElement('li');
-      listItem.classList.add('ecl-breadcrumb__segment');
-      listItem.classList.add('ecl-breadcrumb__segment--ellipsis');
-      listItem.setAttribute('aria-hidden', 'true');
-
-      listItem.appendChild(ellipsis);
-      listItem.appendChild(svg);
-      segment.parentNode.insertBefore(listItem, segment.nextSibling);
-    });
-  }
-
   function toggleEllipsis(breadcrumbContainer) {
     // get hidden segments
     const breadcrumbHiddenSegments = queryAll(
@@ -224,7 +183,6 @@ export const initBreadcrumb = ({
   function init() {
     if (breadcrumbContainers.length) {
       breadcrumbContainers.forEach(breadcrumbContainer => {
-        initEllipsis(breadcrumbContainer);
         bindBreadcrumbEvents(breadcrumbContainer);
 
         // trigger resize event once
