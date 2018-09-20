@@ -4,7 +4,7 @@
   "version": "2.0.0-alpha.0",
   "scripts": {
     "clean": "rimraf build",
-    "start": "webpack-serve --config webpack.config.dev.js --open",
+    "start": "webpack-dev-server --config webpack.config.dev.js",
     "prebuild": "npm run clean",
     "build:copy": "./scripts/copy.sh",
     "build": "npm run build:copy && webpack --config webpack.config.prod.js --display=errors-only",
@@ -44,14 +44,12 @@
     "babel-eslint": "9.0.0",
     "babel-loader": "8.0.2",
     "babel-plugin-transform-react-remove-prop-types": "0.4.15",
-    "connect-history-api-fallback": "1.5.0",
     "copy-webpack-plugin": "4.5.2",
     "css-loader": "1.0.0",
     "cssnano": "4.1.0",
     "eslint-loader": "2.1.0",
     "file-loader": "2.0.0",
     "html-webpack-plugin": "4.0.0-alpha",
-    "koa-connect": "2.0.1",
     "mini-css-extract-plugin": "0.4.2",
     "node-sass": "4.9.3",
     "optimize-css-assets-webpack-plugin": "5.0.1",
@@ -68,8 +66,8 @@
     "webpack": "4.19.0",
     "webpack-bundle-analyzer": "3.0.2",
     "webpack-cli": "3.1.0",
-    "webpack-manifest-plugin": "2.0.4",
-    "webpack-serve": "2.0.2"
+    "webpack-dev-server": "3.1.8",
+    "webpack-manifest-plugin": "2.0.4"
   },
   "reactSnap": {
     "puppeteerArgs": [
