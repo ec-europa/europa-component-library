@@ -4,7 +4,7 @@
   "version": "2.0.0-alpha.0",
   "scripts": {
     "clean": "rimraf build",
-    "start": "webpack-dev-server --config webpack.config.dev.js --open",
+    "start": "webpack-dev-server --config webpack.config.dev.js",
     "prebuild": "npm run clean",
     "build:copy": "./scripts/copy.sh",
     "build": "npm run build:copy && webpack --config webpack.config.prod.js --display=errors-only",

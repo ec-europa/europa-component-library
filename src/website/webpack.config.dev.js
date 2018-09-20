@@ -178,6 +178,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
@@ -189,5 +190,7 @@ module.exports = {
   devServer: {
     contentBase: [path.resolve(__dirname, 'public')],
     historyApiFallback: true,
+    open: true,
+    hot: true,
   },
 };
