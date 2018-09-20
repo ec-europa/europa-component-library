@@ -5,7 +5,13 @@ import classnames from 'classnames';
 
 import LanguageList from './LanguageList';
 
-const LanguageListOverlay = ({ logoAlt, items, className, ...props }) => {
+const LanguageListOverlay = ({
+  closeLabel,
+  title,
+  items,
+  className,
+  ...props
+}) => {
   const classNames = classnames(
     className,
     'ecl-language-list',
@@ -22,6 +28,8 @@ const LanguageListOverlay = ({ logoAlt, items, className, ...props }) => {
 };
 
 LanguageListOverlay.propTypes = {
+  closeLabel: PropTypes.string,
+  title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -33,6 +41,8 @@ LanguageListOverlay.propTypes = {
 };
 
 LanguageListOverlay.defaultProps = {
+  closeLabel: '',
+  title: '',
   items: [],
   className: '',
 };
