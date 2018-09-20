@@ -4,8 +4,6 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const history = require('connect-history-api-fallback');
-const convert = require('koa-connect');
 
 const babelConfig = require('./config/babel.config');
 
@@ -187,12 +185,9 @@ module.exports = {
   performance: {
     hints: false,
   },
-};
 
-// Dev server config
-module.exports.serve = {
-  content: [path.resolve(__dirname, 'public')],
-  add: app => {
-    app.use(convert(history({})));
+  devServer: {
+    contentBase: [path.resolve(__dirname, 'public')],
+    historyApiFallback: true,
   },
 };
