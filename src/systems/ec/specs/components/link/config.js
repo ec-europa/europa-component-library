@@ -6,6 +6,7 @@ export default {
   url: '/ec/components/link',
   title: 'Link',
   section: 'Components',
+  ready: true,
   tabs: [
     {
       name: 'Usage',

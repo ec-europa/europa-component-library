@@ -4,11 +4,12 @@ const webpack = require('webpack');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
+const cssnano = require('cssnano');
 
 const babelConfig = require('./config/babel.config');
 
@@ -188,28 +189,14 @@ module.exports = {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
-          parse: {
-            // we want uglify-js to parse ecma 8 code. However, we don't want it
-            // to apply any minfication steps that turns valid ecma 5 code
-            // into invalid ecma 5 code. This is why the 'compress' and 'output'
-            // sections only apply transformations that are ecma 5 safe
-            // https://github.com/facebook/create-react-app/pull/4234
-            ecma: 8,
-          },
           compress: {
-            ecma: 5,
-            warnings: false,
             // Disabled because of an issue with Uglify breaking seemingly valid code:
             // https://github.com/facebook/create-react-app/issues/2376
             // Pending further investigation:
             // https://github.com/mishoo/UglifyJS2/issues/2011
             comparisons: false,
           },
-          mangle: {
-            safari10: true,
-          },
           output: {
-            ecma: 5,
             comments: false,
             // Turned on because emoji and regex is not minified properly using default
             // https://github.com/facebook/create-react-app/issues/2488
@@ -224,13 +211,14 @@ module.exports = {
         sourceMap: shouldUseSourceMap,
       }),
       // Waiting for a new release of https://github.com/NMFR/optimize-css-assets-webpack-plugin
-      // new OptimizeCSSAssetsPlugin({ cssProcessorOptions: { safe: true } }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessor: cssnano,
+        cssProcessorPluginOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }],
+        },
+        canPrint: true,
+      }),
     ],
-    /*
-
-    // Waiting for react-snap to update
-    // https://github.com/stereobooster/react-snap/issues/145
-    // https://github.com/stereobooster/react-snap/issues/201
 
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
@@ -242,7 +230,6 @@ module.exports = {
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
     runtimeChunk: true,
-    */
   },
   plugins: [
     new CopyWebpackPlugin([path.resolve(__dirname, 'public')], {}),

@@ -60,6 +60,26 @@
   padding: 0;
 }
 
+.a {
+  color: $ecl-color-primary;
+  font-family: $ecl-font-family;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $ecl-color-black-100;
+  }
+
+  &:focus {
+    outline: 3px solid $ecl-color-secondary;
+    outline-offset: 2px;
+  }
+
+  &:visited {
+    color: $ecl-color-purple-100;
+  }
+}
+
 .img {
   max-width: 100%;
   margin: 0;
