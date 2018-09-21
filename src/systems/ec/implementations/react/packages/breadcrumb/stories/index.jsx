@@ -10,16 +10,24 @@ import BreadcrumbItem from '../src/BreadcrumbItem';
 
 storiesOf('Breadcrumb', module)
   .addDecorator(withKnobs)
-  .add('default', () => {
+  .add('simple', () => (
+    <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
+      {demoContent.items.map(item => (
+        <BreadcrumbItem {...item} key={item.label} />
+      ))}
+    </Breadcrumb>
+  ))
+  .add('interactive', () => {
     const items = demoContent.items.map((item, index) => ({
       label: text(`Item ${index}`, item.label),
       href: item.href,
+      isCurrentPage: item.isCurrentPage,
     }));
 
     return (
-      <Breadcrumb label={demoContent.label}>
-        {items.map((item, index) => (
-          <BreadcrumbItem item={item} key={index} />
+      <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
+        {items.map(item => (
+          <BreadcrumbItem {...item} key={item.label} />
         ))}
       </Breadcrumb>
     );

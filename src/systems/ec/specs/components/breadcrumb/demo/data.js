@@ -5,7 +5,7 @@ module.exports = {
     { label: 'About the European Commission', href: '/example' },
     { label: 'Organisational structure', href: '/example' },
     { label: 'How the Commission is organised', href: '/example' },
-    { label: 'News' },
+    { label: 'News', isCurrentPage: true },
   ],
   label: 'You are here:',
 };
