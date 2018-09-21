@@ -8,7 +8,7 @@ import utilities from '../../styles/utilities.scss';
 const Col = ({ col, spacing, flex, className, children, ...props }) => {
   const colClasses = col
     .split(' ')
-    .map(c => grid[c])
+    .map(c => grid[`ecl-col-${c}`])
     .join(' ');
 
   const spacingClasses = spacing
@@ -18,7 +18,7 @@ const Col = ({ col, spacing, flex, className, children, ...props }) => {
 
   const classNames = classnames(
     className,
-    grid.col,
+    grid['ecl-col'],
     colClasses,
     spacingClasses,
     { [utilities['d-flex']]: flex }

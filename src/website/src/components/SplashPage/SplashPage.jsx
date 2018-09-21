@@ -21,7 +21,7 @@ const SplashPage = ({ children }) => (
       {children}
       <Row className={styles['splash-page-actions-row']}>
         <Col
-          col="col-4/4 col-md-4/8 col-xl-6/12"
+          col="12 md-6"
           className={`${utilities['d-flex']} ${
             styles['splash-page-actions-col']
           }`}
@@ -31,7 +31,7 @@ const SplashPage = ({ children }) => (
           </LogoLink>
         </Col>
         <Col
-          col="col-4/4 col-md-4/8 col-xl-6/12"
+          col="12 md-6"
           className={`${utilities['d-flex']} ${
             styles['splash-page-actions-col']
           }`}
