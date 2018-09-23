@@ -21,6 +21,7 @@ const Item = ({
       'ecl-breadcrumb__current-page': isCurrentPage,
     })}
     {...!!(isCurrentPage && !href) && { 'aria-current': 'page' }}
+    data-ecl-breadcrumb-item
   >
     {href ? (
       <Link

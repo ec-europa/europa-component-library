@@ -8,11 +8,11 @@ export const initBreadcrumb = (
   breadcrumb,
   {
     // breadcrumbSelector: breadcrumbSelector = '.ecl-breadcrumb__container',
-    ellipsisButtonSelector: ellipsisButtonSelector = '.ecl-breadcrumb__ellipsis',
-    segmentSelector: segmentSelector = '.ecl-breadcrumb__segment',
+    ellipsisButtonSelector: ellipsisButtonSelector = '[data-ecl-breadcrumb-ellipsis-button]',
+    ellipsisSelector: ellipsisSelector = '[data-ecl-breadcrumb-ellipsis]',
+    segmentSelector: segmentSelector = '[data-ecl-breadcrumb-item]',
     segmentVisibleSelector: segmentVisibleSelector = '.ecl-breadcrumb__segment:not(.ecl-breadcrumb__segment--first):not(.ecl-breadcrumb__segment--ellipsis):not(.ecl-breadcrumb__segment--last):not([aria-hidden="true"])',
     segmentHiddenSelector: segmentHiddenSelector = '.ecl-breadcrumb__segment[aria-hidden="true"]:not(.ecl-breadcrumb__segment--ellipsis)',
-    ellipsisSelector: ellipsisSelector = '.ecl-breadcrumb__segment--ellipsis',
   } = {}
 ) => {
   if (
@@ -50,26 +50,8 @@ export const initBreadcrumb = (
     // get wrapper width
     const wrapperWidth = Math.floor(breadcrumb.getBoundingClientRect().width);
 
-    const firstSegment = breadcrumbSegments[0];
-    const ellipsisSegment = breadcrumbSegments[1];
-    const otherSegments = breadcrumbSegments.slice(2, -2); // those are the segments we can hide
-    const last2Segments = breadcrumbSegments.slice(-2);
-
-    console.log('firstSegment', firstSegment);
-    console.log('ellipsisSegment', ellipsisSegment);
-    console.log('otherSegments', otherSegments);
-    console.log('last2Segments', last2Segments);
-
-    const firstSegmentWidth = firstSegment.getBoundingClientRect().width;
-    const ellipsisSegmentWidth = ellipsisSegment.getBoundingClientRect().width;
-    const last2SegmentsWidth = last2Segments
-      .map(breadcrumbSegment => {
-        return Math.ceil(breadcrumbSegment.getBoundingClientRect().width);
-      })
-      .reduce((a, b) => a + b);
-
     // try to avoid computing to much info
-    //if (firstSegmentWidth + ellipsisSegmentWidth + last2SegmentsWidth > )
+    // if (firstSegmentWidth + ellipsisSegmentWidth + last2SegmentsWidth > )
 
     // get segments width
     const segmentWidth = breadcrumbSegments
@@ -86,6 +68,12 @@ export const initBreadcrumb = (
     console.log('ellipsisWidth', ellipsisWidth);
     */
 
+    const ellipsisSegment = queryOne(ellipsisSelector, breadcrumb);
+    const ellipsisSegmentWidth = ellipsisSegment.getBoundingClientRect().width;
+    console.log('breadcrumbSegments', breadcrumbSegments);
+    console.log('ellipsisSegment', ellipsisSegment);
+    console.log('segmentWidth', segmentWidth);
+    console.log('ellipsisSegmentWidth', ellipsisSegmentWidth);
     return segmentWidth - ellipsisSegmentWidth >= wrapperWidth;
   }
 

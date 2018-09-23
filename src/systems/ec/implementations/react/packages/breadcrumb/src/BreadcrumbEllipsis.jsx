@@ -8,12 +8,14 @@ const BreadcrumbEllipsis = ({ label, isVisible, onClick }) => (
   <li
     className="ecl-breadcrumb__segment ecl-breadcrumb__segment--ellipsis"
     aria-hidden={!isVisible}
+    data-ecl-breadcrumb-ellipsis
   >
     <button
       type="button"
       className="ecl-breadcrumb__ellipsis"
       aria-label={label}
       onClick={onClick}
+      data-ecl-breadcrumb-ellipsis-button
     >
       …
     </button>
