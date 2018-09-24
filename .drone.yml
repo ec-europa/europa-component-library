@@ -6,6 +6,7 @@ clone:
     image: plugins/git
     commands:
       - git init
+      - git config core.ignorecase false
       - git config -l
       - git remote add origin ${DRONE_REMOTE_URL}
       - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
