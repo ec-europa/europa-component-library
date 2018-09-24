@@ -16,7 +16,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   entry: [
     path.resolve(__dirname, 'config/polyfills.js'),
-    path.resolve(__dirname, 'src/index.jsx'),
+    path.resolve(__dirname, 'src/Index.jsx'),
   ],
   output: {
     // Add /* filename */ comments to generated require()s in the output.
@@ -37,7 +37,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.mjs', '.js', '.json', '.jsx'],
   },
   module: {
     strictExportPresence: true,

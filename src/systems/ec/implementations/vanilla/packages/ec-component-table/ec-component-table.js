@@ -57,7 +57,7 @@ export function eclTables(elements = null) {
     // For every row, set the attributes we use to make this happen.
     [].forEach.call(tableRows, row => {
       for (let j = 0; j < cellPerRow; j += 1) {
-        if (headerText[j] === '' || headerText[j] === '\u00a0') {
+        if (headerText[j] === '' || headerText[j] === '\u00A0') {
           row
             .querySelectorAll('td')
             [j].setAttribute('class', 'ecl-table__heading');
