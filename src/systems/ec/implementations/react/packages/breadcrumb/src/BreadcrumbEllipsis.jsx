@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Icon from '@ecl/ec-react-component-icon/Icon';
 
-const BreadcrumbEllipsis = ({ label, isVisible, onClick }) => (
+const BreadcrumbEllipsis = ({ label, isVisible }) => (
   <li
     className="ecl-breadcrumb__segment ecl-breadcrumb__segment--ellipsis"
     aria-hidden={!isVisible}
@@ -14,7 +14,6 @@ const BreadcrumbEllipsis = ({ label, isVisible, onClick }) => (
       type="button"
       className="ecl-breadcrumb__ellipsis"
       aria-label={label}
-      onClick={onClick}
       data-ecl-breadcrumb-ellipsis-button
     >
       …
@@ -32,13 +31,11 @@ const BreadcrumbEllipsis = ({ label, isVisible, onClick }) => (
 BreadcrumbEllipsis.propTypes = {
   label: PropTypes.string,
   isVisible: PropTypes.bool,
-  onClick: PropTypes.func,
 };
 
 BreadcrumbEllipsis.defaultProps = {
   label: '',
-  isVisible: false,
-  onClick: () => {},
+  isVisible: true,
 };
 
 export default BreadcrumbEllipsis;

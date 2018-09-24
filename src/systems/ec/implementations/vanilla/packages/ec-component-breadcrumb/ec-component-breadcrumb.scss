@@ -40,6 +40,23 @@
     &[aria-hidden='true'] {
       position: absolute;
       visibility: hidden;
+
+      /* Force display if JS is disabled */
+      /* stylelint-disable-next-line max-nesting-depth */
+      .no-js & {
+        position: static;
+        visibility: visible;
+      }
+    }
+  }
+
+  .ecl-breadcrumb__segment--ellipsis {
+    &[aria-hidden='false'] {
+      /* Force hide if JS is disabled */
+      /* stylelint-disable-next-line max-nesting-depth */
+      .no-js & {
+        display: none;
+      }
     }
   }
 

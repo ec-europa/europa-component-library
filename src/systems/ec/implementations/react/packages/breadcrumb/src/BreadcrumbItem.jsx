@@ -11,6 +11,7 @@ const Item = ({
   label,
   isCurrentPage,
   isLastItem,
+  isVisible,
   className,
   children,
   ...props
@@ -22,6 +23,7 @@ const Item = ({
     })}
     {...!!(isCurrentPage && !href) && { 'aria-current': 'page' }}
     data-ecl-breadcrumb-item
+    aria-hidden={!isVisible}
   >
     {href ? (
       <Link
@@ -51,6 +53,7 @@ Item.propTypes = {
   href: PropTypes.string,
   isCurrentPage: PropTypes.bool,
   isLastItem: PropTypes.bool,
+  isVisible: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
 };
@@ -59,6 +62,7 @@ Item.defaultProps = {
   href: '',
   isCurrentPage: false,
   isLastItem: false,
+  isVisible: false,
   className: '',
   children: null,
 };

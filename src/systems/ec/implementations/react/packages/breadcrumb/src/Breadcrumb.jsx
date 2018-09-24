@@ -13,6 +13,14 @@ export default class Breadcrumb extends React.Component {
 
     this.state = {
       expanded: false,
+      isItemVisible: [
+        true,
+        ...React.Children.toArray(props.children)
+          .slice(3)
+          .map(() => false),
+        true,
+        true,
+      ],
     };
 
     this.breadcrumb = null;
@@ -21,12 +29,12 @@ export default class Breadcrumb extends React.Component {
   }
 
   componentDidMount() {
-    this.breadcrumb = VanillaBreadcrumb(this.breadcrumbRef.current, {
+    this.breadcrumb = new VanillaBreadcrumb(this.breadcrumbRef.current, {
+      onResize: visibilityMap => {
+        this.setState({ ...visibilityMap });
+      },
       onExpand: () => {
         this.setState({ expanded: true });
-      },
-      onCollapse: () => {
-        this.setState({ expanded: false });
       },
     });
 
@@ -34,7 +42,7 @@ export default class Breadcrumb extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.breadcrumb) this.breadcrumb.update();
+    // if (this.breadcrumb) this.breadcrumb.update();
   }
 
   componentWillUnmount() {
@@ -42,15 +50,18 @@ export default class Breadcrumb extends React.Component {
   }
 
   handleExpand() {
-    this.setState({ expanded: true });
+    const { children } = this.props;
+    this.setState({
+      expanded: true,
+      isItemVisible: [...React.Children.map(children, () => true)],
+    });
   }
 
   render() {
     const { label, className, ellipsisLabel, children, ...props } = this.props;
-
     if (!children) return null;
 
-    const { expanded } = this.state;
+    const { expanded, isItemVisible } = this.state;
 
     const classNames = classnames(className, { 'ecl-breadcrumb': true });
 
@@ -62,14 +73,15 @@ export default class Breadcrumb extends React.Component {
       items.push(...childrenArray);
     } else {
       // Insert root
-      items.push(childrenArray[0]);
+      items.push(
+        React.cloneElement(childrenArray[0], { isVisible: isItemVisible[0] })
+      );
 
       // Insert Ellipsis
       items.push(
         <BreadcrumbEllipsis
           label={ellipsisLabel}
           isVisible={!expanded}
-          onClick={this.handleExpand}
           key="ellipsis"
         />
       );
@@ -81,8 +93,13 @@ export default class Breadcrumb extends React.Component {
         ...remainingItems.map(
           (item, index) =>
             index === remainingItems.length - 1
-              ? React.cloneElement(item, { isLastItem: true })
-              : item
+              ? React.cloneElement(item, {
+                  isLastItem: true,
+                  isVisible: expanded || isItemVisible[index + 1],
+                })
+              : React.cloneElement(item, {
+                  isVisible: expanded || isItemVisible[index + 1],
+                })
         )
       );
     }
