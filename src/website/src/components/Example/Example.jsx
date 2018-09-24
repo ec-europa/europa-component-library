@@ -1,20 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Container from '../Grid/Container';
+import mdStyles from '../../styles/markdown.scss';
+import styles from './Example.scss';
+import utilityStyles from '../../styles/utilities.scss';
 
-const Example = ({ children }) => (
+const handleClick = () => window.history.back();
+
+const Example = () => (
   <main id="main-content" tabIndex="-1">
-    <Container spacing="pv-xl">{children}</Container>
+    <Container spacing="pv-xl">
+      {' '}
+      <h1 className={mdStyles.h1}>Example page</h1>
+      <p className={mdStyles.p}>
+        This page is established to be used for illustrative examples in
+        documents.
+      </p>
+      <button
+        type="button"
+        onClick={handleClick}
+        className={`${styles.button} ${utilityStyles['mt-l']}`}
+      >
+        Go Back
+      </button>
+    </Container>
   </main>
 );
-
-Example.propTypes = {
-  children: PropTypes.node,
-};
-
-Example.defaultProps = {
-  children: null,
-};
 
 export default Example;
