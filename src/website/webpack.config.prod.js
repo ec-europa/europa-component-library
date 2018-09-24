@@ -31,7 +31,7 @@ module.exports = {
   devtool: shouldUseSourceMap ? 'source-map' : false,
   entry: [
     path.resolve(__dirname, 'config/polyfills.js'),
-    path.resolve(__dirname, 'src/index.jsx'),
+    path.resolve(__dirname, 'src/Index.jsx'),
   ],
   output: {
     // The build folder.

@@ -13,7 +13,7 @@ const RouteExample = () => (
       documents.
     </p>
     <p id="go-back">
-      {/* eslint-disable-next-line */}
+      {/* eslint-disable-next-line no-script-url, jsx-a11y/anchor-is-valid */}
       <a href="javascript:history.back()" className="ecl-link">
         Go Back
       </a>

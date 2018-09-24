@@ -9,4 +9,18 @@ module.exports = {
   env: {
     node: true,
   },
+  overrides: [
+    {
+      files: '**/demo/**/*.js',
+      rules: {
+        'unicorn/filename-case': 'off',
+      },
+    },
+    {
+      files: '**/scripts/**/*.js',
+      rules: {
+        'no-console': 'off',
+      },
+    },
+  ],
 };
