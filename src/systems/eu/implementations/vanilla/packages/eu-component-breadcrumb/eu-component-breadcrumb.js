@@ -213,7 +213,7 @@ export const initBreadcrumb = ({
 
   // DESTROY
   function destroy() {
-    if (breadcrumbContainers.length) {
+    if (breadcrumbContainers.length >= 0) {
       breadcrumbContainers.forEach(breadcrumbContainer => {
         unbindBreadcrumbEvents(breadcrumbContainer);
       });
@@ -222,7 +222,7 @@ export const initBreadcrumb = ({
 
   // INIT
   function init() {
-    if (breadcrumbContainers.length) {
+    if (breadcrumbContainers.length >= 0) {
       breadcrumbContainers.forEach(breadcrumbContainer => {
         initEllipsis(breadcrumbContainer);
         bindBreadcrumbEvents(breadcrumbContainer);
@@ -235,7 +235,7 @@ export const initBreadcrumb = ({
 
   // UPDATE
   function update() {
-    if (breadcrumbContainers.length) {
+    if (breadcrumbContainers.length >= 0) {
       breadcrumbContainers.forEach(breadcrumbContainer => {
         // trigger resize event once
         eventResize(breadcrumbContainer);
