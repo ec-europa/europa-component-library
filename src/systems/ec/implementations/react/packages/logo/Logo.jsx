@@ -1,19 +1,17 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import logoSrc from '@ecl/ec-resources-logo/EC-logo.svg';
 
-const Logo = ({ title, alt, extraClasses, extraAttributes, ...props }) => {
-  let classes = 'ecl-logo';
-  if (extraClasses) classes += ` ${extraClasses}`;
+const Logo = ({ title, alt, className, ...props }) => {
+  const classNames = classnames(className, 'ecl-logo');
 
   return (
     <img
       {...props}
       title={title}
-      className={classes}
-      {...extraAttributes}
+      className={classNames}
       src={logoSrc}
       alt={alt}
     />
@@ -23,15 +21,13 @@ const Logo = ({ title, alt, extraClasses, extraAttributes, ...props }) => {
 Logo.propTypes = {
   title: PropTypes.string,
   alt: PropTypes.string,
-  extraClasses: PropTypes.string,
-  extraAttributes: PropTypes.string,
+  className: PropTypes.string,
 };
 
 Logo.defaultProps = {
   title: '',
   alt: '',
-  extraClasses: '',
-  extraAttributes: '',
+  className: '',
 };
 
 export default Logo;

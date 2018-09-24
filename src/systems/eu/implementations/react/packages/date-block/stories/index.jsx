@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 
 import demoContentDefault from '@ecl/eu-specs-date-block/demo/data--default';
 
