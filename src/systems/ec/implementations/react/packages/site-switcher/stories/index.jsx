@@ -18,20 +18,17 @@ storiesOf('SiteSwitcher', module)
   .add('default', () => (
     <SiteSwitcher
       variant={select('variant', variant, 'header')}
-      item1={{
-        label: text('first item', demoContent.item1.label),
-        href: demoContent.item1.href,
-        isSelected: boolean(
-          'first item selected',
-          demoContent.item1.isSelected
-        ),
+      info={{
+        label: text('info item label', demoContent.info.label),
+        href: demoContent.info.href,
+        isSelected: boolean('info item selected', demoContent.info.isSelected),
       }}
-      item2={{
-        label: text('second item label', demoContent.item2.label),
-        href: demoContent.item2.href,
+      political={{
+        label: text('political item label', demoContent.political.label),
+        href: demoContent.political.href,
         isSelected: boolean(
-          'second item selected',
-          demoContent.item2.isSelected
+          'political item selected',
+          demoContent.political.isSelected
         ),
       }}
     />
