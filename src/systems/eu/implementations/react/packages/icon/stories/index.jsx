@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, selectV2 } from '@storybook/addon-knobs/react';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
 import brandedIcons from '@ecl/eu-resources-icons/dist/lists/branded.json';
 import generalIcons from '@ecl/eu-resources-icons/dist/lists/general.json';
@@ -42,10 +42,10 @@ const defaultTransform = '';
 storiesOf('Icon', module)
   .addDecorator(withKnobs)
   .add('branded', () => {
-    const shape = selectV2('Icon', brandedIcons, brandedIcons[0]);
-    const size = selectV2('Size', sizes, defaultSize);
-    const color = selectV2('Color', colors, defaultColor);
-    const transform = selectV2('Transform', transforms, defaultTransform);
+    const shape = select('Icon', brandedIcons, brandedIcons[0]);
+    const size = select('Size', sizes, defaultSize);
+    const color = select('Color', colors, defaultColor);
+    const transform = select('Transform', transforms, defaultTransform);
 
     return (
       <Icon
@@ -57,10 +57,10 @@ storiesOf('Icon', module)
     );
   })
   .add('general', () => {
-    const shape = selectV2('Icon', generalIcons, generalIcons[0]);
-    const size = selectV2('Size', sizes, defaultSize);
-    const color = selectV2('Color', colors, defaultColor);
-    const transform = selectV2('Transform', transforms, defaultTransform);
+    const shape = select('Icon', generalIcons, generalIcons[0]);
+    const size = select('Size', sizes, defaultSize);
+    const color = select('Color', colors, defaultColor);
+    const transform = select('Transform', transforms, defaultTransform);
 
     return (
       <Icon
@@ -72,10 +72,10 @@ storiesOf('Icon', module)
     );
   })
   .add('notifications', () => {
-    const shape = selectV2('Icon', notificationsIcons, notificationsIcons[0]);
-    const size = selectV2('Size', sizes, defaultSize);
-    const color = selectV2('Color', colors, defaultColor);
-    const transform = selectV2('Transform', transforms, defaultTransform);
+    const shape = select('Icon', notificationsIcons, notificationsIcons[0]);
+    const size = select('Size', sizes, defaultSize);
+    const color = select('Color', colors, defaultColor);
+    const transform = select('Transform', transforms, defaultTransform);
 
     return (
       <Icon
@@ -87,10 +87,10 @@ storiesOf('Icon', module)
     );
   })
   .add('ui', () => {
-    const shape = selectV2('Icon', uiIcons, uiIcons[0]);
-    const size = selectV2('Size', sizes, defaultSize);
-    const color = selectV2('Color', colors, defaultColor);
-    const transform = selectV2('Transform', transforms, defaultTransform);
+    const shape = select('Icon', uiIcons, uiIcons[0]);
+    const size = select('Size', sizes, defaultSize);
+    const color = select('Color', colors, defaultColor);
+    const transform = select('Transform', transforms, defaultTransform);
 
     return (
       <Icon

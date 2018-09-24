@@ -1,14 +1,11 @@
 {
-  "name": "@ecl/generic-component-tag",
+  "name": "@ecl/ec-react-component-tag",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.0",
-  "description": "ECL tags",
-  "style": "generic-component-tag.scss",
-  "dependencies": {
-    "@ecl/generic-base": "^2.0.0-alpha.0",
-    "@ecl/generic-component-icon": "^2.0.0-alpha.0"
-  },
+  "description": "ECL EC React Tag",
+  "main": "Tag.jsx",
+  "module": "Tag.jsx",
   "publishConfig": {
     "access": "public"
   },
@@ -23,7 +20,19 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "react"
   ],
-  "sass": "generic-component-tag.scss"
+  "dependencies": {
+    "@ecl/ec-react-component-icon": "^2.0.0-alpha.0"
+  },
+  "devDependencies": {
+    "@ecl/ec-specs-tag": "^2.0.0-alpha.0"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "prop-types": "^15.6.2"
+  }
 }
