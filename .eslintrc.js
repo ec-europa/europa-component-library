@@ -1,12 +1,26 @@
 module.exports = {
   root: true,
-  extends: ['airbnb-base', 'prettier'],
-  plugins: ['prettier'],
+  extends: [
+    'airbnb-base',
+    'plugin:unicorn/recommended',
+    'plugin:prettier/recommended',
+    'prettier/unicorn',
+  ],
   env: {
-    es6: true,
     node: true,
   },
-  rules: {
-    'prettier/prettier': 'error',
-  },
+  overrides: [
+    {
+      files: '**/demo/**/*.js',
+      rules: {
+        'unicorn/filename-case': 'off',
+      },
+    },
+    {
+      files: '**/scripts/**/*.js',
+      rules: {
+        'no-console': 'off',
+      },
+    },
+  ],
 };

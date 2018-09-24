@@ -142,7 +142,7 @@ export const accordions = ({
 
   // INIT
   function init() {
-    if (accordionContainers.length) {
+    if (accordionContainers.length >= 0) {
       accordionContainers.forEach(accordionContainer => {
         bindAccordionEvents(accordionContainer);
       });

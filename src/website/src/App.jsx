@@ -12,11 +12,7 @@ import 'prismjs/themes/prism.css';
 import styles from './styles/markdown.scss';
 
 // Static routes
-import HomePage from './routes/index';
-import Example from './routes/example';
-import PageNotFound from './routes/404';
-import ECRoutes from './routes/ec';
-import EURoutes from './routes/eu';
+import { HomePage, Example, PageNotFound, ECRoutes, EURoutes } from './routes';
 
 /* eslint-disable react/prop-types */
 const customComponents = {
