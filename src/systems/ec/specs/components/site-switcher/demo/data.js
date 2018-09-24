@@ -1,11 +1,11 @@
 // Simple content for demo
 module.exports = {
-  item1: {
+  info: {
     isSelected: false,
     label: 'Commission and its priorities',
     href: '../../example.html#',
   },
-  item2: {
+  political: {
     isSelected: true,
     label: 'Policies, information and services',
     href: '../../example.html#',
