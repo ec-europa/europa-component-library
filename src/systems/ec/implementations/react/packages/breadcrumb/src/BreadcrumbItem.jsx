@@ -1,8 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
 import Icon from '@ecl/ec-react-component-icon/Icon';
 import Link from '@ecl/ec-react-component-link/Link';
 
@@ -11,6 +9,7 @@ const Item = ({
   label,
   isLastItem,
   isVisible,
+  isExpandable,
   className,
   children,
   ...props
@@ -21,7 +20,7 @@ const Item = ({
       'ecl-breadcrumb__current-page': isLastItem,
     })}
     {...isLastItem && { 'aria-current': 'page' }}
-    data-ecl-breadcrumb-item
+    data-ecl-breadcrumb-item={isExpandable ? 'expandable' : 'static'}
     aria-hidden={!isVisible}
   >
     {!isLastItem ? (
@@ -53,6 +52,7 @@ Item.propTypes = {
   href: PropTypes.string,
   isLastItem: PropTypes.bool,
   isVisible: PropTypes.bool,
+  isExpandable: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
 };
@@ -61,6 +61,7 @@ Item.defaultProps = {
   href: '',
   isLastItem: false,
   isVisible: false,
+  isExpandable: false,
   className: '',
   children: null,
 };

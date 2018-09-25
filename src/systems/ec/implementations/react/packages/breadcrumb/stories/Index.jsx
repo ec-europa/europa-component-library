@@ -13,8 +13,8 @@ storiesOf('Breadcrumb', module)
   .addDecorator(withKnobs)
   .add('simple', () => {
     const items = simpleContent.items.map((item, index) => ({
-      label: text(`Item ${index} label`, item.label),
-      href: text(`Item ${index} link`, item.href),
+      label: text(`Item ${index}`, item.label),
+      href: item.href,
     }));
 
     return (
@@ -27,8 +27,8 @@ storiesOf('Breadcrumb', module)
   })
   .add('long', () => {
     const items = demoContent.items.map((item, index) => ({
-      label: text(`Item ${index} label`, item.label),
-      href: text(`Item ${index} link`, item.href),
+      label: text(`Item ${index}`, item.label),
+      href: item.href,
     }));
 
     return (

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -49,8 +48,6 @@ export default class Breadcrumb extends React.Component {
         onExpand: () => {
           this.setState({ expanded: true });
         },
-        minItemsLeft,
-        minItemsRight,
       });
 
       this.breadcrumb.init();
@@ -118,19 +115,19 @@ export default class Breadcrumb extends React.Component {
         />
       );
 
-      // Insert "hideable" items
-      const hideableItems = childrenArray.slice(minItemsLeft, -minItemsRight);
+      // Insert "expandable" items
+      const expandableItems = childrenArray.slice(minItemsLeft, -minItemsRight);
       items.push(
-        ...hideableItems.map((item, index) =>
+        ...expandableItems.map((item, index) =>
           React.cloneElement(item, {
-            isVisible: expanded || isItemVisible[minItemsLeft + index],
+            isVisible: expanded || isItemVisible[index],
+            isExpandable: true,
           })
         )
       );
 
       // Insert right items
       const rightItems = childrenArray.slice(-minItemsRight);
-
       items.push(
         ...rightItems.map((item, index) =>
           React.cloneElement(item, {
