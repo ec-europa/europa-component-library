@@ -8,6 +8,10 @@ const Card = ({ image, className, ...props }) => {
   return (
     <div {...props} className={classNames}>
       <img className="ecl-card__image" alt={image.alt} src={image.src} />
+      <div className="ecl-card__meta">meta</div>
+      <div className="ecl-card__title">title</div>
+      <div className="ecl-card__description">description</div>
+      <div className="ecl-card__label">labels</div>
     </div>
   );
 };
