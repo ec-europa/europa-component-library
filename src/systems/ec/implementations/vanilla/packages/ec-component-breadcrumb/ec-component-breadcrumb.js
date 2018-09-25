@@ -48,8 +48,8 @@ class Breadcrumb {
   init() {
     this.ellipsisButton = queryOne(this.ellipsisButtonSelector, this.element);
 
+    // Bind click event for expand
     if (this.attachClickListener && this.ellipsisButton) {
-      // bind click event for expand
       this.ellipsisButton.addEventListener('click', this.handleClickOnEllipsis);
     }
 
@@ -57,8 +57,12 @@ class Breadcrumb {
 
     const visibilityMap = this.computeVisibilityMap();
 
-    if (visibilityMap && this.onResize) {
-      this.onResize(visibilityMap);
+    if (visibilityMap) {
+      if (this.onResize) {
+        this.onResize(visibilityMap);
+      } else {
+        this.expandSome(visibilityMap);
+      }
     }
   }
 
@@ -81,17 +85,59 @@ class Breadcrumb {
       return this.onExpand(e);
     }
 
-    return null;
+    return this.expandAll();
+  }
+
+  hideEllipsis() {
+    // Hide ellipsis
+    const ellipsis = queryOne(this.ellipsisSelector, this.element);
+    if (ellipsis) {
+      ellipsis.setAttribute('aria-hidden', 'true');
+    }
+
+    // Remove event listener
+    if (this.attachClickListener && this.ellipsisButton) {
+      this.ellipsisButton.removeEventListener(
+        'click',
+        this.handleClickOnEllipsis
+      );
+    }
+  }
+
+  showSomeItems(isItemVisible) {
+    if (!isItemVisible) return null;
+
+    return this.itemsElements.map((item, index) =>
+      item.setAttribute('aria-hidden', isItemVisible[index] ? 'false' : 'true')
+    );
+  }
+
+  showAllItems() {
+    this.itemsElements.map(item => item.setAttribute('aria-hidden', 'false'));
+  }
+
+  expandSome(visibilityMap) {
+    if (!visibilityMap) return null;
+
+    if (visibilityMap.expanded === true) {
+      return this.expandAll();
+    }
+
+    return this.showSomeItems(visibilityMap.isItemVisible);
+  }
+
+  expandAll() {
+    this.hideEllipsis();
+    this.showAllItems();
   }
 
   computeVisibilityMap() {
-    // get segments
-    // Ignore if there are 3 segments or less
+    // Ignore if there are `minItemsLeft + minItemsRight` segments or less
     if (
       !this.itemsElements ||
       this.itemsElements.length <= this.minItemsLeft + this.minItemsRight
     ) {
-      return false;
+      return { expanded: true };
     }
 
     // get wrapper width
@@ -105,10 +151,7 @@ class Breadcrumb {
     const sumSegmentsWidth = segmentsWidth.reduce((a, b) => a + b);
 
     if (sumSegmentsWidth <= wrapperWidth) {
-      return {
-        expanded: true,
-        isItemVisible: [...this.itemsElements.map(() => true)],
-      };
+      return { expanded: true };
     }
 
     const ellipsisSegment = queryOne(this.ellipsisSelector, this.element);
