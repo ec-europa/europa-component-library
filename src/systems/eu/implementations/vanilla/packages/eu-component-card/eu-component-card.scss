@@ -1,0 +1,18 @@
+/**
+ * Card
+ * @define card
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-card() {
+  .ecl-card {
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-card') {
+  @include ecl-card();
+}

@@ -9,4 +9,4 @@ import Card from '../Card';
 
 storiesOf('Card', module)
   .addDecorator(withKnobs)
-  .add('default', () => <Card />);
+  .add('default', () => <Card {...demoContent} />);
