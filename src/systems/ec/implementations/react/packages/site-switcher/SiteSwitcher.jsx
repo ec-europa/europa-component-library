@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -58,7 +57,7 @@ SiteSwitcher.defaultProps = {
     href: '',
     isSelected: false,
   },
-  variant: 'header',
+  variant: '',
   className: '',
 };
 
