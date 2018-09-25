@@ -123,7 +123,7 @@ export default class Breadcrumb extends React.Component {
       items.push(
         ...hideableItems.map((item, index) =>
           React.cloneElement(item, {
-            isVisible: expanded || isItemVisible[minItemsLeft + index + 1],
+            isVisible: expanded || isItemVisible[minItemsLeft + index],
           })
         )
       );
