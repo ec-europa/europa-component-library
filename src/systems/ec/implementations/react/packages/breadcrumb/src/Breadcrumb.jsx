@@ -38,20 +38,23 @@ export default class Breadcrumb extends React.Component {
   }
 
   componentDidMount() {
-    const { minItemsLeft, minItemsRight } = this.props;
+    const { minItemsLeft, minItemsRight, children } = this.props;
+    const childrenCount = React.Children.count(children);
 
-    this.breadcrumb = new VanillaBreadcrumb(this.breadcrumbRef.current, {
-      onResize: visibilityMap => {
-        this.setState({ ...visibilityMap });
-      },
-      onExpand: () => {
-        this.setState({ expanded: true });
-      },
-      minItemsLeft,
-      minItemsRight,
-    });
+    if (childrenCount > minItemsLeft + minItemsRight) {
+      this.breadcrumb = new VanillaBreadcrumb(this.breadcrumbRef.current, {
+        onResize: visibilityMap => {
+          this.setState({ ...visibilityMap });
+        },
+        onExpand: () => {
+          this.setState({ expanded: true });
+        },
+        minItemsLeft,
+        minItemsRight,
+      });
 
-    this.breadcrumb.init();
+      this.breadcrumb.init();
+    }
   }
 
   componentDidUpdate() {
@@ -91,7 +94,14 @@ export default class Breadcrumb extends React.Component {
 
     const items = [];
     if (childrenCount <= minItemsLeft + minItemsRight) {
-      items.push(...childrenArray);
+      items.push(
+        ...childrenArray.map((item, index) =>
+          React.cloneElement(item, {
+            isLastItem: index === childrenArray.length - 1,
+            isVisible: true,
+          })
+        )
+      );
     } else {
       // Insert left items
       const leftItems = childrenArray.slice(0, minItemsLeft);
@@ -108,18 +118,13 @@ export default class Breadcrumb extends React.Component {
         />
       );
 
-      // Insert hideable items
+      // Insert "hideable" items
       const hideableItems = childrenArray.slice(minItemsLeft, -minItemsRight);
       items.push(
-        ...hideableItems.map(
-          (item, index) =>
-            index === hideableItems.length - 1
-              ? React.cloneElement(item, {
-                  isVisible: expanded || isItemVisible[index + 1],
-                })
-              : React.cloneElement(item, {
-                  isVisible: expanded || isItemVisible[index + 1],
-                })
+        ...hideableItems.map((item, index) =>
+          React.cloneElement(item, {
+            isVisible: expanded || isItemVisible[minItemsLeft + index + 1],
+          })
         )
       );
 

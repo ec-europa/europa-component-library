@@ -9,7 +9,6 @@ import Link from '@ecl/ec-react-component-link/Link';
 const Item = ({
   href,
   label,
-  isCurrentPage,
   isLastItem,
   isVisible,
   className,
@@ -19,9 +18,9 @@ const Item = ({
   <li
     {...props}
     className={classnames(className, 'ecl-breadcrumb__segment', {
-      'ecl-breadcrumb__current-page': isCurrentPage,
+      'ecl-breadcrumb__current-page': isLastItem,
     })}
-    {...isCurrentPage && { 'aria-current': 'page' }}
+    {...isLastItem && { 'aria-current': 'page' }}
     data-ecl-breadcrumb-item
     aria-hidden={!isVisible}
   >
@@ -31,7 +30,7 @@ const Item = ({
           href={href}
           label={label}
           variant="standalone"
-          {...isCurrentPage && { 'aria-current': 'page' }}
+          {...isLastItem && { 'aria-current': 'page' }}
           className="ecl-breadcrumb__link"
         />
         <Icon
@@ -52,7 +51,6 @@ const Item = ({
 Item.propTypes = {
   label: PropTypes.string.isRequired,
   href: PropTypes.string,
-  isCurrentPage: PropTypes.bool,
   isLastItem: PropTypes.bool,
   isVisible: PropTypes.bool,
   className: PropTypes.string,
@@ -61,7 +59,6 @@ Item.propTypes = {
 
 Item.defaultProps = {
   href: '',
-  isCurrentPage: false,
   isLastItem: false,
   isVisible: false,
   className: '',

@@ -1,7 +1,24 @@
 import Playground from '@ecl/website-components/Playground'
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb'
 
-import demoContent from '@ecl/ec-specs-breadcrumb/demo/data';
+import simpleContent from '../demo/data-simple';
+import demoContent from '../demo/data';
+
+## Simple breadcrumb
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Breadcrumb&selectedStory=default&stories=0">
+  <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
+    {simpleContent.items.map(item => (
+      <BreadcrumbItem {...item} key={item.label} />
+    ))}
+  </Breadcrumb>
+</Playground>
+
+## Long breadcrumb
+
+When there are more than 3 items, the breadcrumb should be collapsed by default and items should be displayed if there's enough space.
+
+The first item and the last 2 items should always be visible.
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Breadcrumb&selectedStory=default&stories=0">
   <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
