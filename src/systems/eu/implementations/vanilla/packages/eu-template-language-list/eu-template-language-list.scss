@@ -7,7 +7,9 @@
 @import '@ecl/eu-base/eu-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('eu-component-link', 'eu-layout-grid'));
+@include check-imports(
+  ('eu-component-link', 'eu-component-icon', 'eu-layout-grid')
+);
 
 @mixin ecl-language-list(
   $background-header: $ecl-color-white-100,
@@ -16,30 +18,22 @@
   $background-link-hover: $ecl-color-yellow-100,
   $background-link-active: $ecl-color-yellow-100,
   $color-link-active: $ecl-color-black-100,
+  $color-title: $ecl-color-grey-100,
   $logo-height-desktop: 5.5rem,
   $logo-width-desktop: 8.25rem,
   $logo-height-mobile: 3.75rem,
   $logo-width-mobile: 5.625rem
 ) {
   .ecl-language-list {
-    margin: 0;
-  }
-
-  .ecl-language-list__header {
-    background-color: $background-header;
     display: flex;
-    justify-content: center;
-    padding: $ecl-spacing-xl 0;
-  }
-
-  .ecl-language-list__logo {
-    height: $logo-height-mobile;
-    width: $logo-width-mobile;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
   }
 
   .ecl-language-list__container {
     background-color: $background-container;
-    padding: $ecl-spacing-4-xl $ecl-spacing-m;
+    flex-grow: 1;
   }
 
   .ecl-language-list__column + .ecl-language-list__column {
@@ -111,16 +105,69 @@
   }
 
   /*
-   * Overlay
+   * Splash only
+   */
+  .ecl-language-list--splash {
+    .ecl-language-list__container {
+      padding: $ecl-spacing-4-xl $ecl-spacing-m;
+    }
+  }
+
+  .ecl-language-list__header {
+    background-color: $background-header;
+    display: flex;
+    justify-content: center;
+    padding: $ecl-spacing-xl 0;
+  }
+
+  .ecl-language-list__logo {
+    height: $logo-height-mobile;
+    width: $logo-width-mobile;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-language-list__logo {
+      height: $logo-height-desktop;
+      width: $logo-width-desktop;
+    }
+  }
+
+  /*
+   * Overlay only
    */
   .ecl-language-list--overlay {
-    .ecl-language-list__header {
-      display: none;
+    .ecl-language-list__container {
+      padding: $ecl-spacing-2-xl 0;
+    }
+  }
+
+  .ecl-language-list__close {
+    display: flex;
+    justify-content: flex-end;
+
+    .ecl-button {
+      font-weight: $ecl-font-weight-regular;
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-language-list__title {
+    align-items: center;
+    color: $color-title;
+    display: flex;
+    font: $ecl-font-l;
+    font-weight: $ecl-font-weight-bold;
+    margin-bottom: $ecl-spacing-2-xl;
+    margin-top: $ecl-spacing-2-xl;
+
+    .ecl-icon {
+      margin-right: $ecl-spacing-m;
     }
   }
 }
 
 // Use mixin
-@include exports('eu-component-language-list') {
+@include exports('eu-template-language-list') {
   @include ecl-language-list();
 }

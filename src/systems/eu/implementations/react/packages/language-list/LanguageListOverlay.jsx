@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import Button from '@ecl/eu-react-component-button/Button';
+import Icon from '@ecl/eu-react-component-icon/Icon';
 import LanguageList from './LanguageList';
 
 const LanguageListOverlay = ({
@@ -22,10 +24,17 @@ const LanguageListOverlay = ({
     <div {...props} className={classNames}>
       <div className="ecl-language-list__container">
         <div className="ecl-row">
-          <div className="ecl-col-12 ecl-col-sm-8 ecl-offset-sm-2">
-            {closeLabel}
+          <div className="ecl-language-list__close ecl-col-12 ecl-col-sm-8 ecl-offset-sm-2">
+            <Button
+              variant="ghost"
+              label={closeLabel}
+              icon={{ shape: 'ui--close', size: 's' }}
+            />
           </div>
-          <div className="ecl-col-12 ecl-col-sm-8 ecl-offset-sm-2">{title}</div>
+          <div className="ecl-language-list__title ecl-col-12 ecl-col-sm-8 ecl-offset-sm-2">
+            <Icon shape="general--generic-lang" size="m" />
+            {title}
+          </div>
         </div>
         <LanguageList items={items} />
       </div>

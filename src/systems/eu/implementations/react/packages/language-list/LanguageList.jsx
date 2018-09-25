@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import LanguageListItem from '@ecl/eu-react-component-language-list/LanguageListItem';
+import LanguageListItem from './LanguageListItem';
 
 const LanguageList = ({ items }) => {
   const column1 = items.slice(0, Math.ceil(items.length / 2));

@@ -3,9 +3,9 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/lanuage-list',
+  url: '/eu/templates/lanuage-list',
   title: 'Language list',
-  section: 'Components',
+  section: 'Templates',
   ready: true,
   tabs: [
     {
