@@ -11,17 +11,26 @@ export default class Breadcrumb extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      expanded: false,
-      isItemVisible: [
-        true,
-        ...React.Children.toArray(props.children)
-          .slice(3)
-          .map(() => false),
-        true,
-        true,
-      ],
-    };
+    const { minItemsLeft, minItemsRight, children } = props;
+    const childrenArray = React.Children.toArray(children);
+
+    if (!children) {
+      this.state = {};
+    } else if (childrenArray.length <= minItemsLeft) {
+      this.state = {
+        expanded: true,
+        isItemVisible: [...children.map(() => true)],
+      };
+    } else {
+      this.state = {
+        expanded: false,
+        isItemVisible: [
+          ...children.slice(0, minItemsLeft).map(() => true),
+          ...children.slice(minItemsLeft, -minItemsRight).map(() => false),
+          ...children.slice(-minItemsRight).map(() => true),
+        ],
+      };
+    }
 
     this.breadcrumb = null;
     this.breadcrumbRef = React.createRef();
@@ -29,6 +38,8 @@ export default class Breadcrumb extends React.Component {
   }
 
   componentDidMount() {
+    const { minItemsLeft, minItemsRight } = this.props;
+
     this.breadcrumb = new VanillaBreadcrumb(this.breadcrumbRef.current, {
       onResize: visibilityMap => {
         this.setState({ ...visibilityMap });
@@ -36,6 +47,8 @@ export default class Breadcrumb extends React.Component {
       onExpand: () => {
         this.setState({ expanded: true });
       },
+      minItemsLeft,
+      minItemsRight,
     });
 
     this.breadcrumb.init();
@@ -58,7 +71,15 @@ export default class Breadcrumb extends React.Component {
   }
 
   render() {
-    const { label, className, ellipsisLabel, children, ...props } = this.props;
+    const {
+      label,
+      className,
+      ellipsisLabel,
+      children,
+      minItemsLeft,
+      minItemsRight,
+      ...props
+    } = this.props;
     if (!children) return null;
 
     const { expanded, isItemVisible } = this.state;
@@ -69,12 +90,13 @@ export default class Breadcrumb extends React.Component {
     const childrenArray = React.Children.toArray(children);
 
     const items = [];
-    if (childrenCount <= 3) {
+    if (childrenCount <= minItemsLeft + minItemsRight) {
       items.push(...childrenArray);
     } else {
-      // Insert root
+      // Insert left items
+      const leftItems = childrenArray.slice(0, minItemsLeft);
       items.push(
-        React.cloneElement(childrenArray[0], { isVisible: isItemVisible[0] })
+        ...leftItems.map(item => React.cloneElement(item, { isVisible: true }))
       );
 
       // Insert Ellipsis
@@ -86,20 +108,30 @@ export default class Breadcrumb extends React.Component {
         />
       );
 
-      // Insert remaining items
-      const remainingItems = childrenArray.slice(1);
-
+      // Insert hideable items
+      const hideableItems = childrenArray.slice(minItemsLeft, -minItemsRight);
       items.push(
-        ...remainingItems.map(
+        ...hideableItems.map(
           (item, index) =>
-            index === remainingItems.length - 1
+            index === hideableItems.length - 1
               ? React.cloneElement(item, {
-                  isLastItem: true,
                   isVisible: expanded || isItemVisible[index + 1],
                 })
               : React.cloneElement(item, {
                   isVisible: expanded || isItemVisible[index + 1],
                 })
+        )
+      );
+
+      // Insert right items
+      const rightItems = childrenArray.slice(-minItemsRight);
+
+      items.push(
+        ...rightItems.map((item, index) =>
+          React.cloneElement(item, {
+            isLastItem: index === rightItems.length - 1,
+            isVisible: true,
+          })
         )
       );
     }
@@ -126,10 +158,14 @@ Breadcrumb.propTypes = {
   ellipsisLabel: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.node,
+  minItemsLeft: PropTypes.number,
+  minItemsRight: PropTypes.number,
 };
 
 Breadcrumb.defaultProps = {
   ellipsisLabel: '',
   className: '',
   children: null,
+  minItemsLeft: 1,
+  minItemsRight: 2,
 };

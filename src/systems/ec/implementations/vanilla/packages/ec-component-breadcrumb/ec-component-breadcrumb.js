@@ -10,6 +10,8 @@ class Breadcrumb {
       onResize: onResize = null,
       onExpand: onExpand = null,
       attachClickListener: attachClickListener = true,
+      minItemsLeft: minItemsLeft = 1,
+      minItemsRight: minItemsRight = 2,
     } = {}
   ) {
     // Check element
@@ -27,6 +29,8 @@ class Breadcrumb {
     this.segmentSelector = segmentSelector;
     this.onResize = onResize;
     this.onExpand = onExpand;
+    this.minItemsLeft = minItemsLeft;
+    this.minItemsRight = minItemsRight;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -83,7 +87,10 @@ class Breadcrumb {
   computeVisibilityMap() {
     // get segments
     // Ignore if there are 3 segments or less
-    if (!this.itemsElements || this.itemsElements.length <= 3) {
+    if (
+      !this.itemsElements ||
+      this.itemsElements.length <= this.minItemsLeft + this.minItemsRight
+    ) {
       return false;
     }
 
@@ -100,47 +107,46 @@ class Breadcrumb {
     if (sumSegmentsWidth <= wrapperWidth) {
       return {
         expanded: true,
-        isItemVisible: [
-          // Display first item
-          true,
-          // Show other items
-          ...this.itemsElements.slice(3).map(() => true),
-          // Display last 2 items
-          true,
-          true,
-        ],
+        isItemVisible: [...this.itemsElements.map(() => true)],
       };
     }
 
     const ellipsisSegment = queryOne(this.ellipsisSelector, this.element);
     const ellipsisSegmentWidth = ellipsisSegment.getBoundingClientRect().width;
 
-    const firstSegmentWidth = segmentsWidth[0];
-    const sumLast2SegmentsWidth = segmentsWidth
-      .slice(-2)
+    const leftSegmentsWidth = segmentsWidth
+      .slice(0, this.minItemsLeft)
+      .reduce((a, b) => a + b);
+    const rightSegmentsWidth = segmentsWidth
+      .slice(-this.minItemsRight)
       .reduce((a, b) => a + b);
 
     const uncompressibleWidth =
-      firstSegmentWidth + sumLast2SegmentsWidth + ellipsisSegmentWidth;
+      leftSegmentsWidth + rightSegmentsWidth + ellipsisSegmentWidth;
+
+    const middleItems = this.itemsElements.slice(
+      this.minItemsLeft,
+      -this.minItemsRight
+    );
 
     if (uncompressibleWidth >= wrapperWidth) {
       // stop here
       return {
         expanded: false,
         isItemVisible: [
-          // Display first item
-          true,
+          // Display left items
+          ...this.itemsElements.slice(0, this.minItemsLeft).map(() => true),
           // Hide other items
-          ...this.itemsElements.slice(3).map(() => false),
-          // Display last 2 items
-          true,
-          true,
+          ...middleItems.map(() => false),
+          // Display right items
+          ...this.itemsElements.slice(-this.minItemsRight).map(() => true),
         ],
       };
     }
 
-    const otherSegments = this.itemsElements.slice(1, -2).reverse();
+    const otherSegments = middleItems.reverse();
     let previousSegmentsWidth = 0;
+
     const isOtherSegmentVisible = otherSegments.map(otherSegment => {
       previousSegmentsWidth += otherSegment.getBoundingClientRect().width;
       return previousSegmentsWidth + uncompressibleWidth <= wrapperWidth;
@@ -149,13 +155,12 @@ class Breadcrumb {
     return {
       expanded: false,
       isItemVisible: [
-        // Display first item
-        true,
+        // Display left items
+        ...this.itemsElements.slice(0, this.minItemsLeft).map(() => true),
         // Pass visibility of other items
         ...isOtherSegmentVisible.reverse(),
-        // Display last 2 items
-        true,
-        true,
+        // Display right items
+        ...this.itemsElements.slice(-this.minItemsRight).map(() => true),
       ],
     };
   }

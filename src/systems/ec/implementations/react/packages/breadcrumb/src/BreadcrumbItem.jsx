@@ -39,6 +39,7 @@ const Item = ({
           shape="ui--corner-arrow"
           transform="rotate-90"
           size="xs"
+          role="presentation"
           aria-hidden
         />
       </Fragment>
