@@ -13,7 +13,7 @@ const LanguageList = ({ items }) => {
         <ul className="ecl-language-list__list">
           {column1.map(item => (
             <li
-              key={item.id}
+              key={item.label}
               className={`ecl-language-list__item ${
                 item.isActive ? 'ecl-language-list__item--is-active' : ''
               }`}
@@ -28,7 +28,7 @@ const LanguageList = ({ items }) => {
         <ul className="ecl-language-list__list">
           {column2.map(item => (
             <li
-              key={item.id}
+              key={item.label}
               className={`ecl-language-list__item ${
                 item.isActive ? 'ecl-language-list__item--is-active' : ''
               }`}
