@@ -1,11 +1,12 @@
 import Playground from '@ecl/website-components/Playground'
-import Breadcrumb from '@ecl/ec-react-component-breadcrumb/Breadcrumb'
+import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb'
 
 import demoContent from '@ecl/ec-specs-breadcrumb/demo/data';
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=Breadcrumb&selectedStory=default&stories=0">
-  <Breadcrumb
-    items={demoContent.items}
-    label={demoContent.label}
-  />
+  <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
+    {demoContent.items.map(item => (
+      <BreadcrumbItem {...item} key={item.label} />
+    ))}
+  </Breadcrumb>
 </Playground>

@@ -21,29 +21,29 @@ const Item = ({
     className={classnames(className, 'ecl-breadcrumb__segment', {
       'ecl-breadcrumb__current-page': isCurrentPage,
     })}
-    {...!!(isCurrentPage && !href) && { 'aria-current': 'page' }}
+    {...isCurrentPage && { 'aria-current': 'page' }}
     data-ecl-breadcrumb-item
     aria-hidden={!isVisible}
   >
-    {href ? (
-      <Link
-        href={href}
-        label={label}
-        variant="standalone"
-        {...isCurrentPage && { 'aria-current': 'page' }}
-        className="ecl-breadcrumb__link"
-      />
+    {!isLastItem ? (
+      <Fragment>
+        <Link
+          href={href}
+          label={label}
+          variant="standalone"
+          {...isCurrentPage && { 'aria-current': 'page' }}
+          className="ecl-breadcrumb__link"
+        />
+        <Icon
+          className="ecl-breadcrumb__icon"
+          shape="ui--corner-arrow"
+          transform="rotate-90"
+          size="xs"
+          aria-hidden
+        />
+      </Fragment>
     ) : (
       <Fragment>{label}</Fragment>
-    )}
-    {!isLastItem && (
-      <Icon
-        className="ecl-breadcrumb__icon"
-        shape="ui--corner-arrow"
-        transform="rotate-90"
-        size="xs"
-        aria-hidden
-      />
     )}
   </li>
 );
