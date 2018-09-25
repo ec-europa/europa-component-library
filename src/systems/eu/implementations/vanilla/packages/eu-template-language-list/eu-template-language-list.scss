@@ -25,6 +25,7 @@
   $logo-width-mobile: 5.625rem
 ) {
   .ecl-language-list {
+    background-color: $background-container;
     display: flex;
     flex-direction: column;
     height: auto;
@@ -33,7 +34,6 @@
   }
 
   .ecl-language-list__container {
-    background-color: $background-container;
     flex-grow: 1;
   }
 
@@ -95,11 +95,6 @@
       width: $logo-width-desktop;
     }
 
-    .ecl-language-list__container {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
     .ecl-language-list__column + .ecl-language-list__column {
       margin-top: 0;
     }
@@ -110,7 +105,7 @@
    */
   .ecl-language-list--splash {
     .ecl-language-list__container {
-      padding: $ecl-spacing-4-xl $ecl-spacing-m;
+      padding: $ecl-spacing-4-xl 0;
     }
   }
 
@@ -146,11 +141,6 @@
   .ecl-language-list__close {
     display: flex;
     justify-content: flex-end;
-
-    .ecl-button {
-      font-weight: $ecl-font-weight-regular;
-      text-decoration: underline;
-    }
   }
 
   .ecl-language-list__title {

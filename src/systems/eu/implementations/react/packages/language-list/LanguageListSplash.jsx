@@ -18,7 +18,7 @@ const LanguageListSplash = ({ logoAlt, items, className, ...props }) => {
       <header className="ecl-language-list__header">
         <img className="ecl-language-list__logo" src={logoSvg} alt={logoAlt} />
       </header>
-      <div className="ecl-language-list__container">
+      <div className="ecl-language-list__container ecl-container">
         <LanguageList items={items} />
       </div>
     </div>
