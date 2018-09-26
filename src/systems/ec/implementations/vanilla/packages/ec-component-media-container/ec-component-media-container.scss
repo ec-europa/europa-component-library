@@ -1,0 +1,13 @@
+/**
+ * Media container component
+ * @define media
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-media-container/generic-component-media-container';
+
+// Use generic mixin
+@include exports('ec-component-media-container') {
+  @include ecl-media-container();
+}

@@ -1,0 +1,87 @@
+/**
+ * Hero Banner component
+ * @define hero-banner
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-media-container(
+  /* variant: image */ $background-color-image: $ecl-color-white-100,
+  $title-color-image: $ecl-color-black-100,
+  $description-color-image: $ecl-color-grey-100,
+  $border-color-image: $ecl-color-yellow-100,
+  /* variant: image-shape */ $background-color-image-shade: rgba(0, 0, 0, 0.7),
+  $title-color-image-shade: $ecl-color-white-100,
+  $description-color-image-shade: $ecl-color-white-100,
+  /* common */ $min-height: 20rem,
+  $max-height: 40rem,
+  $content-width: 42.5rem
+) {
+  .ecl-media-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    max-height: $max-height;
+    min-height: $min-height;
+    position: relative;
+  }
+
+  .ecl-media-container__container {
+    display: flex;
+  }
+
+  .ecl-media-container__content {
+    display: block;
+    padding: $ecl-spacing-xl;
+  }
+
+  .ecl-media-container__video {
+    display: block;
+    height: auto;
+    min-height: $min-height;
+    width: 100%;
+  }
+
+  .ecl-media-container__shortDescription {
+    font: $ecl-font-4-xl;
+    margin-bottom: $ecl-spacing-m;
+  }
+
+  .ecl-media-container__description {
+    font: $ecl-font-prolonged-l;
+    margin-bottom: $ecl-spacing-l;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-down(lg) {
+    .ecl-media-container__container {
+      width: 100%;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-media-container {
+      // manage ratio 3:1
+      &::before {
+        content: '';
+        display: block;
+        padding-top: (1 / 3) * 100%;
+        width: 100%;
+      }
+    }
+    .ecl-media-container__container {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .ecl-media-container__content {
+      max-width: $content-width;
+    }
+  }
+}

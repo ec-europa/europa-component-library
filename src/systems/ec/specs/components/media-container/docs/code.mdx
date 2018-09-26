@@ -1,0 +1,41 @@
+import Playground from '@ecl/website-components/Playground'
+import MediaContainer from '@ecl/ec-react-component-media-container/MediaContainer'
+
+import demoContentImage from '../demo/data--image';
+import demoContentImageShade from '../demo/data--image-shade';
+
+## Image banner
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=MediaContainer&selectedStory=image&stories=0">
+  <MediaContainer
+    variant="image"
+    title={demoContentImage.title}
+    description={demoContentImage.description}
+    button={demoContentImage.button}
+    image={demoContentImage.image}
+    centered={demoContentImage.centered}
+  />
+</Playground>
+
+## Shade image banner
+
+<Playground playgroundLink="/storybook/ec/index.html?selectedKind=MediaContainer&selectedStory=image-shade&stories=0">
+  <MediaContainer
+    variant="image-shade"
+    title={demoContentImageShade.title}
+    description={demoContentImageShade.description}
+    button={demoContentImageShade.button}
+    image={demoContentImageShade.image}
+    centered={demoContentImageShade.centered}
+  />
+</Playground>
+
+The component expects 7 parameters:
+
+- variant (string)
+- position (string)
+- title (string)
+- description (string)
+- centered (boolean)
+- button (Button object)
+- (optional) className (string)
