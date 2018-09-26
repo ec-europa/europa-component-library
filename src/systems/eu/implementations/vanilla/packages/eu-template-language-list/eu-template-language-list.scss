@@ -63,9 +63,12 @@
     justify-content: space-between;
     padding: $ecl-spacing-s $ecl-spacing-m;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: $background-link-hover;
+    }
+
+    &:focus {
+      outline-offset: -3px;
     }
   }
 
@@ -77,10 +80,7 @@
     .ecl-language-list__link {
       background-color: $background-link-active;
       color: $color-link-active;
-    }
-
-    .ecl-link__label {
-      text-decoration: underline;
+      outline-color: $color-link-active;
     }
 
     .ecl-language-list__icon {
