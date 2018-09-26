@@ -1,6 +1,6 @@
 /**
  * Language list component
- * @define language-list; weak
+ * @define language-list
  */
 
 // Import base
@@ -72,19 +72,11 @@
     }
   }
 
-  .ecl-language-list__icon {
-    display: none;
-  }
-
   .ecl-language-list__item--is-active {
     .ecl-language-list__link {
       background-color: $background-link-active;
       color: $color-link-active;
       outline-color: $color-link-active;
-    }
-
-    .ecl-language-list__icon {
-      display: block;
     }
   }
 
@@ -153,10 +145,10 @@
     font-weight: $ecl-font-weight-bold;
     margin-bottom: $ecl-spacing-2-xl;
     margin-top: $ecl-spacing-2-xl;
+  }
 
-    .ecl-icon {
-      margin-right: $ecl-spacing-m;
-    }
+  .ecl-language-list__title-icon {
+    margin-right: $ecl-spacing-m;
   }
 }
 

@@ -32,7 +32,11 @@ const LanguageListOverlay = ({
             />
           </div>
           <div className="ecl-language-list__title ecl-col-12 ecl-col-sm-8 ecl-offset-sm-2">
-            <Icon shape="general--generic-lang" size="m" />
+            <Icon
+              shape="general--generic-lang"
+              size="m"
+              className="ecl-language-list__title-icon"
+            />
             {title}
           </div>
         </div>

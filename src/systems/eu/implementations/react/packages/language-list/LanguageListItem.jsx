@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 
 import Link from '@ecl/eu-react-component-link/Link';
 
-const LanguageListItem = ({ label, href }) => (
+const LanguageListItem = ({ label, href, isActive }) => (
   <Link
     label={label}
     href={href}
     variant="standalone"
     className="ecl-language-list__link"
-    icon={{
-      shape: 'ui--check',
-      size: 'xs',
-      className: 'ecl-language-list__icon',
+    {...isActive && {
+      icon: {
+        shape: 'ui--check',
+        size: 'xs',
+      },
     }}
   />
 );
@@ -20,11 +21,13 @@ const LanguageListItem = ({ label, href }) => (
 LanguageListItem.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
+  isActive: PropTypes.bool,
 };
 
 LanguageListItem.defaultProps = {
   label: '',
   href: '',
+  isActive: false,
 };
 
 export default LanguageListItem;
