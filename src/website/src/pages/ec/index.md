@@ -1,7 +1,8 @@
 # Europa Component Library (European Commission)
 
-The Europa Component Library (European Commission) is a library of components used to create all European Commission websites hosted under ec.europa.eu domain. 
-The library contains all available components that you can use to build your website.
+The Europa Component Library (European Commission) is a library of components used to create all European Commission websites and applications hosted under ec.europa.eu domain. 
+
+The library contains all available components that you can use to build your own website or application.
 
 All library elements are accompanied by
 
