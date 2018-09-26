@@ -9,7 +9,7 @@ const LanguageList = ({ items }) => {
 
   return (
     <div className="ecl-row">
-      <div className="ecl-language-list__column ecl-col-12 ecl-col-sm-4 ecl-offset-sm-2">
+      <div className="ecl-language-list__column ecl-col-12 ecl-col-lg-4 ecl-offset-lg-2">
         <ul className="ecl-language-list__list">
           {column1.map(item => (
             <li
@@ -23,8 +23,7 @@ const LanguageList = ({ items }) => {
           ))}
         </ul>
       </div>
-
-      <div className="ecl-language-list__column ecl-col-12 ecl-col-sm-4">
+      <div className="ecl-language-list__column ecl-col-12 ecl-col-lg-4">
         <ul className="ecl-language-list__list">
           {column2.map(item => (
             <li
