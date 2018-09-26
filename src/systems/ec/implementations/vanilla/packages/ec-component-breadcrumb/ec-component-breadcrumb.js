@@ -164,14 +164,14 @@ class Breadcrumb {
     const ellipsisSegment = queryOne(this.ellipsisSelector, this.element);
     const ellipsisSegmentWidth = ellipsisSegment.getBoundingClientRect().width;
 
-    const uncompressibleWidth =
+    const incompressibleWidth =
       ellipsisSegmentWidth +
       this.staticElements.reduce(
         (sum, currentItem) => sum + currentItem.getBoundingClientRect().width,
         0
       );
 
-    if (uncompressibleWidth >= wrapperWidth) {
+    if (incompressibleWidth >= wrapperWidth) {
       return {
         expanded: false,
         isItemVisible: [...this.expandableElements.map(() => false)],
@@ -182,7 +182,7 @@ class Breadcrumb {
     let isPreviousItemVisible = true;
 
     // Careful: reverse() is destructive, that's why we make a copy of the array
-    const isOtherSegmentVisible = [...this.expandableElements]
+    const isItemVisible = [...this.expandableElements]
       .reverse()
       .map(otherSegment => {
         if (!isPreviousItemVisible) return false;
@@ -190,7 +190,7 @@ class Breadcrumb {
         previousItemsWidth += otherSegment.getBoundingClientRect().width;
 
         const isVisible =
-          previousItemsWidth + uncompressibleWidth <= wrapperWidth;
+          previousItemsWidth + incompressibleWidth <= wrapperWidth;
 
         if (!isVisible) isPreviousItemVisible = false;
 
@@ -200,7 +200,7 @@ class Breadcrumb {
 
     return {
       expanded: false,
-      isItemVisible: isOtherSegmentVisible,
+      isItemVisible,
     };
   }
 }
