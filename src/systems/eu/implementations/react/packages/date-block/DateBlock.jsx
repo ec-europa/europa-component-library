@@ -8,7 +8,6 @@ const DateBlock = ({
   day,
   month,
   className,
-  extraAttributes,
   ...props
 }) => {
   let classes = 'ecl-date-block';

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -8,7 +7,7 @@ const Logo = ({ title, alt, language, className, ...props }) => {
     'ecl-logo': true,
   });
 
-  /* eslint-disable-next-line */
+  /* eslint-disable-next-line global-require, import/no-dynamic-require */
   const path = require(`@ecl/eu-resources-logo/logo--${language}.svg`);
 
   return (

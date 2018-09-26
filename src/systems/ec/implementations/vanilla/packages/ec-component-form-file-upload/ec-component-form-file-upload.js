@@ -120,7 +120,7 @@ export const fileUploads = ({
 
   // INIT
   function init() {
-    if (fileUploadContainers.length) {
+    if (fileUploadContainers.length >= 0) {
       fileUploadContainers.forEach(fileUploadContainer => {
         bindFileUploadEvents(fileUploadContainer);
       });

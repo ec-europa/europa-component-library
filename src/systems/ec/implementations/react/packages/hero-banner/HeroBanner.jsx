@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -51,8 +50,7 @@ HeroBanner.propTypes = {
   image: PropTypes.string,
   centered: PropTypes.bool,
   button: PropTypes.shape(Button.propTypes),
-  extraClasses: PropTypes.string,
-  extraAttributes: PropTypes.string,
+  className: PropTypes.string,
 };
 
 HeroBanner.defaultProps = {
@@ -63,8 +61,7 @@ HeroBanner.defaultProps = {
   image: '',
   centered: false,
   button: {},
-  extraClasses: '',
-  extraAttributes: '',
+  className: '',
 };
 
 export default HeroBanner;
