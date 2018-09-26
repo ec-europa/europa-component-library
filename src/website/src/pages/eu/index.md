@@ -1,7 +1,6 @@
 # Europa Component Library (European Union)
 
-The Europa Component Library (European Union) is a library of components used to create all websites hosted under the europa.eu domain. 
-The library contains all available components that you can use to build your website.
+The Europa Component Library (European Union) is a library of components used to create all websites and applications hosted under the europa.eu domain. 
 
 All library elements are accompanied by
 
