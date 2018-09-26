@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import logoSvg from '@ecl/eu-template-language-list/resources/logo-eu-mute.svg';
+import logoSvg from '@ecl/eu-component-language-list/resources/logo-eu-mute.svg';
 import LanguageList from './LanguageList';
 
 const LanguageListSplash = ({ logoAlt, items, className, ...props }) => {
