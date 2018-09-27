@@ -1,0 +1,93 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+
+import Icon from '@ecl/ec-react-component-icon/Icon';
+import Logo from '@ecl/ec-react-component-logo/Logo';
+import SearchForm from '@ecl/ec-react-component-search-form/SearchForm';
+
+const SiteHeader = ({
+  logo,
+  languageSelector,
+  searchForm,
+  className,
+  ...props
+}) => {
+  const classNames = classnames(className, {
+    'ecl-site-header': true,
+  });
+
+  return (
+    <header {...props} className={classNames}>
+      <div className="ecl-site-header__container ecl-container">
+        <div className="ecl-site-header__banner">
+          <a
+            className="ecl-site-header__logo ecl-link ecl-link--standalone"
+            href={logo.href}
+            aria-label={logo.title}
+          >
+            <Logo {...logo} />
+          </a>
+
+          <div className="ecl-site-header__selector">
+            <a
+              className="ecl-link ecl-link--standalone"
+              href={languageSelector.href}
+            >
+              {languageSelector.name}
+              <span className="ecl-site-header__language-icon">
+                <Icon shape="general--language" size="m" />
+                <span className="ecl-site-header__language-code">
+                  {languageSelector.code}
+                </span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <SearchForm {...searchForm} className="ecl-site-header__search" />
+      </div>
+    </header>
+  );
+};
+
+SiteHeader.propTypes = {
+  logo: PropTypes.shape({
+    title: PropTypes.string,
+    alt: PropTypes.string,
+    language: PropTypes.string,
+    href: PropTypes.string,
+  }),
+  languageSelector: PropTypes.shape({
+    href: PropTypes.string,
+    name: PropTypes.string,
+    code: PropTypes.string,
+  }),
+  searchForm: PropTypes.shape({
+    textInputId: PropTypes.string,
+    buttonLabel: PropTypes.string,
+  }),
+  className: PropTypes.string,
+};
+
+SiteHeader.defaultProps = {
+  logo: {
+    title: '',
+    alt: '',
+    language: '',
+    href: '#',
+  },
+  languageSelector: {
+    href: '#',
+    name: '',
+    code: '',
+  },
+  searchForm: {
+    textInputId: '',
+    buttonLabel: '',
+  },
+  className: '',
+};
+
+export default SiteHeader;
