@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import VanillaBreadcrumb from '@ecl/ec-component-breadcrumb/ec-component-breadcrumb';
+import VanillaBreadcrumb from '@ecl/eu-component-breadcrumb/eu-component-breadcrumb';
 
 import BreadcrumbEllipsis from './BreadcrumbEllipsis';
 

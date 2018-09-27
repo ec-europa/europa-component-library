@@ -1,9 +1,9 @@
 /*
  * Breadcrumbs
- * @define breadcrumb; weak;
+ * @define breadcrumb
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/eu-base/eu-base';
 
 // Check if overridden dependencies are already loaded, if needed
@@ -19,18 +19,16 @@
   .ecl-breadcrumb {
     background-color: $background-color;
     margin: 0;
-
-    .ecl-container {
-      border-bottom: 1px solid $border-color;
-    }
   }
 
   .ecl-breadcrumb__container {
+    border-bottom: 1px solid $border-color;
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     margin: 0;
-    padding: 0 0 $ecl-spacing-m;
+    padding: 0 0 calc(#{$ecl-spacing-m} - 1px);
   }
 
   .ecl-breadcrumb__segment {
@@ -40,7 +38,45 @@
     white-space: nowrap;
 
     &[aria-hidden='true'] {
-      display: none;
+      position: absolute;
+      visibility: hidden;
+
+      /* Force display if JS is disabled */
+      /* stylelint-disable-next-line max-nesting-depth */
+      .no-js & {
+        position: static;
+        visibility: visible;
+      }
+    }
+  }
+
+  .ecl-breadcrumb__segment--ellipsis {
+    &[aria-hidden='false'] {
+      /* Force hide if JS is disabled */
+      /* stylelint-disable-next-line max-nesting-depth */
+      .no-js & {
+        display: none;
+      }
+    }
+  }
+
+  .ecl-breadcrumb__ellipsis {
+    background-color: transparent;
+    border-width: 0;
+    box-sizing: border-box;
+    color: $link-color;
+    font: $ecl-font-s;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      background-color: $background-color-hover;
+    }
+
+    &:focus {
+      outline: 3px solid $ecl-color-yellow-100;
+      outline-offset: 2px;
     }
   }
 
@@ -63,27 +99,10 @@
     margin-right: $ecl-spacing-xs;
   }
 
-  /* stylelint-disable max-nesting-depth */
-  .ecl-breadcrumb__segment:last-child {
-    .ecl-breadcrumb__link {
-      color: $last-link-color;
-
-      &:hover,
-      &:active,
-      &:focus,
-      &:visited {
-        color: $last-link-color;
-      }
-    }
-
-    .ecl-breadcrumb__icon {
-      display: none;
-    }
-  }
-  /* stylelint-enable max-nesting-depth */
-
-  .ecl-breadcrumb__expand-btn:hover {
-    background-color: $background-color-hover;
+  .ecl-breadcrumb__current-page {
+    color: $last-link-color;
+    font: $ecl-font-s;
+    font-weight: $ecl-font-weight-bold;
   }
 }
 

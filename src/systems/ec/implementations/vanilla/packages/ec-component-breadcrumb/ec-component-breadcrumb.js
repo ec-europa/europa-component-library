@@ -115,7 +115,7 @@ class Breadcrumb {
     if (!isItemVisible || !Array.isArray(isItemVisible)) return;
 
     if (this.onPartialExpand) {
-      this.onPartialExpand(visibilityMap);
+      this.onPartialExpand(isItemVisible);
     } else {
       this.expandableElements.forEach((item, index) => {
         item.setAttribute(
