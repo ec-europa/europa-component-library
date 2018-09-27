@@ -33,7 +33,6 @@ export default class Breadcrumb extends React.Component {
 
     this.breadcrumb = null;
     this.breadcrumbRef = React.createRef();
-    this.handleExpand = this.handleExpand.bind(this);
   }
 
   componentDidMount() {
@@ -42,10 +41,10 @@ export default class Breadcrumb extends React.Component {
 
     if (childrenCount > minItemsLeft + minItemsRight) {
       this.breadcrumb = new VanillaBreadcrumb(this.breadcrumbRef.current, {
-        onResize: visibilityMap => {
+        onPartialExpand: visibilityMap => {
           this.setState({ ...visibilityMap });
         },
-        onExpand: () => {
+        onFullExpand: () => {
           this.setState({ expanded: true });
         },
       });
@@ -60,14 +59,6 @@ export default class Breadcrumb extends React.Component {
 
   componentWillUnmount() {
     if (this.breadcrumb) this.breadcrumb.destroy();
-  }
-
-  handleExpand() {
-    const { children } = this.props;
-    this.setState({
-      expanded: true,
-      isItemVisible: [...React.Children.map(children, () => true)],
-    });
   }
 
   render() {

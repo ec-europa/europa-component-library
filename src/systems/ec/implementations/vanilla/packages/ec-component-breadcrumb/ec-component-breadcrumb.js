@@ -9,8 +9,8 @@ class Breadcrumb {
       segmentSelector: segmentSelector = '[data-ecl-breadcrumb-item]',
       expandableItemsSelector: expandableItemsSelector = '[data-ecl-breadcrumb-item="expandable"]',
       staticItemsSelector: staticItemsSelector = '[data-ecl-breadcrumb-item="static"]',
-      onResize: onResize = null,
-      onExpand: onExpand = null,
+      onPartialExpand: onPartialExpand = null,
+      onFullExpand: onFullExpand = null,
       attachClickListener: attachClickListener = true,
     } = {}
   ) {
@@ -29,8 +29,8 @@ class Breadcrumb {
     this.segmentSelector = segmentSelector;
     this.expandableItemsSelector = expandableItemsSelector;
     this.staticItemsSelector = staticItemsSelector;
-    this.onResize = onResize;
-    this.onExpand = onExpand;
+    this.onPartialExpand = onPartialExpand;
+    this.onFullExpand = onFullExpand;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -39,12 +39,8 @@ class Breadcrumb {
     this.staticElements = null;
     this.expandableElements = null;
 
-    // Bind
-    this.init = this.init.bind(this);
-    this.update = this.update.bind(this);
-    this.destroy = this.destroy.bind(this);
+    // Bind `this` for use in callbacks
     this.handleClickOnEllipsis = this.handleClickOnEllipsis.bind(this);
-    this.computeVisibilityMap = this.computeVisibilityMap.bind(this);
   }
 
   init() {
@@ -62,15 +58,7 @@ class Breadcrumb {
       this.element
     );
 
-    const visibilityMap = this.computeVisibilityMap();
-
-    if (visibilityMap) {
-      if (this.onResize) {
-        this.onResize(visibilityMap);
-      } else {
-        this.expandSome(visibilityMap);
-      }
-    }
+    this.check();
   }
 
   destroy() {
@@ -82,17 +70,20 @@ class Breadcrumb {
     }
   }
 
-  update() {
-    this.destroy();
-    this.init();
+  handleClickOnEllipsis() {
+    return this.handleFullExpand();
   }
 
-  handleClickOnEllipsis(e) {
-    if (this.onExpand) {
-      return this.onExpand(e);
-    }
+  check() {
+    const visibilityMap = this.computeVisibilityMap();
 
-    return this.expandAll();
+    if (!visibilityMap) return;
+
+    if (visibilityMap.expanded === true) {
+      this.handleFullExpand();
+    } else {
+      this.handlePartialExpand(visibilityMap);
+    }
   }
 
   hideEllipsis() {
@@ -111,8 +102,21 @@ class Breadcrumb {
     }
   }
 
-  showSomeItems(isItemVisible) {
-    if (isItemVisible && Array.isArray(isItemVisible)) {
+  showAllItems() {
+    this.expandableElements.forEach(item =>
+      item.setAttribute('aria-hidden', 'false')
+    );
+  }
+
+  handlePartialExpand(visibilityMap) {
+    if (!visibilityMap) return;
+
+    const { isItemVisible } = visibilityMap;
+    if (!isItemVisible || !Array.isArray(isItemVisible)) return;
+
+    if (this.onPartialExpand) {
+      this.onPartialExpand(visibilityMap);
+    } else {
       this.expandableElements.forEach((item, index) => {
         item.setAttribute(
           'aria-hidden',
@@ -122,25 +126,13 @@ class Breadcrumb {
     }
   }
 
-  showAllItems() {
-    this.expandableElements.forEach(item =>
-      item.setAttribute('aria-hidden', 'false')
-    );
-  }
-
-  expandSome(visibilityMap) {
-    if (!visibilityMap) return null;
-
-    if (visibilityMap.expanded === true) {
-      return this.expandAll();
+  handleFullExpand() {
+    if (this.onFullExpand) {
+      this.onFullExpand();
+    } else {
+      this.hideEllipsis();
+      this.showAllItems();
     }
-
-    return this.showSomeItems(visibilityMap.isItemVisible);
-  }
-
-  expandAll() {
-    this.hideEllipsis();
-    this.showAllItems();
   }
 
   computeVisibilityMap() {
@@ -149,7 +141,6 @@ class Breadcrumb {
       return { expanded: true };
     }
 
-    // get wrapper width
     const wrapperWidth = Math.floor(this.element.getBoundingClientRect().width);
 
     // Get the sum of all items' width
@@ -161,11 +152,11 @@ class Breadcrumb {
       return { expanded: true };
     }
 
-    const ellipsisSegment = queryOne(this.ellipsisSelector, this.element);
-    const ellipsisSegmentWidth = ellipsisSegment.getBoundingClientRect().width;
+    const ellipsisItem = queryOne(this.ellipsisSelector, this.element);
+    const ellipsisItemWidth = ellipsisItem.getBoundingClientRect().width;
 
     const incompressibleWidth =
-      ellipsisSegmentWidth +
+      ellipsisItemWidth +
       this.staticElements.reduce(
         (sum, currentItem) => sum + currentItem.getBoundingClientRect().width,
         0
