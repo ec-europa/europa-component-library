@@ -9,51 +9,25 @@ import demoContentDefault from '../demo/data--default';
 ## Image banner
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=image&stories=0">
-  <HeroBanner
-    variant="image"
-    title={demoContentImage.title}
-    description={demoContentImage.description}
-    button={demoContentImage.button}
-    image={demoContentImage.image}
-    centered={demoContentImage.centered}
-  />
+  <HeroBanner {...demoContentImage} />
 </Playground>
 
 ## Shade image banner
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=image-shade&stories=0">
-  <HeroBanner
-    variant="image-shade"
-    title={demoContentImageShade.title}
-    description={demoContentImageShade.description}
-    button={demoContentImageShade.button}
-    image={demoContentImageShade.image}
-    centered={demoContentImageShade.centered}
-  />
+  <HeroBanner {...demoContentImageShade} />
 </Playground>
 
 ## Primary banner
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=primary&stories=0">
-  <HeroBanner
-    variant="primary"
-    title={demoContentPrimary.title}
-    description={demoContentPrimary.description}
-    button={demoContentPrimary.button}
-    centered={demoContentPrimary.centered}
-  />
+  <HeroBanner {...demoContentPrimary} />
 </Playground>
 
 ## Default banner
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=HeroBanner&selectedStory=default&stories=0">
-  <HeroBanner
-    variant="default"
-    title={demoContentDefault.title}
-    description={demoContentDefault.description}
-    button={demoContentDefault.button}
-    centered={demoContentDefault.centered}
-  />
+  <HeroBanner {...demoContentDefault} />
 </Playground>
 
 The component expects 7 parameters:
@@ -62,6 +36,6 @@ The component expects 7 parameters:
 - position (string)
 - title (string)
 - description (string)
-- centered (boolean)
+- isCentered (boolean)
 - button (Button object)
 - (optional) className (string)

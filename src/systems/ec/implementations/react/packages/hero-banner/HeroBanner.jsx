@@ -10,14 +10,14 @@ const HeroBanner = ({
   title,
   description,
   image,
-  centered,
+  isCentered,
   button,
   className,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-hero-banner', {
     [`ecl-hero-banner--${variant}`]: variant,
-    [`ecl-hero-banner--centered`]: centered,
+    [`ecl-hero-banner--centered`]: isCentered,
   });
 
   return (
@@ -50,7 +50,7 @@ HeroBanner.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  centered: PropTypes.bool,
+  isCentered: PropTypes.bool,
   button: PropTypes.shape(Button.propTypes),
   className: PropTypes.string,
 };
@@ -61,7 +61,7 @@ HeroBanner.defaultProps = {
   title: '',
   description: '',
   image: '',
-  centered: false,
+  isCentered: false,
   button: {},
   className: '',
 };
