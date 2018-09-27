@@ -33,7 +33,10 @@ const Playground = ({ playgroundLink, children }) => {
             className="language-html"
             dangerouslySetInnerHTML={{
               __html: Prism.highlight(
-                beautifyHtml(ReactDOMServer.renderToStaticMarkup(children)),
+                beautifyHtml(ReactDOMServer.renderToStaticMarkup(children), {
+                  indent_size: 2,
+                  wrap_line_length: 120,
+                }),
                 Prism.languages.html,
                 'html'
               ),
