@@ -64,6 +64,7 @@
   @include ecl-media-breakpoint-up('lg') {
     .ecl-hero-banner {
       // manage ratio 3:1
+      height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
       min-height: (1/3) * 100vw;
     }
 
