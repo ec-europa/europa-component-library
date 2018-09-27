@@ -1,4 +1,4 @@
-import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
+import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
 class Breadcrumb {
   constructor(
