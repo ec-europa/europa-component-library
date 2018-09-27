@@ -6,7 +6,6 @@ import Button from '@ecl/ec-react-component-button/Button';
 
 const HeroBanner = ({
   variant,
-  position,
   title,
   description,
   image,
@@ -46,7 +45,6 @@ const HeroBanner = ({
 
 HeroBanner.propTypes = {
   variant: PropTypes.string,
-  position: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
@@ -57,7 +55,6 @@ HeroBanner.propTypes = {
 
 HeroBanner.defaultProps = {
   variant: '',
-  position: 'center',
   title: '',
   description: '',
   image: '',

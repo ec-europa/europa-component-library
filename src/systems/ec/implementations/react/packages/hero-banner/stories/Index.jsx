@@ -7,13 +7,14 @@ import demoContentImage from '@ecl/ec-specs-hero-banner/demo/data--image';
 import demoContentImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
 import demoContentPrimary from '@ecl/ec-specs-hero-banner/demo/data--primary';
 import demoContentDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
+import demoContentAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-left';
 
 import HeroBanner from '../HeroBanner';
 
 storiesOf('HeroBanner', module)
   .addDecorator(withKnobs)
   .add('image', () => {
-    const buttonImage = {
+    const button = {
       ...demoContentImage.button,
       label: text('Button label', demoContentImage.button.label),
     };
@@ -23,14 +24,14 @@ storiesOf('HeroBanner', module)
         variant="image"
         title={text('Title', demoContentImage.title)}
         description={text('Description', demoContentImage.description)}
-        button={buttonImage}
+        button={button}
         isCentered={boolean('Centered', true)}
         image={text('Image', demoContentImage.image)}
       />
     );
   })
   .add('image-shade', () => {
-    const buttonImageShade = {
+    const button = {
       ...demoContentImageShade.button,
       label: text('Button label', demoContentImageShade.button.label),
     };
@@ -40,14 +41,14 @@ storiesOf('HeroBanner', module)
         variant="image-shade"
         title={text('Title', demoContentImageShade.title)}
         description={text('Description', demoContentImageShade.description)}
-        button={buttonImageShade}
+        button={button}
         isCentered={boolean('Centered', true)}
         image={text('Image', demoContentImageShade.image)}
       />
     );
   })
   .add('primary', () => {
-    const buttonPrimary = {
+    const button = {
       ...demoContentPrimary.button,
       label: text('Button label', demoContentPrimary.button.label),
     };
@@ -57,13 +58,13 @@ storiesOf('HeroBanner', module)
         variant="primary"
         title={text('Title', demoContentPrimary.title)}
         description={text('Description', demoContentPrimary.description)}
-        button={buttonPrimary}
+        button={button}
         isCentered={boolean('Centered', true)}
       />
     );
   })
   .add('default', () => {
-    const buttonDefault = {
+    const button = {
       ...demoContentDefault.button,
       label: text('Button label', demoContentDefault.button.label),
     };
@@ -73,8 +74,24 @@ storiesOf('HeroBanner', module)
         variant="default"
         title={text('Title', demoContentDefault.title)}
         description={text('Description', demoContentDefault.description)}
-        button={buttonDefault}
+        button={button}
         isCentered={boolean('Centered', true)}
+      />
+    );
+  })
+  .add('align-left', () => {
+    const button = {
+      ...demoContentAlignLeft.button,
+      label: text('Button label', demoContentDefault.button.label),
+    };
+
+    return (
+      <HeroBanner
+        variant="default"
+        title={text('Title', demoContentAlignLeft.title)}
+        description={text('Description', demoContentAlignLeft.description)}
+        button={button}
+        isCentered={false}
       />
     );
   });
