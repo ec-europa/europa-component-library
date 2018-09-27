@@ -1,0 +1,47 @@
+import Playground from '@ecl/website-components/Playground'
+import HeroBanner from '@ecl/eu-react-component-hero-banner/HeroBanner'
+
+import demoContentImage from '../demo/data--image';
+import demoContentImageShade from '../demo/data--image-shade';
+import demoContentPrimary from '../demo/data--primary';
+import demoContentDefault from '../demo/data--default';
+import demoContentAlignLeft from '../demo/data--align-left';
+
+## Image banner
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=HeroBanner&selectedStory=image&stories=0">
+  <HeroBanner {...demoContentImage} />
+</Playground>
+
+## Shade image banner
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=HeroBanner&selectedStory=image-shade&stories=0">
+  <HeroBanner {...demoContentImageShade} />
+</Playground>
+
+## Primary banner
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=HeroBanner&selectedStory=primary&stories=0">
+  <HeroBanner {...demoContentPrimary} />
+</Playground>
+
+## Default banner
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=HeroBanner&selectedStory=default&stories=0">
+  <HeroBanner {...demoContentDefault} />
+</Playground>
+
+## Align left
+
+<Playground playgroundLink="/storybook/eu/index.html?selectedKind=HeroBanner&selectedStory=align-left&stories=0">
+  <HeroBanner {...demoContentAlignLeft} />
+</Playground>
+
+The component expects 6 parameters:
+
+- variant (string)
+- title (string)
+- description (string)
+- isCentered (boolean)
+- button (Button object)
+- (optional) className (string)
