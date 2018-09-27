@@ -22,10 +22,12 @@ const HeroBanner = ({
 
   return (
     <div className={classNames} {...props}>
-      <div
-        className="ecl-hero-banner__image"
-        style={{ backgroundImage: `url(${image})` }}
-      />
+      {!!(variant && image) && (
+        <div
+          className="ecl-hero-banner__image"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      )}
       <div className="ecl-container ecl-hero-banner__container">
         <div className="ecl-hero-banner__content">
           {title && <div className="ecl-hero-banner__title">{title}</div>}
