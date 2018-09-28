@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Icon from '@ecl/ec-react-component-icon/Icon';
 
 const PageHeader = ({
   breadcrumb,
@@ -36,7 +37,16 @@ const PageHeader = ({
         {infosArray && (
           <ul className="ecl-page-header__info-list">
             {infos.map(infoItem => (
-              <li className="ecl-page-header__info-item">{infoItem}</li>
+              <li className="ecl-page-header__info-item">
+                <Icon
+                  className="ecl-page-header__info-icon"
+                  shape={infoItem.icon}
+                  size="s"
+                  role="presentation"
+                  aria-hidden
+                />
+                {infoItem.text}
+              </li>
             ))}
           </ul>
         )}

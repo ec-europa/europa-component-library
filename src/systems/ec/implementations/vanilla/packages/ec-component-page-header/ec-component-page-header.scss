@@ -20,6 +20,7 @@
 
   .ecl-page-header__meta-list {
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -72,10 +73,13 @@
 
     @include ecl-media-breakpoint-up('lg') {
       flex-direction: row;
+      flex-wrap: wrap;
     }
   }
 
   .ecl-page-header__info-item {
+    align-items: center;
+    display: flex;
     font: $ecl-font-m;
   }
 
@@ -86,6 +90,10 @@
       margin-left: $ecl-spacing-xl;
       margin-top: 0;
     }
+  }
+
+  .ecl-page-header__info-icon {
+    margin-right: $ecl-spacing-xs;
   }
 }
 
