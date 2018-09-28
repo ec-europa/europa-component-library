@@ -1,4 +1,4 @@
-# Language list
+# EU Language list
 
 ## Why and how to use this component
 
@@ -9,4 +9,4 @@ see the Language selector (page level) that locally overrules their selection.
 
 ## When to use this component
 
-* when arriving on the base URL
+- when arriving on the base URL
