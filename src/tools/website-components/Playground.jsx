@@ -60,7 +60,7 @@ const Playground = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              Full screen
+              Fullscreen
             </a>
           </li>
         )}
