@@ -16,6 +16,7 @@
     "lint": "npm-run-all --parallel lint:* -cln",
     "postinstall": "lerna run postinstall && lerna run prepublish",
     "publish": "scripts/release.sh",
+    "serve": "cd src/website && npm run serve",
     "start:ec": "cd src/systems/ec/implementations/react/storybook && npm run start",
     "start:eu": "cd src/systems/eu/implementations/react/storybook && npm run start",
     "start:website": "cd src/website && npm run start",

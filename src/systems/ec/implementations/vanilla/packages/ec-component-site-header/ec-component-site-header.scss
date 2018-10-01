@@ -5,18 +5,88 @@
 
 // Import base and generic
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-component-site-header/generic-component-site-header';
 
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(
-  (
-    'ec-component-logo',
-    'ec-component-language-list',
-    'ec-component-search-form'
-  )
+  ('ec-component-icon', 'ec-component-logo', 'ec-component-search-form')
 );
 
-// Use generic mixin
 @include exports('ec-component-site-header') {
-  @include ecl-site-header();
+  .ecl-site-header {
+    background-color: $ecl-color-white-100;
+    margin: 0;
+    width: 100%;
+  }
+
+  .ecl-site-header__container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: $ecl-spacing-m;
+    padding-top: $ecl-spacing-l;
+  }
+
+  .ecl-site-header__banner {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .ecl-site-header__selector {
+    align-items: center;
+    display: flex;
+  }
+
+  .ecl-site-header__selector .ecl-link {
+    align-items: center;
+    display: flex;
+
+    &:visited {
+      color: $ecl-color-primary;
+    }
+  }
+
+  .ecl-site-header__language-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: $ecl-spacing-s;
+    position: relative;
+  }
+
+  .ecl-site-header__language-code {
+    color: $ecl-color-white-100;
+    font: $ecl-font-xs;
+    font-weight: $ecl-font-weight-bold;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    // position top and left has to be set like this because IE...
+    // also ugly magic numbers to center the text on the icon
+    top: 50%;
+    transform: translateX(-50%) translateX(-0.01rem) translateY(-50%)
+      translateY(-0.1rem);
+  }
+
+  .ecl-site-header__search {
+    margin-top: $ecl-spacing-m;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-site-header__container {
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: $ecl-spacing-xl;
+      padding-top: $ecl-spacing-xl;
+    }
+
+    .ecl-site-header__search {
+      margin-top: 0;
+    }
+
+    .ecl-site-header__banner {
+      padding-right: $ecl-spacing-xl;
+    }
+  }
 }
