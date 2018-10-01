@@ -13,9 +13,7 @@ const SiteHeader = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, {
-    'ecl-site-header': true,
-  });
+  const classNames = classnames(className, 'ecl-site-header');
 
   return (
     <header {...props} className={classNames}>
@@ -28,7 +26,6 @@ const SiteHeader = ({
           >
             <Logo {...logo} />
           </a>
-
           <div className="ecl-site-header__selector">
             <a
               className="ecl-link ecl-link--standalone"
@@ -44,7 +41,6 @@ const SiteHeader = ({
             </a>
           </div>
         </div>
-
         <SearchForm {...searchForm} className="ecl-site-header__search" />
       </div>
     </header>
