@@ -1,6 +1,6 @@
 // Simple content for demo
 module.exports = {
-  logoAlt: 'European Union logo',
+  logoAlt: 'European Commission logo',
   items: [
     { label: 'български', href: '/example#language_bg' },
     { label: 'español', href: '/example#language_es' },
