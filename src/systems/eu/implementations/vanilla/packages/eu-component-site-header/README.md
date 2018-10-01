@@ -10,9 +10,9 @@ on every page of Europa sites
 
 ## Mandatory components
 
-* European Union Emblem
-* Search bar
+- European Union Emblem
+- Search bar
 
 ## Optional components
 
-* Language selector
+- Language selector
