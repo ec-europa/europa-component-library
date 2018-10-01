@@ -6,13 +6,11 @@ The site header conveys the EC brand to the users and provides basic structure a
 
 ## When to use this component
 
-on every page of Europa sites
+- on every page of every Commission website
+- detail and landing pages
 
 ## Mandatory components
 
-- European Commission Logo
-- Search bar
-
-## Optional components
-
+- European Commission logo
 - Language selector
+- Search bar
