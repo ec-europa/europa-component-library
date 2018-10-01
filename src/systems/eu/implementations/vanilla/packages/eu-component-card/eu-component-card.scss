@@ -6,9 +6,121 @@
 // Import base and generic
 @import '@ecl/eu-base/eu-base';
 
-@mixin ecl-card() {
+@mixin ecl-card(
+  $max-width: 21.75rem,
+  $min-width: 20rem,
+  $background-card: $ecl-color-grey-5,
+  $border-color-card: $ecl-color-grey-10,
+  $color-meta: $ecl-color-grey-75,
+  $color-description: $ecl-color-grey-100,
+  $color-item: $ecl-color-grey-75
+) {
   .ecl-card {
+    background-color: $background-card;
+    border: 1px solid $border-color-card;
     margin: 0;
+    max-width: $max-width;
+    min-width: $min-width;
+    padding: $ecl-spacing-s;
+  }
+
+  .ecl-card__image {
+    background-size: cover;
+    display: block;
+    height: auto;
+    width: 100%;
+
+    // manage ratio 16:9
+    &::before {
+      content: '';
+      display: block;
+      padding-top: (9 / 16) * 100%;
+      width: 100%;
+    }
+  }
+
+  .ecl-card__meta {
+    color: $color-meta;
+    font: $ecl-font-xs;
+    margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-card__title {
+    font: $ecl-font-m;
+    font-weight: bold;
+    margin-top: $ecl-spacing-s;
+  }
+
+  .ecl-card__description {
+    color: $color-description;
+    font: $ecl-font-m;
+    margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-card__item-container {
+    margin-top: $ecl-spacing-m;
+  }
+
+  .ecl-card__item {
+    color: $color-item;
+    font: $ecl-font-s;
+    margin-top: $ecl-spacing-s;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-card__item-label {
+    margin-left: $ecl-spacing-s;
+  }
+
+  .ecl-card__link-container {
+    margin-top: $ecl-spacing-xl;
+  }
+
+  .ecl-card__link {
+    display: block;
+    font: $ecl-font-s;
+    font-weight: $ecl-font-weight-bold;
+    margin-top: $ecl-spacing-s;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-card__tag-container {
+    margin-top: $ecl-spacing-m;
+  }
+
+  .ecl-card__tag {
+    margin-right: $ecl-spacing-xs;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  /*
+   * Tiles
+   */
+  .ecl-card--tile {
+    padding-bottom: $ecl-spacing-l;
+    padding-top: $ecl-spacing-l;
+
+    .ecl-card__title {
+      font: $ecl-font-prolonged-l;
+      font-weight: bold;
+      margin-top: 0;
+    }
+  }
+
+  /*
+   * Spacing adjustment
+   */
+  .ecl-card__meta + .ecl-card__title {
+    margin-top: $ecl-spacing-xs;
   }
 }
 

@@ -11,10 +11,31 @@ module.exports = {
     href: '/example',
   },
   description:
-    "Transparently designing and evaluating evidence-based EU legislation, backed by citizens' views.",
+    'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
   links: [
-    { label: 'link 1', href: '/example' },
-    { label: 'link 2', href: '/example' },
-    { label: 'link 3', href: '/example' },
+    { label: 'link 1', href: '/example', variant: 'standalone' },
+    { label: 'link 2', href: '/example', variant: 'standalone' },
+    { label: 'link 3', href: '/example', variant: 'standalone' },
+  ],
+  items: [
+    {
+      icon: {
+        shape: 'general--calendar',
+        size: 'xs',
+      },
+      label: '2018/10/22',
+    },
+    {
+      icon: {
+        shape: 'general--location',
+        size: 'xs',
+      },
+      label: 'LUXEMBOURG',
+    },
+  ],
+  tags: [
+    { label: 'tag 1', href: '/example' },
+    { label: 'tag 2', href: '/example' },
+    { label: 'tag 3', href: '/example' },
   ],
 };
