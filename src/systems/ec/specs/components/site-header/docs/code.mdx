@@ -4,9 +4,5 @@ import SiteHeader from '@ecl/ec-react-component-site-header/SiteHeader'
 import demoContent from '../demo/data';
 
 <Playground playgroundLink="/storybook/ec/index.html?selectedKind=SiteHeader&selectedStory=default&stories=0">
-  <SiteHeader
-    logo={demoContent.logo}
-    languageSelector={demoContent.languageSelector}
-    searchForm={demoContent.searchForm}
-  />
+  <SiteHeader {...demoContent} />
 </Playground>

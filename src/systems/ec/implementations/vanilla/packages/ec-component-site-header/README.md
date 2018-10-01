@@ -10,7 +10,7 @@ on every page of Europa sites
 
 ## Mandatory components
 
-- European Union Emblem
+- European Commission Logo
 - Search bar
 
 ## Optional components
