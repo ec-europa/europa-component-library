@@ -1,12 +1,17 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
+import demoTitleContent from '@ecl/ec-specs-page-header/demo/data-title';
+import demoMetaTitleContent from '@ecl/ec-specs-page-header/demo/data-meta-title';
+import demoMetaTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data-meta-title-description';
+import demoTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data-title-description';
+import demoEventsContent from '@ecl/ec-specs-page-header/demo/data-events';
+import demoEventsDescriptionContent from '@ecl/ec-specs-page-header/demo/data-events-description';
 
-// import demoContent from '@ecl/ec-specs-site-switcher/demo/data';
 import PageHeader from '../PageHeader';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
@@ -17,26 +22,67 @@ const breadcrumb = (
     ))}
   </Breadcrumb>
 );
-/*
-const variant = {
-  none: '',
-  header: 'header',
-  footer: 'footer',
-};
-*/
 
 storiesOf('PageHeader', module)
   .addDecorator(withKnobs)
-  .add('default', () => (
+  .add('title', () => (
     <PageHeader
       breadcrumb={breadcrumb}
-      title="Page title"
-      description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
-      meta={['News article', '17 October 2015']}
-      infos={[
-        { icon: 'general--calendar', text: 'Monday 8 February' },
-        { icon: 'general--location', text: 'Munich, Germany' },
-        { icon: 'general--livestreaming', text: 'Live streaming available' },
-      ]}
+      title={text('Title', demoTitleContent.title)}
+    />
+  ))
+  .add('meta-title', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleContent.title)}
+      meta={demoMetaTitleContent.meta.map((m, i) => text(`Meta ${i}`, m))}
+    />
+  ))
+  .add('meta-title-description', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoMetaTitleDescriptionContent.title)}
+      description={text(
+        'Description',
+        demoMetaTitleDescriptionContent.description
+      )}
+      meta={demoMetaTitleDescriptionContent.meta.map((m, i) =>
+        text(`Meta ${i}`, m)
+      )}
+    />
+  ))
+  .add('title-description', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoTitleDescriptionContent.title)}
+      description={text('Description', demoTitleDescriptionContent.description)}
+    />
+  ))
+  .add('events', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoEventsContent.title)}
+      meta={demoEventsContent.meta.map((m, i) => text(`Meta ${i}`, m))}
+      infos={demoEventsContent.infos.map((info, index) => ({
+        icon: info.icon,
+        text: text(`Info ${index} text`, info.text),
+      }))}
+    />
+  ))
+  .add('events-description', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoEventsDescriptionContent.title)}
+      description={text(
+        'Description',
+        demoEventsDescriptionContent.description
+      )}
+      meta={demoEventsDescriptionContent.meta.map((m, i) =>
+        text(`Meta ${i}`, m)
+      )}
+      infos={demoEventsDescriptionContent.infos.map((info, index) => ({
+        icon: info.icon,
+        text: text(`Info ${index} text`, info.text),
+      }))}
     />
   ));
