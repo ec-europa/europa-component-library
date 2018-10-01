@@ -17,6 +17,7 @@
     "postinstall": "lerna run postinstall && lerna run prepublish",
     "precommit": "lint-staged",
     "publish": "scripts/release.sh",
+    "serve": "cd src/website && npm run serve",
     "start:ec": "cd src/systems/ec/implementations/react/storybook && npm run start",
     "start:eu": "cd src/systems/eu/implementations/react/storybook && npm run start",
     "start:website": "cd src/website && npm run start",
