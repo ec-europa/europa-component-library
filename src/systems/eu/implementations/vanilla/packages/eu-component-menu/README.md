@@ -25,21 +25,21 @@ topics (e.g. News and events / Contracts and funding).
 
 ## When to use this component
 
-* if you need an alternative to the listing navigation blocks
-* only for improved sites
-* only with a basic page header
-* below the basic page header
-* on every page of the website
+- if you need an alternative to the listing navigation blocks
+- only for improved sites
+- only with a basic page header
+- below the basic page header
+- on every page of the website
 
 ## Do not use this component
 
-* with a default page header
+- with a default page header
 
 ## Resources
 
-* <https://www.w3.org/WAI/GL/wiki/Using_ARIA_menus>
-* <https://www.w3.org/WAI/tutorials/menus/>
-* <https://dequeuniversity.com/library/aria/menus/megamenu>
-* <https://github.com/adobe-accessibility/Accessible-Mega-Menu>
-* <https://ux.stackexchange.com/questions/5124/what-are-good-rules-for-naming-menu-items/5126>
-* <https://thrivehive.com/navigation-menu-best-practices>
+- <https://www.w3.org/WAI/GL/wiki/Using_ARIA_menus>
+- <https://www.w3.org/WAI/tutorials/menus/>
+- <https://dequeuniversity.com/library/aria/menus/megamenu>
+- <https://github.com/adobe-accessibility/Accessible-Mega-Menu>
+- <https://ux.stackexchange.com/questions/5124/what-are-good-rules-for-naming-menu-items/5126>
+- <https://thrivehive.com/navigation-menu-best-practices>

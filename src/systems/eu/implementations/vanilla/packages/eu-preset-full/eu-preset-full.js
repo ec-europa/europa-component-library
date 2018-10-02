@@ -11,7 +11,7 @@ export * from '@ecl/eu-component-form-file-upload';
 export * from '@ecl/eu-component-lang-select-page';
 export * from '@ecl/eu-component-message';
 export * from '@ecl/eu-component-inpage-navigation';
-export * from '@ecl/eu-component-navigation-menu';
+export * from '@ecl/eu-component-menu';
 export * from '@ecl/eu-component-side-navigation';
 export * from '@ecl/eu-component-table';
 export * from '@ecl/eu-component-tab';
