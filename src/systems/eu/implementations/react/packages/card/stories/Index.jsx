@@ -92,10 +92,15 @@ storiesOf('Card', module)
     return <Card title={title} description={description} links={links} />;
   })
   .add('template', () => {
-    const image1 = demoContentCard.image;
+    const image1 = {
+      alt: demoContentCard.image.alt,
+      src:
+        'https://ec.europa.eu/commission/sites/beta-political/files/styles/header_image_breakpoints_theme_europa_wide_2x/public/homepage-banner-2400x900_003.jpg?yxX_LZza',
+    };
     const image2 = {
       alt: demoContentCard.image.alt,
-      src: text('Image path', demoContentCard.image.src),
+      src:
+        'https://ec.europa.eu/commission/sites/beta-political/files/styles/banner_image_breakpoints_theme_europa_normal_1x/public/parliament-plenary.png?itok=craeArBi&timestamp=1452594609',
     };
     const title1 = {
       label: 'Policy coherence for development in the European Union',
@@ -141,7 +146,7 @@ storiesOf('Card', module)
         </li>
         <li className="ecl-col-4">
           <Card
-            image={demoContentCard.image}
+            image={image1}
             meta={demoContentCard.meta}
             title={title2}
             description={demoContentCard.description}
@@ -150,7 +155,7 @@ storiesOf('Card', module)
         </li>
         <li className="ecl-col-4">
           <Card
-            image={demoContentCard.image}
+            image={image2}
             meta={demoContentCard.meta}
             title={title3}
             description={demoContentCard.description}
