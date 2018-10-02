@@ -109,8 +109,6 @@
    * Tiles
    */
   .ecl-card--tile {
-    padding-bottom: $ecl-spacing-l;
-
     .ecl-card__title {
       font: $ecl-font-prolonged-l;
       font-weight: bold;
@@ -127,6 +125,10 @@
 
   .ecl-card > :last-child {
     margin-bottom: $ecl-spacing-s;
+  }
+
+  .ecl-card--tile > :last-child {
+    margin-bottom: $ecl-spacing-l;
   }
 
   .ecl-card__title:last-child {
