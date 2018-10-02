@@ -135,7 +135,7 @@ storiesOf('Card', module)
         className="ecl-row"
         style={{ margin: 0, padding: 0, listStyle: 'none' }}
       >
-        <li className="ecl-col-4">
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
           <Card
             image={demoContentCard.image}
             meta={demoContentCard.meta}
@@ -144,7 +144,7 @@ storiesOf('Card', module)
             tags={demoContentCard.tags}
           />
         </li>
-        <li className="ecl-col-4">
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
           <Card
             image={image1}
             meta={demoContentCard.meta}
@@ -153,7 +153,7 @@ storiesOf('Card', module)
             items={demoContentCard.items}
           />
         </li>
-        <li className="ecl-col-4">
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
           <Card
             image={image2}
             meta={demoContentCard.meta}
@@ -161,13 +161,13 @@ storiesOf('Card', module)
             description={demoContentCard.description}
           />
         </li>
-        <li className="ecl-col-4" style={{ marginTop: '1rem' }}>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
           <Card title={title4} links={demoContentTile.links} />
         </li>
-        <li className="ecl-col-4" style={{ marginTop: '1rem' }}>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
           <Card title={title5} description={demoContentTile.description} />
         </li>
-        <li className="ecl-col-4" style={{ marginTop: '1rem' }}>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
           <Card
             title={title6}
             description={demoContentTile.description}
