@@ -3,7 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, array } from '@storybook/addon-knobs';
 
-import demoContent from '@ecl/eu-specs-card/demo/data';
+import demoContentCard from '@ecl/eu-specs-card/demo/data--card';
+import demoContentTile from '@ecl/eu-specs-card/demo/data--tile';
 
 import Card from '../Card';
 
@@ -12,42 +13,44 @@ storiesOf('Card', module)
   .add('card', () => {
     // Image
     const image = {
-      alt: demoContent.image.alt,
-      src: text('Image path', demoContent.image.src),
+      alt: demoContentCard.image.alt,
+      src: text('Image path', demoContentCard.image.src),
     };
 
     // Meta
-    const meta = text('Meta', demoContent.meta);
+    const meta = text('Meta', demoContentCard.meta);
 
     // Title
     const title = {
-      label: text('Title', demoContent.title.label),
-      href: demoContent.title.href,
+      label: text('Title', demoContentCard.title.label),
+      href: demoContentCard.title.href,
     };
 
     // Description
-    const description = text('Description', demoContent.description);
+    const description = text('Description', demoContentCard.description);
 
     // Items
     const itemsArray = array(
       'Items (comma separated)',
-      demoContent.items.map(item => item.label)
+      demoContentCard.items.map(item => item.label)
     );
     const items = itemsArray.map((item, key) => ({
       label: item,
-      icon: demoContent.items[key]
-        ? demoContent.items[key].icon
+      icon: demoContentCard.items[key]
+        ? demoContentCard.items[key].icon
         : { shape: 'general--faq', size: 'xs' },
     }));
 
     // Tags
     const tagsArray = array(
       'Tags (comma separated)',
-      demoContent.tags.map(tag => tag.label)
+      demoContentCard.tags.map(tag => tag.label)
     );
     const tags = tagsArray.map((tag, key) => ({
       label: tag,
-      href: demoContent.tags[key] ? demoContent.tags[key].href : '/example',
+      href: demoContentCard.tags[key]
+        ? demoContentCard.tags[key].href
+        : '/example',
     }));
 
     return (
@@ -64,25 +67,108 @@ storiesOf('Card', module)
   .add('tile', () => {
     // Title
     const title = {
-      label: text('Title', demoContent.title.label),
+      label: text('Title', demoContentTile.title.label),
       href: '',
     };
 
     // Description
-    const description = text('Description', demoContent.description);
+    const description = text('Description', demoContentTile.description);
 
     // Links
     const linksArray = array(
       'Links (comma separated)',
-      demoContent.links.map(link => link.label)
+      demoContentTile.links.map(link => link.label)
     );
     const links = linksArray.map((link, key) => ({
       label: link,
-      href: demoContent.links[key] ? demoContent.links[key].href : '/example',
-      variant: demoContent.links[key]
-        ? demoContent.links[key].variant
+      href: demoContentTile.links[key]
+        ? demoContentTile.links[key].href
+        : '/example',
+      variant: demoContentTile.links[key]
+        ? demoContentTile.links[key].variant
         : 'standalone',
     }));
 
     return <Card title={title} description={description} links={links} />;
+  })
+  .add('template', () => {
+    const image1 = demoContentCard.image;
+    const image2 = {
+      alt: demoContentCard.image.alt,
+      src: text('Image path', demoContentCard.image.src),
+    };
+    const title1 = {
+      label: 'Policy coherence for development in the European Union',
+      href: '/example#1',
+    };
+    const title2 = {
+      label:
+        "The programming of EU's external assistance and development aid and the fragile balance of power bet ween EEAS and DG DEVCO",
+      href: '/example#2',
+    };
+    const title3 = {
+      label: 'Who gets what',
+      href: '/example#3',
+    };
+    const title4 = {
+      label:
+        'Tied aid and development aid procurement in the framework of EU and WTO law',
+      href: '',
+    };
+    const title5 = {
+      label: 'Cost of development policy',
+      href: '',
+    };
+    const title6 = {
+      label:
+        'France, Europe and development aid : from the treaties of Rome to the present day',
+      href: '',
+    };
+
+    return (
+      <ul
+        className="ecl-row"
+        style={{ margin: 0, padding: 0, listStyle: 'none' }}
+      >
+        <li className="ecl-col-4">
+          <Card
+            image={demoContentCard.image}
+            meta={demoContentCard.meta}
+            title={title1}
+            description={demoContentCard.description}
+            tags={demoContentCard.tags}
+          />
+        </li>
+        <li className="ecl-col-4">
+          <Card
+            image={demoContentCard.image}
+            meta={demoContentCard.meta}
+            title={title2}
+            description={demoContentCard.description}
+            items={demoContentCard.items}
+          />
+        </li>
+        <li className="ecl-col-4">
+          <Card
+            image={demoContentCard.image}
+            meta={demoContentCard.meta}
+            title={title3}
+            description={demoContentCard.description}
+          />
+        </li>
+        <li className="ecl-col-4" style={{ marginTop: '1rem' }}>
+          <Card title={title4} links={demoContentTile.links} />
+        </li>
+        <li className="ecl-col-4" style={{ marginTop: '1rem' }}>
+          <Card title={title5} description={demoContentTile.description} />
+        </li>
+        <li className="ecl-col-4" style={{ marginTop: '1rem' }}>
+          <Card
+            title={title6}
+            description={demoContentTile.description}
+            links={demoContentTile.links}
+          />
+        </li>
+      </ul>
+    );
   });

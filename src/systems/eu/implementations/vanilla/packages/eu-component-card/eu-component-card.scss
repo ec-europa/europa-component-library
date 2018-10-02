@@ -18,16 +18,19 @@
   .ecl-card {
     background-color: $background-card;
     border: 1px solid $border-color-card;
+    height: 100%;
     margin: 0;
     max-width: $max-width;
     min-width: $min-width;
-    padding: $ecl-spacing-s;
+    padding-left: $ecl-spacing-s;
+    padding-right: $ecl-spacing-s;
   }
 
   .ecl-card__image {
     background-size: cover;
     display: block;
     height: auto;
+    margin-top: $ecl-spacing-s;
     width: 100%;
 
     // manage ratio 16:9
@@ -107,12 +110,11 @@
    */
   .ecl-card--tile {
     padding-bottom: $ecl-spacing-l;
-    padding-top: $ecl-spacing-l;
 
     .ecl-card__title {
       font: $ecl-font-prolonged-l;
       font-weight: bold;
-      margin-top: 0;
+      margin-top: $ecl-spacing-l;
     }
   }
 
@@ -121,6 +123,14 @@
    */
   .ecl-card__meta + .ecl-card__title {
     margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-card > :last-child {
+    margin-bottom: $ecl-spacing-s;
+  }
+
+  .ecl-card__title:last-child {
+    margin-bottom: $ecl-spacing-m;
   }
 }
 
