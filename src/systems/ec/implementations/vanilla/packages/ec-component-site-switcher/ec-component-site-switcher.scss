@@ -38,6 +38,14 @@
     }
   }
 
+  .ecl-site-switcher__container {
+    @include ecl-media-breakpoint-down(sm) {
+      max-width: 100%;
+      padding: 0;
+      width: 100%;
+    }
+  }
+
   .ecl-site-switcher__list {
     display: flex;
     list-style: none;
