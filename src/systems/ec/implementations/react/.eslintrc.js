@@ -23,6 +23,8 @@ module.exports = {
       rules: {
         // JSX files' name should be in PascalCase
         'unicorn/filename-case': ['error', { case: 'pascalCase' }],
+        // deprecated: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/2a490286937fa8eba3ed213a4637edec932748de/docs/rules/label-has-for.md
+        'jsx-a11y/label-has-for': 'off',
       },
     },
   ],
