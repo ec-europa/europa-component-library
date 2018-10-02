@@ -3,11 +3,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
-import demoContentImage from '@ecl/ec-specs-hero-banner/demo/data--image';
-import demoContentImageShade from '@ecl/ec-specs-hero-banner/demo/data--image-shade';
-import demoContentPrimary from '@ecl/ec-specs-hero-banner/demo/data--primary';
-import demoContentDefault from '@ecl/ec-specs-hero-banner/demo/data--default';
-import demoContentAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-left';
+import demoContentImage from '@ecl/eu-specs-hero-banner/demo/data--image';
+import demoContentImageShade from '@ecl/eu-specs-hero-banner/demo/data--image-shade';
+import demoContentPrimary from '@ecl/eu-specs-hero-banner/demo/data--primary';
+import demoContentDefault from '@ecl/eu-specs-hero-banner/demo/data--default';
+import demoContentAlignLeft from '@ecl/eu-specs-hero-banner/demo/data--align-left';
 
 import HeroBanner from '../HeroBanner';
 

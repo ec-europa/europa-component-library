@@ -1,11 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Icon from '@ecl/eu-react-component-icon/Icon';
-import Logo from '@ecl/eu-react-component-logo/Logo';
-import SearchForm from '@ecl/eu-react-component-search-form/SearchForm';
+import Icon from '@ecl/ec-react-component-icon/Icon';
+import Logo from '@ecl/ec-react-component-logo/Logo';
+import SearchForm from '@ecl/ec-react-component-search-form/SearchForm';
 
 const SiteHeader = ({
   logo,
