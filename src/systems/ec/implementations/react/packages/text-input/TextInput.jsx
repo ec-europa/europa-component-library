@@ -24,9 +24,9 @@ const TextInput = ({
     <div className="ecl-form-group ecl-form-group--text-input">
       {label && (
         <label
-          className={`ecl-form-label${
-            invalid ? ' ecl-form-label--invalid' : ''
-          }`}
+          className={classnames('ecl-form-label', {
+            'ecl-form-label--invalid': invalid,
+          })}
           htmlFor={id}
         >
           {label}
