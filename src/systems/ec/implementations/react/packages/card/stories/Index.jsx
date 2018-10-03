@@ -27,6 +27,7 @@ storiesOf('Card', module)
       variant: demoContentCard.title.variant,
       label: text('Title', demoContentCard.title.label),
       href: demoContentCard.title.href,
+      level: demoContentCard.title.level,
     };
 
     // Description
@@ -70,9 +71,10 @@ storiesOf('Card', module)
   .add('tile', () => {
     // Title
     const title = {
-      variant: demoContentCard.title.variant,
+      variant: demoContentTile.title.variant,
       label: text('Title', demoContentTile.title.label),
       href: '',
+      level: demoContentTile.title.level,
     };
 
     // Description

@@ -60,10 +60,12 @@
   }
 
   .ecl-card__info-container {
+    list-style: none;
     margin-top: $ecl-spacing-m;
+    padding: 0;
   }
 
-  .ecl-card__info {
+  .ecl-card__info-item {
     align-content: center;
     color: $color-info;
     display: flex;
@@ -80,13 +82,12 @@
   }
 
   .ecl-card__link-container {
+    list-style: none;
     margin-top: $ecl-spacing-xl;
+    padding: 0;
   }
 
-  .ecl-card__link {
-    display: block;
-    font: $ecl-font-s;
-    font-weight: $ecl-font-weight-bold;
+  .ecl-card__link-item {
     margin-top: $ecl-spacing-s;
 
     &:first-child {
@@ -94,11 +95,20 @@
     }
   }
 
-  .ecl-card__tag-container {
-    margin-top: $ecl-spacing-m;
+  .ecl-card__link {
+    display: block;
+    font: $ecl-font-s;
+    font-weight: $ecl-font-weight-bold;
   }
 
-  .ecl-card__tag {
+  .ecl-card__tag-container {
+    display: inline-flex;
+    list-style: none;
+    margin-top: $ecl-spacing-m;
+    padding: 0;
+  }
+
+  .ecl-card__tag-item {
     margin-right: $ecl-spacing-xs;
 
     &:last-child {
@@ -138,6 +148,6 @@
 }
 
 // Use mixin
-@include exports('ec-component-card') {
+@include exports('eu-component-card') {
   @include ecl-card();
 }

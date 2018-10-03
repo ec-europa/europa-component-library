@@ -41,15 +41,18 @@ const Card = ({
 
   // Title
   let titleMarkup = '';
+  const TitleTag = `h${title.level || 3}`;
   if (title) {
     if (title.href) {
       titleMarkup = (
-        <div className="ecl-card__title">
+        <TitleTag className="ecl-card__title">
           <Link {...title} />
-        </div>
+        </TitleTag>
       );
     } else {
-      titleMarkup = <div className="ecl-card__title">{title.label}</div>;
+      titleMarkup = (
+        <TitleTag className="ecl-card__title">{title.label}</TitleTag>
+      );
     }
   }
 
@@ -65,30 +68,34 @@ const Card = ({
   let linksMarkup = '';
   if (links && links.length > 0) {
     const linksArray = links.map(link => (
-      <Link className="ecl-card__link" {...link} />
+      <li className="ecl-card__link-item">
+        <Link className="ecl-card__link" key={link.label} {...link} />
+      </li>
     ));
-    linksMarkup = <div className="ecl-card__link-container">{linksArray}</div>;
+    linksMarkup = <ul className="ecl-card__link-container">{linksArray}</ul>;
   }
 
-  // infos
+  // Infos
   let infosMarkup = '';
   if (infos && infos.length > 0) {
     const infosArray = infos.map(info => (
-      <div className="ecl-card__info">
+      <li className="ecl-card__info-item" key={info.label}>
         <Icon {...info.icon} />
         <span className="ecl-card__info-label">{info.label}</span>
-      </div>
+      </li>
     ));
-    infosMarkup = <div className="ecl-card__info-container">{infosArray}</div>;
+    infosMarkup = <ul className="ecl-card__info-container">{infosArray}</ul>;
   }
 
   // Tags
   let tagsMarkup = '';
   if (tags && tags.length > 0) {
     const tagsArray = tags.map(tag => (
-      <Tag className="ecl-card__tag" {...tag} />
+      <li className="ecl-card__tag-item">
+        <Tag className="ecl-card__tag" key={tag.label} {...tag} />
+      </li>
     ));
-    tagsMarkup = <div className="ecl-card__tag-container">{tagsArray}</div>;
+    tagsMarkup = <ul className="ecl-card__tag-container">{tagsArray}</ul>;
   }
 
   return (
