@@ -1,6 +1,6 @@
 /**
  * EU menus
- * @define navigation-menu
+
  */
 
 // Import base and generic
@@ -10,6 +10,149 @@
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('eu-style-typography-list'));
 
+@mixin ecl-menu(
+  $background-toggle: $ecl-color-grey-15,
+  $color-toggle: $ecl-color-blue-100,
+  $background-item: $ecl-color-grey-10,
+  $border-item: $ecl-color-grey-15,
+  $background-subitem: $ecl-color-grey-5
+) {
+  .ecl-menu {
+    margin: 0;
+  }
+
+  /*
+   * Menu toggle
+   */
+  .ecl-menu__toggle {
+    color: $color-toggle;
+    cursor: pointer;
+    display: block;
+    padding: $ecl-spacing-m 0;
+    position: relative;
+    width: 100%;
+  }
+  .ecl-menu__toggle::before {
+    background-color: $background-toggle;
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+
+  .ecl-menu__toggle-container {
+    align-items: center;
+    display: flex;
+    position: relative;
+  }
+
+  // Hamburger button
+  .ecl-menu__hamburger {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: $ecl-spacing-m;
+  }
+  .ecl-menu__hamburger--bar1,
+  .ecl-menu__hamburger--bar2,
+  .ecl-menu__hamburger--bar3 {
+    background-color: $color-toggle;
+    height: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 35px;
+  }
+  .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar2 {
+    opacity: 0;
+  }
+  .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  /*
+   * First level
+   */
+  .ecl-menu__list {
+    display: none;
+    flex-direction: column;
+    flex-grow: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .ecl-menu[aria-expanded='true'] .ecl-menu__list {
+    display: flex;
+  }
+
+  .ecl-menu__item {
+    position: relative;
+  }
+  .ecl-menu__item::before {
+    background-color: $background-item;
+    border-bottom: 1px solid $border-item;
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+
+  .ecl-menu__link {
+    display: block;
+    font: $ecl-font-prolonged-s;
+    font-weight: $ecl-font-weight-bold;
+    padding-bottom: $ecl-spacing-s;
+    padding-top: $ecl-spacing-s;
+    position: relative;
+  }
+
+  /*
+   * Second level
+   */
+  .ecl-menu__sublist {
+    margin: 0;
+    padding: 0;
+  }
+
+  .ecl-menu__subitem {
+    position: relative;
+  }
+  .ecl-menu__subitem::before {
+    background-color: $background-subitem;
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw;
+  }
+
+  .ecl-menu__sublink {
+    display: block;
+    font: $ecl-font-prolonged-s;
+    padding-bottom: $ecl-spacing-s;
+    padding-top: $ecl-spacing-s;
+    position: relative;
+  }
+}
+
+@include exports('eu-component-menu') {
+  @include ecl-menu();
+}
+
+/*
+ * Legacy code
+ * not used anymore, just here temporaly for reference
+ */
 @mixin ecl-navigation-menu(
   $bar-bg-mobile,
   $bar-bg-desktop,
@@ -349,7 +492,7 @@
 }
 
 // Use generic mixin
-@include exports('eu-component-navigation-menu') {
+@include exports('eu-navigation-menu') {
   @include ecl-navigation-menu(
     $bar-bg-mobile: map-get($ecl-colors, 'grey-15'),
     $bar-bg-desktop: map-get($ecl-colors, 'grey-10'),
