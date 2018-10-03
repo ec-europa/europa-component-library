@@ -4,7 +4,7 @@
  */
 
 // Import base and generic
-@import '@ecl/eu-base/eu-base';
+@import '@ecl/ec-base/ec-base';
 
 @mixin ecl-card(
   $max-width: 21.75rem,
@@ -138,6 +138,6 @@
 }
 
 // Use mixin
-@include exports('eu-component-card') {
+@include exports('ec-component-card') {
   @include ecl-card();
 }

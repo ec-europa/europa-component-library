@@ -1,9 +1,13 @@
 {
-  "name": "@ecl/ec-specs-card",
+  "name": "@ecl/ec-component-card",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.0",
-  "description": "ECL EC Logo Specs",
+  "description": "EU Card",
+  "style": "ec-component-card.scss",
+  "dependencies": {
+    "@ecl/ec-base": "^2.0.0-alpha.0"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -19,5 +23,6 @@
     "ecl",
     "europa-component-library",
     "design-system"
-  ]
+  ],
+  "sass": "ec-component-card.scss"
 }

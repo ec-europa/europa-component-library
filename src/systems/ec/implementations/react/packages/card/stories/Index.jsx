@@ -3,8 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, array } from '@storybook/addon-knobs';
 
-import demoContentCard from '@ecl/eu-specs-card/demo/data--card';
-import demoContentTile from '@ecl/eu-specs-card/demo/data--tile';
+import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
+import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
 
 import template from './Template';
 
