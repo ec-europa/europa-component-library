@@ -6,7 +6,10 @@
   "scripts": {
     "changelog": "lerna-changelog",
     "clean": "rimraf dist",
-    "dist:presets": "./scripts/dist-presets.sh",
+    "build:presets:ec": "lerna --concurrency 3 --scope \"@ecl/ec-preset-*\" run dist",
+    "build:presets:eu": "lerna --concurrency 3 --scope \"@ecl/eu-preset-*\" run dist",
+    "build:presets": "lerna --concurrency 3 --scope \"@ecl/*-preset-*\" run dist",
+    "dist:presets": "npm run build:presets && ./scripts/dist-presets.sh",
     "dist:storybook": "./scripts/dist-storybook.sh",
     "dist:website": "./scripts/dist-website.sh",
     "dist": "npm run clean && npm run dist:presets && npm run dist:storybook && npm run dist:website",
@@ -85,7 +88,6 @@
   "workspaces": [
     "examples/*",
     "src/systems/generic/design-tokens",
-    "src/systems/generic/implementations/react/*",
     "src/systems/generic/implementations/vanilla/*",
     "src/systems/generic/resources",
     "src/systems/ec/design-tokens",

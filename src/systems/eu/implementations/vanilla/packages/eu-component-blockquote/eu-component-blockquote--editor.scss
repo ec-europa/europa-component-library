@@ -1,5 +1,15 @@
 @import '@ecl/eu-base/eu-base';
-@import '@ecl/generic-component-blockquote/generic-component-blockquote--editor';
+@import 'mixins';
+
+@mixin ecl-editor-blockquote() {
+  .ecl-editor blockquote {
+    @include blockquote-container();
+
+    p {
+      @include blockquote-body();
+    }
+  }
+}
 
 @include exports('eu-component-blockquote--editor') {
   @include ecl-editor-blockquote();

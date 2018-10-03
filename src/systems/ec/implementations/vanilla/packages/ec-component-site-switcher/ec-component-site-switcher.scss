@@ -33,8 +33,17 @@
 
     &:hover,
     &:focus {
+      color: $ecl-color-grey-100;
       outline-offset: -3px;
       text-decoration: underline;
+    }
+  }
+
+  .ecl-site-switcher__container {
+    @include ecl-media-breakpoint-down(sm) {
+      max-width: 100%;
+      padding: 0;
+      width: 100%;
     }
   }
 
