@@ -3,11 +3,59 @@
  * @define text-area
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/eu-base/eu-base';
-@import '@ecl/generic-component-form-text-area/generic-component-form-text-area';
 
-// Use generic mixin
+@mixin ecl-text-area(
+  $border-color: $ecl-color-grey-100,
+  $border-width: 1px,
+  $border-color-focus: $ecl-color-secondary,
+  $border-width-focus: 3px,
+  $max-width: 36.25rem,
+  $min-width: 15rem,
+  $padding-vertical: $ecl-spacing-s,
+  $padding-horizontal: $ecl-spacing-s
+) {
+  .ecl-text-area {
+    background-color: $ecl-color-white-100;
+    border: $border-width solid $border-color;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: $ecl-color-text;
+    display: block;
+    font: $ecl-font-m;
+    margin: 0;
+    max-width: $max-width;
+    min-width: $min-width;
+    padding: calc(#{$padding-vertical} - #{$border-width})
+      calc(#{$padding-horizontal} - #{$border-width});
+    width: 100%;
+
+    &:focus {
+      border-color: $border-color-focus;
+      border-width: $border-width-focus;
+      outline: none;
+      padding: calc(#{$padding-vertical} - #{$border-width-focus})
+        calc(#{$padding-horizontal} - #{$border-width-focus});
+    }
+  }
+
+  .ecl-text-area[disabled],
+  .ecl-text-area--disabled,
+  .ecl-text-area[readonly],
+  .ecl-text-area--readonly {
+    background-color: $ecl-color-grey-10;
+    cursor: not-allowed;
+  }
+
+  .ecl-text-area:invalid,
+  .ecl-text-area--invalid {
+    border-color: $ecl-color-error;
+    box-shadow: none;
+  }
+}
+
+// Use mixin
 @include exports('eu-component-form-text-area') {
   @include ecl-text-area();
 }

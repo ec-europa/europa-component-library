@@ -53,10 +53,6 @@ export default class Breadcrumb extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    // if (this.breadcrumb) this.breadcrumb.update();
-  }
-
   componentWillUnmount() {
     if (this.breadcrumb) this.breadcrumb.destroy();
   }
@@ -75,7 +71,7 @@ export default class Breadcrumb extends React.Component {
 
     const { expanded, isItemVisible } = this.state;
 
-    const classNames = classnames(className, { 'ecl-breadcrumb': true });
+    const classNames = classnames(className, 'ecl-breadcrumb');
 
     const childrenCount = React.Children.count(children);
     const childrenArray = React.Children.toArray(children);

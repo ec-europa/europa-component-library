@@ -3,11 +3,21 @@
  * @define feedback-message
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-component-form-feedback-message/generic-component-form-feedback-message';
 
-// Use generic mixin
+@mixin ecl-feedback-message() {
+  .ecl-feedback-message {
+    box-sizing: border-box;
+    color: $ecl-color-error;
+    display: flex;
+    font: $ecl-font-prolonged-m;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Use mixin
 @include exports('ec-component-form-feedback-message') {
   @include ecl-feedback-message();
 }
