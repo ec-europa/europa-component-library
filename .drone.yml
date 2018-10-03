@@ -21,13 +21,16 @@ matrix:
     - deploy-pages
     - conventions
     - examples
-    - visual-regression
 
 pipeline:
-  conventions:
+  install:
     image: node:9.11.1
     commands:
       - yarn install --frozen-lockfile
+
+  conventions:
+    image: node:9.11.1
+    commands:
       - yarn test:coding-conventions
     when:
       matrix:
@@ -36,7 +39,6 @@ pipeline:
   examples:
     image: node:9.11.1
     commands:
-      - yarn install --frozen-lockfile
       - cd examples/webpack3 && yarn build --display=errors-only
       - cd ../webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
@@ -44,24 +46,11 @@ pipeline:
       matrix:
         TEST: examples
 
-  visual-regression:
-    image: hivelocityinc/docker-node-chromium
-    shm_size: 1g
-    commands:
-      - yarn install --frozen-lockfile
-      - cd src/systems/ec/implementations/react/storybook
-      - yarn build
-      - yarn test
-    when:
-      event: [push]
-      matrix:
-        TEST: visual-regression
-
   build:
     image: hivelocityinc/docker-node-chromium
     shm_size: 1g
     commands:
-      - yarn install --frozen-lockfile
+      - yarn install
       - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
           yarn dist ;
         fi
