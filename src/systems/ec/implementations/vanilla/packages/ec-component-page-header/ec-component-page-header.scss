@@ -19,28 +19,7 @@
   }
 
   .ecl-page-header__meta-list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .ecl-page-header__meta-item {
     font: $ecl-font-m;
-
-    &::after {
-      color: $ecl-color-white-100;
-      content: '|';
-      margin: 0 $ecl-spacing-s;
-      position: relative;
-    }
-  }
-
-  .ecl-page-header__meta-item:last-child {
-    &::after {
-      display: none;
-    }
   }
 
   .ecl-page-header__title {

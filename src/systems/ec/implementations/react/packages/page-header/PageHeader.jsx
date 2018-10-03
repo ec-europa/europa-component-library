@@ -14,7 +14,6 @@ const PageHeader = ({
 }) => {
   const classNames = classnames(className, 'ecl-page-header');
 
-  const metaArray = Array.isArray(meta) ? meta : [meta];
   const infosArray = Array.isArray(infos) ? infos : [infos];
 
   return (
@@ -23,15 +22,7 @@ const PageHeader = ({
         {React.cloneElement(breadcrumb, {
           className: 'ecl-page-header__breadcrumb',
         })}
-        {!!(metaArray && metaArray.length > 0) && (
-          <ul className="ecl-page-header__meta-list">
-            {metaArray.map(metaItem => (
-              <li className="ecl-page-header__meta-item" key={metaItem}>
-                {metaItem}
-              </li>
-            ))}
-          </ul>
-        )}
+        {meta && <div className="ecl-page-header__meta-list">{meta}</div>}
         <h1 className="ecl-page-header__title">{title}</h1>
         {description && (
           <p className="ecl-page-header__description">{description}</p>
@@ -61,10 +52,7 @@ PageHeader.propTypes = {
   breadcrumb: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
-  meta: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]),
+  meta: PropTypes.node,
   infos: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
@@ -78,7 +66,7 @@ PageHeader.defaultProps = {
   breadcrumb: null,
   title: '',
   description: '',
-  meta: [],
+  meta: '',
   infos: [],
   className: '',
 };

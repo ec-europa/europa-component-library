@@ -35,7 +35,7 @@ storiesOf('PageHeader', module)
     <PageHeader
       breadcrumb={breadcrumb}
       title={text('Title', demoMetaTitleContent.title)}
-      meta={demoMetaTitleContent.meta.map((m, i) => text(`Meta ${i}`, m))}
+      meta={text('Meta', demoMetaTitleContent.meta)}
     />
   ))
   .add('meta-title-description', () => (
@@ -46,9 +46,7 @@ storiesOf('PageHeader', module)
         'Description',
         demoMetaTitleDescriptionContent.description
       )}
-      meta={demoMetaTitleDescriptionContent.meta.map((m, i) =>
-        text(`Meta ${i}`, m)
-      )}
+      meta={text('Meta', demoMetaTitleDescriptionContent.meta)}
     />
   ))
   .add('title-description', () => (
@@ -62,7 +60,7 @@ storiesOf('PageHeader', module)
     <PageHeader
       breadcrumb={breadcrumb}
       title={text('Title', demoEventsContent.title)}
-      meta={demoEventsContent.meta.map((m, i) => text(`Meta ${i}`, m))}
+      meta={text('Meta', demoEventsContent.meta)}
       infos={demoEventsContent.infos.map((info, index) => ({
         icon: info.icon,
         text: text(`Info ${index} text`, info.text),
@@ -77,9 +75,7 @@ storiesOf('PageHeader', module)
         'Description',
         demoEventsDescriptionContent.description
       )}
-      meta={demoEventsDescriptionContent.meta.map((m, i) =>
-        text(`Meta ${i}`, m)
-      )}
+      meta={text('Meta', demoEventsDescriptionContent.meta)}
       infos={demoEventsDescriptionContent.infos.map((info, index) => ({
         icon: info.icon,
         text: text(`Info ${index} text`, info.text),
