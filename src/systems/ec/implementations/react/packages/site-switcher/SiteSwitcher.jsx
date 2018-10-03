@@ -11,7 +11,7 @@ const SiteSwitcher = ({ info, political, className, variant, ...props }) => {
 
   return (
     <div {...props} className={classNames}>
-      <div className="ecl-container">
+      <div className="ecl-container ecl-site-switcher__container">
         <ul className="ecl-site-switcher__list">
           <li
             className={classnames('ecl-site-switcher__option', {
