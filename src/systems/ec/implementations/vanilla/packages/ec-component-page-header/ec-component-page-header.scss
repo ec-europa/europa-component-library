@@ -6,6 +6,8 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
+@include check-imports(('ec-component-breadcrumb', 'ec-layout-grid'));
+
 @mixin ecl-page-header() {
   .ecl-page-header {
     background-color: $ecl-color-primary;
