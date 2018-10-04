@@ -5,11 +5,11 @@ The ECL has five buttons with different visual designs to make a distinction bet
 
 | Button name           | Visual style  | Usage |
 | ----------------------|---------------| ------|
-| Call-to-action button | ![Button Image](http://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA_Default.png) | for the most important action on the page like "Apply for funding" or "Watch live streaming".|
-| Primary button        | ![Button Image](http://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_Default.png)      | for primary actions in forms, to initiate a search query or to apply a filter.|
-| Secondary button      | ![Button Image](http://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Secondary_Default.png) | or secondary actions.|
-| Ghost button          | ![Button Image](http://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Ghost_Default.png)  | when an action does not require dominance on a page, for instance to "cancel" a form.|
-| Search button         | ![Button Image](http://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Search_Default.png)    | use exclusively for the search function. |
+| Call-to-action button | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA_Default.png) | for the most important action on the page like "Apply for funding" or "Watch live streaming".|
+| Primary button        | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_Default.png)      | for primary actions in forms, to initiate a search query or to apply a filter.|
+| Secondary button      | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Secondary_Default.png) | or secondary actions.|
+| Ghost button          | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Ghost_Default.png)  | when an action does not require dominance on a page, for instance to "cancel" a form.|
+| Search button         | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Search_Default.png)    | use exclusively for the search function. |
 
 Each page can have one to two Primary (or Call-to-action) buttons. Any remaining calls-to-action should be represented as Secondary or Ghost buttons.
 
@@ -21,8 +21,8 @@ It is possible to add an icon to a button to enhance the action.
 
 | Button name           | Visual style  |
 | ----------------------|---------------|
-| Call-to-action button | <img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA-Icon_Default.png" alt="Button Image" style="width:90;"/>  |
-| Primary button        | <img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_icon_Default.png" alt="Button Image" style="width:90;"/>  |
+| Call-to-action button | <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA-Icon_Default.png" alt="Button Image" style="width:90;"/>  |
+| Primary button        | <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_icon_Default.png" alt="Button Image" width="90"/>  |
 
 ## When not to use
 Do not use Buttons to send the user to another page or for navigational purposes. Use links instead, as they are not associated with an action. 
