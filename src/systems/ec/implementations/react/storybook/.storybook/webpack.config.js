@@ -7,10 +7,20 @@ const includePaths = [
 module.exports = (baseConfig, env, defaultConfig) => {
   // Trick webpack, allow it to include .js(x) files from ../..
   defaultConfig.module.rules[0].test = /\.jsx?$/;
-  defaultConfig.module.rules[0].include = [
-    path.resolve(__dirname, '../..'), // EC packages
-    path.resolve(__dirname, '../../../../../generic'), // Generic packages
-  ];
+
+  // Babel loader: include "src"
+  defaultConfig.module.rules[0].include.push(
+    path.resolve(__dirname, '../../../../../..')
+  );
+
+  // Babel loader: include "node_modules/@ecl"
+  defaultConfig.module.rules[0].include.push(
+    path.resolve(__dirname, '../../../../../../../node_modules/@ecl')
+  );
+
+  // Don't exclude anything
+  defaultConfig.module.rules[0].exclude = [];
+
   defaultConfig.resolve.extensions.push('.jsx');
 
   // Add "limit" to svg-url-loader
