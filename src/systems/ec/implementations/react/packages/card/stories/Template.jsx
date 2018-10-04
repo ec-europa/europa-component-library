@@ -58,50 +58,49 @@ const Template = () => {
   };
 
   return (
-    <ul
-      className="ecl-row"
-      style={{ margin: 0, padding: 0, listStyle: 'none' }}
-    >
-      <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
-        <Card
-          image={demoContentCard.image}
-          meta={demoContentCard.meta}
-          title={title1}
-          description={demoContentCard.description}
-          tags={demoContentCard.tags}
-        />
-      </li>
-      <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
-        <Card
-          image={image1}
-          meta={demoContentCard.meta}
-          title={title2}
-          description={demoContentCard.description}
-          infos={demoContentCard.infos}
-        />
-      </li>
-      <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
-        <Card
-          image={image2}
-          meta={demoContentCard.meta}
-          title={title3}
-          description={demoContentCard.description}
-        />
-      </li>
-      <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
-        <Card title={title4} links={demoContentTile.links} />
-      </li>
-      <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
-        <Card title={title5} description={demoContentTile.description} />
-      </li>
-      <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
-        <Card
-          title={title6}
-          description={demoContentTile.description}
-          links={demoContentTile.links}
-        />
-      </li>
-    </ul>
+    <div className="ecl-container">
+      <ul className="ecl-row" style={{ padding: 0, listStyle: 'none' }}>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+          <Card
+            image={demoContentCard.image}
+            meta={demoContentCard.meta}
+            title={title1}
+            description={demoContentCard.description}
+            tags={demoContentCard.tags}
+          />
+        </li>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+          <Card
+            image={image1}
+            meta={demoContentCard.meta}
+            title={title2}
+            description={demoContentCard.description}
+            infos={demoContentCard.infos}
+          />
+        </li>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+          <Card
+            image={image2}
+            meta={demoContentCard.meta}
+            title={title3}
+            description={demoContentCard.description}
+          />
+        </li>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+          <Card title={title4} links={demoContentTile.links} />
+        </li>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+          <Card title={title5} description={demoContentTile.description} />
+        </li>
+        <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
+          <Card
+            title={title6}
+            description={demoContentTile.description}
+            links={demoContentTile.links}
+          />
+        </li>
+      </ul>
+    </div>
   );
 };
 
