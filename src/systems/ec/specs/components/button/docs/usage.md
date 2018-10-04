@@ -21,7 +21,7 @@ It is possible to add an icon to a button to enhance the action.
 
 | Button name           | Visual style  |
 | ----------------------|---------------|
-| Call-to-action button | <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA-Icon_Default.png" alt="Button Image" style="width:90;"/>  |
+| Call-to-action button | <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA-Icon_Default.png" alt="Button Image" width="90"/>  |
 | Primary button        | <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_icon_Default.png" alt="Button Image" width="90"/>  |
 
 ## When not to use
