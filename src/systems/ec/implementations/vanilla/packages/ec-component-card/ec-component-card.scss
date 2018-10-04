@@ -6,6 +6,10 @@
 // Import base and generic
 @import '@ecl/ec-base/ec-base';
 
+@include check-imports(
+  ('ec-component-link', 'ec-component-icon', 'ec-component-tag')
+);
+
 @mixin ecl-card(
   $max-width: 21.75rem,
   $min-width: 20rem,
