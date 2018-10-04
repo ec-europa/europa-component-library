@@ -13,8 +13,7 @@
 @mixin ecl-link(
   $link-color: $ecl-color-primary,
   $link-color-hover: $ecl-color-black-100,
-  $link-color-focus: $ecl-color-secondary,
-  $link-color-visited: $ecl-color-purple-100
+  $link-color-focus: $ecl-color-secondary
 ) {
   .ecl-link {
     color: $link-color;
@@ -29,10 +28,6 @@
     &:focus {
       outline: 3px solid $link-color-focus;
       outline-offset: 2px;
-    }
-
-    &:visited {
-      color: $link-color-visited;
     }
   }
 
