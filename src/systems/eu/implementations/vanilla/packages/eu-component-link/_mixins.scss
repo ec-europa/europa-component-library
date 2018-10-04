@@ -1,9 +1,4 @@
-@mixin link(
-  $link-color,
-  $link-color-hover,
-  $link-color-focus,
-  $link-color-visited
-) {
+@mixin link($link-color, $link-color-hover, $link-color-focus) {
   color: $link-color;
   margin: 0;
   text-decoration: underline;
@@ -16,9 +11,5 @@
   &:focus {
     outline: 3px solid $link-color-focus;
     outline-offset: 2px;
-  }
-
-  &:visited {
-    color: $link-color-visited;
   }
 }
