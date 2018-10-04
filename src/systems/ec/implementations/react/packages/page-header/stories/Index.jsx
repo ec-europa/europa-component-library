@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';

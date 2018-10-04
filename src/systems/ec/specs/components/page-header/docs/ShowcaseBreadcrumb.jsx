@@ -1,6 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
