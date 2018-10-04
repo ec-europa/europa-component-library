@@ -18,18 +18,19 @@
   .ecl-card {
     background-color: $background-card;
     border: 1px solid $border-color-card;
+    box-sizing: border-box;
     margin: 0;
     max-width: $max-width;
     min-width: $min-width;
-    padding-left: $ecl-spacing-s;
-    padding-right: $ecl-spacing-s;
+    padding-left: calc(#{$ecl-spacing-s} - 1px);
+    padding-right: calc(#{$ecl-spacing-s} - 1px);
   }
 
   .ecl-card__image {
     background-size: cover;
     display: block;
     height: auto;
-    margin-top: $ecl-spacing-s;
+    margin-top: calc(#{$ecl-spacing-s} - 1px);
     width: 100%;
 
     // manage ratio 16:9
@@ -123,7 +124,7 @@
     .ecl-card__title {
       font: $ecl-font-prolonged-l;
       font-weight: bold;
-      margin-top: $ecl-spacing-l;
+      margin-top: calc(#{$ecl-spacing-l} - 1px);
     }
   }
 
@@ -135,11 +136,11 @@
   }
 
   .ecl-card > :last-child {
-    margin-bottom: $ecl-spacing-s;
+    margin-bottom: calc(#{$ecl-spacing-s} - 1px);
   }
 
   .ecl-card--tile > :last-child {
-    margin-bottom: $ecl-spacing-l;
+    margin-bottom: calc(#{$ecl-spacing-l} - 1px);
   }
 
   .ecl-card__title:last-child {
