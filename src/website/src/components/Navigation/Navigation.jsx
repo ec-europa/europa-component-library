@@ -99,6 +99,7 @@ class Navigation extends PureComponent {
                 .sort((a, b) => a.order > b.order)}
               groupUrl={`${prefix}/templates`}
               title="Templates"
+              showStatus
             />
             <LinkGroup
               pages={pages
