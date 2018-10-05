@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Icon from '@ecl/eu-react-component-icon/Icon';
 
 const PageHeader = ({
   breadcrumb,
   title,
   description,
-  meta,
-  infos,
   className,
+  isBranded,
+  isHomepage,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-page-header');
-
-  const infosArray = Array.isArray(infos) ? infos : [infos];
+  const classNames = classnames(className, 'ecl-page-header', {
+    'ecl-page-header--branded-homepage': isBranded,
+    'ecl-page-header--homepage': isHomepage,
+  });
 
   return (
     <div {...props} className={classNames}>
@@ -22,27 +22,12 @@ const PageHeader = ({
         {React.cloneElement(breadcrumb, {
           className: 'ecl-page-header__breadcrumb',
         })}
-        {meta && <div className="ecl-page-header__meta-list">{meta}</div>}
-        <h1 className="ecl-page-header__title">{title}</h1>
-        {description && (
-          <p className="ecl-page-header__description">{description}</p>
-        )}
-        {!!(infosArray && infosArray.length > 0) && (
-          <ul className="ecl-page-header__info-list">
-            {infos.map(infoItem => (
-              <li className="ecl-page-header__info-item" key={infoItem.text}>
-                <Icon
-                  className="ecl-page-header__info-icon"
-                  shape={infoItem.icon}
-                  size="s"
-                  role="presentation"
-                  aria-hidden
-                />
-                {infoItem.text}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="ecl-page-header__title-wrapper">
+          <h1 className="ecl-page-header__title">{title}</h1>
+          {!!(description && (isBranded || isHomepage)) && (
+            <p className="ecl-page-header__description">{description}</p>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -52,23 +37,18 @@ PageHeader.propTypes = {
   breadcrumb: PropTypes.node,
   title: PropTypes.string,
   description: PropTypes.string,
-  meta: PropTypes.node,
-  infos: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      icon: PropTypes.string,
-    })
-  ),
   className: PropTypes.string,
+  isBranded: PropTypes.bool,
+  isHomepage: PropTypes.bool,
 };
 
 PageHeader.defaultProps = {
   breadcrumb: null,
   title: '',
   description: '',
-  meta: '',
-  infos: [],
   className: '',
+  isBranded: false,
+  isHomepage: false,
 };
 
 export default PageHeader;
