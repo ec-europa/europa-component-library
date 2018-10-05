@@ -3,9 +3,80 @@
  * @define page-header
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-component-page-header/generic-component-page-header';
+
+@include check-imports(('ec-component-breadcrumb', 'ec-layout-grid'));
+
+@mixin ecl-page-header() {
+  .ecl-page-header {
+    background-color: $ecl-color-primary;
+    color: $ecl-color-white-100;
+    margin: 0;
+    padding-bottom: $ecl-spacing-xl;
+  }
+
+  .ecl-page-header__breadcrumb {
+    margin-bottom: $ecl-spacing-xl;
+  }
+
+  .ecl-page-header__meta-list {
+    font: $ecl-font-m;
+  }
+
+  .ecl-page-header__title {
+    font: $ecl-font-3-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin: $ecl-spacing-m 0 0;
+
+    @include ecl-media-breakpoint-up('lg') {
+      font: $ecl-font-4-xl;
+      font-weight: $ecl-font-weight-bold;
+    }
+  }
+
+  .ecl-page-header__description {
+    font: $ecl-font-prolonged-l;
+    margin: $ecl-spacing-m 0 0;
+    max-width: 80ch;
+
+    @include ecl-media-breakpoint-up('lg') {
+      font: $ecl-font-prolonged-xl;
+    }
+  }
+
+  .ecl-page-header__info-list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: $ecl-spacing-xl 0 0;
+    padding: 0;
+
+    @include ecl-media-breakpoint-up('lg') {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  .ecl-page-header__info-item {
+    align-items: center;
+    display: flex;
+    font: $ecl-font-m;
+  }
+
+  .ecl-page-header__info-item + .ecl-page-header__info-item {
+    margin-top: $ecl-spacing-m;
+
+    @include ecl-media-breakpoint-up('lg') {
+      margin-left: $ecl-spacing-xl;
+      margin-top: 0;
+    }
+  }
+
+  .ecl-page-header__info-icon {
+    margin-right: $ecl-spacing-xs;
+  }
+}
 
 // Use generic mixin
 @include exports('ec-component-page-header') {
