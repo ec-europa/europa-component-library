@@ -16,6 +16,25 @@
     overflow: auto;
   }
 
+  .ecl-page-header--image {
+    background-size: cover;
+    position: relative;
+
+    &::before {
+      background: linear-gradient(
+        to right,
+        rgba($ecl-color-primary, 0.75) 0%,
+        rgba($ecl-color-primary, 0.2) 100%
+      );
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
   .ecl-page-header__title-wrapper {
     margin: $ecl-spacing-l;
 

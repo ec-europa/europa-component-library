@@ -18,6 +18,9 @@ const breadcrumb = (
   </Breadcrumb>
 );
 
+const image =
+  'https://ec.europa.eu/education/sites/education/files/jean-monnet-gs-banner.jpg';
+
 storiesOf('PageHeader', module)
   .addDecorator(withKnobs)
   .add('basic', () => (
@@ -29,10 +32,17 @@ storiesOf('PageHeader', module)
   ))
   .add('homepage', () => (
     <PageHeader
-      breadcrumb={breadcrumb}
       title={text('Title', demoTitleDescriptionContent.title)}
       description={text('Description', demoTitleDescriptionContent.description)}
       isHomepage
+    />
+  ))
+  .add('homepage-image', () => (
+    <PageHeader
+      title={text('Title', demoTitleDescriptionContent.title)}
+      description={text('Description', demoTitleDescriptionContent.description)}
+      isHomepage
+      image={image}
     />
   ))
   .add('branded-homepage', () => (
@@ -41,5 +51,14 @@ storiesOf('PageHeader', module)
       title={text('Title', demoTitleDescriptionContent.title)}
       description={text('Description', demoTitleDescriptionContent.description)}
       isBranded
+    />
+  ))
+  .add('branded-homepage-image', () => (
+    <PageHeader
+      breadcrumb={breadcrumb}
+      title={text('Title', demoTitleDescriptionContent.title)}
+      description={text('Description', demoTitleDescriptionContent.description)}
+      isBranded
+      image={image}
     />
   ));
