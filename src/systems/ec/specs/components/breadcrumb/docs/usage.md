@@ -2,7 +2,7 @@
 
 The breadcrumb helps users see their current location in relation to the rest of the website and allows them to navigate to higher levels. The breadcrumb is particularly useful for a user who arrived on a page directly through a link, a bookmark/favourite or a search engine.
 
-<img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_480px.png" alt="Breadcrumb image" width="500"/>
+![Breadcrumb default](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_480px.png)
 
 ## Usage
 
@@ -10,19 +10,19 @@ Breadcrumbs are created automatically when publishing a new page. The page title
 
 ### Default breadcrumb
 
-<img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_996px.png" alt="Breadcrumb image" width="1200"/>
+![Breadcrumb default 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_996px.png)
 
 ### Long breadcrumb
 
 When a breadcrumb path contains more than a certain amount of page titles, the breadcrumb auto-collapses and uses ellipses to indicate more information. The first and last entities are shown by default. Users expand the breadcrumb by clicking on the ellipses.
 
-<img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Expanded_996px.png" alt="Breadcrumb image" width="1200"/>
+![Breadcrumb expanded 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Expanded_996px.png)
 
 ### Expandable breadcrumb
 
 When expanded, breadcrumbs that exceed the content width will overflow to the next line.
 
-<img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Collapsed_996px.png" alt="Breadcrumb image" width="1200"/>
+![Breadcrumb collapsed 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Collapsed_996px.png)
 
 ## Guidance
 
