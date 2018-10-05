@@ -1,40 +1,37 @@
-## Usage
+The footer appears at the bottom of all ec.europa.eu pages.
 
-The breadcrumb helps users see their current location in relation to the rest of the website and allows them to navigate to higher levels. The breadcrumb is particularly useful for a user who arrived on a page directly through a link, a bookmark/favourite or a search engine.
+It is divided into 2 functional areas:
 
-![Breadcrumb default](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_480px.png)
+- the main content area
+- the secondary content area
 
-## Usage
+![Corporate footer](http://inno-ecl.s3.amazonaws.com/media/images/EC/Footer%20EC/Footer_Corporate.png)
 
-Breadcrumbs are created automatically when publishing a new page. The page title of the published page will then appear in the breadcrumb, indicating its place in the hierarchical structure of the site.
+## Main content area
 
-### Default breadcrumb
+The main content area of the footer offers access to the two main parts of the site (the political and information sites), the corporate social media profiles and the other European Union institutions.
 
-![Breadcrumb default 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_996px.png)
+## Secondary content area
 
-### Long breadcrumb
+The secondary content area of the footer offers access to resources for partners, the cookie policy, the legal notice and contact information.
 
-When a breadcrumb path contains more than a certain amount of page titles, the breadcrumb auto-collapses and uses ellipses to indicate more information. The first and last entities are shown by default. Users expand the breadcrumb by clicking on the ellipses.
+## Custom area
 
-![Breadcrumb expanded 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Expanded_996px.png)
+In exceptional circumstances, a custom are can be added if the main and secondary content areas do not satisfy the requirements.
 
-### Expandable breadcrumb
+A custom area can contain:
 
-When expanded, breadcrumbs that exceed the content width will overflow to the next line.
+- identification of the site name
+- information on connecting to social platforms
+- contact information
+- other relevant information, such as a link to the site map
 
-![Breadcrumb collapsed 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Collapsed_996px.png)
+![Custom footer](http://inno-ecl.s3.amazonaws.com/media/images/EC/Footer%20EC/Footer_Custom.png)
 
-## Guidance
+## Mobile footer example
 
-- breadcrumbs start on the highest level of the site with the label "Home" to reduce the length of the breadcrumb
-- short titles can be used to create a shorter version of the title which will be displayed only in the breadcrumb and not in the headline
-- the links in the breadcrumb must point to pages in the same language as the current page
-- clicking an item in the breadcrumb directs the user to that level in the hierarchy above the current page
-- the title of the current page is displayed as the last element of the breadcrumb
-- the last element of the breadcrumb will have a slightly different style to indicate users that it is not clickable
-- each label is separated with a chevron-right '>' symbol
-- the chevron-right symbol > is not clickable
+![Footer on mobile](http://inno-ecl.s3.amazonaws.com/media/images/EC/Footer%20EC/Footer_Mobile.png)
 
-## When to use
+## Why and how to use this component
 
-- breadcrumbs are required and should appear in the page header on every page of the site (except on the homepage of European Commission’s website).
+The footer is consistent and present on every page of the European Commission's website.
