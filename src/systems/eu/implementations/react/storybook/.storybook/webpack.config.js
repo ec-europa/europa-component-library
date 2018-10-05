@@ -21,6 +21,11 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // Don't exclude anything
   defaultConfig.module.rules[0].exclude = [];
 
+  // Add babel plugin
+  defaultConfig.module.rules[0].use[0].options.plugins.push(
+    '@babel/plugin-proposal-export-default-from'
+  );
+
   defaultConfig.resolve.extensions.push('.jsx');
 
   // Add "limit" to svg-url-loader

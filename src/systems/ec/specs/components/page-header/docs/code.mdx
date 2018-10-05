@@ -1,0 +1,71 @@
+import Playground from '@ecl/website-components/Playground'
+import PageHeader from '@ecl/ec-react-component-page-header/PageHeader'
+
+import breadcrumb from './ShowcaseBreadcrumb';
+import demoTitleContent from '../demo/data-title';
+import demoMetaTitleContent from '../demo/data-meta-title';
+import demoMetaTitleDescriptionContent from '../demo/data-meta-title-description';
+import demoTitleDescriptionContent from '../demo/data-title-description';
+import demoEventsContent from '../demo/data-events';
+import demoEventsDescriptionContent from '../demo/data-events-description';
+
+## Title
+
+<Playground
+  system="ec"
+  selectedKind="PageHeader"
+  selectedStory="title"
+>
+  <PageHeader breadcrumb={breadcrumb} {...demoTitleContent} />
+</Playground>
+
+## Meta - Title
+
+<Playground
+  system="ec"
+  selectedKind="PageHeader"
+  selectedStory="meta-title"
+>
+  <PageHeader breadcrumb={breadcrumb} {...demoMetaTitleContent} />
+</Playground>
+
+
+## Meta - Title - Description
+
+<Playground
+  system="ec"
+  selectedKind="PageHeader"
+  selectedStory="meta-title-description"
+>
+  <PageHeader breadcrumb={breadcrumb} {...demoMetaTitleDescriptionContent} />
+</Playground>
+
+## Title - Description
+
+<Playground
+  system="ec"
+  selectedKind="PageHeader"
+  selectedStory="title-description"
+>
+  <PageHeader breadcrumb={breadcrumb} {...demoTitleDescriptionContent} />
+</Playground>
+
+## Events
+
+<Playground
+  system="ec"
+  selectedKind="PageHeader"
+  selectedStory="events"
+>
+  <PageHeader breadcrumb={breadcrumb} {...demoEventsContent} />
+</Playground>
+
+## Events - Description
+
+<Playground
+  system="ec"
+  selectedKind="PageHeader"
+  selectedStory="events-description"
+>
+  <PageHeader breadcrumb={breadcrumb} {...demoEventsDescriptionContent} />
+</Playground>
