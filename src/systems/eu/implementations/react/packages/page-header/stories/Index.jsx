@@ -5,7 +5,11 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb';
 
 import breadcrumbContent from '@ecl/eu-specs-breadcrumb/demo/data-simple';
-import demoTitleDescriptionContent from '@ecl/eu-specs-page-header/demo/data-title-description';
+import demoBasic from '@ecl/eu-specs-page-header/demo/data-basic';
+import demoHomepage from '@ecl/eu-specs-page-header/demo/data-homepage';
+import demoHomepageImage from '@ecl/eu-specs-page-header/demo/data-homepage-image';
+import demoBrandedHomepage from '@ecl/eu-specs-page-header/demo/data-branded-homepage';
+import demoBrandedHomepageImage from '@ecl/eu-specs-page-header/demo/data-branded-homepage-image';
 
 import PageHeader from '../PageHeader';
 
@@ -18,47 +22,43 @@ const breadcrumb = (
   </Breadcrumb>
 );
 
-const image =
-  'https://ec.europa.eu/education/sites/education/files/jean-monnet-gs-banner.jpg';
-
 storiesOf('PageHeader', module)
   .addDecorator(withKnobs)
   .add('basic', () => (
     <PageHeader
       breadcrumb={breadcrumb}
-      title={text('Title', demoTitleDescriptionContent.title)}
-      description={text('Description', demoTitleDescriptionContent.description)}
+      title={text('Title', demoBasic.title)}
     />
   ))
   .add('homepage', () => (
     <PageHeader
-      title={text('Title', demoTitleDescriptionContent.title)}
-      description={text('Description', demoTitleDescriptionContent.description)}
-      isHomepage
+      {...demoHomepage}
+      title={text('Title', demoHomepage.title)}
+      slogan={text('Slogan', demoHomepage.slogan)}
     />
   ))
   .add('homepage-image', () => (
     <PageHeader
-      title={text('Title', demoTitleDescriptionContent.title)}
-      description={text('Description', demoTitleDescriptionContent.description)}
-      isHomepage
-      image={image}
+      {...demoHomepageImage}
+      title={text('Title', demoHomepageImage.title)}
+      slogan={text('Slogan', demoHomepageImage.slogan)}
+      image={text('Image', demoHomepageImage.image)}
     />
   ))
   .add('branded-homepage', () => (
     <PageHeader
+      {...demoBrandedHomepage}
       breadcrumb={breadcrumb}
-      title={text('Title', demoTitleDescriptionContent.title)}
-      description={text('Description', demoTitleDescriptionContent.description)}
-      isBranded
+      title={text('Title', demoBrandedHomepage.title)}
+      slogan={text('Slogan', demoBrandedHomepage.slogan)}
     />
   ))
   .add('branded-homepage-image', () => (
     <PageHeader
+      {...demoBrandedHomepageImage}
       breadcrumb={breadcrumb}
-      title={text('Title', demoTitleDescriptionContent.title)}
-      description={text('Description', demoTitleDescriptionContent.description)}
-      isBranded
-      image={image}
+      title={text('Title', demoBrandedHomepageImage.title)}
+      slogan={text('Slogan', demoBrandedHomepageImage.slogan)}
+      image={text('Image', demoBrandedHomepageImage.image)}
     />
   ));

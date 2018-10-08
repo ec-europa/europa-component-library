@@ -5,7 +5,7 @@ import classnames from 'classnames';
 const PageHeader = ({
   breadcrumb,
   title,
-  description,
+  slogan,
   image,
   className,
   isBranded,
@@ -31,8 +31,8 @@ const PageHeader = ({
           })}
         <div className="ecl-page-header__title-wrapper">
           <h1 className="ecl-page-header__title">{title}</h1>
-          {!!(description && (isBranded || isHomepage)) && (
-            <p className="ecl-page-header__description">{description}</p>
+          {!!(slogan && (isBranded || isHomepage)) && (
+            <p className="ecl-page-header__slogan">{slogan}</p>
           )}
         </div>
       </div>
@@ -43,7 +43,7 @@ const PageHeader = ({
 PageHeader.propTypes = {
   breadcrumb: PropTypes.node,
   title: PropTypes.string,
-  description: PropTypes.string,
+  slogan: PropTypes.string,
   image: PropTypes.string,
   className: PropTypes.string,
   isBranded: PropTypes.bool,
@@ -53,7 +53,7 @@ PageHeader.propTypes = {
 PageHeader.defaultProps = {
   breadcrumb: null,
   title: '',
-  description: '',
+  slogan: '',
   className: '',
   image: '',
   isBranded: false,
