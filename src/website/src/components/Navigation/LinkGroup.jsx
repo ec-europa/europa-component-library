@@ -4,10 +4,10 @@ import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
-import NavigationLink from './NavigationLink';
 import styles from './LinkGroup.scss';
+import LinkList from './LinkList';
 
-class LinkGroup extends PureComponent {
+class LinkGroup2 extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -18,7 +18,7 @@ class LinkGroup extends PureComponent {
       isOpen:
         hasPathname &&
         groupUrl &&
-        props.location.pathname.indexOf(groupUrl) === 0,
+        props.location.pathname.indexOf(groupUrl.toLowerCase()) === 0,
     };
 
     this.toggleGroup = this.toggleGroup.bind(this);
@@ -31,18 +31,18 @@ class LinkGroup extends PureComponent {
   }
 
   render() {
-    const { pages, title, showStatus } = this.props;
+    const { pages, level, showStatus, section, groupUrl } = this.props;
     const { isOpen } = this.state;
 
     return (
-      <li>
+      <Fragment>
         <button
           type="button"
           className={styles['group-list-item']}
           onClick={this.toggleGroup}
         >
           <span>
-            {title}
+            {section}
             <svg
               className={classnames(styles.icon, {
                 [styles['icon-rotate-90']]: !isOpen,
@@ -53,62 +53,35 @@ class LinkGroup extends PureComponent {
             </svg>
           </span>
         </button>
-        <ul className={styles.list} aria-hidden={!isOpen}>
-          {pages.map(page => (
-            <li key={page.url}>
-              <NavigationLink
-                meta={page}
-                className={styles['page-list-item']}
-                activeClassName={styles['page-list-item--active']}
-              >
-                {showStatus && (
-                  <Fragment>
-                    {page.ready ? (
-                      <span
-                        className={styles['page-status']}
-                        style={{
-                          backgroundColor: '#467a39',
-                        }}
-                        title="Ready"
-                      />
-                    ) : (
-                      <span
-                        className={styles['page-status']}
-                        style={{
-                          backgroundColor: '#f29527',
-                        }}
-                        title="Not ready"
-                      />
-                    )}
-                  </Fragment>
-                )}
-                {page.title}
-              </NavigationLink>
-            </li>
-          ))}
-        </ul>
-      </li>
+        <LinkList
+          pages={pages}
+          level={level + 1}
+          aria-hidden={!isOpen}
+          className={styles.list}
+          showStatus={showStatus}
+          parentSection={groupUrl}
+        />
+      </Fragment>
     );
   }
 }
 
-LinkGroup.propTypes = {
-  groupUrl: PropTypes.string.isRequired,
+LinkGroup2.propTypes = {
+  groupUrl: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
-  pages: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string,
-      title: PropTypes.string,
-    })
-  ).isRequired,
+  pages: PropTypes.shape().isRequired,
   showStatus: PropTypes.bool,
-  title: PropTypes.string.isRequired,
+  level: PropTypes.number,
+  section: PropTypes.string,
 };
 
-LinkGroup.defaultProps = {
+LinkGroup2.defaultProps = {
+  groupUrl: '',
   showStatus: false,
+  level: 0,
+  section: '',
 };
 
-export default withRouter(LinkGroup);
+export default withRouter(LinkGroup2);

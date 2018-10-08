@@ -3,7 +3,6 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/footer',
   title: 'Footer',
   section: 'Components',
   tabs: [

@@ -4,9 +4,8 @@ import usage from './docs/usage.md';
 
 export default {
   ready: true,
-  url: '/ec/components/text-input',
   title: 'Text input',
-  section: 'Components',
+  section: 'Components/Forms',
   tabs: [
     {
       name: 'Usage',

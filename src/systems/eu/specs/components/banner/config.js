@@ -3,7 +3,6 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/banner',
   title: 'Banner',
   section: 'Components',
   tabs: [

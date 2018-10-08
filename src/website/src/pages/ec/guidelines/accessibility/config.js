@@ -3,7 +3,6 @@ import keyboard from './docs/keyboard.md';
 
 export default {
   order: 3,
-  url: '/ec/guidelines/accessibility',
   title: 'Accessibility',
   section: 'Guidelines',
   tabs: [

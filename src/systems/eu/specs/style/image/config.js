@@ -4,7 +4,6 @@ import usage from './docs/usage.md';
 
 export default {
   order: 4,
-  url: '/eu/style/image',
   title: 'Image use',
   section: 'Style',
   tabs: [

@@ -3,7 +3,6 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/logo',
   title: 'Logo',
   section: 'Components',
   ready: true,

@@ -3,7 +3,6 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/menu',
   title: 'Menu',
   section: 'Components',
   tabs: [

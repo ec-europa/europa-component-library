@@ -3,7 +3,6 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/social-media-link',
   title: 'Social Media Link',
   section: 'Components',
   tabs: [

@@ -3,7 +3,6 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/site-switcher',
   title: 'Site switcher',
   section: 'Components',
   ready: true,

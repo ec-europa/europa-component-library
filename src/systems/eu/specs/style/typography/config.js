@@ -4,7 +4,6 @@ import usage from './docs/usage.md';
 
 export default {
   order: 2,
-  url: '/eu/style/typography',
   title: 'Typography',
   section: 'Style',
   tabs: [

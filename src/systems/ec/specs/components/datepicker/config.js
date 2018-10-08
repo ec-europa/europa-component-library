@@ -3,7 +3,6 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/datepicker',
   title: 'Datepicker',
   section: 'Components',
   tabs: [

@@ -3,7 +3,6 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/card',
   title: 'Card',
   section: 'Components',
   ready: true,

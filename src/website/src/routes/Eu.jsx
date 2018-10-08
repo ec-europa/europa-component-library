@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import slugify from 'slugify';
 
 import EUStyles from '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css';
 
@@ -22,10 +23,44 @@ const euSpecs = require.context(
   /config\.js$/
 );
 
+const slug = s => slugify(s, { lower: true, remove: /'/gi });
+
 const pages = [
   ...euPages.keys().map(key => euPages(key).default),
   ...euSpecs.keys().map(key => euSpecs(key).default),
 ];
+
+const newPages = {};
+pages.forEach(p => {
+  if (!p.section) {
+    newPages[p.title] = p;
+    newPages[p.title].url = `/eu/${slug(p.title)}`;
+    return;
+  }
+
+  const sections = p.section.split('/');
+
+  let parentSection = newPages;
+  sections.forEach((s, index) => {
+    if (!parentSection[s]) {
+      parentSection[s] = {};
+    }
+
+    if (index === sections.length - 1) {
+      parentSection[s][p.title] = p;
+
+      // Inject url
+      parentSection[s][p.title].url = `/eu/${p.section
+        .split('/')
+        .map(sec => slug(sec))
+        .join('/')}/${slug(p.title)}`;
+
+      return;
+    }
+
+    parentSection = parentSection[s];
+  });
+});
 
 class EURoutes extends Component {
   constructor(props) {
@@ -60,7 +95,7 @@ class EURoutes extends Component {
     return (
       <Fragment>
         <Navigation
-          pages={pages}
+          pages={newPages}
           prefix="/eu"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}

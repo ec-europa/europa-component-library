@@ -3,7 +3,6 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/inpage-navigation',
   title: 'Inpage navigation',
   section: 'Components',
   tabs: [

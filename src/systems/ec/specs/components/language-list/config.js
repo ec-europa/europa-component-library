@@ -3,7 +3,6 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/language-list',
   title: 'Language list',
   section: 'Components',
   ready: true,

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import ECStyles from '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
+import slugify from 'slugify';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -21,10 +22,44 @@ const ecSpecs = require.context(
   /config\.js$/
 );
 
+const slug = s => slugify(s, { lower: true, remove: /'/gi });
+
 const pages = [
   ...ecPages.keys().map(key => ecPages(key).default),
   ...ecSpecs.keys().map(key => ecSpecs(key).default),
 ];
+
+const newPages = {};
+pages.forEach(p => {
+  if (!p.section) {
+    newPages[p.title] = p;
+    newPages[p.title].url = `/ec/${slug(p.title)}`;
+    return;
+  }
+
+  const sections = p.section.split('/');
+
+  let parentSection = newPages;
+  sections.forEach((s, index) => {
+    if (!parentSection[s]) {
+      parentSection[s] = {};
+    }
+
+    if (index === sections.length - 1) {
+      parentSection[s][p.title] = p;
+
+      // Inject url
+      parentSection[s][p.title].url = `/ec/${p.section
+        .split('/')
+        .map(sec => slug(sec))
+        .join('/')}/${slug(p.title)}`;
+
+      return;
+    }
+
+    parentSection = parentSection[s];
+  });
+});
 
 class ECRoutes extends Component {
   constructor(props) {
@@ -59,7 +94,7 @@ class ECRoutes extends Component {
     return (
       <Fragment>
         <Navigation
-          pages={pages}
+          pages={newPages}
           prefix="/ec"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}

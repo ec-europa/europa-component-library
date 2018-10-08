@@ -4,7 +4,6 @@ import usage from './docs/usage.md';
 
 export default {
   ready: true,
-  url: '/eu/components/text-area',
   title: 'Text area',
   section: 'Components',
   tabs: [

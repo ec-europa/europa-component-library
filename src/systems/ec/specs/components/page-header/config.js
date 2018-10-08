@@ -4,7 +4,6 @@ import usage from './docs/usage.md';
 
 export default {
   ready: true,
-  url: '/ec/components/page-header',
   title: 'Page Header',
   section: 'Components',
   tabs: [
