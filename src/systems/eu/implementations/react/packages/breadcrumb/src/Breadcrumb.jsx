@@ -132,11 +132,9 @@ export default class Breadcrumb extends React.Component {
         aria-label={label}
         data-ecl-breadcrumb
       >
-        <div className="ecl-container">
-          <ol className="ecl-breadcrumb__container" ref={this.breadcrumbRef}>
-            {items}
-          </ol>
-        </div>
+        <ol className="ecl-breadcrumb__container" ref={this.breadcrumbRef}>
+          {items}
+        </ol>
       </nav>
     );
   }
