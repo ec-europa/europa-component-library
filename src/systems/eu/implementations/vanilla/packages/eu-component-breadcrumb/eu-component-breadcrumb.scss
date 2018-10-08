@@ -10,14 +10,12 @@
 @include check-imports(('eu-component-link', 'eu-component-icon'));
 
 @mixin ecl-breadcrumb(
-  $background-color: $ecl-color-blue-100,
   $background-color-hover: $ecl-color-blue-120,
   $link-color: $ecl-color-white-100,
   $last-link-color: $ecl-color-blue-25,
   $border-color: $ecl-color-white-100
 ) {
   .ecl-breadcrumb {
-    background-color: $background-color;
     margin: 0;
   }
 
