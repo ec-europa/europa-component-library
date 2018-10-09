@@ -70,6 +70,8 @@ MediaContainer.defaultProps = {
   description: '',
   image: '',
   className: '',
+  sources: '',
+  tracks: '',
 };
 
 export default MediaContainer;
