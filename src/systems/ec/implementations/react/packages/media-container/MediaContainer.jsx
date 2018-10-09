@@ -15,7 +15,7 @@ const MediaContainer = ({
   return (
     <figure className={classNames} {...props}>
       {sources ? (
-        // eslint-disable-next-line
+        /* eslint-disable-next-line jsx-a11y/media-has-caption */
         <video
           className="ecl-media-container__media"
           controls="controls"
