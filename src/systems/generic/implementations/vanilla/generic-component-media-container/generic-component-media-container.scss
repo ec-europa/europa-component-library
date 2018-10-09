@@ -1,0 +1,28 @@
+/**
+ * Hero Banner component
+ * @define hero-banner
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-media-container() {
+  .ecl-media-container {
+    background-color: $ecl-color-grey-10;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .ecl-media-container__media {
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .ecl-media-container__caption {
+    font: $ecl-font-prolonged-m;
+    padding: $ecl-spacing-s;
+  }
+}
