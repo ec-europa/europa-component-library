@@ -7,7 +7,13 @@ import styles from './Navigation.scss';
 
 class Navigation extends PureComponent {
   render() {
-    const { sidebarOpen, onToggleSidebar, pages, prefix } = this.props;
+    const {
+      sidebarOpen,
+      onToggleSidebar,
+      pages,
+      prefix,
+      forceRefresh,
+    } = this.props;
 
     return (
       <Fragment>
@@ -17,7 +23,7 @@ class Navigation extends PureComponent {
             sidebarOpen
               ? styles['button-toggle--open']
               : styles['button-toggle--closed']
-          } `}
+          }${forceRefresh ? ' ' : ''} `}
           onClick={onToggleSidebar}
         >
           <span className={styles['hamburger-box']}>
@@ -27,7 +33,7 @@ class Navigation extends PureComponent {
         <nav
           className={`${styles.nav}${
             sidebarOpen ? '' : ` ${styles['nav--closed']}`
-          }`}
+          }${forceRefresh ? ' ' : ''}`}
         >
           <div className={styles.header}>
             <Link to="/" className={styles.logo} title="European Commission">
@@ -74,11 +80,13 @@ Navigation.propTypes = {
   onToggleSidebar: PropTypes.func,
   pages: PropTypes.shape().isRequired,
   prefix: PropTypes.string.isRequired,
+  forceRefresh: PropTypes.bool,
 };
 
 Navigation.defaultProps = {
   sidebarOpen: true,
   onToggleSidebar: () => {},
+  forceRefresh: false,
 };
 
 // Use withRouter to update links when they become active

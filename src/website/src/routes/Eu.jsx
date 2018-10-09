@@ -70,6 +70,7 @@ class EURoutes extends Component {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
         1140,
+      forceRefresh: false,
     };
 
     this.toggleSidebar = this.toggleSidebar.bind(this);
@@ -77,6 +78,11 @@ class EURoutes extends Component {
 
   componentDidMount() {
     EUStyles.use();
+
+    // Force refresh if is mounted on a real client (two-pass rendering)
+    this.setState({
+      forceRefresh: navigator.userAgent !== 'ReactSnap',
+    });
   }
 
   componentWillUnmount() {
@@ -90,7 +96,7 @@ class EURoutes extends Component {
   }
 
   render() {
-    const { sidebarOpen } = this.state;
+    const { sidebarOpen, forceRefresh } = this.state;
 
     return (
       <Fragment>
@@ -99,8 +105,9 @@ class EURoutes extends Component {
           prefix="/eu"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}
+          forceRefresh={forceRefresh}
         />
-        <MainContainer sidebarOpen={sidebarOpen}>
+        <MainContainer sidebarOpen={sidebarOpen} forceRefresh={forceRefresh}>
           <Switch>
             <Route
               exact
