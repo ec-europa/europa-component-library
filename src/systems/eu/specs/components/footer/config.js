@@ -1,10 +1,11 @@
 import style from './docs/style.md';
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
   title: 'Footer',
   section: 'Components/Global elements',
+  ready: true,
   tabs: [
     {
       name: 'Usage',
