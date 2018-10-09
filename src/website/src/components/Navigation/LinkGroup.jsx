@@ -7,7 +7,7 @@ import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import styles from './LinkGroup.scss';
 import LinkList from './LinkList';
 
-class LinkGroup2 extends PureComponent {
+class LinkGroup extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -38,7 +38,7 @@ class LinkGroup2 extends PureComponent {
       <Fragment>
         <button
           type="button"
-          className={styles['group-list-item']}
+          className={`${styles['group-list-item']} ${styles[`level-${level}`]}`}
           onClick={this.toggleGroup}
         >
           <span>
@@ -66,7 +66,7 @@ class LinkGroup2 extends PureComponent {
   }
 }
 
-LinkGroup2.propTypes = {
+LinkGroup.propTypes = {
   groupUrl: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string,
@@ -77,11 +77,11 @@ LinkGroup2.propTypes = {
   section: PropTypes.string,
 };
 
-LinkGroup2.defaultProps = {
+LinkGroup.defaultProps = {
   groupUrl: '',
   showStatus: false,
   level: 0,
   section: '',
 };
 
-export default withRouter(LinkGroup2);
+export default withRouter(LinkGroup);

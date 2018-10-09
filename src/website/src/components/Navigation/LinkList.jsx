@@ -48,13 +48,18 @@ class LinkList extends PureComponent {
         {keys.map(key => (
           <li key={key}>
             {pages[key].url ? (
-              <SingleLink page={pages[key]} showStatus={showStatus} />
+              <SingleLink
+                page={pages[key]}
+                showStatus={showStatus}
+                level={level}
+              />
             ) : (
               <LinkGroup
                 pages={pages[key]}
                 section={key}
                 showStatus={showStatus}
                 groupUrl={`${parentSection}/${key}`}
+                level={level}
               />
             )}
           </li>

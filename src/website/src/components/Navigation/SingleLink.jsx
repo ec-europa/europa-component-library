@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import NavigationLink from './NavigationLink';
-import styles from './LinkGroup.scss';
+import styles from './SingleLink.scss';
 
 class SingleLink extends PureComponent {
   render() {
-    const { page, showStatus } = this.props;
+    const { page, showStatus, level } = this.props;
 
     return (
       <NavigationLink
         meta={page}
-        className={styles['page-list-item']}
+        className={`${styles['page-list-item']} ${styles[`level-${level}`]}`}
         activeClassName={styles['page-list-item--active']}
       >
         {showStatus && (
@@ -51,10 +51,12 @@ SingleLink.propTypes = {
     title: PropTypes.string,
   }).isRequired,
   showStatus: PropTypes.bool,
+  level: PropTypes.number,
 };
 
 SingleLink.defaultProps = {
   showStatus: false,
+  level: 0,
 };
 
 export default withRouter(SingleLink);
