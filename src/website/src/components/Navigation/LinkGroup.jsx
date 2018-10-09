@@ -2,10 +2,13 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
+import slugify from 'slugify';
 
 import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import styles from './LinkGroup.scss';
 import LinkList from './LinkList';
+
+const slug = s => slugify(s, { lower: true, remove: /'/gi });
 
 class LinkGroup extends PureComponent {
   constructor(props) {
@@ -18,7 +21,7 @@ class LinkGroup extends PureComponent {
       isOpen:
         hasPathname &&
         groupUrl &&
-        props.location.pathname.indexOf(groupUrl.toLowerCase()) === 0,
+        props.location.pathname.indexOf(slug(groupUrl)) === 0,
     };
 
     this.toggleGroup = this.toggleGroup.bind(this);
