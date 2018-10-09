@@ -12,7 +12,6 @@ export * from '@ecl/eu-component-breadcrumb';
 // export * from '@ecl/eu-component-message';
 // export * from '@ecl/eu-component-inpage-navigation';
 // export * from '@ecl/eu-component-navigation-menu';
-// export * from '@ecl/eu-component-side-navigation';
 // export * from '@ecl/eu-component-table';
 // export * from '@ecl/eu-component-tab';
 // export * from '@ecl/eu-component-timeline';

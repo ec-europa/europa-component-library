@@ -1,11 +1,12 @@
 import style from './docs/style.md';
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
   url: '/eu/components/footer',
   title: 'Footer',
   section: 'Components',
+  ready: true,
   tabs: [
     {
       name: 'Usage',
