@@ -1,16 +1,9 @@
 {
-  "private": true,
-  "name": "@ecl/ec-component-footer",
-  "version": "2.0.0-alpha.0",
-  "description": "EC Footer",
-  "style": "ec-component-footer.scss",
+  "name": "@ecl/ec-react-component-footer",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "dependencies": {
-    "@ecl/ec-base": "^2.0.0-alpha.0",
-    "@ecl/ec-component-link": "^2.0.0-alpha.0",
-    "@ecl/ec-layout-grid": "^2.0.0-alpha.0"
-  },
+  "version": "2.0.0-alpha.0",
+  "description": "ECL EC React Footer",
   "publishConfig": {
     "access": "public"
   },
@@ -25,7 +18,18 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
+    "design-system",
+    "react"
   ],
-  "sass": "ec-component-footer.scss"
+  "dependencies": {
+    "@ecl/ec-component-footer": "^2.0.0-alpha.0",
+    "@ecl/ec-layout-grid": "^2.0.0-alpha.0",
+    "@ecl/ec-react-component-link": "^2.0.0-alpha.0"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "prop-types": "^15.6.2"
+  }
 }
