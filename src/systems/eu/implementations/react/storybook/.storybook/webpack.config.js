@@ -28,16 +28,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
 
   defaultConfig.resolve.extensions.push('.jsx');
 
-  // Add "limit" to svg-url-loader
-  defaultConfig.module.rules[4].query = {
-    limit: 4 * 1024, // above 4 kB, file-loader will be used
-    stripdeclarations: true,
-    encoding: 'base64',
-  };
-
-  // Exclude SVG sprites
-  defaultConfig.module.rules[4].exclude = /sprites\/icons/;
-
   defaultConfig.module.rules.push(
     ...[
       {
@@ -67,11 +57,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
             },
           },
         ],
-      },
-      // SVG sprites
-      {
-        test: /sprites\/icons(.*)\.svg/,
-        use: ['file-loader'],
       },
     ]
   );
