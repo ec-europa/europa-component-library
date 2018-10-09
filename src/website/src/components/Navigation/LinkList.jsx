@@ -16,9 +16,36 @@ class LinkList extends PureComponent {
       parentSection,
     } = this.props;
 
+    let keys = [];
+
+    // Manually sort keys for level 0
+    if (level === 0) {
+      keys = [
+        'Getting started',
+        "What's new",
+        'Style',
+        'Components',
+        'Templates',
+        'Guidelines',
+        'Resources',
+      ];
+    } else {
+      keys = Object.keys(pages).sort((a, b) => {
+        if (pages[a].order !== undefined && pages[b].order !== undefined) {
+          return pages[a].order > pages[b].order;
+        }
+
+        if (typeof a === 'string' && typeof b === 'string') {
+          return a.localeCompare(b);
+        }
+
+        return 0;
+      });
+    }
+
     return (
       <ul className={className} data-level={level} aria-hidden={ariaHidden}>
-        {Object.keys(pages).map(key => (
+        {keys.map(key => (
           <li key={key}>
             {pages[key].url ? (
               <SingleLink page={pages[key]} showStatus={showStatus} />

@@ -3,7 +3,7 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  order: 2,
+  order: 1,
   title: 'Typography',
   section: 'Style',
   tabs: [

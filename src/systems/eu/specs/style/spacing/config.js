@@ -3,8 +3,8 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  order: 4,
-  title: 'Image use',
+  order: 5,
+  title: 'Spacing',
   section: 'Style',
   tabs: [
     {

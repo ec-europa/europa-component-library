@@ -1,7 +1,7 @@
 import usage from './docs/usage.md';
 
 export default {
-  order: 1,
+  order: 2,
   title: 'Colors',
   section: 'Style',
   tabs: [
