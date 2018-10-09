@@ -1,28 +1,104 @@
 // Simple content for demo
 module.exports = {
+  identity: {
+    title: 'Site identification',
+    follow: {
+      label: 'Follow us:',
+      links: [
+        {
+          variant: 'standalone',
+          label: 'Facebook',
+          href: '/example',
+          iconPosition: 'before',
+          icon: {
+            shape: 'branded--facebook',
+            size: 'xs',
+          },
+        },
+        {
+          variant: 'standalone',
+          label: 'Twitter',
+          href: '/example',
+          iconPosition: 'before',
+          icon: {
+            shape: 'branded--twitter',
+            size: 'xs',
+          },
+        },
+        {
+          variant: 'standalone',
+          label: 'Google+',
+          href: '/example',
+          iconPosition: 'before',
+          icon: {
+            shape: 'branded--google-plus',
+            size: 'xs',
+          },
+        },
+      ],
+    },
+    info: [
+      {
+        variant: 'standalone',
+        label: 'Lorem ipsum',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Lorem ipsum',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Lorem ipsum dolor sit',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Lorem ipsum dolor sit',
+        href: '/example',
+      },
+    ],
+  },
   sections: [
     {
       title: 'Contact the EU',
       items: [
         [
           {
-            link: { label: '00 800 6 7 8 9 10 11', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: '00 800 6 7 8 9 10 11',
+              href: '/example',
+            },
             before: 'Call us ',
           },
           {
-            link: { label: 'telephone options', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'telephone options',
+              href: '/example',
+            },
             before: ' or use another ',
           },
         ],
         [
           {
-            link: { label: 'contact form', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'contact form',
+              href: '/example',
+            },
             before: 'E-mail us via our ',
           },
         ],
         [
           {
-            link: { label: 'contact points', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'contact points',
+              href: '/example',
+            },
             before: 'Visit our ',
             after: ' in your country',
           },
@@ -34,7 +110,11 @@ module.exports = {
       items: [
         [
           {
-            link: { label: 'EU social media channels', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'EU social media channels',
+              href: '/example',
+            },
             before: 'Search for ',
           },
         ],
@@ -42,33 +122,47 @@ module.exports = {
     },
     {
       title: 'Find a European institution',
-      columns: {
-        sm: 6,
-      },
       items: [
         [
           {
-            link: { label: 'European Parliament', href: '/example' },
-          },
-        ],
-        [
-          {
-            link: { label: 'European Council', href: '/example' },
-          },
-        ],
-        [
-          {
-            link: { label: 'Council of the European Union', href: '/example' },
-          },
-        ],
-        [
-          {
-            link: { label: 'European Commission', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'European Parliament',
+              href: '/example',
+            },
           },
         ],
         [
           {
             link: {
+              variant: 'standalone',
+              label: 'European Council',
+              href: '/example',
+            },
+          },
+        ],
+        [
+          {
+            link: {
+              variant: 'standalone',
+              label: 'Council of the European Union',
+              href: '/example',
+            },
+          },
+        ],
+        [
+          {
+            link: {
+              variant: 'standalone',
+              label: 'European Commission',
+              href: '/example',
+            },
+          },
+        ],
+        [
+          {
+            link: {
+              variant: 'standalone',
               label: 'Court of Justice of the European Union',
               href: '/example',
             },
@@ -76,17 +170,26 @@ module.exports = {
         ],
         [
           {
-            link: { label: 'European Central Bank', href: '/example' },
-          },
-        ],
-        [
-          {
-            link: { label: 'European Court of Auditors', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'European Central Bank',
+              href: '/example',
+            },
           },
         ],
         [
           {
             link: {
+              variant: 'standalone',
+              label: 'European Court of Auditors',
+              href: '/example',
+            },
+          },
+        ],
+        [
+          {
+            link: {
+              variant: 'standalone',
               label: 'European External Action Service',
               href: '/example',
             },
@@ -95,6 +198,7 @@ module.exports = {
         [
           {
             link: {
+              variant: 'standalone',
               label: 'European Economic and Social Committee',
               href: '/example',
             },
@@ -103,6 +207,7 @@ module.exports = {
         [
           {
             link: {
+              variant: 'standalone',
               label: 'European Committee of the Regions',
               href: '/example',
             },
@@ -110,12 +215,26 @@ module.exports = {
         ],
         [
           {
-            link: { label: 'European Ombudsman', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'European Investment Bank',
+              href: '/example',
+            },
           },
         ],
         [
           {
             link: {
+              variant: 'standalone',
+              label: 'European Ombudsman',
+              href: '/example',
+            },
+          },
+        ],
+        [
+          {
+            link: {
+              variant: 'standalone',
               label: 'European Data Protection Supervisor',
               href: '/example',
             },
@@ -124,6 +243,7 @@ module.exports = {
         [
           {
             link: {
+              variant: 'standalone',
               label: 'European Personnel Selection Office',
               href: '/example',
             },
@@ -132,6 +252,7 @@ module.exports = {
         [
           {
             link: {
+              variant: 'standalone',
               label: 'Publications Office of the European Union',
               href: '/example',
             },
@@ -139,10 +260,58 @@ module.exports = {
         ],
         [
           {
-            link: { label: 'Agencies', href: '/example' },
+            link: {
+              variant: 'standalone',
+              label: 'Agencies',
+              href: '/example',
+            },
+          },
+        ],
+      ],
+    },
+    {
+      items: [
+        [
+          {
+            link: {
+              variant: 'standalone',
+              label: 'EU institutions',
+              href: '/example',
+            },
+            before: 'Search for ',
           },
         ],
       ],
     },
   ],
+  global: {
+    label: 'Last published 26/06/2018',
+    links: [
+      {
+        variant: 'standalone',
+        label: 'Language policy',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Privacy policy',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Legal notice',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Cookies',
+        href: '/example',
+      },
+      {
+        variant: 'standalone',
+        label: 'Web accessibility',
+        href: '/example',
+      },
+    ],
+  },
 };
