@@ -7,6 +7,7 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  width: 100%;
 
   @each $breakpoint in map-keys($gutters) {
     @include ecl-media-breakpoint-up($breakpoint) {
