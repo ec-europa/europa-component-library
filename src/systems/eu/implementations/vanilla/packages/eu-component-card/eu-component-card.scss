@@ -107,13 +107,14 @@
 
   .ecl-card__tag-container {
     display: inline-flex;
+    flex-wrap: wrap;
     list-style: none;
-    margin-top: $ecl-spacing-m;
+    margin: 0;
     padding: 0;
   }
 
   .ecl-card__tag-item {
-    margin-right: $ecl-spacing-xs;
+    margin: $ecl-spacing-m $ecl-spacing-xs 0 0;
 
     &:last-child {
       margin-right: 0;

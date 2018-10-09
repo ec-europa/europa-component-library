@@ -3,7 +3,6 @@ import keyboard from './docs/keyboard.md';
 
 export default {
   order: 1,
-  url: '/ec/guidelines/ipg',
   title: 'IPG',
   section: 'Guidelines',
   tabs: [

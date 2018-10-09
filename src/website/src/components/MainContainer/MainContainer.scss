@@ -1,12 +1,17 @@
 .container {
   box-sizing: border-box;
   max-width: 100%;
-  transition: 250ms ease;
+  transition: margin-left 300ms ease;
+
+  :global(.no-js) & {
+    @media screen and (min-width: 1140px) {
+      margin-left: 15rem;
+    }
+  }
 }
 
 .container--with-sidebar {
   @media screen and (min-width: 1140px) {
     margin-left: 15rem;
-    transition: margin-left 300ms ease;
   }
 }

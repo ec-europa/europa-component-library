@@ -1,11 +1,9 @@
-import style from './docs/style.md';
 import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/footer',
   title: 'Footer',
-  section: 'Components',
+  section: 'Components/Global elements',
   ready: true,
   tabs: [
     {
@@ -17,11 +15,6 @@ export default {
       name: 'Showcase',
       component: code,
       url: 'showcase',
-    },
-    {
-      name: 'Style',
-      component: style,
-      url: 'style',
     },
   ],
   defaultTab: 'usage',
