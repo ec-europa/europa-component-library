@@ -2,6 +2,7 @@ import color from './docs/color.md';
 import keyboard from './docs/keyboard.md';
 
 export default {
+  hidden: true,
   order: 3,
   title: 'Accessibility',
   section: 'Guidelines',

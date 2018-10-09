@@ -60,7 +60,6 @@ class LinkGroup extends PureComponent {
           pages={pages}
           level={level + 1}
           aria-hidden={!isOpen}
-          className={styles.list}
           showStatus={showStatus}
           parentSection={groupUrl}
         />

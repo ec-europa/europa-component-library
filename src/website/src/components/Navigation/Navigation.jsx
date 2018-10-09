@@ -41,7 +41,7 @@ class Navigation extends PureComponent {
             </Link>
             <h2 className={styles.title}>Europa Component Library</h2>
           </div>
-          <ul className={`${styles.list} ${styles['system-list']}`}>
+          <ul className={styles['system-list']}>
             <li className={styles['system-list-item']}>
               <NavLink
                 to="/ec/"
@@ -63,12 +63,7 @@ class Navigation extends PureComponent {
               </NavLink>
             </li>
           </ul>
-          <LinkList
-            pages={pages}
-            level={0}
-            className={styles.list}
-            parentSection={prefix}
-          />
+          <LinkList pages={pages} level={0} parentSection={prefix} />
         </nav>
       </Fragment>
     );

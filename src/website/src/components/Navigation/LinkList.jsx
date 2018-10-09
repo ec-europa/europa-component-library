@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import SingleLink from './SingleLink';
 import LinkGroup from './LinkGroup';
+import styles from './LinkList.scss';
 
 class LinkList extends PureComponent {
   render() {
@@ -11,7 +12,6 @@ class LinkList extends PureComponent {
       pages,
       level,
       showStatus,
-      className,
       'aria-hidden': ariaHidden,
       parentSection,
     } = this.props;
@@ -44,8 +44,8 @@ class LinkList extends PureComponent {
     }
 
     return (
-      <ul className={className} data-level={level} aria-hidden={ariaHidden}>
-        {keys.map(key => (
+      <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
+        {keys.filter(key => pages[key].hidden !== true).map(key => (
           <li key={key}>
             {pages[key].url ? (
               <SingleLink
@@ -76,7 +76,6 @@ LinkList.propTypes = {
   pages: PropTypes.shape().isRequired,
   showStatus: PropTypes.bool,
   level: PropTypes.number,
-  className: PropTypes.string,
   'aria-hidden': PropTypes.bool,
   parentSection: PropTypes.string,
 };
@@ -84,7 +83,6 @@ LinkList.propTypes = {
 LinkList.defaultProps = {
   showStatus: false,
   level: 0,
-  className: '',
   'aria-hidden': false,
   parentSection: '',
 };
