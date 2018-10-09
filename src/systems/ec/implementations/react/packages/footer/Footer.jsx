@@ -46,7 +46,7 @@ const Footer = ({ identity, sections, common, className, ...props }) => (
       </div>
     </section>
 
-    {/* Eurooean Commission */}
+    {/* European Commission */}
     <div className="ecl-footer__sections">
       <div className="ecl-container">
         <div className="ecl-row">
