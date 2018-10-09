@@ -4,7 +4,7 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Footer',
-  section: 'Components',
+  section: 'Components/Global elements',
   tabs: [
     {
       name: 'Usage',

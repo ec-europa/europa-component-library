@@ -5,7 +5,7 @@ import usage from './docs/usage.md';
 export default {
   ready: true,
   title: 'Page Header',
-  section: 'Components',
+  section: 'Components/Global elements',
   tabs: [
     {
       name: 'Usage',

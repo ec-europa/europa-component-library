@@ -4,7 +4,7 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Menu',
-  section: 'Components',
+  section: 'Components/Navigation',
   tabs: [
     {
       name: 'Usage',

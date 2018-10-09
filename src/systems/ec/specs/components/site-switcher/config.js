@@ -4,7 +4,7 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Site switcher',
-  section: 'Components',
+  section: 'Components/Global elements',
   ready: true,
   tabs: [
     {

@@ -4,7 +4,7 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Breadcrumb',
-  section: 'Components',
+  section: 'Components/Navigation',
   ready: true,
   tabs: [
     {
