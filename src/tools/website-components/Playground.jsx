@@ -20,7 +20,7 @@ const Playground = ({
 
   const playgroundUrl =
     playgroundLink ||
-    `/storybook/${system}/index.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}&stories=0`;
+    `/storybook/${system}/index.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}&stories=1`;
 
   const fullFrameUrl =
     system && selectedKind && selectedStory
