@@ -23,8 +23,8 @@
   $background-sections: $ecl-color-grey-15,
   $color-section: $ecl-color-grey-100,
   $border-section: $ecl-color-grey-25,
-  $background-global: $ecl-color-grey-20,
-  $color-global: $ecl-color-grey-100
+  $background-common: $ecl-color-grey-20,
+  $color-common: $ecl-color-grey-100
 ) {
   .ecl-footer {
     box-sizing: border-box;
@@ -160,29 +160,29 @@
   }
 
   /*
-   * Global
+   * Common
    */
-  .ecl-footer__global {
-    background-color: $background-global;
-    color: $color-global;
+  .ecl-footer__common {
+    background-color: $background-common;
+    color: $color-common;
     font: $ecl-font-s;
     padding-bottom: $ecl-spacing-l;
     padding-top: $ecl-spacing-l;
   }
 
-  .ecl-footer__global-container {
+  .ecl-footer__common-container {
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
     margin-bottom: -($ecl-spacing-m);
   }
 
-  .ecl-footer__global-label {
+  .ecl-footer__common-label {
     margin-bottom: $ecl-spacing-m;
     margin-right: $ecl-spacing-xl;
   }
 
-  .ecl-footer__global-link {
+  .ecl-footer__common-link {
     margin-bottom: $ecl-spacing-m;
     margin-right: $ecl-spacing-xl;
 

@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import Link from '@ecl/eu-react-component-link/Link';
 
-const Footer = ({ identity, sections, global, className, ...props }) => (
+const Footer = ({ identity, sections, common, className, ...props }) => (
   <footer {...props} className={classnames(className, 'ecl-footer')}>
     {/* Site identity */}
     <section className="ecl-footer__identity">
@@ -152,15 +152,15 @@ const Footer = ({ identity, sections, global, className, ...props }) => (
       </div>
     </div>
 
-    {/* Global */}
-    <section className="ecl-footer__global">
-      <div className="ecl-container ecl-footer__global-container">
-        <span className="ecl-footer__global-label">{global.label}</span>
-        {global.links.map(link => (
+    {/* Common */}
+    <section className="ecl-footer__common">
+      <div className="ecl-container ecl-footer__common-container">
+        <span className="ecl-footer__common-label">{common.label}</span>
+        {common.links.map(link => (
           <Link
             {...link}
             key={link.label}
-            className={classnames(link.className, 'ecl-footer__global-link')}
+            className={classnames(link.className, 'ecl-footer__common-link')}
           />
         ))}
       </div>
@@ -191,7 +191,7 @@ Footer.propTypes = {
       ),
     })
   ),
-  global: PropTypes.shape({
+  common: PropTypes.shape({
     label: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
   }),
@@ -201,7 +201,7 @@ Footer.propTypes = {
 Footer.defaultProps = {
   identity: {},
   sections: [],
-  global: {},
+  common: {},
   className: '',
 };
 

@@ -284,7 +284,7 @@ module.exports = {
       ],
     },
   ],
-  global: {
+  common: {
     label: 'Last published 26/06/2018',
     links: [
       {
