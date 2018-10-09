@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 const MediaContainer = ({
   image,
+  alt,
   sources,
   tracks,
   description,
@@ -13,13 +14,14 @@ const MediaContainer = ({
   const classNames = classnames(className, 'ecl-media-container', {});
 
   return (
-    <figure className={classNames} {...props}>
-      {sources ? (
+    <figure {...props} className={classNames}>
+      {Array.isArray(sources) && sources.length !== 0 ? (
         /* eslint-disable-next-line jsx-a11y/media-has-caption */
         <video
           className="ecl-media-container__media"
           controls="controls"
           poster={image}
+          alt={alt}
         >
           {sources.map(source => (
             <source key={source.src} src={source.src} type={source.type} />
@@ -36,7 +38,7 @@ const MediaContainer = ({
           ))}
         </video>
       ) : (
-        <img className="ecl-media-container__media" src={image} alt="" />
+        <img className="ecl-media-container__media" src={image} alt="{alt}" />
       )}
       {description && (
         <figcaption className="ecl-media-container__caption">
@@ -48,6 +50,7 @@ const MediaContainer = ({
 };
 
 MediaContainer.propTypes = {
+  alt: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   sources: PropTypes.arrayOf(
@@ -68,11 +71,12 @@ MediaContainer.propTypes = {
 };
 
 MediaContainer.defaultProps = {
+  alt: '',
   description: '',
   image: '',
   className: '',
-  sources: '',
-  tracks: '',
+  sources: [],
+  tracks: [],
 };
 
 export default MediaContainer;

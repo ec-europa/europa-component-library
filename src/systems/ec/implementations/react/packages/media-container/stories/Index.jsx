@@ -21,5 +21,6 @@ storiesOf('MediaContainer', module)
     <MediaContainer
       description={text('Description', demoContent.description)}
       image={text('Image', demoContent.image)}
+      alt={text('Alt', demoContent.alt)}
     />
   ));

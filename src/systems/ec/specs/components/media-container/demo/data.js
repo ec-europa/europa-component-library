@@ -1,5 +1,6 @@
 // Simple content for demo
 module.exports = {
+  alt: 'alt text',
   image:
     'https://ec.europa.eu/education/sites/education/files/jean-monnet-gs-banner.jpg',
   description:
