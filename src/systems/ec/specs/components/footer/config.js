@@ -1,4 +1,4 @@
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
