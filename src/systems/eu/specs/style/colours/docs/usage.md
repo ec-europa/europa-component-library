@@ -1,5 +1,5 @@
 import { ColorCard, ColorLayout, ColorPalette } from '@ecl/website-components'
-import tokens from '@ecl/ec-theme-default/exports/tokens.json'
+import tokens from '@ecl/eu-theme-default/exports/tokens.json'
 
 The colour palette is designed to support a flexible, modular visual style that feels connected across EC and EU websites and platforms. The intent of the palette is to **convey a united and open European spirit**, and leave users feeling welcome and in good hands.
 
@@ -7,7 +7,7 @@ The colour palette is designed to support a flexible, modular visual style that 
 
 ---
 
-The **primary color palette** is comprised of blues, yellows and greys. These colors are present accross all pages and, together with the neutral white, they make up for about 80% of the colors in the page layout. Use these colours to **create consistency** and a strong **visual hierarchy** throughout the page.
+The **primary colour palette** is comprised of blues, yellows and greys. These colours are present accross all pages and, together with the neutral white, they make up for about 80% of the colours in the page layout. Use these colours to **create consistency** and a strong **visual hierarchy** throughout the page.
 
 <ColorLayout>
   <ColorCard tokens={tokens} name="COLOR_PRIMARY" />
