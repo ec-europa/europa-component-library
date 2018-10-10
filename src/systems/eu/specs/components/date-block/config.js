@@ -1,11 +1,10 @@
-import style from './docs/style.md';
 import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/date-block',
   title: 'Date block',
   section: 'Components',
+  status: 'wip',
   tabs: [
     {
       name: 'Usage',
@@ -13,14 +12,9 @@ export default {
       url: 'usage',
     },
     {
-      name: 'Code',
+      name: 'Showcase',
       component: code,
       url: 'code',
-    },
-    {
-      name: 'Style',
-      component: style,
-      url: 'style',
     },
   ],
   defaultTab: 'usage',
