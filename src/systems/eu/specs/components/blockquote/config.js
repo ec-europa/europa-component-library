@@ -2,7 +2,7 @@ import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  ready: true,
+  status: 'ready',
   title: 'Blockquote',
   section: 'Components',
   tabs: [

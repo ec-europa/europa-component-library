@@ -4,6 +4,7 @@ import usage from './docs/usage.md';
 export default {
   title: 'Date block',
   section: 'Components',
+  status: 'wip',
   tabs: [
     {
       name: 'Usage',

@@ -4,6 +4,7 @@ import usage from './docs/usage.md';
 export default {
   title: 'Timeline',
   section: 'Components',
+  status: 'planned',
   tabs: [
     {
       name: 'Usage',

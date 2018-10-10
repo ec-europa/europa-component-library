@@ -2,9 +2,9 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  ready: true,
   title: 'Hero banner',
   section: 'Components',
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
