@@ -1,0 +1,27 @@
+import Playground from '@ecl/website-components/Playground'
+import MediaContainer from '@ecl/ec-react-component-media-container/MediaContainer'
+
+import demoContentImage from '../demo/data--image';
+import demoContentVideo from '../demo/data--video';
+
+## Image
+
+<Playground
+  system="ec"
+  selectedKind="MediaContainer"
+  selectedStory="image"
+>
+  <MediaContainer {...demoContentImage} />
+</Playground>
+
+
+
+## Video
+
+<Playground
+  system="ec"
+  selectedKind="MediaContainer"
+  selectedStory="video"
+>
+  <MediaContainer {...demoContentVideo} />
+</Playground>
