@@ -57,7 +57,7 @@ The Basic Map Wizard enables you to build a map that contains such features as:
 - Feeding the map with geographical information in geojson and KML format.
 - Search-as-you-type location services.
 - Routing
-- Choropleth maps in which countries and/or regions are colored in proportion to certain values such as population density or per-capita income.
+- Choropleth maps in which countries and/or regions are coloured in proportion to certain values such as population density or per-capita income.
 
 In case the business you need to introduce into the map goes beyond the configuration possibilities of the wizard, the map can be driven by business-specific javascript.
 

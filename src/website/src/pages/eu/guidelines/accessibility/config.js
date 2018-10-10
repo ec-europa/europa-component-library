@@ -1,4 +1,4 @@
-import color from './docs/color.md';
+import colour from './docs/colour.md';
 import keyboard from './docs/keyboard.md';
 
 export default {
@@ -9,8 +9,8 @@ export default {
   tabs: [
     {
       name: 'Color',
-      component: color,
-      url: 'color',
+      component: colour,
+      url: 'colour',
     },
     {
       name: 'Keyboard',
@@ -18,5 +18,5 @@ export default {
       url: 'keyboard',
     },
   ],
-  defaultTab: 'color',
+  defaultTab: 'colour',
 };
