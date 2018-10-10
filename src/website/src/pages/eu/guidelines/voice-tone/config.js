@@ -3,7 +3,6 @@ import keyboard from './docs/keyboard.md';
 
 export default {
   order: 2,
-  url: '/eu/guidelines/voice-tone',
   title: 'Voice/Tone',
   section: 'Guidelines',
   tabs: [
