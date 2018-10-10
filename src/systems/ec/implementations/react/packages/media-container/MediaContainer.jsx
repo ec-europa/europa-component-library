@@ -11,7 +11,7 @@ const MediaContainer = ({
   className,
   ...props
 }) => {
-  const classNames = classnames(className, 'ecl-media-container', {});
+  const classNames = classnames(className, 'ecl-media-container');
 
   return (
     <figure {...props} className={classNames}>
@@ -24,17 +24,11 @@ const MediaContainer = ({
           alt={alt}
         >
           {sources.map(source => (
-            <source key={source.src} src={source.src} type={source.type} />
+            <source {...source} key={source.src} />
           ))}
 
           {tracks.map(track => (
-            <track
-              key={track.src}
-              src={track.src}
-              kind={track.kind}
-              srcLang={track.srcLang}
-              label={track.label}
-            />
+            <track {...track} src={track.src} />
           ))}
         </video>
       ) : (
@@ -63,7 +57,7 @@ MediaContainer.propTypes = {
     PropTypes.shape({
       src: PropTypes.string,
       kind: PropTypes.string,
-      srclang: PropTypes.string,
+      srcLang: PropTypes.string,
       label: PropTypes.string,
     })
   ),
