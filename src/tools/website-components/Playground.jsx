@@ -20,11 +20,15 @@ const Playground = ({
 
   const playgroundUrl =
     playgroundLink ||
-    `/storybook/${system}/index.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}&stories=1`;
+    encodeURI(
+      `/storybook/${system}/index.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}&stories=1`
+    );
 
   const fullFrameUrl =
     system && selectedKind && selectedStory
-      ? `/storybook/${system}/iframe.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}`
+      ? encodeURI(
+          `/storybook/${system}/iframe.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}`
+        )
       : '';
 
   return (

@@ -8,7 +8,7 @@ import Blockquote from '../Blockquote';
 
 storiesOf('Blockquote', module)
   .addDecorator(withKnobs)
-  .add('interactive', () => (
+  .add('default', () => (
     <Blockquote
       author={text('Author', demoContent.author)}
       citation={text('Citation', demoContent.citation)}

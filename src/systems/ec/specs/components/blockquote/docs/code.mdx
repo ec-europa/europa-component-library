@@ -1,16 +1,13 @@
 import Playground from '@ecl/website-components/Playground'
 import Blockquote from '@ecl/ec-react-component-blockquote/Blockquote'
 
-Introduction text.
-
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Blockquote&selectedStory=interactive&stories=1">
+<Playground
+  system="ec"
+  selectedKind="Blockquote"
+  selectedStory="default"
+>
   <Blockquote
     author="President Juncker"
     citation="An interconnected grid will help deliver the ultimate goal of the Energy Union, to ensure affordable, secure and sustainable energy, and also growth across the EU."
   />
 </Playground>
-
-The component expects 2 parameters:
-
-- author (string)
-- citation (string)

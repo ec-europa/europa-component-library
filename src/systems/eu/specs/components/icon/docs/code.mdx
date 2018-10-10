@@ -2,7 +2,11 @@ import { Link, Playground } from '@ecl/website-components'
 import Icon from '@ecl/eu-react-component-icon/Icon'
 import demoContentAudio from '../demo/data--audio';
 
-<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Icon&selectedStory=default&stories=1">
+<Playground
+  system="eu"
+  selectedKind="Icon"
+  selectedStory="default"
+>
   <Icon {...demoContentAudio} />
 </Playground>
 
@@ -16,7 +20,11 @@ Note: display of icons on Internet Explorer is made possible by the use of [svg4
 
 You can use the default, primary or inverted colours:
 
-<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Icon&selectedStory=default&stories=1">
+<Playground
+  system="eu"
+  selectedKind="Icon"
+  selectedStory="default"
+>
   <Icon {...demoContentAudio} />
   <Icon {...demoContentAudio} color="primary" />
   <Icon {...demoContentAudio} color="inverted" />
@@ -31,7 +39,11 @@ You can change the size of the icon by applying one of the following classes:
 - `ecl-icon--m`: 24&times;24
 - `ecl-icon--fluid`: 1em
 
-<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Icon&selectedStory=default&stories=1">
+<Playground
+  system="eu"
+  selectedKind="Icon"
+  selectedStory="default"
+>
   <Icon {...demoContentAudio} size="xs" />
   <Icon {...demoContentAudio} size="s" />
   <Icon {...demoContentAudio} size="m" />
@@ -47,7 +59,11 @@ You can rotate icons by adding one of the following classes:
 - `ecl-icon--rotate-180`: 180 degrees
 - `ecl-icon--rotate-270`: 270 degrees
 
-<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Icon&selectedStory=default&stories=1">
+<Playground
+  system="eu"
+  selectedKind="Icon"
+  selectedStory="default"
+>
   <Icon {...demoContentAudio} transform="rotate-0" />
   <Icon {...demoContentAudio} transform="rotate-90" />
   <Icon {...demoContentAudio} transform="rotate-180" />
@@ -58,7 +74,11 @@ You can rotate icons by adding one of the following classes:
 
 You can flip icons by adding the class `ecl-icon--flip-horizontal` or `ecl-icon--flip-vertical`).
 
-<Playground playgroundLink="/storybook/eu/index.html?selectedKind=Icon&selectedStory=default&stories=1">
+<Playground
+  system="eu"
+  selectedKind="Icon"
+  selectedStory="default"
+>
   <Icon {...demoContentAudio} transform="flip-horizontal" />
   <Icon {...demoContentAudio} transform="flip-vertical" />
 </Playground>
