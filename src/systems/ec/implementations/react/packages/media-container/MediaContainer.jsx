@@ -38,7 +38,7 @@ const MediaContainer = ({
           ))}
         </video>
       ) : (
-        <img className="ecl-media-container__media" src={image} alt="{alt}" />
+        <img className="ecl-media-container__media" src={image} alt={alt} />
       )}
       {description && (
         <figcaption className="ecl-media-container__caption">

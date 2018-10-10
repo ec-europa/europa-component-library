@@ -1,24 +1,27 @@
 import Playground from '@ecl/website-components/Playground'
 import MediaContainer from '@ecl/ec-react-component-media-container/MediaContainer'
 
-import demoContent from '../demo/data';
+import demoContentImage from '../demo/data--image';
+import demoContentVideo from '../demo/data--video';
 
 ## Media container image
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=MediaContainer&selectedStory=image&stories=0">
-  <MediaContainer
-  description={demoContent.description}
-  image={demoContent.image}
-  />
+<Playground
+  system="ec"
+  selectedKind="MediaContainer"
+  selectedStory="image"
+>
+  <MediaContainer {...demoContentImage} />
 </Playground>
+
+
 
 ## MediaContainer video
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=MediaContainer&selectedStory=video&stories=0">
-  <MediaContainer
-  description={demoContent.description}
-  image={demoContent.image}
-  sources={demoContent.sources}
-  tracks={demoContent.tracks}
-  />
+<Playground
+  system="ec"
+  selectedKind="MediaContainer"
+  selectedStory="video"
+>
+  <MediaContainer {...demoContentVideo} />
 </Playground>

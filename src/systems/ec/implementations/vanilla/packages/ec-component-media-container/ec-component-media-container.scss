@@ -1,11 +1,31 @@
 /**
  * Media container component
- * @define media
+ * @define media-container
  */
 
 // Import base and generic
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-component-media-container/generic-component-media-container';
+
+@mixin ecl-media-container() {
+  .ecl-media-container {
+    background-color: $ecl-color-grey-10;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .ecl-media-container__media {
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .ecl-media-container__caption {
+    font: $ecl-font-prolonged-m;
+    padding: $ecl-spacing-s;
+  }
+}
 
 // Use generic mixin
 @include exports('ec-component-media-container') {

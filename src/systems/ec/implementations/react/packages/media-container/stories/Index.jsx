@@ -3,7 +3,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import demoContent from '@ecl/ec-specs-media-container/demo/data';
+import demoContentImage from '@ecl/ec-specs-media-container/demo/data--image';
+import demoContentVideo from '@ecl/ec-specs-media-container/demo/data--video';
 
 import MediaContainer from '../MediaContainer';
 
@@ -11,16 +12,17 @@ storiesOf('MediaContainer', module)
   .addDecorator(withKnobs)
   .add('video', () => (
     <MediaContainer
-      description={text('Description', demoContent.description)}
-      image={text('Image', demoContent.image)}
-      sources={demoContent.sources}
-      tracks={demoContent.tracks}
+      description={text('Description', demoContentVideo.description)}
+      image={text('Image', demoContentVideo.image)}
+      sources={demoContentVideo.sources}
+      tracks={demoContentVideo.tracks}
+      alt={text('Alt', demoContentVideo.alt)}
     />
   ))
   .add('image', () => (
     <MediaContainer
-      description={text('Description', demoContent.description)}
-      image={text('Image', demoContent.image)}
-      alt={text('Alt', demoContent.alt)}
+      description={text('Description', demoContentImage.description)}
+      image={text('Image', demoContentImage.image)}
+      alt={text('Alt', demoContentImage.alt)}
     />
   ));
