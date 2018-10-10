@@ -1,12 +1,12 @@
 import style from './docs/style.md';
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  order: 1,
   url: '/ec/templates/standard-page',
-  title: 'Standard Page',
+  title: 'EC Standard page',
   section: 'Templates',
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',

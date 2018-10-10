@@ -6,7 +6,7 @@ export default {
   url: '/eu/templates/standard-page',
   title: 'EU Standard page',
   section: 'Templates',
-  ready: true,
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
