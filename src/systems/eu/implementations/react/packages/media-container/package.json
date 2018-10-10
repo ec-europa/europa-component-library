@@ -1,9 +1,9 @@
 {
-  "name": "@ecl/ec-specs-media-container",
+  "name": "@ecl/eu-react-component-media-container",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.0",
-  "description": "ECL EC Media container Specs",
+  "description": "ECL EU React Media container",
   "publishConfig": {
     "access": "public"
   },
@@ -18,6 +18,16 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
-  ]
+    "design-system",
+    "react"
+  ],
+  "devDependencies": {
+    "@ecl/eu-specs-media-container": "^2.0.0-alpha.0"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "prop-types": "^15.6.2"
+  }
 }

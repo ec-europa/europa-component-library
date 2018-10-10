@@ -4,7 +4,7 @@
  */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@import '@ecl/eu-base/eu-base';
 
 @mixin ecl-media-container() {
   .ecl-media-container {
@@ -28,6 +28,6 @@
 }
 
 // Use mixin
-@include exports('ec-component-media-container') {
+@include exports('eu-component-media-container') {
   @include ecl-media-container();
 }
