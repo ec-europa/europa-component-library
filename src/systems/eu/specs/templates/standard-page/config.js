@@ -1,10 +1,10 @@
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  order: 1,
-  title: 'Standard Page',
+  title: 'EU Standard page',
   section: 'Templates',
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
