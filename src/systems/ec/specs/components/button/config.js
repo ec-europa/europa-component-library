@@ -3,10 +3,9 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/button',
   title: 'Button',
   section: 'Components',
-  ready: true,
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',

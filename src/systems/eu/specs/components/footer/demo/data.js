@@ -79,7 +79,7 @@ module.exports = {
               label: 'telephone options',
               href: '/example',
             },
-            before: ' or use another ',
+            before: ' or use other ',
           },
         ],
         [
