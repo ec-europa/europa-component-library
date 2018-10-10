@@ -2,8 +2,8 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  title: 'EU Standard page',
-  section: 'Templates',
+  title: 'Media container',
+  section: 'Components/Media',
   status: 'ready',
   tabs: [
     {
