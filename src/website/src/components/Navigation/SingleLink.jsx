@@ -1,13 +1,14 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import classnames from 'classnames';
 
 import NavigationLink from './NavigationLink';
 import styles from './SingleLink.scss';
 
 class SingleLink extends PureComponent {
   render() {
-    const { page, showStatus, level } = this.props;
+    const { page, level } = this.props;
 
     return (
       <NavigationLink
@@ -15,26 +16,13 @@ class SingleLink extends PureComponent {
         className={`${styles['page-list-item']} ${styles[`level-${level}`]}`}
         activeClassName={styles['page-list-item--active']}
       >
-        {showStatus && (
-          <Fragment>
-            {page.ready ? (
-              <span
-                className={styles['page-status']}
-                style={{
-                  backgroundColor: '#467a39',
-                }}
-                title="Ready"
-              />
-            ) : (
-              <span
-                className={styles['page-status']}
-                style={{
-                  backgroundColor: '#f29527',
-                }}
-                title="Not ready"
-              />
-            )}
-          </Fragment>
+        {page.status && (
+          <span
+            className={classnames(styles['page-status'], {
+              [styles[`status-${page.status}`]]: true,
+            })}
+            title={page.status}
+          />
         )}
         {page.title}
       </NavigationLink>
@@ -50,12 +38,10 @@ SingleLink.propTypes = {
     url: PropTypes.string,
     title: PropTypes.string,
   }).isRequired,
-  showStatus: PropTypes.bool,
   level: PropTypes.number,
 };
 
 SingleLink.defaultProps = {
-  showStatus: false,
   level: 0,
 };
 
