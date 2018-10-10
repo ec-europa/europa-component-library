@@ -2,9 +2,9 @@ The breadcrumb helps users see their current location in relation to the rest of
 
 Breadcrumbs are created automatically when publishing a new page. The page title will then appear in the breadcrumb, indicating its place in the hierarchical structure of the site.
 
-### Default breadcrumb
+## Default breadcrumb
 
-[Breadcrumb default] http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_480px.png "Default breadcrumb"
+![Default breadcrumb](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_480px.png)
 
 ## When to use
 
