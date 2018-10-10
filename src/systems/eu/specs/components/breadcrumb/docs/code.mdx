@@ -11,11 +11,13 @@ import demoContent from '../demo/data';
   selectedKind="Breadcrumb"
   selectedStory="simple"
 >
-  <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
-    {simpleContent.items.map(item => (
-      <BreadcrumbItem {...item} key={item.label} />
-    ))}
-  </Breadcrumb>
+  <div style={{ backgroundColor: '#004494' }}>
+    <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
+      {simpleContent.items.map(item => (
+        <BreadcrumbItem {...item} key={item.label} />
+     ))}
+    </Breadcrumb>
+  </div>
 </Playground>
 
 ## Long breadcrumb
@@ -29,9 +31,11 @@ The first item and the last 2 items should always be visible.
   selectedKind="Breadcrumb"
   selectedStory="long"
 >
-  <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
-    {demoContent.items.map(item => (
-      <BreadcrumbItem {...item} key={item.label} />
-    ))}
-  </Breadcrumb>
+  <div style={{ backgroundColor: '#004494' }}>
+    <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
+      {demoContent.items.map(item => (
+        <BreadcrumbItem {...item} key={item.label} />
+      ))}
+    </Breadcrumb>
+  </div>
 </Playground>
