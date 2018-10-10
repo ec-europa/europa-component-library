@@ -8,7 +8,9 @@ import styles from './Header.scss';
 const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
   <header className={styles.header}>
     <Container>
-      <h3 className={styles['header__section-header']}>{sectionTitle}</h3>
+      <h3 className={styles['header__section-header']}>
+        {sectionTitle.split('/').slice(-1)}
+      </h3>
       <h1 className={styles['header__page-title']}>{pageTitle}</h1>
       <ul className={styles.header__tabs}>
         {tabs &&
