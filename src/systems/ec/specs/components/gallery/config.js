@@ -3,7 +3,8 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Gallery',
-  section: 'Components',
+  section: 'Components/Media',
+  status: 'planned',
   tabs: [
     {
       name: 'Usage',

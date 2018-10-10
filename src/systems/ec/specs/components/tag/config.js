@@ -4,7 +4,7 @@ import usage from './docs/usage.md';
 export default {
   title: 'Tag',
   section: 'Components',
-  ready: true,
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
