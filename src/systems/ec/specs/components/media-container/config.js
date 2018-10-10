@@ -3,10 +3,10 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  ready: true,
   url: '/ec/components/media-container',
   title: 'Media container',
-  section: 'Components',
+  section: 'Components/Media',
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
