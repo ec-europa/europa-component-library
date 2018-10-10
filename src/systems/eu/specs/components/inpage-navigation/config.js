@@ -4,6 +4,7 @@ import usage from './docs/usage.md';
 export default {
   title: 'Inpage navigation',
   section: 'Components/Navigation',
+  status: 'planned',
   tabs: [
     {
       name: 'Usage',

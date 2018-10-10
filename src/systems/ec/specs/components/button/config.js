@@ -5,7 +5,7 @@ import usage from './docs/usage.md';
 export default {
   title: 'Button',
   section: 'Components',
-  ready: true,
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',

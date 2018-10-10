@@ -2,7 +2,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  ready: true,
+  status: 'ready',
   title: 'Site header',
   section: 'Components/Global elements',
   tabs: [
