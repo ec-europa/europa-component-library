@@ -2,27 +2,25 @@
 
 The breadcrumb helps users see their current location in relation to the rest of the website and allows them to navigate to higher levels. The breadcrumb is particularly useful for a user who arrived on a page directly through a link, a bookmark/favourite or a search engine.
 
-![Breadcrumb default](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_480px.png)
-
 ## Usage
 
 Breadcrumbs are created automatically when publishing a new page. The page title of the published page will then appear in the breadcrumb, indicating its place in the hierarchical structure of the site.
 
 ### Default breadcrumb
 
-![Breadcrumb default 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_996px.png)
+![Breadcrumb](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_01.svg)
 
 ### Long breadcrumb
 
 When a breadcrumb path contains more than a certain amount of page titles, the breadcrumb auto-collapses and uses ellipses to indicate more information. The first and last entities are shown by default. Users expand the breadcrumb by clicking on the ellipses.
 
-![Breadcrumb expanded 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Expanded_996px.png)
+![Breadcrumb_Collapsed](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Collapsed_02.svg)
 
 ### Expandable breadcrumb
 
 When expanded, breadcrumbs that exceed the content width will overflow to the next line.
 
-![Breadcrumb collapsed 996px](http://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Collapsed_996px.png)
+![Breadcrumb collapsed](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Expanded_03.svg)
 
 ## Guidance
 
