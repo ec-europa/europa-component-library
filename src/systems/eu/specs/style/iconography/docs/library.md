@@ -4,7 +4,7 @@ The icons are separated into five categories.
 
 ## Branded
 
-These are icons of social media sites with one color overlay. We use them in the footer.
+These are icons of social media sites with one colour overlay. We use them in the footer.
 
 <IconList set="branded" />
 
