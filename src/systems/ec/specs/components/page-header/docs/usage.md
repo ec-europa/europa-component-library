@@ -11,7 +11,7 @@ Depending on the part of the European Commission site you are visiting, the head
 
 ## Breadcrumb: Best practice
 
-The breadcrumb is a standalone component that is always on top of the header
+The breadcrumb is a standalone component that is always on top of the header.
 
 ## Page title: Best practice
 
@@ -25,4 +25,4 @@ Usability tests have shown that people do not read an introduction when they lan
 
 ## Metadata: Best practice
 
-A maximum of 3 metadata items can be added, such as content type, author and publication date. The meta-line can also contain a label, to show the status of the information displayed (metadata items act as a signpost for the user to recognise the type of data presented)
+A maximum of 3 metadata items can be added, such as content type, author and publication date. The meta-line can also contain a label, to show the status of the information displayed (metadata items act as a signpost for the user to recognise the type of data presented).
