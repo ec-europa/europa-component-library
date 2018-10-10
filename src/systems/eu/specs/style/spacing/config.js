@@ -1,11 +1,9 @@
-import style from './docs/style.md';
 import code from './docs/code.md';
 import usage from './docs/usage.md';
 
 export default {
-  order: 4,
-  url: '/eu/style/image',
-  title: 'Image use',
+  order: 5,
+  title: 'Spacing',
   section: 'Style',
   tabs: [
     {
@@ -17,11 +15,6 @@ export default {
       name: 'Showcase',
       component: code,
       url: 'showcase',
-    },
-    {
-      name: 'Style',
-      component: style,
-      url: 'style',
     },
   ],
   defaultTab: 'usage',
