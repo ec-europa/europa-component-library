@@ -3,10 +3,18 @@ import PropTypes from 'prop-types';
 
 import Card from '@ecl/eu-react-component-card/Card';
 import Footer from '@ecl/eu-react-component-footer/Footer';
+import MediaContainer from '@ecl/eu-react-component-media-container/MediaContainer';
 import PageHeader from '@ecl/eu-react-component-page-header/PageHeader';
 import SiteHeader from '@ecl/eu-react-component-site-header/SiteHeader';
 
-const StandardPage = ({ siteHeader, pageHeader, footer, card, ...props }) => (
+const StandardPage = ({
+  siteHeader,
+  pageHeader,
+  mediaContainer,
+  footer,
+  card,
+  ...props
+}) => (
   <div {...props}>
     <SiteHeader {...siteHeader} />
     <PageHeader {...pageHeader} />
@@ -14,7 +22,7 @@ const StandardPage = ({ siteHeader, pageHeader, footer, card, ...props }) => (
       <div className="ecl-container">
         <div className="ecl-row">
           <div className="ecl-col-sm-12 ecl-col-md-6">
-            Media container goes here
+            <MediaContainer {...mediaContainer} />
           </div>
 
           <div className="ecl-col-sm-12 ecl-col-md-6" />
@@ -40,6 +48,7 @@ const StandardPage = ({ siteHeader, pageHeader, footer, card, ...props }) => (
 StandardPage.propTypes = {
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   pageHeader: PropTypes.shape(PageHeader.propTypes),
+  mediaContainer: PropTypes.shape(MediaContainer.propTypes),
   footer: PropTypes.shape(Footer.propTypes),
   card: PropTypes.shape(Card.propTypes),
 };
@@ -47,6 +56,7 @@ StandardPage.propTypes = {
 StandardPage.defaultProps = {
   siteHeader: {},
   pageHeader: {},
+  mediaContainer: {},
   footer: {},
   card: {},
 };

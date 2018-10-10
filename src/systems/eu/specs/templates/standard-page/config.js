@@ -2,7 +2,6 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/templates/standard-page',
   title: 'EU Standard page',
   section: 'Templates',
   status: 'ready',
