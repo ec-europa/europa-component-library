@@ -1,8 +1,7 @@
 import library from './docs/library.md';
 
 export default {
-  order: 2,
-  url: '/eu/style/iconography',
+  order: 4,
   title: 'Iconography',
   section: 'Style',
   tabs: [

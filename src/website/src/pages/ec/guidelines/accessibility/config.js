@@ -2,8 +2,8 @@ import color from './docs/color.md';
 import keyboard from './docs/keyboard.md';
 
 export default {
+  hidden: true,
   order: 3,
-  url: '/ec/guidelines/accessibility',
   title: 'Accessibility',
   section: 'Guidelines',
   tabs: [
