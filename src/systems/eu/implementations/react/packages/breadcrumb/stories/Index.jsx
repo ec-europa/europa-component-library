@@ -11,6 +11,9 @@ import BreadcrumbItem from '../src/BreadcrumbItem';
 
 storiesOf('Breadcrumb', module)
   .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <div style={{ backgroundColor: '#004494' }}>{story()}</div>
+  ))
   .add('simple', () => {
     const items = simpleContent.items.map((item, index) => ({
       label: text(`Item ${index}`, item.label),
