@@ -7,11 +7,13 @@ import demoContent from '../demo/data';
 ## Simple breadcrumb
 
 <Playground playgroundLink="/storybook/eu/index.html?selectedKind=Breadcrumb&selectedStory=simple&stories=1">
-  <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
-    {simpleContent.items.map(item => (
-      <BreadcrumbItem {...item} key={item.label} />
-    ))}
-  </Breadcrumb>
+  <div style={{ backgroundColor: '#004494' }}>
+    <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
+      {simpleContent.items.map(item => (
+        <BreadcrumbItem {...item} key={item.label} />
+      ))}
+    </Breadcrumb>
+  </div>
 </Playground>
 
 ## Long breadcrumb
@@ -21,9 +23,11 @@ When there are more than 3 items, the breadcrumb should be collapsed by default 
 The first item and the last 2 items should always be visible.
 
 <Playground playgroundLink="/storybook/eu/index.html?selectedKind=Breadcrumb&selectedStory=long&stories=1">
-  <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
-    {demoContent.items.map(item => (
-      <BreadcrumbItem {...item} key={item.label} />
-    ))}
-  </Breadcrumb>
+  <div style={{ backgroundColor: '#004494' }}>
+    <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
+      {demoContent.items.map(item => (
+        <BreadcrumbItem {...item} key={item.label} />
+      ))}
+    </Breadcrumb>
+  </div>
 </Playground>
