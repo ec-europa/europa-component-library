@@ -9,6 +9,7 @@ import pageHeaderContent from '@ecl/ec-specs-page-header/demo/data-title-descrip
 import mediaContainerContent from '@ecl/ec-specs-media-container/demo/data--video';
 import cardContent from '@ecl/ec-specs-card/demo/data--card';
 import footerContent from '@ecl/ec-specs-footer/demo/data';
+// import demoContent from '@ecl/ec-specs-standard-page/demo/data';
 
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import StandardPage from '../StandardPage';
@@ -25,6 +26,8 @@ storiesOf('Standard page', module)
       </Breadcrumb>
     );
     pageHeaderContent.breadcrumb = breadcrumb;
+
+    // console.log(demoContent);
 
     return (
       <StandardPage
