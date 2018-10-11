@@ -1,5 +1,5 @@
 // Simple content for demo
 module.exports = {
   content:
-    'The European Commission has put forward ambitious yet realistic proposals for a modern EU budget. It is time for an EU budget that reflects rapid developments in innovation, the economy, the environment and geopolitics, amongst others. The Commission is putting forward modern, clearer and simpler EU financial rules that ensure the EU budget delivers on the issues that matter to Europeans.',
+    'The European Union is a unique economic and political union between 28 EU countries that together cover much of the continent. The predecessor of the EU was created in the aftermath of the Second World War. The first steps were to foster economic cooperation: the idea being that countries that trade with one another become economically interdependent and so more likely to avoid conflict.',
 };

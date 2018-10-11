@@ -5,7 +5,6 @@ export default {
   order: 1,
   title: 'Typography',
   section: 'Style',
-  status: 'ready',
   tabs: [
     {
       name: 'Usage',
