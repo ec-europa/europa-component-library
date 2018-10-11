@@ -4,8 +4,8 @@ When blockquote is used for testimonials or to emphasize excerpts of text. It is
 
 ## When to use it
 
-This is used for testimonials where organizations present quotes from someone prominent.
+To present a relevant quote or testimonial from someone prominent.
 
 ## When not to use it
 
-When indent a block of text.
+To indent a block of text.
