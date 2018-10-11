@@ -2,7 +2,8 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  title: 'EC Standard page',
+  order: 1,
+  title: 'Standard template',
   section: 'Templates',
   status: 'ready',
   tabs: [

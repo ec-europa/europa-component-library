@@ -5,6 +5,7 @@ export default {
   order: 2,
   title: 'Campaign',
   section: 'Templates',
+  status: 'planned',
   tabs: [
     {
       name: 'Usage',
