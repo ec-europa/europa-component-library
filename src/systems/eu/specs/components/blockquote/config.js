@@ -3,7 +3,7 @@ import usage from './docs/usage.md';
 
 export default {
   status: 'ready',
-  title: 'Blockquote',
+  title: 'Blockquotes',
   section: 'Components',
   tabs: [
     {

@@ -2,7 +2,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  title: 'Icon',
+  title: 'Icons',
   section: 'Components',
   status: 'ready',
   tabs: [

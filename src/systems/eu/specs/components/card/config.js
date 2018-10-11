@@ -2,7 +2,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  title: 'Card',
+  title: 'Cards',
   section: 'Components',
   status: 'ready',
   tabs: [

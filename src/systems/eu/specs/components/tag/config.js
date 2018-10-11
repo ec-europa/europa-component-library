@@ -2,7 +2,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  title: 'Tag',
+  title: 'Tags',
   section: 'Components',
   status: 'ready',
   tabs: [
