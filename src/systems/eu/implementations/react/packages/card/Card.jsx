@@ -41,7 +41,7 @@ const Card = ({
 
   // Title
   let titleMarkup = '';
-  const TitleTag = `h${title.level || 3}`;
+  const TitleTag = `h${title.level || 1}`;
   if (title) {
     if (title.href) {
       titleMarkup = (
@@ -99,15 +99,23 @@ const Card = ({
   }
 
   return (
-    <div {...props} className={classNames}>
-      {imageMarkup}
-      {metaMarkup}
-      {titleMarkup}
-      {descriptionMarkup}
-      {infosMarkup}
-      {linksMarkup}
-      {tagsMarkup}
-    </div>
+    <article {...props} className={classNames}>
+      <header className="ecl-card__header">
+        {imageMarkup}
+        {metaMarkup}
+        {titleMarkup}
+      </header>
+
+      <div className="ecl-card__body">
+        {descriptionMarkup}
+        {linksMarkup}
+      </div>
+
+      <footer className="ecl-card__footer">
+        {infosMarkup}
+        {tagsMarkup}
+      </footer>
+    </article>
   );
 };
 
@@ -120,6 +128,7 @@ Card.propTypes = {
   title: PropTypes.shape({
     label: PropTypes.string,
     href: PropTypes.string,
+    level: PropTypes.number,
   }),
   description: PropTypes.string,
   links: PropTypes.arrayOf(

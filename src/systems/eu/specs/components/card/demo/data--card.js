@@ -10,7 +10,7 @@ module.exports = {
     variant: 'standalone',
     label: 'Better regulation',
     href: '/example',
-    level: '3',
+    level: '1',
   },
   description:
     'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
