@@ -8,12 +8,7 @@
 
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(
-  (
-    'ec-layout-grid',
-    'ec-component-link',
-    'ec-style-typography-list',
-    'ec-component-icon'
-  )
+  ('ec-layout-grid', 'ec-component-link', 'ec-component-icon')
 );
 
 @mixin ecl-footer(
