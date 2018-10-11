@@ -1,15 +1,8 @@
-import library from './docs/library.md';
+import page from './index.mdx';
 
 export default {
   order: 4,
   title: 'Iconography',
   section: 'Style',
-  tabs: [
-    {
-      name: 'Library',
-      component: library,
-      url: 'library',
-    },
-  ],
-  defaultTab: 'library',
+  page,
 };
