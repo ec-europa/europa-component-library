@@ -106,10 +106,10 @@ const Card = ({
         {titleMarkup}
       </header>
 
-      <div className="ecl-card__body">
+      <section className="ecl-card__body">
         {descriptionMarkup}
         {linksMarkup}
-      </div>
+      </section>
 
       <footer className="ecl-card__footer">
         {infosMarkup}
