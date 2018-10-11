@@ -1,0 +1,23 @@
+import Playground from '@ecl/website-components/Playground'
+
+import demoContentParagraph from '../demo/data--paragraph';
+
+## Default paragraph
+
+<Playground
+  system="ec"
+  selectedKind="Paragraph"
+  selectedStory="default"
+>
+  <p className="ecl-type--paragraph">{demoContentParagraph.content}</p>
+</Playground>
+
+## Lead paragraph
+
+<Playground
+  system="ec"
+  selectedKind="Paragraph"
+  selectedStory="lead"
+>
+  <p className="ecl-type--paragraph-lead">{demoContentParagraph.content}</p>
+</Playground>
