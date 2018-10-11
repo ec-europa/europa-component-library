@@ -3,7 +3,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  title: 'Button',
+  title: 'Buttons',
   section: 'Components',
   status: 'ready',
   tabs: [
