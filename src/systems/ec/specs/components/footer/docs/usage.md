@@ -14,6 +14,9 @@ Secondary content area
 
 The secondary content area of the footer offers access to resources for partners, the privacy policy, the cookie policy, the legal notice and contact information.
 
+![Corporate footer](http://inno-ecl.s3.amazonaws.com/media/images/EC/Footer%20EC/corporate_footer.png "")
+
+
 #### Customer footer
 
 Custom area
@@ -24,6 +27,8 @@ A custom area can contain:
 -	information on connecting to social platforms
 -	contact information
 -	other relevant information, such as a link to the site map
+
+![Custom footer](http://inno-ecl.s3.amazonaws.com/media/images/EC/Footer%20EC/corporate_footer.png "")
 
 #### When to use
 
