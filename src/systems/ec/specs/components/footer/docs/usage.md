@@ -28,7 +28,7 @@ A custom area can contain:
 -	contact information
 -	other relevant information, such as a link to the site map
 
-![Custom footer](http://inno-ecl.s3.amazonaws.com/media/images/EC/Footer%20EC/corporate_footer.png "")
+![Custom footer](http://inno-ecl.s3.amazonaws.com/media/images/EC/Footer%20EC/customer_footer.png "")
 
 #### When to use
 
