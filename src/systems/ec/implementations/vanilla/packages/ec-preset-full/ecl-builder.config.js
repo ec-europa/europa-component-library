@@ -19,7 +19,7 @@ const banner = `${pkg.name} - ${
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'ec-preset-full.js'),
+      entry: path.resolve(__dirname, 'src/ec-preset-full.js'),
       dest: path.resolve(outputFolder, 'scripts/ecl-ec-preset-full.js'),
       options: {
         banner,
@@ -30,7 +30,7 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'ec-preset-full.scss'),
+      entry: path.resolve(__dirname, 'src/ec-preset-full.scss'),
       dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-full.css'),
       options: {
         banner,
@@ -41,26 +41,10 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/ec-component-form-checkbox/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
       from: path.resolve(
         nodeModules,
         '@ecl/ec-component-form-feedback-message/images'
       ),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/ec-component-form-radio/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/ec-component-form-select/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/ec-component-message/images'),
       to: path.resolve(outputFolder, 'images'),
     },
     {
