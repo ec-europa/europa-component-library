@@ -373,7 +373,7 @@ SAUCE_ACCESS_KEY=my-sauce-labs-access-key</pre></code><p>Then, build the style g
 <p>Test your changes against the branch you want to merge in with:</p>
 <code class="lang-shell"><pre>yarn test:functional --since target-branch</pre></code><p>The list of the updated packages is cached by default the first time it is generated, so if you encounter some strange behaviors, you can force the list to be rebuilt with: <code>--ignoreCache</code>.</p>
 <p>Example:</p>
-<code class="lang-shell"><pre>yarn test:functional --since master --ignoreCache</pre></code><h4 id="run-1-specific-test">Run 1 specific test</h4>
+<code class="lang-shell"><pre>yarn test:functional --since v1 --ignoreCache</pre></code><h4 id="run-1-specific-test">Run 1 specific test</h4>
 <p>You can also decide to run only one specific test file:</p>
 <code class="lang-shell"><pre>yarn test:functional --spec ./src/systems/{system}/components/my-component/test/spec/my-component.js</pre></code><h4 id="target-1-specific-browser">Target 1 specific browser</h4>
 <p>Prepend your command with <code>TEST_BROWSER=[browser you want to target]</code> to target 1 specific browser.</p>
