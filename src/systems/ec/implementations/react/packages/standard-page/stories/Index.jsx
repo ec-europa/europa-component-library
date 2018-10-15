@@ -26,6 +26,8 @@ storiesOf('Standard page', module)
     );
     pageHeaderContent.breadcrumb = breadcrumb;
 
+    footerContent.identity = {};
+
     return (
       <StandardPage
         siteHeader={siteHeaderContent}
