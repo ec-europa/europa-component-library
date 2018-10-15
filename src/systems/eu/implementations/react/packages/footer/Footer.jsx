@@ -7,42 +7,44 @@ import Link from '@ecl/eu-react-component-link/Link';
 const Footer = ({ identity, sections, common, className, ...props }) => (
   <footer {...props} className={classnames(className, 'ecl-footer')}>
     {/* Site identity */}
-    <section className="ecl-footer__identity">
-      <div className="ecl-container">
-        <h1 className="ecl-footer__identity-title">{identity.title}</h1>
+    {!!(identity && identity.title) && (
+      <section className="ecl-footer__identity">
+        <div className="ecl-container">
+          <h1 className="ecl-footer__identity-title">{identity.title}</h1>
 
-        <div className="ecl-row">
-          <div className="ecl-footer__identity-follow ecl-col-12 ecl-col-md-6">
-            <span className="ecl-footer__identity-label">
-              {identity.follow.label}
-            </span>
-            {identity.follow.links.map(link => (
-              <Link
-                {...link}
-                key={link.label}
-                className={classnames(
-                  link.className,
-                  'ecl-footer__identity-link'
-                )}
-              />
-            ))}
-          </div>
+          <div className="ecl-row">
+            <div className="ecl-footer__identity-follow ecl-col-12 ecl-col-md-6">
+              <span className="ecl-footer__identity-label">
+                {identity.follow.label}
+              </span>
+              {identity.follow.links.map(link => (
+                <Link
+                  {...link}
+                  key={link.label}
+                  className={classnames(
+                    link.className,
+                    'ecl-footer__identity-link'
+                  )}
+                />
+              ))}
+            </div>
 
-          <div className="ecl-footer__identity-info ecl-col-12 ecl-col-md-6">
-            {identity.info.map(link => (
-              <Link
-                {...link}
-                key={link.label}
-                className={classnames(
-                  link.className,
-                  'ecl-footer__identity-link'
-                )}
-              />
-            ))}
+            <div className="ecl-footer__identity-info ecl-col-12 ecl-col-md-6">
+              {identity.info.map(link => (
+                <Link
+                  {...link}
+                  key={link.label}
+                  className={classnames(
+                    link.className,
+                    'ecl-footer__identity-link'
+                  )}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    )}
 
     {/* Contact and social media */}
     <div className="ecl-footer__sections">
