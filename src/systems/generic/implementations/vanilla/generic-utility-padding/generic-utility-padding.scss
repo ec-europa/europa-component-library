@@ -15,9 +15,6 @@
     l = left
 */
 
-// Import base
-@import '@ecl/generic-base/generic-base';
-
 @mixin ecl-utility-padding() {
   /* stylelint-disable max-nesting-depth */
   @each $breakpoint in map-keys($ecl-grid-breakpoints) {

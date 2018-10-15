@@ -2,9 +2,6 @@
  * Z-index utilities
  */
 
-// Import base
-@import '@ecl/generic-base/generic-base';
-
 @mixin ecl-utility-z-index() {
   @each $key, $value in $ecl-z-index {
     .ecl-u-z-#{$key} {

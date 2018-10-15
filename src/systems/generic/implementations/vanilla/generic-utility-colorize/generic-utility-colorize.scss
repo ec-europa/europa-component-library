@@ -2,9 +2,6 @@
  * Colorize utilities
  */
 
-// Import base
-@import '@ecl/generic-base/generic-base';
-
 @mixin ecl-utility-colorize() {
   @each $key, $value in $ecl-colors {
     // Filter out yellow colors (text should not be yellow)

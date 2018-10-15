@@ -2,9 +2,6 @@
  * Display utilities
  */
 
-// Import base
-@import '@ecl/generic-base/generic-base';
-
 @mixin ecl-utility-display() {
   @each $breakpoint in map-keys($ecl-grid-breakpoints) {
     @include ecl-media-breakpoint-up($breakpoint) {
