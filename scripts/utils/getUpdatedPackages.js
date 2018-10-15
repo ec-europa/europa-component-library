@@ -17,7 +17,7 @@ const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 log.addLevel('success', 3001, { fg: 'green', bold: true });
 
 const getRef = async () => {
-  if (isDrone && process.env.DRONE_BRANCH !== 'master') {
+  if (isDrone && process.env.DRONE_BRANCH !== 'v1') {
     const matchingPullRequests = await octokit.pullRequests.getAll({
       owner: process.env.DRONE_REPO_OWNER,
       repo: process.env.DRONE_REPO_NAME,
@@ -39,7 +39,7 @@ const getRef = async () => {
     return ref;
   }
 
-  return 'master';
+  return 'v1';
 };
 
 const getUpdatedPackages = async ({
@@ -75,8 +75,8 @@ const getUpdatedPackages = async ({
     }
   }
 
-  // Only test the updated components when the branch is not the master
-  // if (process.env.DRONE_BRANCH !== 'master') {
+  // Only test the updated components when the branch is not the v1
+  // if (process.env.DRONE_BRANCH !== 'v1') {
   log.level = 'silent';
 
   // Fetch reference branch for comparison if not already there

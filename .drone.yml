@@ -1,5 +1,5 @@
 branches:
-  exclude: [ gh-pages ]
+  exclude: [gh-pages]
 
 clone:
   git:
@@ -7,12 +7,12 @@ clone:
     commands:
       - git init
       - git remote add origin ${DRONE_REMOTE_URL}
-      - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
-      - git checkout -qf master;
+      - git fetch --no-tags origin v1 ${DRONE_COMMIT_REF}
+      - git checkout -qf v1;
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
-          git checkout -qf FETCH_HEAD;
+        git checkout -qf FETCH_HEAD;
         else
-          git checkout -qf ${DRONE_COMMIT_BRANCH};
+        git checkout -qf ${DRONE_COMMIT_BRANCH};
         fi
 
 matrix:
@@ -49,8 +49,8 @@ pipeline:
   build:
     image: node:9.11.1
     commands:
-      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
-          yarn dist ;
+      - if [ "${DRONE_BRANCH}" = "v1" ] || yarn updated --ignoreCache ; then
+        yarn dist ;
         fi
     when:
       event: [push]
@@ -59,24 +59,24 @@ pipeline:
 
   deploy-pages:
     image: node:9.11.1
-    secrets: [ GH_TOKEN ]
+    secrets: [GH_TOKEN]
     commands:
       - ./scripts/deploy.sh
     when:
       event: [push]
-      branch: master
+      branch: v1
       matrix:
         TEST: functional
 
   s3:
     image: garland/aws-cli-docker
-    secrets: [ AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION ]
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
     commands:
       - if [ -d "./dist" ] ; then
-          cd ./dist/website ;
-          aws configure set default.s3.max_concurrent_requests 20 ;
-          aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
-          echo "Transfer complete" ;
+        cd ./dist/website ;
+        aws configure set default.s3.max_concurrent_requests 20 ;
+        aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
+        echo "Transfer complete" ;
         fi
 
     when:
@@ -86,10 +86,10 @@ pipeline:
 
   functional:
     image: node:9.11.1
-    secrets: [ SAUCE_USERNAME, SAUCE_ACCESS_KEY ]
+    secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
       - if [ -d "./dist" ] ; then
-          yarn test:functional ;
+        yarn test:functional ;
         fi
     when:
       event: [push]

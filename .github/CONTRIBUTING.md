@@ -14,14 +14,14 @@ Please fill in the description following the template.
 
 2.  Create a change log entry for the release:
 
-    * You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). Save it to this environment variable: `export GITHUB_AUTH="..."`
-    * Run `npm run changelog`. The command will find all the labeled pull requests merged since the last release and create a change log entry with all the changes and links to PRs and their authors. Copy and paste it to `CHANGELOG.md`.
+    - You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). Save it to this environment variable: `export GITHUB_AUTH="..."`
+    - Run `npm run changelog`. The command will find all the labeled pull requests merged since the last release and create a change log entry with all the changes and links to PRs and their authors. Copy and paste it to `CHANGELOG.md`.
 
 3.  Merge the changelog update.
 
 4.  Make sure you are logged in. `npm whoami` will show your npm username if you are logged in. Otherwise, please run `npm login`.
 
-5.  Pull the latest `master` branch.
+5.  Pull the latest `v1` branch.
 
 6.  **Do not run `npm publish`. Instead, run `npm run publish`.**
 

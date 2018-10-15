@@ -13,10 +13,10 @@ module.exports.getTestSpecs = async options => {
 
   let specs = glob.sync(pattern, { ignore: ['**/node_modules/**'] });
 
-  // Only test the updated components when the branch is not the master
+  // Only test the updated components when the branch is not the v1
   if (
     (options && options.since) ||
-    (isDrone && process.env.DRONE_BRANCH !== 'master')
+    (isDrone && process.env.DRONE_BRANCH !== 'v1')
   ) {
     const updatedPackages = await getUpdatedPackages(options);
 

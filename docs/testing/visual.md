@@ -98,7 +98,7 @@ The list of the updated packages is cached by default the first time it is gener
 Example:
 
 ```shell
-yarn test:functional --since master --ignoreCache
+yarn test:functional --since v1 --ignoreCache
 ```
 
 #### Run 1 specific test
