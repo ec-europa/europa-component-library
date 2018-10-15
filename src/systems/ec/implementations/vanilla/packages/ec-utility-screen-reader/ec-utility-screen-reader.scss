@@ -1,12 +1,22 @@
 /**
  * Screen reader utilities
+ * @define u-sr-only
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-utility-screen-reader/generic-utility-screen-reader';
 
-// Use generic mixin
+@mixin ecl-utility-screen-reader() {
+  .ecl-u-sr-only {
+    @include ecl-u-sr-only();
+  }
+
+  .ecl-u-sr-only--focusable {
+    @include ecl-u-sr-only-focusable();
+  }
+}
+
+// Use mixin
 @include exports('ec-utility-screen-reader') {
   @include ecl-utility-screen-reader();
 }
