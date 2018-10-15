@@ -6,8 +6,10 @@ import Footer from '@ecl/ec-react-component-footer/Footer';
 import MediaContainer from '@ecl/ec-react-component-media-container/MediaContainer';
 import PageHeader from '@ecl/ec-react-component-page-header/PageHeader';
 import SiteHeader from '@ecl/ec-react-component-site-header/SiteHeader';
+import SiteSwitcher from '@ecl/ec-react-component-site-switcher/SiteSwitcher';
 
 const StandardPage = ({
+  siteSwitcher,
   siteHeader,
   pageHeader,
   mediaContainer,
@@ -16,6 +18,7 @@ const StandardPage = ({
   ...props
 }) => (
   <div {...props}>
+    <SiteSwitcher {...siteSwitcher} />
     <SiteHeader {...siteHeader} />
     <PageHeader {...pageHeader} />
     <main className="ecl-u-pv-xl">
@@ -46,6 +49,7 @@ const StandardPage = ({
 );
 
 StandardPage.propTypes = {
+  siteSwitcher: PropTypes.shape(SiteSwitcher.propTypes),
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   pageHeader: PropTypes.shape(PageHeader.propTypes),
   mediaContainer: PropTypes.shape(MediaContainer.propTypes),
@@ -54,6 +58,7 @@ StandardPage.propTypes = {
 };
 
 StandardPage.defaultProps = {
+  siteSwitcher: {},
   siteHeader: {},
   pageHeader: {},
   mediaContainer: {},

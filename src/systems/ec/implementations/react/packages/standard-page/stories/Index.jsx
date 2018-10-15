@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
+import siteSwitcherContent from '@ecl/ec-specs-site-switcher/demo/data';
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
 import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data';
 import pageHeaderContent from '@ecl/ec-specs-page-header/demo/data-title-description';
@@ -30,6 +31,7 @@ storiesOf('Standard page', module)
 
     return (
       <StandardPage
+        siteSwitcher={siteSwitcherContent}
         siteHeader={siteHeaderContent}
         pageHeader={pageHeaderContent}
         card={cardContent}
