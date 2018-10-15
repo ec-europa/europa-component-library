@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.0.0-alpha.2 (2018-10-15)
+
+#### :bug: Bug Fix
+
+- [#881](https://github.com/ec-europa/europa-component-library/pull/881) fix(ec-template): use corporate footer ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#883](https://github.com/ec-europa/europa-component-library/pull/883) feat(template): add site switcher - INNO-1256 ([@emeryro](https://github.com/emeryro))
+- [#878](https://github.com/ec-europa/europa-component-library/pull/878) fix(card): update card structure - INNO-1254 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#880](https://github.com/ec-europa/europa-component-library/pull/880) docs(ec/footer): add intro ([@Yaomimi](https://github.com/Yaomimi))
+
+#### :house: Internal
+
+- [#882](https://github.com/ec-europa/europa-component-library/pull/882) chore(alpha2): prepare alpha.2 release ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.0.0-alpha.1 (2018-10-11)
 
 Re-publish packages.
