@@ -1,9 +1,10 @@
+const demoImage = require('@ecl/ec-resources-example/example-image.jpg');
+
 // Simple content for demo
 module.exports = {
   image: {
     alt: 'card image',
-    src:
-      'https://ec.europa.eu/education/sites/education/files/jean-monnet-gs-banner.jpg',
+    src: demoImage,
   },
   meta: 'Meta1 | Meta2',
   title: {

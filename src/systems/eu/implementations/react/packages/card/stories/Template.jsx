@@ -3,19 +3,14 @@ import React from 'react';
 
 import demoContentCard from '@ecl/eu-specs-card/demo/data--card';
 import demoContentTile from '@ecl/eu-specs-card/demo/data--tile';
+import demoImage from '@ecl/eu-resources-example/example-image.jpg';
 
 import Card from '../Card';
 
 const Template = () => {
   const image1 = {
     alt: demoContentCard.image.alt,
-    src:
-      'https://ec.europa.eu/commission/sites/beta-political/files/styles/header_image_breakpoints_theme_europa_wide_2x/public/homepage-banner-2400x900_003.jpg?yxX_LZza',
-  };
-  const image2 = {
-    alt: demoContentCard.image.alt,
-    src:
-      'https://ec.europa.eu/commission/sites/beta-political/files/styles/banner_image_breakpoints_theme_europa_normal_1x/public/parliament-plenary.png?itok=craeArBi&timestamp=1452594609',
+    src: demoImage,
   };
   const title1 = {
     variant: 'standalone',
@@ -80,7 +75,7 @@ const Template = () => {
         </li>
         <li className="ecl-col-md-4" style={{ marginTop: '1rem' }}>
           <Card
-            image={image2}
+            image={image1}
             meta={demoContentCard.meta}
             title={title3}
             description={demoContentCard.description}

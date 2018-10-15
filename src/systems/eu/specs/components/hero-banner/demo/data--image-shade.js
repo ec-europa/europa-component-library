@@ -1,3 +1,5 @@
+const demoImage = require('@ecl/eu-resources-example/example-image.jpg');
+
 // Simple content for demo
 module.exports = {
   variant: 'image-shade',
@@ -13,7 +15,6 @@ module.exports = {
       size: 'xs',
     },
   },
-  image:
-    'https://ec.europa.eu/education/sites/education/files/jean-monnet-gs-banner.jpg',
+  image: demoImage,
   isCentered: true,
 };
