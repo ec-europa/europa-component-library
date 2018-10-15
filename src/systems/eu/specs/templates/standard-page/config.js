@@ -2,6 +2,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
+  hidden: true,
   order: 1,
   title: 'Standard template',
   section: 'Templates',

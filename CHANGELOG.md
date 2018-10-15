@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0-alpha.1 (2018-10-11)
+
+Re-publish packages.
+
 ## 2.0.0-alpha.0 (2018-10-11)
 
 #### :rocket: New Feature

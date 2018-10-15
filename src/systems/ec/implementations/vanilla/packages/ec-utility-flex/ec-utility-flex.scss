@@ -2,11 +2,128 @@
  * Flex utilities
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-utility-flex/generic-utility-flex';
 
-// Use generic mixin
+@mixin ecl-utility-flex() {
+  @each $breakpoint in map-keys($ecl-grid-breakpoints) {
+    @include ecl-media-breakpoint-up($breakpoint) {
+      $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
+
+      .ecl-u-order#{$infix}-first {
+        order: -1;
+      }
+      .ecl-u-order#{$infix}-last {
+        order: 1;
+      }
+      .ecl-u-order#{$infix}-0 {
+        order: 0;
+      }
+
+      .ecl-u-flex#{$infix}-row {
+        flex-direction: row;
+      }
+      .ecl-u-flex#{$infix}-column {
+        flex-direction: column;
+      }
+      .ecl-u-flex#{$infix}-row-reverse {
+        flex-direction: row-reverse;
+      }
+      .ecl-u-flex#{$infix}-column-reverse {
+        flex-direction: column-reverse;
+      }
+
+      .ecl-u-flex#{$infix}-wrap {
+        flex-wrap: wrap;
+      }
+      .ecl-u-flex#{$infix}-nowrap {
+        flex-wrap: nowrap;
+      }
+      .ecl-u-flex#{$infix}-wrap-reverse {
+        flex-wrap: wrap-reverse;
+      }
+
+      .ecl-u-justify-content#{$infix}-start {
+        justify-content: flex-start;
+      }
+      .ecl-u-justify-content#{$infix}-end {
+        justify-content: flex-end;
+      }
+      .ecl-u-justify-content#{$infix}-center {
+        justify-content: center;
+      }
+      .ecl-u-justify-content#{$infix}-between {
+        justify-content: space-between;
+      }
+      .ecl-u-justify-content#{$infix}-around {
+        justify-content: space-around;
+      }
+
+      .ecl-u-align-items#{$infix}-start {
+        align-items: flex-start;
+      }
+      .ecl-u-align-items#{$infix}-end {
+        align-items: flex-end;
+      }
+      .ecl-u-align-items#{$infix}-center {
+        align-items: center;
+      }
+      .ecl-u-align-items#{$infix}-baseline {
+        align-items: baseline;
+      }
+      .ecl-u-align-items#{$infix}-stretch {
+        align-items: stretch;
+      }
+
+      .ecl-u-align-content#{$infix}-start {
+        align-content: flex-start;
+      }
+      .ecl-u-align-content#{$infix}-end {
+        align-content: flex-end;
+      }
+      .ecl-u-align-content#{$infix}-center {
+        align-content: center;
+      }
+      .ecl-u-align-content#{$infix}-between {
+        align-content: space-between;
+      }
+      .ecl-u-align-content#{$infix}-around {
+        align-content: space-around;
+      }
+      .ecl-u-align-content#{$infix}-stretch {
+        align-content: stretch;
+      }
+
+      .ecl-u-align-self#{$infix}-auto {
+        align-self: auto;
+      }
+      .ecl-u-align-self#{$infix}-start {
+        align-self: flex-start;
+      }
+      .ecl-u-align-self#{$infix}-end {
+        align-self: flex-end;
+      }
+      .ecl-u-align-self#{$infix}-center {
+        align-self: center;
+      }
+      .ecl-u-align-self#{$infix}-baseline {
+        align-self: baseline;
+      }
+      .ecl-u-align-self#{$infix}-stretch {
+        align-self: stretch;
+      }
+
+      .ecl-u-flex-grow#{$infix}-0 {
+        flex-grow: 0;
+      }
+      .ecl-u-flex-grow#{$infix}-1 {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+// Use mixin
 @include exports('ec-utility-flex') {
   @include ecl-utility-flex();
 }
