@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
-import demoContentParagraph from '@ecl/ec-specs-typography/demo/data--paragraph';
+import demoContentParagraph from '@ecl/eu-specs-typography/demo/data--paragraph';
 
 storiesOf('Typography', module)
   .addDecorator(withKnobs)
@@ -11,8 +11,8 @@ storiesOf('Typography', module)
     <p
       className={
         boolean('Lead paragraph')
-          ? 'ecl-type--paragraph-lead'
-          : 'ecl-type--paragraph'
+          ? 'ecl-u-type-paragraph-lead'
+          : 'ecl-u-type-paragraph'
       }
     >
       {text('Content', demoContentParagraph.content)}

@@ -1,21 +1,20 @@
 /**
 * Typography styles
-* @define type
 */
 
 // Import base
-@import '@ecl/eu-base/eu-base';
+@import '@ecl/ec-base/ec-base';
 
-@mixin ecl-typography() {
+@mixin ecl-utility-typography() {
   /*
    * Paragraph
    */
-  .ecl-type--paragraph {
+  .ecl-u-type-paragraph {
     font: $ecl-font-prolonged-m;
     max-width: 80ch;
   }
 
-  .ecl-type--paragraph-lead {
+  .ecl-u-type-paragraph-lead {
     font: $ecl-font-prolonged-l;
     max-width: 80ch;
 
@@ -26,6 +25,6 @@
 }
 
 // Use mixin
-@include exports('eu-style-typography') {
-  @include ecl-typography();
+@include exports('ec-utility-typography') {
+  @include ecl-utility-typography();
 }
