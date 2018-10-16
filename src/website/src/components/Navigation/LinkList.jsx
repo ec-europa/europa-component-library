@@ -26,6 +26,7 @@ class LinkList extends PureComponent {
         'Style',
         'Components',
         'Templates',
+        'Utilities',
         'Guidelines',
         'Resources',
       ];
