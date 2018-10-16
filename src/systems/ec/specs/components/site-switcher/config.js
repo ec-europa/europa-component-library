@@ -3,7 +3,8 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Site switcher',
-  section: 'Components/Global elements',
+  section: 'Components',
+  group: 'Global elements',
   status: 'ready',
   tabs: [
     {

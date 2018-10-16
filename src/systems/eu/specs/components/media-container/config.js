@@ -3,7 +3,8 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Media container',
-  section: 'Components/Media',
+  section: 'Components',
+  group: 'Media',
   status: 'ready',
   tabs: [
     {

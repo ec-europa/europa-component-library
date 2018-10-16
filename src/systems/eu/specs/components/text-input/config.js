@@ -4,7 +4,8 @@ import usage from './docs/usage.md';
 export default {
   status: 'ready',
   title: 'Text input',
-  section: 'Components/Forms',
+  section: 'Components',
+  group: 'Forms',
   tabs: [
     {
       name: 'Usage',
