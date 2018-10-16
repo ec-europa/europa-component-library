@@ -13,7 +13,6 @@ module.exports = {
       size: 'xs',
     },
   },
-  image:
-    'https://ec.europa.eu/education/sites/education/files/jean-monnet-gs-banner.jpg',
+  image: '/example-image.jpg',
   isCentered: true,
 };

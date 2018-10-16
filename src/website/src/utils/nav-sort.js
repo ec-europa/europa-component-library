@@ -4,6 +4,7 @@ const firstLevelKeys = [
   "What's new",
   'Style',
   'Components',
+  'Utilities',
   'Templates',
   'Guidelines',
   'Resources',

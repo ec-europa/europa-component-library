@@ -1,11 +1,15 @@
 {
-  "name": "@ecl/ec-specs-link",
+  "name": "@ecl/ec-utility-typography",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.2",
-  "description": "ECL EC Link Specs",
+  "description": "ECL EC Typography",
+  "style": "ec-utility-typography.scss",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@ecl/ec-base": "^2.0.0-alpha.2"
   },
   "repository": {
     "type": "git",
@@ -20,7 +24,5 @@
     "europa-component-library",
     "design-system"
   ],
-  "devDependencies": {
-    "@ecl/ec-utility-typography": "^2.0.0-alpha.2"
-  }
+  "sass": "ec-utility-typography.scss"
 }
