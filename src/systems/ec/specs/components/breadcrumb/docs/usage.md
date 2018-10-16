@@ -4,7 +4,7 @@ Breadcrumbs are created automatically when publishing a new page. The page title
 
 ## Default breadcrumb
 
-![Default breadcrumb](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_480px.png)
+![Default breadcrumb](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_01.svg)
 
 ## When to use
 

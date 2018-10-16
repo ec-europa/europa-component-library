@@ -18,7 +18,6 @@ clone:
 
 matrix:
   TEST:
-    - deploy-pages
     - conventions
     - examples
 
@@ -45,28 +44,3 @@ pipeline:
     when:
       matrix:
         TEST: examples
-
-  build:
-    image: hivelocityinc/docker-node-chromium
-    shm_size: 1g
-    commands:
-      - yarn install
-      - if [ "${DRONE_BRANCH}" = "master" ] || yarn updated --ignoreCache ; then
-          yarn dist ;
-        fi
-    when:
-      event: [push]
-      branch: master
-      matrix:
-        TEST: deploy-pages
-
-  deploy-pages:
-    image: node:9.11.1
-    secrets: [ GH_TOKEN ]
-    commands:
-      - ./scripts/deploy.sh
-    when:
-      event: [push]
-      branch: master
-      matrix:
-        TEST: deploy-pages
