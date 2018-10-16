@@ -8,8 +8,8 @@ clone:
       - git init
       - git config core.ignorecase false
       - git remote add origin ${DRONE_REMOTE_URL}
-      - git fetch --no-tags origin master ${DRONE_COMMIT_REF}
-      - git checkout -qf master;
+      - git fetch --no-tags origin next-v2 ${DRONE_COMMIT_REF}
+      - git checkout -qf next-v2;
       - if [ "${DRONE_BUILD_EVENT}" == "pull_request" ] || [ "${DRONE_BUILD_EVENT}" == "tag" ] ; then
           git checkout -qf FETCH_HEAD;
         else
