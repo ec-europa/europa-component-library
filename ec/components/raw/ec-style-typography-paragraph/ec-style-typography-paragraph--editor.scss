@@ -1,0 +1,6 @@
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-style-typography-paragraph/generic-style-typography-paragraph--editor';
+
+@include exports('ec-style-typography-paragraph--editor') {
+  @include ecl-editor-typography-paragraph();
+}

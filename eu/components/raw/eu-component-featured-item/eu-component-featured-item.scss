@@ -1,0 +1,16 @@
+/**
+ * Featured item component
+ * @define featured-item
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-featured-item/generic-component-featured-item';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-component-link'));
+
+// Use generic mixin
+@include exports('eu-component-featured-item') {
+  @include ecl-featured-item();
+}

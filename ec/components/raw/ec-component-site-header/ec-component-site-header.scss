@@ -1,0 +1,22 @@
+/**
+ * Site header
+ * @define site-header ; weak
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-site-header/generic-component-site-header';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'ec-component-logo',
+    'ec-component-language-list',
+    'ec-component-search-form'
+  )
+);
+
+// Use generic mixin
+@include exports('ec-component-site-header') {
+  @include ecl-site-header();
+}

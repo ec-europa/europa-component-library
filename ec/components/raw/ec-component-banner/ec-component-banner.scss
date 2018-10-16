@@ -1,0 +1,22 @@
+/**
+ * Banners component
+ * @define banner
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-banner/generic-component-banner';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'ec-style-typography-heading',
+    'ec-style-typography-paragraph',
+    'ec-style-image'
+  )
+);
+
+// Use generic mixin
+@include exports('ec-component-banner') {
+  @include ecl-banner();
+}

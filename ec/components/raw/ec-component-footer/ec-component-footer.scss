@@ -1,0 +1,108 @@
+/**
+ * Footers component
+ * @define footer
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-footer/generic-component-footer';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'ec-layout-grid',
+    'ec-component-link',
+    'ec-style-typography-list',
+    'ec-style-icon'
+  )
+);
+
+// Use generic mixin
+@include exports('ec-component-footer') {
+  @include ecl-footer();
+
+  .ecl-footer__custom {
+    background-color: map-get($ecl-colors, 'blue-25');
+    color: map-get($ecl-colors, 'blue-120');
+
+    // Links should have a different color because of their background.
+    .ecl-footer__link {
+      color: map-get($ecl-colors, 'blue-120');
+    }
+
+    .ecl-footer__link:hover,
+    .ecl-footer__link:active,
+    .ecl-footer__link:focus {
+      color: map-get($ecl-colors, 'blue-120');
+    }
+
+    .ecl-footer__column {
+      padding-bottom: 0;
+      padding-top: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__column:last-child {
+      padding-bottom: map-get($ecl-spacing, 's');
+      padding-top: 0;
+    }
+  }
+
+  .ecl-footer__corporate {
+    color: #fff;
+  }
+
+  .ecl-footer__corporate-top {
+    background-color: map-get($ecl-colors, 'blue-75');
+  }
+
+  .ecl-footer__corporate-bottom {
+    background-color: $ecl-color-primary;
+    padding: map-get($ecl-spacing, 's') 0;
+  }
+
+  .ecl-footer__column-title {
+    border-bottom: 2px solid map-get($ecl-colors, 'blue-50');
+    color: #fff;
+    margin-bottom: map-get($ecl-spacing, 'xxxs');
+    padding-bottom: map-get($ecl-spacing, 'xxxs');
+
+    @include ecl-media-breakpoint-between('md', 'lg') {
+      min-height: map-get($ecl-spacing, 'xl');
+      padding-bottom: 0;
+    }
+
+    // Make titles height auto on large screens.
+    @include ecl-media-breakpoint-up('xl') {
+      margin-bottom: map-get($ecl-spacing, 's');
+      min-height: auto;
+    }
+  }
+
+  .ecl-footer__custom-title-identity {
+    border-bottom: 0;
+    color: map-get($ecl-colors, 'blue-120');
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-footer__column {
+      padding-bottom: map-get($ecl-spacing, 'l');
+      padding-top: map-get($ecl-spacing, 'l');
+    }
+
+    // Specifics for this type of footer when non-mobile
+    .ecl-footer__custom {
+      .ecl-footer__column {
+        padding-bottom: map-get($ecl-spacing, 's');
+      }
+
+      .ecl-footer__column:last-child {
+        padding-top: map-get($ecl-spacing, 's');
+      }
+    }
+
+    .ecl-footer__link {
+      padding: 0;
+    }
+  }
+}

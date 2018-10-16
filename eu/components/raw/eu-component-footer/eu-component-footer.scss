@@ -1,0 +1,173 @@
+/**
+ * Footers component
+ * @define footer
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-footer/generic-component-footer';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(
+  (
+    'eu-layout-grid',
+    'eu-component-link',
+    'eu-style-typography-list',
+    'eu-style-icon'
+  )
+);
+
+// Use generic mixin
+@include exports('eu-component-footer') {
+  @include ecl-footer();
+
+  .ecl-footer__custom {
+    background-color: map-get($ecl-colors, 'grey-5');
+    padding-bottom: map-get($ecl-spacing, 'm');
+    padding-top: map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-footer__custom-label {
+    color: map-get($ecl-colors, 'grey-100');
+    font-weight: normal;
+  }
+
+  .ecl-footer__custom-title {
+    color: map-get($ecl-colors, 'grey-100');
+    display: inline-block;
+    font-size: map-get($ecl-font-size, 'm');
+    margin-bottom: map-get($ecl-spacing, 'xxxs');
+  }
+
+  .ecl-footer__corporate {
+    border-top: 6px solid map-get($ecl-colors, 'blue-100');
+  }
+
+  .ecl-footer__corporate-top {
+    background-color: #e3e3e3;
+    color: map-get($ecl-colors, 'blue-100');
+    padding-bottom: map-get($ecl-spacing, 'xl');
+    padding-top: map-get($ecl-spacing, 'xl');
+  }
+
+  .ecl-footer__corporate-bottom {
+    background-color: #d9d9d9;
+    color: map-get($ecl-colors, 'blue-110');
+    padding-bottom: map-get($ecl-spacing, 'm');
+    padding-top: map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-footer__list {
+    margin-top: -(map-get($ecl-spacing, 's'));
+  }
+
+  .ecl-footer__list-item {
+    line-height: 1.625;
+    padding-top: map-get($ecl-spacing, 'xxs');
+  }
+
+  .ecl-footer__list--inline {
+    margin-top: 0;
+
+    .ecl-footer__list-item {
+      margin-left: 0;
+      margin-right: map-get($ecl-spacing, 'm');
+      padding-top: 0;
+    }
+  }
+
+  .ecl-footer__spaced-column {
+    padding-top: 0;
+  }
+
+  .ecl-footer__spaced-column:last-child {
+    padding-bottom: 0;
+  }
+
+  .ecl-footer__row + .ecl-footer__row {
+    padding-top: map-get($ecl-spacing, 'xl');
+  }
+
+  // Links in EU footers should look like standalone links
+  // The rule is added via CSS in order to allow better context management in twig, i.e. external links having variant
+
+  .ecl-footer__link {
+    font-size: map-get($ecl-font-size, 's');
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: map-get($ecl-colors, 'blue-100');
+      text-decoration: underline;
+    }
+  }
+
+  .ecl-footer__column-title {
+    border-bottom: 2px solid rgba(87, 87, 87, 0.25);
+    color: map-get($ecl-colors, 'grey-100');
+    font-size: map-get($ecl-font-size, 'm');
+    font-weight: normal;
+    margin-bottom: map-get($ecl-spacing, 'm');
+    padding-bottom: map-get($ecl-spacing, 'xxxs');
+  }
+
+  .ecl-footer__list--2-col {
+    column-count: 2;
+  }
+
+  .ecl-footer__list--3-col {
+    column-count: 3;
+  }
+
+  .ecl-footer__social-links {
+    display: inline-block;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-down(sm) {
+    .ecl-footer__list--2-col,
+    .ecl-footer__list--3-col {
+      column-count: 1;
+    }
+
+    .ecl-footer__custom {
+      padding-bottom: map-get($ecl-spacing, 's');
+      padding-top: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__custom-title {
+      margin-bottom: map-get($ecl-spacing, 'xs');
+    }
+
+    .ecl-footer__custom-label {
+      display: block;
+      margin-bottom: map-get($ecl-spacing, 'xxxs');
+    }
+
+    .ecl-footer__corporate-top {
+      padding-bottom: map-get($ecl-spacing, 'm');
+      padding-top: map-get($ecl-spacing, 'm');
+    }
+
+    .ecl-footer__column-title {
+      margin-bottom: map-get($ecl-spacing, 'xs');
+    }
+
+    .ecl-footer__spaced-column + .ecl-footer__spaced-column {
+      padding-top: map-get($ecl-spacing, 'xs');
+    }
+
+    .ecl-footer__corporate-bottom {
+      padding-bottom: map-get($ecl-spacing, 's');
+      padding-top: map-get($ecl-spacing, 's');
+    }
+
+    .ecl-footer__list {
+      margin-top: 0;
+    }
+
+    .ecl-footer__list--inline .ecl-footer__list-item {
+      margin-right: map-get($ecl-spacing, 's');
+    }
+  }
+}

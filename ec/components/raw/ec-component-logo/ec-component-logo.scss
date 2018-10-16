@@ -1,0 +1,100 @@
+/**
+ * Logos
+ * @define logo
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-logo() {
+  // Default EC logo.
+  .ecl-logo {
+    background: url($ecl-assets-path+'images/logo.svg') no-repeat;
+    display: block;
+    height: 72px;
+    width: 140px;
+  }
+
+  .ecl-logo--big {
+    height: 153px;
+    width: 290px;
+  }
+
+  // EC logotype
+  //
+  // EC logo with text.
+
+  // Sets language-specific background image on .ecl-logo--logotype element nested
+  // in {{modifier_class}} modifier.
+  /* stylelint-disable-next-line order/order */
+  @include logo-background-languages(
+    $ecl-assets-path + 'images/logo/logo--',
+    '.svg'
+  );
+
+  .ecl-logo--logotype {
+    width: 190px;
+  }
+
+  // EC logotype with text below the logo
+  //
+  // EC logo with text below.
+
+  // Sets language-specific background image on .ecl-logo--logotypebelow element nested
+  // in {{modifier_class}} modifier.
+  /* stylelint-disable-next-line order/order */
+  @include logo-background-languages(
+    $ecl-assets-path + 'images/logo/logotypebelow--',
+    '.svg',
+    'ecl-logo--logotypebelow'
+  );
+
+  .ecl-logo--logotypebelow {
+    height: 72px;
+    width: 198px;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(sm) {
+    .ecl-logo--logotype {
+      width: 290px;
+    }
+
+    .ecl-logo--logotypebelow {
+      height: 118px;
+      width: 324px;
+    }
+  }
+}
+
+/**
+ * EC logo
+ */
+
+// Language generator.
+@mixin logo-background-languages(
+  $file_path,
+  $file_extension,
+  $logo_class: ecl-logo--logotype
+) {
+  @each $item in $ecl-languages {
+    /* stylelint-disable */
+    .language-#{$item} {
+      .#{$logo_class} {
+        background-image: url('#{$file_path}#{$item}#{$file_extension}');
+      }
+
+      @media print {
+        .#{$logo_class}::before {
+          content: url('#{$file_path}#{$item}#{$file_extension}');
+        }
+      }
+    }
+    /* stylelint-enable */
+  }
+}
+
+// Use mixin
+@include exports('ec-component-logo') {
+  @include ecl-logo();
+}

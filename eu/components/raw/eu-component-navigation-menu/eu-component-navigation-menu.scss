@@ -1,0 +1,95 @@
+/**
+ * EU navigation menus
+ * @define navigation-menu
+ */
+
+// Import base and generic
+@import '@ecl/eu-base/eu-base';
+@import '@ecl/generic-component-navigation-menu/generic-component-navigation-menu';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('eu-style-typography-list'));
+
+// Use generic mixin
+@include exports('eu-component-navigation-menu') {
+  @include ecl-navigation-menu(
+    $bar-bg-mobile: map-get($ecl-colors, 'grey-15'),
+    $bar-bg-desktop: map-get($ecl-colors, 'grey-10'),
+    $toggle-btn-color: map-get($ecl-colors, 'blue-100'),
+    $group-bg: map-get($ecl-colors, 'grey-5'),
+    $separator-mobile: map-get($ecl-colors, 'grey-15'),
+    $link-color: map-get($ecl-colors, 'blue-100'),
+    $active-color: map-get($ecl-colors, 'blue-100'),
+    $active-bg: map-get($ecl-colors, 'grey-10')
+  );
+
+  .ecl-navigation-menu__item--active {
+    .ecl-navigation-menu__link[aria-expanded='true'] {
+      border-bottom: 1px solid map-get($ecl-colors, 'grey-15');
+    }
+
+    > .ecl-navigation-menu__link::before {
+      background-color: map-get($ecl-colors, 'blue-110');
+      content: '';
+      display: block;
+      height: 100%;
+      left: -($ecl-grid-gutter-width-base / 2);
+      position: absolute;
+      top: 0;
+      width: map-get($ecl-spacing, 'xxxs');
+    }
+  }
+
+  .ecl-navigation-menu__group::before {
+    border-bottom: 1px solid map-get($ecl-colors, 'grey-15');
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(md) {
+    .ecl-navigation-menu {
+      border-bottom: 3px solid map-get($ecl-colors, 'grey-15');
+    }
+
+    .ecl-navigation-menu__link {
+      border-bottom-width: 0;
+    }
+
+    .ecl-navigation-menu__item {
+      margin-right: 3px;
+    }
+
+    .ecl-navigation-menu__item--active,
+    .ecl-navigation-menu__root > .ecl-navigation-menu__item--active {
+      background-color: map-get($ecl-colors, 'grey-5');
+      margin-bottom: -3px;
+
+      > .ecl-navigation-menu__link::before {
+        display: none;
+      }
+    }
+
+    .ecl-navigation-menu__item--active .ecl-navigation-menu__link {
+      border-bottom-color: map-get($ecl-colors, 'blue-100');
+      border-bottom-width: 3px;
+    }
+
+    .ecl-navigation-menu__group {
+      margin-top: 3px;
+
+      &::before {
+        border-bottom: 3px solid map-get($ecl-colors, 'blue-100');
+      }
+    }
+
+    .ecl-navigation-menu__link[aria-expanded='true'] {
+      border-bottom: 3px solid map-get($ecl-colors, 'grey-5');
+      margin-bottom: -3px;
+    }
+
+    .ecl-navigation-menu__item--active
+      .ecl-navigation-menu__link[aria-expanded='true'] {
+      border-bottom: 3px solid map-get($ecl-colors, 'grey-5');
+      margin-bottom: 0;
+    }
+  }
+}

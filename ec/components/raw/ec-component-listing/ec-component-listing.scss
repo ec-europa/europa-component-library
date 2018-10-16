@@ -1,0 +1,13 @@
+/**
+ * Listings
+ * @define listing; weak
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-listing/generic-component-listing';
+
+// Use generic mixin
+@include exports('ec-component-listing') {
+  @include ecl-listing();
+}

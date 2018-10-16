@@ -1,0 +1,12 @@
+/**
+ * Margin utilities
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-utility-margin/generic-utility-margin';
+
+// Use generic mixin
+@include exports('ec-utility-margin') {
+  @include ecl-utility-margin();
+}

@@ -1,0 +1,16 @@
+/*
+ * Radio
+ * @define radio
+ */
+
+// Import base and generic
+@import '@ecl/ec-base/ec-base';
+@import '@ecl/generic-component-form-radio/generic-component-form-radio';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-form-label'));
+
+// Use generic mixin
+@include exports('ec-component-form-radio') {
+  @include ecl-radio();
+}
