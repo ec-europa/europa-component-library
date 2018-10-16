@@ -1,10 +1,8 @@
-const demoImage = require('@ecl/ec-resources-example/example-image.jpg');
-
 // Simple content for demo
 module.exports = {
   image: {
     alt: 'card image',
-    src: demoImage,
+    src: '/example-image.jpg',
   },
   meta: 'Meta1 | Meta2',
   title: {

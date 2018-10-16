@@ -1,5 +1,3 @@
-const demoImage = require('@ecl/eu-resources-example/example-image.jpg');
-
 // Simple content for demo
 module.exports = {
   variant: 'image-shade',
@@ -15,6 +13,6 @@ module.exports = {
       size: 'xs',
     },
   },
-  image: demoImage,
+  image: '/example-image.jpg',
   isCentered: true,
 };
