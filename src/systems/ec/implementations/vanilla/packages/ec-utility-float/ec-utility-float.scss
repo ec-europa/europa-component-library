@@ -2,11 +2,22 @@
  * Float utilities
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-utility-float/generic-utility-float';
 
-// Use generic mixin
+@mixin ecl-utility-float() {
+  .ecl-u-f-l {
+    float: left;
+  }
+  .ecl-u-f-r {
+    float: right;
+  }
+  .ecl-u-f-none {
+    float: none;
+  }
+}
+
+// Use mixin
 @include exports('ec-utility-float') {
   @include ecl-utility-float();
 }
