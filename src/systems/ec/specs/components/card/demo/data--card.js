@@ -2,8 +2,7 @@
 module.exports = {
   image: {
     alt: 'card image',
-    src:
-      'https://ec.europa.eu/education/sites/education/files/jean-monnet-gs-banner.jpg',
+    src: '/example-image.jpg',
   },
   meta: 'Meta1 | Meta2',
   title: {
