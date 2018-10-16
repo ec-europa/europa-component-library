@@ -3,14 +3,13 @@ import React from 'react';
 
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
 import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
-import demoImage from '@ecl/eu-resources-example/example-image.jpg';
 
 import Card from '../Card';
 
 const Template = () => {
   const image1 = {
     alt: demoContentCard.image.alt,
-    src: demoImage,
+    src: demoContentCard.image.src,
   };
   const title1 = {
     variant: 'standalone',
