@@ -11,7 +11,6 @@
 );
 
 @mixin ecl-card(
-  $max-width: 21.75rem,
   $background-card: $ecl-color-grey-5,
   $border-color-card: $ecl-color-grey-10,
   $color-meta: $ecl-color-grey-75,
@@ -23,7 +22,6 @@
     border: 1px solid $border-color-card;
     box-sizing: border-box;
     margin: 0;
-    max-width: $max-width;
     padding-left: calc(#{$ecl-spacing-s} - 1px);
     padding-right: calc(#{$ecl-spacing-s} - 1px);
     width: 100%;
