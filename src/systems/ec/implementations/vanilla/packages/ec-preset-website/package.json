@@ -2,10 +2,10 @@
   "name": "@ecl/ec-preset-website",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.0.0-alpha.1",
-  "description": "Europa Component Library base preset",
-  "style": "ec-preset-website.scss",
-  "module": "ec-preset-website.js",
+  "version": "2.0.0-alpha.2",
+  "description": "ECL EC Website preset",
+  "main": "dist/scripts/ecl-ec-preset-website.js",
+  "style": "dist/styles/ecl-ec-preset-website.css",
   "publishConfig": {
     "access": "public"
   },
@@ -22,8 +22,8 @@
     "prepublish": "npm run dist"
   },
   "dependencies": {
-    "@ecl/ec-preset-full": "^2.0.0-alpha.1",
-    "@ecl/ec-theme-default": "^2.0.0-alpha.1",
+    "@ecl/ec-preset-full": "^2.0.0-alpha.2",
+    "@ecl/ec-theme-default": "^2.0.0-alpha.2",
     "normalize.css": "8.0.0"
   },
   "devDependencies": {
@@ -41,7 +41,5 @@
   "homepage": "https://github.com/ec-europa/europa-component-library",
   "bugs": {
     "url": "https://github.com/ec-europa/europa-component-library/issues"
-  },
-  "sass": "ec-preset-website.scss",
-  "main": "ec-preset-website.js"
+  }
 }
