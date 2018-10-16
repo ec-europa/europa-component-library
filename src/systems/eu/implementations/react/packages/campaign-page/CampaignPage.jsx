@@ -27,7 +27,17 @@ const CampaignPage = ({
             <MediaContainer {...mediaContainer} />
           </div>
 
-          <div className="ecl-col-sm-12 ecl-col-md-6">Some text</div>
+          <div className="ecl-col-sm-12 ecl-col-md-6">
+            <p className="ecl-u-type-paragraph">
+              The European Commission has put forward ambitious yet realistic
+              proposals for a modern EU budget. It is time for an EU budget that
+              reflects rapid developments in innovation, the economy, the
+              environment and geopolitics, amongst others. The Commission is
+              putting forward modern, clearer and simpler EU financial rules
+              that ensure the EU budget delivers on the issues that matter to
+              Europeans.
+            </p>
+          </div>
         </div>
 
         <div className="ecl-row ecl-u-mt-l">
