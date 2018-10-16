@@ -1,0 +1,225 @@
+/**
+ * Page Banner component
+ * @define page-banner
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-button', 'ec-layout-grid'));
+
+@mixin ecl-page-banner(
+  $background-color-default: $ecl-color-grey-5,
+  $title-color-default: $ecl-color-black-100,
+  $baseline-color-default: $ecl-color-grey-100,
+  $background-color-primary: $ecl-color-primary,
+  $title-color-primary: $ecl-color-white-100,
+  $baseline-color-primary: $ecl-color-white-100,
+  $background-color-image: $ecl-color-white-100,
+  $title-color-image: $ecl-color-black-100,
+  $baseline-color-image: $ecl-color-grey-100,
+  $border-color-image: $ecl-color-yellow-100,
+  $background-color-image-shade: rgba(0, 0, 0, 0.7),
+  $title-color-image-shade: $ecl-color-white-100,
+  $baseline-color-image-shade: $ecl-color-white-100,
+  $content-width: 42.5rem
+) {
+  .ecl-page-banner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+  }
+
+  .ecl-page-banner__container {
+    display: flex;
+    width: 100%;
+  }
+
+  .ecl-page-banner__content {
+    display: block;
+    padding: $ecl-spacing-l;
+  }
+
+  .ecl-page-banner__image {
+    background-size: cover;
+    height: (1/3) * 100vw;
+    position: relative;
+    width: 100%;
+  }
+
+  .ecl-page-banner__title {
+    font: $ecl-font-2-xl;
+    margin-bottom: $ecl-spacing-m;
+  }
+
+  .ecl-page-banner__baseline {
+    font: $ecl-font-prolonged-m;
+    margin-bottom: $ecl-spacing-m;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-page-banner__content {
+      padding: $ecl-spacing-xl;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-page-banner {
+      // manage ratio 3:1
+      height: 1px; // IE11 fix, see https://github.com/philipwalton/flexbugs/issues/231
+      min-height: (1/3) * 100vw;
+    }
+
+    .ecl-page-banner__container {
+      padding: $ecl-spacing-l;
+    }
+
+    .ecl-page-banner__content {
+      max-width: $content-width;
+    }
+
+    .ecl-page-banner__image {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .ecl-page-banner__title {
+      font: $ecl-font-4-xl;
+      margin-bottom: $ecl-spacing-m;
+    }
+
+    .ecl-page-banner__baseline {
+      font: $ecl-font-prolonged-l;
+      margin-bottom: $ecl-spacing-l;
+    }
+  }
+
+  /*
+   * centered
+   */
+  .ecl-page-banner--centered {
+    .ecl-page-banner__container {
+      justify-content: center;
+    }
+
+    .ecl-page-banner__content {
+      text-align: center;
+    }
+  }
+
+  /*
+   * variant: default
+   */
+  .ecl-page-banner--default {
+    background-color: $background-color-default;
+
+    .ecl-page-banner__title {
+      color: $title-color-default;
+    }
+
+    .ecl-page-banner__baseline {
+      color: $baseline-color-default;
+    }
+  }
+
+  /*
+   * variant: primary
+   */
+  .ecl-page-banner--primary {
+    background-color: $background-color-primary;
+
+    .ecl-page-banner__title {
+      color: $title-color-primary;
+    }
+
+    .ecl-page-banner__baseline {
+      color: $baseline-color-primary;
+    }
+  }
+
+  /*
+   * variant: image
+   */
+  .ecl-page-banner--image {
+    .ecl-page-banner__container {
+      border-top: 4px solid $border-color-image;
+    }
+
+    .ecl-page-banner__content {
+      padding-top: calc(#{$ecl-spacing-l} - 4px);
+    }
+
+    .ecl-page-banner__title {
+      color: $title-color-image;
+    }
+
+    .ecl-page-banner__baseline {
+      color: $baseline-color-image;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-page-banner--image {
+      .ecl-page-banner__container {
+        border-top-width: 0;
+      }
+
+      .ecl-page-banner__content {
+        background-color: $background-color-image;
+        border-bottom: 4px solid $border-color-image;
+        border-top-width: 0;
+        padding: $ecl-spacing-xl calc(#{$ecl-spacing-xl} - 4px) $ecl-spacing-xl
+          $ecl-spacing-xl;
+      }
+    }
+  }
+
+  /*
+   * variant: image-shade
+   */
+  .ecl-page-banner--image-shade {
+    .ecl-page-banner__image::before {
+      background-color: $background-color-image-shade;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+
+    .ecl-page-banner__title {
+      color: $title-color-default;
+    }
+
+    .ecl-page-banner__baseline {
+      color: $baseline-color-default;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-page-banner--image-shade {
+      .ecl-page-banner__title {
+        color: $title-color-image-shade;
+      }
+
+      .ecl-page-banner__baseline {
+        color: $baseline-color-image-shade;
+      }
+    }
+  }
+}
+
+// Use  mixin
+@include exports('ec-component-page-banner') {
+  @include ecl-page-banner();
+}
