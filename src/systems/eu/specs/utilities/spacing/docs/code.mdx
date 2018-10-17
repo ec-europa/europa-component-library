@@ -52,12 +52,19 @@ inside spacing (padding) on the right.
 - Use classes `ecl-u-ml-*` or `ecl-u-pl-*` to add spacing only on the left
 - Use classes `ecl-u-mr-*` or `ecl-u-pr-*` to add spacing on the right.
 
+## Other spacing
+
+- Use classes `ecl-u-m*-auto` to set margin auto (horizontal, vertical or any direction)
+- Use classes `ecl-u-m*-none` or `ecl-u-p*-none` to set margin or padding to zero.
+
 ## Responsive spacing
 
 Add the breakpoint before spacing size to display it only with corresponding screen size (works for all kind of spacing ahead).
 
-Example:
+Examples:
 - spacing `l` on screen size >= breakpoint `md`
 <Spacing type="a-md" token="l" />
 - horizontal spacing `2xl` on screen size >= breakpoint `lg`
 <Spacing type="h-lg" token="2xl" />
+- no left spacing on screen size >= breakpoint `sm`
+<Spacing type="l-sm" token="none" />
