@@ -69,7 +69,6 @@ SiteHeader.propTypes = {
   logo: PropTypes.shape({
     title: PropTypes.string,
     alt: PropTypes.string,
-    language: PropTypes.string,
     href: PropTypes.string,
   }),
   languageSelector: PropTypes.shape({
@@ -88,7 +87,6 @@ SiteHeader.defaultProps = {
   logo: {
     title: '',
     alt: '',
-    language: '',
     href: '#',
   },
   languageSelector: {
