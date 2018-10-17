@@ -10,6 +10,7 @@ const TextInput = ({
   invalidIconLabel,
   invalidText,
   label,
+  hideLabel,
   name,
   placeholder,
   type,
@@ -26,6 +27,7 @@ const TextInput = ({
         <label
           className={classnames('ecl-form-label', {
             'ecl-form-label--invalid': invalid,
+            'ecl-form-label--hidden': hideLabel,
           })}
           htmlFor={id}
         >
@@ -60,6 +62,7 @@ TextInput.propTypes = {
   invalidText: PropTypes.node,
   name: PropTypes.string,
   label: PropTypes.node,
+  hideLabel: PropTypes.bool,
   placeholder: PropTypes.string,
   type: PropTypes.string,
   className: PropTypes.string,
@@ -73,6 +76,7 @@ TextInput.defaultProps = {
   invalidText: '',
   name: '',
   label: '',
+  hideLabel: false,
   placeholder: '',
   type: 'text',
   className: '',
