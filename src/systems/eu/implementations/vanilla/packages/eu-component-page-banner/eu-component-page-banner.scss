@@ -4,10 +4,10 @@
  */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@import '@ecl/eu-base/eu-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-button'));
+@include check-imports(('eu-component-button'));
 
 @mixin ecl-page-banner(
   $background-color-default: $ecl-color-grey-5,
