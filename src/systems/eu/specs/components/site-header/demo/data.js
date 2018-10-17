@@ -11,6 +11,7 @@ module.exports = {
   },
   searchForm: {
     textInputId: 'search-form',
+    inputLabel: 'Search',
     buttonLabel: 'Search',
   },
 };
