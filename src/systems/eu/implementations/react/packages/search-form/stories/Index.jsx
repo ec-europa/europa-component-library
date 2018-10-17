@@ -12,6 +12,7 @@ storiesOf('SearchForm', module)
   .add('default', () => (
     <SearchForm
       textInputId={demoContent.textInputId}
+      inputLabel={text('Input label', demoContent.inputLabel)}
       buttonLabel={text('Button label', demoContent.buttonLabel)}
     />
   ));
