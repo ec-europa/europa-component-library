@@ -7,9 +7,7 @@
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(
-  ('ec-component-icon', 'ec-component-logo', 'ec-component-search-form')
-);
+@include check-imports(('ec-component-icon', 'ec-component-search-form'));
 
 @include exports('ec-component-site-header') {
   .ecl-site-header {
@@ -29,6 +27,18 @@
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
+  }
+
+  .ecl-site-header__logo-image {
+    display: block;
+    height: 3rem;
+    margin: 0;
+    width: 11.25rem;
+
+    @include ecl-media-breakpoint-up(sm) {
+      height: 4.5rem;
+      width: 17rem;
+    }
   }
 
   .ecl-site-header__selector {

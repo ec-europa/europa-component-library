@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon/Icon';
-import Logo from '@ecl/ec-react-component-logo/Logo';
 import SearchForm from '@ecl/ec-react-component-search-form/SearchForm';
+import logoSrc from '@ecl/ec-resources-logo/EC-logo.svg';
 
 const SiteHeader = ({
   logo,
@@ -15,16 +15,34 @@ const SiteHeader = ({
 }) => {
   const classNames = classnames(className, 'ecl-site-header');
 
+  // Logo props
+  const {
+    className: logoClassName,
+    href: logoHref,
+    alt: logoAlt,
+    title: logoTitle,
+    ...logoProps
+  } = logo;
+
   return (
     <header {...props} className={classNames}>
       <div className="ecl-site-header__container ecl-container">
         <div className="ecl-site-header__banner">
           <a
-            className="ecl-site-header__logo ecl-link ecl-link--standalone"
-            href={logo.href}
-            aria-label={logo.title}
+            className="ecl-link ecl-link--standalone"
+            href={logoHref}
+            aria-label={logoTitle}
           >
-            <Logo {...logo} />
+            <img
+              {...logoProps}
+              alt={logoAlt}
+              title={logoTitle}
+              className={classnames(
+                logoClassName,
+                'ecl-site-header__logo-image'
+              )}
+              src={logoSrc}
+            />
           </a>
           <div className="ecl-site-header__selector">
             <a
