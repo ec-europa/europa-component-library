@@ -2,4 +2,4 @@ Templates provide users examples of components being used together on a page. Th
 
 Templates here are built with pure HTML/CSS. The layouts are flexible, based on your needs, except the site header and footer. Uers can pick and choose the components that deliver their messages to their audience.
 
-<img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg" width="480" alt="EC Standard Template">
+![EC Standard Template](http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg)
