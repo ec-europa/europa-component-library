@@ -2,4 +2,4 @@ Templates provide users with examples of how components can be used together on 
 
 The templates we use are built using HTML/CSS only. The layouts are flexible, to take account of your needs; the only exceptions are the site header and footer, which are standardised. Users can choose those components that best convey the messages they want to send to their audience.
 
-<img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg" alt="EC standard templat" width="420">
+![EC standard template](http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg)
