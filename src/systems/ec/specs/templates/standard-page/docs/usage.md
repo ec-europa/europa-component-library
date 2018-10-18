@@ -9,6 +9,6 @@ The standard template must be used for all new development and can also be intro
 
 The pages using this template must contain at least all the elements shown in the mandatory version.
 
-Mandatory components: Site header, page header, feedback form, and corporate footer.
+Mandatory components: Site switcher, site header, page header, feedback form, and corporate footer.
 
 ![Standard EC Template](http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg)
