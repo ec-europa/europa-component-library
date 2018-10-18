@@ -4,7 +4,6 @@ import classnames from 'classnames';
 
 import Icon from '@ecl/ec-react-component-icon/Icon';
 import SearchForm from '@ecl/ec-react-component-search-form/SearchForm';
-import logoSrc from '@ecl/ec-resources-logo/EC-logo.svg';
 
 const SiteHeader = ({
   logo,
@@ -21,8 +20,12 @@ const SiteHeader = ({
     href: logoHref,
     alt: logoAlt,
     title: logoTitle,
+    language: logoLanguage,
     ...logoProps
   } = logo;
+
+  // eslint-disable-next-line global-require, import/no-dynamic-require
+  const logoSrc = require(`@ecl/ec-resources-logo/EC-logo--${logoLanguage}.svg`);
 
   return (
     <header {...props} className={classNames}>
@@ -69,6 +72,7 @@ SiteHeader.propTypes = {
   logo: PropTypes.shape({
     title: PropTypes.string,
     alt: PropTypes.string,
+    language: PropTypes.string,
     href: PropTypes.string,
   }),
   languageSelector: PropTypes.shape({
@@ -87,6 +91,7 @@ SiteHeader.defaultProps = {
   logo: {
     title: '',
     alt: '',
+    language: 'en',
     href: '#',
   },
   languageSelector: {
