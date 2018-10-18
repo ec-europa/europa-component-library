@@ -13,7 +13,7 @@ const DocPage = ({ component }) => (
     <Helmet title={component.title} />
     <Header
       component={component}
-      sectionTitle={component.section}
+      sectionTitle={component.group || component.section}
       pageTitle={component.title}
       tabs={component.tabs}
     />

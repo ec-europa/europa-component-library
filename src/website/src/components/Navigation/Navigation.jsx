@@ -73,7 +73,7 @@ class Navigation extends PureComponent {
 Navigation.propTypes = {
   sidebarOpen: PropTypes.bool,
   onToggleSidebar: PropTypes.func,
-  pages: PropTypes.shape().isRequired,
+  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   prefix: PropTypes.string.isRequired,
   forceRefresh: PropTypes.bool,
 };

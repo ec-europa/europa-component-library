@@ -3,7 +3,8 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Inpage navigation',
-  section: 'Components/Navigation',
+  section: 'Components',
+  group: 'Navigation',
   status: 'planned',
   tabs: [
     {

@@ -4,7 +4,8 @@ import usage from './docs/usage.md';
 export default {
   status: 'ready',
   title: 'Page Header',
-  section: 'Components/Global elements',
+  section: 'Components',
+  group: 'Global elements',
   tabs: [
     {
       name: 'Usage',
