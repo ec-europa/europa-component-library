@@ -20,7 +20,7 @@ const PageBanner = ({
   });
 
   return (
-    <section className={classNames} {...props}>
+    <section {...props} className={classNames}>
       {!!(variant && image) && (
         <div
           className="ecl-page-banner__image"
