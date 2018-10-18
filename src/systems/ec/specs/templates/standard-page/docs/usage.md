@@ -1,5 +1,14 @@
-Templates provide users with examples of how components can be used together on a page. They can help users display their project and understand how its layout can best meet their needs.
+Templates allow you to quickly create web pages and websites that are in line with the European Commission's corporate guidelines.
 
-The templates we use are built using HTML/CSS only. The layouts are flexible, to take account of your needs; the only exceptions are the site header and footer, which are standardised. Users can choose those components that best convey the messages they want to send to their audience.
+Standard presentation ensures a "corporate image" for the Commission which provides a coherent look to the web presence. It also makes things easier for the user through
 
-![EC standard template](http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg)
+- standard elements with a consistent appearance and position on every page that provide the same functions throughout the site at all levels
+- "vertical" and "horizontal" navigational aids (for example, between languages)
+
+The standard template must be used for all new development and can also be introduced on existing pages to replace a previous template, but this should be done on a site basis, not page by page.
+
+The pages using this template must contain at least all the elements shown in the mandatory version.
+
+Mandatory components: Site header, page header, feedback form, and corporate footer.
+
+![Standard EC Template](http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg)
