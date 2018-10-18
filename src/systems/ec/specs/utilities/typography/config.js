@@ -2,7 +2,6 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  order: 1,
   title: 'Typography',
   section: 'Utilities',
   tabs: [
