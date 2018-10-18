@@ -50,8 +50,8 @@ const CampaignPage = ({
             <Card {...card} />
           </div>
         </div>
-        <div className="ecl-row ecl-u-mt-l">
-          <div className="ecl-col-sm-12 ecl-col-md-12">
+        <div className="ecl-row ecl-u-mt-l ecl-u-mb-xl">
+          <div className="ecl-col-sm-12 ecl-col-md-6">
             <Blockquote {...blockquote} />
           </div>
         </div>
