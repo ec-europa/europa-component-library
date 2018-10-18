@@ -2,7 +2,7 @@ import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  title: 'Typography',
+  title: 'Spacing',
   section: 'Utilities',
   tabs: [
     {
