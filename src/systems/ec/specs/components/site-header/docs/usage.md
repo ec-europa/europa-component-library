@@ -9,5 +9,4 @@ The site header consists of three core components:
 - language selector
 - search bar
 
-<img src="http://inno-ecl.s3.amazonaws.com/media/images/EC/SiteHeader/SiteHeader01.png" alt="European Commission site header" width="600">
-
+![European Commission site header](http://inno-ecl.s3.amazonaws.com/media/images/EC/SiteHeader/SiteHeader01.png)
