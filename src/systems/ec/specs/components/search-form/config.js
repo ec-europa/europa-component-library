@@ -4,6 +4,7 @@ import usage from './docs/usage.md';
 export default {
   title: 'Search form',
   section: 'Components',
+  group: 'Forms',
   status: 'ready',
   tabs: [
     {
