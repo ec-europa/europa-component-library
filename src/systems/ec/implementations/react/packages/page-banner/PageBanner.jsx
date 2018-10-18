@@ -20,7 +20,7 @@ const PageBanner = ({
   });
 
   return (
-    <div className={classNames} {...props}>
+    <section className={classNames} {...props}>
       {!!(variant && image) && (
         <div
           className="ecl-page-banner__image"
@@ -29,17 +29,15 @@ const PageBanner = ({
       )}
       <div className="ecl-container ecl-page-banner__container">
         <div className="ecl-page-banner__content">
-          {title && <div className="ecl-page-banner__title">{title}</div>}
-          {baseline && (
-            <div className="ecl-page-banner__baseline">{baseline}</div>
-          )}
+          {title && <h1 className="ecl-page-banner__title">{title}</h1>}
+          {baseline && <p className="ecl-page-banner__baseline">{baseline}</p>}
           {button &&
             button.label && (
               <Button {...button} className="ecl-page-banner__button" />
             )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
