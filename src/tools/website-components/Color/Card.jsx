@@ -58,9 +58,9 @@ class Card extends PureComponent {
             <span className={styles['button-hover-only']}>COPY</span>
           </button>
         </div>
-        {docs.description && (
+        {/* docs.description && (
           <div className={styles.body}>{docs.description}</div>
-        )}
+        ) */}
       </div>
     );
   }
