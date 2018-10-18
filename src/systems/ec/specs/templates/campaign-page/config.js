@@ -1,11 +1,11 @@
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  order: 2,
-  title: 'Campaign',
+  order: 1,
+  title: 'Campaign template',
   section: 'Templates',
-  status: 'planned',
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
