@@ -1,0 +1,27 @@
+@import '@ecl/ec-theme-default/index';
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $ecl-spacing-xs;
+  margin-top: $ecl-spacing-xs;
+}
+
+.container {
+  background-color: $ecl-color-grey-10;
+  display: flex;
+}
+
+.content {
+  background-color: $ecl-color-grey-50;
+  border: 2px solid $ecl-color-grey-100;
+  display: flex;
+}
+
+.item {
+  background-color: $ecl-color-white-100;
+  display: block;
+  font: $ecl-font-s;
+  text-align: center;
+  width: 7rem;
+}
