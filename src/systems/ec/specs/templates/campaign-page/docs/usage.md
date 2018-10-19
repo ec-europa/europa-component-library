@@ -1,13 +1,15 @@
-### Campaign page
+## Campaign page
+
 campaigns to inform, celebrate or raise awareness
 
 - short-term & ad-hoc campaigns
 - limited to one specific topic
 - campaigns that don't require a heavy amount of content – e.g. image driven campaigns
-- campaigns that convey brief facts, figures and testimonials 
+- campaigns that convey brief facts, figures and testimonials
 - basic campaigns
 
-### Basic features
+## Basic features
+
 You don't need to use all the listed components. You can choose fromhe below, depending on the user's need.
 
 - Text
@@ -20,7 +22,8 @@ You don't need to use all the listed components. You can choose fromhe below, de
 - News
 - Social media sharing
 
-### Campaign minisite 
+## Campaign minisite
+
 - Promotion/involving & debating campaigns
 - Long-term campaigns
 - Inter-institutional level campaigns
