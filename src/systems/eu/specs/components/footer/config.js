@@ -3,8 +3,7 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Footer',
-  section: 'Components',
-  group: 'Global elements',
+  section: 'Page structure',
   status: 'ready',
   tabs: [
     {
