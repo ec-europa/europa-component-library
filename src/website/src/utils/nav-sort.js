@@ -2,11 +2,11 @@
 const firstLevelKeys = [
   'Getting started',
   "What's new",
-  'Style',
-  'Components',
-  'Utilities',
-  'Templates',
   'Guidelines',
+  'Templates',
+  'Page structure',
+  'Components',
+  // 'Utilities',
   'Resources',
 ];
 
@@ -92,6 +92,11 @@ const processPages = pages => {
     if (!p.section) {
       // Only a group
       pushPageToParent(p, newPages);
+      return;
+    }
+
+    if (p.section === 'Utilities') {
+      // temporarily ignore utilities
       return;
     }
 
