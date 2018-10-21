@@ -20,17 +20,86 @@ Font weight is an important typographic style that can add emphasis and is used 
 
 Line-length, traditionally known as measure, is the number of characters in a single line. It also directly contributes to the readability and pacing of copy. Lines that are too long degrade eye tracking from line to line, making it difficult to gauge which line to read next. In contrast, lines that are too short make it difficult for a reader to maintain a steady reading rhythm. Short lines often create disproportionate ragged edges that negatively affect the design. We use a range of 75-85 characters per line.
 
-## Typography table
+## Headings
 
-| Name |     Size      | line-height UI |    line-height Prolonged     |      Font Weight      |     Font Colour)      |                   Usage (Desktop)                   |                   Usage (Mobile)                    |
-| :--: | :-----------: | :------------: | :--------------------------: | :-------------------: | :-------------------: | :-------------------------------------------------: | :-------------------------------------------------: |
-|  xs  | 12px-0.75rem  |   16px-1rem    | No prolonged reading version |      Regular 400      |        EC Grey        |                  Copyrights/Labels                  |                  Copyrights/Labels                  |
-|  s   | 14px-0.875rem |  20px-1.25rem  |         20px-1.25rem         |      Regular 400      |        EC Grey        |                Captions/Meta (copy)                 |                Captions/Meta (copy)                 |
-|  m   |   16px-1rem   |  20px-1.25rem  |         24px-1.5rem          |      Regular 400      |        EC Grey        |                  Paragraphs (copy)                  |                  Paragraphs (copy)                  |
-|  l   | 18px-1.125rem |  24px-1.5rem   |         28px-1.75rem         |      Regular 400      |         White         |                                                     | Lead paragraph (Page header or banner descriptions) |
-|  xl  | 20px-1.25rem  |  24px-1.5rem   |         28px-1.75rem         | Bold 600, Regular 400 |    White- EC Grey     | Lead paragraph (Page header or banner descriptions) |                    (H3 heading)                     |
-| 2xl  |  24px-1.5rem  |  28px-1.75rem  | No prolonged reading version |       Bold 600        |        EC Grey        |                    (H3 heading)                     |         Body titles (H2 heading) for Mobile         |
-| 3xl  | 28px-1.75rem  |  32px-1.75rem  | No prolonged reading version |       Bold 600        | White, EC Grey, Black |              Body titles (H2 heading)               |                                                     |
-| 4xl  |   32px-2rem   |  40px-2.5rem   | No prolonged reading version |       Bold 600        |      White Black      |       Page titles (H1 heading) Banner titles        |       Page titles (H1 heading) Banner titles        |
-| 5xl  | 36px-2.25rem  |  44px-2.75rem  | No prolonged reading version |       Bold 600        |      White Black      |                                                     |   EU and interinstitutional homepage page banners   |
-| 6xl  | 42px-2.625rem |  52px-3.25rem  | No prolonged reading version |       Bold 600        |      White Black      |   EU and interinstitutional homepage page banners   |                                                     |
+Headings and subheadings should be organised in a hierarchy, with heading first, followed by subheadings in order (An H2 will nestle under H1, and H2 under H3, and so on down).
+
+Heading 1 - Desktop
+
+| Size & line-height | font-weight |
+|--------------------|-------------|
+| 4xl (2.5rem)       | Bold (600)  |
+
+Heading 1 - Mobile
+
+| Size & line-height | font-weight |
+|--------------------|-------------|
+| 3xl (1.75rem 2rem) | Bold (600)  |
+
+Heading 2 - Desktop
+
+| Size & line-height | font-weight |
+|--------------------|-------------|
+| 3xl (1.75rem 2rem) | Bold (600)  |
+
+Heading 2 - Mobile
+
+| Size & line-height      | font-weight |
+|-------------------------|-------------|
+| 2xl (1.5remrem 1.75rem) | Bold (600)  |
+
+Heading 3 - Desktop
+
+| Size & line-height      | font-weight |
+|-------------------------|-------------|
+| 2xl (1.5rem 1.75rem)    | Bold (600)  |
+
+Heading 3 - Mobile
+
+| Size & line-height  | font-weight |
+|---------------------|-------------|
+| xl (1.25rem 1.5rem) | Bold (600)  |
+
+Heading 4 - Desktop
+
+| Size & line-height  | font-weight |
+|---------------------|-------------|
+| xl (1.25rem 1.5rem) | Bold (600)  |
+
+Heading 4 - Mobile
+
+| Size & line-height  | font-weight |
+|---------------------|-------------|
+| l (1.125rem 1.5rem) | Bold (600)  |
+
+## Paragraphs
+
+Lead paragraph - Desktop
+
+| Size & line-height  | font-weight     |
+|---------------------|-----------------|
+| xl (1.25rem 1.75rem)| Regular (400)   |
+
+Lead paragraph - Mobile
+
+| Size & line-height    | font-weight     |
+|-----------------------|-----------------|
+| xl (1.125rem 1.75rem) | Regular (400)   |
+
+Medium paragraph - Desktop and Mobile
+
+| Size & line-height  | font-weight    |
+|---------------------|----------------|
+| m (1rem 1.5rem)     | Regular (400)  |
+
+Small paragraph - Desktop and Mobile
+
+| Size & line-height  | font-weight    |
+|---------------------|----------------|
+| s (0.875rem 1.25rem)| Regular (400)  |
+
+Extra Small paragraph - Desktop and Mobile
+
+| Size & line-height   | font-weight    |
+|----------------------|----------------|
+| xs (0.75rem 1.25rem) | Regular (400)  |
