@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Blockquote from '@ecl/ec-react-component-blockquote/Blockquote';
 import Card from '@ecl/ec-react-component-card/Card';
 import Footer from '@ecl/ec-react-component-footer/Footer';
+import Icon from '@ecl/ec-react-component-icon/Icon';
+import Link from '@ecl/ec-react-component-link/Link';
 import MediaContainer from '@ecl/ec-react-component-media-container/MediaContainer';
 import HeroBanner from '@ecl/ec-react-component-hero-banner/HeroBanner';
 import SiteHeader from '@ecl/ec-react-component-site-header/SiteHeader';
@@ -50,10 +52,22 @@ const CampaignPage = ({
             <Card {...card} />
           </div>
         </div>
+
         <div className="ecl-row ecl-u-mt-l ecl-u-mb-xl">
           <div className="ecl-col-sm-12 ecl-col-md-6">
             <Blockquote {...blockquote} />
           </div>
+        </div>
+
+        <div id="social-media-sharing">
+          <p className="ecl-u-type-paragraph">
+            <Icon size="m" shape="notifications--information" />
+            &nbsp; To insert social media sharing here, please use&nbsp;
+            <Link
+              href="https://webgate.ec.europa.eu/fpfis/wikis/pages/viewpage.action?pageId=105090808"
+              label="the widget provided by Webtools"
+            />
+          </p>
         </div>
       </div>
     </main>
