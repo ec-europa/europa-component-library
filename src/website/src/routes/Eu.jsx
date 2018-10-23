@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import '@ecl/eu-preset-full/dist/styles/ecl-eu-preset-full.css';
 import slugify from 'slugify';
 
-import EUStyles from '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css';
+// Helpers
+import sortPages from '../utils/nav-sort';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -23,44 +25,27 @@ const euSpecs = require.context(
   /config\.js$/
 );
 
-const slug = s => slugify(s, { lower: true, remove: /'/gi });
+const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
 
 const pages = [
   ...euPages.keys().map(key => euPages(key).default),
   ...euSpecs.keys().map(key => euSpecs(key).default),
 ];
 
-const newPages = {};
+// Add URLs to pages
 pages.forEach(p => {
-  if (!p.section) {
-    newPages[p.title] = p;
-    newPages[p.title].url = `/eu/${slug(p.title)}`;
-    return;
-  }
-
-  const sections = p.section.split('/');
-
-  let parentSection = newPages;
-  sections.forEach((s, index) => {
-    if (!parentSection[s]) {
-      parentSection[s] = {};
-    }
-
-    if (index === sections.length - 1) {
-      parentSection[s][p.title] = p;
-
-      // Inject url
-      parentSection[s][p.title].url = `/eu/${p.section
-        .split('/')
-        .map(sec => slug(sec))
-        .join('/')}/${slug(p.title)}`;
-
-      return;
-    }
-
-    parentSection = parentSection[s];
-  });
+  // eslint-disable-next-line no-param-reassign
+  p.url = `/eu/${
+    p.section
+      ? `${p.section
+          .split('/')
+          .map(sec => slug(sec))
+          .join('/')}/`
+      : ''
+  }${p.group ? `${slug(p.group)}/` : ''}${slug(p.title)}`;
 });
+
+const sortedPages = sortPages(pages);
 
 class EURoutes extends Component {
   constructor(props) {
@@ -77,7 +62,7 @@ class EURoutes extends Component {
   }
 
   componentDidMount() {
-    EUStyles.use();
+    document.body.classList.add('eu');
 
     // Force refresh if is mounted on a real client (two-pass rendering)
     this.setState({
@@ -86,7 +71,7 @@ class EURoutes extends Component {
   }
 
   componentWillUnmount() {
-    EUStyles.unuse();
+    document.body.classList.remove('eu');
   }
 
   toggleSidebar() {
@@ -101,7 +86,7 @@ class EURoutes extends Component {
     return (
       <Fragment>
         <Navigation
-          pages={newPages}
+          pages={sortedPages}
           prefix="/eu"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}

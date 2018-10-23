@@ -4,6 +4,7 @@ import usage from './docs/usage.md';
 export default {
   title: 'Links',
   section: 'Components',
+  group: 'Navigation',
   status: 'ready',
   tabs: [
     {

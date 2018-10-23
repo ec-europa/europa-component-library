@@ -3,6 +3,8 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
+const selectorPrefixer = require('postcss-prefix-selector');
+
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 const babelConfig = require('./config/babel.config');
@@ -10,6 +12,25 @@ const babelConfig = require('./config/babel.config');
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const publicPath = '/';
 const publicUrl = publicPath.slice(0, -1);
+
+const cssLoader = ({ fixCode = true, prefix } = {}) => [
+  { loader: 'style-loader' },
+  {
+    loader: 'css-loader',
+    options: { importLoaders: 1 },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => [
+        ...(prefix ? [selectorPrefixer({ prefix })] : []),
+        ...(fixCode
+          ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
+          : []),
+      ],
+    },
+  },
+];
 
 module.exports = {
   mode: 'development',
@@ -65,33 +86,18 @@ module.exports = {
             },
           },
           {
-            // CSS imported to showcase components
-            test: /preset-website\.css$/,
-            use: ['style-loader/useable', 'css-loader'],
+            // EC CSS imported to showcase components
+            test: /ec-preset-full\.css$/,
+            use: cssLoader({ fixCode: false, prefix: '.ec' }),
+          },
+          {
+            // EU CSS imported to showcase components
+            test: /eu-preset-full\.css$/,
+            use: cssLoader({ fixCode: false, prefix: '.eu' }),
           },
           {
             test: /\.css$/,
-            use: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                },
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugFixes,
-                    autoprefixer({
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
-              },
-            ],
+            use: cssLoader(),
           },
           {
             test: /\.scss$/,

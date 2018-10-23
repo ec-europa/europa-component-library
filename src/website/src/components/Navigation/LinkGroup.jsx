@@ -1,65 +1,20 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import { withRouter } from 'react-router-dom';
-import slugify from 'slugify';
 
-import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import styles from './LinkGroup.scss';
 import LinkList from './LinkList';
 
-const slug = s => slugify(s, { lower: true, remove: /'/gi });
-
 class LinkGroup extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    const hasPathname = props && props.location && props.location.pathname;
-    const { groupUrl } = props;
-
-    this.state = {
-      isOpen:
-        hasPathname &&
-        groupUrl &&
-        props.location.pathname.indexOf(slug(groupUrl)) === 0,
-    };
-
-    this.toggleGroup = this.toggleGroup.bind(this);
-  }
-
-  toggleGroup() {
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen,
-    }));
-  }
-
   render() {
-    const { pages, level, showStatus, section, groupUrl } = this.props;
-    const { isOpen } = this.state;
+    const { pages, level, showStatus, group, groupUrl } = this.props;
 
     return (
       <Fragment>
-        <button
-          type="button"
-          className={`${styles['group-list-item']} ${styles[`level-${level}`]}`}
-          onClick={this.toggleGroup}
-        >
-          <span>
-            {section}
-            <svg
-              className={classnames(styles.icon, {
-                [styles['icon-rotate-90']]: !isOpen,
-                [styles['icon-rotate-180']]: isOpen,
-              })}
-            >
-              <use xlinkHref={`${icons}#ui--rounded-arrow`} />
-            </svg>
-          </span>
-        </button>
+        <span className={styles.group}>{group}</span>
         <LinkList
           pages={pages}
           level={level + 1}
-          aria-hidden={!isOpen}
           showStatus={showStatus}
           parentSection={groupUrl}
         />
@@ -73,17 +28,17 @@ LinkGroup.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
-  pages: PropTypes.shape().isRequired,
+  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   showStatus: PropTypes.bool,
   level: PropTypes.number,
-  section: PropTypes.string,
+  group: PropTypes.string,
 };
 
 LinkGroup.defaultProps = {
   groupUrl: '',
   showStatus: false,
   level: 0,
-  section: '',
+  group: '',
 };
 
 export default withRouter(LinkGroup);

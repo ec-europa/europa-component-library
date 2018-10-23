@@ -25,6 +25,9 @@ class Navigation extends PureComponent {
               : styles['button-toggle--closed']
           }${forceRefresh ? ' ' : ''} `}
           onClick={onToggleSidebar}
+          aria-label={
+            sidebarOpen ? 'Close side navigation' : 'Open side navigation'
+          }
         >
           <span className={styles['hamburger-box']}>
             <span className={styles['hamburger-inner']} />
@@ -73,7 +76,7 @@ class Navigation extends PureComponent {
 Navigation.propTypes = {
   sidebarOpen: PropTypes.bool,
   onToggleSidebar: PropTypes.func,
-  pages: PropTypes.shape().isRequired,
+  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   prefix: PropTypes.string.isRequired,
   forceRefresh: PropTypes.bool,
 };

@@ -5,6 +5,7 @@ export default {
   title: 'Links',
   section: 'Components',
   status: 'ready',
+  group: 'Navigation',
   tabs: [
     {
       name: 'Usage',

@@ -3,7 +3,8 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Breadcrumb',
-  section: 'Components/Navigation',
+  section: 'Components',
+  group: 'Navigation',
   status: 'ready',
   tabs: [
     {

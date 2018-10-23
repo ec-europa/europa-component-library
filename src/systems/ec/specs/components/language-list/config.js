@@ -3,7 +3,7 @@ import usage from './docs/usage.md';
 
 export default {
   title: 'Language list',
-  section: 'Components',
+  section: 'Page structure',
   status: 'ready',
   tabs: [
     {

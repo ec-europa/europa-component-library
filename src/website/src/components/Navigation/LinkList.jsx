@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import SingleLink from './SingleLink';
 import LinkGroup from './LinkGroup';
+import LinkSection from './LinkSection';
 import styles from './LinkList.scss';
 
 class LinkList extends PureComponent {
@@ -16,49 +17,28 @@ class LinkList extends PureComponent {
       parentSection,
     } = this.props;
 
-    let keys = [];
-
-    // Manually sort keys for level 0
-    if (level === 0) {
-      keys = [
-        'Getting started',
-        "What's new",
-        'Style',
-        'Components',
-        'Templates',
-        'Guidelines',
-        'Resources',
-      ];
-    } else {
-      keys = Object.keys(pages).sort((a, b) => {
-        if (pages[a].order !== undefined && pages[b].order !== undefined) {
-          return pages[a].order > pages[b].order;
-        }
-
-        if (typeof a === 'string' && typeof b === 'string') {
-          return a.localeCompare(b);
-        }
-
-        return 0;
-      });
-    }
-
     return (
       <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
-        {keys.filter(key => pages[key].hidden !== true).map(key => (
-          <li key={key}>
-            {pages[key].url ? (
-              <SingleLink
-                page={pages[key]}
+        {pages.filter(p => p.hidden !== true).map(p => (
+          <li key={p.title}>
+            {p.type === 'page' && (
+              <SingleLink page={p} showStatus={showStatus} level={level} />
+            )}
+            {p.type === 'group' && (
+              <LinkGroup
+                pages={p.children}
+                group={p.title}
                 showStatus={showStatus}
+                groupUrl={`${parentSection}/${p.title}`}
                 level={level}
               />
-            ) : (
-              <LinkGroup
-                pages={pages[key]}
-                section={key}
+            )}
+            {p.type === 'section' && (
+              <LinkSection
+                pages={p.children}
+                section={p.title}
                 showStatus={showStatus}
-                groupUrl={`${parentSection}/${key}`}
+                groupUrl={`${parentSection}/${p.title}`}
                 level={level}
               />
             )}
@@ -73,7 +53,7 @@ LinkList.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
-  pages: PropTypes.shape().isRequired,
+  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   showStatus: PropTypes.bool,
   level: PropTypes.number,
   'aria-hidden': PropTypes.bool,

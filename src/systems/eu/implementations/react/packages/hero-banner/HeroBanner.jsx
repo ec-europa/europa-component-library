@@ -20,7 +20,7 @@ const HeroBanner = ({
   });
 
   return (
-    <div className={classNames} {...props}>
+    <section {...props} className={classNames}>
       {!!(variant && image) && (
         <div
           className="ecl-hero-banner__image"
@@ -29,9 +29,9 @@ const HeroBanner = ({
       )}
       <div className="ecl-container ecl-hero-banner__container">
         <div className="ecl-hero-banner__content">
-          {title && <div className="ecl-hero-banner__title">{title}</div>}
+          {title && <h1 className="ecl-hero-banner__title">{title}</h1>}
           {description && (
-            <div className="ecl-hero-banner__description">{description}</div>
+            <p className="ecl-hero-banner__description">{description}</p>
           )}
           {button &&
             button.label && (
@@ -39,7 +39,7 @@ const HeroBanner = ({
             )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -4,7 +4,8 @@ import usage from './docs/usage.md';
 export default {
   hidden: true,
   title: 'Menu',
-  section: 'Components/Navigation',
+  section: 'Components',
+  group: 'Navigation',
   status: 'planned',
   tabs: [
     {
