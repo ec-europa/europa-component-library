@@ -1,0 +1,21 @@
+/**
+ * Pager
+ * @define pager
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-link'));
+
+@mixin ecl-pager() {
+  .ecl-pager {
+    margin: 0;
+  }
+}
+
+// Use  mixin
+@include exports('ec-component-pager') {
+  @include ecl-pager();
+}
