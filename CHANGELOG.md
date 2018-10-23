@@ -1,5 +1,61 @@
 # Changelog
 
+## 2.0.0-alpha.3 (2018-10-23)
+
+#### :rocket: New Feature
+
+- [#894](https://github.com/ec-europa/europa-component-library/pull/894) feat(page-banner): add component - INNO-1230 ([@emeryro](https://github.com/emeryro))
+- [#901](https://github.com/ec-europa/europa-component-library/pull/901) feat(campaign): bootstrap ec campaign template ([@degliwe](https://github.com/degliwe))
+- [#898](https://github.com/ec-europa/europa-component-library/pull/898) feat(spacing): add spacing utilities - INNO-1259 ([@emeryro](https://github.com/emeryro))
+- [#888](https://github.com/ec-europa/europa-component-library/pull/888) feat(eu/templates): add campaign template - INNO-1258 ([@degliwe](https://github.com/degliwe))
+- [#876](https://github.com/ec-europa/europa-component-library/pull/876) feat(typography): add paragraph - INNO-1252 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#884](https://github.com/ec-europa/europa-component-library/pull/884) fix(image): add example image - INNO-1257 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#923](https://github.com/ec-europa/europa-component-library/pull/923) feat(template): add link to webtools widget - INNO-1221 ([@emeryro](https://github.com/emeryro))
+- [#908](https://github.com/ec-europa/europa-component-library/pull/908) fix(hero-banner): add semantic - INNO-1262 ([@emeryro](https://github.com/emeryro))
+- [#889](https://github.com/ec-europa/europa-component-library/pull/889) feat(website/nav): refactor navigation to support groups - INNO-1255 ([@yhuard](https://github.com/yhuard))
+- [#907](https://github.com/ec-europa/europa-component-library/pull/907) feat(campaign): add extra demo data for cards, adjust layout. ([@degliwe](https://github.com/degliwe))
+- [#897](https://github.com/ec-europa/europa-component-library/pull/897) feat(search-form): add label - no issue ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#915](https://github.com/ec-europa/europa-component-library/pull/915) docs(ec/links): add introduction ([@Yaomimi](https://github.com/Yaomimi))
+- [#914](https://github.com/ec-europa/europa-component-library/pull/914) docs(ec/tags): add introduction ([@Yaomimi](https://github.com/Yaomimi))
+- [#913](https://github.com/ec-europa/europa-component-library/pull/913) docs(ec/site-switcher): add introduction ([@Yaomimi](https://github.com/Yaomimi))
+- [#911](https://github.com/ec-europa/europa-component-library/pull/911) docs(eu/campaign): introduce campaign ([@Yaomimi](https://github.com/Yaomimi))
+- [#912](https://github.com/ec-europa/europa-component-library/pull/912) docs(ec/campaign): introduce campaign template ([@Yaomimi](https://github.com/Yaomimi))
+- [#910](https://github.com/ec-europa/europa-component-library/pull/910) docs(ec/cards): provide content ([@Yaomimi](https://github.com/Yaomimi))
+- [#903](https://github.com/ec-europa/europa-component-library/pull/903) docs(eu/what's new): draft first version of What's new ([@Yaomimi](https://github.com/Yaomimi))
+- [#904](https://github.com/ec-europa/europa-component-library/pull/904) docs(ec/what's-new): draft first version of What's new ([@Yaomimi](https://github.com/Yaomimi))
+- [#902](https://github.com/ec-europa/europa-component-library/pull/902) docs(ec/getting-started): update Getting started ([@Yaomimi](https://github.com/Yaomimi))
+- [#905](https://github.com/ec-europa/europa-component-library/pull/905) docs(eu/getting-started): draft first version of Getting started ([@Yaomimi](https://github.com/Yaomimi))
+- [#906](https://github.com/ec-europa/europa-component-library/pull/906) docs(ec/site-header): add image for site header ([@Yaomimi](https://github.com/Yaomimi))
+- [#900](https://github.com/ec-europa/europa-component-library/pull/900) docs(ec/template): update the content that is more suitable ([@Yaomimi](https://github.com/Yaomimi))
+- [#891](https://github.com/ec-europa/europa-component-library/pull/891) docs: add typography pages ([@Yaomimi](https://github.com/Yaomimi))
+- [#895](https://github.com/ec-europa/europa-component-library/pull/895) docs(ec/template-standard): update usage.md ([@Yaomimi](https://github.com/Yaomimi))
+- [#896](https://github.com/ec-europa/europa-component-library/pull/896) docs(eu/template-standard): update EU Standard template intro ([@Yaomimi](https://github.com/Yaomimi))
+- [#893](https://github.com/ec-europa/europa-component-library/pull/893) docs(ec/standard-template): add EC Standard template intro ([@Yaomimi](https://github.com/Yaomimi))
+- [#887](https://github.com/ec-europa/europa-component-library/pull/887) docs(versions): add links to previous versions ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#924](https://github.com/ec-europa/europa-component-library/pull/924) feat(template-showcase): enhance showcase of templates - INNO-1265 ([@yhuard](https://github.com/yhuard))
+- [#926](https://github.com/ec-europa/europa-component-library/pull/926) chore(preset-dev): add "dev" preset - INNO-1266 ([@yhuard](https://github.com/yhuard))
+- [#909](https://github.com/ec-europa/europa-component-library/pull/909) chore(website): rearrange categories - no issue ([@yhuard](https://github.com/yhuard))
+- [#899](https://github.com/ec-europa/europa-component-library/pull/899) chore(logo): remove standalone logo - INNO-1260 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 4
+
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- wesley deglise ([@degliwe](https://github.com/degliwe))
+
 ## 2.0.0-alpha.2 (2018-10-15)
 
 #### :bug: Bug Fix
