@@ -1,26 +1,36 @@
 import Playground from '@ecl/website-components/Playground'
 import Link from '@ecl/ec-react-component-link/Link'
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Link&selectedStory=default&stories=0">
-  <Link
-    variant="default"
-    label="Default link"
-    href="/example#default-link"
-  />
+import demoContentDefault from '@ecl/ec-specs-link/demo/data--default';
+import demoContentStandalone from '@ecl/ec-specs-link/demo/data--standalone';
+import demoContentIcon from '@ecl/ec-specs-link/demo/data--icon';
+
+## Default link
+
+<Playground
+  system="ec"
+  selectedKind="Link"
+  selectedStory="default"
+>
+  <p className="ecl-u-type-paragraph">The European Commission is the executive of <Link {...demoContentDefault} /> and promotes its general interest.</p>
 </Playground>
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Link&selectedStory=standalone&stories=0">
-  <Link
-    variant="standalone"
-    label="Standalone link"
-    href="/example#standalone-link"
-  />
+## Standalone link
+
+<Playground
+  system="ec"
+  selectedKind="Link"
+  selectedStory="standalone"
+>
+  <Link {...demoContentStandalone} />
 </Playground>
 
-The component expects 5 parameters:
+## Link with icon
 
-- variant (string)
-- label (string)
-- href (string)
-- (optional) extraClasses (string)
-- (optional) extraAttributes (string)
+<Playground
+  system="ec"
+  selectedKind="Link"
+  selectedStory="default"
+>
+  <p className="ecl-u-type-paragraph">The European Commission is the executive of <Link {...demoContentIcon} /> and promotes its general interest.</p>
+</Playground>

@@ -1,0 +1,15 @@
+@mixin link($link-color, $link-color-hover, $link-color-focus) {
+  color: $link-color;
+  margin: 0;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $link-color-hover;
+  }
+
+  &:focus {
+    outline: 3px solid $link-color-focus;
+    outline-offset: 2px;
+  }
+}

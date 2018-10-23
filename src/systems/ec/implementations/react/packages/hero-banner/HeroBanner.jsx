@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -7,32 +6,32 @@ import Button from '@ecl/ec-react-component-button/Button';
 
 const HeroBanner = ({
   variant,
-  position,
   title,
   description,
   image,
-  centered,
+  isCentered,
   button,
   className,
   ...props
 }) => {
-  const classNames = classnames(className, {
-    'ecl-hero-banner': true,
+  const classNames = classnames(className, 'ecl-hero-banner', {
     [`ecl-hero-banner--${variant}`]: variant,
-    [`ecl-hero-banner--centered`]: centered,
+    [`ecl-hero-banner--centered`]: isCentered,
   });
 
   return (
-    <div className={classNames} {...props}>
-      <div
-        className="ecl-hero-banner__image"
-        style={{ backgroundImage: `url(${image})` }}
-      />
+    <section {...props} className={classNames}>
+      {!!(variant && image) && (
+        <div
+          className="ecl-hero-banner__image"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      )}
       <div className="ecl-container ecl-hero-banner__container">
         <div className="ecl-hero-banner__content">
-          {title && <div className="ecl-hero-banner__title">{title}</div>}
+          {title && <h1 className="ecl-hero-banner__title">{title}</h1>}
           {description && (
-            <div className="ecl-hero-banner__description">{description}</div>
+            <p className="ecl-hero-banner__description">{description}</p>
           )}
           {button &&
             button.label && (
@@ -40,32 +39,28 @@ const HeroBanner = ({
             )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 HeroBanner.propTypes = {
   variant: PropTypes.string,
-  position: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  centered: PropTypes.bool,
+  isCentered: PropTypes.bool,
   button: PropTypes.shape(Button.propTypes),
-  extraClasses: PropTypes.string,
-  extraAttributes: PropTypes.string,
+  className: PropTypes.string,
 };
 
 HeroBanner.defaultProps = {
   variant: '',
-  position: 'center',
   title: '',
   description: '',
   image: '',
-  centered: false,
+  isCentered: false,
   button: {},
-  extraClasses: '',
-  extraAttributes: '',
+  className: '',
 };
 
 export default HeroBanner;

@@ -1,0 +1,58 @@
+@import '@ecl/ec-theme-default/index';
+
+.group-list-item {
+  background-color: $ecl-color-grey-5;
+  border-width: 0;
+  box-sizing: border-box;
+  color: $ecl-color-text;
+  display: block;
+  font: $ecl-font-m;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+  padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-m;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+
+  &.level-0 {
+    padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-m;
+  }
+
+  &.level-1 {
+    padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-xl;
+  }
+}
+
+.group-list-item > span {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-list-item:hover,
+.group-list-item:focus {
+  background-color: $ecl-color-grey-10;
+  outline: none;
+}
+
+.group-list-item:active {
+  background-color: $ecl-color-grey-25;
+}
+
+.icon {
+  height: 0.875rem;
+  width: 0.875rem;
+  transition: transform 200ms ease-in-out;
+}
+
+.icon-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.icon-rotate-180 {
+  transform: rotate(180deg);
+}
+
+:global(.no-js) .icon {
+  transform: rotate(180deg);
+}

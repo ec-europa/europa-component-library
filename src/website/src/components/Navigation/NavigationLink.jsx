@@ -36,11 +36,11 @@ class NavigationLink extends Component {
   render() {
     // Exclude some properties not needed by NavLink
     const {
-      history, // eslint-disable-line
+      history,
       location,
-      match, // eslint-disable-line
+      match,
       meta,
-      staticContext, // eslint-disable-line
+      staticContext,
       ...props
     } = this.props;
 

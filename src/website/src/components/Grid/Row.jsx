@@ -11,7 +11,7 @@ const Row = ({ spacing, className, children, ...props }) => {
     .map(sp => utilities[sp])
     .join(' ');
 
-  const classNames = classnames(className, grid.row, spacingClasses);
+  const classNames = classnames(className, grid['ecl-row'], spacingClasses);
 
   return (
     <div {...props} className={classNames}>

@@ -11,7 +11,11 @@ const Container = ({ spacing, className, children, ...props }) => {
     .map(sp => utilities[sp])
     .join(' ');
 
-  const classNames = classnames(className, grid.container, spacingClasses);
+  const classNames = classnames(
+    className,
+    grid['ecl-container'],
+    spacingClasses
+  );
 
   return (
     <div {...props} className={classNames}>

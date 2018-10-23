@@ -1,11 +1,10 @@
-import style from './docs/style.md';
-import code from './docs/code.md';
+import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/ec/components/card',
-  title: 'Card',
+  title: 'Cards',
   section: 'Components',
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
@@ -16,11 +15,6 @@ export default {
       name: 'Showcase',
       component: code,
       url: 'showcase',
-    },
-    {
-      name: 'Style',
-      component: style,
-      url: 'style',
     },
   ],
   defaultTab: 'usage',

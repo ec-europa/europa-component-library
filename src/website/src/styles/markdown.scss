@@ -60,6 +60,22 @@
   padding: 0;
 }
 
+.a {
+  color: $ecl-color-primary;
+  font-family: $ecl-font-family;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $ecl-color-black-100;
+  }
+
+  &:focus {
+    outline: 3px solid $ecl-color-secondary;
+    outline-offset: 2px;
+  }
+}
+
 .img {
   max-width: 100%;
   margin: 0;
@@ -117,6 +133,9 @@
 }
 
 .hr {
+  border-color: $ecl-color-grey-75;
+  border-width: 1px;
+  border-style: solid;
   margin: 0;
   padding: 0;
 }

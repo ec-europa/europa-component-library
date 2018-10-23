@@ -3,14 +3,28 @@
  * @define blockquote
  */
 
-// Import base and generic
+// Import base and mixins
 @import '@ecl/eu-base/eu-base';
-@import '@ecl/generic-component-blockquote/generic-component-blockquote';
+@import 'mixins';
 
-// Check if overridden dependencies are already loaded, if needed
-@include check-imports(('eu-style-typography-paragraph'));
+@mixin ecl-blockquote() {
+  .ecl-blockquote {
+    @include blockquote-container();
+  }
 
-// Use generic mixin
+  .ecl-blockquote__body {
+    @include blockquote-body();
+  }
+
+  .ecl-blockquote__attribution {
+    @include blockquote-attribution();
+  }
+  .ecl-blockquote__author {
+    @include blockquote-author();
+  }
+}
+
+// Use mixin
 @include exports('eu-component-blockquote') {
   @include ecl-blockquote();
 }

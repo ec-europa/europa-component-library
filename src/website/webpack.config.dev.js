@@ -3,9 +3,9 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
+const selectorPrefixer = require('postcss-prefix-selector');
+
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const history = require('connect-history-api-fallback');
-const convert = require('koa-connect');
 
 const babelConfig = require('./config/babel.config');
 
@@ -13,12 +13,31 @@ const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const publicPath = '/';
 const publicUrl = publicPath.slice(0, -1);
 
+const cssLoader = ({ fixCode = true, prefix } = {}) => [
+  { loader: 'style-loader' },
+  {
+    loader: 'css-loader',
+    options: { importLoaders: 1 },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => [
+        ...(prefix ? [selectorPrefixer({ prefix })] : []),
+        ...(fixCode
+          ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
+          : []),
+      ],
+    },
+  },
+];
+
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: [
     path.resolve(__dirname, 'config/polyfills.js'),
-    path.resolve(__dirname, 'src/index.jsx'),
+    path.resolve(__dirname, 'src/Index.jsx'),
   ],
   output: {
     // Add /* filename */ comments to generated require()s in the output.
@@ -39,7 +58,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.mjs', '.js', '.json', '.jsx'],
   },
   module: {
     strictExportPresence: true,
@@ -67,33 +86,18 @@ module.exports = {
             },
           },
           {
-            // CSS imported to showcase components
-            test: /preset-website\.css$/,
-            use: ['style-loader/useable', 'css-loader'],
+            // EC CSS imported to showcase components
+            test: /ec-preset-full\.css$/,
+            use: cssLoader({ fixCode: false, prefix: '.ec' }),
+          },
+          {
+            // EU CSS imported to showcase components
+            test: /eu-preset-full\.css$/,
+            use: cssLoader({ fixCode: false, prefix: '.eu' }),
           },
           {
             test: /\.css$/,
-            use: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                },
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugFixes,
-                    autoprefixer({
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
-              },
-            ],
+            use: cssLoader(),
           },
           {
             test: /\.scss$/,
@@ -180,6 +184,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   // Turn off performance hints during development because we don't do any
   // splitting or minification in interest of speed. These warnings become
@@ -187,12 +192,11 @@ module.exports = {
   performance: {
     hints: false,
   },
-};
 
-// Dev server config
-module.exports.serve = {
-  content: [path.resolve(__dirname, 'public')],
-  add: app => {
-    app.use(convert(history({})));
+  devServer: {
+    contentBase: [path.resolve(__dirname, 'public')],
+    historyApiFallback: true,
+    open: true,
+    hot: true,
   },
 };

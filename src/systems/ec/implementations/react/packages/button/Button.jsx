@@ -1,24 +1,27 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon/Icon';
 
 const Button = ({ variant, type, label, icon, className, ...props }) => {
-  const classNames = classnames(className, {
-    'ecl-button': true,
+  const classNames = classnames(className, 'ecl-button', {
     [`ecl-button--${variant}`]: variant,
   });
 
   return (
-    /* eslint-disable react/button-has-type */
+    /* eslint-disable-next-line react/button-has-type */
     <button {...props} type={type} className={classNames}>
       <span className="ecl-button__container">
         <span className="ecl-button__label">{label}</span>
-        {icon && icon.icon && <Icon {...icon} className="ecl-button__icon" />}
+        {icon &&
+          icon.shape && (
+            <Icon
+              {...icon}
+              className={classnames(icon.className, 'ecl-button__icon')}
+            />
+          )}
       </span>
     </button>
-    /* eslint-enable react/button-has-type */
   );
 };
 

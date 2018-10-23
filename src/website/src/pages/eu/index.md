@@ -1,110 +1,13 @@
-import Row from '../../components/Grid/Row'
-import Col from '../../components/Grid/Col'
-import ComponentStatus from '../../components/ComponentStatus/ComponentStatus'
+# European Union
 
-# Europa Component Library (EU)
+## europa.eu
 
-The Europa Component Library (ECL) is a library of components applicable to all European Commission websites (hosted under ec.europa.eu.domain). The library contains all available components which you can use to build your website.
+This library contains all available components that you can use to build your own website.
 
-The Digital Transformation team (DTT) - a cross European Commission team led by DGs COMM, DIGIT, and DTT - is the owner of this library. Please contact COMM Europa Management for support on using this resource for a European Commission website.
+All library elements are accompanied by
 
-All library elements are accompanied with
+- documentation explaining what a component is and how it should be used
+- a visual demonstration
+- HTML/CSS code for implementation
 
-- documentation: what the component is intended for and recommendations regarding its usage
-- demo: visual representation of the component
-- code: technologically agnostic HTML/CSS code for implementation
-
-Websites hosted on the corporate European Commission Next Europa CMS (based on Drupal) can also benefit from a Drupal theme implementation that is based on this same library of components.
-
-<Row spacing="mt-xl">
-<Col col="col-2/4">
-
-## Overview
-
-Text
-
-</Col>
-<Col col="col-2/4">
-
-## Components
-
-Text
-
-</Col>
-<Col col="col-2/4">
-
-## Icons
-
-Text
-
-</Col>
-<Col col="col-2/4">
-
-## Grid
-
-Text
-
-</Col>
-</Row>
-<Row spacing="mt-xl">
-<Col col="col-4/4 col-md-4/8 col-xl-4/12">
-
-## Latest Releases
-
-Text
-
-</Col>
-<Col col="col-4/4 col-md-4/8 col-xl-4/12">
-
-## Upcoming Releases
-
-Text
-
-</Col>
-<Col col="col-4/4 col-md-4/8 col-xl-4/12">
-
-## Section title
-
-Text
-
-</Col>
-</Row>
-
-## Component statuses
-
-Components and their variants have been given statuses reflecting their state of completion. The available statuses are listed below.
-
-<ComponentStatus />
-
-## Frequently asked questions
-
-<Row spacing="mt-xl">
-<Col col="col-4/4 col-md-4/8">
-
-### Sample title
-
-Text
-
-</Col>
-<Col col="col-4/4 col-md-4/8">
-
-### Sample title
-
-Text
-
-</Col>
-<Col col="col-4/4 col-md-4/8">
-
-### Sample title
-
-Text
-
-</Col>
-<Col col="col-4/4 col-md-4/8">
-
-### Sample title
-
-Text
-
-</Col>
-</Row>
+For support in building a European Commission website using the ECL, please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) (CEM).

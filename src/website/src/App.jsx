@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { MDXProvider } from '@mdx-js/tag';
 import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
@@ -12,11 +12,7 @@ import 'prismjs/themes/prism.css';
 import styles from './styles/markdown.scss';
 
 // Static routes
-import HomePage from './routes/index';
-import Example from './routes/example';
-import PageNotFound from './routes/404';
-import ECRoutes from './routes/ec';
-import EURoutes from './routes/eu';
+import MainRoutes from './routes/MainRoutes';
 
 /* eslint-disable react/prop-types */
 const customComponents = {
@@ -31,6 +27,11 @@ const customComponents = {
   td: ({ children }) => <td className={styles.td}>{children}</td>,
   th: ({ children }) => <th className={styles.th}>{children}</th>,
   hr: () => <hr className={styles.hr} />,
+  a: ({ href, children }) => (
+    <a href={href} className={styles.a}>
+      {children}
+    </a>
+  ),
   img: ({ alt, src }) => (
     <a href={src} target="_blank" rel="noopener noreferrer">
       <img alt={alt} src={src} className={styles.img} />
@@ -41,11 +42,7 @@ const customComponents = {
 
 class App extends React.Component {
   componentDidMount() {
-    svg4everybody({
-      validate(src) {
-        return src && src.indexOf('#') !== 0;
-      },
-    });
+    svg4everybody();
   }
 
   render() {
@@ -57,13 +54,7 @@ class App extends React.Component {
               titleTemplate="%s - ECL 2.0"
               defaultTitle="Europa Component Library"
             />
-            <Switch>
-              <Route exact strict path="/" component={HomePage} />
-              <Route strict path="/example" component={Example} />
-              <Route path="/ec/" strict component={ECRoutes} />
-              <Route path="/eu/" strict component={EURoutes} />
-              <Route component={PageNotFound} />
-            </Switch>
+            <MainRoutes />
           </Fragment>
         </Router>
       </MDXProvider>

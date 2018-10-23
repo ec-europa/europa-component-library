@@ -1,0 +1,30 @@
+/**
+* Typography styles
+*/
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-utility-typography() {
+  /*
+   * Paragraph
+   */
+  .ecl-u-type-paragraph {
+    font: $ecl-font-prolonged-m;
+    max-width: 80ch;
+  }
+
+  .ecl-u-type-paragraph-lead {
+    font: $ecl-font-prolonged-l;
+    max-width: 80ch;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-prolonged-xl;
+    }
+  }
+}
+
+// Use mixin
+@include exports('eu-utility-typography') {
+  @include ecl-utility-typography();
+}

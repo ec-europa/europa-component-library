@@ -1,0 +1,16 @@
+import Playground from '@ecl/website-components/Playground'
+import SiteHeader from '@ecl/eu-react-component-site-header/SiteHeader'
+
+import demoContent from '../demo/data';
+
+<Playground
+  system="eu"
+  selectedKind="SiteHeader"
+  selectedStory="default"
+>
+  <SiteHeader
+    logo={demoContent.logo}
+    languageSelector={demoContent.languageSelector}
+    searchForm={demoContent.searchForm}
+  />
+</Playground>

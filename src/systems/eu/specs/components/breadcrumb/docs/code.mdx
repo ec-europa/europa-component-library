@@ -1,0 +1,41 @@
+import Playground from '@ecl/website-components/Playground'
+import Breadcrumb, { BreadcrumbItem } from '@ecl/eu-react-component-breadcrumb'
+
+import simpleContent from '../demo/data-simple';
+import demoContent from '../demo/data';
+
+## Simple breadcrumb
+
+<Playground
+  system="eu"
+  selectedKind="Breadcrumb"
+  selectedStory="simple"
+>
+  <div style={{ backgroundColor: '#004494' }}>
+    <Breadcrumb label={simpleContent.label} ellipsisLabel="Click to expand">
+      {simpleContent.items.map(item => (
+        <BreadcrumbItem {...item} key={item.label} />
+     ))}
+    </Breadcrumb>
+  </div>
+</Playground>
+
+## Long breadcrumb
+
+When there are more than 3 items, the breadcrumb should be collapsed by default and items should be displayed if there's enough space.
+
+The first item and the last 2 items should always be visible.
+
+<Playground
+  system="eu"
+  selectedKind="Breadcrumb"
+  selectedStory="long"
+>
+  <div style={{ backgroundColor: '#004494' }}>
+    <Breadcrumb label={demoContent.label} ellipsisLabel="Click to expand">
+      {demoContent.items.map(item => (
+        <BreadcrumbItem {...item} key={item.label} />
+      ))}
+    </Breadcrumb>
+  </div>
+</Playground>

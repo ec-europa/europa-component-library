@@ -1,3 +1,5 @@
+@import '@ecl/ec-theme-default/index';
+
 * + .playground {
   margin-top: 1rem;
 }
@@ -5,6 +7,11 @@
 .showcase {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .links {
@@ -21,17 +28,28 @@
   width: 100%;
 }
 
+.links--showcase-hidden {
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+  justify-content: center;
+  padding: $ecl-spacing-2-xl;
+}
+
+.link-item + .link-item {
+  margin-left: $ecl-spacing-s;
+}
+
 .link {
   align-items: center;
   box-sizing: border-box;
-  color: #004494;
+  color: $ecl-color-blue-100;
   display: inline-flex;
   margin: 0;
   text-decoration: underline;
 }
 
 .link:focus {
-  outline: 3px solid #ffd617;
+  outline: 3px solid $ecl-color-yellow-100;
   outline-offset: 2px;
 }
 

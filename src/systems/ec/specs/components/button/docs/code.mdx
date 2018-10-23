@@ -1,61 +1,58 @@
 import Playground from '@ecl/website-components/Playground'
 import Button from '@ecl/ec-react-component-button/Button'
 
-import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
-import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
-import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
-import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
-import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+import demoContentPrimary from '../demo/data--primary';
+import demoContentSecondary from '../demo/data--secondary';
+import demoContentCall from '../demo/data--call';
+import demoContentGhost from '../demo/data--ghost';
+import demoContentSearch from '../demo/data--search';
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=primary&stories=0">
-  <Button
-    variant="primary"
-    label={demoContentPrimary.label}
-    type="submit"
-    icon={demoContentPrimary.icon}
-  />
+## Primary
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="primary"
+>
+  <Button {...demoContentPrimary} />
 </Playground>
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=secondary&stories=0">
-  <Button
-    variant="secondary"
-    label={demoContentSecondary.label}
-    type="button"
-    icon={demoContentSecondary.icon}
-  />
+## Secondary
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="secondary"
+>
+  <Button {...demoContentSecondary} />
 </Playground>
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=call to action&stories=0">
-  <Button
-    variant="call"
-    label={demoContentCall.label}
-    type="submit"
-    icon={demoContentCall.icon}
-  />
+## Call to action with icon
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="call to action"
+>
+  <Button {...demoContentCall} />
 </Playground>
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=ghost&stories=0">
-  <Button
-    variant="ghost"
-    label={demoContentGhost.label}
-    type="button"
-    icon={demoContentGhost.icon}
-  />
+## Ghost
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="ghost"
+>
+  <Button {...demoContentGhost} />
 </Playground>
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=Button&selectedStory=search&stories=0">
-  <Button
-    variant="search"
-    label={demoContentSearch.label}
-    type="submit"
-    icon={demoContentSearch.icon}
-  />
+## Search
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="search"
+>
+  <Button {...demoContentSearch} />
 </Playground>
-
-The component expects 5 parameters:
-
-- variant (string)
-- label (string)
-- type (string)
-- icon (Icon object)
-- (optional) className (string)

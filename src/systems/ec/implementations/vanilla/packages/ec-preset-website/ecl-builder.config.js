@@ -19,7 +19,7 @@ const banner = `${pkg.name} - ${
 module.exports = {
   scripts: [
     {
-      entry: path.resolve(__dirname, 'ec-preset-website.js'),
+      entry: path.resolve(__dirname, 'src/ec-preset-website.js'),
       dest: path.resolve(outputFolder, 'scripts/ecl-ec-preset-website.js'),
       options: {
         banner,
@@ -30,7 +30,7 @@ module.exports = {
   ],
   styles: [
     {
-      entry: path.resolve(__dirname, 'ec-preset-website.scss'),
+      entry: path.resolve(__dirname, 'src/ec-preset-website.scss'),
       dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-website.css'),
       options: {
         banner,
@@ -41,10 +41,6 @@ module.exports = {
   ],
   copy: [
     {
-      from: path.resolve(nodeModules, '@ecl/ec-component-form-checkbox/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
       from: path.resolve(
         nodeModules,
         '@ecl/ec-component-form-feedback-message/images'
@@ -52,27 +48,11 @@ module.exports = {
       to: path.resolve(outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/ec-component-form-radio/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/ec-component-form-select/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/ec-component-message/images'),
-      to: path.resolve(outputFolder, 'images'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/generic-style-icon/fonts'),
-      to: path.resolve(outputFolder, 'fonts'),
-    },
-    {
-      from: path.resolve(nodeModules, '@ecl/ec-resources/icons'),
+      from: path.resolve(nodeModules, '@ecl/ec-resources-icons'),
       to: path.resolve(outputFolder, 'images/icons'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/ec-resources/logo'),
+      from: path.resolve(nodeModules, '@ecl/ec-resources-logo'),
       to: path.resolve(outputFolder, 'images/logo'),
     },
   ],

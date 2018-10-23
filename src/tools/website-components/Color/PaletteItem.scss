@@ -1,0 +1,82 @@
+@import '@ecl/ec-theme-default/index';
+
+.item {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  height: 4.5rem;
+  justify-content: space-between;
+  margin: 0;
+  padding: $ecl-spacing-m;
+}
+
+.title {
+  font: $ecl-font-s;
+  font-weight: $ecl-font-weight-bold;
+  margin: 0;
+
+  .item--light & {
+    color: #fff;
+  }
+
+  .item--dark & {
+    color: #000;
+  }
+}
+
+.button {
+  background: none;
+  border-style: solid;
+  border-width: 2px;
+  font: $ecl-font-s;
+  height: 2.5rem;
+  margin-left: $ecl-spacing-s;
+  width: 5rem;
+
+  .item--light & {
+    border-color: #fff;
+    color: #fff;
+
+    /* stylelint-disable-next-line */
+    &:focus {
+      background-color: rgba(#fff, 0.1);
+    }
+
+    /* stylelint-disable-next-line */
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+
+  /* stylelint-disable-next-line */
+  .item--dark & {
+    border-color: $ecl-color-grey-100;
+    color: #000;
+
+    /* stylelint-disable-next-line */
+    &:focus {
+      background-color: rgba($ecl-color-grey-100, 0.1);
+    }
+
+    /* stylelint-disable-next-line */
+    &:hover {
+      background-color: $ecl-color-grey-100;
+      color: #fff;
+    }
+  }
+}
+
+.button:hover .button-hover-hidden {
+  display: none;
+}
+
+.button-hover-only {
+  display: none;
+}
+
+.button:hover .button-hover-only {
+  display: inline;
+}

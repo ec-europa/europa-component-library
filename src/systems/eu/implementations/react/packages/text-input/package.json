@@ -2,7 +2,7 @@
   "name": "@ecl/eu-react-component-text-input",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.3",
   "description": "ECL EU React Text Input",
   "main": "TextInput.jsx",
   "module": "TextInput.jsx",
@@ -23,17 +23,19 @@
     "design-system",
     "react"
   ],
-  "dependencies": {
-    "@ecl/generic-react-component-text-input": "^2.0.0-alpha.0"
-  },
   "devDependencies": {
-    "@ecl/eu-component-form-text-input": "^2.0.0-alpha.0",
-    "@ecl/eu-specs-text-input": "^2.0.0-alpha.0",
-    "@ecl/eu-theme-default": "^2.0.0-alpha.0"
+    "@ecl/eu-component-form-feedback-message": "^2.0.0-alpha.3",
+    "@ecl/eu-component-form-form-group": "^2.0.0-alpha.3",
+    "@ecl/eu-component-form-help-block": "^2.0.0-alpha.3",
+    "@ecl/eu-component-form-label": "^2.0.0-alpha.3",
+    "@ecl/eu-component-form-text-input": "^2.0.0-alpha.3",
+    "@ecl/eu-specs-text-input": "^2.0.0-alpha.3",
+    "@ecl/eu-theme-default": "^2.0.0-alpha.3"
   },
   "peerDependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "prop-types": "^15.6.2"
+    "react-dom": "^16.4.2"
   }
 }

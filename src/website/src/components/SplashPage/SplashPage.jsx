@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Import resources
-import ECLogo from '@ecl/ec-preset-website/dist/images/logo/EC-logo.svg';
-import EULogo from '@ecl/eu-preset-website/dist/images/logo/logo--en.svg';
+import ECLogo from '@ecl/ec-preset-full/dist/images/logo/EC-logo--en.svg';
+import EULogo from '@ecl/eu-preset-full/dist/images/logo/logo--en.svg';
 import LogoLink from './LogoLink';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
@@ -21,7 +21,7 @@ const SplashPage = ({ children }) => (
       {children}
       <Row className={styles['splash-page-actions-row']}>
         <Col
-          col="col-4/4 col-md-4/8 col-xl-6/12"
+          col="12 md-6"
           className={`${utilities['d-flex']} ${
             styles['splash-page-actions-col']
           }`}
@@ -31,7 +31,7 @@ const SplashPage = ({ children }) => (
           </LogoLink>
         </Col>
         <Col
-          col="col-4/4 col-md-4/8 col-xl-6/12"
+          col="12 md-6"
           className={`${utilities['d-flex']} ${
             styles['splash-page-actions-col']
           }`}

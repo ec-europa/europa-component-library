@@ -1,13 +1,11 @@
-**When blockquote is used for testimonials or to emphasize excerpts of text. It is regarded as a standalone design component with a dominant appearance in the page.**
+When blockquote is used for testimonials or to emphasize excerpts of text. It is regarded as a standalone design component with a dominant appearance in the page.
 
-### When to use it
+![An image of a Blockquote](https://inno-ecl.s3.amazonaws.com/media/images/EC/Blockquote/Blockquote_996-1140px.svg)
 
-This is used for testimonials where organizations present quotes from someone prominent.
+## When to use it
 
-### When not to use it
+To present a relevant quote or testimonial from someone prominent.
 
-When indent a block of text.
+## When not to use it
 
-### Style
-
-The layout of the blockquote is left aligned alongside the yellow bar. The text for the quotation or testimonial should be limited to three or four lines. Author of the quote should appear below the text.
+To indent a block of text.

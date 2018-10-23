@@ -27,10 +27,10 @@ To edit pages from the site (not linked to a specific item like the splash page)
 
 ## Step 2: Edit the documentation
 
-* Make any modification you wish by using the markdown editor. Here is a
+- Make any modification you wish by using the markdown editor. Here is a
   [cheatsheet for markdown syntax](https://guides.github.com/features/mastering-markdown/).
 
-* You can see the result directly by switching to the "Preview" tab.
+- You can see the result directly by switching to the "Preview" tab.
 
 <details><summary>See how to do this step</summary>
 
@@ -40,26 +40,25 @@ To edit pages from the site (not linked to a specific item like the splash page)
 
 ## Step 3: Save updates to a new branch
 
-* After you have modified the file, you have to commit the changes to save them
+- After you have modified the file, you have to commit the changes to save them
   in your branch.
 
-* Enter title and description based on our [naming conventions](./conventions/git.md).
+- Enter title and description based on our [naming conventions](./conventions/git.md).
 
-* Click on "create a new branch".
+- Click on "create a new branch".
 
-* This will save changes on your branch.
-
+- This will save changes on your branch.
 
 ## Step 4: Open a pull request
 
-* Once you made sure you have saved changes on your particular branch, you are
+- Once you made sure you have saved changes on your particular branch, you are
   ready to proceed on proposing these changes to the main `next-v2` branch which
   is where you see the documentation in production.
 
-* You can simply use the hints which GitHub gives you when you go to the root of
+- You can simply use the hints which GitHub gives you when you go to the root of
   the repo after saving your changes.
 
-* Do not forget to add `tag: documentation` on your pull request which is used
+- Do not forget to add `tag: documentation` on your pull request which is used
   for the release log.
 
 <details><summary>See how to do this step</summary>
@@ -72,7 +71,7 @@ To edit pages from the site (not linked to a specific item like the splash page)
 
 Your pull request will be briefly reviewed by our team, so that there are no
 linting issues and if all checks are green, changes will be integrated with the
-master ECL branch in short time.
+next-v2 ECL branch in short time.
 
 Thank you!
 
