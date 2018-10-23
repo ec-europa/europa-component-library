@@ -12,12 +12,14 @@ const Pager = ({ label, items, className, ...props }) => {
       <ul className="ecl-pager__list">
         {items.map(item => (
           <li key={item.label} className="ecl-pager__item">
-            {item.link && (
+            {item.link ? (
               <Link
                 {...item.link}
                 className={classnames(item.link.className, 'ecl-pager__link')}
                 aria-label={item.link.label}
               />
+            ) : (
+              <span>{item.label}</span>
             )}
           </li>
         ))}
