@@ -11,4 +11,4 @@ The pages using this template must contain at least all the elements shown in th
 
 Mandatory components: Site switcher, site header, page header, feedback form, and corporate footer.
 
-![Standard EC Template](http://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg)
+![Standard EC Template](https://inno-ecl.s3.amazonaws.com/media/images/EC/Templates/Standard/basic_ec_template.jpg)

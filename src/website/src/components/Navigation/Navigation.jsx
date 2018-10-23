@@ -25,6 +25,9 @@ class Navigation extends PureComponent {
               : styles['button-toggle--closed']
           }${forceRefresh ? ' ' : ''} `}
           onClick={onToggleSidebar}
+          aria-label={
+            sidebarOpen ? 'Close side navigation' : 'Open side navigation'
+          }
         >
           <span className={styles['hamburger-box']}>
             <span className={styles['hamburger-inner']} />
