@@ -12,11 +12,5 @@ set -x
 cd "$(dirname "$0")"
 cd ..
 
-# Make sure git is clean
-if [ -n "$(git status --porcelain)" ]; then
-  echo "Your git status is not clean. Aborting.";
-  exit 1;
-fi
-
-# Publish
+# Update version
 ./node_modules/.bin/lerna version --no-push --no-git-tag-version "$@"
