@@ -14,13 +14,19 @@ const Link = ({
   className,
   ...props
 }) => {
-  const iconMarkup = Array.isArray(icon) ? (
-    icon.map(i => (
+  let iconMarkup = '';
+  if (Array.isArray(icon)) {
+    iconMarkup = icon.map(i => (
       <Icon {...i} className={classnames(i.className, 'ecl-link__icon')} />
-    ))
-  ) : (
-    <Icon {...icon} className={classnames(icon.className, 'ecl-link__icon')} />
-  );
+    ));
+  } else if (icon && icon.shape) {
+    iconMarkup = (
+      <Icon
+        {...icon}
+        className={classnames(icon.className, 'ecl-link__icon')}
+      />
+    );
+  }
 
   const classNames = classnames(className, 'ecl-link', {
     [`ecl-link--${variant}`]: variant,
