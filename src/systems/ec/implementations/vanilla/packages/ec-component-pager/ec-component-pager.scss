@@ -9,9 +9,23 @@
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('ec-component-link'));
 
-@mixin ecl-pager() {
+@mixin ecl-pager(
+  $text-color: $ecl-color-blue-100,
+  $border-color: $ecl-color-black-100
+) {
   .ecl-pager {
+    border-top: 2px solid $border-color;
+    color: $text-color;
     margin: 0;
+    padding-bottom: $ecl-spacing-m;
+    padding-top: $ecl-spacing-m;
+  }
+
+  .ecl-pager__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
   }
 }
 
