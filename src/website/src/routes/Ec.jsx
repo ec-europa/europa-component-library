@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import ECStyles from '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
+import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
 import slugify from 'slugify';
 
 // Helpers
@@ -62,8 +62,7 @@ class ECRoutes extends Component {
   }
 
   componentDidMount() {
-    ECStyles.use();
-
+    document.body.classList.add('ec');
     // Force refresh if is mounted on a real client (two-pass rendering)
     this.setState({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
@@ -71,7 +70,7 @@ class ECRoutes extends Component {
   }
 
   componentWillUnmount() {
-    ECStyles.unuse();
+    document.body.classList.remove('ec');
   }
 
   toggleSidebar() {
