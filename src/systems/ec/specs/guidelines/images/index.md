@@ -4,16 +4,15 @@ We should only use visual material when it makes it easier for users to find/und
 
 Use different kinds of visuals in different contexts:
 
-*Photos*: For dynamic content like news and people. Photos can also be used in banners to show that the information on the page isn't static.
+_Photos_: For dynamic content like news and people. Photos can also be used in banners to show that the information on the page isn't static.
 
-*Illustrations*: For static content that is transformable into something visual, such as topics and themes. Illustrations ideally replace written content entirely.
+_Illustrations_: For static content that is transformable into something visual, such as topics and themes. Illustrations ideally replace written content entirely.
 
-*Infographics*:  Use these for visual storytelling to make complex information easier to understand. For example, an infographic could describe a workflow, how an investment plan works or the law-making process. 
-
+_Infographics_: Use these for visual storytelling to make complex information easier to understand. For example, an infographic could describe a workflow, how an investment plan works or the law-making process.
 
 ## Copyright
 
-You must check the copyright and terms of use for every single image you want to use. Rights may be different for different photos on one and the even on a single same platform. Generally the source, copyright holder, and the author need to be mentioned. 
+You must check the copyright and terms of use for every single image you want to use. Rights may be different for different photos on one and the even on a single same platform. Generally the source, copyright holder, and the author need to be mentioned.
 
 ## Editing visuals
 
