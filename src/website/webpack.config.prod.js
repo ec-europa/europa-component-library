@@ -9,6 +9,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
+const selectorPrefixer = require('postcss-prefix-selector');
 const cssnano = require('cssnano');
 
 const babelConfig = require('./config/babel.config');
@@ -21,6 +22,31 @@ const publicUrl = publicPath.slice(0, -1);
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
+
+const cssLoader = ({ fixCode = true, prefix } = {}) => [
+  {
+    loader: MiniCssExtractPlugin.loader,
+  },
+  {
+    loader: 'css-loader',
+    options: {
+      importLoaders: 1,
+      sourceMap: shouldUseSourceMap,
+    },
+  },
+  {
+    loader: 'postcss-loader',
+    options: {
+      plugins: () => [
+        ...(prefix ? [selectorPrefixer({ prefix })] : []),
+        ...(fixCode
+          ? [postcssFlexbugFixes, autoprefixer({ flexbox: 'no-2009' })]
+          : []),
+      ],
+      sourceMap: shouldUseSourceMap,
+    },
+  },
+];
 
 module.exports = {
   mode: 'production',
@@ -74,37 +100,18 @@ module.exports = {
             },
           },
           {
-            // CSS imported to showcase components
-            test: /preset-website\.css$/,
-            use: ['style-loader/useable', 'css-loader'],
+            // EC CSS imported to showcase components
+            test: /ec-preset-full\.css$/,
+            use: cssLoader({ fixCode: false, prefix: '.ec' }),
+          },
+          {
+            // EU CSS imported to showcase components
+            test: /eu-preset-full\.css$/,
+            use: cssLoader({ fixCode: false, prefix: '.eu' }),
           },
           {
             test: /\.css$/,
-            use: [
-              {
-                loader: MiniCssExtractPlugin.loader,
-              },
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                  sourceMap: shouldUseSourceMap,
-                },
-              },
-              {
-                loader: 'postcss-loader',
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    postcssFlexbugFixes,
-                    autoprefixer({
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                  sourceMap: shouldUseSourceMap,
-                },
-              },
-            ],
+            use: cssLoader(),
           },
           {
             test: /\.scss$/,
@@ -215,6 +222,14 @@ module.exports = {
         cssProcessor: cssnano,
         cssProcessorPluginOptions: {
           preset: ['default', { discardComments: { removeAll: true } }],
+          map: {
+            // `inline: false` forces the sourcemap to be output into a
+            // separate file
+            inline: false,
+            // `annotation: true` appends the sourceMappingURL to the end of
+            // the css file, helping the browser find the sourcemap
+            annotation: true,
+          },
         },
         canPrint: true,
       }),
