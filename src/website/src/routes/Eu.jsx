@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import EUStyles from '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css';
+import '@ecl/eu-preset-full/dist/styles/ecl-eu-preset-full.css';
 import slugify from 'slugify';
 
 // Helpers
@@ -62,7 +62,7 @@ class EURoutes extends Component {
   }
 
   componentDidMount() {
-    EUStyles.use();
+    document.body.classList.add('eu');
 
     // Force refresh if is mounted on a real client (two-pass rendering)
     this.setState({
@@ -71,7 +71,7 @@ class EURoutes extends Component {
   }
 
   componentWillUnmount() {
-    EUStyles.unuse();
+    document.body.classList.remove('eu');
   }
 
   toggleSidebar() {

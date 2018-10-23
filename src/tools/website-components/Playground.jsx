@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { Fragment } from 'react';
+import classnames from 'classnames';
 import ReactDOMServer from 'react-dom/server';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
@@ -14,6 +15,7 @@ const Playground = ({
   selectedKind,
   selectedStory,
   showFrame,
+  hideDemo,
   children,
 }) => {
   if (!children) return null;
@@ -33,17 +35,25 @@ const Playground = ({
 
   return (
     <div className={styles.playground}>
-      {showFrame && fullFrameUrl ? (
-        <iframe
-          title="Showcase"
-          src={fullFrameUrl}
-          className={styles.showcase}
-          height={frameHeight}
-        />
-      ) : (
-        <div className={styles.showcase}>{children}</div>
+      {!hideDemo && (
+        <Fragment>
+          {showFrame && fullFrameUrl ? (
+            <iframe
+              title="Showcase"
+              src={fullFrameUrl}
+              className={styles.showcase}
+              height={frameHeight}
+            />
+          ) : (
+            <div className={styles.showcase}>{children}</div>
+          )}
+        </Fragment>
       )}
-      <ul className={styles.links}>
+      <ul
+        className={classnames(styles.links, {
+          [styles['links--showcase-hidden']]: hideDemo,
+        })}
+      >
         {playgroundUrl && (
           <li className={styles['link-item']}>
             <a
@@ -95,6 +105,7 @@ Playground.propTypes = {
   frameHeight: PropTypes.string,
   playgroundLink: PropTypes.string,
   showFrame: PropTypes.bool,
+  hideDemo: PropTypes.bool,
   system: PropTypes.string,
   selectedKind: PropTypes.string,
   selectedStory: PropTypes.string,
@@ -104,6 +115,7 @@ Playground.defaultProps = {
   frameHeight: '200px',
   playgroundLink: '',
   showFrame: false,
+  hideDemo: false,
   system: '',
   selectedKind: '',
   selectedStory: '',
