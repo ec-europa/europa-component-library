@@ -23,16 +23,14 @@ Please fill in the description following the template.
 
 5.  Open a pull request with the changes. Don't apply any `tag: *` label on it.
 
-6.  Merge the PR.
+6.  Make sure you are logged in. `npm whoami` will show your npm username if you are logged in. Otherwise, please run `npm login`.
 
-7.  Pull the latest `next-v2` branch.
+7.  From the new branch, **do not run `npm publish`. Instead, run `npm run publish`.**
 
-8.  Make sure you are logged in. `npm whoami` will show your npm username if you are logged in. Otherwise, please run `npm login`.
+8.  The CLI will ask for a confirmation about the new package versions. Please verify them carefully before accepting.
 
-9.  **Do not run `npm publish`. Instead, run `npm run publish`.**
+9.  Once you have accepted, the script will start publishing the packages to npm and creating the git tags.
 
-10. The CLI will ask for a confirmation about the new package versions. Please verify them carefully before accepting.
+10. Merge the PR.
 
-11. Once you have accepted, the script will start publishing the packages to npm and creating the git tags.
-
-12. Finally, create a GitHub Release with the same text as the changelog generated at step 2. Use the same tag as the one created earlier. Add "useful links" section.
+11. Finally, create a GitHub Release with the same text as the changelog generated at step 2. Use the same tag as the one created earlier. Add "useful links" section.
