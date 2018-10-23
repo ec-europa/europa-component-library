@@ -21,16 +21,18 @@ Please fill in the description following the template.
 
 4.  Run `npm run update-version`. It will update the version number of the updated packages.
 
-5.  Merge the changelog update.
+5.  Open a pull request with the changes. Don't apply any `tag: *` label on it.
 
-6.  Make sure you are logged in. `npm whoami` will show your npm username if you are logged in. Otherwise, please run `npm login`.
+6.  Merge the PR.
 
-7.  **Do not run `npm publish`. Instead, run `npm run publish`.**
+7.  Pull the latest `next-v2` branch.
 
-8.  The CLI will ask for a confirmation about the new package versions. Please verify them carefully before accepting.
+8.  Make sure you are logged in. `npm whoami` will show your npm username if you are logged in. Otherwise, please run `npm login`.
 
-9.  Once you have accepted, the script will start publishing the packages to npm and creating the git tags.
+9.  **Do not run `npm publish`. Instead, run `npm run publish`.**
 
-10. Finally, create a GitHub Release with the same text as the changelog generated at step 2.
+10. The CLI will ask for a confirmation about the new package versions. Please verify them carefully before accepting.
 
-11. Run `yarn dist:presets` from the root folder, then create zip archives with the different folders created in `./dist/packages` and attach those archives to the GitHub release.
+11. Once you have accepted, the script will start publishing the packages to npm and creating the git tags.
+
+12. Finally, create a GitHub Release with the same text as the changelog generated at step 2. Use the same tag as the one created earlier. Add "useful links" section.
