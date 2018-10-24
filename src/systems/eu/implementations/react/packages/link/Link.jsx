@@ -16,9 +16,11 @@ const Link = ({
 }) => {
   let iconMarkup = '';
   if (Array.isArray(icon)) {
-    iconMarkup = icon.map(i => (
-      <Icon {...i} className={classnames(i.className, 'ecl-link__icon')} />
-    ));
+    if (icon.length > 0) {
+      iconMarkup = icon.map(i => (
+        <Icon {...i} className={classnames(i.className, 'ecl-link__icon')} />
+      ));
+    }
   } else if (icon && icon.shape) {
     iconMarkup = (
       <Icon
@@ -76,7 +78,7 @@ Link.defaultProps = {
   variant: '',
   href: '',
   label: '',
-  icon: [],
+  icon: {},
   iconPosition: 'after',
   className: '',
 };
