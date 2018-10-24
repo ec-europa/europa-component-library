@@ -4,10 +4,10 @@
  */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@import '@ecl/eu-base/eu-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-link'));
+@include check-imports(('eu-component-link'));
 
 @mixin ecl-pager(
   $text-color: $ecl-color-blue-100,
@@ -100,6 +100,6 @@
 }
 
 // Use  mixin
-@include exports('ec-component-pager') {
+@include exports('eu-component-pager') {
   @include ecl-pager();
 }
