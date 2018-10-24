@@ -11,21 +11,65 @@
 
 @mixin ecl-pager(
   $text-color: $ecl-color-blue-100,
-  $border-color: $ecl-color-black-100
+  $border-color: $ecl-color-black-100,
+  $current-text-color: $ecl-color-black-100,
+  $current-border-color: $ecl-color-black-100
 ) {
   .ecl-pager {
     border-top: 2px solid $border-color;
     color: $text-color;
+    font: $ecl-font-m;
     margin: 0;
     padding-bottom: $ecl-spacing-m;
     padding-top: $ecl-spacing-m;
   }
 
   .ecl-pager__list {
+    align-items: center;
     display: flex;
+    justify-content: space-between;
     list-style: none;
     margin: 0;
     padding-left: 0;
+  }
+
+  .ecl-pager__item:not(.ecl-pager__item--highlight):not(.ecl-pager__item--current) {
+    display: none;
+  }
+
+  .ecl-pager__item--highlight {
+    font-weight: $ecl-font-weight-bold;
+  }
+
+  .ecl-pager__item--current {
+    border: 2px solid $current-border-color;
+    border-radius: 50%;
+    color: $current-text-color;
+    font-weight: bold;
+  }
+
+  .ecl-pager__link,
+  .ecl-pager__text {
+    padding: $ecl-spacing-xs;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-pager__list {
+      justify-content: center;
+    }
+
+    .ecl-pager__item {
+      margin-right: $ecl-spacing-l;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .ecl-pager__item:not(.ecl-pager__item--highlight):not(.ecl-pager__item--current) {
+      display: block;
+    }
   }
 }
 

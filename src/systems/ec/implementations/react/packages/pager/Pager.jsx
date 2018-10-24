@@ -4,22 +4,34 @@ import classnames from 'classnames';
 
 import Link from '@ecl/ec-react-component-link/Link';
 
-const Pager = ({ label, items, className, ...props }) => {
+const Pager = ({ isCurrent, label, items, className, ...props }) => {
   const classNames = classnames(className, 'ecl-pager');
 
   return (
     <nav {...props} className={classNames} aria-label={label}>
       <ul className="ecl-pager__list">
         {items.map(item => (
-          <li key={item.label} className="ecl-pager__item">
+          <li
+            key={item.label}
+            className={classnames('ecl-pager__item', {
+              [`ecl-pager__item--current`]: item.isCurrent,
+              [`ecl-pager__item--highlight`]: item.link && item.link.icon,
+            })}
+          >
             {item.link ? (
               <Link
                 {...item.link}
-                className={classnames(item.link.className, 'ecl-pager__link')}
-                aria-label={item.link.label}
+                className="ecl-pager__link"
+                aria-label={item.ariaLabel}
               />
             ) : (
-              <span>{item.label}</span>
+              <span
+                className="ecl-pager__text"
+                aria-label={item.ariaLabel}
+                aria-current={item.isCurrent}
+              >
+                {item.label}
+              </span>
             )}
           </li>
         ))}
@@ -31,6 +43,7 @@ const Pager = ({ label, items, className, ...props }) => {
 Pager.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
+      isCurrent: PropTypes.bool,
       label: PropTypes.string,
       link: PropTypes.shape(Link.propTypes),
     })

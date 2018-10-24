@@ -7,6 +7,6 @@ import demoContent from '@ecl/ec-specs-pager/demo/data';
 
 import Pager from '../Pager';
 
-storiesOf('Blockquote', module)
+storiesOf('Pager', module)
   .addDecorator(withKnobs)
   .add('default', () => <Pager {...demoContent} />);
