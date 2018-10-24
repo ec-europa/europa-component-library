@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import Card from '@ecl/eu-react-component-card/Card';
@@ -13,9 +13,8 @@ const StandardPage = ({
   mediaContainer,
   footer,
   card,
-  ...props
 }) => (
-  <div {...props}>
+  <Fragment>
     <SiteHeader {...siteHeader} />
     <PageHeader {...pageHeader} />
     <main className="ecl-u-pv-xl">
@@ -42,7 +41,7 @@ const StandardPage = ({
       </div>
     </main>
     <Footer {...footer} />
-  </div>
+  </Fragment>
 );
 
 StandardPage.propTypes = {
