@@ -11,3 +11,23 @@ All library elements are accompanied by:
 - HTML/CSS code for implementation
 
 New components are continuously being added to the library. The team is also constantly updating visual guidelines for designers in the Guidelines section, where we provide detailed information about design principles and resources.
+
+## How to use templates
+1. Get the framework
+- Go to https://github.com/ec-europa/europa-component-library/releases
+- Pick the latest release
+- In the "useful links" section, download the @ecl/ec-full package tarball
+- uncompress the package
+2. Create a template page
+- in the uncompressed package go to /dist
+- create a "index.html" file
+- copy paste the markup from ec/templates/campaign-template/showcase/
+- put this head 
+```<head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<link href="favicon.ico?v=1" rel="shortcut icon">
+<link type="text/css" rel="stylesheet" href="styles/ecl-ec-preset-full.css" media="all">
+<script type="text/javascript" defer src="scripts/ecl-ec-preset-full.js"></script>
+</head>```
