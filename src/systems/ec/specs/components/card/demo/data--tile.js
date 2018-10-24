@@ -3,7 +3,7 @@ module.exports = {
   title: {
     variant: 'standalone',
     label: 'Better regulation',
-    level: '1',
+    level: 1,
   },
   description:
     'Transparently designing and evaluating evidence-based EU legislation, backed by citizens views.',
