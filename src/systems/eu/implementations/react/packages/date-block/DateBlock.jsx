@@ -1,6 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 const DateBlock = ({
   variant, // ongoing, cancelled, past
@@ -10,12 +10,12 @@ const DateBlock = ({
   className,
   ...props
 }) => {
-  let classes = 'ecl-date-block';
-  if (variant) classes += ` ecl-date-block--${variant}`;
-  if (className) classes += ` ${className}`;
+  const classNames = classnames(className, 'ecl-date-block', {
+    [`ecl-date-block--${variant}`]: variant,
+  });
 
   return (
-    <div {...props} className={classes}>
+    <div {...props} className={classNames}>
       <div className="ecl-date-block__week-day">{weekDay}</div>
       <div className="ecl-date-block__day">{day}</div>
       <div className="ecl-date-block__month">{month}</div>
