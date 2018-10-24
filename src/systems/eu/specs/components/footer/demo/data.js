@@ -40,7 +40,7 @@ module.exports = {
     info: [
       {
         variant: 'standalone',
-        label: 'Lorem ipsum',
+        label: 'Lorem',
         href: '/example',
       },
       {
@@ -50,7 +50,7 @@ module.exports = {
       },
       {
         variant: 'standalone',
-        label: 'Lorem ipsum dolor sit',
+        label: 'Lorem ipsum dolor',
         href: '/example',
       },
       {
