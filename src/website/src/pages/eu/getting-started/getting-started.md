@@ -33,4 +33,4 @@ New components are continuously being added to the library. The team is also con
 <!-- paste the markup from the template here -->
 </body>
 </html>``
-- ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
+- ensure that you are using proper path to icons, logo etc... (usualy /images/logo /images/icons...)
