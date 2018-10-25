@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -7,47 +7,37 @@ import LinkGroup from './LinkGroup';
 import LinkSection from './LinkSection';
 import styles from './LinkList.scss';
 
-class LinkList extends PureComponent {
-  render() {
-    const {
-      pages,
-      level,
-      showStatus,
-      'aria-hidden': ariaHidden,
-      parentSection,
-    } = this.props;
-
-    return (
-      <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
-        {pages.filter(p => p.hidden !== true).map(p => (
-          <li key={p.title}>
-            {p.type === 'page' && (
-              <SingleLink page={p} showStatus={showStatus} level={level} />
-            )}
-            {p.type === 'group' && (
-              <LinkGroup
-                pages={p.children}
-                group={p.title}
-                showStatus={showStatus}
-                groupUrl={`${parentSection}/${p.title}`}
-                level={level}
-              />
-            )}
-            {p.type === 'section' && (
-              <LinkSection
-                pages={p.children}
-                section={p.title}
-                showStatus={showStatus}
-                groupUrl={`${parentSection}/${p.title}`}
-                level={level}
-              />
-            )}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-}
+const LinkList = React.memo(
+  ({ pages, level, showStatus, 'aria-hidden': ariaHidden, parentSection }) => (
+    <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
+      {pages.filter(p => p.hidden !== true).map(p => (
+        <li key={p.title}>
+          {p.type === 'page' && (
+            <SingleLink page={p} showStatus={showStatus} level={level} />
+          )}
+          {p.type === 'group' && (
+            <LinkGroup
+              pages={p.children}
+              group={p.title}
+              showStatus={showStatus}
+              groupUrl={`${parentSection}/${p.title}`}
+              level={level}
+            />
+          )}
+          {p.type === 'section' && (
+            <LinkSection
+              pages={p.children}
+              section={p.title}
+              showStatus={showStatus}
+              groupUrl={`${parentSection}/${p.title}`}
+              level={level}
+            />
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+);
 
 LinkList.propTypes = {
   location: PropTypes.shape({

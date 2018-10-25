@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Container from '../Grid/Container';
 import styles from './Header.scss';
 
-const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
+const Header = React.memo(({ component, sectionTitle, pageTitle, tabs }) => (
   <header className={styles.header}>
     <Container>
       <h3 className={styles['header__section-header']}>
@@ -29,7 +29,7 @@ const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
       </ul>
     </Container>
   </header>
-);
+));
 
 Header.propTypes = {
   component: PropTypes.shape({
@@ -53,4 +53,4 @@ Header.defaultProps = {
   tabs: [],
 };
 
-export default Header;
+export default withRouter(Header);

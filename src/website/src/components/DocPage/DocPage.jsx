@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 import Container from '../Grid/Container';
 
-const DocPage = ({ component }) => (
+const DocPage = React.memo(({ component }) => (
   <Fragment>
     <ScrollToTopOnMount />
     <Helmet title={component.title} />
@@ -42,7 +42,7 @@ const DocPage = ({ component }) => (
       </Container>
     </main>
   </Fragment>
-);
+));
 
 DocPage.propTypes = {
   component: PropTypes.shape({
@@ -64,4 +64,4 @@ DocPage.defaultProps = {
   component: {},
 };
 
-export default DocPage;
+export default withRouter(DocPage);
