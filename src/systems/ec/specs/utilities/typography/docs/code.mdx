@@ -2,7 +2,19 @@ import Playground from '@ecl/website-components/Playground'
 
 import demoContentParagraph from '../demo/data--paragraph';
 
-## Default paragraph
+## Paragraph
+
+### Lead paragraph
+
+<Playground
+  system="ec"
+  selectedKind="Typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-lead">{demoContentParagraph.content}</p>
+</Playground>
+
+### Medium paragraph
 
 <Playground
   system="ec"
@@ -12,12 +24,22 @@ import demoContentParagraph from '../demo/data--paragraph';
   <p className="ecl-u-type-paragraph">{demoContentParagraph.content}</p>
 </Playground>
 
-## Lead paragraph
+### Small paragraph
 
 <Playground
   system="ec"
   selectedKind="Typography"
   selectedStory="paragraph"
 >
-  <p className="ecl-u-type-paragraph-lead">{demoContentParagraph.content}</p>
+  <p className="ecl-u-type-paragraph-s">{demoContentParagraph.content}</p>
+</Playground>
+
+### Extra small paragraph
+
+<Playground
+  system="ec"
+  selectedKind="Typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-xs">{demoContentParagraph.content}</p>
 </Playground>

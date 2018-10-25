@@ -9,7 +9,8 @@
   /*
    * Paragraph
    */
-  .ecl-u-type-paragraph {
+  .ecl-u-type-paragraph,
+  .ecl-u-type-paragraph-m {
     font: $ecl-font-prolonged-m;
     max-width: 80ch;
   }
@@ -21,6 +22,16 @@
     @include ecl-media-breakpoint-up('md') {
       font: $ecl-font-prolonged-xl;
     }
+  }
+
+  .ecl-u-type-paragraph-s {
+    font: $ecl-font-prolonged-s;
+    max-width: 80ch;
+  }
+
+  .ecl-u-type-paragraph-xs {
+    font: $ecl-font-prolonged-xs;
+    max-width: 80ch;
   }
 }
 
