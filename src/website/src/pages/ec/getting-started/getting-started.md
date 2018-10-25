@@ -21,13 +21,17 @@ New components are continuously being added to the library. The team is also con
 2. Create a template page
 - in the uncompressed package go to /dist
 - create a "index.html" file
-- copy paste the markup from ec/templates/campaign-template/showcase/
-- put this head 
-```<head>
+``<html>
+<head>
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <link href="favicon.ico?v=1" rel="shortcut icon">
 <link type="text/css" rel="stylesheet" href="styles/ecl-ec-preset-full.css" media="all">
 <script type="text/javascript" defer src="scripts/ecl-ec-preset-full.js"></script>
-</head>```
+</head>
+<body>
+<!-- paste the markup from the template here -->
+</body>
+</html>``
+- ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
