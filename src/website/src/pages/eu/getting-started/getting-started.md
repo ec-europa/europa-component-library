@@ -20,7 +20,8 @@ New components are continuously being added to the library. The team is also con
 2. Create a template page
 - in the uncompressed package go to /dist
 - create a "index.html" file
-``<html>
+```html
+<html>
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width,initial-scale=1" name="viewport">
@@ -32,5 +33,6 @@ New components are continuously being added to the library. The team is also con
 <body>
 <!-- paste the markup from the template here -->
 </body>
-</html>``
-- ensure that you are using proper path to icons, logo etc... (usualy /images/logo /images/icons...)
+</html>
+```
+- ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
