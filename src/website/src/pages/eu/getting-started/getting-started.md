@@ -15,7 +15,7 @@ New components are continuously being added to the library. The team is also con
 1. Get the framework
 - Go to https://github.com/ec-europa/europa-component-library/releases
 - Pick the latest release
-- In the "useful links" section, download the @ecl/ec-full package tarball
+- In the "useful links" section, download the @ecl/eu-full package tarball
 - uncompress the package
 2. Create a template page
 - in the uncompressed package go to /dist
@@ -27,8 +27,8 @@ New components are continuously being added to the library. The team is also con
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <link href="favicon.ico?v=1" rel="shortcut icon">
-<link type="text/css" rel="stylesheet" href="styles/ecl-ec-preset-full.css" media="all">
-<script type="text/javascript" defer src="scripts/ecl-ec-preset-full.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/ecl-eu-preset-full.css" media="all">
+<script type="text/javascript" defer src="scripts/ecl-eu-preset-full.js"></script>
 </head>
 <body>
 <!-- paste the markup from the template here -->
