@@ -6,6 +6,10 @@ import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
 svg4everybody();
 
 const ECLDecorator = storyFn => {
+  if (navigator.userAgent === 'ReactSnap') {
+    return <Fragment />;
+  }
+
   return <Fragment>{storyFn()}</Fragment>;
 };
 
