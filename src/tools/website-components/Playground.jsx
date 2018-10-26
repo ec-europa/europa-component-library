@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Prism from 'prismjs';
 import { html as beautifyHtml } from 'js-beautify';
 
+import Iframe from './Playgroud/Iframe';
 import styles from './Playground.scss';
 
 const Playground = ({
@@ -38,12 +39,7 @@ const Playground = ({
       {!hideDemo && (
         <Fragment>
           {showFrame && fullFrameUrl ? (
-            <iframe
-              title="Showcase"
-              src={fullFrameUrl}
-              className={styles.showcase}
-              height={frameHeight}
-            />
+            <Iframe url={fullFrameUrl} defaultHeight={frameHeight} />
           ) : (
             <div className={styles.showcase}>{children}</div>
           )}
