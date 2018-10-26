@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Prism from 'prismjs';
 import { html as beautifyHtml } from 'js-beautify';
 
-import Iframe from './Playgroud/Iframe';
+import Iframe from './Showcase/Iframe';
 import styles from './Playground.scss';
 
 const Playground = ({

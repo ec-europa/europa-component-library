@@ -19,8 +19,13 @@ class Iframe extends PureComponent {
   }
 
   componentWillUnmount() {
-    if (this.iframeResizer) {
-      this.iframeResizer.close();
+    if (
+      this.iframeResizer &&
+      this.iframeResizer.length > 0 &&
+      this.iframeResizer[0].iFrameResizer
+    ) {
+      this.iframeResizer[0].iFrameResizer.removeListeners();
+      this.iframeResizer[0].iFrameResizer.close();
     }
   }
 
