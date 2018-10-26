@@ -2,7 +2,7 @@
 
 The Europa Component Library is a design system for the European Commission and websites managed by the Commission.
 
-We provides design guidelines and code to help users create consistent and accessible government web presence.
+We provide design guidelines and code to help users create consistent and accessible government web presence.
 
 All library elements are accompanied by:
 
