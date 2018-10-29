@@ -1,0 +1,211 @@
+/**
+ * Message component
+ * @define message
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@include check-imports(('eu-component-icon', 'eu-component-button'));
+
+@mixin ecl-message() {
+  .ecl-message {
+    display: flex;
+    margin: 0;
+  }
+
+  .ecl-message__icon {
+    flex-shrink: 0;
+  }
+
+  @supports (display: grid) {
+    .ecl-message__content {
+      display: grid;
+    }
+  }
+
+  .ecl-message__title {
+    font-weight: bold;
+  }
+  @supports (display: grid) {
+    .ecl-message__title {
+      grid-column-start: 1;
+    }
+  }
+
+  .ecl-message__description {
+    margin: 0;
+  }
+  @supports (display: grid) {
+    .ecl-message__description {
+      grid-column-start: 1;
+    }
+  }
+
+  @supports (display: grid) {
+    .ecl-message__close {
+      align-self: self-end;
+      bottom: auto;
+      grid-column-start: 1;
+      grid-row-end: 4;
+      grid-row-start: 3;
+      justify-self: end;
+      top: auto;
+    }
+  }
+
+  .ecl-message--error {
+    border: 2px solid $ecl-color-error;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    @supports (display: grid) {
+      .ecl-message__content {
+        grid-template-columns: auto max-content;
+      }
+
+      @supports (display: grid) {
+        .ecl-message__close {
+          align-self: self-start;
+          grid-column-start: 2;
+          grid-row-end: span 2;
+          grid-row-start: 1;
+          position: relative;
+          right: auto;
+          top: auto;
+        }
+      }
+    }
+  }
+}
+
+// Use mixin
+@include exports('message') {
+  @include ecl-message();
+}
+
+/*
+.ecl-message {
+  background: transparent url("../images/messages-info.svg") no-repeat 1.2rem 1.2rem;
+  border: 2px solid #4073af;
+  color: #404040;
+  font-size: 1rem;
+  margin: 0;
+  min-height: 2.22rem;
+  padding: 0.89rem 5.1rem 0.89rem 4.44rem;
+  position: relative;
+}
+  @supports (display: grid) {
+    .ecl-message {
+      display: grid;
+      grid-template-columns: auto max-content;
+      padding: 0.89rem 0.89rem 0.89rem 4.44rem; }
+    }
+  .ecl-message--success {
+    background-image: url("../images/messages-success.svg");
+    border-color: #467a39; }
+  .ecl-message--warning {
+    background-image: url("../images/messages-warning.svg");
+    border-color: #fbc11d; }
+  .ecl-message--error {
+    background-image: url("../images/messages-error.svg");
+    border-color: #da2130; }
+  .ecl-message--live {
+    background-image: url("../images/live_streaming.svg");
+    border-color: #fbc11d; }
+
+.ecl-message__title {
+  font-weight: bold;
+  margin-bottom: 0.89rem; }
+  @supports (display: grid) {
+    .ecl-message__title {
+      grid-column-start: 1; } }
+
+.ecl-message__body {
+  margin: 0;
+  padding-left: 0.89rem; }
+  @supports (display: grid) {
+    .ecl-message__body {
+      grid-column-start: 1; } }
+
+.ecl-message__dismiss {
+  align-items: center;
+  background-color: transparent;
+  border-width: 0;
+  color: #000;
+  display: flex;
+  font-size: 0.875rem;
+  height: 1.5rem;
+  line-height: 1.15;
+  padding: 0;
+  position: absolute;
+  right: 0.66rem;
+  text-decoration: none;
+  text-shadow: none;
+  top: 0.66rem; }
+  .ecl-message__dismiss:focus {
+    outline: 3px solid #ffd617;
+    outline-offset: 3px;
+    text-decoration: underline; }
+  @supports (display: grid) {
+    .ecl-message__dismiss {
+      align-self: self-start;
+      grid-column-start: 2;
+      grid-row-end: span 2;
+      grid-row-start: 1;
+      position: relative;
+      right: auto;
+      top: auto; } }
+  .ecl-message__dismiss:hover {
+    text-decoration: underline; }
+  .ecl-message__dismiss::after {
+    background-color: transparent;
+    content: url("../images/close.svg");
+    display: block;
+    line-height: 0;
+    margin: 0 0 0 0.66rem;
+    overflow: hidden;
+    width: 1.5rem; }
+
+.ecl-message__dismiss--inverted {
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.889em;
+  text-decoration: underline; }
+  .ecl-message__dismiss--inverted::after {
+    align-items: center;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    content: '\00D7';
+    display: flex;
+    float: right;
+    height: 1.5rem;
+    justify-content: center;
+    margin-left: 0.5em;
+    width: 1.5rem; }
+  .ecl-message__dismiss--inverted:hover {
+    background-image: none; }
+
+@media (max-width: 479px) {
+  .ecl-message {
+    padding-bottom: 3.71rem; }
+    @supports (display: grid) {
+      .ecl-message {
+        grid-template-rows: auto auto 2.22rem;
+        padding-bottom: 0.89rem; } }
+  .ecl-message__dismiss {
+    bottom: 0.66rem;
+    top: auto; }
+    @supports (display: grid) {
+      .ecl-message__dismiss {
+        align-self: self-end;
+        bottom: auto;
+        grid-column-start: 1;
+        grid-row-end: 4;
+        grid-row-start: 3;
+        justify-self: end;
+        top: auto; } } }
+        */
