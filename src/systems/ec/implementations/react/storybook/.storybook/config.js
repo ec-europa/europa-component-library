@@ -1,11 +1,7 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { checkA11y } from '@storybook/addon-a11y';
-import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
-
-import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
-
-svg4everybody();
+import ECLDecorator from './ECL';
 
 addDecorator(
   withOptions({
@@ -18,6 +14,7 @@ addDecorator(
 const contexts = [require.context('../../packages', true, /stories.*\.jsx?$/)];
 
 addDecorator(checkA11y);
+addDecorator(ECLDecorator);
 
 configure(() => {
   contexts.forEach(context => {
