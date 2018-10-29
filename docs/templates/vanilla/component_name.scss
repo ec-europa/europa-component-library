@@ -1,0 +1,16 @@
+/**
+ * Component_name ecl-component_name
+ * @define ecl-component_name
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-layout-grid'));
+
+@mixin ecl-component_name() {
+  .ecl-component_name {
+    // scss code.
+  }
+}
