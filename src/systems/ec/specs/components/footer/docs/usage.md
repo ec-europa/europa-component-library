@@ -10,7 +10,6 @@ It is divided into 2 functional areas:
 Main content area
 
 The main content area of the footer offers access to the two main parts of the site (the political and information sites), the corporate social media profiles and the other European Union institutions.
-Secondary content area
 
 The secondary content area of the footer offers access to resources for partners, the privacy policy, the cookie policy, the legal notice and contact information.
 
@@ -20,7 +19,7 @@ The secondary content area of the footer offers access to resources for partners
 
 Custom area
 
-In exceptional circumstances, a custom are can be added if the main and secondary content areas do not satisfy the requirements.
+In some cases, a custom area can be added if the main and secondary content areas do not satisfy the requirements.
 A custom area can contain:
 
 - identification of the site name
