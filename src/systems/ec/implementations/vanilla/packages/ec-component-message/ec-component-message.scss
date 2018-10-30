@@ -42,6 +42,7 @@
     font: $ecl-font-xs;
     margin: 0;
     max-width: 80ch;
+    padding-bottom: $ecl-spacing-xl; // Extra spacing for IE
   }
 
   .ecl-message__close {
@@ -63,6 +64,7 @@
 
     .ecl-message__description {
       grid-column-start: 1;
+      padding-bottom: 0;
     }
 
     .ecl-message__close {
