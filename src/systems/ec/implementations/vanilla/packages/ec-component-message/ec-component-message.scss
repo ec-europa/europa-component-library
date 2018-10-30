@@ -4,9 +4,9 @@
  */
 
 // Import base
-@import '@ecl/eu-base/eu-base';
+@import '@ecl/ec-base/ec-base';
 
-@include check-imports(('eu-component-icon', 'eu-component-button'));
+@include check-imports(('ec-component-icon', 'ec-component-button'));
 
 @mixin ecl-message(
   $title-color: $ecl-color-black-100,
@@ -148,6 +148,6 @@
 }
 
 // Use mixin
-@include exports('eu-component-message') {
+@include exports('ec-component-message') {
   @include ecl-message();
 }

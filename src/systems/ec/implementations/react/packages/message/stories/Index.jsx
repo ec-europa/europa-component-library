@@ -3,10 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import demoContentInfo from '@ecl/eu-specs-message/demo/data--info';
-import demoContentSuccess from '@ecl/eu-specs-message/demo/data--success';
-import demoContentWarning from '@ecl/eu-specs-message/demo/data--warning';
-import demoContentError from '@ecl/eu-specs-message/demo/data--error';
+import demoContentInfo from '@ecl/ec-specs-message/demo/data--info';
+import demoContentSuccess from '@ecl/ec-specs-message/demo/data--success';
+import demoContentWarning from '@ecl/ec-specs-message/demo/data--warning';
+import demoContentError from '@ecl/ec-specs-message/demo/data--error';
 
 import Message from '../Message';
 
