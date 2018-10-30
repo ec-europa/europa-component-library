@@ -18,18 +18,20 @@ import PageNotFound from './404';
 import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
+/*
 const euPages = require.context('../pages/eu', true, /config\.js$/);
 const euSpecs = require.context(
   '../../../systems/eu/specs',
   true,
   /config\.js$/
 );
+*/
 
 const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
 
 const pages = [
-  ...euPages.keys().map(key => euPages(key).default),
-  ...euSpecs.keys().map(key => euSpecs(key).default),
+  // ...euPages.keys().map(key => euPages(key).default),
+  // ...euSpecs.keys().map(key => euSpecs(key).default),
 ];
 
 // Add URLs to pages

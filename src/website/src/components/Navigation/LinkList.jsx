@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -8,35 +8,42 @@ import LinkSection from './LinkSection';
 import styles from './LinkList.scss';
 
 const LinkList = React.memo(
-  ({ pages, level, showStatus, 'aria-hidden': ariaHidden, parentSection }) => (
-    <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
-      {pages.filter(p => p.hidden !== true).map(p => (
-        <li key={p.title}>
-          {p.type === 'page' && (
-            <SingleLink page={p} showStatus={showStatus} level={level} />
-          )}
-          {p.type === 'group' && (
-            <LinkGroup
-              pages={p.children}
-              group={p.title}
-              showStatus={showStatus}
-              groupUrl={`${parentSection}/${p.title}`}
-              level={level}
-            />
-          )}
-          {p.type === 'section' && (
-            <LinkSection
-              pages={p.children}
-              section={p.title}
-              showStatus={showStatus}
-              groupUrl={`${parentSection}/${p.title}`}
-              level={level}
-            />
-          )}
-        </li>
-      ))}
-    </ul>
-  )
+  ({ pages, level, showStatus, 'aria-hidden': ariaHidden }) => {
+    return (
+      <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
+        {pages.filter(p => p.hidden !== true).map(p => (
+          <li key={p.key}>
+            {!p.children || p.children.length === 0 ? (
+              <SingleLink
+                page={p.attributes}
+                showStatus={showStatus}
+                level={level}
+              />
+            ) : (
+              <Fragment>
+                {p.attributes.type === 'group' ? (
+                  <LinkGroup
+                    pages={p.children}
+                    group={p.attributes.title}
+                    showStatus={showStatus}
+                    level={level}
+                  />
+                ) : (
+                  <LinkSection
+                    pages={p.children}
+                    attributes={p.attributes}
+                    section={p.attributes.title}
+                    showStatus={showStatus}
+                    level={level}
+                  />
+                )}
+              </Fragment>
+            )}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 );
 
 LinkList.propTypes = {
@@ -47,14 +54,12 @@ LinkList.propTypes = {
   showStatus: PropTypes.bool,
   level: PropTypes.number,
   'aria-hidden': PropTypes.bool,
-  parentSection: PropTypes.string,
 };
 
 LinkList.defaultProps = {
   showStatus: false,
   level: 0,
   'aria-hidden': false,
-  parentSection: '',
 };
 
 export default withRouter(LinkList);

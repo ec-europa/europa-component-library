@@ -1,3 +1,9 @@
+---
+order: 1,
+title: 'Glossary'
+section: 'Resources'
+---
+
 (work in progress)
 
 ## Accessibility

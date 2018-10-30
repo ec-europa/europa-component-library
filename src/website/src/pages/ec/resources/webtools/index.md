@@ -1,3 +1,9 @@
+---
+order: 3
+title: 'Webtools'
+section: 'Resources'
+---
+
 ## Webtools embeddable components
 
 The following corporate components are available for sites in europa.eu and its sub domains:

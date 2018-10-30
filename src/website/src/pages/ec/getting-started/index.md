@@ -1,3 +1,8 @@
+---
+order: 2
+title: 'Getting started'
+---
+
 ## Getting started
 
 The Europa Component Library is a design system for the European Commission and websites managed by the Commission.

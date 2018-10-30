@@ -13,28 +13,28 @@ const DocPage = React.memo(({ component }) => (
     <Helmet title={component.title} />
     <Header
       component={component}
-      sectionTitle={component.group || component.section}
-      pageTitle={component.title}
+      sectionTitle={component.attributes.group || component.attributes.section}
+      pageTitle={component.attributes.title}
       tabs={component.tabs}
     />
     <main id="main-content" tabIndex="-1">
       <Container spacing="pv-2xl">
-        {component.page ? (
-          <component.page />
+        {component.document ? (
+          <component.document />
         ) : (
           <Switch>
             {component.tabs.map(tab => (
               <Route
                 exact
                 strict
-                path={`${component.url}/${tab.url}/`}
+                path={`${component.url}${tab.url}/`}
                 component={tab.component}
                 key={tab.url}
               />
             ))}
             <Route
               render={() => (
-                <Redirect to={`${component.url}/${component.defaultTab}/`} />
+                <Redirect to={`${component.url}${component.defaultTab}/`} />
               )}
             />
           </Switch>
@@ -56,7 +56,7 @@ DocPage.propTypes = {
       })
     ),
     defaultTab: PropTypes.string,
-    page: PropTypes.func,
+    document: PropTypes.func,
   }),
 };
 

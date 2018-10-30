@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
-import slugify from 'slugify';
+// import slugify from 'slugify';
 
 // Helpers
-import sortPages from '../utils/nav-sort';
+import sortPages from '../utils/nav-sort2';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -18,32 +18,51 @@ import PageNotFound from './404';
 import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
-const ecPages = require.context('../pages/ec', true, /config\.js$/);
-const ecSpecs = require.context(
+const ecPages = require.context('../pages/ec', true, /\.mdx?$/);
+const ecSpecs = require.context('../../../systems/ec/specs', true, /\.mdx?$/);
+
+/* const ecSpecs = require.context(
   '../../../systems/ec/specs',
   true,
   /config\.js$/
 );
+*/
 
-const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
+// const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
+
+const extractPageInfo = (page, key) => {
+  const { attributes } = page;
+
+  // Add url to pages
+  const url = `/ec/${key
+    .replace('./', '')
+    .replace('index', '')
+    .replace('.mdx', '')
+    .replace('.md', '')}`;
+
+  return {
+    key,
+    attributes: Object.assign(
+      {},
+      { url, title: key.split('/').pop() },
+      attributes
+    ),
+    document: page.default,
+  };
+};
 
 const pages = [
-  ...ecPages.keys().map(key => ecPages(key).default),
-  ...ecSpecs.keys().map(key => ecSpecs(key).default),
+  ...ecPages.keys().map(key => {
+    const page = ecPages(key);
+    return extractPageInfo(page, key);
+  }),
+  ...ecSpecs.keys().map(key => {
+    const page = ecSpecs(key);
+    return extractPageInfo(page, key);
+  }),
 ];
 
-// Add URLs to pages
-pages.forEach(p => {
-  // eslint-disable-next-line no-param-reassign
-  p.url = `/ec/${
-    p.section
-      ? `${p.section
-          .split('/')
-          .map(sec => slug(sec))
-          .join('/')}/`
-      : ''
-  }${p.group ? `${slug(p.group)}/` : ''}${slug(p.title)}`;
-});
+// console.log(pages);
 
 const sortedPages = sortPages(pages);
 
@@ -85,7 +104,7 @@ class ECRoutes extends Component {
     return (
       <Fragment>
         <Navigation
-          pages={sortedPages}
+          pages={sortedPages[0].children}
           prefix="/ec"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}
@@ -106,8 +125,9 @@ class ECRoutes extends Component {
             />
             {pages.map(page => (
               <Route
-                key={page.url}
-                path={`${page.url}/`}
+                key={page.attributes.url}
+                path={page.attributes.url}
+                exact
                 strict
                 render={() => <DocPage component={page} />}
               />
