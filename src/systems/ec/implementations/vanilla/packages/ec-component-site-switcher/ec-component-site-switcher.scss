@@ -3,7 +3,7 @@
 * @define site-switcher
 */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
@@ -33,8 +33,17 @@
 
     &:hover,
     &:focus {
+      color: $ecl-color-grey-100;
       outline-offset: -3px;
       text-decoration: underline;
+    }
+  }
+
+  .ecl-site-switcher__container {
+    @include ecl-media-breakpoint-down(sm) {
+      max-width: 100%;
+      padding: 0;
+      width: 100%;
     }
   }
 
@@ -102,7 +111,7 @@
   }
 }
 
-// Use generic mixin
+// Use mixin
 @include exports('ec-component-site-switcher') {
   @include ecl-site-switcher();
 }

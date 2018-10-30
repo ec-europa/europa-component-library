@@ -14,19 +14,32 @@ const Link = ({
   className,
   ...props
 }) => {
+  let iconMarkup = '';
+  if (Array.isArray(icon)) {
+    if (icon.length > 0) {
+      iconMarkup = icon.map(i => (
+        <Icon {...i} className={classnames(i.className, 'ecl-link__icon')} />
+      ));
+    }
+  } else if (icon && icon.shape) {
+    iconMarkup = (
+      <Icon
+        {...icon}
+        className={classnames(icon.className, 'ecl-link__icon')}
+      />
+    );
+  }
+
   const classNames = classnames(className, 'ecl-link', {
     [`ecl-link--${variant}`]: variant,
-    [`ecl-link--icon ecl-link--icon-${iconPosition}`]: icon && icon.shape,
+    [`ecl-link--icon ecl-link--icon-${iconPosition}`]: iconMarkup,
   });
 
-  if (icon && icon.shape) {
+  if (iconMarkup) {
     if (iconPosition === 'before') {
       return (
         <a {...props} href={href} className={classNames}>
-          <Icon
-            {...icon}
-            className={classnames(icon.className, 'ecl-link__icon')}
-          />
+          {iconMarkup}
           &nbsp;
           <span className="ecl-link__label">{label}</span>
         </a>
@@ -37,10 +50,7 @@ const Link = ({
       <a {...props} href={href} className={classNames}>
         <span className="ecl-link__label">{label}</span>
         &nbsp;
-        <Icon
-          {...icon}
-          className={classnames(icon.className, 'ecl-link__icon')}
-        />
+        {iconMarkup}
       </a>
     );
   }
@@ -56,7 +66,10 @@ Link.propTypes = {
   variant: PropTypes.string,
   href: PropTypes.string,
   label: PropTypes.string,
-  icon: PropTypes.shape(Icon.propTypes),
+  icon: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.shape(Icon.propTypes)),
+    PropTypes.shape(Icon.propTypes),
+  ]),
   iconPosition: PropTypes.string,
   className: PropTypes.string,
 };

@@ -1,12 +1,12 @@
-import style from './docs/style.md';
 import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/menu',
+  hidden: true,
   title: 'Menu',
   section: 'Components',
-  ready: true,
+  group: 'Navigation',
+  status: 'planned',
   tabs: [
     {
       name: 'Usage',
@@ -17,11 +17,6 @@ export default {
       name: 'Showcase',
       component: code,
       url: 'showcase',
-    },
-    {
-      name: 'Style',
-      component: style,
-      url: 'style',
     },
   ],
   defaultTab: 'usage',

@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import ECStyles from '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
+import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
+import slugify from 'slugify';
+
+// Helpers
+import sortPages from '../utils/nav-sort';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -21,10 +25,27 @@ const ecSpecs = require.context(
   /config\.js$/
 );
 
+const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
+
 const pages = [
   ...ecPages.keys().map(key => ecPages(key).default),
   ...ecSpecs.keys().map(key => ecSpecs(key).default),
 ];
+
+// Add URLs to pages
+pages.forEach(p => {
+  // eslint-disable-next-line no-param-reassign
+  p.url = `/ec/${
+    p.section
+      ? `${p.section
+          .split('/')
+          .map(sec => slug(sec))
+          .join('/')}/`
+      : ''
+  }${p.group ? `${slug(p.group)}/` : ''}${slug(p.title)}`;
+});
+
+const sortedPages = sortPages(pages);
 
 class ECRoutes extends Component {
   constructor(props) {
@@ -34,17 +55,22 @@ class ECRoutes extends Component {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
         1140,
+      forceRefresh: false,
     };
 
     this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
   componentDidMount() {
-    ECStyles.use();
+    document.body.classList.add('ec');
+    // Force refresh if is mounted on a real client (two-pass rendering)
+    this.setState({
+      forceRefresh: navigator.userAgent !== 'ReactSnap',
+    });
   }
 
   componentWillUnmount() {
-    ECStyles.unuse();
+    document.body.classList.remove('ec');
   }
 
   toggleSidebar() {
@@ -54,17 +80,18 @@ class ECRoutes extends Component {
   }
 
   render() {
-    const { sidebarOpen } = this.state;
+    const { sidebarOpen, forceRefresh } = this.state;
 
     return (
       <Fragment>
         <Navigation
-          pages={pages}
+          pages={sortedPages}
           prefix="/ec"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}
+          forceRefresh={forceRefresh}
         />
-        <MainContainer sidebarOpen={sidebarOpen}>
+        <MainContainer sidebarOpen={sidebarOpen} forceRefresh={forceRefresh}>
           <Switch>
             <Route
               exact

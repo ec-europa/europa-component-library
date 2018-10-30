@@ -9,23 +9,26 @@ const SiteSwitcher = ({ info, political, className, variant, ...props }) => {
     [`ecl-site-switcher--${variant}`]: variant,
   });
 
+  const { isSelected: isInfoSelected, ...infoProps } = info;
+  const { isSelected: isPoliticalSelected, ...politicalProps } = political;
+
   return (
     <div {...props} className={classNames}>
-      <div className="ecl-container">
+      <div className="ecl-container ecl-site-switcher__container">
         <ul className="ecl-site-switcher__list">
           <li
             className={classnames('ecl-site-switcher__option', {
-              'ecl-site-switcher__option--is-selected': info.isSelected,
+              'ecl-site-switcher__option--is-selected': isInfoSelected,
             })}
           >
-            <Link {...info} className="ecl-site-switcher__link" />
+            <Link {...infoProps} className="ecl-site-switcher__link" />
           </li>
           <li
             className={classnames('ecl-site-switcher__option', {
-              'ecl-site-switcher__option--is-selected': political.isSelected,
+              'ecl-site-switcher__option--is-selected': isPoliticalSelected,
             })}
           >
-            <Link {...political} className="ecl-site-switcher__link" />
+            <Link {...politicalProps} className="ecl-site-switcher__link" />
           </li>
         </ul>
       </div>

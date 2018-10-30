@@ -1,97 +1,10 @@
 @import '@ecl/ec-theme-default/index';
 
-.list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  &[aria-hidden='true'] {
-    display: none;
-  }
-}
-
-.page-status {
-  border-radius: 50%;
-  box-sizing: border-box;
-  display: block;
-  height: 0.5rem;
-  margin: 0 0.5rem;
-  width: 0.5rem;
-}
-
-.page-list-item {
-  align-items: center;
-  background-color: $ecl-color-grey-5;
-  border-width: 0;
-  color: $ecl-color-text;
-  display: flex;
-  font: $ecl-font-m;
-  margin: 0;
-  padding: $ecl-spacing-s $ecl-spacing-xl;
-  text-decoration: none;
-}
-
-.page-list-item:hover,
-.page-list-item:focus {
-  background-color: $ecl-color-grey-10;
-  outline: none;
-}
-
-.page-list-item:active {
-  background-color: $ecl-color-grey-25;
-}
-
-.page-list-item--active {
-  border-left: 4px solid $ecl-color-yellow-100;
-  padding-left: calc(#{$ecl-spacing-xl} - 4px);
-}
-
-.group-list-item {
-  background-color: $ecl-color-grey-5;
-  border-width: 0;
-  box-sizing: border-box;
-  color: $ecl-color-text;
+.group {
+  color: $ecl-color-grey-75;
   display: block;
   font: $ecl-font-m;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
-  padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-m;
-  text-align: left;
-  text-decoration: none;
-  width: 100%;
-}
-
-.group-list-item > span {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.group-list-item:hover,
-.group-list-item:focus {
-  background-color: $ecl-color-grey-10;
-  outline: none;
-}
-
-.group-list-item--active {
-  border-left: 4px solid $ecl-color-yellow-100;
-  padding-left: calc(#{$ecl-spacing-m} - 4px);
-}
-
-.group-list-item:active {
-  background-color: $ecl-color-grey-25;
-}
-
-.icon {
-  height: 0.875rem;
-  width: 0.875rem;
-  transition: transform 200ms ease-in-out;
-}
-
-.icon-rotate-90 {
-  transform: rotate(90deg);
-}
-
-.icon-rotate-180 {
-  transform: rotate(180deg);
+  padding: $ecl-spacing-s $ecl-spacing-m;
 }

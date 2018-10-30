@@ -16,6 +16,7 @@ const sizes = {
   M: 'm',
   L: 'l',
   XL: 'xl',
+  '2XL': '2xl',
 };
 
 const defaultSize = 'm';

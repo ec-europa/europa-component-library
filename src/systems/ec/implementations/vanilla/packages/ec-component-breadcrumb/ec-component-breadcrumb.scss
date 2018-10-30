@@ -24,18 +24,21 @@
   .ecl-breadcrumb__container {
     border-bottom: 1px solid $border-color;
     box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
+    display: block;
     list-style: none;
     margin: 0;
     padding: 0 0 calc(#{$ecl-spacing-m} - 1px);
+
+    &::after {
+      clear: both;
+      content: '';
+      display: block;
+    }
   }
 
   .ecl-breadcrumb__segment {
-    align-items: center;
-    display: inline-flex;
+    display: inline-block;
     margin-top: $ecl-spacing-m;
-    white-space: nowrap;
 
     &[aria-hidden='true'] {
       position: absolute;
@@ -97,6 +100,7 @@
     fill: $link-color;
     margin-left: $ecl-spacing-xs;
     margin-right: $ecl-spacing-xs;
+    vertical-align: text-bottom;
   }
 
   .ecl-breadcrumb__current-page {

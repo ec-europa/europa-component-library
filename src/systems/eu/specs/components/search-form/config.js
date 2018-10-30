@@ -1,12 +1,11 @@
-import style from './docs/style.md';
 import code from './docs/code.mdx';
 import usage from './docs/usage.md';
 
 export default {
-  url: '/eu/components/search-form',
   title: 'Search form',
   section: 'Components',
-  ready: true,
+  group: 'Forms',
+  status: 'ready',
   tabs: [
     {
       name: 'Usage',
@@ -17,11 +16,6 @@ export default {
       name: 'Showcase',
       component: code,
       url: 'showcase',
-    },
-    {
-      name: 'Style',
-      component: style,
-      url: 'style',
     },
   ],
   defaultTab: 'usage',

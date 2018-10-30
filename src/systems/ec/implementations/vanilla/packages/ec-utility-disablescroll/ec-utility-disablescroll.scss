@@ -1,12 +1,18 @@
 /**
  * Disable scroll utilities
+ * @define u-disablescroll
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
-@import '@ecl/generic-utility-disablescroll/generic-utility-disablescroll';
 
-// Use generic mixin
+@mixin ecl-utility-disablescroll() {
+  .ecl-u-disablescroll {
+    overflow: hidden;
+  }
+}
+
+// Use mixin
 @include exports('ec-utility-disablescroll') {
   @include ecl-utility-disablescroll();
 }

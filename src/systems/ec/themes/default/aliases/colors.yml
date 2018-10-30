@@ -6,7 +6,7 @@ imports:
 props:
   - name: COLOR_PRIMARY
     value: '{!COLOR_BLUE_100}'
-    comment: Primary color
+    comment: Primary colour
     type: color
     category: color
     docs:
@@ -15,7 +15,7 @@ props:
       ui: light
   - name: COLOR_SECONDARY
     value: '{!COLOR_YELLOW_100}'
-    comment: Secondary color
+    comment: Secondary colour
     type: color
     category: color
     docs:
@@ -24,12 +24,12 @@ props:
       ui: dark
   - name: COLOR_TERTIARY
     value: '{!COLOR_GREY_15}'
-    comment: Tertiary color
+    comment: Tertiary colour
     type: color
     category: color
   - name: COLOR_TEXT
     value: '{!COLOR_GREY_100}'
-    comment: Text color
+    comment: Text colour
     type: color
     category: color
     docs:
@@ -54,12 +54,20 @@ props:
     category: color
     docs:
       title: White
-      description: The color white is color at its most complete and pure, the color of perfection.
+      description: The colour white is colour at its most complete and pure, the colour of perfection.
       ui: dark
       border: true
 
   # Blues
 
+  - name: COLOR_BLUE_130
+    value: '{!COLOR_BLUE_130}'
+    comment: Blue 130
+    type: color
+    category: color.variations.1
+    docs:
+      title: EC Blue 130
+      ui: light
   - name: COLOR_BLUE_120
     value: '{!COLOR_BLUE_120}'
     comment: Blue 120
@@ -107,6 +115,14 @@ props:
     category: color.variations.1
     docs:
       title: EC Blue 25
+      ui: dark
+  - name: COLOR_BLUE_5
+    value: '{!COLOR_BLUE_5}'
+    comment: Blue 5
+    type: color
+    category: color.variations.1
+    docs:
+      title: EC Blue 5
       ui: dark
 
   # Yellows
@@ -194,6 +210,14 @@ props:
     docs:
       title: EC Grey 25
       ui: dark
+  - name: COLOR_GREY_20
+    value: '{!COLOR_GREY_20}'
+    comment: Grey 20
+    type: color
+    category: color.variations.3
+    docs:
+      title: EC Grey 20
+      ui: dark
   - name: COLOR_GREY_15
     value: '{!COLOR_GREY_15}'
     comment: Grey 15
@@ -221,11 +245,6 @@ props:
 
   # Extra colors
 
-  - name: COLOR_PURPLE_100
-    value: '{!COLOR_PURPLE_100}'
-    comment: Purple 100
-    type: color
-    category: color
   - name: COLOR_GREEN_100
     value: '{!COLOR_GREEN_100}'
     comment: Green 100

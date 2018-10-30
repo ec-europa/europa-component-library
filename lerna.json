@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.3",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "changelog": {
@@ -16,9 +16,8 @@
   },
   "command": {
     "publish": {
-      "allowBranch": "master",
+      "allowBranch": "next-v2",
       "bump": "prerelease",
-
       "preid": "alpha"
     },
     "ignoreChanges": ["**/test/**", "**/*.md"]

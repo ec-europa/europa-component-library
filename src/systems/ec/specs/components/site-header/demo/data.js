@@ -3,6 +3,7 @@ module.exports = {
     title: 'European Commission',
     alt: 'European Commission logo',
     href: '/example',
+    language: 'en',
   },
   languageSelector: {
     href: '/example',
@@ -11,6 +12,7 @@ module.exports = {
   },
   searchForm: {
     textInputId: 'search-form',
+    inputLabel: 'Search',
     buttonLabel: 'Search',
   },
 };

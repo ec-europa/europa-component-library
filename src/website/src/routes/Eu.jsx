@@ -1,8 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import '@ecl/eu-preset-full/dist/styles/ecl-eu-preset-full.css';
+import slugify from 'slugify';
 
-import EUStyles from '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css';
+// Helpers
+import sortPages from '../utils/nav-sort';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -22,10 +25,27 @@ const euSpecs = require.context(
   /config\.js$/
 );
 
+const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
+
 const pages = [
   ...euPages.keys().map(key => euPages(key).default),
   ...euSpecs.keys().map(key => euSpecs(key).default),
 ];
+
+// Add URLs to pages
+pages.forEach(p => {
+  // eslint-disable-next-line no-param-reassign
+  p.url = `/eu/${
+    p.section
+      ? `${p.section
+          .split('/')
+          .map(sec => slug(sec))
+          .join('/')}/`
+      : ''
+  }${p.group ? `${slug(p.group)}/` : ''}${slug(p.title)}`;
+});
+
+const sortedPages = sortPages(pages);
 
 class EURoutes extends Component {
   constructor(props) {
@@ -35,17 +55,23 @@ class EURoutes extends Component {
       sidebarOpen:
         Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
         1140,
+      forceRefresh: false,
     };
 
     this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
   componentDidMount() {
-    EUStyles.use();
+    document.body.classList.add('eu');
+
+    // Force refresh if is mounted on a real client (two-pass rendering)
+    this.setState({
+      forceRefresh: navigator.userAgent !== 'ReactSnap',
+    });
   }
 
   componentWillUnmount() {
-    EUStyles.unuse();
+    document.body.classList.remove('eu');
   }
 
   toggleSidebar() {
@@ -55,17 +81,18 @@ class EURoutes extends Component {
   }
 
   render() {
-    const { sidebarOpen } = this.state;
+    const { sidebarOpen, forceRefresh } = this.state;
 
     return (
       <Fragment>
         <Navigation
-          pages={pages}
+          pages={sortedPages}
           prefix="/eu"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}
+          forceRefresh={forceRefresh}
         />
-        <MainContainer sidebarOpen={sidebarOpen}>
+        <MainContainer sidebarOpen={sidebarOpen} forceRefresh={forceRefresh}>
           <Switch>
             <Route
               exact
