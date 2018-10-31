@@ -20,20 +20,40 @@ const MenuItem = ({ label, href, isSelected, children }) => {
 
       return (
         <li className={subClassNames} key={child.label}>
-          <Link className="ecl-menu__sublink" {...child} />
+          <Link
+            {...child}
+            className="ecl-menu__sublink"
+            data-ecl-menu-sublink
+          />
         </li>
       );
     });
-    subItemsMarkup = <ul className="ecl-menu__sublist">{subItemsArray}</ul>;
+    subItemsMarkup = (
+      <ul className="ecl-menu__sublist" data-ecl-menu-sublist>
+        {subItemsArray}
+      </ul>
+    );
   }
 
   return (
-    <li className={classNames}>
+    <li
+      className={classNames}
+      data-ecl-has-children={subItemsMarkup ? 'true' : 'false'}
+    >
       <Link
         label={label}
         href={href}
         variant="standalone"
         className="ecl-menu__link"
+        data-ecl-menu-link
+        {...subItemsMarkup && {
+          icon: {
+            shape: 'ui--corner-arrow',
+            size: 'xs',
+            transform: 'rotate-180',
+            className: 'ecl-menu__link-icon',
+          },
+        }}
       />
 
       {subItemsMarkup}
