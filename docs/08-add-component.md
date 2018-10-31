@@ -9,7 +9,8 @@ The name of the component is prefixed by _{system}-component_
 
 ### Utilities packages
 
-There is a set of packages in the list of the vanilla ones which are providing utilities classes to be applied to the components when needed. Their names are prefixed by _{system}-utility_
+There is a set of packages in the list of the vanilla ones which are providing utilities classes to be applied to the layouts when needed. Mind the fact that those utilities are not meant to be used in the component definition but only when defining layouts.  
+Their names are prefixed by _{system}-utility_
 
 **path:** src/systems/{system}/implementations/vanilla/packages/  
 **base_name:** ec-component-{component_name}  
