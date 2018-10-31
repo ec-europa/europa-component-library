@@ -1,4 +1,4 @@
 ---
-title: Breadcrumb
+title: Page banner
 defaultTab: usage
 ---

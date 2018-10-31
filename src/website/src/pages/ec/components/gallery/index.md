@@ -1,4 +1,4 @@
 ---
-title: Breadcrumb
+title: Gallery
 defaultTab: usage
 ---

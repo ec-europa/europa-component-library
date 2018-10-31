@@ -1,4 +1,4 @@
 ---
-title: Breadcrumb
+title: Inpage navigation
 defaultTab: usage
 ---

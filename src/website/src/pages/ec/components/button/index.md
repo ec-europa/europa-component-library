@@ -1,4 +1,4 @@
 ---
-title: Breadcrumb
+title: Buttons
 defaultTab: usage
 ---
