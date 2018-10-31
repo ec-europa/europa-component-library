@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The "europa.eu" address space is interinstitutional and brings together information from all the European institutions. Even though each institution manages its own site, EUROPA is designed as the starting point for all information concerning the European Union. The interinstitutional pages are administered by the Commission (DG COMM) on behalf of and in close collaboration with the other institutions.
 
 ## Campaign page
