@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The page header gives context and confidence to the user so they understand what the page is about. It is present on every page of ec.europa.eu, just below the site header, except for the home page where it is replaced by a page banner.
 
 Depending on the part of the European Commission site you are visiting, the header is comprised of a combination of the following components:

@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The in-page navigation is a vertical menu containing (anchored) links to H2-headings on long content pages. It appears at the left side of a page. It gives the user an overview of the page contents and allows them to jump directly to content that is lower on the page without having to scroll through the rest of the page. Most content pages on ec.europa.eu make use of the in-page navigation component.
 
 A page with in-page navigation also makes it easier to refer to specific content under an H2 header when that page is shared.

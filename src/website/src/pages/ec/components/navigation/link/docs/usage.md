@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 Used to direct users to a different page or to provide access to further information.
 
 ## When to use

@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The footer appears at the bottom of all ec.europa.eu pages.
 
 ## Corporate footer

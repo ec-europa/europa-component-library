@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 Tags are used to provide contextual information. When clicked they go to to content within the same category. Tags are also used as keywords in search boxes, filters and category lists. In some cases they can be added or removed by the user.
 
 ## When to use it

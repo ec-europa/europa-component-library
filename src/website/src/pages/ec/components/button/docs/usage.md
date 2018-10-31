@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 Use a button to trigger and carry out an action on a page.
 
 ## When to use

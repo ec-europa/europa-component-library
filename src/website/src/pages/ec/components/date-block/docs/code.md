@@ -1,3 +1,8 @@
+---
+title: Showcase
+order: 2
+---
+
 import Playground from '@ecl/website-components/Playground'
 import DateBlock from '@ecl/ec-react-component-date-block/DateBlock'
 import demoDefault from '@ecl/ec-specs-date-block/demo/data--default';

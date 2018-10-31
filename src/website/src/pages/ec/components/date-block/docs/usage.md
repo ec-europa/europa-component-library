@@ -1,3 +1,6 @@
-## Usage
+---
+title: Usage
+order: 1
+---
 
-Do's and don'ts
+(work in progress)

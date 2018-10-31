@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The menu component is a horizontal bar that offers a list of links for a website's information architecture. The menu component can be one-level or two levels deep and appears just below the header.
 
 ![menu_ec](https://inno-ecl.s3.amazonaws.com/media/images/EC/Menu/Menu_EC.png)

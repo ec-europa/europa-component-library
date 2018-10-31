@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The site header is present on every page under ec.europa.eu and it has two purposes:
 
 - communicating the European Commission brand.

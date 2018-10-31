@@ -1,3 +1,8 @@
+---
+title: Style
+order: 3
+---
+
 ## Style
 
 Design guidelines

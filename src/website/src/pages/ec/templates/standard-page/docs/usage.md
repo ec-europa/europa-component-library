@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 Templates allow you to quickly create web pages and websites that are in line with the European Commission's corporate guidelines.
 
 Standard presentation ensures a "corporate image" for the Commission which provides a coherent look to the web presence. It also makes things easier for the user through

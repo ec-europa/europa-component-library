@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 The cards component serves as a container that groups various information and interface elements. They are an entry point to more detailed information and are grouped on the grid.
 
 They can be formatted in landscape or portrait.
