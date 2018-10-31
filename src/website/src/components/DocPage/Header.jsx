@@ -5,52 +5,97 @@ import PropTypes from 'prop-types';
 import Container from '../Grid/Container';
 import styles from './Header.scss';
 
-const Header = React.memo(({ component, sectionTitle, pageTitle, tabs }) => (
-  <header className={styles.header}>
-    <Container>
-      <h3 className={styles['header__section-header']}>
-        {sectionTitle.split('/').slice(-1)}
-      </h3>
-      <h1 className={styles['header__page-title']}>{pageTitle}</h1>
-      <ul className={styles.header__tabs}>
-        {tabs &&
-          tabs.map(tab => (
-            <li key={tab.url}>
-              <NavLink
-                to={`${component.url}/${tab.url}/`}
-                strict
-                className={styles['header__tabs-item']}
-                activeClassName={styles['header__tabs-item--active']}
-              >
-                {tab.name}
-              </NavLink>
-            </li>
-          ))}
-      </ul>
-    </Container>
-  </header>
-));
+const getTitle = component => {
+  if (
+    component &&
+    component.attributes &&
+    component.attributes.level > 0 &&
+    component.attributes.title
+  ) {
+    return component.attributes.title;
+  }
+
+  return '';
+};
+
+const getPageTitle = component => {
+  if (component.attributes.isTab) {
+    if (component.parent) {
+      return getTitle(component.parent);
+    }
+
+    return '';
+  }
+
+  return getTitle(component);
+};
+
+const getSectionTitle = component => {
+  if (component.attributes.isTab) {
+    if (component.parent && component.parent.parent) {
+      return getTitle(component.parent.parent);
+    }
+
+    return '';
+  }
+
+  if (component.parent) {
+    return getTitle(component.parent);
+  }
+
+  return getTitle(component);
+};
+
+const Header = React.memo(({ component }) => {
+  if (!component || !component.attributes) return null;
+
+  const pageTitle = getPageTitle(component);
+  const sectionTitle = getSectionTitle(component);
+
+  return (
+    <header className={styles.header}>
+      <Container>
+        {sectionTitle && (
+          <h3 className={styles['header__section-header']}>{sectionTitle}</h3>
+        )}
+        <h1 className={styles['header__page-title']}>{pageTitle}</h1>
+        {component.attributes.isTab && (
+          <ul className={styles.header__tabs}>
+            {component.parent.children.map(tab => (
+              <li key={tab.attributes.url}>
+                <NavLink
+                  to={tab.attributes.url}
+                  strict
+                  className={styles['header__tabs-item']}
+                  activeClassName={styles['header__tabs-item--active']}
+                >
+                  {tab.attributes.title}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        )}
+      </Container>
+    </header>
+  );
+});
 
 Header.propTypes = {
   component: PropTypes.shape({
-    url: PropTypes.string,
-  }),
-  sectionTitle: PropTypes.string,
-  pageTitle: PropTypes.string.isRequired,
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
+    attributes: PropTypes.shape({
       url: PropTypes.string,
-      name: PropTypes.string,
-    })
-  ),
+      title: PropTypes.string,
+    }),
+  }),
 };
 
 Header.defaultProps = {
   component: {
-    url: '',
+    attributes: {
+      url: '',
+      title: '',
+    },
   },
-  sectionTitle: '',
-  tabs: [],
 };
 
 export default withRouter(Header);

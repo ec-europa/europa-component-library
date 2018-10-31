@@ -1,3 +1,4 @@
 ---
 title: Blockquotes
+defaultTab: usage
 ---

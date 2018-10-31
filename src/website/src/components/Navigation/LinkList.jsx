@@ -8,42 +8,50 @@ import LinkSection from './LinkSection';
 import styles from './LinkList.scss';
 
 const LinkList = React.memo(
-  ({ pages, level, showStatus, 'aria-hidden': ariaHidden }) => {
-    return (
-      <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
-        {pages.filter(p => p.hidden !== true).map(p => (
-          <li key={p.key}>
-            {!p.children || p.children.length === 0 ? (
-              <SingleLink
-                page={p.attributes}
-                showStatus={showStatus}
-                level={level}
-              />
-            ) : (
-              <Fragment>
-                {p.attributes.type === 'group' ? (
-                  <LinkGroup
-                    pages={p.children}
-                    group={p.attributes.title}
-                    showStatus={showStatus}
-                    level={level}
-                  />
-                ) : (
-                  <LinkSection
-                    pages={p.children}
-                    attributes={p.attributes}
-                    section={p.attributes.title}
-                    showStatus={showStatus}
-                    level={level}
-                  />
-                )}
-              </Fragment>
-            )}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  ({ pages, level, showStatus, 'aria-hidden': ariaHidden }) => (
+    <ul className={styles.list} data-level={level} aria-hidden={ariaHidden}>
+      {pages
+        .filter(p => p.attributes.hidden !== true)
+        .filter(p => p.attributes.isTab !== true)
+        .map(p => {
+          const hasChildren =
+            p.children &&
+            p.children.length > 0 &&
+            p.children.filter(childPage => childPage.attributes.isTab !== true)
+              .length > 0;
+          return (
+            <li key={p.key}>
+              {!hasChildren ? (
+                <SingleLink
+                  page={p.attributes}
+                  showStatus={showStatus}
+                  level={level}
+                />
+              ) : (
+                <Fragment>
+                  {p.attributes.type === 'group' ? (
+                    <LinkGroup
+                      pages={p.children}
+                      group={p.attributes.title}
+                      showStatus={showStatus}
+                      level={level}
+                    />
+                  ) : (
+                    <LinkSection
+                      pages={p.children}
+                      attributes={p.attributes}
+                      section={p.attributes.title}
+                      showStatus={showStatus}
+                      level={level}
+                    />
+                  )}
+                </Fragment>
+              )}
+            </li>
+          );
+        })}
+    </ul>
+  )
 );
 
 LinkList.propTypes = {

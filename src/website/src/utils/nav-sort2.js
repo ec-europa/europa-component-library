@@ -1,19 +1,19 @@
+import merge from 'deepmerge';
+
 const sortPages = pages => {
   pages.sort((a, b) => {
-    // Pages first
-    /*
-    if (a.type !== b.type) {
-      return a.type === 'page' ? -1 : 1;
-    }
-    */
+    if (!a.attributes || !b.attributes) return 0;
 
     // Sort on order if exists, otherwise on title
-    if (a.order !== undefined && b.order !== undefined) {
-      return a.order - b.order;
+    if (a.attributes.order !== undefined && b.attributes.order !== undefined) {
+      return a.attributes.order - b.attributes.order;
     }
 
-    if (typeof a.title === 'string' && typeof b.title === 'string') {
-      return a.title.localeCompare(b.title);
+    if (
+      typeof a.attributes.title === 'string' &&
+      typeof b.attributes.title === 'string'
+    ) {
+      return a.attributes.title.localeCompare(b.attributes.title);
     }
 
     return 0;
@@ -34,12 +34,31 @@ const loopThroughPages = (pages, level = 0) => {
   sortPages(pages, level);
 };
 
+const addParent = pages => {
+  pages.forEach(page => {
+    page.parent = null; // eslint-disable-line no-param-reassign
+
+    if (
+      page.children &&
+      Array.isArray(page.children) &&
+      page.children.length > 0
+    ) {
+      addParent(page.children);
+
+      page.children.forEach(p => {
+        p.parent = page; // eslint-disable-line no-param-reassign
+      });
+    }
+  });
+};
+
 const processPages = pages => {
   const newPages = [];
+
+  // First pass
   pages.forEach(p => {
     const { url } = p.attributes;
     const sections = url.split('/').filter(s => s);
-    // console.log(sections);
 
     let parentSection = newPages;
     let fullSection = '';
@@ -57,7 +76,12 @@ const processPages = pages => {
 
       if (!sectionExists) {
         parentSection.push({
-          attributes: { url: `${fullSection}/`, order: 0, title: s },
+          attributes: {
+            url: `${fullSection}/`,
+            order: 0,
+            title: s,
+            level: index,
+          },
           document: null,
           children: [],
           key: `.${fullSection}/`,
@@ -67,20 +91,18 @@ const processPages = pages => {
       }
 
       if (index === sections.length - 1) {
-        parentSection[sectionIndex] = Object.assign(
-          {},
-          parentSection[sectionIndex],
-          p
-        );
+        parentSection[sectionIndex] = merge(parentSection[sectionIndex], p);
       }
 
       parentSection = parentSection[sectionIndex].children;
     });
   });
 
-  loopThroughPages(newPages);
+  // Second pass: add "parent" to children
+  addParent(newPages);
 
-  // console.log(newPages);
+  // Sort
+  loopThroughPages(newPages);
 
   return newPages;
 };

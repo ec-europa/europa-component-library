@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
 // import slugify from 'slugify';
+import merge from 'deepmerge';
 
 // Helpers
 import sortPages from '../utils/nav-sort2';
@@ -21,37 +22,33 @@ import DocPage from '../components/DocPage/DocPage';
 const ecPages = require.context('../pages/ec', true, /\.mdx?$/);
 const ecSpecs = require.context('../../../systems/ec/specs', true, /\.mdx?$/);
 
-/* const ecSpecs = require.context(
-  '../../../systems/ec/specs',
-  true,
-  /config\.js$/
-);
-*/
-
 // const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
 
 const extractPageInfo = (page, key) => {
-  const { attributes } = page;
-
   // Add url to pages
   const url = `/ec/${key
-    .replace('./', '')
+    .replace('docs', '')
     .replace('index', '')
     .replace('.mdx', '')
-    .replace('.md', '')}`;
+    .replace('.md', '')
+    .replace('./', '')}/`.replace('//', '/');
 
   return {
     key,
-    attributes: Object.assign(
+    attributes: merge.all([
       {},
-      { url, title: key.split('/').pop() },
-      attributes
-    ),
+      {
+        url,
+        title: key.split('/').pop(),
+        isTab: key.indexOf('docs') >= 0,
+      },
+      page.attributes,
+    ]),
     document: page.default,
   };
 };
 
-const pages = [
+const allPages = [
   ...ecPages.keys().map(key => {
     const page = ecPages(key);
     return extractPageInfo(page, key);
@@ -62,9 +59,43 @@ const pages = [
   }),
 ];
 
-// console.log(pages);
+const sortedPages = sortPages(allPages);
 
-const sortedPages = sortPages(pages);
+const loopThroughPages = (pages, level = 0) => {
+  pages.forEach(page => {
+    if (
+      page.children &&
+      Array.isArray(page.children) &&
+      page.children.length > 0
+    ) {
+      loopThroughPages(page.children, level + 1);
+    }
+  });
+
+  sortPages(pages, level);
+};
+
+function flatDeep(pages) {
+  return pages.reduce((acc, page) => {
+    let acc2 = acc;
+    if (page.children && page.children.length > 0) {
+      acc2 = acc.concat(flatDeep(page.children));
+    }
+
+    return acc2.concat(page);
+  }, []);
+}
+
+const pagesToRoutes = pages =>
+  flatDeep(pages).map(page => (
+    <Route
+      key={page.attributes.url}
+      path={page.attributes.url}
+      exact
+      strict
+      render={() => <DocPage component={page} />}
+    />
+  ));
 
 class ECRoutes extends Component {
   constructor(props) {
@@ -123,15 +154,7 @@ class ECRoutes extends Component {
                 </SimplePage>
               )}
             />
-            {pages.map(page => (
-              <Route
-                key={page.attributes.url}
-                path={page.attributes.url}
-                exact
-                strict
-                render={() => <DocPage component={page} />}
-              />
-            ))}
+            {pagesToRoutes(sortedPages)}
             <Route component={PageNotFound} />
           </Switch>
         </MainContainer>

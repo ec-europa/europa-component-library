@@ -14,7 +14,7 @@ class LinkSection extends PureComponent {
       level,
       showStatus,
       section,
-      attributes,
+      attributes, // eslint-disable-line react/prop-types
       location,
     } = this.props;
     const isOpen = location.pathname.indexOf(attributes.url) === 0;
