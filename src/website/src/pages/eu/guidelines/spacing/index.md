@@ -1,3 +1,8 @@
+---
+title: Spacing
+order: 6
+---
+
 Spacing tokens are used to consistently apply margin and padding across components and UIs. Having a set spacing scale brings a rhythm to the product and creates a natural and familiar flow from page to page.
 
 ## Two spacing scales

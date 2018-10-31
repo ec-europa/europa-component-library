@@ -1,3 +1,8 @@
+---
+title: Colours
+order: 2
+---
+
 import { ColorCard, ColorLayout, ColorPalette } from '@ecl/website-components'
 import tokens from '@ecl/ec-theme-default/exports/tokens.json'
 

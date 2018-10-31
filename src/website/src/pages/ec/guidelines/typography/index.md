@@ -1,3 +1,8 @@
+---
+title: Typography
+order: 1
+---
+
 ## Typeface
 
 Arial is the standard typeface we use. We chose Arial because it is a system font that is suited for multilingual use.

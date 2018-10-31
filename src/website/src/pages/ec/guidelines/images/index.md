@@ -1,3 +1,8 @@
+---
+title: Use of images
+order: 4
+---
+
 We should only use visual material when it makes it easier for users to find/understand the information on a page. By following a common set of visual guidelines, we can make our sites consistent and help users feel at ease.
 
 ## When to use what
