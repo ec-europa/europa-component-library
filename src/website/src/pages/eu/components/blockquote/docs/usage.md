@@ -1,4 +1,9 @@
-**When blockquote is used for testimonials or to emphasize excerpts of text. It is regarded as a standalone design component with a dominant appearance in the page.**
+---
+title: Usage
+order: 1
+---
+
+When blockquote is used for testimonials or to emphasize excerpts of text. It is regarded as a standalone design component with a dominant appearance in the page.
 
 ### When to use it
 

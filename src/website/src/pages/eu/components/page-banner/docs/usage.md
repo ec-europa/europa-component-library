@@ -1,3 +1,8 @@
+---
+title: Usage
+order: 1
+---
+
 A page banner is always placed on top of the homepage below the site header. It conveys an important message to your audience. People respond positively to visual content. Having a page-wide horizontal image on top of your website is a good way to invite visitors to explore your content.
 
 ## When to use it

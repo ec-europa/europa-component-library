@@ -1,15 +1,6 @@
-## Code
+---
+title: Showcase
+order: 2
+---
 
-```html
-<gallery />
-```
-
-Some guidelines.
-
-TODO:
-
-- something
-
-> Cite something
-
-### test
+(work in progress)
