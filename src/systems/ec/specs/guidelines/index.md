@@ -1,6 +1,6 @@
 ---
-title: Components
-order: 6
+title: Guidelines
+order: 3
 ---
 
 (work in progress)

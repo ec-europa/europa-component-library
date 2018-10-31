@@ -4,6 +4,11 @@ const sortPages = pages => {
   pages.sort((a, b) => {
     if (!a.attributes || !b.attributes) return 0;
 
+    // Groups last
+    if (a.attributes.type !== b.attributes.type) {
+      return a.attributes.type === 'group' ? 1 : -1;
+    }
+
     // Sort on order if exists, otherwise on title
     if (a.attributes.order !== undefined && b.attributes.order !== undefined) {
       return a.attributes.order - b.attributes.order;
@@ -78,7 +83,7 @@ const processPages = pages => {
         parentSection.push({
           attributes: {
             url: `${fullSection}/`,
-            order: 0,
+            order: 1000,
             title: s,
             level: index,
           },

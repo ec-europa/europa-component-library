@@ -8,7 +8,7 @@ Some guidelines.
 
 TODO:
 
-* something
+- something
 
 > Cite something
 

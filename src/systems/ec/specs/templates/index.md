@@ -1,6 +1,6 @@
 ---
-title: Components
-order: 6
+title: Templates
+order: 4
 ---
 
 (work in progress)
