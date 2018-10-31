@@ -1,7 +1,6 @@
 ---
 order: 1,
-title: 'Glossary'
-section: 'Resources'
+title: Glossary
 ---
 
 (work in progress)

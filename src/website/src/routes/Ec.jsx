@@ -2,11 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
-// import slugify from 'slugify';
 import merge from 'deepmerge';
 
 // Helpers
-import sortPages from '../utils/nav-sort2';
+import sortPages from '../utils/nav-sort';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -20,8 +19,6 @@ import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
 const ecPages = require.context('../pages/ec', true, /\.mdx?$/);
-
-// const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
 
 const extractPageInfo = (page, key) => {
   // Add url to pages

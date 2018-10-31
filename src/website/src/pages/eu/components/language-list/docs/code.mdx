@@ -1,0 +1,28 @@
+import Playground from '@ecl/website-components/Playground'
+import LanguageListSplash from '@ecl/eu-react-component-language-list/LanguageListSplash'
+import LanguageListOverlay from '@ecl/eu-react-component-language-list/LanguageListOverlay'
+
+import demoContentSplash from '@ecl/eu-specs-language-list/demo/data--splash';
+import demoContentOverlay from '@ecl/eu-specs-language-list/demo/data--overlay';
+
+## Splash
+
+<Playground
+  system="eu"
+  selectedKind="LanguageList"
+  selectedStory="splash"
+  showFrame
+>
+  <LanguageListSplash {...demoContentSplash} />
+</Playground>
+
+## Overlay
+
+<Playground
+  system="eu"
+  selectedKind="LanguageList"
+  selectedStory="overlay"
+  showFrame
+>
+  <LanguageListOverlay {...demoContentOverlay} />
+</Playground>

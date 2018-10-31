@@ -1,0 +1,23 @@
+import Playground from '@ecl/website-components/Playground'
+
+import demoContentParagraph from '@ecl/eu-specs-typography/demo/data--paragraph';
+
+## Default paragraph
+
+<Playground
+  system="eu"
+  selectedKind="Typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph">{demoContentParagraph.content}</p>
+</Playground>
+
+## Lead paragraph
+
+<Playground
+  system="eu"
+  selectedKind="Typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-lead">{demoContentParagraph.content}</p>
+</Playground>

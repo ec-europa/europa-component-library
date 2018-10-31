@@ -1,0 +1,58 @@
+import Playground from '@ecl/website-components/Playground'
+import PageBanner from '@ecl/eu-react-component-page-banner/PageBanner'
+
+import demoContentImage from '@ecl/eu-specs-page-banner/demo/data--image';
+import demoContentImageShade from '@ecl/eu-specs-page-banner/demo/data--image-shade';
+import demoContentPrimary from '@ecl/eu-specs-page-banner/demo/data--primary';
+import demoContentDefault from '@ecl/eu-specs-page-banner/demo/data--default';
+import demoContentAlignLeft from '@ecl/eu-specs-page-banner/demo/data--align-left';
+
+## Image banner
+
+<Playground
+  system="eu"
+  selectedKind="PageBanner"
+  selectedStory="image"
+>
+  <PageBanner {...demoContentImage} />
+</Playground>
+
+## Shade image banner
+
+<Playground
+  system="eu"
+  selectedKind="PageBanner"
+  selectedStory="image-shade"
+>
+  <PageBanner {...demoContentImageShade} />
+</Playground>
+
+## Primary banner
+
+<Playground
+  system="eu"
+  selectedKind="PageBanner"
+  selectedStory="primary"
+>
+  <PageBanner {...demoContentPrimary} />
+</Playground>
+
+## Default banner
+
+<Playground
+  system="eu"
+  selectedKind="PageBanner"
+  selectedStory="default"
+>
+  <PageBanner {...demoContentDefault} />
+</Playground>
+
+## Align left
+
+<Playground
+  system="eu"
+  selectedKind="PageBanner"
+  selectedStory="align-left"
+>
+  <PageBanner {...demoContentAlignLeft} />
+</Playground>
