@@ -39,7 +39,6 @@ const extractPageInfo = (page, key) => {
       {},
       {
         url,
-        title: key.split('/').pop(),
         isTab: key.indexOf('docs') >= 0,
       },
       page.attributes,
