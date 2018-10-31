@@ -20,7 +20,6 @@ import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
 const ecPages = require.context('../pages/ec', true, /\.mdx?$/);
-const ecSpecs = require.context('../../../systems/ec/specs', true, /\.mdx?$/);
 
 // const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
 
@@ -50,10 +49,6 @@ const extractPageInfo = (page, key) => {
 const allPages = [
   ...ecPages.keys().map(key => {
     const page = ecPages(key);
-    return extractPageInfo(page, key);
-  }),
-  ...ecSpecs.keys().map(key => {
-    const page = ecSpecs(key);
     return extractPageInfo(page, key);
   }),
 ];
