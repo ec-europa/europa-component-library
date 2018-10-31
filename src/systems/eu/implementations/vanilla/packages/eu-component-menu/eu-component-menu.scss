@@ -78,15 +78,20 @@
    */
   .ecl-menu__list {
     display: none;
+    flex-direction: column;
+    flex-grow: 1;
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative;
+
+    /* Force display if JS is disabled */
+    .no-js & {
+      display: flex;
+    }
   }
   .ecl-menu[aria-expanded='true'] .ecl-menu__list {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
   }
 
   .ecl-menu__item {
@@ -117,19 +122,27 @@
   .ecl-menu__item[aria-expanded='true'] .ecl-menu__link-icon {
     transform: rotate(0);
   }
+  .ecl-menu__link:last-child {
+    border-bottom-width: 0;
+  }
 
   /*
    * Second level
    */
   .ecl-menu__sublist {
     display: none;
+    flex-direction: column;
+    flex-grow: 1;
     margin: 0;
     padding: 0;
+
+    /* Force display if JS is disabled */
+    .no-js & {
+      display: flex;
+    }
   }
   .ecl-menu__item[aria-expanded='true'] .ecl-menu__sublist {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
   }
 
   .ecl-menu__subitem {
