@@ -1,15 +1,17 @@
 #!/bin/bash
 
-templates=(react, vanilla, specs);
+templates=(react, vanilla, specs, utility);
 template=$1
 system=$2
 component=$3
 base_path="../src/systems/$system/implementations/$template/packages/"
 message="The template seems to exists already, please check that before running this script again."
 
+
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]
 then
- echo "We need you to provide some information, please use this command with three arguments, the template, the system and the component name"
+ echo "Please use this command with three arguments, the type of component you want to generate (react, vanilla, utility, specs), the system (ec or eu) and the component name.
+ EX: yarn new-component-template react ec mycomponent"
  exit 1;
 
 else
@@ -38,6 +40,21 @@ else
     vanilla)
       component=$system-component-$component
       component_path=$base_path$component
+      if [ ! -d $component_path ]
+      then
+        mkdir $base_path$component
+        cp -r ../docs/templates/$template/* $component_path
+      else
+        echo $message
+        exit 1
+      fi
+    ;;
+    # utility template.
+    utility)
+      component=$system-utility-$component
+      base_path="../src/systems/$system/implementations/vanilla/packages/"
+      component_path=$base_path$component
+
       if [ ! -d $component_path ]
       then
         mkdir $base_path$component
@@ -87,7 +104,7 @@ else
     find $component_path -type f -exec sed -i -e "s/component_name/$component/g" {} \;
     find $component_path -type f -exec sed -i -e "s/Component_name/${component^}/g" {} \;
     
-    echo "Created the basic package structure for your $1 component named $3 in the $2 system."
+    echo "Created the basic package structure for your $template component named $component in the $system system."
     exit 0;
   else
     echo "We haven't created any new template, run the script again with the right arguments, please."
