@@ -80,6 +80,11 @@
     @include ecl-social-media-follow-vertical;
   }
 
+  // Webtools
+  .ecl-social-media-follow--webtools {
+    @include ecl-social-media-follow-webtools;
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-down('sm') {
     @include ecl-social-media-follow-vertical;
@@ -103,6 +108,42 @@
     &:last-child {
       margin-right: 0;
       margin-top: $ecl-spacing-m;
+    }
+  }
+}
+
+@mixin ecl-social-media-follow-webtools() {
+  background: transparent;
+
+  .ecl-social-media-follow__icon,
+  .ecl-social-media-follow__icon-hover {
+    margin-right: $ecl-spacing-xs;
+  }
+
+  .ecl-social-media-follow__item {
+    margin-right: $ecl-spacing-xs;
+    margin-top: 0;
+    max-width: 8.625rem;
+
+    &:not(:last-child) .ecl-link {
+      color: #fff;
+      padding-right: $ecl-spacing-xs;
+      width: 8.125rem;
+    }
+
+    &:last-child {
+      margin-top: auto;
+    }
+  }
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-down('md') {
+    .ecl-social-media-follow__list {
+      flex-direction: row;
+    }
+
+    .ecl-social-media-follow__item {
+      margin-bottom: 0.75rem;
+      margin-top: 0;
     }
   }
 }
