@@ -1,0 +1,27 @@
+// Icon rollover.
+
+@mixin ecl-icon-rollover($class, $event: 'hover') {
+  $selector: #{$class}__icon;
+
+  #{$selector},
+  #{$selector}-#{$event} {
+    flex-shrink: 0;
+    margin-right: $ecl-spacing-xs;
+  }
+
+  #{$selector} {
+    display: block;
+
+    &-#{$event} {
+      display: none;
+    }
+
+    &:#{$event} {
+      display: none;
+    }
+
+    &:#{$event} #{$selector}-#{$event} {
+      display: block;
+    }
+  }
+}

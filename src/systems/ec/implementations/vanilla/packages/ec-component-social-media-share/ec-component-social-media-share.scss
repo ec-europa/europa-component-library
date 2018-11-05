@@ -1,0 +1,64 @@
+/**
+* Social media share component
+* @define social-media-share
+*/
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-link'));
+
+@mixin ecl-social-media-share() {
+  .ecl-social-media-share {
+    margin: 0;
+    padding: 0;
+  }
+
+  .ecl-social-media-share__list {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  .ecl-social-media-share__item {
+    margin-right: $ecl-spacing-xs;
+
+    &:not(:last-child) {
+      max-width: 8.625rem;
+    }
+
+    &:not(:last-child) .ecl-link {
+      color: #fff;
+      padding-right: $ecl-spacing-xs;
+      width: 8.125rem;
+    }
+
+    &:last-child {
+      margin-top: auto;
+    }
+  }
+
+  .ecl-social-media-share__link {
+    display: flex;
+    font: $ecl-font-s;
+  }
+
+  // Icon
+  /* stylelint-disable-next-line order/order */
+  @include ecl-icon-rollover(ecl-social-media-share);
+
+  @include ecl-media-breakpoint-down('md') {
+    .ecl-social-media-share__item {
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-social-media-share') {
+  @include ecl-social-media-share();
+}
