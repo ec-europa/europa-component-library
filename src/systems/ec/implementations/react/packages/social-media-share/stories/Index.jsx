@@ -12,7 +12,7 @@ import '@ecl/ec-specs-social-media-share/demo/demo.css';
 storiesOf('SocialMediaShare', module)
   .addDecorator(withKnobs)
   .add('default', () => (
-    <div className="social-media-share-demo-spacer">
+    <div className="ecl-social-media-share-demo-spacer">
       <SocialMediaShare {...demoContent} />
     </div>
   ));
