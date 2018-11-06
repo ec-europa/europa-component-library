@@ -18,18 +18,6 @@ module.exports = {
       },
     },
     {
-      ariaLabel: 'Go to page 1',
-      link: {
-        variant: 'standalone',
-        href: '/example',
-        label: '1',
-      },
-    },
-    {
-      ariaLabel: 'Ellipsis',
-      label: '…',
-    },
-    {
       ariaLabel: 'Go to page 24',
       link: {
         variant: 'standalone',
@@ -64,18 +52,6 @@ module.exports = {
         variant: 'standalone',
         href: '/example',
         label: '28',
-      },
-    },
-    {
-      ariaLabel: 'Ellipsis',
-      label: '…',
-    },
-    {
-      ariaLabel: 'Go to page 110',
-      link: {
-        variant: 'standalone',
-        href: '/example',
-        label: '110',
       },
     },
     {

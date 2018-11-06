@@ -1,11 +1,16 @@
+---
+title: Showcase
+order: 2
+---
+
 import Playground from '@ecl/website-components/Playground'
 import Pagination from '@ecl/ec-react-component-pagination/Pagination'
 
-import demoContent from '../demo/data';
+import demoContent from '@ecl/ec-specs-pagination/demo/data';
 
 <Playground
   system="ec"
-  selectedKind="Pagination"
+  selectedKind="Navigation/Pagination"
   selectedStory="default"
 >
   <Pagination {...demoContent} />
