@@ -1,0 +1,29 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground'
+import SocialMediaFollow from '@ecl/ec-react-component-social-media-follow/SocialMediaFollow'
+
+import demoContent from '@ecl/ec-specs-social-media-follow/demo/data';
+
+## Horizontal
+
+<Playground
+  system="ec"
+  selectedKind="SocialMediaFollow"
+  selectedStory="horizontal"
+>
+  <SocialMediaFollow {...demoContent} />
+</Playground>
+
+## Vertical
+
+<Playground
+  system="ec"
+  selectedKind="SocialMediaFollow"
+  selectedStory="vertical"
+>
+  <SocialMediaFollow {...demoContent} variant="vertical" />
+</Playground>

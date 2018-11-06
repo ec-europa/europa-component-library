@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../styles/markdown.scss';
 
-const ComponentStatus = () => (
+const ComponentStatus = React.memo(() => (
   <table className={styles.table}>
     <thead className={styles.thead}>
       <tr>
@@ -47,6 +47,6 @@ const ComponentStatus = () => (
       </tr>
     </tbody>
   </table>
-);
+));
 
 export default ComponentStatus;
