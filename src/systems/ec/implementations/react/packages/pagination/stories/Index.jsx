@@ -3,10 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
-import demoContent from '@ecl/ec-specs-pager/demo/data';
+import demoContent from '@ecl/ec-specs-pagination/demo/data';
 
-import Pager from '../Pager';
+import Pagination from '../Pagination';
 
-storiesOf('Pager', module)
+storiesOf('Pagination', module)
   .addDecorator(withKnobs)
-  .add('default', () => <Pager {...demoContent} />);
+  .add('default', () => <Pagination {...demoContent} />);

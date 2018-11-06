@@ -1,21 +1,21 @@
 /**
- * Pager
- * @define pager
+ * Pagination
+ * @define pagination
  */
 
 // Import base
-@import '@ecl/eu-base/eu-base';
+@import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('eu-component-link'));
+@include check-imports(('ec-component-link'));
 
-@mixin ecl-pager(
+@mixin ecl-pagination(
   $text-color: $ecl-color-blue-100,
   $border-color: $ecl-color-black-100,
   $current-text-color: $ecl-color-black-100,
   $current-border-color: $ecl-color-black-100
 ) {
-  .ecl-pager {
+  .ecl-pagination {
     border-top: 2px solid $border-color;
     color: $text-color;
     font: $ecl-font-m;
@@ -24,7 +24,7 @@
     padding-top: $ecl-spacing-m;
   }
 
-  .ecl-pager__list {
+  .ecl-pagination__list {
     align-items: center;
     display: flex;
     justify-content: space-between;
@@ -33,48 +33,48 @@
     padding-left: 0;
   }
 
-  .ecl-pager__item {
+  .ecl-pagination__item {
     display: none;
   }
 
-  .ecl-pager__item--previous,
-  .ecl-pager__item--next {
+  .ecl-pagination__item--previous,
+  .ecl-pagination__item--next {
     display: flex;
     flex-basis: 0;
     flex-grow: 1;
     font-weight: $ecl-font-weight-bold;
   }
 
-  .ecl-pager__item--next {
+  .ecl-pagination__item--next {
     justify-content: flex-end;
   }
 
-  .ecl-pager__item--current {
+  .ecl-pagination__item--current {
     color: $current-text-color;
     display: flex;
     font-weight: bold;
   }
 
-  .ecl-pager__text--summary {
+  .ecl-pagination__text--summary {
     display: none;
   }
 
-  .ecl-pager__text--full {
+  .ecl-pagination__text--full {
     display: block;
   }
 
-  .ecl-pager__link,
-  .ecl-pager__text {
+  .ecl-pagination__link,
+  .ecl-pagination__text {
     padding: $ecl-spacing-2-xs;
   }
 
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('md') {
-    .ecl-pager__list {
+    .ecl-pagination__list {
       justify-content: center;
     }
 
-    .ecl-pager__item {
+    .ecl-pagination__item {
       display: flex;
       flex-grow: 0;
       margin-right: $ecl-spacing-l;
@@ -84,29 +84,29 @@
       }
     }
 
-    .ecl-pager__item--previous,
-    .ecl-pager__item--next {
+    .ecl-pagination__item--previous,
+    .ecl-pagination__item--next {
       flex-basis: auto;
     }
 
-    .ecl-pager__item--current {
+    .ecl-pagination__item--current {
       border: 2px solid $current-border-color;
       border-radius: 10rem; // High value to force circular corners, but not fully circular shape
       justify-content: center;
       min-width: 1.75rem;
     }
 
-    .ecl-pager__text--summary {
+    .ecl-pagination__text--summary {
       display: block;
     }
 
-    .ecl-pager__text--full {
+    .ecl-pagination__text--full {
       display: none;
     }
   }
 }
 
 // Use  mixin
-@include exports('eu-component-pager') {
-  @include ecl-pager();
+@include exports('ec-component-pagination') {
+  @include ecl-pagination();
 }
