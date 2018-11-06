@@ -1,0 +1,19 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground'
+import SiteHeader from '@ecl/ec-react-component-site-header/SiteHeader'
+
+import demoContent from '@ecl/ec-specs-site-header/demo/data';
+
+<Playground
+  system="ec"
+  selectedKind="SiteHeader"
+  selectedStory="default"
+  showFrame
+  frameHeight="172px"
+>
+  <SiteHeader {...demoContent} />
+</Playground>
