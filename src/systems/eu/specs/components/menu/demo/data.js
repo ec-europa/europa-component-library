@@ -13,7 +13,7 @@ module.exports = {
         { label: 'Item 2.4', href: '/example#menu2-4' },
         { label: 'Item 2.5', href: '/example#menu2-5' },
         { label: 'Item 2.6', href: '/example#menu2-6' },
-        { label: 'Item 2.7', href: '/example#menu2-7' },
+        { label: 'Item 2.7', href: '/example#menu2-7', isCurrent: true },
         { label: 'Item 2.8', href: '/example#menu2-8' },
         { label: 'Item 2.9', href: '/example#menu2-9' },
         { label: 'Item 2.10', href: '/example#menu2-10' },

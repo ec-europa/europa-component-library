@@ -5,9 +5,9 @@ import classnames from 'classnames';
 
 import Link from '@ecl/eu-react-component-link/Link';
 
-const MenuItem = ({ label, href, isSelected, children }) => {
+const MenuItem = ({ label, href, isCurrent, children }) => {
   const classNames = classnames('ecl-menu__item', {
-    'ecl-menu-item--selected': isSelected,
+    'ecl-menu-item--current': isCurrent,
   });
 
   // Sub items
@@ -15,7 +15,7 @@ const MenuItem = ({ label, href, isSelected, children }) => {
   if (children && children.length > 0) {
     const subItemsArray = children.map(child => {
       const subClassNames = classnames('ecl-menu__subitem', {
-        'ecl-menu-subitem--selected': isSelected,
+        'ecl-menu-subitem--current': isCurrent,
       });
 
       return (
@@ -64,7 +64,7 @@ const MenuItem = ({ label, href, isSelected, children }) => {
 MenuItem.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
-  isSelected: PropTypes.bool,
+  isCurrent: PropTypes.bool,
   children: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -77,7 +77,7 @@ MenuItem.propTypes = {
 MenuItem.defaultProps = {
   label: '',
   href: '',
-  isSelected: false,
+  isCurrent: false,
   children: [],
 };
 
