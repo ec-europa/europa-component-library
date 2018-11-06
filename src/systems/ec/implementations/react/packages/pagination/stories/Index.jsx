@@ -7,6 +7,6 @@ import demoContent from '@ecl/ec-specs-pagination/demo/data';
 
 import Pagination from '../Pagination';
 
-storiesOf('Pagination', module)
+storiesOf('Navigation/Pagination', module)
   .addDecorator(withKnobs)
   .add('default', () => <Pagination {...demoContent} />);
