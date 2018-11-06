@@ -1,3 +1,7 @@
+---
+title: Europa Component Library
+---
+
 # European Union
 
 ## europa.eu
