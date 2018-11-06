@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import grid from './grid.scss';
 import utilities from '../../styles/utilities.scss';
 
-const Row = ({ spacing, className, children, ...props }) => {
+const Row = React.memo(({ spacing, className, children, ...props }) => {
   const spacingClasses = spacing
     .split(' ')
     .map(sp => utilities[sp])
@@ -18,7 +18,7 @@ const Row = ({ spacing, className, children, ...props }) => {
       {children}
     </div>
   );
-};
+});
 
 Row.propTypes = {
   spacing: PropTypes.string,

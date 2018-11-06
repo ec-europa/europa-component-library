@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './MainContainer.scss';
 
-const MainContainer = ({ children, forceRefresh, sidebarOpen }) => (
+const MainContainer = React.memo(({ children, forceRefresh, sidebarOpen }) => (
   <div
     className={`${styles.container}${
       sidebarOpen ? ` ${styles['container--with-sidebar']}` : ''
@@ -11,7 +11,7 @@ const MainContainer = ({ children, forceRefresh, sidebarOpen }) => (
   >
     {children}
   </div>
-);
+));
 
 MainContainer.propTypes = {
   children: PropTypes.node,

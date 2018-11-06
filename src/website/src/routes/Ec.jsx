@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
-import slugify from 'slugify';
+import merge from 'deepmerge';
 
 // Helpers
 import sortPages from '../utils/nav-sort';
@@ -18,34 +18,75 @@ import PageNotFound from './404';
 import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
-const ecPages = require.context('../pages/ec', true, /config\.js$/);
-const ecSpecs = require.context(
-  '../../../systems/ec/specs',
-  true,
-  /config\.js$/
-);
+const ecPages = require.context('../pages/ec', true, /\.mdx?$/);
 
-const slug = (s = '') => slugify(s, { lower: true, remove: /'/gi });
+const extractPageInfo = (page, key) => {
+  // Add url to pages
+  const url = `/ec/${key
+    .replace('docs', '')
+    .replace('index', '')
+    .replace('.mdx', '')
+    .replace('.md', '')
+    .replace('./', '')}/`.replace('//', '/');
 
-const pages = [
-  ...ecPages.keys().map(key => ecPages(key).default),
-  ...ecSpecs.keys().map(key => ecSpecs(key).default),
+  return {
+    key,
+    attributes: merge.all([
+      {},
+      {
+        url,
+        isTab: key.indexOf('docs') >= 0,
+      },
+      page.attributes,
+    ]),
+    document: page.default,
+  };
+};
+
+const allPages = [
+  ...ecPages.keys().map(key => {
+    const page = ecPages(key);
+    return extractPageInfo(page, key);
+  }),
 ];
 
-// Add URLs to pages
-pages.forEach(p => {
-  // eslint-disable-next-line no-param-reassign
-  p.url = `/ec/${
-    p.section
-      ? `${p.section
-          .split('/')
-          .map(sec => slug(sec))
-          .join('/')}/`
-      : ''
-  }${p.group ? `${slug(p.group)}/` : ''}${slug(p.title)}`;
-});
+const sortedPages = sortPages(allPages);
 
-const sortedPages = sortPages(pages);
+const loopThroughPages = (pages, level = 0) => {
+  pages.forEach(page => {
+    if (
+      page.children &&
+      Array.isArray(page.children) &&
+      page.children.length > 0
+    ) {
+      loopThroughPages(page.children, level + 1);
+    }
+  });
+
+  sortPages(pages, level);
+};
+
+function flatDeep(pages) {
+  return pages.reduce((acc, page) => {
+    let acc2 = acc;
+    if (page.children && page.children.length > 0) {
+      acc2 = acc.concat(flatDeep(page.children));
+    }
+
+    return acc2.concat(page);
+  }, []);
+}
+
+const pagesToRoutes = pages =>
+  flatDeep(pages).map(page => (
+    <Route
+      key={page.attributes.url}
+      path={page.attributes.url}
+      exact
+      strict
+      render={() => <DocPage component={page} />}
+    />
+  ));
 
 class ECRoutes extends Component {
   constructor(props) {
@@ -85,7 +126,7 @@ class ECRoutes extends Component {
     return (
       <Fragment>
         <Navigation
-          pages={sortedPages}
+          pages={sortedPages[0].children}
           prefix="/ec"
           sidebarOpen={sidebarOpen}
           onToggleSidebar={this.toggleSidebar}
@@ -104,14 +145,7 @@ class ECRoutes extends Component {
                 </SimplePage>
               )}
             />
-            {pages.map(page => (
-              <Route
-                key={page.url}
-                path={`${page.url}/`}
-                strict
-                render={() => <DocPage component={page} />}
-              />
-            ))}
+            {pagesToRoutes(sortedPages)}
             <Route component={PageNotFound} />
           </Switch>
         </MainContainer>
