@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import grid from './grid.scss';
 import utilities from '../../styles/utilities.scss';
 
-const Container = ({ spacing, className, children, ...props }) => {
+const Container = React.memo(({ spacing, className, children, ...props }) => {
   const spacingClasses = spacing
     .split(' ')
     .map(sp => utilities[sp])
@@ -22,7 +22,7 @@ const Container = ({ spacing, className, children, ...props }) => {
       {children}
     </div>
   );
-};
+});
 
 Container.propTypes = {
   spacing: PropTypes.string,

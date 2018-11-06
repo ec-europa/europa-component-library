@@ -7,7 +7,7 @@ import utilityStyles from '../../styles/utilities.scss';
 
 const handleClick = () => window.history.back();
 
-const Example = () => (
+const Example = React.memo(() => (
   <main id="main-content" tabIndex="-1">
     <Container spacing="pv-xl">
       {' '}
@@ -25,6 +25,6 @@ const Example = () => (
       </button>
     </Container>
   </main>
-);
+));
 
 export default Example;
