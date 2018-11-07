@@ -1,0 +1,63 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground'
+import Button from '@ecl/ec-react-component-button/Button'
+
+import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
+import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
+import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
+import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
+import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
+
+## Primary
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="primary"
+>
+  <Button {...demoContentPrimary} />
+</Playground>
+
+## Secondary
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="secondary"
+>
+  <Button {...demoContentSecondary} />
+</Playground>
+
+## Call to action with icon
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="call to action"
+>
+  <Button {...demoContentCall} />
+</Playground>
+
+## Ghost
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="ghost"
+>
+  <Button {...demoContentGhost} />
+</Playground>
+
+## Search
+
+<Playground
+  system="ec"
+  selectedKind="Button"
+  selectedStory="search"
+>
+  <Button {...demoContentSearch} />
+</Playground>

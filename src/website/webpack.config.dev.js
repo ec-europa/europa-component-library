@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
-
+const frontmatter = require('remark-frontmatter');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 const babelConfig = require('./config/babel.config');
@@ -151,7 +151,22 @@ module.exports = {
                 loader: 'babel-loader',
                 options: babelConfig,
               },
-              '@mdx-js/loader',
+              {
+                // Adds front-matter to export
+                loader: 'mdx-frontmatter-loader',
+              },
+              {
+                loader: '@mdx-js/loader',
+                options: {
+                  mdPlugins: [
+                    [
+                      // Removes front-matter from Markdown output
+                      frontmatter,
+                      { type: 'yaml', marker: '-', fence: '---' },
+                    ],
+                  ],
+                },
+              },
             ],
           },
           {

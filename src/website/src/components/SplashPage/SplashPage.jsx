@@ -14,7 +14,7 @@ import Col from '../Grid/Col';
 import utilities from '../../styles/utilities.scss';
 import styles from './SplashPage.scss';
 
-const SplashPage = ({ children }) => (
+const SplashPage = React.memo(({ children }) => (
   <main id="main-content" tabIndex="-1" className={styles['splash-page']}>
     <ScrollToTopOnMount />
     <Container>
@@ -43,7 +43,7 @@ const SplashPage = ({ children }) => (
       </Row>
     </Container>
   </main>
-);
+));
 
 SplashPage.propTypes = {
   children: PropTypes.node,
