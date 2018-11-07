@@ -9,14 +9,6 @@
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('ec-component-link'));
 
-$list: (
-  facebook: '#426398',
-  twitter: '#6090b5',
-  email: '#135077',
-  google: '#a5382a',
-  linkedin: '#186c98',
-);
-
 @mixin ecl-social-media-share() {
   .ecl-social-media-share {
     margin: 0;
@@ -33,7 +25,7 @@ $list: (
   }
 
   .ecl-social-media-share__item {
-    margin-right: $ecl-spacing-xs;
+    margin-right: $ecl-spacing-2-xs;
 
     &:not(:last-child) {
       max-width: 8.625rem;
@@ -59,7 +51,7 @@ $list: (
   /* stylelint-disable-next-line order/order */
   @include ecl-icon-rollover(ecl-social-media-share);
 
-  @include ecl-social-icon-color-map($list);
+  @include ecl-social-icon-color-map($ecl-social-media-list);
 
   @include ecl-media-breakpoint-down('md') {
     .ecl-social-media-share__item {
