@@ -1,9 +1,9 @@
 {
-  "name": "@ecl/eu-specs-timeline",
+  "name": "@ecl/ec-react-component-timeline",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.3",
-  "description": "ECL EU Timeline Specs",
+  "description": "ECL EC React Timeline",
   "publishConfig": {
     "access": "public"
   },
@@ -18,6 +18,20 @@
   "keywords": [
     "ecl",
     "europa-component-library",
-    "design-system"
-  ]
+    "design-system",
+    "react"
+  ],
+  "dependencies": {
+    "@ecl/ec-react-component-button": "^2.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "@ecl/ec-component-timeline": "^2.0.0-alpha.3",
+    "@ecl/ec-specs-timeline": "^2.0.0-alpha.3"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
 }

@@ -1,9 +1,16 @@
 {
-  "name": "@ecl/eu-specs-timeline",
+  "name": "@ecl/ec-component-timeline",
   "author": "European Commission",
+  "main": "ec-component-timeline.js",
+  "module": "ec-component-timeline.js",
+  "style": "ec-component-timeline.scss",
+  "sass": "ec-component-timeline.scss",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.3",
-  "description": "ECL EU Timeline Specs",
+  "description": "ECL EC Timeline",
+  "dependencies": {
+    "@ecl/ec-base": "^2.0.0-alpha.3"
+  },
   "publishConfig": {
     "access": "public"
   },
