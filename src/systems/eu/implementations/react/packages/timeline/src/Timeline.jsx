@@ -1,11 +1,11 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import VanillaTimeline from '@ecl/eu-component-timeline/eu-component-timeline';
+import Button from '@ecl/eu-react-component-button/Button';
 
 import TimelineItem from './TimelineItem';
-import Button from '@ecl/eu-react-component-button/Button';
 
 export default class Timeline extends React.Component {
   constructor(props) {
@@ -33,17 +33,28 @@ export default class Timeline extends React.Component {
     const showAllButton = (
       <Fragment>
         <br />
-        <Button {...button} className={classnames(button.className, 'ecl-timeline__button')} data-ecl-timeline-button></Button>
-      </Fragment>);
+        <Button
+          {...button}
+          className={classnames(button.className, 'ecl-timeline__button')}
+          data-ecl-timeline-button
+        />
+      </Fragment>
+    );
 
     return (
       <section {...props} className={classNames} ref={this.timelineRef}>
         <ol className="ecl-timeline__list" data-ecl-timeline-list>
           {items.map((item, index) => (
-            <TimelineItem key={item.label} label={item.label} className={classnames({[`ecl-timeline__item--collapsed`]: index > 2})}>
+            <TimelineItem
+              key={item.label}
+              label={item.label}
+              className={classnames({
+                [`ecl-timeline__item--collapsed`]: index > 2,
+              })}
+            >
               {item.content}
 
-              {index == 2 && showAllButton}
+              {index === 2 && showAllButton}
             </TimelineItem>
           ))}
         </ol>
