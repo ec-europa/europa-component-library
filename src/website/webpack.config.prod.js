@@ -11,6 +11,7 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const cssnano = require('cssnano');
+const frontmatter = require('remark-frontmatter');
 
 const babelConfig = require('./config/babel.config');
 
@@ -171,7 +172,22 @@ module.exports = {
                 loader: 'babel-loader',
                 options: babelConfig,
               },
-              '@mdx-js/loader',
+              {
+                // Adds front-matter to export
+                loader: 'mdx-frontmatter-loader',
+              },
+              {
+                loader: '@mdx-js/loader',
+                options: {
+                  mdPlugins: [
+                    [
+                      // Removes front-matter from Markdown output
+                      frontmatter,
+                      { type: 'yaml', marker: '-', fence: '---' },
+                    ],
+                  ],
+                },
+              },
             ],
           },
           {

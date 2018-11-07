@@ -1,30 +1,18 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import styles from './LinkGroup.scss';
 import LinkList from './LinkList';
 
-class LinkGroup extends PureComponent {
-  render() {
-    const { pages, level, showStatus, group, groupUrl } = this.props;
-
-    return (
-      <Fragment>
-        <span className={styles.group}>{group}</span>
-        <LinkList
-          pages={pages}
-          level={level + 1}
-          showStatus={showStatus}
-          parentSection={groupUrl}
-        />
-      </Fragment>
-    );
-  }
-}
+const LinkGroup = React.memo(({ pages, level, showStatus, group }) => (
+  <Fragment>
+    <span className={styles.group}>{group}</span>
+    <LinkList pages={pages} level={level + 1} showStatus={showStatus} />
+  </Fragment>
+));
 
 LinkGroup.propTypes = {
-  groupUrl: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
@@ -35,7 +23,6 @@ LinkGroup.propTypes = {
 };
 
 LinkGroup.defaultProps = {
-  groupUrl: '',
   showStatus: false,
   level: 0,
   group: '',
