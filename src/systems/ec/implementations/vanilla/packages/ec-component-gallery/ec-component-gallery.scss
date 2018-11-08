@@ -6,22 +6,92 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-gallery($image-height: 185px) {
+@mixin ecl-gallery(
+  $image-height: 185px,
+  $description-background: $ecl-color-grey-100,
+  $description-color: $ecl-color-white-100
+) {
   .ecl-gallery {
-    display: flex;
-    flex-wrap: wrap;
     margin: 0;
   }
 
+  .ecl-gallery__list {
+    display: block;
+    list-style: none;
+    margin-top: -($ecl-spacing-xs);
+    padding-left: 0;
+  }
+
   .ecl-gallery__item {
-    display: flex;
-    flex-grow: 1;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: block;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-xs;
   }
 
   .ecl-gallery__image {
     flex-grow: 1;
-    height: $image-height;
-    object-fit: cover;
+    visibility: hidden;
+    width: 100%;
+  }
+
+  @supports (object-fit: cover) {
+    .ecl-gallery__image {
+      object-fit: cover;
+      visibility: visible;
+    }
+  }
+
+  .ecl-gallery__description {
+    background-color: $description-background;
+    color: $description-color;
+    display: flex;
+    font: $ecl-font-m;
+    justify-content: space-between;
+    padding: $ecl-spacing-s;
+    width: calc(100% - (#{$ecl-spacing-s} * 2));
+  }
+
+  .ecl-gallery__description-icon {
+    flex-shrink: 0;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-gallery__list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-left: -($ecl-spacing-xs);
+    }
+
+    .ecl-gallery__item {
+      display: flex;
+      flex-grow: 1;
+      height: $image-height;
+      margin-left: $ecl-spacing-xs;
+      min-width: $image-height;
+      position: relative;
+    }
+
+    .ecl-gallery__image {
+      height: $image-height;
+      width: auto;
+    }
+
+    .ecl-gallery__description {
+      bottom: 0;
+      display: none;
+      padding: $ecl-spacing-xs;
+      position: absolute;
+      width: calc(100% - (#{$ecl-spacing-xs} * 2));
+    }
+
+    .ecl-gallery__item:hover .ecl-gallery__description {
+      display: flex;
+    }
   }
 }
 

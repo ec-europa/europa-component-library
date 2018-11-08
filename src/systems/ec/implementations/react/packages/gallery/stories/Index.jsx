@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import demoContent from '@ecl/ec-specs-gallery/demo/data';
 
-import Gallery from '../Gallery';
+import Gallery from '../src/Gallery';
 
 storiesOf('Gallery', module)
   .addDecorator(withKnobs)
