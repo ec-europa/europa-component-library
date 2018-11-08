@@ -1,9 +1,17 @@
 {
-  "name": "@ecl/ec-specs-gallery",
+  "name": "@ecl/ec-component-gallery",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0-alpha.3",
-  "description": "ECL EC Gallery Specs",
+  "description": "ECL Gallery",
+  "style": "ec-component-gallery.scss",
+  "sass": "ec-component-gallery.scss",
+  "dependencies": {
+    "@ecl/ec-base": "^2.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "@ecl/ec-specs-gallery": "^2.0.0-alpha.3"
+  },
   "publishConfig": {
     "access": "public"
   },

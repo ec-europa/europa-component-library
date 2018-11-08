@@ -1,0 +1,31 @@
+/**
+ * Gallery
+ * @define gallery
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-gallery($image-height: 185px) {
+  .ecl-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .ecl-gallery__item {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .ecl-gallery__image {
+    flex-grow: 1;
+    height: $image-height;
+    object-fit: cover;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-gallery') {
+  @include ecl-gallery();
+}
