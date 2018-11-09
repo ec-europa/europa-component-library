@@ -67,4 +67,24 @@ module.exports = {
       description: 'EU by topic',
     },
   ],
+  overlay: {
+    close: {
+      variant: 'ghost',
+      label: 'Close',
+      icon: {
+        shape: 'ui--close',
+        size: 's',
+      },
+    },
+    previous: {
+      shape: 'ui--corner-arrow',
+      transform: 'rotate-270',
+      size: 'l',
+    },
+    next: {
+      shape: 'ui--corner-arrow',
+      transform: 'rotate-90',
+      size: 'l',
+    },
+  },
 };
