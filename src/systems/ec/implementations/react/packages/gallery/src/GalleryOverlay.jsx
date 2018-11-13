@@ -6,12 +6,19 @@ import Button from '@ecl/ec-react-component-button/Button';
 import Icon from '@ecl/ec-react-component-icon/Icon';
 
 const GalleryOverlay = ({ overlay, item, className, ...props }) => {
+  if (item == null) return null;
+
   const styles = {
     backgroundImage: `url(${item.src})`,
   };
 
   return (
-    <div {...props} className={classnames(className, 'ecl-gallery__overlay')}>
+    <div
+      {...props}
+      className={classnames(className, 'ecl-gallery__overlay')}
+      aria-hidden="true"
+      data-ecl-gallery-overlay
+    >
       <div className="ecl-gallery__close">
         <Button
           {...overlay.close}
@@ -19,6 +26,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
             overlay.close.className,
             'ecl-gallery__close-button'
           )}
+          data-ecl-gallery-close
         />
       </div>
 

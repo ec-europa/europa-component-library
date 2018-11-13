@@ -45,12 +45,12 @@ module.exports = {
     {
       src: 'https://via.placeholder.com/1600x900/888/000',
       alt: 'Image 7',
-      description: "Kids' Corner",
+      description: 'Teaching material about the EU, including books and maps',
     },
     {
       src: 'https://via.placeholder.com/500x1000/aaa/000',
       alt: 'Image 8',
-      description: 'Teaching material about the EU, including books and maps',
+      description: "Kids' Corner",
       icon: {
         shape: 'general--video',
         size: 'l',

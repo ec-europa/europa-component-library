@@ -132,6 +132,9 @@
   }
 }
 
+/*
+ * Overlay
+ */
 @mixin ecl-gallery-overlay(
   $overlay-background: $ecl-color-black-100,
   $detail-background: $ecl-color-grey-100,
@@ -146,6 +149,11 @@
     position: fixed;
     top: 0;
     width: 100%;
+  }
+
+  .ecl-gallery__overlay[aria-hidden='true'] {
+    position: absolute;
+    visibility: hidden;
   }
 
   .ecl-gallery__close {

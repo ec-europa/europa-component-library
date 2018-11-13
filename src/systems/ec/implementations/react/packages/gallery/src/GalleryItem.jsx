@@ -11,33 +11,39 @@ const GalleryItem = ({ item, className, ...props }) => {
 
   return (
     <li {...props} className={classnames(className, 'ecl-gallery__item')}>
-      <div className="ecl-gallery__image-container" style={styles}>
-        <img src={item.src} alt={item.alt} className="ecl-gallery__image" />
-        {!!(item.icon && item.icon.shape) && (
-          <Icon
-            {...item.icon}
-            size="l"
-            className={classnames(
-              item.icon.className,
-              'ecl-gallery__image-icon'
-            )}
-          />
-        )}
-      </div>
+      <a
+        href={item.src}
+        className="ecl-gallery__item-link"
+        data-ecl-gallery-item
+      >
+        <div className="ecl-gallery__image-container" style={styles}>
+          <img src={item.src} alt={item.alt} className="ecl-gallery__image" />
+          {!!(item.icon && item.icon.shape) && (
+            <Icon
+              {...item.icon}
+              size="l"
+              className={classnames(
+                item.icon.className,
+                'ecl-gallery__image-icon'
+              )}
+            />
+          )}
+        </div>
 
-      <div className="ecl-gallery__description">
-        {item.description}
-        {!!(item.icon && item.icon.shape) && (
-          <Icon
-            {...item.icon}
-            size="l"
-            className={classnames(
-              item.icon.className,
-              'ecl-gallery__description-icon'
-            )}
-          />
-        )}
-      </div>
+        <div className="ecl-gallery__description">
+          {item.description}
+          {!!(item.icon && item.icon.shape) && (
+            <Icon
+              {...item.icon}
+              size="l"
+              className={classnames(
+                item.icon.className,
+                'ecl-gallery__description-icon'
+              )}
+            />
+          )}
+        </div>
+      </a>
     </li>
   );
 };
