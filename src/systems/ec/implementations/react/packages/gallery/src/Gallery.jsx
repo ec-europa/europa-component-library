@@ -20,18 +20,12 @@ export default class Gallery extends React.Component {
     this.gallery.init();
   }
 
-  componentDidUpdate() {
-    console.log('update');
-  }
-
   componentWillUnmount() {
     if (this.gallery) this.gallery.destroy();
   }
 
   render() {
     const { overlay, items, selectedItemId, className, ...props } = this.props;
-    console.log(this);
-    console.log(selectedItemId);
 
     const classNames = classnames(className, 'ecl-gallery');
 

@@ -30,7 +30,7 @@ const GalleryItem = ({ item, className, ...props }) => {
           )}
         </div>
 
-        <div className="ecl-gallery__description">
+        <div className="ecl-gallery__description" data-ecl-gallery-description>
           {item.description}
           {!!(item.icon && item.icon.shape) && (
             <Icon
@@ -43,6 +43,10 @@ const GalleryItem = ({ item, className, ...props }) => {
             />
           )}
         </div>
+
+        <div className="ecl-gallery__meta" data-ecl-gallery-meta>
+          {item.meta}
+        </div>
       </a>
     </li>
   );
@@ -53,6 +57,7 @@ GalleryItem.propTypes = {
     src: PropTypes.string,
     alt: PropTypes.string,
     description: PropTypes.string,
+    meta: PropTypes.string,
     icon: PropTypes.shape(Icon.propTypes),
   }),
   className: PropTypes.string,
