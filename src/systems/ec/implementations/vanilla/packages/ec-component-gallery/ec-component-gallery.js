@@ -161,10 +161,11 @@ class Gallery {
 
     // Update image
     this.overlayImage.setAttribute('src', selectedItem.getAttribute('href'));
-    this.overlayImageFallback.setAttribute(
-      'style',
-      `url(${selectedItem.getAttribute('href')})`
-    );
+    Object.assign(this.overlayImageFallback.style, {
+      backgroundImage: `url(${selectedItem.getAttribute('href')})`,
+      maxHeight: `${this.overlayImage.naturalHeight}px`,
+      maxWidth: `${this.overlayImage.naturalWidth}px`,
+    });
 
     // Update counter
     this.overlayCounterCurrent.innerHTML =

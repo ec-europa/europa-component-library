@@ -32,15 +32,6 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
       </div>
 
       <div className="ecl-gallery__slider">
-        <Button
-          {...overlay.previous}
-          className={classnames(
-            overlay.previous.className,
-            'ecl-gallery__slider-previous'
-          )}
-          data-ecl-gallery-overlay-previous
-        />
-
         <div className="ecl-gallery__slider-image-container">
           <img
             src={item.src}
@@ -54,6 +45,15 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
             data-ecl-gallery-overlay-image-fallback
           />
         </div>
+
+        <Button
+          {...overlay.previous}
+          className={classnames(
+            overlay.previous.className,
+            'ecl-gallery__slider-previous'
+          )}
+          data-ecl-gallery-overlay-previous
+        />
 
         <Button
           {...overlay.next}
