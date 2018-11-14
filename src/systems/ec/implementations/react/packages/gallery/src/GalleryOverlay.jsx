@@ -38,6 +38,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
             overlay.previous.className,
             'ecl-gallery__slider-previous'
           )}
+          data-ecl-gallery-overlay-previous
         />
 
         <div className="ecl-gallery__slider-image-container">
@@ -60,6 +61,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
             overlay.next.className,
             'ecl-gallery__slider-next'
           )}
+          data-ecl-gallery-overlay-next
         />
       </div>
 

@@ -15,6 +15,8 @@ class Gallery {
       overlayCounterMaxSelector: overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
       overlayDescriptionSelector: overlayDescriptionSelector = '[data-ecl-gallery-overlay-description]',
       overlayMetaSelector: overlayMetaSelector = '[data-ecl-gallery-overlay-meta]',
+      overlayPreviousSelector: overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
+      overlayNextSelector: overlayNextSelector = '[data-ecl-gallery-overlay-next]',
       attachClickListener: attachClickListener = true,
     } = {}
   ) {
@@ -39,6 +41,8 @@ class Gallery {
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
     this.overlayDescriptionSelector = overlayDescriptionSelector;
     this.overlayMetaSelector = overlayMetaSelector;
+    this.overlayPreviousSelector = overlayPreviousSelector;
+    this.overlayNextSelector = overlayNextSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -52,6 +56,9 @@ class Gallery {
     this.overlayCounterMax = null;
     this.overlayDescription = null;
     this.overlayMeta = null;
+    this.overlayPrevious = null;
+    this.overlayNext = null;
+    this.selectedItem = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
@@ -80,6 +87,8 @@ class Gallery {
       this.overlay
     );
     this.overlayMeta = queryOne(this.overlayMetaSelector, this.overlay);
+    this.overlayPrevious = queryOne(this.overlayPreviousSelector, this.overlay);
+    this.overlayNext = queryOne(this.overlayNextSelector, this.overlay);
 
     // Bind click event on close button
     if (this.attachClickListener && this.closeButton) {
@@ -94,6 +103,22 @@ class Gallery {
           this.handleClickOnItem.bind(this)
         );
       });
+    }
+
+    // Bind click event on previous button
+    if (this.attachClickListener && this.overlayPrevious) {
+      this.overlayPrevious.addEventListener(
+        'click',
+        this.handleClickOnPreviousButton.bind(this)
+      );
+    }
+
+    // Bind click event on next button
+    if (this.attachClickListener && this.overlayNext) {
+      this.overlayNext.addEventListener(
+        'click',
+        this.handleClickOnNextButton.bind(this)
+      );
     }
 
     // Add number to gallery items
@@ -115,20 +140,24 @@ class Gallery {
         galleryItem.removeEventListener('click', this.handleClickOnItem);
       });
     }
+
+    if (this.attachClickListener && this.overlayPrevious) {
+      this.overlayPrevious.removeEventListener(
+        'click',
+        this.handleClickOnPreviousButton
+      );
+    }
+
+    if (this.attachClickListener && this.overlayNext) {
+      this.overlayNext.removeEventListener(
+        'click',
+        this.handleClickOnNextButton
+      );
+    }
   }
 
-  handleClickOnCloseButton() {
-    this.overlay.setAttribute('aria-hidden', 'true');
-
-    return this;
-  }
-
-  handleClickOnItem(e) {
-    e.preventDefault();
-    this.overlay.setAttribute('aria-hidden', 'false');
-
-    // Get clicked item
-    const selectedItem = e.currentTarget;
+  updateOverlay(selectedItem) {
+    this.selectedItem = selectedItem;
 
     // Update image
     this.overlayImage.setAttribute('src', selectedItem.getAttribute('href'));
@@ -153,6 +182,52 @@ class Gallery {
       this.metaSelector,
       selectedItem
     ).innerHTML;
+  }
+
+  handleClickOnCloseButton() {
+    this.overlay.setAttribute('aria-hidden', 'true');
+
+    return this;
+  }
+
+  handleClickOnItem(e) {
+    e.preventDefault();
+    this.overlay.setAttribute('aria-hidden', 'false');
+
+    // Update overlay
+    this.updateOverlay(e.currentTarget);
+
+    return this;
+  }
+
+  handleClickOnPreviousButton() {
+    // Get current id
+    const currentId = this.selectedItem.getAttribute(
+      'data-ecl-gallery-item-id'
+    );
+
+    // Get previous id
+    let previousId = +currentId - 1;
+    if (previousId < 0) previousId = this.galleryItems.length - 1;
+
+    // Update overlay
+    this.updateOverlay(this.galleryItems[previousId]);
+
+    return this;
+  }
+
+  handleClickOnNextButton() {
+    // Get current id
+    const currentId = this.selectedItem.getAttribute(
+      'data-ecl-gallery-item-id'
+    );
+
+    // Get next id
+    let nextId = +currentId + 1;
+    if (nextId >= this.galleryItems.length) nextId = 0;
+
+    // Update overlay
+    this.updateOverlay(this.galleryItems[nextId]);
 
     return this;
   }
