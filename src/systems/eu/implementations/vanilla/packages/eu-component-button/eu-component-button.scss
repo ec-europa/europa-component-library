@@ -41,7 +41,10 @@
     display: flex;
   }
 
-  .ecl-button__label + .ecl-button__icon {
+  .ecl-button__icon--before {
+    margin-right: $ecl-spacing-xs;
+  }
+  .ecl-button__icon--after {
     margin-left: $ecl-spacing-xs;
   }
 

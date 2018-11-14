@@ -17,6 +17,11 @@ const icons = {
   external: 'ui--external',
 };
 
+const iconPosition = {
+  before: 'before',
+  after: 'after',
+};
+
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add('primary', () => {
@@ -31,6 +36,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentPrimary.label)}
         type="submit"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
       />
     );
   })
@@ -46,6 +52,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentSecondary.label)}
         type="button"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
       />
     );
   })
@@ -61,6 +68,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentCall.label)}
         type="submit"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
       />
     );
   })
@@ -76,6 +84,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentGhost.label)}
         type="button"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
       />
     );
   })
@@ -91,6 +100,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentSearch.label)}
         type="button"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
       />
     );
   });
