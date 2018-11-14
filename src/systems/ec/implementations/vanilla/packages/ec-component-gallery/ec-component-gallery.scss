@@ -146,6 +146,7 @@
  */
 @mixin ecl-gallery-overlay(
   $overlay-background: $ecl-color-black-100,
+  $overlay-z-index: 20,
   $detail-background: $ecl-color-grey-100,
   $detail-color: $ecl-color-white-100
 ) {
@@ -158,6 +159,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: $overlay-z-index;
   }
 
   .ecl-gallery__overlay[aria-hidden='true'] {
