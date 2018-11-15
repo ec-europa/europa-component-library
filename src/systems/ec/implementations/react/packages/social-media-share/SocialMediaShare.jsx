@@ -5,11 +5,17 @@ import socialSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-soci
 
 import Link from '@ecl/ec-react-component-link/Link';
 
-const SocialMediaShare = ({ links, className, ...props }) => {
+const SocialMediaShare = ({
+  description,
+  links,
+  className,
+  ...props
+}) => {
   const classNames = classnames(className, 'ecl-social-media-share');
 
   return (
     <div {...props} className={classNames}>
+      <p className="ecl-social-media-share__description">{description}</p>
       <ul className="ecl-social-media-share__list">
         {links.map(link => (
           <li key={link.label} className="ecl-social-media-share__item">
@@ -40,12 +46,14 @@ const SocialMediaShare = ({ links, className, ...props }) => {
 };
 
 SocialMediaShare.propTypes = {
+  description: PropTypes.string,
   links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
   className: PropTypes.string,
 };
 
 SocialMediaShare.defaultProps = {
   links: [],
+  description: '',
   className: '',
 };
 

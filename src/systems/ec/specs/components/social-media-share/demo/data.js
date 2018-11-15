@@ -1,6 +1,6 @@
 // Simple content for demo
 module.exports = {
-  description: '',
+  description: 'Share this page',
   links: [
     {
       href: '/example',

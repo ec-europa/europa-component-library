@@ -9,10 +9,18 @@
 // Check if overridden dependencies are already loaded, if needed
 @include check-imports(('ec-component-link'));
 
-@mixin ecl-social-media-share() {
+@mixin ecl-social-media-share($description-color: $ecl-color-black-100) {
   .ecl-social-media-share {
     margin: 0;
     padding: 0;
+  }
+
+  .ecl-social-media-share__description {
+    color: $description-color;
+    font: $ecl-font-prolonged-m;
+    font-weight: $ecl-font-weight-bold;
+    margin-bottom: $ecl-spacing-l;
+    margin-top: 0;
   }
 
   .ecl-social-media-share__list {
