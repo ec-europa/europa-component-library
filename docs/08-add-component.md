@@ -1,4 +1,4 @@
-# Adding a component to the stack.
+# Adding a component to the stack
 
 ## Vanilla
 
@@ -83,5 +83,10 @@ Docs for the components are stored in the website folder.
 
 Storybook will include the {system}-preset-dev package for the styles, in order for your new component to be styled when rendered you need to include its package in the list of included packages for the aforementioned preset:
 
-**base_path:** src/systems/{system}vanilla/{system}-preset-dev/  
-**files:** base_path/package.json, base_path/src/ec-preset-dev.scss
+**base_path:** src/systems/{system}/implementation/vanilla/{system}-preset-dev/
+**files:** base_path/package.json, base_path/src/{system}-preset-dev.scss
+
+### Scripts:
+
+If the components contains custom js it should also be added to:
+src/systems/{system}/implementations/vanilla/packages/{system}-preset-dev/src/{system}-preset-dev.js
