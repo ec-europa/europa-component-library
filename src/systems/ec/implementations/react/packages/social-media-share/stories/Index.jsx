@@ -10,7 +10,8 @@ import SocialMediaShare from '../SocialMediaShare';
 storiesOf('SocialMediaShare', module)
   .addDecorator(withKnobs)
   .add('default', () => (
-    <SocialMediaShare {...demoContent}
+    <SocialMediaShare
+      {...demoContent}
       description={text('Description', demoContent.description)}
     />
   ));
