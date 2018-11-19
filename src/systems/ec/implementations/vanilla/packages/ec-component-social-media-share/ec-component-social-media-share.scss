@@ -55,6 +55,11 @@
     font: $ecl-font-s;
   }
 
+  // fix for the google+ icon.
+  .ecl-social-media-share__link--google .ecl-social-media-share__icon-hover {
+    fill: #a5382a;
+  }
+
   // Icon
   /* stylelint-disable-next-line order/order */
   @include ecl-icon-rollover(ecl-social-media-share);
