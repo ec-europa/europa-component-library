@@ -1,13 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import styles from './DisplayTokens.scss';
 
 class DisplayTokens extends PureComponent {
   render() {
     const { tokens, category, name } = this.props;
 
     return (
-      <ul>
+      <ul className={styles.ul}>
         {Object.keys(tokens.props)
           .filter(
             key =>
