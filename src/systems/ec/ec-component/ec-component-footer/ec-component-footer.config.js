@@ -113,12 +113,20 @@ module.exports = {
           label: "About the Commission's new web presence",
         },
         {
+          href: 'https://ec.europa.eu/info/language-policy_en',
+          label: 'Language policy',
+        },
+        {
           href: 'http://ec.europa.eu/info/resources-partners_en',
           label: 'Resources for partners',
         },
         {
           href: 'http://ec.europa.eu/info/cookies_en',
           label: 'Cookies',
+        },
+        {
+          href: 'https://ec.europa.eu/info/privacy-policy_en',
+          label: 'Privacy policy',
         },
         {
           href: 'http://ec.europa.eu/info/legal-notice_en',
