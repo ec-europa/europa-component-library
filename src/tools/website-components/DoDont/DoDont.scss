@@ -1,0 +1,58 @@
+@import '@ecl/ec-theme-default/index';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+* + .container {
+  margin-top: $ecl-spacing-2-xl;
+}
+
+.dont {
+  margin-top: $ecl-spacing-2-xl;
+}
+
+.image {
+  align-items: center;
+  background-color: $ecl-color-grey-5;
+  border: 1px solid $ecl-color-grey-10;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  border-top: 7px solid transparent;
+  color: $ecl-color-grey-100;
+  font: $ecl-font-prolonged-m;
+  font-weight: $ecl-font-weight-bold;
+  padding-top: $ecl-spacing-xs;
+}
+
+.do .title {
+  border-top-color: $ecl-color-success;
+}
+.dont .title {
+  border-top-color: $ecl-color-error;
+}
+
+.description {
+  color: $ecl-color-grey-100;
+  font: $ecl-font-prolonged-m;
+  margin-top: $ecl-spacing-2-xs;
+}
+
+@media screen and (min-width: 996px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .do {
+    margin-right: $ecl-spacing-3-xl / 2;
+  }
+
+  .dont {
+    margin-left: $ecl-spacing-3-xl / 2;
+    margin-top: 0;
+  }
+}
