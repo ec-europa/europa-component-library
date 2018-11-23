@@ -145,6 +145,11 @@ module.exports = {
     },
     {
       variant: 'standalone',
+      href: '/example',
+      label: 'Language policy',
+    },
+    {
+      variant: 'standalone',
       label: 'Resources for partners',
       href: '/example',
     },
@@ -152,6 +157,11 @@ module.exports = {
       variant: 'standalone',
       label: 'Cookies',
       href: '/example',
+    },
+    {
+      variant: 'standalone',
+      href: '/example',
+      label: 'Privacy policy',
     },
     {
       variant: 'standalone',
