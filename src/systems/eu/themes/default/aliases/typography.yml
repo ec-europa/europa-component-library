@@ -14,6 +14,7 @@ aliases:
   _FONT_4XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_4XL}/{!LINE_HEIGHT_4XL} {!FONT_FAMILY}'
   _FONT_5XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_5XL}/{!LINE_HEIGHT_5XL} {!FONT_FAMILY}'
   _FONT_6XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_6XL}/{!LINE_HEIGHT_6XL} {!FONT_FAMILY}'
+  _FONT_PROLONGED_XS: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_XS}/{!LINE_HEIGHT_PROLONGED_XS} {!FONT_FAMILY}'
   _FONT_PROLONGED_S: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_S}/{!LINE_HEIGHT_PROLONGED_S} {!FONT_FAMILY}'
   _FONT_PROLONGED_M: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_M}/{!LINE_HEIGHT_PROLONGED_M} {!FONT_FAMILY}'
   _FONT_PROLONGED_L: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_L}/{!LINE_HEIGHT_PROLONGED_L} {!FONT_FAMILY}'
@@ -72,6 +73,11 @@ props:
   - name: FONT_6XL
     value: '{!_FONT_6XL}'
     comment: Font 6XL
+    type: font
+    category: font
+  - name: FONT_PROLONGED_XS
+    value: '{!_FONT_PROLONGED_XS}'
+    comment: Font prolonged XS
     type: font
     category: font
   - name: FONT_PROLONGED_S
