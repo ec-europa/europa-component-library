@@ -6,7 +6,10 @@ order: 2
 import Playground from '@ecl/website-components/Playground'
 import SiteHeader from '@ecl/ec-react-component-site-header/SiteHeader'
 
-import demoContent from '@ecl/ec-specs-site-header/demo/data';
+import demoContentEn from '@ecl/ec-specs-site-header/demo/data--en';
+import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
+
+## English
 
 <Playground
   system="ec"
@@ -15,5 +18,19 @@ import demoContent from '@ecl/ec-specs-site-header/demo/data';
   showFrame
   frameHeight="172px"
 >
-  <SiteHeader {...demoContent} />
+  <SiteHeader {...demoContentEn} />
+</Playground>
+
+## Translated
+
+EC logo is available in 24 languages.
+
+<Playground
+  system="ec"
+  selectedKind="SiteHeader"
+  selectedStory="translated"
+  showFrame
+  frameHeight="172px"
+>
+  <SiteHeader {...demoContentFr} />
 </Playground>
