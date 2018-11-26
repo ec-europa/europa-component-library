@@ -1,5 +1,5 @@
 /* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
-const siteHeaderContent = require('@ecl/eu-specs-site-header/demo/data');
+const siteHeaderContent = require('@ecl/eu-specs-site-header/demo/data--en');
 const heroBannerContent = require('@ecl/eu-specs-hero-banner/demo/data--image');
 const mediaContainerContent = require('@ecl/eu-specs-media-container/demo/data--video');
 const cardContent = require('@ecl/eu-specs-card/demo/data--card-event');
