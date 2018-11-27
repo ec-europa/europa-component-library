@@ -7,7 +7,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
@@ -256,7 +255,6 @@ module.exports = {
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
     splitChunks: {
       chunks: 'all',
-      // name: false,
       name: 'vendors',
     },
     // Keep the runtime chunk seperated to enable long term caching
@@ -298,19 +296,6 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
       publicPath,
-    }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      clientsClaim: true,
-      exclude: [/\.map$/, /asset-manifest\.json$/],
-      importWorkboxFrom: 'cdn',
-      navigateFallback: `${publicUrl}/index.html`,
-      navigateFallbackBlacklist: [
-        // Exclude URLs starting with /_, as they're likely an API call
-        new RegExp('^/_'),
-        // Exclude URLs containing a dot, as they're likely a resource in
-        // public/ and not a SPA route
-        new RegExp('/[^/]+\\.[^/]+$'),
-      ],
     }),
     // If you want to invetigate the bundle size, uncomment the following line
     // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(), // eslint-disable-line
