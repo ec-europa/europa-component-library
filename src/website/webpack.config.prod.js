@@ -2,15 +2,15 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
-const cssnano = require('cssnano');
 const frontmatter = require('remark-frontmatter');
 
 const babelConfig = require('./config/babel.config');
@@ -210,44 +210,44 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      new TerserPlugin({
+        terserOptions: {
+          parse: {
+            ecma: 8,
+          },
           compress: {
-            // Disabled because of an issue with Uglify breaking seemingly valid code:
-            // https://github.com/facebook/create-react-app/issues/2376
-            // Pending further investigation:
-            // https://github.com/mishoo/UglifyJS2/issues/2011
+            ecma: 5,
+            warnings: false,
             comparisons: false,
+            inline: 2,
+          },
+          mangle: {
+            safari10: true,
           },
           output: {
+            ecma: 5,
             comments: false,
-            // Turned on because emoji and regex is not minified properly using default
-            // https://github.com/facebook/create-react-app/issues/2488
             ascii_only: true,
           },
         },
-        // Use multi-process parallel running to improve the build speed
-        // Default number of concurrent runs: os.cpus().length - 1
         parallel: true,
-        // Enable file caching
         cache: true,
         sourceMap: shouldUseSourceMap,
       }),
-      // Waiting for a new release of https://github.com/NMFR/optimize-css-assets-webpack-plugin
       new OptimizeCSSAssetsPlugin({
-        cssProcessor: cssnano,
-        cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }],
-          map: {
-            // `inline: false` forces the sourcemap to be output into a
-            // separate file
-            inline: false,
-            // `annotation: true` appends the sourceMappingURL to the end of
-            // the css file, helping the browser find the sourcemap
-            annotation: true,
-          },
+        cssProcessorOptions: {
+          parser: safePostCssParser,
+          map: shouldUseSourceMap
+            ? {
+                // `inline: false` forces the sourcemap to be output into a
+                // separate file
+                inline: false,
+                // `annotation: true` appends the sourceMappingURL to the end of
+                // the css file, helping the browser find the sourcemap
+                annotation: true,
+              }
+            : false,
         },
-        canPrint: true,
       }),
     ],
 
