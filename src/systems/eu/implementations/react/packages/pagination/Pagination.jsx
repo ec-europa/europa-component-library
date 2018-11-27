@@ -12,7 +12,7 @@ const Pagination = ({ label, items, className, ...props }) => {
       <ul className="ecl-pagination__list">
         {items.map(item => (
           <li
-            key={item.label}
+            key={item.link ? item.link.label : item.label}
             className={classnames('ecl-pagination__item', {
               [`ecl-pagination__item--current`]: item.isCurrent,
               [`ecl-pagination__item--previous`]: item.isPrevious,
