@@ -3,7 +3,7 @@ module.exports = {
   language: 'English',
   meta: '(16.2 MB - PDF)',
   icon: {
-    shape: 'general--file',
+    shape: 'general--copy',
     size: '2xl',
   },
   download: {

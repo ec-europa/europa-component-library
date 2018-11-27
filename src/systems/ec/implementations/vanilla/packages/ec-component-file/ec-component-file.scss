@@ -154,18 +154,18 @@
   }
 
   /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('md') {
+  @include ecl-media-breakpoint-up('lg') {
     .ecl-file__download {
       margin-top: 0;
       width: auto;
     }
 
-    .ecl-file__translation-item {
-      flex-direction: row;
+    .ecl-file__translation-container {
+      padding-left: $ecl-spacing-l + $ecl-icon-2-xl + $ecl-spacing-m;
     }
 
-    .ecl-file__translation-list {
-      padding-left: $ecl-spacing-l;
+    .ecl-file__translation-item {
+      flex-direction: row;
     }
 
     .ecl-file__translation-download {
