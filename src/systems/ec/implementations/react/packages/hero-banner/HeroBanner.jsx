@@ -33,10 +33,9 @@ const HeroBanner = ({
           {description && (
             <p className="ecl-hero-banner__description">{description}</p>
           )}
-          {button &&
-            button.label && (
-              <Button {...button} className="ecl-hero-banner__button" />
-            )}
+          {button && button.label && (
+            <Button {...button} className="ecl-hero-banner__button" />
+          )}
         </div>
       </div>
     </section>
