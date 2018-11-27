@@ -41,6 +41,7 @@
 .link__icon {
   fill: currentColor;
   height: 1em;
+  margin-left: $ecl-spacing-xs;
   width: 1em;
 }
 
@@ -77,6 +78,11 @@
   margin: $ecl-spacing-m !important;
   overflow-y: hidden !important;
   padding: 0 !important;
+
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :global(.no-js) & {
+    max-height: none !important;
+  }
 }
 
 .playground-link {
@@ -98,6 +104,11 @@
   margin: 0;
   padding: $ecl-spacing-s;
   text-decoration: none;
+
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :global(.no-js) & {
+    display: none !important;
+  }
 }
 
 .toggle:hover {
