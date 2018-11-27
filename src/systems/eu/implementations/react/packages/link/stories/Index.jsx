@@ -11,10 +11,12 @@ import Link from '../Link';
 
 const icons = {
   none: '',
-  ...uiIcons.map(icon => ({ [`${icon}`]: `ui--${icon}` })).reduce((a, b) => ({
-    ...a,
-    ...b,
-  })),
+  ...uiIcons
+    .map(icon => ({ [`${icon}`]: `ui--${icon}` }))
+    .reduce((a, b) => ({
+      ...a,
+      ...b,
+    })),
 };
 
 const iconPosition = {

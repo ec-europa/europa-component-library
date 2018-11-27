@@ -5,16 +5,16 @@
 Users need a way to easily identify the branding, to search and change the
 language if needed.
 
-* the page title functions as the top level H1.
-* it is also used to construct the `<title>` element (mandatory).
-* gives context and confidence to the user so they know they are looking at the
+- the page title functions as the top level H1.
+- it is also used to construct the `<title>` element (mandatory).
+- gives context and confidence to the user so they know they are looking at the
   right piece of content.
-* provides an H1 title for accessibility and SEO purposes.
+- provides an H1 title for accessibility and SEO purposes.
 
 ### Page header types
 
-* **default page header**
-* **basic page header**
+- **default page header**
+- **basic page header**
 
 | Default page header      | Basic page header        |
 | ------------------------ | ------------------------ |
