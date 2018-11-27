@@ -9,7 +9,7 @@ between the homepages of the two sites.
 
 ## When to use this component
 
-* on every page of every Commission website.
+- on every page of every Commission website.
 
 | Site switcher                      |
 | ---------------------------------- |

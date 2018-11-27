@@ -2,10 +2,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import demoContent from '@ecl/ec-specs-site-header/demo/data';
+import demoContentEn from '@ecl/ec-specs-site-header/demo/data--en';
+import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
 
 import SiteHeader from '../SiteHeader';
 
-storiesOf('SiteHeader', module).add('default', () => (
-  <SiteHeader {...demoContent} />
-));
+storiesOf('SiteHeader', module)
+  .add('default', () => <SiteHeader {...demoContentEn} />)
+  .add('translated', () => <SiteHeader {...demoContentFr} />);

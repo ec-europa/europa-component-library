@@ -31,10 +31,9 @@ const PageBanner = ({
         <div className="ecl-page-banner__content">
           {title && <h1 className="ecl-page-banner__title">{title}</h1>}
           {baseline && <p className="ecl-page-banner__baseline">{baseline}</p>}
-          {button &&
-            button.label && (
-              <Button {...button} className="ecl-page-banner__button" />
-            )}
+          {button && button.label && (
+            <Button {...button} className="ecl-page-banner__button" />
+          )}
         </div>
       </div>
     </section>
