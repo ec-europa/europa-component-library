@@ -74,16 +74,16 @@ See Primary button + Secondary button.
 
 ## Guidance
 
-* use short labels
-* capitalize (...)
-* ...
+- use short labels
+- capitalize (...)
+- ...
 
 ## When to use this component
 
-* use this component in the content area of pages.
+- use this component in the content area of pages.
 
 ## When not to use this component
 
-* do not use this component for cross linking. If you want to navigate to a new
+- do not use this component for cross linking. If you want to navigate to a new
   page on a website, use a link instead.
-* do not use this component in the header or the footer component.
+- do not use this component in the header or the footer component.
