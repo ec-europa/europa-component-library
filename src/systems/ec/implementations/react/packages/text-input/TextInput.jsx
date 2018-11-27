@@ -44,10 +44,9 @@ const TextInput = ({
         disabled={disabled}
         {...props}
       />
-      {invalid &&
-        invalidText && (
-          <div className="ecl-feedback-message">{invalidText}</div>
-        )}
+      {invalid && invalidText && (
+        <div className="ecl-feedback-message">{invalidText}</div>
+      )}
       {helperText && <div className="ecl-help-block">{helperText}</div>}
     </div>
   );
