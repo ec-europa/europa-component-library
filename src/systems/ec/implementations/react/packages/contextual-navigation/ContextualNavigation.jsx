@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import VanillaContextualNavigation from '@ecl/ec-component-contextual-navigation/ec-component-contextual-navigation';
+
+import Button from '@ecl/ec-react-component-button/Button';
 import Link from '@ecl/ec-react-component-link/Link';
 
 export default class ContextualNavigation extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
     this.contextualNavigation = null;
     this.contextualNavigationRef = React.createRef();
   }
@@ -32,11 +33,11 @@ export default class ContextualNavigation extends React.Component {
 
     const itemMoreMarkup = (
       <li className="ecl-contextual-navigation__item ecl-contextual-navigation__item--more">
-        <Link
+        <Button
           {...itemMore}
           className={classnames(
             itemMore.className,
-            'ecl-contextual-navigation__link'
+            'ecl-contextual-navigation__more'
           )}
           data-ecl-contextual-navigation-more
         />
@@ -50,13 +51,13 @@ export default class ContextualNavigation extends React.Component {
           className="ecl-contextual-navigation__list"
           data-ecl-contextual-navigation-list
         >
-          {items.map((item, key) => (
+          {items.map((item, index) => (
             <li
               className={classnames(
                 item.className,
                 'ecl-contextual-navigation__item',
                 {
-                  'ecl-contextual-navigation__item--collapsed': key > 3,
+                  'ecl-contextual-navigation__item--collapsed': index > 3,
                 }
               )}
               key={item.label}
@@ -79,14 +80,14 @@ export default class ContextualNavigation extends React.Component {
 }
 
 ContextualNavigation.propTypes = {
-  author: PropTypes.string,
+  label: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
   itemMore: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
 };
 
 ContextualNavigation.defaultProps = {
-  author: '',
+  label: '',
   items: [],
   itemMore: {},
   className: '',

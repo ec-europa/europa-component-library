@@ -35,7 +35,7 @@ module.exports = {
   ],
   itemMore: {
     label: 'More',
-    variant: 'standalone',
+    variant: 'ghost',
     icon: {
       shape: 'ui--corner-arrow',
       transform: 'rotate-90',

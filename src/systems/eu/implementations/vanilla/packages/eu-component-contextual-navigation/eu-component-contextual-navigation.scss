@@ -63,6 +63,22 @@
     }
   }
 
+  .ecl-contextual-navigation__more {
+    font-weight: $ecl-font-weight-regular;
+    line-height: 1;
+    padding: 0;
+
+    &:hover {
+      color: $ecl-color-black-100;
+      cursor: pointer;
+    }
+
+    &:focus {
+      color: $ecl-color-black-100;
+      outline-offset: 2px;
+    }
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('sm') {
     .ecl-contextual-navigation {
