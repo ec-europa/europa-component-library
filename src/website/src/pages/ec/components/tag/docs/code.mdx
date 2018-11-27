@@ -3,50 +3,29 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground'
-import Tag from '@ecl/ec-react-component-tag/Tag'
+import Playground from '@ecl/website-components/Playground';
+import Tag from '@ecl/ec-react-component-tag/Tag';
 
 ## As a button
 
 When the click on the tag triggers an action.
 
-<Playground
-  system="ec"
-  selectedKind="Tag"
-  selectedStory="as a button"
->
-  <Tag
-    label="Button tag"
-    type="button"
-  />
+<Playground system="ec" selectedKind="Tag" selectedStory="as a button">
+  <Tag label="Button tag" type="button" />
 </Playground>
 
 ## Link
 
 When the click on the tag leads to another page.
 
-<Playground
-  system="ec"
-  selectedKind="Tag"
-  selectedStory="as a link"
->
-  <Tag
-    label="Link tag"
-    href="/example"
-  />
+<Playground system="ec" selectedKind="Tag" selectedStory="as a link">
+  <Tag label="Link tag" href="/example" />
 </Playground>
 
 ## Removable
 
 When using the `removable` variant, the tag gets a "Remove" icon. It can be either a button or a link, dependening on your need.
 
-<Playground
-  system="ec"
-  selectedKind="Tag"
-  selectedStory="removable"
->
-  <Tag
-    label="Removable tag"
-    variant="removable"
-  />
+<Playground system="ec" selectedKind="Tag" selectedStory="removable">
+  <Tag label="Removable tag" variant="removable" />
 </Playground>
