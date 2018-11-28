@@ -52,7 +52,7 @@ To edit pages from the site (not linked to a specific item like the splash page)
 ## Step 4: Open a pull request
 
 - Once you made sure you have saved changes on your particular branch, you are
-  ready to proceed on proposing these changes to the main `next-v2` branch which
+  ready to proceed on proposing these changes to the main `v2` branch which
   is where you see the documentation in production.
 
 - You can simply use the hints which GitHub gives you when you go to the root of
@@ -71,7 +71,7 @@ To edit pages from the site (not linked to a specific item like the splash page)
 
 Your pull request will be briefly reviewed by our team, so that there are no
 linting issues and if all checks are green, changes will be integrated with the
-next-v2 ECL branch in short time.
+v2 ECL branch in short time.
 
 Thank you!
 
