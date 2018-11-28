@@ -1,58 +1,66 @@
 @import '@ecl/ec-theme-default/index';
 
-.container {
-  display: flex;
-  flex-direction: column;
+.dodont {
+  margin-bottom: $ecl-spacing-l;
 }
 
-* + .container {
-  margin-top: $ecl-spacing-2-xl;
+.do {
+  margin-top: $ecl-spacing-l;
 }
-
 .dont {
-  margin-top: $ecl-spacing-2-xl;
+  margin-top: $ecl-spacing-m;
 }
 
 .image {
   align-items: center;
   background-color: $ecl-color-grey-5;
-  border: 1px solid $ecl-color-grey-10;
+  border-left: 8px solid transparent;
   display: flex;
   justify-content: center;
 }
+.do .image {
+  border-left-color: $ecl-color-success;
+}
+.dont .image {
+  border-left-color: $ecl-color-error;
+}
+
+.container {
+  border: 1px solid $ecl-color-grey-15;
+  padding: $ecl-spacing-m $ecl-spacing-l;
+}
 
 .title {
-  border-top: 7px solid transparent;
-  color: $ecl-color-grey-100;
+  display: flex;
   font: $ecl-font-prolonged-m;
   font-weight: $ecl-font-weight-bold;
-  padding-top: $ecl-spacing-xs;
 }
-
 .do .title {
-  border-top-color: $ecl-color-success;
+  color: $ecl-color-success;
 }
 .dont .title {
-  border-top-color: $ecl-color-error;
+  color: $ecl-color-error;
+}
+
+.title__icon {
+  fill: currentColor;
+  height: $ecl-icon-s;
+  margin-right: $ecl-spacing-s;
+  width: $ecl-icon-s;
 }
 
 .description {
   color: $ecl-color-grey-100;
   font: $ecl-font-prolonged-m;
-  margin-top: $ecl-spacing-2-xs;
+  margin-top: $ecl-spacing-xs;
 }
 
-@media screen and (min-width: 996px) {
-  .container {
-    flex-direction: row;
-  }
-
-  .do {
-    margin-right: $ecl-spacing-3-xl / 2;
+@media screen and (min-width: $ecl-breakpoint-sm) {
+  .dodont {
+    margin-bottom: $ecl-spacing-3-xl;
   }
 
   .dont {
-    margin-left: $ecl-spacing-3-xl / 2;
-    margin-top: 0;
+    margin-top: $ecl-spacing-l;
   }
 }
