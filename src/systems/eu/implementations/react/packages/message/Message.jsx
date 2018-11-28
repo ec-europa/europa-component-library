@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import VanillaMessage from '@ecl/eu-component-message/eu-component-message';
-
 import Button from '@ecl/eu-react-component-button/Button';
 import Icon from '@ecl/eu-react-component-icon/Icon';
 
@@ -11,17 +9,21 @@ export default class Message extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      isVisible: true,
+    };
+
     this.message = null;
     this.messageRef = React.createRef();
+    this.onClose = this.onClose.bind(this);
   }
 
-  componentDidMount() {
-    this.message = new VanillaMessage(this.messageRef.current);
-    this.message.init();
-  }
+  onClose() {
+    this.setState({
+      isVisible: false,
+    });
 
-  componentWillUnmount() {
-    if (this.message) this.message.destroy();
+    return this;
   }
 
   render() {
@@ -35,9 +37,13 @@ export default class Message extends React.Component {
       ...props
     } = this.props;
 
+    const { isVisible } = this.state;
+
     const classNames = classnames(className, 'ecl-message', {
       [`ecl-message--${variant}`]: variant,
     });
+
+    if (!isVisible) return null;
 
     return (
       <div {...props} role="alert" className={classNames} ref={this.messageRef}>
@@ -51,6 +57,7 @@ export default class Message extends React.Component {
             type="button"
             className={classnames(close.className, 'ecl-message__close')}
             data-ecl-message-close
+            onClick={this.onClose}
           />
           <div className="ecl-message__title">{title}</div>
           <p className="ecl-message__description">{description}</p>
