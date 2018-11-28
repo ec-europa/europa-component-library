@@ -23,12 +23,12 @@ matrix:
 
 pipeline:
   install:
-    image: node:9.11.1
+    image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
 
   conventions:
-    image: node:9.11.1
+    image: node:dubnium
     commands:
       - yarn test:coding-conventions
     when:
@@ -36,7 +36,7 @@ pipeline:
         TEST: conventions
 
   examples:
-    image: node:9.11.1
+    image: node:dubnium
     commands:
       - cd examples/webpack3 && yarn build --display=errors-only
       - cd ../webpack4 && yarn build --display=errors-only
