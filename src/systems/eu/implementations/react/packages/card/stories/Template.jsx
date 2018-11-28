@@ -15,40 +15,40 @@ const Template = () => {
     variant: 'standalone',
     label: 'Policy coherence for development in the European Union',
     href: '/example#1',
-    level: '1',
+    level: 1,
   };
   const title2 = {
     variant: 'standalone',
     label:
       "The programming of EU's external assistance and development aid and the fragile balance of power bet ween EEAS and DG DEVCO",
     href: '/example#2',
-    level: '1',
+    level: 1,
   };
   const title3 = {
     variant: 'standalone',
     label: 'Who gets what',
     href: '/example#3',
-    level: '1',
+    level: 1,
   };
   const title4 = {
     variant: 'standalone',
     label:
       'Tied aid and development aid procurement in the framework of EU and WTO law',
     href: '',
-    level: '1',
+    level: 1,
   };
   const title5 = {
     variant: 'standalone',
     label: 'Cost of development policy',
     href: '',
-    level: '1',
+    level: 1,
   };
   const title6 = {
     variant: 'standalone',
     label:
       'France, Europe and development aid : from the treaties of Rome to the present day',
     href: '',
-    level: '1',
+    level: 1,
   };
 
   return (

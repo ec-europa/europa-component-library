@@ -3,8 +3,8 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground'
-import Link from '@ecl/ec-react-component-link/Link'
+import Playground from '@ecl/website-components/Playground';
+import Link from '@ecl/ec-react-component-link/Link';
 
 import demoContentDefault from '@ecl/eu-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/eu-specs-link/demo/data--standalone';
@@ -12,30 +12,24 @@ import demoContentIcon from '@ecl/eu-specs-link/demo/data--icon';
 
 ## Default link
 
-<Playground
-  system="eu"
-  selectedKind="Link"
-  selectedStory="default"
->
-  <p className="ecl-u-type-paragraph">The European Commission is the executive of <Link {...demoContentDefault} /> and promotes its general interest.</p>
+<Playground system="eu" selectedKind="Link" selectedStory="default">
+  <p className="ecl-u-type-paragraph">
+    The European Commission is the executive of <Link {...demoContentDefault} />{' '}
+    and promotes its general interest.
+  </p>
 </Playground>
 
 ## Standalone link
 
-<Playground
-  system="eu"
-  selectedKind="Link"
-  selectedStory="standalone"
->
+<Playground system="eu" selectedKind="Link" selectedStory="standalone">
   <Link {...demoContentStandalone} />
 </Playground>
 
 ## Link with icon
 
-<Playground
-  system="eu"
-  selectedKind="Link"
-  selectedStory="default"
->
-  <p className="ecl-u-type-paragraph">The European Commission is the executive of <Link {...demoContentIcon} /> and promotes its general interest.</p>
+<Playground system="eu" selectedKind="Link" selectedStory="default">
+  <p className="ecl-u-type-paragraph">
+    The European Commission is the executive of <Link {...demoContentIcon} />{' '}
+    and promotes its general interest.
+  </p>
 </Playground>
