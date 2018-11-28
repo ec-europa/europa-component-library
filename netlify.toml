@@ -1,7 +1,8 @@
 [build]
-  command = "yarn run dist"
-  publish = "dist/website"
+  command = "echo 'Setting redirects'"
 
-[build.environment]
-  YARN_VERSION = "1.12.3"
-  YARN_FLAGS = "--frozen-lockfile"
+[[redirects]]
+  from = "/*"
+  to = "https://v2--europa-component-library.netlify.com/"
+  status = 301
+  force = false
