@@ -47,16 +47,12 @@ class ContextualNavigation {
     }
   }
 
-  handleClickOnMore(e) {
-    e.preventDefault();
-
+  handleClickOnMore() {
     this.list.setAttribute('aria-expanded', true);
     // IE way to remove a node...
     if (this.moreItem.parentNode && this.moreItem.parentNode.parentNode) {
       this.moreItem.parentNode.parentNode.removeChild(this.moreItem.parentNode);
     }
-
-    return this;
   }
 }
 
