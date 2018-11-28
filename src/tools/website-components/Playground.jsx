@@ -12,8 +12,8 @@ import styles from './Playground.scss';
 class Playground extends PureComponent {
   constructor(props) {
     super(props);
-    this.playgroundRef = React.createRef();
     this.showcaseCodeRef = React.createRef();
+    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
 
     // Parameters
     this.showcaseLineHeight = 1.5;
@@ -76,7 +76,7 @@ class Playground extends PureComponent {
         : '';
 
     return (
-      <div className={styles.playground} ref={this.playgroundRef}>
+      <div className={styles.playground}>
         <div className={styles.showcase}>
           {!hideDemo && (
             <Fragment>
@@ -130,7 +130,7 @@ class Playground extends PureComponent {
             className={`${styles.link} ${styles['link--icon']} ${
               styles.toggle
             }`}
-            onClick={this.handleClickOnToggle.bind(this)}
+            onClick={this.handleClickOnToggle}
           >
             <div className={styles.toggle__container}>
               <span className={styles.link__label}>Show more</span>
