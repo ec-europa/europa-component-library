@@ -1,7 +1,3 @@
 [build]
-  command = "yarn run dist"
-  publish = "dist/website"
-
-[build.environment]
-  YARN_VERSION = "1.12.3"
-  YARN_FLAGS = "--frozen-lockfile"
+  command = "echo 'Setting redirects...'"
+  publish = "site"
