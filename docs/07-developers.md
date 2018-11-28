@@ -2,8 +2,8 @@
 
 Requirements:
 
-* Node.js current (8.x)
-* yarn >= 1.0.2
+- Node.js >= 8.x
+- yarn >= 1.10.1
 
 We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` followed by `nvm use` to get the right Node.js version.
 
