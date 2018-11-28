@@ -11,9 +11,11 @@
 }
 
 .image {
+  align-items: center;
   background-color: $ecl-color-white-100;
   border: 1px solid $ecl-color-grey-15;
   display: flex;
+  justify-content: center;
 }
 
 .legend {
@@ -63,6 +65,8 @@
 
     .image {
       border-width: 0;
+      flex-grow: 1;
+      height: 100%;
     }
 
     .legend {

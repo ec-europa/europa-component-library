@@ -7,6 +7,8 @@ import { Anatomy, DoDont } from '@ecl/website-components'
 
 Use a button to trigger and carry out an action on a page.
 
+## Anatomy
+
 <Anatomy 
   vertical
   image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_Default.png"
@@ -17,15 +19,6 @@ Use a button to trigger and carry out an action on a page.
     ],
     description: "*At least one of these two elements has to be used."
   }}
-/>
-
-<DoDont
-  doImage="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_Default.png"
-  doTitle="Do"
-  doDescription="Each page can have one to two Primary (or Call-to-action) buttons."
-  dontTitle="Don't"
-  dontImage="https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA_Default.png"
-  dontDescription="Do not use Buttons to send the user to another page or for navigational purposes."
 />
 
 ## When to use
@@ -58,3 +51,19 @@ It is possible to add an icon to a button to enhance the action.
 ## When not to use
 
 Do not use Buttons to send the user to another page or for navigational purposes. Use links instead, as they are not associated with an action.
+
+## Examples
+
+<DoDont
+  itemDo={{
+    image: "https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_Default.png",
+    title: "Do",
+    description: "Each page can have one to two Primary (or Call-to-action) buttons.",
+  }}
+  itemDont={{
+    image: "https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA_Default.png",
+    title: "Don't",
+    description: "Use call-to-action buttons for minor operations.",
+  }}
+/>
+
