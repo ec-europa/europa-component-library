@@ -8,10 +8,32 @@ import demoContentSuccess from '@ecl/ec-specs-message/demo/data--success';
 import demoContentWarning from '@ecl/ec-specs-message/demo/data--warning';
 import demoContentError from '@ecl/ec-specs-message/demo/data--error';
 
+import VanillaMessage from '@ecl/ec-component-message';
+
 import Message from '../Message';
+import Wrapper from '../StoryWrapper';
 
 storiesOf('Message', module)
   .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <Wrapper
+      afterMount={() => {
+        const element = document.querySelector('[data-ecl-message]');
+        const vanillaMessage = new VanillaMessage(element);
+        vanillaMessage.init();
+
+        // Return new context
+        return { vanillaMessage };
+      }}
+      beforeUnmount={context => {
+        if (context.vanillaMessage) {
+          context.vanillaMessage.destroy();
+        }
+      }}
+    >
+      <div>{story()}</div>
+    </Wrapper>
+  ))
   .add('info', () => (
     <Message
       {...demoContentInfo}

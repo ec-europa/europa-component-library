@@ -1,31 +1,11 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button/Button';
 import Icon from '@ecl/ec-react-component-icon/Icon';
 
-export default class Message extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isVisible: true,
-    };
-
-    this.message = null;
-    this.messageRef = React.createRef();
-    this.onClose = this.onClose.bind(this);
-  }
-
-  onClose() {
-    this.setState({
-      isVisible: false,
-    });
-
-    return this;
-  }
-
+export default class Message extends PureComponent {
   render() {
     const {
       variant,
@@ -33,20 +13,17 @@ export default class Message extends React.Component {
       title,
       description,
       close,
+      onClose,
       className,
       ...props
     } = this.props;
-
-    const { isVisible } = this.state;
 
     const classNames = classnames(className, 'ecl-message', {
       [`ecl-message--${variant}`]: variant,
     });
 
-    if (!isVisible) return null;
-
     return (
-      <div {...props} role="alert" className={classNames} ref={this.messageRef}>
+      <div {...props} role="alert" className={classNames} data-ecl-message>
         <Icon
           {...icon}
           className={classnames(icon.className, 'ecl-message__icon')}
@@ -57,7 +34,7 @@ export default class Message extends React.Component {
             type="button"
             className={classnames(close.className, 'ecl-message__close')}
             data-ecl-message-close
-            onClick={this.onClose}
+            onClick={onClose}
           />
           <div className="ecl-message__title">{title}</div>
           <p className="ecl-message__description">{description}</p>
@@ -73,6 +50,7 @@ Message.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   close: PropTypes.shape(Button.propTypes),
+  onClose: PropTypes.func,
   className: PropTypes.string,
 };
 
@@ -82,5 +60,6 @@ Message.defaultProps = {
   title: '',
   description: '',
   close: '',
+  onClose: () => {},
   className: '',
 };
