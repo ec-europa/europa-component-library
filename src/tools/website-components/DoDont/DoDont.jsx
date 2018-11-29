@@ -14,7 +14,7 @@ const DoDont = ({ itemDo, itemDont }) => (
       <div className={styles.container}>
         <div className={styles.title}>
           <svg className={styles.title__icon}>
-            <use xlinkHref={`${iconSprite}#notifications--success`} />
+            <use xlinkHref={`${iconSprite}#ui--check-filled`} />
           </svg>
           {itemDo.title}
         </div>
@@ -29,7 +29,7 @@ const DoDont = ({ itemDo, itemDont }) => (
       <div className={styles.container}>
         <div className={styles.title}>
           <svg className={styles.title__icon}>
-            <use xlinkHref={`${iconSprite}#notifications--error`} />
+            <use xlinkHref={`${iconSprite}#ui--close-filled`} />
           </svg>
           {itemDont.title}
         </div>
