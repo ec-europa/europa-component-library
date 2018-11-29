@@ -1,10 +1,6 @@
 @import '@ecl/ec-theme-default/index';
 
-.dodont {
-  margin-bottom: $ecl-spacing-l;
-}
-
-.do {
+* + .dodont {
   margin-top: $ecl-spacing-l;
 }
 .dont {
@@ -56,10 +52,6 @@
 }
 
 @media screen and (min-width: $ecl-breakpoint-sm) {
-  .dodont {
-    margin-bottom: $ecl-spacing-3-xl;
-  }
-
   .dont {
     margin-top: $ecl-spacing-l;
   }

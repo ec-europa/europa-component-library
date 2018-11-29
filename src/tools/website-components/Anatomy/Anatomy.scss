@@ -1,7 +1,6 @@
 @import '@ecl/ec-theme-default/index';
 
-.anatomy {
-  margin-bottom: $ecl-spacing-m;
+* + .anatomy {
   margin-top: $ecl-spacing-m;
 }
 
@@ -55,8 +54,7 @@
 }
 
 @media screen and (min-width: $ecl-breakpoint-md) {
-  .anatomy {
-    margin-bottom: $ecl-spacing-l;
+  * + .anatomy {
     margin-top: $ecl-spacing-l;
   }
 
