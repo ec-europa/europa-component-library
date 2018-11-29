@@ -40,51 +40,7 @@
 
 {% include '@ecl/ec-component-footer' with {
   custom_footer: {
-    identity: 'Digital single market',
-    social_links: {
-      label: 'Follow us:',
-      links: [
-        {
-          type: 'social-network',
-          icon: 'facebook',
-          link: {
-            href: '../../example.html#',
-            label: 'Facebook',
-          },
-        },
-        {
-          type: 'social-network',
-          icon: 'twitter',
-          link: {
-            href: '../../example.html#',
-            label: 'Twitter',
-          },
-        },
-        {
-          type: 'external',
-          link: {
-            href: '../../example.html#',
-            label: 'Other social media',
-          },
-        },
-      ],
-    },
-    other_links: {
-      links: [
-        {
-          link: {
-            href: '../../example.html#',
-            label: 'Contact',
-          },
-        },
-        {
-          link: {
-            href: '../../example.html#',
-            label: 'Site map',
-          },
-        },
-      ],
-    },
+    identity: ''
   },
   corporate_footer: {
     about_ec: {
@@ -148,12 +104,20 @@
         label: "About the Commission's new web presence",
       },
       {
+        href: 'https://ec.europa.eu/info/language-policy_en',
+        label: 'Language policy',
+      },
+      {
         href: 'http://ec.europa.eu/info/resources-partners_en',
         label: 'Resources for partners',
       },
       {
         href: 'http://ec.europa.eu/info/cookies_en',
         label: 'Cookies',
+      },
+      {
+        href: 'https://ec.europa.eu/info/privacy-policy_en',
+        label: 'Privacy policy',
       },
       {
         href: 'http://ec.europa.eu/info/legal-notice_en',

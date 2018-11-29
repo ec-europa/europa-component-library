@@ -9,7 +9,7 @@
   %}
   {% set options = default_options|merge(options|default({})) %}
   <footer class="ecl-footer">
-    {% if options.custom_footer is not empty %}
+    {% if options.custom_footer.identity is not empty %}
       <div class="ecl-footer__custom">
         {{ options.custom_footer }}
       </div>
