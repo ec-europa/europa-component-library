@@ -25,7 +25,11 @@
   languages: languages
 } %}
 
-{% include '@ecl/ec-component-page-header' with { variant: 'default' }|merge(page_header|default({})) %}
+{% include '@ecl/ec-component-page-header' with {
+  breadcrumb: breadcrumbSegments,
+  introduction:'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
+  metas: ['News article', '6 July 2015', 'Brussels'],
+} %}
 {% if menu is defined and menu is not empty %}
   {% include '@ecl/ec-component-navigation-menu' with menu %}
 {% endif %}
@@ -39,53 +43,6 @@
 </main>
 
 {% include '@ecl/ec-component-footer' with {
-  custom_footer: {
-    identity: 'Digital single market',
-    social_links: {
-      label: 'Follow us:',
-      links: [
-        {
-          type: 'social-network',
-          icon: 'facebook',
-          link: {
-            href: '../../example.html#',
-            label: 'Facebook',
-          },
-        },
-        {
-          type: 'social-network',
-          icon: 'twitter',
-          link: {
-            href: '../../example.html#',
-            label: 'Twitter',
-          },
-        },
-        {
-          type: 'external',
-          link: {
-            href: '../../example.html#',
-            label: 'Other social media',
-          },
-        },
-      ],
-    },
-    other_links: {
-      links: [
-        {
-          link: {
-            href: '../../example.html#',
-            label: 'Contact',
-          },
-        },
-        {
-          link: {
-            href: '../../example.html#',
-            label: 'Site map',
-          },
-        },
-      ],
-    },
-  },
   corporate_footer: {
     about_ec: {
       title: 'European Commission',
@@ -142,27 +99,35 @@
       ],
     },
     bottom_links: [
-      {
-        href:
-          'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
-        label: "About the Commission's new web presence",
-      },
-      {
-        href: 'http://ec.europa.eu/info/resources-partners_en',
-        label: 'Resources for partners',
-      },
-      {
-        href: 'http://ec.europa.eu/info/cookies_en',
-        label: 'Cookies',
-      },
-      {
-        href: 'http://ec.europa.eu/info/legal-notice_en',
-        label: 'Legal notice',
-      },
-      {
-        href: 'http://ec.europa.eu/info/contact_en',
-        label: 'Contact',
-      },
-    ],
+        {
+          href:
+            'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
+          label: "About the Commission's new web presence",
+        },
+        {
+          href: 'https://ec.europa.eu/info/language-policy_en',
+          label: 'Language policy',
+        },
+        {
+          href: 'http://ec.europa.eu/info/resources-partners_en',
+          label: 'Resources for partners',
+        },
+        {
+          href: 'http://ec.europa.eu/info/cookies_en',
+          label: 'Cookies',
+        },
+        {
+          href: 'https://ec.europa.eu/info/privacy-policy_en',
+          label: 'Privacy policy',
+        },
+        {
+          href: 'http://ec.europa.eu/info/legal-notice_en',
+          label: 'Legal notice',
+        },
+        {
+          href: 'http://ec.europa.eu/info/contact_en',
+          label: 'Contact',
+        },
+      ],
   },
 } %}
