@@ -2,6 +2,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContentInfo from '@ecl/ec-specs-message/demo/data--info';
 import demoContentSuccess from '@ecl/ec-specs-message/demo/data--success';
@@ -11,12 +12,11 @@ import demoContentError from '@ecl/ec-specs-message/demo/data--error';
 import VanillaMessage from '@ecl/ec-component-message';
 
 import Message from '../Message';
-import Wrapper from '../StoryWrapper';
 
 storiesOf('Message', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
-    <Wrapper
+    <StoryWrapper
       afterMount={() => {
         const element = document.querySelector('[data-ecl-message]');
         const vanillaMessage = new VanillaMessage(element);
@@ -31,8 +31,8 @@ storiesOf('Message', module)
         }
       }}
     >
-      <div>{story()}</div>
-    </Wrapper>
+      {story()}
+    </StoryWrapper>
   ))
   .add('info', () => (
     <Message

@@ -2,16 +2,38 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContentInfo from '@ecl/eu-specs-message/demo/data--info';
 import demoContentSuccess from '@ecl/eu-specs-message/demo/data--success';
 import demoContentWarning from '@ecl/eu-specs-message/demo/data--warning';
 import demoContentError from '@ecl/eu-specs-message/demo/data--error';
 
+import VanillaMessage from '@ecl/ec-component-message';
+
 import Message from '../Message';
 
 storiesOf('Message', module)
   .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <StoryWrapper
+      afterMount={() => {
+        const element = document.querySelector('[data-ecl-message]');
+        const vanillaMessage = new VanillaMessage(element);
+        vanillaMessage.init();
+
+        // Return new context
+        return { vanillaMessage };
+      }}
+      beforeUnmount={context => {
+        if (context.vanillaMessage) {
+          context.vanillaMessage.destroy();
+        }
+      }}
+    >
+      {story()}
+    </StoryWrapper>
+  ))
   .add('info', () => (
     <Message
       {...demoContentInfo}

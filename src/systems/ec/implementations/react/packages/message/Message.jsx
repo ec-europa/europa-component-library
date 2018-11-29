@@ -1,48 +1,44 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button/Button';
 import Icon from '@ecl/ec-react-component-icon/Icon';
 
-export default class Message extends PureComponent {
-  render() {
-    const {
-      variant,
-      icon,
-      title,
-      description,
-      close,
-      onClose,
-      className,
-      ...props
-    } = this.props;
+const Message = ({
+  variant,
+  icon,
+  title,
+  description,
+  close,
+  onClose,
+  className,
+  ...props
+}) => {
+  const classNames = classnames(className, 'ecl-message', {
+    [`ecl-message--${variant}`]: variant,
+  });
 
-    const classNames = classnames(className, 'ecl-message', {
-      [`ecl-message--${variant}`]: variant,
-    });
-
-    return (
-      <div {...props} role="alert" className={classNames} data-ecl-message>
-        <Icon
-          {...icon}
-          className={classnames(icon.className, 'ecl-message__icon')}
+  return (
+    <div {...props} role="alert" className={classNames} data-ecl-message>
+      <Icon
+        {...icon}
+        className={classnames(icon.className, 'ecl-message__icon')}
+      />
+      <div className="ecl-message__content">
+        <Button
+          {...close}
+          type="button"
+          className={classnames(close.className, 'ecl-message__close')}
+          data-ecl-message-close
+          onClick={onClose}
         />
-        <div className="ecl-message__content">
-          <Button
-            {...close}
-            type="button"
-            className={classnames(close.className, 'ecl-message__close')}
-            data-ecl-message-close
-            onClick={onClose}
-          />
-          <div className="ecl-message__title">{title}</div>
-          <p className="ecl-message__description">{description}</p>
-        </div>
+        <div className="ecl-message__title">{title}</div>
+        <p className="ecl-message__description">{description}</p>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Message.propTypes = {
   variant: PropTypes.string,
@@ -63,3 +59,5 @@ Message.defaultProps = {
   onClose: () => {},
   className: '',
 };
+
+export default Message;

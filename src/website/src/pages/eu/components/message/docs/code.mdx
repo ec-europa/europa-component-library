@@ -3,8 +3,8 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground'
-import Message from '@ecl/eu-react-component-message/Message'
+import Playground from '@ecl/website-components/Playground';
+import Message from '@ecl/eu-react-component-message/Message';
 
 import demoContentInfo from '@ecl/eu-specs-message/demo/data--info';
 import demoContentSuccess from '@ecl/eu-specs-message/demo/data--success';
@@ -17,6 +17,10 @@ import demoContentError from '@ecl/eu-specs-message/demo/data--error';
   system="eu"
   selectedKind="Message"
   selectedStory="info"
+  showFrame
+  iframeOptions={{
+    bodyMargin: '0 0 2px 0',
+  }}
 >
   <Message {...demoContentInfo} />
 </Playground>
@@ -27,6 +31,10 @@ import demoContentError from '@ecl/eu-specs-message/demo/data--error';
   system="eu"
   selectedKind="Message"
   selectedStory="success"
+  showFrame
+  iframeOptions={{
+    bodyMargin: '0 0 2px 0',
+  }}
 >
   <Message {...demoContentSuccess} />
 </Playground>
@@ -37,6 +45,10 @@ import demoContentError from '@ecl/eu-specs-message/demo/data--error';
   system="eu"
   selectedKind="Message"
   selectedStory="warning"
+  showFrame
+  iframeOptions={{
+    bodyMargin: '0 0 2px 0',
+  }}
 >
   <Message {...demoContentWarning} />
 </Playground>
@@ -47,6 +59,10 @@ import demoContentError from '@ecl/eu-specs-message/demo/data--error';
   system="eu"
   selectedKind="Message"
   selectedStory="error"
+  showFrame
+  iframeOptions={{
+    bodyMargin: '0 0 2px 0',
+  }}
 >
   <Message {...demoContentError} />
 </Playground>
