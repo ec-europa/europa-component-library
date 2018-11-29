@@ -13,7 +13,7 @@ const DocPage = React.memo(({ component }) => (
     <Helmet title={component.title} />
     <Header component={component} />
     <main id="main-content" tabIndex="-1">
-      <Container spacing="pv-2xl">
+      <Container spacing="pv-4xl">
         {component.document && <component.document />}
       </Container>
     </main>
