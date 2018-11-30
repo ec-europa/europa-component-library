@@ -3159,7 +3159,7 @@
   %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> options = default_options|<span class="hljs-keyword">merge</span>(options|<span class="hljs-keyword">default</span>({})) %}</span><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.custom_footer is not empty %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.custom_footer.identity is not empty %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom"</span>&gt;</span>
         </span><span class="hljs-template-variable">{{ options.custom_footer }}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
