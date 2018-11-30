@@ -1,5 +1,62 @@
 # Changelog
 
+## Unreleased (2018-11-30)
+
+#### :rocket: New Feature
+
+- [#954](https://github.com/ec-europa/europa-component-library/pull/954) feat(contextual-navigation): apply new specs - INNO-1236 ([@emeryro](https://github.com/emeryro))
+- [#944](https://github.com/ec-europa/europa-component-library/pull/944) feat(message): apply new specs - INNO-1276 ([@emeryro](https://github.com/emeryro))
+- [#938](https://github.com/ec-europa/europa-component-library/pull/938) feat(typography): add paragraphs and headings - 1271 ([@emeryro](https://github.com/emeryro))
+- [#932](https://github.com/ec-europa/europa-component-library/pull/932) feat(pager): add component - INNO-1218 ([@emeryro](https://github.com/emeryro))
+- [#925](https://github.com/ec-europa/europa-component-library/pull/925) feat(social-media-follow): add component - INNO-1221 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#963](https://github.com/ec-europa/europa-component-library/pull/963) fix(react-warnings): fix React warnings - INNO-1292 ([@yhuard](https://github.com/yhuard))
+- [#937](https://github.com/ec-europa/europa-component-library/pull/937) fix(site-header): fix alignment - INNO-1272 ([@yhuard](https://github.com/yhuard))
+- [#931](https://github.com/ec-europa/europa-component-library/pull/931) fix(breadcrumb): remove extra span - INNO-1269 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#961](https://github.com/ec-europa/europa-component-library/pull/961) refactor(website): update usage tab ([@emeryro](https://github.com/emeryro))
+- [#960](https://github.com/ec-europa/europa-component-library/pull/960) refactor(website): update showcase display - INNO-1283 ([@emeryro](https://github.com/emeryro))
+- [#957](https://github.com/ec-europa/europa-component-library/pull/957) feat(logo): add logo translations - INNO-1285 ([@emeryro](https://github.com/emeryro))
+- [#956](https://github.com/ec-europa/europa-component-library/pull/956) fix(footer): ECL 2.x add missing links - INNO-1286 ([@emeryro](https://github.com/emeryro))
+- [#945](https://github.com/ec-europa/europa-component-library/pull/945) feat(website-section-pages): bootstrap sections pages - INNO-1274 ([@yhuard](https://github.com/yhuard))
+- [#941](https://github.com/ec-europa/europa-component-library/pull/941) feat(iframes): enhance iframes on website - INNO-1275 ([@yhuard](https://github.com/yhuard))
+- [#933](https://github.com/ec-europa/europa-component-library/pull/933) feat(templates): update existing templates' showcase - INNO-1270 ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#958](https://github.com/ec-europa/europa-component-library/pull/958) docs(grid): adding new content ([@kibos11](https://github.com/kibos11))
+- [#949](https://github.com/ec-europa/europa-component-library/pull/949) doc(getting-started) --no-issue ([@degliwe](https://github.com/degliwe))
+- [#939](https://github.com/ec-europa/europa-component-library/pull/939) docs: fix small typo ([@Yaomimi](https://github.com/Yaomimi))
+- [#940](https://github.com/ec-europa/europa-component-library/pull/940) docs: fix small typo ([@Yaomimi](https://github.com/Yaomimi))
+- [#936](https://github.com/ec-europa/europa-component-library/pull/936) docs: correct text ([@Yaomimi](https://github.com/Yaomimi))
+- [#929](https://github.com/ec-europa/europa-component-library/pull/929) docs(ec/typography): suggest new structure ([@yhuard](https://github.com/yhuard))
+- [#916](https://github.com/ec-europa/europa-component-library/pull/916) docs(ec/media-container): introduce media container ([@Yaomimi](https://github.com/Yaomimi))
+- [#801](https://github.com/ec-europa/europa-component-library/pull/801) docs(ec/inpage-nav): add usage for inpage navigation ([@Yaomimi](https://github.com/Yaomimi))
+- [#921](https://github.com/ec-europa/europa-component-library/pull/921) docs(ec/guidelines): draft use of images ([@Yaomimi](https://github.com/Yaomimi))
+- [#919](https://github.com/ec-europa/europa-component-library/pull/919) docs(eu/page-banner): introduce EU page banner ([@Yaomimi](https://github.com/Yaomimi))
+- [#918](https://github.com/ec-europa/europa-component-library/pull/918) docs(ec/page-banner): introduce EC page banner ([@Yaomimi](https://github.com/Yaomimi))
+- [#920](https://github.com/ec-europa/europa-component-library/pull/920) docs(eu/hero-banner): introduce hero banner ([@Yaomimi](https://github.com/Yaomimi))
+
+#### :house: Internal
+
+- [#967](https://github.com/ec-europa/europa-component-library/pull/967) chore(deps): update dependencies and pullapprove v3 - no issue ([@yhuard](https://github.com/yhuard))
+- [#964](https://github.com/ec-europa/europa-component-library/pull/964) chore(v2): prepare branch v2 - no issue ([@yhuard](https://github.com/yhuard))
+- [#962](https://github.com/ec-europa/europa-component-library/pull/962) chore(deps): update dependencies and apply prettier - no issue ([@yhuard](https://github.com/yhuard))
+- [#927](https://github.com/ec-europa/europa-component-library/pull/927) chore(deps): keep dependencies up-to-date - no issue ([@yhuard](https://github.com/yhuard))
+- [#934](https://github.com/ec-europa/europa-component-library/pull/934) chore(react-dependencies): harmonize react packages' dependencies - INNO-1268 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 5
+
+- Georgios K ([@kibos11](https://github.com/kibos11))
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- wesley deglise ([@degliwe](https://github.com/degliwe))
+
 ## 2.0.0-alpha.3 (2018-10-23)
 
 #### :rocket: New Feature
@@ -1284,7 +1341,7 @@ This is the first major version of the ECL. 🎉
 ### :bug: Bug Fix
 
 - [#221](https://github.com/ec-europa/europa-component-library/pull/221)
-  fix(font-family): use $ecl-font-family-sans-serif for buttons, selects and
+  fix(font-family): use \$ecl-font-family-sans-serif for buttons, selects and
   text inputs - INNO-645. ([@yhuard](https://github.com/yhuard))
 - [#219](https://github.com/ec-europa/europa-component-library/pull/219)
   fix(menu): add z-index on menu's dropdown - INNO-648.
