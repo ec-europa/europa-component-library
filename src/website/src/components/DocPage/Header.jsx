@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Container from '../Grid/Container';
@@ -46,6 +46,12 @@ const getSectionTitle = component => {
   return getTitle(component);
 };
 
+const navigateTab = e => {
+  console.log(e.target.value);
+
+  return <Redirect to="/example" />;
+};
+
 const Header = React.memo(({ component }) => {
   if (!component || !component.attributes) return null;
 
@@ -76,7 +82,11 @@ const Header = React.memo(({ component }) => {
               ))}
             </ul>
 
-            <select id="header-tabs" className={styles['header__tabs-select']}>
+            <select
+              id="header-tabs"
+              className={styles['header__tabs-select']}
+              onChange={navigateTab}
+            >
               {component.parent.children.map(tab => (
                 <option key={tab.attributes.url} value={tab.attributes.url}>
                   {tab.attributes.title}
