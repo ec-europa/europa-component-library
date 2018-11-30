@@ -1,7 +1,7 @@
 version: 3
 
 pullapprove_conditions:
-  - condition: "'wip' not in labels"
+  - condition: "'process: WIP' not in labels"
     unmet_status: pending
     explanation: 'This PR is a work in progress'
 
