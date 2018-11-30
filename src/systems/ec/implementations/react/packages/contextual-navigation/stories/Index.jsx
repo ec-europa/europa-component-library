@@ -27,8 +27,8 @@ storiesOf('Navigation/Contextual Navigation', module)
         return { vanillaContextualNavigation };
       }}
       beforeUnmount={context => {
-        if (context.vanillaMessage) {
-          context.vanillaMessage.destroy();
+        if (context.vanillaContextualNavigation) {
+          context.vanillaContextualNavigation.destroy();
         }
       }}
     >
