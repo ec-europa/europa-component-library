@@ -1,22 +1,15 @@
-version: 2
+version: 3
 
-always_pending:
-  labels:
-    - wip
-  explanation: 'This PR is a work in progress'
+pullapprove_conditions:
+  - condition: "'wip' not in labels"
+    unmet_status: pending
+    explanation: 'This PR is a work in progress'
 
 groups:
   code-review:
-    required: 1
-    github_reviews:
-      enabled: true
-    approve_by_comment:
-      enabled: false
-    author_approval:
-      ignored: true
-    reset_on_push:
-      enabled: true
-    reset_on_reopened:
-      enabled: true
-    teams:
-      - inno
+    reviews:
+      # -1 will require that all pending requests are approved
+      required: -1
+    reviewers:
+      teams:
+        - inno
