@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -60,20 +60,30 @@ const Header = React.memo(({ component }) => {
         )}
         <h1 className={styles['header__page-title']}>{pageTitle}</h1>
         {component.attributes.isTab && (
-          <ul className={styles.header__tabs}>
-            {component.parent.children.map(tab => (
-              <li key={tab.attributes.url}>
-                <NavLink
-                  to={tab.attributes.url}
-                  strict
-                  className={styles['header__tabs-item']}
-                  activeClassName={styles['header__tabs-item--active']}
-                >
+          <Fragment>
+            <ul className={styles.header__tabs}>
+              {component.parent.children.map(tab => (
+                <li key={tab.attributes.url}>
+                  <NavLink
+                    to={tab.attributes.url}
+                    strict
+                    className={styles['header__tabs-item']}
+                    activeClassName={styles['header__tabs-item--active']}
+                  >
+                    {tab.attributes.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            <select id="header-tabs" className={styles['header__tabs-select']}>
+              {component.parent.children.map(tab => (
+                <option key={tab.attributes.url} value={tab.attributes.url}>
                   {tab.attributes.title}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+                </option>
+              ))}
+            </select>
+          </Fragment>
         )}
       </Container>
     </header>

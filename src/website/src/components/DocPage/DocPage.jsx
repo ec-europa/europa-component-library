@@ -10,26 +10,29 @@ import Col from '../Grid/Col';
 import Row from '../Grid/Row';
 import styles from './DocPage.scss';
 
-const DocPage = React.memo(({ component }) => (
-  <Fragment>
-    <ScrollToTopOnMount />
-    <Helmet title={component.title} />
-    <Header component={component} />
-    <main id="main-content" tabIndex="-1">
-      <Container spacing="pv-l pv-md-3xl">
-        <Row>
-          <Col col="12 xl-9">
-            {component.document && <component.document />}
-          </Col>
+const DocPage = React.memo(({ component }) => {
+  const pageStructure = component.inpageNav ? (
+    <Row>
+      <Col col="12 xl-9">{component.document && <component.document />}</Col>
+      <Col col="12 xl-3" className={styles['inpage-nav']}>
+        <component.inpageNav />
+      </Col>
+    </Row>
+  ) : (
+    component.document && <component.document />
+  );
 
-          <Col col="12 xl-3" className={styles['inpage-nav']}>
-            {/* Inpage navigation */}
-          </Col>
-        </Row>
-      </Container>
-    </main>
-  </Fragment>
-));
+  return (
+    <Fragment>
+      <ScrollToTopOnMount />
+      <Helmet title={component.title} />
+      <Header component={component} />
+      <main id="main-content" tabIndex="-1">
+        <Container spacing="pv-l pv-md-3xl">{pageStructure}</Container>
+      </main>
+    </Fragment>
+  );
+});
 
 DocPage.propTypes = {
   component: PropTypes.shape({
@@ -44,6 +47,7 @@ DocPage.propTypes = {
     ),
     defaultTab: PropTypes.string,
     document: PropTypes.func,
+    inpageNav: PropTypes.func,
   }),
 };
 
