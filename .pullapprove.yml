@@ -4,12 +4,21 @@ pullapprove_conditions:
   - condition: "'process: WIP' not in labels"
     unmet_status: pending
     explanation: 'This PR is a work in progress'
+  - condition: "'process: on hold' not in labels"
+    unmet_status: pending
+    explanation: 'This PR is on hold'
 
 groups:
-  code-review:
+  # all pending requests must be approved
+  all_requests:
     reviews:
-      # -1 will require that all pending requests are approved
       required: -1
+  # when 'process: review needed' is added, automatically request a review from
+  code-review:
+    conditions:
+      - "'process: review needed' in labels"
+    reviews:
+      required: 1
     reviewers:
       teams:
-        - inno
+        - ecl-reviewers
