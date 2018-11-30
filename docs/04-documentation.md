@@ -17,10 +17,10 @@ an invite, please contact an owner of
 Locate the page to edit.
 
 To edit components related pages
-`europa-component-library/src/systems/{SYSTEM}/specs/components/{COMPONENT}/docs/{PAGE}.md`
+`europa-component-library/src/website/src/pages/{SYSTEM}/components/{COMPONENT}/docs/{PAGE}.md`
 
 or more generally
-`europa-component-library/src/systems/{SYSTEM}/specs/{SECTION}/**/{PAGE}.md`
+`europa-component-library/src/website/src/pages/{SYSTEM}/{SECTION}/**/{PAGE}.md`
 
 To edit pages from the site (not linked to a specific item like the splash page):
 `europa-component-library/website/src/pages/index.md`
@@ -35,6 +35,109 @@ To edit pages from the site (not linked to a specific item like the splash page)
 <details><summary>See how to do this step</summary>
 
 ![Preview changes](../src/systems/ec/implementations/vanilla/styleguide/static/assets/screenshots/edit-preview-changes.gif)
+
+</details>
+
+### Extra markup
+
+In order to easily display specific block on information, some additional markup are provided. Just copy/paste the markup anywhere in your mdx file and update the values.
+
+<details><summary>Paragraphs</summary>
+
+To change paragraph font size, use the tag `<Paragraph>` with following values:
+
+```
+<Paragraph size="{SIZE OF THE TEXT}">
+  {CONTENT OF THE PARAGRAPH}
+</Paragraph>
+```
+
+Full example:
+
+```
+<Paragraph size="lead">
+  This text will be displayed in a lead paragraph.
+</Paragraph>
+```
+
+</details>
+
+<details><summary>Do / Don't</summary>
+
+Use the tag `<DoDont>` with following values:
+
+```
+<DoDont>
+itemDo={{
+  image: "{PATH TO DO IMAGE}",
+  alt: "{ALT TEXT FOR DO IMAGE}",
+  title: "{TITLE OF THE DO CAPTION}",
+  description: "{CONTENT OF THE DO CAPTION}",
+}}
+itemDont={{
+  image: "{PATH TO DONT IMAGE}",
+  alt: "{ALT TEXT FOR DONT IMAGE}",
+  title: "{TITLE OF THE DONT CAPTION}",
+  description: "{CONTENT OF THE DONT CAPTION}",
+}}
+</DoDont>
+```
+
+Full example:
+
+```
+<DoDont>
+itemDo={{
+  image: "http://example.com/do-image.png",
+  alt: "image of a call-to-action button",
+  title: "Do",
+  description: "Each page can have one to two Primary (or Call-to-action) buttons.",
+}}
+itemDont={{
+  image: "http://example.com/dont-image.png",
+  alt: "image of a misused button",
+  title: "Don't",
+  description: "Use call-to-action buttons for minor operations.",
+}}
+</DoDont>
+```
+
+</details>
+
+<details><summary>Anatomy</summary>
+
+Use the tag `<Anatomy>` with following values:
+
+```
+<Anatomy>
+  vertical 
+  image="{PATH TO THE IMAGE}"
+  legend={{
+    items: [
+      { label: "{FIRST LEGEND LABEL}", color: "{FIRST LEGEND COLOR (WITH #)}" },
+      { label: "{SECOND LEGEND LABEL}", color: "{SECOND LEGEND COLOR (WITH #)}" }
+    ],
+    description: "{LABEL DESCRIPTION}"
+  }}
+</Anatomy>
+```
+
+If you don't want the legend to be vertical, just remove the `vertical` value.
+
+Full example:
+
+```
+<Anatomy> 
+  image="http://example.com/anatomy.png"
+  legend={{
+    items: [
+      { label: "Mandatory", color: "#404040" },
+      { label: "Optional", color: "#fe8144" }
+    ],
+    description: "*At least one of these two elements has to be used."
+  }}
+</Anatomy>
+```
 
 </details>
 
