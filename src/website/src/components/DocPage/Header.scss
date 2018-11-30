@@ -24,12 +24,16 @@ $header-tabs-border-width: 4px;
 }
 
 .header__tabs {
-  display: flex;
+  display: none;
   flex-direction: row;
   flex-wrap: nowrap;
   list-style: none;
   margin: 0;
   padding: 0;
+
+  :global(.no-js) & {
+    display: flex;
+  }
 }
 
 .header__tabs-item {
@@ -50,4 +54,24 @@ $header-tabs-border-width: 4px;
 
 .header__tabs-item--active {
   border-bottom: $header-tabs-border-width solid $ecl-color-yellow-100;
+}
+
+.header__tabs-select {
+  font: $ecl-font-m;
+  display: block;
+  width: 100%;
+
+  :global(.no-js) & {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $ecl-breakpoint-md) {
+  .header__tabs-select {
+    display: none;
+  }
+
+  .header__tabs {
+    display: flex;
+  }
 }
