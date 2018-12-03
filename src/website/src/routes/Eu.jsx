@@ -52,20 +52,6 @@ const allPages = [
 
 const sortedPages = sortPages(allPages);
 
-const loopThroughPages = (pages, level = 0) => {
-  pages.forEach(page => {
-    if (
-      page.children &&
-      Array.isArray(page.children) &&
-      page.children.length > 0
-    ) {
-      loopThroughPages(page.children, level + 1);
-    }
-  });
-
-  sortPages(pages, level);
-};
-
 function flatDeep(pages) {
   return pages.reduce((acc, page) => {
     let acc2 = acc;

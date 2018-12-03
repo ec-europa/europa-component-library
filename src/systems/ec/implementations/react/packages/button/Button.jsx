@@ -13,13 +13,12 @@ const Button = ({ variant, type, label, icon, className, ...props }) => {
     <button {...props} type={type} className={classNames}>
       <span className="ecl-button__container">
         <span className="ecl-button__label">{label}</span>
-        {icon &&
-          icon.shape && (
-            <Icon
-              {...icon}
-              className={classnames(icon.className, 'ecl-button__icon')}
-            />
-          )}
+        {icon && icon.shape && (
+          <Icon
+            {...icon}
+            className={classnames(icon.className, 'ecl-button__icon')}
+          />
+        )}
       </span>
     </button>
   );

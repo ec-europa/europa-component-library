@@ -7,7 +7,7 @@ The in-page navigation is a vertical menu containing (anchored) links to H2-head
 
 A page with in-page navigation also makes it easier to refer to specific content under an H2 header when that page is shared.
 
-![In-page navigation](http://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/inpage.png)
+![In-page navigation](https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/inpage.png)
 
 ## When to use
 
