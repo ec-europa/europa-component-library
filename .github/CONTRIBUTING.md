@@ -12,7 +12,7 @@ Please fill in the description following the template.
 
 1.  Each merged PR should be labeled with one of the [labels](https://github.com/ec-europa/europa-component-library/labels) named `tag: ...` to indicate what kind of change it is.
 
-2.  Pull the latest `next-v2` branch.
+2.  Pull the latest `v2` branch.
 
 3.  Create a change log entry for the release:
 
@@ -25,7 +25,7 @@ Please fill in the description following the template.
 
 6.  Merge the PR.
 
-7.  Pull the latest `next-v2` branch.
+7.  Pull the latest `v2` branch.
 
 8.  Make sure you are logged in. `npm whoami` will show your npm username if you are logged in. Otherwise, please run `npm login`.
 
