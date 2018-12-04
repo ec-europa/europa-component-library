@@ -3,7 +3,7 @@
 // export * from '@ecl/ec-component-accordion';
 export * from '@ecl/ec-component-breadcrumb';
 // export * from '@ecl/ec-component-carousel';
-// export * from '@ecl/ec-component-context-nav';
+export * from '@ecl/ec-component-contextual-navigation';
 // export * from '@ecl/ec-component-dropdown';
 // export * from '@ecl/ec-component-dialog';
 // export * from '@ecl/ec-component-expandable';
