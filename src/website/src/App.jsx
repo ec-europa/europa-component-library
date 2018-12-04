@@ -37,6 +37,9 @@ const customComponents = {
       <img alt={alt} src={src} className={styles.img} />
     </a>
   ),
+  select: ({ children }) => (
+    <select className={styles.select}>{children}</select>
+  ),
 };
 /* eslint-enable react/prop-types */
 
