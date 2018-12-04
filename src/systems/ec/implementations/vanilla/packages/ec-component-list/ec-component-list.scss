@@ -1,0 +1,73 @@
+/**
+ * List component
+ * @define list
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@include check-imports(('ec-component-link'));
+
+/*
+ * Global
+ */
+@mixin ecl-list() {
+  .ecl-list {
+    margin: 0;
+  }
+}
+
+/*
+ * Navigation list
+ */
+@mixin ecl-list-navigation() {
+   .ecl-list--navigation {
+    padding-bottom: $ecl-spacing-m;
+
+    .ecl-list__title {
+      font: $ecl-font-prolonged-xl;
+      font-weight: $ecl-font-weight-bold;
+      margin-bottom: 0;
+      margin-top: $ecl-spacing-m;
+    }
+
+    .ecl-list__description {
+      color: $ecl-color-grey-100;
+      font: $ecl-font-prolonged-m;
+      margin-bottom: 0;
+      margin-top: $ecl-spacing-m;
+      max-width: 80ch;
+    }
+
+    .ecl-list__link-group {
+      display: flex;
+      flex-direction: column;
+      margin-top: $ecl-spacing-m;
+    }
+
+    .ecl-list__link {
+      font: $ecl-font-prolonged-m;
+      margin-top: $ecl-spacing-xs;
+    }
+
+    .ecl-list__link:first-child {
+      margin-top: 0;
+    }
+
+    .ecl-list__separator {
+      background-color: $ecl-color-grey-100;
+      border-width: 0;
+      height: 1px;
+      margin-bottom: 0;
+      margin-top: $ecl-spacing-m;
+    }
+  }
+}
+
+
+
+// Use mixin
+@include exports('ec-component-list') {
+  @include ecl-list();
+  @include ecl-list-navigation();
+}

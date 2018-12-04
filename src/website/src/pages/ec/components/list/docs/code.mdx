@@ -1,0 +1,27 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import { ListNavigation } from '@ecl/ec-react-component-list';
+
+import demoContentNavigation from '@ecl/ec-specs-list/demo/data--navigation';
+
+## Navigation (with text)
+
+<Playground system="ec" selectedKind="List" selectedStory="navigation (text)">
+  <ListNavigation
+      title={demoContentNavigation.title}
+      description={demoContentNavigation.description}
+    />
+</Playground>
+
+## Navigation (with links)
+
+<Playground system="ec" selectedKind="List" selectedStory="navigation (links)">
+  <ListNavigation
+      title={demoContentNavigation.title}
+      links={demoContentNavigation.links}
+    />
+</Playground>
