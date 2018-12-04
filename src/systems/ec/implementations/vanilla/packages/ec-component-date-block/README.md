@@ -7,8 +7,8 @@ The solution is a date block that allows users to easily visualize this informat
 
 ## When to use this component
 
-* for lists of events and agenda pages
+- for lists of events and agenda pages
 
 ## Do not use this component
 
-* in any other situation except listings
+- in any other situation except listings

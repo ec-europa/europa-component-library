@@ -1,22 +1,24 @@
-version: 2
+version: 3
 
-always_pending:
-  labels:
-    - wip
-  explanation: 'This PR is a work in progress'
+pullapprove_conditions:
+  - condition: "'process: WIP' not in labels"
+    unmet_status: pending
+    explanation: 'This PR is a work in progress'
+  - condition: "'process: on hold' not in labels"
+    unmet_status: pending
+    explanation: 'This PR is on hold'
 
 groups:
+  # when 'process: review needed' is added, automatically request a review from
   code-review:
-    required: 1
-    github_reviews:
-      enabled: true
-    approve_by_comment:
-      enabled: false
-    author_approval:
-      ignored: true
-    reset_on_push:
-      enabled: true
-    reset_on_reopened:
-      enabled: true
-    teams:
-      - inno
+    conditions:
+      - "'process: review needed' in labels"
+    reviews:
+      required: -1
+    reviewers:
+      teams:
+        - ecl-reviewers
+  # all pending requests must be approved
+  all_requests:
+    reviews:
+      required: -1

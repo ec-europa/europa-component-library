@@ -2,7 +2,7 @@
 title: Europa Component Library
 ---
 
-# European Union
+# Europa Component Library
 
 ## europa.eu
 

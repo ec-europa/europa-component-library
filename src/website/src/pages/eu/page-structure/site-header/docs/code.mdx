@@ -3,20 +3,32 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground'
-import SiteHeader from '@ecl/eu-react-component-site-header/SiteHeader'
+import Playground from '@ecl/website-components/Playground';
+import SiteHeader from '@ecl/eu-react-component-site-header/SiteHeader';
 
-import demoContent from '@ecl/eu-specs-site-header/demo/data';
+import demoContentEn from '@ecl/eu-specs-site-header/demo/data--en';
+import demoContentFr from '@ecl/eu-specs-site-header/demo/data--fr';
+
+## Default
 
 <Playground
   system="eu"
   selectedKind="SiteHeader"
   selectedStory="default"
-  showFrame
+  showFrameu
 >
-  <SiteHeader
-    logo={demoContent.logo}
-    languageSelector={demoContent.languageSelector}
-    searchForm={demoContent.searchForm}
-  />
+  <SiteHeader {...demoContentEn} />
+</Playground>
+
+## Translated
+
+EU logo is available in 24 languages.
+
+<Playground
+  system="eu"
+  selectedKind="SiteHeader"
+  selectedStory="translated"
+  showFrameu
+>
+  <SiteHeader {...demoContentFr} />
 </Playground>
