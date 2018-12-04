@@ -42,7 +42,10 @@ export default class FileDownload extends React.Component {
     return (
       <div {...props} className={classNames} ref={this.fileDownloadRef}>
         <div className="ecl-file__container">
-          <Icon {...icon} className={classnames(className, 'ecl-file__icon')} />
+          <Icon
+            {...icon}
+            className={classnames(icon.className, 'ecl-file__icon')}
+          />
 
           <div className="ecl-file__info">
             <div className="ecl-file__title">{title}</div>
@@ -54,7 +57,7 @@ export default class FileDownload extends React.Component {
             {...download}
             variant="standalone"
             className={classnames(
-              className,
+              download.className,
               'ecl-file__download',
               'ecl-button',
               'ecl-button--secondary'
@@ -74,7 +77,10 @@ export default class FileDownload extends React.Component {
             <Link
               {...translation.toggle}
               variant="standalone"
-              className={classnames(className, 'ecl-file__translation-toggle')}
+              className={classnames(
+                translation.toggle.className,
+                'ecl-file__translation-toggle'
+              )}
               data-ecl-file-translation-toggle
             />
 
@@ -101,7 +107,7 @@ export default class FileDownload extends React.Component {
                     {...download}
                     variant="standalone"
                     className={classnames(
-                      className,
+                      download.className,
                       'ecl-file__translation-download'
                     )}
                   />
@@ -142,6 +148,6 @@ FileDownload.defaultProps = {
   language: '',
   meta: '',
   download: {},
-  translation: [],
+  translation: {},
   className: '',
 };
