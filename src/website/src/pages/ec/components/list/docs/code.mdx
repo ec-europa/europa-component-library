@@ -4,24 +4,61 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import { ListNavigation } from '@ecl/ec-react-component-list';
+import { List } from '@ecl/ec-react-component-list';
 
-import demoContentNavigation from '@ecl/ec-specs-list/demo/data--navigation';
+import demoContentText from '@ecl/ec-specs-list/demo/data--text';
+import demoContentLink from '@ecl/ec-specs-list/demo/data--link';
+import demoContentBlockText from '@ecl/ec-specs-list/demo/data--block-text';
+import demoContentBlockLink from '@ecl/ec-specs-list/demo/data--block-link';
 
-## Navigation (with text)
+## Standard list (with text)
 
-<Playground system="ec" selectedKind="List" selectedStory="navigation (text)">
-  <ListNavigation
-      title={demoContentNavigation.title}
-      description={demoContentNavigation.description}
-    />
+<Playground system="ec" selectedKind="List" selectedStory="standard (text)">
+  <List
+    {...demoContentText}
+    hasBullet={true}
+    isOrdered={false}
+    hasSeparator={false}
+  />
 </Playground>
 
-## Navigation (with links)
+## Standard list (with links)
 
-<Playground system="ec" selectedKind="List" selectedStory="navigation (links)">
-  <ListNavigation
-      title={demoContentNavigation.title}
-      links={demoContentNavigation.links}
-    />
+<Playground system="ec" selectedKind="List" selectedStory="standard (link)">
+  <List
+    {...demoContentLink}
+    hasBullet={true}
+    isOrdered={false}
+    hasSeparator={false}
+  />
+</Playground>
+
+## Standard list (with block text)
+
+<Playground
+  system="ec"
+  selectedKind="List"
+  selectedStory="standard (text block)"
+>
+  <List
+    {...demoContentBlockText}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={false}
+  />
+</Playground>
+
+## Standard list (with block link)
+
+<Playground
+  system="ec"
+  selectedKind="List"
+  selectedStory="standard (link block)"
+>
+  <List
+    {...demoContentBlockLink}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={false}
+  />
 </Playground>
