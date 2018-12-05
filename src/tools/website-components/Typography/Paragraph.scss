@@ -1,0 +1,23 @@
+@import '@ecl/ec-theme-default/index';
+
+.paragraph {
+  color: $ecl-color-grey-100;
+  font: $ecl-font-prolonged-m;
+  margin: 0;
+  max-width: 80ch;
+  padding: 0;
+}
+
+* + .paragraph {
+  margin-top: $ecl-spacing-m;
+}
+
+.paragraph--lead {
+  font: $ecl-font-prolonged-xl;
+}
+.paragraph--s {
+  font: $ecl-font-prolonged-s;
+}
+.paragraph--xs {
+  font: $ecl-font-prolonged-xs;
+}

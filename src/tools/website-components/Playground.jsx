@@ -56,6 +56,7 @@ class Playground extends PureComponent {
       selectedKind,
       selectedStory,
       showFrame,
+      iframeOptions,
       hideDemo,
       children,
     } = this.props;
@@ -81,7 +82,11 @@ class Playground extends PureComponent {
           {!hideDemo && (
             <Fragment>
               {showFrame && fullFrameUrl ? (
-                <Iframe url={fullFrameUrl} defaultHeight={frameHeight} />
+                <Iframe
+                  url={fullFrameUrl}
+                  defaultHeight={frameHeight}
+                  iframeOptions={iframeOptions}
+                />
               ) : (
                 <div className={styles.showcase__content}>{children}</div>
               )}
@@ -168,6 +173,8 @@ Playground.propTypes = {
   frameHeight: PropTypes.string,
   playgroundLink: PropTypes.string,
   showFrame: PropTypes.bool,
+  // iframeOptions: https://github.com/davidjbradshaw/iframe-resizer#options
+  iframeOptions: PropTypes.shape(),
   hideDemo: PropTypes.bool,
   system: PropTypes.string,
   selectedKind: PropTypes.string,
@@ -178,6 +185,7 @@ Playground.defaultProps = {
   frameHeight: '200px',
   playgroundLink: '',
   showFrame: false,
+  iframeOptions: {},
   hideDemo: false,
   system: '',
   selectedKind: '',
