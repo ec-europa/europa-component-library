@@ -8,7 +8,7 @@ const ListNavigation = ({ title, description, links, className, ...props }) => {
   // Title
   let titleMarkup = '';
   const TitleTag = `h${title.level || 1}`;
-  if (title) {
+  if (title && title.label) {
     if (title.href) {
       titleMarkup = (
         <TitleTag className="ecl-list__title">
@@ -59,7 +59,6 @@ ListNavigation.propTypes = {
   description: PropTypes.string,
   links: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape(Link.propTypes))),
   className: PropTypes.string,
-  children: PropTypes.node,
 };
 
 ListNavigation.defaultProps = {
@@ -67,7 +66,6 @@ ListNavigation.defaultProps = {
   description: '',
   links: [],
   className: '',
-  children: null,
 };
 
 export default ListNavigation;
