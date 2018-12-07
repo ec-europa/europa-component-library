@@ -1,0 +1,24 @@
+/**
+ * Expandable
+ * @define expandable; weak
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-expandable() {
+  .ecl-expandable__toggle[aria-expanded='true'] {
+    [data-ecl-icon='true'] {
+      transform: rotate(0deg);
+    }
+  }
+
+  :not(.no-js) .ecl-expandable__content[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-expandable') {
+  @include ecl-expandable();
+}

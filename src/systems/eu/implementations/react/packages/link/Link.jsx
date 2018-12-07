@@ -18,7 +18,11 @@ const Link = ({
   if (Array.isArray(icon)) {
     if (icon.length > 0) {
       iconMarkup = icon.map(i => (
-        <Icon {...i} className={classnames(i.className, 'ecl-link__icon')} />
+        <Icon
+          {...i}
+          className={classnames(i.className, 'ecl-link__icon')}
+          data-ecl-icon
+        />
       ));
     }
   } else if (icon && icon.shape) {
@@ -26,6 +30,7 @@ const Link = ({
       <Icon
         {...icon}
         className={classnames(icon.className, 'ecl-link__icon')}
+        data-ecl-icon
       />
     );
   }
@@ -41,14 +46,18 @@ const Link = ({
         <a {...props} href={href} className={classNames}>
           {iconMarkup}
           &nbsp;
-          <span className="ecl-link__label">{label}</span>
+          <span className="ecl-link__label" data-ecl-label>
+            {label}
+          </span>
         </a>
       );
     }
 
     return (
       <a {...props} href={href} className={classNames}>
-        <span className="ecl-link__label">{label}</span>
+        <span className="ecl-link__label" data-ecl-label>
+          {label}
+        </span>
         &nbsp;
         {iconMarkup}
       </a>

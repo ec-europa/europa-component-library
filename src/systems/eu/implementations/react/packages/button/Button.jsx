@@ -12,11 +12,14 @@ const Button = ({ variant, type, label, icon, className, ...props }) => {
     /* eslint-disable-next-line react/button-has-type */
     <button {...props} type={type} className={classNames}>
       <span className="ecl-button__container">
-        <span className="ecl-button__label">{label}</span>
+        <span className="ecl-button__label" data-ecl-label>
+          {label}
+        </span>
         {icon && icon.shape && (
           <Icon
             {...icon}
             className={classnames(icon.className, 'ecl-button__icon')}
+            data-ecl-icon
           />
         )}
       </span>

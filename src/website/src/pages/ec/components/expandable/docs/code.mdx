@@ -1,0 +1,64 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Button from '@ecl/ec-react-component-button/Button';
+import Link from '@ecl/ec-react-component-link/Link';
+
+import demoContent from '@ecl/ec-specs-expandable/demo/data';
+
+## Button
+
+<Playground
+  system="ec"
+  selectedKind="Expandable"
+  selectedStory="button"
+  showFrame
+>
+  <Button
+    {...demoContent.button}
+    className="ecl-expandable__toggle"
+    data-ecl-expandable
+    data-ecl-label-expanded={demoContent.labelExpanded}
+    data-ecl-label-collapsed={demoContent.labelCollapsed}
+    aria-controls="example-expandable-content"
+    id="example-expandable-toggle"
+  />
+  <p
+    className="ecl-expandable__content ecl-u-type-paragraph-m"
+    id="example-expandable-content"
+    aria-labelledby="example-expandable-toggle"
+    aria-hidden="true"
+  >
+    {demoContent.content}
+  </p>
+</Playground>
+
+## Link
+
+<Playground
+  system="ec"
+  selectedKind="Expandable"
+  selectedStory="button"
+  showFrame
+>
+  <Link
+    {...demoContent.link}
+    className="ecl-expandable__toggle"
+    data-ecl-expandable
+    data-ecl-label-expanded={demoContent.labelExpanded}
+    data-ecl-label-collapsed={demoContent.labelCollapsed}
+    aria-controls="example-expandable-content2"
+    id="example-expandable-toggle2"
+  />
+  <p
+    className="ecl-expandable__content ecl-u-type-paragraph-m"
+    id="example-expandable-content2"
+    aria-labelledby="example-expandable-toggle2"
+    aria-hidden="true"
+  >
+    {demoContent.content}
+  </p>
+</Playground>

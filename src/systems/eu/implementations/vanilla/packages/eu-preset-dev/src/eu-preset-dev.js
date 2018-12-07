@@ -6,7 +6,7 @@ export * from '@ecl/eu-component-breadcrumb';
 export * from '@ecl/eu-component-contextual-navigation';
 // export * from '@ecl/eu-component-dropdown';
 // export * from '@ecl/eu-component-dialog';
-// export * from '@ecl/eu-component-expandable';
+export * from '@ecl/eu-component-expandable';
 // export * from '@ecl/eu-component-form-file-upload';
 // export * from '@ecl/eu-component-lang-select-page';
 // export * from '@ecl/eu-component-message';
