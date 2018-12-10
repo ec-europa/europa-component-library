@@ -18,7 +18,7 @@
     "lint:scss": "stylelint \"./src/**/*.scss\"",
     "lint": "npm-run-all --parallel lint:* -cln",
     "postinstall": "lerna run postinstall && lerna run prepublish",
-    "publish": "lerna publish from-git",
+    "publish": "scripts/publish.sh",
     "serve": "cd src/website && npm run serve",
     "start:ec": "cd src/systems/ec/implementations/react/storybook && npm run start",
     "start:eu": "cd src/systems/eu/implementations/react/storybook && npm run start",
