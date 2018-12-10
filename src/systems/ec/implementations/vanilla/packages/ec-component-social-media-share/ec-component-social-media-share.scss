@@ -19,12 +19,12 @@
     color: $description-color;
     font: $ecl-font-prolonged-m;
     font-weight: $ecl-font-weight-bold;
-    margin-bottom: $ecl-spacing-l;
+    margin-bottom: $ecl-spacing-s;
     margin-top: 0;
   }
 
   .ecl-social-media-share__list {
-    align-items: center;
+    align-items: flex-end;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -33,7 +33,7 @@
   }
 
   .ecl-social-media-share__item {
-    margin-right: $ecl-spacing-2-xs;
+    margin: $ecl-spacing-s $ecl-spacing-2-xs 0 0;
 
     &:not(:last-child) {
       max-width: 8.625rem;
@@ -44,10 +44,6 @@
       padding-right: $ecl-spacing-xs;
       width: 8.125rem;
     }
-
-    &:last-child {
-      margin-top: auto;
-    }
   }
 
   .ecl-social-media-share__link {
@@ -55,22 +51,11 @@
     font: $ecl-font-s;
   }
 
-  // Fix for the google+ icon.
-  .ecl-social-media-share__link--google .ecl-social-media-share__icon-hover {
-    fill: #a5382a;
-  }
-
   // Icon
   /* stylelint-disable-next-line order/order */
   @include ecl-icon-rollover(ecl-social-media-share);
 
   @include ecl-social-icon-color-map($ecl-social-media-list);
-
-  @include ecl-media-breakpoint-down('md') {
-    .ecl-social-media-share__item {
-      margin-bottom: 0.75rem;
-    }
-  }
 }
 
 // Use mixin
