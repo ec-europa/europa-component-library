@@ -19,4 +19,4 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # Publish updated packages
-./node_modules/.bin/lerna publish --from-package "$@"
+./node_modules/.bin/lerna publish from-package "$@"
