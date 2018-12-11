@@ -3103,98 +3103,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-footer' with {
-  custom_footer: {
-    identity: ''
-  },
-  corporate_footer: {
-    about_ec: {
-      title: 'European Commission',
-      items: [
-        {
-          href: 'https://ec.europa.eu/commission/index_en',
-          label: 'Commission and its priorities',
-        },
-        {
-          href: 'https://ec.europa.eu/info/index_en',
-          label: 'Policies information and services',
-        },
-      ],
-    },
-    social_media: {
-      title: 'Follow the European Commission',
-      items: [
-        {
-          type: 'social-network',
-          icon: 'facebook',
-          link: {
-            href: '../../example.html#',
-            label: 'Facebook',
-          },
-        },
-        {
-          type: 'social-network',
-          icon: 'twitter',
-          link: {
-            href: '../../example.html#',
-            label: 'Twitter',
-          },
-        },
-        {
-          type: 'external',
-          link: {
-            href: '../../example.html#',
-            label: 'Other social media',
-          },
-        },
-      ],
-    },
-    about_eu: {
-      title: 'European Union',
-      items: [
-        {
-          href: '../../example.html#',
-          label: 'EU institutions',
-        },
-        {
-          href: '../../example.html#',
-          label: 'European Union',
-        },
-      ],
-    },
-    bottom_links: [
-      {
-        href:
-          'http://ec.europa.eu/info/about-commissions-new-web-presence_en',
-        label: "About the Commission's new web presence",
-      },
-      {
-        href: 'https://ec.europa.eu/info/language-policy_en',
-        label: 'Language policy',
-      },
-      {
-        href: 'http://ec.europa.eu/info/resources-partners_en',
-        label: 'Resources for partners',
-      },
-      {
-        href: 'http://ec.europa.eu/info/cookies_en',
-        label: 'Cookies',
-      },
-      {
-        href: 'https://ec.europa.eu/info/privacy-policy_en',
-        label: 'Privacy policy',
-      },
-      {
-        href: 'http://ec.europa.eu/info/legal-notice_en',
-        label: 'Legal notice',
-      },
-      {
-        href: 'http://ec.europa.eu/info/contact_en',
-        label: 'Contact',
-      },
-    ],
-  },
-} %}</span><span class="xml"></span></pre>
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-footer' with footer %}</span><span class="xml"></span></pre>
     </code>
 </div>
 
@@ -3370,6 +3279,94 @@
     ],
     <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Business, Economy, Euro"</span>,
     <span class="hljs-attr">"introduction"</span>: <span class="hljs-string">"EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules."</span>
+  },
+  <span class="hljs-attr">"footer"</span>: {
+    <span class="hljs-attr">"corporate_footer"</span>: {
+      <span class="hljs-attr">"about_ec"</span>: {
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"European Commission"</span>,
+        <span class="hljs-attr">"items"</span>: [
+          {
+            <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://ec.europa.eu/commission/index_en"</span>,
+            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Commission and its priorities"</span>
+          },
+          {
+            <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://ec.europa.eu/info/index_en"</span>,
+            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Policies, information and services"</span>
+          }
+        ]
+      },
+      <span class="hljs-attr">"social_media"</span>: {
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Follow the European Commission"</span>,
+        <span class="hljs-attr">"items"</span>: [
+          {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"social-network"</span>,
+            <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"facebook"</span>,
+            <span class="hljs-attr">"link"</span>: {
+              <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#"</span>,
+              <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Facebook"</span>
+            }
+          },
+          {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"social-network"</span>,
+            <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"twitter"</span>,
+            <span class="hljs-attr">"link"</span>: {
+              <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#"</span>,
+              <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Twitter"</span>
+            }
+          },
+          {
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"external"</span>,
+            <span class="hljs-attr">"link"</span>: {
+              <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#"</span>,
+              <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Other social media"</span>
+            }
+          }
+        ]
+      },
+      <span class="hljs-attr">"about_eu"</span>: {
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"European Union"</span>,
+        <span class="hljs-attr">"items"</span>: [
+          {
+            <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#"</span>,
+            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"EU institutions"</span>
+          },
+          {
+            <span class="hljs-attr">"href"</span>: <span class="hljs-string">"../../example.html#"</span>,
+            <span class="hljs-attr">"label"</span>: <span class="hljs-string">"European Union"</span>
+          }
+        ]
+      },
+      <span class="hljs-attr">"bottom_links"</span>: [
+        {
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"http://ec.europa.eu/info/about-commissions-new-web-presence_en"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"About the Commission's new web presence"</span>
+        },
+        {
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://ec.europa.eu/info/language-policy_en"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Language policy"</span>
+        },
+        {
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"http://ec.europa.eu/info/resources-partners_en"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Resources for partners"</span>
+        },
+        {
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"http://ec.europa.eu/info/cookies_en"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Cookies"</span>
+        },
+        {
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"https://ec.europa.eu/info/privacy-policy_en"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Privacy policy"</span>
+        },
+        {
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"http://ec.europa.eu/info/legal-notice_en"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Legal notice"</span>
+        },
+        {
+          <span class="hljs-attr">"href"</span>: <span class="hljs-string">"http://ec.europa.eu/info/contact_en"</span>,
+          <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Contact"</span>
+        }
+      ]
+    }
   },
   <span class="hljs-attr">"_demo"</span>: {
     <span class="hljs-attr">"scripts"</span>: <span class="hljs-string">"document.addEventListener('DOMContentLoaded', function () {\n            ECL.initBreadcrumb();\n            ECL.dialogs({\n              dialogOverlayId: 'ecl-overlay-language-list',\n              triggerElementsSelector: '#ecl-lang-select-sites__overlay'\n            });\n          });"</span>
@@ -3586,6 +3583,9 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate-top"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
@@ -3599,7 +3599,7 @@
               <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
               <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
-                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu/info/index_en"</span>&gt;</span>Policies information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu/info/index_en"</span>&gt;</span>Policies, information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3844,7 +3844,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
                 <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
               </li>
               <li class="ecl-footer__list-item">
-                <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies information and services</a>
+                <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies, information and services</a>
               </li>
             </ul>
           </div>

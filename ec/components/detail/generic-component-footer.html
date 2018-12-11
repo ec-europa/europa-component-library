@@ -3073,7 +3073,7 @@
   %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> options = default_options|<span class="hljs-keyword">merge</span>(options|<span class="hljs-keyword">default</span>({})) %}</span><span class="xml">
   <span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
-    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.custom_footer.identity is not empty %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.custom_footer is not empty %}</span><span class="xml">
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom"</span>&gt;</span>
         </span><span class="hljs-template-variable">{{ options.custom_footer }}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3097,67 +3097,69 @@
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> system = system|<span class="hljs-keyword">default</span>('generic') %}</span><span class="xml">
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _identity = options.identity.label is defined ? options.identity.label : options.identity %}</span><span class="xml">
 
-  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none ecl-footer__column-title ecl-footer__custom-title-identity"</span>&gt;</span>
-          </span><span class="hljs-template-variable">{{ _identity }}</span><span class="xml">
-        <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.social_links is defined and options.social_links.links is defined %}</span><span class="xml">
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom-label"</span>&gt;</span></span><span class="hljs-template-variable">{{ options.social_links.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline"</span>&gt;</span>
-          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in options.social_links.links %}</span><span class="xml">
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
-              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> menu_item.type == 'social-network' %}</span><span class="xml">
-                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ecl/' ~ system ~ '-component-link' with {
-                  href: menu_item.link.href,
-                  extra_classes: 'ecl-footer__link',
-                  icon: menu_item.icon,
-                  link_label: menu_item.link.label,
-                  system: system
-                } only %}</span><span class="xml">
-                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> label %}</span><span class="xml">
-                    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">spaceless</span></span> %}</span><span class="xml">
-                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-style-icon' with {
-                        modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
-                      } only %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">{{ link_label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endspaceless</span></span> %}</span><span class="xml">
-                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
-                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
-              </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _identity is not empty %}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none ecl-footer__column-title ecl-footer__custom-title-identity"</span>&gt;</span>
+            </span><span class="hljs-template-variable">{{ _identity }}</span><span class="xml">
+          <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.social_links is defined and options.social_links.links is defined %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom-label"</span>&gt;</span></span><span class="hljs-template-variable">{{ options.social_links.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline"</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in options.social_links.links %}</span><span class="xml">
+              <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> menu_item.type == 'social-network' %}</span><span class="xml">
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">embed</span></span> '@ecl/' ~ system ~ '-component-link' with {
+                    href: menu_item.link.href,
+                    extra_classes: 'ecl-footer__link',
+                    icon: menu_item.icon,
+                    link_label: menu_item.link.label,
+                    system: system
+                  } only %}</span><span class="xml">
+                    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">block</span></span> label %}</span><span class="xml">
+                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">spaceless</span></span> %}</span><span class="xml">
+                        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-style-icon' with {
+                          modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                        } only %}</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">{{ link_label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endspaceless</span></span> %}</span><span class="xml">
+                    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endblock</span></span> %}</span><span class="xml">
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endembed</span></span> %}</span><span class="xml">
+                </span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-link' with {
+                    href: menu_item.link.href,
+                    label: menu_item.link.label,
+                    extra_classes: 'ecl-footer__link',
+                    variant: 'external',
+                  } only %}</span><span class="xml">
+                </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+              <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.other_links is defined and options.other_links.links is defined %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list</span></span></span><span class="hljs-template-variable">{{ options.other_links_inline ? ' ecl-list--inline ecl-footer__list--inline' : '' }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in options.other_links.links %}</span><span class="xml">
+              <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
                 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-link' with {
-                  href: menu_item.link.href,
-                  label: menu_item.link.label,
-                  extra_classes: 'ecl-footer__link',
-                  variant: 'external',
-                } only %}</span><span class="xml">
-              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                  'href': menu_item.link.href,
+                  'label': menu_item.link.label,
+                  'extra_classes': 'ecl-footer__link',
+                  'variant': link_variant,
+                  }
+                %}</span><span class="xml">
+              <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> options.other_links is defined and options.other_links.links is defined %}</span><span class="xml">
-      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__column ecl-col-md"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-list ecl-list--unstyled ecl-footer__list</span></span></span><span class="hljs-template-variable">{{ options.other_links_inline ? ' ecl-list--inline ecl-footer__list--inline' : '' }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> menu_item in options.other_links.links %}</span><span class="xml">
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
-              </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/' ~ system ~ '-component-link' with {
-                'href': menu_item.link.href,
-                'label': menu_item.link.label,
-                'extra_classes': 'ecl-footer__link',
-                'variant': link_variant,
-                }
-              %}</span><span class="xml">
-            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endmacro</span></span> %}</span><span class="xml"></span></pre>
     </code>
 </div>
@@ -3322,7 +3324,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
                 <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
               </li>
               <li class="ecl-footer__list-item">
-                <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies information and services</a>
+                <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies, information and services</a>
               </li>
             </ul>
           </div>

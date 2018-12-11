@@ -3106,53 +3106,6 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
   </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/ec-component-footer' with {
-    custom_footer: {
-      identity: 'Digital single market',
-      social_links: {
-        label: 'Follow us:',
-        links: [
-          {
-            type: 'social-network',
-            icon: 'facebook',
-            link: {
-              href: '../../example.html#',
-              label: 'Facebook',
-            },
-          },
-          {
-            type: 'social-network',
-            icon: 'twitter',
-            link: {
-              href: '../../example.html#',
-              label: 'Twitter',
-            },
-          },
-          {
-            type: 'external',
-            link: {
-              href: '../../example.html#',
-              label: 'Other social media',
-            },
-          },
-        ],
-      },
-      other_links: {
-        links: [
-          {
-            link: {
-              href: '../../example.html#',
-              label: 'Contact',
-            },
-          },
-          {
-            link: {
-              href: '../../example.html#',
-              label: 'Site map',
-            },
-          },
-        ],
-      },
-    },
     corporate_footer: {
       about_ec: {
         title: 'European Commission',
@@ -3163,7 +3116,7 @@
           },
           {
             href: 'https://ec.europa.eu/info/index_en',
-            label: 'Policies information and services',
+            label: 'Policies, information and services',
           },
         ],
       },
@@ -3399,6 +3352,9 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
 
   <span class="hljs-tag">&lt;<span class="hljs-name">footer</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__custom"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate-top"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-container"</span>&gt;</span>
@@ -3412,7 +3368,7 @@
                 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__list-item"</span>&gt;</span>
 
-                  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu/info/index_en"</span>&gt;</span>Policies information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted ecl-footer__link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://ec.europa.eu/info/index_en"</span>&gt;</span>Policies, information and services<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
               <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -3630,7 +3586,7 @@ var tabsLinks = document.querySelectorAll('.Pen-tabs-nav a');
                 <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
               </li>
               <li class="ecl-footer__list-item">
-                <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies information and services</a>
+                <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies, information and services</a>
               </li>
             </ul>
           </div>
