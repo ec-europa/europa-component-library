@@ -1,6 +1,6 @@
 # Developers - Getting started
 
-### Recommended versions of required software:
+**Recommended versions of required software:**
 
 - Node.js >= 8.x
 - yarn >= 1.10.1
