@@ -14,7 +14,7 @@ module.exports = {
       name: 'default',
       context: {
         breadcrumb: breadcrumbSegments,
-        identity: 'Digital single market',
+        identity: 'Site identity',
         title: 'Business, Economy, Euro',
         introduction:
           'EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules.',
@@ -24,7 +24,7 @@ module.exports = {
     {
       name: 'basic',
       context: {
-        identity: 'Digital single market',
+        identity: 'Site identity',
         breadcrumb: breadcrumbSegments,
       },
     },

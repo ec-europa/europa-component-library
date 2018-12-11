@@ -29,7 +29,7 @@ module.exports = {
         },
         { label: 'Business, Economy, Euro' },
       ],
-      identity: 'Digital single market',
+      identity: 'Site identity',
     },
   },
 };
