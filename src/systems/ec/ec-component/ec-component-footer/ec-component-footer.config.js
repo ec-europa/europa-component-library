@@ -61,7 +61,7 @@ module.exports = {
           },
           {
             href: 'https://ec.europa.eu/info/index_en',
-            label: 'Policies information and services',
+            label: 'Policies, information and services',
           },
         ],
       },
