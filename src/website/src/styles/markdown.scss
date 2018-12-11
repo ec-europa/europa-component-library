@@ -106,17 +106,20 @@
   width: 100%;
 }
 
-.thead {
-  border-bottom: 1px solid $ecl-color-grey-75;
+.thead .tr {
+  border-bottom: 2px solid $ecl-color-grey-50;
+}
+
+.tbody .tr {
+  border-bottom: 1px solid $ecl-color-grey-50;
 }
 
 .th {
   background-color: transparent;
-  color: $ecl-color-grey-75;
+  color: $ecl-color-grey-100;
   font: $ecl-font-prolonged-m;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
-  padding: $ecl-spacing-m $ecl-spacing-l $ecl-spacing-s;
   text-align: left;
 }
 
@@ -124,12 +127,12 @@
   color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-m;
   margin: 0;
-  padding: $ecl-spacing-s $ecl-spacing-l;
 }
 
 .td,
 .th {
   display: table-cell;
+  padding: $ecl-spacing-s;
   vertical-align: middle;
 }
 
