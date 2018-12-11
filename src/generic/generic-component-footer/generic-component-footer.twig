@@ -9,7 +9,7 @@
   %}
   {% set options = default_options|merge(options|default({})) %}
   <footer class="ecl-footer">
-    {% if options.custom_footer.identity is not empty %}
+    {% if options.custom_footer is not empty %}
       <div class="ecl-footer__custom">
         {{ options.custom_footer }}
       </div>
@@ -33,65 +33,67 @@
   {% set system = system|default('generic') %}
   {% set _identity = options.identity.label is defined ? options.identity.label : options.identity %}
 
-  <div class="ecl-container">
-    <div class="ecl-row">
-      <div class="ecl-footer__column ecl-col-md">
-        <h2 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none ecl-footer__column-title ecl-footer__custom-title-identity">
-          {{ _identity }}
-        </h2>
-      </div>
-      {% if options.social_links is defined and options.social_links.links is defined %}
-      <div class="ecl-footer__column ecl-col-md">
-        <p class="ecl-footer__custom-label">{{ options.social_links.label }}</p>
-        <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline">
-          {% for menu_item in options.social_links.links %}
-            <li class="ecl-footer__list-item">
-              {% if menu_item.type == 'social-network' %}
-                {% embed '@ecl/' ~ system ~ '-component-link' with {
-                  href: menu_item.link.href,
-                  extra_classes: 'ecl-footer__link',
-                  icon: menu_item.icon,
-                  link_label: menu_item.link.label,
-                  system: system
-                } only %}
-                  {% block label %}
-                    {% spaceless %}
-                      {% include '@ecl/' ~ system ~ '-style-icon' with {
-                        modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
-                      } only %}<span>{{ link_label }}</span>
-                    {% endspaceless %}
-                  {% endblock %}
-                {% endembed %}
-              {% else %}
+  {% if _identity is not empty %}
+    <div class="ecl-container">
+      <div class="ecl-row">
+        <div class="ecl-footer__column ecl-col-md">
+          <h2 class="ecl-heading ecl-heading--h4 ecl-u-mt-xxxs ecl-u-mb-none ecl-footer__column-title ecl-footer__custom-title-identity">
+            {{ _identity }}
+          </h2>
+        </div>
+        {% if options.social_links is defined and options.social_links.links is defined %}
+        <div class="ecl-footer__column ecl-col-md">
+          <p class="ecl-footer__custom-label">{{ options.social_links.label }}</p>
+          <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links ecl-u-d-inline">
+            {% for menu_item in options.social_links.links %}
+              <li class="ecl-footer__list-item">
+                {% if menu_item.type == 'social-network' %}
+                  {% embed '@ecl/' ~ system ~ '-component-link' with {
+                    href: menu_item.link.href,
+                    extra_classes: 'ecl-footer__link',
+                    icon: menu_item.icon,
+                    link_label: menu_item.link.label,
+                    system: system
+                  } only %}
+                    {% block label %}
+                      {% spaceless %}
+                        {% include '@ecl/' ~ system ~ '-style-icon' with {
+                          modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                        } only %}<span>{{ link_label }}</span>
+                      {% endspaceless %}
+                    {% endblock %}
+                  {% endembed %}
+                {% else %}
+                  {% include '@ecl/' ~ system ~ '-component-link' with {
+                    href: menu_item.link.href,
+                    label: menu_item.link.label,
+                    extra_classes: 'ecl-footer__link',
+                    variant: 'external',
+                  } only %}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% if options.other_links is defined and options.other_links.links is defined %}
+        <div class="ecl-footer__column ecl-col-md">
+          <ul class="ecl-list ecl-list--unstyled ecl-footer__list{{ options.other_links_inline ? ' ecl-list--inline ecl-footer__list--inline' : '' }}">
+            {% for menu_item in options.other_links.links %}
+              <li class="ecl-footer__list-item">
                 {% include '@ecl/' ~ system ~ '-component-link' with {
-                  href: menu_item.link.href,
-                  label: menu_item.link.label,
-                  extra_classes: 'ecl-footer__link',
-                  variant: 'external',
-                } only %}
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
+                  'href': menu_item.link.href,
+                  'label': menu_item.link.label,
+                  'extra_classes': 'ecl-footer__link',
+                  'variant': link_variant,
+                  }
+                %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
       </div>
-      {% endif %}
-      {% if options.other_links is defined and options.other_links.links is defined %}
-      <div class="ecl-footer__column ecl-col-md">
-        <ul class="ecl-list ecl-list--unstyled ecl-footer__list{{ options.other_links_inline ? ' ecl-list--inline ecl-footer__list--inline' : '' }}">
-          {% for menu_item in options.other_links.links %}
-            <li class="ecl-footer__list-item">
-              {% include '@ecl/' ~ system ~ '-component-link' with {
-                'href': menu_item.link.href,
-                'label': menu_item.link.label,
-                'extra_classes': 'ecl-footer__link',
-                'variant': link_variant,
-                }
-              %}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
     </div>
-  </div>
+  {% endif %}
 {% endmacro %}

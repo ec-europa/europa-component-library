@@ -5,7 +5,7 @@ module.exports = {
   tags: ['organism'],
   context: {
     custom_footer: {
-      identity: 'Digital single market',
+      identity: 'Site identity',
       social_links: {
         label: 'Follow us:',
         links: [
@@ -61,7 +61,7 @@ module.exports = {
           },
           {
             href: 'https://ec.europa.eu/info/index_en',
-            label: 'Policies information and services',
+            label: 'Policies, information and services',
           },
         ],
       },

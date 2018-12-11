@@ -30,7 +30,7 @@ module.exports = {
             },
             { label: 'Business, Economy, Euro' },
           ],
-          identity: 'Digital single market',
+          identity: 'Site identity',
         },
         _demo: {
           scripts: `document.addEventListener('DOMContentLoaded', function () {
@@ -59,7 +59,7 @@ module.exports = {
             },
             { label: 'Business, Economy, Euro' },
           ],
-          identity: 'Digital single market',
+          identity: 'Site identity',
         },
         menu: {
           menu_label: 'Menu',
