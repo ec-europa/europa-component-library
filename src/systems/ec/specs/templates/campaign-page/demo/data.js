@@ -4,7 +4,7 @@ const heroBannerContent = require('@ecl/ec-specs-hero-banner/demo/data--image');
 const mediaContainerContent = require('@ecl/ec-specs-media-container/demo/data--video');
 const cardContent = require('@ecl/ec-specs-card/demo/data--card-event');
 const blockquoteContent = require('@ecl/ec-specs-blockquote/demo/data');
-const footerContent = require('@ecl/ec-specs-footer/demo/data');
+const footerContent = require('@ecl/ec-specs-footer/demo/data--custom');
 
 module.exports = {
   siteHeader: siteHeaderContent,

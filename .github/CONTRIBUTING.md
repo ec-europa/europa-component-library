@@ -19,7 +19,7 @@ Please fill in the description following the template.
     - You'll need an [access token for the GitHub API](https://help.github.com/articles/creating-an-access-token-for-command-line-use/). Save it to this environment variable: `export GITHUB_AUTH="..."`
     - Run `npm run changelog`. The command will find all the labeled pull requests merged since the last release and create a change log entry with all the changes and links to PRs and their authors. Copy and paste it to `CHANGELOG.md`.
 
-4.  Run `npm run update-version`. It will update the version number of the updated packages.
+4.  Run `npm run update-version`. It will update the version number of the updated packages. Note: you might want to change the `bump` parameter in `lerna.json`. See: https://github.com/lerna/lerna/tree/master/commands/version#semver-bump
 
 5.  Open a pull request with the changes. Don't apply any `tag: *` label on it.
 
@@ -33,6 +33,6 @@ Please fill in the description following the template.
 
 10. The CLI will ask for a confirmation about the new package versions. Please verify them carefully before accepting.
 
-11. Once you have accepted, the script will start publishing the packages to npm and creating the git tags.
+11. Once you have accepted, the script will start publishing the packages.
 
-12. Finally, create a GitHub Release with the same text as the changelog generated at step 2. Use the same tag as the one created earlier. Add "useful links" section.
+12. Finally, create a GitHub Release with the same text as the changelog generated at step 3. Add "useful links" section. Congratulations!
