@@ -1,7 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import demoContent from '@ecl/ec-specs-footer/demo/data';
+
+import demoContentCorporate from '@ecl/ec-specs-footer/demo/data--corporate';
+import demoContentCustom from '@ecl/ec-specs-footer/demo/data--custom';
+
 import Footer from '../Footer';
 
-storiesOf('Footer', module).add('default', () => <Footer {...demoContent} />);
+storiesOf('Footer', module)
+  .add('corporate', () => <Footer {...demoContentCorporate} />)
+  .add('custom', () => <Footer {...demoContentCustom} />);

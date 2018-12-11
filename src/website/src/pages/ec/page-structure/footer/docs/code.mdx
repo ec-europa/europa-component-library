@@ -6,8 +6,22 @@ order: 2
 import Playground from '@ecl/website-components/Playground';
 import Footer from '@ecl/ec-react-component-footer/Footer';
 
-import demoContent from '@ecl/ec-specs-footer/demo/data';
+import demoContentCustom from '@ecl/ec-specs-footer/demo/data--custom';
+import demoContentCorporate from '@ecl/ec-specs-footer/demo/data--corporate';
 
-<Playground system="ec" selectedKind="Footer" selectedStory="default" showFrame>
-  <Footer {...demoContent} />
+## Corporate footer
+
+<Playground
+  system="ec"
+  selectedKind="Footer"
+  selectedStory="corporate"
+  showFrame
+>
+  <Footer {...demoContentCorporate} />
+</Playground>
+
+## Custom footer
+
+<Playground system="ec" selectedKind="Footer" selectedStory="custom" showFrame>
+  <Footer {...demoContentCustom} />
 </Playground>
