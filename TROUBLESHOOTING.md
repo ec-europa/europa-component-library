@@ -22,17 +22,26 @@ Submit your issues at jira board of "INNO global".
 Here's a comprehensive list of possible issues you might encounter at this
 stage.
 
-### Installing phantomjs
+### Potential issues with nvm
 
-During `yarn` install process, if you receive a similar message:
+While installing nvm pay attention to the way you're going to run the install script basing on the shell of your preference, so that the conf is exported in the right config file.
+Mind also the fact that if you changed the folder for the globally installed node packages in order to get rid of permissions issues (something like [this](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)) `nvm` will need you to override the prefix for node:
 
-```shell
-PhantomJS not found on PATH
-Phantom installation failed TypeError: Path must be a string. Received undefined
+```
+nvm is not compatible with the npm config "prefix" option
 ```
 
-Try to make the installation with `npm install`.
-([Known issue at yarn](https://github.com/yarnpkg/yarn/issues/987))
+If this is the case you have to delete and recreate the prefix with the chosen version of node in order to use `nvm`:
+
+```bash
+npm config delete prefix
+```
+
+```bash
+npm config set prefix $NVM_DIR/versions/node/{your version}
+```
+
+As a general remark _it is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files_ as taken from the notice yarn is going to show in case you have a package-lock.json in the root of your project.
 
 ### Error: Missing binding
 
