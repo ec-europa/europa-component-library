@@ -38,7 +38,10 @@ const ListItem = ({ item }) => {
     }
 
     itemMarkup = (
-      <li className="ecl-list__item" key={item.title.label}>
+      <li
+        className="ecl-list__item ecl-list__item--block"
+        key={item.title.label}
+      >
         {itemTitleMarkup}
         <div className="ecl-list__item-description">{item.description}</div>
       </li>

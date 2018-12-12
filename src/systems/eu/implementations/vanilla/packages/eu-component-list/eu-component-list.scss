@@ -45,8 +45,26 @@
     }
   }
 
+  .ecl-list__item--block {
+    margin-top: $ecl-spacing-m;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-list__item-title {
+    font: $ecl-font-prolonged-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin: 0;
+  }
+
+  .ecl-list__item-description {
+    margin-top: $ecl-spacing-m;
+  }
+
   .ecl-list__item--group {
-    border-top: 1px solid $ecl-color-grey-15;
+    border-top: 1px solid $ecl-color-grey-100;
     margin-top: $ecl-spacing-m;
     padding-top: $ecl-spacing-m;
 
