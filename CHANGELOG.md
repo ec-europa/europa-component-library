@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.0 (2018-12-10)
+
+#### :memo: Documentation
+
+- [#970](https://github.com/ec-europa/europa-component-library/pull/970) docs: update title on EU homepage ([@Yaomimi](https://github.com/Yaomimi))
+
+#### :house: Internal
+
+- [#974](https://github.com/ec-europa/europa-component-library/pull/974) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 2
+
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.0.0-beta.0 (2018-11-30)
 
 #### :rocket: New Feature

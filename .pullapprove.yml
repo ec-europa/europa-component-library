@@ -14,11 +14,12 @@ groups:
     conditions:
       - "'process: review needed' in labels"
     reviews:
-      required: -1
+      required: 1
+      request: -1
     reviewers:
       teams:
         - ecl-reviewers
   # all pending requests must be approved
   all_requests:
     reviews:
-      required: -1
+      required: 1
