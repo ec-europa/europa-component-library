@@ -6,6 +6,9 @@ import { /* Route, Redirect, Switch, */ withRouter } from 'react-router-dom';
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 import Container from '../Grid/Container';
+import Col from '../Grid/Col';
+import Row from '../Grid/Row';
+import styles from './DocPage.scss';
 
 const DocPage = React.memo(({ component }) => (
   <Fragment>
@@ -13,8 +16,19 @@ const DocPage = React.memo(({ component }) => (
     <Helmet title={component.title} />
     <Header component={component} />
     <main id="main-content" tabIndex="-1">
-      <Container spacing="pv-2xl">
-        {component.document && <component.document />}
+      <Container spacing="pv-l pv-md-3xl">
+        {component.inpageNav ? (
+          <Row>
+            <Col col="12 xl-9">
+              {component.document && <component.document />}
+            </Col>
+            <Col col="12 xl-3" className={styles['inpage-nav']}>
+              <component.inpageNav />
+            </Col>
+          </Row>
+        ) : (
+          component.document && <component.document />
+        )}
       </Container>
     </main>
   </Fragment>
@@ -33,6 +47,7 @@ DocPage.propTypes = {
     ),
     defaultTab: PropTypes.string,
     document: PropTypes.func,
+    inpageNav: PropTypes.func,
   }),
 };
 

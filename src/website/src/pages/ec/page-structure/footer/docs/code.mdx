@@ -3,16 +3,25 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground'
-import Footer from '@ecl/ec-react-component-footer/Footer'
+import Playground from '@ecl/website-components/Playground';
+import Footer from '@ecl/ec-react-component-footer/Footer';
 
-import demoContent from '@ecl/ec-specs-footer/demo/data';
+import demoContentCustom from '@ecl/ec-specs-footer/demo/data--custom';
+import demoContentCorporate from '@ecl/ec-specs-footer/demo/data--corporate';
+
+## Corporate footer
 
 <Playground
   system="ec"
   selectedKind="Footer"
-  selectedStory="default"
+  selectedStory="corporate"
   showFrame
 >
-  <Footer {...demoContent} />
+  <Footer {...demoContentCorporate} />
+</Playground>
+
+## Custom footer
+
+<Playground system="ec" selectedKind="Footer" selectedStory="custom" showFrame>
+  <Footer {...demoContentCustom} />
 </Playground>
