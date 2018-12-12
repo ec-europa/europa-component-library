@@ -43,7 +43,12 @@ export default class Timeline extends React.Component {
     );
 
     return (
-      <section {...props} className={classNames} ref={this.timelineRef}>
+      <section
+        {...props}
+        className={classNames}
+        ref={this.timelineRef}
+        data-ecl-timeline
+      >
         <ol className="ecl-timeline__list" data-ecl-timeline-list>
           {items.map((item, index) => (
             <TimelineItem
