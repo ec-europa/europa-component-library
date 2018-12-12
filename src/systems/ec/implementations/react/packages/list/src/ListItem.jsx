@@ -10,7 +10,7 @@ const ListItem = ({ item }) => {
   if (item.href) {
     itemMarkup = (
       <li className="ecl-list__item" key={item.label}>
-        <Link className="ecl-list__link" {...item} variant="standalone" />
+        <Link {...item} variant="standalone" />
       </li>
     );
   }
