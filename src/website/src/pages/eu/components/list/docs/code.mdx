@@ -4,24 +4,80 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import { ListNavigation } from '@ecl/eu-react-component-list';
+import { List } from '@ecl/eu-react-component-list';
 
-import demoContentNavigation from '@ecl/eu-specs-list/demo/data--navigation';
+import demoContentText from '@ecl/eu-specs-list/demo/data--text';
+import demoContentLink from '@ecl/eu-specs-list/demo/data--link';
+import demoContentBlock from '@ecl/eu-specs-list/demo/data--block';
+import demoContentNavigationBlock from '@ecl/eu-specs-list/demo/data--navigation-block';
+import demoContentNavigationLink from '@ecl/eu-specs-list/demo/data--navigation-link';
 
-## Navigation (with text)
+## Unordered list
 
-<Playground system="eu" selectedKind="List" selectedStory="navigation (text)">
-  <ListNavigation
-      title={demoContentNavigation.title}
-      description={demoContentNavigation.description}
-    />
+Content could be links or simple text
+
+<Playground system="eu" selectedKind="List" selectedStory="standard">
+  <List
+    {...demoContentText}
+    hasBullet={true}
+    isOrdered={false}
+    hasSeparator={false}
+  />
 </Playground>
 
-## Navigation (with links)
+## Ordered list
 
-<Playground system="eu" selectedKind="List" selectedStory="navigation (links)">
-  <ListNavigation
-      title={demoContentNavigation.title}
-      links={demoContentNavigation.links}
-    />
+Content could be links or simple text
+
+<Playground system="eu" selectedKind="List" selectedStory="standard">
+  <List
+    {...demoContentLink}
+    hasBullet={true}
+    isOrdered={true}
+    hasSeparator={false}
+  />
+</Playground>
+
+## List with separator
+
+<Playground system="eu" selectedKind="List" selectedStory="standard">
+  <List
+    {...demoContentLink}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={true}
+  />
+</Playground>
+
+## List with block of text
+
+<Playground system="eu" selectedKind="List" selectedStory="text block">
+  <List
+    {...demoContentBlock}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={false}
+  />
+</Playground>
+
+## Navigation list with block of text
+
+<Playground system="eu" selectedKind="List" selectedStory="navigation block">
+  <List
+    {...demoContentNavigationBlock}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={false}
+  />
+</Playground>
+
+## Navigation list with links
+
+<Playground system="eu" selectedKind="List" selectedStory="navigation links">
+  <List
+    {...demoContentNavigationLink}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={false}
+  />
 </Playground>

@@ -1,23 +1,57 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
-import demoContentNavigation from '@ecl/eu-specs-list/demo/data--navigation';
+import demoContentText from '@ecl/eu-specs-list/demo/data--text';
+import demoContentBlock from '@ecl/eu-specs-list/demo/data--block';
+import demoContentNavigationBlock from '@ecl/eu-specs-list/demo/data--navigation-block';
+import demoContentNavigationLink from '@ecl/eu-specs-list/demo/data--navigation-link';
 
-import ListNavigation from '../src/ListNavigation';
+import List from '../src/List';
 
-storiesOf('Lists', module)
+storiesOf('List', module)
   .addDecorator(withKnobs)
-  .add('navigation (text)', () => (
-    <ListNavigation
-      title={demoContentNavigation.title}
-      description={demoContentNavigation.description}
+  .add('standard', () => {
+    const title = {
+      ...demoContentText.title,
+      label: text(
+        'Title',
+        demoContentText.title ? demoContentText.title.label : ''
+      ),
+    };
+
+    return (
+      <List
+        {...demoContentText}
+        title={title}
+        hasBullet={boolean('Display bullets', true)}
+        isOrdered={boolean('Ordered list', false)}
+        hasSeparator={boolean('Separator list', false)}
+      />
+    );
+  })
+  .add('text block', () => (
+    <List
+      {...demoContentBlock}
+      isOrdered={false}
+      hasBullet={false}
+      hasSeparator={false}
     />
   ))
-  .add('navigation (links)', () => (
-    <ListNavigation
-      title={demoContentNavigation.title}
-      links={demoContentNavigation.links}
+  .add('navigation block', () => (
+    <List
+      {...demoContentNavigationBlock}
+      isOrdered={false}
+      hasBullet={false}
+      hasSeparator={false}
+    />
+  ))
+  .add('navigation links', () => (
+    <List
+      {...demoContentNavigationLink}
+      isOrdered={false}
+      hasBullet={false}
+      hasSeparator={false}
     />
   ));

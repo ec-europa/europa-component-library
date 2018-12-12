@@ -1,2 +1,2 @@
 export List from './src/List';
-export ListNavigation from './src/ListNavigation';
+export ListItem from './src/ListItem';

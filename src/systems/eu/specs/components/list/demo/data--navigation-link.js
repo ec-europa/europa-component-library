@@ -7,7 +7,7 @@ module.exports = {
   },
   description:
     'Find a Europe Direct centre near you for information or to attend a local event. You can also invite EU expert speakers for presentations, workshops or debates.',
-  links: [
+  items: [
     [
       {
         label: 'List of departments',

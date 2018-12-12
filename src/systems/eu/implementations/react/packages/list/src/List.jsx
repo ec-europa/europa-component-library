@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Link from '@ecl/ec-react-component-link/Link';
+import Link from '@ecl/eu-react-component-link/Link';
 import ListItem from './ListItem';
 
 const List = ({

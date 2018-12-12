@@ -4,18 +4,21 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import demoContentText from '@ecl/ec-specs-list/demo/data--text';
-import demoContentLink from '@ecl/ec-specs-list/demo/data--link';
-import demoContentBlockText from '@ecl/ec-specs-list/demo/data--block-text';
-import demoContentBlockLink from '@ecl/ec-specs-list/demo/data--block-link';
+import demoContentBlock from '@ecl/ec-specs-list/demo/data--block';
+import demoContentNavigationBlock from '@ecl/ec-specs-list/demo/data--navigation-block';
+import demoContentNavigationLink from '@ecl/ec-specs-list/demo/data--navigation-link';
 
 import List from '../src/List';
 
-storiesOf('Lists', module)
+storiesOf('List', module)
   .addDecorator(withKnobs)
-  .add('standard (text)', () => {
+  .add('standard', () => {
     const title = {
       ...demoContentText.title,
-      label: text('Title', demoContentText.title.label),
+      label: text(
+        'Title',
+        demoContentText.title ? demoContentText.title.label : ''
+      ),
     };
 
     return (
@@ -28,33 +31,25 @@ storiesOf('Lists', module)
       />
     );
   })
-  .add('standard (link)', () => {
-    const title = {
-      ...demoContentLink.title,
-      label: text('Title', demoContentLink.title.label),
-    };
-
-    return (
-      <List
-        {...demoContentLink}
-        title={title}
-        hasBullet={boolean('Display bullets', true)}
-        isOrdered={boolean('Ordered list', false)}
-        hasSeparator={boolean('Separator list', false)}
-      />
-    );
-  })
-  .add('standard (text block)', () => (
+  .add('text block', () => (
     <List
-      {...demoContentBlockText}
+      {...demoContentBlock}
       isOrdered={false}
       hasBullet={false}
       hasSeparator={false}
     />
   ))
-  .add('standard (link block)', () => (
+  .add('navigation block', () => (
     <List
-      {...demoContentBlockLink}
+      {...demoContentNavigationBlock}
+      isOrdered={false}
+      hasBullet={false}
+      hasSeparator={false}
+    />
+  ))
+  .add('navigation links', () => (
+    <List
+      {...demoContentNavigationLink}
       isOrdered={false}
       hasBullet={false}
       hasSeparator={false}

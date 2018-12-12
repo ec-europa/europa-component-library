@@ -8,12 +8,15 @@ import { List } from '@ecl/ec-react-component-list';
 
 import demoContentText from '@ecl/ec-specs-list/demo/data--text';
 import demoContentLink from '@ecl/ec-specs-list/demo/data--link';
-import demoContentBlockText from '@ecl/ec-specs-list/demo/data--block-text';
-import demoContentBlockLink from '@ecl/ec-specs-list/demo/data--block-link';
+import demoContentBlock from '@ecl/ec-specs-list/demo/data--block';
+import demoContentNavigationBlock from '@ecl/ec-specs-list/demo/data--navigation-block';
+import demoContentNavigationLink from '@ecl/ec-specs-list/demo/data--navigation-link';
 
-## Standard list (with text)
+## Unordered list
 
-<Playground system="ec" selectedKind="List" selectedStory="standard (text)">
+Content could be links or simple text
+
+<Playground system="ec" selectedKind="List" selectedStory="standard">
   <List
     {...demoContentText}
     hasBullet={true}
@@ -22,41 +25,57 @@ import demoContentBlockLink from '@ecl/ec-specs-list/demo/data--block-link';
   />
 </Playground>
 
-## Standard list (with links)
+## Ordered list
 
-<Playground system="ec" selectedKind="List" selectedStory="standard (link)">
+Content could be links or simple text
+
+<Playground system="ec" selectedKind="List" selectedStory="standard">
   <List
     {...demoContentLink}
     hasBullet={true}
-    isOrdered={false}
+    isOrdered={true}
     hasSeparator={false}
   />
 </Playground>
 
-## Standard list (with block text)
+## List with separator
 
-<Playground
-  system="ec"
-  selectedKind="List"
-  selectedStory="standard (text block)"
->
+<Playground system="ec" selectedKind="List" selectedStory="standard">
   <List
-    {...demoContentBlockText}
+    {...demoContentLink}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={true}
+  />
+</Playground>
+
+## List with block of text
+
+<Playground system="ec" selectedKind="List" selectedStory="text block">
+  <List
+    {...demoContentBlock}
     hasBullet={false}
     isOrdered={false}
     hasSeparator={false}
   />
 </Playground>
 
-## Standard list (with block link)
+## Navigation list with block of text
 
-<Playground
-  system="ec"
-  selectedKind="List"
-  selectedStory="standard (link block)"
->
+<Playground system="ec" selectedKind="List" selectedStory="navigation block">
   <List
-    {...demoContentBlockLink}
+    {...demoContentNavigationBlock}
+    hasBullet={false}
+    isOrdered={false}
+    hasSeparator={false}
+  />
+</Playground>
+
+## Navigation list with links
+
+<Playground system="ec" selectedKind="List" selectedStory="navigation links">
+  <List
+    {...demoContentNavigationLink}
     hasBullet={false}
     isOrdered={false}
     hasSeparator={false}
