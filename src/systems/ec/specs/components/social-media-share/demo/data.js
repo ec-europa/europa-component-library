@@ -12,10 +12,12 @@ module.exports = {
         {
           shape: 'twitter',
           size: 'xl',
+          className: '',
         },
         {
           shape: 'twitter_hover',
           size: 'xl',
+          className: 'ecl-social-media-share__icon-hover',
         },
       ],
     },
@@ -29,10 +31,12 @@ module.exports = {
         {
           shape: 'facebook',
           size: 'xl',
+          className: '',
         },
         {
           shape: 'facebook_hover',
           size: 'xl',
+          className: 'ecl-social-media-share__icon-hover',
         },
       ],
     },
@@ -46,10 +50,12 @@ module.exports = {
         {
           shape: 'linkedin',
           size: 'xl',
+          className: '',
         },
         {
           shape: 'linkedin_hover',
           size: 'xl',
+          className: 'ecl-social-media-share__icon-hover',
         },
       ],
     },
@@ -63,10 +69,12 @@ module.exports = {
         {
           shape: 'gplus',
           size: 'xl',
+          className: '',
         },
         {
           shape: 'gplus_hover',
           size: 'xl',
+          className: 'ecl-social-media-share__icon-hover',
         },
       ],
     },
@@ -80,10 +88,12 @@ module.exports = {
         {
           shape: 'email',
           size: 'xl',
+          className: '',
         },
         {
           shape: 'email_hover',
           size: 'xl',
+          className: 'ecl-social-media-share__icon-hover',
         },
       ],
     },

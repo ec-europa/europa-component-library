@@ -22,14 +22,14 @@ const SocialMediaShare = ({ description, links, className, ...props }) => {
               )}
               icon={
                 link.icon &&
-                link.icon.map((i, index) => ({
+                link.icon.map(i => ({
                   key: i.shape,
                   ...i,
+                  className: classnames(
+                    i.className,
+                    'ecl-social-media-share__icon'
+                  ),
                   iconPath: i.iconPath || socialSprite,
-                  className:
-                    index === 0
-                      ? 'ecl-social-media-share__icon'
-                      : 'ecl-social-media-share__icon-hover',
                 }))
               }
             />
