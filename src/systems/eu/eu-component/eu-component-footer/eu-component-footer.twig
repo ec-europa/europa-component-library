@@ -70,9 +70,9 @@
   <div class="ecl-container">
     <div class="ecl-row ecl-footer__row">
       {% if corporate_footer.contact_eu.items is defined and corporate_footer.contact_eu.items is not empty %}
-      <div class="ecl-footer__column ecl-col-md-8 ecl-footer__spaced-column">
+      <div class="ecl-footer__column ecl-col-md-6 ecl-footer__spaced-column">
         <div class="ecl-footer__column-title" id="footer-corporate-contact-eu">{{ corporate_footer.contact_eu.title }}</div>
-        <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col" aria-labelledby="footer-corporate-contact-eu">
+        <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-contact-eu">
           {% for menu_item in corporate_footer.contact_eu.items %}
             <li class="ecl-footer__list-item">
               {% include '@ecl/eu-component-link' with {
@@ -86,7 +86,7 @@
       </div>
       {% endif %}
       {% if corporate_footer.social_media.items is defined and corporate_footer.social_media.items is not empty %}
-      <div class="ecl-footer__column ecl-col-md-4 ecl-footer__spaced-column">
+      <div class="ecl-footer__column ecl-col-md-6 ecl-footer__spaced-column">
         <div class="ecl-footer__column-title" id="footer-corporate-social-media">{{ corporate_footer.social_media.title }}</div>
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-social-media">
           {% for menu_item in corporate_footer.social_media.items %}
@@ -128,6 +128,9 @@
       <div class="ecl-col">
         {% if corporate_footer.bottom_links is defined and corporate_footer.bottom_links is not empty %}
         <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline">
+          {% if corporate_footer.published_date is defined and corporate_footer.published_date is not empty %}
+            <li class="ecl-footer__list-item">{{ corporate_footer.published_date }}</li>
+          {% endif %}
           {% for menu_item in corporate_footer.bottom_links %}
           <li class="ecl-footer__list-item">
             {% include '@ecl/eu-component-link' with {

@@ -9,8 +9,8 @@ The footer offers access to copyright information, disclaimer and terms of use, 
 This is the part of the footer below the blue dividing line.
 
 * information about all EU relevant contacts
-* information on how to Find EU social media accounts
-* work for the European Union
+* information on how to Find an EU social media account
+* Language policy
 * site map
 * about this site
 * cookies

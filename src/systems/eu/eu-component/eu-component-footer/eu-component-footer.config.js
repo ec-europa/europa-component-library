@@ -68,36 +68,25 @@ module.exports = {
         items: [
           {
             href: '../../example.html#call',
-            label: 'Call 00 800 6 7 8 9 10 11. See details of service',
+            label:
+              'Call us 00 800 6 7 8 9 10 11 or use other telephone options',
           },
           {
             href: '../../example.html#email',
-            label: 'E-mail your questions about the EU',
+            label: 'E-mail us via our contact form',
           },
           {
             href: '../../example.html#euinyourcountry',
-            label: 'EU in your country',
-          },
-          {
-            href: '../../example.html#localinformation',
-            label: 'Local information services in the EU',
-          },
-          {
-            href: '../../example.html#institutions',
-            label: 'Institutions, bodies and agencies',
-          },
-          {
-            href: '../../example.html#press',
-            label: 'Press contacts',
+            label: 'Visit our contact points in your country',
           },
         ],
       },
       social_media: {
-        title: 'Find EU social media accounts',
+        title: 'Find an EU social media account',
         items: [
           {
             href: '../../example.html#social-media-tool',
-            label: 'Use this tool to search for EU social media channels',
+            label: 'Search for EU social media channels',
           },
         ],
       },
@@ -173,26 +162,27 @@ module.exports = {
       },
       bottom_links: [
         {
-          href: 'https://europa.eu/european-union/about-eu/working_en',
-          label: 'Work for the European Union',
+          href: '../../example.html#',
+          label: 'Language policy',
         },
         {
-          href: 'https://europa.eu/european-union/abouteuropa/cookies_en',
-          label: 'Cookies',
+          href: '../../example.html#',
+          label: 'Privacy policy',
         },
         {
-          href: 'https://europa.eu/european-union/abouteuropa/legal_notices_en',
+          href: '../../example.html#',
           label: 'Legal notice',
         },
         {
           href: '../../example.html#',
-          label: 'Language policy',
+          label: 'Cookies',
         },
         {
           href: '../../example.html#',
           label: 'Web accessibility',
         },
       ],
+      published_date: 'Last published 26/06/2018',
     },
   },
 };
