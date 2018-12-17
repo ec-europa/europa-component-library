@@ -1,0 +1,105 @@
+/**
+ * Select component
+ * @define select
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-select(
+  $border-color: $ecl-color-grey-100,
+  $border-width: 1px,
+  $border-color-hover: $ecl-color-blue-100,
+  $border-color-focus: $ecl-color-yellow-100,
+  $border-width-focus: 3px,
+  $arrow-width: 2.75rem
+) {
+  .ecl-select {
+    appearance: none;
+    background-color: transparent;
+    border: $border-width solid $border-color;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: $ecl-color-text;
+    display: block;
+    font: $ecl-font-m;
+    margin: 0;
+    padding: calc(#{$ecl-spacing-s} - #{$border-width})
+      calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width})
+      calc(#{$ecl-spacing-s} - #{$border-width})
+      calc(#{$ecl-spacing-s} - #{$border-width});
+    z-index: 1;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:hover {
+      border-color: $border-color-hover;
+    }
+
+    &:focus {
+      border-color: $border-color-focus;
+      border-width: $border-width-focus;
+      outline: none;
+      padding: calc(#{$ecl-spacing-s} - #{$border-width-focus})
+        calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width-focus})
+        calc(#{$ecl-spacing-s} - #{$border-width-focus})
+        calc(#{$ecl-spacing-s} - #{$border-width-focus});
+    }
+  }
+
+  .ecl-select__container {
+    background-color: $ecl-color-white-100;
+    display: inline-flex;
+    position: relative;
+  }
+
+  .ecl-select__icon {
+    align-items: center;
+    background-color: $border-color;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $arrow-width;
+    z-index: 0;
+  }
+
+  .ecl-select:hover + .ecl-select__icon {
+    background-color: $border-color-hover;
+  }
+  .ecl-select:focus + .ecl-select__icon {
+    background-color: $border-color;
+  }
+
+  .ecl-select__icon-shape {
+    fill: $ecl-color-white-100;
+  }
+
+  .ecl-select[disabled],
+  .ecl-select--disabled,
+  .ecl-select[readonly],
+  .ecl-select--readonly {
+    background-color: $ecl-color-grey-10;
+    cursor: not-allowed;
+  }
+
+  .ecl-select:invalid,
+  .ecl-select--invalid {
+    border-color: $ecl-color-error;
+    box-shadow: none;
+
+    /* stylelint-disable-next-line  no-descending-specificity */
+    + .ecl-select__icon {
+      background-color: $ecl-color-error;
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-form-select') {
+  @include ecl-select();
+}
