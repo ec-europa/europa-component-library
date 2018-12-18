@@ -1,0 +1,68 @@
+{#
+  Parameters:
+    - "card_type" (string) (default: ''): can be '', 'event', 'tag'
+    - "card_description" (string) (default: '')
+    - "card_title" (string) (default: '')
+    - "card_meta" (array) (default: [])
+    - "card_image_url" (string) (default: '')
+    - "card_href" (string) (default: '')
+    - "card_event_data" (array) (default: {date:'',place:''}): format {
+        "date" (string) (default: ''),
+        "place" (string) (default: '')
+    }
+    - "card_tags" (array) (default: [])
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+#}
+
+{% set _css_class = 'ecl-card' %}
+{% set _card_type = card_type|default('') %}
+{% set _card_description = card_description|default('') %}
+{% set _card_title = card_title|default('') %}
+{% set _card_meta = card_meta|default([]) %}
+{% set _card_image_url = card_image_url|default('') %}
+{% set _card_href = card_href|default('') %}
+
+{% set _card_event_data = card_event_data|default({'date':'','place':''}) %}
+{% set _card_tags = card_tags|default([]) %}
+
+<article class="{{ _css_class }}">
+  <header class="ecl-card__header">
+    <div class="ecl-card__image" alt="card image" style="background-image:url('{{ _card_image_url }}')"></div>
+    {% if _card_meta is not empty %}
+      <div class="ecl-card__meta">{{ _card_meta|join(' | ') }}</div>
+    {% endif %}
+    <h1 class="ecl-card__title"><a level="1" href="{{ _card_href }}" class="ecl-link ecl-link--standalone">{{ _card_title }}</a></h1>
+  </header>
+  <section class="ecl-card__body">
+    <div class="ecl-card__description">{{ _card_description }}</div>
+  </section>
+  <footer class="ecl-card__footer">
+    {% if (_card_type is empty or _card_type=='event') %}
+      <ul class="ecl-card__info-container">
+        <li class="ecl-card__info-item"><svg class="ecl-icon ecl-icon--xs">
+            <use xlink:href="/static/media/icons.1f3e1a43.svg#general--calendar"></use>
+          </svg><span class="ecl-card__info-label">{{ _card_event_data.date|date("Y/m/d") }}</span></li>
+        <li class="ecl-card__info-item"><svg class="ecl-icon ecl-icon--xs">
+            <use xlink:href="/static/media/icons.1f3e1a43.svg#general--location"></use>
+          </svg><span class="ecl-card__info-label">{{ _card_event_data.place }}</span></li>
+      </ul>
+    {% endif %}
+
+    {% if (_card_type is empty or _card_type == 'tag') %}
+      {% if _card_tags is not empty %}
+        <ul class="ecl-card__tag-container">
+          {% for _tag in _card_tags %}
+            <li class="ecl-card__tag-item"><a href="{{ _tag.href }}" class="ecl-card__tag ecl-tag">{{ _tag.label }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endif %}
+  </footer>
+</article>

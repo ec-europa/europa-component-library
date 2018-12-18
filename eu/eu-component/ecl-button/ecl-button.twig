@@ -1,0 +1,43 @@
+{#
+  Parameters:
+    - "button_type" (string) (default: 'primary'): can be 'primary', 'secondary', 'call', 'ghost', 'search'
+    - "type" (string) (default: 'button'): can be the same type as HTML button - 'submit', 'reset', 'button'
+    - "extra_classes" (string) (default: '')
+    - "extra_attributes" (array) (default: []): format: [
+        {
+          "name" (string) (default: ''),
+          "value" (string) (default: '')
+        },
+        ...
+      ]
+  Blocks:
+    - "label"
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-button' %}
+{% set _extra_attributes = '' %}
+{% set _label = label|default('') %}
+{% set _button_type = button_type|default('primary') %}
+{% set _type = type|default('button') %}
+
+{# Internal logic - Process properties #}
+{% set _css_class = _css_class ~ ' ecl-button--' ~ _button_type %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+<button class="{{ _css_class }}" type="{{ _type }}"{{ _extra_attributes|raw }}><span class="ecl-button__container"><span class="ecl-button__label">{% block label _label %}</span>
+{% if _button_type=='call' %}<svg class="ecl-button__icon ecl-icon ecl-icon--xs ecl-icon--rotate-90">
+      <use xlink:href="/static/media/icons.1f3e1a43.svg#ui--corner-arrow"></use>
+    </svg>{% endif %}
+</span></button>
