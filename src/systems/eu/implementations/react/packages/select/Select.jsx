@@ -51,7 +51,7 @@ const Select = ({
           ))}
         </select>
 
-        <div className="ecl-select__icon" htmlFor={id}>
+        <div className="ecl-select__icon">
           <Icon
             shape="ui--corner-arrow"
             transform="rotate-180"
