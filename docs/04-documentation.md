@@ -110,7 +110,7 @@ Use the tag `<Anatomy>` with following values:
 
 ```
 <Anatomy>
-  vertical 
+  vertical
   image="{PATH TO THE IMAGE}"
   legend={{
     items: [
@@ -127,7 +127,7 @@ If you don't want the legend to be vertical, just remove the `vertical` value.
 Full example:
 
 ```
-<Anatomy> 
+<Anatomy>
   image="http://example.com/anatomy.png"
   legend={{
     items: [
