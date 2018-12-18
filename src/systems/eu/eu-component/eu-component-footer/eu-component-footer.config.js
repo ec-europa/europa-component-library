@@ -67,17 +67,16 @@ module.exports = {
         title: 'Contact the EU',
         items: [
           {
-            href: '../../example.html#call',
-            label:
-              'Call us 00 800 6 7 8 9 10 11 or use other telephone options',
+            html:
+              'Call us <a href="../../example.html#call" class="ecl-link ecl-link--standalone">00 800 6 7 8 9 10 11</a> or use other <a href="../../example.html#call" class="ecl-link ecl-link--standalone">telephone options</a>',
           },
           {
-            href: '../../example.html#email',
-            label: 'E-mail us via our contact form',
+            html:
+              'E-mail us via our <a href="../../example.html#call" class="ecl-link ecl-link--standalone">contact form</a>',
           },
           {
-            href: '../../example.html#euinyourcountry',
-            label: 'Visit our contact points in your country',
+            html:
+              'Visit our <a href="../../example.html#call" class="ecl-link ecl-link--standalone">contact points</a> in your country',
           },
         ],
       },
@@ -85,8 +84,8 @@ module.exports = {
         title: 'Find an EU social media account',
         items: [
           {
-            href: '../../example.html#social-media-tool',
-            label: 'Search for EU social media channels',
+            html:
+              'Search for <a href="../../example.html#call" class="ecl-link ecl-link--standalone">EU social media channels</a>',
           },
         ],
       },

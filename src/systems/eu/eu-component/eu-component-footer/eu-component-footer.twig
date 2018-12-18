@@ -74,13 +74,19 @@
         <div class="ecl-footer__column-title" id="footer-corporate-contact-eu">{{ corporate_footer.contact_eu.title }}</div>
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--2-col" aria-labelledby="footer-corporate-contact-eu">
           {% for menu_item in corporate_footer.contact_eu.items %}
-            <li class="ecl-footer__list-item">
-              {% include '@ecl/eu-component-link' with {
-                href: menu_item.href,
-                label: menu_item.label,
-                extra_classes: 'ecl-footer__link'
-              } %}
-            </li>
+            {% if menu_item is not empty %}
+              <li class="ecl-footer__list-item">
+                {% if menu_item.href is defined and menu_item.href is not empty %}
+                  {% include '@ecl/eu-component-link' with {
+                    href: menu_item.href,
+                    label: menu_item.label,
+                    extra_classes: 'ecl-footer__link'
+                  } only %}
+                {% elseif menu_item.html is defined and menu_item.html is not empty %}
+                  {{ menu_item.html|raw }}
+                {% endif %}
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
@@ -90,13 +96,19 @@
         <div class="ecl-footer__column-title" id="footer-corporate-social-media">{{ corporate_footer.social_media.title }}</div>
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list" aria-labelledby="footer-corporate-social-media">
           {% for menu_item in corporate_footer.social_media.items %}
-            <li class="ecl-footer__list-item">
-              {% include '@ecl/eu-component-link' with {
-                href: menu_item.href,
-                label: menu_item.label,
-                extra_classes: 'ecl-footer__link'
-              } %}
-            </li>
+           {% if menu_item is not empty %}
+              <li class="ecl-footer__list-item">
+                {% if menu_item.href is defined and menu_item.href is not empty %}
+                  {% include '@ecl/eu-component-link' with {
+                    href: menu_item.href,
+                    label: menu_item.label,
+                    extra_classes: 'ecl-footer__link'
+                  } only %}
+                {% elseif menu_item.html is defined and menu_item.html is not empty %}
+                  {{ menu_item.html|raw }}
+                {% endif %}
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
@@ -108,13 +120,19 @@
         <div class="ecl-footer__column-title" id="footer-corporate-find-institution">{{ corporate_footer.find_institution.title }}</div>
         <ul class="ecl-list ecl-list--unstyled ecl-footer__list ecl-footer__list--3-col" aria-labelledby="footer-corporate-find-institution">
           {% for menu_item in corporate_footer.find_institution.items %}
-            <li class="ecl-footer__list-item">
-              {% include '@ecl/eu-component-link' with {
-                href: menu_item.href,
-                label: menu_item.label,
-                extra_classes: 'ecl-footer__link'
-              } only %}
-            </li>
+           {% if menu_item is not empty %}
+              <li class="ecl-footer__list-item">
+                {% if menu_item.href is defined and menu_item.href is not empty %}
+                  {% include '@ecl/eu-component-link' with {
+                    href: menu_item.href,
+                    label: menu_item.label,
+                    extra_classes: 'ecl-footer__link'
+                  } only %}
+                {% elseif menu_item.html is defined and menu_item.html is not empty %}
+                  {{ menu_item.html|raw }}
+                {% endif %}
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </div>
@@ -132,14 +150,19 @@
             <li class="ecl-footer__list-item">{{ corporate_footer.published_date }}</li>
           {% endif %}
           {% for menu_item in corporate_footer.bottom_links %}
-          <li class="ecl-footer__list-item">
-            {% include '@ecl/eu-component-link' with {
-              'href': menu_item.href,
-              'label': menu_item.label,
-              'extra_classes': 'ecl-footer__link'
-              }
-            %}
-          </li>
+            {% if menu_item is not empty %}
+              <li class="ecl-footer__list-item">
+                {% if menu_item.href is defined and menu_item.href is not empty %}
+                  {% include '@ecl/eu-component-link' with {
+                    href: menu_item.href,
+                    label: menu_item.label,
+                    extra_classes: 'ecl-footer__link'
+                  } only %}
+                {% elseif menu_item.html is defined and menu_item.html is not empty %}
+                  {{ menu_item.html|raw }}
+                {% endif %}
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
         {% endif %}
