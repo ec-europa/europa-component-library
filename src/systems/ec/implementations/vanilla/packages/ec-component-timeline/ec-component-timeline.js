@@ -5,7 +5,6 @@ class Timeline {
     element,
     {
       buttonSelector: buttonSelector = '[data-ecl-timeline-button]',
-      listSelector: listSelector = '[data-ecl-timeline-list]',
       attachClickListener: attachClickListener = true,
     } = {}
   ) {
@@ -20,12 +19,10 @@ class Timeline {
 
     // Options
     this.buttonSelector = buttonSelector;
-    this.listSelector = listSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
     this.button = null;
-    this.list = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnButton = this.handleClickOnButton.bind(this);
@@ -34,7 +31,6 @@ class Timeline {
   init() {
     // Query elements
     this.button = queryOne(this.buttonSelector, this.element);
-    this.list = queryOne(this.listSelector, this.element);
 
     // Bind click event on button
     if (this.attachClickListener && this.button) {
@@ -49,7 +45,7 @@ class Timeline {
   }
 
   handleClickOnButton() {
-    this.list.setAttribute('aria-expanded', 'true');
+    this.element.setAttribute('aria-expanded', 'true');
 
     return this;
   }

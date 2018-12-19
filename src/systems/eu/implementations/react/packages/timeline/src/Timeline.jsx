@@ -32,39 +32,37 @@ export default class Timeline extends React.Component {
     const classNames = classnames(className, 'ecl-timeline');
 
     const showAllButton = (
-      <Fragment>
-        <br />
+      <li className="ecl-timeline__item ecl-timeline__item--toggle">
         <Button
           {...button}
           className={classnames(button.className, 'ecl-timeline__button')}
           data-ecl-timeline-button
         />
-      </Fragment>
+      </li>
     );
 
     return (
-      <section
+      <ol
         {...props}
         className={classNames}
         ref={this.timelineRef}
         data-ecl-timeline
       >
-        <ol className="ecl-timeline__list" data-ecl-timeline-list>
-          {items.map((item, index) => (
+        {items.map((item, index) => (
+          <Fragment key={item.label}>
             <TimelineItem
-              key={item.label}
               label={item.label}
               className={classnames({
                 [`ecl-timeline__item--collapsed`]: index > 2,
               })}
             >
               {item.content}
-
-              {index === 2 && showAllButton}
             </TimelineItem>
-          ))}
-        </ol>
-      </section>
+
+            {index === 2 && showAllButton}
+          </Fragment>
+        ))}
+      </ol>
     );
   }
 }
