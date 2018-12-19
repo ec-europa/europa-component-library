@@ -1,0 +1,20 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Checkbox from '@ecl/ec-react-component-checkbox/Checkbox';
+import demo from '@ecl/ec-specs-checkbox/demo/data';
+
+<Playground system="ec" selectedKind="Checkbox" selectedStory="default">
+  <Checkbox {...demo.unchecked} />
+</Playground>
+
+<Playground system="ec" selectedKind="Checkbox" selectedStory="disabled">
+  <Checkbox {...demo.disabled} />
+</Playground>
+
+<Playground system="ec" selectedKind="Checkbox" selectedStory="invalid">
+  <Checkbox {...demo.invalid} />
+</Playground>

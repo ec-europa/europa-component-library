@@ -1,0 +1,91 @@
+/**
+ * Checkbox component
+ * @define checkbox
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-checkbox(
+  $thickness-base: 1px,
+  $thickness-max: 3px,
+  $border-color: $ecl-color-grey-25,
+  $border-color-focus: $ecl-color-yellow-100,
+  $border-color-checked: $ecl-color-blue-100,
+  $fake-checkbox-size: 0.875rem
+) {
+  .ecl-checkbox {
+    align-items: center;
+    display: flex;
+    position: relative;
+  }
+
+  .ecl-checkbox__input {
+    cursor: pointer;
+    margin-left: 3px;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .ecl-checkbox__label {
+    color: $ecl-color-grey-100;
+    font-size: $ecl-font-m;
+    font-weight: normal;
+    padding: 2px 0 0 $ecl-spacing-xl;
+  }
+
+  .ecl-checkbox__icon {
+    border: $thickness-base solid $border-color;
+    cursor: pointer;
+    display: inline-flex;
+    left: 0;
+    min-height: $fake-checkbox-size;
+    min-width: $fake-checkbox-size;
+    padding: 2px;
+    position: absolute;
+  }
+
+  .ecl-checkbox__icon--checked {
+    background: $border-color-checked;
+    border-color: $border-color-checked;
+    color: #fff;
+    display: none;
+  }
+
+  .ecl-checkbox__input:checked {
+    ~ .ecl-checkbox__icon--checked {
+      display: inline-flex;
+    }
+  }
+
+  .ecl-checkbox--invalid > .ecl-checkbox__icon {
+    border-color: $ecl-color-error;
+  }
+
+  .ecl-checkbox__input:focus,
+  .ecl-checkbox__input:active {
+    ~ .ecl-checkbox__icon {
+      border: $thickness-max solid $border-color-focus;
+      padding: 0;
+    }
+  }
+
+  .ecl-checkbox__input:disabled {
+    cursor: not-allowed;
+
+    + .ecl-checkbox__icon {
+      cursor: not-allowed;
+    }
+
+    ~ .ecl-checkbox__label {
+      color: $ecl-color-grey-25;
+    }
+  }
+}
+
+// Use mixin.
+@include exports('ec-component-form-checkbox') {
+  @include ecl-checkbox();
+}
