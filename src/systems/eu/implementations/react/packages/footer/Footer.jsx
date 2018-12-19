@@ -19,12 +19,13 @@ const Footer = ({
     })}
   >
     {/* Back to top */}
-    {backToTop && (
+    {!!(backToTop && backToTop.label) && (
       <Link
         {...backToTop}
         className={classnames(backToTop.className, 'ecl-footer__back-to-top')}
       />
     )}
+
     {/* Site identity */}
     {!!(identity && identity.title) && (
       <section className="ecl-footer__identity">

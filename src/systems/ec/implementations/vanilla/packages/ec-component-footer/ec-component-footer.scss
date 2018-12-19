@@ -34,7 +34,7 @@
     align-self: flex-end;
     background-color: $background-sections;
     color: $color-section;
-    display: block;
+    display: none;
     font: $ecl-font-m;
     font-weight: $ecl-font-weight-bold;
     margin: 0;
@@ -55,6 +55,13 @@
     &:focus {
       color: $color-identity;
       outline-offset: -3px;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('sm') {
+    .ecl-footer__back-to-top {
+      display: block;
     }
   }
 
