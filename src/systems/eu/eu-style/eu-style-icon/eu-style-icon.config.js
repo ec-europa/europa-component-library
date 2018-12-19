@@ -268,6 +268,13 @@ module.exports = {
       },
     },
     {
+      name: 'instagram',
+      label: 'Instagram icon',
+      context: {
+        modifier: 'ecl-icon--instagram',
+      },
+    },
+    {
       name: 'language',
       label: 'Language icon',
       context: {
