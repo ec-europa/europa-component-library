@@ -8,6 +8,7 @@ module.exports = {
       transform: 'rotate-180',
     },
     variant: 'call',
+    type: 'button',
   },
   items: [
     {
