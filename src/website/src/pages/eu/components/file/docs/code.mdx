@@ -1,0 +1,32 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import FileDownload from '@ecl/eu-react-component-file/FileDownload';
+
+import demoContent from '@ecl/eu-specs-file/demo/data--without-translation';
+import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translation';
+
+## Without translations
+
+<Playground
+  system="eu"
+  selectedKind="File"
+  selectedStory="without translation"
+  showFrame
+>
+  <FileDownload {...demoContent} />
+</Playground>
+
+## With translations
+
+<Playground
+  system="eu"
+  selectedKind="File"
+  selectedStory="with translation"
+  showFrame
+>
+  <FileDownload {...demoContentTranslation} />
+</Playground>
