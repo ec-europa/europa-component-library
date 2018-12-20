@@ -17,7 +17,6 @@ module.exports = {
   translation: {
     toggle: {
       label: 'Other languages (3)',
-      href: '/example',
       icon: {
         shape: 'ui--corner-arrow',
         size: 'fluid',

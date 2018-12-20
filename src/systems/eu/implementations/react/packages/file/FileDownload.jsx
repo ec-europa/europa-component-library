@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+import Button from '@ecl/eu-react-component-button/Button';
 import Icon from '@ecl/eu-react-component-icon/Icon';
 import Link from '@ecl/eu-react-component-link/Link';
 
@@ -48,9 +49,9 @@ const FileDownload = ({
           className="ecl-file__translation-container"
           data-ecl-file-translation-container
         >
-          <Link
+          <Button
             {...translation.toggle}
-            variant="standalone"
+            variant="ghost"
             className={classnames(
               translation.toggle.className,
               'ecl-file__translation-toggle'
@@ -102,7 +103,7 @@ FileDownload.propTypes = {
   meta: PropTypes.string,
   download: PropTypes.shape(Link.propTypes),
   translation: PropTypes.shape({
-    toggle: PropTypes.shape(Link.propTypes),
+    toggle: PropTypes.shape(Button.propTypes),
     items: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,

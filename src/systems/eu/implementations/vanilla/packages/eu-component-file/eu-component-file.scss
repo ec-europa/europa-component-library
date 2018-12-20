@@ -7,7 +7,9 @@
 @import '@ecl/eu-base/eu-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('eu-component-link', 'eu-component-icon'));
+@include check-imports(
+  ('eu-component-button', 'eu-component-link', 'eu-component-icon')
+);
 
 @mixin ecl-file(
   $container-background: $ecl-color-grey-5,
@@ -86,8 +88,13 @@
   .ecl-file__translation-toggle {
     align-self: flex-end;
     font: $ecl-font-m;
+    font-weight: $ecl-font-weight-regular;
     margin-bottom: $ecl-spacing-m;
     margin-top: $ecl-spacing-m;
+
+    .no-js & {
+      display: none;
+    }
   }
 
   .ecl-file__translation-list {
