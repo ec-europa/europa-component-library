@@ -36,7 +36,11 @@ const Select = ({
         </label>
       )}
 
-      <div className="ecl-select__container">
+      <div
+        className={classnames('ecl-select__container', {
+          'ecl-select__container--disabled': disabled,
+        })}
+      >
         <select
           {...props}
           id={id}

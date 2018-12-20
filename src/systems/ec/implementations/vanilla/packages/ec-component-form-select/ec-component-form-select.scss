@@ -81,14 +81,34 @@
     fill: $ecl-color-white-100;
   }
 
+  /*
+   * Disabled
+   */
+  .ecl-select__container--disabled {
+    background-color: $ecl-color-grey-5;
+  }
+
+  /* stylelint-disable-next-line  no-descending-specificity */
+  .ecl-select__container--disabled .ecl-select__icon,
+  .ecl-select__container--disabled .ecl-select:hover + .ecl-select__icon,
+  .ecl-select__container--disabled .ecl-select:focus + .ecl-select__icon {
+    background-color: $ecl-color-grey-50;
+  }
+
+  .ecl-select__container--disabled .ecl-select__icon-shape {
+    fill: $ecl-color-grey-10;
+  }
+
   .ecl-select[disabled],
-  .ecl-select--disabled,
-  .ecl-select[readonly],
-  .ecl-select--readonly {
-    background-color: $ecl-color-grey-10;
+  .ecl-select[readonly] {
+    border-color: $ecl-color-grey-50;
+    color: $ecl-color-grey-50;
     cursor: not-allowed;
   }
 
+  /*
+   * Error
+   */
   .ecl-select:invalid,
   .ecl-select--invalid {
     border-color: $ecl-color-error;
