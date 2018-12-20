@@ -15,4 +15,4 @@ export * from '@ecl/eu-component-file';
 // export * from '@ecl/eu-component-navigation-menu';
 // export * from '@ecl/eu-component-table';
 // export * from '@ecl/eu-component-tab';
-// export * from '@ecl/eu-component-timeline';
+export * from '@ecl/eu-component-timeline';
