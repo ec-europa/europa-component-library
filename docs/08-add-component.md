@@ -27,9 +27,9 @@ Their names are prefixed by _{system}-utility_
 - **base_name**: {system}-utility-{utility_name}
 - **package_name**: {system}-utility-{utility_name}
 - **files**:
-   - {system}-utility-{utility_name}.scss
-   - package.json
-   - README.md
+  - {system}-utility-{utility_name}.scss
+  - package.json
+  - README.md
 
 There is also a convention adopted for utility CSS classes, which is: _ecl-u-\*_ where the placeholder is replaced by the specific utility.
 
@@ -49,12 +49,12 @@ At the moment, the available presets are:
 
 This is the npm package containing the data for the component, templates and utilities demo. They can contain several data files, depending on the complexity and variants of the component.
 
-- **path**: src/systems/{system}/specs/*/
+- **path**: src/systems/{system}/specs/\*/
 - **base_name**: {system}-specs-{component_name}
 - **package_name**: {system}-specs-{component_name}
 - **files**:
-   - demo/data--{variant}.js
-   - package.json
+  - demo/data--{variant}.js
+  - package.json
 
 ### Components
 
@@ -64,15 +64,15 @@ It's a React component defined as a npm package, so it is made in its simplest f
 - **base_name**: {component_name}
 - **package_name**: {system}-react-component-{component_name}
 - **files**:
-   - {component_name}.jsx
-   - package.json
+  - {component_name}.jsx
+  - package.json
 
 #### Storybook
 
 To render the component in Storybook, you have to define stories for it in the "stories" folder, in each component/layout. The story should import the demo data from the specs of the component.
 
 - **files**:
-   - stories/Index.jsx
+  - stories/Index.jsx
 
 ### Templates
 
@@ -90,10 +90,10 @@ They are located in the website folder.
 
 - **path**: src/website/src/pages/{system}/components/{component_name}
 - **files**:
-   - docs/code.mdx
-   - docs/style.md
-   - docs/usage.md
-   - index.md
+  - docs/code.mdx
+  - docs/style.md
+  - docs/usage.md
+  - index.md
 
 ## Extra modifications
 
