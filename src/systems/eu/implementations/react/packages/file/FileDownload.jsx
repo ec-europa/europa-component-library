@@ -52,6 +52,7 @@ const FileDownload = ({
           <Button
             {...translation.toggle}
             variant="ghost"
+            type="button"
             className={classnames(
               translation.toggle.className,
               'ecl-file__translation-toggle'
