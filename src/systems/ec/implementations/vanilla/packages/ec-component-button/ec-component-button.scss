@@ -34,6 +34,10 @@
       outline: $outline-width solid $ecl-color-secondary;
       outline-offset: -($outline-width);
     }
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
   }
 
   .ecl-button__container {
@@ -45,6 +49,9 @@
     margin-left: $ecl-spacing-xs;
   }
 
+  /*
+   * Primary
+   */
   .ecl-button--primary {
     background-color: $ecl-color-primary;
     color: #fff;
@@ -57,8 +64,16 @@
       padding: calc(#{$padding-horizontal} - #{$border-width})
         calc(#{$padding-vertical} - #{$border-width});
     }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-blue-25;
+    }
   }
 
+  /*
+   * Secondary
+   */
   .ecl-button--secondary {
     background-color: #fff;
     border: $border-width solid $ecl-color-primary;
@@ -78,12 +93,29 @@
       background-color: $ecl-color-primary;
       color: #fff;
     }
+
+    &[disabled],
+    &[disabled]:hover {
+      border-color: $ecl-color-blue-25;
+      color: $ecl-color-blue-25;
+    }
   }
 
+  /*
+   * Ghost
+   */
   .ecl-button--ghost {
     color: $ecl-color-primary;
+
+    &[disabled],
+    &[disabled]:hover {
+      color: $ecl-color-blue-25;
+    }
   }
 
+  /*
+   * Call to action
+   */
   .ecl-button--call {
     background-color: $ecl-color-secondary;
     color: #000;
@@ -98,8 +130,17 @@
     &:focus {
       outline-color: #000;
     }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-yellow-25;
+      color: $ecl-color-grey-50;
+    }
   }
 
+  /*
+   * Search
+   */
   .ecl-button--search {
     background-color: $ecl-color-tertiary;
     color: $ecl-color-primary;
@@ -108,6 +149,12 @@
     &:active,
     &:focus {
       color: $ecl-color-text;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-grey-5;
+      color: $ecl-color-grey-50;
     }
   }
 }
