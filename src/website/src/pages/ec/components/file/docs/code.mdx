@@ -3,8 +3,8 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground'
-import FileDownload from '@ecl/ec-react-component-file/FileDownload'
+import Playground from '@ecl/website-components/Playground';
+import FileDownload from '@ecl/ec-react-component-file/FileDownload';
 
 import demoContent from '@ecl/ec-specs-file/demo/data--without-translation';
 import demoContentTranslation from '@ecl/ec-specs-file/demo/data--with-translation';
@@ -15,6 +15,7 @@ import demoContentTranslation from '@ecl/ec-specs-file/demo/data--with-translati
   system="ec"
   selectedKind="File"
   selectedStory="without translation"
+  showFrame
 >
   <FileDownload {...demoContent} />
 </Playground>
@@ -25,6 +26,7 @@ import demoContentTranslation from '@ecl/ec-specs-file/demo/data--with-translati
   system="ec"
   selectedKind="File"
   selectedStory="with translation"
+  showFrame
 >
   <FileDownload {...demoContentTranslation} />
 </Playground>

@@ -2,128 +2,99 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import VanillaFileDownload from '@ecl/eu-component-file/eu-component-file';
-
 import Icon from '@ecl/eu-react-component-icon/Icon';
 import Link from '@ecl/eu-react-component-link/Link';
 
-export default class FileDownload extends React.Component {
-  constructor(props) {
-    super(props);
+const FileDownload = ({
+  title,
+  language,
+  meta,
+  icon,
+  download,
+  translation,
+  className,
+  ...props
+}) => {
+  const classNames = classnames(className, 'ecl-file');
 
-    this.state = {};
-    this.fileDownload = null;
-    this.fileDownloadRef = React.createRef();
-  }
+  return (
+    <div {...props} className={classNames} data-ecl-file>
+      <div className="ecl-file__container">
+        <Icon
+          {...icon}
+          className={classnames(icon.className, 'ecl-file__icon')}
+        />
 
-  componentDidMount() {
-    this.fileDownload = new VanillaFileDownload(this.fileDownloadRef.current);
-    this.fileDownload.init();
-  }
-
-  componentWillUnmount() {
-    if (this.fileDownload) this.fileDownload.destroy();
-  }
-
-  render() {
-    const {
-      title,
-      language,
-      meta,
-      icon,
-      download,
-      translation,
-      className,
-      ...props
-    } = this.props;
-
-    const classNames = classnames(className, 'ecl-file');
-
-    return (
-      <div {...props} className={classNames} ref={this.fileDownloadRef}>
-        <div className="ecl-file__container">
-          <Icon
-            {...icon}
-            className={classnames(icon.className, 'ecl-file__icon')}
-          />
-
-          <div className="ecl-file__info">
-            <div className="ecl-file__title">{title}</div>
-            <div className="ecl-file__language">{language}</div>
-            <div className="ecl-file__meta">{meta}</div>
-          </div>
-
-          <Link
-            {...download}
-            variant="standalone"
-            className={classnames(
-              download.className,
-              'ecl-file__download',
-              'ecl-button',
-              'ecl-button--secondary'
-            )}
-          />
+        <div className="ecl-file__info">
+          <div className="ecl-file__title">{title}</div>
+          <div className="ecl-file__language">{language}</div>
+          <div className="ecl-file__meta">{meta}</div>
         </div>
 
-        {!!(
-          translation &&
-          translation.items &&
-          translation.items.length > 0
-        ) && (
-          <div
-            className="ecl-file__translation-container"
-            data-ecl-file-translation-container
-          >
-            <Link
-              {...translation.toggle}
-              variant="standalone"
-              className={classnames(
-                translation.toggle.className,
-                'ecl-file__translation-toggle'
-              )}
-              data-ecl-file-translation-toggle
-            />
+        <Link
+          {...download}
+          variant="standalone"
+          className={classnames(
+            download.className,
+            'ecl-file__download',
+            'ecl-button',
+            'ecl-button--secondary'
+          )}
+        />
+      </div>
 
-            <ul className="ecl-file__translation-list">
-              {translation.items.map(item => (
-                <li
-                  className={classnames(
-                    item.className,
-                    'ecl-file__translation-item'
-                  )}
-                  key={item.title}
-                >
-                  <div className="ecl-file__translation-info">
-                    <div className="ecl-file__translation-title">
-                      {item.title}
-                    </div>
+      {!!(translation && translation.items && translation.items.length > 0) && (
+        <div
+          className="ecl-file__translation-container"
+          data-ecl-file-translation-container
+        >
+          <Link
+            {...translation.toggle}
+            variant="standalone"
+            className={classnames(
+              translation.toggle.className,
+              'ecl-file__translation-toggle'
+            )}
+            data-ecl-file-translation-toggle
+          />
 
-                    <div className="ecl-file__translation-meta">
-                      {item.meta}
-                    </div>
+          <ul className="ecl-file__translation-list">
+            {translation.items.map(item => (
+              <li
+                className={classnames(
+                  item.className,
+                  'ecl-file__translation-item'
+                )}
+                key={item.title}
+              >
+                <div className="ecl-file__translation-info">
+                  <div className="ecl-file__translation-title">
+                    {item.title}
                   </div>
 
-                  <Link
-                    {...download}
-                    variant="standalone"
-                    className={classnames(
-                      download.className,
-                      'ecl-file__translation-download'
-                    )}
-                  />
-                </li>
-              ))}
+                  <div className="ecl-file__translation-meta">{item.meta}</div>
+                </div>
 
-              <li className="ecl-file__translation-item ecl-file__translation-description">
-                {translation.description}
+                <Link
+                  {...download}
+                  variant="standalone"
+                  className={classnames(
+                    download.className,
+                    'ecl-file__translation-download'
+                  )}
+                />
               </li>
-            </ul>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
+            ))}
+
+            <li className="ecl-file__translation-item ecl-file__translation-description">
+              {translation.description}
+            </li>
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+};
 
 FileDownload.propTypes = {
   title: PropTypes.string,
@@ -151,3 +122,5 @@ FileDownload.defaultProps = {
   translation: {},
   className: '',
 };
+
+export default FileDownload;

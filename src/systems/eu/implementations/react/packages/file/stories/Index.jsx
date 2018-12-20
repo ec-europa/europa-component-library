@@ -2,14 +2,36 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContent from '@ecl/eu-specs-file/demo/data--without-translation';
 import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translation';
+
+import VanillaFileDownload from '@ecl/eu-component-file';
 
 import FileDownload from '../FileDownload';
 
 storiesOf('File', module)
   .addDecorator(withKnobs)
+  .addDecorator(story => (
+    <StoryWrapper
+      afterMount={() => {
+        const element = document.querySelector('[data-ecl-file]');
+        const vanillaFileDownload = new VanillaFileDownload(element);
+        vanillaFileDownload.init();
+
+        // Return new context
+        return { vanillaFileDownload };
+      }}
+      beforeUnmount={context => {
+        if (context.vanillaFileDownload) {
+          context.vanillaFileDownload.destroy();
+        }
+      }}
+    >
+      {story()}
+    </StoryWrapper>
+  ))
   .add('without translation', () => {
     const title = text('File title', demoContent.title);
 
