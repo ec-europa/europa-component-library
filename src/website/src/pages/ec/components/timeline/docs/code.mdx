@@ -1,0 +1,19 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+
+import Timeline, { TimelineItem } from '@ecl/ec-react-component-timeline';
+
+import demoContent from '@ecl/ec-specs-timeline/demo/data';
+
+<Playground
+  system="ec"
+  selectedKind="Timeline"
+  selectedStory="default"
+  showFrame
+>
+  <Timeline {...demoContent} />
+</Playground>
