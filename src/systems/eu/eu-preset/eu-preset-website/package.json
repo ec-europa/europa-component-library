@@ -2,7 +2,7 @@
   "name": "@ecl/eu-preset-website",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Europa Component Library base preset",
   "style": "eu-preset-website.scss",
   "module": "eu-preset-website.js",
@@ -16,15 +16,13 @@
     "build": "rimraf build && run-p build:* -ln",
     "clean": "rimraf build dist",
     "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln",
-    "watch:scripts":
-      "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
-    "watch:styles":
-      "chokidar \"../../../../generic/**/*.scss\" \"../../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
+    "watch:scripts": "chokidar \"../../../../generic/**/*.js\" \"../../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
+    "watch:styles": "chokidar \"../../../../generic/**/*.scss\" \"../../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:* -ln",
     "prepublish": "npm run dist"
   },
   "dependencies": {
-    "@ecl/eu-preset-full": "^1.2.0",
+    "@ecl/eu-preset-full": "^1.3.0",
     "normalize.css": "8.0.0"
   },
   "devDependencies": {
@@ -34,7 +32,11 @@
     "npm-run-all": "4.1.3",
     "rimraf": "2.6.2"
   },
-  "keywords": ["ecl", "europa-component-library", "design-system"],
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ],
   "homepage": "https://github.com/ec-europa/europa-component-library",
   "bugs": {
     "url": "https://github.com/ec-europa/europa-component-library/issues"

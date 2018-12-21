@@ -2,17 +2,16 @@
   "name": "@ecl/eu-component-link",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "ECL Links",
   "style": "eu-component-link.scss",
   "scripts": {
-    "test:independent-sass":
-      "node-sass --quiet --include-path ../../../../../node_modules eu-component-link.scss dist/eu-component-link.css"
+    "test:independent-sass": "node-sass --quiet --include-path ../../../../../node_modules eu-component-link.scss dist/eu-component-link.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^1.0.0",
-    "@ecl/eu-style-icon": "^1.1.0",
-    "@ecl/generic-component-link": "^1.1.0"
+    "@ecl/eu-style-icon": "^1.2.0",
+    "@ecl/generic-component-link": "^1.2.0"
   },
   "devDependencies": {
     "node-sass": "4.9.0"
@@ -28,6 +27,10 @@
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": ["ecl", "europa-component-library", "design-system"],
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ],
   "sass": "eu-component-link.scss"
 }

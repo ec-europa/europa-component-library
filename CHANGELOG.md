@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.3.0 (2018-12-21)
+
+#### :rocket: New Feature
+
+* [#982](https://github.com/ec-europa/europa-component-library/pull/982) feat(icon): add instagram icon - INNO-1302. ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+* [#986](https://github.com/ec-europa/europa-component-library/pull/986) fix(eu-component-rss-link): fix cyclic dependency - no issue. ([@yhuard](https://github.com/yhuard))
+* [#980](https://github.com/ec-europa/europa-component-library/pull/980) fix(eu-footer): update content and styles - INNO-1309. ([@yhuard](https://github.com/yhuard))
+* [#971](https://github.com/ec-europa/europa-component-library/pull/971) fix(templates): fix ECL templates and footer - INNO-1297. ([@yhuard](https://github.com/yhuard))
+* [#966](https://github.com/ec-europa/europa-component-library/pull/966) fix(basic-page): adapt template content - INNO-1296. ([@degliwe](https://github.com/degliwe))
+* [#738](https://github.com/ec-europa/europa-component-library/pull/738) fix(tags): support multiline tags - INNO-1140. ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+* [#955](https://github.com/ec-europa/europa-component-library/pull/955) fix(footer): ECL 1.x add missing links - INNO-1286. ([@emeryro](https://github.com/emeryro))
+* [#794](https://github.com/ec-europa/europa-component-library/pull/794) fix(language-list): put spanish in second position - no-issue. ([@degliwe](https://github.com/degliwe))
+
+#### :memo: Documentation
+
+* [#741](https://github.com/ec-europa/europa-component-library/pull/741) doc(how to): fix links. ([@degliwe](https://github.com/degliwe))
+* [#725](https://github.com/ec-europa/europa-component-library/pull/725) docs(versions): add link to old version - no issue. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+* Romain Emery ([emeryro](https://github.com/emeryro))
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+* wesley deglise ([degliwe](https://github.com/degliwe))
+
 ## 1.2.0 (2018-07-09)
 
 #### :rocket: New Feature

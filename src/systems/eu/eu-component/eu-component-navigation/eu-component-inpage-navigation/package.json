@@ -2,22 +2,21 @@
   "name": "@ecl/eu-component-inpage-navigation",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "main": "eu-component-inpage-navigation.js",
   "description": "ECL Inpage Navigation",
   "module": "eu-component-inpage-navigation.js",
   "sass": "eu-component-inpage-navigation.scss",
   "style": "eu-component-inpage-navigation.scss",
   "scripts": {
-    "test:independent-sass":
-      "node-sass --quiet --include-path ../../../../../../node_modules eu-component-inpage-navigation.scss dist/eu-component-inpage-navigation.css"
+    "test:independent-sass": "node-sass --quiet --include-path ../../../../../../node_modules eu-component-inpage-navigation.scss dist/eu-component-inpage-navigation.css"
   },
   "dependencies": {
     "@ecl/eu-base": "^1.0.0",
-    "@ecl/eu-component-expandable": "^1.1.0",
-    "@ecl/eu-component-link": "^1.1.0",
-    "@ecl/eu-style-icon": "^1.1.0",
-    "@ecl/generic-component-inpage-navigation": "^1.2.0",
+    "@ecl/eu-component-expandable": "^1.2.0",
+    "@ecl/eu-component-link": "^1.2.0",
+    "@ecl/eu-style-icon": "^1.2.0",
+    "@ecl/generic-component-inpage-navigation": "^1.3.0",
     "gumshoejs": "3.5.0",
     "stickyfilljs": "2.0.5"
   },
@@ -36,5 +35,9 @@
     "url": "https://github.com/ec-europa/europa-component-library/issues"
   },
   "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": ["ecl", "europa-component-library", "design-system"]
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ]
 }
