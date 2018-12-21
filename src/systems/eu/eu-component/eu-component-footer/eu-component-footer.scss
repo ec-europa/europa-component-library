@@ -57,6 +57,14 @@
     padding-top: map-get($ecl-spacing, 'm');
   }
 
+  .ecl-footer__other-links {
+    margin-top: map-get($ecl-spacing, 's');
+
+    @include ecl-media-breakpoint-up(md) {
+      margin-top: 0;
+    }
+  }
+
   .ecl-footer__list {
     margin-top: -(map-get($ecl-spacing, 's'));
   }
