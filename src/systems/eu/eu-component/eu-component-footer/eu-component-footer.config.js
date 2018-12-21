@@ -67,37 +67,25 @@ module.exports = {
         title: 'Contact the EU',
         items: [
           {
-            href: '../../example.html#call',
-            label: 'Call 00 800 6 7 8 9 10 11. See details of service',
+            html:
+              'Call us <a href="../../example.html#call" class="ecl-link ecl-link--standalone">00 800 6 7 8 9 10 11</a> or use other <a href="../../example.html#call" class="ecl-link ecl-link--standalone">telephone options</a>',
           },
           {
-            href: '../../example.html#email',
-            label: 'E-mail your questions about the EU',
+            html:
+              'E-mail us via our <a href="../../example.html#call" class="ecl-link ecl-link--standalone">contact form</a>',
           },
           {
-            href: '../../example.html#euinyourcountry',
-            label: 'EU in your country',
-          },
-          {
-            href: '../../example.html#localinformation',
-            label: 'Local information services in the EU',
-          },
-          {
-            href: '../../example.html#institutions',
-            label: 'Institutions, bodies and agencies',
-          },
-          {
-            href: '../../example.html#press',
-            label: 'Press contacts',
+            html:
+              'Visit our <a href="../../example.html#call" class="ecl-link ecl-link--standalone">contact points</a> in your country',
           },
         ],
       },
       social_media: {
-        title: 'Find EU social media accounts',
+        title: 'Find an EU social media account',
         items: [
           {
-            href: '../../example.html#social-media-tool',
-            label: 'Use this tool to search for EU social media channels',
+            html:
+              'Search for <a href="../../example.html#call" class="ecl-link ecl-link--standalone">EU social media channels</a>',
           },
         ],
       },
@@ -173,26 +161,27 @@ module.exports = {
       },
       bottom_links: [
         {
-          href: 'https://europa.eu/european-union/about-eu/working_en',
-          label: 'Work for the European Union',
+          href: '../../example.html#',
+          label: 'Language policy',
         },
         {
-          href: 'https://europa.eu/european-union/abouteuropa/cookies_en',
-          label: 'Cookies',
+          href: '../../example.html#',
+          label: 'Privacy policy',
         },
         {
-          href: 'https://europa.eu/european-union/abouteuropa/legal_notices_en',
+          href: '../../example.html#',
           label: 'Legal notice',
         },
         {
           href: '../../example.html#',
-          label: 'Language policy',
+          label: 'Cookies',
         },
         {
           href: '../../example.html#',
           label: 'Web accessibility',
         },
       ],
+      published_date: 'Last published 26/06/2018',
     },
   },
 };
