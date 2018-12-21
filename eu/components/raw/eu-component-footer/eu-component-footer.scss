@@ -45,16 +45,24 @@
 
   .ecl-footer__corporate-top {
     background-color: #e3e3e3;
-    color: map-get($ecl-colors, 'blue-100');
+    color: map-get($ecl-colors, 'grey-100');
     padding-bottom: map-get($ecl-spacing, 'xl');
     padding-top: map-get($ecl-spacing, 'xl');
   }
 
   .ecl-footer__corporate-bottom {
     background-color: #d9d9d9;
-    color: map-get($ecl-colors, 'blue-110');
+    color: map-get($ecl-colors, 'grey-100');
     padding-bottom: map-get($ecl-spacing, 'm');
     padding-top: map-get($ecl-spacing, 'm');
+  }
+
+  .ecl-footer__other-links {
+    margin-top: map-get($ecl-spacing, 's');
+
+    @include ecl-media-breakpoint-up(md) {
+      margin-top: 0;
+    }
   }
 
   .ecl-footer__list {
@@ -154,7 +162,7 @@
     }
 
     .ecl-footer__spaced-column + .ecl-footer__spaced-column {
-      padding-top: map-get($ecl-spacing, 'xs');
+      padding-top: map-get($ecl-spacing, 'm');
     }
 
     .ecl-footer__corporate-bottom {
