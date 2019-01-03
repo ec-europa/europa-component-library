@@ -4,6 +4,7 @@ class Expandable {
   constructor(
     element,
     {
+      toggleSelector: toggleSelector = '[data-ecl-expandable-toggle]',
       labelSelector: labelSelector = '[data-ecl-label]',
       labelExpanded: labelExpanded = 'data-ecl-label-expanded',
       labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
@@ -20,12 +21,14 @@ class Expandable {
     this.element = element;
 
     // Options
+    this.toggleSelector = toggleSelector;
     this.labelSelector = labelSelector;
     this.labelExpanded = labelExpanded;
     this.labelCollapsed = labelCollapsed;
     this.attachClickListener = attachClickListener;
 
     // Private variables
+    this.toggle = null;
     this.forceClose = false;
     this.target = null;
     this.label = null;
@@ -35,9 +38,11 @@ class Expandable {
   }
 
   init() {
+    this.toggle = queryOne(this.toggleSelector, this.element);
+
     // Get target element
     this.target = document.getElementById(
-      this.element.getAttribute('aria-controls')
+      this.toggle.getAttribute('aria-controls')
     );
 
     // Get label, if any
@@ -51,14 +56,14 @@ class Expandable {
     }
 
     // Bind click event on toggle
-    if (this.attachClickListener && this.element) {
-      this.element.addEventListener('click', this.handleClickOnToggle);
+    if (this.attachClickListener && this.toggle) {
+      this.toggle.addEventListener('click', this.handleClickOnToggle);
     }
   }
 
   destroy() {
-    if (this.attachClickListener && this.element) {
-      this.element.removeEventListener('click', this.handleClickOnToggle);
+    if (this.attachClickListener && this.toggle) {
+      this.toggle.removeEventListener('click', this.handleClickOnToggle);
     }
   }
 
@@ -78,15 +83,15 @@ class Expandable {
     if (
       this.label &&
       !isExpanded &&
-      this.element.hasAttribute(this.labelExpanded)
+      this.toggle.hasAttribute(this.labelExpanded)
     ) {
-      this.label.innerHTML = this.element.getAttribute(this.labelExpanded);
+      this.label.innerHTML = this.toggle.getAttribute(this.labelExpanded);
     } else if (
       this.label &&
       isExpanded &&
-      this.element.hasAttribute(this.labelCollapsed)
+      this.toggle.hasAttribute(this.labelCollapsed)
     ) {
-      this.label.innerHTML = this.element.getAttribute(this.labelCollapsed);
+      this.label.innerHTML = this.toggle.getAttribute(this.labelCollapsed);
     }
 
     return this;

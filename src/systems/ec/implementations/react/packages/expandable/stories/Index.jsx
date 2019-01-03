@@ -1,15 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
-import demoContent from '@ecl/ec-specs-expandable/demo/data';
+import demoContentButton from '@ecl/ec-specs-expandable/demo/data--button';
+import demoContentLink from '@ecl/ec-specs-expandable/demo/data--link';
 
 import VanillaExpandable from '@ecl/ec-component-expandable';
 
-import Button from '@ecl/ec-react-component-button/Button';
-import Link from '@ecl/ec-react-component-link/Link';
+import Expandable from '@ecl/ec-react-component-expandable/Expandable';
 
 storiesOf('Expandable', module)
   .addDecorator(withKnobs)
@@ -33,44 +33,22 @@ storiesOf('Expandable', module)
     </StoryWrapper>
   ))
   .add('button', () => (
-    <Fragment>
-      <Button
-        {...demoContent.button}
-        className="ecl-expandable__toggle"
-        data-ecl-expandable
-        data-ecl-label-expanded={demoContent.labelExpanded}
-        data-ecl-label-collapsed={demoContent.labelCollapsed}
-        aria-controls="example-expandable-content"
-        id="example-expandable-toggle"
-      />
-      <p
-        className="ecl-expandable__content ecl-u-type-paragraph-m"
-        id="example-expandable-content"
-        aria-labelledby="example-expandable-toggle"
-        aria-hidden="true"
-      >
-        {demoContent.content}
-      </p>
-    </Fragment>
+    <Expandable
+      button={demoContentButton.button}
+      labelExpanded={demoContentButton.labelExpanded}
+      labelCollapsed={demoContentButton.labelCollapsed}
+      id={demoContentButton.id}
+    >
+      <p className="ecl-u-type-paragraph-m">{demoContentButton.content}</p>
+    </Expandable>
   ))
   .add('link', () => (
-    <Fragment>
-      <Link
-        {...demoContent.link}
-        className="ecl-expandable__toggle"
-        data-ecl-expandable
-        data-ecl-label-expanded={demoContent.labelExpanded}
-        data-ecl-label-collapsed={demoContent.labelCollapsed}
-        aria-controls="example-expandable-content"
-        id="example-expandable-toggle"
-      />
-      <p
-        className="ecl-expandable__content ecl-u-type-paragraph-m"
-        id="example-expandable-content"
-        aria-labelledby="example-expandable-toggle"
-        aria-hidden="true"
-      >
-        {demoContent.content}
-      </p>
-    </Fragment>
+    <Expandable
+      link={demoContentLink.link}
+      labelExpanded={demoContentLink.labelExpanded}
+      labelCollapsed={demoContentLink.labelCollapsed}
+      id={demoContentLink.id}
+    >
+      <p className="ecl-u-type-paragraph-m">{demoContentLink.content}</p>
+    </Expandable>
   ));

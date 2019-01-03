@@ -7,8 +7,8 @@
 @import '@ecl/eu-base/eu-base';
 
 @mixin ecl-expandable() {
-  .ecl-expandable__toggle[aria-expanded='true'] {
-    [data-ecl-icon='true'] {
+  .ecl-expandable[aria-expanded='true'] {
+    .ecl-expandable__toggle .ecl-icon {
       transform: rotate(0deg);
     }
   }
