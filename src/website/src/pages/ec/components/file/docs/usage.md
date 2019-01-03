@@ -1,6 +1,6 @@
 ---
-title: Showcase
-order: 2
+title: Usage
+order: 1
 ---
 
 (work in progress)
