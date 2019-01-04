@@ -14,5 +14,5 @@ export * from '@ecl/ec-component-file';
 // export * from '@ecl/ec-component-inpage-navigation';
 // export * from '@ecl/ec-component-navigation-menu';
 // export * from '@ecl/ec-component-table';
-// export * from '@ecl/ec-component-tab';
+export * from '@ecl/ec-component-tabs';
 export * from '@ecl/ec-component-timeline';

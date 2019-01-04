@@ -1,0 +1,31 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Tabs from '@ecl/eu-react-component-tabs';
+
+import demoContent from '@ecl/eu-specs-tabs/demo/data';
+
+## Default
+
+<Playground
+  system="eu"
+  selectedKind="Navigation/Tabs"
+  selectedStory="default"
+  showFrame
+>
+  <Tabs {...demoContent} />
+</Playground>
+
+## Fit
+
+<Playground
+  system="eu"
+  selectedKind="Navigation/Tabs"
+  selectedStory="default"
+  showFrame
+>
+  <Tabs {...demoContent} fit />
+</Playground>
