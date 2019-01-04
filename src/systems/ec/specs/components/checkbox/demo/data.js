@@ -1,7 +1,7 @@
 // Simple content for demo
 module.exports = {
   unchecked: {
-    label: 'An unchecked checkbox',
+    label: 'A default checkbox',
   },
   checked: {
     label: 'A checked checkbox',
@@ -18,6 +18,7 @@ module.exports = {
     label: 'A focused checkbox',
   },
   withoutLabel: {
-    label: '',
+    label: 'An hidden label',
+    hideLabel: true,
   },
 };

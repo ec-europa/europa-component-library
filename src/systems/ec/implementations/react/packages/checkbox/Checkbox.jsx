@@ -75,7 +75,7 @@ Checkbox.propTypes = {
   invalidText: PropTypes.node,
   name: PropTypes.string,
   label: PropTypes.string,
-  hideLabel: PropTypes.string,
+  hideLabel: PropTypes.bool,
   className: PropTypes.string,
 };
 

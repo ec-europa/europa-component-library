@@ -7,14 +7,47 @@ import Playground from '@ecl/website-components/Playground';
 import Checkbox from '@ecl/ec-react-component-checkbox/Checkbox';
 import demo from '@ecl/ec-specs-checkbox/demo/data';
 
-<Playground system="ec" selectedKind="Checkbox" selectedStory="default">
-  <Checkbox {...demo.unchecked} />
+## Default
+
+<Playground system="ec" selectedKind="Forms/Checkbox" selectedStory="default">
+  <Checkbox
+    id="checkbox-default"
+    helperText="An helper text"
+    {...demo.unchecked}
+  />
 </Playground>
 
-<Playground system="ec" selectedKind="Checkbox" selectedStory="disabled">
-  <Checkbox {...demo.disabled} />
+## Disabled
+
+<Playground system="ec" selectedKind="Forms/Checkbox" selectedStory="disabled">
+  <Checkbox
+    id="checkbox-disabled"
+    {...demo.disabled}
+    helperText="An helper text"
+  />
 </Playground>
 
-<Playground system="ec" selectedKind="Checkbox" selectedStory="invalid">
-  <Checkbox {...demo.invalid} />
+## With errors
+
+<Playground system="ec" selectedKind="Forms/Checkbox" selectedStory="invalid">
+  <Checkbox
+    id="checkbox-invalid"
+    {...demo.invalid}
+    helperText="An helper text"
+    invalidText="An error message"
+  />
+</Playground>
+
+## With an hidden label
+
+<Playground
+  system="ec"
+  selectedKind="Forms/Checkbox"
+  selectedStory="withoutLabel"
+>
+  <Checkbox
+    id="checkbox-hidden-label"
+    {...demo.withoutLabel}
+    helperText="An helper text"
+  />
 </Playground>
