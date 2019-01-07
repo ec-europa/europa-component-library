@@ -3493,6 +3493,7 @@ var fractal = (function (exports,$) {
     search();
 
     initExpandables('.ecl-side-navigation__link.ecl-expandable__button');
+    initExpandables('.ecl-side-navigation__toggle');
     navigationSide();
   });
 
