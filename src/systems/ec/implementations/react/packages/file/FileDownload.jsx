@@ -99,6 +99,7 @@ const FileDownload = ({
 };
 
 FileDownload.propTypes = {
+  icon: PropTypes.shape(Icon.propTypes),
   title: PropTypes.string,
   language: PropTypes.string,
   meta: PropTypes.string,
@@ -117,6 +118,7 @@ FileDownload.propTypes = {
 };
 
 FileDownload.defaultProps = {
+  icon: Icon.defaultProps,
   title: '',
   language: '',
   meta: '',

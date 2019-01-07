@@ -68,6 +68,7 @@ ContextualNavigation.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
   itemMore: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
+  onMore: PropTypes.func,
 };
 
 ContextualNavigation.defaultProps = {
@@ -75,6 +76,7 @@ ContextualNavigation.defaultProps = {
   items: [],
   itemMore: {},
   className: '',
+  onMore: () => {},
 };
 
 export default ContextualNavigation;
