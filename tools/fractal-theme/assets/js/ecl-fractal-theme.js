@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   search();
 
   ECL.initExpandables('.ecl-side-navigation__link.ecl-expandable__button');
+  ECL.initExpandables('.ecl-side-navigation__toggle');
   ECL.navigationSide();
 });
 
