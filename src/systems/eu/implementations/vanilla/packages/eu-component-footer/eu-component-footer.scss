@@ -171,6 +171,10 @@
       column-count: 2;
     }
 
+    .ecl-footer__columns--new-layout {
+      column-count: 1;
+    }
+
     .ecl-footer__sections {
       padding-bottom: $ecl-spacing-xl;
     }
@@ -191,6 +195,10 @@
   @include ecl-media-breakpoint-up('md') {
     .ecl-footer__columns {
       column-count: 3;
+    }
+
+    .ecl-footer__columns--new-layout {
+      column-count: 2;
     }
   }
 

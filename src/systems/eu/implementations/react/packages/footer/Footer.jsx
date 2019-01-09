@@ -25,13 +25,11 @@ const Footer = ({
         className={classnames(backToTop.className, 'ecl-footer__back-to-top')}
       />
     )}
-
     {/* Site identity */}
     {!!(identity && identity.title) && (
       <section className="ecl-footer__identity">
         <div className="ecl-container">
           <h1 className="ecl-footer__identity-title">{identity.title}</h1>
-
           <div className="ecl-row">
             <div className="ecl-footer__identity-follow ecl-col-12 ecl-col-md-6">
               <span className="ecl-footer__identity-label">
@@ -48,7 +46,6 @@ const Footer = ({
                 />
               ))}
             </div>
-
             <div className="ecl-footer__identity-info ecl-col-12 ecl-col-md-6">
               {identity.info.map(link => (
                 <Link
@@ -65,14 +62,12 @@ const Footer = ({
         </div>
       </section>
     )}
-
     {/* Contact and social media */}
     <div className="ecl-footer__sections">
       <div className="ecl-container">
         <div className="ecl-row">
-          <section className="ecl-footer__section ecl-col-12 ecl-col-md-6">
+          <section className="ecl-footer__section ecl-col-12 ecl-col-md-4">
             <h1 className="ecl-footer__section-title">{sections[0].title}</h1>
-
             <ul className="ecl-footer__section-list">
               {sections[0].items.map(item => (
                 <li
@@ -97,11 +92,7 @@ const Footer = ({
                 </li>
               ))}
             </ul>
-          </section>
-
-          <section className="ecl-footer__section ecl-col-12 ecl-col-md-6">
             <h1 className="ecl-footer__section-title">{sections[1].title}</h1>
-
             <ul className="ecl-footer__section-list">
               {sections[1].items.map(item => (
                 <li
@@ -127,53 +118,55 @@ const Footer = ({
               ))}
             </ul>
           </section>
+          <section className="ecl-footer__section ecl-col-12 ecl-col-md-8">
+            <h1 className="ecl-footer__section-title">{sections[2].title}</h1>
+            <ul className="ecl-footer__section-list ecl-footer__section-list--long ecl-footer__columns ecl-footer__columns--new-layout">
+              {sections[2].items.map(item => (
+                <li
+                  className="ecl-footer__section-item"
+                  key={item[0].link.label}
+                >
+                  {item.map(content => (
+                    <Link
+                      {...content.link}
+                      key={content.link.label}
+                      className={classnames(
+                        content.link.className,
+                        'ecl-footer__section-link'
+                      )}
+                    />
+                  ))}
+                </li>
+              ))}
+            </ul>
+            <ul className="ecl-footer__section-list ecl-footer__section-list--short">
+              {sections[3].items.map(item => (
+                <li
+                  className="ecl-footer__section-item"
+                  key={item[0].link.label}
+                >
+                  {item.map(content => (
+                    <span key={content.link.label}>
+                      {content.before && <span>{content.before}</span>}
+                      {content.link && (
+                        <Link
+                          {...content.link}
+                          className={classnames(
+                            content.link.className,
+                            'ecl-footer__section-link'
+                          )}
+                        />
+                      )}
+                      {content.after && <span>{content.after}</span>}
+                    </span>
+                  ))}
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
-
-        <section className="ecl-footer__section">
-          <h1 className="ecl-footer__section-title">{sections[2].title}</h1>
-
-          <ul className="ecl-footer__section-list ecl-footer__section-list--long ecl-footer__columns">
-            {sections[2].items.map(item => (
-              <li className="ecl-footer__section-item" key={item[0].link.label}>
-                {item.map(content => (
-                  <Link
-                    {...content.link}
-                    key={content.link.label}
-                    className={classnames(
-                      content.link.className,
-                      'ecl-footer__section-link'
-                    )}
-                  />
-                ))}
-              </li>
-            ))}
-          </ul>
-
-          <ul className="ecl-footer__section-list ecl-footer__section-list--short">
-            {sections[3].items.map(item => (
-              <li className="ecl-footer__section-item" key={item[0].link.label}>
-                {item.map(content => (
-                  <span key={content.link.label}>
-                    {content.before && <span>{content.before}</span>}
-                    {content.link && (
-                      <Link
-                        {...content.link}
-                        className={classnames(
-                          content.link.className,
-                          'ecl-footer__section-link'
-                        )}
-                      />
-                    )}
-                    {content.after && <span>{content.after}</span>}
-                  </span>
-                ))}
-              </li>
-            ))}
-          </ul>
-        </section>
       </div>
     </div>
-
     {/* Common */}
     <section className="ecl-footer__common">
       <div className="ecl-container ecl-footer__common-container">
