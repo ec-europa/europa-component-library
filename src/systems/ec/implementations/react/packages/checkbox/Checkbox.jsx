@@ -5,18 +5,16 @@ import classnames from 'classnames';
 import Icon from '@ecl/ec-react-component-icon/Icon';
 
 const Checkbox = ({
-  id,
-  checked,
+  className,
+  defaultChecked,
   disabled,
+  id,
   helperText,
+  hideLabel,
   invalid,
-  invalidIconLabel,
   invalidText,
   label,
-  hideLabel,
   name,
-  value,
-  className,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-checkbox', {
@@ -30,30 +28,27 @@ const Checkbox = ({
           {...props}
           type="checkbox"
           id={id}
-          defaultChecked={checked}
+          defaultChecked={defaultChecked}
           name={name || undefined}
           className="ecl-checkbox__input"
           disabled={disabled}
         />
-        <span className="ecl-checkbox__icon" />
-        <span className="ecl-checkbox__icon ecl-checkbox__icon--checked">
-          <Icon shape="ui--check" size="xs" />
+        <span className="ecl-checkbox__icon">
+          <Icon className="ecl-checkbox__checked" shape="ui--check" size="xs" />
         </span>
 
-        {label && (
-          <label
-            className={classnames(
-              'ecl-form-label ecl-form-label--inline ecl-checkbox__label',
-              {
-                'ecl-form-label--invalid': invalid,
-                'ecl-form-label--hidden': hideLabel,
-              }
-            )}
-            htmlFor={id}
-          >
-            {label}
-          </label>
-        )}
+        <label
+          className={classnames(
+            'ecl-form-label ecl-form-label--inline ecl-checkbox__label',
+            {
+              'ecl-form-label--invalid': invalid,
+              'ecl-form-label--hidden': hideLabel,
+            }
+          )}
+          htmlFor={id}
+        >
+          {label}
+        </label>
       </div>
 
       {invalid && invalidText && (
@@ -65,32 +60,28 @@ const Checkbox = ({
 };
 
 Checkbox.propTypes = {
-  id: PropTypes.string.isRequired,
-  checked: PropTypes.bool,
+  className: PropTypes.string,
+  defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   helperText: PropTypes.node,
-  invalid: PropTypes.bool,
-  value: PropTypes.string,
-  invalidIconLabel: PropTypes.string,
-  invalidText: PropTypes.node,
-  name: PropTypes.string,
-  label: PropTypes.string,
   hideLabel: PropTypes.bool,
-  className: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  invalid: PropTypes.bool,
+  invalidText: PropTypes.node,
+  label: PropTypes.string,
+  name: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
-  checked: false,
+  className: '',
+  defaultChecked: false,
   disabled: false,
   helperText: '',
-  invalid: false,
-  invalidIconLabel: 'Error',
-  invalidText: '',
-  name: '',
-  value: '',
-  label: '',
   hideLabel: false,
-  className: '',
+  invalid: false,
+  invalidText: '',
+  label: '',
+  name: '',
 };
 
 export default Checkbox;

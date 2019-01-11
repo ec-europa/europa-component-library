@@ -1,24 +1,21 @@
 // Simple content for demo
 module.exports = {
-  unchecked: {
+  default: {
+    helperText: 'This is an help text',
+    id: 'checkbox-default',
     label: 'A default checkbox',
   },
-  checked: {
-    label: 'A checked checkbox',
-  },
   disabled: {
-    label: 'A disabled checkbox',
     disabled: true,
+    helperText: 'This is an help text',
+    id: 'checkbox-disabled',
+    label: 'A disabled checkbox',
   },
   invalid: {
-    label: 'An invalid checkbox',
+    helperText: 'This is an help text',
+    id: 'checkbox-invalid',
     invalid: true,
-  },
-  focus: {
-    label: 'A focused checkbox',
-  },
-  withoutLabel: {
-    label: 'An hidden label',
-    hideLabel: true,
+    invalidText: 'An error message',
+    label: 'An invalid checkbox',
   },
 };
