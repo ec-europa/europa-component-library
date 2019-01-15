@@ -6,27 +6,30 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@include check-imports(('ec-component-link'));
+@include check-imports(('ec-component-link', 'ec-component-button'));
 
 @mixin ecl-tabs(
   $background-color: $ecl-color-white-100,
   $border-color: $ecl-color-grey-25,
   $item-color: $ecl-color-grey-75,
   $item-hover-color: $ecl-color-blue-100,
+  $item-hover-background: $ecl-color-grey-5,
   $active-border-width: 4px,
   $active-border-color: $ecl-color-blue-100,
   $active-color: $ecl-color-blue-100,
   $disabled-color: $ecl-color-grey-50,
-  $background-more: $ecl-color-grey-5
+  $more-background: $ecl-color-grey-5
 ) {
   .ecl-tabs {
     background-color: $background-color;
     border-bottom: 1px solid $border-color;
     box-sizing: border-box;
     display: inline-flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding-left: 0;
+    position: relative;
     width: 100%;
   }
 
@@ -34,8 +37,8 @@
     margin-left: $ecl-spacing-xs;
     position: relative;
 
-    &:first-child {
-      margin-left: 0;
+    &:last-child {
+      margin-right: $ecl-spacing-xs;
     }
   }
 
@@ -44,14 +47,21 @@
     display: block;
     font: $ecl-font-m;
     padding: $ecl-spacing-s $ecl-spacing-m;
+    white-space: nowrap;
 
     &:hover {
+      background-color: $item-hover-background;
+      border-left: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+      border-top: 1px solid $border-color;
       color: $item-hover-color;
+      padding-left: calc(#{$ecl-spacing-m} - 1px);
+      padding-right: calc(#{$ecl-spacing-m} - 1px);
+      padding-top: calc(#{$ecl-spacing-s} - 1px);
     }
 
     &:focus {
-      outline-offset: -2px;
-      outline-width: 2px;
+      outline-offset: -3px;
       text-decoration: none;
     }
   }
@@ -79,8 +89,17 @@
     margin-bottom: -1px;
 
     &:hover {
+      border-left-width: 0;
+      border-right-width: 0;
+      border-top-width: 0;
       color: $active-color;
+      padding: $ecl-spacing-s $ecl-spacing-m;
     }
+  }
+
+  .ecl-tabs__item .ecl-tabs__link:hover,
+  .ecl-tabs__item .ecl-tabs__link:focus {
+    text-decoration: none;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -89,6 +108,7 @@
     cursor: not-allowed;
 
     &:hover {
+      background-color: $background-color;
       color: $disabled-color;
       text-decoration: none;
     }
@@ -97,21 +117,58 @@
   /*
    * Dropdown
    */
+  .ecl-tabs__more {
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+
+    .no-js & {
+      display: none;
+    }
+  }
+
+  .ecl-tabs__more[aria-hidden='true'] {
+    display: none;
+  }
+
   .ecl-tabs__more-button {
     color: $item-color;
     font-weight: $ecl-font-weight-regular;
+
+    &:hover {
+      background-color: $more-background;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
   }
 
-  .ecl-tabs__more[aria-expanded='true'] .ecl-tabs__more-button {
-    background-color: $background-more;
-    border-left: 1px solid $border-color;
-    border-right: 1px solid $border-color;
-    border-top: 1px solid $border-color;
-    padding-left: calc(#{$ecl-spacing-m} - 1px);
-    padding-right: calc(#{$ecl-spacing-m} - 1px);
-    padding-top: calc(#{$ecl-spacing-s} - 1px);
+  .ecl-tabs__more--active {
+    .ecl-tabs__more-button {
+      border: 1px solid $active-border-color;
+      color: $active-color;
+      margin-bottom: -1px;
+      padding-left: calc(#{$ecl-spacing-m} - 1px);
+      padding-right: calc(#{$ecl-spacing-m} - 1px);
+      padding-top: calc(#{$ecl-spacing-s} - 1px);
+    }
+  }
 
-    .ecl-icon {
+  .ecl-tabs__more[aria-expanded='true'] {
+    .ecl-tabs__more-button {
+      background-color: $more-background;
+      border-left: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+      border-top: 1px solid $border-color;
+      padding-left: calc(#{$ecl-spacing-m} - 1px);
+      padding-right: calc(#{$ecl-spacing-m} - 1px);
+      padding-top: calc(#{$ecl-spacing-s} - 1px);
+    }
+
+    .ecl-tabs__more-button .ecl-icon {
       transform: rotate(0);
     }
   }
@@ -139,8 +196,15 @@
     white-space: nowrap;
   }
 
+  .ecl-tabs__more-item .ecl-tabs__link:hover {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    padding: $ecl-spacing-s $ecl-spacing-m;
+  }
+
   .ecl-tabs__more-item--active {
-    background-color: $background-more;
+    background-color: $more-background;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
@@ -159,7 +223,24 @@
   .ecl-tabs--fit {
     .ecl-tabs__item {
       flex-grow: 1;
+      margin-left: 0;
+      margin-right: 0;
       text-align: center;
+    }
+
+    .ecl-tabs__more {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+
+      /* stylelint-disable-next-line max-nesting-depth */
+      .no-js & {
+        display: none;
+      }
+    }
+
+    .ecl-tabs__more[aria-hidden='true'] {
+      display: none;
     }
   }
 }

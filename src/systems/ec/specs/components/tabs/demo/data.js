@@ -3,39 +3,39 @@ module.exports = {
   items: [
     {
       link: {
-        label: 'Item 1',
+        label: 'Tab item 1',
         href: '/example',
       },
     },
     {
       link: {
-        label: 'Item 2',
+        label: 'Tab item 2',
         href: '/example',
       },
       isActive: true,
     },
     {
       link: {
-        label: 'Item 3',
+        label: 'Tab item 3',
         href: '/example',
       },
     },
     {
       link: {
-        label: 'Item 4',
+        label: 'Tab item 4',
         href: '/example',
       },
       isDisabled: true,
     },
     {
       link: {
-        label: 'Item 5',
+        label: 'Tab item 5',
         href: '/example',
       },
     },
     {
       link: {
-        label: 'Item 6',
+        label: 'Tab item 6',
         href: '/example',
       },
     },

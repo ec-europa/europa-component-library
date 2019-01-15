@@ -22,6 +22,7 @@ const Tabs = ({ fit, items, className, ...props }) => {
               [`ecl-tabs__item--disabled`]: item.isDisabled,
             })}
             key={item.link.label}
+            data-ecl-tabs-item
           >
             <Link
               {...item.link}
@@ -41,7 +42,7 @@ Tabs.propTypes = {
   fit: PropTypes.bool,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      link: Link.propTypes,
+      link: PropTypes.shape(Link.propTypes),
       isActive: PropTypes.bool,
       isDisabled: PropTypes.bool,
     })
