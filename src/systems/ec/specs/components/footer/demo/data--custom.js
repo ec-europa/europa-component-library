@@ -1,5 +1,14 @@
 // Simple content for demo
 module.exports = {
+  backToTop: {
+    variant: 'standalone',
+    label: 'Go to top',
+    href: '#top',
+    icon: {
+      shape: 'ui--corner-arrow',
+      size: 'fluid',
+    },
+  },
   identity: {
     title: 'Site identification',
     follow: {

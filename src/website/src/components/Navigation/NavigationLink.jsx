@@ -47,6 +47,9 @@ class NavigationLink extends Component {
 }
 
 NavigationLink.propTypes = {
+  history: PropTypes.shape(),
+  match: PropTypes.shape(),
+  staticContext: PropTypes.shape(),
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
@@ -54,6 +57,12 @@ NavigationLink.propTypes = {
     url: PropTypes.string.isRequired,
     defaultTab: PropTypes.string,
   }).isRequired,
+};
+
+NavigationLink.defaultProps = {
+  history: {},
+  match: {},
+  staticContext: {},
 };
 
 export default withRouter(NavigationLink);

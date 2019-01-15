@@ -4,8 +4,28 @@ import classnames from 'classnames';
 
 import Link from '@ecl/eu-react-component-link/Link';
 
-const Footer = ({ identity, sections, common, className, ...props }) => (
-  <footer {...props} className={classnames(className, 'ecl-footer')}>
+const Footer = ({
+  backToTop,
+  identity,
+  sections,
+  common,
+  className,
+  ...props
+}) => (
+  <footer
+    {...props}
+    className={classnames(className, 'ecl-footer', {
+      'ecl-footer--custom': identity && identity.title,
+    })}
+  >
+    {/* Back to top */}
+    {!!(backToTop && backToTop.label) && (
+      <Link
+        {...backToTop}
+        className={classnames(backToTop.className, 'ecl-footer__back-to-top')}
+      />
+    )}
+
     {/* Site identity */}
     {!!(identity && identity.title) && (
       <section className="ecl-footer__identity">
@@ -171,6 +191,7 @@ const Footer = ({ identity, sections, common, className, ...props }) => (
 );
 
 Footer.propTypes = {
+  backToTop: PropTypes.shape(Link.propTypes),
   identity: PropTypes.shape({
     title: PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
@@ -201,6 +222,7 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
+  backToTop: {},
   identity: {},
   sections: [],
   common: {},
