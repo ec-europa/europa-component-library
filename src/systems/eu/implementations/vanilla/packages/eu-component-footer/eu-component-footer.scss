@@ -169,10 +169,10 @@
   @include ecl-media-breakpoint-up('sm') {
     .ecl-footer__columns {
       column-count: 2;
-    }
 
-    .ecl-footer__column-count-sm-1 {
-      column-count: 1;
+      .ecl-footer--updated & {
+        column-count: 1;
+      }
     }
 
     .ecl-footer__sections {
@@ -195,10 +195,10 @@
   @include ecl-media-breakpoint-up('md') {
     .ecl-footer__columns {
       column-count: 3;
-    }
 
-    .ecl-footer__column-count-md-2 {
-      column-count: 2;
+      .ecl-footer--updated & {
+        column-count: 2;
+      }
     }
   }
 
