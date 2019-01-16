@@ -4,17 +4,20 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Tabs from '@ecl/eu-react-component-tabs';
+import Tabs from '@ecl/ec-react-component-tabs';
 
-import demoContent from '@ecl/eu-specs-tabs/demo/data';
+import demoContent from '@ecl/ec-specs-tabs/demo/data';
 
 ## Default
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="Navigation/Tabs"
   selectedStory="default"
   showFrame
+  iframeOptions={{
+    bodyMargin: '0 0 200px 0',
+  }}
 >
   <Tabs {...demoContent} />
 </Playground>
@@ -22,10 +25,13 @@ import demoContent from '@ecl/eu-specs-tabs/demo/data';
 ## Fit
 
 <Playground
-  system="eu"
+  system="ec"
   selectedKind="Navigation/Tabs"
-  selectedStory="default"
+  selectedStory="fit"
   showFrame
+  iframeOptions={{
+    bodyMargin: '0 0 200px 0',
+  }}
 >
   <Tabs {...demoContent} fit />
 </Playground>
