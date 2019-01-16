@@ -4550,7 +4550,7 @@ cli-highlight@^1.2.3:
     parse5 "^3.0.3"
     yargs "^10.0.3"
 
-cli-table3@0.5.1, cli-table3@^0.5.0:
+cli-table3@0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/cli-table3/-/cli-table3-0.5.1.tgz#0252372d94dfc40dbd8df06005f48f31f656f202"
   integrity sha512-7Qg2Jrep1S/+Q3EceiZtQcDPWxhAvBw+ERf1162v4sikJrvojMHFqXt8QIVha8UlH9rgU0BeWPytZ9/TzYqlUw==
@@ -6504,10 +6504,10 @@ eslint-plugin-react@7.12.3:
     prop-types "^15.6.2"
     resolve "^1.9.0"
 
-eslint-plugin-unicorn@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-7.0.0.tgz#b03ade717684d620392bf5458a51758e8e77ea47"
-  integrity sha512-Tz2/2nUwT0qzYzHfOzpib6dltmwivdJd+Kf7GZ4e/xg4INCpVMevl1MKFNFv19n9+g2KMdC7yXgPHdUnXmtiBQ==
+eslint-plugin-unicorn@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-6.0.1.tgz#4a97f0bc9449e20b82848dad12094ee2ba72347e"
+  integrity sha512-hjy9LhTdtL7pz8WTrzS0CGXRkWK3VAPLDjihofj8JC+uxQLfXm0WwZPPPB7xKmcjRyoH+jruPHOCrHNEINpG/Q==
   dependencies:
     clean-regexp "^1.0.0"
     eslint-ast-utils "^1.0.0"
@@ -6516,7 +6516,7 @@ eslint-plugin-unicorn@7.0.0:
     lodash.kebabcase "^4.0.1"
     lodash.snakecase "^4.0.1"
     lodash.upperfirst "^4.2.0"
-    safe-regex "^2.0.1"
+    safe-regex "^1.1.0"
 
 eslint-restricted-globals@^0.1.1:
   version "0.1.1"
@@ -13573,15 +13573,6 @@ regex-parser@^2.2.9:
   resolved "https://registry.yarnpkg.com/regex-parser/-/regex-parser-2.2.10.tgz#9e66a8f73d89a107616e63b39d4deddfee912b37"
   integrity sha512-8t6074A68gHfU8Neftl0Le6KTDwfGAj7IyjPIMSfikI2wJUTHDMaIq42bUsfVnj8mhx0R+45rdUXHGpN164avA==
 
-regexp-tree@~0.0.85:
-  version "0.0.86"
-  resolved "https://registry.yarnpkg.com/regexp-tree/-/regexp-tree-0.0.86.tgz#ea4e26220eebad25313d6f4f19c23535cec86745"
-  integrity sha512-xjTX9GmRw7Nn2wxinLoqQXv9Dt5yerP7CJIsYe/5z5gFs0Ltu20wRuZophafi9sf0JpsdVtki5EuICRYpgB1AQ==
-  dependencies:
-    cli-table3 "^0.5.0"
-    colors "^1.1.2"
-    yargs "^10.0.3"
-
 regexp.prototype.flags@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/regexp.prototype.flags/-/regexp.prototype.flags-1.2.0.tgz#6b30724e306a27833eeb171b66ac8890ba37e41c"
@@ -14092,13 +14083,6 @@ safe-regex@^1.1.0:
   integrity sha1-QKNmnzsHfR6UPURinhV91IAjvy4=
   dependencies:
     ret "~0.1.10"
-
-safe-regex@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/safe-regex/-/safe-regex-2.0.1.tgz#676c791d97f31fadb8958d64300f7760606fa0a1"
-  integrity sha512-4tbOl0xq/cxbhEhdvxKaCZgzwOKeqt2tnHc2OPBkMsVdZ0s0C5oJwI6voRI9XzPSzeN35PECDNDK946x4d/0eA==
-  dependencies:
-    regexp-tree "~0.0.85"
 
 "safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"

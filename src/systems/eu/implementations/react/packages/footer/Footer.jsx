@@ -120,7 +120,7 @@ const Footer = ({
           </section>
           <section className="ecl-footer__section ecl-col-12 ecl-col-md-8">
             <h1 className="ecl-footer__section-title">{sections[2].title}</h1>
-            <ul className="ecl-footer__section-list ecl-footer__section-list--long ecl-footer__columns ecl-footer__columns--new-layout">
+            <ul className="ecl-footer__section-list ecl-footer__section-list--long ecl-footer__columns ecl-footer__column-count-sm-1 ecl-footer__column-count-md-2">
               {sections[2].items.map(item => (
                 <li
                   className="ecl-footer__section-item"
