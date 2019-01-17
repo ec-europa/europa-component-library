@@ -52,7 +52,6 @@
   .ecl-list--ordered-primary {
     counter-reset: ecl-list-counter;
     list-style: none;
-    padding-left: calc(#{$bullet-size} + #{$ecl-spacing-xs});
 
     .ecl-list__item {
       counter-increment: ecl-list-counter;
@@ -60,15 +59,16 @@
     }
 
     .ecl-list__item::before {
+      align-items: center;
       border-radius: 50%;
       content: counter(ecl-list-counter);
+      display: flex;
       font: $ecl-font-s;
       font-weight: $ecl-font-weight-bold;
       height: $bullet-size;
+      justify-content: center;
       left: calc(#{$bullet-size} * -1 - #{$ecl-spacing-xs});
-      line-height: $bullet-size;
       position: absolute;
-      text-align: center;
       top: 0.2rem;
       width: $bullet-size;
     }
