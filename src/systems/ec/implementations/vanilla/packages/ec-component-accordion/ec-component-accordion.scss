@@ -1,0 +1,22 @@
+/**
+ * Accordion
+ * @define accordion; weak
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-accordion() {
+  .ecl-accordion {
+    margin: 0;
+  }
+
+  :not(.no-js) .ecl-accordion__content[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-accordion') {
+  @include ecl-accordion();
+}

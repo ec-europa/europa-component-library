@@ -1,0 +1,20 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Accordion from '@ecl/ec-react-component-accordion/Accordion';
+
+import demoContent from '@ecl/ec-specs-accordion/demo/data';
+
+<Playground
+  system="ec"
+  selectedKind="Accordion"
+  selectedStory="default"
+  showFrame
+>
+  <Accordion button={demoContent.button} id={demoContent.id}>
+    <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
+  </Accordion>
+</Playground>
