@@ -67,9 +67,7 @@ class Expandable {
     }
   }
 
-  handleClickOnToggle(e) {
-    e.preventDefault();
-
+  handleClickOnToggle() {
     // Get current status
     const isExpanded =
       this.forceClose === true ||

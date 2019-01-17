@@ -4,8 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
-import demoContentButton from '@ecl/ec-specs-expandable/demo/data--button';
-import demoContentLink from '@ecl/ec-specs-expandable/demo/data--link';
+import demoContent from '@ecl/ec-specs-expandable/demo/data';
 
 import VanillaExpandable from '@ecl/ec-component-expandable';
 
@@ -32,23 +31,13 @@ storiesOf('Expandable', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('button', () => (
+  .add('default', () => (
     <Expandable
-      button={demoContentButton.button}
-      labelExpanded={demoContentButton.labelExpanded}
-      labelCollapsed={demoContentButton.labelCollapsed}
-      id={demoContentButton.id}
+      button={demoContent.button}
+      labelExpanded={demoContent.labelExpanded}
+      labelCollapsed={demoContent.labelCollapsed}
+      id={demoContent.id}
     >
-      <p className="ecl-u-type-paragraph-m">{demoContentButton.content}</p>
-    </Expandable>
-  ))
-  .add('link', () => (
-    <Expandable
-      link={demoContentLink.link}
-      labelExpanded={demoContentLink.labelExpanded}
-      labelCollapsed={demoContentLink.labelCollapsed}
-      id={demoContentLink.id}
-    >
-      <p className="ecl-u-type-paragraph-m">{demoContentLink.content}</p>
+      <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
     </Expandable>
   ));

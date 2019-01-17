@@ -6,41 +6,20 @@ order: 2
 import Playground from '@ecl/website-components/Playground';
 import Expandable from '@ecl/eu-react-component-expandable/Expandable';
 
-import demoContentButton from '@ecl/eu-specs-expandable/demo/data--button';
-import demoContentLink from '@ecl/eu-specs-expandable/demo/data--link';
-
-## Button
+import demoContent from '@ecl/eu-specs-expandable/demo/data';
 
 <Playground
   system="eu"
   selectedKind="Expandable"
-  selectedStory="button"
+  selectedStory="default"
   showFrame
 >
   <Expandable
-    button={demoContentButton.button}
-    labelExpanded={demoContentButton.labelExpanded}
-    labelCollapsed={demoContentButton.labelCollapsed}
-    id={demoContentButton.id}
+    button={demoContent.button}
+    labelExpanded={demoContent.labelExpanded}
+    labelCollapsed={demoContent.labelCollapsed}
+    id={demoContent.id}
   >
-    <p className="ecl-u-type-paragraph-m">{demoContentButton.content}</p>
-  </Expandable>
-</Playground>
-
-## Link
-
-<Playground
-  system="eu"
-  selectedKind="Expandable"
-  selectedStory="link"
-  showFrame
->
-  <Expandable
-    link={demoContentLink.link}
-    labelExpanded={demoContentLink.labelExpanded}
-    labelCollapsed={demoContentLink.labelCollapsed}
-    id={demoContentLink.id}
-  >
-    <p className="ecl-u-type-paragraph-m">{demoContentLink.content}</p>
+    <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
   </Expandable>
 </Playground>

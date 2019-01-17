@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button/Button';
-import Link from '@ecl/ec-react-component-link/Link';
 
 const Expandable = ({
   id,
   button,
-  link,
   labelCollapsed,
   labelExpanded,
   children,
@@ -23,18 +21,6 @@ const Expandable = ({
         <Button
           {...button}
           type="button"
-          className={classnames(button.className, 'ecl-expandable__toggle')}
-          data-ecl-expandable-toggle
-          data-ecl-label-expanded={labelExpanded}
-          data-ecl-label-collapsed={labelCollapsed}
-          aria-controls={`${id}-content`}
-          id={`${id}-toggle`}
-        />
-      )}
-
-      {!!(link && link.label) && (
-        <Link
-          {...link}
           className={classnames(button.className, 'ecl-expandable__toggle')}
           data-ecl-expandable-toggle
           data-ecl-label-expanded={labelExpanded}
@@ -59,7 +45,6 @@ const Expandable = ({
 Expandable.propTypes = {
   id: PropTypes.string,
   button: PropTypes.shape(Button.propTypes),
-  link: PropTypes.shape(Link.propTypes),
   labelCollapsed: PropTypes.string,
   labelExpanded: PropTypes.string,
   children: PropTypes.node,
@@ -69,7 +54,6 @@ Expandable.propTypes = {
 Expandable.defaultProps = {
   id: '',
   button: {},
-  link: {},
   labelCollapsed: '',
   labelExpanded: '',
   children: null,
