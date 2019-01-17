@@ -34,7 +34,7 @@ const Expandable = ({
         className="ecl-expandable__content"
         id={`${id}-content`}
         aria-labelledby={`${id}-toggle`}
-        aria-hidden="true"
+        hidden
       >
         {children}
       </div>
