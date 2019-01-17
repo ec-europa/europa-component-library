@@ -69,7 +69,11 @@ class Accordion {
 
     // Toggle the expandable/collapsible
     this.element.setAttribute('aria-expanded', !isExpanded);
-    this.target.setAttribute('aria-hidden', isExpanded);
+    if (isExpanded) {
+      this.target.setAttribute('hidden', true);
+    } else {
+      this.target.removeAttribute('hidden');
+    }
 
     return this;
   }

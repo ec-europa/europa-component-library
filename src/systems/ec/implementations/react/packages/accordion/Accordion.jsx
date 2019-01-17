@@ -24,7 +24,7 @@ const Accordion = ({ id, button, children, className, ...props }) => {
         className="ecl-accordion__content"
         id={`${id}-content`}
         aria-labelledby={`${id}-toggle`}
-        aria-hidden="true"
+        hidden
       >
         {children}
       </div>
