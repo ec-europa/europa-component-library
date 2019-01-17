@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import demoContentText from '@ecl/eu-specs-list/demo/data--text';
 import demoContentBlock from '@ecl/eu-specs-list/demo/data--block';
@@ -21,12 +21,19 @@ storiesOf('List', module)
       ),
     };
 
+    const orderedStyles = {
+      Default: '',
+      Call: 'call',
+      Primary: 'primary',
+    };
+
     return (
       <List
         {...demoContentText}
         title={title}
         hasBullet={boolean('Display bullets', true)}
         isOrdered={boolean('Ordered list', false)}
+        orderedStyle={select('Ordered style', orderedStyles, '')}
         hasSeparator={boolean('Separator list', false)}
       />
     );

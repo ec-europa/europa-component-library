@@ -9,6 +9,7 @@ const List = ({
   title,
   items,
   isOrdered,
+  orderedStyle,
   hasBullet,
   hasSeparator,
   className,
@@ -68,6 +69,7 @@ const List = ({
   const listClass = classnames(className, 'ecl-list', {
     'ecl-list--no-bullet': !hasBullet,
     'ecl-list--separator': hasSeparator,
+    [`ecl-list--ordered-${orderedStyle}`]: isOrdered && orderedStyle,
   });
   if (titleMarkup) {
     listMarkup = (
@@ -101,6 +103,7 @@ List.propTypes = {
     PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes))),
   ]).isRequired,
   isOrdered: PropTypes.bool,
+  orderedStyle: PropTypes.string,
   hasBullet: PropTypes.bool,
   hasSeparator: PropTypes.bool,
   className: PropTypes.string,
@@ -109,6 +112,7 @@ List.propTypes = {
 List.defaultProps = {
   title: {},
   isOrdered: false,
+  orderedStyle: '',
   hasBullet: true,
   hasSeparator: false,
   className: '',

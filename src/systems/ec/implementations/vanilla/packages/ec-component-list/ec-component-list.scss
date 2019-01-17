@@ -11,7 +11,7 @@
 /*
  * Global
  */
-@mixin ecl-list() {
+@mixin ecl-list($bullet-size: 1rem) {
   .ecl-list__container {
     margin: 0;
   }
@@ -45,6 +45,48 @@
     }
   }
 
+  /*
+   * Ordered list
+   */
+  .ecl-list--ordered-call,
+  .ecl-list--ordered-primary {
+    counter-reset: ecl-list-counter;
+    list-style: none;
+    padding-left: calc(#{$bullet-size} + #{$ecl-spacing-xs});
+
+    .ecl-list__item {
+      counter-increment: ecl-list-counter;
+      position: relative;
+    }
+
+    .ecl-list__item::before {
+      border-radius: 50%;
+      content: counter(ecl-list-counter);
+      font: $ecl-font-s;
+      font-weight: $ecl-font-weight-bold;
+      height: $bullet-size;
+      left: calc(#{$bullet-size} * -1 - #{$ecl-spacing-xs});
+      line-height: $bullet-size;
+      position: absolute;
+      text-align: center;
+      top: 0.2rem;
+      width: $bullet-size;
+    }
+  }
+
+  .ecl-list--ordered-call .ecl-list__item::before {
+    background-color: $ecl-color-yellow-100;
+    color: $ecl-color-grey-100;
+  }
+
+  .ecl-list--ordered-primary .ecl-list__item::before {
+    background-color: $ecl-color-blue-100;
+    color: $ecl-color-white-100;
+  }
+
+  /*
+   * List block
+   */
   .ecl-list__item--block {
     margin-top: $ecl-spacing-m;
 
@@ -63,6 +105,9 @@
     margin-top: $ecl-spacing-m;
   }
 
+  /*
+   * List group
+   */
   .ecl-list__item--group {
     border-top: 1px solid $ecl-color-grey-100;
     margin-top: $ecl-spacing-m;
@@ -81,11 +126,17 @@
     padding-left: 0;
   }
 
+  /*
+   * No bullet
+   */
   .ecl-list--no-bullet {
     list-style: none;
     padding-left: 0;
   }
 
+  /*
+   * List with separator
+   */
   .ecl-list--separator {
     list-style: none;
     padding-left: 0;
