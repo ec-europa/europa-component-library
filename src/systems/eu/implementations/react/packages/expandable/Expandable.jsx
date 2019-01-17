@@ -26,16 +26,10 @@ const Expandable = ({
           data-ecl-label-expanded={labelExpanded}
           data-ecl-label-collapsed={labelCollapsed}
           aria-controls={`${id}-content`}
-          id={`${id}-toggle`}
         />
       )}
 
-      <div
-        className="ecl-expandable__content"
-        id={`${id}-content`}
-        aria-labelledby={`${id}-toggle`}
-        hidden
-      >
+      <div className="ecl-expandable__content" id={`${id}-content`} hidden>
         {children}
       </div>
     </div>
