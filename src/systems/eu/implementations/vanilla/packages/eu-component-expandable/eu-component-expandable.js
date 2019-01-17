@@ -71,10 +71,10 @@ class Expandable {
     // Get current status
     const isExpanded =
       this.forceClose === true ||
-      this.element.getAttribute('aria-expanded') === 'true';
+      this.toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    this.element.setAttribute('aria-expanded', !isExpanded);
+    this.toggle.setAttribute('aria-expanded', !isExpanded);
     if (isExpanded) {
       this.target.setAttribute('hidden', true);
     } else {
