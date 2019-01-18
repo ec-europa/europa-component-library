@@ -15,16 +15,23 @@ storiesOf('Accordion', module)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const element = document.querySelector('[data-ecl-accordion]');
-        const vanillaAccordion = new VanillaAccordion(element);
-        vanillaAccordion.init();
+        const elements = document.querySelectorAll('[data-ecl-accordion]');
+        const vanillaAccordions = [];
+
+        elements.forEach(element => {
+          const vanillaAccordion = new VanillaAccordion(element);
+          vanillaAccordion.init();
+          vanillaAccordions.push(vanillaAccordion);
+        });
 
         // Return new context
-        return { vanillaAccordion };
+        return { vanillaAccordions };
       }}
       beforeUnmount={context => {
-        if (context.vanillaAccordion) {
-          context.vanillaAccordion.destroy();
+        if (context.vanillaAccordions) {
+          context.vanillaAccordions.forEach(element => {
+            element.destroy();
+          });
         }
       }}
     >
@@ -53,10 +60,10 @@ storiesOf('Accordion', module)
           {text('Content 1', demoContent.content)}
         </Accordion>
         <Accordion button={button2} id={demoContent.id2}>
-          {text('Content 2', demoContent.content)}
+          {text('Content 2', demoContent.content2)}
         </Accordion>
         <Accordion button={button3} id={demoContent.id3}>
-          {text('Content 3', demoContent.content)}
+          {text('Content 3', demoContent.content3)}
         </Accordion>
       </Fragment>
     );
