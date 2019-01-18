@@ -1,0 +1,26 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Accordion from '@ecl/eu-react-component-accordion/Accordion';
+
+import demoContent from '@ecl/eu-specs-accordion/demo/data';
+
+<Playground
+  system="eu"
+  selectedKind="Accordion"
+  selectedStory="default"
+  showFrame
+>
+  <Accordion button={demoContent.button} id={demoContent.id}>
+    {demoContent.content}
+  </Accordion>
+  <Accordion button={demoContent.button2} id={demoContent.id2}>
+    {demoContent.content2}
+  </Accordion>
+  <Accordion button={demoContent.button3} id={demoContent.id3}>
+    {demoContent.content3}
+  </Accordion>
+</Playground>
