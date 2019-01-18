@@ -35,7 +35,9 @@ const Button = ({
     <button {...props} type={type} className={classNames} disabled={disabled}>
       <span className="ecl-button__container">
         {iconPosition === 'before' && iconMarkup}
-        <span className="ecl-button__label" data-ecl-label>{label}</span>
+        <span className="ecl-button__label" data-ecl-label>
+          {label}
+        </span>
         {iconPosition === 'after' && iconMarkup}
       </span>
     </button>
