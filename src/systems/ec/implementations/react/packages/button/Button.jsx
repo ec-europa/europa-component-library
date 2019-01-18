@@ -9,6 +9,7 @@ const Button = ({
   disabled,
   label,
   icon,
+  iconPosition,
   className,
   ...props
 }) => {
@@ -16,17 +17,25 @@ const Button = ({
     [`ecl-button--${variant}`]: variant,
   });
 
+  const iconMarkup =
+    icon && icon.shape ? (
+      <Icon
+        {...icon}
+        className={classnames(icon.className, 'ecl-button__icon', {
+          [`ecl-button__icon--${iconPosition}`]: iconPosition,
+        })}
+      />
+    ) : (
+      ''
+    );
+
   return (
     /* eslint-disable-next-line react/button-has-type */
     <button {...props} type={type} className={classNames} disabled={disabled}>
       <span className="ecl-button__container">
+        {iconPosition === 'before' && iconMarkup}
         <span className="ecl-button__label">{label}</span>
-        {icon && icon.shape && (
-          <Icon
-            {...icon}
-            className={classnames(icon.className, 'ecl-button__icon')}
-          />
-        )}
+        {iconPosition === 'after' && iconMarkup}
       </span>
     </button>
   );
@@ -38,6 +47,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
   icon: PropTypes.shape(Icon.propTypes),
+  iconPosition: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -47,6 +57,7 @@ Button.defaultProps = {
   disabled: false,
   label: '',
   icon: {},
+  iconPosition: 'after',
   className: '',
 };
 

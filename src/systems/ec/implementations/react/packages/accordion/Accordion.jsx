@@ -16,16 +16,10 @@ const Accordion = ({ id, button, children, className, ...props }) => {
           className={classnames(button.className, 'ecl-accordion__toggle')}
           data-ecl-accordion-toggle
           aria-controls={`${id}-content`}
-          id={`${id}-toggle`}
         />
       )}
 
-      <div
-        className="ecl-accordion__content"
-        id={`${id}-content`}
-        aria-labelledby={`${id}-toggle`}
-        hidden
-      >
+      <div className="ecl-accordion__content" id={`${id}-content`} hidden>
         {children}
       </div>
     </div>
