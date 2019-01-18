@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContent from '@ecl/ec-specs-accordion/demo/data';
@@ -31,8 +31,14 @@ storiesOf('Accordion', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => (
-    <Accordion button={demoContent.button} id={demoContent.id}>
-      <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
-    </Accordion>
-  ));
+  .add('default', () => {
+    const button = {
+      ...demoContent.button,
+      label: text('Button label', demoContent.button.label),
+    };
+    return (
+      <Accordion button={button} id={demoContent.id}>
+        {text('Content', demoContent.content)}
+      </Accordion>
+    );
+  });

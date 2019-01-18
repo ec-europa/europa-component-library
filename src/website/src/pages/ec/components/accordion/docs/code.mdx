@@ -15,6 +15,12 @@ import demoContent from '@ecl/ec-specs-accordion/demo/data';
   showFrame
 >
   <Accordion button={demoContent.button} id={demoContent.id}>
-    <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
+    {demoContent.content}
+  </Accordion>
+  <Accordion button={demoContent.button2} id={demoContent.id2}>
+    {demoContent.content2}
+  </Accordion>
+  <Accordion button={demoContent.button3} id={demoContent.id3}>
+    {demoContent.content3}
   </Accordion>
 </Playground>

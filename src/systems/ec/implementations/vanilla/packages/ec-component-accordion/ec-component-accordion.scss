@@ -6,13 +6,71 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-accordion() {
+// Check if overridden dependencies are already loaded, if needed
+@include check-imports(('ec-component-button'));
+
+@mixin ecl-accordion(
+  $toggle-background: $ecl-color-yellow-100,
+  $toggle-color: $ecl-color-grey-100,
+  $icon-size: 1.25rem,
+  $icon-round-size: 2.25rem,
+  $content-background: $ecl-color-grey-5
+) {
   .ecl-accordion {
     margin: 0;
   }
 
+  .ecl-accordion__toggle {
+    color: $toggle-color;
+    font: $ecl-font-prolonged-l;
+    font-weight: bold;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    .ecl-button__container::before {
+      align-items: center;
+      background-color: $toggle-background;
+      border-radius: 50%;
+      content: '';
+      display: flex;
+      flex-shrink: 0;
+      height: $icon-round-size;
+      justify-content: center;
+      margin-bottom: $ecl-spacing-xs;
+      margin-right: $ecl-spacing-m;
+      margin-top: $ecl-spacing-xs;
+      width: $icon-round-size;
+    }
+
+    .ecl-button__icon {
+      margin-left: calc(#{$icon-round-size} * 0.5 - #{$icon-size} * 0.5);
+      margin-right: 0;
+      position: absolute;
+    }
+  }
+
+  .ecl-accordion__toggle[aria-expanded='true'] {
+    background-color: $toggle-background;
+  }
+
+  .ecl-accordion__content {
+    background-color: $content-background;
+    font: $ecl-font-prolonged-l;
+    padding: $ecl-spacing-l;
+  }
+
   .no-js .ecl-accordion__content {
     display: block;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('lg') {
+    .ecl-accordion__toggle {
+      font: $ecl-font-prolonged-xl;
+      font-weight: $ecl-font-weight-bold;
+    }
   }
 }
 
