@@ -21,6 +21,7 @@ const Button = ({
     icon && icon.shape ? (
       <Icon
         {...icon}
+        data-ecl-icon
         className={classnames(icon.className, 'ecl-button__icon', {
           [`ecl-button__icon--${iconPosition}`]: iconPosition,
         })}
@@ -34,7 +35,7 @@ const Button = ({
     <button {...props} type={type} className={classNames} disabled={disabled}>
       <span className="ecl-button__container">
         {iconPosition === 'before' && iconMarkup}
-        <span className="ecl-button__label">{label}</span>
+        <span className="ecl-button__label" data-ecl-label>{label}</span>
         {iconPosition === 'after' && iconMarkup}
       </span>
     </button>
