@@ -10,6 +10,7 @@ const Icon = ({
   iconPath,
   shape,
   size,
+  title,
   transform,
   ...props
 }) => {
@@ -20,7 +21,8 @@ const Icon = ({
   });
 
   return (
-    <svg {...props} className={classNames}>
+    <svg focusable="false" aria-hidden="true" {...props} className={classNames}>
+      {title && <title>{title}</title>}
       <use xlinkHref={`${iconPath}#${shape}`} />
     </svg>
   );
@@ -32,6 +34,7 @@ Icon.propTypes = {
   iconPath: PropTypes.string,
   shape: PropTypes.string,
   size: PropTypes.string,
+  title: PropTypes.string,
   transform: PropTypes.string,
 };
 
@@ -41,6 +44,7 @@ Icon.defaultProps = {
   iconPath: defaultSprite,
   shape: '',
   size: 'm',
+  title: '',
   transform: '',
 };
 
