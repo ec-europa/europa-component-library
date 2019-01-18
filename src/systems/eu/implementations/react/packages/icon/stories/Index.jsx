@@ -54,7 +54,6 @@ storiesOf('Icon', module)
         size={size}
         color={color}
         transform={transform}
-        title="yay"
       />
     );
   })

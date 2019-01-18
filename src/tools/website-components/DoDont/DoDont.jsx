@@ -13,7 +13,11 @@ const DoDont = ({ itemDo, itemDont }) => (
       </div>
       <div className={styles.container}>
         <div className={styles.title}>
-          <svg className={styles.title__icon}>
+          <svg
+            focusable="false"
+            aria-hidden="true"
+            className={styles.title__icon}
+          >
             <use xlinkHref={`${iconSprite}#ui--check-filled`} />
           </svg>
           {itemDo.title}
@@ -28,7 +32,11 @@ const DoDont = ({ itemDo, itemDont }) => (
       </div>
       <div className={styles.container}>
         <div className={styles.title}>
-          <svg className={styles.title__icon}>
+          <svg
+            focusable="false"
+            aria-hidden="true"
+            className={styles.title__icon}
+          >
             <use xlinkHref={`${iconSprite}#ui--close-filled`} />
           </svg>
           {itemDont.title}
