@@ -13,7 +13,7 @@ configureA11y({
   rules: [{ id: 'label', enabled: false }],
 });
 
-storiesOf('TextArea', module)
+storiesOf('Forms/TextArea', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <TextArea

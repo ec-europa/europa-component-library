@@ -49,7 +49,12 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-            'css-loader?importLoaders=3',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 3,
+              },
+            },
             {
               loader: 'postcss-loader',
               options: {

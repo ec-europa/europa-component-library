@@ -6,6 +6,7 @@ import Icon from '@ecl/ec-react-component-icon/Icon';
 const Button = ({
   variant,
   type,
+  disabled,
   label,
   icon,
   iconPosition,
@@ -30,10 +31,12 @@ const Button = ({
 
   return (
     /* eslint-disable-next-line react/button-has-type */
-    <button {...props} type={type} className={classNames}>
+    <button {...props} type={type} className={classNames} disabled={disabled}>
       <span className="ecl-button__container">
         {iconPosition === 'before' && iconMarkup}
-        <span className="ecl-button__label">{label}</span>
+        <span className="ecl-button__label" data-ecl-label>
+          {label}
+        </span>
         {iconPosition === 'after' && iconMarkup}
       </span>
     </button>
@@ -43,6 +46,7 @@ const Button = ({
 Button.propTypes = {
   variant: PropTypes.string,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
   label: PropTypes.string,
   icon: PropTypes.shape(Icon.propTypes),
   iconPosition: PropTypes.string,
@@ -52,6 +56,7 @@ Button.propTypes = {
 Button.defaultProps = {
   variant: 'primary',
   type: 'submit',
+  disabled: false,
   label: '',
   icon: {},
   iconPosition: 'after',

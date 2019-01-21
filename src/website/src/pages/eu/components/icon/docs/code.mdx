@@ -73,3 +73,21 @@ You can flip icons by adding the class `ecl-icon--flip-horizontal` or `ecl-icon-
   <Icon {...demoContentAudio} transform="flip-horizontal" />
   <Icon {...demoContentAudio} transform="flip-vertical" />
 </Playground>
+
+## Accessibility
+
+If your icon is only used as a decorative element, you don't have to add any special markup.
+
+On the other hand, if it's used as an image, you might want to add a couple of extra markup:
+
+<Playground system="ec" selectedKind="Icon" selectedStory="default">
+  <Icon
+    {...demoContentAudio}
+    role="img"
+    aria-hidden="false"
+    title="Title"
+    titleId="example-title"
+    desc="Description"
+    descId="example-desc"
+  />
+</Playground>

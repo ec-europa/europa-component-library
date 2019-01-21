@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import demoContentPrimary from '@ecl/eu-specs-button/demo/data--primary';
 import demoContentSecondary from '@ecl/eu-specs-button/demo/data--secondary';
@@ -37,6 +37,7 @@ storiesOf('Button', module)
         type="submit"
         icon={buttonIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -53,6 +54,7 @@ storiesOf('Button', module)
         type="button"
         icon={buttonIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -69,6 +71,7 @@ storiesOf('Button', module)
         type="submit"
         icon={buttonIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -85,6 +88,7 @@ storiesOf('Button', module)
         type="button"
         icon={buttonIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -101,6 +105,7 @@ storiesOf('Button', module)
         type="button"
         icon={buttonIcon}
         iconPosition={select('Icon position', iconPosition, 'after')}
+        disabled={boolean('Disabled', false)}
       />
     );
   });

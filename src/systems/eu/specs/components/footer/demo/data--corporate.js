@@ -1,64 +1,13 @@
 // Simple content for demo
 module.exports = {
-  identity: {
-    title: 'Site identification',
-    follow: {
-      label: 'Follow us:',
-      links: [
-        {
-          variant: 'standalone',
-          label: 'Facebook',
-          href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--facebook',
-            size: 'xs',
-          },
-        },
-        {
-          variant: 'standalone',
-          label: 'Twitter',
-          href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--twitter',
-            size: 'xs',
-          },
-        },
-        {
-          variant: 'standalone',
-          label: 'Google+',
-          href: '/example',
-          iconPosition: 'before',
-          icon: {
-            shape: 'branded--google-plus',
-            size: 'xs',
-          },
-        },
-      ],
+  backToTop: {
+    variant: 'standalone',
+    label: 'Go to top',
+    href: '#top',
+    icon: {
+      shape: 'ui--corner-arrow',
+      size: 'fluid',
     },
-    info: [
-      {
-        variant: 'standalone',
-        label: 'Lorem',
-        href: '/example',
-      },
-      {
-        variant: 'standalone',
-        label: 'Lorem ipsum',
-        href: '/example',
-      },
-      {
-        variant: 'standalone',
-        label: 'Lorem ipsum dolor',
-        href: '/example',
-      },
-      {
-        variant: 'standalone',
-        label: 'Lorem ipsum dolor sit',
-        href: '/example',
-      },
-    ],
   },
   sections: [
     {

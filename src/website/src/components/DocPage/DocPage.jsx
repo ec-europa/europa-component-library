@@ -17,15 +17,18 @@ const DocPage = React.memo(({ component }) => (
     <Header component={component} />
     <main id="main-content" tabIndex="-1">
       <Container spacing="pv-l pv-md-3xl">
-        <Row>
-          <Col col="12 xl-9">
-            {component.document && <component.document />}
-          </Col>
-
-          <Col col="12 xl-3" className={styles['inpage-nav']}>
-            {/* Inpage navigation */}
-          </Col>
-        </Row>
+        {component.inpageNav ? (
+          <Row>
+            <Col col="12 xl-9">
+              {component.document && <component.document />}
+            </Col>
+            <Col col="12 xl-3" className={styles['inpage-nav']}>
+              <component.inpageNav />
+            </Col>
+          </Row>
+        ) : (
+          component.document && <component.document />
+        )}
       </Container>
     </main>
   </Fragment>
@@ -44,6 +47,7 @@ DocPage.propTypes = {
     ),
     defaultTab: PropTypes.string,
     document: PropTypes.func,
+    inpageNav: PropTypes.func,
   }),
 };
 
