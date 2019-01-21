@@ -1,14 +1,18 @@
 {
-  "name": "@ecl/ec-specs-inpage-navigation",
+  "name": "@ecl/ec-component-inpage-navigation",
   "author": "European Commission",
   "license": "EUPL-1.1",
   "version": "2.0.0",
-  "description": "ECL Inpage Navigation Specs",
+  "description": "ECL In-page navigation",
+  "style": "ec-component-inpage-navigation.scss",
+  "sass": "ec-component-inpage-naviagation.scss",
+  "dependencies": {
+    "@ecl/ec-base": "^2.0.0",
+    "gumshoejs": "3.5.0",
+    "stickyfilljs": "2.0.5"
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "devDependencies": {
-    "lorem-ipsum": "^1.0.6"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,7 @@
     "ecl",
     "europa-component-library",
     "design-system"
-  ]
+  ],
+  "main": "ec-component-inpage-navigation.js",
+  "sass": "ec-component-inpage-navigation.scss"
 }
