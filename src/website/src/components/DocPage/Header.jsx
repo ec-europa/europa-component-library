@@ -106,6 +106,8 @@ Header.propTypes = {
       title: PropTypes.string,
     }),
   }),
+  history: PropTypes.history.isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {
