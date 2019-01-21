@@ -56,17 +56,78 @@ $header-tabs-border-width: 4px;
   border-bottom: $header-tabs-border-width solid $ecl-color-yellow-100;
 }
 
-.header__tabs-select {
-  display: block;
-  width: 100%;
+.select__container {
+  background-color: $ecl-color-white-100;
+  display: inline-flex;
+  position: relative;
 
   :global(.no-js) & {
     display: none;
   }
 }
 
+.select {
+  appearance: none;
+  background-color: transparent;
+  border: $border-width solid $border-color;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: $ecl-color-text;
+  display: block;
+  font: $ecl-font-m;
+  margin: 0;
+  max-width: 100%;
+  padding: calc(#{$ecl-spacing-s} - #{$border-width})
+    calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width})
+    calc(#{$ecl-spacing-s} - #{$border-width})
+    calc(#{$ecl-spacing-s} - #{$border-width});
+  z-index: 1;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    border-color: $border-color-hover;
+  }
+
+  &:focus {
+    border-color: $border-color-focus;
+    border-width: $border-width-focus;
+    outline: none;
+    padding: calc(#{$ecl-spacing-s} - #{$border-width-focus})
+      calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width-focus})
+      calc(#{$ecl-spacing-s} - #{$border-width-focus})
+      calc(#{$ecl-spacing-s} - #{$border-width-focus});
+  }
+}
+
+.icon {
+  align-items: center;
+  background-color: $border-color;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $arrow-width;
+  z-index: 0;
+}
+
+.select:hover + .icon {
+  background-color: $border-color-hover;
+}
+.select:focus + .icon {
+  background-color: $border-color;
+}
+
+.icon-shape {
+  fill: $ecl-color-white-100;
+}
+
 @media screen and (min-width: $ecl-breakpoint-md) {
-  .header__tabs-select {
+  .select__container {
     display: none;
   }
 

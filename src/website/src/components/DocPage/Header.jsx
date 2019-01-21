@@ -98,7 +98,9 @@ const Header = React.memo(({ component, ...props }) => {
                 <svg
                   focusable="false"
                   aria-hidden="true"
-                  className={(styles.icon, styles['select__icon-shape'])}
+                  className={
+                    (styles['icon-shape'], styles['select__icon-shape'])
+                  }
                 >
                   <use xlinkHref={`${icons}#ui--corner-arrow`} />
                 </svg>
