@@ -28,6 +28,8 @@ class LinkSection extends PureComponent {
           <span>
             {section}
             <svg
+              focusable="false"
+              aria-hidden="true"
               className={classnames(styles.icon, {
                 [styles['icon-rotate-90']]: !isOpen,
                 [styles['icon-rotate-180']]: isOpen,

@@ -50,6 +50,7 @@ const Pagination = ({ label, items, className, ...props }) => {
 };
 
 Pagination.propTypes = {
+  label: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       isCurrent: PropTypes.bool,
@@ -63,6 +64,7 @@ Pagination.propTypes = {
 };
 
 Pagination.defaultProps = {
+  label: '',
   items: [],
   className: '',
 };

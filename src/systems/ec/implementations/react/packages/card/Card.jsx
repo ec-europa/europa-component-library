@@ -124,6 +124,12 @@ Card.propTypes = {
     alt: PropTypes.string,
     src: PropTypes.string,
   }),
+  infos: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      icon: PropTypes.shape(Icon.propTypes),
+    })
+  ),
   meta: PropTypes.string,
   title: PropTypes.shape({
     label: PropTypes.string,
@@ -148,6 +154,7 @@ Card.propTypes = {
 
 Card.defaultProps = {
   image: {},
+  infos: [],
   meta: '',
   title: {},
   description: '',

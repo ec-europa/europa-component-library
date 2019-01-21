@@ -24,8 +24,11 @@ const customComponents = {
   ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
   ol: ({ children }) => <ol className={styles.ol}>{children}</ol>,
   table: ({ children }) => <table className={styles.table}>{children}</table>,
-  td: ({ children }) => <td className={styles.td}>{children}</td>,
+  thead: ({ children }) => <thead className={styles.thead}>{children}</thead>,
+  tbody: ({ children }) => <tbody className={styles.tbody}>{children}</tbody>,
+  tr: ({ children }) => <tr className={styles.tr}>{children}</tr>,
   th: ({ children }) => <th className={styles.th}>{children}</th>,
+  td: ({ children }) => <td className={styles.td}>{children}</td>,
   hr: () => <hr className={styles.hr} />,
   a: ({ href, children }) => (
     <a href={href} className={styles.a}>

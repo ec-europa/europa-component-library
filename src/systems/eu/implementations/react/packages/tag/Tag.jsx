@@ -36,12 +36,14 @@ const Tag = ({ label, variant, href, className, ...props }) => {
 
 Tag.propTypes = {
   label: PropTypes.string,
+  href: PropTypes.string,
   variant: PropTypes.string,
   className: PropTypes.string,
 };
 
 Tag.defaultProps = {
   label: '',
+  href: '',
   variant: '',
   className: '',
 };
