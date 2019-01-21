@@ -51,8 +51,15 @@
     }
   }
 
+  .ecl-accordion__toggle:hover,
+  .ecl-accordion__toggle:focus,
   .ecl-accordion__toggle[aria-expanded='true'] {
     background-color: $toggle-background;
+    text-decoration: none;
+  }
+
+  .ecl-accordion__toggle:focus {
+    outline-color: $toggle-color;
   }
 
   .ecl-accordion__content {
