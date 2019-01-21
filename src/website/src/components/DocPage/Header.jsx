@@ -94,13 +94,11 @@ const Header = React.memo(({ component, ...props }) => {
                   </option>
                 ))}
               </select>
-              <div className={(styles.icon, styles['icon-rotate-180'])}>
+              <div className={styles.select__icon}>
                 <svg
                   focusable="false"
                   aria-hidden="true"
-                  className={
-                    (styles['icon-shape'], styles['select__icon-shape'])
-                  }
+                  className={styles['select__icon-shape']}
                 >
                   <use xlinkHref={`${icons}#ui--corner-arrow`} />
                 </svg>
