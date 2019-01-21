@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { MDXProvider } from '@mdx-js/tag';
 import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
+import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 // Global styles
 import 'normalize.css/normalize.css';
@@ -41,7 +42,20 @@ const customComponents = {
     </a>
   ),
   select: ({ children }) => (
-    <select className={styles.select}>{children}</select>
+    <div className={styles.select__container}>
+      <select className={(styles.select, styles['icon-rotate-180'])}>
+        {children}
+      </select>
+      <div className="ecl-select__icon">
+        <svg
+          focusable="false"
+          aria-hidden="true"
+          className={(styles.icon, styles['select__icon-shape'])}
+        >
+          <use xlinkHref={`${icons}#ui--corner-arrow`} />
+        </svg>
+      </div>
+    </div>
   ),
 };
 /* eslint-enable react/prop-types */
