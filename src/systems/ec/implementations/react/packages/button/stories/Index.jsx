@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
 import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
@@ -31,6 +31,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentPrimary.label)}
         type="submit"
         icon={buttonIcon}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -46,6 +47,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentSecondary.label)}
         type="button"
         icon={buttonIcon}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -61,6 +63,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentCall.label)}
         type="submit"
         icon={buttonIcon}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -76,6 +79,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentGhost.label)}
         type="button"
         icon={buttonIcon}
+        disabled={boolean('Disabled', false)}
       />
     );
   })
@@ -91,6 +95,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentSearch.label)}
         type="button"
         icon={buttonIcon}
+        disabled={boolean('Disabled', false)}
       />
     );
   });

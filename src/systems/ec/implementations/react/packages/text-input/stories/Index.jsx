@@ -13,7 +13,7 @@ configureA11y({
   rules: [{ id: 'label', enabled: false }],
 });
 
-storiesOf('TextInput', module)
+storiesOf('Forms/TextInput', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <TextInput
