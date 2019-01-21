@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
 import styles from './Header.scss';
@@ -80,18 +81,29 @@ const Header = React.memo(({ component, ...props }) => {
               ))}
             </ul>
 
-            <select
-              id="header-tabs"
-              className={styles['header__tabs-select']}
-              onChange={e => navigateTab(e, props.history)}
-              defaultValue={props.location.pathname}
-            >
-              {component.parent.children.map(tab => (
-                <option key={tab.attributes.url} value={tab.attributes.url}>
-                  {tab.attributes.title}
-                </option>
-              ))}
-            </select>
+            <div className={styles.select__container}>
+              <select
+                id="header-tabs"
+                className={styles.select}
+                onChange={e => navigateTab(e, props.history)}
+                defaultValue={props.location.pathname}
+              >
+                {component.parent.children.map(tab => (
+                  <option key={tab.attributes.url} value={tab.attributes.url}>
+                    {tab.attributes.title}
+                  </option>
+                ))}
+              </select>
+              <div className={(styles.icon, styles['icon-rotate-180'])}>
+                <svg
+                  focusable="false"
+                  aria-hidden="true"
+                  className={(styles.icon, styles['select__icon-shape'])}
+                >
+                  <use xlinkHref={`${icons}#ui--corner-arrow`} />
+                </svg>
+              </div>
+            </div>
           </Fragment>
         )}
       </Container>
