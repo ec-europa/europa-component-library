@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { queryOne } from '@ecl/ec-base/helpers/dom';
 
 import Icon from '@ecl/ec-react-component-icon/Icon';
 
@@ -15,6 +16,7 @@ const Checkbox = ({
   invalidText,
   label,
   name,
+  removeError,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-checkbox', {
@@ -32,21 +34,23 @@ const Checkbox = ({
           name={name || undefined}
           className="ecl-checkbox__input"
           disabled={disabled}
+          onChange={!invalid || removeError}
         />
-        <span className="ecl-checkbox__icon">
-          <Icon className="ecl-checkbox__checked" shape="ui--check" size="xs" />
-        </span>
 
         <label
           className={classnames(
             'ecl-form-label ecl-form-label--inline ecl-checkbox__label',
             {
               'ecl-form-label--invalid': invalid,
+              'ecl-checkbox__label--hidden': hideLabel,
               'ecl-form-label--hidden': hideLabel,
             }
           )}
           htmlFor={id}
         >
+          <span className="ecl-checkbox__box">
+            <Icon className="ecl-checkbox__icon" shape="ui--check" size="xs" />
+          </span>
           {label}
         </label>
       </div>
@@ -70,6 +74,7 @@ Checkbox.propTypes = {
   invalidText: PropTypes.node,
   label: PropTypes.string,
   name: PropTypes.string,
+  removeError: PropTypes.func,
 };
 
 Checkbox.defaultProps = {
@@ -82,6 +87,16 @@ Checkbox.defaultProps = {
   invalidText: '',
   label: '',
   name: '',
+  removeError: () => {
+    const inPage = queryOne('.ecl-checkbox--invalid');
+    if (inPage) {
+      const inPageLabel = queryOne('.ecl-form-label--invalid');
+      const errorMsg = queryOne('.ecl-feedback-message');
+      inPage.classList.remove('ecl-checkbox--invalid');
+      inPageLabel.classList.remove('ecl-form-label--invalid');
+      errorMsg.parentNode.removeChild(errorMsg);
+    }
+  },
 };
 
 export default Checkbox;

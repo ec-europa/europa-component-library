@@ -18,4 +18,10 @@ module.exports = {
     invalidText: 'An error message',
     label: 'An invalid checkbox',
   },
+  withoutLabel: {
+    helperText: 'This is an help text',
+    id: 'checkbox-no-label',
+    label: 'An hidden label for a checkbox',
+    hideLabel: true,
+  },
 };

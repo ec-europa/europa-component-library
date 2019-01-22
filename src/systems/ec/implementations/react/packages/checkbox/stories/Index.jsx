@@ -7,6 +7,5 @@ import Checkbox from '../Checkbox';
 storiesOf('Forms/Checkbox', module)
   .add('default', () => <Checkbox {...demo.default} />)
   .add('disabled', () => <Checkbox {...demo.disabled} />)
-  .add('invalid', () => (
-    <Checkbox {...demo.invalid} onClick={e => e.preventDefault()} />
-  ));
+  .add('invalid', () => <Checkbox {...demo.invalid} />)
+  .add('withoutLabel', () => <Checkbox {...demo.withoutLabel} />);

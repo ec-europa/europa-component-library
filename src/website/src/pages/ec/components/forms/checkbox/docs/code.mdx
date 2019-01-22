@@ -22,5 +22,15 @@ import demo from '@ecl/ec-specs-checkbox/demo/data';
 ## With errors
 
 <Playground system="ec" selectedKind="Forms/Checkbox" selectedStory="invalid">
-  <Checkbox {...demo.invalid} onClick={e => e.preventDefault()} />
+  <Checkbox {...demo.invalid} />
+</Playground>
+
+## With no label (hidden label)
+
+<Playground
+  system="ec"
+  selectedKind="Forms/Checkbox"
+  selectedStory="withoutLabel"
+>
+  <Checkbox {...demo.withoutLabel} />
 </Playground>
