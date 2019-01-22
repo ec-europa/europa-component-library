@@ -7,9 +7,13 @@ import defaultSprite from '@ecl/eu-resources-icons/dist/sprites/icons.svg';
 const Icon = ({
   className,
   color,
+  desc,
+  descId,
   iconPath,
   shape,
   size,
+  title,
+  titleId,
   transform,
   ...props
 }) => {
@@ -19,8 +23,21 @@ const Icon = ({
     [`ecl-icon--${transform}`]: transform,
   });
 
+  let labelledBy = '';
+  if ((title && titleId) || (desc && descId)) {
+    labelledBy = `${titleId} ${descId}`;
+  }
+
   return (
-    <svg {...props} className={classNames}>
+    <svg
+      focusable="false"
+      aria-hidden="true"
+      {...labelledBy && { 'aria-labelledby': labelledBy }}
+      {...props}
+      className={classNames}
+    >
+      {title && <title {...titleId && { id: titleId }}>{title}</title>}
+      {desc && <desc {...descId && { id: descId }}>{desc}</desc>}
       <use xlinkHref={`${iconPath}#${shape}`} />
     </svg>
   );
@@ -29,18 +46,26 @@ const Icon = ({
 Icon.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
+  desc: PropTypes.string,
+  descId: PropTypes.string,
   iconPath: PropTypes.string,
   shape: PropTypes.string,
   size: PropTypes.string,
+  title: PropTypes.string,
+  titleId: PropTypes.string,
   transform: PropTypes.string,
 };
 
 Icon.defaultProps = {
   className: '',
   color: '',
+  desc: '',
+  descId: '',
   iconPath: defaultSprite,
   shape: '',
   size: 'm',
+  title: '',
+  titleId: '',
   transform: '',
 };
 

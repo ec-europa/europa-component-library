@@ -103,7 +103,11 @@ class Playground extends PureComponent {
               rel="noopener noreferrer"
             >
               <span className={styles.link__label}>Fullscreen</span>
-              <svg className={styles.link__icon}>
+              <svg
+                focusable="false"
+                aria-hidden="true"
+                className={styles.link__icon}
+              >
                 <use xlinkHref={`${iconSprite}#ui--fullscreen`} />
               </svg>
             </a>
@@ -139,7 +143,11 @@ class Playground extends PureComponent {
           >
             <div className={styles.toggle__container}>
               <span className={styles.link__label}>Show more</span>
-              <svg className={styles.link__icon}>
+              <svg
+                focusable="false"
+                aria-hidden="true"
+                className={styles.link__icon}
+              >
                 <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
               </svg>
             </div>
@@ -158,7 +166,11 @@ class Playground extends PureComponent {
             rel="noopener noreferrer"
           >
             <span className={styles.link__label}>Playground</span>
-            <svg className={styles.link__icon}>
+            <svg
+              focusable="false"
+              aria-hidden="true"
+              className={styles.link__icon}
+            >
               <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
             </svg>
           </a>
