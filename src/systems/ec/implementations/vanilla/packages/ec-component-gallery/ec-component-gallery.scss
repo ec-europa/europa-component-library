@@ -33,23 +33,26 @@
   }
 
   .ecl-gallery__image-container {
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
+    background-color: $ecl-color-black-100;
     flex-grow: 1;
+    margin: 0;
+  }
+
+  @supports (object-fit: cover) {
+    .ecl-gallery__image-container {
+      background-color: transparent;
+    }
   }
 
   .ecl-gallery__image {
-    flex-grow: 1;
-    visibility: hidden;
+    flex-grow: 0;
     width: 100%;
   }
 
   @supports (object-fit: cover) {
     .ecl-gallery__image {
+      flex-grow: 1;
       object-fit: cover;
-      visibility: visible;
     }
   }
 
@@ -70,10 +73,6 @@
 
   .ecl-gallery__description-icon {
     flex-shrink: 0;
-  }
-
-  .ecl-gallery__meta {
-    display: none;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -99,8 +98,8 @@
     }
 
     .ecl-gallery__image {
-      flex-grow: 1;
       height: $image-height;
+      margin: 0 auto;
       width: auto;
     }
 
@@ -152,7 +151,6 @@
 ) {
   .ecl-gallery__overlay {
     background-color: $overlay-background;
-    display: flex;
     flex-direction: column;
     height: 100%;
     left: 0;
@@ -162,9 +160,8 @@
     z-index: $overlay-z-index;
   }
 
-  .ecl-gallery__overlay[aria-hidden='true'] {
-    position: absolute;
-    visibility: hidden;
+  .ecl-gallery__overlay:not([hidden]) {
+    display: flex;
   }
 
   .ecl-gallery__close {
@@ -192,40 +189,18 @@
     align-self: stretch;
     display: flex;
     flex-grow: 1;
-    height: 100%;
     justify-content: center;
-    width: 100%;
   }
 
   .ecl-gallery__slider-image {
-    display: none;
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
     height: auto;
+    margin: 0;
     max-width: 100%;
-  }
-
-  .ecl-gallery__slider-image--fallback {
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 100%;
-    width: 100%;
-  }
-
-  @supports (object-fit: cover) {
-    .ecl-gallery__slider-image--fallback {
-      display: none;
-    }
-
-    .ecl-gallery__slider-image-container {
-      align-items: initial;
-      height: auto;
-      width: auto;
-    }
-
-    .ecl-gallery__slider-image {
-      display: block;
-      object-fit: contain;
-    }
+    object-fit: contain;
   }
 
   .ecl-gallery__slider-previous {

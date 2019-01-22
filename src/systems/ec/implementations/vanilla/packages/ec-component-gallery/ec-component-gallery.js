@@ -9,8 +9,9 @@ class Gallery {
       metaSelector: metaSelector = '[data-ecl-gallery-meta]',
       closeButtonSelector: closeButtonSelector = '[data-ecl-gallery-close]',
       overlaySelector: overlaySelector = '[data-ecl-gallery-overlay]',
+      overlayHeaderelector: overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
+      overlayFooterSelector: overlayFooterSelector = '[data-ecl-gallery-overlay-footer]',
       overlayImageSelector: overlayImageSelector = '[data-ecl-gallery-overlay-image]',
-      overlayImageFallbackSelector: overlayImageFallbackSelector = '[data-ecl-gallery-overlay-image-fallback]',
       overlayCounterCurrentSelector: overlayCounterCurrentSelector = '[data-ecl-gallery-overlay-counter-current]',
       overlayCounterMaxSelector: overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
       overlayDescriptionSelector: overlayDescriptionSelector = '[data-ecl-gallery-overlay-description]',
@@ -35,8 +36,9 @@ class Gallery {
     this.metaSelector = metaSelector;
     this.closeButtonSelector = closeButtonSelector;
     this.overlaySelector = overlaySelector;
+    this.overlayHeaderSelector = overlayHeaderSelector;
+    this.overlayFooterSelector = overlayFooterSelector;
     this.overlayImageSelector = overlayImageSelector;
-    this.overlayImageFallbackSelector = overlayImageFallbackSelector;
     this.overlayCounterCurrentSelector = overlayCounterCurrentSelector;
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
     this.overlayDescriptionSelector = overlayDescriptionSelector;
@@ -50,8 +52,9 @@ class Gallery {
     this.meta = null;
     this.closeButton = null;
     this.overlay = null;
+    this.overlayHeader = null;
+    this.overlayFooter = null;
     this.overlayImage = null;
-    this.overlayImageFallback = null;
     this.overlayCounterCurrent = null;
     this.overlayCounterMax = null;
     this.overlayDescription = null;
@@ -69,11 +72,9 @@ class Gallery {
     this.galleryItems = queryAll(this.galleryItemSelector, this.element);
     this.closeButton = queryOne(this.closeButtonSelector, this.element);
     this.overlay = queryOne(this.overlaySelector, this.element);
+    this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
+    this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
     this.overlayImage = queryOne(this.overlayImageSelector, this.overlay);
-    this.overlayImageFallback = queryOne(
-      this.overlayImageFallbackSelector,
-      this.overlay
-    );
     this.overlayCounterCurrent = queryOne(
       this.overlayCounterCurrentSelector,
       this.overlay
@@ -161,10 +162,14 @@ class Gallery {
 
     // Update image
     this.overlayImage.setAttribute('src', selectedItem.getAttribute('href'));
-    Object.assign(this.overlayImageFallback.style, {
-      backgroundImage: `url(${selectedItem.getAttribute('href')})`,
-      maxHeight: `${this.overlayImage.naturalHeight}px`,
-      maxWidth: `${this.overlayImage.naturalWidth}px`,
+
+    // Limit image height (fix for FF and IE)
+    const maxHeight =
+      this.overlay.clientHeight -
+      this.overlayHeader.clientHeight -
+      this.overlayFooter.clientHeight;
+    Object.assign(this.overlayImage.style, {
+      maxHeight: `${maxHeight}px`,
     });
 
     // Update counter
@@ -186,14 +191,14 @@ class Gallery {
   }
 
   handleClickOnCloseButton() {
-    this.overlay.setAttribute('aria-hidden', 'true');
+    this.overlay.setAttribute('hidden', 'true');
 
     return this;
   }
 
   handleClickOnItem(e) {
     e.preventDefault();
-    this.overlay.setAttribute('aria-hidden', 'false');
+    this.overlay.removeAttribute('hidden');
 
     // Update overlay
     this.updateOverlay(e.currentTarget);

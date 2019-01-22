@@ -2,49 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import VanillaGallery from '@ecl/eu-component-gallery/eu-component-gallery';
 import GalleryItem from './GalleryItem';
 import GalleryOverlay from './GalleryOverlay';
 
-export default class Gallery extends React.Component {
-  constructor(props) {
-    super(props);
+const Gallery = ({ overlay, items, selectedItemId, className, ...props }) => {
+  const classNames = classnames(className, 'ecl-gallery');
 
-    this.state = {};
-    this.gallery = null;
-    this.galleryRef = React.createRef();
-  }
+  return (
+    <section {...props} className={classNames} data-ecl-gallery>
+      <ul className="ecl-gallery__list">
+        {items.map(item => (
+          <GalleryItem item={item} key={item.src} />
+        ))}
+      </ul>
 
-  componentDidMount() {
-    this.gallery = new VanillaGallery(this.galleryRef.current);
-    this.gallery.init();
-  }
-
-  componentWillUnmount() {
-    if (this.gallery) this.gallery.destroy();
-  }
-
-  render() {
-    const { overlay, items, selectedItemId, className, ...props } = this.props;
-
-    const classNames = classnames(className, 'ecl-gallery');
-
-    return (
-      <section {...props} className={classNames} ref={this.galleryRef}>
-        <ul className="ecl-gallery__list">
-          {items.map(item => (
-            <GalleryItem item={item} key={item.src} />
-          ))}
-        </ul>
-
-        <GalleryOverlay
-          overlay={overlay}
-          item={items[selectedItemId] ? items[selectedItemId] : {}}
-        />
-      </section>
-    );
-  }
-}
+      <GalleryOverlay
+        overlay={overlay}
+        item={items[selectedItemId] ? items[selectedItemId] : {}}
+      />
+    </section>
+  );
+};
 
 Gallery.propTypes = {
   overlay: PropTypes.shape(GalleryOverlay.propTypes),
@@ -59,3 +37,5 @@ Gallery.defaultProps = {
   selectedItemId: 0,
   className: '',
 };
+
+export default Gallery;

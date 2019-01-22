@@ -9,18 +9,14 @@ import Link from '@ecl/ec-react-component-link/Link';
 const GalleryOverlay = ({ overlay, item, className, ...props }) => {
   if (item == null) return null;
 
-  const styles = {
-    backgroundImage: `url(${item.src})`,
-  };
-
   return (
     <div
       {...props}
       className={classnames(className, 'ecl-gallery__overlay')}
-      aria-hidden="true"
+      hidden
       data-ecl-gallery-overlay
     >
-      <div className="ecl-gallery__close">
+      <header className="ecl-gallery__close" data-ecl-gallery-overlay-header>
         <Button
           {...overlay.close}
           className={classnames(
@@ -29,20 +25,15 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
           )}
           data-ecl-gallery-close
         />
-      </div>
+      </header>
 
-      <div className="ecl-gallery__slider">
+      <section className="ecl-gallery__slider">
         <div className="ecl-gallery__slider-image-container">
           <img
             src={item.src}
             alt={item.alt}
             className="ecl-gallery__slider-image"
             data-ecl-gallery-overlay-image
-          />
-          <div
-            className="ecl-gallery__slider-image--fallback"
-            style={styles}
-            data-ecl-gallery-overlay-image-fallback
           />
         </div>
 
@@ -63,9 +54,9 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
           )}
           data-ecl-gallery-overlay-next
         />
-      </div>
+      </section>
 
-      <div className="ecl-gallery__detail">
+      <footer className="ecl-gallery__detail" data-ecl-gallery-overlay-footer>
         <div className="ecl-gallery__detail-counter">
           <span data-ecl-gallery-overlay-counter-current>0</span>{' '}
           {overlay.counterSeparator}{' '}
@@ -96,7 +87,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
         <div className="ecl-gallery__detail-meta" data-ecl-gallery-overlay-meta>
           {item.meta}
         </div>
-      </div>
+      </footer>
     </div>
   );
 };
