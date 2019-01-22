@@ -34,7 +34,7 @@ const Checkbox = ({
           name={name || undefined}
           className="ecl-checkbox__input"
           disabled={disabled}
-          onChange={!invalid || removeError}
+          onChange={removeError}
         />
 
         <label
