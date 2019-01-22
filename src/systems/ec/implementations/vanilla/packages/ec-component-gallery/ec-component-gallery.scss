@@ -38,6 +38,15 @@
     margin: 0;
   }
 
+  .ecl-gallery__item-link:focus {
+    outline: none;
+
+    .ecl-gallery__image-container {
+      outline: 3px solid $ecl-color-yellow-100;
+      outline-offset: -3px;
+    }
+  }
+
   @supports (object-fit: cover) {
     .ecl-gallery__image-container {
       background-color: transparent;
