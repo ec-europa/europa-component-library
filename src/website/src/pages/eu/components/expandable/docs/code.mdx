@@ -1,0 +1,25 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Expandable from '@ecl/eu-react-component-expandable/Expandable';
+
+import demoContent from '@ecl/eu-specs-expandable/demo/data';
+
+<Playground
+  system="eu"
+  selectedKind="Expandable"
+  selectedStory="default"
+  showFrame
+>
+  <Expandable
+    button={demoContent.button}
+    labelExpanded={demoContent.labelExpanded}
+    labelCollapsed={demoContent.labelCollapsed}
+    id={demoContent.id}
+  >
+    <p className="ecl-u-type-paragraph-m">{demoContent.content}</p>
+  </Expandable>
+</Playground>
