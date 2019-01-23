@@ -41,9 +41,9 @@ const GalleryItem = ({ item, className, ...props }) => (
             />
           )}
 
-          <div className="ecl-gallery__meta" data-ecl-gallery-meta hidden>
+          <span className="ecl-gallery__meta" data-ecl-gallery-meta>
             {item.meta}
-          </div>
+          </span>
         </figcaption>
       </figure>
     </a>

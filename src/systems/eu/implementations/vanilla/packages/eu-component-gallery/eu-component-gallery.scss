@@ -84,6 +84,15 @@
     flex-shrink: 0;
   }
 
+  .ecl-gallery__meta {
+    height: 1px;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    top: auto;
+    width: 1px;
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('md') {
     .ecl-gallery__list {
