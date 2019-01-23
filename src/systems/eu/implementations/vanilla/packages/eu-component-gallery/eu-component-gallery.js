@@ -177,17 +177,16 @@ class Gallery {
       +selectedItem.getAttribute('data-ecl-gallery-item-id') + 1;
     this.overlayCounterMax.innerHTML = this.galleryItems.length;
 
-    // Update description
-    this.overlayDescription.innerHTML = queryOne(
-      this.descriptionSelector,
-      selectedItem
-    ).innerHTML;
-
     // Update meta
-    this.overlayMeta.innerHTML = queryOne(
-      this.metaSelector,
-      selectedItem
-    ).innerHTML;
+    const meta = queryOne(this.metaSelector, selectedItem);
+    this.overlayMeta.innerHTML = meta.innerHTML;
+
+    // Update description
+    // Use a copy of descrpiton to prevent data loss
+    const description = queryOne(this.descriptionSelector, selectedItem);
+    const descriptionCopy = [...description];
+    descriptionCopy.removeChild(meta);
+    this.overlayDescription.innerHTML = descriptionCopy.innerHTML;
   }
 
   handleClickOnCloseButton() {
