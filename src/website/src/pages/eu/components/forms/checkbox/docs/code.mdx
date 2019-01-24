@@ -1,0 +1,36 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Checkbox from '@ecl/eu-react-component-checkbox/Checkbox';
+import demo from '@ecl/eu-specs-checkbox/demo/data';
+
+## Default
+
+<Playground system="eu" selectedKind="Forms/Checkbox" selectedStory="default">
+  <Checkbox {...demo.default} />
+</Playground>
+
+## Disabled
+
+<Playground system="eu" selectedKind="Forms/Checkbox" selectedStory="disabled">
+  <Checkbox {...demo.disabled} />
+</Playground>
+
+## With errors
+
+<Playground system="eu" selectedKind="Forms/Checkbox" selectedStory="invalid">
+  <Checkbox {...demo.invalid} />
+</Playground>
+
+## With no label (hidden label)
+
+<Playground
+  system="eu"
+  selectedKind="Forms/Checkbox"
+  selectedStory="withoutLabel"
+>
+  <Checkbox {...demo.withoutLabel} />
+</Playground>
