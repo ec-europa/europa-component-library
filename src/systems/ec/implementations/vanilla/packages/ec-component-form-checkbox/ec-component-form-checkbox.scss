@@ -84,16 +84,8 @@
     }
   }
 
-  .ecl-checkbox__input:disabled {
-    cursor: not-allowed;
-
-    + label > .ecl-checkbox__box {
-      cursor: not-allowed;
-    }
-
-    + .ecl-checkbox__label {
-      color: $ecl-color-grey-25;
-    }
+  .ecl-checkbox__input:disabled + .ecl-checkbox__label {
+    color: $ecl-color-grey-25;
   }
 }
 
