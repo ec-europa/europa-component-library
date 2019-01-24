@@ -22,11 +22,11 @@
   }
 
   .ecl-checkbox__input {
-    margin-left: 3px;
-    opacity: 0;
-    padding: 0;
-    position: absolute;
-    z-index: 1;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
   }
 
   .ecl-checkbox__label {
@@ -79,8 +79,8 @@
   .ecl-checkbox__input:focus,
   .ecl-checkbox__input:active {
     + label > .ecl-checkbox__box {
-      border: $thickness-max solid $border-color-focus;
-      padding: 0;
+      outline: 3px solid $border-color-focus;
+      outline-offset: -3px;
     }
   }
 
