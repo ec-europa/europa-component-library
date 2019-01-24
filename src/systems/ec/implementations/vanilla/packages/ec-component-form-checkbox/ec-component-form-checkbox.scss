@@ -84,8 +84,15 @@
     }
   }
 
-  .ecl-checkbox__input:disabled + .ecl-checkbox__label {
-    color: $ecl-color-grey-25;
+  .ecl-checkbox__input:disabled {
+    + .ecl-checkbox__label {
+      color: $ecl-color-grey-50;
+    }
+
+    + .ecl-checkbox__label .ecl-checkbox__box {
+      border-color: $ecl-color-grey-50;
+      fill: $ecl-color-grey-5;
+    }
   }
 }
 
