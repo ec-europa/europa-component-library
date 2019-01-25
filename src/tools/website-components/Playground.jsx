@@ -3,7 +3,8 @@ import React, { Fragment, PureComponent } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
-import { html as beautifyHtml } from 'js-beautify';
+import { format } from 'prettier/standalone';
+import htmlParser from 'prettier/parser-html';
 
 import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
@@ -123,9 +124,9 @@ class Playground extends PureComponent {
               className="language-html"
               dangerouslySetInnerHTML={{
                 __html: Prism.highlight(
-                  beautifyHtml(ReactDOMServer.renderToStaticMarkup(children), {
-                    indent_size: 2,
-                    wrap_line_length: 120,
+                  format(ReactDOMServer.renderToStaticMarkup(children), {
+                    parser: 'html',
+                    plugins: [htmlParser],
                   }),
                   Prism.languages.html,
                   'html'
