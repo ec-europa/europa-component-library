@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { queryOne } from '@ecl/eu-base/helpers/dom';
 
 import Icon from '@ecl/eu-react-component-icon/Icon';
 
@@ -16,7 +15,6 @@ const Checkbox = ({
   invalidText,
   label,
   name,
-  removeError,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-checkbox', {
@@ -34,7 +32,6 @@ const Checkbox = ({
           name={name || undefined}
           className="ecl-checkbox__input"
           disabled={disabled}
-          onChange={removeError}
         />
 
         <label
@@ -74,7 +71,6 @@ Checkbox.propTypes = {
   invalidText: PropTypes.node,
   label: PropTypes.string,
   name: PropTypes.string,
-  removeError: PropTypes.func,
 };
 
 Checkbox.defaultProps = {
@@ -87,16 +83,6 @@ Checkbox.defaultProps = {
   invalidText: '',
   label: '',
   name: '',
-  removeError: () => {
-    const inPage = queryOne('.ecl-checkbox--invalid');
-    if (inPage) {
-      const inPageLabel = queryOne('.ecl-form-label--invalid');
-      const errorMsg = queryOne('.ecl-feedback-message');
-      inPage.classList.remove('ecl-checkbox--invalid');
-      inPageLabel.classList.remove('ecl-form-label--invalid');
-      errorMsg.parentNode.removeChild(errorMsg);
-    }
-  },
 };
 
 export default Checkbox;
