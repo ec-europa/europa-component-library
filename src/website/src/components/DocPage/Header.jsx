@@ -51,7 +51,7 @@ const navigateTab = (e, history) => {
   history.push(e.target.value);
 };
 
-const Header = React.memo(({ component, ...props }) => {
+const Header = React.memo(({ component, history, location }) => {
   if (!component || !component.attributes) return null;
 
   const pageTitle = getPageTitle(component);
@@ -85,8 +85,8 @@ const Header = React.memo(({ component, ...props }) => {
               <select
                 id="header-tabs"
                 className={styles.select}
-                onChange={e => navigateTab(e, props.history)}
-                defaultValue={props.location.pathname}
+                onChange={e => navigateTab(e, history)}
+                defaultValue={location.pathname}
               >
                 {component.parent.children.map(tab => (
                   <option key={tab.attributes.url} value={tab.attributes.url}>
@@ -118,8 +118,12 @@ Header.propTypes = {
       title: PropTypes.string,
     }),
   }),
-  history: PropTypes.history.isRequired,
-  location: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 Header.defaultProps = {
