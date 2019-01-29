@@ -40,13 +40,8 @@
     }
 
     &:focus {
-      border-color: $border-color-focus;
-      border-width: $border-width-focus;
-      outline: none;
-      padding: calc(#{$ecl-spacing-s} - #{$border-width-focus})
-        calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width-focus})
-        calc(#{$ecl-spacing-s} - #{$border-width-focus})
-        calc(#{$ecl-spacing-s} - #{$border-width-focus});
+      outline: $border-width-focus solid $border-color-focus;
+      outline-offset: -3px;
     }
   }
 
