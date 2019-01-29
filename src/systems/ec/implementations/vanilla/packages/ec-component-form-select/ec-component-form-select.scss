@@ -15,6 +15,13 @@
   $arrow-width: 2.75rem
 ) {
   .ecl-select {
+    @include ecl-focus-outline-border(
+      $border-width-focus,
+      $border-color-focus,
+      '-3px',
+      'none'
+    );
+
     appearance: none;
     background-color: transparent;
     border: $border-width solid $border-color;
@@ -37,11 +44,6 @@
 
     &:hover {
       border-color: $border-color-hover;
-    }
-
-    &:focus {
-      outline: $border-width-focus solid $border-color-focus;
-      outline-offset: -3px;
     }
   }
 
