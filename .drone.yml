@@ -18,6 +18,7 @@ clone:
 
 matrix:
   TEST:
+    - audit
     - conventions
     - examples
 
@@ -26,6 +27,14 @@ pipeline:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
+
+  audit:
+    image: node:dubnium
+    commands:
+      - yarn audit
+    when:
+      matrix:
+        TEST: audit
 
   conventions:
     image: node:dubnium
