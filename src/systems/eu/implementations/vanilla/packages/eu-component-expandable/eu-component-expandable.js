@@ -41,8 +41,8 @@ class Expandable {
     this.toggle = queryOne(this.toggleSelector, this.element);
 
     // Get target element
-    this.target = document.getElementById(
-      this.toggle.getAttribute('aria-controls')
+    this.target = document.querySelector(
+      `#${this.toggle.getAttribute('aria-controls')}`
     );
 
     // Get label, if any
