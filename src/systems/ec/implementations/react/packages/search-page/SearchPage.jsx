@@ -140,7 +140,7 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
 
             <div className="ecl-u-mt-l ecl-u-d-flex ecl-u-flex-column ecl-u-flex-lg-row ecl-u-align-items-lg-center">
               <span>
-                SOURCE
+                <span className="ecl-u-type-m">SOURCE</span>
                 <Tag
                   className="ecl-u-ml-s"
                   label="DG Trad"
@@ -148,7 +148,7 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
                 />
               </span>
               <span className="ecl-u-ml-lg-m ecl-u-mt-m ecl-u-mt-lg-none">
-                TOPICS
+                <span className="ecl-u-type-m">TOPICS</span>
                 <Tag
                   className="ecl-u-ml-s"
                   label="Health, well-being & Consumer protection"
@@ -158,7 +158,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </div>
 
             <article className="ecl-u-mt-l ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="Jobs, growth and investment" />
+              <Link
+                href="/example"
+                label="Jobs, growth and investment"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 Since the global economic and financial crisis, the EU has been
                 suffering from low levels of investment. Coordinated efforts at
@@ -168,7 +172,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </article>
             <hr className="ecl-u-mv-none" />
             <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="Digital single market" />
+              <Link
+                href="/example"
+                label="Digital single market"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 The internet and digital technologies are transforming our
                 world. But existing barriers online mean citizens miss out on
@@ -179,7 +187,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </article>
             <hr className="ecl-u-mv-none" />
             <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="Energy union and climate" />
+              <Link
+                href="/example"
+                label="Energy union and climate"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 The EU is building an energy union that ensures Europe’s energy
                 supply is safe, viable and accessible to all. In doing so, it
@@ -189,7 +201,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </article>
             <hr className="ecl-u-mv-none" />
             <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="Internal market" />
+              <Link
+                href="/example"
+                label="Internal market"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 The single market is one of Europe’s major achievements and its
                 best asset in times of increasing globalisation. It is an engine
@@ -201,6 +217,7 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
               <Link
                 href="/example"
                 label="A deeper and fairer economic and monetary union"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 Within the Economic and Monetary Union (EMU), EU countries’
@@ -216,6 +233,7 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
               <Link
                 href="/example"
                 label="A balanced and progressive trade policy to harness globalisation"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
               />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 In the modern global economy trade is essential for growth, jobs
@@ -225,7 +243,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </article>
             <hr className="ecl-u-mv-none" />
             <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="Justice and fundamental rights" />
+              <Link
+                href="/example"
+                label="Justice and fundamental rights"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 Every EU citizen enjoys the same fundamental rights based on the
                 values of equality, non-discrimination, inclusion, human
@@ -234,7 +256,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </article>
             <hr className="ecl-u-mv-none" />
             <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="Migration" />
+              <Link
+                href="/example"
+                label="Migration"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 The plight of thousands of migrants putting their lives in peril
                 to cross the Mediterranean has shocked. It is clear that no EU
@@ -244,7 +270,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </article>
             <hr className="ecl-u-mv-none" />
             <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="A stronger global actor" />
+              <Link
+                href="/example"
+                label="A stronger global actor"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 The EU needs a strong common foreign policy to respond
                 efficiently to global challenges, including the crises in its
@@ -255,7 +285,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </article>
             <hr className="ecl-u-mv-none" />
             <article className="ecl-u-mt-l ecl-u-mt-lg-m ecl-u-pb-l ecl-u-pb-lg-m">
-              <Link href="/example" label="Democratic change" />
+              <Link
+                href="/example"
+                label="Democratic change"
+                className="ecl-u-type-prolonged-m ecl-u-type-bold"
+              />
               <p className="ecl-u-type-paragraph-m ecl-u-mv-none">
                 For the first time, in 2014, EU countries had to take the
                 results of the elections into account when proposing a candidate
