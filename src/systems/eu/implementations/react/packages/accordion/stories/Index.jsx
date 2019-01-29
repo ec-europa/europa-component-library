@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
@@ -8,7 +8,8 @@ import demoContent from '@ecl/eu-specs-accordion/demo/data';
 
 import VanillaAccordion from '@ecl/eu-component-accordion';
 
-import Accordion from '@ecl/eu-react-component-accordion/Accordion';
+import Accordion from '../src/Accordion';
+import AccordionItem from '../src/AccordionItem';
 
 storiesOf('Accordion', module)
   .addDecorator(withKnobs)
@@ -55,16 +56,16 @@ storiesOf('Accordion', module)
     };
 
     return (
-      <Fragment>
-        <Accordion button={button1} id={demoContent.id}>
+      <Accordion>
+        <AccordionItem button={button1} id={demoContent.id}>
           {text('Content 1', demoContent.content)}
-        </Accordion>
-        <Accordion button={button2} id={demoContent.id2}>
+        </AccordionItem>
+        <AccordionItem button={button2} id={demoContent.id2}>
           {text('Content 2', demoContent.content2)}
-        </Accordion>
-        <Accordion button={button3} id={demoContent.id3}>
+        </AccordionItem>
+        <AccordionItem button={button3} id={demoContent.id3}>
           {text('Content 3', demoContent.content3)}
-        </Accordion>
-      </Fragment>
+        </AccordionItem>
+      </Accordion>
     );
   });

@@ -4,7 +4,7 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Accordion from '@ecl/ec-react-component-accordion/Accordion';
+import Accordion, { AccordionItem } from '@ecl/ec-react-component-accordion';
 
 import demoContent from '@ecl/ec-specs-accordion/demo/data';
 
@@ -14,13 +14,15 @@ import demoContent from '@ecl/ec-specs-accordion/demo/data';
   selectedStory="default"
   showFrame
 >
-  <Accordion button={demoContent.button} id={demoContent.id}>
-    {demoContent.content}
-  </Accordion>
-  <Accordion button={demoContent.button2} id={demoContent.id2}>
-    {demoContent.content2}
-  </Accordion>
-  <Accordion button={demoContent.button3} id={demoContent.id3}>
-    {demoContent.content3}
+  <Accordion>
+    <AccordionItem button={demoContent.button} id={demoContent.id}>
+      {demoContent.content}
+    </AccordionItem>
+    <AccordionItem button={demoContent.button2} id={demoContent.id2}>
+      {demoContent.content2}
+    </AccordionItem>
+    <AccordionItem button={demoContent.button3} id={demoContent.id3}>
+      {demoContent.content3}
+    </AccordionItem>
   </Accordion>
 </Playground>

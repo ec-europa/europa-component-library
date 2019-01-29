@@ -1,4 +1,4 @@
-import { queryOne } from '@ecl/ec-base/helpers/dom';
+import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 class Accordion {
   constructor(
@@ -22,7 +22,7 @@ class Accordion {
     this.attachClickListener = attachClickListener;
 
     // Private variables
-    this.toggle = null;
+    this.toggles = null;
     this.forceClose = false;
     this.target = null;
     this.label = null;
@@ -32,47 +32,52 @@ class Accordion {
   }
 
   init() {
-    this.toggle = queryOne(this.toggleSelector, this.element);
-
-    // Get target element
-    this.target = document.getElementById(
-      this.toggle.getAttribute('aria-controls')
-    );
+    this.toggles = queryAll(this.toggleSelector, this.element);
 
     // Get label, if any
     this.label = queryOne(this.labelSelector, this.element);
 
-    // Exit if no target found
-    if (!this.target) {
-      throw new TypeError(
-        'Target has to be provided for accordion (aria-controls)'
-      );
-    }
-
-    // Bind click event on toggle
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.addEventListener('click', this.handleClickOnToggle);
+    // Bind click event on toggles
+    if (this.attachClickListener && this.toggles) {
+      this.toggles.forEach(toggle => {
+        toggle.addEventListener(
+          'click',
+          this.handleClickOnToggle.bind(this, toggle)
+        );
+      });
     }
   }
 
   destroy() {
     if (this.attachClickListener && this.toggle) {
-      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+      this.toggles.forEach(toggle => {
+        toggle.removeEventListener('click', this.handleClickOnToggle);
+      });
     }
   }
 
-  handleClickOnToggle() {
+  handleClickOnToggle(toggle) {
+    // Get target element
+    const target = queryOne(`#${toggle.getAttribute('aria-controls')}`);
+
+    // Exit if no target found
+    if (!target) {
+      throw new TypeError(
+        'Target has to be provided for accordion (aria-controls)'
+      );
+    }
+
     // Get current status
     const isExpanded =
       this.forceClose === true ||
-      this.toggle.getAttribute('aria-expanded') === 'true';
+      toggle.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    this.toggle.setAttribute('aria-expanded', !isExpanded);
+    toggle.setAttribute('aria-expanded', !isExpanded);
     if (isExpanded) {
-      this.target.setAttribute('hidden', true);
+      target.setAttribute('hidden', true);
     } else {
-      this.target.removeAttribute('hidden');
+      target.removeAttribute('hidden');
     }
 
     return this;

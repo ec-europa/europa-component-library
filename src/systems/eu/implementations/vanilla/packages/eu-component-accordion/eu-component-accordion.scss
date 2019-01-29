@@ -24,7 +24,7 @@
     color: $toggle-color;
     font: $ecl-font-prolonged-l;
     font-weight: bold;
-    padding: 0;
+    padding: $ecl-spacing-xs 0;
     position: relative;
     text-align: left;
     width: 100%;
@@ -38,9 +38,7 @@
       flex-shrink: 0;
       height: $icon-round-size;
       justify-content: center;
-      margin-bottom: $ecl-spacing-xs;
       margin-right: $ecl-spacing-m;
-      margin-top: $ecl-spacing-xs;
       width: $icon-round-size;
     }
 
@@ -65,6 +63,7 @@
   .ecl-accordion__content {
     background-color: $content-background;
     font: $ecl-font-prolonged-l;
+    margin-left: 0;
     padding: $ecl-spacing-l;
   }
 
