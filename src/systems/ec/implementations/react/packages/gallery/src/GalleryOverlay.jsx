@@ -10,10 +10,9 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
   if (item == null) return null;
 
   return (
-    <div
+    <dialog
       {...props}
       className={classnames(className, 'ecl-gallery__overlay')}
-      hidden
       data-ecl-gallery-overlay
     >
       <header className="ecl-gallery__close" data-ecl-gallery-overlay-header>
@@ -88,7 +87,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
           {item.meta}
         </div>
       </footer>
-    </div>
+    </dialog>
   );
 };
 

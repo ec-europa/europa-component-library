@@ -19,6 +19,7 @@ class Gallery {
       overlayPreviousSelector: overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
       overlayNextSelector: overlayNextSelector = '[data-ecl-gallery-overlay-next]',
       attachClickListener: attachClickListener = true,
+      attachKeyListener: attachKeyListener = true,
     } = {}
   ) {
     // Check element
@@ -46,6 +47,7 @@ class Gallery {
     this.overlayPreviousSelector = overlayPreviousSelector;
     this.overlayNextSelector = overlayNextSelector;
     this.attachClickListener = attachClickListener;
+    this.attachKeyListener = attachKeyListener;
 
     // Private variables
     this.galleryItems = null;
@@ -65,6 +67,12 @@ class Gallery {
 
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
+    this.handleClickOnItem = this.handleClickOnItem.bind(this);
+    this.handleClickOnPreviousButton = this.handleClickOnPreviousButton.bind(
+      this
+    );
+    this.handleClickOnNextButton = this.handleClickOnNextButton.bind(this);
+    this.handleKeyboard = this.handleKeyboard.bind(this);
   }
 
   init() {
@@ -91,6 +99,17 @@ class Gallery {
     this.overlayPrevious = queryOne(this.overlayPreviousSelector, this.overlay);
     this.overlayNext = queryOne(this.overlayNextSelector, this.overlay);
 
+    // Polyfill to support <dialog>
+    this.isDialogSupported = true;
+    if (!window.HTMLDialogElement) {
+      this.isDialogSupported = false;
+    }
+
+    // Hack to detect when focus gets out of the modal
+    this.overlay.addEventListener('transitionend', () => {
+      this.closeButton.focus();
+    });
+
     // Bind click event on close button
     if (this.attachClickListener && this.closeButton) {
       this.closeButton.addEventListener('click', this.handleClickOnCloseButton);
@@ -99,10 +118,7 @@ class Gallery {
     // Bind click event on gallery items
     if (this.attachClickListener && this.galleryItems) {
       this.galleryItems.forEach(galleryItem => {
-        galleryItem.addEventListener(
-          'click',
-          this.handleClickOnItem.bind(this)
-        );
+        galleryItem.addEventListener('click', this.handleClickOnItem);
       });
     }
 
@@ -110,16 +126,18 @@ class Gallery {
     if (this.attachClickListener && this.overlayPrevious) {
       this.overlayPrevious.addEventListener(
         'click',
-        this.handleClickOnPreviousButton.bind(this)
+        this.handleClickOnPreviousButton
       );
     }
 
     // Bind click event on next button
     if (this.attachClickListener && this.overlayNext) {
-      this.overlayNext.addEventListener(
-        'click',
-        this.handleClickOnNextButton.bind(this)
-      );
+      this.overlayNext.addEventListener('click', this.handleClickOnNextButton);
+    }
+
+    // Bind keyboard event
+    if (!this.isDialogSupported && this.attachKeyListener && this.element) {
+      this.element.addEventListener('keypress', this.handleKeyboard);
     }
 
     // Add number to gallery items
@@ -155,6 +173,10 @@ class Gallery {
         this.handleClickOnNextButton
       );
     }
+
+    if (!this.isDialogSupported && this.attachKeyListener && this.element) {
+      this.element.removeEventListener('keypress', this.handleKeyboard);
+    }
   }
 
   updateOverlay(selectedItem) {
@@ -189,15 +211,29 @@ class Gallery {
     this.overlayDescription.innerHTML = descriptionCopy.innerHTML;
   }
 
-  handleClickOnCloseButton() {
-    this.overlay.setAttribute('hidden', 'true');
+  handleKeyboard(e) {
+    if (e.key === 'Escape') {
+      this.handleClickOnCloseButton();
+    }
+  }
 
-    return this;
+  handleClickOnCloseButton() {
+    if (this.isDialogSupported) {
+      this.overlay.close();
+    } else {
+      this.overlay.removeAttribute('open');
+    }
   }
 
   handleClickOnItem(e) {
     e.preventDefault();
-    this.overlay.removeAttribute('hidden');
+    // Display overlay
+    if (this.isDialogSupported) {
+      this.overlay.showModal();
+    } else {
+      this.overlay.setAttribute('open', '');
+    }
+    this.closeButton.focus();
 
     // Update overlay
     this.updateOverlay(e.currentTarget);

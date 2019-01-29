@@ -169,17 +169,27 @@
 ) {
   .ecl-gallery__overlay {
     background-color: $overlay-background;
+    border-width: 0;
+    display: none;
     flex-direction: column;
     height: 100%;
     left: 0;
+    margin: 0;
+    padding: 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: $overlay-z-index;
   }
 
-  .ecl-gallery__overlay:not([hidden]) {
+  .ecl-gallery__overlay[open] {
     display: flex;
+  }
+
+  /* Hack to detect when focus gets out of the modal */
+  .ecl-gallery__overlay[open]:not(:focus-within) {
+    background-color: lighten($overlay-background, 1%);
+    transition: background-color 0.01s;
   }
 
   .ecl-gallery__close {
