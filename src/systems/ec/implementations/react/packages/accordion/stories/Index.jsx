@@ -40,30 +40,30 @@ storiesOf('Accordion', module)
     </StoryWrapper>
   ))
   .add('default', () => {
-    const button1 = {
-      ...demoContent.items[0].button,
-      label: text('Button 1 label', demoContent.items[0].button.label),
+    const toggle1 = {
+      ...demoContent.items[0].toggle,
+      label: text('Button 1 label', demoContent.items[0].toggle.label),
     };
 
-    const button2 = {
-      ...demoContent.items[1].button,
-      label: text('Button 2 label', demoContent.items[1].button.label),
+    const toggle2 = {
+      ...demoContent.items[1].toggle,
+      label: text('Button 2 label', demoContent.items[1].toggle.label),
     };
 
-    const button3 = {
-      ...demoContent.items[2].button,
-      label: text('Button 3 label', demoContent.items[2].button.label),
+    const toggle3 = {
+      ...demoContent.items[2].toggle,
+      label: text('Button 3 label', demoContent.items[2].toggle.label),
     };
 
     return (
       <Accordion>
-        <AccordionItem button={button1} id={demoContent.items[0].id}>
+        <AccordionItem toggle={toggle1} id={demoContent.items[0].id}>
           {text('Content 1', demoContent.items[0].content)}
         </AccordionItem>
-        <AccordionItem button={button2} id={demoContent.items[1].id}>
+        <AccordionItem toggle={toggle2} id={demoContent.items[1].id}>
           {text('Content 2', demoContent.items[1].content)}
         </AccordionItem>
-        <AccordionItem button={button3} id={demoContent.items[2].id}>
+        <AccordionItem toggle={toggle3} id={demoContent.items[2].id}>
           {text('Content 3', demoContent.items[2].content)}
         </AccordionItem>
       </Accordion>
