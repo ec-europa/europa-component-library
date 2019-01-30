@@ -39,20 +39,20 @@ class Accordion {
 
     // Bind click event on toggles
     if (this.attachClickListener && this.toggles) {
-      this.toggles.forEach(toggle => {
-        toggle.addEventListener(
+      for (let i = 0; i < this.toggles.length; i += 1) {
+        this.toggles[i].addEventListener(
           'click',
-          this.handleClickOnToggle.bind(this, toggle)
+          this.handleClickOnToggle.bind(this, this.toggles[i])
         );
-      });
+      }
     }
   }
 
   destroy() {
     if (this.attachClickListener && this.toggle) {
-      this.toggles.forEach(toggle => {
-        toggle.removeEventListener('click', this.handleClickOnToggle);
-      });
+      for (let i = 0; i < this.toggles.length; i += 1) {
+        this.toggles[i].removeEventListener('click', this.handleClickOnToggle);
+      }
     }
   }
 

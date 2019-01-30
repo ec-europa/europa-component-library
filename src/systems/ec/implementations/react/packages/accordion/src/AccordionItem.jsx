@@ -4,18 +4,11 @@ import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button/Button';
 
-const AccordionItem = ({
-  id,
-  button,
-  level,
-  children,
-  className,
-  ...props
-}) => {
+const AccordionItem = ({ id, button, level, children }) => {
   return (
-    <Fragment {...props}>
+    <Fragment>
       {!!(button && button.label) && (
-        <dt role="heading" {...level && { 'aria-level': { level } }}>
+        <dt role="heading" {...level && { 'aria-level': level }}>
           <Button
             {...button}
             type="button"
@@ -41,9 +34,8 @@ const AccordionItem = ({
 AccordionItem.propTypes = {
   id: PropTypes.string,
   button: PropTypes.shape(Button.propTypes),
-  level: PropTypes.number,
+  level: PropTypes.oneOf(PropTypes.number, PropTypes.string),
   children: PropTypes.node,
-  className: PropTypes.string,
 };
 
 AccordionItem.defaultProps = {
@@ -51,7 +43,6 @@ AccordionItem.defaultProps = {
   button: {},
   level: null,
   children: null,
-  className: '',
 };
 
 export default AccordionItem;
