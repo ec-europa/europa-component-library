@@ -19,20 +19,20 @@ storiesOf('Accordion', module)
         const elements = document.querySelectorAll('[data-ecl-accordion]');
         const vanillaAccordions = [];
 
-        elements.forEach(element => {
-          const vanillaAccordion = new VanillaAccordion(element);
+        for (let i = 0; i < elements.length; i += 1) {
+          const vanillaAccordion = new VanillaAccordion(elements[i]);
           vanillaAccordion.init();
           vanillaAccordions.push(vanillaAccordion);
-        });
+        }
 
         // Return new context
         return { vanillaAccordions };
       }}
       beforeUnmount={context => {
         if (context.vanillaAccordions) {
-          context.vanillaAccordions.forEach(element => {
-            element.destroy();
-          });
+          for (let i = 0; i < context.vanillaAccordions.length; i += 1) {
+            context.vanillaAccordions[i].destroy();
+          }
         }
       }}
     >

@@ -34,7 +34,7 @@ const AccordionItem = ({ id, button, level, children }) => {
 AccordionItem.propTypes = {
   id: PropTypes.string,
   button: PropTypes.shape(Button.propTypes),
-  level: PropTypes.oneOf(PropTypes.number, PropTypes.string),
+  level: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   children: PropTypes.node,
 };
 
