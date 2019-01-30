@@ -15,11 +15,17 @@ const AccordionItem = ({ id, button, children, className, ...props }) => {
             className={classnames(button.className, 'ecl-accordion__toggle')}
             data-ecl-accordion-toggle
             aria-controls={`${id}-content`}
+            role="heading"
           />
         </dt>
       )}
 
-      <dd className="ecl-accordion__content" id={`${id}-content`} hidden>
+      <dd
+        className="ecl-accordion__content"
+        id={`${id}-content`}
+        hidden
+        role="region"
+      >
         {children}
       </dd>
     </Fragment>
