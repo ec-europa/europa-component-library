@@ -4,18 +4,24 @@ import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button/Button';
 
-const AccordionItem = ({ id, button, children, className, ...props }) => {
+const AccordionItem = ({
+  id,
+  button,
+  level,
+  children,
+  className,
+  ...props
+}) => {
   return (
     <Fragment {...props}>
       {!!(button && button.label) && (
-        <dt>
+        <dt role="heading" {...level && { 'aria-level': { level } }}>
           <Button
             {...button}
             type="button"
             className={classnames(button.className, 'ecl-accordion__toggle')}
             data-ecl-accordion-toggle
             aria-controls={`${id}-content`}
-            role="heading"
           />
         </dt>
       )}
@@ -35,6 +41,7 @@ const AccordionItem = ({ id, button, children, className, ...props }) => {
 AccordionItem.propTypes = {
   id: PropTypes.string,
   button: PropTypes.shape(Button.propTypes),
+  level: PropTypes.number,
   children: PropTypes.node,
   className: PropTypes.string,
 };
@@ -42,6 +49,7 @@ AccordionItem.propTypes = {
 AccordionItem.defaultProps = {
   id: '',
   button: {},
+  level: null,
   children: null,
   className: '',
 };

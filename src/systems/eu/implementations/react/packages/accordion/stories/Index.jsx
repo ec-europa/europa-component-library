@@ -41,30 +41,30 @@ storiesOf('Accordion', module)
   ))
   .add('default', () => {
     const button1 = {
-      ...demoContent.button,
-      label: text('Button 1 label', demoContent.button.label),
+      ...demoContent.items[0].button,
+      label: text('Button 1 label', demoContent.items[0].button.label),
     };
 
     const button2 = {
-      ...demoContent.button2,
-      label: text('Button 2 label', demoContent.button2.label),
+      ...demoContent.items[1].button,
+      label: text('Button 2 label', demoContent.items[1].button.label),
     };
 
     const button3 = {
-      ...demoContent.button3,
-      label: text('Button 3 label', demoContent.button3.label),
+      ...demoContent.items[2].button,
+      label: text('Button 3 label', demoContent.items[2].button.label),
     };
 
     return (
       <Accordion>
-        <AccordionItem button={button1} id={demoContent.id}>
-          {text('Content 1', demoContent.content)}
+        <AccordionItem button={button1} id={demoContent.items[0].id}>
+          {text('Content 1', demoContent.items[0].content)}
         </AccordionItem>
-        <AccordionItem button={button2} id={demoContent.id2}>
-          {text('Content 2', demoContent.content2)}
+        <AccordionItem button={button2} id={demoContent.items[1].id}>
+          {text('Content 2', demoContent.items[1].content)}
         </AccordionItem>
-        <AccordionItem button={button3} id={demoContent.id3}>
-          {text('Content 3', demoContent.content3)}
+        <AccordionItem button={button3} id={demoContent.items[2].id}>
+          {text('Content 3', demoContent.items[2].content)}
         </AccordionItem>
       </Accordion>
     );
