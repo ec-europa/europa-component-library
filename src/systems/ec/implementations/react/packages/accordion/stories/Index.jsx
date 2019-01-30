@@ -42,17 +42,17 @@ storiesOf('Accordion', module)
   .add('default', () => {
     const toggle1 = {
       ...demoContent.items[0].toggle,
-      label: text('Button 1 label', demoContent.items[0].toggle.label),
+      label: text('Toggle 1', demoContent.items[0].toggle.label),
     };
 
     const toggle2 = {
       ...demoContent.items[1].toggle,
-      label: text('Button 2 label', demoContent.items[1].toggle.label),
+      label: text('Toggle 2', demoContent.items[1].toggle.label),
     };
 
     const toggle3 = {
       ...demoContent.items[2].toggle,
-      label: text('Button 3 label', demoContent.items[2].toggle.label),
+      label: text('Toggle 3', demoContent.items[2].toggle.label),
     };
 
     return (
