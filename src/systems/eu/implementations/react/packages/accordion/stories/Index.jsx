@@ -57,13 +57,25 @@ storiesOf('Accordion', module)
 
     return (
       <Accordion>
-        <AccordionItem toggle={toggle1} id={demoContent.items[0].id}>
+        <AccordionItem
+          toggle={toggle1}
+          id={demoContent.items[0].id}
+          level={demoContent.items[0].level}
+        >
           {text('Content 1', demoContent.items[0].content)}
         </AccordionItem>
-        <AccordionItem toggle={toggle2} id={demoContent.items[1].id}>
+        <AccordionItem
+          toggle={toggle2}
+          id={demoContent.items[1].id}
+          level={demoContent.items[1].level}
+        >
           {text('Content 2', demoContent.items[1].content)}
         </AccordionItem>
-        <AccordionItem toggle={toggle3} id={demoContent.items[2].id}>
+        <AccordionItem
+          toggle={toggle3}
+          id={demoContent.items[2].id}
+          level={demoContent.items[2].level}
+        >
           {text('Content 3', demoContent.items[2].content)}
         </AccordionItem>
       </Accordion>
