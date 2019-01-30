@@ -1,4 +1,6 @@
 /* eslint-disable global-require */
+require('core-js/es6/map');
+require('core-js/es6/set');
 
 if (typeof Promise === 'undefined') {
   // Rejection tracking prevents a common issue where React gets into an
