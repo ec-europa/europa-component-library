@@ -17,13 +17,6 @@
   $padding-horizontal: $ecl-spacing-s
 ) {
   .ecl-text-area {
-    @include ecl-focus-outline-border(
-      $border-width-focus,
-      $border-color-focus,
-      '-3px',
-      'none'
-    );
-
     background-color: $ecl-color-white-100;
     border: $border-width solid $border-color;
     border-radius: 0;
@@ -37,6 +30,11 @@
     padding: calc(#{$padding-vertical} - #{$border-width})
       calc(#{$padding-horizontal} - #{$border-width});
     width: 100%;
+
+    &:focus {
+      outline: $border-width-focus solid $border-color-focus;
+      outline-offset: -3px;
+    }
   }
 
   .ecl-text-area[disabled],
