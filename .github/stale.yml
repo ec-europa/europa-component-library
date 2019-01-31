@@ -1,0 +1,33 @@
+# Configuration for probot-stale - https://github.com/probot/stale
+
+# Number of days of inactivity before an issue or PR becomes stale
+daysUntilStale: 21
+
+# Label to use when marking an issue or PR as stale
+staleLabel: stale
+
+# Issues
+issues:
+  # Number of days of inactivity before a stale issue is closed
+  daysUntilClose: 60
+  # Issues with these labels will never be considered stale
+  exemptLabels:
+    - 'RFC'
+  markComment: >
+    Thanks for your contribution to ECL!
+
+    This issue has been automatically marked as stale because it has not had
+    recent activity. It will be closed in 60 days if no further activity occurs.
+
+# Pull requests
+pulls:
+  # Don't close PRs
+  daysUntilClose: false
+  # Issues with these labels will never be considered stale
+  exemptLabels:
+    - 'RFC'
+  markComment: >
+    Thanks for your contribution to ECL!
+
+    This PR has been automatically marked as stale because it has not had
+    recent activity. Please make sure it is still relevant!

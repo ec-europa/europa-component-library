@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
 import styles from './Header.scss';
@@ -46,7 +47,11 @@ const getSectionTitle = component => {
   return getTitle(component);
 };
 
-const Header = React.memo(({ component }) => {
+const navigateTab = (e, history) => {
+  history.push(e.target.value);
+};
+
+const Header = React.memo(({ component, history, location }) => {
   if (!component || !component.attributes) return null;
 
   const pageTitle = getPageTitle(component);
@@ -60,20 +65,46 @@ const Header = React.memo(({ component }) => {
         )}
         <h1 className={styles['header__page-title']}>{pageTitle}</h1>
         {component.attributes.isTab && (
-          <ul className={styles.header__tabs}>
-            {component.parent.children.map(tab => (
-              <li key={tab.attributes.url}>
-                <NavLink
-                  to={tab.attributes.url}
-                  strict
-                  className={styles['header__tabs-item']}
-                  activeClassName={styles['header__tabs-item--active']}
+          <Fragment>
+            <ul className={styles.header__tabs}>
+              {component.parent.children.map(tab => (
+                <li key={tab.attributes.url}>
+                  <NavLink
+                    to={tab.attributes.url}
+                    strict
+                    className={styles['header__tabs-item']}
+                    activeClassName={styles['header__tabs-item--active']}
+                  >
+                    {tab.attributes.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            <div className={styles.select__container}>
+              <select
+                id="header-tabs"
+                className={styles.select}
+                onChange={e => navigateTab(e, history)}
+                defaultValue={location.pathname}
+              >
+                {component.parent.children.map(tab => (
+                  <option key={tab.attributes.url} value={tab.attributes.url}>
+                    {tab.attributes.title}
+                  </option>
+                ))}
+              </select>
+              <div className={styles.select__icon}>
+                <svg
+                  focusable="false"
+                  aria-hidden="true"
+                  className={styles['select__icon-shape']}
                 >
-                  {tab.attributes.title}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+                  <use xlinkHref={`${icons}#ui--corner-arrow`} />
+                </svg>
+              </div>
+            </div>
+          </Fragment>
         )}
       </Container>
     </header>
@@ -87,6 +118,12 @@ Header.propTypes = {
       title: PropTypes.string,
     }),
   }),
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 Header.defaultProps = {
