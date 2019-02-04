@@ -68,6 +68,7 @@ class Gallery {
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
     this.handleClickOnItem = this.handleClickOnItem.bind(this);
+    this.handleKeyPressOnItem = this.handleKeyPressOnItem.bind(this);
     this.handleClickOnPreviousButton = this.handleClickOnPreviousButton.bind(
       this
     );
@@ -118,7 +119,12 @@ class Gallery {
     // Bind click event on gallery items
     if (this.attachClickListener && this.galleryItems) {
       this.galleryItems.forEach(galleryItem => {
-        galleryItem.addEventListener('click', this.handleClickOnItem);
+        if (this.attachClickListener) {
+          galleryItem.addEventListener('click', this.handleClickOnItem);
+        }
+        if (this.attachKeyListener) {
+          galleryItem.addEventListener('keyup', this.handleKeyPressOnItem);
+        }
       });
     }
 
@@ -204,11 +210,8 @@ class Gallery {
     this.overlayMeta.innerHTML = meta.innerHTML;
 
     // Update description
-    // Use a copy of descrpiton to prevent data loss
     const description = queryOne(this.descriptionSelector, selectedItem);
-    const descriptionCopy = [...description];
-    descriptionCopy.removeChild(meta);
-    this.overlayDescription.innerHTML = descriptionCopy.innerHTML;
+    this.overlayDescription.innerHTML = description.innerHTML;
   }
 
   handleKeyboard(e) {
@@ -223,10 +226,21 @@ class Gallery {
     } else {
       this.overlay.removeAttribute('open');
     }
+
+    // Focus item
+    this.selectedItem.focus();
+  }
+
+  handleKeyPressOnItem(e) {
+    if (e.keyCode === 32) {
+      // If spacebar trigger the modal
+      this.handleClickOnItem(e);
+    }
   }
 
   handleClickOnItem(e) {
     e.preventDefault();
+
     // Display overlay
     if (this.isDialogSupported) {
       this.overlay.showModal();
