@@ -46,8 +46,10 @@
   .ecl-checkbox__box {
     border: $thickness-base solid $border-color;
     display: inline-flex;
+    height: $fake-checkbox-size;
     margin-right: $ecl-spacing-s;
     padding: calc(#{$thickness-max} - #{$thickness-base});
+    width: $fake-checkbox-size;
 
     .ecl-checkbox__label--hidden & {
       margin: 0;
@@ -58,7 +60,6 @@
     fill: $ecl-color-white-100;
     height: $fake-checkbox-size;
     visibility: hidden;
-    width: $fake-checkbox-size;
   }
 
   .ecl-checkbox--invalid .ecl-checkbox__box {
