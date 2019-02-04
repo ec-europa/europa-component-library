@@ -21,6 +21,7 @@ const Button = ({
     icon && icon.shape ? (
       <Icon
         {...icon}
+        data-ecl-icon
         className={classnames(icon.className, 'ecl-button__icon', {
           [`ecl-button__icon--${iconPosition}`]: iconPosition,
         })}
