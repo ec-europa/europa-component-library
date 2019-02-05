@@ -141,9 +141,12 @@ class Gallery {
       this.overlayNext.addEventListener('click', this.handleClickOnNextButton);
     }
 
-    // Bind keyboard event
-    if (!this.isDialogSupported && this.attachKeyListener && this.element) {
-      this.element.addEventListener('keypress', this.handleKeyboard);
+    // Bind other close event
+    if (!this.isDialogSupported && this.attachKeyListener && this.overlay) {
+      this.overlay.addEventListener('keyup', this.handleKeyboard);
+    }
+    if (this.isDialogSupported && this.overlay) {
+      this.overlay.addEventListener('close', this.handleClickOnCloseButton);
     }
 
     // Add number to gallery items
@@ -180,8 +183,11 @@ class Gallery {
       );
     }
 
-    if (!this.isDialogSupported && this.attachKeyListener && this.element) {
-      this.element.removeEventListener('keypress', this.handleKeyboard);
+    if (!this.isDialogSupported && this.attachKeyListener && this.overlay) {
+      this.overlay.removeEventListener('keyup', this.handleKeyboard);
+    }
+    if (this.isDialogSupported && this.overlay) {
+      this.overlay.removeEventListener('close', this.handleClickOnCloseButton);
     }
   }
 
@@ -215,7 +221,9 @@ class Gallery {
   }
 
   handleKeyboard(e) {
-    if (e.key === 'Escape') {
+    // Detect press on Escape
+    // Only used if the browser do not support <dialog>
+    if (e.key === 'Escape' || e.key === 'Esc') {
       this.handleClickOnCloseButton();
     }
   }
