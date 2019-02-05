@@ -1,3 +1,5 @@
+import createFocusTrap from 'focus-trap';
+
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
 class Gallery {
@@ -64,6 +66,7 @@ class Gallery {
     this.overlayPrevious = null;
     this.overlayNext = null;
     this.selectedItem = null;
+    this.focusTrap = null;
 
     // Bind `this` for use in callbacks
     this.handleClickOnCloseButton = this.handleClickOnCloseButton.bind(this);
@@ -100,16 +103,16 @@ class Gallery {
     this.overlayPrevious = queryOne(this.overlayPreviousSelector, this.overlay);
     this.overlayNext = queryOne(this.overlayNextSelector, this.overlay);
 
+    // Create focus trap
+    this.focusTrap = createFocusTrap(this.overlay, {
+      escapeDeactivates: false,
+    });
+
     // Polyfill to support <dialog>
     this.isDialogSupported = true;
     if (!window.HTMLDialogElement) {
       this.isDialogSupported = false;
     }
-
-    // Hack to detect when focus gets out of the modal
-    this.overlay.addEventListener('transitionend', () => {
-      this.closeButton.focus();
-    });
 
     // Bind click event on close button
     if (this.attachClickListener && this.closeButton) {
@@ -235,6 +238,9 @@ class Gallery {
       this.overlay.removeAttribute('open');
     }
 
+    // Untrap focus
+    this.focusTrap.deactivate();
+
     // Focus item
     this.selectedItem.focus();
   }
@@ -255,12 +261,12 @@ class Gallery {
     } else {
       this.overlay.setAttribute('open', '');
     }
-    this.closeButton.focus();
 
     // Update overlay
     this.updateOverlay(e.currentTarget);
 
-    return this;
+    // Trap focus
+    this.focusTrap.activate();
   }
 
   handleClickOnPreviousButton() {

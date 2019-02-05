@@ -187,12 +187,6 @@
     display: flex;
   }
 
-  /* Hack to detect when focus gets out of the modal */
-  .ecl-gallery__overlay[open]:not(:focus-within) {
-    background-color: lighten($overlay-background, 1%);
-    transition: background-color 0.01s;
-  }
-
   .ecl-gallery__close {
     background-color: $detail-background;
     display: flex;
