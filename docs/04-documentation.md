@@ -155,7 +155,7 @@ Full example:
 ## Step 4: Open a pull request
 
 - Once you made sure you have saved changes on your particular branch, you are
-  ready to proceed on proposing these changes to the main `v2` branch which
+  ready to proceed on proposing these changes to the main `v2-dev` branch which
   is where you see the documentation in production.
 
 - You can simply use the hints which GitHub gives you when you go to the root of
@@ -174,7 +174,7 @@ Full example:
 
 Your pull request will be briefly reviewed by our team, so that there are no
 linting issues and if all checks are green, changes will be integrated with the
-v2 ECL branch in short time.
+v2-dev ECL branch in short time.
 
 Thank you!
 
