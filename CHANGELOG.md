@@ -1,5 +1,46 @@
 # Changelog
 
+## 2.1.0 (2019-02-05)
+
+#### :rocket: New Feature
+
+- [#992](https://github.com/ec-europa/europa-component-library/pull/992) feat(accordion): add component - INNO-1232 ([@emeryro](https://github.com/emeryro))
+- [#973](https://github.com/ec-europa/europa-component-library/pull/973) feat(expandable): add expandable - INNO-1288 ([@emeryro](https://github.com/emeryro))
+- [#985](https://github.com/ec-europa/europa-component-library/pull/985) feat(button): add disable state - INNO-1293 ([@emeryro](https://github.com/emeryro))
+- [#979](https://github.com/ec-europa/europa-component-library/pull/979) feat(select): apply new specs - INNO-1304 ([@emeryro](https://github.com/emeryro))
+- [#959](https://github.com/ec-europa/europa-component-library/pull/959) feat(file): apply new specs - INNO-1245 ([@emeryro](https://github.com/emeryro))
+- [#948](https://github.com/ec-europa/europa-component-library/pull/948) feat(timeline): apply new specs - INNO-1215 ([@emeryro](https://github.com/emeryro))
+- [#983](https://github.com/ec-europa/europa-component-library/pull/983) feat(back-to-top): apply specs - INNO-1244 ([@emeryro](https://github.com/emeryro))
+- [#981](https://github.com/ec-europa/europa-component-library/pull/981) feat(icons): add instagram icon - INNO-1302 ([@yhuard](https://github.com/yhuard))
+- [#950](https://github.com/ec-europa/europa-component-library/pull/950) feat(social-media-share): add component - INNO-1264 ([@planctus](https://github.com/planctus))
+- [#976](https://github.com/ec-europa/europa-component-library/pull/976) feat(website): add footer example - no issue ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1000](https://github.com/ec-europa/europa-component-library/pull/1000) fix: use outline for form elements - INNO-1318 ([@planctus](https://github.com/planctus))
+- [#991](https://github.com/ec-europa/europa-component-library/pull/991) feat(icons): enhance a11y, remove focusable on IE 11 - INNO-1310 ([@yhuard](https://github.com/yhuard))
+- [#990](https://github.com/ec-europa/europa-component-library/pull/990) fix(eu-footer): update layout - INNO-1311 ([@yhuard](https://github.com/yhuard))
+- [#978](https://github.com/ec-europa/europa-component-library/pull/978) feat(website): add table styling - INNO-1294 ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#942](https://github.com/ec-europa/europa-component-library/pull/942) docs(developer): update developers documentation for v2 - INNO-1277 ([@planctus](https://github.com/planctus))
+
+#### :house: Internal
+
+- [#1002](https://github.com/ec-europa/europa-component-library/pull/1002) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#999](https://github.com/ec-europa/europa-component-library/pull/999) fix(website): add missing polyfills for IE11 - no issue ([@yhuard](https://github.com/yhuard))
+- [#997](https://github.com/ec-europa/europa-component-library/pull/997) chore: improve stale-bot configuration ([@yhuard](https://github.com/yhuard))
+- [#995](https://github.com/ec-europa/europa-component-library/pull/995) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#968](https://github.com/ec-europa/europa-component-library/pull/968) refactor(website): apply specs ([@emeryro](https://github.com/emeryro))
+- [#988](https://github.com/ec-europa/europa-component-library/pull/988) chore(dependencies): update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- [@planctus](https://github.com/planctus)
+
 ## 2.0.0 (2018-12-10)
 
 #### :memo: Documentation
