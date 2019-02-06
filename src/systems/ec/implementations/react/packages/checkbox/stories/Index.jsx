@@ -11,8 +11,11 @@ storiesOf('Forms/Checkbox', module)
     const label = text('Label', demo.default.label);
     const helperText = text('helperText', demo.default.helperText);
     const id = text('id', demo.default.id);
+    const name = text('name', demo.default.name);
 
-    return <Checkbox label={label} id={id} helperText={helperText} />;
+    return (
+      <Checkbox label={label} id={id} name={name} helperText={helperText} />
+    );
   })
   .add('disabled', () => <Checkbox {...demo.disabled} />)
   .add('invalid', () => <Checkbox {...demo.invalid} />)
