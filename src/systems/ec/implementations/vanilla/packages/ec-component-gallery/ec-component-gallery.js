@@ -106,6 +106,7 @@ class Gallery {
     // Create focus trap
     this.focusTrap = createFocusTrap(this.overlay, {
       escapeDeactivates: false,
+      returnFocusOnDeactivate: false,
     });
 
     // Polyfill to support <dialog>
@@ -281,6 +282,7 @@ class Gallery {
 
     // Update overlay
     this.updateOverlay(this.galleryItems[previousId]);
+    this.selectedItem = this.galleryItems[previousId];
 
     return this;
   }
@@ -297,6 +299,7 @@ class Gallery {
 
     // Update overlay
     this.updateOverlay(this.galleryItems[nextId]);
+    this.selectedItem = this.galleryItems[nextId];
 
     return this;
   }
