@@ -41,6 +41,7 @@ const FileDownload = ({
             'ecl-button',
             'ecl-button--secondary'
           )}
+          download
         />
       </div>
 
@@ -70,7 +71,7 @@ const FileDownload = ({
                 key={item.title}
               >
                 <div className="ecl-file__translation-info">
-                  <div className="ecl-file__translation-title">
+                  <div className="ecl-file__translation-title" lang={item.lang}>
                     {item.title}
                   </div>
 
@@ -84,6 +85,8 @@ const FileDownload = ({
                     download.className,
                     'ecl-file__translation-download'
                   )}
+                  download
+                  hreflang={item.lang}
                 />
               </li>
             ))}
