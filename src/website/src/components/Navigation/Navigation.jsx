@@ -6,7 +6,14 @@ import LinkList from './LinkList';
 import styles from './Navigation.scss';
 
 const Navigation = React.memo(
-  ({ sidebarOpen, onToggleSidebar, pages, prefix, forceRefresh }) => (
+  ({
+    sidebarOpen,
+    onToggleSidebar,
+    pages,
+    prefix,
+    forceRefresh,
+    isLoading,
+  }) => (
     <Fragment>
       <button
         type="button"
@@ -57,7 +64,11 @@ const Navigation = React.memo(
             </NavLink>
           </li>
         </ul>
-        <LinkList pages={pages} level={0} parentSection={prefix} />
+        {isLoading ? (
+          <p className={styles.loading}>Loading...</p>
+        ) : (
+          <LinkList pages={pages} level={0} parentSection={prefix} />
+        )}
       </nav>
     </Fragment>
   )
@@ -69,12 +80,14 @@ Navigation.propTypes = {
   pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   prefix: PropTypes.string.isRequired,
   forceRefresh: PropTypes.bool,
+  isLoading: PropTypes.bool,
 };
 
 Navigation.defaultProps = {
   sidebarOpen: true,
   onToggleSidebar: () => {},
   forceRefresh: false,
+  isLoading: false,
 };
 
 // Use withRouter to update links when they become active

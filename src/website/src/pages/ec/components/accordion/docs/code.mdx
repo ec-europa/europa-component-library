@@ -1,0 +1,40 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Accordion, { AccordionItem } from '@ecl/ec-react-component-accordion';
+
+import demoContent from '@ecl/ec-specs-accordion/demo/data';
+
+<Playground
+  system="ec"
+  selectedKind="Accordion"
+  selectedStory="default"
+  showFrame
+>
+  <Accordion>
+    <AccordionItem
+      toggle={demoContent.items[0].toggle}
+      id={demoContent.items[0].id}
+      level={demoContent.items[0].level}
+    >
+      {demoContent.items[0].content}
+    </AccordionItem>
+    <AccordionItem
+      toggle={demoContent.items[1].toggle}
+      id={demoContent.items[1].id}
+      level={demoContent.items[1].level}
+    >
+      {demoContent.items[1].content}
+    </AccordionItem>
+    <AccordionItem
+      toggle={demoContent.items[2].toggle}
+      id={demoContent.items[2].id}
+      level={demoContent.items[2].level}
+    >
+      {demoContent.items[2].content}
+    </AccordionItem>
+  </Accordion>
+</Playground>
