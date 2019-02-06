@@ -6,6 +6,8 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
+@include check-imports(('ec-component-icon'));
+
 @mixin ecl-checkbox(
   $thickness-base: 1px,
   $thickness-max: 3px,
