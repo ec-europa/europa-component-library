@@ -68,6 +68,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
               overlay.download.className,
               'ecl-gallery__download'
             )}
+            download
           />
           <Link
             {...overlay.share}

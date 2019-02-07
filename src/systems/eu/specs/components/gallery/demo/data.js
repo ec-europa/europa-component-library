@@ -112,6 +112,7 @@ module.exports = {
         shape: 'ui--download',
         size: 'fluid',
       },
+      href: '/example',
     },
     share: {
       label: 'Share',
@@ -119,6 +120,7 @@ module.exports = {
         shape: 'general--share',
         size: 'fluid',
       },
+      href: '/example',
     },
   },
 };
