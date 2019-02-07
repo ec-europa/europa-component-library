@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import LanguageListItem from './LanguageListItem';
 
-const LanguageList = ({ items }) => {
+const LanguageList = ({ items, isOverlay }) => {
   const column1 = items.slice(0, Math.ceil(items.length / 2));
   const column2 = items.slice(Math.ceil(items.length / 2));
 
@@ -18,7 +18,7 @@ const LanguageList = ({ items }) => {
                 item.isActive ? 'ecl-language-list__item--is-active' : ''
               }`}
             >
-              <LanguageListItem {...item} />
+              <LanguageListItem {...item} isOverlay={isOverlay} />
             </li>
           ))}
         </ul>
@@ -32,7 +32,7 @@ const LanguageList = ({ items }) => {
                 item.isActive ? 'ecl-language-list__item--is-active' : ''
               }`}
             >
-              <LanguageListItem {...item} />
+              <LanguageListItem {...item} isOverlay={isOverlay} />
             </li>
           ))}
         </ul>
@@ -49,10 +49,12 @@ LanguageList.propTypes = {
       isActive: PropTypes.bool,
     })
   ),
+  isOverlay: PropTypes.bool,
 };
 
 LanguageList.defaultProps = {
   items: [],
+  isOverlay: false,
 };
 
 export default LanguageList;
