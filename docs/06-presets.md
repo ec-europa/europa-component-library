@@ -2,7 +2,7 @@
 
 A preset is a set of components from a specific system (EC or EU) bundled together for distribution.
 
-We currently offer 5 presets for each system:
+We currently offer 2 presets for each system:
 
 ## EC presets
 
