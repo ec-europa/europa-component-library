@@ -17,6 +17,8 @@ module.exports = {
         is_active: true,
       },
     },
+    // User menu is hidden until further notice
+    /*
     user_menu: {
       title: 'User menu',
       links: [
@@ -25,6 +27,7 @@ module.exports = {
         { href: '../../example.html#', label: 'Log out' },
       ],
     },
+    */
     global: {
       language: 'en',
     },
