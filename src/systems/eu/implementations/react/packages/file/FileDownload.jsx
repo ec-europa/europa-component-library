@@ -86,7 +86,7 @@ const FileDownload = ({
                     'ecl-file__translation-download'
                   )}
                   download
-                  hreflang={item.lang}
+                  hrefLang={item.lang}
                 />
               </li>
             ))}
