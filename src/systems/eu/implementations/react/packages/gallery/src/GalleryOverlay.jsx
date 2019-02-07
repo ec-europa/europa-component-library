@@ -69,6 +69,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
               'ecl-gallery__download'
             )}
             download
+            data-ecl-gallery-overlay-download
           />
           <Link
             {...overlay.share}
@@ -76,6 +77,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
               overlay.share.className,
               'ecl-gallery__share'
             )}
+            data-ecl-gallery-overlay-share
           />
         </div>
         <div

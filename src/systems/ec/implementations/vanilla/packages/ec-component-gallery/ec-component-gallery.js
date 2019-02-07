@@ -16,6 +16,8 @@ class Gallery {
       overlayImageSelector: overlayImageSelector = '[data-ecl-gallery-overlay-image]',
       overlayCounterCurrentSelector: overlayCounterCurrentSelector = '[data-ecl-gallery-overlay-counter-current]',
       overlayCounterMaxSelector: overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
+      overlayDownloadSelector: overlayDownloadSelector = '[data-ecl-gallery-overlay-download]',
+      overlayShareSelector: overlayShareSelector = '[data-ecl-gallery-overlay-share]',
       overlayDescriptionSelector: overlayDescriptionSelector = '[data-ecl-gallery-overlay-description]',
       overlayMetaSelector: overlayMetaSelector = '[data-ecl-gallery-overlay-meta]',
       overlayPreviousSelector: overlayPreviousSelector = '[data-ecl-gallery-overlay-previous]',
@@ -44,6 +46,8 @@ class Gallery {
     this.overlayImageSelector = overlayImageSelector;
     this.overlayCounterCurrentSelector = overlayCounterCurrentSelector;
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
+    this.overlayDownloadSelector = overlayDownloadSelector;
+    this.overlayShareSelector = overlayShareSelector;
     this.overlayDescriptionSelector = overlayDescriptionSelector;
     this.overlayMetaSelector = overlayMetaSelector;
     this.overlayPreviousSelector = overlayPreviousSelector;
@@ -61,6 +65,8 @@ class Gallery {
     this.overlayImage = null;
     this.overlayCounterCurrent = null;
     this.overlayCounterMax = null;
+    this.overlayDownload = null;
+    this.overlayShare = null;
     this.overlayDescription = null;
     this.overlayMeta = null;
     this.overlayPrevious = null;
@@ -95,6 +101,8 @@ class Gallery {
       this.overlayCounterMaxSelector,
       this.overlay
     );
+    this.overlayDownload = queryOne(this.overlayDownloadSelector, this.overlay);
+    this.overlayShare = queryOne(this.overlayShareSelector, this.overlay);
     this.overlayDescription = queryOne(
       this.overlayDescriptionSelector,
       this.overlay
@@ -214,6 +222,12 @@ class Gallery {
     this.overlayCounterCurrent.innerHTML =
       +selectedItem.getAttribute('data-ecl-gallery-item-id') + 1;
     this.overlayCounterMax.innerHTML = this.galleryItems.length;
+
+    // Update links
+    this.overlayDownload.href = this.selectedItem.href;
+    this.overlayShare.href = this.selectedItem.getAttribute(
+      'data-ecl-gallery-item-share'
+    );
 
     // Update meta
     const meta = queryOne(this.metaSelector, selectedItem);

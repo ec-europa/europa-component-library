@@ -11,6 +11,7 @@ const GalleryItem = ({ item, className, ...props }) => (
       className="ecl-gallery__item-link"
       aria-label={item.alt}
       data-ecl-gallery-item
+      data-ecl-gallery-item-share={item.shareSrc}
     >
       <figure className="ecl-gallery__image-container">
         <img src={item.src} alt={item.alt} className="ecl-gallery__image" />
@@ -57,6 +58,7 @@ GalleryItem.propTypes = {
     description: PropTypes.string,
     meta: PropTypes.string,
     icon: PropTypes.shape(Icon.propTypes),
+    shareSrc: PropTypes.string,
   }),
   className: PropTypes.string,
 };
