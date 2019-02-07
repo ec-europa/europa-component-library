@@ -6,7 +6,7 @@ module.exports = {
       description:
         'The EU in brief, institutions and bodies, countries, symbols, history, facts and figures',
       meta: 'Copyright, Author, Licence for image 1',
-      shareSrc: '/share#example-image.jpg',
+      shareHref: '/share#example-image.jpg',
     },
     {
       src: '/example-image2.jpg',
@@ -14,7 +14,7 @@ module.exports = {
       description:
         'Information on agriculture, business, culture, health, etc.',
       meta: 'Copyright, Author, Licence for image 2',
-      shareSrc: '/share#example-image2.jpg',
+      shareHref: '/share#example-image2.jpg',
     },
     {
       src: '/example-image3.jpg',
@@ -25,7 +25,7 @@ module.exports = {
         shape: 'general--audio',
         size: 'l',
       },
-      shareSrc: '/share#example-image3.jpg',
+      shareHref: '/share#example-image3.jpg',
     },
     {
       src: '/example-image4.jpg',
@@ -33,7 +33,7 @@ module.exports = {
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',
       meta: 'Copyright, Author, Licence for image 4',
-      shareSrc: '/share#example-image4.jpg',
+      shareHref: '/share#example-image4.jpg',
     },
     {
       src: '/example-image5.jpg',
@@ -44,7 +44,7 @@ module.exports = {
         shape: 'general--video',
         size: 'l',
       },
-      shareSrc: '/share#example-image5.jpg',
+      shareHref: '/share#example-image5.jpg',
     },
     {
       src: '/example-image6.jpg',
@@ -52,14 +52,14 @@ module.exports = {
       description:
         'Find official documents, publications, statistics, open data and more resources',
       meta: 'Copyright, Author, Licence for image 6',
-      shareSrc: '/share#example-image6.jpg',
+      shareHref: '/share#example-image6.jpg',
     },
     {
       src: '/example-image7.jpg',
       alt: 'Image 7',
       description: 'Teaching material about the EU, including books and maps',
       meta: 'Copyright, Author, Licence for image 7',
-      shareSrc: '/share#example-image7.jpg',
+      shareHref: '/share#example-image7.jpg',
     },
     {
       src: '/example-image8.jpg',
@@ -70,21 +70,21 @@ module.exports = {
         shape: 'general--video',
         size: 'l',
       },
-      shareSrc: '/share#example-image8.jpg',
+      shareHref: '/share#example-image8.jpg',
     },
     {
       src: '/example-image9.jpg',
       alt: 'Image 9',
       description: 'About the EU',
       meta: 'Copyright, Author, Licence for image 9',
-      shareSrc: '/share#example-imag9e.jpg',
+      shareHref: '/share#example-imag9e.jpg',
     },
     {
       src: '/example-image10.jpg',
       alt: 'Image 10',
       description: 'EU by topic',
       meta: 'Copyright, Author, Licence for image 10',
-      shareSrc: '/share#example-image10.jpg',
+      shareHref: '/share#example-image10.jpg',
     },
   ],
   overlay: {
