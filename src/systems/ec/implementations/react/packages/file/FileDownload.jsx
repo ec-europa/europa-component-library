@@ -71,7 +71,10 @@ const FileDownload = ({
                 key={item.title}
               >
                 <div className="ecl-file__translation-info">
-                  <div className="ecl-file__translation-title" lang={item.lang}>
+                  <div
+                    className="ecl-file__translation-title"
+                    {...item.lang && { lang: item.lang }}
+                  >
                     {item.title}
                   </div>
 
@@ -86,7 +89,7 @@ const FileDownload = ({
                     'ecl-file__translation-download'
                   )}
                   download
-                  hrefLang={item.lang}
+                  {...item.lang && { hrefLang: item.lang }}
                 />
               </li>
             ))}
@@ -113,6 +116,7 @@ FileDownload.propTypes = {
       PropTypes.shape({
         title: PropTypes.string,
         meta: PropTypes.string,
+        lang: PropTypes.string,
       })
     ),
     description: PropTypes.string,
