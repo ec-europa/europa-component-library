@@ -18,7 +18,7 @@ const LanguageListItem = ({ label, lang, href, isActive, isOverlay }) => (
     {...lang && {
       lang,
       hrefLang: lang,
-      ...(isOverlay && { rel: 'alternate' }),
+      ...(isOverlay ? { rel: 'alternate' } : {}),
     }}
   />
 );
