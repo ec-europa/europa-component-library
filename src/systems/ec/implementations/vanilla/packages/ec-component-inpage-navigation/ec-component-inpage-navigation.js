@@ -64,7 +64,6 @@ class InpageNavigation {
   initScrollSpy(inpageNavElement) {
     const toggleClass = this.spyActiveContainer;
     const navigationTitle = document.querySelector(this.spyTrigger);
-
     this.gumshoe.init({
       selector: this.spySelector,
       activeClass: this.spyClass,
@@ -130,6 +129,17 @@ class InpageNavigation {
 
   // Destroy
   destroy() {
+    if (this.attachClickListener && this.toggleElement) {
+      this.toggleElement.removeEventListener(
+        'click',
+        this.handleClickOnToggler
+      );
+    }
+    if (this.attachClickListener && this.navLinks) {
+      this.navLinks.forEach(link =>
+        link.removeEventListener('click', this.handleClickOnLink)
+      );
+    }
     this.destroyScrollSpy();
     this.destroySticky();
   }

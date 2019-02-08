@@ -14,7 +14,11 @@
   }
 
   .ecl-inpage-navigation__trigger {
-    background-color: $ecl-color-primary;
+    background: linear-gradient(
+      to left,
+      $ecl-color-blue-120 50px,
+      $ecl-color-primary 50px
+    );
     border: 0;
     color: $ecl-color-white-100;
     display: none;
@@ -41,12 +45,12 @@
     }
 
     .ecl-inpage-navigation__trigger-icon {
-      background-color: $ecl-color-blue-120;
-      height: 100%;
-      padding: 0 $ecl-spacing-m;
       position: absolute;
-      right: 0;
-      top: 0;
+      right: 1em;
+    }
+
+    &[aria-expanded='true'] .ecl-inpage-navigation__trigger-icon {
+      transform: rotate(0deg);
     }
   }
 
