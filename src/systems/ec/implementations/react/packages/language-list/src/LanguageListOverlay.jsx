@@ -40,7 +40,7 @@ const LanguageListOverlay = ({
             {title}
           </div>
         </div>
-        <LanguageList items={items} />
+        <LanguageList items={items} isOverlay />
       </div>
     </div>
   );
