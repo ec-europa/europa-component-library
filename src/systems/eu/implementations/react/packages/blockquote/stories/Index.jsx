@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import demoContent from '@ecl/eu-specs-blockquote/demo/data';
 
-import Blockquote from '../Blockquote';
+import Blockquote from '../src/Blockquote';
 
 storiesOf('Blockquote', module)
   .addDecorator(withKnobs)

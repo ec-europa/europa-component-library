@@ -6,7 +6,7 @@ import { configureA11y } from '@storybook/addon-a11y';
 
 import demoContentDefault from '@ecl/eu-specs-text-input/demo/data--default';
 
-import TextInput from '../TextInput';
+import TextInput from '../src/TextInput';
 
 // Disable label check
 configureA11y({

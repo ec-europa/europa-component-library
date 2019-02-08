@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import VanillaTimeline from '@ecl/eu-component-timeline/eu-component-timeline';
-import Button from '@ecl/eu-react-component-button/Button';
+import Button from '@ecl/eu-react-component-button';
 
 import TimelineItem from './TimelineItem';
 

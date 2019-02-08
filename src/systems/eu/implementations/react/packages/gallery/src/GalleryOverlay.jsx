@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/eu-react-component-button/Button';
-import Icon from '@ecl/eu-react-component-icon/Icon';
-import Link from '@ecl/eu-react-component-link/Link';
+import Button from '@ecl/eu-react-component-button';
+import Icon from '@ecl/eu-react-component-icon';
+import Link from '@ecl/eu-react-component-link';
 
 const GalleryOverlay = ({ overlay, item, className, ...props }) => {
   if (item == null) return null;

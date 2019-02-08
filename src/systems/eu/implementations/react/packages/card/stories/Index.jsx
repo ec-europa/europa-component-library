@@ -8,7 +8,7 @@ import demoContentTile from '@ecl/eu-specs-card/demo/data--tile';
 
 import template from './Template';
 
-import Card from '../Card';
+import Card from '../src/Card';
 
 storiesOf('Card', module)
   .addDecorator(withKnobs)
