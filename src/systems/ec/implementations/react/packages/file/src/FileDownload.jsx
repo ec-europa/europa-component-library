@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/ec-react-component-button/src/Button';
-import Icon from '@ecl/ec-react-component-icon/src/Icon';
-import Link from '@ecl/ec-react-component-link/src/Link';
+import Button from '@ecl/ec-react-component-button';
+import Icon from '@ecl/ec-react-component-icon';
+import Link from '@ecl/ec-react-component-link';
 
 const FileDownload = ({
   title,

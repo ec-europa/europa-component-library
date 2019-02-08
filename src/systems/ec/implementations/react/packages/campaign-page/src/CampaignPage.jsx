@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Blockquote from '@ecl/ec-react-component-blockquote/src/Blockquote';
-import Card from '@ecl/ec-react-component-card/src/Card';
-import Footer from '@ecl/ec-react-component-footer/src/Footer';
-import Icon from '@ecl/ec-react-component-icon/src/Icon';
-import Link from '@ecl/ec-react-component-link/src/Link';
-import MediaContainer from '@ecl/ec-react-component-media-container/src/MediaContainer';
-import HeroBanner from '@ecl/ec-react-component-hero-banner/src/HeroBanner';
-import SiteHeader from '@ecl/ec-react-component-site-header/src/SiteHeader';
+import Blockquote from '@ecl/ec-react-component-blockquote';
+import Card from '@ecl/ec-react-component-card';
+import Footer from '@ecl/ec-react-component-footer';
+import Icon from '@ecl/ec-react-component-icon';
+import Link from '@ecl/ec-react-component-link';
+import MediaContainer from '@ecl/ec-react-component-media-container';
+import HeroBanner from '@ecl/ec-react-component-hero-banner';
+import SiteHeader from '@ecl/ec-react-component-site-header';
 
 const CampaignPage = ({
   siteHeader,

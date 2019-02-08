@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/ec-react-component-button/src/Button';
-import TextInput from '@ecl/ec-react-component-text-input/src/TextInput';
+import Button from '@ecl/ec-react-component-button';
+import TextInput from '@ecl/ec-react-component-text-input';
 
 const SearchForm = ({
   textInputId,

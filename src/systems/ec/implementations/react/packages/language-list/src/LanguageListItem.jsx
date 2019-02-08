@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Link from '@ecl/ec-react-component-link/src/Link';
+import Link from '@ecl/ec-react-component-link';
 
 const LanguageListItem = ({ label, href, isActive }) => (
   <Link

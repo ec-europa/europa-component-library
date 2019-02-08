@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/ec-react-component-button/src/Button';
-import Link from '@ecl/ec-react-component-link/src/Link';
+import Button from '@ecl/ec-react-component-button';
+import Link from '@ecl/ec-react-component-link';
 
 const ContextualNavigation = ({
   label,

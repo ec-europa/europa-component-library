@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Card from '@ecl/ec-react-component-card/src/Card';
-import Footer from '@ecl/ec-react-component-footer/src/Footer';
-import MediaContainer from '@ecl/ec-react-component-media-container/src/MediaContainer';
-import PageHeader from '@ecl/ec-react-component-page-header/src/PageHeader';
-import SiteHeader from '@ecl/ec-react-component-site-header/src/SiteHeader';
-import SiteSwitcher from '@ecl/ec-react-component-site-switcher/src/SiteSwitcher';
+import Card from '@ecl/ec-react-component-card';
+import Footer from '@ecl/ec-react-component-footer';
+import MediaContainer from '@ecl/ec-react-component-media-container';
+import PageHeader from '@ecl/ec-react-component-page-header';
+import SiteHeader from '@ecl/ec-react-component-site-header';
+import SiteSwitcher from '@ecl/ec-react-component-site-switcher';
 
 const StandardPage = ({
   siteSwitcher,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/ec-react-component-button/src/Button';
+import Button from '@ecl/ec-react-component-button';
 
 const HeroBanner = ({
   variant,

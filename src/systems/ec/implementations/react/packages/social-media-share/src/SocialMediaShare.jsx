@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import socialSprite from '@ecl/ec-resources-social-icons/dist/sprites/icons-social.svg';
 
-import Link from '@ecl/ec-react-component-link/src/Link';
+import Link from '@ecl/ec-react-component-link';
 
 const SocialMediaShare = ({ description, links, className, ...props }) => {
   const classNames = classnames(className, 'ecl-social-media-share');

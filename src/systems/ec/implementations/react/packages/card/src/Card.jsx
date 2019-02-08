@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Icon from '@ecl/ec-react-component-icon/src/Icon';
-import Link from '@ecl/ec-react-component-link/src/Link';
-import Tag from '@ecl/ec-react-component-tag/src/Tag';
+import Icon from '@ecl/ec-react-component-icon';
+import Link from '@ecl/ec-react-component-link';
+import Tag from '@ecl/ec-react-component-tag';
 
 const Card = ({
   image,

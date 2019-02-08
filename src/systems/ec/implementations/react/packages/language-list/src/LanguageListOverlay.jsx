@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/ec-react-component-button/src/Button';
-import Icon from '@ecl/ec-react-component-icon/src/Icon';
+import Button from '@ecl/ec-react-component-button';
+import Icon from '@ecl/ec-react-component-icon';
 import LanguageList from './LanguageList';
 
 const LanguageListOverlay = ({
