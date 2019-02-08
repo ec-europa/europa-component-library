@@ -6,7 +6,7 @@ import { configureA11y } from '@storybook/addon-a11y';
 
 import demoContent from '@ecl/ec-specs-select/demo/data';
 
-import Select from '../Select';
+import Select from '../src/Select';
 
 // Disable label check
 configureA11y({

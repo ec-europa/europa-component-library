@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from '@ecl/ec-react-component-icon/Icon';
+import Icon from '@ecl/ec-react-component-icon/src/Icon';
 
 const BreadcrumbEllipsis = ({ label, isVisible }) => (
   <li

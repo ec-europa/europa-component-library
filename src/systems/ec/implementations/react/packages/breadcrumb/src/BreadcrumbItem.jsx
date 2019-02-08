@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Icon from '@ecl/ec-react-component-icon/Icon';
-import Link from '@ecl/ec-react-component-link/Link';
+import Icon from '@ecl/ec-react-component-icon/src/Icon';
+import Link from '@ecl/ec-react-component-link/src/Link';
 
 const Item = ({
   href,

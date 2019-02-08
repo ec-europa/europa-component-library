@@ -11,7 +11,7 @@ import demoContentError from '@ecl/ec-specs-message/demo/data--error';
 
 import VanillaMessage from '@ecl/ec-component-message';
 
-import Message from '../Message';
+import Message from '../src/Message';
 
 storiesOf('Message', module)
   .addDecorator(withKnobs)

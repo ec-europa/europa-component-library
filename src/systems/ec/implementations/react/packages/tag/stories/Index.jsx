@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import Tag from '../Tag';
+import Tag from '../src/Tag';
 
 storiesOf('Tag', module)
   .addDecorator(withKnobs)

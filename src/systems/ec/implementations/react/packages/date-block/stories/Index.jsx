@@ -5,7 +5,7 @@ import { withKnobs, select, text } from '@storybook/addon-knobs';
 
 import demoContentDefault from '@ecl/ec-specs-date-block/demo/data--default';
 
-import DateBlock from '../DateBlock';
+import DateBlock from '../src/DateBlock';
 
 storiesOf('DateBlock', module)
   .addDecorator(withKnobs)
