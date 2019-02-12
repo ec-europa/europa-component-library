@@ -35,7 +35,7 @@ export default class StoryWrapper extends React.Component {
     const { children } = this.props;
 
     // Wrap in a div in order to avoid "Failed to execute 'removeChild' on 'Node'" errors
-    return <div>{children}</div>;
+    return <div className="solountest">{children}</div>;
   }
 }
 

@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import StoryWrapper from '@ecl/story-wrapper';
+import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
 import demoContent from '@ecl/ec-specs-inpage-navigation/demo/data';
 import InpageNavigation from '../InpageNavigation';
 
@@ -10,6 +12,23 @@ export default () => {
 
   return (
     <React.Fragment>
+      <StoryWrapper
+        afterMount={() => {
+          const element = document.querySelector(
+            '[data-ecl-inpage-navigation-sticky]'
+          );
+          const vanillaInpageNavigation = new VanillaInpageNavigation(element);
+          vanillaInpageNavigation.init();
+          // Return new context
+          return { vanillaInpageNavigation };
+        }}
+        beforeUnmount={context => {
+          if (context.vanillaInpageNavigation) {
+            context.vanillaInpageNavigation.destroy();
+          }
+        }}
+      />
+
       <div className="ecl-container">
         <div className="ecl-row ecl-u-mt-l">
           <div className="ecl-col-md-3">
