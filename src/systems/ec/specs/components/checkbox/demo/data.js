@@ -3,13 +3,15 @@ module.exports = {
   default: {
     helperText: 'This is an help text',
     id: 'checkbox-default',
-    name: 'checkbox-default',
+    invalidText: 'An error message',
     label: 'A default checkbox',
+    name: 'checkbox-default',
   },
   disabled: {
     disabled: true,
     helperText: 'This is an help text',
     id: 'checkbox-disabled',
+    invalidText: 'An error message',
     label: 'A disabled checkbox',
     name: 'checkbox-disabled',
   },
@@ -23,9 +25,10 @@ module.exports = {
   },
   withoutLabel: {
     helperText: 'This is an help text',
-    id: 'checkbox-no-label',
-    label: 'An hidden label for a checkbox',
     hideLabel: true,
+    id: 'checkbox-no-label',
+    invalidText: 'An error message',
+    label: 'An hidden label for a checkbox',
     name: 'checkbox-no-label',
   },
 };
