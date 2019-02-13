@@ -28,6 +28,7 @@ const LanguageListOverlay = ({
               variant="ghost"
               label={closeLabel}
               icon={{ shape: 'ui--close', size: 's' }}
+              className="ecl-language-list__close-button"
             />
           </div>
           <div className="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">
@@ -39,7 +40,7 @@ const LanguageListOverlay = ({
             {title}
           </div>
         </div>
-        <LanguageList items={items} />
+        <LanguageList items={items} isOverlay />
       </div>
     </div>
   );
