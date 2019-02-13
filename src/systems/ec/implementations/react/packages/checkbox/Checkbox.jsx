@@ -46,7 +46,7 @@ const Checkbox = ({
           htmlFor={id}
         >
           <span className="ecl-checkbox__box">
-            <Icon className="ecl-checkbox__icon" shape="ui--check" size="xs" />
+            <Icon className="ecl-checkbox__icon" shape="ui--check" size="s" />
           </span>
           {label}
         </label>

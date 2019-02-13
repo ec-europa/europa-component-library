@@ -14,7 +14,7 @@
   $border-color: $ecl-color-grey-50,
   $border-color-focus: $ecl-color-yellow-100,
   $border-color-checked: $ecl-color-blue-100,
-  $fake-checkbox-size: 0.875rem
+  $fake-checkbox-size: 1.25rem
 ) {
   .ecl-checkbox {
     align-items: center;
@@ -46,11 +46,14 @@
   }
 
   .ecl-checkbox__box {
+    align-items: center;
     border: $thickness-base solid $border-color;
+    box-sizing: border-box;
     display: inline-flex;
+    flex-shrink: 0;
     height: $fake-checkbox-size;
+    justify-content: center;
     margin-right: $ecl-spacing-s;
-    padding: calc(#{$thickness-max} - #{$thickness-base});
     width: $fake-checkbox-size;
 
     .ecl-checkbox__label--hidden & {
@@ -60,7 +63,6 @@
 
   .ecl-checkbox__icon {
     fill: $ecl-color-white-100;
-    height: $fake-checkbox-size;
     visibility: hidden;
   }
 
@@ -69,19 +71,19 @@
   }
 
   .ecl-checkbox__input:checked {
-    + label .ecl-checkbox__box {
+    + .ecl-checkbox__label .ecl-checkbox__box {
       background: $border-color-checked;
       border-color: $border-color-checked;
     }
 
-    + label .ecl-checkbox__icon {
+    + .ecl-checkbox__label .ecl-checkbox__icon {
       visibility: visible;
     }
   }
 
   .ecl-checkbox__input:focus,
   .ecl-checkbox__input:active {
-    + label > .ecl-checkbox__box {
+    + .ecl-checkbox__label > .ecl-checkbox__box {
       outline: 3px solid $border-color-focus;
       outline-offset: -3px;
     }
