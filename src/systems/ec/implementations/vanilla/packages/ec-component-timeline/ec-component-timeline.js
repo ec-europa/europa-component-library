@@ -1,6 +1,6 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
-class Timeline {
+export class Timeline {
   constructor(
     element,
     {
