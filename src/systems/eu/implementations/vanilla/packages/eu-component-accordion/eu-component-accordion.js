@@ -1,6 +1,6 @@
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
-class Accordion {
+export class Accordion {
   constructor(
     element,
     {
