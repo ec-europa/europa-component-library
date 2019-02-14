@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink, withRouter } from 'react-router-dom';
+import packageJson from '../../../package.json';
 
 import LinkList from './LinkList';
 import styles from './Navigation.scss';
@@ -37,7 +38,7 @@ const Navigation = React.memo(
         }${forceRefresh ? ' ' : ''}`}
       >
         <header className={styles.header}>
-          <span className={styles.version}>v2.1.0</span>
+          <span className={styles.version}>v{packageJson.version}</span>
           <Link to="/" className={styles.logo} title="European Commission">
             <span className={styles['logo-sr']}>European Commission</span>
           </Link>
