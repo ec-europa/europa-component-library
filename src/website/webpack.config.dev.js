@@ -8,7 +8,7 @@ const frontmatter = require('remark-frontmatter');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 const babelConfig = require('./config/babel.config');
-const packageJson = require('./package.json');
+const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const publicPath = '/';
@@ -199,7 +199,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
-      'process.env.VERSION': JSON.stringify(packageJson.version),
+      'process.env.ECL_VERSION': JSON.stringify(lernaJson.version),
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

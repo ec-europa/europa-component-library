@@ -37,7 +37,7 @@ const Navigation = React.memo(
         }${forceRefresh ? ' ' : ''}`}
       >
         <header className={styles.header}>
-          <span className={styles.version}>v{process.env.VERSION}</span>
+          <span className={styles.version}>v{process.env.ECL_VERSION}</span>
           <Link to="/" className={styles.logo} title="European Commission">
             <span className={styles['logo-sr']}>European Commission</span>
           </Link>
