@@ -14,6 +14,7 @@ const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
 
 const babelConfig = require('./config/babel.config');
+const packageJson = require('./package.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -282,6 +283,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
+      'process.env.VERSION': JSON.stringify(packageJson.version),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
