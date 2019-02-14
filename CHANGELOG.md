@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.1 (2019-02-14)
+
+#### :bug: Bug Fix
+
+- [#1013](https://github.com/ec-europa/europa-component-library/pull/1013) fix(ecl-builder): update dependencies, fix scripts build - no issue ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.1.0 (2019-02-05)
 
 #### :rocket: New Feature
