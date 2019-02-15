@@ -1,6 +1,6 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
-class ContextualNavigation {
+export class ContextualNavigation {
   constructor(
     element,
     {
