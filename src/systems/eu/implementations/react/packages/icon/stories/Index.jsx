@@ -8,7 +8,7 @@ import generalIcons from '@ecl/eu-resources-icons/dist/lists/general.json';
 import notificationsIcons from '@ecl/eu-resources-icons/dist/lists/notifications.json';
 import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
 
-import Icon from '../Icon';
+import Icon from '../src/Icon';
 
 const sizes = {
   XS: 'xs',

@@ -8,7 +8,7 @@ import demoContent from '@ecl/eu-specs-contextual-navigation/demo/data';
 
 import VanillaContextualNavigation from '@ecl/eu-component-contextual-navigation';
 
-import ContextualNavigation from '../ContextualNavigation';
+import ContextualNavigation from '../src/ContextualNavigation';
 
 storiesOf('Navigation/Contextual Navigation', module)
   .addDecorator(withKnobs)

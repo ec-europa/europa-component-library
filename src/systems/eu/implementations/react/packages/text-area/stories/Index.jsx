@@ -6,7 +6,7 @@ import { configureA11y } from '@storybook/addon-a11y';
 
 import demoContentDefault from '@ecl/eu-specs-text-area/demo/data--default';
 
-import TextArea from '../TextArea';
+import TextArea from '../src/TextArea';
 
 // Disable label check
 configureA11y({

@@ -11,7 +11,7 @@ import demoHomepageImage from '@ecl/eu-specs-page-header/demo/data-homepage-imag
 import demoBrandedHomepage from '@ecl/eu-specs-page-header/demo/data-branded-homepage';
 import demoBrandedHomepageImage from '@ecl/eu-specs-page-header/demo/data-branded-homepage-image';
 
-import PageHeader from '../PageHeader';
+import PageHeader from '../src/PageHeader';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (

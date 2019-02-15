@@ -4,7 +4,7 @@ import React from 'react';
 import demoContentCard from '@ecl/ec-specs-card/demo/data--card';
 import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
 
-import Card from '../Card';
+import Card from '../src/Card';
 
 const Template = () => {
   const image1 = {

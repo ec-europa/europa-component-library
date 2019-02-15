@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 
 import demoContent from '@ecl/ec-specs-social-media-follow/demo/data';
 
-import SocialMediaFollow from '../SocialMediaFollow';
+import SocialMediaFollow from '../src/SocialMediaFollow';
 
 storiesOf('SocialMediaFollow', module)
   .addDecorator(withKnobs)

@@ -10,7 +10,7 @@ import cardContent from '@ecl/ec-specs-card/demo/data--card';
 import footerContent from '@ecl/ec-specs-footer/demo/data--corporate';
 
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-import StandardPage from '../StandardPage';
+import StandardPage from '../src/StandardPage';
 
 export default () => {
   const { items, ...breadcrumbProps } = breadcrumbContent;

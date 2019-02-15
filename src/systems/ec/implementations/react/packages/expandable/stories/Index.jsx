@@ -8,7 +8,7 @@ import demoContent from '@ecl/ec-specs-expandable/demo/data';
 
 import VanillaExpandable from '@ecl/ec-component-expandable';
 
-import Expandable from '@ecl/ec-react-component-expandable/Expandable';
+import Expandable from '../src/Expandable';
 
 storiesOf('Expandable', module)
   .addDecorator(withKnobs)

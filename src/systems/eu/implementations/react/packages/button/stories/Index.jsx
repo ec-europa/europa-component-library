@@ -9,7 +9,7 @@ import demoContentCall from '@ecl/eu-specs-button/demo/data--call';
 import demoContentGhost from '@ecl/eu-specs-button/demo/data--ghost';
 import demoContentSearch from '@ecl/eu-specs-button/demo/data--search';
 
-import Button from '../Button';
+import Button from '../src/Button';
 
 const icons = {
   none: '',
