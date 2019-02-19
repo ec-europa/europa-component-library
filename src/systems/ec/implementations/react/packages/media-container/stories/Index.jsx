@@ -6,7 +6,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import demoContentImage from '@ecl/ec-specs-media-container/demo/data--image';
 import demoContentVideo from '@ecl/ec-specs-media-container/demo/data--video';
 
-import MediaContainer from '../MediaContainer';
+import MediaContainer from '../src/MediaContainer';
 
 storiesOf('MediaContainer', module)
   .addDecorator(withKnobs)

@@ -1,6 +1,6 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
-class FileDownload {
+export class FileDownload {
   constructor(
     element,
     {

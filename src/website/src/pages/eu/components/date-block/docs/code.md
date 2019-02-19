@@ -4,7 +4,7 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground'
-import DateBlock from '@ecl/eu-react-component-date-block/DateBlock'
+import DateBlock from '@ecl/eu-react-component-date-block'
 import demoDefault from '@ecl/eu-specs-date-block/demo/data--default';
 import demoCancelled from '@ecl/eu-specs-date-block/demo/data--cancelled';
 import demoOngoing from '@ecl/eu-specs-date-block/demo/data--ongoing';

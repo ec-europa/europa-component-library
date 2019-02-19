@@ -1,0 +1,37 @@
+{
+  "name": "@ecl/builder",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "2.1.1",
+  "description": "Europa Component Library builder",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bin": {
+    "ecl-builder": "./bin/build.js"
+  },
+  "dependencies": {
+    "@babel/core": "7.2.2",
+    "@babel/preset-env": "7.3.1",
+    "@babel/runtime": "7.3.1",
+    "autoprefixer": "9.4.7",
+    "babel-eslint": "10.0.1",
+    "browserslist": "4.4.1",
+    "commander": "2.19.0",
+    "cssnano": "4.1.10",
+    "globby": "9.0.0",
+    "mkdirp": "0.5.1",
+    "ncp": "2.0.0",
+    "node-sass": "4.11.0",
+    "postcss": "7.0.14",
+    "postcss-banner": "3.0.1",
+    "rollup": "1.1.2",
+    "rollup-plugin-babel": "4.3.2",
+    "rollup-plugin-commonjs": "9.2.0",
+    "rollup-plugin-node-resolve": "4.0.0",
+    "rollup-plugin-uglify": "6.0.2"
+  },
+  "engines": {
+    "node": ">=6.9.5"
+  }
+}
