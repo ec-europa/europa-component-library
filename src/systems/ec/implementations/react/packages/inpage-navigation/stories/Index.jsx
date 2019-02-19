@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
-import InpageNavigation from '../InpageNavigation';
+import InpageNavigation from '../src/InpageNavigation';
 
 const loremIpsum = require('lorem-ipsum');
 
