@@ -4,9 +4,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
+import loremIpsum from 'lorem-ipsum';
 import InpageNavigation from '../src/InpageNavigation';
-
-const loremIpsum = require('lorem-ipsum');
 
 storiesOf('Navigation/In page navigation', module)
   .addDecorator(withKnobs)
@@ -97,7 +96,7 @@ storiesOf('Navigation/In page navigation', module)
         <StoryWrapper
           afterMount={() => {
             const element = document.querySelector(
-              '[data-ecl-inpage-navigation-sticky]'
+              '[data-ecl-inpage-navigation]'
             );
             const vanillaInpageNavigation = new VanillaInpageNavigation(
               element

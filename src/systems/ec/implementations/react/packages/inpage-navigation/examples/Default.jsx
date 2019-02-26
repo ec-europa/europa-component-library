@@ -3,9 +3,8 @@ import React from 'react';
 import StoryWrapper from '@ecl/story-wrapper';
 import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
 import demoContent from '@ecl/ec-specs-inpage-navigation/demo/data';
+import loremIpsum from 'lorem-ipsum';
 import InpageNavigation from '../src/InpageNavigation';
-
-const loremIpsum = require('lorem-ipsum');
 
 export default () => {
   const demoText = loremIpsum({ count: 25 });
@@ -15,7 +14,7 @@ export default () => {
       <StoryWrapper
         afterMount={() => {
           const element = document.querySelector(
-            '[data-ecl-inpage-navigation-sticky]'
+            '[data-ecl-inpage-navigation]'
           );
           const vanillaInpageNavigation = new VanillaInpageNavigation(element);
           vanillaInpageNavigation.init();
