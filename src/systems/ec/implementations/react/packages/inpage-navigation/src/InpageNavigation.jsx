@@ -8,7 +8,7 @@ import Icon from '@ecl/ec-react-component-icon';
 const InpageNavigation = ({ title, links, className, ...props }) => {
   const classNames = classnames(className, 'ecl-inpage-navigation');
   return (
-    <nav {...props} className={classNames} data-ecl-inpage-navigation-sticky>
+    <nav {...props} className={classNames} data-ecl-inpage-navigation>
       <div className="ecl-inpage-navigation__title">{title}</div>
       <div className="ecl-inpage-navigation__body">
         <button

@@ -14,7 +14,7 @@ class InpageNavigation {
     element,
     {
       attachClickListener: attachClickListener = true,
-      stickySelector: stickySelector = '[data-ecl-inpage-navigation-sticky]',
+      stickySelector: stickySelector = '[data-ecl-inpage-navigation]',
       inPageList: inPageList = '[data-ecl-inpage-navigation-list]',
       spySelector: spySelector = '[data-ecl-inpage-navigation-link]',
       toggleSelector: toggleSelector = '[data-ecl-inpage-navigation-trigger]',
