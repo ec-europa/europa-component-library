@@ -9,7 +9,7 @@ import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 /**
  * @param {object} options Object containing configuration overrides
  */
-class InpageNavigation {
+export class InpageNavigation {
   constructor(
     element,
     {
