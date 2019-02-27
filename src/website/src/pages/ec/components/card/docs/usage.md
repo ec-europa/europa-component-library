@@ -49,6 +49,7 @@ All elements are optional. Card layouts can vary to support the types of content
 ## DON'Ts
 
 - Use cards as an image gallery (link to image gallery)
+- Use cards to display images or video (link to media container)
 - Avoid to displaying a large amount of cards
   illustration: card with multiple meta, tags
 - Avoid having too many links on a cards, keep it

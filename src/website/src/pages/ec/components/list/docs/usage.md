@@ -119,7 +119,7 @@ cola
 
 Note that description lists are not ordered.
 
-## How to determine the best type of list for your case
+## When to use
 
 When trying to decide what type of list to use, ask yourself two simple questions:
 
@@ -132,6 +132,11 @@ When trying to decide what type of list to use, ask yourself two simple question
 
 - If yes, use an ordered list.
 - If no, use an unordered list.
+
+## When not to used
+
+- To define a list of link -> use navigation lists
+- To display search results -> use stacked items components
 
 ## DO's
 
