@@ -3,14 +3,31 @@ title: Usage
 order: 1
 ---
 
-The breadcrumb helps users see their current location in relation to the rest of the website and allows them to navigate to higher levels. The breadcrumb is particularly useful for users who arrive on a page directly via a link, a bookmark/favourite or a search engine.
+import { Paragraph } from '@ecl/website-components';
 
-Breadcrumbs are created automatically when publishing a new page. The page title will then appear in the breadcrumb, indicating its place in the hierarchical structure of the site.
+<Paragraph size="lead">
+  Breacrumb inform the users on their current location relative to the homepage
+  of the website and allows them to navigate to higher levels.
+</Paragraph>
 
-## Default breadcrumb
+## Anatomy
+
+The breadcrumb is an horizontal set of links\* starting from the homepage or root of the hierarchy and work down to the current location.
+
+- except the last item in the group, which is the current page
 
 ![Default breadcrumb](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_01.svg)
 
+| Name  | Mandatory | Restrictions |
+| ----- | :-------: | -----------: |
+| Label |     X     |              |
+| Link  |     X     |              |
+
 ## When to use
 
-Breadcrumbs are required and should appear in the page header on every page of the site (except on the homepage of European Commission’s website).
+- if your website's navigational structure is a tree of more than 2 levels
+
+## When not to use
+
+- if your website's navigational structure has less than 3 levels of depth
+- if your site navigational structure isn't a tree
