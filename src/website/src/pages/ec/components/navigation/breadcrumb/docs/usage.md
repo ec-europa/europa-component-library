@@ -12,11 +12,7 @@ import { Paragraph } from '@ecl/website-components';
 
 ## Anatomy
 
-The breadcrumb is an horizontal set of links\* starting from the homepage or root of the hierarchy and work down to the current location.
-
-- except the last item in the group, which is the current page
-
-![Default breadcrumb](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_01.svg)
+The breadcrumb is an horizontal set of links\* starting from the homepage or root of the hierarchy and work down to the current location. \* except the last item in the group, which is the current page
 
 | Name  | Mandatory | Restrictions |
 | ----- | :-------: | -----------: |
@@ -31,3 +27,20 @@ The breadcrumb is an horizontal set of links\* starting from the homepage or roo
 
 - if your website's navigational structure has less than 3 levels of depth
 - if your site navigational structure isn't a tree
+
+## DO's
+
+Illustration: Digital Single Market > Policies > Shaping the digital single market
+
+- Put your site name as first segment ex: "digital single market".
+
+## DON'Ts
+
+![Don't use "home"](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_01.svg)
+
+- Put "home" as first segment. "home" is too ambiguous in the context of the EC webpresence, it could be EC homepage or the current "subsite" homepage.
+
+Illustration: European Commission > Priorities > Digital Single Market
+Illustration: European Commission > Strategy > Digital Single Market
+
+- Put "European Commission" as a first segment, avoiding inconsistencies and dependencies with the breadcrumb from the main EC site.
