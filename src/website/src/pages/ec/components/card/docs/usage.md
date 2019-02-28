@@ -37,7 +37,7 @@ Card layouts can vary to support the types of content they contain.
 ## When not to use
 
 - For information searching (as opposed to browsing).
-- On small screen display avoid cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload which harms UX.
+- On small screen display avoid using too many cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload which harms UX.
 
 ## DO's
 
@@ -49,7 +49,9 @@ Card layouts can vary to support the types of content they contain.
 ## DON'Ts
 
 - Overuse cards; Limit the amount of cards to small groups of item.
-- Use cards as an image gallery, use <Link to="/ec/component/media/gallery/">gallery</Link> instead.
-- Use cards to display images or video, use <Link to="/ec/component/media/media-container/">media container</Link> instead.
+- Use cards as an image gallery, use <Link to="/ec/component/media/gallery/usage">gallery</Link> instead.
+- Use cards to display images or video, use <Link to="/ec/component/media/media-container/usage">media container</Link> instead.
+
   illustration: card with multiple meta, tags
-- display too many links on a cards, the main and ideally only action on card should remain to navigate to the content it represent.
+
+- Display too many links on a cards, the main and ideally only action on card should remain to navigate to the content it represent.

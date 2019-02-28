@@ -12,7 +12,9 @@ import { Paragraph } from '@ecl/website-components';
 
 ## Anatomy
 
-The breadcrumb is an horizontal set of links\* starting from the homepage or root of the hierarchy and work down to the current location. \* except the last item in the group, which is the current page
+The breadcrumb is an horizontal set of links\* starting from the homepage or root of the hierarchy and work down to the current location.
+
+\* except the last item in the group, which is the current page
 
 | Name  | Mandatory | Restrictions |
 | ----- | :-------: | -----------: |
@@ -41,6 +43,7 @@ illustration: Digital Single Market > Policies > Shaping the digital single mark
 - Put "home" as first segment. "home" is too ambiguous in the context of the EC web-presence, it could be EC homepage or the current "subsite" homepage.
 
 Illustration: European Commission > Priorities > Digital Single Market
+
 Illustration: European Commission > Strategy > Digital Single Market
 
 - Put "European Commission" as a first segment, avoiding inconsistencies and dependencies with the breadcrumb from the main EC site.

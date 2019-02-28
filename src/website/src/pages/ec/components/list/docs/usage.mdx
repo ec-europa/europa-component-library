@@ -15,8 +15,11 @@ import { Paragraph } from '@ecl/website-components';
 ## Anatomy
 
 Lists or "typography lists" are optimized for reading comprehension.
+
 A list consists of a single continuous column of subdivisions called rows that contain items.
+
 Content of each item may be plain text, or other elements (links, paragraphs, ...)
+
 A list should have a contextual coherence and allow the user to understand the message instantly.
 
 ### Nesting lists
@@ -25,13 +28,13 @@ It is perfectly ok to nest one list (of any type) inside another one.
 You might want to have some sub-bullets sitting below a top level bullet.
 Just make sure that nested items are all related to their parent.
 
-Also try to keep your nested lists under control; having 4 or 5 nested level may create confusion and is generally a sign that the content has to be structured differently (break down into several lists for instance).
+Keep nested lists under control; having 4 or 5 nested level may create confusion and is generally a sign that the content has to be structured differently (break down into several lists for instance).
 
 ### Three different types of lists
 
-1. unordered list - used to group a set of related items in no particular order
-2. ordered list - used to group a set of related items in a specific order
-3. description list - used to display name/value pairs such as terms and definitions; Each list type has a specific purpose and meaning in a web page.
+- unordered list - used to group a set of related items in no particular order
+- ordered list - used to group a set of related items in a specific order
+- description list - used to display name/value pairs such as terms and definitions; Each list type has a specific purpose and meaning in a web page.
 
 #### Unordered (bulleted) Lists
 
@@ -102,9 +105,9 @@ coffee
 
 Or, you can associate more than one name with the same value. This is useful to show variations of a term, all of which have the same meaning:
 
-soda
-pop
-fizzy drink
+soda,
+pop,
+fizzy drink,
 cola
 
 - a sweet, carbonated beverage
@@ -117,27 +120,27 @@ When trying to decide what type of list to use, ask yourself two simple question
 
 1. Am I defining terms or associating other name/value pairs?
 
-- If yes, use a description list.
-- If no, don’t use a description list.
+   - If yes, use a description list.
+   - If no, don’t use a description list.
 
 2. Is the order of the list items important?
 
-- If yes, use an ordered list.
-- If no, use an unordered list.
+   - If yes, use an ordered list.
+   - If no, use an unordered list.
 
 ## When not to used
 
-- To define a list of link -> use navigation lists
-- To display search results -> use stacked items components
+- To define a list of link - use navigation lists
+- To display search results - use stacked items components
 
 ## DO's
 
 - Use nesting to group items contextually into categories/sub categories
-- Ensure grammatical coherence and don't mix passive with active voice or declarative sentences.
-- Whatever the option remain consistent.
+- Ensure grammatical coherence and don't mix passive with active voice or declarative sentences
+- Whatever the option remain consistent
 
 ## DON’Ts
 
-- Use lists to display search results and entries that match to the search query.
-- Use lists to create navigation. Instead use navigation lists.
-- Use lists to display tabular data. Instead, use a Data Table.
+- Use lists to display search results. Instead use stacked items components
+- Use lists to create navigation. Instead use navigation lists
+- Use lists to display tabular data. Instead, use a Data Table
