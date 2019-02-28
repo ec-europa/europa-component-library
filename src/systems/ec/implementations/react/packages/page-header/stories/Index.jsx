@@ -12,7 +12,7 @@ import demoTitleDescriptionContent from '@ecl/ec-specs-page-header/demo/data-tit
 import demoEventsContent from '@ecl/ec-specs-page-header/demo/data-events';
 import demoEventsDescriptionContent from '@ecl/ec-specs-page-header/demo/data-events-description';
 
-import PageHeader from '../PageHeader';
+import PageHeader from '../src/PageHeader';
 
 const { items, ...breadcrumbProps } = breadcrumbContent;
 const breadcrumb = (

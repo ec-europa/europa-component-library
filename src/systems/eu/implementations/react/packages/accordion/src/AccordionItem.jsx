@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Button from '@ecl/eu-react-component-button/Button';
+import Button from '@ecl/eu-react-component-button';
 
 const AccordionItem = ({ id, toggle, level, children }) => {
   return (

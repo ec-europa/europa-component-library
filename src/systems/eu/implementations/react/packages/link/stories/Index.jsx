@@ -7,7 +7,7 @@ import demoContentDefault from '@ecl/eu-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/eu-specs-link/demo/data--standalone';
 import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
 
-import Link from '../Link';
+import Link from '../src/Link';
 
 const icons = {
   none: '',

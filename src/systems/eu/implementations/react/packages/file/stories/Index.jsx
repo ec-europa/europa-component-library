@@ -9,7 +9,7 @@ import demoContentTranslation from '@ecl/eu-specs-file/demo/data--with-translati
 
 import VanillaFileDownload from '@ecl/eu-component-file';
 
-import FileDownload from '../FileDownload';
+import FileDownload from '../src/FileDownload';
 
 storiesOf('File', module)
   .addDecorator(withKnobs)

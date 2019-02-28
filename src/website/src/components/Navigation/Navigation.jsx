@@ -36,12 +36,13 @@ const Navigation = React.memo(
           sidebarOpen ? '' : ` ${styles['nav--closed']}`
         }${forceRefresh ? ' ' : ''}`}
       >
-        <div className={styles.header}>
+        <header className={styles.header}>
+          <span className={styles.version}>v{process.env.ECL_VERSION}</span>
           <Link to="/" className={styles.logo} title="European Commission">
             <span className={styles['logo-sr']}>European Commission</span>
           </Link>
           <h2 className={styles.title}>Europa Component Library</h2>
-        </div>
+        </header>
         <ul className={styles['system-list']}>
           <li className={styles['system-list-item']}>
             <NavLink

@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 
 import demoContent from '@ecl/eu-specs-search-form/demo/data';
 
-import SearchForm from '../SearchForm';
+import SearchForm from '../src/SearchForm';
 
 storiesOf('SearchForm', module)
   .addDecorator(withKnobs)

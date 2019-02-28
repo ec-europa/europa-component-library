@@ -9,12 +9,17 @@ import demoContentCall from '@ecl/ec-specs-button/demo/data--call';
 import demoContentGhost from '@ecl/ec-specs-button/demo/data--ghost';
 import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
 
-import Button from '../Button';
+import Button from '../src/Button';
 
 const icons = {
   none: '',
   arrow: 'ui--corner-arrow',
   external: 'ui--external',
+};
+
+const iconPosition = {
+  before: 'before',
+  after: 'after',
 };
 
 storiesOf('Button', module)
@@ -31,6 +36,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentPrimary.label)}
         type="submit"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
         disabled={boolean('Disabled', false)}
       />
     );
@@ -47,6 +53,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentSecondary.label)}
         type="button"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
         disabled={boolean('Disabled', false)}
       />
     );
@@ -63,6 +70,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentCall.label)}
         type="submit"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
         disabled={boolean('Disabled', false)}
       />
     );
@@ -79,6 +87,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentGhost.label)}
         type="button"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
         disabled={boolean('Disabled', false)}
       />
     );
@@ -95,6 +104,7 @@ storiesOf('Button', module)
         label={text('Label', demoContentSearch.label)}
         type="button"
         icon={buttonIcon}
+        iconPosition={select('Icon position', iconPosition, 'after')}
         disabled={boolean('Disabled', false)}
       />
     );

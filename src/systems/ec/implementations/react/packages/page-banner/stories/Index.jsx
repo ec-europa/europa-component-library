@@ -9,7 +9,7 @@ import demoContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
 import demoContentDefault from '@ecl/ec-specs-page-banner/demo/data--default';
 import demoContentAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left';
 
-import PageBanner from '../PageBanner';
+import PageBanner from '../src/PageBanner';
 
 storiesOf('PageBanner', module)
   .addDecorator(withKnobs)

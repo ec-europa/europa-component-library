@@ -1,7 +1,7 @@
 @import '@ecl/ec-theme-default/index';
 
 $nav-width: 15rem;
-$nav-logo-height: 2.5rem;
+$nav-logo-height: 2rem;
 $nav-logo-max-width: 10rem;
 $nav-toggle-size: 2.5rem;
 $nav-toggle-bar-width: 1.5rem; // 24px
@@ -10,6 +10,7 @@ $nav-toggle-bar-spacing-between: 0.375rem;
 
 .nav {
   background-color: $ecl-color-grey-5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -39,17 +40,28 @@ $nav-toggle-bar-spacing-between: 0.375rem;
 }
 
 .header {
+  background-color: $ecl-color-white-100;
   border-bottom: 2px solid $ecl-color-grey-25;
+  padding: $ecl-spacing-m;
+}
+
+.version {
+  background-color: $ecl-color-grey-5;
+  border-radius: 1rem;
+  color: $ecl-color-text;
+  display: inline-block;
+  font: $ecl-font-s;
+  padding: $ecl-spacing-xs $ecl-spacing-s;
 }
 
 .logo {
   background-image: url('~@ecl/ec-preset-website/dist/images/logo/logo--en.svg');
-  background-position: 50% 50%;
+  background-position: 0 50%;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
   height: $nav-logo-height;
-  margin: $ecl-spacing-xl auto 0;
+  margin-top: $ecl-spacing-l;
   max-width: $nav-logo-max-width;
 }
 
@@ -60,8 +72,7 @@ $nav-toggle-bar-spacing-between: 0.375rem;
 .title {
   color: $ecl-color-text;
   font: $ecl-font-m;
-  margin: $ecl-spacing-xl auto $ecl-spacing-m;
-  text-align: center;
+  margin-top: $ecl-spacing-s;
 }
 
 .system-list {

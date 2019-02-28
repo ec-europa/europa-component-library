@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import demoContent from '@ecl/ec-specs-pagination/demo/data';
 
-import Pagination from '../Pagination';
+import Pagination from '../src/Pagination';
 
 storiesOf('Navigation/Pagination', module)
   .addDecorator(withKnobs)

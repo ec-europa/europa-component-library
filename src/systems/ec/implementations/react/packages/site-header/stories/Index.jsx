@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import demoContentEn from '@ecl/ec-specs-site-header/demo/data--en';
 import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
 
-import SiteHeader from '../SiteHeader';
+import SiteHeader from '../src/SiteHeader';
 
 storiesOf('SiteHeader', module)
   .add('default', () => <SiteHeader {...demoContentEn} />)
