@@ -3,7 +3,7 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph } from '@ecl/website-components';
+import { Link, Paragraph } from '@ecl/website-components';
 
 <Paragraph size="lead">
   Cards act as an entry point to more detailed information. A card is container for a few short, related pieces of information. It roughly resembles a playing card in size and shape, and is intended as a linked, short representation of a conceptual unit.
@@ -11,12 +11,12 @@ import { Paragraph } from '@ecl/website-components';
 
 ## Anatomy
 
-All elements are optional. Card layouts can vary to support the types of content they contain. The following elements are commonly found.
+Card layouts can vary to support the types of content they contain.
 
 | Name        | Mandatory |                     Note |
 | ----------- | :-------: | -----------------------: |
 | Thumbnail   |           | SHOULD BE CLICKABLE !!!! |
-| Title       |           | SHOULD BE CLICKABLE !!!! |
+| Title       |     X     | SHOULD BE CLICKABLE !!!! |
 | Description |           |                          |
 | Meta        |           |                          |
 | Tags        |           |                          |
@@ -26,7 +26,7 @@ All elements are optional. Card layouts can vary to support the types of content
 
 - For information browsing (as opposed to searching)
 - To group heterogeneous types of content
-- To provide a visual boundary, allowing users to easily navigate through
+- To provide a visual boundary, allowing users to easily navigate through:
   - several distinct items
   - To enhance information browsing
 - The user goals that the card-based web design best responds to:
@@ -37,7 +37,7 @@ All elements are optional. Card layouts can vary to support the types of content
 ## When not to use
 
 - For information searching (as opposed to browsing).
-- When you have a small screen display and you want to offer immediate access to results it is better to avoid cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload which harms UX.
+- On small screen display avoid cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload which harms UX.
 
 ## DO's
 
@@ -48,8 +48,8 @@ All elements are optional. Card layouts can vary to support the types of content
 
 ## DON'Ts
 
-- Use cards as an image gallery (link to image gallery)
-- Use cards to display images or video (link to media container)
-- Avoid to displaying a large amount of cards
+- Overuse cards; Limit the amount of cards to small groups of item.
+- Use cards as an image gallery, use <Link to="/ec/component/media/gallery/">gallery</Link> instead.
+- Use cards to display images or video, use <Link to="/ec/component/media/media-container/">media container</Link> instead.
   illustration: card with multiple meta, tags
-- Avoid having too many links on a cards, keep it
+- display too many links on a cards, the main and ideally only action on card should remain to navigate to the content it represent.

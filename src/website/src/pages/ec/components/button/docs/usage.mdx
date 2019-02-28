@@ -3,7 +3,7 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph } from '@ecl/website-components';
+import { Link, Paragraph } from '@ecl/website-components';
 
 <Paragraph size="lead">
   Use a button to trigger and carry out an action on a page.
@@ -11,26 +11,35 @@ import { Paragraph } from '@ecl/website-components';
 
 ## Anatomy
 
-Buttons use 3 major attributes:
+| Name  | Mandatory |
+| ----- | :-------: |
+| Label |     X     |
+| Icon  |           |
 
-- Labels
-  - Should be clear and distinct.
-  - Use verbs to describe the action performed when interacting with the button.
-  - Keep it short, no more than 3 words and only capitalise the first word.
-- Colour
-  - Choose a colour that provides sufficient contrast between the label and background.
-- Icon
-  - Choose an icon that reinforce or clarify the meaning of a label in that particular context.
+Buttons are defined by 3 major attributes:
 
-| Name  | Mandatory | Restrictions |
-| ----- | :-------: | -----------: |
-| Label |     X     |              |
-| Icon  | centered  |              |
+### Button labels
+
+Button labels tell users what will happen when they click the button.
+
+- Should be clear and distinct.
+- Use verbs that describe the action, such as Send, Add or Delete.
+- Keep it short, no more than 3 words.
+
+### Button icons
+
+Choose an icon that reinforce or clarify the meaning of a label in that particular context.
+Icons can be on right or left of your label.
+
+### Colour
+
+Ensure that the button background colour or label colour in the case of the ghost button provides sufficient contrast with the context/section background.
 
 ## When to use
 
-To trigger an action. Actions _ which affect the website's state are buttons. _ Actions include: Sign up, Login, Register, Search, Submit... etc
-An action is when the user interact actively with the website, ex: the user post a comment.
+To trigger an action. _ Actions which affect the website's state are buttons. _
+Actions include: Search, Submit... etc
+An action is performed when the user interact actively with the website, ex: the user post a comment.
 
 ECL has five buttons with different visual designs to make a distinction between the kind of action the button will carry out.
 The button with the strongest visual weight will attract the most attention.
@@ -38,25 +47,25 @@ The button with the strongest visual weight will attract the most attention.
 | Button name                 | Visual style                                                                                            | Usage                                                                                                                                                                                               |
 | --------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Call-to-action (CTA) button | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA_Default.png)       | funnel users into the most important action for your business ex: "Apply for funding" or "Watch live streaming". Limit to one CTA on a given page, the same CTA can be repeated within in the page. |
-| Primary button              | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_Default.png)   | for primary actions in forms, ex: "Log in", "Get funding", "Register", "Submit a request", should appear only few occurence on a page, ex: only 1 primary button per form                           |
-| Secondary button            | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Secondary_Default.png) | secondary action that users can perform on the page and it can be used multiple times per page.                                                                                                     |
-| Ghost button                | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Ghost_Default.png)     | when an action does not require dominance on a page, ex: "Cancel" a form.                                                                                                                           |
+| Primary button              | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_Default.png)   | Only 1 primary action per context/section of the page, Primary buttons can appear in a few occurence on a page. ex: "submit","register"...                                                          |
+| Secondary button            | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Secondary_Default.png) | Secondary action that users can perform on the page and it can be used multiple times per context/section in the page. ex: "show more", "expand", "see details".                                    |
+| Ghost button                | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Ghost_Default.png)     | When an action does not require dominance on a page. Often use next to a primary action ex: On a form context/section "Submit" as primary, "Cancel" as a ghost.                                     |
 | Search button               | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Search_Default.png)    | use exclusively for the search function.                                                                                                                                                            |
 
-### Button labels
+## When not to use
 
-Button labels tell users what will happen when they click the button. Use verbs that describe the action, such as Send, Add or Delete. Do not use capitalization on buttons (only the first word in a phrase and proper nouns are capitalized) and no more than three words for button labels.
-
-### Button icons
-
-It is possible to add an icon to a button to better illustrate the action.
-
-| Button name           | Visual style                                                                                               |
-| --------------------- | ---------------------------------------------------------------------------------------------------------- |
-| Call-to-action button | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_CTA-Icon_Default.png)     |
-| Primary button        | ![Button Image](https://inno-ecl.s3.amazonaws.com/media/images/EC/Buttons/Button_Primary_icon_Default.png) |
-
-## When not to use Don't use buttons
-
-For navigational purposes. If the action triggered sends a user to a different page, opens up a page in a new tab or jump to another section within the current page, use links instead because these actions don’t change anything on the website’s state.
+For navigational purposes. If the action triggered sends a user to a different page, opens up a page in a new tab or jump to another section within the current page, use <Link to="/ec/component/navigation/link/">links</Link> instead because these actions don’t change anything on the website’s state.
 The user is passive, browsing through content (read only).
+
+## DO's
+
+- Avoid using icons on buttons
+- When you do need icons:
+  - Prefer left icons (for LTR languages) as they better line up and flow with the text alongside them.
+    illustration: Primary button, label "Approve", icon left "check"
+  - Use right icons for buttons with multiple status ex: expand/collapse buttons
+    illustration: Secondary button, label "Expand" icon right "arrow-down"
+
+## DON'Ts
+
+- Use button for navigation, use <Link to="/ec/component/navigation/link/">links</Link> instead.

@@ -30,7 +30,7 @@ The breadcrumb is an horizontal set of links\* starting from the homepage or roo
 
 ## DO's
 
-Illustration: Digital Single Market > Policies > Shaping the digital single market
+illustration: Digital Single Market > Policies > Shaping the digital single market
 
 - Put your site name as first segment ex: "digital single market".
 
@@ -38,7 +38,7 @@ Illustration: Digital Single Market > Policies > Shaping the digital single mark
 
 ![Don't use "home"](https://inno-ecl.s3.amazonaws.com/media/images/EC/Breadcrumb/Breadcrumb_Default_01.svg)
 
-- Put "home" as first segment. "home" is too ambiguous in the context of the EC webpresence, it could be EC homepage or the current "subsite" homepage.
+- Put "home" as first segment. "home" is too ambiguous in the context of the EC web-presence, it could be EC homepage or the current "subsite" homepage.
 
 Illustration: European Commission > Priorities > Digital Single Market
 Illustration: European Commission > Strategy > Digital Single Market
