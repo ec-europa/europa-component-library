@@ -138,7 +138,7 @@ export class InpageNavigation {
             return;
           }
 
-          self.initScrollSpy(currentInpage);
+          self.initScrollSpy(currentInpage.parentNode.parentNode);
         }
       });
     });
