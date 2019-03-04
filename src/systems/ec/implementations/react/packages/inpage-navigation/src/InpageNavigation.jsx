@@ -44,7 +44,10 @@ const InpageNavigation = ({ title, links, className, ...props }) => {
               <Link
                 {...link}
                 variant="standalone"
-                className={classnames('ecl-inpage-navigation__link')}
+                className={classnames(
+                  'ecl-inpage-navigation__link',
+                  link.className
+                )}
                 data-ecl-inpage-navigation-link
               />
             </li>
