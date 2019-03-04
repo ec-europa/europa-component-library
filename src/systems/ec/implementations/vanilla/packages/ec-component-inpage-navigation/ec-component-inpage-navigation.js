@@ -177,14 +177,14 @@ export class InpageNavigation {
 
   handleClickOnToggler(e) {
     const currentList = queryOne(this.inPageList, this.element);
-    const currentState = currentList.getAttribute('aria-hidden').toString();
+    const currentState = currentList.getAttribute('hidden');
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
-    if (currentState === 'true') {
-      currentList.setAttribute('aria-hidden', 'false');
+    if (currentState) {
+      currentList.removeAttribute('hidden');
       togglerElement.setAttribute('aria-expanded', 'true');
     } else {
-      currentList.setAttribute('aria-hidden', 'true');
+      currentList.setAttribute('hidden', true);
       togglerElement.setAttribute('aria-expanded', 'false');
     }
 
@@ -195,7 +195,7 @@ export class InpageNavigation {
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
-    currentList.setAttribute('aria-hidden', 'true');
+    currentList.setAttribute('hidden', true);
     togglerElement.setAttribute('aria-expanded', 'false');
   }
 

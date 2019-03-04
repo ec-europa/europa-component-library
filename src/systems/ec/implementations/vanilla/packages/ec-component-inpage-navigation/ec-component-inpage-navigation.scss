@@ -69,10 +69,6 @@
     list-style-type: none;
     margin: 0;
     padding: $ecl-spacing-xl $ecl-spacing-m 0;
-
-    &[aria-hidden='true'] {
-      display: none;
-    }
   }
 
   .ecl-inpage-navigation__link {
@@ -116,7 +112,7 @@
         position: static;
       }
 
-      .ecl-inpage-navigation__list[aria-hidden] {
+      .ecl-inpage-navigation__list[hidden] {
         border-top: 0;
         display: block;
         padding: 0;

@@ -34,7 +34,7 @@ const InpageNavigation = ({ title, links, className, ...props }) => {
         </button>
         <ul
           className="ecl-inpage-navigation__list"
-          aria-hidden="true"
+          hidden
           aria-labelledby="ecl-inpage-navigation-trigger"
           data-ecl-inpage-navigation-list
           id="ecl-inpage-navigation-list"
