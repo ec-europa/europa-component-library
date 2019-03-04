@@ -49,8 +49,8 @@ Card layouts can vary to support the types of content they contain.
 ## DON'Ts
 
 - Overuse cards; Limit the amount of cards to small groups of item.
-- Use cards as an image gallery, use <Link to="/ec/component/media/gallery/usage">gallery</Link> instead.
-- Use cards to display images or video, use <Link to="/ec/component/media/media-container/usage">media container</Link> instead.
+- Use cards as an image gallery, use <Link to="/ec/components/media/gallery/usage">gallery</Link> instead.
+- Use cards to display images or video, use <Link to="/ec/components/media/media-container/usage">media container</Link> instead.
 
   illustration: card with multiple meta, tags
 
