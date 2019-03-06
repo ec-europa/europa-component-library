@@ -24,8 +24,8 @@ Card layouts can vary to support the types of content they contain.
 
 ## When to use
 
-- For information browsing (as opposed to searching)
-- To group heterogeneous types of content
+- Browsing for information (as opposed to searching)
+- Grouping heterogeneous types of content
 - To provide a visual boundary, allowing users to easily navigate through:
   - several distinct items
   - To enhance information browsing
@@ -36,8 +36,8 @@ Card layouts can vary to support the types of content they contain.
 
 ## When not to use
 
-- For information searching (as opposed to browsing).
-- On small screen display avoid using too many cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload which harms UX.
+- Searching for information (as opposed to browsing).
+- On small screen display avoid using too many cards as they force users to scroll down and rely on their short-term memory. This creates a cognitive overload, a negative user experience.
 
 ## DO's
 
