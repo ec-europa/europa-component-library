@@ -13,14 +13,14 @@ import { Link, Paragraph } from '@ecl/website-components';
 
 Card layouts can vary to support the types of content they contain.
 
-| Name        | Mandatory |                     Note |
-| ----------- | :-------: | -----------------------: |
-| Thumbnail   |           | SHOULD BE CLICKABLE !!!! |
-| Title       |     X     | SHOULD BE CLICKABLE !!!! |
-| Description |           |                          |
-| Meta        |           |                          |
-| Tags        |           |                          |
-| Infos       |           |                          |
+| Name        | Constraint |
+| ----------- | :--------: |
+| Thumbnail   |  Optional  |
+| Title       | Mandatory  |
+| Description |  Optional  |
+| Meta        |  Optional  |
+| Tags        |  Optional  |
+| Infos       |  Optional  |
 
 ## When to use
 

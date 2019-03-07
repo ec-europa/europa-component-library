@@ -16,10 +16,10 @@ The breadcrumb is an horizontal set of links\* starting from the homepage or roo
 
 \* except the last item in the group, which is the current page
 
-| Name  | Mandatory | Restrictions |
-| ----- | :-------: | -----------: |
-| Label |     X     |              |
-| Link  |     X     |              |
+| Name  | Constraint |
+| ----- | :--------: |
+| Label | Mandatory  |
+| Link  | Mandatory  |
 
 ## When to use
 
