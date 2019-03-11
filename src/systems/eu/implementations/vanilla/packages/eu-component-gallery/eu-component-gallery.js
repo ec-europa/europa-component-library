@@ -2,7 +2,7 @@ import createFocusTrap from 'focus-trap';
 
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
-class Gallery {
+export class Gallery {
   constructor(
     element,
     {
