@@ -1,6 +1,6 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
-class Message {
+export class Message {
   constructor(
     element,
     {
