@@ -25,6 +25,7 @@ const ContextualNavigation = ({
         )}
         data-ecl-contextual-navigation-more
         onClick={onMore}
+        type="button"
       />
     </li>
   );
