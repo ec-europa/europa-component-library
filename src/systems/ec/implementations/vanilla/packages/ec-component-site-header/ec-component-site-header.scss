@@ -59,6 +59,7 @@
     display: flex;
 
     @include ecl-media-breakpoint-up('lg') {
+      height: 1px; /* IE fix */
       min-height: 2.75rem;
     }
   }
