@@ -148,6 +148,7 @@ module.exports = {
             include: [
               path.resolve(__dirname, 'src'),
               path.resolve(__dirname, '../systems'),
+              path.resolve(__dirname, '../../CHANGELOG.md'),
             ],
             use: [
               {
