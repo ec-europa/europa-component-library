@@ -16,7 +16,7 @@ All library elements are accompanied with
 
 ## Documentation
 
-Read the documentation [on GitHub](docs/README.md) or on the [website](https://ec-europa.github.io/europa-component-library/ec/docs/overview).
+Read the technical documentation [on GitHub](docs/README.md).
 
 ## Quick start
 
