@@ -8,6 +8,7 @@ import Link from '@ecl/eu-react-component-link';
 const ContextualNavigation = ({
   label,
   itemMore,
+  itemsLimit,
   items,
   onMore,
   className,
@@ -43,7 +44,8 @@ const ContextualNavigation = ({
               item.className,
               'ecl-contextual-navigation__item',
               {
-                'ecl-contextual-navigation__item--collapsed': index > 3,
+                'ecl-contextual-navigation__item--collapsed':
+                  index >= itemsLimit,
               }
             )}
             key={item.label}
@@ -57,8 +59,7 @@ const ContextualNavigation = ({
             />
           </li>
         ))}
-
-        {items.length > 3 && itemMoreMarkup}
+        {items.length > itemsLimit && itemMoreMarkup}
       </ul>
     </nav>
   );
@@ -67,6 +68,7 @@ const ContextualNavigation = ({
 ContextualNavigation.propTypes = {
   label: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
+  itemsLimit: PropTypes.number,
   itemMore: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
   onMore: PropTypes.func,
@@ -75,6 +77,7 @@ ContextualNavigation.propTypes = {
 ContextualNavigation.defaultProps = {
   label: '',
   items: [],
+  itemsLimit: 3,
   itemMore: {},
   className: '',
   onMore: () => {},
