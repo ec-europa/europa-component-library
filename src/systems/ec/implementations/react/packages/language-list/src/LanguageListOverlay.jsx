@@ -20,7 +20,7 @@ const LanguageListOverlay = ({
   );
 
   return (
-    <div {...props} className={classNames}>
+    <div {...props} className={classNames} data-ecl-language-list-overlay>
       <div className="ecl-language-list__container ecl-container">
         <div className="ecl-row">
           <div className="ecl-language-list__close ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">

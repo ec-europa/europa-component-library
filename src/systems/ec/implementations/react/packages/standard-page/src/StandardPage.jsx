@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Card from '@ecl/ec-react-component-card';
 import Footer from '@ecl/ec-react-component-footer';
+import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import PageHeader from '@ecl/ec-react-component-page-header';
 import SiteHeader from '@ecl/ec-react-component-site-header';
@@ -12,6 +13,7 @@ const StandardPage = ({
   siteSwitcher,
   siteHeader,
   pageHeader,
+  languageList,
   mediaContainer,
   footer,
   card,
@@ -19,6 +21,7 @@ const StandardPage = ({
   <Fragment>
     <SiteSwitcher {...siteSwitcher} />
     <SiteHeader {...siteHeader} />
+    <LanguageListOverlay {...languageList} hidden="true" />
     <PageHeader {...pageHeader} />
     <main className="ecl-u-pv-xl">
       <div className="ecl-container">
@@ -52,6 +55,7 @@ StandardPage.propTypes = {
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   pageHeader: PropTypes.shape(PageHeader.propTypes),
   mediaContainer: PropTypes.shape(MediaContainer.propTypes),
+  languageList: PropTypes.shape(LanguageListOverlay.propTypes),
   footer: PropTypes.shape(Footer.propTypes),
   card: PropTypes.shape(Card.propTypes),
 };
@@ -61,6 +65,7 @@ StandardPage.defaultProps = {
   siteHeader: {},
   pageHeader: {},
   mediaContainer: {},
+  languageList: {},
   footer: {},
   card: {},
 };
