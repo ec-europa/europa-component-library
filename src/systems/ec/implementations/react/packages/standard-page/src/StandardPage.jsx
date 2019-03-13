@@ -64,8 +64,8 @@ StandardPage.defaultProps = {
   siteSwitcher: {},
   siteHeader: {},
   pageHeader: {},
-  mediaContainer: {},
   languageList: {},
+  mediaContainer: {},
   footer: {},
   card: {},
 };
