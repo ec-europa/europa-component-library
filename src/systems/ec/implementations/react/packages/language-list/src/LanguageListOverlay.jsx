@@ -29,6 +29,7 @@ const LanguageListOverlay = ({
               label={closeLabel}
               icon={{ shape: 'ui--close', size: 's' }}
               className="ecl-language-list__close-button"
+              data-ecl-language-list-close
             />
           </div>
           <div className="ecl-language-list__title ecl-col-12 ecl-col-lg-8 ecl-offset-lg-2">

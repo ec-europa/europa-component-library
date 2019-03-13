@@ -7,7 +7,7 @@ import StandardPageExample from '../examples/Default';
 
 storiesOf('Templates/Standard page', module)
   .addDecorator(story => {
-    function doClick(e) {
+    function toggleOverlay(e) {
       e.preventDefault();
 
       const languageListOverlay = document.querySelector(
@@ -16,8 +16,10 @@ storiesOf('Templates/Standard page', module)
 
       if (languageListOverlay.hasAttribute('hidden')) {
         languageListOverlay.removeAttribute('hidden');
+        e.currentTarget.setAttribute('aria-expanded', true);
       } else {
         languageListOverlay.setAttribute('hidden', true);
+        e.currentTarget.setAttribute('aria-expanded', false);
       }
     }
 
@@ -27,15 +29,22 @@ storiesOf('Templates/Standard page', module)
           const languageSelector = document.querySelector(
             '[data-ecl-language-selector]'
           );
+          const close = document.querySelector(
+            '[data-ecl-language-list-close]'
+          );
 
-          languageSelector.addEventListener('click', doClick);
+          languageSelector.addEventListener('click', toggleOverlay);
+          close.addEventListener('click', toggleOverlay);
 
           // Return new context
-          return { languageSelector };
+          return { languageSelector, close };
         }}
         beforeUnmount={context => {
           if (context.languageSelector) {
-            context.languageSelector.removeEventListener('click', doClick);
+            context.languageSelector.removeEventListener(
+              'click',
+              toggleOverlay
+            );
           }
         }}
       >
