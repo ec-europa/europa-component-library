@@ -16,7 +16,7 @@ All library elements are accompanied with
 
 ## Documentation
 
-Read the documentation [on GitHub](docs/README.md) or on the [website](https://ec-europa.github.io/europa-component-library/ec/docs/overview).
+Read the technical documentation [on GitHub](docs/README.md).
 
 ## Quick start
 
@@ -29,7 +29,7 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
 Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) for support on using this resource for a European Commission website.
 
-## Previous versions
+## Previous major versions
 
-- v1.2.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.2.0) - [website](https://v1--europa-component-library.netlify.com/)
+- v1.3.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.3.0) - [website](https://v1--europa-component-library.netlify.com/)
 - v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)
