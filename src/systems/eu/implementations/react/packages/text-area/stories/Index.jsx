@@ -2,16 +2,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean, number, text } from '@storybook/addon-knobs';
-import { configureA11y } from '@storybook/addon-a11y';
 
 import demoContentDefault from '@ecl/eu-specs-text-area/demo/data--default';
 
 import TextArea from '../src/TextArea';
-
-// Disable label check
-configureA11y({
-  rules: [{ id: 'label', enabled: false }],
-});
 
 storiesOf('Forms/TextArea', module)
   .addDecorator(withKnobs)
