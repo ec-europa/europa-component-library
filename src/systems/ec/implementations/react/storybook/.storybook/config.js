@@ -2,7 +2,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
 import { checkA11y } from '@storybook/addon-a11y';
-import ECLDecorator from './ECL';
+import './ECL';
 
 addParameters({
   options: {
@@ -22,7 +22,6 @@ addParameters({
 const contexts = [require.context('../../packages', true, /stories.*\.jsx?$/)];
 
 addDecorator(checkA11y);
-addDecorator(ECLDecorator);
 
 configure(() => {
   contexts.forEach(context => {

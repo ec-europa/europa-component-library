@@ -66,7 +66,7 @@ class Playground extends PureComponent {
     const playgroundUrl =
       playgroundLink ||
       encodeURI(
-        `/storybook/${system}/index?path=/story/${selectedKind}--${selectedStory}`
+        `/storybook/${system}/?path=/story/${selectedKind}--${selectedStory}`
       );
 
     const fullFrameUrl =
