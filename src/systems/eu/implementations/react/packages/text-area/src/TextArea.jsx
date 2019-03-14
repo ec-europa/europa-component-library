@@ -10,6 +10,7 @@ const TextArea = ({
   invalidIconLabel,
   invalidText,
   label,
+  hideLabel,
   name,
   placeholder,
   rows,
@@ -22,14 +23,17 @@ const TextArea = ({
 
   return (
     <div className="ecl-form-group ecl-form-group--text-area">
-      <label
-        className={classnames('ecl-form-label', {
-          'ecl-form-label--invalid': invalid,
-        })}
-        htmlFor={id}
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          className={classnames('ecl-form-label', {
+            'ecl-form-label--invalid': invalid,
+            'ecl-form-label--hidden': hideLabel,
+          })}
+          htmlFor={id}
+        >
+          {label}
+        </label>
+      )}
       <textarea
         {...props}
         id={id}
@@ -54,7 +58,8 @@ TextArea.propTypes = {
   invalid: PropTypes.bool,
   invalidIconLabel: PropTypes.string,
   invalidText: PropTypes.node,
-  label: PropTypes.node.isRequired,
+  label: PropTypes.node,
+  hideLabel: PropTypes.bool,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   rows: PropTypes.number,
@@ -67,6 +72,8 @@ TextArea.defaultProps = {
   invalid: false,
   invalidIconLabel: 'Error',
   invalidText: '',
+  label: '',
+  hideLabel: false,
   name: '',
   placeholder: '',
   rows: 4,

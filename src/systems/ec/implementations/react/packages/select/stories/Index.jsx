@@ -23,10 +23,11 @@ storiesOf('Forms/Select', module)
     <Select
       id="select-id"
       options={demoContent.options}
+      hideLabel={boolean('Hide label', false)}
       label={text('Label', demoContent.label)}
+      helperText={text('Helper text', 'Help message')}
       invalid={boolean('Invalid', false)}
-      invalidText={text('invalidText', 'Error')}
-      helperText={text('helperText', 'Help message')}
+      invalidText={text('Invalid text', 'Error')}
       disabled={boolean('Disabled', false)}
     />
   ));

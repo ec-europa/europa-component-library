@@ -12,11 +12,12 @@ storiesOf('Forms/TextInput', module)
   .add('default', () => (
     <TextInput
       id="example"
+      hideLabel={boolean('Hide label', false)}
       label={text('Label', demoContentDefault.label)}
       placeholder={text('Placeholder', demoContentDefault.placeholder)}
+      helperText={text('Helper text', 'Help message')}
       invalid={boolean('Invalid', false)}
-      invalidText={text('invalidText', 'Error')}
-      helperText={text('helperText', 'Help message')}
+      invalidText={text('Invalid text', 'Error')}
       disabled={boolean('Disabled', false)}
     />
   ));
