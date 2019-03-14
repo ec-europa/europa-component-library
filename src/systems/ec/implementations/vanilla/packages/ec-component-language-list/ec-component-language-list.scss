@@ -134,9 +134,19 @@
    * Overlay only
    */
   .ecl-language-list--overlay {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
     .ecl-language-list__container {
+      height: 100%;
+      overflow-y: auto;
       padding-bottom: $ecl-spacing-2-xl;
       padding-top: $ecl-spacing-2-xl;
+      width: 100%;
     }
   }
 
