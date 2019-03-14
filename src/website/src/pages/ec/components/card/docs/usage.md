@@ -26,9 +26,9 @@ Card layouts can vary to support the types of content they contain.
 
 - Browsing for information (as opposed to searching)
 - Grouping heterogeneous types of content
-- To provide a visual boundary, allowing users to easily navigate through:
-  - several distinct items
-  - To enhance information browsing
+- Allowing users to scan through content in small portions
+  - To display structured content
+  - To make information discoverable
 - The user goals that the card-based web design best responds to:
   - scrolling through
   - scanning through
@@ -48,7 +48,9 @@ Card layouts can vary to support the types of content they contain.
 
 ## DON'Ts
 
-- Overuse cards; Limit the amount of cards to small groups of item.
+- Overuse cards 
+- Limit the amount of cards to small groups of items
+- Limit to 3-4 cards within a row
 - Use cards as an image gallery, use <Link to="/ec/components/media/gallery/usage">gallery</Link> instead.
 - Use cards to display images or video, use <Link to="/ec/components/media/media-container/usage">media container</Link> instead.
 
