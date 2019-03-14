@@ -18,12 +18,13 @@ storiesOf('Forms/TextArea', module)
   .add('default', () => (
     <TextArea
       id="example"
+      hideLabel={boolean('Hide label', false)}
       label={text('Label', demoContentDefault.label)}
-      placeholder={text('Placeholder', demoContentDefault.placeholder)}
       rows={number('Rows', demoContentDefault.rows)}
+      placeholder={text('Placeholder', demoContentDefault.placeholder)}
+      helperText={text('Helper text', 'Help message')}
       invalid={boolean('Invalid', false)}
-      invalidText={text('invalidText', 'Error')}
-      helperText={text('helperText', 'Help message')}
+      invalidText={text('Invalid text', 'Error')}
       disabled={boolean('Disabled', false)}
     />
   ));
