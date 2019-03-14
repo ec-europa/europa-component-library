@@ -30,7 +30,6 @@ const TextArea = ({
             'ecl-form-label--hidden': hideLabel,
           })}
           htmlFor={id}
-          {...hideLabel && { hidden: true }}
         >
           {label}
         </label>
