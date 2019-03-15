@@ -16,7 +16,6 @@ module.exports = {
   foursquare: require('./demo--foursquare'),
   generic: require('./demo--generic'),
   google: require('./demo--google'),
-  gplus: require('./demo--gplus'),
   instagram: require('./demo--instagram'),
   linkarena: require('./demo--linkarena'),
   linkedin: require('./demo--linkedin'),
