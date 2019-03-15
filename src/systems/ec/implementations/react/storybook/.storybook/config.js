@@ -4,7 +4,16 @@ import { create } from '@storybook/theming';
 import { checkA11y } from '@storybook/addon-a11y';
 import './ECL';
 
+addDecorator(checkA11y);
+
 addParameters({
+  a11y: {
+    configure: {},
+    options: {
+      checks: { 'color-contrast': { options: { noScroll: true } } },
+      restoreScroll: true,
+    },
+  },
   options: {
     theme: create({
       base: 'light',
@@ -20,8 +29,6 @@ addParameters({
 });
 
 const contexts = [require.context('../../packages', true, /stories.*\.jsx?$/)];
-
-addDecorator(checkA11y);
 
 configure(() => {
   contexts.forEach(context => {
