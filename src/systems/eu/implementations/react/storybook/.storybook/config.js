@@ -1,10 +1,10 @@
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
-import { checkA11y } from '@storybook/addon-a11y';
+import { withA11y } from '@storybook/addon-a11y';
 import './ECL';
 
-addDecorator(checkA11y);
+addDecorator(withA11y);
 
 addParameters({
   a11y: {
