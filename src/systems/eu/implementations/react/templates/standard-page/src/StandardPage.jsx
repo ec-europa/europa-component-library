@@ -17,7 +17,7 @@ const StandardPage = ({
   card,
 }) => (
   <Fragment>
-    <SiteHeader {...siteHeader} />
+    <SiteHeader {...siteHeader} id="top" />
     <PageHeader {...pageHeader} />
     <LanguageListOverlay {...languageList} hidden="true" />
     <main className="ecl-u-pv-xl">
