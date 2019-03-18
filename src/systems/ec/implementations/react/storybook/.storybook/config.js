@@ -1,20 +1,34 @@
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
-import { checkA11y } from '@storybook/addon-a11y';
-import ECLDecorator from './ECL';
+import { create } from '@storybook/theming';
+import { withA11y } from '@storybook/addon-a11y';
+import './ECL';
 
-addDecorator(
-  withOptions({
-    name: 'ECL v2 - EC',
-    url: 'https://github.com/ec-europa/europa-component-library',
+addDecorator(withA11y);
+
+addParameters({
+  a11y: {
+    configure: {},
+    options: {
+      checks: { 'color-contrast': { options: { noScroll: true } } },
+      restoreScroll: true,
+    },
+  },
+  options: {
+    theme: create({
+      base: 'light',
+      colorSecondary: '#004494',
+      appBorderRadius: 0,
+      inputBorderRadius: 0,
+      brandTitle: 'ECL v2 - EC',
+      brandUrl: 'https://github.com/ec-europa/europa-component-library',
+      brandImage: null,
+    }),
     sidebarAnimations: false,
-  })
-);
+  },
+});
 
 const contexts = [require.context('../../packages', true, /stories.*\.jsx?$/)];
-
-addDecorator(checkA11y);
-addDecorator(ECLDecorator);
 
 configure(() => {
   contexts.forEach(context => {
