@@ -32,8 +32,7 @@ pipeline:
   examples:
     image: node:dubnium
     commands:
-      - cd examples/webpack3 && yarn build --display=errors-only
-      - cd ../webpack4 && yarn build --display=errors-only
+      - cd examples/webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
       matrix:
