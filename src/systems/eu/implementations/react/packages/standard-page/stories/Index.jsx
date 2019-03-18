@@ -2,6 +2,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
+import createFocusTrap from 'focus-trap';
 
 import StandardPageExample from '../examples/Default';
 
@@ -10,22 +11,23 @@ storiesOf('Templates/Standard page', module)
     function toggleOverlay(e) {
       e.preventDefault();
 
-      const languageListOverlay = document.querySelector(
-        '[data-ecl-language-list-overlay]'
-      );
-
-      if (languageListOverlay.hasAttribute('hidden')) {
-        languageListOverlay.removeAttribute('hidden');
+      if (this.languageListOverlay.hasAttribute('hidden')) {
+        this.languageListOverlay.removeAttribute('hidden');
         e.currentTarget.setAttribute('aria-expanded', true);
+        this.focusTrap.activate();
       } else {
-        languageListOverlay.setAttribute('hidden', true);
+        this.languageListOverlay.setAttribute('hidden', true);
         e.currentTarget.setAttribute('aria-expanded', false);
+        this.focusTrap.deactivate();
       }
     }
 
     return (
       <StoryWrapper
         afterMount={() => {
+          const languageListOverlay = document.querySelector(
+            '[data-ecl-language-list-overlay]'
+          );
           const languageSelector = document.querySelector(
             '[data-ecl-language-selector]'
           );
@@ -33,8 +35,19 @@ storiesOf('Templates/Standard page', module)
             '[data-ecl-language-list-close]'
           );
 
-          languageSelector.addEventListener('click', toggleOverlay);
-          close.addEventListener('click', toggleOverlay);
+          // Create focus trap
+          const focusTrap = createFocusTrap(languageListOverlay, {
+            escapeDeactivates: false,
+          });
+
+          languageSelector.addEventListener(
+            'click',
+            toggleOverlay.bind({ focusTrap, languageListOverlay })
+          );
+          close.addEventListener(
+            'click',
+            toggleOverlay.bind({ focusTrap, languageListOverlay })
+          );
 
           // Return new context
           return { languageSelector, close };
