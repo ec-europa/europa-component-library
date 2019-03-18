@@ -51,6 +51,7 @@ const SiteHeader = ({
             <a
               className="ecl-link ecl-link--standalone"
               href={languageSelector.href}
+              data-ecl-language-selector
             >
               {languageSelector.name}
               <span className="ecl-site-header__language-icon">
