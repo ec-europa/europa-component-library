@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Blockquote from '@ecl/ec-react-component-blockquote';
-import Card from '@ecl/ec-react-component-card';
-import Footer from '@ecl/ec-react-component-footer';
-import Icon from '@ecl/ec-react-component-icon';
-import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/LanguageListOverlay';
-import Link from '@ecl/ec-react-component-link';
-import MediaContainer from '@ecl/ec-react-component-media-container';
-import HeroBanner from '@ecl/ec-react-component-hero-banner';
-import SiteHeader from '@ecl/ec-react-component-site-header';
+import Blockquote from '@ecl/eu-react-component-blockquote';
+import Card from '@ecl/eu-react-component-card';
+import Footer from '@ecl/eu-react-component-footer';
+import Icon from '@ecl/eu-react-component-icon';
+import LanguageListOverlay from '@ecl/eu-react-component-language-list/src/LanguageListOverlay';
+import Link from '@ecl/eu-react-component-link';
+import MediaContainer from '@ecl/eu-react-component-media-container';
+import HeroBanner from '@ecl/eu-react-component-hero-banner';
+import SiteHeader from '@ecl/eu-react-component-site-header';
 
 const CampaignPage = ({
   siteHeader,
@@ -21,7 +21,7 @@ const CampaignPage = ({
   blockquote,
 }) => (
   <Fragment>
-    <SiteHeader {...siteHeader} />
+    <SiteHeader {...siteHeader} id="top" />
     <LanguageListOverlay {...languageList} hidden="true" />
     <HeroBanner {...heroBanner} />
     <main className="ecl-u-pv-xl">

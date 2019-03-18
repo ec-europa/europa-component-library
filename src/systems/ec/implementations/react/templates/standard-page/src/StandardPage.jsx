@@ -19,7 +19,7 @@ const StandardPage = ({
   card,
 }) => (
   <Fragment>
-    <SiteSwitcher {...siteSwitcher} />
+    <SiteSwitcher {...siteSwitcher} id="top" />
     <SiteHeader {...siteHeader} />
     <LanguageListOverlay {...languageList} hidden="true" />
     <PageHeader {...pageHeader} />

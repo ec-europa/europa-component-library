@@ -28,7 +28,10 @@ addParameters({
   },
 });
 
-const contexts = [require.context('../../packages', true, /stories.*\.jsx?$/)];
+const contexts = [
+  require.context('../../packages', true, /stories.*\.jsx?$/),
+  require.context('../../templates', true, /stories.*\.jsx?$/),
+];
 
 configure(() => {
   contexts.forEach(context => {
