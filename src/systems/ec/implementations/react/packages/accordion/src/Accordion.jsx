@@ -8,7 +8,6 @@ const Accordion = ({ children, className, ...props }) => {
       {...props}
       className={classnames(className, 'ecl-accordion')}
       data-ecl-accordion
-      role="presentation"
     >
       {children}
     </div>
