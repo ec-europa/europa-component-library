@@ -61,7 +61,7 @@
     <div class="ecl-container">
       {% include '@ecl/' ~ _system ~ '-component-navigation-list' with {
         'display': 'small',
-        'extra_classes': 'ecl-u-f-r'
+        'extra_classes': 'ecl-u-f-r ecl-site-header__user-menu'
       }|merge(_user_menu) only %}
     </div>
   {% endif %}
