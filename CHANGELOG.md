@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.3.1 (2019-03-19)
+
+#### :bug: Bug Fix
+
+* [#1040](https://github.com/ec-europa/europa-component-library/pull/1040) fix(user-menu): fix mobile display - INNO-1400. ([@yhuard](https://github.com/yhuard))
+* [#1037](https://github.com/ec-europa/europa-component-library/pull/1037) fix(icons): remove g+ icon from ECL v1 - INNO-1393. ([@yhuard](https://github.com/yhuard))
+* [#1009](https://github.com/ec-europa/europa-component-library/pull/1009) fix(ec-site-header): hide user menu. ([@yhuard](https://github.com/yhuard))
+* [#989](https://github.com/ec-europa/europa-component-library/pull/989) fix(side-nav): init expandable behavior on side navigation - INNO-1312. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+* Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.3.0 (2018-12-21)
 
 #### :rocket: New Feature
