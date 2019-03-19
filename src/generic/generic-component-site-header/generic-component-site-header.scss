@@ -42,4 +42,18 @@
   .ecl-site-header__search {
     flex-grow: 1;
   }
+
+  .ecl-site-header__user-menu {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-site-header__user-menu {
+      display: block;
+      width: auto;
+    }
+  }
 }
