@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, number } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContent from '@ecl/eu-specs-contextual-navigation/demo/data';
@@ -35,4 +35,11 @@ storiesOf('Navigation/Contextual Navigation', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => <ContextualNavigation {...demoContent} />);
+  .add('default', () => {
+    const data = {
+      ...demoContent,
+      itemsLimit: number('Number of items:', demoContent.itemsLimit),
+    };
+
+    return <ContextualNavigation {...data} />;
+  });
