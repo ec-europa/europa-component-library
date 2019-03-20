@@ -1,5 +1,5 @@
 ---
-title: Expandable
+title: Expandables
 defaultTab: usage
 status: ready
 ---
