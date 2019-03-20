@@ -11,7 +11,7 @@ import demoContentAlignLeft from '@ecl/ec-specs-hero-banner/demo/data--align-lef
 
 import HeroBanner from '../src/HeroBanner';
 
-storiesOf('HeroBanner', module)
+storiesOf('Banners/Hero Banner', module)
   .addDecorator(withKnobs)
   .add('image', () => {
     const button = {
