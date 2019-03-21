@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/* Hidden for now
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
@@ -26,3 +27,4 @@ storiesOf('DateBlock', module)
       month={text('Month', demoContentDefault.month)}
     />
   ));
+*/
