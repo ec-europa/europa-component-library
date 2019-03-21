@@ -15,6 +15,7 @@ storiesOf('Navigation/In page navigation', module)
       'height: 200px; margin: 0 0 1em; background: #ececec; display:flex; padding: 1em; align-items: center; justify-content: center;';
     const btnLeftLabel = 'Inject a block in the left sidebar';
     const btnMainLabel = 'Inject a generic block in the main column';
+    const groupId = 'buttons';
     const btnIdLabel =
       'Inject a new <h2 id="..." in the main column (random order)';
     const btnIdRemoveLabel =
@@ -65,10 +66,10 @@ storiesOf('Navigation/In page navigation', module)
       randomH2.outerHTML = '';
     };
 
-    button(btnLeftLabel, btnLeftHandler);
-    button(btnMainLabel, btnMainHandler);
-    button(btnIdLabel, btnIdHandler);
-    button(btnIdRemoveLabel, btnIdRemoveHandler);
+    button(btnLeftLabel, btnLeftHandler, groupId);
+    button(btnMainLabel, btnMainHandler, groupId);
+    button(btnIdLabel, btnIdHandler, groupId);
+    button(btnIdRemoveLabel, btnIdRemoveHandler, groupId);
 
     const inpageProps = {
       links: [
