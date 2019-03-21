@@ -37,16 +37,16 @@ module.exports = {
     },
     {
       href: '/example',
-      label: 'Google+',
+      label: 'Instagram',
       variant: 'standalone',
       iconPosition: 'before',
       icon: [
         {
-          shape: 'gplus',
+          shape: 'instagram',
           size: 'xl',
         },
         {
-          shape: 'gplus_hover',
+          shape: 'instagram_hover',
           size: 'xl',
         },
       ],

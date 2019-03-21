@@ -9,7 +9,7 @@ import demoContent from '@ecl/eu-specs-breadcrumb/demo/data';
 import Breadcrumb from '../src/Breadcrumb';
 import BreadcrumbItem from '../src/BreadcrumbItem';
 
-storiesOf('Breadcrumb', module)
+storiesOf('Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <div style={{ backgroundColor: '#004494' }}>{story()}</div>

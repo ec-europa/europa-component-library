@@ -5,10 +5,12 @@ import classnames from 'classnames';
 import Button from '@ecl/eu-react-component-button';
 
 const AccordionItem = ({ id, toggle, level, children }) => {
+  const HeadingTag = `h${level || 3}`;
+
   return (
     <Fragment>
       {!!(toggle && toggle.label) && (
-        <dt role="heading" {...level && { 'aria-level': level }}>
+        <HeadingTag className="ecl-accordion__title">
           <Button
             type="button"
             className={classnames(toggle.className, 'ecl-accordion__toggle')}
@@ -19,17 +21,17 @@ const AccordionItem = ({ id, toggle, level, children }) => {
             iconPosition="before"
             label={toggle.label}
           />
-        </dt>
+        </HeadingTag>
       )}
 
-      <dd
+      <div
         className="ecl-accordion__content"
         id={`${id}-content`}
         hidden
         role="region"
       >
         {children}
-      </dd>
+      </div>
     </Fragment>
   );
 };

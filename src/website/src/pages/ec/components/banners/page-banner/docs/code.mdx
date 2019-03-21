@@ -1,0 +1,63 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import PageBanner from '@ecl/ec-react-component-page-banner';
+
+import demoContentImage from '@ecl/ec-specs-page-banner/demo/data--image';
+import demoContentImageShade from '@ecl/ec-specs-page-banner/demo/data--image-shade';
+import demoContentPrimary from '@ecl/ec-specs-page-banner/demo/data--primary';
+import demoContentDefault from '@ecl/ec-specs-page-banner/demo/data--default';
+import demoContentAlignLeft from '@ecl/ec-specs-page-banner/demo/data--align-left';
+
+## Image banner
+
+<Playground
+  system="ec"
+  selectedKind="banners-page-banner"
+  selectedStory="image"
+>
+  <PageBanner {...demoContentImage} />
+</Playground>
+
+## Shade image banner
+
+<Playground
+  system="ec"
+  selectedKind="banners-page-banner"
+  selectedStory="image-shade"
+>
+  <PageBanner {...demoContentImageShade} />
+</Playground>
+
+## Primary banner
+
+<Playground
+  system="ec"
+  selectedKind="banners-page-banner"
+  selectedStory="primary"
+>
+  <PageBanner {...demoContentPrimary} />
+</Playground>
+
+## Default banner
+
+<Playground
+  system="ec"
+  selectedKind="banners-page-banner"
+  selectedStory="default"
+>
+  <PageBanner {...demoContentDefault} />
+</Playground>
+
+## Align left
+
+<Playground
+  system="ec"
+  selectedKind="banners-page-banner"
+  selectedStory="align-left"
+>
+  <PageBanner {...demoContentAlignLeft} />
+</Playground>
