@@ -58,21 +58,11 @@ We will also add new components to the ECL 2.0 as we continue improving the look
 - [#1012](https://github.com/ec-europa/europa-component-library/pull/1012) feat(website): display version number - INNO-1325 ([@emeryro](https://github.com/emeryro))
 - [#1005](https://github.com/ec-europa/europa-component-library/pull/1005) chore: setup v2-dev branch ([@yhuard](https://github.com/yhuard))
 
-#### Committers: 3
-
-- Romain Emery ([@emeryro](https://github.com/emeryro))
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
-- wesley deglise ([@degliwe](https://github.com/degliwe))
-
 ## 2.1.1 (2019-02-14)
 
 #### :bug: Bug Fix
 
 - [#1013](https://github.com/ec-europa/europa-component-library/pull/1013) fix(ecl-builder): update dependencies, fix scripts build - no issue ([@yhuard](https://github.com/yhuard))
-
-#### Committers: 1
-
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
 
 ## 2.1.0 (2019-02-05)
 
@@ -109,12 +99,6 @@ We will also add new components to the ECL 2.0 as we continue improving the look
 - [#968](https://github.com/ec-europa/europa-component-library/pull/968) refactor(website): apply specs ([@emeryro](https://github.com/emeryro))
 - [#988](https://github.com/ec-europa/europa-component-library/pull/988) chore(dependencies): update dependencies - no issue ([@yhuard](https://github.com/yhuard))
 
-#### Committers: 3
-
-- Romain Emery ([@emeryro](https://github.com/emeryro))
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
-- [@planctus](https://github.com/planctus)
-
 ## 2.0.0 (2018-12-10)
 
 #### :memo: Documentation
@@ -124,11 +108,6 @@ We will also add new components to the ECL 2.0 as we continue improving the look
 #### :house: Internal
 
 - [#974](https://github.com/ec-europa/europa-component-library/pull/974) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
-
-#### Committers: 2
-
-- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
 
 ## 2.0.0-beta.0 (2018-11-30)
 
@@ -179,14 +158,6 @@ We will also add new components to the ECL 2.0 as we continue improving the look
 - [#927](https://github.com/ec-europa/europa-component-library/pull/927) chore(deps): keep dependencies up-to-date - no issue ([@yhuard](https://github.com/yhuard))
 - [#934](https://github.com/ec-europa/europa-component-library/pull/934) chore(react-dependencies): harmonize react packages' dependencies - INNO-1268 ([@yhuard](https://github.com/yhuard))
 
-#### Committers: 5
-
-- Georgios K ([@kibos11](https://github.com/kibos11))
-- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
-- Romain Emery ([@emeryro](https://github.com/emeryro))
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
-- wesley deglise ([@degliwe](https://github.com/degliwe))
-
 ## 2.0.0-alpha.3 (2018-10-23)
 
 #### :rocket: New Feature
@@ -236,13 +207,6 @@ We will also add new components to the ECL 2.0 as we continue improving the look
 - [#909](https://github.com/ec-europa/europa-component-library/pull/909) chore(website): rearrange categories - no issue ([@yhuard](https://github.com/yhuard))
 - [#899](https://github.com/ec-europa/europa-component-library/pull/899) chore(logo): remove standalone logo - INNO-1260 ([@yhuard](https://github.com/yhuard))
 
-#### Committers: 4
-
-- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
-- Romain Emery ([@emeryro](https://github.com/emeryro))
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
-- wesley deglise ([@degliwe](https://github.com/degliwe))
-
 ## 2.0.0-alpha.2 (2018-10-15)
 
 #### :bug: Bug Fix
@@ -261,12 +225,6 @@ We will also add new components to the ECL 2.0 as we continue improving the look
 #### :house: Internal
 
 - [#882](https://github.com/ec-europa/europa-component-library/pull/882) chore(alpha2): prepare alpha.2 release ([@yhuard](https://github.com/yhuard))
-
-#### Committers: 3
-
-- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
-- Romain Emery ([@emeryro](https://github.com/emeryro))
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
 
 ## 2.0.0-alpha.1 (2018-10-11)
 
@@ -403,12 +361,3 @@ Re-publish packages.
 - [#742](https://github.com/ec-europa/europa-component-library/pull/742) chore(dependencies): update dependencies - no issue ([@yhuard](https://github.com/yhuard))
 - [#739](https://github.com/ec-europa/europa-component-library/pull/739) refactor(structure): revamp folder architecture - INNO-1143 ([@yhuard](https://github.com/yhuard))
 - [#730](https://github.com/ec-europa/europa-component-library/pull/730) feat(design-token): PoC - INNO-1127 ([@emeryro](https://github.com/emeryro))
-
-#### Committers: 6
-
-- Georgios K ([@kibos11](https://github.com/kibos11))
-- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
-- Romain Emery ([@emeryro](https://github.com/emeryro))
-- Thanasis Rigopoulos ([@thanasisrig](https://github.com/thanasisrig))
-- Yannick Huard ([@yhuard](https://github.com/yhuard))
-- wesley deglise ([@degliwe](https://github.com/degliwe))
