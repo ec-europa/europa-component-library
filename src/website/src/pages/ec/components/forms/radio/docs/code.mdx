@@ -1,0 +1,19 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import RadioButton from '@ecl/ec-react-component-radio';
+
+import demoContentDefault from '@ecl/ec-specs-radio/demo/data--default';
+
+<Playground system="ec" selectedKind="forms-radio" selectedStory="default">
+  <RadioButton
+    id="text-input-id"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    helperText="Help message"
+  />
+</Playground>
