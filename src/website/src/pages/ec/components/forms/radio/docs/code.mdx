@@ -4,16 +4,33 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import RadioButton from '@ecl/ec-react-component-radio';
+import RadioGroup from '@ecl/ec-react-component-radio';
 
 import demoContentDefault from '@ecl/ec-specs-radio/demo/data--default';
+import demoContentInvalid from '@ecl/ec-specs-radio/demo/data--invalid';
+import demoContentBinary from '@ecl/ec-specs-radio/demo/data--binary';
+import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-invalid';
+
+## Default radio group
 
 <Playground system="ec" selectedKind="forms-radio" selectedStory="default">
-  <RadioButton
-    id="text-input-id"
-    name="text-input-name"
-    type="text"
-    label={demoContentDefault.label}
-    helperText="Help message"
-  />
+  <RadioGroup {...demoContentDefault} />
+</Playground>
+
+## Invalid radio group
+
+<Playground system="ec" selectedKind="forms-radio" selectedStory="default">
+  <RadioGroup {...demoContentInvalid} />
+</Playground>
+
+## Binary radio group
+
+<Playground system="ec" selectedKind="forms-radio" selectedStory="binary">
+  <RadioGroup {...demoContentBinary} />
+</Playground>
+
+## Binary invalid radio group
+
+<Playground system="ec" selectedKind="forms-radio" selectedStory="binary">
+  <RadioGroup {...demoContentBinaryInvalid} />
 </Playground>

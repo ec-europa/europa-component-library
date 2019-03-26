@@ -1,1 +1,2 @@
-export default from './src/RadioButton';
+export default from './src/RadioGroup';
+export RadioButton from './src/RadioButton';

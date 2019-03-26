@@ -1,24 +1,25 @@
 module.exports = {
-  labelId: 'radio-default-label',
+  labelId: 'radio-invalid-label',
   label: 'Select your country',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
-  name: 'radio-default',
+  invalid: true,
+  name: 'radio-invalid',
   items: [
     {
-      id: 'radio-default-1',
+      id: 'radio-invalid-1',
       value: 'lu',
       label: 'Luxembourg',
       helperText: 'Help text for option 1',
     },
     {
-      id: 'radio-default-2',
+      id: 'radio-invalid-2',
       value: 'be',
       label: 'Belgium',
       helperText: 'Help text for option 2',
     },
     {
-      id: 'radio-default-3',
+      id: 'radio-invalid-3',
       value: 'fr',
       label: 'France (disabled)',
       helperText: 'Help text for option 3',

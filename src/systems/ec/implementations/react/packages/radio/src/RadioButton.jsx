@@ -13,7 +13,7 @@ const RadioButton = ({
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-radio', {
-    'ecl-radio--diasbled': disabled,
+    'ecl-radio--disabled': disabled,
   });
 
   return (
@@ -24,8 +24,9 @@ const RadioButton = ({
         className="ecl-radio__input"
         type="radio"
         value={value}
+        disabled={disabled}
       />
-      <label htmlFor={id} className="ecl-radio__label" disabled={disabled}>
+      <label htmlFor={id} className="ecl-radio__label">
         <span className="ecl-radio__box" />
         {label}
       </label>
