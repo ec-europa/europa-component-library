@@ -41,13 +41,11 @@ const RadioGroup = ({
       )}
 
       {helperText && (
-        <div className="ecl-radio__help ecl-help-block">{helperText}</div>
+        <p className="ecl-radio__help ecl-help-block">{helperText}</p>
       )}
 
       {invalid && invalidText && (
-        <div className="ecl-radio__invalid ecl-feedback-message">
-          {invalidText}
-        </div>
+        <p className="ecl-radio__invalid ecl-feedback-message">{invalidText}</p>
       )}
 
       {items.map(item => (
