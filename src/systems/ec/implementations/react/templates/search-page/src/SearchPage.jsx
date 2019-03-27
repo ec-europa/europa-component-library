@@ -27,97 +27,99 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
               Search options
             </h3>
 
-            <Select
-              id="facet-source"
-              label="Source"
-              options={[
-                {
-                  value: '1',
-                  label: 'All sources',
-                },
-                {
-                  value: '2',
-                  label: 'DG Trade',
-                },
-                {
-                  value: '3',
-                  label: 'DG Digit',
-                },
-              ]}
-            />
+            <form>
+              <Select
+                id="facet-source"
+                label="Source"
+                options={[
+                  {
+                    value: '1',
+                    label: 'All sources',
+                  },
+                  {
+                    value: '2',
+                    label: 'DG Trade',
+                  },
+                  {
+                    value: '3',
+                    label: 'DG Digit',
+                  },
+                ]}
+              />
 
-            <Select
-              id="facet-date"
-              label="Date"
-              options={[
-                {
-                  value: '1',
-                  label: 'All dates',
-                },
-                {
-                  value: '2',
-                  label: '2019',
-                },
-                {
-                  value: '3',
-                  label: '2018',
-                },
-              ]}
-            />
+              <Select
+                id="facet-date"
+                label="Date"
+                options={[
+                  {
+                    value: '1',
+                    label: 'All dates',
+                  },
+                  {
+                    value: '2',
+                    label: '2019',
+                  },
+                  {
+                    value: '3',
+                    label: '2018',
+                  },
+                ]}
+              />
 
-            <Select
-              id="facet-language"
-              label="Language"
-              options={[
-                {
-                  value: '1',
-                  label: 'English',
-                },
-                {
-                  value: '2',
-                  label: 'French',
-                },
-                {
-                  value: '3',
-                  label: 'German',
-                },
-                {
-                  value: '3',
-                  label: 'Bulgarian',
-                },
-              ]}
-            />
+              <Select
+                id="facet-language"
+                label="Language"
+                options={[
+                  {
+                    value: '1',
+                    label: 'English',
+                  },
+                  {
+                    value: '2',
+                    label: 'French',
+                  },
+                  {
+                    value: '3',
+                    label: 'German',
+                  },
+                  {
+                    value: '3',
+                    label: 'Bulgarian',
+                  },
+                ]}
+              />
 
-            <Select
-              id="facet-format"
-              label="File format"
-              options={[
-                {
-                  value: '1',
-                  label: 'All formats',
-                },
-                {
-                  value: '2',
-                  label: 'PDF',
-                },
-                {
-                  value: '3',
-                  label: 'DOC',
-                },
-              ]}
-            />
+              <Select
+                id="facet-format"
+                label="File format"
+                options={[
+                  {
+                    value: '1',
+                    label: 'All formats',
+                  },
+                  {
+                    value: '2',
+                    label: 'PDF',
+                  },
+                  {
+                    value: '3',
+                    label: 'DOC',
+                  },
+                ]}
+              />
 
-            <Button
-              className="ecl-u-mt-l"
-              label="Refine results"
-              variant="primary"
-            />
-            <br />
-            <Button
-              className="ecl-u-mt-m ecl-u-mt-lg-l"
-              label="Clear all"
-              variant="secondary"
-            />
+              <Button
+                className="ecl-u-mt-l"
+                label="Refine results"
+                variant="primary"
+              />
+              <br />
+              <Button
+                className="ecl-u-mt-m ecl-u-mt-lg-l"
+                label="Clear all"
+                variant="secondary"
+              />
+            </form>
           </aside>
 
           <section className="ecl-col-12 ecl-col-lg-9">
