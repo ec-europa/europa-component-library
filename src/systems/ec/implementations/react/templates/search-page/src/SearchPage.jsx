@@ -112,6 +112,7 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
               label="Refine results"
               variant="primary"
             />
+            <br />
             <Button
               className="ecl-u-mt-m ecl-u-mt-lg-l"
               label="Clear all"
