@@ -4,14 +4,13 @@ import classnames from 'classnames';
 
 const Accordion = ({ children, className, ...props }) => {
   return (
-    <dl
+    <div
       {...props}
       className={classnames(className, 'ecl-accordion')}
       data-ecl-accordion
-      role="presentation"
     >
       {children}
-    </dl>
+    </div>
   );
 };
 

@@ -9,9 +9,9 @@ import demoContentPrimary from '@ecl/eu-specs-page-banner/demo/data--primary';
 import demoContentDefault from '@ecl/eu-specs-page-banner/demo/data--default';
 import demoContentAlignLeft from '@ecl/eu-specs-page-banner/demo/data--align-left';
 
-import PageBanner from '../PageBanner';
+import PageBanner from '../src/PageBanner';
 
-storiesOf('PageBanner', module)
+storiesOf('Banners/Page Banner', module)
   .addDecorator(withKnobs)
   .add('image', () => {
     const button = {

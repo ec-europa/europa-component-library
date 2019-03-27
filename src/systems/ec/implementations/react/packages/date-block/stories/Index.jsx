@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/* Hidden for now
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 
 import demoContentDefault from '@ecl/ec-specs-date-block/demo/data--default';
 
-import DateBlock from '../DateBlock';
+import DateBlock from '../src/DateBlock';
 
 storiesOf('DateBlock', module)
   .addDecorator(withKnobs)
@@ -26,3 +27,4 @@ storiesOf('DateBlock', module)
       month={text('Month', demoContentDefault.month)}
     />
   ));
+*/

@@ -12,8 +12,10 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
+const emoji = require('remark-emoji');
 
 const babelConfig = require('./config/babel.config');
+const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -184,6 +186,7 @@ module.exports = {
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
                     ],
+                    emoji,
                   ],
                 },
               },
@@ -282,6 +285,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
+      'process.env.ECL_VERSION': JSON.stringify(lernaJson.version),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

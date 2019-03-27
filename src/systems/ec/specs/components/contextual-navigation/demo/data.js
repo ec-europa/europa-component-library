@@ -33,6 +33,7 @@ module.exports = {
       variant: 'standalone',
     },
   ],
+  itemsLimit: 3,
   itemMore: {
     label: 'More',
     variant: 'ghost',

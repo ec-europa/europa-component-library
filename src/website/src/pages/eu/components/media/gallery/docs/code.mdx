@@ -1,0 +1,18 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Gallery from '@ecl/eu-react-component-gallery';
+
+import demoContent from '@ecl/eu-specs-gallery/demo/data';
+
+<Playground
+  system="eu"
+  selectedKind="gallery"
+  selectedStory="default"
+  showFrame
+>
+  <Gallery {...demoContent} />
+</Playground>

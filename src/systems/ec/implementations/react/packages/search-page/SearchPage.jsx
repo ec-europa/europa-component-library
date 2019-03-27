@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '@ecl/ec-react-component-button/Button';
-import Footer from '@ecl/ec-react-component-footer/Footer';
-import Link from '@ecl/ec-react-component-link/Link';
-import PageHeader from '@ecl/ec-react-component-page-header/PageHeader';
-import Pagination from '@ecl/ec-react-component-pagination/Pagination';
-import Select from '@ecl/ec-react-component-select/Select';
-import SiteHeader from '@ecl/ec-react-component-site-header/SiteHeader';
-import SiteSwitcher from '@ecl/ec-react-component-site-switcher/SiteSwitcher';
-import Tag from '@ecl/ec-react-component-tag/Tag';
+import Button from '@ecl/ec-react-component-button';
+import Footer from '@ecl/ec-react-component-footer';
+import Link from '@ecl/ec-react-component-link';
+import PageHeader from '@ecl/ec-react-component-page-header';
+import Pagination from '@ecl/ec-react-component-pagination';
+import Select from '@ecl/ec-react-component-select';
+import SiteHeader from '@ecl/ec-react-component-site-header';
+import SiteSwitcher from '@ecl/ec-react-component-site-switcher';
+import Tag from '@ecl/ec-react-component-tag';
 
 const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
   <Fragment>

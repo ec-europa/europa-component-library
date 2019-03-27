@@ -36,11 +36,11 @@ module.exports = {
         },
         {
           variant: 'standalone',
-          label: 'Google+',
+          label: 'Instagram',
           href: '/example',
           iconPosition: 'before',
           icon: {
-            shape: 'branded--google-plus',
+            shape: 'branded--instagram',
             size: 'xs',
           },
         },

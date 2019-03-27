@@ -56,6 +56,7 @@ class Playground extends PureComponent {
       selectedKind,
       selectedStory,
       showFrame,
+      disableAutoResize,
       iframeOptions,
       hideDemo,
       children,
@@ -66,13 +67,17 @@ class Playground extends PureComponent {
     const playgroundUrl =
       playgroundLink ||
       encodeURI(
-        `/storybook/${system}/index.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}&stories=1`
+        `/storybook/${system}/${
+          process.env.NODE_ENV === 'development' ? 'index.html' : ''
+        }?path=/story/${selectedKind}--${selectedStory}`
       );
 
     const fullFrameUrl =
       system && selectedKind && selectedStory
         ? encodeURI(
-            `/storybook/${system}/iframe.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}`
+            `/storybook/${system}/${
+              process.env.NODE_ENV === 'development' ? 'iframe.html' : 'iframe'
+            }?id=${selectedKind}--${selectedStory}`
           )
         : '';
 
@@ -86,6 +91,7 @@ class Playground extends PureComponent {
                   url={fullFrameUrl}
                   defaultHeight={frameHeight}
                   iframeOptions={iframeOptions}
+                  disableAutoResize={disableAutoResize}
                 />
               ) : (
                 <div className={styles.showcase__content}>{children}</div>
@@ -188,6 +194,7 @@ Playground.propTypes = {
   // iframeOptions: https://github.com/davidjbradshaw/iframe-resizer#options
   iframeOptions: PropTypes.shape(),
   hideDemo: PropTypes.bool,
+  disableAutoResize: PropTypes.bool,
   system: PropTypes.string,
   selectedKind: PropTypes.string,
   selectedStory: PropTypes.string,
@@ -199,6 +206,7 @@ Playground.defaultProps = {
   showFrame: false,
   iframeOptions: {},
   hideDemo: false,
+  disableAutoResize: false,
   system: '',
   selectedKind: '',
   selectedStory: '',

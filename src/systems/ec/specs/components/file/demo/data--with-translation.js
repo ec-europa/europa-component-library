@@ -29,14 +29,17 @@ module.exports = {
       {
         title: 'български',
         meta: '(15.7 MB - PDF)',
+        lang: 'bg',
       },
       {
         title: 'español',
         meta: '(15.8 MB - PDF)',
+        lang: 'es',
       },
       {
-        title: 'čeština',
+        title: 'français',
         meta: '(15.4 MB - PDF)',
+        lang: 'fr',
       },
     ],
   },

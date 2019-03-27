@@ -1,14 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, number } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContent from '@ecl/ec-specs-contextual-navigation/demo/data';
 
 import VanillaContextualNavigation from '@ecl/ec-component-contextual-navigation';
 
-import ContextualNavigation from '../ContextualNavigation';
+import ContextualNavigation from '../src/ContextualNavigation';
 
 storiesOf('Navigation/Contextual Navigation', module)
   .addDecorator(withKnobs)
@@ -35,4 +35,11 @@ storiesOf('Navigation/Contextual Navigation', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => <ContextualNavigation {...demoContent} />);
+  .add('default', () => {
+    const data = {
+      ...demoContent,
+      itemsLimit: number('Number of items:', demoContent.itemsLimit),
+    };
+
+    return <ContextualNavigation {...data} />;
+  });

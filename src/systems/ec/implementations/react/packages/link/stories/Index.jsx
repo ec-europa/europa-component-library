@@ -7,7 +7,7 @@ import demoContentDefault from '@ecl/ec-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/ec-specs-link/demo/data--standalone';
 import uiIcons from '@ecl/ec-resources-icons/dist/lists/ui.json';
 
-import Link from '../Link';
+import Link from '../src/Link';
 
 const icons = {
   none: '',
@@ -24,7 +24,7 @@ const iconPosition = {
   after: 'after',
 };
 
-storiesOf('Link', module)
+storiesOf('Navigation/Link', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     const linkIcon = {

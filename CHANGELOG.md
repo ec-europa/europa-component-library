@@ -1,5 +1,70 @@
 # Changelog
 
+## 2.2.0 (2019-03-21)
+
+#### :rocket: New Feature
+
+- [#952](https://github.com/ec-europa/europa-component-library/pull/952) feat(gallery): apply new specs - INNO-1162 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1042](https://github.com/ec-europa/europa-component-library/pull/1042) fix(select): use same min/max widths as text input - INNO-1406 ([@yhuard](https://github.com/yhuard))
+- [#1039](https://github.com/ec-europa/europa-component-library/pull/1039) fix(accordion): fix accessibility - INNO-1394 ([@emeryro](https://github.com/emeryro))
+- [#1038](https://github.com/ec-europa/europa-component-library/pull/1038) fix(templates): make sure "back to top" links to the top - INNO-1395 ([@yhuard](https://github.com/yhuard))
+- [#1036](https://github.com/ec-europa/europa-component-library/pull/1036) fix(icons): remove g+ icon - INNO-1393 ([@yhuard](https://github.com/yhuard))
+- [#1035](https://github.com/ec-europa/europa-component-library/pull/1035) fix(forms): remove space before hidden label - INNO-1391 ([@emeryro](https://github.com/emeryro))
+- [#1031](https://github.com/ec-europa/europa-component-library/pull/1031) fix(tag): fix React component for IE 11 - INNO-1385 ([@yhuard](https://github.com/yhuard))
+- [#1030](https://github.com/ec-europa/europa-component-library/pull/1030) fix: improve social-media-\* on IE 11 - INNO-1386 ([@yhuard](https://github.com/yhuard))
+- [#1028](https://github.com/ec-europa/europa-component-library/pull/1028) fix(site-header): fix alignment in IE 11 - INNO-1388 ([@yhuard](https://github.com/yhuard))
+- [#1027](https://github.com/ec-europa/europa-component-library/pull/1027) fix(search-form): fix layout issue - INNO-1380 ([@yhuard](https://github.com/yhuard))
+- [#1026](https://github.com/ec-europa/europa-component-library/pull/1026) fix(accordion): fix display issue on IE 11 - INNO-1381 ([@yhuard](https://github.com/yhuard))
+- [#1025](https://github.com/ec-europa/europa-component-library/pull/1025) fix(file): rotate icon on expand/collapse - INNO-1382 ([@yhuard](https://github.com/yhuard))
+- [#1022](https://github.com/ec-europa/europa-component-library/pull/1022) fix: fix contextual-navigation's button - INNO-1377 ([@yhuard](https://github.com/yhuard))
+- [#1021](https://github.com/ec-europa/europa-component-library/pull/1021) fix: export classes correctly - INNO-1354 ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1034](https://github.com/ec-europa/europa-component-library/pull/1034) feat(template): add language list - INNO-1389 ([@emeryro](https://github.com/emeryro))
+- [#1007](https://github.com/ec-europa/europa-component-library/pull/1007) refactor(language-list): improve markup - INNO-1321 ([@emeryro](https://github.com/emeryro))
+- [#1006](https://github.com/ec-europa/europa-component-library/pull/1006) refactor(file): improve markup - INNO-1320 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1019](https://github.com/ec-europa/europa-component-library/pull/1019) docs(site): add usage guidelines WO1 ([@degliwe](https://github.com/degliwe))
+- [#1023](https://github.com/ec-europa/europa-component-library/pull/1023) docs(whats-new): poc ([@degliwe](https://github.com/degliwe))
+- [#1032](https://github.com/ec-europa/europa-component-library/pull/1032) docs: change ECL 1 version - no issue ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1047](https://github.com/ec-europa/europa-component-library/pull/1047) fix(components): hide components - INNO-1411 ([@emeryro](https://github.com/emeryro))
+- [#1046](https://github.com/ec-europa/europa-component-library/pull/1046) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#1045](https://github.com/ec-europa/europa-component-library/pull/1045) refactor(message): rename message - INNO-1405 ([@emeryro](https://github.com/emeryro))
+- [#1044](https://github.com/ec-europa/europa-component-library/pull/1044) refactor(expandable): rename expandable - INNO-1404 ([@emeryro](https://github.com/emeryro))
+- [#1041](https://github.com/ec-europa/europa-component-library/pull/1041) fix(storybook): add images for local tests - INNO-1397 ([@emeryro](https://github.com/emeryro))
+- [#1043](https://github.com/ec-europa/europa-component-library/pull/1043) refactor(banners): group banners - INNO-1402 ([@emeryro](https://github.com/emeryro))
+- [#1033](https://github.com/ec-europa/europa-component-library/pull/1033) chore: update dependencies - INNO-1392 ([@yhuard](https://github.com/yhuard))
+- [#1029](https://github.com/ec-europa/europa-component-library/pull/1029) fix(status): prevent status shrinking - INNO-1387 ([@yhuard](https://github.com/yhuard))
+- [#1018](https://github.com/ec-europa/europa-component-library/pull/1018) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#1010](https://github.com/ec-europa/europa-component-library/pull/1010) refactor(components): homogenization - INNO-1324 ([@emeryro](https://github.com/emeryro))
+- [#1012](https://github.com/ec-europa/europa-component-library/pull/1012) feat(website): display version number - INNO-1325 ([@emeryro](https://github.com/emeryro))
+- [#1005](https://github.com/ec-europa/europa-component-library/pull/1005) chore: setup v2-dev branch ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- wesley deglise ([@degliwe](https://github.com/degliwe))
+
+## 2.1.1 (2019-02-14)
+
+#### :bug: Bug Fix
+
+- [#1013](https://github.com/ec-europa/europa-component-library/pull/1013) fix(ecl-builder): update dependencies, fix scripts build - no issue ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.1.0 (2019-02-05)
 
 #### :rocket: New Feature
