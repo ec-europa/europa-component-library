@@ -7,7 +7,6 @@ import Icon from '@ecl/eu-react-component-icon';
 const Select = ({
   id,
   options,
-  block,
   disabled,
   helperText,
   invalid,
@@ -18,61 +17,61 @@ const Select = ({
   name,
   className,
   ...props
-}) => (
-  <div
-    className={classnames(className, 'ecl-form-group ecl-form-group--select', {
-      'ecl-form-group--block': block,
-    })}
-  >
-    {label && (
-      <label
-        className={classnames('ecl-form-label', {
-          'ecl-form-label--invalid': invalid,
-          'ecl-form-label--hidden': hideLabel,
-        })}
-        htmlFor={id}
-      >
-        {label}
-      </label>
-    )}
+}) => {
+  const classNames = classnames(className, 'ecl-select', {
+    'ecl-select--invalid': invalid,
+  });
 
-    <div
-      className={classnames('ecl-select__container', {
-        'ecl-select__container--disabled': disabled,
-      })}
-    >
-      <select
-        {...props}
-        id={id}
-        name={name || undefined}
-        className={classnames('ecl-select', {
-          'ecl-select--invalid': invalid,
-        })}
-        disabled={disabled}
-      >
-        {options.map(option => (
-          <option key={option.label} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+  return (
+    <div className="ecl-form-group ecl-form-group--select">
+      {label && (
+        <label
+          className={classnames('ecl-form-label', {
+            'ecl-form-label--invalid': invalid,
+            'ecl-form-label--hidden': hideLabel,
+          })}
+          htmlFor={id}
+        >
+          {label}
+        </label>
+      )}
 
-      <div className="ecl-select__icon">
-        <Icon
-          shape="ui--corner-arrow"
-          transform="rotate-180"
-          size="s"
-          className="ecl-select__icon-shape"
-        />
+      <div
+        className={classnames('ecl-select__container', {
+          'ecl-select__container--disabled': disabled,
+        })}
+      >
+        <select
+          {...props}
+          id={id}
+          name={name || undefined}
+          className={classNames}
+          disabled={disabled}
+        >
+          {options.map(option => (
+            <option key={option.label} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+
+        <div className="ecl-select__icon">
+          <Icon
+            shape="ui--corner-arrow"
+            transform="rotate-180"
+            size="s"
+            className="ecl-select__icon-shape"
+          />
+        </div>
       </div>
-    </div>
 
-    {invalid && invalidText && (
-      <div className="ecl-feedback-message">{invalidText}</div>
-    )}
-    {helperText && <div className="ecl-help-block">{helperText}</div>}
-  </div>
-);
+      {invalid && invalidText && (
+        <div className="ecl-feedback-message">{invalidText}</div>
+      )}
+      {helperText && <div className="ecl-help-block">{helperText}</div>}
+    </div>
+  );
+};
 
 Select.propTypes = {
   id: PropTypes.string.isRequired,
@@ -82,7 +81,6 @@ Select.propTypes = {
       label: PropTypes.string,
     })
   ),
-  block: PropTypes.bool,
   disabled: PropTypes.bool,
   helperText: PropTypes.node,
   invalid: PropTypes.bool,
@@ -96,7 +94,6 @@ Select.propTypes = {
 
 Select.defaultProps = {
   options: [],
-  block: false,
   disabled: false,
   helperText: '',
   invalid: false,

@@ -6,7 +6,6 @@ import Icon from '@ecl/eu-react-component-icon';
 const Button = ({
   variant,
   type,
-  block,
   disabled,
   label,
   icon,
@@ -16,7 +15,6 @@ const Button = ({
 }) => {
   const classNames = classnames(className, 'ecl-button', {
     [`ecl-button--${variant}`]: variant,
-    [`ecl-button--block`]: block,
   });
 
   const iconMarkup =
@@ -49,7 +47,6 @@ const Button = ({
 Button.propTypes = {
   variant: PropTypes.string,
   type: PropTypes.string,
-  block: PropTypes.bool,
   disabled: PropTypes.bool,
   label: PropTypes.string,
   icon: PropTypes.shape(Icon.propTypes),
@@ -60,7 +57,6 @@ Button.propTypes = {
 Button.defaultProps = {
   variant: 'primary',
   type: 'submit',
-  block: false,
   disabled: false,
   label: '',
   icon: {},
