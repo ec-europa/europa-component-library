@@ -226,13 +226,6 @@ module.exports = {
       },
     },
     {
-      name: 'googleplus',
-      label: 'G+ icon',
-      context: {
-        modifier: 'ecl-icon--googleplus',
-      },
-    },
-    {
       name: 'growth',
       label: 'Growth icon',
       context: {
