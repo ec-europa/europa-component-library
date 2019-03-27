@@ -24,6 +24,7 @@ language if needed.
 | **Optional components**  | **Optional components**  |
 | Meta items               | Meta items               |
 | Site identification      | Site identification      |
+| Page site switcher       | -                        |
 | Page introduction        | -                        |
 
 ## When to use this component
