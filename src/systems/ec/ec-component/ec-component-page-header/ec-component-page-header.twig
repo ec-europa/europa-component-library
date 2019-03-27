@@ -3,6 +3,7 @@
     - "variant" (string) (default: 'default'): could be "basic" or "default"
     - "identity" (string) (default: ''): name of the site, i.e. "SIte identity"
     - "breadcrumb" (array)  (default: []): collection of @ecl/ec-component-link
+    - "language_switcher" (object) (default: ''): object of type @ecl/generic-component-lang-select-page
     - "title" (string) (default: ''): page title
     - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
     - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
@@ -20,6 +21,7 @@
   'variant': variant|default('default'),
   'identity': identity|default(''),
   'breadcrumb': breadcrumb|default([]),
+  'language_switcher': language_switcher|default({}),
   'title': title|default(''),
   'introduction': introduction|default(''),
   'metas': metas|default([]),

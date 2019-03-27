@@ -4,6 +4,7 @@
     Common:
     - "identity" (string) (default: ''): name of the site, i.e. "Site identity"
     - "breadcrumb" (array)  (default: []): collection of @ecl/generic-component-link
+    - "language_switcher" (object) (default: ''): object of type @ecl/generic-component-lang-select-page
     - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -30,6 +31,7 @@
 {% set _variant = variant|default('') %}
 {% set _identity = identity|default('') %}
 {% set _breadcrumb = breadcrumb|default([]) %}
+{% set _language_switcher = language_switcher|default({}) %}
 {% set _title = title|default('') %}
 {% set _introduction = introduction|default('') %}
 {% set _metas = metas|default([]) %}
@@ -67,6 +69,9 @@
         'segments': _breadcrumb,
         'system': _system
       } only %}
+    {% endif %} 
+    {% if _language_switcher is not empty %}
+      {% include '@ecl/generic-component-lang-select-page' with _language_switcher only %}
     {% endif %} 
     {% if _identity is not empty or _metas is not empty or _title is not empty or _introduction is not empty %}
     <div class="ecl-page-header__body">
