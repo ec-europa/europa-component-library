@@ -24,6 +24,5 @@ storiesOf('Forms/Radio', module)
       label={text('Label', demoContentBinary.label)}
       helperText={text('Helper text', demoContentBinary.helperText)}
       invalid={boolean('Invalid', false)}
-      binary="true"
     />
   ));
