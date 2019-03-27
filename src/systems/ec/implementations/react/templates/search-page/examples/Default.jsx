@@ -4,7 +4,7 @@ import React from 'react';
 import data from '@ecl/ec-specs-search-page/demo/data';
 
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
-import SearchPage from '../SearchPage';
+import SearchPage from '../src/SearchPage';
 
 export default () => {
   const { items, ...breadcrumbProps } = data.breadcrumb;

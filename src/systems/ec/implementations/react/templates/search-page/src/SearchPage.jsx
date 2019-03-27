@@ -28,8 +28,6 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             </h3>
 
             <Select
-              className="ecl-u-mt-l"
-              block
               id="facet-source"
               label="Source"
               options={[
@@ -49,8 +47,6 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             />
 
             <Select
-              className="ecl-u-mt-l"
-              block
               id="facet-date"
               label="Date"
               options={[
@@ -70,8 +66,6 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             />
 
             <Select
-              className="ecl-u-mt-l"
-              block
               id="facet-language"
               label="Language"
               options={[
@@ -95,8 +89,6 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
             />
 
             <Select
-              className="ecl-u-mt-l"
-              block
               id="facet-format"
               label="File format"
               options={[
@@ -117,13 +109,11 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
 
             <Button
               className="ecl-u-mt-l"
-              block
               label="Refine results"
               variant="primary"
             />
             <Button
               className="ecl-u-mt-m ecl-u-mt-lg-l"
-              block
               label="Clear all"
               variant="secondary"
             />
@@ -296,7 +286,6 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
                 for European Commission President.
               </p>
             </article>
-            <hr className="ecl-u-mv-none" />
 
             <Pagination
               className="ecl-u-mt-l"
