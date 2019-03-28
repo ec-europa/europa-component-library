@@ -4,6 +4,44 @@ const breadcrumbSegments = [
   { label: 'Business, Economy, Euro' },
 ];
 
+const languageSwitcherData = {
+  is_primary: true,
+  unavailable: 'français',
+  current: 'Nederlands',
+  options: [
+    {
+      href: '/en',
+      hreflang: 'en',
+      label: 'English',
+      lang: 'en',
+    },
+    {
+      href: '/hr',
+      hreflang: 'hr',
+      label: 'hrvatski',
+      lang: 'hr',
+    },
+    {
+      href: '/it',
+      hreflang: 'it',
+      label: 'italiano',
+      lang: 'it',
+    },
+    {
+      href: '/lv',
+      hreflang: 'lv',
+      label: 'latviesu',
+      lang: 'lv',
+    },
+    {
+      href: '/hu',
+      hreflang: 'hu',
+      label: 'magyar',
+      lang: 'hu',
+    },
+  ],
+};
+
 module.exports = {
   title: 'Page Headers',
   label: 'Page Headers',
@@ -14,6 +52,7 @@ module.exports = {
       name: 'default',
       context: {
         breadcrumb: breadcrumbSegments,
+        language_switcher: languageSwitcherData,
         identity: 'Site identity',
         title: 'Business, Economy, Euro',
         introduction:
