@@ -13,6 +13,7 @@ We will also add new components to the ECL v2 as we continue improving the look 
 
 #### :rocket: New Feature
 
+- [#1052](https://github.com/ec-europa/europa-component-library/pull/1052) feat(radio): add component - INNO-1353
 - [#994](https://github.com/ec-europa/europa-component-library/pull/994) feat(template-search): add template - INNO-1315
 
 #### :memo: Documentation

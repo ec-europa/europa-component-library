@@ -4,6 +4,7 @@
 
 #### :rocket: New Feature
 
+- [#1052](https://github.com/ec-europa/europa-component-library/pull/1052) feat(radio): add component - INNO-1353 ([@emeryro](https://github.com/emeryro))
 - [#994](https://github.com/ec-europa/europa-component-library/pull/994) feat(template-search): add template - INNO-1315 ([@emeryro](https://github.com/emeryro))
 
 #### :memo: Documentation
