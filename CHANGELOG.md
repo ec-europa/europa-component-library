@@ -10,7 +10,7 @@
 
 - [#1053](https://github.com/ec-europa/europa-component-library/pull/1053) docs(contributing): update guide - noissue ([@kalinchernev](https://github.com/kalinchernev))
 
-#### Committers: 3
+#### Committers: 2
 
 - Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
 - Romain Emery ([@emeryro](https://github.com/emeryro))
