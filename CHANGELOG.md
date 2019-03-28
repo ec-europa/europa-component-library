@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.0 (2019-03-28)
+
+#### :rocket: New Feature
+
+- [#1054](https://github.com/ec-europa/europa-component-library/pull/1054) feat(page-header): add language switcher - INNO-1417 ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 1
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 1.4.0 (2019-03-19)
 
 Re-publishing 1.3.1 as 1.4.0.
