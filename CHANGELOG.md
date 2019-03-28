@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.3.0 (2019-03-28)
+
+#### :rocket: New Feature
+
+- [#1052](https://github.com/ec-europa/europa-component-library/pull/1052) feat(radio): add component - INNO-1353 ([@emeryro](https://github.com/emeryro))
+- [#994](https://github.com/ec-europa/europa-component-library/pull/994) feat(template-search): add template - INNO-1315 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1053](https://github.com/ec-europa/europa-component-library/pull/1053) docs(contributing): update guide - noissue ([@kalinchernev](https://github.com/kalinchernev))
+
+#### Committers: 2
+
+- Kalin Chernev ([@kalinchernev](https://github.com/kalinchernev))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+
 ## 2.2.0 (2019-03-21)
 
 #### :rocket: New Feature

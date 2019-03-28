@@ -9,6 +9,17 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under Github.
 
+## 2.3.0 (2019-03-28)
+
+#### :rocket: New Feature
+
+- [#1052](https://github.com/ec-europa/europa-component-library/pull/1052) feat(radio): add component - INNO-1353
+- [#994](https://github.com/ec-europa/europa-component-library/pull/994) feat(template-search): add template - INNO-1315
+
+#### :memo: Documentation
+
+- [#1053](https://github.com/ec-europa/europa-component-library/pull/1053) docs(contributing): update guide - noissue
+
 ## 2.2.0 (2019-03-21)
 
 #### :rocket: New Feature
