@@ -3154,6 +3154,7 @@
     Common:
     - "identity" (string) (default: ''): name of the site, i.e. "Site identity"
     - "breadcrumb" (array)  (default: []): collection of @ecl/generic-component-link
+    - "language_switcher" (object) (default: ''): object of type @ecl/generic-component-lang-select-page
     - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
@@ -3180,6 +3181,7 @@
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _variant = variant|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _identity = identity|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _breadcrumb = breadcrumb|<span class="hljs-keyword">default</span>([]) %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _language_switcher = language_switcher|<span class="hljs-keyword">default</span>({}) %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _title = title|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _introduction = introduction|<span class="hljs-keyword">default</span>('') %}</span><span class="xml">
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _metas = metas|<span class="hljs-keyword">default</span>([]) %}</span><span class="xml">
@@ -3217,6 +3219,9 @@
         'segments': _breadcrumb,
         'system': _system
       } only %}</span><span class="xml">
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"> 
+    </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _language_switcher is not empty %}</span><span class="xml">
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">include</span></span> '@ecl/generic-component-lang-select-page' with _language_switcher only %}</span><span class="xml">
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"> 
     </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> _identity is not empty or _metas is not empty or _title is not empty or _introduction is not empty %}</span><span class="xml">
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>

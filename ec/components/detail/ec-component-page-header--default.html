@@ -3041,6 +3041,10 @@ right piece of content.</li>
 <td>Site identification</td>
 </tr>
 <tr>
+<td>Page site switcher</td>
+<td>-</td>
+</tr>
+<tr>
 <td>Page introduction</td>
 <td>-</td>
 </tr>
@@ -3148,6 +3152,7 @@ right piece of content.</li>
     - "variant" (string) (default: 'default'): could be "basic" or "default"
     - "identity" (string) (default: ''): name of the site, i.e. "SIte identity"
     - "breadcrumb" (array)  (default: []): collection of @ecl/ec-component-link
+    - "language_switcher" (object) (default: ''): object of type @ecl/generic-component-lang-select-page
     - "title" (string) (default: ''): page title
     - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
     - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
@@ -3165,6 +3170,7 @@ right piece of content.</li>
   'variant': variant|<span class="hljs-keyword">default</span>('default'),
   'identity': identity|<span class="hljs-keyword">default</span>(''),
   'breadcrumb': breadcrumb|<span class="hljs-keyword">default</span>([]),
+  'language_switcher': language_switcher|<span class="hljs-keyword">default</span>({}),
   'title': title|<span class="hljs-keyword">default</span>(''),
   'introduction': introduction|<span class="hljs-keyword">default</span>(''),
   'metas': metas|<span class="hljs-keyword">default</span>([]),
@@ -3197,6 +3203,43 @@ right piece of content.</li>
       <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Business, Economy, Euro"</span>
     }
   ],
+  <span class="hljs-attr">"language_switcher"</span>: {
+    <span class="hljs-attr">"is_primary"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">"unavailable"</span>: <span class="hljs-string">"français"</span>,
+    <span class="hljs-attr">"current"</span>: <span class="hljs-string">"Nederlands"</span>,
+    <span class="hljs-attr">"options"</span>: [
+      {
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/en"</span>,
+        <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"en"</span>,
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"English"</span>,
+        <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"en"</span>
+      },
+      {
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/hr"</span>,
+        <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"hr"</span>,
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"hrvatski"</span>,
+        <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"hr"</span>
+      },
+      {
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/it"</span>,
+        <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"it"</span>,
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"italiano"</span>,
+        <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"it"</span>
+      },
+      {
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/lv"</span>,
+        <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"lv"</span>,
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"latviesu"</span>,
+        <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"lv"</span>
+      },
+      {
+        <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/hu"</span>,
+        <span class="hljs-attr">"hreflang"</span>: <span class="hljs-string">"hu"</span>,
+        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"magyar"</span>,
+        <span class="hljs-attr">"lang"</span>: <span class="hljs-string">"hu"</span>
+      }
+    ]
+  },
   <span class="hljs-attr">"identity"</span>: <span class="hljs-string">"Site identity"</span>,
   <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Business, Economy, Euro"</span>,
   <span class="hljs-attr">"introduction"</span>: <span class="hljs-string">"EU economy, finance and the euro, and practical information for EU businesses and entrepreneurs on product safety, environmental regulations, trade with non-EU countries and competition rules."</span>,
@@ -3235,6 +3278,42 @@ right piece of content.</li>
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page ecl-lang-select-page--primary"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-icon ecl-icon--generic-lang ecl-lang-select-page__icon"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__unavailable"</span>&gt;</span>français<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Choose your language"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">""</span> <span class="hljs-attr">selected</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__dropdown-option"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__list"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option ecl-lang-select-page__option--is-selected"</span>&gt;</span>Nederlands<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/en"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>English<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hr"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hr"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>hrvatski<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/it"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"it"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>italiano<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/lv"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"lv"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>latviesu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-lang-select-page__option"</span>&gt;</span>
+
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-link ecl-link--inverted"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/hu"</span> <span class="hljs-attr">hreflang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"hu"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"alternate"</span>&gt;</span>magyar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__body"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-page-header__identity"</span>&gt;</span>

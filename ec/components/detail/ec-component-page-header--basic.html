@@ -3041,6 +3041,10 @@ right piece of content.</li>
 <td>Site identification</td>
 </tr>
 <tr>
+<td>Page site switcher</td>
+<td>-</td>
+</tr>
+<tr>
 <td>Page introduction</td>
 <td>-</td>
 </tr>
@@ -3148,6 +3152,7 @@ right piece of content.</li>
     - "variant" (string) (default: 'default'): could be "basic" or "default"
     - "identity" (string) (default: ''): name of the site, i.e. "SIte identity"
     - "breadcrumb" (array)  (default: []): collection of @ecl/ec-component-link
+    - "language_switcher" (object) (default: ''): object of type @ecl/generic-component-lang-select-page
     - "title" (string) (default: ''): page title
     - "introduction" (string) (default: ''): A short and striking phrase related to the site identification (45 characters maximum)
     - "metas" (array) (default: []): array of strings ; each one corresponds to a meta item
@@ -3165,6 +3170,7 @@ right piece of content.</li>
   'variant': variant|<span class="hljs-keyword">default</span>('default'),
   'identity': identity|<span class="hljs-keyword">default</span>(''),
   'breadcrumb': breadcrumb|<span class="hljs-keyword">default</span>([]),
+  'language_switcher': language_switcher|<span class="hljs-keyword">default</span>({}),
   'title': title|<span class="hljs-keyword">default</span>(''),
   'introduction': introduction|<span class="hljs-keyword">default</span>(''),
   'metas': metas|<span class="hljs-keyword">default</span>([]),
