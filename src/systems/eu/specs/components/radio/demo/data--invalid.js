@@ -1,6 +1,7 @@
 module.exports = {
   labelId: 'radio-invalid-label',
   label: 'Select your country',
+  helperId: 'radio-invalid-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
   invalid: true,

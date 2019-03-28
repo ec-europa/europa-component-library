@@ -10,6 +10,7 @@ const RadioGroup = ({
   name,
   helperText,
   label,
+  helperId,
   hideLabel,
   invalid,
   invalidText,
@@ -27,6 +28,7 @@ const RadioGroup = ({
       {...props}
       role="radiogroup"
       aria-labelledby={labelId}
+      {...(helperId ? { 'aria-describedby': helperId } : {})}
       className={classNames}
     >
       {label && (
@@ -41,7 +43,12 @@ const RadioGroup = ({
       )}
 
       {helperText && (
-        <p className="ecl-radio__help ecl-help-block">{helperText}</p>
+        <p
+          {...(helperId ? { id: helperId } : {})}
+          className="ecl-radio__help ecl-help-block"
+        >
+          {helperText}
+        </p>
       )}
 
       {invalid && invalidText && (
@@ -59,6 +66,7 @@ RadioGroup.propTypes = {
   labelId: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)),
   name: PropTypes.string,
+  helperId: PropTypes.string,
   helperText: PropTypes.node,
   label: PropTypes.string,
   hideLabel: PropTypes.bool,
@@ -72,6 +80,7 @@ RadioGroup.defaultProps = {
   labelId: '',
   items: [],
   name: '',
+  helperId: '',
   helperText: '',
   label: '',
   hideLabel: false,

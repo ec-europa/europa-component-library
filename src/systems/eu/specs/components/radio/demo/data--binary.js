@@ -1,6 +1,7 @@
 module.exports = {
   labelId: 'radio-binary-label',
   label: 'Do you need help?',
+  helperId: 'radio-binary-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
   name: 'radio-binary',

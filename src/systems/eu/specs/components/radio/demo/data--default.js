@@ -1,6 +1,7 @@
 module.exports = {
   labelId: 'radio-default-label',
   label: 'Select your country',
+  helperId: 'radio-default-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
   name: 'radio-default',
