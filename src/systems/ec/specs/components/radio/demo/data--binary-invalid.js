@@ -12,6 +12,7 @@ module.exports = {
       id: 'radio-binary-invalid-1',
       value: 'yes',
       label: 'Yes',
+      checked: true,
     },
     {
       id: 'radio-binary-invalid-2',
