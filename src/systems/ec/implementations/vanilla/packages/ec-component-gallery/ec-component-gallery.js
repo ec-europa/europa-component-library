@@ -261,7 +261,6 @@ export class Gallery {
 
     // Enable scroll on body
     document.body.classList.remove('ecl-u-disablescroll');
-    document.body.scroll = 'yes';
   }
 
   handleKeyPressOnItem(e) {
@@ -273,6 +272,9 @@ export class Gallery {
 
   handleClickOnItem(e) {
     e.preventDefault();
+
+    // Disable scroll on body
+    document.body.classList.add('ecl-u-disablescroll');
 
     // Display overlay
     if (this.isDialogSupported) {
@@ -286,10 +288,6 @@ export class Gallery {
 
     // Trap focus
     this.focusTrap.activate();
-
-    // Disable scroll on body
-    document.body.classList.add('ecl-u-disablescroll');
-    document.body.scroll = 'no';
   }
 
   handleClickOnPreviousButton() {
