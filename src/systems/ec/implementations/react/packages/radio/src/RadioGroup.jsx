@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -24,22 +24,22 @@ const RadioGroup = ({
   });
 
   return (
-    <div
+    <fieldset
       {...props}
-      role="radiogroup"
-      aria-labelledby={labelId}
       {...(helperId ? { 'aria-describedby': helperId } : {})}
       className={classNames}
     >
       {label && (
-        <div
-          className={classnames('ecl-form-label', {
-            'ecl-form-label--hidden': hideLabel,
-          })}
-          id={labelId}
-        >
-          {label}
-        </div>
+        <Fragment>
+          <legend
+            className={classnames('ecl-radio-group__legend', 'ecl-form-label', {
+              'ecl-form-label--hidden': hideLabel,
+            })}
+          >
+            {label}
+          </legend>
+          <div className="ecl-radio-group__clear" />
+        </Fragment>
       )}
 
       {helperText && (
@@ -58,7 +58,7 @@ const RadioGroup = ({
       {items.map(item => (
         <RadioButton {...item} name={name} key={item.id} />
       ))}
-    </div>
+    </fieldset>
   );
 };
 
