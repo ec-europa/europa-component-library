@@ -12,9 +12,10 @@ module.exports = {
   rootDir: path.resolve(__dirname, '..'),
   roots: ['<rootDir>/packages', '<rootDir>/storybook'],
   transform: {
-    '^.+\\.jsx?$': '<rootDir>/storybook/scripts/babel-jest.js',
+    '^.+\\.(js|jsx)?$': '<rootDir>/storybook/scripts/babel-jest.js',
+    // '^.+\\.(js|jsx)?$': 'babel-jest',
   },
   testEnvironment: 'jsdom',
-  setupTestFrameworkScriptFile: '<rootDir>/storybook/test/__config__/setup.js',
+  setupFilesAfterEnv: ['<rootDir>/storybook/test/__config__/setup.js'],
   moduleFileExtensions: ['js', 'jsx', 'json'],
 };
