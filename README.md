@@ -9,9 +9,9 @@ The Digital Transformation team (DTT) - a cross European Commission team led by 
 
 All library elements are accompanied with
 
-- documentation: what the component is intended for and recommendations regarding its usage
-- demo: visual representation of the component
-- code: technologically agnostic HTML/CSS code for implementation
+* documentation: what the component is intended for and recommendations regarding its usage
+* demo: visual representation of the component
+* code: technologically agnostic HTML/CSS code for implementation
 
 ## Documentation
 
@@ -21,12 +21,8 @@ Read the documentation [on GitHub](docs/README.md) or on the [website](https://e
 
 The ECL is bundled in various [presets](docs/06-presets.md) in order to accomodate the different needs of everyone. Once you know which preset you want to use, you can:
 
-- download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
-- install the preset with npm or yarn, e.g. `npm install @ecl/ec-preset-website` or `yarn add @ecl/ec-preset-website`
-
-## Tested on
-
-[![Build Status](https://saucelabs.com/browser-matrix/europa-component-library.svg)](https://saucelabs.com/u/europa-component-library)
+* download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
+* install the preset with npm or yarn, e.g. `npm install @ecl/ec-preset-website` or `yarn add @ecl/ec-preset-website`
 
 ## Need help?
 
@@ -34,4 +30,4 @@ Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) fo
 
 ## Previous versions
 
-- v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)
+* v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)
