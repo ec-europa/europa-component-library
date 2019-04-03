@@ -191,6 +191,25 @@ Grey and black can appear neutral, objective or impartial.
   </tbody>
   <thead>
     <tr>
+      <th>EC Blue 5</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#F2F5F9</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><div class="color" style="background-color:#f2f5f9"></div></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
       <th>Black</th>
       <th>White</th>
       <th>EC Grey 5</th>
