@@ -1,12 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
 
-import demoContent from '@ecl/ec-specs-site-header/demo/data';
+import demoContentEn from '@ecl/ec-specs-site-header/demo/data--en';
+import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
 
-import SiteHeader from '../SiteHeader';
+import SiteHeader from '../src/SiteHeader';
 
 storiesOf('SiteHeader', module)
-  .addDecorator(withKnobs)
-  .add('default', () => <SiteHeader {...demoContent} />);
+  .add('default', () => <SiteHeader {...demoContentEn} />)
+  .add('translated', () => <SiteHeader {...demoContentFr} />);

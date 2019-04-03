@@ -1,0 +1,64 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+
+import demoContentHeading from '@ecl/eu-specs-typography/demo/data--heading';
+import demoContentParagraph from '@ecl/eu-specs-typography/demo/data--paragraph';
+
+## Headings
+
+<Playground
+  system="eu"
+  selectedKind="utilities-typography"
+  selectedStory="heading"
+>
+  <h1 className="ecl-u-type-heading-1">{demoContentHeading.content}</h1>
+  <h2 className="ecl-u-type-heading-2">{demoContentHeading.content}</h2>
+  <h3 className="ecl-u-type-heading-3">{demoContentHeading.content}</h3>
+  <h4 className="ecl-u-type-heading-4">{demoContentHeading.content}</h4>
+</Playground>
+
+## Paragraph
+
+### Lead paragraph
+
+<Playground
+  system="eu"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-lead">{demoContentParagraph.content}</p>
+</Playground>
+
+### Medium paragraph
+
+<Playground
+  system="eu"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph">{demoContentParagraph.content}</p>
+</Playground>
+
+### Small paragraph
+
+<Playground
+  system="eu"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-s">{demoContentParagraph.content}</p>
+</Playground>
+
+### Extra small paragraph
+
+<Playground
+  system="eu"
+  selectedKind="utilities-typography"
+  selectedStory="paragraph"
+>
+  <p className="ecl-u-type-paragraph-xs">{demoContentParagraph.content}</p>
+</Playground>

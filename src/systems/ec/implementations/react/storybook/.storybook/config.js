@@ -1,21 +1,37 @@
-import { configure, addDecorator } from '@storybook/react';
-import { setOptions } from '@storybook/addon-options';
-import { checkA11y } from '@storybook/addon-a11y';
-import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
+import { configure, addDecorator, addParameters } from '@storybook/react';
+import { withOptions } from '@storybook/addon-options';
+import { create } from '@storybook/theming';
+import { withA11y } from '@storybook/addon-a11y';
+import './ECL';
 
-import '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
+addDecorator(withA11y);
 
-svg4everybody();
-
-setOptions({
-  name: 'ECL v2 - EC',
-  url: 'https://github.com/ec-europa/europa-component-library',
-  sidebarAnimations: false,
+addParameters({
+  a11y: {
+    configure: {},
+    options: {
+      checks: { 'color-contrast': { options: { noScroll: true } } },
+      restoreScroll: true,
+    },
+  },
+  options: {
+    theme: create({
+      base: 'light',
+      colorSecondary: '#004494',
+      appBorderRadius: 0,
+      inputBorderRadius: 0,
+      brandTitle: 'ECL v2 - EC',
+      brandUrl: 'https://github.com/ec-europa/europa-component-library',
+      brandImage: null,
+    }),
+    sidebarAnimations: false,
+  },
 });
 
-const contexts = [require.context('../../packages', true, /stories.*\.jsx?$/)];
-
-addDecorator(checkA11y);
+const contexts = [
+  require.context('../../packages', true, /stories.*\.jsx?$/),
+  require.context('../../templates', true, /stories.*\.jsx?$/),
+];
 
 configure(() => {
   contexts.forEach(context => {

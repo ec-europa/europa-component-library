@@ -1,38 +1,27 @@
 {
+  "private": true,
   "name": "@ecl/ec-react-component-language-list",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.0.0-alpha.0",
+  "version": "2.3.0",
   "description": "ECL EU React Language List",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ec-europa/europa-component-library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ec-europa/europa-component-library/issues"
-  },
-  "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": [
-    "ecl",
-    "europa-component-library",
-    "design-system",
-    "react"
-  ],
+  "main": "index.js",
+  "module": "index.js",
   "dependencies": {
-    "@ecl/ec-component-language-list": "^2.0.0-alpha.0",
-    "@ecl/ec-layout-grid": "^2.0.0-alpha.0",
-    "@ecl/ec-react-component-button": "^2.0.0-alpha.0",
-    "@ecl/ec-react-component-link": "^2.0.0-alpha.0",
-    "@ecl/ec-react-component-icon": "^2.0.0-alpha.0",
-    "@ecl/ec-resources-logo": "^2.0.0-alpha.0"
+    "@ecl/ec-react-component-button": "^2.3.0",
+    "@ecl/ec-react-component-icon": "^2.3.0",
+    "@ecl/ec-react-component-link": "^2.3.0",
+    "@ecl/ec-resources-logo": "^2.3.0"
+  },
+  "devDependencies": {
+    "@ecl/ec-component-language-list": "^2.3.0",
+    "@ecl/ec-layout-grid": "^2.3.0",
+    "@ecl/ec-specs-language-list": "^2.3.0"
   },
   "peerDependencies": {
     "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "prop-types": "^15.6.2"
+    "react-dom": "^16.4.2"
   }
 }

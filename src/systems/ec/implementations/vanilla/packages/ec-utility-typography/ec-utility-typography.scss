@@ -1,0 +1,137 @@
+/**
+* Typography styles
+*/
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-utility-typography() {
+  /*
+   * Headings
+   */
+  .ecl-u-type-heading-1 {
+    font: $ecl-font-3-xl;
+    font-weight: $ecl-font-weight-bold;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-4-xl;
+      font-weight: $ecl-font-weight-bold;
+    }
+  }
+
+  .ecl-u-type-heading-2 {
+    font: $ecl-font-2-xl;
+    font-weight: $ecl-font-weight-bold;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-3-xl;
+      font-weight: $ecl-font-weight-bold;
+    }
+  }
+
+  .ecl-u-type-heading-3 {
+    font: $ecl-font-xl;
+    font-weight: $ecl-font-weight-bold;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-2-xl;
+      font-weight: $ecl-font-weight-bold;
+    }
+  }
+
+  .ecl-u-type-heading-4 {
+    font: $ecl-font-l;
+    font-weight: $ecl-font-weight-bold;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-xl;
+      font-weight: $ecl-font-weight-bold;
+    }
+  }
+
+  /*
+   * Paragraph
+   */
+  .ecl-u-type-paragraph,
+  .ecl-u-type-paragraph-m {
+    font: $ecl-font-prolonged-m;
+    max-width: 80ch;
+  }
+
+  .ecl-u-type-paragraph-lead {
+    font: $ecl-font-prolonged-l;
+    max-width: 80ch;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-prolonged-xl;
+    }
+  }
+
+  .ecl-u-type-paragraph-s {
+    font: $ecl-font-prolonged-s;
+    max-width: 80ch;
+  }
+
+  .ecl-u-type-paragraph-xs {
+    font: $ecl-font-prolonged-xs;
+    max-width: 80ch;
+  }
+
+  /*
+   * Font size
+   */
+  .ecl-u-type-xs {
+    font: $ecl-font-xs;
+  }
+  .ecl-u-type-s {
+    font: $ecl-font-s;
+  }
+  .ecl-u-type-m {
+    font: $ecl-font-m;
+  }
+  .ecl-u-type-l {
+    font: $ecl-font-l;
+  }
+  .ecl-u-type-xl {
+    font: $ecl-font-xl;
+  }
+  .ecl-u-type-2xl {
+    font: $ecl-font-2-xl;
+  }
+  .ecl-u-type-3xl {
+    font: $ecl-font-3-xl;
+  }
+  .ecl-u-type-4xl {
+    font: $ecl-font-4-xl;
+  }
+  .ecl-u-type-prolonged-xs {
+    font: $ecl-font-prolonged-xs;
+  }
+  .ecl-u-type-prolonged-s {
+    font: $ecl-font-prolonged-s;
+  }
+  .ecl-u-type-prolonged-m {
+    font: $ecl-font-prolonged-m;
+  }
+  .ecl-u-type-prolonged-l {
+    font: $ecl-font-prolonged-l;
+  }
+  .ecl-u-type-prolonged-xl {
+    font: $ecl-font-prolonged-xl;
+  }
+
+  /*
+   * Font weight
+   */
+  .ecl-u-type-regular {
+    font-weight: $ecl-font-weight-regular;
+  }
+  .ecl-u-type-bold {
+    font-weight: $ecl-font-weight-bold;
+  }
+}
+
+// Use mixin
+@include exports('ec-utility-typography') {
+  @include ecl-utility-typography();
+}

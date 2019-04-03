@@ -1,7 +1,7 @@
 @import '@ecl/ec-theme-default/index';
 
 $nav-width: 15rem;
-$nav-logo-height: 2.5rem;
+$nav-logo-height: 2rem;
 $nav-logo-max-width: 10rem;
 $nav-toggle-size: 2.5rem;
 $nav-toggle-bar-width: 1.5rem; // 24px
@@ -10,6 +10,7 @@ $nav-toggle-bar-spacing-between: 0.375rem;
 
 .nav {
   background-color: $ecl-color-grey-5;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -18,24 +19,49 @@ $nav-toggle-bar-spacing-between: 0.375rem;
   transition: transform 300ms ease;
   width: $nav-width;
   z-index: 1000;
+
+  :global(.no-js) & {
+    position: static;
+    width: 100%;
+
+    @media screen and (min-width: 1140px) {
+      position: fixed;
+      width: $nav-width;
+    }
+  }
 }
 
 .nav--closed {
   transform: translate(-$nav-width, 0);
+
+  :global(.no-js) & {
+    transform: translate(0, 0);
+  }
 }
 
 .header {
+  background-color: $ecl-color-white-100;
   border-bottom: 2px solid $ecl-color-grey-25;
+  padding: $ecl-spacing-m;
+}
+
+.version {
+  background-color: $ecl-color-grey-5;
+  border-radius: 1rem;
+  color: $ecl-color-text;
+  display: inline-block;
+  font: $ecl-font-s;
+  padding: $ecl-spacing-xs $ecl-spacing-s;
 }
 
 .logo {
-  background-image: url('@ecl/ec-preset-website/dist/images/logo/EC-logo.svg');
-  background-position: 50% 50%;
+  background-image: url('~@ecl/ec-preset-website/dist/images/logo/logo--en.svg');
+  background-position: 0 50%;
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
   height: $nav-logo-height;
-  margin: $ecl-spacing-xl auto 0;
+  margin-top: $ecl-spacing-l;
   max-width: $nav-logo-max-width;
 }
 
@@ -46,22 +72,14 @@ $nav-toggle-bar-spacing-between: 0.375rem;
 .title {
   color: $ecl-color-text;
   font: $ecl-font-m;
-  margin: $ecl-spacing-xl auto $ecl-spacing-m;
-  text-align: center;
-}
-
-.list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  &[aria-hidden='true'] {
-    display: none;
-  }
+  margin-top: $ecl-spacing-s;
 }
 
 .system-list {
   display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .system-list-item {
@@ -88,40 +106,10 @@ $nav-toggle-bar-spacing-between: 0.375rem;
   border-bottom: 4px solid $ecl-color-yellow-100;
 }
 
-.group-list-item {
-  background-color: $ecl-color-grey-5;
-  border-width: 0;
-  box-sizing: border-box;
+.loading {
   color: $ecl-color-text;
-  display: block;
   font: $ecl-font-m;
-  font-weight: $ecl-font-weight-bold;
-  margin: 0;
-  padding: $ecl-spacing-s $ecl-spacing-xs $ecl-spacing-s $ecl-spacing-m;
-  text-align: left;
-  text-decoration: none;
-  width: 100%;
-}
-
-.group-list-item > span {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-.group-list-item:hover,
-.group-list-item:focus {
-  background-color: $ecl-color-grey-10;
-  outline: none;
-}
-
-.group-list-item--active {
-  border-left: 4px solid $ecl-color-yellow-100;
-  padding-left: calc(#{$ecl-spacing-m} - 4px);
-}
-
-.group-list-item:active {
-  background-color: $ecl-color-grey-25;
+  padding: $ecl-spacing-s;
 }
 
 /* Burger */
@@ -136,6 +124,10 @@ $nav-toggle-bar-spacing-between: 0.375rem;
   transition: transform 300ms;
   width: $nav-toggle-size;
   z-index: 1001;
+
+  :global(.no-js) & {
+    display: none;
+  }
 }
 
 .button-toggle--closed {

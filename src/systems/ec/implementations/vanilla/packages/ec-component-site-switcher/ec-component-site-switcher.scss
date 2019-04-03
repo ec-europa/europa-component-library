@@ -3,11 +3,11 @@
 * @define site-switcher
 */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-layout-grid'));
+@include check-imports(('ec-layout-grid', 'ec-component-link'));
 
 @mixin ecl-site-switcher() {
   .ecl-site-switcher {
@@ -111,7 +111,7 @@
   }
 }
 
-// Use generic mixin
+// Use mixin
 @include exports('ec-component-site-switcher') {
   @include ecl-site-switcher();
 }

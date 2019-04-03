@@ -1,3 +1,3 @@
-# EC preset: full
+# ECL preset: EC full
 
 This preset contains all the EC components.

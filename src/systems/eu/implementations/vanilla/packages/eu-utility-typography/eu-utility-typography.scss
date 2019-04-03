@@ -1,0 +1,76 @@
+/**
+* Typography styles
+*/
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-utility-typography() {
+  /*
+   * Headings
+   */
+  .ecl-u-type-heading-1 {
+    font: $ecl-font-3-xl;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-4-xl;
+    }
+  }
+
+  .ecl-u-type-heading-2 {
+    font: $ecl-font-2-xl;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-3-xl;
+    }
+  }
+
+  .ecl-u-type-heading-3 {
+    font: $ecl-font-xl;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-2-xl;
+    }
+  }
+
+  .ecl-u-type-heading-4 {
+    font: $ecl-font-l;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-xl;
+    }
+  }
+
+  /*
+   * Paragraph
+   */
+  .ecl-u-type-paragraph,
+  .ecl-u-type-paragraph-m {
+    font: $ecl-font-prolonged-m;
+    max-width: 80ch;
+  }
+
+  .ecl-u-type-paragraph-lead {
+    font: $ecl-font-prolonged-l;
+    max-width: 80ch;
+
+    @include ecl-media-breakpoint-up('md') {
+      font: $ecl-font-prolonged-xl;
+    }
+  }
+
+  .ecl-u-type-paragraph-s {
+    font: $ecl-font-prolonged-s;
+    max-width: 80ch;
+  }
+
+  .ecl-u-type-paragraph-xs {
+    font: $ecl-font-prolonged-xs;
+    max-width: 80ch;
+  }
+}
+
+// Use mixin
+@include exports('eu-utility-typography') {
+  @include ecl-utility-typography();
+}

@@ -3,13 +3,11 @@
  * @define site-header ; weak
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(
-  ('ec-component-icon', 'ec-component-logo', 'ec-component-search-form')
-);
+@include check-imports(('ec-component-icon', 'ec-component-search-form'));
 
 @include exports('ec-component-site-header') {
   .ecl-site-header {
@@ -23,17 +21,47 @@
     flex-direction: column;
     padding-bottom: $ecl-spacing-m;
     padding-top: $ecl-spacing-l;
+
+    @include ecl-media-breakpoint-up('lg') {
+      align-items: flex-end;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: $ecl-spacing-xl;
+      padding-top: $ecl-spacing-xl;
+    }
   }
 
   .ecl-site-header__banner {
+    align-items: flex-end;
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
+
+    @include ecl-media-breakpoint-up('lg') {
+      padding-right: $ecl-spacing-xl;
+    }
+  }
+
+  .ecl-site-header__logo-image {
+    display: block;
+    height: 3rem;
+    margin: 0;
+    width: 11.25rem;
+
+    @include ecl-media-breakpoint-up('sm') {
+      height: 4.5rem;
+      width: 17rem;
+    }
   }
 
   .ecl-site-header__selector {
     align-items: center;
     display: flex;
+
+    @include ecl-media-breakpoint-up('lg') {
+      height: 1px; /* IE fix */
+      min-height: 2.75rem;
+    }
   }
 
   .ecl-site-header__selector .ecl-link {
@@ -69,24 +97,9 @@
 
   .ecl-site-header__search {
     margin-top: $ecl-spacing-m;
-  }
 
-  /* stylelint-disable-next-line order/order */
-  @include ecl-media-breakpoint-up('md') {
-    .ecl-site-header__container {
-      align-items: center;
-      flex-direction: row;
-      justify-content: space-between;
-      padding-bottom: $ecl-spacing-xl;
-      padding-top: $ecl-spacing-xl;
-    }
-
-    .ecl-site-header__search {
+    @include ecl-media-breakpoint-up('lg') {
       margin-top: 0;
-    }
-
-    .ecl-site-header__banner {
-      padding-right: $ecl-spacing-xl;
     }
   }
 }

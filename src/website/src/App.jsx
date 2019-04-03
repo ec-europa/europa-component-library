@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import { MDXProvider } from '@mdx-js/tag';
 import svg4everybody from 'svg4everybody/dist/svg4everybody.min';
@@ -12,7 +12,7 @@ import 'prismjs/themes/prism.css';
 import styles from './styles/markdown.scss';
 
 // Static routes
-import { HomePage, Example, PageNotFound, ECRoutes, EURoutes } from './routes';
+import MainRoutes from './routes/MainRoutes';
 
 /* eslint-disable react/prop-types */
 const customComponents = {
@@ -24,8 +24,11 @@ const customComponents = {
   ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
   ol: ({ children }) => <ol className={styles.ol}>{children}</ol>,
   table: ({ children }) => <table className={styles.table}>{children}</table>,
-  td: ({ children }) => <td className={styles.td}>{children}</td>,
+  thead: ({ children }) => <thead className={styles.thead}>{children}</thead>,
+  tbody: ({ children }) => <tbody className={styles.tbody}>{children}</tbody>,
+  tr: ({ children }) => <tr className={styles.tr}>{children}</tr>,
   th: ({ children }) => <th className={styles.th}>{children}</th>,
+  td: ({ children }) => <td className={styles.td}>{children}</td>,
   hr: () => <hr className={styles.hr} />,
   a: ({ href, children }) => (
     <a href={href} className={styles.a}>
@@ -54,13 +57,7 @@ class App extends React.Component {
               titleTemplate="%s - ECL 2.0"
               defaultTitle="Europa Component Library"
             />
-            <Switch>
-              <Route exact strict path="/" component={HomePage} />
-              <Route strict path="/example" component={Example} />
-              <Route path="/ec/" strict component={ECRoutes} />
-              <Route path="/eu/" strict component={EURoutes} />
-              <Route component={PageNotFound} />
-            </Switch>
+            <MainRoutes />
           </Fragment>
         </Router>
       </MDXProvider>

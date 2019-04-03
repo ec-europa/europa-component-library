@@ -1,97 +1,82 @@
-import React, { Component, Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import '@ecl/eu-preset-full/dist/styles/ecl-eu-preset-full.css';
+import merge from 'deepmerge';
 
-import EUStyles from '@ecl/eu-preset-website/dist/styles/ecl-eu-preset-website.css';
-
-// Layout
-import Navigation from '../components/Navigation/Navigation';
-import MainContainer from '../components/MainContainer/MainContainer';
+// Helpers
+import sortPages from '../utils/nav-sort';
 
 // Static routes
 import HomePage from '../pages/eu/index.md';
-import PageNotFound from './404';
 
-import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
-const euPages = require.context('../pages/eu', true, /config\.js$/);
-const euSpecs = require.context(
-  '../../../systems/eu/specs',
-  true,
-  /config\.js$/
-);
+import Skeleton from './Skeleton';
 
-const pages = [
-  ...euPages.keys().map(key => euPages(key).default),
-  ...euSpecs.keys().map(key => euSpecs(key).default),
+const euPages = require.context('../pages/eu', true, /\.mdx?$/);
+
+const extractPageInfo = (page, key) => {
+  // Add url to pages
+  const url = `/eu/${key
+    .replace('docs', '')
+    .replace('index', '')
+    .replace('.mdx', '')
+    .replace('.md', '')
+    .replace('./', '')}/`.replace('//', '/');
+
+  return {
+    key,
+    attributes: merge.all([
+      {},
+      {
+        url,
+        isTab: key.indexOf('docs') >= 0,
+      },
+      page.attributes,
+    ]),
+    document: page.default,
+  };
+};
+
+const allPages = [
+  ...euPages.keys().map(key => {
+    const page = euPages(key);
+    return extractPageInfo(page, key);
+  }),
 ];
 
-class EURoutes extends Component {
-  constructor(props) {
-    super(props);
+const sortedPages = sortPages(allPages);
 
-    this.state = {
-      sidebarOpen:
-        Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
-        1140,
-    };
+function flatDeep(pages) {
+  return pages.reduce((acc, page) => {
+    let acc2 = acc;
+    if (page.children && page.children.length > 0) {
+      acc2 = acc.concat(flatDeep(page.children));
+    }
 
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-  }
-
-  componentDidMount() {
-    EUStyles.use();
-  }
-
-  componentWillUnmount() {
-    EUStyles.unuse();
-  }
-
-  toggleSidebar() {
-    this.setState(prevState => ({
-      sidebarOpen: !prevState.sidebarOpen,
-    }));
-  }
-
-  render() {
-    const { sidebarOpen } = this.state;
-
-    return (
-      <Fragment>
-        <Navigation
-          pages={pages}
-          prefix="/eu"
-          sidebarOpen={sidebarOpen}
-          onToggleSidebar={this.toggleSidebar}
-        />
-        <MainContainer sidebarOpen={sidebarOpen}>
-          <Switch>
-            <Route
-              exact
-              strict
-              path="/eu/"
-              component={() => (
-                <SimplePage>
-                  <Helmet title="EU Homepage" />
-                  <HomePage />
-                </SimplePage>
-              )}
-            />
-            {pages.map(page => (
-              <Route
-                key={page.url}
-                path={`${page.url}/`}
-                strict
-                render={() => <DocPage component={page} />}
-              />
-            ))}
-            <Route component={PageNotFound} />
-          </Switch>
-        </MainContainer>
-      </Fragment>
-    );
-  }
+    return acc2.concat(page);
+  }, []);
 }
+
+const pagesToRoutes = pages =>
+  flatDeep(pages).map(page => (
+    <Route
+      key={page.attributes.url}
+      path={page.attributes.url}
+      exact
+      strict
+      render={() => <DocPage component={page} />}
+    />
+  ));
+
+const EURoutes = () => (
+  <Skeleton
+    HomePage={HomePage}
+    prefix="/eu"
+    title="EU Homepage"
+    pages={sortedPages[0].children}
+    routes={pagesToRoutes(sortedPages)}
+  />
+);
 
 export default EURoutes;

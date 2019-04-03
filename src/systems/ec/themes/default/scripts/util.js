@@ -15,10 +15,10 @@ const buildTokens = ({ input, output, type, format }) => {
       fs.writeFile(
         output,
         result,
-        error => error && console.log('Error writing file: ', error)
+        error => error && console.log('Error writing file:', error)
       );
     })
-    .catch(error => error && console.log('Error converting tokens: ', error));
+    .catch(error => error && console.log('Error converting tokens:', error));
 };
 
 module.exports = buildTokens;

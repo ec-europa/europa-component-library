@@ -1,38 +1,22 @@
 {
+  "private": true,
   "name": "@ecl/eu-react-component-icon",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.0.0-alpha.0",
+  "version": "2.3.0",
   "description": "ECL EU React Icon",
-  "main": "Icon.jsx",
-  "module": "Icon.jsx",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ec-europa/europa-component-library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ec-europa/europa-component-library/issues"
-  },
-  "homepage": "https://github.com/ec-europa/europa-component-library",
-  "keywords": [
-    "ecl",
-    "europa-component-library",
-    "design-system",
-    "react"
-  ],
+  "main": "index.js",
+  "module": "index.js",
   "dependencies": {
-    "@ecl/eu-resources-icons": "^2.0.0-alpha.0"
+    "@ecl/eu-resources-icons": "^2.3.0"
   },
   "devDependencies": {
-    "@ecl/eu-specs-icon": "^2.0.0-alpha.0",
-    "@ecl/eu-theme-default": "^2.0.0-alpha.0"
+    "@ecl/eu-component-icon": "^2.3.0",
+    "@ecl/eu-specs-icon": "^2.3.0"
   },
   "peerDependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "prop-types": "^15.6.2"
+    "react-dom": "^16.4.2"
   }
 }

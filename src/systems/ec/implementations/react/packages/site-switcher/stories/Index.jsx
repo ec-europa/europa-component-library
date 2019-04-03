@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import demoContent from '@ecl/ec-specs-site-switcher/demo/data';
 
-import SiteSwitcher from '../SiteSwitcher';
+import SiteSwitcher from '../src/SiteSwitcher';
 
 const variant = {
   none: '',

@@ -2,10 +2,10 @@
   "name": "@ecl/ec-preset-website",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.0.0-alpha.0",
-  "description": "Europa Component Library base preset",
-  "style": "ec-preset-website.scss",
-  "module": "ec-preset-website.js",
+  "version": "2.3.0",
+  "description": "ECL EC Website preset",
+  "main": "dist/scripts/ecl-ec-preset-website.js",
+  "style": "dist/styles/ecl-ec-preset-website.css",
   "publishConfig": {
     "access": "public"
   },
@@ -15,23 +15,23 @@
     "build:styles": "ecl-builder styles",
     "build": "rimraf build && run-p build:* -ln",
     "clean": "rimraf build dist",
-    "dist": "rimraf dist && cross-env NODE_ENV=production run-p build:* -ln",
+    "dist": "npm run clean && cross-env NODE_ENV=production run-p build:* -ln",
     "watch:scripts": "chokidar \"../../../../../../generic/**/*.js\" \"../**/*.js\" -i \"/node_modules|build|dist|config\\.js/\" -c \"npm run build:scripts\"",
     "watch:styles": "chokidar \"../../../../../../generic/**/*.scss\" \"../../../../ec-design-tokens/exports/*.scss\" \"../**/*.scss\" -i \"/node_modules|build|dist/\" -c \"npm run build:styles\"",
     "watch": "npm-run-all --parallel watch:* -ln",
     "prepublish": "npm run dist"
   },
-  "dependencies": {
-    "@ecl/ec-preset-full": "^2.0.0-alpha.0",
-    "@ecl/ec-theme-default": "^2.0.0-alpha.0",
-    "normalize.css": "8.0.0"
-  },
   "devDependencies": {
-    "@ecl/builder": "0.2.1",
-    "chokidar-cli": "1.2.1",
+    "@ecl/builder": "^2.3.0",
+    "@ecl/ec-preset-dev": "^2.3.0",
+    "@ecl/ec-resources-icons": "^2.3.0",
+    "@ecl/ec-resources-logo": "^2.3.0",
+    "@ecl/ec-theme-default": "^2.3.0",
+    "chokidar-cli": "1.2.2",
     "cross-env": "5.2.0",
-    "npm-run-all": "4.1.3",
-    "rimraf": "2.6.2"
+    "normalize.css": "8.0.1",
+    "npm-run-all": "4.1.5",
+    "rimraf": "2.6.3"
   },
   "keywords": [
     "ecl",
@@ -41,7 +41,5 @@
   "homepage": "https://github.com/ec-europa/europa-component-library",
   "bugs": {
     "url": "https://github.com/ec-europa/europa-component-library/issues"
-  },
-  "sass": "ec-preset-website.scss",
-  "main": "ec-preset-website.js"
+  }
 }

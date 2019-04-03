@@ -1,0 +1,34 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import SiteHeader from '@ecl/eu-react-component-site-header';
+
+import demoContentEn from '@ecl/eu-specs-site-header/demo/data--en';
+import demoContentFr from '@ecl/eu-specs-site-header/demo/data--fr';
+
+## Default
+
+<Playground
+  system="eu"
+  selectedKind="siteheader"
+  selectedStory="default"
+  showFrameu
+>
+  <SiteHeader {...demoContentEn} />
+</Playground>
+
+## Translated
+
+EU logo is available in 24 languages.
+
+<Playground
+  system="eu"
+  selectedKind="siteheader"
+  selectedStory="translated"
+  showFrameu
+>
+  <SiteHeader {...demoContentFr} />
+</Playground>

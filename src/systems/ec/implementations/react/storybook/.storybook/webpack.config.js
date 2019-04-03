@@ -1,75 +1,36 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const includePaths = [
   path.resolve(__dirname, '../../../../../../../node_modules'),
 ];
 
-module.exports = (baseConfig, env, defaultConfig) => {
-  // Trick webpack, allow it to include .js(x) files from ../..
-  defaultConfig.module.rules[0].test = /\.jsx?$/;
-
+module.exports = ({ config: defaultConfig, mode }) => {
   // Babel loader: include "src"
   defaultConfig.module.rules[0].include.push(
     path.resolve(__dirname, '../../../../../..')
   );
 
-  // Babel loader: include "node_modules/@ecl"
-  defaultConfig.module.rules[0].include.push(
-    path.resolve(__dirname, '../../../../../../../node_modules/@ecl')
+  // Exclude node_modules
+  defaultConfig.module.rules[0].exclude = /node_modules/;
+
+  // Add babel plugin
+  defaultConfig.module.rules[0].use[0].options.plugins.push(
+    '@babel/plugin-proposal-export-default-from'
   );
 
-  // Don't exclude anything
-  defaultConfig.module.rules[0].exclude = [];
+  // Make it less verbose
+  if (mode === 'PRODUCTION') {
+    // Remove ProgressPlugin (4th plugin)
+    const plugin = defaultConfig.plugins.splice(3, 1);
 
-  defaultConfig.resolve.extensions.push('.jsx');
-
-  // Add "limit" to svg-url-loader
-  defaultConfig.module.rules[4].query = {
-    limit: 4 * 1024, // above 4 kB, file-loader will be used
-    stripdeclarations: true,
-    encoding: 'base64',
-  };
-
-  // Exclude SVG sprites
-  defaultConfig.module.rules[4].exclude = /sprites\/icons/;
-
-  defaultConfig.module.rules.push(
-    ...[
-      {
-        test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader?importLoaders=2',
-          /* {
-              loader: 'postcss-loader',
-              options: {
-                plugins: () => [
-                  // autoprefixer(),
-                ],
-              },
-            }, */
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              keepQuery: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              includePaths,
-            },
-          },
-        ],
-      },
-      // SVG sprites
-      {
-        test: /sprites\/icons(.*)\.svg/,
-        use: ['file-loader'],
-      },
-    ]
-  );
+    if (!(plugin[0] instanceof webpack.ProgressPlugin)) {
+      console.error(
+        'Error: 4th plugin is not ProgressPlugin.\nCheck src/systems/ec/implementations/react/storybook/.storybook/webpack.config.js'
+      );
+      return process.exit(1);
+    }
+  }
 
   return defaultConfig;
 };

@@ -1,0 +1,16 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import SearchForm from '@ecl/ec-react-component-search-form';
+
+import demoContent from '@ecl/ec-specs-search-form/demo/data';
+
+<Playground system="ec" selectedKind="forms-searchform" selectedStory="default">
+  <SearchForm
+    textInputId={demoContent.textInputId}
+    buttonLabel={demoContent.buttonLabel}
+  />
+</Playground>

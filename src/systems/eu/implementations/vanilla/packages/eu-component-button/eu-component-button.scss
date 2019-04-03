@@ -3,7 +3,7 @@
  * @define button
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/eu-base/eu-base';
 
 @include check-imports(('eu-component-icon'));
@@ -34,6 +34,12 @@
       outline: $outline-width solid $ecl-color-secondary;
       outline-offset: -($outline-width);
     }
+
+    &[disabled],
+    &[disabled]:hover {
+      cursor: not-allowed;
+      text-decoration: none;
+    }
   }
 
   .ecl-button__container {
@@ -41,10 +47,19 @@
     display: flex;
   }
 
+  .ecl-button__icon--before,
+  .ecl-button__icon + .ecl-button__label {
+    margin-right: $ecl-spacing-xs;
+  }
+
+  .ecl-button__icon--after,
   .ecl-button__label + .ecl-button__icon {
     margin-left: $ecl-spacing-xs;
   }
 
+  /*
+   * Primary
+   */
   .ecl-button--primary {
     background-color: $ecl-color-primary;
     color: #fff;
@@ -57,8 +72,18 @@
       padding: calc(#{$padding-horizontal} - #{$border-width})
         calc(#{$padding-vertical} - #{$border-width});
     }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-blue-25;
+      border-color: $ecl-color-blue-25;
+      color: $ecl-color-white-100;
+    }
   }
 
+  /*
+   * Secondary
+   */
   .ecl-button--secondary {
     background-color: #fff;
     border: $border-width solid $ecl-color-primary;
@@ -78,12 +103,33 @@
       background-color: $ecl-color-primary;
       color: #fff;
     }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-white-100;
+      border-color: $ecl-color-blue-25;
+      border-width: $border-width;
+      color: $ecl-color-blue-25;
+      padding: calc(#{$padding-horizontal} - #{$border-width})
+        calc(#{$padding-vertical} - #{$border-width});
+    }
   }
 
+  /*
+   * Ghost
+   */
   .ecl-button--ghost {
     color: $ecl-color-primary;
+
+    &[disabled],
+    &[disabled]:hover {
+      color: $ecl-color-blue-25;
+    }
   }
 
+  /*
+   * Call to action
+   */
   .ecl-button--call {
     background-color: $ecl-color-secondary;
     color: #000;
@@ -98,8 +144,18 @@
     &:focus {
       outline-color: #000;
     }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-yellow-25;
+      border-color: $ecl-color-yellow-25;
+      color: $ecl-color-grey-50;
+    }
   }
 
+  /*
+   * Search
+   */
   .ecl-button--search {
     background-color: $ecl-color-tertiary;
     color: $ecl-color-primary;
@@ -108,6 +164,12 @@
     &:active,
     &:focus {
       color: $ecl-color-text;
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      background-color: $ecl-color-grey-5;
+      color: $ecl-color-grey-50;
     }
   }
 }

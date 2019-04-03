@@ -1,37 +1,45 @@
 @import '@ecl/ec-theme-default/index';
 
-$header-bg-color: #f2f5f9;
+$header-bg-color: $ecl-color-grey-10;
 $header-tabs-border-width: 4px;
+$border-color: $ecl-color-grey-100;
+$border-width: 1px;
+$border-color-hover: $ecl-color-blue-100;
+$border-color-focus: $ecl-color-yellow-100;
+$border-width-focus: 3px;
+$arrow-width: 2.75rem;
 
 .header {
   background-color: $header-bg-color;
   margin: 0;
-  padding: $ecl-spacing-l 0 0;
+  padding-top: $ecl-spacing-2-xl;
 }
 
 .header__page-title {
-  color: #000;
-  font: $ecl-font-4-xl;
-  font-weight: $ecl-font-weight-bold;
-  margin: 1rem 0 0;
-  padding: 0;
+  color: $ecl-color-grey-100;
+  font: $ecl-font-5-xl;
+  margin: 0;
+  padding-bottom: $ecl-spacing-2-xl;
 }
 
 .header__section-header {
-  color: #000;
-  font: $ecl-font-xl;
-  font-weight: $ecl-font-weight-bold;
-  margin: 1rem 0 0;
+  color: $ecl-color-grey-100;
+  font: $ecl-font-m;
+  margin: 0 0 $ecl-spacing-xs;
   padding: 0;
 }
 
 .header__tabs {
-  display: flex;
+  display: none;
   flex-direction: row;
   flex-wrap: nowrap;
   list-style: none;
-  margin: 1rem 0 0;
+  margin: 0;
   padding: 0;
+
+  :global(.no-js) & {
+    display: flex;
+  }
 }
 
 .header__tabs-item {
@@ -41,7 +49,7 @@ $header-tabs-border-width: 4px;
   font: $ecl-font-m;
   font-weight: $ecl-font-weight-bold;
   margin-right: $ecl-spacing-xl;
-  padding: $ecl-spacing-xs 0;
+  padding-bottom: $ecl-spacing-xs;
   text-decoration: none;
 }
 
@@ -52,4 +60,89 @@ $header-tabs-border-width: 4px;
 
 .header__tabs-item--active {
   border-bottom: $header-tabs-border-width solid $ecl-color-yellow-100;
+}
+
+.select__container {
+  background-color: $ecl-color-white-100;
+  display: inline-flex;
+  margin-bottom: $ecl-spacing-s;
+  position: relative;
+  width: 100%;
+
+  :global(.no-js) & {
+    display: none;
+  }
+}
+
+.select {
+  appearance: none;
+  background-color: transparent;
+  border: $border-width solid $border-color;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: $ecl-color-grey-100;
+  display: block;
+  font: $ecl-font-m;
+  margin: 0;
+  width: 100%;
+  padding: calc(#{$ecl-spacing-s} - #{$border-width})
+    calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width})
+    calc(#{$ecl-spacing-s} - #{$border-width})
+    calc(#{$ecl-spacing-s} - #{$border-width});
+  z-index: 1;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:hover {
+    border-color: $border-color-hover;
+  }
+
+  &:focus {
+    border-color: $border-color-focus;
+    border-width: $border-width-focus;
+    outline: none;
+    padding: calc(#{$ecl-spacing-s} - #{$border-width-focus})
+      calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width-focus})
+      calc(#{$ecl-spacing-s} - #{$border-width-focus})
+      calc(#{$ecl-spacing-s} - #{$border-width-focus});
+  }
+}
+
+.select__icon {
+  align-items: center;
+  background-color: $border-color;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $arrow-width;
+  z-index: 0;
+}
+
+.select:hover + .icon {
+  background-color: $border-color-hover;
+}
+.select:focus + .icon {
+  background-color: $border-color;
+}
+
+.select__icon-shape {
+  fill: $ecl-color-white-100;
+  height: 1.25rem;
+  transform: rotate(180deg);
+  width: 1.25rem;
+}
+
+@media screen and (min-width: $ecl-breakpoint-md) {
+  .select__container {
+    display: none;
+  }
+
+  .header__tabs {
+    display: flex;
+  }
 }

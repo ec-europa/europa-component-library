@@ -1,54 +1,138 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 
 import Container from '../Grid/Container';
 import styles from './Header.scss';
 
-const Header = ({ component, sectionTitle, pageTitle, tabs }) => (
-  <header className={styles.header}>
-    <Container>
-      <h3 className={styles['header__section-header']}>{sectionTitle}</h3>
-      <h1 className={styles['header__page-title']}>{pageTitle}</h1>
-      <ul className={styles.header__tabs}>
-        {tabs &&
-          tabs.map(tab => (
-            <li key={tab.url}>
-              <NavLink
-                to={`${component.url}/${tab.url}/`}
-                strict
-                className={styles['header__tabs-item']}
-                activeClassName={styles['header__tabs-item--active']}
+const getTitle = component => {
+  if (
+    component &&
+    component.attributes &&
+    component.attributes.level > 0 &&
+    component.attributes.title
+  ) {
+    return component.attributes.title;
+  }
+
+  return '';
+};
+
+const getPageTitle = component => {
+  if (component.attributes.isTab) {
+    if (component.parent) {
+      return getTitle(component.parent);
+    }
+
+    return '';
+  }
+
+  return getTitle(component);
+};
+
+const getSectionTitle = component => {
+  if (component.attributes.isTab) {
+    if (component.parent && component.parent.parent) {
+      return getTitle(component.parent.parent);
+    }
+
+    return '';
+  }
+
+  if (component.parent) {
+    return getTitle(component.parent);
+  }
+
+  return getTitle(component);
+};
+
+const navigateTab = (e, history) => {
+  history.push(e.target.value);
+};
+
+const Header = React.memo(({ component, history, location }) => {
+  if (!component || !component.attributes) return null;
+
+  const pageTitle = getPageTitle(component);
+  const sectionTitle = getSectionTitle(component);
+
+  return (
+    <header className={styles.header}>
+      <Container>
+        {sectionTitle && (
+          <h3 className={styles['header__section-header']}>{sectionTitle}</h3>
+        )}
+        <h1 className={styles['header__page-title']}>{pageTitle}</h1>
+        {component.attributes.isTab && (
+          <Fragment>
+            <ul className={styles.header__tabs}>
+              {component.parent.children.map(tab => (
+                <li key={tab.attributes.url}>
+                  <NavLink
+                    to={tab.attributes.url}
+                    strict
+                    className={styles['header__tabs-item']}
+                    activeClassName={styles['header__tabs-item--active']}
+                  >
+                    {tab.attributes.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+
+            <div className={styles.select__container}>
+              <select
+                id="header-tabs"
+                className={styles.select}
+                onChange={e => navigateTab(e, history)}
+                defaultValue={location.pathname}
               >
-                {tab.name}
-              </NavLink>
-            </li>
-          ))}
-      </ul>
-    </Container>
-  </header>
-);
+                {component.parent.children.map(tab => (
+                  <option key={tab.attributes.url} value={tab.attributes.url}>
+                    {tab.attributes.title}
+                  </option>
+                ))}
+              </select>
+              <div className={styles.select__icon}>
+                <svg
+                  focusable="false"
+                  aria-hidden="true"
+                  className={styles['select__icon-shape']}
+                >
+                  <use xlinkHref={`${icons}#ui--corner-arrow`} />
+                </svg>
+              </div>
+            </div>
+          </Fragment>
+        )}
+      </Container>
+    </header>
+  );
+});
 
 Header.propTypes = {
   component: PropTypes.shape({
-    url: PropTypes.string,
-  }),
-  sectionTitle: PropTypes.string,
-  pageTitle: PropTypes.string.isRequired,
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
+    attributes: PropTypes.shape({
       url: PropTypes.string,
-      name: PropTypes.string,
-    })
-  ),
+      title: PropTypes.string,
+    }),
+  }),
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 Header.defaultProps = {
   component: {
-    url: '',
+    attributes: {
+      url: '',
+      title: '',
+    },
   },
-  sectionTitle: '',
-  tabs: [],
 };
 
-export default Header;
+export default withRouter(Header);

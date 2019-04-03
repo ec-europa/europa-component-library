@@ -9,9 +9,9 @@ import demoContentPrimary from '@ecl/eu-specs-hero-banner/demo/data--primary';
 import demoContentDefault from '@ecl/eu-specs-hero-banner/demo/data--default';
 import demoContentAlignLeft from '@ecl/eu-specs-hero-banner/demo/data--align-left';
 
-import HeroBanner from '../HeroBanner';
+import HeroBanner from '../src/HeroBanner';
 
-storiesOf('HeroBanner', module)
+storiesOf('Banners/Hero Banner', module)
   .addDecorator(withKnobs)
   .add('image', () => {
     const button = {

@@ -1,21 +1,18 @@
 {
-  "private": true,
   "name": "@ecl/eu-component-expandable",
   "author": "European Commission",
   "license": "EUPL-1.1",
-  "version": "2.0.0-alpha.0",
-  "description": "ECL Expandables",
+  "version": "2.3.0",
+  "description": "ECL EU Expandable",
+  "main": "eu-component-expandable.js",
   "module": "eu-component-expandable.js",
   "style": "eu-component-expandable.scss",
+  "sass": "eu-component-expandable.scss",
   "dependencies": {
-    "@ecl/eu-base": "^2.0.0-alpha.0",
-    "@ecl/eu-component-icon": "^2.0.0-alpha.0",
-    "@ecl/generic-component-expandable": "^2.0.0-alpha.0"
+    "@ecl/eu-base": "^2.3.0"
   },
   "devDependencies": {
-    "@ecl/eu-component-button": "^2.0.0-alpha.0",
-    "@ecl/eu-component-link": "^2.0.0-alpha.0",
-    "@ecl/eu-utility-aria": "^2.0.0-alpha.0"
+    "@ecl/eu-specs-expandable": "^2.3.0"
   },
   "publishConfig": {
     "access": "public"
@@ -32,7 +29,5 @@
     "ecl",
     "europa-component-library",
     "design-system"
-  ],
-  "main": "eu-component-expandable.js",
-  "sass": "eu-component-expandable.scss"
+  ]
 }

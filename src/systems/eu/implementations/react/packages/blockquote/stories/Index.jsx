@@ -4,11 +4,11 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import demoContent from '@ecl/eu-specs-blockquote/demo/data';
 
-import Blockquote from '../Blockquote';
+import Blockquote from '../src/Blockquote';
 
 storiesOf('Blockquote', module)
   .addDecorator(withKnobs)
-  .add('interactive', () => (
+  .add('default', () => (
     <Blockquote
       author={text('Author', demoContent.author)}
       citation={text('Citation', demoContent.citation)}

@@ -1,13 +1,17 @@
-# Europa Component Library (European Commission)
+---
+title: Europa Component Library
+---
 
-The Europa Component Library (European Commission) is a library of components used to create all European Commission websites and applications hosted under ec.europa.eu domain. 
+# Europa Component Library
 
-The library contains all available components that you can use to build your own website or application.
+## ec.europa.eu
+
+This library contains all available components that you can use to build your own website.
 
 All library elements are accompanied by
 
-- documentation explaining what the component is intended for and how it should be used
-- a visual demonstration of the component
+- documentation explaining what a component is and how it should be used
+- a visual demonstration
 - HTML/CSS code for implementation
 
-For support in building a European Commission website using the ECL, please contact COMM Europa Management (CEM).
+For support in building a European Commission website using the ECL, please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) (CEM).

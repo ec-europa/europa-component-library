@@ -1,96 +1,82 @@
-import React, { Component, Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Helmet from 'react-helmet';
-import ECStyles from '@ecl/ec-preset-website/dist/styles/ecl-ec-preset-website.css';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
+import merge from 'deepmerge';
 
-// Layout
-import Navigation from '../components/Navigation/Navigation';
-import MainContainer from '../components/MainContainer/MainContainer';
+// Helpers
+import sortPages from '../utils/nav-sort';
 
 // Static routes
 import HomePage from '../pages/ec/index.md';
-import PageNotFound from './404';
 
-import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
 
-const ecPages = require.context('../pages/ec', true, /config\.js$/);
-const ecSpecs = require.context(
-  '../../../systems/ec/specs',
-  true,
-  /config\.js$/
-);
+import Skeleton from './Skeleton';
 
-const pages = [
-  ...ecPages.keys().map(key => ecPages(key).default),
-  ...ecSpecs.keys().map(key => ecSpecs(key).default),
+const ecPages = require.context('../pages/ec', true, /\.mdx?$/);
+
+const extractPageInfo = (page, key) => {
+  // Add url to pages
+  const url = `/ec/${key
+    .replace('docs', '')
+    .replace('index', '')
+    .replace('.mdx', '')
+    .replace('.md', '')
+    .replace('./', '')}/`.replace('//', '/');
+
+  return {
+    key,
+    attributes: merge.all([
+      {},
+      {
+        url,
+        isTab: key.indexOf('docs') >= 0,
+      },
+      page.attributes,
+    ]),
+    document: page.default,
+  };
+};
+
+const allPages = [
+  ...ecPages.keys().map(key => {
+    const page = ecPages(key);
+    return extractPageInfo(page, key);
+  }),
 ];
 
-class ECRoutes extends Component {
-  constructor(props) {
-    super(props);
+const sortedPages = sortPages(allPages);
 
-    this.state = {
-      sidebarOpen:
-        Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
-        1140,
-    };
+function flatDeep(pages) {
+  return pages.reduce((acc, page) => {
+    let acc2 = acc;
+    if (page.children && page.children.length > 0) {
+      acc2 = acc.concat(flatDeep(page.children));
+    }
 
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-  }
-
-  componentDidMount() {
-    ECStyles.use();
-  }
-
-  componentWillUnmount() {
-    ECStyles.unuse();
-  }
-
-  toggleSidebar() {
-    this.setState(prevState => ({
-      sidebarOpen: !prevState.sidebarOpen,
-    }));
-  }
-
-  render() {
-    const { sidebarOpen } = this.state;
-
-    return (
-      <Fragment>
-        <Navigation
-          pages={pages}
-          prefix="/ec"
-          sidebarOpen={sidebarOpen}
-          onToggleSidebar={this.toggleSidebar}
-        />
-        <MainContainer sidebarOpen={sidebarOpen}>
-          <Switch>
-            <Route
-              exact
-              strict
-              path="/ec/"
-              component={() => (
-                <SimplePage>
-                  <Helmet title="EC Homepage" />
-                  <HomePage />
-                </SimplePage>
-              )}
-            />
-            {pages.map(page => (
-              <Route
-                key={page.url}
-                path={`${page.url}/`}
-                strict
-                render={() => <DocPage component={page} />}
-              />
-            ))}
-            <Route component={PageNotFound} />
-          </Switch>
-        </MainContainer>
-      </Fragment>
-    );
-  }
+    return acc2.concat(page);
+  }, []);
 }
+
+const pagesToRoutes = pages =>
+  flatDeep(pages).map(page => (
+    <Route
+      key={page.attributes.url}
+      path={page.attributes.url}
+      exact
+      strict
+      render={() => <DocPage component={page} />}
+    />
+  ));
+
+const ECRoutes = () => (
+  <Skeleton
+    HomePage={HomePage}
+    prefix="/ec"
+    title="EC Homepage"
+    pages={sortedPages[0].children}
+    routes={pagesToRoutes(sortedPages)}
+  />
+);
 
 export default ECRoutes;

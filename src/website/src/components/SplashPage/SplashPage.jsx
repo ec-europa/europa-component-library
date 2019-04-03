@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Import resources
-import ECLogo from '@ecl/ec-preset-website/dist/images/logo/EC-logo.svg';
-import EULogo from '@ecl/eu-preset-website/dist/images/logo/logo--en.svg';
+import ECLogo from '@ecl/ec-preset-full/dist/images/logo/logo--en.svg';
+import EULogo from '@ecl/eu-preset-full/dist/images/logo/logo--en.svg';
 import LogoLink from './LogoLink';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 
@@ -14,7 +14,7 @@ import Col from '../Grid/Col';
 import utilities from '../../styles/utilities.scss';
 import styles from './SplashPage.scss';
 
-const SplashPage = ({ children }) => (
+const SplashPage = React.memo(({ children }) => (
   <main id="main-content" tabIndex="-1" className={styles['splash-page']}>
     <ScrollToTopOnMount />
     <Container>
@@ -43,7 +43,7 @@ const SplashPage = ({ children }) => (
       </Row>
     </Container>
   </main>
-);
+));
 
 SplashPage.propTypes = {
   children: PropTypes.node,

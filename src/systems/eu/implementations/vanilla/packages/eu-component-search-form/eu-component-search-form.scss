@@ -3,7 +3,7 @@
  * @define search-form; weak
  */
 
-// Import base and generic
+// Import base
 @import '@ecl/eu-base/eu-base';
 
 // Check if overridden dependencies are already loaded, if needed
@@ -25,6 +25,7 @@
   }
 
   .ecl-search-form .ecl-form-group--text-input {
+    display: flex;
     flex-grow: 1;
     max-width: 100%;
   }

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
 import simpleContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
 import demoContent from '@ecl/ec-specs-breadcrumb/demo/data';
@@ -9,7 +9,7 @@ import demoContent from '@ecl/ec-specs-breadcrumb/demo/data';
 import Breadcrumb from '../src/Breadcrumb';
 import BreadcrumbItem from '../src/BreadcrumbItem';
 
-storiesOf('Breadcrumb', module)
+storiesOf('Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
   .add('simple', () => {
     const items = simpleContent.items.map((item, index) => ({

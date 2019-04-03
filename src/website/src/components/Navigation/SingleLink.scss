@@ -1,0 +1,67 @@
+@import '@ecl/ec-theme-default/index';
+
+.page-list-item {
+  align-items: center;
+  background-color: $ecl-color-grey-5;
+  border-width: 0;
+  color: $ecl-color-text;
+  display: flex;
+  font: $ecl-font-m;
+  margin: 0;
+  text-decoration: none;
+
+  &.level-0 {
+    padding: $ecl-spacing-s $ecl-spacing-m;
+  }
+
+  &.level-1,
+  &.level-2 {
+    padding: $ecl-spacing-s $ecl-spacing-xl;
+  }
+}
+
+.page-list-item:hover,
+.page-list-item:focus {
+  background-color: $ecl-color-grey-10;
+  outline: none;
+}
+
+.page-list-item:active {
+  background-color: $ecl-color-grey-25;
+}
+
+.page-list-item--active {
+  border-left: 4px solid $ecl-color-yellow-100;
+
+  &.level-0 {
+    padding-left: calc(#{$ecl-spacing-m} - 4px);
+  }
+
+  &.level-1,
+  &.level-2 {
+    padding-left: calc(#{$ecl-spacing-xl} - 4px);
+  }
+}
+
+.page-status {
+  background-color: #000;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+  flex-shrink: 0;
+  height: 0.5rem;
+  margin: 0 0.5rem;
+  width: 0.5rem;
+}
+
+.status-ready {
+  background-color: #467a39;
+}
+
+.status-planned {
+  background-color: #006fb4;
+}
+
+.status-wip {
+  background-color: #f29527;
+}

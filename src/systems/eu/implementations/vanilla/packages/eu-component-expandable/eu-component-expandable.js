@@ -1,82 +1,103 @@
-/* eslint-disable no-param-reassign */
+import { queryOne } from '@ecl/eu-base/helpers/dom';
 
-export const toggleExpandable = (
-  toggleElement,
-  {
-    context = document,
-    forceClose = false,
-    closeSiblings = false,
-    siblingsSelector = '[aria-controls][aria-expanded]',
-  } = {}
-) => {
-  if (!toggleElement) {
-    return;
+export class Expandable {
+  constructor(
+    element,
+    {
+      toggleSelector: toggleSelector = '[data-ecl-expandable-toggle]',
+      labelSelector: labelSelector = '[data-ecl-label]',
+      labelExpanded: labelExpanded = 'data-ecl-label-expanded',
+      labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
+      attachClickListener: attachClickListener = true,
+    } = {}
+  ) {
+    // Check element
+    if (!element || element.nodeType !== Node.ELEMENT_NODE) {
+      throw new TypeError(
+        'DOM element should be given to initialize this widget.'
+      );
+    }
+
+    this.element = element;
+
+    // Options
+    this.toggleSelector = toggleSelector;
+    this.labelSelector = labelSelector;
+    this.labelExpanded = labelExpanded;
+    this.labelCollapsed = labelCollapsed;
+    this.attachClickListener = attachClickListener;
+
+    // Private variables
+    this.toggle = null;
+    this.forceClose = false;
+    this.target = null;
+    this.label = null;
+
+    // Bind `this` for use in callbacks
+    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
   }
 
-  // Get target element
-  const target = document.getElementById(
-    toggleElement.getAttribute('aria-controls')
-  );
+  init() {
+    this.toggle = queryOne(this.toggleSelector, this.element);
 
-  // Exit if no target found
-  if (!target) {
-    return;
-  }
+    // Get target element
+    this.target = document.querySelector(
+      `#${this.toggle.getAttribute('aria-controls')}`
+    );
 
-  // Get current status
-  const isExpanded =
-    forceClose === true ||
-    toggleElement.getAttribute('aria-expanded') === 'true';
+    // Get label, if any
+    this.label = queryOne(this.labelSelector, this.element);
 
-  // Toggle the expandable/collapsible
-  toggleElement.setAttribute('aria-expanded', !isExpanded);
-  target.setAttribute('aria-hidden', isExpanded);
-
-  // Toggle label if possible
-  const expandableLabel = toggleElement.querySelector('.ecl-expandable__label');
-  if (expandableLabel) {
-    if (!isExpanded && toggleElement.hasAttribute('data-label-expanded')) {
-      expandableLabel.innerHTML = toggleElement.getAttribute(
-        'data-label-expanded'
+    // Exit if no target found
+    if (!this.target) {
+      throw new TypeError(
+        'Target has to be provided for expandable (aria-controls)'
       );
-    } else if (
-      isExpanded &&
-      toggleElement.hasAttribute('data-label-collapsed')
-    ) {
-      expandableLabel.innerHTML = toggleElement.getAttribute(
-        'data-label-collapsed'
-      );
+    }
+
+    // Bind click event on toggle
+    if (this.attachClickListener && this.toggle) {
+      this.toggle.addEventListener('click', this.handleClickOnToggle);
     }
   }
 
-  // Close siblings if requested
-  if (closeSiblings === true) {
-    const siblingsArray = Array.prototype.slice
-      .call(context.querySelectorAll(siblingsSelector))
-      .filter(sibling => sibling !== toggleElement);
-
-    siblingsArray.forEach(sibling => {
-      toggleExpandable(sibling, {
-        context,
-        forceClose: true,
-      });
-    });
+  destroy() {
+    if (this.attachClickListener && this.toggle) {
+      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+    }
   }
-};
 
-// Helper method to automatically attach the event listener to all the expandables on page load
-export const initExpandables = (selector, context = document) => {
-  // Exit if no selector was provided
-  if (!selector) return;
+  handleClickOnToggle() {
+    // Get current status
+    const isExpanded =
+      this.forceClose === true ||
+      this.toggle.getAttribute('aria-expanded') === 'true';
 
-  const nodesArray = Array.prototype.slice.call(
-    context.querySelectorAll(selector)
-  );
+    // Toggle the expandable/collapsible
+    this.toggle.setAttribute('aria-expanded', !isExpanded);
+    if (isExpanded) {
+      this.target.setAttribute('hidden', true);
+    } else {
+      this.target.removeAttribute('hidden');
+    }
 
-  nodesArray.forEach(node =>
-    node.addEventListener('click', e => {
-      toggleExpandable(node, { context });
-      e.preventDefault();
-    })
-  );
-};
+    // Toggle label if possible
+    if (
+      this.label &&
+      !isExpanded &&
+      this.toggle.hasAttribute(this.labelExpanded)
+    ) {
+      this.label.innerHTML = this.toggle.getAttribute(this.labelExpanded);
+    } else if (
+      this.label &&
+      isExpanded &&
+      this.toggle.hasAttribute(this.labelCollapsed)
+    ) {
+      this.label.innerHTML = this.toggle.getAttribute(this.labelCollapsed);
+    }
+
+    return this;
+  }
+}
+
+export default Expandable;

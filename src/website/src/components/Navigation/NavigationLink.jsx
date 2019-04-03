@@ -10,9 +10,7 @@ class NavigationLink extends Component {
     // The URL is not supposed to change
     // Thus we can compute it in the constructor and save it
     const { meta } = props;
-    this.to = meta.defaultTab
-      ? `${meta.url}/${meta.defaultTab}/`
-      : `${meta.url}/`;
+    this.to = meta.defaultTab ? `${meta.url}${meta.defaultTab}/` : meta.url;
   }
 
   // Only update if "isActive" state has changed
@@ -22,15 +20,15 @@ class NavigationLink extends Component {
     const nextUrl = nextProps.meta.url;
 
     return (
-      location.pathname.indexOf(`${meta.url}/`) !==
-      nextLocation.pathname.indexOf(`${nextUrl}/`)
+      location.pathname.indexOf(meta.url) !==
+      nextLocation.pathname.indexOf(nextUrl)
     );
   }
 
   // Custom matcher (ignore default tab)
   isActive(match, location) {
     const { meta } = this.props;
-    return location.pathname.indexOf(`${meta.url}/`) === 0;
+    return location.pathname.indexOf(meta.url) === 0;
   }
 
   render() {
@@ -49,6 +47,9 @@ class NavigationLink extends Component {
 }
 
 NavigationLink.propTypes = {
+  history: PropTypes.shape(),
+  match: PropTypes.shape(),
+  staticContext: PropTypes.shape(),
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
@@ -56,6 +57,12 @@ NavigationLink.propTypes = {
     url: PropTypes.string.isRequired,
     defaultTab: PropTypes.string,
   }).isRequired,
+};
+
+NavigationLink.defaultProps = {
+  history: {},
+  match: {},
+  staticContext: {},
 };
 
 export default withRouter(NavigationLink);

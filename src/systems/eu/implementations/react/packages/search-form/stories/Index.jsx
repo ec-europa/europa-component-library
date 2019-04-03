@@ -5,13 +5,14 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 
 import demoContent from '@ecl/eu-specs-search-form/demo/data';
 
-import SearchForm from '../SearchForm';
+import SearchForm from '../src/SearchForm';
 
-storiesOf('SearchForm', module)
+storiesOf('Forms/SearchForm', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <SearchForm
       textInputId={demoContent.textInputId}
+      inputLabel={text('Input label', demoContent.inputLabel)}
       buttonLabel={text('Button label', demoContent.buttonLabel)}
     />
   ));

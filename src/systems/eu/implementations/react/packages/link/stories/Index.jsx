@@ -7,14 +7,16 @@ import demoContentDefault from '@ecl/eu-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/eu-specs-link/demo/data--standalone';
 import uiIcons from '@ecl/eu-resources-icons/dist/lists/ui.json';
 
-import Link from '../Link';
+import Link from '../src/Link';
 
 const icons = {
   none: '',
-  ...uiIcons.map(icon => ({ [`${icon}`]: `ui--${icon}` })).reduce((a, b) => ({
-    ...a,
-    ...b,
-  })),
+  ...uiIcons
+    .map(icon => ({ [`${icon}`]: `ui--${icon}` }))
+    .reduce((a, b) => ({
+      ...a,
+      ...b,
+    })),
 };
 
 const iconPosition = {
@@ -22,7 +24,7 @@ const iconPosition = {
   after: 'after',
 };
 
-storiesOf('Link', module)
+storiesOf('Navigation/Link', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     const linkIcon = {
