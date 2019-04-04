@@ -177,7 +177,7 @@ export class InpageNavigation {
 
   handleClickOnToggler(e) {
     const currentList = queryOne(this.inPageList, this.element);
-    const currentState = currentList.getAttribute('hidden');
+    const currentState = currentList.getAttributeNode('hidden');
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
     if (currentState) {
