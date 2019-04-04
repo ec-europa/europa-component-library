@@ -2,7 +2,7 @@ import createFocusTrap from 'focus-trap';
 
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
-class Gallery {
+export class Gallery {
   constructor(
     element,
     {
@@ -258,6 +258,9 @@ class Gallery {
 
     // Focus item
     this.selectedItem.focus();
+
+    // Enable scroll on body
+    document.body.classList.remove('ecl-u-disablescroll');
   }
 
   handleKeyPressOnItem(e) {
@@ -269,6 +272,9 @@ class Gallery {
 
   handleClickOnItem(e) {
     e.preventDefault();
+
+    // Disable scroll on body
+    document.body.classList.add('ecl-u-disablescroll');
 
     // Display overlay
     if (this.isDialogSupported) {

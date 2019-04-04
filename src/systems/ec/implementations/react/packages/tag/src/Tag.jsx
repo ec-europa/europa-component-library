@@ -14,7 +14,7 @@ const Tag = ({ label, variant, href, className, ...props }) => {
 
   const tagProps = {
     ...props,
-    ...(href && { href }),
+    ...(href ? { href } : {}),
   };
 
   return (

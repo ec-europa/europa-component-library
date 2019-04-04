@@ -48,8 +48,12 @@ module.exports = {
       to: path.resolve(outputFolder, 'images'),
     },
     {
-      from: path.resolve(nodeModules, '@ecl/eu-resources-icons'),
+      from: path.resolve(nodeModules, '@ecl/eu-resources-icons/dist'),
       to: path.resolve(outputFolder, 'images/icons'),
+    },
+    {
+      from: path.resolve(nodeModules, '@ecl/eu-resources-social-icons/dist'),
+      to: path.resolve(outputFolder, 'images/social-icons'),
     },
     {
       from: path.resolve(nodeModules, '@ecl/eu-resources-logo'),

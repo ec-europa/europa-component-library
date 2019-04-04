@@ -1,0 +1,36 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import RadioGroup from '@ecl/eu-react-component-radio';
+
+import demoContentDefault from '@ecl/eu-specs-radio/demo/data--default';
+import demoContentInvalid from '@ecl/eu-specs-radio/demo/data--invalid';
+import demoContentBinary from '@ecl/eu-specs-radio/demo/data--binary';
+import demoContentBinaryInvalid from '@ecl/eu-specs-radio/demo/data--binary-invalid';
+
+## Default radio group
+
+<Playground system="eu" selectedKind="forms-radio" selectedStory="default">
+  <RadioGroup {...demoContentDefault} />
+</Playground>
+
+## Invalid radio group
+
+<Playground system="eu" selectedKind="forms-radio" selectedStory="default">
+  <RadioGroup {...demoContentInvalid} />
+</Playground>
+
+## Binary radio group
+
+<Playground system="eu" selectedKind="forms-radio" selectedStory="binary">
+  <RadioGroup {...demoContentBinary} />
+</Playground>
+
+## Binary invalid radio group
+
+<Playground system="eu" selectedKind="forms-radio" selectedStory="binary">
+  <RadioGroup {...demoContentBinaryInvalid} />
+</Playground>
