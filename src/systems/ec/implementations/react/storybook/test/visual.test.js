@@ -1,5 +1,5 @@
 import initStoryshots from '@storybook/addon-storyshots';
-import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer';
+import { imageSnapshot } from '@ecl/storybook-storyshots-testing';
 import { logger } from '@storybook/node-logger';
 import path from 'path';
 import fs from 'fs';
