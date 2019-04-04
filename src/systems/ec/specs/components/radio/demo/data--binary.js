@@ -11,6 +11,7 @@ module.exports = {
       id: 'radio-binary-1',
       value: 'yes',
       label: 'Yes',
+      checked: true,
     },
     {
       id: 'radio-binary-2',

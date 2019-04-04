@@ -11,6 +11,7 @@ const RadioButton = ({
   helperId,
   helperText,
   label,
+  checked,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-radio', {
@@ -27,6 +28,7 @@ const RadioButton = ({
         value={value}
         disabled={disabled}
         {...(helperId ? { 'aria-describedby': helperId } : {})}
+        {...(checked ? { defaultChecked: true } : {})}
       />
       <label htmlFor={id} className="ecl-radio__label">
         <span className="ecl-radio__box" />
@@ -52,6 +54,7 @@ RadioButton.propTypes = {
   name: PropTypes.string,
   label: PropTypes.node.isRequired,
   value: PropTypes.string,
+  checked: PropTypes.bool,
   className: PropTypes.string,
 };
 
@@ -61,6 +64,7 @@ RadioButton.defaultProps = {
   helperText: '',
   name: '',
   value: '',
+  checked: false,
   className: '',
 };
 
