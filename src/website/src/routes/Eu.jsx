@@ -30,7 +30,7 @@ const extractPageInfo = (page, key) => {
       {},
       {
         url,
-        isTab: key.indexOf('docs') >= 0,
+        isTab: key.indexOf('docs') >= 0, // eslint-disable-line unicorn/prefer-includes
       },
       page.attributes,
     ]),
