@@ -65,6 +65,9 @@ export class InpageNavigation {
   initScrollSpy(inpageNavElement) {
     const toggleClass = this.spyActiveContainer;
     const navigationTitle = queryOne(this.spyTrigger);
+    const currentList = queryOne(this.inPageList, this.element);
+    const togglerElement = queryOne(this.toggleSelector, this.element);
+
     this.gumshoe.init({
       selector: this.spySelector,
       activeClass: this.spyClass,
@@ -73,6 +76,8 @@ export class InpageNavigation {
         if (!nav) {
           inpageNavElement.classList.remove(toggleClass);
           navigationTitle.innerHTML = '';
+          currentList.setAttribute('hidden', true);
+          togglerElement.setAttribute('aria-expanded', 'false');
         } else {
           inpageNavElement.classList.add(toggleClass);
           navigationTitle.innerHTML = nav.nav.innerHTML;
