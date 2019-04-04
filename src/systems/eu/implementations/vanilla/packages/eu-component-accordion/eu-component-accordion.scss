@@ -88,7 +88,40 @@
   }
 }
 
+@mixin ecl-accordion-print() {
+  @media print {
+    .ecl-accordion__toggle {
+      color: #000;
+      font: $ecl-font-prolonged-print-l;
+    }
+
+    .ecl-accordion__toggle .ecl-button__container::before {
+      visibility: hidden;
+    }
+
+    .ecl-accordion__toggle[aria-expanded='true'] {
+      background-color: transparent;
+    }
+
+    .ecl-accordion__content {
+      background-color: transparent;
+      color: #000;
+      display: block;
+      font: $ecl-font-prolonged-print-l;
+      page-break-inside: avoid;
+    }
+
+    /* stylelint-disable-next-line order/order */
+    @include ecl-media-breakpoint-up('lg') {
+      .ecl-accordion__toggle {
+        font: $ecl-font-prolonged-print-xl;
+      }
+    }
+  }
+}
+
 // Use mixin
 @include exports('eu-component-accordion') {
   @include ecl-accordion();
+  @include ecl-accordion-print();
 }
