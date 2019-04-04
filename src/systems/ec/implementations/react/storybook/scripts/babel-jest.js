@@ -2,5 +2,5 @@ const path = require('path');
 const babelJest = require('babel-jest');
 
 module.exports = babelJest.createTransformer({
-  configFile: path.resolve(__dirname, '../babel.config.js'),
+  configFile: path.resolve(__dirname, '../.storybook/babel.config.js'),
 });
