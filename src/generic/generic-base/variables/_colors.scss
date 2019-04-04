@@ -7,6 +7,7 @@ $ecl-colors: (
   blue-75: #4073af,
   blue-50: #7fa1c9,
   blue-25: #bfd0e4,
+  blue-5: #f2f5f9,
   yellow-120: #f8ae21,
   yellow-110: #fbc11d,
   yellow-100: #ffd617,
@@ -47,5 +48,6 @@ $ecl-colors-bg: (
   default: #fff,
   primary: $ecl-color-primary,
   secondary: $ecl-color-secondary,
-  shade: $ecl-color-shade
+  shade: $ecl-color-shade,
+  blue-5: map-get($ecl-colors, 'blue-5')
 ) !default;
