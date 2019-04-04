@@ -35,7 +35,7 @@ pipeline:
             matrix: {TEST: examples}
 
     visual-regression:
-        image: hivelocityinc/docker-node-chromium
+        image: timbru31/node-chrome
         shm_size: 1g
         commands:
             - 'yarn install --frozen-lockfile'
