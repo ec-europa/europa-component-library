@@ -13,7 +13,6 @@ module.exports = {
   roots: ['<rootDir>/packages', '<rootDir>/storybook'],
   transform: {
     '^.+\\.(js|jsx)?$': '<rootDir>/storybook/scripts/babel-jest.js',
-    // '^.+\\.(js|jsx)?$': 'babel-jest',
   },
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/storybook/test/__config__/setup.js'],

@@ -25,7 +25,9 @@
     "start:eu": "cd src/systems/eu/implementations/react/storybook && npm run start",
     "start:website": "cd src/website && npm run start",
     "test:coding-conventions": "npm run lint && npm run pretty-check",
-    "test:visual-regression": "npx lerna exec --scope @ecl/ec-react-storybook -- yarn test",
+    "test:ec-build": "npx lerna exec --scope @ecl/ec-react-storybook -- yarn build",
+    "test:ec-visual": "npx lerna exec --scope @ecl/ec-react-storybook -- yarn test",
+    "test:ec-update": "npx lerna exec --scope @ecl/ec-react-storybook -- yarn update-snapshot",
     "update-version": "scripts/update-version.sh"
   },
   "devDependencies": {
