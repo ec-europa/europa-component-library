@@ -13,7 +13,7 @@ const defaultConfig = {
 };
 
 const imageSnapshot = (customConfig = {}) => {
-  const { storybookUrl, capability } = {
+  const { storybookUrl, capability, tunnelIdentifier } = {
     ...defaultConfig,
     ...customConfig,
   };
@@ -81,6 +81,7 @@ const imageSnapshot = (customConfig = {}) => {
         // name: componentName,
         maxDuration: 3600,
         idleTimeout: 1000,
+        tunnelIdentifier,
         ...capability,
       })
       .usingServer(

@@ -8,7 +8,8 @@
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
     "start": "start-storybook -p 6006 -c .storybook",
-    "test": "jest test/visual.test.js",
+    "test:visual": "jest test/visual.test.js",
+    "test": "sc-run yarn test",
     "update-snapshot": "jest test/visual.test.js --updateSnapshot"
   },
   "devDependencies": {
@@ -33,16 +34,17 @@
     "babel-loader": "8.0.5",
     "babel-plugin-require-context-hook": "1.0.0",
     "css-loader": "2.1.1",
-    "jest-image-snapshot": "^2.8.1",
     "jest": "24.7.0",
+    "jest-image-snapshot": "^2.8.1",
     "node-sass": "4.11.0",
     "postcss-loader": "3.0.0",
+    "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-test-renderer": "16.8.6",
-    "react": "16.8.6",
     "regenerator-runtime": "0.13.2",
     "resolve-url-loader": "3.1.0",
     "sass-loader": "7.1.0",
+    "sauceconnect-runner": "0.2.2",
     "selenium-webdriver": "4.0.0-alpha.1",
     "serve-static": "1.13.2",
     "style-loader": "0.23.1"
