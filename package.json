@@ -25,31 +25,31 @@
   },
   "devDependencies": {
     "@ecl/eslint-config": "0.1.2",
-    "@ecl/qa": "0.2.0",
-    "@ecl/stylelint-config": "0.2.0",
-    "@octokit/rest": "15.7.0",
-    "chai": "4.1.2",
-    "dotenv": "5.0.1",
+    "@ecl/qa": "0.2.1",
+    "@ecl/stylelint-config": "0.2.1",
+    "@octokit/rest": "16.23.2",
+    "chai": "4.2.0",
+    "dotenv": "7.0.0",
     "eslint": "4.19.1",
     "gh-pages": "1.1.0",
-    "glob": "7.1.2",
+    "glob": "7.1.3",
     "husky": "0.14.3",
     "lerna": "2.11.0",
     "lerna-changelog": "0.7.0",
     "lint-staged": "7.1.2",
     "minimist": "1.2.0",
     "mkdirp": "0.5.1",
-    "npm-run-all": "4.1.3",
+    "npm-run-all": "4.1.5",
     "npmlog": "4.1.2",
-    "prettier": "1.12.1",
-    "rimraf": "2.6.2",
-    "simple-git": "1.95.0",
-    "stylelint": "9.2.1",
+    "prettier": "1.16.4",
+    "rimraf": "2.6.3",
+    "simple-git": "1.110.0",
+    "stylelint": "9.10.1",
     "wdio-mocha-framework": "0.5.13",
-    "wdio-sauce-service": "0.4.8",
+    "wdio-sauce-service": "0.4.14",
     "wdio-screenshot": "0.6.0",
     "wdio-selenium-standalone-service": "0.0.10",
-    "wdio-spec-reporter": "0.1.4",
+    "wdio-spec-reporter": "0.1.5",
     "wdio-static-server-service": "1.0.1",
     "wdio-visual-regression-service": "0.9.0",
     "webdriverio": "4.12.0"
@@ -58,10 +58,24 @@
     "node": ">=8.9.1"
   },
   "lint-staged": {
-    "*.md": ["prettier --parser markdown --write", "git add"],
-    "*.js": ["prettier --parser babylon --write", "eslint", "git add"],
-    "*.json": ["prettier --parser json --write", "git add"],
-    "*.scss": ["prettier --parser scss --write", "stylelint", "git add"]
+    "*.md": [
+      "prettier --parser markdown --write",
+      "git add"
+    ],
+    "*.js": [
+      "prettier --parser babylon --write",
+      "eslint",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --parser json --write",
+      "git add"
+    ],
+    "*.scss": [
+      "prettier --parser scss --write",
+      "stylelint",
+      "git add"
+    ]
   },
   "workspaces": [
     "examples/*",
