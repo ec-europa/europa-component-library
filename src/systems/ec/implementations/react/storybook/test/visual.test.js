@@ -1,11 +1,12 @@
 import initStoryshots from '@storybook/addon-storyshots';
-import { imageSnapshot } from '@ecl/storybook-storyshots-testing';
 import { logger } from '@storybook/node-logger';
 import path from 'path';
 import fs from 'fs';
 import finalhandler from 'finalhandler';
 import http from 'http';
 import serveStatic from 'serve-static';
+
+import imageSnapshot from '../lib/image-snapshot';
 
 const pathToStorybookStatic = path.resolve(__dirname, '../build');
 const port = 6008;

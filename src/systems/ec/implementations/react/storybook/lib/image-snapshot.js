@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 import { logger } from '@storybook/node-logger';
-import { constructUrl } from './url';
+import constructUrl from './url';
 
 expect.extend({ toMatchImageSnapshot });
 
@@ -22,7 +22,7 @@ const defaultConfig = {
   getCustomBrowser: undefined,
 };
 
-export const imageSnapshot = (customConfig = {}) => {
+const imageSnapshot = (customConfig = {}) => {
   const {
     storybookUrl,
     getMatchOptions,
@@ -32,11 +32,10 @@ export const imageSnapshot = (customConfig = {}) => {
     customizePage,
   } = { ...defaultConfig, ...customConfig };
 
-  let browser; // holds ref to browser. (ie. Chrome)
+  let browser; // Holds ref to browser.
   let page; // Hold ref to the page to screenshot.
 
   const testFn = async ({ context }) => {
-    console.log(JSON.stringify(context));
     const { kind, framework, name } = context;
 
     if (framework === 'rn') {
@@ -55,7 +54,7 @@ export const imageSnapshot = (customConfig = {}) => {
         `Error when generating image snapshot for test ${kind} - ${name} : It seems the headless browser is not running.`
       );
 
-      throw new Error('no-headless-browser-running');
+      throw new Error('Missing browser');
     }
 
     expect.assertions(1);
@@ -83,9 +82,13 @@ export const imageSnapshot = (customConfig = {}) => {
   };
 
   testFn.beforeAll = async () => {
+    const { SAUCE_USERNAME, SAUCE_ACCESS_KEY } = process.env;
+
     // browser = await getCustomBrowser();
     // page = await browser.newPage();
   };
 
   return testFn;
 };
+
+export default imageSnapshot;

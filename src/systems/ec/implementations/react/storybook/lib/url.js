@@ -2,7 +2,7 @@ import { toId } from '@storybook/router/utils';
 
 import { URL } from 'url';
 
-export const constructUrl = (storybookUrl, kind, story) => {
+const constructUrl = (storybookUrl, kind, story) => {
   const id = toId(kind, story);
 
   const storyUrl = `/iframe.html?id=${id}`;
@@ -11,3 +11,5 @@ export const constructUrl = (storybookUrl, kind, story) => {
   const query = search.replace('?', '&'); // convert leading ? to &
   return `${protocol}//${host}${pname}${storyUrl}${query}`;
 };
+
+export default constructUrl;
