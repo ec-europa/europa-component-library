@@ -35,10 +35,11 @@ pipeline:
             matrix: {TEST: examples}
 
     visual-regression:
-        image: timbru31/node-chrome
-        shm_size: 1g
+        image: 'node:dubnium'
         commands:
             - 'yarn install --frozen-lockfile'
+            - 'export SAUCE_USERNAME=$${SAUCE_USERNAME}'
+            - 'export SAUCE_ACCESS_KEY=$${SAUCE_ACCESS_KEY}'
             - 'yarn test:ec-build'
             - 'yarn test:ec-visual'
         when:

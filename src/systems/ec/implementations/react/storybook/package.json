@@ -8,9 +8,8 @@
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
     "start": "start-storybook -p 6006 -c .storybook",
-    "test:visual": "jest test/visual.test.js",
-    "test": "sc-run yarn test",
-    "update-snapshot": "jest test/visual.test.js --updateSnapshot"
+    "test": "sc-run jest test/visual.test.js",
+    "update-snapshot": "sc-run jest test/visual.test.js --updateSnapshot"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",
