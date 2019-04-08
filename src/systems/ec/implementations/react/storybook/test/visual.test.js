@@ -33,11 +33,11 @@ const capabilities = getCapabilities();
 const targetBrowser = process.env.TEST_BROWSER || 'chrome';
 const capability = capabilities[targetBrowser];
 
+capability.build = build;
+
 if (!isDrone && !fs.existsSync(pathToStorybookStatic)) {
   throw new Error(`Missing build folder: ${pathToStorybookStatic}`);
 }
-
-capability.build = build;
 
 logger.info('Setting up webdriver browser.');
 

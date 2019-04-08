@@ -35,11 +35,9 @@ pipeline:
             matrix: {TEST: examples}
 
     s3:
-        image: garland/aws-cli-docker
+        image: senseyeio/alpine-aws-cli
         secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
         commands:
-            - 'apk update && apk add nodejs'
-            - 'apk add yarn'
             - 'yarn install --frozen-lockfile'
             - 'yarn dist:storybook'
             - if [ -d "./dist" ] ; then
@@ -55,6 +53,7 @@ pipeline:
 
     visual-regression:
         image: 'node:dubnium'
+        secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
         commands:
             - 'yarn install --frozen-lockfile'
             - 'yarn test:ec-visual'
