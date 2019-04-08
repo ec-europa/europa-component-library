@@ -9,6 +9,9 @@ module.exports = {
   env: {
     node: true,
   },
+  rules: {
+    'unicorn/prevent-abbreviations': 'off',
+  },
   overrides: [
     {
       files: '**/demo/**/*.js',
