@@ -34,25 +34,18 @@ pipeline:
         when:
             matrix: {TEST: examples}
 
-    build:
-        image: 'node:dubnium'
-        commands:
-            - 'yarn install --frozen-lockfile'
-            - 'yarn dist:storybook'
-        when:
-            event: [push]
-            matrix: {TEST: visual-regression}
-
     s3:
         image: garland/aws-cli-docker
         secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
         commands:
-        - if [ -d "./dist" ] ; then
-          cd ./dist/storybook ;
-          aws configure set default.s3.max_concurrent_requests 20 ;
-          aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
-          echo "Transfer complete" ;
-          fi
+            - 'yarn install --frozen-lockfile'
+            - 'yarn dist:storybook'
+            - if [ -d "./dist" ] ; then
+              cd ./dist/storybook ;
+              aws configure set default.s3.max_concurrent_requests 20 ;
+              aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
+              echo "Transfer complete" ;
+              fi
 
         when:
             event: [push]

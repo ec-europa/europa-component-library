@@ -13,16 +13,16 @@ export SAUCE_USERNAME=
 export SAUCE_ACCESS_KEY=
 ```
 
-Then you will be ready to run tests:
+Use [Sauce Connect runner](https://www.npmjs.com/package/sauceconnect-runner) to open a tunnel from your local environment to Sauce Lab's virtualized browsers in the cloud:
 
 ```sh
-$ yarn test
+$ npx sc-run yarn test
 ```
 
 If you run the test suite several times in a raw and you start getting hard-to-debug differences in snapshots/screenshots, ensure to clear `jest`'s cache:
 
 ```sh
-$ jest --clearCache
+$ npx jest --clearCache
 ```
 
 ### Running tests from project root
