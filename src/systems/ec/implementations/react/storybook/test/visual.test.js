@@ -1,17 +1,27 @@
-import initStoryshots from '@storybook/addon-storyshots';
+import { Builder } from 'selenium-webdriver';
 import { logger } from '@storybook/node-logger';
-import path from 'path';
-import fs from 'fs';
 import finalhandler from 'finalhandler';
+import fs from 'fs';
 import http from 'http';
+import initStoryshots from '@storybook/addon-storyshots';
+import path from 'path';
 import serveStatic from 'serve-static';
 
-import getCapabilities from './lib/capabilities';
+// import getCapabilities from './lib/capabilities';
 import imageSnapshotWebDriver from './lib/image-snapshot';
 
+let server = null;
 const port = 6008;
-const capabilities = getCapabilities();
+// const capabilities = getCapabilities();
 const pathToStorybookStatic = path.resolve(__dirname, '../build');
+
+const { SAUCE_USERNAME: username, SAUCE_ACCESS_KEY: accessKey } = process.env;
+
+if (!username || !accessKey) {
+  const errorMessage = 'Missing: SAUCE_USERNAME, SAUCE_ACCESS_KEY.';
+  logger.error(errorMessage);
+  throw new Error(errorMessage);
+}
 
 if (!fs.existsSync(pathToStorybookStatic)) {
   logger.error(
@@ -20,10 +30,31 @@ if (!fs.existsSync(pathToStorybookStatic)) {
   throw new Error('Missing build folder.');
 }
 
-let server = null;
+const capability = {
+  browserName: 'chrome',
+  platform: 'Windows 10',
+  version: '60.0',
+  build: 'local-build',
+  screenResolution: '1920x1080',
+};
+
+logger.info('Setting up webdriver browser.');
+
+const browser = new Builder()
+  .withCapabilities({
+    username,
+    accessKey,
+    maxDuration: 7200,
+    idleTimeout: 3000,
+    ...capability,
+  })
+  .usingServer(
+    `http://${username}:${accessKey}@ondemand.saucelabs.com:80/wd/hub`
+  )
+  .build();
 
 beforeAll(() => {
-  logger.info('Start server.');
+  logger.info('Starting a server to serve the storybook build folder.');
 
   server = http.createServer((req, res) => {
     const serve = serveStatic(pathToStorybookStatic, {
@@ -37,24 +68,26 @@ beforeAll(() => {
 });
 
 afterAll(() => {
+  logger.info('Quitting webdriver browser ...');
+  browser.quit();
+  logger.info('Closing the server ...');
   server.close();
-  logger.info('Stop server.');
+  logger.info('Server has been closed.');
 });
 
-capabilities.forEach(capability => {
-  const visualTest = {
-    framework: 'react',
-    suite: 'ECL - Visual Tests',
-    test: imageSnapshotWebDriver({
-      storybookUrl: `http://localhost:${port}`,
-      capability,
-    }),
-  };
+const visualTest = {
+  framework: 'react',
+  suite: 'ECL - Visual Tests',
+  test: imageSnapshotWebDriver({
+    storybookUrl: `http://localhost:${port}`,
+    browser,
+  }),
+};
 
-  const { browserName, version, platform } = capability;
-  logger.info(
-    `Starting tests for browser: ${browserName}, ${version}, ${platform}`
-  );
+const { browserName, version, platform } = capability;
 
-  initStoryshots(visualTest);
-});
+logger.info(
+  `Starting tests for browser: ${browserName}, ${version}, ${platform}`
+);
+
+initStoryshots(visualTest);
