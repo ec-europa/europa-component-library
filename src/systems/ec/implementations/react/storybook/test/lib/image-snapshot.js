@@ -12,8 +12,8 @@ const defaultConfig = {
   capability: {},
 };
 
-const imageSnapshot = (customConfig = {}) => {
-  const { storybookUrl, capability, tunnelIdentifier } = {
+const imageSnapshotWebdriver = (customConfig = {}) => {
+  const { storybookUrl, capability } = {
     ...defaultConfig,
     ...customConfig,
   };
@@ -43,10 +43,10 @@ const imageSnapshot = (customConfig = {}) => {
 
     const url = constructUrl(storybookUrl, kind, name);
 
-    expect.assertions(1);
-
     try {
+      logger.info(`Navigating to ${url}.`);
       await browser.get(url);
+      logger.info('Taking a screenshot.');
       image = await browser.takeScreenshot();
     } catch (error) {
       logger.error(
@@ -57,14 +57,12 @@ const imageSnapshot = (customConfig = {}) => {
       throw error;
     }
 
-    expect(image).toMatchImageSnapshot({ context, url });
+    expect(image).toMatchImageSnapshot();
   };
 
-  testFn.afterAll = () => {
-    browser.quit();
-  };
+  testFn.afterAll = () => browser.quit();
 
-  testFn.beforeAll = async () => {
+  testFn.beforeAll = () => {
     const {
       SAUCE_USERNAME: username,
       SAUCE_ACCESS_KEY: accessKey,
@@ -74,10 +72,8 @@ const imageSnapshot = (customConfig = {}) => {
       .withCapabilities({
         username,
         accessKey,
-        // name: componentName,
-        maxDuration: 3600,
-        idleTimeout: 1000,
-        tunnelIdentifier,
+        maxDuration: 7200,
+        idleTimeout: 3000,
         ...capability,
       })
       .usingServer(
@@ -89,4 +85,4 @@ const imageSnapshot = (customConfig = {}) => {
   return testFn;
 };
 
-export default imageSnapshot;
+export default imageSnapshotWebdriver;

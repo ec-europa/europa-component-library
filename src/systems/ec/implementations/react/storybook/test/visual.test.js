@@ -7,7 +7,7 @@ import http from 'http';
 import serveStatic from 'serve-static';
 
 import getCapabilities from './lib/capabilities';
-import imageSnapshot from './lib/image-snapshot';
+import imageSnapshotWebDriver from './lib/image-snapshot';
 
 const port = 6008;
 const capabilities = getCapabilities();
@@ -45,11 +45,16 @@ capabilities.forEach(capability => {
   const visualTest = {
     framework: 'react',
     suite: 'ECL - Visual Tests',
-    test: imageSnapshot({
+    test: imageSnapshotWebDriver({
       storybookUrl: `http://localhost:${port}`,
       capability,
     }),
   };
+
+  const { browserName, version, platform } = capability;
+  logger.info(
+    `Starting tests for browser: ${browserName}, ${version}, ${platform}`
+  );
 
   initStoryshots(visualTest);
 });
