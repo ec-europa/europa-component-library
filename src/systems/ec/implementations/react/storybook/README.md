@@ -24,3 +24,22 @@ If you run the test suite several times in a raw and you start getting hard-to-d
 ```sh
 $ jest --clearCache
 ```
+
+### Running tests from project root
+
+The `visual.test.js` could take an input for path to storybook's build folder.
+
+For instance, if you'd like to run tests from the project's root folder:
+
+```sh
+$ yarn dist:storybook
+```
+
+Will build all systems' storybooks and store them in a `dist` folder.
+
+Then, in order to instruct `visual.test.js` to use the EC-related build folder of storybook, run:
+
+```sh
+$ export STORYBOOK_PATH=../../../../../../dist/storybook/ec/
+$ yarn test:ec-visual
+```

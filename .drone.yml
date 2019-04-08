@@ -37,6 +37,7 @@ pipeline:
     build:
         image: 'node:dubnium'
         commands:
+            - 'yarn install --frozen-lockfile'
             - 'yarn dist:storybook'
         when:
             event: [push]
@@ -61,7 +62,6 @@ pipeline:
         image: 'node:dubnium'
         commands:
             - 'yarn install --frozen-lockfile'
-            - 'yarn test:ec-build'
             - 'yarn test:ec-visual'
         when:
             event: [push]

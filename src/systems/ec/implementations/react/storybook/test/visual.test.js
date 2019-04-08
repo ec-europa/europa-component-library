@@ -7,13 +7,17 @@ import initStoryshots from '@storybook/addon-storyshots';
 import path from 'path';
 import serveStatic from 'serve-static';
 
-// import getCapabilities from './lib/capabilities';
 import imageSnapshotWebDriver from './lib/image-snapshot';
+
+// import getCapabilities from './lib/capabilities';
+// const capabilities = getCapabilities();
 
 let server = null;
 const port = 6008;
-// const capabilities = getCapabilities();
-const pathToStorybookStatic = path.resolve(__dirname, '../build');
+const userSetPath = process.env.STORYBOOK_PATH;
+const pathToStorybookStatic = userSetPath
+  ? path.resolve(userSetPath)
+  : path.resolve(__dirname, '../build');
 
 const { SAUCE_USERNAME: username, SAUCE_ACCESS_KEY: accessKey } = process.env;
 
@@ -24,17 +28,17 @@ if (!username || !accessKey) {
 }
 
 if (!fs.existsSync(pathToStorybookStatic)) {
-  logger.error(
-    'You are running image snapshots without having the static build of storybook. Please run "yarn build" before running tests.'
-  );
-  throw new Error('Missing build folder.');
+  throw new Error(`Missing build folder: ${pathToStorybookStatic}`);
 }
 
+const isDrone = 'DRONE' in process.env && 'CI' in process.env;
+const build = isDrone ? process.env.DRONE_BUILD_NUMBER : 'local-build';
+
 const capability = {
+  build,
   browserName: 'chrome',
   platform: 'Windows 10',
   version: '60.0',
-  build: 'local-build',
   screenResolution: '1920x1080',
 };
 
@@ -54,32 +58,42 @@ const browser = new Builder()
   .build();
 
 beforeAll(() => {
-  logger.info('Starting a server to serve the storybook build folder.');
+  if (!isDrone) {
+    logger.info('Starting a server to serve the storybook build folder.');
 
-  server = http.createServer((req, res) => {
-    const serve = serveStatic(pathToStorybookStatic, {
-      index: ['index.html', 'index.htm'],
+    server = http.createServer((req, res) => {
+      const serve = serveStatic(pathToStorybookStatic, {
+        index: ['index.html', 'index.htm'],
+      });
+
+      serve(req, res, finalhandler(req, res));
     });
 
-    serve(req, res, finalhandler(req, res));
-  });
-
-  server.listen(port);
+    server.listen(port);
+  }
 });
 
 afterAll(() => {
-  logger.info('Quitting webdriver browser ...');
-  browser.quit();
-  logger.info('Closing the server ...');
-  server.close();
-  logger.info('Server has been closed.');
+  if (!isDrone) {
+    logger.info('Quitting webdriver browser ...');
+    browser.quit();
+    logger.info('Closing the server ...');
+    server.close();
+    logger.info('Server has been closed.');
+  }
 });
+
+const storybookUrl = isDrone
+  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
+      process.env.DRONE_BUILD_NUMBER
+    }/`
+  : `http://localhost:${port}`;
 
 const visualTest = {
   framework: 'react',
   suite: 'ECL - Visual Tests',
   test: imageSnapshotWebDriver({
-    storybookUrl: `http://localhost:${port}`,
+    storybookUrl,
     browser,
   }),
 };
