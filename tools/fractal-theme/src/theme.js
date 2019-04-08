@@ -32,9 +32,8 @@ module.exports = options => {
     .concat(config.styles)
     .concat(config.stylesheet)
     .filter(url => url)
-    .map(
-      url =>
-        url === 'default' ? `/${config.static.mount}/css/fractal.css` : url
+    .map(url =>
+      url === 'default' ? `/${config.static.mount}/css/fractal.css` : url
     );
 
   config.scripts = [
@@ -44,11 +43,10 @@ module.exports = options => {
   ]
     .concat(config.scripts)
     .filter(url => url)
-    .map(
-      url =>
-        url === 'default'
-          ? `/${config.static.mount}/js/ecl-fractal-theme.js`
-          : url
+    .map(url =>
+      url === 'default'
+        ? `/${config.static.mount}/js/ecl-fractal-theme.js`
+        : url
     );
 
   config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
