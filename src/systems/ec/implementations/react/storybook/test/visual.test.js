@@ -8,9 +8,7 @@ import path from 'path';
 import serveStatic from 'serve-static';
 
 import imageSnapshotWebDriver from './lib/image-snapshot';
-
-// import getCapabilities from './lib/capabilities';
-// const capabilities = getCapabilities();
+import getCapabilities from './lib/capabilities';
 
 const { SAUCE_USERNAME: username, SAUCE_ACCESS_KEY: accessKey } = process.env;
 
@@ -31,26 +29,26 @@ const pathToStorybookStatic = userSetPath
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 const build = isDrone ? process.env.DRONE_BUILD_NUMBER : 'local-build';
 
+const capabilities = getCapabilities();
+const targetBrowser = process.env.TEST_BROWSER || 'chrome';
+const capability = capabilities[targetBrowser];
+
 if (!isDrone && !fs.existsSync(pathToStorybookStatic)) {
   throw new Error(`Missing build folder: ${pathToStorybookStatic}`);
 }
 
-const capability = {
-  build,
-  browserName: 'chrome',
-  platform: 'Windows 10',
-  version: '60.0',
-  screenResolution: '1920x1080',
-};
+capability.build = build;
 
 logger.info('Setting up webdriver browser.');
 
 const browser = new Builder()
   .withCapabilities({
+    // Session settings.
     username,
     accessKey,
     maxDuration: 7200,
     idleTimeout: 3000,
+    // Browser settings.
     ...capability,
   })
   .usingServer(

@@ -35,9 +35,11 @@ pipeline:
             matrix: {TEST: examples}
 
     s3:
-        image: trepidity/node-awscli-yarn
+        image: garland/aws-cli-docker
         secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
         commands:
+            - 'apk update && apk add nodejs'
+            - 'apk add yarn'
             - 'yarn install --frozen-lockfile'
             - 'yarn dist:storybook'
             - if [ -d "./dist" ] ; then
