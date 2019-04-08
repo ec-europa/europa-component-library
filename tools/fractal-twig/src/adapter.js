@@ -86,10 +86,8 @@ class TwigAdapter extends Fractal.Adapter {
 
         function setKeys(obj) {
           obj._keys = _.compact(
-            _.map(
-              obj,
-              (val, key) =>
-                _.isString(key) && !key.startsWith('_') ? key : undefined
+            _.map(obj, (val, key) =>
+              _.isString(key) && !key.startsWith('_') ? key : undefined
             )
           );
           _.each(obj, (val, key) => {
