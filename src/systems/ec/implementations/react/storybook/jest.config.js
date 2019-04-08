@@ -6,8 +6,8 @@ module.exports = {
   clearMocks: true,
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/storybook/test/__mocks__/fileMock.js',
-    '\\.(css|scss)$': '<rootDir>/storybook/test/__mocks__/styleMock.js',
+      '<rootDir>/storybook/test/__mocks__/file-mock.js',
+    '\\.(css|scss)$': '<rootDir>/storybook/test/__mocks__/style-mock.js',
   },
   rootDir: path.resolve(__dirname, '..'),
   roots: ['<rootDir>/packages', '<rootDir>/storybook'],

@@ -60,10 +60,6 @@ const imageSnapshot = (customConfig = {}) => {
     expect(image).toMatchImageSnapshot({ context, url });
   };
 
-  testFn.beforeEach = () => {
-    browser.pause(500);
-  };
-
   testFn.afterAll = () => {
     browser.quit();
   };
