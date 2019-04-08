@@ -563,7 +563,7 @@ This will allow easy customization of components.</p>
 };</pre></code><h3 id="specific-case-links">Specific case: links</h3>
 <p>If the component contains links, they should always lead to an internal example page instead of blank link (<code>#</code>) or external links.</p>
 <p>Example:</p>
-<code><pre>../../example.html#{component_name}</pre></code><h2 id="fractal-config-file">Fractal config file</h2>
+<code><pre>..<span class="hljs-regexp">/../</span>example.html<span class="hljs-comment">#{component_name}</span></pre></code><h2 id="fractal-config-file">Fractal config file</h2>
 <p>A Fractal config file should be created for every system-specific component (not for generic components). These files should use the generic context files and add missing information.
 If the context is different for a specific system, it may be altered or overriden.</p>
 <p>The filename should follow the component’s name</p>

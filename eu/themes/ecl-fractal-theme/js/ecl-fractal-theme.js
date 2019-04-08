@@ -159,24 +159,29 @@ var fractal = (function (exports,$) {
 
           var seppuku = false;
 
-          // The polyfill cant’t function properly without `getComputedStyle`.
-          if (!window.getComputedStyle) seppuku = true;
+          var isWindowDefined = typeof window !== 'undefined';
+
+          // The polyfill can’t function properly without `window` or `window.getComputedStyle`.
+          if (!isWindowDefined || !window.getComputedStyle) seppuku = true;
           // Dont’t get in a way if the browser supports `position: sticky` natively.
           else {
-                  var testNode = document.createElement('div');
+                  (function () {
+                      var testNode = document.createElement('div');
 
-                  if (['', '-webkit-', '-moz-', '-ms-'].some(function (prefix) {
-                      try {
-                          testNode.style.position = prefix + 'sticky';
-                      } catch (e) {}
+                      if (['', '-webkit-', '-moz-', '-ms-'].some(function (prefix) {
+                          try {
+                              testNode.style.position = prefix + 'sticky';
+                          } catch (e) {}
 
-                      return testNode.style.position != '';
-                  })) seppuku = true;
+                          return testNode.style.position != '';
+                      })) seppuku = true;
+                  })();
               }
 
           /*
            * 2. “Global” vars used across the polyfill
            */
+          var isInitialized = false;
 
           // Check if Shadow Root constructor exists to make further checks simpler
           var shadowRootExists = typeof ShadowRoot !== 'undefined';
@@ -251,6 +256,7 @@ var fractal = (function (exports,$) {
                        */
                       var nodeComputedStyle = getComputedStyle(node);
                       var nodeComputedProps = {
+                          position: nodeComputedStyle.position,
                           top: nodeComputedStyle.top,
                           display: nodeComputedStyle.display,
                           marginTop: nodeComputedStyle.marginTop,
@@ -268,7 +274,15 @@ var fractal = (function (exports,$) {
                       this._active = true;
 
                       /*
-                       * 3. Get necessary node parameters
+                       * 3. Check if the current node position is `sticky`. If it is, it means that the browser supports sticky positioning,
+                       *    but the polyfill was force-enabled. We set the node’s position to `static` before continuing, so that the node
+                       *    is in it’s initial position when we gather its params.
+                       */
+                      var originalPosition = node.style.position;
+                      if (nodeComputedStyle.position == 'sticky' || nodeComputedStyle.position == '-webkit-sticky') node.style.position = 'static';
+
+                      /*
+                       * 4. Get necessary node parameters
                        */
                       var referenceNode = node.parentNode;
                       var parentNode = shadowRootExists && referenceNode instanceof ShadowRoot ? referenceNode.host : referenceNode;
@@ -293,7 +307,7 @@ var fractal = (function (exports,$) {
                           right: -nodeWinOffset.right + parentWinOffset.right - parseNumeric(parentComputedStyle.borderRightWidth)
                       };
                       this._styles = {
-                          position: node.style.position,
+                          position: originalPosition,
                           top: node.style.top,
                           bottom: node.style.bottom,
                           left: node.style.left,
@@ -311,7 +325,7 @@ var fractal = (function (exports,$) {
                       };
 
                       /*
-                       * 4. Ensure that the node will be positioned relatively to the parent node
+                       * 5. Ensure that the node will be positioned relatively to the parent node
                        */
                       var parentPosition = parentComputedStyle.position;
 
@@ -320,13 +334,13 @@ var fractal = (function (exports,$) {
                       }
 
                       /*
-                       * 5. Recalc node position.
+                       * 6. Recalc node position.
                        *    It’s important to do this before clone injection to avoid scrolling bug in Chrome.
                        */
                       this._recalcPosition();
 
                       /*
-                       * 6. Create a clone
+                       * 7. Create a clone
                        */
                       var clone = this._clone = {};
                       clone.node = document.createElement('div');
@@ -469,6 +483,12 @@ var fractal = (function (exports,$) {
               stickies: stickies,
               Sticky: Sticky,
 
+              forceSticky: function forceSticky() {
+                  seppuku = false;
+                  init();
+
+                  this.refreshAll();
+              },
               addOne: function addOne(node) {
                   // Check whether it’s a node
                   if (!(node instanceof HTMLElement)) {
@@ -519,9 +539,9 @@ var fractal = (function (exports,$) {
                   };
 
                   for (var i = 0; i < nodeList.length; i++) {
-                      var _ret = _loop(i);
+                      var _ret2 = _loop(i);
 
-                      if (_ret === 'continue') continue;
+                      if (_ret2 === 'continue') continue;
                   }
 
                   return addedStickies;
@@ -581,6 +601,12 @@ var fractal = (function (exports,$) {
            * 6. Setup events (unless the polyfill was disabled)
            */
           function init() {
+              if (isInitialized) {
+                  return;
+              }
+
+              isInitialized = true;
+
               // Watch for scroll position changes and trigger recalc/refresh if needed
               function checkScroll() {
                   if (window.pageXOffset != scroll.left) {
@@ -652,7 +678,7 @@ var fractal = (function (exports,$) {
            */
           if ('object' != 'undefined' && module.exports) {
               module.exports = Stickyfill;
-          } else {
+          } else if (isWindowDefined) {
               window.Stickyfill = Stickyfill;
           }
       })(window, document);
@@ -760,7 +786,7 @@ var fractal = (function (exports,$) {
 
   /**
     stickybits - Stickybits is a lightweight alternative to `position: sticky` polyfills
-    @version v3.3.2
+    @version v3.6.5
     @link https://github.com/dollarshaveclub/stickybits#readme
     @author Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)
     @license MIT
@@ -784,10 +810,12 @@ var fractal = (function (exports,$) {
     - noStyles = boolean
     - offset = number
     - parentClass = 'string'
-    - scrollEl = window || DOM element selector
+    - scrollEl = window || DOM element selector || DOM element
     - stickyClass = 'string'
     - stuckClass = 'string'
     - useStickyClasses = boolean
+    - useFixed = boolean
+    - useGetBoundingClientRect = boolean
     - verticalPosition = 'string'
     --------
     props🔌
@@ -810,7 +838,7 @@ var fractal = (function (exports,$) {
     - .definePosition = defines sticky or fixed
     - .addInstance = an array of objects for each Stickybits Target
     - .getClosestParent = gets the parent for non-window scroll
-    - .getOffsetTop = gets the element offsetTop from the top level of the DOM
+    - .getTopPosition = gets the element top pixel position from the viewport
     - .computeScrollOffsets = computes scroll position
     - .toggleClasses = older browser toggler
     - .manageState = manages sticky state
@@ -823,51 +851,53 @@ var fractal = (function (exports,$) {
   function () {
     function Stickybits(target, obj) {
       var o = typeof obj !== 'undefined' ? obj : {};
-      this.version = '3.3.2';
+      this.version = '3.6.5';
       this.userAgent = window.navigator.userAgent || 'no `userAgent` provided by the browser';
       this.props = {
         customStickyChangeNumber: o.customStickyChangeNumber || null,
         noStyles: o.noStyles || false,
         stickyBitStickyOffset: o.stickyBitStickyOffset || 0,
         parentClass: o.parentClass || 'js-stickybit-parent',
-        scrollEl: document.querySelector(o.scrollEl) || window,
+        scrollEl: typeof o.scrollEl === 'string' ? document.querySelector(o.scrollEl) : o.scrollEl || window,
         stickyClass: o.stickyClass || 'js-is-sticky',
         stuckClass: o.stuckClass || 'js-is-stuck',
         stickyChangeClass: o.stickyChangeClass || 'js-is-sticky--change',
         useStickyClasses: o.useStickyClasses || false,
+        useFixed: o.useFixed || false,
+        useGetBoundingClientRect: o.useGetBoundingClientRect || false,
         verticalPosition: o.verticalPosition || 'top'
-      };
-      var p = this.props;
-      /*
-        define positionVal
-        ----
-        -  uses a computed (`.definePosition()`)
-        -  defined the position
-      */
+        /*
+          define positionVal
+          ----
+          -  uses a computed (`.definePosition()`)
+          -  defined the position
+        */
 
-      p.positionVal = this.definePosition() || 'fixed';
-      var vp = p.verticalPosition;
-      var ns = p.noStyles;
-      var pv = p.positionVal;
+      };
+      this.props.positionVal = this.definePosition() || 'fixed';
+      this.instances = [];
+      var _this$props = this.props,
+          positionVal = _this$props.positionVal,
+          verticalPosition = _this$props.verticalPosition,
+          noStyles = _this$props.noStyles,
+          stickyBitStickyOffset = _this$props.stickyBitStickyOffset,
+          useStickyClasses = _this$props.useStickyClasses;
+      var verticalPositionStyle = verticalPosition === 'top' && !noStyles ? stickyBitStickyOffset + "px" : '';
+      var positionStyle = positionVal !== 'fixed' ? positionVal : '';
       this.els = typeof target === 'string' ? document.querySelectorAll(target) : target;
       if (!('length' in this.els)) this.els = [this.els];
-      this.instances = [];
 
-      for (var i = 0; i < this.els.length; i += 1) {
-        var el = this.els[i];
-        var styles = el.style; // set vertical position
+      for (var i = 0; i < this.els.length; i++) {
+        var el = this.els[i]; // set vertical position
 
-        styles[vp] = vp === 'top' && !ns ? p.stickyBitStickyOffset + "px" : '';
-        styles.position = pv !== 'fixed' ? pv : '';
+        el.style[verticalPosition] = verticalPositionStyle;
+        el.style.position = positionStyle;
 
-        if (pv === 'fixed' || p.useStickyClasses) {
-          var instance = this.addInstance(el, p); // instances are an array of objects
-
-          this.instances.push(instance);
+        if (positionVal === 'fixed' || useStickyClasses) {
+          // instances are an array of objects
+          this.instances.push(this.addInstance(el, this.props));
         }
       }
-
-      return this;
     }
     /*
       setStickyPosition ✔️
@@ -881,17 +911,24 @@ var fractal = (function (exports,$) {
     var _proto = Stickybits.prototype;
 
     _proto.definePosition = function definePosition() {
-      var prefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
-      var test = document.head.style;
+      var stickyProp;
 
-      for (var i = 0; i < prefix.length; i += 1) {
-        test.position = prefix[i] + "sticky";
+      if (this.props.useFixed) {
+        stickyProp = 'fixed';
+      } else {
+        var prefix = ['', '-o-', '-webkit-', '-moz-', '-ms-'];
+        var test = document.head.style;
+
+        for (var i = 0; i < prefix.length; i += 1) {
+          test.position = prefix[i] + "sticky";
+        }
+
+        stickyProp = test.position ? test.position : 'fixed';
+        test.position = '';
       }
 
-      var stickyProp = test.position ? test.position : 'fixed';
-      test.position = '';
       return stickyProp;
-    };
+    }
     /*
       addInstance ✔️
       --------
@@ -901,7 +938,7 @@ var fractal = (function (exports,$) {
       ---
       - target = el
       - o = {object} = props
-        - scrollEl = 'string'
+        - scrollEl = 'string' | object
         - verticalPosition = number
         - off = boolean
         - parentClass = 'string'
@@ -916,6 +953,7 @@ var fractal = (function (exports,$) {
         - stickyStop = number
       - returns an instance object
     */
+    ;
 
     _proto.addInstance = function addInstance(el, props) {
       var _this = this;
@@ -937,7 +975,7 @@ var fractal = (function (exports,$) {
 
       se.addEventListener('scroll', item.stateContainer);
       return item;
-    };
+    }
     /*
       --------
       getParent 👨‍
@@ -946,6 +984,7 @@ var fractal = (function (exports,$) {
       - only used for non `window` scroll elements
       - supports older browsers
     */
+    ;
 
     _proto.getClosestParent = function getClosestParent(el, match) {
       // p = parent element
@@ -959,24 +998,29 @@ var fractal = (function (exports,$) {
 
 
       return p;
-    };
+    }
     /*
       --------
-      getOffsetTop
+      getTopPosition
       --------
-      - a helper function that gets the offsetTop of the element
+      - a helper function that gets the topPosition of a Stickybit element
       - from the top level of the DOM
     */
+    ;
 
-    _proto.getOffsetTop = function getOffsetTop(el) {
-      var offsetTop = 0;
+    _proto.getTopPosition = function getTopPosition(el) {
+      if (this.props.useGetBoundingClientRect) {
+        return el.getBoundingClientRect().top + (this.props.scrollEl.pageYOffset || document.documentElement.scrollTop);
+      }
+
+      var topPosition = 0;
 
       do {
-        offsetTop = el.offsetTop + offsetTop;
+        topPosition = el.offsetTop + topPosition;
       } while (el = el.offsetParent);
 
-      return offsetTop;
-    };
+      return topPosition;
+    }
     /*
       computeScrollOffsets 📊
       ---
@@ -986,6 +1030,7 @@ var fractal = (function (exports,$) {
         - start
         - stop
     */
+    ;
 
     _proto.computeScrollOffsets = function computeScrollOffsets(item) {
       var it = item;
@@ -993,16 +1038,16 @@ var fractal = (function (exports,$) {
       var el = it.el;
       var parent = it.parent;
       var isCustom = !this.isWin && p.positionVal === 'fixed';
-      var isBottom = p.verticalPosition !== 'bottom';
-      var scrollElOffset = isCustom ? this.getOffsetTop(p.scrollEl) : 0;
-      var stickyStart = isCustom ? this.getOffsetTop(parent) - scrollElOffset : this.getOffsetTop(parent);
+      var isTop = p.verticalPosition !== 'bottom';
+      var scrollElOffset = isCustom ? this.getTopPosition(p.scrollEl) : 0;
+      var stickyStart = isCustom ? this.getTopPosition(parent) - scrollElOffset : this.getTopPosition(parent);
       var stickyChangeOffset = p.customStickyChangeNumber !== null ? p.customStickyChangeNumber : el.offsetHeight;
+      var parentBottom = stickyStart + parent.offsetHeight;
       it.offset = scrollElOffset + p.stickyBitStickyOffset;
-      it.stickyStart = isBottom ? stickyStart - it.offset : 0;
+      it.stickyStart = isTop ? stickyStart - it.offset : 0;
       it.stickyChange = it.stickyStart + stickyChangeOffset;
-      it.stickyStop = isBottom ? stickyStart + parent.offsetHeight - (it.el.offsetHeight + it.offset) : stickyStart + parent.offsetHeight;
-      return it;
-    };
+      it.stickyStop = isTop ? parentBottom - (el.offsetHeight + it.offset) : parentBottom - window.innerHeight;
+    }
     /*
       toggleClasses ⚖️
       ---
@@ -1010,6 +1055,7 @@ var fractal = (function (exports,$) {
       r = removed class
       a = added class
     */
+    ;
 
     _proto.toggleClasses = function toggleClasses(el, r, a) {
       var e = el;
@@ -1018,7 +1064,7 @@ var fractal = (function (exports,$) {
       var rItem = cArray.indexOf(r);
       if (rItem !== -1) cArray.splice(rItem, 1);
       e.className = cArray.join(' ');
-    };
+    }
     /*
       manageState 📝
       ---
@@ -1027,6 +1073,7 @@ var fractal = (function (exports,$) {
         - sticky
         - stuck
     */
+    ;
 
     _proto.manageState = function manageState(item) {
       // cache object
@@ -1046,6 +1093,7 @@ var fractal = (function (exports,$) {
       var stickyChange = p.stickyChangeClass;
       var stuck = p.stuckClass;
       var vp = p.verticalPosition;
+      var isTop = vp !== 'bottom';
       /*
         requestAnimationFrame
         ---
@@ -1070,7 +1118,7 @@ var fractal = (function (exports,$) {
       var tC = this.toggleClasses;
       var scroll = this.isWin ? window.scrollY || window.pageYOffset : se.scrollTop;
       var notSticky = scroll > start && scroll < stop && (state === 'default' || state === 'stuck');
-      var isSticky = scroll <= start && state === 'sticky';
+      var isSticky = isTop && scroll <= start && (state === 'sticky' || state === 'stuck');
       var isStuck = scroll >= stop && state === 'sticky';
       /*
         Unnamed arrow functions within this block
@@ -1093,6 +1141,7 @@ var fractal = (function (exports,$) {
         it.state = 'default';
         rAF(function () {
           tC(e, sticky);
+          tC(e, stuck);
           if (pv === 'fixed') stl.position = '';
         });
       } else if (isStuck) {
@@ -1107,7 +1156,7 @@ var fractal = (function (exports,$) {
       }
 
       var isStickyChange = scroll >= change && scroll <= stop;
-      var isNotStickyChange = scroll < change || scroll > stop;
+      var isNotStickyChange = scroll < change / 2 || scroll > stop;
       var stub = 'stub'; // a stub css class to remove
 
       if (isNotStickyChange) {
@@ -1119,23 +1168,32 @@ var fractal = (function (exports,$) {
           tC(e, stub, stickyChange);
         });
       }
-
-      return it;
     };
 
-    _proto.update = function update() {
+    _proto.update = function update(updatedProps) {
+      if (updatedProps === void 0) {
+        updatedProps = null;
+      }
+
       for (var i = 0; i < this.instances.length; i += 1) {
         var instance = this.instances[i];
         this.computeScrollOffsets(instance);
+
+        if (updatedProps) {
+          for (var updatedProp in updatedProps) {
+            instance.props[updatedProp] = updatedProps[updatedProp];
+          }
+        }
       }
 
       return this;
-    };
+    }
     /*
       removes an instance 👋
       --------
       - cleanup instance
     */
+    ;
 
     _proto.removeInstance = function removeInstance(instance) {
       var e = instance.el;
@@ -1146,13 +1204,14 @@ var fractal = (function (exports,$) {
       tC(e, p.stickyClass);
       tC(e, p.stuckClass);
       tC(e.parentNode, p.parentClass);
-    };
+    }
     /*
       cleanup 🛁
       --------
       - cleans up each instance
       - clears instance
     */
+    ;
 
     _proto.cleanup = function cleanup() {
       for (var i = 0; i < this.instances.length; i += 1) {
