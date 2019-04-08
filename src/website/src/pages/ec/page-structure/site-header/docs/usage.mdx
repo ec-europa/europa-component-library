@@ -1,0 +1,42 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The site header is present on every page under ec.europa.eu it communicates
+  the European Commission brand and provides basic structure and guidance.
+</Paragraph>
+
+## Anatomy
+
+| Name                     | Constraint |
+| ------------------------ | ---------- |
+| European Commission logo | Mandatory  |
+| Language select          | Mandatory  |
+| Europa search form       | Mandatory  |
+
+![European Commission site header](https://inno-ecl.s3.amazonaws.com/media/images/EC/SiteHeader/SiteHeader01.png)
+
+## When to use
+
+- If your site is an official EC website (hosted under ec.europa.eu domain)
+
+## When not to use
+
+- If your site isn't an official EC website (not hosted under ec.europa.eu domain)
+
+## DO's
+
+- Provide current language to the component so that
+
+  - Display the EC logo in the current language
+  - Display the current language in the language select
+
+## DON'Ts
+
+- Use this component wihtout providing it the current Language
+  - Logo is displayed incorrectly (without text)
+  - Language select doesn't reflect the current language
