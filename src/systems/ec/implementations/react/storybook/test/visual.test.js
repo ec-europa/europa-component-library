@@ -12,13 +12,6 @@ import imageSnapshotWebDriver from './lib/image-snapshot';
 // import getCapabilities from './lib/capabilities';
 // const capabilities = getCapabilities();
 
-let server = null;
-const port = 6008;
-const userSetPath = process.env.STORYBOOK_PATH;
-const pathToStorybookStatic = userSetPath
-  ? path.resolve(userSetPath)
-  : path.resolve(__dirname, '../build');
-
 const { SAUCE_USERNAME: username, SAUCE_ACCESS_KEY: accessKey } = process.env;
 
 if (!username || !accessKey) {
@@ -27,12 +20,20 @@ if (!username || !accessKey) {
   throw new Error(errorMessage);
 }
 
-if (!fs.existsSync(pathToStorybookStatic)) {
-  throw new Error(`Missing build folder: ${pathToStorybookStatic}`);
-}
+let server = null;
+const port = 6008;
+const userSetPath = process.env.STORYBOOK_PATH;
+const system = process.env.ECL_SYSTEM || 'ec';
+const pathToStorybookStatic = userSetPath
+  ? path.resolve(userSetPath)
+  : path.resolve(__dirname, '../build');
 
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 const build = isDrone ? process.env.DRONE_BUILD_NUMBER : 'local-build';
+
+if (!isDrone && !fs.existsSync(pathToStorybookStatic)) {
+  throw new Error(`Missing build folder: ${pathToStorybookStatic}`);
+}
 
 const capability = {
   build,
@@ -84,9 +85,7 @@ afterAll(() => {
 });
 
 const storybookUrl = isDrone
-  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
-      process.env.DRONE_BUILD_NUMBER
-    }/`
+  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${build}/${system}`
   : `http://localhost:${port}`;
 
 const visualTest = {
