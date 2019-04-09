@@ -21,7 +21,59 @@ Here is the browserslist configuration we use:
 
 ## Context
 
-(Provide all the context needed to understand the decision and why it was needed. This should be at least a paragraph but can be as long as necessary.)
+The main tools we use (babel for the JavaScript, autoprefixer for the CSS) rely on [browserslist](https://github.com/browserslist/browserslist) in order to derive the list of browsers they are supposed to support.
+
+Before creating this decision record, our `browserslist` configuration file contained:
+
+```
+# Browsers that we support
+# Check http://browserl.ist/?q=%3E+1%25%2C+last+2+versions%2C+not+ie+10%2C+not+ie_mob+10%2C+not+safari+%3C+10
+
+> 1%
+last 2 versions
+not ie 10
+not ie_mob 10
+not safari < 10
+```
+
+Which roughly translated to this list of browsers (as of 9 April 2019):
+
+```
+and_chr 71
+and_ff 64
+and_qq 1.2
+and_uc 11.8
+android 67
+android 4.4.3-4.4.4
+baidu 7.12
+bb 10
+bb 7
+chrome 73
+chrome 72
+chrome 71
+edge 18
+edge 17
+firefox 66
+firefox 65
+ie 11
+ie_mob 11
+ios_saf 12.0-12.1
+ios_saf 11.3-11.4
+op_mini all
+op_mob 46
+op_mob 12.1
+opera 58
+opera 57
+safari 12
+safari 11.1
+samsung 8.2
+samsung 7.2-7.4
+```
+
+todo:
+
+- depends on caniusedb-lite (most be kept up-to-date)
+- custom stats (per site?)
 
 ## Consequences
 
