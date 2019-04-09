@@ -35,7 +35,7 @@ pipeline:
             matrix: {TEST: examples}
 
     s3:
-        image: senseyeio/alpine-aws-cli
+        image: kalinchernev/node-dubnium-aws-cli
         secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
         commands:
             - 'yarn install --frozen-lockfile'
