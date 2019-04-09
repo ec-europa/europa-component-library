@@ -3,8 +3,8 @@ import React from 'react';
 
 import data from '@ecl/ec-specs-feedback-form/demo/data';
 
-import FeedbackForm from '../src/FeedbackForm';
+import FeedbackFormExpanded from '../src/FeedbackFormExpanded';
 
 export default () => {
-  return <FeedbackForm footer={data.footer} isExpanded="true" />;
+  return <FeedbackFormExpanded footer={data.footer} />;
 };
