@@ -162,6 +162,34 @@ Cons:
 - Slightly harder to read and maintain
 - Need to update existing css for all components
 
+### Option 4: Start without CSS
+
+It means that component's CSS will be loaded for screen only. Print would be based on default dipslay (without CSS), with some custom rules if needed.
+It also implies to have global CSS rules for print, based on html markup.
+
+Example:
+
+```
+(media screen)
+.my-component {
+  color: <grey>;
+  display: flex;
+  font: <font-m>;
+  width: 100%;
+}
+
+(media print - global)
+p {
+  color: black;
+  font: <font-print-m>;
+}
+
+(media print - specific)
+.my-component {
+  width: 100%;
+}
+```
+
 ## Resources
 
 - https://www.smashingmagazine.com/2018/05/print-stylesheets-in-2018/
