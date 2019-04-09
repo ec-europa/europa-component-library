@@ -10,26 +10,34 @@ import serveStatic from 'serve-static';
 import imageSnapshotWebDriver from './lib/image-snapshot';
 import capabilities from './lib/capabilities';
 
-const { SAUCE_USERNAME: username, SAUCE_ACCESS_KEY: accessKey } = process.env;
+const {
+  SAUCE_USERNAME: username,
+  SAUCE_ACCESS_KEY: accessKey,
+  ECL_SYSTEM: system,
+  TEST_BROWSER: targetBrowser,
+} = process.env;
 
 if (!username || !accessKey) {
-  const errorMessage = 'Missing: SAUCE_USERNAME, SAUCE_ACCESS_KEY.';
+  const errorMessage = 'Missing: SAUCE_USERNAME or SAUCE_ACCESS_KEY.';
+  logger.error(errorMessage);
+  throw new Error(errorMessage);
+}
+
+if (!system || !targetBrowser) {
+  const errorMessage = 'Missing: TEST_BROWSER or ECL_SYSTEM.';
   logger.error(errorMessage);
   throw new Error(errorMessage);
 }
 
 let server = null;
 const port = 6008;
-const userSetPath = process.env.STORYBOOK_PATH;
-const system = process.env.ECL_SYSTEM || 'ec';
-const pathToStorybookStatic = userSetPath
-  ? path.resolve(userSetPath)
-  : path.resolve(__dirname, `../dist/storybook/${system}`);
+const pathToStorybookStatic = path.resolve(
+  __dirname,
+  `../dist/storybook/${system}`
+);
 
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 const build = isDrone ? process.env.DRONE_BUILD_NUMBER : 'local-build';
-
-const targetBrowser = process.env.TEST_BROWSER || 'chrome';
 const capability = capabilities[targetBrowser];
 
 capability.build = build;
@@ -95,6 +103,7 @@ const visualTest = {
   test: imageSnapshotWebDriver({
     storybookUrl,
     browser,
+    targetBrowser,
   }),
 };
 
@@ -104,4 +113,5 @@ logger.info(
   `Starting tests for browser: ${browserName}, ${version}, ${platform}`
 );
 
+// Start test suite.
 initStoryshots(visualTest);

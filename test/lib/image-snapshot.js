@@ -8,30 +8,43 @@ expect.extend({ toMatchImageSnapshot });
 
 const defaultConfig = {
   storybookUrl: 'http://localhost:6008',
-  capability: {},
+  // Instance of webdriver.
+  browser: {},
+  // Browser name.
+  targetBrowser: '',
 };
 
 const imageSnapshotWebdriver = (customConfig = {}) => {
-  const { storybookUrl, browser } = {
+  const { storybookUrl, browser, targetBrowser } = {
     ...defaultConfig,
     ...customConfig,
   };
 
   const testFn = async ({ context }) => {
     let image;
-    const { kind, name } = context;
+    const { id, kind, name, fileName } = context;
     const url = constructUrl(storybookUrl, kind, name);
+
+    // Build custom settings for snapshots.
+    const filePath = fileName.split('/');
+
+    // Remove last 2 elements: stories, Index.jsx
+    filePath.pop();
+    filePath.pop();
+
+    const componentPath = filePath.join('/');
+    const customSnapshotsDir = `${componentPath}/test/reference/${targetBrowser}`;
+    const customDiffDir = `${componentPath}/test/__diff_output__`;
+    const customSnapshotIdentifier = id;
 
     if (!browser) {
       throw new Error('Missing browser');
     }
 
     try {
-      logger.info(`Navigating to ${url}.`);
-      await browser.get(url);
+      logger.info(`Navigating to: ${url}.`);
 
-      // await browser.wait(until.elementLocated(By.id('root')), 10000);
-      logger.info('Taking a screenshot.');
+      await browser.get(url);
       image = await browser.takeScreenshot();
     } catch (error) {
       logger.error(
@@ -42,7 +55,14 @@ const imageSnapshotWebdriver = (customConfig = {}) => {
       throw error;
     }
 
-    expect(image).toMatchImageSnapshot();
+    const snapshotOptions = {
+      customSnapshotsDir,
+      customDiffDir,
+      customSnapshotIdentifier,
+    };
+
+    logger.info(`Comparing snapshot for: ${id}.`);
+    expect(image).toMatchImageSnapshot(snapshotOptions);
   };
 
   return testFn;

@@ -56,7 +56,7 @@ pipeline:
         secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
         commands:
             - 'yarn install --frozen-lockfile'
-            - 'yarn test:ec-visual'
+            - 'yarn test:visual'
         when:
             event: [push]
             matrix: {TEST: visual-regression}
