@@ -67,7 +67,7 @@ samsung 8.2
 samsung 7.2-7.4
 ```
 
-todo:
+TODO:
 
 - depends on caniuse-lite (most be kept up-to-date)
 - custom stats (per site?)
@@ -75,11 +75,15 @@ todo:
 
 ## Consequences
 
+TODO:
+
+- show list of browsers in ecl builder
+
 (Describe the pros and cons of the proposed decision. Think about the people in the **Informed** line of the DACI table above. How will this decision affect them?)
 
 ## Alternatives Considered
 
-(Describe the research you did and the alternatives you considered when making this decision. In some cases it may be useful to include subsections for each of the alternatives.)
+Caniuse stats-based vs custom stats-based vs
 
 ## Resources
 
