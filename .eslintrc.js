@@ -6,8 +6,10 @@ module.exports = {
     'plugin:prettier/recommended',
     'prettier/unicorn',
   ],
+  plugins: ['jest'],
   env: {
     node: true,
+    'jest/globals': true,
   },
   rules: {
     'unicorn/prevent-abbreviations': 'off',

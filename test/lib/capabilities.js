@@ -29,6 +29,4 @@ const capabilities = {
   },
 };
 
-const getCapabilities = () => capabilities;
-
-export default getCapabilities;
+export default capabilities;

@@ -8,7 +8,7 @@ import path from 'path';
 import serveStatic from 'serve-static';
 
 import imageSnapshotWebDriver from './lib/image-snapshot';
-import getCapabilities from './lib/capabilities';
+import capabilities from './lib/capabilities';
 
 const { SAUCE_USERNAME: username, SAUCE_ACCESS_KEY: accessKey } = process.env;
 
@@ -24,12 +24,11 @@ const userSetPath = process.env.STORYBOOK_PATH;
 const system = process.env.ECL_SYSTEM || 'ec';
 const pathToStorybookStatic = userSetPath
   ? path.resolve(userSetPath)
-  : path.resolve(__dirname, '../build');
+  : path.resolve(__dirname, `../dist/storybook/${system}`);
 
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 const build = isDrone ? process.env.DRONE_BUILD_NUMBER : 'local-build';
 
-const capabilities = getCapabilities();
 const targetBrowser = process.env.TEST_BROWSER || 'chrome';
 const capability = capabilities[targetBrowser];
 
@@ -87,6 +86,10 @@ const storybookUrl = isDrone
   : `http://localhost:${port}`;
 
 const visualTest = {
+  configPath: path.resolve(
+    __dirname,
+    `../src/systems/${system}/implementations/react/storybook/.storybook`
+  ),
   framework: 'react',
   suite: 'ECL - Visual Tests',
   test: imageSnapshotWebDriver({
