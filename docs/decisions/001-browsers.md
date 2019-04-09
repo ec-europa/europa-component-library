@@ -26,9 +26,6 @@ The main tools we use (babel for the JavaScript, autoprefixer for the CSS) rely 
 Before creating this decision record, our `browserslist` configuration file contained:
 
 ```
-# Browsers that we support
-# Check http://browserl.ist/?q=%3E+1%25%2C+last+2+versions%2C+not+ie+10%2C+not+ie_mob+10%2C+not+safari+%3C+10
-
 > 1%
 last 2 versions
 not ie 10
@@ -36,7 +33,7 @@ not ie_mob 10
 not safari < 10
 ```
 
-Which roughly translated to this list of browsers (as of 9 April 2019):
+Which roughly translated to this list of browsers (as of 9 April 2019, `caniuse-lite@1.0.30000957`):
 
 ```
 and_chr 71
@@ -72,8 +69,9 @@ samsung 7.2-7.4
 
 todo:
 
-- depends on caniusedb-lite (most be kept up-to-date)
+- depends on caniuse-lite (most be kept up-to-date)
 - custom stats (per site?)
+- if based on custom stats, how to export stats from webanalytics?
 
 ## Consequences
 
