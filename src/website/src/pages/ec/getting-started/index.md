@@ -19,40 +19,42 @@ New components are continuously being added to the library. The team is also con
 
 ## How to use templates
 
-1. Get the framework
+1.  Get the framework
 
-   - Go to https://github.com/ec-europa/europa-component-library/releases
-   - Pick the latest release
-   - In the "useful links" section, download the @ecl/ec-full package tarball
-   - uncompress the package
+    - Go to https://github.com/ec-europa/europa-component-library/releases
+    - Pick the latest V2 release
+    - In the "useful links" section, download the @ecl/ec-preset-full package tarball
+    - Uncompress the package
 
-2. Create a template page
-   - in the uncompressed package go to /dist
-   - create a "index.html" file
+2.  Create a template page
 
-```html
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <link href="favicon.ico?v=1" rel="shortcut icon" />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="styles/ecl-ec-preset-full.css"
-      media="all"
-    />
-    <script
-      type="text/javascript"
-      defer
-      src="scripts/ecl-ec-preset-full.js"
-    ></script>
-  </head>
-  <body>
-    <!-- paste the markup from the template here -->
-  </body>
-</html>
-```
+    - In the uncompressed package go to /dist
+    - Create a "index.html" file
 
-- ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
+
+        ```html
+
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+        <link
+          type="text/css"
+          rel="stylesheet"
+          href="styles/ecl-ec-preset-full.css"
+          media="all"
+        />
+        <script
+          type="text/javascript"
+          defer
+          src="scripts/ecl-ec-preset-full.js"
+        ></script>
+      </head>
+      <body>
+        <!-- paste the markup from the template here -->
+      </body>
+    </html>
+        ```
+
+        - Ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
