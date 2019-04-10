@@ -21,15 +21,14 @@ New components are continuously being added to the library. The team is also con
 
 1. Get the framework
 
-- Go to https://github.com/ec-europa/europa-component-library/releases
-- Pick the latest release
-- In the "useful links" section, download the @ecl/ec-full package tarball
-- uncompress the package
+   - Go to https://github.com/ec-europa/europa-component-library/releases
+   - Pick the latest release
+   - In the "useful links" section, download the @ecl/ec-full package tarball
+   - uncompress the package
 
 2. Create a template page
-
-- in the uncompressed package go to /dist
-- create a "index.html" file
+   - in the uncompressed package go to /dist
+   - create a "index.html" file
 
 ```html
 <html>
