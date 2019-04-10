@@ -7,7 +7,7 @@
   "description": "EC React Storybook",
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
-    "start": "start-storybook -p 6006 -c .storybook"
+    "start": "start-storybook -p 6006 -s ../../../../../website/public -c .storybook"
   },
   "devDependencies": {
     "@babel/core": "7.4.3",
@@ -32,8 +32,5 @@
     "resolve-url-loader": "3.1.0",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1"
-  },
-  "dependencies": {
-    "remove": "^0.1.5"
   }
 }

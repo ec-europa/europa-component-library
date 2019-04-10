@@ -2,8 +2,9 @@ module.exports = {
   root: true,
   extends: [
     'airbnb-base',
-    'plugin:unicorn/recommended',
+    'plugin:jest/recommended',
     'plugin:prettier/recommended',
+    'plugin:unicorn/recommended',
     'prettier/unicorn',
   ],
   plugins: ['jest'],
