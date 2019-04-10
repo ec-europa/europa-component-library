@@ -30,7 +30,7 @@ if (!system || !targetBrowser) {
 }
 
 let server = null;
-const port = 6000;
+const port = 6008;
 const pathToStorybookStatic = path.resolve(
   __dirname,
   `../dist/storybook/${system}`

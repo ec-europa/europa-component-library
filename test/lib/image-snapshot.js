@@ -45,6 +45,13 @@ const imageSnapshotWebdriver = (customConfig = {}) => {
       logger.info(`Navigating to: ${url}.`);
 
       await browser.get(url);
+
+      await browser.wait(() => {
+        return browser
+          .executeScript('return document.readyState')
+          .then(readyState => readyState === 'complete');
+      });
+
       image = await browser.takeScreenshot();
     } catch (error) {
       logger.error(

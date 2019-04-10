@@ -8,3 +8,4 @@ cd "$(dirname "$0")"
 cd ..
 
 rm -rf **/implementations/react/packages/**/test
+rm -rf **/implementations/react/templates/**/test
