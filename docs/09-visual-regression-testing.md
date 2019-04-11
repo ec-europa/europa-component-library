@@ -4,14 +4,9 @@ Visual regression tests for Storybook's stories are ran in [Sauce Labs](https://
 
 ### Requirements
 
-When local testing, you will need:
+The tests are run in Sauce Labs. You will need a Sauce Labs account in order to run local tests.
 
-- [Sauce Labs account](https://app.saucelabs.com/signup)
-- [Sauce Connect](https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy)
-
-Sauce Connect is a tool which enables Sauce Labs cloud to "see" your local server while running tests. You could use the Sauce Connect tool directly to open a tunnel from your local machine to the cloud or use npm package such as [Sauce Connect runner](https://www.npmjs.com/package/sauceconnect-runner).
-
-It's up to you to choose which tool is more convenient for you.
+Sauce Connect is a tool which enables Sauce Labs cloud to "see" your local server while running tests.
 
 ### Environment variables
 
@@ -24,10 +19,17 @@ export TEST_BROWSER=
 export ECL_SYSTEM=
 ```
 
+You can create a local `.env` file at the root of the project to story these variables:
+
+```
+SAUCE_USERNAME=...
+SAUCE_ACCESS_KEY=...
+```
+
 ### Build storybooks
 
 ```sh
-$ yarn dist:storybook
+yarn dist:storybook
 ```
 
 This will build all systems' storybooks and store them in a `dist` folder.
@@ -43,7 +45,7 @@ If you are using native Sauce connect, open 2 terminal sessions: one for the tun
 If the npm package Sauce Connect runner is a more convenient tool for you, you can wrap the test process with it in the following way:
 
 ```sh
-$ sc-run yarn test:visual
+sc-run yarn test:visual
 ```
 
 When you run tests in CI, CD or CT environments, make sure to deploy the static assets of the `dist` folder to a public hosting and run tests towards it. This approach will be way easier compared to using Sauce Connect and tweaking your infrastructure security settings. Basically, you do not need Sauce Connect in continuous and containerized environments.
@@ -51,7 +53,7 @@ When you run tests in CI, CD or CT environments, make sure to deploy the static 
 ### Updating references
 
 ```sh
-$ yarn test:visual-update
+yarn test:visual-update
 ```
 
 ### Target browsers

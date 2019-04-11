@@ -1,11 +1,11 @@
 import { Builder } from 'selenium-webdriver';
 import { logger } from '@storybook/node-logger';
-import finalhandler from 'finalhandler';
 import fs from 'fs';
-import http from 'http';
 import initStoryshots from '@storybook/addon-storyshots';
 import path from 'path';
+import express from 'express';
 import serveStatic from 'serve-static';
+import sauceConnectLauncher from 'sauce-connect-launcher';
 
 import imageSnapshotWebDriver from './lib/image-snapshot';
 import capabilities from './lib/capabilities';
@@ -29,12 +29,14 @@ if (!system || !targetBrowser) {
   throw new Error(errorMessage);
 }
 
-let server = null;
+let server;
+let sc;
 const port = 6008;
 const pathToStorybookStatic = path.resolve(
   __dirname,
   `../dist/storybook/${system}`
 );
+const pathToPublicFolder = path.resolve(__dirname, '../src/website/public');
 
 const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 const build = isDrone ? process.env.DRONE_BUILD_NUMBER : 'local-build';
@@ -46,52 +48,95 @@ if (!isDrone && !fs.existsSync(pathToStorybookStatic)) {
   throw new Error(`Missing build folder: ${pathToStorybookStatic}`);
 }
 
-logger.info('Setting up webdriver browser.');
+const storybookUrl = isDrone
+  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${build}/${system}/`
+  : `http://localhost:${port}/`;
 
-const browser = new Builder()
-  .withCapabilities({
-    // Session settings.
-    username,
-    accessKey,
-    maxDuration: 7200,
-    idleTimeout: 3000,
-    // Browser settings.
-    ...capability,
-  })
-  .usingServer(
-    `http://${username}:${accessKey}@ondemand.saucelabs.com:80/wd/hub`
-  )
-  .build();
+const imageSnapshotWebDriverConfig = {
+  browser: null,
+  storybookUrl,
+  targetBrowser,
+};
 
-beforeAll(() => {
+beforeAll(async () => {
   if (!isDrone) {
     logger.info('Starting a server to serve the storybook build folder.');
 
-    server = http.createServer((req, res) => {
-      const serve = serveStatic(pathToStorybookStatic, {
-        index: ['index.html', 'index.htm'],
-      });
+    const app = express();
+    app.use(serveStatic(pathToStorybookStatic));
+    app.use(serveStatic(pathToPublicFolder));
+    server = app.listen(port); // second arg = callback -> can make a promise
 
-      serve(req, res, finalhandler(req, res));
+    // return Promise.resolve();
+
+    logger.info('Starting Sauce Connect...');
+    await new Promise((resolve, reject) => {
+      sauceConnectLauncher(
+        {
+          username,
+          accessKey,
+        },
+        (err, sauceConnectProcess) => {
+          if (err) {
+            logger.error(err.message);
+            return reject();
+          }
+
+          sc = sauceConnectProcess;
+
+          logger.info('Sauce Connect ready');
+          return resolve();
+        }
+      );
     });
-
-    server.listen(port);
   }
+
+  logger.info('Setting up webdriver browser...');
+  imageSnapshotWebDriverConfig.browser = await new Builder()
+    .withCapabilities({
+      // Session settings.
+      username,
+      accessKey,
+      maxDuration: 7200,
+      idleTimeout: 3000,
+      // Browser settings.
+      ...capability,
+    })
+    .usingServer(
+      `http://${username}:${accessKey}@ondemand.saucelabs.com:80/wd/hub`
+    )
+    .build();
+
+  logger.info('webdriver browser started.');
 });
 
-afterAll(() => {
+afterAll(async () => {
   if (!isDrone) {
-    logger.info('Quitting webdriver browser ...');
-    browser.quit();
-    logger.info('Closing the server ...');
-    server.close();
-    logger.info('Server has been closed.');
-  }
-});
+    if (imageSnapshotWebDriverConfig.browser) {
+      logger.info('Quitting webdriver browser ...');
+      await imageSnapshotWebDriverConfig.browser.quit();
+    }
 
-const storybookUrl = isDrone
-  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${build}/${system}`
-  : `http://localhost:${port}`;
+    if (server) {
+      logger.info('Closing the server ...');
+      server.close();
+      logger.info('Server has been closed.');
+    }
+
+    if (!sc) {
+      return Promise.resolve();
+    }
+
+    return new Promise(resolve => {
+      sc.close(() => {
+        logger.info('Closed Sauce Connect process');
+        return resolve();
+      });
+    });
+  }
+
+  return Promise.resolve();
+});
 
 const visualTest = {
   configPath: path.resolve(
@@ -100,11 +145,7 @@ const visualTest = {
   ),
   framework: 'react',
   suite: 'ECL - Visual Tests',
-  test: imageSnapshotWebDriver({
-    storybookUrl,
-    browser,
-    targetBrowser,
-  }),
+  test: imageSnapshotWebDriver(imageSnapshotWebDriverConfig),
 };
 
 const { browserName, version, platform } = capability;

@@ -67,7 +67,7 @@ pipeline:
     image: node:dubnium
     secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
-      - yarn test:visual:noexitonfail
+      - yarn test:visual
     when:
       event: [push]
       matrix:

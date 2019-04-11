@@ -7,7 +7,7 @@ import constructUrl from './url';
 expect.extend({ toMatchImageSnapshot });
 
 const defaultConfig = {
-  storybookUrl: 'http://localhost:6008',
+  storybookUrl: '',
   // Instance of webdriver.
   browser: {},
   // Browser name.
@@ -15,12 +15,12 @@ const defaultConfig = {
 };
 
 const imageSnapshotWebdriver = (customConfig = {}) => {
-  const { storybookUrl, browser, targetBrowser } = {
-    ...defaultConfig,
-    ...customConfig,
-  };
-
   const testFn = async ({ context }) => {
+    const { storybookUrl, browser, targetBrowser } = {
+      ...defaultConfig,
+      ...customConfig,
+    };
+
     let image;
     const { id, kind, name, fileName } = context;
     const url = constructUrl(storybookUrl, kind, name);
