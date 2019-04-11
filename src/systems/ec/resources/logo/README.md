@@ -1,1 +1,1 @@
-# EC Logo
+# EC Logo images

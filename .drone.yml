@@ -10,39 +10,39 @@ matrix:
 
 pipeline:
   install:
-    image: 'node:dubnium'
+    image: node:dubnium
     commands:
-      - 'yarn install --frozen-lockfile'
+      - yarn install --frozen-lockfile
 
   audit:
-    image: 'node:dubnium'
+    image: node:dubnium
     commands:
-      - 'yarn audit'
+      - yarn audit
     when:
       matrix:
         TEST: audit
 
   conventions:
-    image: 'node:dubnium'
+    image: node:dubnium
     commands:
-      - 'yarn test:coding-conventions'
+      - yarn test:coding-conventions
     when:
       matrix:
         TEST: conventions
 
   examples:
-    image: 'node:dubnium'
+    image: node:dubnium
     commands:
-      - 'cd examples/webpack4 && yarn build --display=errors-only'
-      - 'cd ../webpack4-eu && yarn build --display=errors-only'
+      - cd examples/webpack4 && yarn build --display=errors-only
+      - cd ../webpack4-eu && yarn build --display=errors-only
     when:
       matrix:
         TEST: examples
 
   build-storybook:
-    image: 'node:dubnium'
+    image: node:dubnium
     commands:
-      - 'yarn dist:storybook'
+      - yarn dist:storybook
     when:
       event: [push]
       matrix:
@@ -64,10 +64,10 @@ pipeline:
         TEST: visual-regression
 
   visual-regression:
-    image: 'node:dubnium'
+    image: node:dubnium
     secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
-      - 'yarn test:visual:noexitonfail'
+      - yarn test:visual:noexitonfail
     when:
       event: [push]
       matrix:
