@@ -10,7 +10,6 @@ module.exports = {
     '\\.(css|scss)$': '<rootDir>/test/__mocks__/style-mock.js',
   },
   rootDir: path.resolve(__dirname),
-  roots: [],
   transform: {
     '^.+\\.(js|jsx)?$': '<rootDir>/test/scripts/babel-jest.js',
   },
