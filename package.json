@@ -37,7 +37,7 @@
     "test:visual:delete": "run-p test:visual:delete:*",
     "test:visual:delete:ec": "rimraf **/ec/**/packages/**/test **/ec/**/templates/**/test",
     "test:visual:delete:eu": "rimraf **/eu/**/packages/**/test **/ec/**/templates/**/test",
-    "test:visual:update": "run-p test:visual:update:*",
+    "test:visual:update": "run-s test:visual:update:*",
     "test:visual:update:ec": "run-s test:visual:delete:ec test:visual:ec",
     "test:visual:update:eu": "run-s test:visual:delete:eu test:visual:eu",
     "update-version": "scripts/update-version.sh"
