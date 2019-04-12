@@ -6,9 +6,11 @@ import path from 'path';
 import express from 'express';
 import serveStatic from 'serve-static';
 import sauceConnectLauncher from 'sauce-connect-launcher';
+import getPort from 'get-port';
 
 import imageSnapshotWebDriver from './lib/image-snapshot';
 import capabilities from './lib/capabilities';
+import sauceConnectPorts from './lib/sauce-connect-ports';
 
 const {
   SAUCE_USERNAME: username,
@@ -31,7 +33,6 @@ if (!system || !targetBrowser) {
 
 let server;
 let sc;
-const port = 6008;
 const pathToStorybookStatic = path.resolve(
   __dirname,
   `../dist/storybook/${system}`
@@ -48,9 +49,7 @@ if (!isDrone && !fs.existsSync(pathToStorybookStatic)) {
   throw new Error(`Missing build folder: ${pathToStorybookStatic}`);
 }
 
-const storybookUrl = isDrone
-  ? `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${build}/${system}/`
-  : `http://localhost:${port}/`;
+const storybookUrl = `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${build}/${system}/`;
 
 const imageSnapshotWebDriverConfig = {
   browser: null,
@@ -60,12 +59,16 @@ const imageSnapshotWebDriverConfig = {
 
 beforeAll(async () => {
   if (!isDrone) {
-    logger.info('Starting a server to serve the storybook build folder.');
+    logger.info('Starting a server to serve the storybook build folder...');
+
+    const port = await getPort({ port: sauceConnectPorts });
+    imageSnapshotWebDriverConfig.storybookUrl = `http://localhost:${port}/`;
 
     const app = express();
     app.use(serveStatic(pathToStorybookStatic));
     app.use(serveStatic(pathToPublicFolder));
     server = app.listen(port); // second arg = callback -> can make a promise
+    logger.info(`Server started on port: ${port}`);
 
     // return Promise.resolve();
 
