@@ -7,6 +7,7 @@ import express from 'express';
 import serveStatic from 'serve-static';
 import sauceConnectLauncher from 'sauce-connect-launcher';
 import getPort from 'get-port';
+import shuffle from 'lodash.shuffle';
 
 import imageSnapshotWebDriver from './lib/image-snapshot';
 import capabilities from './lib/capabilities';
@@ -15,9 +16,13 @@ import ports from './lib/ports';
 const {
   SAUCE_USERNAME: username,
   SAUCE_ACCESS_KEY: accessKey,
+  SAUCE_EXE: sauceExe,
   ECL_SYSTEM: system,
   TEST_BROWSER: targetBrowser,
 } = process.env;
+
+const sauceDebug =
+  process.env.SAUCE_DEBUG === 'true' || process.env.SAUCE_DEBUG === 'TRUE';
 
 if (!username || !accessKey) {
   const errorMessage = 'Missing: SAUCE_USERNAME or SAUCE_ACCESS_KEY.';
@@ -63,7 +68,8 @@ beforeAll(async () => {
 
     let port;
     try {
-      port = await getPort({ port: ports, host: '0.0.0.0' });
+      // Mitigate risk of collision when multiple tests run in parallel with shuffle(ports)
+      port = await getPort({ port: shuffle(ports), host: '0.0.0.0' });
     } catch (error) {
       logger.error(error);
       process.exit(1); // eslint-disable-line unicorn/no-process-exit
@@ -86,6 +92,10 @@ beforeAll(async () => {
           username,
           accessKey,
           verbose: true,
+          verboseDebugging: sauceDebug || false,
+          vv: sauceDebug || false,
+          logger: logger.info,
+          exe: sauceExe ? path.resolve(__dirname, '..', sauceExe) : null, // relative to root
         },
         (err, sauceConnectProcess) => {
           if (err) {
