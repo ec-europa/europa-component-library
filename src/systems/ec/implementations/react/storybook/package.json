@@ -7,6 +7,7 @@
   "description": "EC React Storybook",
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
+    "postbuild": "copyfiles -f \"../../../../../website/public/*.jpg\" build",
     "start": "start-storybook -p 6006 -s ../../../../../website/public -c .storybook"
   },
   "devDependencies": {
@@ -24,6 +25,7 @@
     "@storybook/react": "5.0.6",
     "@storybook/theming": "5.0.6",
     "babel-loader": "8.0.5",
+    "copyfiles": "2.1.0",
     "css-loader": "2.1.1",
     "node-sass": "4.11.0",
     "postcss-loader": "3.0.0",
