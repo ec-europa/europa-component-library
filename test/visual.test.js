@@ -10,7 +10,7 @@ import getPort from 'get-port';
 
 import imageSnapshotWebDriver from './lib/image-snapshot';
 import capabilities from './lib/capabilities';
-import sauceConnectPorts from './lib/sauce-connect-ports';
+import ports from './lib/ports';
 
 const {
   SAUCE_USERNAME: username,
@@ -61,14 +61,21 @@ beforeAll(async () => {
   if (!isDrone) {
     logger.info('Starting a server to serve the storybook build folder...');
 
-    const port = await getPort({ port: sauceConnectPorts });
+    let port;
+    try {
+      port = await getPort({ port: ports });
+    } catch (error) {
+      logger.error(error);
+      process.exit(1); // eslint-disable-line unicorn/no-process-exit
+    }
+
     imageSnapshotWebDriverConfig.storybookUrl = `http://localhost:${port}/`;
 
     const app = express();
     app.use(serveStatic(pathToStorybookStatic));
     app.use(serveStatic(pathToPublicFolder));
     server = app.listen(port); // second arg = callback -> can make a promise
-    logger.info(`Server started on port: ${port}`);
+    logger.info(`Server started on port: ${port}.`);
 
     // return Promise.resolve();
 
@@ -87,7 +94,7 @@ beforeAll(async () => {
 
           sc = sauceConnectProcess;
 
-          logger.info('Sauce Connect ready');
+          logger.info('Sauce Connect ready!');
           return resolve();
         }
       );

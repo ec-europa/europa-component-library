@@ -9,7 +9,7 @@ expect.extend({ toMatchImageSnapshot });
 const defaultConfig = {
   storybookUrl: '',
   // Instance of webdriver.
-  browser: {},
+  browser: null,
   // Browser name.
   targetBrowser: '',
 };
