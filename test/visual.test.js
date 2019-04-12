@@ -63,7 +63,7 @@ beforeAll(async () => {
 
     let port;
     try {
-      port = await getPort({ port: ports });
+      port = await getPort({ port: ports, host: '0.0.0.0' });
     } catch (error) {
       logger.error(error);
       process.exit(1); // eslint-disable-line unicorn/no-process-exit
@@ -85,11 +85,13 @@ beforeAll(async () => {
         {
           username,
           accessKey,
+          verbose: true,
         },
         (err, sauceConnectProcess) => {
           if (err) {
             logger.error(err.message);
-            return reject();
+            reject();
+            process.exit(1); // eslint-disable-line unicorn/no-process-exit
           }
 
           sc = sauceConnectProcess;

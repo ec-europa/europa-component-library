@@ -1,8 +1,10 @@
 // https://wiki.saucelabs.com/display/DOCS/Sauce+Connect+Proxy+FAQS
 export default [
-  80,
-  443,
-  888,
+  // https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html
+  // "The TCP/IP port numbers below 1024 are special in that normal users are not allowed to run servers on them. This is a security feaure, in that if you connect to a service on one of these ports you can be fairly sure that you have the real thing, and not a fake which some hacker has put up for you."
+  // 80,
+  // 443,
+  // 888,
   2000,
   2001,
   2020,
