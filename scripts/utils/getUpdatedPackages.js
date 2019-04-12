@@ -18,7 +18,7 @@ log.addLevel('success', 3001, { fg: 'green', bold: true });
 
 const getRef = async () => {
   if (isDrone && process.env.DRONE_BRANCH !== 'v1') {
-    const matchingPullRequests = await octokit.pullRequests.getAll({
+    const matchingPullRequests = await octokit.pulls.list({
       owner: process.env.DRONE_REPO_OWNER,
       repo: process.env.DRONE_REPO_NAME,
       head: `${process.env.DRONE_REPO_OWNER}:${process.env.DRONE_BRANCH}`,
