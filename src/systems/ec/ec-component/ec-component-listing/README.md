@@ -11,10 +11,6 @@ template section.
 
 Users need a way to have an overview of content from similar data types.
 
-Read
-[About Pool listings](https://webgate.ec.europa.eu/CITnet/confluence/x/vQJvK) to
-find out more about where and how to use listings in your website.
-
 ### Filters and pagination
 
 If you are displaying listings on a separate dedicated page, you can use Filters
@@ -32,10 +28,6 @@ Either on a separate dedicated page or embedded in a detail page.
 Users need a way to have an overview of events, with a clear overview of when
 the events are taking place.
 
-Read
-[About Pool listings](https://webgate.ec.europa.eu/CITnet/confluence/x/vQJvK) to
-find out more about where and how to use listings in your website.
-
 ### When to use this component
 
 Use this component when you want to display a list of events. Either on a
@@ -47,10 +39,6 @@ separate dedicated page or embedded in a detail page.
 
 Users need a way to have an overview of content from similar data types, while
 also having a visual clue on what the information is about.
-
-Read
-[About Pool listings](https://webgate.ec.europa.eu/CITnet/confluence/x/vQJvK) to
-find out more about where and how to use listings in your website.
 
 ### When to use this component
 
