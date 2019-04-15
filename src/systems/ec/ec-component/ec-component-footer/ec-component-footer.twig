@@ -1,6 +1,8 @@
 {% import '@ecl/generic-component-footer' as macros %}
 
-{% set _custom_footer = macros.footer_custom(custom_footer, 'ec') %}
+{% if custom_footer is defined and custom_footer is not empty %}
+  {% set _custom_footer = macros.footer_custom(custom_footer, 'ec') %}
+{% endif %}
 
 {% set _corporate_footer %}
 <div class="ecl-footer__corporate-top">
@@ -106,6 +108,6 @@
 {# Render component #}
 
 {{ macros.footer({
-  custom_footer: _custom_footer,
+  custom_footer: _custom_footer|default(''),
   corporate_footer: _corporate_footer,
 }) }}
