@@ -3126,7 +3126,9 @@ the page’s requirements.</p>
     <code class="Code Code--lang-twig">
         <pre><span class="xml"></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">import</span></span> '@ecl/generic-component-footer' as macros %}</span><span class="xml">
 
-</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _custom_footer = macros.footer_custom(custom_footer, 'ec') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> custom_footer is defined and custom_footer is not empty %}</span><span class="xml">
+  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _custom_footer = macros.footer_custom(custom_footer, 'ec') %}</span><span class="xml">
+</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 
 </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">set</span></span> _corporate_footer %}</span><span class="xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-footer__corporate-top"</span>&gt;</span>
@@ -3232,7 +3234,7 @@ the page’s requirements.</p>
 </span><span class="hljs-comment">{# Render component #}</span><span class="xml">
 
 </span><span class="hljs-template-variable">{{ macros.footer({
-  custom_footer: _custom_footer,
+  custom_footer: _custom_footer|<span class="hljs-keyword">default</span>(''),
   corporate_footer: _corporate_footer,
 }) }}</span><span class="xml"></span></pre>
     </code>
