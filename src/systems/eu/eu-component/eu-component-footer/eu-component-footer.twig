@@ -1,69 +1,72 @@
 {% import '@ecl/generic-component-footer' as macros %}
 
 {% set system = 'eu' %}
-{% set _custom_footer %}
-{% set _identity = custom_footer.identity.label is defined ? custom_footer.identity.label : custom_footer.identity %}
 
-<div class="ecl-container">
-  <div class="ecl-footer__custom-title">
-    {{ _identity|default('') }}
-  </div>
-  <div class="ecl-row">
-    {% if custom_footer.social_links is defined and custom_footer.social_links.links is defined %}
-    <div class="ecl-col-md">
-      <div class="ecl-footer__custom-label">{{ custom_footer.social_links.label }}</div>
-      <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links">
-        {% for menu_item in custom_footer.social_links.links %}
-          <li class="ecl-footer__list-item">
-            {% if menu_item.type == 'social-network' %}
-              {% embed '@ecl/' ~ system ~ '-component-link' with {
-                href: menu_item.link.href,
-                extra_classes: 'ecl-footer__link',
-                icon: menu_item.icon,
-                link_label: menu_item.link.label,
-                system: system
-              } only %}
-                {% block label %}
-                  {% spaceless %}
-                    {% include '@ecl/' ~ system ~ '-style-icon' with {
-                      modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
-                    } only %}<span>{{ link_label }}</span>
-                  {% endspaceless %}
-                {% endblock %}
-              {% endembed %}
-            {% else %}
+{% if custom_footer is defined and custom_footer is not empty %}
+  {% set _custom_footer %}
+  {% set _identity = custom_footer.identity.label is defined ? custom_footer.identity.label : custom_footer.identity %}
+
+  <div class="ecl-container">
+    <div class="ecl-footer__custom-title">
+      {{ _identity|default('') }}
+    </div>
+    <div class="ecl-row">
+      {% if custom_footer.social_links is defined and custom_footer.social_links.links is defined %}
+      <div class="ecl-col-md">
+        <div class="ecl-footer__custom-label">{{ custom_footer.social_links.label }}</div>
+        <ul class="ecl-list ecl-list--inline ecl-footer__list ecl-footer__list--inline ecl-footer__social-links">
+          {% for menu_item in custom_footer.social_links.links %}
+            <li class="ecl-footer__list-item">
+              {% if menu_item.type == 'social-network' %}
+                {% embed '@ecl/' ~ system ~ '-component-link' with {
+                  href: menu_item.link.href,
+                  extra_classes: 'ecl-footer__link',
+                  icon: menu_item.icon,
+                  link_label: menu_item.link.label,
+                  system: system
+                } only %}
+                  {% block label %}
+                    {% spaceless %}
+                      {% include '@ecl/' ~ system ~ '-style-icon' with {
+                        modifier: 'ecl-icon--' ~ icon ~ ' ecl-footer__social-icon'
+                      } only %}<span>{{ link_label }}</span>
+                    {% endspaceless %}
+                  {% endblock %}
+                {% endembed %}
+              {% else %}
+                {% include '@ecl/' ~ system ~ '-component-link' with {
+                  href: menu_item.link.href,
+                  label: menu_item.link.label,
+                  extra_classes: 'ecl-footer__link',
+                  variant: 'external',
+                } only %}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% if custom_footer.other_links is defined and custom_footer.other_links.links is defined %}
+      <div class="ecl-col-md ecl-footer__other-links">
+        <ul class="ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline">
+          {% for menu_item in custom_footer.other_links.links %}
+            <li class="ecl-footer__list-item">
               {% include '@ecl/' ~ system ~ '-component-link' with {
-                href: menu_item.link.href,
-                label: menu_item.link.label,
-                extra_classes: 'ecl-footer__link',
-                variant: 'external',
-              } only %}
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
+                'href': menu_item.link.href,
+                'label': menu_item.link.label,
+                'extra_classes': 'ecl-footer__link',
+                'variant': link_variant,
+                }
+              %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
-    {% if custom_footer.other_links is defined and custom_footer.other_links.links is defined %}
-    <div class="ecl-col-md ecl-footer__other-links">
-      <ul class="ecl-list ecl-list--unstyled ecl-list--inline ecl-footer__list ecl-footer__list--inline">
-        {% for menu_item in custom_footer.other_links.links %}
-          <li class="ecl-footer__list-item">
-            {% include '@ecl/' ~ system ~ '-component-link' with {
-              'href': menu_item.link.href,
-              'label': menu_item.link.label,
-              'extra_classes': 'ecl-footer__link',
-              'variant': link_variant,
-              }
-            %}
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
   </div>
-</div>
-{% endset %}
+  {% endset %}
+{% endif %}
 
 {% set _corporate_footer %}
 <div class="ecl-footer__corporate-top">
@@ -171,6 +174,6 @@
 {# Render component #}
 
 {{ macros.footer({
-  custom_footer: _custom_footer,
+  custom_footer: _custom_footer|default(''),
   corporate_footer: _corporate_footer,
 }) }}
