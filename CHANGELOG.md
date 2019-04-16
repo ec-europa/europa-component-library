@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.8.0 (2019-04-16)
+
+#### :bug: Bug Fix
+
+- [#1083](https://github.com/ec-europa/europa-component-library/pull/1083) fix(buttons): remove "button" appearance - INNO-1280. ([@yhuard](https://github.com/yhuard))
+- [#1082](https://github.com/ec-europa/europa-component-library/pull/1082) fix(footer): remove empty tags - INNO-1383. ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1081](https://github.com/ec-europa/europa-component-library/pull/1081) refactor(eu-logo): use latest logo - INNO-1442. ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#1084](https://github.com/ec-europa/europa-component-library/pull/1084) docs: remove wiki links - INNO-1441. ([@emeryro](https://github.com/emeryro))
+
+#### Committers: 2
+
+- Romain Emery ([emeryro](https://github.com/emeryro))
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.7.0 (2019-04-08)
 
 #### :bug: Bug Fix
