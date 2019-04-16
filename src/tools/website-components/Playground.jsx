@@ -4,6 +4,7 @@ import ReactDOMServer from 'react-dom/server';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
 import { html as beautifyHtml } from 'js-beautify';
+import Axe from 'axe-core';
 
 import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
@@ -35,6 +36,12 @@ class Playground extends PureComponent {
       );
       this.showcaseCodeRef.current.style.maxHeight = `${this.maxHeight}px`;
     }
+
+    // Axe core test
+    const showcases = document.querySelectorAll('[data-axe]');
+    Axe.run(showcases, function(err, results) {
+      if (results) console.log(results.violations);
+    });
   }
 
   handleClickOnToggle() {

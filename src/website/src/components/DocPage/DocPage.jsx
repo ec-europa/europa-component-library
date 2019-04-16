@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { /* Route, Redirect, Switch, */ withRouter } from 'react-router-dom';
 import Prism from 'prismjs';
-import Axe from 'axe-core';
 
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
@@ -15,11 +14,6 @@ import styles from './DocPage.scss';
 class DocPage extends Component {
   componentDidMount() {
     Prism.highlightAllUnder(document.querySelector('#main-content'));
-
-    const showcases = document.querySelectorAll('[data-axe]');
-    Axe.run(showcases, function(err, results) {
-      if (results) console.log(results.violations);
-    });
   }
 
   render() {
