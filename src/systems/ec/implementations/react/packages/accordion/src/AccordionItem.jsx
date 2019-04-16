@@ -19,7 +19,7 @@ const AccordionItem = ({ id, toggle, level, children }) => {
             variant="ghost"
             icon={{ shape: toggle.iconShape, size: 's' }}
             iconPosition="before"
-            label={toggle.label}
+            label=""
           />
         </HeadingTag>
       )}

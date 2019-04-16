@@ -83,7 +83,7 @@ class Playground extends PureComponent {
 
     return (
       <div className={styles.playground}>
-        <div className={styles.showcase}>
+        <div className={styles.showcase} data-axe>
           {!hideDemo && (
             <Fragment>
               {showFrame && fullFrameUrl ? (
