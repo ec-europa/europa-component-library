@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import styles from './LinkSection.scss';
-import LinkList from './LinkList';
+import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
 
 class LinkSection extends PureComponent {
   render() {
