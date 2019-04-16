@@ -17,6 +17,9 @@ module.exports = {
       jsx: true,
     },
   },
+  rules: {
+    'unicorn/prevent-abbreviations': 'off',
+  },
   overrides: [
     {
       files: ['**/*.jsx'],
