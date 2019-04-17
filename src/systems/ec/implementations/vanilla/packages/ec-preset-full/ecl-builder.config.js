@@ -38,6 +38,15 @@ module.exports = {
         sourceMap: isProd ? 'file' : true,
       },
     },
+    {
+      entry: path.resolve(__dirname, 'src/ec-preset-full-print.scss'),
+      dest: path.resolve(outputFolder, 'styles/ecl-ec-preset-full-print.css'),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
   ],
   copy: [
     {
