@@ -52,6 +52,10 @@
     background-color: rgba($ecl-color-primary, 0.95);
   }
 
+  .ecl-dialog--wide {
+    overflow: auto;
+  }
+
   .ecl-dialog--wide .ecl-dialog__body {
     overflow: visible;
     width: 100%;
@@ -132,7 +136,6 @@
     .ecl-dialog--wide {
       height: 100%;
       left: 0;
-      overflow: auto;
       right: 0;
       top: 0;
       transform: none;
