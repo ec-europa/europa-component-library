@@ -1,8 +1,42 @@
 # How to handle print css rules in ECL
 
-## Selected option
+## Adopted solution
 
-TBD
+- Print CSS and screen CSS are kept into separated files
+    ```
+    <head>
+      ...
+      <link rel="stylesheet" type="text/css" href="ecl-<preset>.css"  media="screen">
+      <link rel="stylesheet" type="text/css" href="ecl-<preset>-print.css" media="print">
+    </head>
+    ```
+
+- No global reset CSS for print
+
+- Print CSS is applied per component, using component's classes. Only needed rules are reported, to keep print CSS as small as possible.
+    ```
+    (screen css)
+    .my-component {
+      background-color: <yellow>;
+      color: <grey>;
+      display: flex;
+      font: <font-m>;
+      width: 100%;
+    }
+    ```
+    ```
+    (print css)
+    .my-component {
+      color: black;
+      font: <font-print-m>;
+      width: 100%;
+    }
+    ```
+    
+- Design tokens are added for print display (typography, spacing, ...)
+
+Below are the discussed options, for the record
+
 
 ## File structure
 
