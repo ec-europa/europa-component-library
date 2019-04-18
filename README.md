@@ -23,7 +23,7 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
 - download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
 - install the preset with npm or yarn, e.g. `npm install @ecl/ec-preset-website` or `yarn add @ecl/ec-preset-website`
-- use the CDN, `https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{version}/preset/path/to/the/asset`, e.g:
+- use the CDN, `https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{version}/{preset}/{path/to/the/asset}`. Here's an example:
   ```html
   <link
     href="https://cdn4.fpfis.tech.ec.europa.eu/ecl/1.8.0/ec-preset-website/styles/ecl-ec-preset-website.css"
@@ -31,6 +31,8 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
     crossorigin="anonymous"
     rel="stylesheet"
   />
+  ```
+  ```html
   <script
     src="https://cdn4.fpfis.tech.ec.europa.eu/ecl/1.8.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
     integrity="sha512-jSG2kq8C//FvuBJz3Lxf+0aZ5v5h8l/6J/S7MHlgLT0sY2KxU0gC/Gyf9UBsg2/R/4RpPI0abxAijoh9GejiEg=="
