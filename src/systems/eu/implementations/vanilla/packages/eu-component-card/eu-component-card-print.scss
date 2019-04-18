@@ -38,6 +38,8 @@
   }
 
   .ecl-card__info-container {
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin-bottom: 0;
     margin-top: $ecl-spacing-print-s;
@@ -45,19 +47,13 @@
   }
 
   .ecl-card__info-item {
-    align-content: center;
     color: $color-info;
-    display: flex;
     font: $ecl-font-print-s;
-    margin-top: $ecl-spacing-print-s;
+    margin-right: $ecl-spacing-print-xs;
 
-    &:first-child {
-      margin-top: 0;
+    &:last-child {
+      margin-right: 0;
     }
-  }
-
-  .ecl-card__info-label {
-    margin-left: $ecl-spacing-print-s;
   }
 
   .ecl-card__link-container {
@@ -82,7 +78,7 @@
   }
 
   .ecl-card__tag-container {
-    display: inline-flex;
+    display: flex;
     flex-wrap: wrap;
     list-style: none;
     margin-bottom: 0;
