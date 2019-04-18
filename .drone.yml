@@ -55,18 +55,7 @@ pipeline:
         yarn dist ;
         fi
     when:
-      event: [push]
-      matrix:
-        TEST: functional
-
-  deploy-pages:
-    image: node:9.11.1
-    secrets: [GH_TOKEN]
-    commands:
-      - ./scripts/deploy.sh
-    when:
-      event: [push]
-      branch: v1
+      event: [push, tag]
       matrix:
         TEST: functional
 
@@ -82,6 +71,16 @@ pipeline:
         fi
     when:
       event: [tag]
+      matrix:
+        TEST: functional
+
+  deploy-pages:
+    image: node:9.11.1
+    secrets: [GH_TOKEN]
+    commands:
+      - ./scripts/deploy.sh
+    when:
+      event: [push]
       branch: v1
       matrix:
         TEST: functional
