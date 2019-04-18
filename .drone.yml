@@ -51,7 +51,7 @@ pipeline:
   build:
     image: node:9.11.1
     commands:
-      - if [ "${DRONE_BRANCH}" = "v1" ] || yarn updated --ignoreCache ; then
+      - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
         yarn dist ;
         fi
     when:
