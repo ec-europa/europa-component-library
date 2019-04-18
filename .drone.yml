@@ -33,6 +33,7 @@ pipeline:
       - yarn test:coding-conventions
       - yarn test:independent-sass
     when:
+      event: [push]
       matrix:
         TEST: conventions
 
@@ -43,6 +44,7 @@ pipeline:
       - cd ../webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
+      event: [push]
       matrix:
         TEST: examples
 
@@ -79,7 +81,7 @@ pipeline:
         echo "Transfer complete" ;
         fi
     when:
-      event: tag
+      event: [tag]
       branch: v1
       matrix:
         TEST: functional
@@ -94,7 +96,6 @@ pipeline:
         aws s3 cp --recursive --quiet . s3://inno-ecl/build/${DRONE_BUILD_NUMBER}/ ;
         echo "Transfer complete" ;
         fi
-
     when:
       event: [push]
       matrix:
