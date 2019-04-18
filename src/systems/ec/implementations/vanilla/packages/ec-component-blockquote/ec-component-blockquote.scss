@@ -24,35 +24,7 @@
   }
 }
 
-@mixin ecl-blockquote-print() {
-  @media print {
-    .ecl-blockquote__body {
-      color: #000;
-      font: $ecl-font-prolonged-print-m;
-    }
-
-    .ecl-blockquote__author {
-      color: #000;
-      font: $ecl-font-prolonged-print-m;
-      font-weight: $ecl-font-weight-print-bold;
-    }
-
-    /* stylelint-disable-next-line order/order */
-    @include ecl-media-breakpoint-up('md') {
-      .ecl-blockquote__body {
-        font: $ecl-font-prolonged-print-xl;
-      }
-
-      .ecl-blockquote__author {
-        font: $ecl-font-prolonged-print-l;
-        font-weight: $ecl-font-weight-print-bold;
-      }
-    }
-  }
-}
-
 // Use mixin
 @include exports('ec-component-blockquote') {
   @include ecl-blockquote();
-  @include ecl-blockquote-print();
 }
