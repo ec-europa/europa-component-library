@@ -5,6 +5,10 @@
     @include table();
   }
 
+  .ecl-editor * + table {
+    margin-top: map-get($ecl-spacing, 'xs');
+  }
+
   @media (max-width: map-get($ecl-grid-breakpoints, 'md')) {
     .ecl-editor table {
       @include table-max-width-md();

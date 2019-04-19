@@ -1,7 +1,18 @@
 @import 'mixins';
 
 @mixin ecl-editor-typography-paragraph() {
+  .ecl-edtior * {
+    color: $ecl-color-shade;
+    font-size: map-get($ecl-font-size, 'm');
+  }
+
   .ecl-editor p {
     @include paragraph();
+
+    margin: 0;
+  }
+
+  .ecl-editor * + p {
+    margin-top: map-get($ecl-spacing, 'xxs');
   }
 }

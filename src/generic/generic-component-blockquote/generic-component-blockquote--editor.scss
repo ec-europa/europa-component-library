@@ -3,9 +3,18 @@
 @mixin ecl-editor-blockquote() {
   .ecl-editor blockquote {
     @include blockquote-container();
+    @include blockquote-body();
 
     p {
-      @include blockquote-body();
+      color: $ecl-color-shade;
+      font-size: map-get($ecl-font-size, 'l');
+      font-style: italic;
+      line-height: 1.5;
+      margin: 0;
     }
+  }
+
+  .ecl-editor * + blockquote {
+    margin-top: map-get($ecl-spacing, 'xs');
   }
 }
