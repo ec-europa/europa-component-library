@@ -2,8 +2,10 @@
 
 @mixin ecl-editor-typography-paragraph() {
   .ecl-edtior * {
+    box-sizing: border-box;
     color: $ecl-color-shade;
     font-size: map-get($ecl-font-size, 'm');
+    margin: 0;
   }
 
   .ecl-editor p {
