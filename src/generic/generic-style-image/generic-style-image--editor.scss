@@ -1,0 +1,19 @@
+/**
+ * ECL Editor - Image
+ */
+
+// Import base
+@import '@ecl/generic-base/generic-base';
+
+@mixin ecl-editor-image() {
+  .ecl-editor img {
+    border-style: none;
+    height: auto;
+    max-width: 100%;
+    vertical-align: baseline;
+  }
+
+  .ecl-editor * + img {
+    margin-top: map-get($ecl-spacing, 'xxs');
+  }
+}
