@@ -2452,6 +2452,30 @@
         
         
         <li class="ecl-side-navigation__item"  data-role="item">
+          <a href="eu-editor" class="ecl-side-navigation__link ">
+            
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="background-color: #467a39; border-color: #467a39;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            <span>Editor</span>
+          </a>
+        </li>
+        
+    
+        
+        
+        <li class="ecl-side-navigation__item"  data-role="item">
           <a href="eu-utility-aria" class="ecl-side-navigation__link ">
             
 
@@ -3258,13 +3282,57 @@ size)</li>
             <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
             <select class="FileBrowser-select" id="filebrowser-select">
                 
+                <option value="file-280e1a9fa4f845d20ce40f16bb2b7e83">eu-style-image--editor.scss</option>
+                
                 <option value="file-1856af1e2545ed1333c12a9882a3c395">eu-style-image.scss</option>
                 
             </select>
         </div>
 
         
-        <div class="FileBrowser-item is-active" id="file-1856af1e2545ed1333c12a9882a3c395" data-role="resource-preview">
+        <div class="FileBrowser-item is-active" id="file-280e1a9fa4f845d20ce40f16bb2b7e83" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SCSS FileBrowser-code">
+                                <pre><span class="hljs-comment">/**
+ * Image
+ * @define image
+ */</span>
+
+<span class="hljs-comment">// Import base and generic</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'@ecl/eu-base/eu-base'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'@ecl/generic-style-image/generic-style-image--editor'</span>;
+
+<span class="hljs-comment">// Use generic mixin</span>
+@<span class="hljs-keyword">include</span> exports(<span class="hljs-string">'eu-style-image--editor'</span>) {
+  @<span class="hljs-keyword">include</span> ecl-editor-image();
+}
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a href="../raw/eu-style-image/eu-style-image--editor.scss"><span>/components/raw/eu-style-image/eu-style-image--editor.scss</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">../../src/systems/eu/eu-style/eu-style-image/eu-style-image--editor.scss</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">258 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-1856af1e2545ed1333c12a9882a3c395" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
                     <strong class="Meta-key">Content:</strong>
