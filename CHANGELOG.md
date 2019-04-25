@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.9.0 (2019-04-25)
+
+#### :bug: Bug Fix
+
+- [#1089](https://github.com/ec-europa/europa-component-library/pull/1089) fix(dialog-wide): use overflow: auto by default - INNO-1447. ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1091](https://github.com/ec-europa/europa-component-library/pull/1091) feat(ecl-editor): enhance ECL Editor helper - INNO-1446. ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1090](https://github.com/ec-europa/europa-component-library/pull/1090) chore: show how to use the CDN - INNO-1448. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.8.0 (2019-04-16)
 
 #### :bug: Bug Fix
