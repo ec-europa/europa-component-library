@@ -17,17 +17,17 @@ New components are continuously being added to the library. The team is also con
 
 ## How to use templates
 
-1. Get the framework
+### 1. Download the framework
 
-- Go to https://github.com/ec-europa/europa-component-library/releases
-- Pick the latest release
-- In the "useful links" section, download the @ecl/eu-full package tarball
-- uncompress the package
+- Go to https://github.com/ec-europa/europa-component-library/releases.
+- Pick the latest v2 release.
+- In the "useful links" section, download the `@ecl/eu-preset-full` package tarball.
+- Uncompress the package.
 
-2. Create a template page
+### 2. Create a template page
 
-- in the uncompressed package go to /dist
-- create a "index.html" file
+- In the uncompressed package, go to `/dist`.
+- Create an `index.html` file as follows:
 
 ```html
 <html>
@@ -54,4 +54,4 @@ New components are continuously being added to the library. The team is also con
 </html>
 ```
 
-- ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
+- Ensure that you are using proper path to icons, logo (usually `/images/logo`, `/images/icons`).

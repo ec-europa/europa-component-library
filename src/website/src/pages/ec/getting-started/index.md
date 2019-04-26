@@ -3,8 +3,6 @@ order: 1
 title: Getting started
 ---
 
-## Getting started
-
 The Europa Component Library is a design system for the European Commission and websites managed by the Commission.
 
 We provide design guidelines and code to help users create consistent and accessible government web presence.
@@ -19,40 +17,40 @@ New components are continuously being added to the library. The team is also con
 
 ## How to use templates
 
-1.  Get the framework
+### 1. Download the framework
 
-    - Go to https://github.com/ec-europa/europa-component-library/releases
-    - Pick the latest V2 release
-    - In the "useful links" section, download the @ecl/ec-preset-full package tarball
-    - Uncompress the package
+- Go to https://github.com/ec-europa/europa-component-library/releases.
+- Pick the latest v2 release.
+- In the "useful links" section, download the `@ecl/ec-preset-full` package tarball.
+- Uncompress the package.
 
-2.  Create a template page
+### 2. Create a template page
 
-    - In the uncompressed package go to /dist
-    - Create a "index.html" file
+- In the uncompressed package, go to `/dist`.
+- Create an `index.html` file as follows:
 
-    ```html
-    <html>
-      <head>
-        <meta charset="utf-8" />
-        <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-        <link
-          type="text/css"
-          rel="stylesheet"
-          href="styles/ecl-ec-preset-full.css"
-          media="all"
-        />
-        <script
-          type="text/javascript"
-          defer
-          src="scripts/ecl-ec-preset-full.js"
-        ></script>
-      </head>
-      <body>
-        <!-- paste the markup from the template here -->
-      </body>
-    </html>
-    ```
+```html
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/ecl-ec-preset-full.css"
+      media="all"
+    />
+    <script
+      type="text/javascript"
+      defer
+      src="scripts/ecl-ec-preset-full.js"
+    ></script>
+  </head>
+  <body>
+    <!-- paste the markup from the template here -->
+  </body>
+</html>
+```
 
-    - Ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
+- Ensure that you are using proper path to icons, logo (usually `/images/logo`, `/images/icons`).
