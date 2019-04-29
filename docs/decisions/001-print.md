@@ -241,7 +241,7 @@ It means that the component's CSS will be loaded for `screen` only. The `print` 
 
 Example:
 
-````css
+```css
 /* media: screen */
 .my-component {
   color: <grey>;
@@ -249,6 +249,7 @@ Example:
   font: <font-m>;
   width: 100%;
 }
+```
 
 ```css
 /* media: print */
@@ -260,7 +261,7 @@ p {
 .my-component {
   width: 100%;
 }
-````
+```
 
 ## Resources
 
@@ -268,3 +269,7 @@ p {
 - https://uxdesign.cc/i-totally-forgot-about-print-style-sheets-f1e6604cfd6
 - https://csswizardry.com/2018/11/css-and-network-performance/
 - https://codepen.io/tigt/post/async-css-without-javascript
+
+```
+
+```
