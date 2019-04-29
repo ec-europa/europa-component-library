@@ -1,0 +1,51 @@
+/**
+ * Contextual navigation
+ * @define contextual-navigation
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-contextual-navigation-print($separator-color: $ecl-color-grey-50) {
+  .ecl-contextual-navigation {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .ecl-contextual-navigation__label {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-m;
+    margin-right: $ecl-spacing-print-4-xl;
+  }
+
+  .ecl-contextual-navigation__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .ecl-contextual-navigation__item {
+    border-left: 1px solid $separator-color;
+    display: block;
+    margin-left: $ecl-spacing-print-s;
+    padding-left: $ecl-spacing-print-s;
+
+    &:first-child {
+      border-left-width: 0;
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+
+  .ecl-contextual-navigation__item--more {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-contextual-navigation-print') {
+  @include ecl-contextual-navigation-print();
+}
