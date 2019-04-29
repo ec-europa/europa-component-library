@@ -1,4 +1,4 @@
-# Handle print CSS rules in ECL
+# Handle `print` CSS rules in ECL
 
 | Status        | accepted                                    |
 | ------------- | ------------------------------------------- |
@@ -11,11 +11,11 @@
 
 ## Decisions
 
-- We keep print and screen stylesheets in 2 separated files.
+- We generate `screen` and `print` styles in 2 separated files.
 - We don't create any global reset for print.
-- We apply print CSS per component, using the component's classes.
-- We aim to keep the print CSS as small as possible.
-- We create design tokens for print display.
+- We apply `print` CSS per component, using the component's classes.
+- We aim to keep the `print` CSS as small as possible.
+- We create design tokens for `print` display.
 
 ```html
 <head>
@@ -57,14 +57,14 @@
 
 ## Context
 
-- There is currently no print stylesheet on ECL.
-- Print display is the same as screen display, i.e. the CSS is applied for both media.
-- Users should be able to print ECL components — and pages built with ECL — if needed. Print display should only contain relevant content with the minimum styling, in order to facilitate a better printing.
+- There is currently no `print` stylesheets on ECL.
+- `print` display is the same as `screen` display, i.e. the CSS is applied for both media.
+- Users should be able to print ECL components — and pages built with ECL — if needed. `print` display should only contain relevant content with the minimum styling, in order to facilitate a better printing.
 
 ## Consequences
 
-- A dedicated stylesheet has to be created. Each component (or at least most of them) will have a dedicated SCSS file or mixin used to generate the print styles.
-- The existing ECL stylesheets should only be loaded for the `screen` media; the print stylesheets should only be loaded for the `print` media. The way the stylesheets are loaded on the ECL website needs to be updated.
+- A dedicated stylesheet has to be created. Each component (or at least most of them) will have a dedicated SCSS file or mixin used to generate the `print` styles.
+- The existing ECL stylesheets should only be loaded for the `screen` media; the `print` stylesheets should only be loaded for the `print` media. The way the stylesheets are loaded on the ECL website needs to be updated.
 
 ## Alternatives Considered
 
@@ -97,7 +97,7 @@ Example:
 
 #### Option 2: two separated stylesheets
 
-It means generating an extra CSS file for print only. Each component would have 2 SCSS files, or 2 SCSS mixin: one for `screen`, one for `print`. `screen` files are merged into the `ecl-<preset>.css` file; `print` files are merged into `ecl-<preset>-print.css`.
+It means generating an extra CSS file for `print` only. Each component would have 2 SCSS files, or 2 SCSS mixin: one for `screen`, one for `print`. `screen` files are merged into the `ecl-<preset>.css` file; `print` files are merged into `ecl-<preset>-print.css`.
 
 Example:
 
@@ -165,7 +165,7 @@ Cons:
 
 #### Option 2: define common rules and override for `print`
 
-It means having CSS rules without specific media target, and override what we need for print.
+It means having CSS rules without specific media target, and override what we need for `print`.
 
 Example:
 
@@ -189,7 +189,7 @@ Example:
 
 Pros:
 
-- Less duplication (only write needed rules for print)
+- Less duplication: only write the rules needed for `print`
 
 Cons:
 
