@@ -83,9 +83,62 @@ TODO:
 
 ## Alternatives Considered
 
-Caniuse stats-based vs custom stats-based vs
+Please be aware of browserslist'es [best practices](https://github.com/browserslist/browserslist#best-practices).
+
+### Alternative 1: fixed versions
+
+#### Alternative 1.1: predictable versions only
+
+We can provide a pre-determined list of browsers we want to explicitly support:
+
+```
+ie 11
+Chrome 55
+safari 12
+iOS 7
+Firefox > 20
+```
+
+Check the list of browsers: https://github.com/browserslist/browserslist#browsers
+
+It's a white list, which means browsers not listed here are not covered.
+
+- Pro: it's predictable, it always produces the same result.
+- Con: we have to keep the list up-to-date and not forget any browser.
+
+#### Alternative 1.2: "last X versions"
+
+Additionally, we can use "last X versions", or "last X BROWSER versions" queries in order to avoid targetting older browsers:
+
+```
+last 2 versions
+last 2 Chrome versions
+```
+
+- Pro: old browsers are automatically dropped when they're not in the "last X versions" (especially useful for evergreen browsers).
+- Con: some browsers might get dropped.
+
+Note that it doesn't make sense to use both `last X Chrome versions` and `Chrome > Y` queries in the same configuration.
+
+### Alternative 2: dynamic versions
+
+We can also taget browsers based on their usage statistics
+
+```
+> 1%
+> 1% in alt-EU
+```
+
+#### Alternative 2.1: based on caniuse stats
+
+If we use the native queries like `> 1%` or `> 1% in alt-EU`, then the result will be based on stats from Can I Use.
+
+#### Alternative 2.2: based on custom stats
+
+We can also export stats from Matomo (ex-piwik) and use these stats to base our configuration on. The issue is: which website's stats should we use? Each website might have a different user base...
 
 ## Resources
 
 - https://github.com/browserslist/browserslist
 - https://caniuse.com/
+- https://browserl.ist/
