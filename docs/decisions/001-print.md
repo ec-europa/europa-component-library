@@ -269,7 +269,3 @@ p {
 - https://uxdesign.cc/i-totally-forgot-about-print-style-sheets-f1e6604cfd6
 - https://csswizardry.com/2018/11/css-and-network-performance/
 - https://codepen.io/tigt/post/async-css-without-javascript
-
-```
-
-```
