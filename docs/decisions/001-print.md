@@ -12,7 +12,7 @@
 ## Decisions
 
 - We generate `screen` and `print` styles in 2 separated files.
-- We don't create any global reset for print.
+- We don't create any global reset for `print`.
 - We apply `print` CSS per component, using the component's classes.
 - We aim to keep the `print` CSS as small as possible.
 - We create design tokens for `print` display.
