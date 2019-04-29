@@ -1,0 +1,22 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import List from '@ecl/ec-react-component-list/src/List';
+
+import demoFlat from '@ecl/ec-specs-list/demo/data--flat';
+import demoNested from '@ecl/ec-specs-list/demo/data--nested';
+
+## Flat list
+
+<Playground system="ec" selectedKind="list" selectedStory="flat" showFrame>
+  <List {...demoFlat} />
+</Playground>
+
+## Nested list
+
+<Playground system="ec" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} />
+</Playground>
