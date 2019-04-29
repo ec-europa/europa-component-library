@@ -1,0 +1,18 @@
+/**
+ * Search form
+ * @define search-form; weak
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-search-form-print() {
+  .ecl-search-form {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-search-form-print') {
+  @include ecl-search-form-print();
+}
