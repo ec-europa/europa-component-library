@@ -19,9 +19,11 @@ Here is the browserslist configuration we use:
 
 [...]
 
+Please note the fact that a browser is not explicitly covered by the configuration doesn't mean the ECL won't work in this browser. It only means it might now work (lack of vendor prefixes for example).
+
 ## Context
 
-The main tools we use (babel for the JavaScript, autoprefixer for the CSS) rely on [browserslist](https://github.com/browserslist/browserslist) in order to derive the list of browsers they are supposed to support.
+The main tools we use (babel-preset-env for the JavaScript, autoprefixer for the CSS) rely on [browserslist](https://github.com/browserslist/browserslist) in order to derive the list of browsers they are supposed to support.
 
 Before creating this decision record, our `browserslist` configuration file contained:
 
@@ -67,48 +69,60 @@ samsung 8.2
 samsung 7.2-7.4
 ```
 
-TODO:
-
-- depends on caniuse-lite (most be kept up-to-date)
-- custom stats (per site?)
-- if based on custom stats, how to export stats from webanalytics?
-
 ## Consequences
-
-TODO:
-
-- show list of browsers in ecl builder
 
 (Describe the pros and cons of the proposed decision. Think about the people in the **Informed** line of the DACI table above. How will this decision affect them?)
 
+### Next steps
+
+- update the configuration with accepted decision
+- show the list of browsers during the build (`@ecl/builder`)
+
 ## Alternatives Considered
 
-Please be aware of browserslist'es [best practices](https://github.com/browserslist/browserslist#best-practices).
+Before reading what comes next, please be aware of browserslist's [best practices](https://github.com/browserslist/browserslist#best-practices).
 
-### Alternative 1: fixed versions
+Note that we can mix different alternatives together.
 
-#### Alternative 1.1: predictable versions only
-
-We can provide a pre-determined list of browsers we want to explicitly support:
+The base configuration could contain a list of fixed versions:
 
 ```
 ie 11
 Chrome 55
 safari 12
 iOS 7
-Firefox > 20
 ```
+
+Fixing versions allows us to have a predictable, consistent list of supported browsers.
 
 Check the list of browsers: https://github.com/browserslist/browserslist#browsers
 
-It's a white list, which means browsers not listed here are not covered.
+Please note the configuration works as a white list, which means browsers not listed here are not covered.
 
-- Pro: it's predictable, it always produces the same result.
-- Con: we have to keep the list up-to-date and not forget any browser.
+Maintaining a static list of supported browsers can be cumbersome. That's why we can use dynamic queries, i.e. queries that will produce a different output over time depending on the release of new browser versions or on the usage stats.
 
-#### Alternative 1.2: "last X versions"
+### Alternative 1: support new browser versions
 
-Additionally, we can use "last X versions", or "last X BROWSER versions" queries in order to avoid targetting older browsers:
+This first alternative doesn't depend on usage statistics.
+
+Even though the configuration doesn't directly depend on usage stats, we still need to make sure that the choices we make correspond to the reality of EC websites, thus we need to consult usage stats for EC websites as a whole to base our choices.
+
+One of the main downsides of this alternative is that we need to list in our configuration every browser we support.
+
+Now let's see what are our options here.
+
+#### Alternative 1.1: "BROWSER > VERSION"
+
+In addition to a list of fixed browsers versions, we can use queries like `Firefox > 20` to target all the versions of Firefox since the version 20.
+
+- Pro: we are sure that Firefox 20 and more recent versions are covered.
+- Con: we still need to manualy update the configuration when we don't need to support Firefox 20 anymore.
+
+#### Alternative 1.2: "last X BROWSER versions"
+
+We can also use "last X versions" (every browser), or "last X BROWSER versions" queries in order to avoid targetting older browsers.
+
+Example:
 
 ```
 last 2 versions
@@ -116,13 +130,15 @@ last 2 Chrome versions
 ```
 
 - Pro: old browsers are automatically dropped when they're not in the "last X versions" (especially useful for evergreen browsers).
-- Con: some browsers might get dropped.
+- Con: some browsers might get dropped inadvertently.
 
 Note that it doesn't make sense to use both `last X Chrome versions` and `Chrome > Y` queries in the same configuration.
 
 ### Alternative 2: dynamic versions
 
-We can also taget browsers based on their usage statistics
+We can also taget browsers based on their usage statistics.
+
+Example:
 
 ```
 > 1%
@@ -131,11 +147,17 @@ We can also taget browsers based on their usage statistics
 
 #### Alternative 2.1: based on caniuse stats
 
-If we use the native queries like `> 1%` or `> 1% in alt-EU`, then the result will be based on stats from Can I Use.
+If we use the native queries like `> 1%` or `> 1% in alt-EU`, then the result will be based on stats from [Can I Use](https://caniuse.com/).
+
+- Pros: it's easy to understand and automatically updated when `caniuse-lite` is updated.
+- Con: these stats may not reflect the true audience of EC websites.
 
 #### Alternative 2.2: based on custom stats
 
 We can also export stats from Matomo (ex-piwik) and use these stats to base our configuration on. The issue is: which website's stats should we use? Each website might have a different user base...
+
+- Pro: it reflects the true audience of EC websites as a whole.
+- Cons: it requires some work (adapter Matomo exports -> browserslist) and maintainance (frequency of usage stats update?)
 
 ## Resources
 
