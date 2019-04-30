@@ -13,7 +13,7 @@
     text-decoration: underline;
   }
 
-  .ecl-link[href^='http']::after {
+  .ecl-link::after {
     content: ' (' attr(href) ')';
   }
 
