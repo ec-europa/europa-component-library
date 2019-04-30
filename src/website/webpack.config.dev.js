@@ -164,7 +164,7 @@ module.exports = {
               {
                 loader: '@mdx-js/loader',
                 options: {
-                  mdPlugins: [
+                  remarkPlugins: [
                     [
                       // Removes front-matter from Markdown output
                       frontmatter,

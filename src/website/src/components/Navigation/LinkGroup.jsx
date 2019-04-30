@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import styles from './LinkGroup.scss';
-import LinkList from './LinkList';
+import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
 
 const LinkGroup = React.memo(({ pages, level, showStatus, group }) => (
   <Fragment>

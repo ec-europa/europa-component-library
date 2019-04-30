@@ -38,6 +38,18 @@ module.exports = {
         sourceMap: isProd ? 'file' : true,
       },
     },
+    {
+      entry: path.resolve(__dirname, 'src/eu-preset-website-print.scss'),
+      dest: path.resolve(
+        outputFolder,
+        'styles/ecl-eu-preset-website-print.css'
+      ),
+      options: {
+        banner,
+        includePaths,
+        sourceMap: isProd ? 'file' : true,
+      },
+    },
   ],
   copy: [
     {

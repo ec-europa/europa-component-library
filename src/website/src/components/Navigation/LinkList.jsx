@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import SingleLink from './SingleLink';
-import LinkGroup from './LinkGroup';
-import LinkSection from './LinkSection';
+import LinkGroup from './LinkGroup'; // eslint-disable-line import/no-cycle
+import LinkSection from './LinkSection'; // eslint-disable-line import/no-cycle
 import styles from './LinkList.scss';
 
 const LinkList = React.memo(
