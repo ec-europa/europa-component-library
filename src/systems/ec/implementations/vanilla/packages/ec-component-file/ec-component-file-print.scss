@@ -1,0 +1,86 @@
+/*
+ * File
+ * @define file
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-file-print() {
+  .ecl-file {
+    margin: 0;
+  }
+
+  .ecl-file__info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .ecl-file__title {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-m;
+    font-weight: $ecl-font-weight-print-bold;
+    width: 100%;
+  }
+
+  .ecl-file__language {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-s;
+    font-weight: $ecl-font-weight-print-bold;
+    margin-right: $ecl-spacing-print-2-xs;
+    margin-top: $ecl-spacing-print-2-xs;
+  }
+
+  .ecl-file__meta {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-s;
+    margin-top: $ecl-spacing-print-2-xs;
+  }
+
+  .ecl-file__download {
+    border-width: 0;
+    font-weight: $ecl-font-weight-print-regular;
+    padding: 0;
+  }
+
+  .ecl-file__translation-toggle {
+    display: none;
+  }
+
+  .ecl-file__translation-list {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .ecl-file__translation-item {
+    margin-top: $ecl-spacing-print-xs;
+  }
+
+  .ecl-file__translation-info {
+    display: flex;
+  }
+
+  .ecl-file__translation-title {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-s;
+    font-weight: $ecl-font-weight-print-bold;
+    margin-right: $ecl-spacing-print-2-xs;
+  }
+
+  .ecl-file__translation-meta {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-s;
+  }
+
+  .ecl-file__translation-description {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-m;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-file-print') {
+  @include ecl-file-print();
+}
