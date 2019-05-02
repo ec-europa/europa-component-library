@@ -6,7 +6,7 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-message-print() {
+@mixin ecl-message-print($boder-width: 1.5pt) {
   .ecl-message {
     margin: 0;
     padding: $ecl-spacing-print-m;
@@ -30,22 +30,22 @@
 
   // information
   .ecl-message--info {
-    border: 1pt solid $ecl-color-info;
+    border: $boder-width solid $ecl-color-info;
   }
 
   // success
   .ecl-message--success {
-    border: 1pt solid $ecl-color-success;
+    border: $boder-width solid $ecl-color-success;
   }
 
   // warning
   .ecl-message--warning {
-    border: 1pt solid $ecl-color-warning;
+    border: $boder-width solid $ecl-color-warning;
   }
 
   // error
   .ecl-message--error {
-    border: 1pt solid $ecl-color-error;
+    border: $boder-width solid $ecl-color-error;
   }
 }
 
