@@ -25,7 +25,9 @@ addParameters({
       brandImage: null,
     }),
     sidebarAnimations: false,
+    panelPosition: 'right',
   },
+  viewport: { defaultViewport: 'iphone6' },
 });
 
 const contexts = [
