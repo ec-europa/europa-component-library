@@ -1,0 +1,34 @@
+/*
+ * Pagination
+ * @define pagination
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-pagination-print() {
+  .ecl-pagination {
+    margin: 0;
+  }
+
+  .ecl-pagination__list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .ecl-pagination__item:not(.ecl-pagination__item--current),
+  .ecl-pagination__text--summary {
+    display: none;
+  }
+
+  .ecl-pagination__text--full {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-m;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-pagination-print') {
+  @include ecl-pagination-print();
+}
