@@ -8,23 +8,7 @@
 
 @mixin ecl-pagination-print() {
   .ecl-pagination {
-    margin: 0;
-  }
-
-  .ecl-pagination__list {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-  }
-
-  .ecl-pagination__item:not(.ecl-pagination__item--current),
-  .ecl-pagination__text--summary {
     display: none;
-  }
-
-  .ecl-pagination__text--full {
-    color: $ecl-color-black-100;
-    font: $ecl-font-print-m;
   }
 }
 
