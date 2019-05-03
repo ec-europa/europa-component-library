@@ -16,7 +16,11 @@
     return link;
   }
 
-  if (inIframe()) {
+  if (
+    inIframe() &&
+    window.frameElement &&
+    window.frameElement.id === 'storybook-preview-iframe'
+  ) {
     // Let CSS Resources inject the styles
   } else {
     // Manually inject styles
