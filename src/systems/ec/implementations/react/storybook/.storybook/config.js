@@ -2,9 +2,12 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
 import { withA11y } from '@storybook/addon-a11y';
+import { withCssResources } from '@storybook/addon-cssresources';
+
 import './ECL';
 
 addDecorator(withA11y);
+addDecorator(withCssResources);
 
 addParameters({
   a11y: {
@@ -14,6 +17,27 @@ addParameters({
       restoreScroll: true,
     },
   },
+  cssresources: [
+    {
+      id: `test-fake-reset`,
+      code: `
+<style>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color: red;
+  font-family: serif;
+  font-weight: 700;
+  line-height: 2;
+}
+</style>`,
+      picked: false,
+    },
+  ],
   options: {
     theme: create({
       base: 'light',
