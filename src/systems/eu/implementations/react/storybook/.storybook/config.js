@@ -2,6 +2,7 @@ import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withOptions } from '@storybook/addon-options';
 import { create } from '@storybook/theming';
 import { withA11y } from '@storybook/addon-a11y';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
 
 import './ECL';
@@ -61,7 +62,19 @@ html {
     sidebarAnimations: false,
     panelPosition: 'right',
   },
-  viewport: { defaultViewport: 'iphone6' },
+  viewport: {
+    defaultViewport: 'iphone6',
+    viewports: {
+      ...INITIAL_VIEWPORTS,
+      responsive: {
+        name: 'Responsive',
+        styles: {
+          width: '100%',
+          height: '100%',
+        },
+      },
+    },
+  },
 });
 
 const contexts = [
