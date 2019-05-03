@@ -66,6 +66,21 @@ html {
     defaultViewport: 'iphone6',
     viewports: {
       ...INITIAL_VIEWPORTS,
+      '1366x768': {
+        name: '1366x768',
+        styles: {
+          width: '1366px',
+          height: '768px',
+        },
+        type: 'desktop',
+      },
+      '1920x1080': {
+        name: '1920x1080',
+        styles: {
+          width: '1920px',
+          height: '1080px',
+        },
+      },
       responsive: {
         name: 'Responsive',
         styles: {
