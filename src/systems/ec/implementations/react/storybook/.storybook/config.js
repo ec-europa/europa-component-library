@@ -19,7 +19,17 @@ addParameters({
   },
   cssresources: [
     {
-      id: `test-fake-reset`,
+      id: 'ecl-screen',
+      code: `<link rel="stylesheet" type="text/css" href="/storybook/ec/styles/ecl-ec-preset-website.css" />`,
+      picked: true,
+    },
+    {
+      id: 'ecl-print',
+      code: `<link rel="stylesheet" type="text/css" href="/storybook/ec/styles/ecl-ec-preset-website-print.css" />`,
+      picked: false,
+    },
+    {
+      id: 'test-fake-global-rules',
       code: `
 <style>
 *,

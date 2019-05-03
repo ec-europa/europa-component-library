@@ -1,12 +1,34 @@
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="/storybook/ec/styles/ecl-ec-preset-website.css"
-  media="screen"
-/>
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="/storybook/ec/styles/ecl-ec-preset-website-print.css"
-  media="print"
-/>
+<script>
+  function inIframe() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function createLink(href, media) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = href;
+    link.media = media || 'all';
+    return link;
+  }
+
+  if (inIframe()) {
+    // Let CSS Resources inject the styles
+  } else {
+    // Manually inject styles
+    var head = document.head || document.getElementsByTagName('head')[0];
+    head.appendChild(
+      createLink('/storybook/ec/styles/ecl-ec-preset-website.css', 'screen')
+    );
+    head.appendChild(
+      createLink(
+        '/storybook/ec/styles/ecl-ec-preset-website-print.css',
+        'print'
+      )
+    );
+  }
+</script>
