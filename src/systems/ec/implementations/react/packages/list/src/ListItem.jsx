@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const ListItem = ({ label }) => <li>List item {label}</li>;
+const ListItem = ({ children, className, ...props }) => (
+  <li {...props} className={classnames(className, 'ecl-list__item')}>
+    {children}
+  </li>
+);
 
 ListItem.propTypes = {
-  label: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 ListItem.defaultProps = {
-  label: '',
+  children: '',
+  className: '',
 };
 
 export default ListItem;

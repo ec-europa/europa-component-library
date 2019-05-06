@@ -1,2 +1,11 @@
 // Simple content for demo
-module.exports = {};
+module.exports = {
+  items: [
+    {
+      label: 'item 1',
+    },
+    {
+      label: 'item 2',
+    },
+  ],
+};
