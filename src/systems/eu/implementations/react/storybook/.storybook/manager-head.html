@@ -1,12 +1,17 @@
 <script>
   if (window.localStorage) {
-    // Set panel to the right by default
+    // Set panel to the right by default + set brand title
     if (!window.localStorage.getItem('@storybook/ui/store')) {
       window.localStorage.setItem(
         '@storybook/ui/store',
         JSON.stringify({
           layout: {
             panelPosition: 'right',
+          },
+          theme: {
+            brandTitle: 'ECL v2 - EU',
+            brandUrl: 'https://github.com/ec-europa/europa-component-library',
+            brandImage: null,
           },
         })
       );
