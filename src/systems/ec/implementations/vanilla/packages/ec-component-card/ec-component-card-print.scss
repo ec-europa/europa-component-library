@@ -1,0 +1,112 @@
+/**
+ * Card
+ * @define card
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-card-print(
+  $color-meta: $ecl-color-grey-100,
+  $color-description: $ecl-color-black-100,
+  $color-info: $ecl-color-grey-100
+) {
+  .ecl-card {
+    margin-top: $ecl-spacing-print-l;
+  }
+
+  .ecl-card__image {
+    display: none;
+  }
+
+  .ecl-card__meta {
+    color: $color-meta;
+    font: $ecl-font-print-xs;
+    margin-top: $ecl-spacing-print-xs;
+  }
+
+  .ecl-card__title {
+    font: $ecl-font-print-m;
+    font-weight: $ecl-font-weight-print-bold;
+    margin-top: $ecl-spacing-print-s;
+  }
+
+  .ecl-card__description {
+    color: $color-description;
+    font: $ecl-font-print-m;
+    margin-top: $ecl-spacing-print-xs;
+  }
+
+  .ecl-card__info-container {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-s;
+    padding: 0;
+  }
+
+  .ecl-card__info-item {
+    color: $color-info;
+    font: $ecl-font-print-s;
+    margin-right: $ecl-spacing-print-xs;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .ecl-card__link-container {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-s;
+    padding: 0;
+  }
+
+  .ecl-card__link-item {
+    margin-top: $ecl-spacing-print-s;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-card__link {
+    display: block;
+    font: $ecl-font-print-s;
+    font-weight: $ecl-font-weight-print-bold;
+  }
+
+  .ecl-card__tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-s;
+    padding: 0;
+  }
+
+  .ecl-card__tag-item {
+    margin-right: $ecl-spacing-print-xs;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  /*
+   * Tiles
+   */
+  .ecl-card--tile {
+    .ecl-card__title {
+      font: $ecl-font-prolonged-print-l;
+      font-weight: $ecl-font-weight-print-bold;
+      margin-top: calc(#{$ecl-spacing-print-l} - 1px);
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-card-print') {
+  @include ecl-card-print();
+}

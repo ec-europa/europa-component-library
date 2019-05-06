@@ -1,0 +1,36 @@
+/*
+ * Hero banner
+ * @define hero-banner
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-hero-banner-print() {
+  .ecl-hero-banner {
+    margin: 0;
+  }
+
+  .ecl-hero-banner__title {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-4-xl;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .ecl-hero-banner__description {
+    color: $ecl-color-black-100;
+    font: $ecl-font-prolonged-print-l;
+    margin-bottom: 0;
+    margin-top: $ecl-spacing-print-m;
+  }
+
+  .ecl-hero-banner__button {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-hero-banner-print') {
+  @include ecl-hero-banner-print();
+}

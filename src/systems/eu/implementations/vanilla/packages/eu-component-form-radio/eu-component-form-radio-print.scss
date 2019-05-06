@@ -1,0 +1,51 @@
+/*
+ * Radio
+ * @define radio
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-radio-print() {
+  .ecl-radio__group {
+    margin: 0;
+  }
+
+  .ecl-radio {
+    margin-top: $ecl-spacing-print-xs;
+  }
+
+  .ecl-radio__label {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-m;
+    margin-left: $ecl-spacing-print-2-xs;
+  }
+
+  .ecl-radio--disabled,
+  .ecl-radio--readonly {
+    .ecl-radio__label {
+      color: $ecl-color-grey-50;
+    }
+  }
+
+  .ecl-radio__group--invalid {
+    border: 0.5mm solid $ecl-color-error;
+    padding: $ecl-spacing-print-m;
+  }
+
+  .ecl-radio__group--binary {
+    .ecl-radio {
+      display: inline-block;
+      margin-right: $ecl-spacing-s;
+    }
+
+    .ecl-radio:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// Use mixin
+@include exports('eu-component-radio-print') {
+  @include ecl-radio-print();
+}

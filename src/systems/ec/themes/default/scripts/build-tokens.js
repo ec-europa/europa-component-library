@@ -8,6 +8,7 @@ const scss = require('./formats/scss');
 const scssMap = require('./formats/scss-map');
 
 // Every SCSS variables
+const printPrefix = 'PRINT_';
 theo.registerFormat('ecl.scss', scss);
 buildTokens({
   input: path.join(__dirname, '../index.yml'),
@@ -28,13 +29,39 @@ theo.registerFormat(
         .substr(spacingPrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop => prop.get('name').indexOf(spacingPrefix) === 0,
+    filter: prop =>
+      prop.get('name').indexOf(spacingPrefix) === 0 &&
+      !prop.get('name').startsWith(`${spacingPrefix}${printPrefix}`),
   })
 );
 
 buildTokens({
   input: path.join(__dirname, '../aliases/spacing.yml'),
   output: path.join(__dirname, '../exports/spacing.scss'),
+  type: 'web',
+  format: 'spacing.scss.map',
+});
+
+theo.registerFormat(
+  'spacing.scss.map',
+  scssMap({
+    mapName: '$ecl-spacing-print',
+    keyName: prop =>
+      prop
+        .get('name')
+        .substr(spacingPrefix.length)
+        .substr(printPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: prop =>
+      prop.get('name').indexOf(spacingPrefix) === 0 &&
+      prop.get('name').startsWith(`${spacingPrefix}${printPrefix}`),
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/spacing.yml'),
+  output: path.join(__dirname, '../exports/spacing-print.scss'),
   type: 'web',
   format: 'spacing.scss.map',
 });
