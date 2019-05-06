@@ -1,23 +1,8 @@
 <script>
-  window.onload = function() {
-    // Replace buttons' labels
-    var gridButton = document.querySelector('[title="Toggle background grid"]');
-    if (gridButton) {
-      gridButton.innerText = 'Grid';
+  if (window.localStorage) {
+    var item = window.localStorage.getItem('storybook-layout');
+    if (!item) {
+      // window.localStorage.setItem('storybook-layout', window.innerWidth - 450);
     }
-
-    var viewportButton = document.querySelector(
-      '[title="Change the size of the preview"]'
-    );
-    if (viewportButton) {
-      viewportButton.innerText = 'Viewport';
-    }
-
-    var colorButton = document.querySelector(
-      '[title="Color Blindness Emulation"]'
-    );
-    if (colorButton) {
-      colorButton.innerText = 'Color Filter';
-    }
-  };
+  }
 </script>
