@@ -1,8 +1,33 @@
 <script>
   if (window.localStorage) {
+    // Set panel to the right by default
+    if (!window.localStorage.getItem('@storybook/ui/store')) {
+      window.localStorage.setItem(
+        '@storybook/ui/store',
+        JSON.stringify({
+          layout: {
+            panelPosition: 'right',
+          },
+        })
+      );
+    }
+
+    // Set "correct" panel widths
     var item = window.localStorage.getItem('storybook-layout');
     if (!item) {
-      // window.localStorage.setItem('storybook-layout', window.innerWidth - 450);
+      var leftPanelWidth = 220;
+      var rightPanelWidth = 500;
+
+      window.localStorage.setItem(
+        'storybook-layout',
+        JSON.stringify({
+          resizerPanel: {
+            x: window.innerWidth - rightPanelWidth,
+            y: 0,
+          },
+          resizerNav: { x: leftPanelWidth, y: 0 },
+        })
+      );
     }
   }
 </script>
