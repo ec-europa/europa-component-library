@@ -36,7 +36,12 @@ const customComponents = {
     </a>
   ),
   img: ({ alt, src }) => (
-    <a href={src} target="_blank" rel="noopener noreferrer">
+    <a
+      className={styles.imgA}
+      href={src}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <img alt={alt} src={src} className={styles.img} />
     </a>
   ),

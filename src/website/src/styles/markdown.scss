@@ -83,6 +83,11 @@
   padding: 0;
 }
 
+/* link around an image */
+.imgA {
+  display: block;
+}
+
 .ul {
   box-sizing: border-box;
   color: $ecl-color-grey-75;
@@ -195,5 +200,9 @@
 }
 
 * + .hr {
+  margin-top: $ecl-spacing-m;
+}
+
+* + .imgA {
   margin-top: $ecl-spacing-m;
 }
