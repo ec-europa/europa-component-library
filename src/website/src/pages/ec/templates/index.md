@@ -3,4 +3,4 @@ title: Templates
 order: 4
 ---
 
-(work in progress)
+Templates represent page-level design patterns where components are placed and arranged across a layout, complementary to the content.
