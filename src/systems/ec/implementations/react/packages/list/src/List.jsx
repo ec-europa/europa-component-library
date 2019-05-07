@@ -4,9 +4,17 @@ import classnames from 'classnames';
 
 import ListItem from './ListItem';
 
-const List = ({ isOrdered, hasDivider, items, className, ...props }) => {
+const List = ({
+  isOrdered,
+  hasBullet,
+  hasDivider,
+  items,
+  className,
+  ...props
+}) => {
   const classNames = classnames(className, 'ecl-list', {
     'ecl-list--divider': hasDivider,
+    'ecl-list--no-bullet': !hasBullet,
   });
   const ListTag = isOrdered ? 'ol' : 'ul';
 
@@ -15,26 +23,14 @@ const List = ({ isOrdered, hasDivider, items, className, ...props }) => {
       {items.map(item => {
         if (item.nested) {
           return (
-            <Fragment>
-              <ListItem
-                key={item.label}
-                className={classnames(item.className, 'ecl-list__item')}
-              >
-                {item.label}
-              </ListItem>
+            <Fragment key={item.label}>
+              <ListItem>{item.label}</ListItem>
               <List isOrdered={isOrdered} items={item.nested} />
             </Fragment>
           );
         }
 
-        return (
-          <ListItem
-            key={item.label}
-            className={classnames(item.className, 'ecl-list__item')}
-          >
-            {item.label}
-          </ListItem>
-        );
+        return <ListItem key={item.label}>{item.label}</ListItem>;
       })}
     </ListTag>
   );
@@ -42,6 +38,7 @@ const List = ({ isOrdered, hasDivider, items, className, ...props }) => {
 
 List.propTypes = {
   isOrdered: PropTypes.bool,
+  hasBullet: PropTypes.bool,
   hasDivider: PropTypes.bool,
   items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
   className: PropTypes.string,
@@ -49,6 +46,7 @@ List.propTypes = {
 
 List.defaultProps = {
   isOrdered: false,
+  hasBullet: true,
   hasDivider: false,
   items: [],
   className: '',

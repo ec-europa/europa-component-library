@@ -1,0 +1,18 @@
+/**
+ * List component
+ * @define list
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-list-print() {
+  .ecl-list {
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-list-print') {
+  @include ecl-list-print();
+}

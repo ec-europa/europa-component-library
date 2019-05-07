@@ -6,13 +6,94 @@
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-list() {
+@mixin ecl-list(
+  $text-color: $ecl-color-grey-100,
+  $divider-color: $ecl-color-grey-15
+) {
   .ecl-list {
+    color: $text-color;
+    font: $ecl-font-prolonged-m;
     margin: 0;
+    // Approximately centered bullet
+    padding-left: calc((#{$ecl-spacing-s} * 2) + 0.3em);
+  }
+
+  .ecl-list .ecl-list {
+    margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-list__item {
+    margin-top: $ecl-spacing-xs;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  /*
+   * No bullet
+   */
+  .ecl-list--no-bullet {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  /*
+   * Dividers
+   */
+  .ecl-list--divider {
+    > .ecl-list__item {
+      border-top: 1px solid $divider-color;
+      margin-top: $ecl-spacing-m;
+      padding-top: $ecl-spacing-m;
+    }
+
+    > .ecl-list__item:first-child {
+      border-top-width: 0;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+}
+
+/**
+ * @define description-list
+ */
+@mixin ecl-description-list($text-color: $ecl-color-grey-100) {
+  .ecl-description-list {
+    margin: 0;
+  }
+
+  .ecl-description-list__term {
+    color: $text-color;
+    font: $ecl-font-prolonged-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin-top: $ecl-spacing-l;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-description-list__term + .ecl-description-list__term {
+    margin-top: $ecl-spacing-2-xs;
+  }
+
+  .ecl-description-list__definition {
+    color: $text-color;
+    font: $ecl-font-prolonged-m;
+    margin-left: 0;
+    margin-top: $ecl-spacing-m;
+    padding-left: $ecl-spacing-s;
+  }
+
+  .ecl-description-list__definition + .ecl-description-list__definition {
+    margin-top: $ecl-spacing-xs;
   }
 }
 
 // Use mixin
 @include exports('ec-component-list') {
   @include ecl-list();
+  @include ecl-description-list();
 }

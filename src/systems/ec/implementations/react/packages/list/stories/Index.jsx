@@ -5,8 +5,10 @@ import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import demoFlat from '@ecl/ec-specs-list/demo/data--flat';
 import demoNested from '@ecl/ec-specs-list/demo/data--nested';
+import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
 import List from '../src/List';
+import DescriptionList from '../src/DescriptionList';
 
 storiesOf('List', module)
   .addDecorator(withKnobs)
@@ -14,6 +16,7 @@ storiesOf('List', module)
     <List
       {...demoFlat}
       isOrdered={boolean('Ordered list', false)}
+      hasBullet={boolean('Bullets', true)}
       hasDivider={boolean('Dividers', false)}
     />
   ))
@@ -21,6 +24,8 @@ storiesOf('List', module)
     <List
       {...demoNested}
       isOrdered={boolean('Ordered list', false)}
+      hasBullet={boolean('Bullets', true)}
       hasDivider={boolean('Dividers', false)}
     />
-  ));
+  ))
+  .add('description', () => <DescriptionList {...demoDescription} />);

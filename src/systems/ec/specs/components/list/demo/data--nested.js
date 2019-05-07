@@ -1,19 +1,32 @@
-// Simple content for demo
 module.exports = {
   items: [
     {
-      label: 'item 1',
+      label: 'Jobs, growth and investment',
       nested: [
         {
-          label: 'item 1.1',
+          label: 'Investment Plan for Europe: the Juncker Plan',
         },
         {
-          label: 'item 1.2',
+          label: 'European Semester',
         },
       ],
     },
     {
-      label: 'item 2',
+      label: 'Digital single market',
+    },
+    {
+      label: 'Energy union and climate',
+      nested: [
+        {
+          label: 'Security, solidarity and trust',
+        },
+        {
+          label: 'A fully-integrated internal energy market',
+        },
+        {
+          label: 'Energy efficiency',
+        },
+      ],
     },
   ],
 };

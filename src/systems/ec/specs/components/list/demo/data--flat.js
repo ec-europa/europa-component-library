@@ -1,11 +1,13 @@
-// Simple content for demo
 module.exports = {
   items: [
     {
-      label: 'item 1',
+      label: 'Jobs, growth and investment',
     },
     {
-      label: 'item 2',
+      label: 'Digital single market',
+    },
+    {
+      label: 'Energy union and climate',
     },
   ],
 };
