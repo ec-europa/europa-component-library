@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = ({ config: defaultConfig, mode }) => {
+module.exports = async ({ config: defaultConfig, mode }) => {
   // Babel loader: include "src"
   defaultConfig.module.rules[0].include.push(
     path.resolve(__dirname, '../../../../../..')
