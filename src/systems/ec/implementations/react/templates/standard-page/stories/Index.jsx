@@ -6,7 +6,7 @@ import createFocusTrap from 'focus-trap';
 
 import StandardPageExample from '../examples/Default';
 
-storiesOf('Templates|Standard page', module)
+storiesOf('Templates/Standard page', module)
   .addDecorator(story => {
     function toggleOverlay(e) {
       e.preventDefault();

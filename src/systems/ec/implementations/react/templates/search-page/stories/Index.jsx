@@ -2,4 +2,4 @@
 import { storiesOf } from '@storybook/react';
 import SearchPageExample from '../examples/Default';
 
-storiesOf('Templates|Search page', module).add('default', SearchPageExample);
+storiesOf('Templates/Search page', module).add('default', SearchPageExample);
