@@ -78,13 +78,39 @@ theo.registerFormat(
         .substr(fontSizePrefix.length)
         .toLowerCase()
         .replace(/_/g, '-'),
-    filter: prop => prop.get('name').indexOf(fontSizePrefix) === 0,
+    filter: prop =>
+      prop.get('name').indexOf(fontSizePrefix) === 0 &&
+      !prop.get('name').startsWith(`${fontSizePrefix}${printPrefix}`),
   })
 );
 
 buildTokens({
   input: path.join(__dirname, '../aliases/typography.yml'),
   output: path.join(__dirname, '../exports/font-size.scss'),
+  type: 'web',
+  format: 'font-size.scss.map',
+});
+
+theo.registerFormat(
+  'font-size.scss.map',
+  scssMap({
+    mapName: '$ecl-font-size-print',
+    keyName: prop =>
+      prop
+        .get('name')
+        .substr(fontSizePrefix.length)
+        .substr(printPrefix.length)
+        .toLowerCase()
+        .replace(/_/g, '-'),
+    filter: prop =>
+      prop.get('name').indexOf(fontSizePrefix) === 0 &&
+      prop.get('name').startsWith(`${fontSizePrefix}${printPrefix}`),
+  })
+);
+
+buildTokens({
+  input: path.join(__dirname, '../aliases/typography.yml'),
+  output: path.join(__dirname, '../exports/font-size-print.scss'),
   type: 'web',
   format: 'font-size.scss.map',
 });
