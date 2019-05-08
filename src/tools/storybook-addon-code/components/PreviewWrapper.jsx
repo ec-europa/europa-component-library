@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import { IconButton } from '@storybook/components';
-import { styled } from '@storybook/theming';
+import PropTypes from 'prop-types';
 import { SyntaxHighlighter } from '@storybook/components';
+import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
 
-const Hidden = styled.div(() => ({
+const Overlay = styled.div(() => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -19,7 +19,7 @@ export class PreviewWrapper extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: 'ola',
+      code: '',
       expanded: false,
     };
 
@@ -49,11 +49,12 @@ export class PreviewWrapper extends Component {
 
   render() {
     const { code, expanded } = this.state;
+    const { children } = this.props;
 
     return (
       <Fragment>
-        {this.props.children}
-        <Hidden
+        {children}
+        <Overlay
           id="storybook-code"
           style={{
             display: expanded ? 'block' : 'none',
@@ -73,10 +74,15 @@ export class PreviewWrapper extends Component {
               indent_scripts: 'normal',
             })}
           </SyntaxHighlighter>
-        </Hidden>
+        </Overlay>
       </Fragment>
     );
   }
 }
+
+PreviewWrapper.propTypes = {
+  channel: PropTypes.shape({}).isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default PreviewWrapper;

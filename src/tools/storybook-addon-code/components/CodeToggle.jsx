@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { IconButton } from '@storybook/components';
 
 export class CodeToggle extends Component {
@@ -37,5 +38,9 @@ export class CodeToggle extends Component {
     );
   }
 }
+
+CodeToggle.propTypes = {
+  channel: PropTypes.shape({}).isRequired,
+};
 
 export default CodeToggle;

@@ -5,7 +5,7 @@ import { ADDON_ID, PANEL_ID } from './constants';
 import { CodeToggle } from './components/CodeToggle';
 import { PreviewWrapper } from './components/PreviewWrapper';
 
-addons.register(ADDON_ID, api => {
+addons.register(ADDON_ID, () => {
   addons.add(PANEL_ID, {
     title: '',
     type: types.TOOL,

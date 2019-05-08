@@ -7,9 +7,7 @@ export const withCode = makeDecorator({
     const channel = addons.getChannel();
     const story = getStory(context);
 
-    let code = ReactDOMServer.renderToStaticMarkup(story);
-    console.log('story', story);
-
+    const code = ReactDOMServer.renderToStaticMarkup(story);
     channel.emit('ecl/code/add_code', code);
 
     return story;
