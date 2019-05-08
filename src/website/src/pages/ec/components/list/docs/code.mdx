@@ -5,18 +5,66 @@ order: 2
 
 import Playground from '@ecl/website-components/Playground';
 import List from '@ecl/ec-react-component-list/src/List';
+import DescriptionList from '@ecl/ec-react-component-list/src/DescriptionList';
 
 import demoFlat from '@ecl/ec-specs-list/demo/data--flat';
 import demoNested from '@ecl/ec-specs-list/demo/data--nested';
+import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
-## Flat list
+## Ordered list
 
-<Playground system="ec" selectedKind="list" selectedStory="flat" showFrame>
+### Flat
+
+<Playground system="ec" selectedKind="list" selectedStory="flat">
+  <List {...demoFlat} isOrdered />
+</Playground>
+
+### Nested
+
+<Playground system="ec" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} isOrdered />
+</Playground>
+
+### Without bullet
+
+<Playground system="ec" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} isOrdered hasBullet={false} />
+</Playground>
+
+### With dividers
+
+<Playground system="ec" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} isOrdered hasDivider hasBullet={false} />
+</Playground>
+
+## Unordered list
+
+### Flat
+
+<Playground system="ec" selectedKind="list" selectedStory="flat">
   <List {...demoFlat} />
 </Playground>
 
-## Nested list
+### Nested
 
 <Playground system="ec" selectedKind="list" selectedStory="nested">
   <List {...demoNested} />
+</Playground>
+
+### Without bullet
+
+<Playground system="ec" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} hasBullet={false} />
+</Playground>
+
+### With dividers
+
+<Playground system="ec" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} hasDivider hasBullet={false} />
+</Playground>
+
+## Description list
+
+<Playground system="ec" selectedKind="list" selectedStory="description">
+  <DescriptionList {...demoDescription} />
 </Playground>

@@ -1,0 +1,49 @@
+/**
+ * List component
+ * @define list
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-list-print($text-color: $ecl-color-grey-100) {
+  .ecl-list {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-m;
+    margin: 0;
+  }
+
+  /*
+   * No bullet
+   */
+  .ecl-list--no-bullet {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+/**
+ * @define description-list
+ */
+@mixin ecl-description-list-print($text-color: $ecl-color-grey-100) {
+  .ecl-description-list {
+    margin: 0;
+  }
+
+  .ecl-description-list__term {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-xl;
+    font-weight: $ecl-font-weight-print-bold;
+  }
+
+  .ecl-description-list__definition {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-m;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-list-print') {
+  @include ecl-list-print();
+  @include ecl-description-list-print();
+}

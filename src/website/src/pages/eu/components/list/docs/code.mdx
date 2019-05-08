@@ -1,0 +1,70 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import List from '@ecl/eu-react-component-list/src/List';
+import DescriptionList from '@ecl/eu-react-component-list/src/DescriptionList';
+
+import demoFlat from '@ecl/eu-specs-list/demo/data--flat';
+import demoNested from '@ecl/eu-specs-list/demo/data--nested';
+import demoDescription from '@ecl/eu-specs-list/demo/data--description';
+
+## Ordered list
+
+### Flat
+
+<Playground system="eu" selectedKind="list" selectedStory="flat">
+  <List {...demoFlat} isOrdered />
+</Playground>
+
+### Nested
+
+<Playground system="eu" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} isOrdered />
+</Playground>
+
+### Without bullet
+
+<Playground system="eu" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} isOrdered hasBullet={false} />
+</Playground>
+
+### With dividers
+
+<Playground system="eu" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} isOrdered hasDivider hasBullet={false} />
+</Playground>
+
+## Unordered list
+
+### Flat
+
+<Playground system="eu" selectedKind="list" selectedStory="flat">
+  <List {...demoFlat} />
+</Playground>
+
+### Nested
+
+<Playground system="eu" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} />
+</Playground>
+
+### Without bullet
+
+<Playground system="eu" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} hasBullet={false} />
+</Playground>
+
+### With dividers
+
+<Playground system="eu" selectedKind="list" selectedStory="nested">
+  <List {...demoNested} hasDivider hasBullet={false} />
+</Playground>
+
+## Description list
+
+<Playground system="eu" selectedKind="list" selectedStory="description">
+  <DescriptionList {...demoDescription} />
+</Playground>
