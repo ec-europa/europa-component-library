@@ -1,5 +1,6 @@
 import ReactDOMServer from 'react-dom/server';
 import addons, { makeDecorator } from '@storybook/addons';
+import { EVENTS } from './constants';
 
 export const withCode = makeDecorator({
   name: 'withCode',
@@ -8,7 +9,7 @@ export const withCode = makeDecorator({
     const story = getStory(context);
 
     const code = ReactDOMServer.renderToStaticMarkup(story);
-    channel.emit('ecl/code/add_code', code);
+    channel.emit(EVENTS.ADD_CODE, code);
 
     return story;
   },

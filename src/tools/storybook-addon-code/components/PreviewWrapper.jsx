@@ -3,16 +3,21 @@ import PropTypes from 'prop-types';
 import { SyntaxHighlighter } from '@storybook/components';
 import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
+import { EVENTS } from '../constants';
+
+const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
+  fontSize: theme.typography.size.s2 - 1,
+}));
 
 const Overlay = styled.div(() => ({
   position: 'absolute',
+  padding: '16px',
   top: 0,
   left: 0,
   display: 'block',
   width: '100%',
   height: '100%',
   backgroundColor: '#fff',
-  fontSize: '0.81em',
 }));
 
 export class PreviewWrapper extends Component {
@@ -29,21 +34,17 @@ export class PreviewWrapper extends Component {
 
   componentDidMount() {
     const { channel } = this.props;
-    channel.on('ecl/code/add_code', this.onAddHTMLMarkup);
-    channel.on('ecl/code/toggle_code', this.onTogglePreview);
+    channel.on(EVENTS.ADD_CODE, this.onAddHTMLMarkup);
+    channel.on(EVENTS.TOGGLE_CODE, this.onTogglePreview);
   }
 
   onAddHTMLMarkup(code) {
-    this.setState({
-      code,
-    });
+    this.setState({ code });
   }
 
-  onTogglePreview() {
-    const { expanded } = this.state;
-
+  onTogglePreview(expanded) {
     this.setState({
-      expanded: !expanded,
+      expanded,
     });
   }
 
@@ -60,12 +61,11 @@ export class PreviewWrapper extends Component {
             display: expanded ? 'block' : 'none',
           }}
         >
-          <SyntaxHighlighter
+          <StyledSyntaxHighlighter
             bordered
             copyable
             format={false}
-            language="jsx"
-            padded
+            language="html"
           >
             {beautify(code, {
               indent_size: 2,
@@ -73,7 +73,7 @@ export class PreviewWrapper extends Component {
               preserve_newlines: false,
               indent_scripts: 'normal',
             })}
-          </SyntaxHighlighter>
+          </StyledSyntaxHighlighter>
         </Overlay>
       </Fragment>
     );

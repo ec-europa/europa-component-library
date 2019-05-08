@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { IconButton } from '@storybook/components';
+import { EVENTS } from '../constants';
 
 export class CodeToggle extends Component {
   constructor(props) {
@@ -15,12 +16,13 @@ export class CodeToggle extends Component {
   handleClick() {
     const { channel } = this.props;
     const { expanded } = this.state;
+    const newState = !expanded;
 
     this.setState({
-      expanded: !expanded,
+      expanded: newState,
     });
 
-    channel.emit('ecl/code/toggle_code', !expanded);
+    channel.emit(EVENTS.TOGGLE_CODE, newState);
   }
 
   render() {
@@ -28,7 +30,7 @@ export class CodeToggle extends Component {
 
     return (
       <IconButton
-        key="filter"
+        key="code"
         active={!!expanded}
         title="Toggle code display"
         onClick={this.handleClick}
