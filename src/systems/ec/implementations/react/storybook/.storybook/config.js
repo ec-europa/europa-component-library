@@ -4,9 +4,11 @@ import { create } from '@storybook/theming';
 import { withA11y } from '@storybook/addon-a11y';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withCssResources } from '@storybook/addon-cssresources';
+import { withCode } from './addons/code/index';
 
 import './ECL';
 
+addDecorator(withCode);
 addDecorator(withA11y);
 addDecorator(withCssResources);
 
