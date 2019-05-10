@@ -1,31 +1,30 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select } from '@storybook/addon-knobs';
 
-import demoFlat from '@ecl/eu-specs-list/demo/data--flat';
 import demoNested from '@ecl/eu-specs-list/demo/data--nested';
 import demoDescription from '@ecl/eu-specs-list/demo/data--description';
 
-import List from '../src/List';
+import UnorderedList from '../src/UnorderedList';
+import OrderedList from '../src/OrderedList';
 import DescriptionList from '../src/DescriptionList';
 
 storiesOf('List', module)
   .addDecorator(withKnobs)
-  .add('flat', () => (
-    <List
-      {...demoFlat}
-      isOrdered={boolean('Ordered list', false)}
-      hasBullet={boolean('Bullets', true)}
-      hasDivider={boolean('Dividers', false)}
-    />
-  ))
-  .add('nested', () => (
-    <List
+  .add('ordered', () => <OrderedList {...demoNested} />)
+  .add('unordered', () => (
+    <UnorderedList
       {...demoNested}
-      isOrdered={boolean('Ordered list', false)}
-      hasBullet={boolean('Bullets', true)}
-      hasDivider={boolean('Dividers', false)}
+      variant={select(
+        'Variant',
+        {
+          Default: '',
+          'No bullet': 'no-bullet',
+          Dividers: 'divider',
+        },
+        ''
+      )}
     />
   ))
   .add('description', () => <DescriptionList {...demoDescription} />);

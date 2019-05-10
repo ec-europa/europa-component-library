@@ -4,63 +4,35 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import List from '@ecl/ec-react-component-list/src/List';
+import OrderedList from '@ecl/ec-react-component-list/src/OrderedList';
+import UnorderedList from '@ecl/ec-react-component-list/src/UnorderedList';
 import DescriptionList from '@ecl/ec-react-component-list/src/DescriptionList';
 
-import demoFlat from '@ecl/ec-specs-list/demo/data--flat';
 import demoNested from '@ecl/ec-specs-list/demo/data--nested';
 import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
 ## Ordered list
 
-### Flat
-
-<Playground system="ec" selectedKind="list" selectedStory="flat">
-  <List {...demoFlat} isOrdered />
-</Playground>
-
-### Nested
-
-<Playground system="ec" selectedKind="list" selectedStory="nested">
-  <List {...demoNested} isOrdered />
-</Playground>
-
-### Without bullet
-
-<Playground system="ec" selectedKind="list" selectedStory="nested">
-  <List {...demoNested} isOrdered hasBullet={false} />
-</Playground>
-
-### With dividers
-
-<Playground system="ec" selectedKind="list" selectedStory="nested">
-  <List {...demoNested} isOrdered hasDivider />
+<Playground system="ec" selectedKind="list" selectedStory="ordered">
+  <OrderedList {...demoNested} />
 </Playground>
 
 ## Unordered list
 
-### Flat
-
-<Playground system="ec" selectedKind="list" selectedStory="flat">
-  <List {...demoFlat} />
-</Playground>
-
-### Nested
-
-<Playground system="ec" selectedKind="list" selectedStory="nested">
-  <List {...demoNested} />
+<Playground system="ec" selectedKind="list" selectedStory="unordered">
+  <UnorderedList {...demoNested} />
 </Playground>
 
 ### Without bullet
 
-<Playground system="ec" selectedKind="list" selectedStory="nested">
-  <List {...demoNested} hasBullet={false} />
+<Playground system="ec" selectedKind="list" selectedStory="unordered">
+  <UnorderedList {...demoNested} variant="no-bullet" />
 </Playground>
 
 ### With dividers
 
-<Playground system="ec" selectedKind="list" selectedStory="nested">
-  <List {...demoNested} hasDivider />
+<Playground system="ec" selectedKind="list" selectedStory="unordered">
+  <UnorderedList {...demoNested} variant="divider" />
 </Playground>
 
 ## Description list

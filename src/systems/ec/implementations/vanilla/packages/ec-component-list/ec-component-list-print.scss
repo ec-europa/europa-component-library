@@ -1,22 +1,33 @@
 /**
  * List component
- * @define list
  */
 
 // Import base
 @import '@ecl/ec-base/ec-base';
 
-@mixin ecl-list-print($text-color: $ecl-color-grey-100) {
-  .ecl-list {
+/**
+ * @define ordered-list
+ */
+@mixin ecl-ordered-list-print($text-color: $ecl-color-grey-100) {
+  .ecl-ordered-list {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-m;
+    margin: 0;
+  }
+}
+
+/**
+ * @define unordered-list
+ */
+@mixin ecl-unordered-list-print($text-color: $ecl-color-grey-100) {
+  .ecl-unordered-list {
     color: $text-color;
     font: $ecl-font-prolonged-print-m;
     margin: 0;
   }
 
-  /*
-   * No bullet
-   */
-  .ecl-list--no-bullet {
+  .ecl-unordered-list--no-bullet,
+  .ecl-unordered-list--divider {
     list-style: none;
     padding-left: 0;
   }
@@ -44,6 +55,7 @@
 
 // Use mixin
 @include exports('ec-component-list-print') {
-  @include ecl-list-print();
+  @include ecl-ordered-list-print();
+  @include ecl-unordered-list-print();
   @include ecl-description-list-print();
 }
