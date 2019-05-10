@@ -1,0 +1,21 @@
+/*
+ * Form label
+ * @define form-label
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-form-label-print() {
+  .ecl-form-label {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-m;
+    font-weight: $ecl-font-weight-print-bold;
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-form-label-print') {
+  @include ecl-form-label-print();
+}
