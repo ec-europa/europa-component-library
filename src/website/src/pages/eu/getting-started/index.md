@@ -55,4 +55,4 @@ New components are continuously being added to the library. The team is also con
 ```
 
 - Copy the markup from the template you want and paste it in the `<body>`.
-- Ensure that you are using proper path to icons, logo (usually `/images/logo`, `/images/icons`).
+- Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `images` folder.
