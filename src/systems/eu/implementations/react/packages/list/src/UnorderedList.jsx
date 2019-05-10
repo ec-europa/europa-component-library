@@ -1,45 +1,28 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import UnorderedListItem from './UnorderedListItem';
-
-const UnorderedList = ({ variant, items, className, ...props }) => {
+const UnorderedList = ({ variant, children, className, ...props }) => {
   const classNames = classnames(className, 'ecl-unordered-list', {
     [`ecl-unordered-list--${variant}`]: variant,
   });
 
   return (
     <ul {...props} className={classNames}>
-      {items.map(item => {
-        if (item.nested) {
-          return (
-            <Fragment key={item.label}>
-              <UnorderedListItem>
-                {item.label}
-                <UnorderedList items={item.nested} />
-              </UnorderedListItem>
-            </Fragment>
-          );
-        }
-
-        return (
-          <UnorderedListItem key={item.label}>{item.label}</UnorderedListItem>
-        );
-      })}
+      {children}
     </ul>
   );
 };
 
 UnorderedList.propTypes = {
   variant: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(UnorderedListItem.propTypes)),
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 
 UnorderedList.defaultProps = {
   variant: '',
-  items: [],
+  children: '',
   className: '',
 };
 

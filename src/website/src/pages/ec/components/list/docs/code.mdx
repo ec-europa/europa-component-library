@@ -4,39 +4,42 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import OrderedList from '@ecl/ec-react-component-list/src/OrderedList';
-import UnorderedList from '@ecl/ec-react-component-list/src/UnorderedList';
-import DescriptionList from '@ecl/ec-react-component-list/src/DescriptionList';
+import OrderedListWithData from '@ecl/ec-react-component-list/src/OrderedListWithData';
+import UnorderedListWithData from '@ecl/ec-react-component-list/src/UnorderedListWithData';
+import DescriptionListWithData from '@ecl/ec-react-component-list/src/DescriptionListWithData';
 
-import demoNested from '@ecl/ec-specs-list/demo/data--nested';
+import demoText from '@ecl/ec-specs-list/demo/data--text';
+import demoLink from '@ecl/ec-specs-list/demo/data--link';
+import demoLinkNoBullet from '@ecl/ec-specs-list/demo/data--link-no-bullet';
+import demoLinkDivider from '@ecl/ec-specs-list/demo/data--link-divider';
 import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
 ## Ordered list
 
 <Playground system="ec" selectedKind="list" selectedStory="ordered">
-  <OrderedList {...demoNested} />
+  <OrderedListWithData {...demoText} />
 </Playground>
 
 ## Unordered list
 
 <Playground system="ec" selectedKind="list" selectedStory="unordered">
-  <UnorderedList {...demoNested} />
+  <UnorderedListWithData {...demoText} />
 </Playground>
 
 ### Without bullet
 
-<Playground system="ec" selectedKind="list" selectedStory="unordered">
-  <UnorderedList {...demoNested} variant="no-bullet" />
+<Playground system="ec" selectedKind="list" selectedStory="unordered" showFrame>
+  <UnorderedListWithData {...demoLinkNoBullet} />
 </Playground>
 
 ### With dividers
 
-<Playground system="ec" selectedKind="list" selectedStory="unordered">
-  <UnorderedList {...demoNested} variant="divider" />
+<Playground system="ec" selectedKind="list" selectedStory="unordered" showFrame>
+  <UnorderedListWithData {...demoLinkDivider} />
 </Playground>
 
 ## Description list
 
 <Playground system="ec" selectedKind="list" selectedStory="description">
-  <DescriptionList {...demoDescription} />
+  <DescriptionListWithData {...demoDescription} />
 </Playground>
