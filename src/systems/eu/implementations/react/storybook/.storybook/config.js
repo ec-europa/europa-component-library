@@ -95,8 +95,10 @@ html {
 });
 
 const contexts = [
-  require.context('../../packages', true, /stories.*\.jsx?$/),
   require.context('../../templates', true, /stories.*\.jsx?$/),
+  require.context('../../page-structure', true, /stories.*\.jsx?$/),
+  require.context('../../components', true, /stories.*\.jsx?$/),
+  require.context('../../utilities', true, /stories.*\.jsx?$/),
 ];
 
 configure(() => {

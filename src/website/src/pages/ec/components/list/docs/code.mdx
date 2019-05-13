@@ -16,13 +16,17 @@ import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
 ## Ordered list
 
-<Playground system="ec" selectedKind="list" selectedStory="ordered">
+<Playground system="ec" selectedKind="components-list" selectedStory="ordered">
   <OrderedListWithData {...demoText} />
 </Playground>
 
 ## Unordered list
 
-<Playground system="ec" selectedKind="list" selectedStory="unordered">
+<Playground
+  system="ec"
+  selectedKind="components-list"
+  selectedStory="unordered"
+>
   <UnorderedListWithData {...demoText} />
 </Playground>
 
@@ -30,7 +34,7 @@ import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
 <Playground
   system="ec"
-  selectedKind="list"
+  selectedKind="components-list"
   selectedStory="without-bullet"
   showFrame
 >
@@ -41,7 +45,7 @@ import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
 <Playground
   system="ec"
-  selectedKind="list"
+  selectedKind="components-list"
   selectedStory="with-divider"
   showFrame
 >
@@ -50,6 +54,10 @@ import demoDescription from '@ecl/ec-specs-list/demo/data--description';
 
 ## Description list
 
-<Playground system="ec" selectedKind="list" selectedStory="description">
+<Playground
+  system="ec"
+  selectedKind="components-list"
+  selectedStory="description"
+>
   <DescriptionListWithData {...demoDescription} />
 </Playground>
