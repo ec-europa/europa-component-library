@@ -9,6 +9,8 @@ import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
 import styles from './Playground.scss';
 
+const { unescape } = require('unescape-es6');
+
 class Playground extends PureComponent {
   constructor(props) {
     super(props);
@@ -129,10 +131,14 @@ class Playground extends PureComponent {
               className="language-html"
               dangerouslySetInnerHTML={{
                 __html: Prism.highlight(
-                  beautifyHtml(ReactDOMServer.renderToStaticMarkup(children), {
-                    indent_size: 2,
-                    wrap_line_length: 120,
-                  }),
+                  beautifyHtml(
+                    unescape(ReactDOMServer.renderToStaticMarkup(children)),
+                    {
+                      indent_size: 2,
+                      wrap_line_length: 120,
+                      unescape_strings: true,
+                    }
+                  ),
                   Prism.languages.html,
                   'html'
                 ),
