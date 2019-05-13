@@ -13,7 +13,7 @@ const variant = {
   footer: 'footer',
 };
 
-storiesOf('Components|SiteSwitcher', module)
+storiesOf('Page structure|SiteSwitcher', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <SiteSwitcher

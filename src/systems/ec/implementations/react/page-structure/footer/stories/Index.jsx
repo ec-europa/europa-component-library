@@ -2,12 +2,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import demoContentCorporate from '@ecl/eu-specs-footer/demo/data--corporate';
-import demoContentCustom from '@ecl/eu-specs-footer/demo/data--custom';
+import demoContentCorporate from '@ecl/ec-specs-footer/demo/data--corporate';
+import demoContentCustom from '@ecl/ec-specs-footer/demo/data--custom';
 
 import Footer from '../src/Footer';
 
-storiesOf('Components|Footer', module)
+storiesOf('Page structure|Footer', module)
   .addParameters({
     a11y: {
       options: {
