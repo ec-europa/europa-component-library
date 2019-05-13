@@ -2,19 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const OrderedListItem = ({ children, className, ...props }) => (
-  <li {...props} className={classnames(className, 'ecl-ordered-list__item')}>
-    {children}
-  </li>
+const OrderedListItem = ({ className, ...props }) => (
+  <li {...props} className={classnames(className, 'ecl-ordered-list__item')} />
 );
 
 OrderedListItem.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
 };
 
 OrderedListItem.defaultProps = {
-  children: '',
   className: '',
 };
 
