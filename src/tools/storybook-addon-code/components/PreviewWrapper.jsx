@@ -7,11 +7,15 @@ import { EVENTS } from '../constants';
 
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
+  border: 0,
+  height: '100%',
+  '> *:first-child': {
+    height: '100%',
+  },
 }));
 
 const Overlay = styled.div(() => ({
   position: 'absolute',
-  padding: '16px',
   top: 0,
   left: 0,
   display: 'block',
