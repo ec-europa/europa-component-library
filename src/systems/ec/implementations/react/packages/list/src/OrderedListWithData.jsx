@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import OrderedList from './OrderedList';
@@ -7,20 +7,12 @@ import OrderedListItem from './OrderedListItem';
 const OrderedListWithData = ({ items, className, ...props }) => {
   return (
     <OrderedList {...props} className={className}>
-      {items.map(item => {
-        if (item.nested) {
-          return (
-            <Fragment key={item.label}>
-              <OrderedListItem>
-                {item.label}
-                <OrderedListWithData items={item.nested} />
-              </OrderedListItem>
-            </Fragment>
-          );
-        }
-
-        return <OrderedListItem key={item.label}>{item.label}</OrderedListItem>;
-      })}
+      {items.map(item => (
+        <OrderedListItem key={item.label}>
+          {item.label}
+          {item.nested && <OrderedListWithData items={item.nested} />}
+        </OrderedListItem>
+      ))}
     </OrderedList>
   );
 };

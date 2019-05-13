@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import UnorderedList from './UnorderedList';
@@ -7,22 +7,12 @@ import UnorderedListItem from './UnorderedListItem';
 const UnorderedListWithData = ({ variant, items, className, ...props }) => {
   return (
     <UnorderedList {...props} className={className}>
-      {items.map(item => {
-        if (item.nested) {
-          return (
-            <Fragment key={item.label}>
-              <UnorderedListItem>
-                {item.label}
-                <UnorderedListWithData items={item.nested} />
-              </UnorderedListItem>
-            </Fragment>
-          );
-        }
-
-        return (
-          <UnorderedListItem key={item.label}>{item.label}</UnorderedListItem>
-        );
-      })}
+      {items.map(item => (
+        <UnorderedListItem key={item.label}>
+          {item.label}
+          {item.nested && <UnorderedListWithData items={item.nested} />}
+        </UnorderedListItem>
+      ))}
     </UnorderedList>
   );
 };
