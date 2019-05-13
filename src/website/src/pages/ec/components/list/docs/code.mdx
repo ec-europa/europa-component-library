@@ -1,0 +1,55 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import OrderedListWithData from '@ecl/ec-react-component-list/src/OrderedListWithData';
+import UnorderedListWithData from '@ecl/ec-react-component-list/src/UnorderedListWithData';
+import DescriptionListWithData from '@ecl/ec-react-component-list/src/DescriptionListWithData';
+
+import demoText from '@ecl/ec-specs-list/demo/data--text';
+import demoLink from '@ecl/ec-specs-list/demo/data--link';
+import demoLinkNoBullet from '@ecl/ec-specs-list/demo/data--link-no-bullet';
+import demoLinkDivider from '@ecl/ec-specs-list/demo/data--link-divider';
+import demoDescription from '@ecl/ec-specs-list/demo/data--description';
+
+## Ordered list
+
+<Playground system="ec" selectedKind="list" selectedStory="ordered">
+  <OrderedListWithData {...demoText} />
+</Playground>
+
+## Unordered list
+
+<Playground system="ec" selectedKind="list" selectedStory="unordered">
+  <UnorderedListWithData {...demoText} />
+</Playground>
+
+### Without bullet
+
+<Playground
+  system="ec"
+  selectedKind="list"
+  selectedStory="without-bullet"
+  showFrame
+>
+  <UnorderedListWithData {...demoLinkNoBullet} />
+</Playground>
+
+### With dividers
+
+<Playground
+  system="ec"
+  selectedKind="list"
+  selectedStory="with-divider"
+  showFrame
+>
+  <UnorderedListWithData {...demoLinkDivider} />
+</Playground>
+
+## Description list
+
+<Playground system="ec" selectedKind="list" selectedStory="description">
+  <DescriptionListWithData {...demoDescription} />
+</Playground>
