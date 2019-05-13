@@ -10,7 +10,7 @@ import VanillaGallery from '@ecl/ec-component-gallery';
 
 import Gallery from '../src/Gallery';
 
-storiesOf('Gallery', module)
+storiesOf('Components|Gallery', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

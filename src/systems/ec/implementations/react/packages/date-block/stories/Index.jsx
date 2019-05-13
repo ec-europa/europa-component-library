@@ -8,7 +8,7 @@ import demoContentDefault from '@ecl/ec-specs-date-block/demo/data--default';
 
 import DateBlock from '../src/DateBlock';
 
-storiesOf('DateBlock', module)
+storiesOf('Components|DateBlock', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <DateBlock

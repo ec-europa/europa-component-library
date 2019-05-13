@@ -8,6 +8,6 @@ import demoContentOverlay from '@ecl/ec-specs-language-list/demo/data--overlay';
 import LanguageListSplash from '../src/LanguageListSplash';
 import LanguageListOverlay from '../src/LanguageListOverlay';
 
-storiesOf('LanguageList', module)
+storiesOf('Components|LanguageList', module)
   .add('splash', () => <LanguageListSplash {...demoContentSplash} />)
   .add('overlay', () => <LanguageListOverlay {...demoContentOverlay} />);

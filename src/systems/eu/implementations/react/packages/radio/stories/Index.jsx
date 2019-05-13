@@ -8,7 +8,7 @@ import demoContentBinary from '@ecl/eu-specs-radio/demo/data--binary';
 
 import RadioGroup from '../src/RadioGroup';
 
-storiesOf('Forms/Radio', module)
+storiesOf('Components|Forms/Radio', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <RadioGroup

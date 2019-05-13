@@ -22,7 +22,7 @@ const iconPosition = {
   after: 'after',
 };
 
-storiesOf('Button', module)
+storiesOf('Components|Button', module)
   .addDecorator(withKnobs)
   .add('primary', () => {
     const buttonIcon = {

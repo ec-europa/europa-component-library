@@ -8,7 +8,7 @@ import demoContentVideo from '@ecl/ec-specs-media-container/demo/data--video';
 
 import MediaContainer from '../src/MediaContainer';
 
-storiesOf('MediaContainer', module)
+storiesOf('Components|MediaContainer', module)
   .addDecorator(withKnobs)
   .add('video', () => (
     <MediaContainer

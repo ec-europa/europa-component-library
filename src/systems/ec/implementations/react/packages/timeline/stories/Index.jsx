@@ -10,7 +10,7 @@ import VanillaTimeline from '@ecl/ec-component-timeline';
 
 import Timeline from '../src/Timeline';
 
-storiesOf('Timeline', module)
+storiesOf('Components|Timeline', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

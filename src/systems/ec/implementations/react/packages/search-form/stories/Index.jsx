@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-search-form/demo/data';
 
 import SearchForm from '../src/SearchForm';
 
-storiesOf('Forms/SearchForm', module)
+storiesOf('Components|Forms/SearchForm', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <SearchForm

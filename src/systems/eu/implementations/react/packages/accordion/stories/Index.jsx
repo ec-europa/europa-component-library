@@ -11,7 +11,7 @@ import VanillaAccordion from '@ecl/eu-component-accordion';
 import Accordion from '../src/Accordion';
 import AccordionItem from '../src/AccordionItem';
 
-storiesOf('Accordion', module)
+storiesOf('Components|Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

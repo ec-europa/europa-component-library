@@ -40,7 +40,7 @@ const transforms = {
 
 const defaultTransform = '';
 
-storiesOf('Icon', module)
+storiesOf('Components|Icon', module)
   .addDecorator(withKnobs)
   .add('branded', () => {
     const shape = select('Icon', brandedIcons, brandedIcons[0]);

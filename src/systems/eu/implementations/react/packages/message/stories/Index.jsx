@@ -13,7 +13,7 @@ import VanillaMessage from '@ecl/ec-component-message';
 
 import Message from '../src/Message';
 
-storiesOf('Messages', module)
+storiesOf('Components|Messages', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

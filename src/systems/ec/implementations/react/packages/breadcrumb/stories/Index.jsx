@@ -9,7 +9,7 @@ import demoContent from '@ecl/ec-specs-breadcrumb/demo/data';
 import Breadcrumb from '../src/Breadcrumb';
 import BreadcrumbItem from '../src/BreadcrumbItem';
 
-storiesOf('Navigation/Breadcrumb', module)
+storiesOf('Components|Navigation/Breadcrumb', module)
   .addDecorator(withKnobs)
   .add('simple', () => {
     const items = simpleContent.items.map((item, index) => ({

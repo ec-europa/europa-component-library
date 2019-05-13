@@ -6,7 +6,7 @@ import demoContent from '@ecl/ec-specs-blockquote/demo/data';
 
 import Blockquote from '../src/Blockquote';
 
-storiesOf('Blockquote', module)
+storiesOf('Components|Blockquote', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <Blockquote

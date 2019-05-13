@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 
 import Tag from '../src/Tag';
 
-storiesOf('Tag', module)
+storiesOf('Components|Tag', module)
   .addDecorator(withKnobs)
   .add('as a link', () => (
     <Tag label={text('Label', 'Link tag')} href={text('Link', '/example')} />

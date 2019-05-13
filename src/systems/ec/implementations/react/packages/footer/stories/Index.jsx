@@ -7,7 +7,7 @@ import demoContentCustom from '@ecl/ec-specs-footer/demo/data--custom';
 
 import Footer from '../src/Footer';
 
-storiesOf('Footer', module)
+storiesOf('Components|Footer', module)
   .addParameters({
     a11y: {
       options: {

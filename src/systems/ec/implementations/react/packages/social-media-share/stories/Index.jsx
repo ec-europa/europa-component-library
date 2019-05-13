@@ -7,7 +7,7 @@ import demoContent from '@ecl/ec-specs-social-media-share/demo/data';
 
 import SocialMediaShare from '../src/SocialMediaShare';
 
-storiesOf('SocialMediaShare', module)
+storiesOf('Components|SocialMediaShare', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <SocialMediaShare

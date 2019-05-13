@@ -10,7 +10,7 @@ import VanillaContextualNavigation from '@ecl/eu-component-contextual-navigation
 
 import ContextualNavigation from '../src/ContextualNavigation';
 
-storiesOf('Navigation/Contextual Navigation', module)
+storiesOf('Components|Navigation/Contextual Navigation', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

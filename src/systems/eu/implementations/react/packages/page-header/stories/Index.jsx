@@ -22,7 +22,7 @@ const breadcrumb = (
   </Breadcrumb>
 );
 
-storiesOf('PageHeader', module)
+storiesOf('Components|PageHeader', module)
   .addDecorator(withKnobs)
   .add('basic', () => (
     <PageHeader

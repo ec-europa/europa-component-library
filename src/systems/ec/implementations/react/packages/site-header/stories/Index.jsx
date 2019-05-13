@@ -7,6 +7,6 @@ import demoContentFr from '@ecl/ec-specs-site-header/demo/data--fr';
 
 import SiteHeader from '../src/SiteHeader';
 
-storiesOf('SiteHeader', module)
+storiesOf('Components|SiteHeader', module)
   .add('default', () => <SiteHeader {...demoContentEn} />)
   .add('translated', () => <SiteHeader {...demoContentFr} />);

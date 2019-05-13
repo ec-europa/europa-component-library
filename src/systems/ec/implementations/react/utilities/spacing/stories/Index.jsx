@@ -42,7 +42,7 @@ const Spacing = (type, token) => (
   </div>
 );
 
-storiesOf('Utilities/Spacing', module)
+storiesOf('Utilities|Spacing', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <Fragment>

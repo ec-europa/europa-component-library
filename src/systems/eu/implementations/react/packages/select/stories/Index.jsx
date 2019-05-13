@@ -7,7 +7,7 @@ import demoContent from '@ecl/eu-specs-select/demo/data';
 
 import Select from '../src/Select';
 
-storiesOf('Forms/Select', module)
+storiesOf('Components|Forms/Select', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <Select

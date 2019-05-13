@@ -11,7 +11,7 @@ import VanillaFileDownload from '@ecl/ec-component-file';
 
 import FileDownload from '../src/FileDownload';
 
-storiesOf('File', module)
+storiesOf('Components|File', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

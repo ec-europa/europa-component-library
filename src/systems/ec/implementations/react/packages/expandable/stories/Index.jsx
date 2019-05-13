@@ -10,7 +10,7 @@ import VanillaExpandable from '@ecl/ec-component-expandable';
 
 import Expandable from '../src/Expandable';
 
-storiesOf('Expandables', module)
+storiesOf('Components|Expandables', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
