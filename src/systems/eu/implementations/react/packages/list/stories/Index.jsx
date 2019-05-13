@@ -14,7 +14,7 @@ import UnorderedListItem from '../src/UnorderedListItem';
 import OrderedListWithData from '../src/OrderedListWithData';
 import DescriptionListWithData from '../src/DescriptionListWithData';
 
-storiesOf('List', module)
+storiesOf('Components|List', module)
   .addDecorator(withKnobs)
   .add('ordered', () => <OrderedListWithData {...demoText} />)
   .add('unordered', () => {
