@@ -48,7 +48,7 @@ const getSectionTitle = component => {
 };
 
 const navigateTab = (e, history) => {
-  if (e.target.value.indexOf('/storybook/') === 0) {
+  if (e.target.value.indexOf('/playground/') === 0) {
     window.location.href = e.target.value;
     return;
   }
@@ -87,7 +87,7 @@ const Header = React.memo(({ component, history, location }) => {
               {component.parent.attributes.playground && (
                 <li>
                   <a
-                    href={`/storybook/${
+                    href={`/playground/${
                       component.parent.attributes.playground.system
                     }/${
                       process.env.NODE_ENV === 'development' ? 'index.html' : ''
@@ -113,7 +113,7 @@ const Header = React.memo(({ component, history, location }) => {
                 ))}
                 {component.parent.attributes.playground && (
                   <option
-                    value={`/storybook/${
+                    value={`/playground/${
                       component.parent.attributes.playground.system
                     }/${
                       process.env.NODE_ENV === 'development' ? 'index.html' : ''

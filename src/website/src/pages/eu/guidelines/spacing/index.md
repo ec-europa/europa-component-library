@@ -23,17 +23,17 @@ We use space to create hierarchy and relationships. By using space we can create
 Whenever we need a fixed horizontal or vertical spacing inside components then these spacing tokens are to be used. All the values are multiple of 4px so they can complement with the typography and placed in a 4px vertical grid. The values are based in a geometric progression. There are some exception like the 48px/3rem that doesn't fit in the geometric progression that we might need it in some cases. In annotations these spacings will be blue overlays.
 
 <!-- prettier-ignore-start -->
-| Name | Token (example) | Size          |
-| ---- | --------------- | ------------- |
-| 4xl  | $spacing-4xl   | 64px - 4rem   |
-| 3xl  | $spacing-3xl   | 48px - 3rem   |
-| 2xl  | $spacing-2xl   | 40px - 2.5rem |
-| xl   | $spacing-xl    | 32px - 2rem   |
-| l    | $spacing-lg    | 24px - 1.5rem |
-| m    | $spacing-md    | 16px - 1rem   |
-| s    | $spacing-sm    | 24px - 1.5rem |
-| xs   | $spacing-xs    | 8px - 0.5rem  |
-| 2xs  | $spacing-2xs   | 4px - 0.25rem |
+| Name | Token (example) | Size           |
+| ---- | --------------- | -------------- |
+| 4xl  | $spacing-4xl    | 64px - 4rem    |
+| 3xl  | $spacing-3xl    | 48px - 3rem    |
+| 2xl  | $spacing-2xl    | 40px - 2.5rem  |
+| xl   | $spacing-xl     | 32px - 2rem    |
+| l    | $spacing-lg     | 24px - 1.5rem  |
+| m    | $spacing-md     | 16px - 1rem    |
+| s    | $spacing-sm     | 12px - 0.75rem |
+| xs   | $spacing-xs     | 8px - 0.5rem   |
+| 2xs  | $spacing-2xs    | 4px - 0.25rem  | 
 <!-- prettier-ignore-end -->
 
 <img src="https://inno-ecl.s3.amazonaws.com/media/images/EC/Space/Space%20Inner.svg" alt=" Space token of components " width="300"/>
