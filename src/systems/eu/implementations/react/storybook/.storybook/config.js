@@ -67,6 +67,13 @@ html {
   viewport: {
     defaultViewport: 'iphone6',
     viewports: {
+      responsive: {
+        name: 'Responsive',
+        styles: {
+          width: '100%',
+          height: '100%',
+        },
+      },
       ...INITIAL_VIEWPORTS,
       '1366x768': {
         name: '1366x768',
@@ -81,13 +88,6 @@ html {
         styles: {
           width: '1920px',
           height: '1080px',
-        },
-      },
-      responsive: {
-        name: 'Responsive',
-        styles: {
-          width: '100%',
-          height: '100%',
         },
       },
     },
