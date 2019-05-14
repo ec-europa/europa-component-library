@@ -1,0 +1,84 @@
+/**
+ * Icons
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-icons-print() {
+  // Icons are hidden by default, but are available if some component need them
+  .ecl-icon {
+    display: none;
+    fill: currentColor;
+    margin: 0;
+    transform: scaleX(1) scaleY(1) rotateZ(0deg);
+  }
+
+  .ecl-icon--xs {
+    height: $ecl-icon-print-xs;
+    width: $ecl-icon-print-xs;
+  }
+
+  .ecl-icon--s {
+    height: $ecl-icon-print-s;
+    width: $ecl-icon-print-s;
+  }
+
+  .ecl-icon--m {
+    height: $ecl-icon-print-m;
+    width: $ecl-icon-print-m;
+  }
+
+  .ecl-icon--l {
+    height: $ecl-icon-print-l;
+    width: $ecl-icon-print-l;
+  }
+
+  .ecl-icon--xl {
+    height: $ecl-icon-print-xl;
+    width: $ecl-icon-print-xl;
+  }
+
+  .ecl-icon--2xl {
+    height: $ecl-icon-print-2-xl;
+    width: $ecl-icon-print-2-xl;
+  }
+
+  .ecl-icon--fluid {
+    height: $ecl-icon-print-fluid;
+    width: $ecl-icon-print-fluid;
+  }
+
+  .ecl-icon--primary {
+    fill: $ecl-color-primary;
+  }
+
+  .ecl-icon--inverted {
+    fill: $ecl-color-white-100;
+  }
+
+  .ecl-icon--rotate-90 {
+    transform: rotateZ(90deg);
+  }
+
+  .ecl-icon--rotate-180 {
+    transform: rotateZ(180deg);
+  }
+
+  .ecl-icon--rotate-270 {
+    transform: rotateZ(270deg);
+  }
+
+  .ecl-icon--flip-horizontal {
+    transform: scaleX(-1);
+  }
+
+  .ecl-icon--flip-vertical {
+    transform: scaleY(-1);
+  }
+}
+
+// Use mixin
+@include exports('ec-component-icon-print') {
+  @include ecl-icons-print();
+}

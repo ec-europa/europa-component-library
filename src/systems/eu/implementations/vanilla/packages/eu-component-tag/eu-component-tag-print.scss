@@ -1,0 +1,27 @@
+/**
+ * Tags
+ * @define tag
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-tag-print() {
+  .ecl-tag {
+    appearance: none;
+    background: none;
+    border-width: 0;
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-s;
+    padding: 0;
+  }
+
+  .ecl-tag__icon {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-tag-print') {
+  @include ecl-tag-print();
+}

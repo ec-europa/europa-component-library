@@ -1,0 +1,20 @@
+/*
+ * Feedback message
+ * @define feedback-message
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-feedback-message-print() {
+  .ecl-feedback-message {
+    color: $ecl-color-error;
+    font: $ecl-font-prolonged-print-m;
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-feedback-message-print') {
+  @include ecl-feedback-message-print();
+}

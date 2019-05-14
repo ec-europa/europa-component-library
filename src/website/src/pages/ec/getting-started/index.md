@@ -3,8 +3,6 @@ order: 1
 title: Getting started
 ---
 
-## Getting started
-
 The Europa Component Library is a design system for the European Commission and websites managed by the Commission.
 
 We provide design guidelines and code to help users create consistent and accessible government web presence.
@@ -19,17 +17,17 @@ New components are continuously being added to the library. The team is also con
 
 ## How to use templates
 
-1. Get the framework
+### 1. Download the framework
 
-- Go to https://github.com/ec-europa/europa-component-library/releases
-- Pick the latest release
-- In the "useful links" section, download the @ecl/ec-full package tarball
-- uncompress the package
+- Go to https://github.com/ec-europa/europa-component-library/releases.
+- Pick the latest v2 release.
+- In the "useful links" section, download the `@ecl/ec-preset-full` package tarball.
+- Uncompress the package.
 
-2. Create a template page
+### 2. Create a template page
 
-- in the uncompressed package go to /dist
-- create a "index.html" file
+- In the uncompressed package, go to `/dist`.
+- Create an `index.html` file as follows:
 
 ```html
 <html>
@@ -37,7 +35,6 @@ New components are continuously being added to the library. The team is also con
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <link href="favicon.ico?v=1" rel="shortcut icon" />
     <link
       type="text/css"
       rel="stylesheet"
@@ -56,4 +53,5 @@ New components are continuously being added to the library. The team is also con
 </html>
 ```
 
-- ensure that you are using proper path to icons, logo etc... (usually /images/logo /images/icons...)
+- Copy the markup from the template you want and paste it in the `<body>`.
+- Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `images` folder.

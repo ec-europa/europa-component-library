@@ -1,0 +1,63 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import OrderedListWithData from '@ecl/eu-react-component-list/src/OrderedListWithData';
+import UnorderedListWithData from '@ecl/eu-react-component-list/src/UnorderedListWithData';
+import DescriptionListWithData from '@ecl/eu-react-component-list/src/DescriptionListWithData';
+
+import demoText from '@ecl/eu-specs-list/demo/data--text';
+import demoLink from '@ecl/eu-specs-list/demo/data--link';
+import demoLinkNoBullet from '@ecl/eu-specs-list/demo/data--link-no-bullet';
+import demoLinkDivider from '@ecl/eu-specs-list/demo/data--link-divider';
+import demoDescription from '@ecl/eu-specs-list/demo/data--description';
+
+## Ordered list
+
+<Playground system="eu" selectedKind="components-list" selectedStory="ordered">
+  <OrderedListWithData {...demoText} />
+</Playground>
+
+## Unordered list
+
+<Playground
+  system="eu"
+  selectedKind="components-list"
+  selectedStory="unordered"
+>
+  <UnorderedListWithData {...demoText} />
+</Playground>
+
+### Without bullet
+
+<Playground
+  system="eu"
+  selectedKind="components-list"
+  selectedStory="without-bullet"
+  showFrame
+>
+  <UnorderedListWithData {...demoLinkNoBullet} />
+</Playground>
+
+### With dividers
+
+<Playground
+  system="eu"
+  selectedKind="components-list"
+  selectedStory="with-divider"
+  showFrame
+>
+  <UnorderedListWithData {...demoLinkDivider} />
+</Playground>
+
+## Description list
+
+<Playground
+  system="eu"
+  selectedKind="components-list"
+  selectedStory="description"
+>
+  <DescriptionListWithData {...demoDescription} />
+</Playground>
