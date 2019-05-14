@@ -9,6 +9,64 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under Github.
 
+## 2.4.0 (2019-05-14)
+
+#### :rocket: New Feature
+
+- [#1113](https://github.com/ec-europa/europa-component-library/pull/1113) feat(list): add standard list - INNO-1214 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1085](https://github.com/ec-europa/europa-component-library/pull/1085) fix(buttons): remove appearance - INNO-1280 ([@yhuard](https://github.com/yhuard))
+- [#1079](https://github.com/ec-europa/europa-component-library/pull/1079) fix(website): fix "getting started" display - INNO-1439 ([@emeryro](https://github.com/emeryro))
+- [#1077](https://github.com/ec-europa/europa-component-library/pull/1077) fix(language-list): fix demo code and logo alt - no issue ([@yhuard](https://github.com/yhuard))
+- [#1072](https://github.com/ec-europa/europa-component-library/pull/1072) fix(logo): fix typo in EU SV logo - INNO-1435 ([@emeryro](https://github.com/emeryro))
+- [#1063](https://github.com/ec-europa/europa-component-library/pull/1063) fix(gallery): prevent body scroll - INNO-1428 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1111](https://github.com/ec-europa/europa-component-library/pull/1111) feat(typography): update print - INNO-1476 ([@emeryro](https://github.com/emeryro))
+- [#1110](https://github.com/ec-europa/europa-component-library/pull/1110) feat(spacing): add print css - INNO-1475 ([@emeryro](https://github.com/emeryro))
+- [#1109](https://github.com/ec-europa/europa-component-library/pull/1109) feat(radio): add print css - INNO-1473 ([@emeryro](https://github.com/emeryro))
+- [#1102](https://github.com/ec-europa/europa-component-library/pull/1102) feat(message): add print css - INNO-1467 ([@emeryro](https://github.com/emeryro))
+- [#1107](https://github.com/ec-europa/europa-component-library/pull/1107) feat(timeline): add print css - INNO-1472 ([@emeryro](https://github.com/emeryro))
+- [#1105](https://github.com/ec-europa/europa-component-library/pull/1105) feat(social-media-follow): add print css - INNO-1469 ([@emeryro](https://github.com/emeryro))
+- [#1106](https://github.com/ec-europa/europa-component-library/pull/1106) feat(social-media-share): add print css - INNO-1471 ([@emeryro](https://github.com/emeryro))
+- [#1104](https://github.com/ec-europa/europa-component-library/pull/1104) feat(pagination): add print css - INNO-1468 ([@emeryro](https://github.com/emeryro))
+- [#1103](https://github.com/ec-europa/europa-component-library/pull/1103) feat(page-banner): add print css - INNO-1467 ([@emeryro](https://github.com/emeryro))
+- [#1101](https://github.com/ec-europa/europa-component-library/pull/1101) feat(language-list): add print css - INNO-1465 ([@emeryro](https://github.com/emeryro))
+- [#1099](https://github.com/ec-europa/europa-component-library/pull/1099) feat(gallery): add print css - INNO-1463 ([@emeryro](https://github.com/emeryro))
+- [#1100](https://github.com/ec-europa/europa-component-library/pull/1100) feat(hero-banner): add print css - INNO-1464 ([@emeryro](https://github.com/emeryro))
+- [#1098](https://github.com/ec-europa/europa-component-library/pull/1098) feat(file): add print css - INNO-1462 ([@emeryro](https://github.com/emeryro))
+- [#1096](https://github.com/ec-europa/europa-component-library/pull/1096) feat(contextual-navigation): add print css - INNO-1460 ([@emeryro](https://github.com/emeryro))
+- [#1097](https://github.com/ec-europa/europa-component-library/pull/1097) feat(expandable): add print css - INNO-1461 ([@emeryro](https://github.com/emeryro))
+- [#1095](https://github.com/ec-europa/europa-component-library/pull/1095) feat(blockquote): add print css - INNO-1459 ([@emeryro](https://github.com/emeryro))
+- [#1068](https://github.com/ec-europa/europa-component-library/pull/1068) feat(print): add print styles - INNO-1432 ([@emeryro](https://github.com/emeryro))
+- [#1062](https://github.com/ec-europa/europa-component-library/pull/1062) feat(radio): add checked parameter - INNO-1430 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1121](https://github.com/ec-europa/europa-component-library/pull/1121) docs: update page banner usage page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1115](https://github.com/ec-europa/europa-component-library/pull/1115) docs(getting-started): rephrase sentence - INNO-1479 ([@yhuard](https://github.com/yhuard))
+- [#1112](https://github.com/ec-europa/europa-component-library/pull/1112) feat(website): add content to main sections pages - INNO-1454 ([@yhuard](https://github.com/yhuard))
+- [#1071](https://github.com/ec-europa/europa-component-library/pull/1071) docs(print): how to handle print - INNO-1432 ([@emeryro](https://github.com/emeryro))
+- [#1094](https://github.com/ec-europa/europa-component-library/pull/1094) docs: update "getting started" - INNO-1449 ([@yhuard](https://github.com/yhuard))
+- [#1073](https://github.com/ec-europa/europa-component-library/pull/1073) docs(usage-wo2): add documentation pages from v2 to v2-dev ([@degliwe](https://github.com/degliwe))
+- [#1065](https://github.com/ec-europa/europa-component-library/pull/1065) docs(list): rephrase definition ([@degliwe](https://github.com/degliwe))
+
+#### :house: Internal
+
+- [#1120](https://github.com/ec-europa/europa-component-library/pull/1120) chore(storybook): organize stories by "title" - INNO-1483 ([@yhuard](https://github.com/yhuard))
+- [#1119](https://github.com/ec-europa/europa-component-library/pull/1119) chore(website): add link tabs to playground - INNO-1482 ([@yhuard](https://github.com/yhuard))
+- [#1118](https://github.com/ec-europa/europa-component-library/pull/1118) chore(storybook): rename Code into HTML - no issue ([@yhuard](https://github.com/yhuard))
+- [#1117](https://github.com/ec-europa/europa-component-library/pull/1117) chore: add shadow to images - INNO-1481 ([@yhuard](https://github.com/yhuard))
+- [#1116](https://github.com/ec-europa/europa-component-library/pull/1116) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#1114](https://github.com/ec-europa/europa-component-library/pull/1114) feat(storybook): add "code" addon - INNO-1478 ([@yhuard](https://github.com/yhuard))
+- [#1108](https://github.com/ec-europa/europa-component-library/pull/1108) chore: update dependencies - INNO-1474 ([@yhuard](https://github.com/yhuard))
+- [#1093](https://github.com/ec-europa/europa-component-library/pull/1093) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#1086](https://github.com/ec-europa/europa-component-library/pull/1086) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#1067](https://github.com/ec-europa/europa-component-library/pull/1067) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+
 ## 2.3.0 (2019-03-28)
 
 #### :rocket: New Feature
