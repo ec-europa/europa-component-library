@@ -72,6 +72,10 @@ html {
         styles: {
           width: '100%',
           height: '100%',
+          border: 0,
+          margin: 0,
+          boxShadow: 'none',
+          borderRadius: 0,
         },
       },
       ...INITIAL_VIEWPORTS,
