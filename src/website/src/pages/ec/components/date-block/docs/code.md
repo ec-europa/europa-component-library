@@ -12,7 +12,7 @@ import demoPast from '@ecl/ec-specs-date-block/demo/data--past';
 
 Introduction text.
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
+<Playground playgroundLink="/playground/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
   <DateBlock
     weekDay={demoDefault.week_day}
     day={demoDefault.day}
