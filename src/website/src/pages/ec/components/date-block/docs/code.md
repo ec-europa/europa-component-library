@@ -22,7 +22,7 @@ Introduction text.
 
 ## Cancelled
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
+<Playground playgroundLink="/playground/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
   <DateBlock
     variant={demoCancelled.variant}
     weekDay={demoCancelled.week_day}
@@ -33,7 +33,7 @@ Introduction text.
 
 ## Ongoing
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
+<Playground playgroundLink="/playground/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
   <DateBlock
     variant={demoOngoing.variant}
     weekDay={demoOngoing.week_day}
@@ -44,7 +44,7 @@ Introduction text.
 
 ## Past
 
-<Playground playgroundLink="/storybook/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
+<Playground playgroundLink="/playground/ec/index.html?selectedKind=DateBlock&selectedStory=interactive&stories=1">
   <DateBlock
     variant={demoPast.variant}
     weekDay={demoPast.week_day}
