@@ -3,12 +3,22 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
+import parse from 'html-react-parser';
 
 import demoContent from '@ecl/ec-specs-timeline/demo/data';
 
 import VanillaTimeline from '@ecl/ec-component-timeline';
 
-import Timeline from '../src/Timeline';
+import Timeline from '../src/Timeline2';
+
+// Format data
+function formatData(data) {
+  const formattedData = data;
+  for (let i = 0; i < formattedData.items.length; i += 1) {
+    formattedData.items[i].content = parse(formattedData.items[i].content);
+  }
+  return formattedData;
+}
 
 storiesOf('Components|Timeline', module)
   .addDecorator(withKnobs)
@@ -31,4 +41,4 @@ storiesOf('Components|Timeline', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => <Timeline {...demoContent} />);
+  .add('default', () => <Timeline {...formatData(demoContent)} />);
