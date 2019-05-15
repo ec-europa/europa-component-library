@@ -43,3 +43,5 @@ Please fill in the description following the template.
 13. Push the locally-synched `v2` to the remote. This marks the release as complete.
 
 14. Finally, create a GitHub Release with the same text as the changelog generated at step 3. Add "useful links" section. Congratulations!
+
+15. Once the tag is created, drone will publish the assets on the CDN. Don't forget to update the release note, the root `README.md`, `src/website/src/pages/ec/getting-started/index.md` and `src/website/src/pages/eu/getting-started/index.md` with the new SRI hashes
