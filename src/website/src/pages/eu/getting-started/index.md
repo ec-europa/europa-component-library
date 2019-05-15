@@ -55,3 +55,5 @@ New components are continuously being added to the library. The team is also con
 
 - Copy the markup from the template you want and paste it in the `<body>`.
 - Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/eu-preset-website/images` folder.
+
+Note: if you want to use another ECL preset or another version, you will find all the useful information on https://github.com/ec-europa/europa-component-library/releases.
