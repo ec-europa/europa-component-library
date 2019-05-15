@@ -62,6 +62,9 @@ export class Timeline {
     this.toggle.setAttribute('aria-expanded', !isExpanded);
     if (isExpanded) {
       this.element.removeAttribute('data-ecl-timeline-expanded');
+      // Scroll up to the toggle
+      this.toggle.blur();
+      this.toggle.focus();
     } else {
       this.element.setAttribute('data-ecl-timeline-expanded', true);
     }
