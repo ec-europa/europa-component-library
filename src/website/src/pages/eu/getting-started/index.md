@@ -17,16 +17,6 @@ New components are continuously being added to the library. The team is also con
 
 ## How to use templates
 
-### 1. Download the framework
-
-- Go to https://github.com/ec-europa/europa-component-library/releases.
-- Pick the latest v2 release.
-- In the "useful links" section, download the `@ecl/eu-preset-full` package tarball.
-- Uncompress the package.
-
-### 2. Create a template page
-
-- In the uncompressed package, go to `/dist`.
 - Create an `index.html` file as follows:
 
 ```html
@@ -35,17 +25,26 @@ New components are continuously being added to the library. The team is also con
     <meta charset="utf-8" />
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <link href="favicon.ico?v=1" rel="shortcut icon" />
     <link
-      type="text/css"
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/eu-preset-website/styles/ecl-eu-preset-website.css"
+      integrity="sha384-5zLAMjEkFlOHIx4+RvoX6z5DnYMviB0e7SJ2ysyCRoDHp+31JiC49uneWIkvP+xy sha512-7nWfVraZ2g5uiqlvaam1UJAul/gwldt5CW3gVusnfmWuVzf/4stX0BtTuj2IeYEJytns5NwuCOGTGQdIXBzz3g=="
+      crossorigin="anonymous"
       rel="stylesheet"
-      href="styles/ecl-eu-preset-full.css"
-      media="all"
+      media="screen"
+    />
+    <link
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
+      integrity="sha384-9G6H0T2iDaC1GZQID9JXw+Iey0f8oedLEOChnYVSQiG11JD7PCWKgemSRup+emOC sha512-RFB0KGsxcB10Fq3+jkDqMyBtCF+FSgQJf7xXQMuVy2+dRoSwyKbDbBN+aLdPMiOUcdscEJtNMMjVJ66R+s3IYQ=="
+      crossorigin="anonymous"
+      rel="stylesheet"
+      media="print"
     />
     <script
       type="text/javascript"
+      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
+      integrity="sha384-68ApS7gwaSDa4QPvdJUquUwJQWSTs6AqEI9K0SO0PygvHI8TY6TqiXjOsxlHDwCl sha512-+YRGTwXMX/7Z/leJkulGQawIq4k3iyCImN9E0x2jwAXxBrDNjw3da5SmwS0IV8ewc3D7bmu2P6h1pooJlcJghA=="
+      crossorigin="anonymous"
       defer
-      src="scripts/ecl-eu-preset-full.js"
     ></script>
   </head>
   <body>
@@ -55,4 +54,6 @@ New components are continuously being added to the library. The team is also con
 ```
 
 - Copy the markup from the template you want and paste it in the `<body>`.
-- Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `images` folder.
+- Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/eu-preset-website/images` folder.
+
+Note: if you want to use another ECL preset or another version, you will find all the useful information on https://github.com/ec-europa/europa-component-library/releases.

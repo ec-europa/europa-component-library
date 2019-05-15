@@ -23,12 +23,12 @@ addParameters({
   cssresources: [
     {
       id: 'ecl-screen',
-      code: `<link rel="stylesheet" type="text/css" href="/storybook/ec/styles/ecl-ec-preset-website.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="/playground/ec/styles/ecl-ec-preset-website.css" />`,
       picked: true,
     },
     {
       id: 'ecl-print',
-      code: `<link rel="stylesheet" type="text/css" href="/storybook/ec/styles/ecl-ec-preset-website-print.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="/playground/ec/styles/ecl-ec-preset-website-print.css" />`,
       picked: false,
     },
     {
@@ -67,6 +67,17 @@ html {
   viewport: {
     defaultViewport: 'iphone6',
     viewports: {
+      responsive: {
+        name: 'Responsive',
+        styles: {
+          width: '100%',
+          height: '100%',
+          border: 0,
+          margin: 0,
+          boxShadow: 'none',
+          borderRadius: 0,
+        },
+      },
       ...INITIAL_VIEWPORTS,
       '1366x768': {
         name: '1366x768',
@@ -81,13 +92,6 @@ html {
         styles: {
           width: '1920px',
           height: '1080px',
-        },
-      },
-      responsive: {
-        name: 'Responsive',
-        styles: {
-          width: '100%',
-          height: '100%',
         },
       },
     },
