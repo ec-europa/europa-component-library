@@ -25,6 +25,34 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
 - download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
 - install the preset with npm or yarn, e.g. `npm install @ecl/ec-preset-website` or `yarn add @ecl/ec-preset-website`
+- use the CDN, https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{preset}/{path/to/the/asset}. Here's an example:
+
+  ```html
+  <link
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/ec-preset-website/styles/ecl-ec-preset-website.css"
+    integrity="sha384-nb57pSNZ8SdoCJfR0kd7cRDU/q/H1gKBBZj9iR6096td39nw0BWHEcsb4m/ogSYz sha512-khqgwYc2DeT8mj7cxAiG7/SRMk5Zx+cW+tYrSuWCbCg5DeUEO1b6YJ1fiGQsx7Q7w7Uq9sOyUwx0L4lyRA1J7w=="
+    crossorigin="anonymous"
+    rel="stylesheet"
+    media="screen"
+  />
+  <link
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
+    integrity="sha384-t8XVOKmAEnpPmAhZebBvPkaixFgGLH8vfA3MQJwdb0di3dRAEnxRqoaeBkXeKcV5 sha512-aVqrEANxMFU8kViGrMZW3ALvERbe5BNg/nFp7ANPDfZKkEdBzE6F1DBTKy8w/kE7OFdO24SDTvu/UX+VY8E1Hg=="
+    crossorigin="anonymous"
+    rel="stylesheet"
+    media="print"
+  />
+  ```
+
+  ```html
+  <script
+    type="text/javascript"
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.4.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
+    integrity="sha384-5CuwKi5h/sBH+kpOJEzbNk/rB/hwv8myHtDL2XPm4Nx70NjMw0WlyInUh1mkRBcm sha512-V+e05PY3JSOMNSBSjtRH655Pq2QI806KzkIhaMLVTMs6ya920IZCRT7lxCmXMJNZK1lUeNcdH6ExRMF8EICCjQ=="
+    crossorigin="anonymous"
+    defer
+  ></script>
+  ```
 
 ## Need help?
 
