@@ -36,7 +36,41 @@
   }
 }
 
+/*
+* @define timeline2
+*/
+@mixin ecl-timeline2-print() {
+  .ecl-timeline2 {
+    font: $ecl-font-print-m;
+    margin: 0;
+  }
+
+  .ecl-timeline2__item {
+    margin-top: $ecl-spacing-print-xs;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-timeline2__label {
+    color: $ecl-color-black-100;
+    font: $ecl-font-print-m;
+    font-weight: $ecl-font-weight-print-bold;
+  }
+
+  .ecl-timeline2__content {
+    color: $ecl-color-black-100;
+    font: $ecl-font-prolonged-print-m;
+  }
+
+  .ecl-timeline2__item--toggle {
+    display: none;
+  }
+}
+
 // Use mixin
 @include exports('ec-component-timeline-print') {
   @include ecl-timeline-print();
+  @include ecl-timeline2-print();
 }

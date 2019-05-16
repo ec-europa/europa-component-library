@@ -182,8 +182,7 @@ module.exports = {
     {
       id: '28',
       label: '13-14 December 2018',
-      content:
-        'European Council and Euro Summit<a href="/example" class="ecl-link"></a>',
+      content: 'European Council and Euro Summit',
     },
   ],
 };
