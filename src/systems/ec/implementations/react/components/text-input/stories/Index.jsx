@@ -7,7 +7,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
 
 import TextInput from '../src/TextInput';
 
-storiesOf('Components|Forms/TextInput', module)
+storiesOf('Components|Forms/Text field', module)
   .addDecorator(withKnobs)
   .add('default', () => (
     <TextInput
