@@ -8,9 +8,10 @@ import styles from './DoDont.scss';
 const DoDont = ({ itemDo, itemDont }) => (
   <div className={styles.dodont}>
     <div className={styles.do}>
-      <div className={styles.image}>
-        <img src={itemDo.image} alt={itemDo.alt} />
+      <div className={styles.imageContainer}>
+        <img className={styles.image} src={itemDo.image} alt={itemDo.alt} />
       </div>
+      <div className={styles.separator} />
       <div className={styles.container}>
         <div className={styles.title}>
           <svg
@@ -27,9 +28,10 @@ const DoDont = ({ itemDo, itemDont }) => (
     </div>
 
     <div className={styles.dont}>
-      <div className={styles.image}>
-        <img src={itemDont.image} alt={itemDont.alt} />
+      <div className={styles.imageContainer}>
+        <img className={styles.image} src={itemDont.image} alt={itemDont.alt} />
       </div>
+      <div className={styles.separator} />
       <div className={styles.container}>
         <div className={styles.title}>
           <svg

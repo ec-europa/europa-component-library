@@ -1,28 +1,75 @@
 @import '@ecl/ec-theme-default/index';
 
+.dodont {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
 * + .dodont {
   margin-top: $ecl-spacing-l;
 }
+
+.do,
+.dont {
+  box-sizing: border-box;
+  min-height: 1px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  width: 100%;
+
+  @media screen and (min-width: $ecl-breakpoint-md) {
+    display: flex;
+    flex: 0 0 50%;
+    flex-direction: column;
+    justify-content: stretch;
+    max-width: 50%;
+  }
+}
+
 .dont {
   margin-top: $ecl-spacing-m;
+
+  @media screen and (min-width: $ecl-breakpoint-md) {
+    margin-top: 0;
+  }
+}
+
+.imageContainer {
+  align-items: center;
+  border: 1px solid $ecl-color-grey-15;
+  border-bottom-width: 0;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
 }
 
 .image {
-  align-items: center;
-  background-color: $ecl-color-grey-5;
-  border-left: 8px solid transparent;
-  display: flex;
-  justify-content: center;
+  max-width: 100%;
 }
-.do .image {
-  border-left-color: $ecl-color-success;
+
+.separator {
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 0.5rem;
+  width: 100%;
 }
-.dont .image {
-  border-left-color: $ecl-color-error;
+
+.do .separator {
+  background-color: $ecl-color-success;
+}
+.dont .separator {
+  background-color: $ecl-color-error;
 }
 
 .container {
-  border: 1px solid $ecl-color-grey-15;
+  background-color: $ecl-color-grey-5;
+  flex-grow: 1;
+  flex-shrink: 0;
   padding: $ecl-spacing-m $ecl-spacing-l;
 }
 
@@ -49,10 +96,4 @@
   color: $ecl-color-grey-100;
   font: $ecl-font-prolonged-m;
   margin-top: $ecl-spacing-xs;
-}
-
-@media screen and (min-width: $ecl-breakpoint-sm) {
-  .dont {
-    margin-top: $ecl-spacing-l;
-  }
 }
