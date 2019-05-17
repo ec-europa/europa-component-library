@@ -1,5 +1,5 @@
 ---
-title: Text input
+title: Text field
 defaultTab: usage
 status: ready
 ---

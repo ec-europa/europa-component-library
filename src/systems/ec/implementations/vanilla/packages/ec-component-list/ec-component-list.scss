@@ -15,9 +15,9 @@
   .ecl-ordered-list {
     color: $text-color;
     font: $ecl-font-prolonged-m;
+    list-style-position: outside;
     margin: 0;
-    // Approximately centered bullet
-    padding-left: calc((#{$ecl-spacing-s} * 2) + 0.3em);
+    padding-left: $ecl-spacing-2-xl;
   }
 
   .ecl-ordered-list .ecl-ordered-list {
@@ -43,9 +43,9 @@
   .ecl-unordered-list {
     color: $text-color;
     font: $ecl-font-prolonged-m;
+    list-style-position: outside;
     margin: 0;
-    // Approximately centered bullet
-    padding-left: calc((#{$ecl-spacing-s} * 2) + 0.3em);
+    padding-left: $ecl-spacing-2-xl;
   }
 
   .ecl-unordered-list .ecl-unordered-list {
