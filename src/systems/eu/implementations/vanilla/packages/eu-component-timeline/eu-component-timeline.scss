@@ -106,8 +106,9 @@
   $bullet-border-width: 0.25rem,
   $toggle-bullet-border-color: $ecl-color-grey-25,
   $toggle-bullet-border-width: 0.125rem,
+  $title-color: $ecl-color-black-100,
   $label-color: $ecl-color-grey-100,
-  $content-color: $ecl-color-grey-100
+  $content-color: $ecl-color-grey-75
 ) {
   // Timeline structure
   .ecl-timeline2 {
@@ -139,12 +140,13 @@
       background-color: $bullet-fill-color;
       border: $bullet-border-width solid $bullet-border-color;
       border-radius: 50%;
+      box-sizing: border-box;
       content: '';
-      height: $bullet-size;
+      height: $bullet-size + ($bullet-border-width * 2);
       left: -(($bullet-size / 2) + $bullet-border-width);
       position: absolute;
       top: $ecl-spacing-xs;
-      width: $bullet-size;
+      width: $bullet-size + ($bullet-border-width * 2);
     }
   }
 
@@ -168,10 +170,10 @@
 
     &::after {
       border: $toggle-bullet-border-width solid $toggle-bullet-border-color;
-      height: $bullet-size +
-        ($bullet-border-width - $toggle-bullet-border-width);
+      box-sizing: border-box;
+      height: $bullet-size + ($bullet-border-width * 2);
       top: $ecl-spacing-xs + $ecl-spacing-s;
-      width: $bullet-size + ($bullet-border-width - $toggle-bullet-border-width);
+      width: $bullet-size + ($bullet-border-width * 2);
     }
 
     .no-js & {
@@ -203,15 +205,22 @@
   }
 
   // Timeline data
+  .ecl-timeline2__title {
+    color: $title-color;
+    font: $ecl-font-m;
+    font-weight: $ecl-font-weight-bold;
+    margin-bottom: $ecl-spacing-xs;
+  }
+
   .ecl-timeline2__label {
     color: $label-color;
     font: $ecl-font-m;
+    margin-bottom: $ecl-spacing-s;
   }
 
   .ecl-timeline2__content {
     color: $content-color;
     font: $ecl-font-m;
-    margin-top: $ecl-spacing-s;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -220,14 +229,11 @@
       font-weight: $ecl-font-weight-bold;
       left: -($left-spacing + $ecl-spacing-m + ($bullet-size / 2) +
             $bullet-border-width);
+      margin-bottom: 0;
       position: absolute;
       text-align: right;
       top: $ecl-spacing-xs;
       width: $left-spacing;
-    }
-
-    .ecl-timeline2__content {
-      margin-top: 0;
     }
   }
 

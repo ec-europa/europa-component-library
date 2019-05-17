@@ -16,6 +16,7 @@ module.exports = {
     {
       id: '0',
       label: '13 September 2017',
+      title: 'Item title',
       content:
         '<a href="/example" class="ecl-link">President Juncker\'s State of the Union speech</a>',
     },
@@ -182,6 +183,7 @@ module.exports = {
     {
       id: '28',
       label: '13-14 December 2018',
+      title: 'Item title',
       content: 'European Council and Euro Summit',
     },
   ],

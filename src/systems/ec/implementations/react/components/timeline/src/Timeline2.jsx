@@ -48,7 +48,7 @@ const Timeline = ({
       {items.map((item, index) => (
         <Fragment key={item.id}>
           <TimelineItem
-            label={item.label}
+            {...item}
             className={classnames({
               [`ecl-timeline2__item--collapsed`]:
                 index >= threshold && index < items.length - 2,

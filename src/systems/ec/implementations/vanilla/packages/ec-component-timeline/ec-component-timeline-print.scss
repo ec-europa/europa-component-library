@@ -41,6 +41,7 @@
 */
 @mixin ecl-timeline2-print() {
   .ecl-timeline2 {
+    color: $ecl-color-black-100;
     font: $ecl-font-print-m;
     margin: 0;
   }
@@ -57,6 +58,13 @@
     color: $ecl-color-black-100;
     font: $ecl-font-print-m;
     font-weight: $ecl-font-weight-print-bold;
+  }
+
+  .ecl-timeline2__title {
+    color: $ecl-color-black-100;
+    font: $ecl-font-prolonged-print-m;
+    font-weight: $ecl-font-weight-print-bold;
+    margin-top: $ecl-spacing-print-xs;
   }
 
   .ecl-timeline2__content {

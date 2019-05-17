@@ -4,7 +4,7 @@ export class Timeline {
   constructor(
     element,
     {
-      toggleSelector: toggleSelector = '[data-ecl-timeline-button]',
+      buttonSelector: buttonSelector = '[data-ecl-timeline-button]',
       labelSelector: labelSelector = '[data-ecl-label]',
       labelExpanded: labelExpanded = 'data-ecl-label-expanded',
       labelCollapsed: labelCollapsed = 'data-ecl-label-collapsed',
@@ -21,50 +21,50 @@ export class Timeline {
     this.element = element;
 
     // Options
-    this.toggleSelector = toggleSelector;
+    this.buttonSelector = buttonSelector;
     this.labelSelector = labelSelector;
     this.labelExpanded = labelExpanded;
     this.labelCollapsed = labelCollapsed;
     this.attachClickListener = attachClickListener;
 
     // Private variables
-    this.toggle = null;
+    this.button = null;
     this.label = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickOnToggle = this.handleClickOnToggle.bind(this);
+    this.handleClickOnButton = this.handleClickOnButton.bind(this);
   }
 
   init() {
     // Query elements
-    this.toggle = queryOne(this.toggleSelector, this.element);
+    this.button = queryOne(this.buttonSelector, this.element);
 
     // Get label, if any
     this.label = queryOne(this.labelSelector, this.element);
 
-    // Bind click event on toggle
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.addEventListener('click', this.handleClickOnToggle);
+    // Bind click event on button
+    if (this.attachClickListener && this.button) {
+      this.button.addEventListener('click', this.handleClickOnButton);
     }
   }
 
   destroy() {
-    if (this.attachClickListener && this.toggle) {
-      this.toggle.removeEventListener('click', this.handleClickOnToggle);
+    if (this.attachClickListener && this.button) {
+      this.button.removeEventListener('click', this.handleClickOnButton);
     }
   }
 
-  handleClickOnToggle() {
+  handleClickOnButton() {
     // Get current status
-    const isExpanded = this.toggle.getAttribute('aria-expanded') === 'true';
+    const isExpanded = this.button.getAttribute('aria-expanded') === 'true';
 
     // Toggle the expandable/collapsible
-    this.toggle.setAttribute('aria-expanded', !isExpanded);
+    this.button.setAttribute('aria-expanded', !isExpanded);
     if (isExpanded) {
       this.element.removeAttribute('data-ecl-timeline-expanded');
-      // Scroll up to the toggle
-      this.toggle.blur();
-      this.toggle.focus();
+      // Scroll up to the button
+      this.button.blur();
+      this.button.focus();
     } else {
       this.element.setAttribute('data-ecl-timeline-expanded', true);
     }
@@ -73,15 +73,15 @@ export class Timeline {
     if (
       this.label &&
       !isExpanded &&
-      this.toggle.hasAttribute(this.labelExpanded)
+      this.button.hasAttribute(this.labelExpanded)
     ) {
-      this.label.innerHTML = this.toggle.getAttribute(this.labelExpanded);
+      this.label.innerHTML = this.button.getAttribute(this.labelExpanded);
     } else if (
       this.label &&
       isExpanded &&
-      this.toggle.hasAttribute(this.labelCollapsed)
+      this.button.hasAttribute(this.labelCollapsed)
     ) {
-      this.label.innerHTML = this.toggle.getAttribute(this.labelCollapsed);
+      this.label.innerHTML = this.button.getAttribute(this.labelCollapsed);
     }
 
     // Retro compatibility
