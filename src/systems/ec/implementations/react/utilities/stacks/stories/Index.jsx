@@ -97,29 +97,33 @@ storiesOf('Utilities|Stacks', module)
 
     const fixedContainer = boolean('Fixed container', false, 'Container');
 
-    const containerWidth = number(
-      'Container width (rem)',
-      25,
-      {
-        range: true,
-        min: 15,
-        max: 35,
-        step: 1,
-      },
-      'Container'
-    );
+    let containerWidth;
+    let containerHeight;
+    if (fixedContainer) {
+      containerWidth = number(
+        'Container width (rem)',
+        25,
+        {
+          range: true,
+          min: 15,
+          max: 35,
+          step: 1,
+        },
+        'Container'
+      );
 
-    const containerHeight = number(
-      'Container height (rem)',
-      25,
-      {
-        range: true,
-        min: 15,
-        max: 35,
-        step: 1,
-      },
-      'Container'
-    );
+      containerHeight = number(
+        'Container height (rem)',
+        25,
+        {
+          range: true,
+          min: 15,
+          max: 35,
+          step: 1,
+        },
+        'Container'
+      );
+    }
 
     const shrink = boolean('Shrink', false, 'Items');
     const grow = boolean('Grow', false, 'Items');

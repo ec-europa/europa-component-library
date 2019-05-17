@@ -1,0 +1,167 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+
+To start using the stack utilities, make sure the container has `display: flex` or `display: inline-flex`. You can use the `.ecl-u-d-inline-flex` or `.ecl-u-d-inline-flex` classes for this.
+
+<Playground system="ec" selectedKind="utilities-stacks" selectedStory="custom">
+  <div className="demo-container ecl-u-d-flex">Flex container</div>
+  <div className="demo-container ecl-u-d-inline-flex">
+    Inline flex container
+  </div>
+</Playground>
+
+Then you can start adding items to the container:
+
+<Playground system="ec" selectedKind="utilities-stacks" selectedStory="custom">
+  <div className="demo-container ecl-u-d-flex">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+</Playground>
+
+## Direction
+
+The first propery you can set on the flex container is the direction. There are 4 possibilites:
+
+- Row: `.ecl-u-flex-row` (default)
+- Row reverse: `.ecl-u-flex-row-reverse`
+- Column: `.ecl-u-flex-column`
+- Column reverse: `.ecl-u-flex-column-reverse`
+
+<Playground system="ec" selectedKind="utilities-stacks" selectedStory="custom">
+  <div className="demo-container ecl-u-d-flex ecl-u-flex-row">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container ecl-u-d-flex ecl-u-flex-row-reverse">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container ecl-u-d-flex ecl-u-flex-column">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container ecl-u-d-flex ecl-u-flex-column-reverse">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+</Playground>
+
+## Wrap
+
+You can decide to not wrap the items (the flex container is single-line) or to wrap them (the flex container is multi-line)
+
+- No wrap: `.ecl-u-flex-nowrap` (default)
+- Wrap: `.ecl-u-flex-wrap`
+- Wrap reverse: `.ecl-u-flex-wrap-reverse`
+
+<Playground system="ec" selectedKind="utilities-stacks" selectedStory="custom">
+  <div className="demo-container demo-container--small ecl-u-d-flex ecl-u-flex-nowrap">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+    <div className="demo-box">Item 4</div>
+    <div className="demo-box">Item 5</div>
+    <div className="demo-box">Item 6</div>
+    <div className="demo-box">Item 7</div>
+  </div>
+  <div className="demo-container demo-container--small ecl-u-d-flex ecl-u-flex-wrap">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+    <div className="demo-box">Item 4</div>
+    <div className="demo-box">Item 5</div>
+    <div className="demo-box">Item 6</div>
+    <div className="demo-box">Item 7</div>
+  </div>
+  <div className="demo-container demo-container--small ecl-u-d-flex ecl-u-flex-wrap-reverse">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+    <div className="demo-box">Item 4</div>
+    <div className="demo-box">Item 5</div>
+    <div className="demo-box">Item 6</div>
+    <div className="demo-box">Item 7</div>
+  </div>
+</Playground>
+
+## Alignment (main axis)
+
+- `.ecl-u-justify-content-start`
+- `.ecl-u-justify-content-end`
+- `.ecl-u-justify-content-center`
+- `.ecl-u-justify-content-between`
+- `.ecl-u-justify-content-around`
+
+<Playground system="ec" selectedKind="utilities-stacks" selectedStory="custom">
+  <div className="demo-container ecl-u-d-flex ecl-u-justify-content-start">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container ecl-u-d-flex ecl-u-justify-content-end">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container ecl-u-d-flex ecl-u-justify-content-center">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container ecl-u-d-flex ecl-u-justify-content-between">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container ecl-u-d-flex ecl-u-justify-content-around">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+</Playground>
+
+## Alignment (cross axis)
+
+- `.ecl-u-align-items-start`
+- `.ecl-u-align-items-end`
+- `.ecl-u-align-items-center`
+- `.ecl-u-align-items-baseline`
+- `.ecl-u-align-items-stretch`
+
+<Playground system="ec" selectedKind="utilities-stacks" selectedStory="custom">
+  <div className="demo-container demo-container--fixed-height ecl-u-d-flex ecl-u-align-items-start">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container demo-container--fixed-height ecl-u-d-flex ecl-u-align-items-end">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container demo-container--fixed-height ecl-u-d-flex ecl-u-align-items-center">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container demo-container--fixed-height ecl-u-d-flex ecl-u-align-items-baseline">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+  <div className="demo-container demo-container--fixed-height ecl-u-d-flex ecl-u-align-items-stretch">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+</Playground>
