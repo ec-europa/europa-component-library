@@ -316,3 +316,35 @@ Available utilities include:
     <div className="demo-box">Item 9</div>
   </div>
 </Playground>
+
+## Growing and shrinking items
+
+You can use the `.ecl-u-flex-grow-0` (default behaviour) and `.ecl-u-flex-grow-1` on flex items to decide whether or not these items should grow to fill available space.
+
+In the example below, we use `.ecl-u-flex-grow-1` on the second item:
+
+<Playground>
+  <div className="demo-container ecl-u-d-flex">
+    <div className="demo-box">Item 1</div>
+    <div className="demo-box ecl-u-flex-grow-1">Item 2</div>
+    <div className="demo-box">Item 3</div>
+  </div>
+</Playground>
+
+In the same spirit, you can use `.ecl-u-flex-shrink-0` and `.ecl-u-flex-shrink-1` (default behaviour) to toggle an item's ability to shrink if necessary.
+
+In the example below, we use `.ecl-u-flex-shrink-0` on the second item:
+
+<Playground>
+  <div className="demo-container ecl-u-d-flex">
+    <div className="demo-box">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam.
+    </div>
+    <div className="demo-box ecl-u-flex-shrink-0">
+      Item 2: it doesn't shrink
+    </div>
+    <div className="demo-box">Item 3: this one shrinks too</div>
+  </div>
+</Playground>
