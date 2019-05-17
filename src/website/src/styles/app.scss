@@ -38,8 +38,18 @@
     width: 14rem;
   }
 
-  .demo-container--fixed-height {
+  .demo-container--default-height-small {
     height: 6rem;
+  }
+
+  .demo-container--default-height-long {
+    height: 12rem;
+  }
+
+  .demo-container--resizable {
+    max-width: 100%;
+    overflow: auto;
+    resize: both;
   }
 
   * + .demo-container {
