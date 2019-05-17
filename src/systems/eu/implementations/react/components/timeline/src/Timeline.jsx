@@ -49,7 +49,7 @@ export default class Timeline extends React.Component {
         data-ecl-timeline
       >
         {items.map((item, index) => (
-          <Fragment key={item.label}>
+          <Fragment key={item.id}>
             <TimelineItem
               label={item.label}
               className={classnames({
