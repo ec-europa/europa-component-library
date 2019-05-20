@@ -41,7 +41,19 @@
 
 .button {
   appearance: none;
+  background-color: transparent;
+  border-width: 0;
   padding: $ecl-spacing-s;
+}
+
+.button:hover,
+.button:focus {
+  background-color: $ecl-color-grey-10;
+  outline: none;
+}
+
+.button:active {
+  background-color: $ecl-color-grey-25;
 }
 
 .icon {
