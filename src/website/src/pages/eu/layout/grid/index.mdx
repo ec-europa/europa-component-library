@@ -1,10 +1,10 @@
 ---
 title: Grid
-order: 3
+status: ready
 ---
 
 import DisplayTokens from '@ecl/website-components/DisplayTokens';
-import tokens from '@ecl/ec-theme-default/exports/tokens.json';
+import tokens from '@ecl/eu-theme-default/exports/tokens.json';
 
 The ECL Grid is a simplified version of the [Bootstrap Grid](https://getbootstrap.com/docs/4.1/layout/grid/).
 
@@ -16,16 +16,8 @@ Moreover, `.ecl-col, .ecl-col-sm, ...` without the number of columns is not allo
 
 ## Breakpoints
 
-There are four breakpoints in our responsive grid
-
 <DisplayTokens tokens={tokens} category="breakpoints" />
 
 ## Grid
 
-The ECL grid uses a 12 column as the basic underlying structure for all web pages. The width of the columns is adaptable to the width of the screen size.
-
-Gutters are the gaps between the columns. Our grid contains 11 gutters of 2rems (between each column) and 1 more gutter divided in half between the first and the last column.
-
 <DisplayTokens tokens={tokens} category="grid" />
-
-![An image of a grid](https://inno-ecl.s3.amazonaws.com/media/images/EC/Grid/Grid.svg)
