@@ -113,7 +113,7 @@ class App extends React.Component {
         <Router basename={`${process.env.PUBLIC_URL}/`}>
           <Fragment>
             <Helmet
-              titleTemplate="%s - ECL 2.0"
+              titleTemplate="%s - ECL v2"
               defaultTitle="Europa Component Library"
             />
             <MainRoutes />
