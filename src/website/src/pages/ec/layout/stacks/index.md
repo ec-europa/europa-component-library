@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/utilities-stacks--custom
+  path: /story/layout-stacks--custom
 ---

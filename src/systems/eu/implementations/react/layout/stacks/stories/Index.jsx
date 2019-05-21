@@ -24,7 +24,7 @@ const Box = ({ width, shrink, grow, ...props }) => (
   />
 );
 
-storiesOf('Utilities|Stacks', module)
+storiesOf('Layout|Stacks', module)
   .addParameters({
     viewport: {
       defaultViewport: 'responsive',
