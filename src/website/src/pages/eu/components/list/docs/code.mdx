@@ -4,20 +4,16 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import OrderedListWithData from '@ecl/eu-react-component-list/src/OrderedListWithData';
-import UnorderedListWithData from '@ecl/eu-react-component-list/src/UnorderedListWithData';
-import DescriptionListWithData from '@ecl/eu-react-component-list/src/DescriptionListWithData';
-
-import demoText from '@ecl/eu-specs-list/demo/data--text';
-import demoLink from '@ecl/eu-specs-list/demo/data--link';
-import demoLinkNoBullet from '@ecl/eu-specs-list/demo/data--link-no-bullet';
-import demoLinkDivider from '@ecl/eu-specs-list/demo/data--link-divider';
-import demoDescription from '@ecl/eu-specs-list/demo/data--description';
+import OrderedExample from '@ecl/eu-react-component-list/examples/Ordered';
+import UnorderedExample from '@ecl/eu-react-component-list/examples/Unordered';
+import UnorderedWithoutBulletExample from '@ecl/eu-react-component-list/examples/UnorderedWithoutBullet';
+import UnorderedWithDividerExample from '@ecl/eu-react-component-list/examples/UnorderedWithDivider';
+import DescriptionExample from '@ecl/eu-react-component-list/examples/Description';
 
 ## Ordered list
 
 <Playground system="eu" selectedKind="components-list" selectedStory="ordered">
-  <OrderedListWithData {...demoText} />
+  <OrderedExample />
 </Playground>
 
 ## Unordered list
@@ -27,7 +23,7 @@ import demoDescription from '@ecl/eu-specs-list/demo/data--description';
   selectedKind="components-list"
   selectedStory="unordered"
 >
-  <UnorderedListWithData {...demoText} />
+  <UnorderedExample />
 </Playground>
 
 ### Without bullet
@@ -36,9 +32,8 @@ import demoDescription from '@ecl/eu-specs-list/demo/data--description';
   system="eu"
   selectedKind="components-list"
   selectedStory="without-bullet"
-  showFrame
 >
-  <UnorderedListWithData {...demoLinkNoBullet} />
+  <UnorderedWithoutBulletExample />
 </Playground>
 
 ### With dividers
@@ -47,9 +42,8 @@ import demoDescription from '@ecl/eu-specs-list/demo/data--description';
   system="eu"
   selectedKind="components-list"
   selectedStory="with-divider"
-  showFrame
 >
-  <UnorderedListWithData {...demoLinkDivider} />
+  <UnorderedWithDividerExample />
 </Playground>
 
 ## Description list
@@ -59,5 +53,5 @@ import demoDescription from '@ecl/eu-specs-list/demo/data--description';
   selectedKind="components-list"
   selectedStory="description"
 >
-  <DescriptionListWithData {...demoDescription} />
+  <DescriptionExample />
 </Playground>
