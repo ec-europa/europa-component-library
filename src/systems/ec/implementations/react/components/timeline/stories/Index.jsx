@@ -3,25 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-import parse from 'html-react-parser';
 import { LoremIpsum } from 'lorem-ipsum';
-
-import demoContent from '@ecl/ec-specs-timeline/demo/data';
-
 import VanillaTimeline from '@ecl/ec-component-timeline';
 
-import Timeline from '../src/Timeline2';
-
-// Format data
-function formatData(data) {
-  const formattedData = data;
-  for (let i = 0; i < formattedData.items.length; i += 1) {
-    if (typeof formattedData.items[i].content === 'string') {
-      formattedData.items[i].content = parse(formattedData.items[i].content);
-    }
-  }
-  return formattedData;
-}
+import TimelineExample from '../examples/Timeline2';
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -69,5 +54,5 @@ storiesOf('Components|Timeline', module)
 
     button('Add dummy content', btnAddContent, 'buttons');
 
-    return <Timeline {...formatData(demoContent)} />;
+    return <TimelineExample />;
   });
