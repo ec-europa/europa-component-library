@@ -1,5 +1,5 @@
 ---
-title: Standard page
+title: Standard
 defaultTab: usage
 status: ready
 playground:

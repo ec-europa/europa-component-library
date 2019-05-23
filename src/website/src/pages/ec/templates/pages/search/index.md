@@ -1,5 +1,5 @@
 ---
-title: Search page
+title: Search
 defaultTab: usage
 status: ready
 playground:

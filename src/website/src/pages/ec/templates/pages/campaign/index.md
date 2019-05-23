@@ -1,5 +1,5 @@
 ---
-title: Campaign page
+title: Campaign
 defaultTab: usage
 status: ready
 playground:
