@@ -4,9 +4,9 @@ import { storiesOf } from '@storybook/react';
 import StoryWrapper from '@ecl/story-wrapper';
 import createFocusTrap from 'focus-trap';
 
-import StandardPageExample from '../examples/Default';
+import CampaignPageExample from '../examples/Default';
 
-storiesOf('Templates|Standard page', module)
+storiesOf('Templates|Pages', module)
   .addDecorator(story => {
     function toggleOverlay(e) {
       e.preventDefault();
@@ -65,4 +65,4 @@ storiesOf('Templates|Standard page', module)
       </StoryWrapper>
     );
   })
-  .add('default', StandardPageExample);
+  .add('Campaign', CampaignPageExample);

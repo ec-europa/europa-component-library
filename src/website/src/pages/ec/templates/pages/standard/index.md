@@ -4,5 +4,5 @@ defaultTab: usage
 status: ready
 playground:
   system: ec
-  path: /story/templates-standard-page--default
+  path: /story/templates-pages--standard
 ---
