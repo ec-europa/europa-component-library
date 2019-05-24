@@ -8,11 +8,13 @@ export default () => (
       <Link
         href="#example"
         className="ecl-link--standalone"
-        label="Title of the section"
+        label="Page title section (child A)"
       />
     </h2>
     <p className="ecl-u-mb-none ecl-u-mt-m ecl-u-color-shade ecl-u-type-paragraph">
       Child summary section.
+      <br />
+      Short description of the child A page.
     </p>
     <UnorderedList variant="no-bullet" className="ecl-u-mt-m">
       <UnorderedListItem>
