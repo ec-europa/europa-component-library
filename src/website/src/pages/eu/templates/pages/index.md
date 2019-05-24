@@ -1,0 +1,4 @@
+---
+title: Pages
+type: group
+---

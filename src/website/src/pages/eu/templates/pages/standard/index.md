@@ -1,9 +1,9 @@
 ---
-title: Standard page
+title: Standard
 defaultTab: usage
 status: ready
 hidden: true
 playground:
   system: eu
-  path: /story/templates-standard-page--default
+  path: /story/templates-pages--standard
 ---
