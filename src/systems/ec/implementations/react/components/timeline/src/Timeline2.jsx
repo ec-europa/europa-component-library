@@ -45,23 +45,25 @@ const Timeline = ({
 
   return (
     <ol {...props} className={classNames} data-ecl-timeline>
-      {items.map((item, index) => (
-        <Fragment key={item.id}>
-          <TimelineItem
-            {...item}
-            className={classnames({
-              [`ecl-timeline2__item--collapsed`]:
-                index >= threshold && index < items.length - 2,
-            })}
-          >
-            {item.content}
-          </TimelineItem>
+      {items.map(
+        ({ id: itemId, content: itemContent, ...itemProps }, index) => (
+          <Fragment key={itemId}>
+            <TimelineItem
+              {...itemProps}
+              className={classnames({
+                [`ecl-timeline2__item--collapsed`]:
+                  index >= threshold && index < items.length - 2,
+              })}
+            >
+              {itemContent}
+            </TimelineItem>
 
-          {threshold < items.length &&
-            index === items.length - 3 &&
-            showAllButton}
-        </Fragment>
-      ))}
+            {threshold < items.length &&
+              index === items.length - 3 &&
+              showAllButton}
+          </Fragment>
+        )
+      )}
     </ol>
   );
 };
