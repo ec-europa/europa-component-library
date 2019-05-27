@@ -83,7 +83,7 @@ storiesOf('Components|Button', module)
 
     return (
       <Button
-        variant="ghost"
+        variant="text"
         label={text('Label', demoContentGhost.label)}
         type="button"
         icon={buttonIcon}
