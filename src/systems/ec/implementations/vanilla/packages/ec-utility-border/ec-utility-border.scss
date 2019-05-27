@@ -1,0 +1,58 @@
+/**
+* Border styles
+*/
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-utility-border() {
+  // Full border
+  .ecl-u-border-all {
+    border: 1px solid $ecl-color-black-100;
+  }
+
+  .ecl-u-border-bottom {
+    border-bottom: 1px solid $ecl-color-black-100;
+  }
+
+  .ecl-u-border-left {
+    border-left: 1px solid $ecl-color-black-100;
+  }
+
+  .ecl-u-border-top {
+    border-top: 1px solid $ecl-color-black-100;
+  }
+
+  .ecl-u-border-right {
+    border-right: 1px solid $ecl-color-black-100;
+  }
+
+  // Border color
+  @each $key, $value in $ecl-colors {
+    .ecl-u-border-color-#{$key} {
+      border-color: $value;
+    }
+  }
+
+  // Border width
+  .ecl-u-border-width-1 {
+    border-width: 0.0625rem; // 1px
+  }
+
+  .ecl-u-border-width-2 {
+    border-width: 0.125rem; // 2px
+  }
+
+  .ecl-u-border-width-4 {
+    border-width: 0.25rem; // 4px
+  }
+
+  .ecl-u-border-width-8 {
+    border-width: 0.5rem; // 8px
+  }
+}
+
+// Use mixin
+@include exports('ec-utility-border') {
+  @include ecl-utility-border();
+}
