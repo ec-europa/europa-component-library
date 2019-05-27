@@ -3,26 +3,49 @@
 * + .dodont {
   margin-top: $ecl-spacing-l;
 }
-.dont {
-  margin-top: $ecl-spacing-m;
+
+* + .do,
+* + .dont,
+* + .caution {
+  margin-top: $ecl-spacing-l;
 }
 
-.image {
+.image-container {
   align-items: center;
-  background-color: $ecl-color-grey-5;
-  border-left: 8px solid transparent;
+  border: 1px solid $ecl-color-grey-15;
+  border-bottom-width: 0;
   display: flex;
   justify-content: center;
 }
-.do .image {
-  border-left-color: $ecl-color-success;
+
+.image {
+  height: auto;
+  max-width: 100%;
 }
-.dont .image {
-  border-left-color: $ecl-color-error;
+
+.separator {
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 0.5rem;
+  width: 100%;
+}
+
+.do .separator {
+  background-color: $ecl-color-success;
+}
+
+.dont .separator {
+  background-color: $ecl-color-error;
+}
+
+.caution .separator {
+  background-color: $ecl-color-warning;
 }
 
 .container {
-  border: 1px solid $ecl-color-grey-15;
+  background-color: $ecl-color-grey-5;
+  flex-grow: 1;
+  flex-shrink: 0;
   padding: $ecl-spacing-m $ecl-spacing-l;
 }
 
@@ -36,6 +59,9 @@
 }
 .dont .title {
   color: $ecl-color-error;
+}
+.caution .title {
+  color: $ecl-color-warning;
 }
 
 .title__icon {

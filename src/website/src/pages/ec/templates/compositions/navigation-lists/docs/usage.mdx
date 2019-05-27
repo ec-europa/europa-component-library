@@ -3,7 +3,7 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph, Anatomy } from '@ecl/website-components';
+import { Paragraph, Anatomy, Do, Caution } from '@ecl/website-components';
 
 <Paragraph size="lead">
   Navigation lists support the information architecture providing users with a
@@ -17,9 +17,9 @@ The navigation list concept relies on an understanding that all "page" content t
 The navigation list defines the children that will be shown on the parent page (current page).
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/NavigationLists/Anatomy_img_mobile.png"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/NavigationLists/Anatomy_img_desktop.png"
   srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/NavigationLists/Anatomy_img_mobile.png 892w, https://inno-ecl.s3.amazonaws.com/media/images/EC/NavigationLists/Anatomy_img_desktop.png 1468w"
-  alt="Anatomy of naivgation lists"
+  alt="Anatomy of navigation lists"
   legend={{
     items: [
       {
@@ -44,15 +44,21 @@ Notes:
 
 - <sup>1</sup> When a child has no children (primary links) the description from that child page will be shown underneath the title of the block. A summary should always be used in the absence of links
 
-## Do and don'ts
+## Do's and don'ts
 
-Do
+<Do
+  title="Do"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/NavigationLists/navigation-lists-do-desktop.jpg"
+  alt=""
+  description="Even if there are different types of lists on the same page it’s important to maintain a visual balance between."
+/>
 
-Even if there are different types of lists on the same page it’s important to maintain a visual balance between.
-
-Caution
-
-Carefully consider how the lists are arranged on the page and how they behave responsively. Their positioning should support the scannability of the content.
+<Caution
+  title="Caution"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/NavigationLists/navigation-lists-caution-desktop.jpg"
+  alt=""
+  description="Carefully consider how the lists are arranged on the page and how they behave responsively. Their positioning should support the scannability of the content."
+/>
 
 ## When to use
 
