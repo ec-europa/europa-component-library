@@ -9,8 +9,6 @@ import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
 import styles from './Playground.scss';
 
-const { unescape } = require('unescape-es6');
-
 class Playground extends PureComponent {
   constructor(props) {
     super(props);
@@ -66,13 +64,17 @@ class Playground extends PureComponent {
 
     if (!children) return null;
 
-    const playgroundUrl =
-      playgroundLink ||
-      encodeURI(
+    let playgroundUrl;
+
+    if (playgroundLink) {
+      playgroundUrl = playgroundLink;
+    } else if (system && selectedKind && selectedStory) {
+      playgroundUrl = encodeURI(
         `/playground/${system}/${
           process.env.NODE_ENV === 'development' ? 'index.html' : ''
         }?path=/story/${selectedKind}--${selectedStory}`
       );
+    }
 
     const fullFrameUrl =
       system && selectedKind && selectedStory
@@ -131,14 +133,10 @@ class Playground extends PureComponent {
               className="language-html"
               dangerouslySetInnerHTML={{
                 __html: Prism.highlight(
-                  beautifyHtml(
-                    unescape(ReactDOMServer.renderToStaticMarkup(children)),
-                    {
-                      indent_size: 2,
-                      wrap_line_length: 120,
-                      unescape_strings: true,
-                    }
-                  ),
+                  beautifyHtml(ReactDOMServer.renderToStaticMarkup(children), {
+                    indent_size: 2,
+                    wrap_line_length: 120,
+                  }),
                   Prism.languages.html,
                   'html'
                 ),
@@ -166,26 +164,29 @@ class Playground extends PureComponent {
           </button>
         </div>
 
-        <p className={styles.description}>Try it yourself on the playground</p>
-
         {playgroundUrl && (
-          <a
-            href={playgroundUrl}
-            className={`${styles.link} ${styles['link--icon']} ${
-              styles['playground-link']
-            }`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.link__label}>Playground</span>
-            <svg
-              focusable="false"
-              aria-hidden="true"
-              className={styles.link__icon}
+          <Fragment>
+            <p className={styles.description}>
+              Try it yourself on the playground
+            </p>
+            <a
+              href={playgroundUrl}
+              className={`${styles.link} ${styles['link--icon']} ${
+                styles['playground-link']
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
-            </svg>
-          </a>
+              <span className={styles.link__label}>Playground</span>
+              <svg
+                focusable="false"
+                aria-hidden="true"
+                className={styles.link__icon}
+              >
+                <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+              </svg>
+            </a>
+          </Fragment>
         )}
       </div>
     );

@@ -1,14 +1,23 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, button } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
-
-import demoContent from '@ecl/eu-specs-timeline/demo/data';
-
+import { LoremIpsum } from 'lorem-ipsum';
 import VanillaTimeline from '@ecl/eu-component-timeline';
 
-import Timeline from '../src/Timeline';
+import TimelineExample from '../examples/Timeline2';
+
+const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 8,
+    min: 4,
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4,
+  },
+});
 
 storiesOf('Components|Timeline', module)
   .addDecorator(withKnobs)
@@ -31,4 +40,19 @@ storiesOf('Components|Timeline', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => <Timeline {...demoContent} />);
+  .add('default', () => {
+    const btnAddContent = () => {
+      const root = document.querySelector('#root > div');
+      for (let i = 0; i < 7; i += 1) {
+        const dummyContent = document.createElement('p');
+        dummyContent.classList.add('ecl-u-type-paragraph');
+        dummyContent.innerHTML = lorem.generateParagraphs(1);
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        root.appendChild(dummyContent);
+      }
+    };
+
+    button('Add dummy content', btnAddContent, 'buttons');
+
+    return <TimelineExample />;
+  });
