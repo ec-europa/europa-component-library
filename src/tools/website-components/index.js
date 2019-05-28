@@ -8,4 +8,5 @@ export DoDont from './DoDont/DoDont';
 export IconCard from './Icon/IconCard';
 export IconList from './Icon/IconList';
 export Link from './Link/Link';
+export Thumbnail from './Thumbnail/Thumbnail';
 export Paragraph from './Typography/Paragraph';
