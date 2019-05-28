@@ -3,9 +3,9 @@
 */
 
 // Import base
-@import '@ecl/ec-base/ec-base';
+@import '@ecl/eu-base/eu-base';
 
-@mixin ecl-utility-border-print() {
+@mixin ecl-utility-border() {
   // Full border
   .ecl-u-border-all {
     border: 1px solid $ecl-color-black-100;
@@ -54,22 +54,9 @@
   .ecl-u-border-width-8 {
     border-width: 0.5rem; // 8px
   }
-
-  // Border style
-  .ecl-u-border-style-solid {
-    border-style: solid;
-  }
-
-  .ecl-u-border-style-dashed {
-    border-style: dashed;
-  }
-
-  .ecl-u-border-style-dotted {
-    border-style: dotted;
-  }
 }
 
 // Use mixin
-@include exports('ec-utility-border-print') {
-  @include ecl-utility-border-print();
+@include exports('eu-utility-border') {
+  @include ecl-utility-border();
 }
