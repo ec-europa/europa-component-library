@@ -75,7 +75,7 @@ storiesOf('Components|Button', module)
       />
     );
   })
-  .add('ghost', () => {
+  .add('text', () => {
     const buttonIcon = {
       shape: select('Icon (sample)', icons, ''),
       size: 'xs',
