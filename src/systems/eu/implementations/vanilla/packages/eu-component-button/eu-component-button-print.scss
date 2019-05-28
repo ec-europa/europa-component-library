@@ -55,7 +55,7 @@
    * Primary
    */
   .ecl-button--primary {
-    background-color: $ecl-color-primary;
+    background-color: $ecl-color-blue-100;
     color: $ecl-color-white-100;
 
     &[disabled] {
@@ -70,8 +70,8 @@
    */
   .ecl-button--secondary {
     background-color: $ecl-color-white-100;
-    border: $border-width solid $ecl-color-primary;
-    color: $ecl-color-primary;
+    border: $border-width solid $ecl-color-blue-100;
+    color: $ecl-color-blue-100;
     padding: calc(#{$padding-horizontal} - #{$border-width})
       calc(#{$padding-vertical} - #{$border-width});
 
@@ -89,7 +89,7 @@
    * Ghost
    */
   .ecl-button--ghost {
-    color: $ecl-color-primary;
+    color: $ecl-color-blue-100;
 
     &[disabled] {
       color: $ecl-color-blue-25;
@@ -100,7 +100,7 @@
    * Call to action
    */
   .ecl-button--call {
-    background-color: $ecl-color-secondary;
+    background-color: $ecl-color-yellow-100;
     color: $ecl-color-black-100;
 
     &[disabled] {
@@ -114,8 +114,8 @@
    * Search
    */
   .ecl-button--search {
-    background-color: $ecl-color-tertiary;
-    color: $ecl-color-primary;
+    background-color: $ecl-color-grey-10;
+    color: $ecl-color-blue-100;
 
     &[disabled] {
       background-color: $ecl-color-grey-5;
