@@ -2,7 +2,11 @@
 import React from 'react';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  select,
+  optionsKnob as options,
+} from '@storybook/addon-knobs';
 
 const styleBox = {
   height: '5rem',
@@ -13,7 +17,7 @@ const styleBox = {
 storiesOf('Utilities|Border', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
-    const direction = select(
+    const direction = options(
       'Direction',
       {
         All: 'ecl-u-border-all',
@@ -23,7 +27,9 @@ storiesOf('Utilities|Border', module)
         Top: 'ecl-u-border-top',
       },
       'ecl-u-border-all',
-      'Container'
+      {
+        display: 'multi-select',
+      }
     );
 
     const color = select(
@@ -40,8 +46,7 @@ storiesOf('Utilities|Border', module)
         Warning: 'ecl-u-border-color-warning',
         Error: 'ecl-u-border-color-error',
       },
-      'ecl-u-border-color-black-100',
-      'Container'
+      'ecl-u-border-color-black-100'
     );
 
     const width = select(
@@ -52,8 +57,7 @@ storiesOf('Utilities|Border', module)
         '4px': 'ecl-u-border-width-4',
         '8px': 'ecl-u-border-width-8',
       },
-      'ecl-u-border-width-2',
-      'Container'
+      'ecl-u-border-width-2'
     );
 
     return (
