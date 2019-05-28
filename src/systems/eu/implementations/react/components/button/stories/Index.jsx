@@ -75,7 +75,7 @@ storiesOf('Components|Button', module)
       />
     );
   })
-  .add('ghost', () => {
+  .add('text', () => {
     const buttonIcon = {
       shape: select('Icon (sample)', icons, ''),
       size: 'xs',
@@ -83,7 +83,7 @@ storiesOf('Components|Button', module)
 
     return (
       <Button
-        variant="text"
+        variant="ghost"
         label={text('Label', demoContentGhost.label)}
         type="button"
         icon={buttonIcon}
