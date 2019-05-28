@@ -6,7 +6,7 @@ export default () => (
   <div>
     <h2 className="ecl-u-ma-none ecl-u-type-prolonged-xl ecl-u-type-bold">
       <Link
-        href="#example"
+        href="/example"
         className="ecl-link--standalone"
         label="Page title section (child A)"
       />
@@ -19,21 +19,21 @@ export default () => (
     <UnorderedList variant="no-bullet" className="ecl-u-mt-m">
       <UnorderedListItem>
         <Link
-          href="#example"
+          href="/example"
           className="ecl-link--standalone"
           label="Page title section (grandchild page  A.1)"
         />
       </UnorderedListItem>
       <UnorderedListItem>
         <Link
-          href="#example"
+          href="/example"
           className="ecl-link--standalone"
           label="Page title section (grandchild page  A.2)"
         />
       </UnorderedListItem>
       <UnorderedListItem>
         <Link
-          href="#example"
+          href="/example"
           className="ecl-link--standalone"
           label="Page title section (grandchild page  A.3)"
         />
