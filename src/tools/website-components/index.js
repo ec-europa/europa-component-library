@@ -13,3 +13,4 @@ export IconList from './Icon/IconList';
 export Link from './Link/Link';
 export Thumbnail from './Thumbnail/Thumbnail';
 export Paragraph from './Typography/Paragraph';
+export RemToPixels from './RemToPixels';
