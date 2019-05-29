@@ -6,6 +6,7 @@ import {
   withKnobs,
   select,
   optionsKnob as options,
+  boolean,
 } from '@storybook/addon-knobs';
 
 const styleBox = {
@@ -17,21 +18,6 @@ const styleBox = {
 storiesOf('Utilities|Border', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
-    const direction = options(
-      'Direction',
-      {
-        All: 'ecl-u-border-all',
-        Bottom: 'ecl-u-border-bottom',
-        Left: 'ecl-u-border-left',
-        Right: 'ecl-u-border-right',
-        Top: 'ecl-u-border-top',
-      },
-      'ecl-u-border-all',
-      {
-        display: 'multi-select',
-      }
-    );
-
     const color = select(
       'Color (sample)',
       {
@@ -59,6 +45,24 @@ storiesOf('Utilities|Border', module)
       },
       'ecl-u-border-width-2'
     );
+
+    const individualBorders = boolean('Control borders individually?', false);
+    let direction = 'ecl-u-border-all';
+    if (individualBorders) {
+      direction = options(
+        'Direction',
+        {
+          Bottom: 'ecl-u-border-bottom',
+          Left: 'ecl-u-border-left',
+          Right: 'ecl-u-border-right',
+          Top: 'ecl-u-border-top',
+        },
+        'ecl-u-border-all',
+        {
+          display: 'multi-select',
+        }
+      );
+    }
 
     return (
       <div style={styleBox} className={classnames(direction, color, width)} />
