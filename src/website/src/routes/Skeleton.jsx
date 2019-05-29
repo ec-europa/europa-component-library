@@ -28,7 +28,8 @@ class Skeleton extends Component {
   }
 
   componentDidMount() {
-    document.body.classList.add('ec');
+    const { system } = this.props;
+    document.body.classList.add(system);
     // Force refresh if is mounted on a real client (two-pass rendering)
     this.setState({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
@@ -36,7 +37,9 @@ class Skeleton extends Component {
   }
 
   componentWillUnmount() {
-    document.body.classList.remove('ec');
+    const { system } = this.props;
+
+    document.body.classList.remove(system);
   }
 
   toggleSidebar() {
@@ -85,6 +88,7 @@ Skeleton.propTypes = {
   HomePage: PropTypes.func.isRequired,
   prefix: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  system: PropTypes.string.isRequired,
   pages: PropTypes.array, // eslint-disable-line react/forbid-prop-types
   routes: PropTypes.node,
   isLoading: PropTypes.bool,
