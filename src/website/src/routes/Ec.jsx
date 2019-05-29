@@ -74,6 +74,7 @@ const ECRoutes = () => (
     HomePage={HomePage}
     prefix="/ec"
     title="EC Homepage"
+    system="ec"
     pages={sortedPages[0].children}
     routes={pagesToRoutes(sortedPages)}
   />
