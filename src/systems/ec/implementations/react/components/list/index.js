@@ -1,4 +1,4 @@
-export default from './src/UnorderedList';
+export UnorderedList from './src/UnorderedList';
 export UnorderedListWithData from './src/UnorderedListWithData';
 export UnorderedListItem from './src/UnorderedListItem';
 export OrderedList from './src/OrderedList';
