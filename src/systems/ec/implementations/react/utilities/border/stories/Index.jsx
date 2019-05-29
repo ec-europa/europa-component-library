@@ -2,7 +2,12 @@
 import React from 'react';
 import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  select,
+  optionsKnob as options,
+  boolean,
+} from '@storybook/addon-knobs';
 
 const styleBox = {
   height: '5rem',
@@ -13,19 +18,6 @@ const styleBox = {
 storiesOf('Utilities|Border', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
-    const direction = select(
-      'Direction',
-      {
-        All: 'ecl-u-border-all',
-        Bottom: 'ecl-u-border-bottom',
-        Left: 'ecl-u-border-left',
-        Right: 'ecl-u-border-right',
-        Top: 'ecl-u-border-top',
-      },
-      'ecl-u-border-all',
-      'Container'
-    );
-
     const color = select(
       'Color (sample)',
       {
@@ -40,8 +32,7 @@ storiesOf('Utilities|Border', module)
         Warning: 'ecl-u-border-color-warning',
         Error: 'ecl-u-border-color-error',
       },
-      'ecl-u-border-color-black-100',
-      'Container'
+      'ecl-u-border-color-black-100'
     );
 
     const width = select(
@@ -52,9 +43,26 @@ storiesOf('Utilities|Border', module)
         '4px': 'ecl-u-border-width-4',
         '8px': 'ecl-u-border-width-8',
       },
-      'ecl-u-border-width-2',
-      'Container'
+      'ecl-u-border-width-2'
     );
+
+    const individualBorders = boolean('Control borders individually?', false);
+    let direction = 'ecl-u-border-all';
+    if (individualBorders) {
+      direction = options(
+        'Direction',
+        {
+          Bottom: 'ecl-u-border-bottom',
+          Left: 'ecl-u-border-left',
+          Right: 'ecl-u-border-right',
+          Top: 'ecl-u-border-top',
+        },
+        'ecl-u-border-all',
+        {
+          display: 'multi-select',
+        }
+      );
+    }
 
     return (
       <div style={styleBox} className={classnames(direction, color, width)} />
