@@ -7,7 +7,7 @@ import Col from '../../../website/src/components/Grid/Col';
 import Row from '../../../website/src/components/Grid/Row';
 import styles from './Anatomy.scss';
 
-const Anatomy = ({ vertical, image, alt, legend }) => (
+const Anatomy = ({ vertical, image, srcset, alt, legend }) => (
   <div
     className={classnames(styles.anatomy, {
       [styles[`anatomy--vertical`]]: vertical,
@@ -15,11 +15,15 @@ const Anatomy = ({ vertical, image, alt, legend }) => (
   >
     <Row>
       <Col col={vertical ? '12 md-9' : '12'}>
-        <div className={styles.image}>
-          <img src={image} alt={alt} />
+        <div className={styles['image-container']}>
+          <img
+            src={image}
+            {...(srcset ? { srcSet: srcset } : {})}
+            alt={alt}
+            className={styles.image}
+          />
         </div>
       </Col>
-
       <Col col={vertical ? '12 md-3' : '12'}>
         <div className={styles.container}>
           <ul className={styles.legend}>
@@ -33,7 +37,11 @@ const Anatomy = ({ vertical, image, alt, legend }) => (
               </li>
             ))}
           </ul>
-          <div className={styles.legend__description}>{legend.description}</div>
+          {legend.description && (
+            <div className={styles.legend__description}>
+              {legend.description}
+            </div>
+          )}
         </div>
       </Col>
     </Row>
@@ -43,6 +51,7 @@ const Anatomy = ({ vertical, image, alt, legend }) => (
 Anatomy.propTypes = {
   vertical: PropTypes.bool,
   image: PropTypes.string,
+  srcset: PropTypes.string,
   alt: PropTypes.string,
   legend: PropTypes.shape({
     description: PropTypes.string,
@@ -58,6 +67,7 @@ Anatomy.propTypes = {
 Anatomy.defaultProps = {
   vertical: false,
   image: '',
+  srcset: '',
   alt: '',
   legend: {},
 };

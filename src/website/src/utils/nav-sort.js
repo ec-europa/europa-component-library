@@ -18,7 +18,9 @@ const sortPages = pages => {
       typeof a.attributes.title === 'string' &&
       typeof b.attributes.title === 'string'
     ) {
-      return a.attributes.title.localeCompare(b.attributes.title);
+      return a.attributes.title
+        .trim()
+        .localeCompare(b.attributes.title.trim(), 'en-GB');
     }
 
     return 0;
