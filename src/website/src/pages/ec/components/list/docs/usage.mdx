@@ -4,9 +4,6 @@ order: 1
 ---
 
 import { Paragraph, DoDont } from '@ecl/website-components';
-import Link from '@ecl/ec-react-component-link/src/Link';
-import OrderedList from '@ecl/ec-react-component-list/src/OrderedList';
-import OrderedListItem from '@ecl/ec-react-component-list/src/OrderedListItem';
 
 <Paragraph size="lead">
   Used to present chunks of information in a concise and scannable way. Lists
@@ -26,33 +23,6 @@ Ordered lists display a set of items in a specific and logical order.
 They are commonly used step by step instructions.
 
 Please note that different list styles can be applied to list items, like numbers, roman numerals or letters.
-
-<div
-  style={{
-    marginTop: '1.5rem',
-    padding: '1.5rem',
-    border: '1px solid #E3E3E3',
-  }}
->
-  <OrderedList>
-    <OrderedListItem>Ordered list item</OrderedListItem>
-    <OrderedListItem>
-      Ordered list item with <Link href="#" label="inline link" />
-    </OrderedListItem>
-    <OrderedListItem>
-      Ordered list item with nested list
-      <OrderedList>
-        <OrderedListItem>Nested list item</OrderedListItem>
-        <OrderedListItem>Nested list item</OrderedListItem>
-      </OrderedList>
-    </OrderedListItem>
-    <OrderedListItem>
-      Long long list item in an ordered list lorem ipsum dolor sit amet,
-      consectetur
-    </OrderedListItem>
-    <OrderedListItem>Ordered list item</OrderedListItem>
-  </OrderedList>
-</div>
 
 ![ordered list](https://inno-ecl.s3.amazonaws.com/media/images/EC/List/ordered-list-desktop.jpg)
 
