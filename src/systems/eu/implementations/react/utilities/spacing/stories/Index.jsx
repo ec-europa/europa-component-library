@@ -43,6 +43,11 @@ const Spacing = (type, token) => (
 );
 
 storiesOf('Utilities|Spacing', module)
+  .addParameters({
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  })
   .addDecorator(withKnobs)
   .add('default', () => (
     <Fragment>

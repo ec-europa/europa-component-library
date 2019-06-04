@@ -93,8 +93,17 @@ const Header = React.memo(({ component, history, location }) => {
                       process.env.NODE_ENV === 'development' ? 'index.html' : ''
                     }?path=${component.parent.attributes.playground.path}`}
                     className={styles['header__tabs-item']}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Playground
+                    <svg
+                      focusable="false"
+                      aria-hidden="true"
+                      className={styles['header__tabs-icon']}
+                    >
+                      <use xlinkHref={`${icons}#ui--external`} />
+                    </svg>
                   </a>
                 </li>
               )}
