@@ -1,13 +1,35 @@
 @import '@ecl/ec-theme-default/index';
 
-* + .dodont {
+.dodont {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+
+.do,
+.dont,
+.caution {
   margin-top: $ecl-spacing-l;
 }
 
-* + .do,
-* + .dont,
-* + .caution {
-  margin-top: $ecl-spacing-l;
+.dodont .do,
+.dodont .dont {
+  box-sizing: border-box;
+  min-height: 1px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  width: 100%;
+
+  @media screen and (min-width: $ecl-breakpoint-md) {
+    display: flex;
+    flex: 0 0 50%;
+    flex-direction: column;
+    justify-content: stretch;
+    max-width: 50%;
+  }
 }
 
 .image-container {

@@ -3,144 +3,79 @@ title: Usage
 order: 1
 ---
 
-import { Paragraph } from '@ecl/website-components';
+import { Paragraph, DoDont, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  Lists group together related pieces of information so they are clearly
-  associated with each other and easy to read. Lists are good from a structural
-  point of view as they help create a well-structured and more accessible
-  content. Semantically correct lists help visitors read your web site.
+  Used to present chunks of information in a concise and scannable way, lists
+  help to organize content related to a single topic, grouping together a set of
+  items or text options.
 </Paragraph>
 
 ## Anatomy
 
-Lists or "typography lists" are optimized for reading comprehension.
+A list is a series of related items displayed in a single column. The content of each item can be plain text, an external link or a short paragraph. Even if lists can be nested inside of each other (to display sub-sections for example), it's not recommended nesting lists deeper than three levels in order to avoid confusion.
 
-A list is a series of related items displayed in a single column.
+Below we'll cover the three list types: [ordered](#ordered), [unordered](#unordered), [description list](#description-list).
 
-Content of each item may be plain text, or other elements (links, paragraphs, ...)
+<h2 id="ordered">Ordered list</h2>
 
-A list should have a contextual coherence and allow the user to understand the message instantly.
+Ordered lists display a set of items in a specific and logical order.
+They are commonly used in step by step instructions.
 
-### Nesting lists
+Please note that different list styles can be applied to list items, like numbers, roman numerals or letters.
 
-It is perfectly ok to nest one list (of any type) inside another one.
-You might want to have some sub-bullets sitting below a top level bullet.
-Just make sure that nested items are all related to their parent.
+![ordered list](https://inno-ecl.s3.amazonaws.com/media/images/EC/List/ordered-list-desktop.jpg)
 
-Keep nested lists under control; having 4 or 5 nested level may create confusion and is generally a sign that the content has to be structured differently (break down into several lists for instance).
+<DoDont
+  itemDo={{
+    title: 'Do',
+    image:
+      'https://inno-ecl.s3.amazonaws.com/media/images/EC/List/ordered-list-desktop-do.jpg',
+    alt: '',
+    description: 'Show items in the right logical order.',
+  }}
+  itemDont={{
+    title: "Don't",
+    image:
+      'https://inno-ecl.s3.amazonaws.com/media/images/EC/List/ordered-list-desktop-dont.jpg',
+    alt: '',
+    description:
+      'Respect the sequential order and do not use unordered or blank lists.',
+  }}
+/>
 
-### Three different types of lists
+<h2 id="unordered">Unordered list</h2>
 
-- unordered list - used to group a set of related items in no particular order
-- ordered list - used to group a set of related items in a specific order
-- description list - used to display name/value pairs such as terms and definitions; Each list type has a specific purpose and meaning in a web page.
+Unordered lists are used to show content with the same importance, so the order of the items doesn't matter.
 
-#### Unordered (bulleted) Lists
+Please note that different list styles can be applied to bullets, like disc, circle, square or hyphen.
 
-To present content when a set of items of equal status or value that can be placed in any order.
+![unordered list](https://inno-ecl.s3.amazonaws.com/media/images/EC/List/unordered-list-desktop.jpg)
 
-##### Example
+#### Guidelines
 
-- List of departments
-- Local offices of the EU
-- Local offices outside the EU
-- Find a staff member
-- Press contacts and accreditation
+- be sure to organize the items in a logical way
+- start bullet list items with a lowercase letter and blank list items with capital letters
+- limit the numbers of items between 5 to 9
 
-Although the items are all part of one list, you could put the items in any order and the list would still make sense:
+<h2 id="description-list">Description list</h2>
 
-- Press contacts and accreditation
-- Local offices of the EU
-- List of departments
-- Local offices outside the EU
-- Find a staff member
+Description lists are lists of terms with their related definition or description, like a glossary or a list of speakers with relative biography.
 
-#### Ordered (numbered) Lists
+![description list](https://inno-ecl.s3.amazonaws.com/media/images/EC/List/description-list-desktop.jpg)
 
-Imply sequence and order, and are commonly used when giving a set of instructions or to display a list of items that should be in a specific order.
+#### Guidelines
 
-##### Example
-
-1. Eligibility criteria
-2. Registration
-3. Find partners
-4. Prepare your proposal
-5. Submission
-
-If the list items were moved around into a different order, the information would no longer make sense:
-
-1. Submission
-2. Find partners
-3. Eligibility criteria
-4. Registration
-5. Prepare your proposal
-
-Ordered lists can be displayed with several sequencing options. The default in most browsers is decimal numbers, but there are others available:
-
-- Letters
-  - Lowercase ascii letters (a, b, c…)
-  - Uppercase ascii letters (A, B, C…)
-  - Lowercase classical Greek: (έ, ή, ί…)
-- Numbers
-  - Decimal numbers (1, 2, 3…)
-  - Decimal numbers with leading zeros (01, 02, 03…)
-  - Lowercase Roman numerals (i, ii, iii…)
-  - Uppercase Roman numerals (I, II, III…)
-  - Traditional Georgian numbering (an, ban, gan…)
-  - Traditional Armenian numbering (mek, yerku, yerek…)
-
-#### Description lists
-
-Description lists are flexible; you can associate more than one value with a single name, or vice versa.
-
-For example, the term “coffee” can have several meanings, and you could show them one after the other:
-
-coffee
-
-- a beverage made from roasted, ground coffee beans
-- a cup of coffee
-- a social gathering at which coffee is consumed
-- a medium to dark brown color
-
-Or, you can associate more than one name with the same value. This is useful to show variations of a term, all of which have the same meaning:
-
-soda,
-pop,
-fizzy drink,
-cola
-
-- a sweet, carbonated beverage
-
-Note that description lists are not ordered.
+- avoid using more than one or two short sentences
+- add a meaningful description or explanation of each term, avoiding active voices
 
 ## When to use
 
-When trying to decide what type of list to use, ask yourself two simple questions:
+- use a bullet list when the order of the items is not relevant and to increase scannability and readability
+- use an ordered list when you need to communicate priorities or to show a specific sequence
+- use a description list when the terms in the list require a specific description or explanation
 
-1. Am I defining terms or associating other name/value pairs?
+## When not to use
 
-   - If yes, use a description list.
-   - If no, don’t use a description list.
-
-2. Is the order of the list items important?
-
-   - If yes, use an ordered list.
-   - If no, use an unordered list.
-
-## When not to used
-
-- To define a list of link - use navigation lists
-- To display search results - use stacked items components
-
-## DO's
-
-- Use nesting to group items contextually into categories/sub categories
-- Ensure grammatical coherence and don't mix passive with active voice or declarative sentences
-- Whatever the option remain consistent
-
-## DON’Ts
-
-- Use lists to display search results. Instead use stacked items components
-- Use lists to create navigation. Instead use navigation lists
-- Use lists to display tabular data. Instead, use a Data Table
+- do not use for navigation purpose; use <Link to="/eu/templates/compositions/navigation-lists/usage/">navigation lists</Link> instead
+- do not use to display search results; use <Link to="/eu/layout/stacks/usage/">stacks</Link> instead
