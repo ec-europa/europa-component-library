@@ -9,13 +9,17 @@ import styles from './Thumbnail.scss';
 const Thumbnail = ({ image, link, title, zoom }) => (
   <Link className={styles.thumbnail} to={link}>
     <span className={styles.title}>{title}</span>
-    <img
-      src={image}
-      alt={`Thumbnail of ${title}`}
-      className={classnames(styles.image, {
-        [`${styles[`zoom${zoom}`]}`]: zoom,
-      })}
-    />
+    <div className={styles.imageContainer}>
+      <div className={styles.flexboxCentering}>
+        <img
+          src={image}
+          alt={`Thumbnail of ${title}`}
+          className={classnames(styles.image, {
+            [`${styles[`zoom${zoom}`]}`]: zoom,
+          })}
+        />
+      </div>
+    </div>
   </Link>
 );
 
