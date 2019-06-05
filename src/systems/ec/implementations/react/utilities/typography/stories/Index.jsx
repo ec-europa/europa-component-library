@@ -1,7 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { Fragment } from 'react';
+import classnames from 'classnames';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import demoContentHeading from '@ecl/ec-specs-typography/demo/data--heading';
 import demoContentParagraph from '@ecl/ec-specs-typography/demo/data--paragraph';
@@ -36,6 +37,58 @@ storiesOf('Utilities|Typography', module)
         <h2 className="ecl-u-type-heading-2">H2. {content}</h2>
         <h3 className="ecl-u-type-heading-3">H3. {content}</h3>
         <h4 className="ecl-u-type-heading-4">H4. {content}</h4>
+      </Fragment>
+    );
+  })
+  .add('text colour', () => {
+    const colour = select(
+      'Text colour (sample)',
+      {
+        Black: 'ecl-u-type-colour-black-100',
+        Primary: 'ecl-u-type-colour-primary',
+        Shade: 'ecl-u-type-colour-shade',
+        'Grey 50': 'ecl-u-type-colour-grey-50',
+        'Blue 120': 'ecl-u-type-colour-blue-120',
+        Success: 'ecl-u-type-colour-success',
+        Error: 'ecl-u-type-colour-error',
+        White: 'ecl-u-type-colour-white-100 ecl-u-bg-shade',
+      },
+      'ecl-u-type-colour-black-100'
+    );
+
+    return (
+      <Fragment>
+        <p className={classnames('ecl-u-type-paragraph-m', colour)}>
+          {demoContentParagraph.content}
+        </p>
+      </Fragment>
+    );
+  })
+  .add('text style', () => {
+    const bold = boolean('Bold text', false);
+    const style = select(
+      'Text style',
+      {
+        Default: 'ecl-u-type-none',
+        Lowercase: 'ecl-u-type-lowercase',
+        Uppercase: 'ecl-u-type-uppercase',
+        Capitalize: 'ecl-u-type-capitalize',
+        Overline: 'ecl-u-type-overline',
+        Underline: 'ecl-u-type-underline',
+        Strike: 'ecl-u-type-strike',
+      },
+      'ecl-u-type-none'
+    );
+
+    return (
+      <Fragment>
+        <p
+          className={classnames('ecl-u-type-paragraph-m', style, {
+            [`ecl-u-type-bold`]: bold,
+          })}
+        >
+          {demoContentParagraph.content}
+        </p>
       </Fragment>
     );
   });
