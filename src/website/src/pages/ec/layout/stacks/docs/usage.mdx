@@ -3,7 +3,7 @@ title: Usage
 order: 1
 ---
 
-import { Link, Paragraph } from '@ecl/website-components';
+import { Paragraph } from '@ecl/website-components';
 
 <Paragraph size="lead">
   Stacks comprise a set of utilites leveraging the power of{' '}
