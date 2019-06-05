@@ -9,6 +9,15 @@ module.exports = {
       },
     },
     {
+      name: 'default-disabled',
+      label: 'Default - disabled',
+      context: {
+        label: 'Default - disabled',
+        modifier: 'default',
+        is_disabled: true,
+      },
+    },
+    {
       name: 'primary',
       context: {
         label: 'Primary',

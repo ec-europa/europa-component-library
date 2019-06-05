@@ -7,6 +7,7 @@
     - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
     - "label" (string) (default: "")
     - "is_block" (boolean): block-wide button (default: false)
+    - "is_disabled" (boolean): disabled button (default: false)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -28,6 +29,7 @@
 {% set _label = label|default('') %}
 {% set _href = href|default('') %}
 {% set _is_block = is_block|default(false) %}
+{% set _is_disabled = is_disabled|default(false) %}
 {% set _css_class = 'ecl-button ecl-button--' ~ _modifier %}
 {% set _extra_attributes = '' %}
 
@@ -49,6 +51,10 @@
   {% for attr in extra_attributes %}
     {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name ~ '="' ~ attr.value ~ '"' %}
   {% endfor %}
+{% endif %}
+
+{% if _is_disabled == true %}
+  {% set _extra_attributes = _extra_attributes ~ ' disabled' %}
 {% endif %}
 
 {# Print the result #}

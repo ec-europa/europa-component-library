@@ -7,6 +7,7 @@
     - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
     - "label" (string) (default: "")
     - "is_block" (boolean): block-wide button (default: false)
+    - "is_disabled" (boolean): disabled button (default: false)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -27,6 +28,7 @@
   'icon': icon|default(''),
   'label': label|default(''),
   'is_block': is_block|default(false),
+  'is_disabled': is_disabled|default(false),
   'extra_classes': extra_classes|default(''),
   'extra_attributes': extra_attributes|default([])
 } only %}

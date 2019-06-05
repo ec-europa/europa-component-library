@@ -52,6 +52,13 @@
       background-color: $ecl-color-primary;
       color: #fff;
     }
+
+    &[disabled] {
+      background-color: transparent;
+      border-color:map-get($ecl-colors, 'blue-25');
+      color: map-get($ecl-colors, 'blue-25');
+      text-decoration: none;
+    }
   }
 
   .ecl-button--primary {
