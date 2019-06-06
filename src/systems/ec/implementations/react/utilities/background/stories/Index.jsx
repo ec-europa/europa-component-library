@@ -11,9 +11,9 @@ storiesOf('Utilities|Background', module)
       'Background colour (sample)',
       {
         Default: 'ecl-u-bg-default',
-        Primary: 'ecl-u-bg-primary ecl-u-type-colour-white-100',
+        Primary: 'ecl-u-bg-primary ecl-u-type-color-white-100',
         Secondary: 'ecl-u-bg-secondary',
-        Shade: 'ecl-u-bg-shade ecl-u-type-colour-white-100',
+        Shade: 'ecl-u-bg-shade ecl-u-type-color-white-100',
       },
       'ecl-u-bg-default'
     );

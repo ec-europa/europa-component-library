@@ -37,6 +37,7 @@ storiesOf('Utilities|Typography', module)
         <h2 className="ecl-u-type-heading-2">H2. {content}</h2>
         <h3 className="ecl-u-type-heading-3">H3. {content}</h3>
         <h4 className="ecl-u-type-heading-4">H4. {content}</h4>
+        <h5 className="ecl-u-type-heading-5">H4. {content}</h5>
       </Fragment>
     );
   })
@@ -44,16 +45,16 @@ storiesOf('Utilities|Typography', module)
     const colour = select(
       'Text colour (sample)',
       {
-        Black: 'ecl-u-type-colour-black-100',
-        Primary: 'ecl-u-type-colour-primary',
-        Shade: 'ecl-u-type-colour-shade',
-        'Grey 50': 'ecl-u-type-colour-grey-50',
-        'Blue 120': 'ecl-u-type-colour-blue-120',
-        Success: 'ecl-u-type-colour-success',
-        Error: 'ecl-u-type-colour-error',
-        White: 'ecl-u-type-colour-white-100 ecl-u-bg-shade',
+        Black: 'ecl-u-type-color-black-100',
+        Primary: 'ecl-u-type-color-primary',
+        Shade: 'ecl-u-type-color-shade',
+        'Grey 50': 'ecl-u-type-color-grey-50',
+        'Blue 120': 'ecl-u-type-color-blue-120',
+        Success: 'ecl-u-type-color-success',
+        Error: 'ecl-u-type-color-error',
+        White: 'ecl-u-type-color-white-100 ecl-u-bg-shade',
       },
-      'ecl-u-type-colour-black-100'
+      'ecl-u-type-color-black-100'
     );
 
     return (
