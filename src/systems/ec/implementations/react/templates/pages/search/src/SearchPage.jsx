@@ -8,12 +8,10 @@ import PageHeader from '@ecl/ec-react-component-page-header';
 import Pagination from '@ecl/ec-react-component-pagination';
 import Select from '@ecl/ec-react-component-select';
 import SiteHeader from '@ecl/ec-react-component-site-header';
-import SiteSwitcher from '@ecl/ec-react-component-site-switcher';
 import Tag from '@ecl/ec-react-component-tag';
 
-const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
+const SearchPage = ({ siteHeader, pageHeader, footer }) => (
   <Fragment>
-    <SiteSwitcher {...siteSwitcher} />
     <SiteHeader {...siteHeader} />
     <PageHeader {...pageHeader} />
     <main className="ecl-u-pv-3xl">
@@ -363,14 +361,12 @@ const SearchPage = ({ siteSwitcher, siteHeader, pageHeader, footer }) => (
 );
 
 SearchPage.propTypes = {
-  siteSwitcher: PropTypes.shape(SiteSwitcher.propTypes),
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   pageHeader: PropTypes.shape(PageHeader.propTypes),
   footer: PropTypes.shape(Footer.propTypes),
 };
 
 SearchPage.defaultProps = {
-  siteSwitcher: {},
   siteHeader: {},
   pageHeader: {},
   footer: {},
