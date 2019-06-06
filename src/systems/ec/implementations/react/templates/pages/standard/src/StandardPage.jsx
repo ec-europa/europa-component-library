@@ -7,10 +7,8 @@ import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/Langu
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import PageHeader from '@ecl/ec-react-component-page-header';
 import SiteHeader from '@ecl/ec-react-component-site-header';
-import SiteSwitcher from '@ecl/ec-react-component-site-switcher';
 
 const StandardPage = ({
-  siteSwitcher,
   siteHeader,
   pageHeader,
   languageList,
@@ -19,7 +17,6 @@ const StandardPage = ({
   card,
 }) => (
   <Fragment>
-    <SiteSwitcher {...siteSwitcher} id="top" />
     <SiteHeader {...siteHeader} />
     <LanguageListOverlay {...languageList} hidden="true" />
     <PageHeader {...pageHeader} />
@@ -51,7 +48,6 @@ const StandardPage = ({
 );
 
 StandardPage.propTypes = {
-  siteSwitcher: PropTypes.shape(SiteSwitcher.propTypes),
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   pageHeader: PropTypes.shape(PageHeader.propTypes),
   mediaContainer: PropTypes.shape(MediaContainer.propTypes),
@@ -61,7 +57,6 @@ StandardPage.propTypes = {
 };
 
 StandardPage.defaultProps = {
-  siteSwitcher: {},
   siteHeader: {},
   pageHeader: {},
   languageList: {},
