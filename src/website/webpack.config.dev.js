@@ -16,6 +16,8 @@ const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const publicPath = '/';
 const publicUrl = publicPath.slice(0, -1);
 
+console.log(process.env);
+
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   { loader: 'style-loader' },
   {
