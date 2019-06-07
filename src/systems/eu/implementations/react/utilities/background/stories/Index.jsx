@@ -10,12 +10,13 @@ storiesOf('Utilities|Background', module)
     const background = select(
       'Background colour (sample)',
       {
-        Default: 'ecl-u-bg-default',
-        Primary: 'ecl-u-bg-primary ecl-u-type-color-white-100',
-        Secondary: 'ecl-u-bg-secondary',
-        Shade: 'ecl-u-bg-shade ecl-u-type-color-white-100',
+        White: 'ecl-u-bg-white',
+        Blue: 'ecl-u-bg-blue ecl-u-type-color-white',
+        Yellow: 'ecl-u-bg-yellow',
+        Grey: 'ecl-u-bg-grey ecl-u-type-color-white',
+        'Grey 25': 'ecl-u-bg-grey-25',
       },
-      'ecl-u-bg-default'
+      'ecl-u-bg-white'
     );
 
     return (

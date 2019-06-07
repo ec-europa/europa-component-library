@@ -4,24 +4,29 @@ imports:
 
 # Export properties
 props:
-  - name: BG_COLOR_DEFAULT
-    value: '#fff'
-    comment: Default background colour
-    type: color
-    category: background-color
-  - name: BG_COLOR_PRIMARY
+  # Primary colors
+
+  - name: BG_COLOR_BLUE
     value: '{!COLOR_BLUE_100}'
-    comment: Primary background colour
+    comment: Blue background colour
     type: color
     category: background-color
-  - name: BG_COLOR_SECONDARY
+  - name: BG_COLOR_YELLOW
     value: '{!COLOR_YELLOW_100}'
-    comment: Secondary background colour
+    comment: Yellow background colour
     type: color
     category: background-color
-  - name: BG_COLOR_SHADE
+  - name: BG_COLOR_GREY
     value: '{!COLOR_GREY_100}'
-    comment: Shade background colour
+    comment: Grey background colour
+    type: color
+    category: background-color
+
+  # B&W
+
+  - name: BG_COLOR_WHITE
+    value: '{!COLOR_WHITE_100}'
+    comment: White background colour
     type: color
     category: background-color
 
@@ -65,5 +70,28 @@ props:
   - name: BG_COLOR_GREY_5
     value: '{!COLOR_GREY_5}'
     comment: Grey 5 background colour
+    type: color
+    category: background-color
+
+
+    # Deprecated
+  - name: BG_COLOR_DEFAULT
+    value: '{!COLOR_WHITE_100}'
+    comment: Default background colour
+    type: color
+    category: background-color
+  - name: BG_COLOR_PRIMARY
+    value: '{!COLOR_BLUE_100}'
+    comment: Primary background colour
+    type: color
+    category: background-color
+  - name: BG_COLOR_SECONDARY
+    value: '{!COLOR_YELLOW_100}'
+    comment: Secondary background colour
+    type: color
+    category: background-color
+  - name: BG_COLOR_SHADE
+    value: '{!COLOR_GREY_100}'
+    comment: Shade background colour
     type: color
     category: background-color
