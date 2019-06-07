@@ -1,5 +1,50 @@
 # Changelog
 
+## 2.5.0 (2019-06-06)
+
+#### :rocket: New Feature
+
+- [#1138](https://github.com/ec-europa/europa-component-library/pull/1138) feat(border): add border utility - INNO-1495 ([@emeryro](https://github.com/emeryro))
+- [#1134](https://github.com/ec-europa/europa-component-library/pull/1134) feat(navigation-lists): create navigation lists composition - INNO-1490 ([@yhuard](https://github.com/yhuard))
+- [#1129](https://github.com/ec-europa/europa-component-library/pull/1129) feat(stack): add stacks - INNO-1492 ([@yhuard](https://github.com/yhuard))
+- [#1124](https://github.com/ec-europa/europa-component-library/pull/1124) feat(timeline): implement timeline v2 - INNO-1451 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1133](https://github.com/ec-europa/europa-component-library/pull/1133) fix(timeline2): prevent some props from leaking - INNO-1499 ([@yhuard](https://github.com/yhuard))
+- [#1126](https://github.com/ec-europa/europa-component-library/pull/1126) fix(list): change spacing - INNO-1488 ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1146](https://github.com/ec-europa/europa-component-library/pull/1146) chore(icons): un-hide spinner - INNO-1505 ([@yhuard](https://github.com/yhuard))
+- [#1142](https://github.com/ec-europa/europa-component-library/pull/1142) refactor(icons): deprecate some icons - INNO-1505 ([@yhuard](https://github.com/yhuard))
+- [#1140](https://github.com/ec-europa/europa-component-library/pull/1140) refactor(typography): add rem - px conversion - INNO-1501 ([@yhuard](https://github.com/yhuard))
+- [#1135](https://github.com/ec-europa/europa-component-library/pull/1135) refactor(button): apply latest specs - INNO-1500 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1145](https://github.com/ec-europa/europa-component-library/pull/1145) chore: replace thumbnails - INNO-1503 ([@yhuard](https://github.com/yhuard))
+- [#1127](https://github.com/ec-europa/europa-component-library/pull/1127) docs(list): update usage guidelines - INNO-1487 ([@yhuard](https://github.com/yhuard))
+- [#1136](https://github.com/ec-europa/europa-component-library/pull/1136) docs: update iconography page ([@Yaomimi](https://github.com/Yaomimi))
+- [#1128](https://github.com/ec-europa/europa-component-library/pull/1128) docs(website): rename "text input" to "text field" - INNO-1491 ([@yhuard](https://github.com/yhuard))
+- [#1125](https://github.com/ec-europa/europa-component-library/pull/1125) docs: update docs with info about the CDN - INNO-1489 ([@yhuard](https://github.com/yhuard))
+- [#1123](https://github.com/ec-europa/europa-component-library/pull/1123) chore: rename storybook folder into playground - INNO-1486 ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1147](https://github.com/ec-europa/europa-component-library/pull/1147) chore: hide contextual nav - INNO-1508 ([@yhuard](https://github.com/yhuard))
+- [#1148](https://github.com/ec-europa/europa-component-library/pull/1148) chore: hide site switcher - INNO-1509 ([@yhuard](https://github.com/yhuard))
+- [#1141](https://github.com/ec-europa/europa-component-library/pull/1141) chore: update dependencies - no issue ([@yhuard](https://github.com/yhuard))
+- [#1137](https://github.com/ec-europa/europa-component-library/pull/1137) chore(website): add thumbnails to Components page - INNO-1503 ([@yhuard](https://github.com/yhuard))
+- [#1131](https://github.com/ec-europa/europa-component-library/pull/1131) chore(website): create layout section - INNO-1497 ([@yhuard](https://github.com/yhuard))
+- [#1130](https://github.com/ec-europa/europa-component-library/pull/1130) chore(website): make sections collapsible - INNO-1493 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Jean YAO ([@Yaomimi](https://github.com/Yaomimi))
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.4.0 (2019-05-14)
 
 #### :rocket: New Feature
