@@ -63,13 +63,17 @@
   }
 
   .ecl-file__download {
+    border: 2px solid $ecl-color-blue-100;
+    font-weight: $ecl-font-weight-bold;
     justify-content: space-between;
     margin-top: $ecl-spacing-l;
+    padding: calc(#{$ecl-spacing-s} - 2px) calc(#{$ecl-spacing-m} - 2px);
     width: 100%;
 
     &:hover,
     &:focus {
-      color: $ecl-color-white-100;
+      border-color: $ecl-color-blue-130;
+      color: $ecl-color-blue-130;
       text-decoration: none;
     }
 

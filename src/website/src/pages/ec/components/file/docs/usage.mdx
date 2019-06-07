@@ -1,0 +1,58 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The file component <strong>delivers downloadable content</strong> to users in
+  an easy to use container. When the file is available in more than one language
+  the file component makes these files accessible in an expandable sub
+  container.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/File/Download%20-%20Expanded.jpg"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/File/Download%20-%20Mobile%20-%20Expanded.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/File/Download%20-%20Expanded.jpg 961w"
+  alt="Anatomy of navigation lists"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Name           | Mandatory | Description                                                                                                  |
+| -------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
+| Title          | Yes       | Title must describe the downloadable file                                                                    |
+| Details        | Yes       | Details displays the file language, file type and file size                                                  |
+| Link Button    | Yes       | Text Link downloads the file when selected                                                                   |
+| Expand Button  | Yes       | Text button, when selected, displays the file in different languages available, below the download container |
+| Language       | Yes       | The language of the downloaded content                                                                       |
+| Helper Message | No        | Helper message assists the user in selecting the appropriate file and language                               |
+
+## Do's
+
+- <strong>label each item</strong> with a short, distinct and indicative title
+- always include the <strong>file language</strong>, <strong>file type</strong> and <strong>file size</strong>
+
+## Don'ts
+
+- don't use without additional relevant content on the page
+- don't use the same title as the file name
+
+## When to use
+
+- when you want to include additional relevant or supporting documents for download
+  ##When not to use
+- Do not use to include <strong>important information</strong> that should be present at all time
