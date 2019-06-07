@@ -26,7 +26,10 @@ const publicUrl = publicPath.slice(0, -1);
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 
-console.log(process.env);
+let eclVersion = JSON.stringify(lernaJson.version);
+if (process.env.NETLIFY === 'true' && process.env.PULL_REQUEST === 'true') {
+  eclVersion += ` - PR ${process.env.REVIEW_ID}`;
+}
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
@@ -287,7 +290,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
-      'process.env.ECL_VERSION': JSON.stringify(lernaJson.version),
+      'process.env.ECL_VERSION': eclVersion,
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
