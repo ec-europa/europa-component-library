@@ -37,7 +37,7 @@ storiesOf('Utilities|Typography', module)
         <h2 className="ecl-u-type-heading-2">H2. {content}</h2>
         <h3 className="ecl-u-type-heading-3">H3. {content}</h3>
         <h4 className="ecl-u-type-heading-4">H4. {content}</h4>
-        <h5 className="ecl-u-type-heading-5">H4. {content}</h5>
+        <h5 className="ecl-u-type-heading-5">H5. {content}</h5>
       </Fragment>
     );
   })
@@ -51,9 +51,9 @@ storiesOf('Utilities|Typography', module)
         'Blue 120': 'ecl-u-type-color-blue-120',
         'Grey 50': 'ecl-u-type-color-grey-50',
         'Blue N': 'ecl-u-type-color-blue-n',
-        'Red 100': 'ecl-u-type-color-red-100',
-        'Orange 100': 'ecl-u-type-color-orange-100',
-        'Green 100': 'ecl-u-type-color-green-100',
+        Red: 'ecl-u-type-color-red',
+        Orange: 'ecl-u-type-color-orange',
+        Green: 'ecl-u-type-color-green',
       },
       'ecl-u-type-color-black'
     );

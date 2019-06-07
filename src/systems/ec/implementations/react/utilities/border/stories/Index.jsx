@@ -28,7 +28,7 @@ storiesOf('Utilities|Border', module)
         'Grey 50': 'ecl-u-border-color-grey-50',
         'Grey 5': 'ecl-u-border-color-grey-5',
         'Blue N': 'ecl-u-border-color-blue-n',
-        'Red 100': 'ecl-u-border-color-red-100',
+        Red: 'ecl-u-border-color-red',
       },
       'ecl-u-border-color-black'
     );
