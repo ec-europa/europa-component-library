@@ -26,6 +26,8 @@ const publicUrl = publicPath.slice(0, -1);
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 
+console.log(process.env);
+
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
     loader: MiniCssExtractPlugin.loader,
