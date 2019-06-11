@@ -104,13 +104,46 @@
   }
 
   /*
-   * Font weight
+   * Font colour
+   */
+  @each $key, $value in $ecl-colors {
+    // Filter out yellow colours (text should not be yellow)
+    @if not str-index($key, 'yellow-') {
+      .ecl-u-type-color-#{$key} {
+        color: $value;
+      }
+    }
+  }
+
+  /*
+   * Font style
    */
   .ecl-u-type-regular {
     font-weight: $ecl-font-weight-print-regular;
   }
   .ecl-u-type-bold {
     font-weight: $ecl-font-weight-print-bold;
+  }
+  .ecl-u-type-capitalize {
+    text-transform: capitalize;
+  }
+  .ecl-u-type-lowercase {
+    text-transform: lowercase;
+  }
+  .ecl-u-type-uppercase {
+    text-transform: uppercase;
+  }
+  .ecl-u-type-overline {
+    text-decoration: overline;
+  }
+  .ecl-u-type-underline {
+    text-decoration: underline;
+  }
+  .ecl-u-type-strike {
+    text-decoration: line-through;
+  }
+  .ecl-u-type-none {
+    text-decoration: none;
   }
 }
 
