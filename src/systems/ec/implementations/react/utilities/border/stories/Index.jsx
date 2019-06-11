@@ -19,7 +19,7 @@ storiesOf('Utilities|Border', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
     const color = select(
-      'Color (sample)',
+      'Colour (sample)',
       {
         Black: 'ecl-u-border-color-black',
         Blue: 'ecl-u-border-color-blue',
