@@ -1,0 +1,74 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  A gallery is a collection of images or videos that allows a user to quickly
+  browse media related to the page content. The media gallery can include
+  multiple types of formats and sometimes act as links to other pages or sites.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Galleries/Gallery.jpg"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Galleries/Gallery%20-%20Mobile.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Galleries/Gallery.jpg 1246w"
+  alt="Anatomy of navigation lists"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Name       | Mandatory | Description                                                                                                                                                      |
+| ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Media      | Yes       | Title must describe the downloadable file                                                                                                                        |
+| Media icon | Yes       | Icon indicating the type of media                                                                                                                                |
+| Caption    | No        | Use caption <strong>representative</strong> of the media content - this allows users to form a mental model of the information available while scanning the page |
+
+## Do's
+
+- **be descriptive and concise in the caption** to communicate the subject of the media file
+- **write captions that are short, distinct and indicative** and communicate the subject of the media content
+- **include ALT tag**
+- **select appropriate images** for video thumbnails, they need to depict what is in the audio or video file
+- place icon overlays to indicate the type of media, i.e. audio icon, video icon.
+
+## Don'ts
+
+- **don't automatically play audio or video files** when a user arrives on a page (or scrolls to a media gallery)
+- **don't automatically play next items** after an audio or video item finished
+- don't choose images which are too complex to be distinguished in thumbnail size
+
+## When to use
+
+- where there are several media files - if there are under 5 items, use use an <Link to="/eu/components/list/usage/">unordered list</Link> or a <Link to="/eu/components/media/media-container/usage/">media container</Link>
+- where there is no need to prioritise or highlight specific media files, i.e. files are equally important in terms of content
+
+## When not to use
+
+- do not use the gallery when media items have a content hierarchy
+- do not use the gallery when specific items should be highlighted
+
+## Notes
+
+### Accessibility
+
+- Ensure the **ALT tag for each media file accurately describes the subject** (e.g. for an image: "Undergraduate student looking into microscope to examine specimen in biology laboratory" instead of something generic like "Science image 1")
+
+### Design
+
+- Captions
+  - Desktop: display on hover
+  - Mobile: display under the thumbnail
