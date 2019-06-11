@@ -1,0 +1,62 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy, Do, Caution } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  When a list of items is presented on separate pages, the pagination component
+  is used at the bottom of the list to indicate the number of pages, the current
+  page and to allow users to navigate to the different pages.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination.jpg"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination%20-%20Mobile.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination.jpg 734w"
+  alt="Anatomy of navigation lists"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Name              | Mandatory | Description                                                             |
+| ----------------- | --------- | ----------------------------------------------------------------------- |
+| Page numbers      | Yes       | Pages and their corresponding value                                     |
+| Current selection | Yes       | Represents the current page the user is on                              |
+| Next              | Yes       | Leads users to the next page; it is not displayed on the last page      |
+| Previous          | Yes       | Leads users to the previous page; it is not displayed on the first page |
+
+## Do's
+
+- place the **pagination below** the list of items
+
+## Don'ts
+
+- **don't replace** this component **with an ‘Infinite Scrolling’** feature
+
+## When to use
+
+- **use to break long lists** that would create too much vertical scrolling in one page
+
+## When not to use
+
+- don't use instead of a page-to-page navigation
+
+## Notes
+
+### Design
+
+- 3 dots (…) is used to indicate that there are more pages in-between
+- first and last pages are always displayed
