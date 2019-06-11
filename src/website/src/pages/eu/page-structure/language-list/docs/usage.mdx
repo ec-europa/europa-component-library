@@ -1,0 +1,61 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The Language List is the <strong>language selector</strong> of the European
+  Commission sites. Users are presented with the language list when they first
+  access the site, or through the language switcher at the top-right corner of
+  any page.
+</Paragraph>
+
+## Anatomy
+
+There are **2 versions** of the component. One version is shown initially, when a user arrives at the site. The second version is for a user to switch their language preference.
+
+- **desktop is a 2 column layout** which displays the available language choices
+- **mobile design is a single column layout** which allows the user to scroll to select their language
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Language%20list.jpg"
+  alt="Anatomy of language lists"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Name                                   | Mandatory | Description                                                                                                          |
+| -------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
+| Official European Commission languages | Yes       | <ul><li>desktop: two columns displayed one next to the other</li><li>mobile: single column</li></ul>                 |
+| Close button                           | Yes       | <ul><li>button to close without making a selection</li><li>close (in current language preference) and icon</li></ul> |
+| CTA label                              | Yes       | generic language icon and label (in current language preference)                                                     |
+
+## Do's
+
+- **match the label** of the language with the selected language
+- **display only the languages** in which the content has been **translated** in and is **available**
+- **indicate current language**
+
+## Don'ts
+
+- **don't display languages** as options in the language list **if they are not available** on your site
+
+## When to use
+
+- **this is a site-wide component** and thus it **must be available on every page** in case users want to switch their language preference
+
+## When not to use
+
+- should always be used
