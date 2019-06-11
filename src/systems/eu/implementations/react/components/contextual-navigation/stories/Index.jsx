@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/*
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
@@ -43,3 +44,4 @@ storiesOf('Components|Navigation/Contextual Navigation', module)
 
     return <ContextualNavigation {...data} />;
   });
+*/

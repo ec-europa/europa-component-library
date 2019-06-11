@@ -19,7 +19,6 @@ export default () => {
 
   return (
     <SearchPage
-      siteSwitcher={data.siteSwitcher}
       siteHeader={data.siteHeader}
       pageHeader={data.pageHeader}
       footer={data.footer}
