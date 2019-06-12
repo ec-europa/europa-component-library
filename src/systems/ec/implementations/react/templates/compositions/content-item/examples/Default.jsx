@@ -31,12 +31,22 @@ export default () => (
     </div>
 
     <div
-      className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl"
+      className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
       style={{
         backgroundImage: 'url("/example-image.jpg")',
         backgroundSize: 'contain',
         height: '5rem',
         width: '7.5rem',
+      }}
+    />
+
+    <div
+      className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
+      style={{
+        backgroundImage: 'url("/example-image.jpg")',
+        backgroundSize: 'contain',
+        height: '8.75rem',
+        width: '13.125rem',
       }}
     />
   </article>
