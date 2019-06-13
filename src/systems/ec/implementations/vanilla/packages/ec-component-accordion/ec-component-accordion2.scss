@@ -4,10 +4,10 @@
  */
 
 // Import base
-@import '@ecl/eu-base/eu-base';
+@import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('eu-component-button'));
+@include check-imports(('ec-component-button'));
 
 @mixin ecl-accordion2() {
   .ecl-accordion2 {
@@ -92,6 +92,6 @@
 }
 
 // Use mixin
-@include exports('eu-component-accordion2') {
+@include exports('ec-component-accordion2') {
   @include ecl-accordion2();
 }
