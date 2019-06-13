@@ -9,10 +9,28 @@ module.exports = {
       },
     },
     {
+      name: 'default-disabled',
+      label: 'Default - disabled',
+      context: {
+        label: 'Default - disabled',
+        modifier: 'default',
+        is_disabled: true,
+      },
+    },
+    {
       name: 'primary',
       context: {
         label: 'Primary',
         modifier: 'primary',
+      },
+    },
+    {
+      name: 'primary-disabled',
+      label: 'Primary - disabled',
+      context: {
+        label: 'Primary - disabled',
+        modifier: 'primary',
+        is_disabled: true,
       },
     },
     {
@@ -23,12 +41,31 @@ module.exports = {
       },
     },
     {
+      name: 'secondary-disabled',
+      label: 'Secondary - disabled',
+      context: {
+        label: 'Secondary - disabled',
+        modifier: 'secondary',
+        is_disabled: true,
+      },
+    },
+    {
       name: 'call',
       label: 'Call-to-action',
       context: {
         label: 'Call-to-action',
         modifier: 'call',
         icon: 'caret-right',
+      },
+    },
+    {
+      name: 'call-disabled',
+      label: 'Call-to-action - disabled',
+      context: {
+        label: 'Call-to-action - disabled',
+        modifier: 'call',
+        icon: 'caret-right',
+        is_disabled: true,
       },
     },
   ],

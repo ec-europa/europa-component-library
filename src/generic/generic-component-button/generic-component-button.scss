@@ -52,6 +52,13 @@
       background-color: $ecl-color-primary;
       color: #fff;
     }
+
+    &[disabled] {
+      background-color: transparent;
+      border-color: map-get($ecl-colors, 'blue-25');
+      color: map-get($ecl-colors, 'blue-25');
+      text-decoration: none;
+    }
   }
 
   .ecl-button--primary {
@@ -65,6 +72,13 @@
       background-color: transparent;
       color: $ecl-color-primary;
     }
+
+    &[disabled] {
+      background-color: map-get($ecl-colors, 'blue-25');
+      border-color: map-get($ecl-colors, 'blue-25');
+      color: #fff;
+      text-decoration: none;
+    }
   }
 
   .ecl-button--secondary {
@@ -74,6 +88,12 @@
     &:focus,
     &:active {
       color: $ecl-color-shade;
+    }
+
+    &[disabled] {
+      background-color: transparent;
+      color: map-get($ecl-colors, 'blue-25');
+      text-decoration: none;
     }
   }
 
@@ -85,6 +105,13 @@
     &:focus {
       border-color: #000;
       outline-color: #000;
+    }
+
+    &[disabled] {
+      background-color: map-get($ecl-colors, 'yellow-25');
+      border-color: map-get($ecl-colors, 'yellow-25');
+      color: map-get($ecl-colors, 'grey-50');
+      text-decoration: none;
     }
   }
 
