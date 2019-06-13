@@ -9,12 +9,17 @@
   padding: $ecl-spacing-l $ecl-spacing-m;
 }
 
-.image {
+.image-container {
   align-items: center;
   background-color: $ecl-color-white-100;
   border: 1px solid $ecl-color-grey-15;
   display: flex;
   justify-content: center;
+}
+
+.image {
+  height: auto;
+  max-width: 100%;
 }
 
 .legend {

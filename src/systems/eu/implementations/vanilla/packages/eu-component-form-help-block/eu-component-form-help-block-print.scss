@@ -1,0 +1,20 @@
+/*
+ * Help block
+ * @define help-block
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-help-block-print() {
+  .ecl-help-block {
+    color: $ecl-color-grey-75;
+    font: $ecl-font-prolonged-print-m;
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-help-block-print') {
+  @include ecl-help-block-print();
+}

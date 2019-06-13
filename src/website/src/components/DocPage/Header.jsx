@@ -48,6 +48,11 @@ const getSectionTitle = component => {
 };
 
 const navigateTab = (e, history) => {
+  if (e.target.value.indexOf('/playground/') === 0) {
+    window.location.href = e.target.value;
+    return;
+  }
+
   history.push(e.target.value);
 };
 
@@ -79,8 +84,30 @@ const Header = React.memo(({ component, history, location }) => {
                   </NavLink>
                 </li>
               ))}
+              {component.parent.attributes.playground && (
+                <li>
+                  <a
+                    href={`/playground/${
+                      component.parent.attributes.playground.system
+                    }/${
+                      process.env.NODE_ENV === 'development' ? 'index.html' : ''
+                    }?path=${component.parent.attributes.playground.path}`}
+                    className={styles['header__tabs-item']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Playground
+                    <svg
+                      focusable="false"
+                      aria-hidden="true"
+                      className={styles['header__tabs-icon']}
+                    >
+                      <use xlinkHref={`${icons}#ui--external`} />
+                    </svg>
+                  </a>
+                </li>
+              )}
             </ul>
-
             <div className={styles.select__container}>
               <select
                 id="header-tabs"
@@ -93,6 +120,17 @@ const Header = React.memo(({ component, history, location }) => {
                     {tab.attributes.title}
                   </option>
                 ))}
+                {component.parent.attributes.playground && (
+                  <option
+                    value={`/playground/${
+                      component.parent.attributes.playground.system
+                    }/${
+                      process.env.NODE_ENV === 'development' ? 'index.html' : ''
+                    }?path=${component.parent.attributes.playground.path}`}
+                  >
+                    Playground
+                  </option>
+                )}
               </select>
               <div className={styles.select__icon}>
                 <svg

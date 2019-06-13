@@ -1,5 +1,4 @@
 /* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
-const siteSwitcherContent = require('@ecl/ec-specs-site-switcher/demo/data');
 const siteHeaderContent = require('@ecl/ec-specs-site-header/demo/data--en');
 const footerContent = require('@ecl/ec-specs-footer/demo/data--corporate');
 
@@ -16,7 +15,6 @@ const pageHeaderContent = {
 };
 
 module.exports = {
-  siteSwitcher: siteSwitcherContent,
   breadcrumb: breadcrumbContent,
   siteHeader: siteHeaderContent,
   pageHeader: pageHeaderContent,

@@ -74,6 +74,7 @@ const EURoutes = () => (
     HomePage={HomePage}
     prefix="/eu"
     title="EU Homepage"
+    system="eu"
     pages={sortedPages[0].children}
     routes={pagesToRoutes(sortedPages)}
   />

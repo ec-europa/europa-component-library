@@ -1,5 +1,7 @@
 /**
  * Colorize utilities
+ *
+ * Deprecated
  */
 
 // Import base
@@ -16,12 +18,6 @@
       }
     }
     /* stylelint-enable */
-  }
-
-  @each $key, $value in $ecl-colors-bg {
-    .ecl-u-bg-#{$key} {
-      background-color: $value;
-    }
   }
 
   .ecl-u-color-primary {

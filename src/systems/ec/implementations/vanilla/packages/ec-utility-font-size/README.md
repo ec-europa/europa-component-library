@@ -1,4 +1,4 @@
-# Font size utilities
+# [DEPRECATED] Font size utilities
 
 Use the following classes to quickly set a font size:
 

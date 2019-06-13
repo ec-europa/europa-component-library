@@ -64,18 +64,22 @@ class Playground extends PureComponent {
 
     if (!children) return null;
 
-    const playgroundUrl =
-      playgroundLink ||
-      encodeURI(
-        `/storybook/${system}/${
+    let playgroundUrl;
+
+    if (playgroundLink) {
+      playgroundUrl = playgroundLink;
+    } else if (system && selectedKind && selectedStory) {
+      playgroundUrl = encodeURI(
+        `/playground/${system}/${
           process.env.NODE_ENV === 'development' ? 'index.html' : ''
         }?path=/story/${selectedKind}--${selectedStory}`
       );
+    }
 
     const fullFrameUrl =
       system && selectedKind && selectedStory
         ? encodeURI(
-            `/storybook/${system}/${
+            `/playground/${system}/${
               process.env.NODE_ENV === 'development' ? 'iframe.html' : 'iframe'
             }?id=${selectedKind}--${selectedStory}`
           )
@@ -160,26 +164,29 @@ class Playground extends PureComponent {
           </button>
         </div>
 
-        <p className={styles.description}>Try it yourself on the playground</p>
-
         {playgroundUrl && (
-          <a
-            href={playgroundUrl}
-            className={`${styles.link} ${styles['link--icon']} ${
-              styles['playground-link']
-            }`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.link__label}>Playground</span>
-            <svg
-              focusable="false"
-              aria-hidden="true"
-              className={styles.link__icon}
+          <Fragment>
+            <p className={styles.description}>
+              Try it yourself on the playground
+            </p>
+            <a
+              href={playgroundUrl}
+              className={`${styles.link} ${styles['link--icon']} ${
+                styles['playground-link']
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
-            </svg>
-          </a>
+              <span className={styles.link__label}>Playground</span>
+              <svg
+                focusable="false"
+                aria-hidden="true"
+                className={styles.link__icon}
+              >
+                <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+              </svg>
+            </a>
+          </Fragment>
         )}
       </div>
     );

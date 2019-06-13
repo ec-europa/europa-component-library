@@ -26,6 +26,15 @@ const publicUrl = publicPath.slice(0, -1);
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 
+let eclVersion = lernaJson.version;
+if (
+  process.env.NETLIFY === 'true' &&
+  process.env.PULL_REQUEST === 'true' &&
+  process.env.REVIEW_ID
+) {
+  eclVersion += ` - PR ${process.env.REVIEW_ID}`;
+}
+
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
     loader: MiniCssExtractPlugin.loader,
@@ -180,7 +189,7 @@ module.exports = {
               {
                 loader: '@mdx-js/loader',
                 options: {
-                  mdPlugins: [
+                  remarkPlugins: [
                     [
                       // Removes front-matter from Markdown output
                       frontmatter,
@@ -285,7 +294,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
-      'process.env.ECL_VERSION': JSON.stringify(lernaJson.version),
+      'process.env.ECL_VERSION': JSON.stringify(eclVersion),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

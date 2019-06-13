@@ -1,0 +1,68 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The expandable is a <strong>progressive disclosure component</strong>. Such
+  components truncate information for the general layout/design and are intended
+  to{' '}
+  <strong>
+    deliver optional additional content depending on users' interests
+  </strong>
+  . They help keep the interface clean and reduce scrolling by saving vertical space,
+  indicating through the use of buttons that further actions lie behind.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Expandable/Expandable%20-%20Expanded.jpg"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Expandable/Expandable%20-%20Mobile%20-%20Expanded.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Expandable/Expandable%20-%20Expanded.jpg 734w"
+  alt="Anatomy of navigation lists"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+| Name                          | Mandatory | Description                                                                                                    |
+| ----------------------------- | --------- | -------------------------------------------------------------------------------------------------------------- |
+| Button with indicator & Label | Yes       | The button label must be short and <strong>descriptive of the action that follows after being clicked</strong> |
+| Description                   | Yes       | The description displays relevant content in a container that's initially hidden                               |
+
+## Do's
+
+- use button labels that describe the hidden content
+
+## Don'ts
+
+- do not use with large blocks of content
+
+## When to use
+
+- use when additional information is offered that some, but not all, users will find helpful
+
+## When not to use
+
+- do not use when the hidden information is of critical importance to users
+
+## Notes
+
+### Accessibility
+
+- **progressive disclosure elements** can be helpful accessibility aids as **they give users the choice of revealing content to read or bypass**, making page navigation more efficient for screen-reader users and people using the keyboard or alternative input devices
+
+## Related components
+
+- <Link to="/ec/components/accordion/usage/">Accordion</Link>

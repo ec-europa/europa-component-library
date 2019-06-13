@@ -198,6 +198,11 @@
   .ecl-gallery__close-button {
     color: $detail-color;
     font-weight: $ecl-font-weight-regular;
+
+    &:hover,
+    &:focus {
+      color: $detail-color;
+    }
   }
 
   .ecl-gallery__slider {
@@ -231,6 +236,11 @@
     align-self: flex-start;
     color: $detail-color;
     flex-shrink: 0;
+
+    &:hover,
+    &:focus {
+      color: $detail-color;
+    }
   }
 
   .ecl-gallery__slider-next {
@@ -240,6 +250,11 @@
     flex-shrink: 0;
     position: absolute;
     right: 0;
+
+    &:hover,
+    &:focus {
+      color: $detail-color;
+    }
   }
 
   .ecl-gallery__detail {
