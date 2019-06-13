@@ -3243,6 +3243,7 @@ page on a website, use a link instead.</li>
     - "icon" (string, "", "caret-up", "caret-right" or "caret-down") (default: "")
     - "label" (string) (default: "")
     - "is_block" (boolean): block-wide button (default: false)
+    - "is_disabled" (boolean): disabled button (default: false)
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -3263,6 +3264,7 @@ page on a website, use a link instead.</li>
   'icon': icon|<span class="hljs-keyword">default</span>(''),
   'label': label|<span class="hljs-keyword">default</span>(''),
   'is_block': is_block|<span class="hljs-keyword">default</span>(false),
+  'is_disabled': is_disabled|<span class="hljs-keyword">default</span>(false),
   'extra_classes': extra_classes|<span class="hljs-keyword">default</span>(''),
   'extra_attributes': extra_attributes|<span class="hljs-keyword">default</span>([])
 } only %}</span><span class="xml"></span></pre>
@@ -3284,10 +3286,30 @@ page on a website, use a link instead.</li>
 </pre>
         
             <pre>
+<span class="hljs-comment">/* Default - disabled */</span>
+{
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Default - disabled"</span>,
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"default"</span>,
+  <span class="hljs-attr">"is_disabled"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
+            <pre>
 <span class="hljs-comment">/* Primary */</span>
 {
   <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Primary"</span>,
   <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"primary"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Primary - disabled */</span>
+{
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Primary - disabled"</span>,
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"primary"</span>,
+  <span class="hljs-attr">"is_disabled"</span>: <span class="hljs-literal">true</span>
 }
 
 </pre>
@@ -3302,11 +3324,32 @@ page on a website, use a link instead.</li>
 </pre>
         
             <pre>
+<span class="hljs-comment">/* Secondary - disabled */</span>
+{
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Secondary - disabled"</span>,
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"secondary"</span>,
+  <span class="hljs-attr">"is_disabled"</span>: <span class="hljs-literal">true</span>
+}
+
+</pre>
+        
+            <pre>
 <span class="hljs-comment">/* Call-to-action */</span>
 {
   <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Call-to-action"</span>,
   <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"call"</span>,
   <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"caret-right"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Call-to-action - disabled */</span>
+{
+  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Call-to-action - disabled"</span>,
+  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"call"</span>,
+  <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"caret-right"</span>,
+  <span class="hljs-attr">"is_disabled"</span>: <span class="hljs-literal">true</span>
 }
 
 </pre>
@@ -3326,8 +3369,18 @@ page on a website, use a link instead.</li>
 
 </pre>
         
+            <pre><span class="hljs-comment">&lt;!-- Default - disabled --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--default"</span> <span class="hljs-attr">disabled</span>&gt;</span>Default - disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+</pre>
+        
             <pre><span class="hljs-comment">&lt;!-- Primary --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary"</span>&gt;</span>Primary<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Primary - disabled --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--primary"</span> <span class="hljs-attr">disabled</span>&gt;</span>Primary - disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 </pre>
         
@@ -3336,8 +3389,18 @@ page on a website, use a link instead.</li>
 
 </pre>
         
+            <pre><span class="hljs-comment">&lt;!-- Secondary - disabled --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--secondary"</span> <span class="hljs-attr">disabled</span>&gt;</span>Secondary - disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+</pre>
+        
             <pre><span class="hljs-comment">&lt;!-- Call-to-action --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-right"</span>&gt;</span>Call-to-action<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Call-to-action - disabled --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ecl-button ecl-button--call ecl-button--caret-right"</span> <span class="hljs-attr">disabled</span>&gt;</span>Call-to-action - disabled<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 
 </pre>
         
