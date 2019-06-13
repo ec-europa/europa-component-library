@@ -39,7 +39,7 @@ storiesOf('Components|Accordion', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('default', () => {
+  .add('[deprecated] ECL <2.6.0', () => {
     const toggle1 = {
       ...demoContent.items[0].toggle,
       label: text('Toggle 1', demoContent.items[0].toggle.label),

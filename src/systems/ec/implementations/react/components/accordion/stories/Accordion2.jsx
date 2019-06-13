@@ -4,19 +4,19 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
-import demoContent from '@ecl/eu-specs-accordion/demo/data';
+import demoContent from '@ecl/ec-specs-accordion/demo/data';
 
-import VanillaAccordion from '@ecl/eu-component-accordion';
+import { Accordion2 as VanillaAccordion } from '@ecl/ec-component-accordion';
 
-import Accordion from '../src/Accordion';
-import AccordionItem from '../src/AccordionItem';
+import Accordion from '../src/Accordion2';
+import AccordionItem from '../src/Accordion2Item';
 
 storiesOf('Components|Accordion', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const elements = document.querySelectorAll('[data-ecl-accordion]');
+        const elements = document.querySelectorAll('[data-ecl-accordion2]');
         const vanillaAccordions = [];
 
         for (let i = 0; i < elements.length; i += 1) {
@@ -39,7 +39,7 @@ storiesOf('Components|Accordion', module)
       {story()}
     </StoryWrapper>
   ))
-  .add('[deprecated] ECL <2.6.0', () => {
+  .add('default', () => {
     const toggle1 = {
       ...demoContent.items[0].toggle,
       label: text('Toggle 1', demoContent.items[0].toggle.label),

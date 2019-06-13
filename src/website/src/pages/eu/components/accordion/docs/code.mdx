@@ -4,7 +4,7 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Accordion, { AccordionItem } from '@ecl/eu-react-component-accordion';
+import { Accordion2, Accordion2Item } from '@ecl/eu-react-component-accordion';
 
 import demoContent from '@ecl/eu-specs-accordion/demo/data';
 
@@ -14,27 +14,27 @@ import demoContent from '@ecl/eu-specs-accordion/demo/data';
   selectedStory="default"
   showFrame
 >
-  <Accordion>
-    <AccordionItem
+  <Accordion2>
+    <Accordion2Item
       toggle={demoContent.items[0].toggle}
       id={demoContent.items[0].id}
       level={demoContent.items[0].level}
     >
       {demoContent.items[0].content}
-    </AccordionItem>
-    <AccordionItem
+    </Accordion2Item>
+    <Accordion2Item
       toggle={demoContent.items[1].toggle}
       id={demoContent.items[1].id}
       level={demoContent.items[1].level}
     >
       {demoContent.items[1].content}
-    </AccordionItem>
-    <AccordionItem
+    </Accordion2Item>
+    <Accordion2Item
       toggle={demoContent.items[2].toggle}
       id={demoContent.items[2].id}
       level={demoContent.items[2].level}
     >
       {demoContent.items[2].content}
-    </AccordionItem>
-  </Accordion>
+    </Accordion2Item>
+  </Accordion2>
 </Playground>
