@@ -65,11 +65,13 @@
     margin-right: $ecl-spacing-m;
 
     .ecl-accordion2__toggle[aria-expanded='true'] & {
-      padding-bottom: calc(#{$ecl-spacing-xs} + #{$ecl-spacing-xs} + 1px);
+      margin-bottom: calc(#{$ecl-spacing-xs} + #{$ecl-spacing-xs} + 1px);
     }
   }
 
   .ecl-accordion2__toggle-title {
+    flex-grow: 1;
+
     .ecl-accordion2__toggle[aria-expanded='true'] & {
       border-bottom: 1px solid $ecl-color-grey;
       margin-bottom: $ecl-spacing-xs;

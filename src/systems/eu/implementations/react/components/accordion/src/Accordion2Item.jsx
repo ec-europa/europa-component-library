@@ -14,14 +14,15 @@ const Accordion2Item = ({ id, toggle, level, children }) => {
           <button
             type="button"
             className={classnames(toggle.className, 'ecl-accordion2__toggle')}
-            data-ecl-accordion-toggle
+            data-ecl-accordion2-toggle
             aria-controls={`${id}-content`}
           >
             <span className="ecl-accordion2__toggle-flex">
               <Icon
                 className="ecl-accordion2__toggle-icon"
-                shape="ui--close"
+                shape="ui--plus"
                 size="m"
+                data-ecl-accordion2-icon
               />
               <span className="ecl-accordion2__toggle-title">
                 {toggle.label}

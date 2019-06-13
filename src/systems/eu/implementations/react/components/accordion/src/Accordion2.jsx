@@ -7,7 +7,7 @@ const Accordion2 = ({ children, className, ...props }) => {
     <div
       {...props}
       className={classnames(className, 'ecl-accordion2')}
-      data-ecl-accordion
+      data-ecl-accordion2
     >
       {children}
     </div>
