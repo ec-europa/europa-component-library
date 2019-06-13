@@ -7,7 +7,7 @@ import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
 import loremIpsum from 'lorem-ipsum';
 import InpageNavigation from '../src/InpageNavigation';
 
-storiesOf('Navigation/In page navigation', module)
+storiesOf('Components|Navigation/In page navigation', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     const demoText = loremIpsum({ count: 25 });
