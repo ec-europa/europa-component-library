@@ -6,11 +6,9 @@ import LanguageListOverlay from '@ecl/ec-react-component-language-list/src/Langu
 import InpageNavigation from '@ecl/ec-react-component-inpage-navigation/src/InpageNavigation';
 import PageHeader from '@ecl/ec-react-component-page-header';
 import SiteHeader from '@ecl/ec-react-component-site-header';
-import SiteSwitcher from '@ecl/ec-react-component-site-switcher';
 import data from '@ecl/ec-specs-content-page/demo/data';
 
 const ContentPage = ({
-  siteSwitcher,
   siteHeader,
   pageHeader,
   languageList,
@@ -18,7 +16,6 @@ const ContentPage = ({
   inpageNavigation,
 }) => (
   <Fragment>
-    <SiteSwitcher {...siteSwitcher} id="top" />
     <SiteHeader {...siteHeader} />
     <LanguageListOverlay {...languageList} hidden="true" />
     <PageHeader {...pageHeader} />
@@ -53,7 +50,6 @@ const ContentPage = ({
 );
 
 ContentPage.propTypes = {
-  siteSwitcher: PropTypes.shape(SiteSwitcher.propTypes),
   siteHeader: PropTypes.shape(SiteHeader.propTypes),
   pageHeader: PropTypes.shape(PageHeader.propTypes),
   languageList: PropTypes.shape(LanguageListOverlay.propTypes),
@@ -62,7 +58,6 @@ ContentPage.propTypes = {
 };
 
 ContentPage.defaultProps = {
-  siteSwitcher: {},
   siteHeader: {},
   pageHeader: {},
   languageList: {},

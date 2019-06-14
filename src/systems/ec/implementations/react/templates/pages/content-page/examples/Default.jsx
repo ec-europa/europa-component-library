@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
-import siteSwitcherContent from '@ecl/ec-specs-site-switcher/demo/data';
 import breadcrumbContent from '@ecl/ec-specs-breadcrumb/demo/data-simple';
 import siteHeaderContent from '@ecl/ec-specs-site-header/demo/data--en';
 import pageHeaderContent from '@ecl/ec-specs-page-header/demo/data-title-description';
@@ -28,7 +27,6 @@ export default () => {
   return (
     <ContentPage
       languageList={languageListContent}
-      siteSwitcher={siteSwitcherContent}
       siteHeader={siteHeaderContent}
       pageHeader={pageHeaderContent}
       card={cardContent}
