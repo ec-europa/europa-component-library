@@ -9,6 +9,26 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under Github.
 
+## 2.6.0 (2019-06-14)
+
+#### :rocket: New Feature
+
+- [#1159](https://github.com/ec-europa/europa-component-library/pull/1159) feat(accordion2): implement new accordion - INNO-1512
+- [#1143](https://github.com/ec-europa/europa-component-library/pull/1143) feat(color): add colour helpers - INNO-1494
+
+#### :bug: Bug Fix
+
+- [#1160](https://github.com/ec-europa/europa-component-library/pull/1160) fix(button): fix display on hover - INNO-1529
+
+#### :memo: Documentation
+
+- [#1157](https://github.com/ec-europa/europa-component-library/pull/1157) docs(messages): provide usage guidelines - INNO-1520
+- [#1158](https://github.com/ec-europa/europa-component-library/pull/1158) docs(pagination): provide usage guidelines - INNO-1521
+- [#1156](https://github.com/ec-europa/europa-component-library/pull/1156) docs(gallery): provide usage guidelines - INNO-1519
+- [#1155](https://github.com/ec-europa/europa-component-library/pull/1155) docs(media-container): provide usage guidelines - INNO-1518
+- [#1154](https://github.com/ec-europa/europa-component-library/pull/1154) docs(language-list): provide usage guidelines - INNO-1517
+- [#1152](https://github.com/ec-europa/europa-component-library/pull/1152) docs: add expandable's usage page - INNO-1514
+
 ## 2.5.0 (2019-06-06)
 
 #### :rocket: New Feature
