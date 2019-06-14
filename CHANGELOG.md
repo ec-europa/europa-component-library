@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.6.0 (2019-06-14)
+
+#### :rocket: New Feature
+
+- [#1159](https://github.com/ec-europa/europa-component-library/pull/1159) feat(accordion2): implement new accordion - INNO-1512 ([@yhuard](https://github.com/yhuard))
+- [#1143](https://github.com/ec-europa/europa-component-library/pull/1143) feat(color): add colour helpers - INNO-1494 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1160](https://github.com/ec-europa/europa-component-library/pull/1160) fix(button): fix display on hover - INNO-1529 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1157](https://github.com/ec-europa/europa-component-library/pull/1157) docs(messages): provide usage guidelines - INNO-1520 ([@yhuard](https://github.com/yhuard))
+- [#1158](https://github.com/ec-europa/europa-component-library/pull/1158) docs(pagination): provide usage guidelines - INNO-1521 ([@yhuard](https://github.com/yhuard))
+- [#1156](https://github.com/ec-europa/europa-component-library/pull/1156) docs(gallery): provide usage guidelines - INNO-1519 ([@yhuard](https://github.com/yhuard))
+- [#1155](https://github.com/ec-europa/europa-component-library/pull/1155) docs(media-container): provide usage guidelines - INNO-1518 ([@yhuard](https://github.com/yhuard))
+- [#1154](https://github.com/ec-europa/europa-component-library/pull/1154) docs(language-list): provide usage guidelines - INNO-1517 ([@yhuard](https://github.com/yhuard))
+- [#1152](https://github.com/ec-europa/europa-component-library/pull/1152) docs: add expandable's usage page - INNO-1514 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 2
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+
 ## 2.5.0 (2019-06-06)
 
 #### :rocket: New Feature
