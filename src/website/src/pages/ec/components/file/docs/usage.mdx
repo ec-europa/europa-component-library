@@ -32,14 +32,21 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
   }}
 />
 
-| Name           | Mandatory | Description                                                                                                  |
-| -------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
-| Title          | Yes       | Title must describe the downloadable file                                                                    |
-| Details        | Yes       | Details displays the file language, file type and file size                                                  |
-| Link Button    | Yes       | Text Link downloads the file when selected                                                                   |
-| Expand Button  | Yes       | Text button, when selected, displays the file in different languages available, below the download container |
-| Language       | Yes       | The language of the downloaded content                                                                       |
-| Helper Message | No        | Helper message assists the user in selecting the appropriate file and language                               |
+### Default
+
+| Elements    | Mandatory | Description                                                 |
+| ----------- | --------- | ----------------------------------------------------------- |
+| Title       | Yes       | Title must describe the downloadable file                   |
+| Details     | Yes       | Details displays the file language, file type and file size |
+| Link Button | Yes       | Text Link downloads the file when selected                  |
+
+### Conditional (translated/multiple languages)
+
+| Elements       | Mandatory | Description                                                                                                      |
+| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
+| Expand Button  | Yes       | Text button, when selected, displays the file in different languages available, **below the download container** |
+| Language       | Yes       | The language of the downloaded content **acting as a title**                                                     |
+| Helper Message | No        | Helper message assists the user in selecting the appropriate file and language                                   |
 
 ## Do's
 
@@ -54,5 +61,7 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 ## When to use
 
 - when you want to include additional relevant or supporting documents for download
-  ##When not to use
+
+## When not to use
+
 - Do not use to include <strong>important information</strong> that should be present at all time
