@@ -29,15 +29,15 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
   ```html
   <link
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.5.0/ec-preset-website/styles/ecl-ec-preset-website.css"
-    integrity="sha384-aI9LBhsEAemPEN95iSyIwVc+zGI+azCdpEG7gvdvRM5TkJAV5nConFVuedV2Ncz3 sha512-z3f+M/Z5MA5LKsHDf5e5BVIzzcvletYZPdK3eCtCdX8TYuSR0g/zG8oyvPHbcPrNN5JkHUThtPiG0ieUljpemA=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.6.0/ec-preset-website/styles/ecl-ec-preset-website.css"
+    integrity="sha384-TCdeftr8JZJ6U2OPrVasWqqxr1+IHRhDWfyNz5NdVsWsDBIsrrilyEeaqvwIzURE sha512-MneBXv2Moi1N3NTUjCL4Jdc7VLjv3Eg6f6Se9Qh9J05IEn5xGquULy/S9Jg9ttdwwvCtu80rxilnyF0u8yLfAQ=="
     crossorigin="anonymous"
     rel="stylesheet"
     media="screen"
   />
   <link
-    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.5.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
-    integrity="sha384-LkT/cZ72vMzvyOhK8EoULLJS9F2FBwPRrIStmkdG8P9hDVvf4aJseT3gSRFw+fhL sha512-DvcIM+EPDoLtDkXdkJ/BGL8sTDYE5xgVo7uIhXO7BdppDvRJ00VsGmeaIbRqOpG9PxXrxPK9o7m87+gsZSo4Vw=="
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.6.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
+    integrity="sha384-0wiHCN5l3vO+CQnypH72KzRfbTbVoQ/k2aIcjDOiSINeWL8hpMt7yP1pb60tWqqq sha512-oTclNxvBg8RF5HqewlSHFeAzBRyTt5Kp/iSY3azY3RTHnSyKl3rNONk6yAtsP0WlS1xaBoc+p1GzFgl8AAwJEA=="
     crossorigin="anonymous"
     rel="stylesheet"
     media="print"
@@ -47,8 +47,8 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
   ```html
   <script
     type="text/javascript"
-    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.5.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
-    integrity="sha384-GfEXf1eN4i7ypKaMPbZPuJZe8zh5Y1Kw/ca45MTEfEf+L4wgqSPEh5ODdtuFllu7 sha512-rvqAl+AzdaZdBsHFdpi8UX7rgYZynprRLuxJRV+ZPe0ixvAvlTtpFRnaSoyNFB3NIkD3ly5n0bb9Qxvv7uBKsQ=="
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.6.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
+    integrity="sha384-Jw0ict9Muw7wg/taf3NS0tR4pITlMDZ8w0PiHvO5LgjNEUMLZ4LImwP11Pe6hI3X sha512-v7qN+34OMSCHLw/X3dNSZc84axtsfq6jNHsANHUbD/0mMQJaWgla3sdWCE5wG9K2BlgrKi0YV5anQuzCEPsKsA=="
     crossorigin="anonymous"
     defer
   ></script>
