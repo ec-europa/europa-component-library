@@ -19,20 +19,18 @@ storiesOf('Utilities|Border', module)
   .addDecorator(withKnobs)
   .add('custom', () => {
     const color = select(
-      'Color (sample)',
+      'Colour (sample)',
       {
-        Black: 'ecl-u-border-color-black-100',
-        Primary: 'ecl-u-border-color-primary',
-        Secondary: 'ecl-u-border-color-secondary',
-        'Grey 100': 'ecl-u-border-color-grey-100',
+        Black: 'ecl-u-border-color-black',
+        Blue: 'ecl-u-border-color-blue',
+        Yellow: 'ecl-u-border-color-yellow',
+        Grey: 'ecl-u-border-color-grey',
         'Grey 50': 'ecl-u-border-color-grey-50',
         'Grey 5': 'ecl-u-border-color-grey-5',
-        Info: 'ecl-u-border-color-info',
-        Success: 'ecl-u-border-color-success',
-        Warning: 'ecl-u-border-color-warning',
-        Error: 'ecl-u-border-color-error',
+        'Blue N': 'ecl-u-border-color-blue-n',
+        Red: 'ecl-u-border-color-red',
       },
-      'ecl-u-border-color-black-100'
+      'ecl-u-border-color-black'
     );
 
     const width = select(

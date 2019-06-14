@@ -26,23 +26,23 @@ New components are continuously being added to the library. The team is also con
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <link
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.5.0/eu-preset-website/styles/ecl-eu-preset-website.css"
-      integrity="sha384-5eG3fcyfTG1g/bNaAfmCoyJbtzvRSFHeAyvtFjjSjB/pvZkT1duaqnBdksooA8fv sha512-Mk+sBsaqgRUGY/8ds6bez3zXOK4LMPpXdG3XWZuSqQnJhGPEBiGSHsCJ69E0ENb803cXv79LBOv9yJJmz7og2g=="
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.6.0/eu-preset-website/styles/ecl-eu-preset-website.css"
+      integrity="sha384-LwZ0F8AkRfbdw4MAu0gqeGY8XknCIlBUInZZiP6uIlRN/I7iQWLlrSK32rfl5R3V sha512-moJhR9A85mxhlbzXHdoUmxzr9IazYy12Zc4X0SrrGzEQvk5Tn0qYZh9vdWPex1qC/cUA32jcliD/Ihr5fbL97Q=="
       crossorigin="anonymous"
       rel="stylesheet"
       media="screen"
     />
     <link
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.5.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
-      integrity="sha384-IFkjltDSeLi1OhtnagDiQxYJojWU19+0xKGMFzjNCZKsJHa5COLLI9vM1t5fbyps sha512-uvrzymDatIyROD61FysWgZuda3eWgOTnlaV0HTRuYnR5SYGv/XmSnH6NsSO8HOvwp2yPoC3JZ6bsN1aKhAkEzw=="
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.6.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
+      integrity="sha384-aK8OZOKZ4xHsYm0z5rPNhtBIwnIuuW3O0yhWh7boVAhhmycuX1jpu0gF49Dt7xoq sha512-zEVlLU+POJgnN/gozhWXHlpcGrGy0Io/zIgbNjm4QVnA49c4x2rjOeJZYoQ4WgGRDrgIgr26YFqedjmIJP5nnw=="
       crossorigin="anonymous"
       rel="stylesheet"
       media="print"
     />
     <script
       type="text/javascript"
-      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.5.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
-      integrity="sha384-M+/Fkk3nDJVoNjI934pCctmDoenscImOD3VHiYUq21mWDaUHVW0+PgnDnbpGX7v0 sha512-Anb2qTNGQ/Cvz+8hlsKWNVx9SjrB1+47R6UQ9/Cm9tkUpn/FQNngehGXu+4Sn27LzOAzU2tWLgV823KDGUD76Q=="
+      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.6.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
+      integrity="sha384-0fdAQL88s+qtuw8jyJUHRSIaz13ylEyGwWCWgFbWniCnq3vPLChwomD/aV7N5Iv+ sha512-WKNLH4Sl3tnsBQXR1/MSl6YBGb9SLleKN+4m2FA8Oa3dkYiDZLkNItgJLi8Sv2v1goOCD9zhSGzy5Wga2SHDDg=="
       crossorigin="anonymous"
       defer
     ></script>

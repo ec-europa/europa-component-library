@@ -4,57 +4,50 @@ imports:
 
 # Export properties
 props:
-  - name: COLOR_PRIMARY
+  # Primary colors
+
+  - name: COLOR_BLUE
     value: '{!COLOR_BLUE_100}'
-    comment: Primary colour
+    comment: Primary Blue
     type: color
     category: color
     docs:
       title: EC Blue
-      description: Blue is commonly...
       ui: light
-  - name: COLOR_SECONDARY
+  - name: COLOR_YELLOW
     value: '{!COLOR_YELLOW_100}'
-    comment: Secondary colour
+    comment: Primary Yellow
     type: color
     category: color
     docs:
       title: EC Yellow
-      description: Yellow is commonly...
       ui: dark
-  - name: COLOR_TERTIARY
-    value: '{!COLOR_GREY_15}'
-    comment: Tertiary colour
-    type: color
-    category: color
-  - name: COLOR_TEXT
+  - name: COLOR_GREY
     value: '{!COLOR_GREY_100}'
-    comment: Text colour
+    comment: Primary Grey
     type: color
     category: color
     docs:
       title: EC Grey
-      description: Grey (just as black)...
       ui: light
 
   # B&W
 
-  - name: COLOR_BLACK_100
+  - name: COLOR_BLACK
     value: '{!COLOR_BLACK_100}'
-    comment: Black 100
+    comment: Black
     type: color
     category: color
     docs:
       title: Black
       ui: light
-  - name: COLOR_WHITE_100
+  - name: COLOR_WHITE
     value: '{!COLOR_WHITE_100}'
-    comment: White 100
+    comment: White
     type: color
     category: color
     docs:
       title: White
-      description: The colour white is colour at its most complete and pure, the colour of perfection.
       ui: dark
       border: true
 
@@ -220,7 +213,7 @@ props:
       ui: dark
   - name: COLOR_GREY_15
     value: '{!COLOR_GREY_15}'
-    comment: Grey 15
+    comment: EC Grey 15
     type: color
     category: color.variations.3
     docs:
@@ -243,21 +236,92 @@ props:
       title: EC Grey 5
       ui: dark
 
-  # Extra colors
+  # Notification colours
 
-  - name: COLOR_GREEN_100
-    value: '{!COLOR_GREEN_100}'
-    comment: Green 100
+  - name: COLOR_BLUE_N
+    value: '{!COLOR_BLUE_N}'
+    comment: Blue N
     type: color
     category: color
-  - name: COLOR_ORANGE_100
+    docs:
+      title: EC Blue N
+      ui: light
+  - name: COLOR_ORANGE
     value: '{!COLOR_ORANGE_100}'
-    comment: Orange 100
+    comment: Orange
     type: color
     category: color
+    docs:
+      title: EC Orange
+      ui: dark
+  - name: COLOR_GREEN
+    value: '{!COLOR_GREEN_100}'
+    comment: Green
+    type: color
+    category: color
+    docs:
+      title: EC Green
+      ui: light
+  - name: COLOR_RED
+    value: '{!COLOR_RED_100}'
+    comment: Red
+    type: color
+    category: color
+    docs:
+      title: EC Red
+      ui: light
 
-  # Notification colors
+  # DEPRECATED
 
+  - name: COLOR_PRIMARY
+    value: '{!COLOR_BLUE_100}'
+    comment: Primary colour
+    type: color
+    category: color
+    docs:
+      title: EC Blue
+      description: Blue is commonly...
+      ui: light
+  - name: COLOR_SECONDARY
+    value: '{!COLOR_YELLOW_100}'
+    comment: Secondary colour
+    type: color
+    category: color
+    docs:
+      title: EC Yellow
+      description: Yellow is commonly...
+      ui: dark
+  - name: COLOR_TERTIARY
+    value: '{!COLOR_GREY_15}'
+    comment: Tertiary colour
+    type: color
+    category: color
+  - name: COLOR_TEXT
+    value: '{!COLOR_GREY_100}'
+    comment: Text colour
+    type: color
+    category: color
+    docs:
+      title: EC Grey
+      description: Grey (just as black)...
+      ui: light
+  - name: COLOR_WHITE_100
+    value: '{!COLOR_WHITE_100}'
+    comment: White colour
+    type: color
+    category: color
+    docs:
+      title: EC White
+      ui: dark
+      border: true
+  - name: COLOR_BLACK_100
+    value: '{!COLOR_BLACK_100}'
+    comment: Black colour
+    type: color
+    category: color
+    docs:
+      title: EC Black
+      ui: light
   - name: COLOR_ERROR
     value: '{!COLOR_RED_100}'
     comment: Error color
@@ -294,3 +358,27 @@ props:
       title: EC Orange
       description: Orange for warnings
       ui: dark
+  - name: COLOR_ORANGE_100
+    value: '{!COLOR_ORANGE_100}'
+    comment: Orange 100
+    type: color
+    category: color
+    docs:
+      title: EC Orange 100
+      ui: dark
+  - name: COLOR_GREEN_100
+    value: '{!COLOR_GREEN_100}'
+    comment: Green 100
+    type: color
+    category: color
+    docs:
+      title: EC Green 100
+      ui: light
+  - name: COLOR_RED_100
+    value: '{!COLOR_RED_100}'
+    comment: Red 100
+    type: color
+    category: color
+    docs:
+      title: EC Red 100
+      ui: light
