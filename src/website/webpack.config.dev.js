@@ -13,8 +13,8 @@ const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
-const publicPath = '/';
-const publicUrl = publicPath.slice(0, -1);
+const publicUrl = process.env.PUBLIC_URL || '';
+const publicPath = `${publicUrl}/`;
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   { loader: 'style-loader' },

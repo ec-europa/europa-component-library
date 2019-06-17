@@ -110,7 +110,7 @@ class App extends React.Component {
   render() {
     return (
       <MDXProvider components={customComponents}>
-        <Router basename={`${process.env.PUBLIC_URL}/`}>
+        <Router basename={process.env.PUBLIC_URL}>
           <Fragment>
             <Helmet
               titleTemplate="%s - ECL v2"
