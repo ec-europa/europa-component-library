@@ -35,12 +35,7 @@ const FileDownload = ({
         <Link
           {...download}
           variant="standalone"
-          className={classnames(
-            download.className,
-            'ecl-file__download',
-            'ecl-button',
-            'ecl-button--secondary'
-          )}
+          className={classnames(download.className, 'ecl-file__download')}
           download
         />
       </div>
