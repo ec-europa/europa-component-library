@@ -7,7 +7,7 @@ export default () => (
   <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">
     <div className="ecl-u-flex-grow-1">
       <div className="ecl-u-type-s ecl-u-type-color-grey-75">
-        NEWS ARTICLE | 17 October 2019
+        NEWS ARTICLE | <time>17 October 2019</time>
       </div>
       <div className="ecl-u-type-prolonged-m ecl-u-type-bold ecl-u-mt-xs">
         <Link href="/example" variant="standalone" label="Article title" />
