@@ -48,7 +48,8 @@ const getSectionTitle = component => {
 };
 
 const navigateTab = (e, history) => {
-  if (e.target.value.indexOf('/playground/') === 0) {
+  // eslint-disable-next-line unicorn/prefer-includes
+  if (e.target.value.indexOf('/playground/') !== -1) {
     window.location.href = e.target.value;
     return;
   }
@@ -87,7 +88,7 @@ const Header = React.memo(({ component, history, location }) => {
               {component.parent.attributes.playground && (
                 <li>
                   <a
-                    href={`/playground/${
+                    href={`${process.env.PUBLIC_URL}/playground/${
                       component.parent.attributes.playground.system
                     }/${
                       process.env.NODE_ENV === 'development' ? 'index.html' : ''
@@ -122,7 +123,7 @@ const Header = React.memo(({ component, history, location }) => {
                 ))}
                 {component.parent.attributes.playground && (
                   <option
-                    value={`/playground/${
+                    value={`${process.env.PUBLIC_URL}/playground/${
                       component.parent.attributes.playground.system
                     }/${
                       process.env.NODE_ENV === 'development' ? 'index.html' : ''
