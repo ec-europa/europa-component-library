@@ -3,7 +3,7 @@ import React from 'react';
 import StoryWrapper from '@ecl/story-wrapper';
 import VanillaInpageNavigation from '@ecl/ec-component-inpage-navigation';
 import demoContent from '@ecl/ec-specs-inpage-navigation/demo/data';
-import loremIpsum from 'lorem-ipsum';
+import { loremIpsum } from 'lorem-ipsum';
 import Breadcrumb, { BreadcrumbItem } from '@ecl/ec-react-component-breadcrumb';
 import Footer from '@ecl/ec-react-component-footer';
 import SiteHeader from '@ecl/ec-react-component-site-header';
