@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
@@ -13,8 +14,8 @@ const babelConfig = require('./config/babel.config');
 const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
-const publicPath = '/';
-const publicUrl = publicPath.slice(0, -1);
+const publicUrl = process.env.PUBLIC_URL || '';
+const publicPath = `${publicUrl}/`;
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   { loader: 'style-loader' },
@@ -199,6 +200,9 @@ module.exports = {
       inject: true,
       template: './public/index.html',
       // filename: './index.html',
+    }),
+    new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
+      PUBLIC_URL: publicUrl,
     }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),

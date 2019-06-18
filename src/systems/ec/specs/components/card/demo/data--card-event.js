@@ -2,7 +2,7 @@
 module.exports = {
   image: {
     alt: 'card image',
-    src: '/example-image.jpg',
+    src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
   },
   title: {
     variant: 'standalone',
