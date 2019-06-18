@@ -115,7 +115,7 @@ export class InpageNavigation {
                 const element = currentInpage.childNodes[
                   addedNodeIndex - 1
                 ].cloneNode(true);
-                element.childNodes[0].innerText = addedNode.textContent;
+                element.childNodes[0].textContent = addedNode.textContent;
                 element.childNodes[0].href = `#${addedNode.id}`;
                 currentInpage.childNodes[addedNodeIndex - 1].after(element);
                 restart = true;
