@@ -1,0 +1,83 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The radio button component represents a GUI (graphic user interface) widget
+  <strong>with at least two mutually exclusive options</strong>, where <strong>
+    just one selection
+  </strong>
+  can be made at any time so that an option is selected, the other options are
+  deselected.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Radio/Radio%20buttons.jpg"
+  alt="Anatomy of radio button"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+### Default
+
+| Elements               | Mandatory | Description                                                                      |
+| ---------------------- | --------- | -------------------------------------------------------------------------------- |
+| Section heading        | Yes       | The **heading of the group** of related checkboxes                               |
+| Section helper message | No        | Helper information to describe the radio button group                            |
+| Radio button           | Yes       | The **interactionable part** of the component - either ticked or un-ticked       |
+| Label                  | Yes       | The label of the radio button                                                    |
+| Helper Message         | No        | Helper information to assist the user in selecting the appropriate radio buttons |
+
+### Conditional (invalid or missing input)
+
+| Elements   | Mandatory | Description                                                             |
+| ---------- | --------- | ----------------------------------------------------------------------- |
+| Error text | Yes       | A message informing the user **if** there is a problem with their entry |
+
+## Do's
+
+- aim for **distinct labels** within the same group in order to improve scanability & reduce possible confusion
+- **use labels as click targets** (clicking the label will select that option)
+- **arrange them vertically** to improve scannability and reduce errors
+- **group** related fields
+- **order** logically
+- always **label each radio button** with a short, distinct and indicative title, **placed above the field**
+- **make use of helper text** if there are further directions or hints the users may need in completing their goal
+- write specific and clear error message texts, so users understand how to address the error
+
+## Don'ts
+
+- **don't add them without grouping first**, in a logical order of successive tasks
+- **don't add without a default option ticked**
+
+## When to use
+
+- **when only one selection is needed** from a list
+- when users need to **select options** or **toggle settings**, for example
+- **in forms** with multiple non-exclusive options, **search filters**
+
+## When not to use
+
+- avoid radio buttons with an associated action
+- avoid when more than one option can be selected
+
+## Related components
+
+- <Link to="/eu/components/forms/select/usage/">Select</Link>
+- <Link to="/eu/components/forms/text-area/usage/">Text area</Link>
+- <Link to="/eu/components/forms/text-field/usage/">Text field</Link>
