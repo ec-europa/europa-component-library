@@ -35,7 +35,8 @@ export default () => (
       aria-label="Example image"
       className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-lg-none"
       style={{
-        backgroundImage: 'url("/example-image.jpg")',
+        backgroundImage:
+          'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
         backgroundSize: 'contain',
         height: '5rem',
         width: '7.5rem',
@@ -47,7 +48,8 @@ export default () => (
       aria-label="Example image"
       className="ecl-u-ratio-3-2 ecl-u-flex-shrink-0 ecl-u-ml-xl ecl-u-d-none ecl-u-d-lg-block"
       style={{
-        backgroundImage: 'url("/example-image.jpg")',
+        backgroundImage:
+          'url("https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg")',
         backgroundSize: 'contain',
         height: '8.75rem',
         width: '13.125rem',
