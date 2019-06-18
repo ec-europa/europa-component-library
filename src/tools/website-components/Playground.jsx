@@ -79,9 +79,7 @@ class Playground extends PureComponent {
     const fullFrameUrl =
       system && selectedKind && selectedStory
         ? encodeURI(
-            `${
-              process.env.PUBLIC_URL
-            }/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}`
+            `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}`
           )
         : '';
 

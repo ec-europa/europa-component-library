@@ -32,12 +32,12 @@ const Icon = ({
     <svg
       focusable="false"
       aria-hidden="true"
-      {...labelledBy && { 'aria-labelledby': labelledBy }}
+      {...(labelledBy && { 'aria-labelledby': labelledBy })}
       {...props}
       className={classNames}
     >
-      {title && <title {...titleId && { id: titleId }}>{title}</title>}
-      {desc && <desc {...descId && { id: descId }}>{desc}</desc>}
+      {title && <title {...(titleId && { id: titleId })}>{title}</title>}
+      {desc && <desc {...(descId && { id: descId })}>{desc}</desc>}
       <use xlinkHref={`${iconPath}#${shape}`} />
     </svg>
   );
