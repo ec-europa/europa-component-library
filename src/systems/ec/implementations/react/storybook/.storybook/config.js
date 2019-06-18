@@ -23,12 +23,12 @@ addParameters({
   cssresources: [
     {
       id: 'ecl-screen',
-      code: `<link rel="stylesheet" type="text/css" href="/playground/ec/styles/ecl-ec-preset-website.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website.css" />`,
       picked: true,
     },
     {
       id: 'ecl-print',
-      code: `<link rel="stylesheet" type="text/css" href="/playground/ec/styles/ecl-ec-preset-website-print.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website-print.css" />`,
       picked: false,
     },
     {

@@ -70,7 +70,7 @@ class Playground extends PureComponent {
       playgroundUrl = playgroundLink;
     } else if (system && selectedKind && selectedStory) {
       playgroundUrl = encodeURI(
-        `/playground/${system}/${
+        `${process.env.PUBLIC_URL}/playground/${system}/${
           process.env.NODE_ENV === 'development' ? 'index.html' : ''
         }?path=/story/${selectedKind}--${selectedStory}`
       );
@@ -79,9 +79,9 @@ class Playground extends PureComponent {
     const fullFrameUrl =
       system && selectedKind && selectedStory
         ? encodeURI(
-            `/playground/${system}/${
-              process.env.NODE_ENV === 'development' ? 'iframe.html' : 'iframe'
-            }?id=${selectedKind}--${selectedStory}`
+            `${
+              process.env.PUBLIC_URL
+            }/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}`
           )
         : '';
 

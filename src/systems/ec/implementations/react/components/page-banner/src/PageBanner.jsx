@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button';
+import Link from '@ecl/ec-react-component-link';
 
 const PageBanner = ({
   variant,
@@ -10,7 +11,8 @@ const PageBanner = ({
   baseline,
   image,
   isCentered,
-  button,
+  button, // DEPRECATED
+  link,
   className,
   ...props
 }) => {
@@ -31,6 +33,14 @@ const PageBanner = ({
         <div className="ecl-page-banner__content">
           {title && <h1 className="ecl-page-banner__title">{title}</h1>}
           {baseline && <p className="ecl-page-banner__baseline">{baseline}</p>}
+          {link && link.label && (
+            <Link
+              {...link}
+              variant="standalone"
+              className="ecl-page-banner__link"
+            />
+          )}
+          {/* DEPRECATED */}
           {button && button.label && (
             <Button {...button} className="ecl-page-banner__button" />
           )}
@@ -47,6 +57,7 @@ PageBanner.propTypes = {
   image: PropTypes.string,
   isCentered: PropTypes.bool,
   button: PropTypes.shape(Button.propTypes),
+  link: PropTypes.shape(Link.propTypes),
   className: PropTypes.string,
 };
 
@@ -57,6 +68,7 @@ PageBanner.defaultProps = {
   image: '',
   isCentered: false,
   button: {},
+  link: {},
   className: '',
 };
 
