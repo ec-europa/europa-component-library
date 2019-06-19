@@ -68,7 +68,7 @@ const FileDownload = ({
                 <div className="ecl-file__translation-info">
                   <div
                     className="ecl-file__translation-title"
-                    {...item.lang && { lang: item.lang }}
+                    {...(item.lang && { lang: item.lang })}
                   >
                     {item.title}
                   </div>
@@ -84,7 +84,7 @@ const FileDownload = ({
                     'ecl-file__translation-download'
                   )}
                   download
-                  {...item.lang && { hrefLang: item.lang }}
+                  {...(item.lang && { hrefLang: item.lang })}
                 />
               </li>
             ))}

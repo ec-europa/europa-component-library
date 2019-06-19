@@ -9,17 +9,17 @@ const LanguageListItem = ({ label, lang, href, isActive, isOverlay }) => (
     href={href}
     variant="standalone"
     className="ecl-language-list__link"
-    {...isActive && {
+    {...(isActive && {
       icon: {
         shape: 'ui--check',
         size: 'xs',
       },
-    }}
-    {...lang && {
+    })}
+    {...(lang && {
       lang,
       hrefLang: lang,
       ...(isOverlay ? { rel: 'alternate' } : {}),
-    }}
+    })}
   />
 );
 
