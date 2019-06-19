@@ -28,11 +28,19 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
 
       <section className="ecl-gallery__slider">
         <div className="ecl-gallery__slider-image-container">
-          <img
-            src={item.src}
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <video
+            className="ecl-gallery__slider-video"
+            data-ecl-gallery-overlay-video
+            controls="controls"
+            poster={item.image}
             alt={item.alt}
+          />
+          <img
             className="ecl-gallery__slider-image"
             data-ecl-gallery-overlay-image
+            src={item.src}
+            alt={item.alt}
           />
         </div>
 
@@ -106,6 +114,21 @@ GalleryOverlay.propTypes = {
   item: PropTypes.shape({
     src: PropTypes.string,
     alt: PropTypes.string,
+    image: PropTypes.string,
+    sources: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string,
+        type: PropTypes.string,
+      })
+    ),
+    tracks: PropTypes.arrayOf(
+      PropTypes.shape({
+        src: PropTypes.string,
+        kind: PropTypes.string,
+        srcLang: PropTypes.string,
+        label: PropTypes.string,
+      })
+    ),
     description: PropTypes.string,
     meta: PropTypes.string,
     icon: PropTypes.shape(Icon.propTypes),

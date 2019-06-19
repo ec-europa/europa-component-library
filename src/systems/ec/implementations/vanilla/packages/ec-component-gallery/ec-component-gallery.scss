@@ -49,7 +49,7 @@
 
   @supports (object-fit: cover) {
     .ecl-gallery__image-container {
-      background-color: transparent;
+      background-color: $description-background;
     }
   }
 
@@ -221,7 +221,8 @@
     justify-content: center;
   }
 
-  .ecl-gallery__slider-image {
+  .ecl-gallery__slider-image,
+  .ecl-gallery__slider-video {
     display: flex;
     flex-basis: auto;
     flex-grow: 0;

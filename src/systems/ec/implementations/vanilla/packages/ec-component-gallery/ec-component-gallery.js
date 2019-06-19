@@ -14,6 +14,7 @@ export class Gallery {
       overlayHeaderelector: overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
       overlayFooterSelector: overlayFooterSelector = '[data-ecl-gallery-overlay-footer]',
       overlayImageSelector: overlayImageSelector = '[data-ecl-gallery-overlay-image]',
+      overlayVideoSelector: overlayVideoSelector = '[data-ecl-gallery-overlay-video]',
       overlayCounterCurrentSelector: overlayCounterCurrentSelector = '[data-ecl-gallery-overlay-counter-current]',
       overlayCounterMaxSelector: overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
       overlayDownloadSelector: overlayDownloadSelector = '[data-ecl-gallery-overlay-download]',
@@ -44,6 +45,7 @@ export class Gallery {
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
     this.overlayImageSelector = overlayImageSelector;
+    this.overlayVideoSelector = overlayVideoSelector;
     this.overlayCounterCurrentSelector = overlayCounterCurrentSelector;
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
     this.overlayDownloadSelector = overlayDownloadSelector;
@@ -93,6 +95,7 @@ export class Gallery {
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
     this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
     this.overlayImage = queryOne(this.overlayImageSelector, this.overlay);
+    this.overlayVideo = queryOne(this.overlayVideoSelector, this.overlay);
     this.overlayCounterCurrent = queryOne(
       this.overlayCounterCurrentSelector,
       this.overlay
@@ -205,9 +208,51 @@ export class Gallery {
 
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
+    const video = queryOne('video', selectedItem);
 
-    // Update image
-    this.overlayImage.setAttribute('src', selectedItem.getAttribute('href'));
+    // Update media
+    if (video != null) {
+      // Media is a video
+      this.overlayImage.style.display = 'none';
+      this.overlayVideo.style.display = '';
+
+      this.overlayVideo.setAttribute('poster', video.poster);
+      this.overlayVideo.innerHTML = '';
+
+      // Get sources
+      const sources = queryAll('source', video);
+      sources.map(source => {
+        const sourceTag = document.createElement('source');
+        sourceTag.setAttribute('src', source.getAttribute('src'));
+        sourceTag.setAttribute('type', source.getAttribute('type'));
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        this.overlayVideo.appendChild(sourceTag);
+
+        return sourceTag;
+      });
+
+      // Get tracks
+      const tracks = queryAll('track', video);
+      tracks.map(track => {
+        const trackTag = document.createElement('track');
+        trackTag.setAttribute('src', track.getAttribute('src'));
+        trackTag.setAttribute('kind', track.getAttribute('kind'));
+        trackTag.setAttribute('srclang', track.getAttribute('srcLang'));
+        trackTag.setAttribute('label', track.getAttribute('label'));
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        this.overlayVideo.appendChild(trackTag);
+
+        return trackTag;
+      });
+
+      this.overlayVideo.load();
+    } else {
+      // Media is an image
+      this.overlayImage.style.display = '';
+      this.overlayVideo.style.display = 'none';
+
+      this.overlayImage.setAttribute('src', selectedItem.getAttribute('href'));
+    }
 
     // Limit image height (fix for FF and IE)
     const maxHeight =
@@ -215,6 +260,9 @@ export class Gallery {
       this.overlayHeader.clientHeight -
       this.overlayFooter.clientHeight;
     Object.assign(this.overlayImage.style, {
+      maxHeight: `${maxHeight}px`,
+    });
+    Object.assign(this.overlayVideo.style, {
       maxHeight: `${maxHeight}px`,
     });
 
@@ -252,6 +300,9 @@ export class Gallery {
     } else {
       this.overlay.removeAttribute('open');
     }
+
+    // Stop video
+    this.overlayVideo.pause();
 
     // Untrap focus
     this.focusTrap.deactivate();
@@ -300,6 +351,9 @@ export class Gallery {
     let previousId = +currentId - 1;
     if (previousId < 0) previousId = this.galleryItems.length - 1;
 
+    // Stop video
+    this.overlayVideo.pause();
+
     // Update overlay
     this.updateOverlay(this.galleryItems[previousId]);
     this.selectedItem = this.galleryItems[previousId];
@@ -316,6 +370,9 @@ export class Gallery {
     // Get next id
     let nextId = +currentId + 1;
     if (nextId >= this.galleryItems.length) nextId = 0;
+
+    // Stop video
+    this.overlayVideo.pause();
 
     // Update overlay
     this.updateOverlay(this.galleryItems[nextId]);
