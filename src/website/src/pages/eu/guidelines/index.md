@@ -1,6 +1,7 @@
 ---
 title: Guidelines
 order: 3
+hidden: true
 ---
 
 The ECL v2 is the Commission's design system, created with a set of guiding principles that followed throughout the process.
