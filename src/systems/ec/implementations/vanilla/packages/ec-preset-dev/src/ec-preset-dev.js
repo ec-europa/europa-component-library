@@ -12,7 +12,7 @@ export * from '@ecl/ec-component-file';
 export * from '@ecl/ec-component-gallery';
 // export * from '@ecl/ec-component-lang-select-page';
 export * from '@ecl/ec-component-message';
-// export * from '@ecl/ec-component-inpage-navigation';
+export * from '@ecl/ec-component-inpage-navigation';
 // export * from '@ecl/ec-component-navigation-menu';
 // export * from '@ecl/ec-component-table';
 // export * from '@ecl/ec-component-tab';
