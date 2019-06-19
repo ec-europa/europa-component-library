@@ -9,6 +9,31 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under Github.
 
+## 2.7.0 (2019-06-19)
+
+#### :rocket: New Feature
+
+- [#993](https://github.com/ec-europa/europa-component-library/pull/993) feat(inpage-navigation): add component - INNO-1208
+- [#1150](https://github.com/ec-europa/europa-component-library/pull/1150) feat(content-item): add content item template - INNO-1498
+
+#### :nail_care: Enhancement
+
+- [#1167](https://github.com/ec-europa/europa-component-library/pull/1167) refactor(icons): change instagram icon - INNO-1513
+- [#1163](https://github.com/ec-europa/europa-component-library/pull/1163) fix(banner): replace button by a link - INNO-1535
+
+#### :memo: Documentation
+
+- [#1165](https://github.com/ec-europa/europa-component-library/pull/1165) docs(website): hide EU pages - INNO-1534
+- [#1169](https://github.com/ec-europa/europa-component-library/pull/1169) docs(inpage-nav): provide usage guidelines - INNO-1208
+- [#1166](https://github.com/ec-europa/europa-component-library/pull/1166) docs(radio): provide usage guidelines - INNO-1522
+- [#1168](https://github.com/ec-europa/europa-component-library/pull/1168) docs(timeline): provide usage guidelines - INNO-1549
+- [#1162](https://github.com/ec-europa/europa-component-library/pull/1162) docs(text-area): provide usage guidelines - INNO-1516
+- [#1153](https://github.com/ec-europa/europa-component-library/pull/1153) docs(file): add usage guidelines - INNO-1515
+
+#### :house: Internal
+
+- [#1164](https://github.com/ec-europa/europa-component-library/pull/1164) chore(website): prepare publication - INNO-1537
+
 ## 2.6.0 (2019-06-14)
 
 #### :rocket: New Feature
