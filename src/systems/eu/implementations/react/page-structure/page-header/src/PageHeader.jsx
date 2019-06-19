@@ -22,7 +22,7 @@ const PageHeader = ({
     <div
       {...props}
       className={classNames}
-      {...image && { style: { backgroundImage: `url(${image})` } }}
+      {...(image && { style: { backgroundImage: `url(${image})` } })}
     >
       <div className="ecl-container">
         {breadcrumb &&

@@ -19,7 +19,7 @@ const Item = ({
     className={classnames(className, 'ecl-breadcrumb__segment', {
       'ecl-breadcrumb__current-page': isLastItem,
     })}
-    {...isLastItem && { 'aria-current': 'page' }}
+    {...(isLastItem && { 'aria-current': 'page' })}
     data-ecl-breadcrumb-item={isExpandable ? 'expandable' : 'static'}
     aria-hidden={!isVisible}
   >
@@ -29,7 +29,7 @@ const Item = ({
           href={href}
           label={label}
           variant="standalone"
-          {...isLastItem && { 'aria-current': 'page' }}
+          {...(isLastItem && { 'aria-current': 'page' })}
           className="ecl-breadcrumb__link"
         />
         <Icon
