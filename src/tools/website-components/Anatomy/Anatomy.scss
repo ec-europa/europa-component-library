@@ -18,7 +18,11 @@
 }
 
 .image {
-  flex-basis: 100%; // IE fix
+  // IE fix
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  // end of: IE fix
   height: auto;
   max-width: 100%;
 }
