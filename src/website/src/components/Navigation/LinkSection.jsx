@@ -58,6 +58,7 @@ class LinkSection extends Component {
             className={styles.button}
             type="button"
             onClick={this.toggleSection}
+            aria-label={`Click to expand the section ${section}`}
           >
             <svg
               focusable="false"
