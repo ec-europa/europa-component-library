@@ -110,12 +110,17 @@ class App extends React.Component {
   render() {
     return (
       <MDXProvider components={customComponents}>
-        <Router basename={`${process.env.PUBLIC_URL}/`}>
+        <Router basename={process.env.PUBLIC_URL}>
           <Fragment>
             <Helmet
-              titleTemplate="%s - ECL 2.0"
+              titleTemplate="%s - ECL v2"
               defaultTitle="Europa Component Library"
-            />
+            >
+              <meta
+                name="Description"
+                content="Europa Component Library (ECL) documentation website"
+              />
+            </Helmet>
             <MainRoutes />
           </Fragment>
         </Router>

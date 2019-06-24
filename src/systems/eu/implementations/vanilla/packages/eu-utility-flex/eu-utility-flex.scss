@@ -10,16 +10,11 @@
     @include ecl-media-breakpoint-up($breakpoint) {
       $infix: ecl-breakpoint-infix($breakpoint, $ecl-grid-breakpoints);
 
-      .ecl-u-order#{$infix}-first {
-        order: -1;
-      }
-      .ecl-u-order#{$infix}-last {
-        order: 1;
-      }
-      .ecl-u-order#{$infix}-0 {
-        order: 0;
-      }
+      /**
+       * Container
+       */
 
+      /* Direction */
       .ecl-u-flex#{$infix}-row {
         flex-direction: row;
       }
@@ -33,6 +28,7 @@
         flex-direction: column-reverse;
       }
 
+      /* Wrap */
       .ecl-u-flex#{$infix}-wrap {
         flex-wrap: wrap;
       }
@@ -43,6 +39,7 @@
         flex-wrap: wrap-reverse;
       }
 
+      /* Justify content */
       .ecl-u-justify-content#{$infix}-start {
         justify-content: flex-start;
       }
@@ -59,6 +56,7 @@
         justify-content: space-around;
       }
 
+      /* Align items */
       .ecl-u-align-items#{$infix}-start {
         align-items: flex-start;
       }
@@ -75,6 +73,7 @@
         align-items: stretch;
       }
 
+      /* Align content */
       .ecl-u-align-content#{$infix}-start {
         align-content: flex-start;
       }
@@ -94,6 +93,22 @@
         align-content: stretch;
       }
 
+      /**
+       * Items
+       */
+
+      /* Order */
+      .ecl-u-order#{$infix}-first {
+        order: -1;
+      }
+      .ecl-u-order#{$infix}-last {
+        order: 1;
+      }
+      .ecl-u-order#{$infix}-0 {
+        order: 0;
+      }
+
+      /* Align self */
       .ecl-u-align-self#{$infix}-auto {
         align-self: auto;
       }
@@ -113,11 +128,20 @@
         align-self: stretch;
       }
 
+      /* Flex grow */
       .ecl-u-flex-grow#{$infix}-0 {
         flex-grow: 0;
       }
       .ecl-u-flex-grow#{$infix}-1 {
         flex-grow: 1;
+      }
+
+      /* Flex shrink */
+      .ecl-u-flex-shrink#{$infix}-0 {
+        flex-shrink: 0;
+      }
+      .ecl-u-flex-shrink#{$infix}-1 {
+        flex-shrink: 1;
       }
     }
   }

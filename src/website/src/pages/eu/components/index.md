@@ -1,6 +1,7 @@
 ---
 title: Components
-order: 6
+order: 7
+hidden: true
 ---
 
 Being the building blocks of the design system, components represent simple groupings of user interface elements (e.g. a label, an input field and a button to form a search field) through which we inform users of the expected interaction steps in order to help them achieve their goal.

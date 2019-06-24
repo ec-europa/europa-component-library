@@ -1,0 +1,36 @@
+@import '@ecl/ec-theme-default/index';
+
+.thumbnail {
+  border: 1px solid $ecl-color-grey-15;
+  display: flex;
+  flex-direction: column;
+  padding: $ecl-spacing-m;
+  text-decoration: none;
+}
+
+.title {
+  color: $ecl-color-grey-100;
+  font: $ecl-font-l;
+}
+
+.imageContainer {
+  margin-top: $ecl-spacing-s;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+  position: relative;
+}
+
+.flexboxCentering {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}

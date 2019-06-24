@@ -19,6 +19,7 @@ module.exports = {
   },
   rules: {
     'unicorn/prevent-abbreviations': 'off',
+    'unicorn/no-for-loop': 'off',
   },
   overrides: [
     {

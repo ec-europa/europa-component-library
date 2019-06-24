@@ -25,6 +25,34 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
 - download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
 - install the preset with npm or yarn, e.g. `npm install @ecl/ec-preset-website` or `yarn add @ecl/ec-preset-website`
+- use the CDN, https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{preset}/{path/to/the/asset}. Here's an example:
+
+  ```html
+  <link
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.7.0/ec-preset-website/styles/ecl-ec-preset-website.css"
+    integrity="sha384-deafm1hslSavkYYA5FoWAGd5sXh47k0B1VQNJOUS/WzJ+xCiBD4cNmbZRdrhhJVn sha512-EF8gmTRyjZLZwAQizvmK8N7uII71zEdg2GPwBjmuVr3d4X43DnE1pQrVaGXCBJrK+e+8avSeJPnUhQ+N7Wshww=="
+    crossorigin="anonymous"
+    rel="stylesheet"
+    media="screen"
+  />
+  <link
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.7.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
+    integrity="sha384-8tyQSQUuq+q6YBi7P1/Jx9YNU2esO+BIFIwofrZWdiuwoPmrUGG5BYWBKplLMMzA sha512-VIG2WMS4zT57BfLzp67M8bPnVqBwNX/DbhOLSSDRCpdfWkS1pi/JGmqWEo3uLh7qhxqkeFK3G/TihKmjF/uAng=="
+    crossorigin="anonymous"
+    rel="stylesheet"
+    media="print"
+  />
+  ```
+
+  ```html
+  <script
+    type="text/javascript"
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.7.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
+    integrity="sha384-d5+U7QftT2DojjbCbjMiAaZDpBFdMz+qKLInNkXLImJkB79od5L8zurPyRh8glol sha512-CN4Ry8RPUKuvKaw4lk+NPIQhMOHSalT2Upz7jGeCo+tukwq+oNfX8HDvpOLRmNQsmsSibJgfo58ETmnDoe1XYQ=="
+    crossorigin="anonymous"
+    defer
+  ></script>
+  ```
 
 ## Need help?
 
@@ -32,5 +60,5 @@ Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) fo
 
 ## Previous major versions
 
-- v1.5.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.5.0) - [website](https://v1--europa-component-library.netlify.com/)
+- v1.9.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.9.0) - [website](https://v1--europa-component-library.netlify.com/)
 - v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)

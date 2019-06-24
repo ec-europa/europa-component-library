@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
@@ -7,26 +7,59 @@ import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import styles from './LinkSection.scss';
 import LinkList from './LinkList'; // eslint-disable-line import/no-cycle
 
-class LinkSection extends PureComponent {
+class LinkSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      pathname: props.location.pathname,
+      isOpen: props.location.pathname.indexOf(props.attributes.url) === 0,
+    };
+
+    this.toggleSection = this.toggleSection.bind(this);
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (
+      prevState.pathname !== nextProps.location.pathname &&
+      nextProps.location.pathname.indexOf(nextProps.attributes.url) === 0
+    ) {
+      return { pathname: nextProps.location.pathname, isOpen: true };
+    }
+
+    return {
+      pathname: nextProps.location.pathname,
+    };
+  }
+
+  toggleSection() {
+    this.setState(state => ({
+      isOpen: !state.isOpen,
+    }));
+  }
+
   render() {
-    const {
-      pages,
-      level,
-      showStatus,
-      section,
-      attributes, // eslint-disable-line react/prop-types
-      location,
-    } = this.props;
-    const isOpen = location.pathname.indexOf(attributes.url) === 0;
+    const { pages, level, showStatus, section, attributes } = this.props;
+
+    const { isOpen } = this.state;
 
     return (
       <Fragment>
-        <Link
-          to={attributes.url}
-          className={`${styles['group-list-item']} ${styles[`level-${level}`]}`}
-        >
-          <span>
+        <span className={styles['group-list-parent']}>
+          <Link
+            to={attributes.url}
+            className={`${styles['group-list-item']} ${
+              styles[`level-${level}`]
+            }`}
+          >
             {section}
+          </Link>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={this.toggleSection}
+            aria-label={`Click to expand the section ${section}`}
+          >
             <svg
               focusable="false"
               aria-hidden="true"
@@ -37,8 +70,8 @@ class LinkSection extends PureComponent {
             >
               <use xlinkHref={`${icons}#ui--rounded-arrow`} />
             </svg>
-          </span>
-        </Link>
+          </button>
+        </span>
         <LinkList
           pages={pages}
           level={level + 1}
@@ -53,6 +86,9 @@ class LinkSection extends PureComponent {
 LinkSection.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
+  }).isRequired,
+  attributes: PropTypes.shape({
+    url: PropTypes.string,
   }).isRequired,
   pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   showStatus: PropTypes.bool,

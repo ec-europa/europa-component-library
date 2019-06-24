@@ -23,12 +23,12 @@ addParameters({
   cssresources: [
     {
       id: 'ecl-screen',
-      code: `<link rel="stylesheet" type="text/css" href="/storybook/ec/styles/ecl-ec-preset-website.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website.css" />`,
       picked: true,
     },
     {
       id: 'ecl-print',
-      code: `<link rel="stylesheet" type="text/css" href="/storybook/ec/styles/ecl-ec-preset-website-print.css" />`,
+      code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-website-print.css" />`,
       picked: false,
     },
     {
@@ -67,6 +67,17 @@ html {
   viewport: {
     defaultViewport: 'iphone6',
     viewports: {
+      responsive: {
+        name: 'Responsive',
+        styles: {
+          width: '100%',
+          height: '100%',
+          border: 0,
+          margin: 0,
+          boxShadow: 'none',
+          borderRadius: 0,
+        },
+      },
       ...INITIAL_VIEWPORTS,
       '1366x768': {
         name: '1366x768',
@@ -82,21 +93,18 @@ html {
           width: '1920px',
           height: '1080px',
         },
-      },
-      responsive: {
-        name: 'Responsive',
-        styles: {
-          width: '100%',
-          height: '100%',
-        },
+        type: 'desktop',
       },
     },
   },
 });
 
 const contexts = [
-  require.context('../../packages', true, /stories.*\.jsx?$/),
   require.context('../../templates', true, /stories.*\.jsx?$/),
+  require.context('../../page-structure', true, /stories.*\.jsx?$/),
+  require.context('../../layout', true, /stories.*\.jsx?$/),
+  require.context('../../components', true, /stories.*\.jsx?$/),
+  require.context('../../utilities', true, /stories.*\.jsx?$/),
 ];
 
 configure(() => {
