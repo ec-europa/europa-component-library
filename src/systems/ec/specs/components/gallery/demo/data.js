@@ -23,10 +23,6 @@ module.exports = {
       alt: 'Image 3',
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
-      icon: {
-        shape: 'general--audio',
-        size: 'l',
-      },
       shareHref: '/share#example-image3.jpg',
     },
     {

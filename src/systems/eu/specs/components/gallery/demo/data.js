@@ -23,10 +23,6 @@ module.exports = {
       alt: 'Image 3',
       description: 'Living, working, travelling in the EU',
       meta: 'Copyright, Author, Licence for image 3',
-      icon: {
-        shape: 'general--audio',
-        size: 'l',
-      },
       shareHref: '/share#example-image3.jpg',
     },
     {
@@ -39,8 +35,33 @@ module.exports = {
       shareHref: '/share#example-image4.jpg',
     },
     {
-      src:
+      // Video
+      image:
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+      sources: [
+        {
+          src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+          type: 'video/mp4',
+        },
+        {
+          src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.webm',
+          type: 'video/webm',
+        },
+      ],
+      tracks: [
+        {
+          src: '/captions/bunny-en.vtt',
+          kind: 'captions',
+          srcLang: 'en',
+          label: 'English',
+        },
+        {
+          src: '/captions/bunny-fr.vtt',
+          kind: 'captions',
+          srcLang: 'fr',
+          label: 'français',
+        },
+      ],
       alt: 'Image 5',
       description: 'EU law',
       meta: 'Copyright, Author, Licence for image 5',
@@ -68,8 +89,35 @@ module.exports = {
       shareHref: '/share#example-image7.jpg',
     },
     {
-      src:
+      // Video
+      image:
         'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
+      sources: [
+        {
+          src:
+            'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.mp4',
+          type: 'video/mp4',
+        },
+        {
+          src:
+            'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.webm',
+          type: 'video/webm',
+        },
+      ],
+      tracks: [
+        {
+          src: '/captions/bunny-en.vtt',
+          kind: 'captions',
+          srcLang: 'en',
+          label: 'English',
+        },
+        {
+          src: '/captions/bunny-fr.vtt',
+          kind: 'captions',
+          srcLang: 'fr',
+          label: 'français',
+        },
+      ],
       alt: 'Image 8',
       description: "Kids' Corner",
       meta: 'Copyright, Author, Licence for image 8',
