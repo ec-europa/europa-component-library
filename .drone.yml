@@ -84,7 +84,7 @@ pipeline:
   package-release:
     image: ubuntu:18.04
     commands:
-      - tar -czC dist -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
+      - tar -czC dist/website -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
     when:
       event: [tag]
       matrix:
