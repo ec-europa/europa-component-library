@@ -49,27 +49,27 @@ pipeline:
       matrix:
         TEST: deploy-tag
 
-  deploy-cdn:
-    image: garland/aws-cli-docker
-    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
-    commands:
-      - if [ -d "./dist" ] ; then
-        cd ./dist/packages ;
-        aws configure set default.s3.max_concurrent_requests 20 ;
-        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
-        echo "Transfer complete" ;
-        fi
-    when:
-      event: [tag]
-      matrix:
-        TEST: deploy-tag
+#  deploy-cdn:
+#    image: garland/aws-cli-docker
+#    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
+#    commands:
+#      - if [ -d "./dist" ] ; then
+#        cd ./dist/packages ;
+#        aws configure set default.s3.max_concurrent_requests 20 ;
+#        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
+#        echo "Transfer complete" ;
+#        fi
+#    when:
+#      event: [tag]
+#      matrix:
+#        TEST: deploy-tag
 
 # =======================================
 # Build and Upload package ==============
 # =======================================
 
   build-release:
-    image: node:dubnium
+    image: buildkite/puppeteer:latest
     commands:
       - export PUBLIC_URL="/component-library"
       - yarn dist
@@ -82,7 +82,6 @@ pipeline:
 
   # Package release build
   package-release:
-    group: packaging
     image: ubuntu:18.04
     commands:
       - tar -czC dist -f ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz .
