@@ -6,46 +6,7 @@ import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Container from '../Grid/Container';
 import styles from './Header.scss';
 
-const getTitle = component => {
-  if (
-    component &&
-    component.attributes &&
-    component.attributes.level > 0 &&
-    component.attributes.title
-  ) {
-    return component.attributes.title;
-  }
-
-  return '';
-};
-
-const getPageTitle = component => {
-  if (component.attributes.isTab) {
-    if (component.parent) {
-      return getTitle(component.parent);
-    }
-
-    return '';
-  }
-
-  return getTitle(component);
-};
-
-const getSectionTitle = component => {
-  if (component.attributes.isTab) {
-    if (component.parent && component.parent.parent) {
-      return getTitle(component.parent.parent);
-    }
-
-    return '';
-  }
-
-  if (component.parent) {
-    return getTitle(component.parent);
-  }
-
-  return getTitle(component);
-};
+import { getPageTitle, getSectionTitle } from './utils/title';
 
 const navigateTab = (e, history) => {
   // eslint-disable-next-line unicorn/prefer-includes

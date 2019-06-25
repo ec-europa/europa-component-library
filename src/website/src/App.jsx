@@ -115,7 +115,12 @@ class App extends React.Component {
             <Helmet
               titleTemplate="%s - ECL v2"
               defaultTitle="Europa Component Library"
-            />
+            >
+              <meta
+                name="Description"
+                content="Europa Component Library (ECL) documentation website"
+              />
+            </Helmet>
             <MainRoutes />
           </Fragment>
         </Router>
