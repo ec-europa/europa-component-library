@@ -1,5 +1,36 @@
 # Changelog
 
+## 2.7.0 (2019-06-19)
+
+#### :rocket: New Feature
+
+- [#993](https://github.com/ec-europa/europa-component-library/pull/993) feat(inpage-navigation): add component - INNO-1208 ([@planctus](https://github.com/planctus))
+- [#1150](https://github.com/ec-europa/europa-component-library/pull/1150) feat(content-item): add content item template - INNO-1498 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1167](https://github.com/ec-europa/europa-component-library/pull/1167) refactor(icons): change instagram icon - INNO-1513 ([@yhuard](https://github.com/yhuard))
+- [#1163](https://github.com/ec-europa/europa-component-library/pull/1163) fix(banner): replace button by a link - INNO-1535 ([@emeryro](https://github.com/emeryro))
+
+#### :memo: Documentation
+
+- [#1165](https://github.com/ec-europa/europa-component-library/pull/1165) docs(website): hide EU pages - INNO-1534 ([@yhuard](https://github.com/yhuard))
+- [#1169](https://github.com/ec-europa/europa-component-library/pull/1169) docs(inpage-nav): provide usage guidelines - INNO-1208 ([@yhuard](https://github.com/yhuard))
+- [#1166](https://github.com/ec-europa/europa-component-library/pull/1166) docs(radio): provide usage guidelines - INNO-1522 ([@yhuard](https://github.com/yhuard))
+- [#1168](https://github.com/ec-europa/europa-component-library/pull/1168) docs(timeline): provide usage guidelines - INNO-1549 ([@yhuard](https://github.com/yhuard))
+- [#1162](https://github.com/ec-europa/europa-component-library/pull/1162) docs(text-area): provide usage guidelines - INNO-1516 ([@yhuard](https://github.com/yhuard))
+- [#1153](https://github.com/ec-europa/europa-component-library/pull/1153) docs(file): add usage guidelines - INNO-1515 ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1164](https://github.com/ec-europa/europa-component-library/pull/1164) chore(website): prepare publication - INNO-1537 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- [@planctus](https://github.com/planctus)
+
 ## 2.6.0 (2019-06-14)
 
 #### :rocket: New Feature
