@@ -3,7 +3,7 @@
  */
 
 import Stickyfill from 'stickyfilljs';
-import gumshoe from 'gumshoejs';
+import Gumshoe from 'gumshoejs';
 import { queryOne, queryAll } from '@ecl/eu-base/helpers/dom';
 
 /**
@@ -43,12 +43,15 @@ export class InpageNavigation {
     this.spyOffset = spyOffset;
     this.spyClass = spyClass;
     this.spyTrigger = spyTrigger;
-    this.gumshoe = gumshoe;
+    this.gumshoe = null;
+
     // Bind `this` for use in callbacks
     this.handleClickOnToggler = this.handleClickOnToggler.bind(this);
     this.handleClickOnLink = this.handleClickOnLink.bind(this);
     this.initScrollSpy = this.initScrollSpy.bind(this);
     this.initObserver = this.initObserver.bind(this);
+    this.activateScrollSpy = this.activateScrollSpy.bind(this);
+    this.deactivateScrollSpy = this.deactivateScrollSpy.bind(this);
   }
 
   // ACTIONS
@@ -62,31 +65,52 @@ export class InpageNavigation {
     }
   }
 
-  initScrollSpy(inpageNavElement) {
+  initScrollSpy() {
+    this.gumshoe = new Gumshoe(this.spySelector, {
+      navClass: this.spyClass,
+      offset: this.spyOffset,
+      reflow: true,
+    });
+
+    document.addEventListener('gumshoeActivate', this.activateScrollSpy, false);
+    document.addEventListener(
+      'gumshoeDeactivate',
+      this.deactivateScrollSpy,
+      false
+    );
+  }
+
+  activateScrollSpy(event) {
+    const toggleClass = this.spyActiveContainer;
+    const navigationTitle = queryOne(this.spyTrigger);
+
+    this.element.classList.add(toggleClass);
+    navigationTitle.textContent = event.detail.content.textContent;
+  }
+
+  deactivateScrollSpy() {
     const toggleClass = this.spyActiveContainer;
     const navigationTitle = queryOne(this.spyTrigger);
     const currentList = queryOne(this.inPageList, this.element);
     const togglerElement = queryOne(this.toggleSelector, this.element);
 
-    this.gumshoe.init({
-      selector: this.spySelector,
-      activeClass: this.spyClass,
-      offset: this.spyOffset,
-      callback(nav) {
-        if (!nav) {
-          inpageNavElement.classList.remove(toggleClass);
-          navigationTitle.innerHTML = '';
-          currentList.setAttribute('hidden', true);
-          togglerElement.setAttribute('aria-expanded', 'false');
-        } else {
-          inpageNavElement.classList.add(toggleClass);
-          navigationTitle.innerHTML = nav.nav.innerHTML;
-        }
-      },
-    });
+    this.element.classList.remove(toggleClass);
+    navigationTitle.innerHTML = '';
+    currentList.setAttribute('hidden', true);
+    togglerElement.setAttribute('aria-expanded', 'false');
   }
 
   destroyScrollSpy() {
+    document.removeEventListener(
+      'gumshoeActivate',
+      this.activateScrollSpy,
+      false
+    );
+    document.removeEventListener(
+      'gumshoeDeactivate',
+      this.deactivateScrollSpy,
+      false
+    );
     this.gumshoe.destroy();
   }
 
@@ -95,7 +119,6 @@ export class InpageNavigation {
     this.observer = new MutationObserver(function observe(mutationsList) {
       const body = queryOne('.ecl-col-md-9');
       const currentInpage = queryOne('[data-ecl-inpage-navigation-list]');
-      let restart = false;
 
       mutationsList.forEach(mutation => {
         // Exclude the changes we perform.
@@ -118,7 +141,6 @@ export class InpageNavigation {
                 element.childNodes[0].textContent = addedNode.textContent;
                 element.childNodes[0].href = `#${addedNode.id}`;
                 currentInpage.childNodes[addedNodeIndex - 1].after(element);
-                restart = true;
               }
             });
           }
@@ -130,20 +152,13 @@ export class InpageNavigation {
                   if (item.childNodes[0].href.includes(removedNode.id)) {
                     // Remove the element from the inpage.
                     currentInpage.removeChild(item);
-                    restart = true;
                   }
                 });
               }
             });
           }
 
-          if (restart) {
-            self.destroy();
-            self.init();
-            return;
-          }
-
-          self.initScrollSpy(currentInpage.parentNode.parentNode);
+          self.update();
         }
       });
     });
@@ -166,7 +181,7 @@ export class InpageNavigation {
     const navLinks = queryAll(this.linksSelector, this.element);
 
     this.initSticky(this.element);
-    this.initScrollSpy(this.element);
+    this.initScrollSpy();
     this.initObserver();
 
     if (this.attachClickListener && toggleElement) {
@@ -178,6 +193,10 @@ export class InpageNavigation {
       );
       toggleElement.addEventListener('click', this.handleClickOnToggler);
     }
+  }
+
+  update() {
+    this.gumshoe.setup();
   }
 
   handleClickOnToggler(e) {

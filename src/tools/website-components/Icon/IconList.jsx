@@ -31,7 +31,7 @@ class IconList extends PureComponent {
                   .pop()
                   .split('.svg')[0]
               }
-              svg={ecIcons(icon)}
+              svg={ecIcons(icon).default}
               key={icon}
             />
           ))}

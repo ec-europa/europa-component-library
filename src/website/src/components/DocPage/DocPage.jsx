@@ -11,6 +11,8 @@ import Col from '../Grid/Col';
 import Row from '../Grid/Row';
 import styles from './DocPage.scss';
 
+import { getPageTitle, getSectionTitle } from './utils/title';
+
 class DocPage extends Component {
   componentDidMount() {
     Prism.highlightAllUnder(document.querySelector('#main-content'));
@@ -19,10 +21,17 @@ class DocPage extends Component {
   render() {
     const { component } = this.props;
 
+    let title = getPageTitle(component);
+
+    const sectionTitle = getSectionTitle(component);
+    if (sectionTitle) {
+      title += ` - ${sectionTitle}`;
+    }
+
     return (
       <Fragment>
         <ScrollToTopOnMount />
-        <Helmet title={component.title} />
+        <Helmet title={title} />
         <Header component={component} />
         <main id="main-content" tabIndex="-1">
           <Container spacing="pv-l pv-md-3xl">

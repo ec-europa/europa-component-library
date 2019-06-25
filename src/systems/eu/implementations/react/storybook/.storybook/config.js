@@ -93,6 +93,7 @@ html {
           width: '1920px',
           height: '1080px',
         },
+        type: 'desktop',
       },
     },
   },
