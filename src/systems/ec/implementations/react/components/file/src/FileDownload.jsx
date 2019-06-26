@@ -87,7 +87,7 @@ const FileDownload = ({
                     shape: 'ui--download',
                     size: 'fluid',
                   }}
-                  href={item.download.label || download.label}
+                  href={item.download.href || download.href}
                   label={item.download.label || download.label}
                   variant="standalone"
                   className={classnames(
