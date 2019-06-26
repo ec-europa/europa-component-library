@@ -22,24 +22,26 @@ const FileDownload = ({
     <div {...props} className={classNames} data-ecl-file>
       <div className="ecl-file__container">
         <Icon
-          {...icon}
+          shape="general--copy"
+          size="2xl"
           className={classnames(icon.className, 'ecl-file__icon')}
         />
-
         <div className="ecl-file__info">
           <div className="ecl-file__title">{title}</div>
           <div className="ecl-file__language">{language}</div>
           <div className="ecl-file__meta">{meta}</div>
         </div>
-
         <Link
           {...download}
+          icon={{
+            shape: 'ui--download',
+            size: 'fluid',
+          }}
           variant="standalone"
           className={classnames(download.className, 'ecl-file__download')}
           download
         />
       </div>
-
       {!!(translation && translation.items && translation.items.length > 0) && (
         <div
           className="ecl-file__translation-container"
@@ -75,12 +77,17 @@ const FileDownload = ({
 
                   <div className="ecl-file__translation-meta">{item.meta}</div>
                 </div>
-
                 <Link
-                  {...download}
+                  {...item.download}
+                  icon={{
+                    shape: 'ui--download',
+                    size: 'fluid',
+                  }}
+                  href={item.download.label || download.label}
+                  label={item.download.label || download.label}
                   variant="standalone"
                   className={classnames(
-                    download.className,
+                    item.download.className,
                     'ecl-file__translation-download'
                   )}
                   download
@@ -88,7 +95,6 @@ const FileDownload = ({
                 />
               </li>
             ))}
-
             <li className="ecl-file__translation-item ecl-file__translation-description">
               {translation.description}
             </li>

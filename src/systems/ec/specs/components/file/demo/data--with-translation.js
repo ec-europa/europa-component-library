@@ -2,17 +2,9 @@ module.exports = {
   title: 'State of the Union 2018 brochure',
   language: 'English',
   meta: '(16.2 MB - PDF)',
-  icon: {
-    shape: 'general--copy',
-    size: '2xl',
-  },
   download: {
     label: 'Download',
     href: '/example',
-    icon: {
-      shape: 'ui--download',
-      size: 'fluid',
-    },
   },
   translation: {
     toggle: {
@@ -30,16 +22,28 @@ module.exports = {
         title: 'български',
         meta: '(15.7 MB - PDF)',
         lang: 'bg',
+        download: {
+          label: 'Download',
+          href: '/example#bg',
+        },
       },
       {
         title: 'español',
         meta: '(15.8 MB - PDF)',
         lang: 'es',
+        download: {
+          label: 'Download',
+          href: '/example#es',
+        },
       },
       {
         title: 'français',
         meta: '(15.4 MB - PDF)',
         lang: 'fr',
+        download: {
+          label: 'Download',
+          href: '/example#fr',
+        },
       },
     ],
   },
