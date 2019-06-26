@@ -54,20 +54,20 @@ pipeline:
       matrix:
         TEST: deploy-tag
 
-#  deploy-cdn:
-#    image: garland/aws-cli-docker
-#    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
-#    commands:
-#      - if [ -d "./dist" ] ; then
-#        cd ./dist/packages ;
-#        aws configure set default.s3.max_concurrent_requests 20 ;
-#        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
-#        echo "Transfer complete" ;
-#        fi
-#    when:
-#      event: [tag]
-#      matrix:
-#        TEST: deploy-tag
+  deploy-cdn:
+    image: garland/aws-cli-docker
+    secrets: [AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_DEFAULT_REGION]
+    commands:
+      - if [ -d "./dist" ] ; then
+        cd ./dist/packages ;
+        aws configure set default.s3.max_concurrent_requests 20 ;
+        aws s3 cp --recursive --quiet . s3://inno-ecl/ecl/${DRONE_TAG}/ ;
+        echo "Transfer complete" ;
+        fi
+    when:
+      event: [tag]
+      matrix:
+        TEST: deploy-tag
 
 # =======================================
 # Build and Upload package ==============
@@ -78,6 +78,8 @@ pipeline:
     commands:
       - export PUBLIC_URL="/component-library"
       - yarn dist
+      - echo ${DRONE_TAG=${DRONE_COMMIT_BRANCH=rc}} > dist/website/.version
+      - echo ${DRONE_COMMIT_SHA} > dist/website/.commit
     when:
       event: [tag]
       matrix:
@@ -149,13 +151,13 @@ pipeline:
     hosts: [ $MGMT_IP ]
     user : fpfis
     source: ./build/
-    target: /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library-test/
+    target: /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library/
     script:
         - export GIT_FPFIS_AUTHOR="Drone ec.deploy.fpfis.eu"
-        - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library-test
+        - cd /ec/local/home/fpfis/reference/php-clusters/multisite/production/cluster00/sources/static/europa-component-library
         - git add -A .
         - git commit -m"Deployed ${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}@${DRONE_TAG} from drone build ${DRONE_BUILD_NUMBER}." .
-        #- git push 'nas-reference' 'master'
+        - git push 'nas-reference' 'master'
     when:
       event: deployment
       matrix:
