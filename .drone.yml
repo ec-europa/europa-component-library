@@ -13,12 +13,15 @@ pipeline:
     image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
+    when:
+      event: [ push, pull_request, tag]
 
   audit:
     image: node:dubnium
     commands:
       - yarn audit
     when:
+      event: [ push, pull_request, tag]
       matrix:
         TEST: audit
 
@@ -27,6 +30,7 @@ pipeline:
     commands:
       - yarn test:coding-conventions
     when:
+      event: [ push, pull_request, tag]
       matrix:
         TEST: conventions
 
@@ -36,6 +40,7 @@ pipeline:
       - cd examples/webpack4 && yarn build --display=errors-only
       - cd ../webpack4-eu && yarn build --display=errors-only
     when:
+      event: [ push, pull_request, tag]
       matrix:
         TEST: examples
 
@@ -134,6 +139,8 @@ pipeline:
       - echo $(date +%s) > build/.timestamp
     when:
       event: deployment
+      matrix:
+        TEST: deploy-tag
 
   # Deploy build folder into production
   deploy-to-production:
@@ -151,3 +158,5 @@ pipeline:
         #- git push 'nas-reference' 'master'
     when:
       event: deployment
+      matrix:
+        TEST: deploy-tag
