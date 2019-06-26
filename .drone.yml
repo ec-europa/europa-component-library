@@ -131,8 +131,8 @@ pipeline:
   download-github-release:
     image: instrumentisto/rsync-ssh
     commands:
-      - wget https://github.com/ec-europa/digitec/releases/download/${DRONE_TAG}/${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
-      - wget https://github.com/ec-europa/digitec/releases/download/${DRONE_TAG}/sha1sum.txt
+      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz
+      - wget https://github.com/${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}/releases/download/${DRONE_TAG}/sha1sum.txt
       - sha1sum -c sha1sum.txt
       - mkdir build
       - tar zxvf ${DRONE_REPO_NAME}-${DRONE_TAG}.tar.gz -C build
