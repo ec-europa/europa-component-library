@@ -22,8 +22,7 @@ const FileDownload = ({
     <div {...props} className={classNames} data-ecl-file>
       <div className="ecl-file__container">
         <Icon
-          shape="general--copy"
-          size="2xl"
+          {...icon}
           className={classnames(icon.className, 'ecl-file__icon')}
         />
         <div className="ecl-file__info">
@@ -49,6 +48,11 @@ const FileDownload = ({
         >
           <Button
             {...translation.toggle}
+            icon={{
+              shape: 'ui--corner-arrow',
+              size: 'fluid',
+              transform: 'rotate-180',
+            }}
             variant="ghost"
             type="button"
             className={classnames(
