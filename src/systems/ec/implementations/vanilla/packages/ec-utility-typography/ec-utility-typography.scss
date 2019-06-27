@@ -140,6 +140,11 @@
       .ecl-u-type-color-#{$key} {
         color: $value;
       }
+
+      .ecl-u-type-color-hover-#{$key}:hover,
+      .ecl-u-type-color-hover-#{$key}:focus {
+        color: $value;
+      }
     }
   }
 
