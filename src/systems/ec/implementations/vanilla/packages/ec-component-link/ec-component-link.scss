@@ -74,17 +74,10 @@
     background-color: $ecl-color-yellow-100;
     box-sizing: border-box;
     color: $ecl-color-black-100;
-    display: inline-block;
+    display: inline-flex;
     font: $ecl-font-m;
     font-weight: $ecl-font-weight-bold;
     padding: $ecl-spacing-s $ecl-spacing-m;
-    text-decoration: underline;
-
-    /* stylelint-disable */
-    &.ecl-link--icon {
-      display: inline-flex;
-      text-decoration: none;
-    }
 
     &:hover,
     &:active {
@@ -93,7 +86,7 @@
     }
 
     &:focus {
-      outline: 3px solid $ecl-color-black-100;
+      outline-color: $ecl-color-black-100;
       outline-offset: -3px;
     }
   }
