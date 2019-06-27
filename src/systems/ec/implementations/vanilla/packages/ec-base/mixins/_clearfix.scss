@@ -1,7 +1,7 @@
 @mixin ecl-clearfix() {
   &::after {
-    clear: both;
-    content: '';
-    display: block;
+    clear: both !important;
+    content: '' !important;
+    display: block !important;
   }
 }

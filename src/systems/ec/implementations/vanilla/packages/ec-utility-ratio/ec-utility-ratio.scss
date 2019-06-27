@@ -6,23 +6,23 @@
 @import '@ecl/ec-base/ec-base';
 
 @mixin ecl-aspect-ratio($width, $height) {
-  position: relative;
+  position: relative !important;
 
   /* stylelint-disable-next-line */
   &::before {
-    content: '';
-    display: block;
-    padding-top: ($height / $width) * 100%;
-    width: 100%;
+    content: '' !important;
+    display: block !important;
+    padding-top: ($height / $width) * 100% !important;
+    width: 100% !important;
   }
 
   /* stylelint-disable-next-line */
   > .content {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+    bottom: 0 !important;
+    left: 0 !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
   }
 }
 
