@@ -36,8 +36,8 @@ const PageBanner = ({
           {link && link.label && (
             <Link
               {...link}
-              variant="standalone"
-              className="ecl-page-banner__link"
+              variant="cta"
+              className="ecl-page-banner__link-cta"
             />
           )}
           {/* DEPRECATED */}
