@@ -27,22 +27,10 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
       </header>
 
       <section className="ecl-gallery__slider">
-        <div className="ecl-gallery__slider-image-container">
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-          <video
-            className="ecl-gallery__slider-video"
-            data-ecl-gallery-overlay-video
-            controls="controls"
-            poster={item.image}
-            alt={item.alt}
-          />
-          <img
-            className="ecl-gallery__slider-image"
-            data-ecl-gallery-overlay-image
-            src={item.src}
-            alt={item.alt}
-          />
-        </div>
+        <div
+          className="ecl-gallery__slider-media-container"
+          data-ecl-gallery-overlay-media
+        />
 
         <Button
           {...overlay.previous}

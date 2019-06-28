@@ -1,17 +1,24 @@
 module.exports = {
   items: [
     {
-      src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
-      alt: 'Image 1',
+      // Image
+      image: {
+        src:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
+        alt: 'Image 1',
+      },
       description:
         'The EU in brief, institutions and bodies, countries, symbols, history, facts and figures',
       meta: 'Copyright, Author, Licence for image 1',
       shareHref: '/share#example-image.jpg',
     },
     {
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
-      alt: 'Image 2',
+      // Image
+      image: {
+        src:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image2.jpg',
+        alt: 'Image 2',
+      },
       description:
         'Information on agriculture, business, culture, health, etc.',
       meta: 'Copyright, Author, Licence for image 2',
@@ -26,9 +33,12 @@ module.exports = {
       shareHref: '/share#example-image3.jpg',
     },
     {
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
-      alt: 'Image 4',
+      // Image
+      image: {
+        src:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image4.jpg',
+        alt: 'Image 4',
+      },
       description:
         'Information on taxes, customs, importing and exporting goods, financial support for businesses',
       meta: 'Copyright, Author, Licence for image 4',
@@ -36,33 +46,34 @@ module.exports = {
     },
     {
       // Video
-      image:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
-      sources: [
-        {
-          src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
-          type: 'video/mp4',
-        },
-        {
-          src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.webm',
-          type: 'video/webm',
-        },
-      ],
-      tracks: [
-        {
-          src: '/captions/bunny-en.vtt',
-          kind: 'captions',
-          srcLang: 'en',
-          label: 'English',
-        },
-        {
-          src: '/captions/bunny-fr.vtt',
-          kind: 'captions',
-          srcLang: 'fr',
-          label: 'français',
-        },
-      ],
-      alt: 'Image 5',
+      video: {
+        poster:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image5.jpg',
+        sources: [
+          {
+            src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
+            type: 'video/mp4',
+          },
+          {
+            src: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.webm',
+            type: 'video/webm',
+          },
+        ],
+        tracks: [
+          {
+            src: '/captions/bunny-en.vtt',
+            kind: 'captions',
+            srcLang: 'en',
+            label: 'English',
+          },
+          {
+            src: '/captions/bunny-fr.vtt',
+            kind: 'captions',
+            srcLang: 'fr',
+            label: 'français',
+          },
+        ],
+      },
       description: 'EU law',
       meta: 'Copyright, Author, Licence for image 5',
       icon: {
@@ -72,9 +83,12 @@ module.exports = {
       shareHref: '/share#example-image5.jpg',
     },
     {
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
-      alt: 'Image 6',
+      // Image
+      image: {
+        src:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image6.jpg',
+        alt: 'Image 6',
+      },
       description:
         'Find official documents, publications, statistics, open data and more resources',
       meta: 'Copyright, Author, Licence for image 6',
@@ -90,35 +104,36 @@ module.exports = {
     },
     {
       // Video
-      image:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
-      sources: [
-        {
-          src:
-            'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.mp4',
-          type: 'video/mp4',
-        },
-        {
-          src:
-            'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.webm',
-          type: 'video/webm',
-        },
-      ],
-      tracks: [
-        {
-          src: '/captions/bunny-en.vtt',
-          kind: 'captions',
-          srcLang: 'en',
-          label: 'English',
-        },
-        {
-          src: '/captions/bunny-fr.vtt',
-          kind: 'captions',
-          srcLang: 'fr',
-          label: 'français',
-        },
-      ],
-      alt: 'Image 8',
+      video: {
+        poster:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image8.jpg',
+        sources: [
+          {
+            src:
+              'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.mp4',
+            type: 'video/mp4',
+          },
+          {
+            src:
+              'https://download.videvo.net/videvo_files/video/premium/video0038/small_watermarked/millenium_view_night00_preview.webm',
+            type: 'video/webm',
+          },
+        ],
+        tracks: [
+          {
+            src: '/captions/bunny-en.vtt',
+            kind: 'captions',
+            srcLang: 'en',
+            label: 'English',
+          },
+          {
+            src: '/captions/bunny-fr.vtt',
+            kind: 'captions',
+            srcLang: 'fr',
+            label: 'français',
+          },
+        ],
+      },
       description: "Kids' Corner",
       meta: 'Copyright, Author, Licence for image 8',
       icon: {
@@ -128,9 +143,12 @@ module.exports = {
       shareHref: '/share#example-image8.jpg',
     },
     {
-      src:
-        'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
-      alt: 'Image 9',
+      // Image
+      image: {
+        src:
+          'https://inno-ecl.s3.amazonaws.com/media/examples/example-image9.jpg',
+        alt: 'Image 9',
+      },
       description: 'About the EU',
       meta: 'Copyright, Author, Licence for image 9',
       shareHref: '/share#example-imag9e.jpg',

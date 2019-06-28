@@ -13,8 +13,8 @@ export class Gallery {
       overlaySelector: overlaySelector = '[data-ecl-gallery-overlay]',
       overlayHeaderelector: overlayHeaderSelector = '[data-ecl-gallery-overlay-header]',
       overlayFooterSelector: overlayFooterSelector = '[data-ecl-gallery-overlay-footer]',
-      overlayImageSelector: overlayImageSelector = '[data-ecl-gallery-overlay-image]',
-      overlayVideoSelector: overlayVideoSelector = '[data-ecl-gallery-overlay-video]',
+      overlayImageSelector: overlayImageSelector = '[data-ecl-gallery-overlay-image]', // DEPRECATED
+      overlayMediaSelector: overlayMediaSelector = '[data-ecl-gallery-overlay-media]',
       overlayCounterCurrentSelector: overlayCounterCurrentSelector = '[data-ecl-gallery-overlay-counter-current]',
       overlayCounterMaxSelector: overlayCounterMaxSelector = '[data-ecl-gallery-overlay-counter-max]',
       overlayDownloadSelector: overlayDownloadSelector = '[data-ecl-gallery-overlay-download]',
@@ -44,8 +44,8 @@ export class Gallery {
     this.overlaySelector = overlaySelector;
     this.overlayHeaderSelector = overlayHeaderSelector;
     this.overlayFooterSelector = overlayFooterSelector;
-    this.overlayImageSelector = overlayImageSelector;
-    this.overlayVideoSelector = overlayVideoSelector;
+    this.overlayImageSelector = overlayImageSelector; // DEPRECATED
+    this.overlayMediaSelector = overlayMediaSelector;
     this.overlayCounterCurrentSelector = overlayCounterCurrentSelector;
     this.overlayCounterMaxSelector = overlayCounterMaxSelector;
     this.overlayDownloadSelector = overlayDownloadSelector;
@@ -64,7 +64,8 @@ export class Gallery {
     this.overlay = null;
     this.overlayHeader = null;
     this.overlayFooter = null;
-    this.overlayImage = null;
+    this.overlayImage = null; // DEPRECATED
+    this.overlayMedia = null;
     this.overlayCounterCurrent = null;
     this.overlayCounterMax = null;
     this.overlayDownload = null;
@@ -94,8 +95,8 @@ export class Gallery {
     this.overlay = queryOne(this.overlaySelector, this.element);
     this.overlayHeader = queryOne(this.overlayHeaderSelector, this.overlay);
     this.overlayFooter = queryOne(this.overlayFooterSelector, this.overlay);
-    this.overlayImage = queryOne(this.overlayImageSelector, this.overlay);
-    this.overlayVideo = queryOne(this.overlayVideoSelector, this.overlay);
+    this.overlayImage = queryOne(this.overlayImageSelector, this.overlay); // DEPRECATED
+    this.overlayMedia = queryOne(this.overlayMediaSelector, this.overlay);
     this.overlayCounterCurrent = queryOne(
       this.overlayCounterCurrentSelector,
       this.overlay
@@ -209,15 +210,21 @@ export class Gallery {
   updateOverlay(selectedItem) {
     this.selectedItem = selectedItem;
     const video = queryOne('video', selectedItem);
+    let mediaElement = null;
 
     // Update media
     if (video != null) {
       // Media is a video
-      this.overlayImage.style.display = 'none';
-      this.overlayVideo.style.display = '';
+      mediaElement = document.createElement('video');
+      mediaElement.setAttribute('poster', video.poster);
+      mediaElement.setAttribute('controls', 'controls');
+      mediaElement.classList.add('ecl-gallery__slider-video');
 
-      this.overlayVideo.setAttribute('poster', video.poster);
-      this.overlayVideo.innerHTML = '';
+      if (this.overlayMedia) {
+        this.overlayMedia.innerHTML = '';
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        this.overlayMedia.appendChild(mediaElement);
+      }
 
       // Get sources
       const sources = queryAll('source', video);
@@ -226,7 +233,7 @@ export class Gallery {
         sourceTag.setAttribute('src', source.getAttribute('src'));
         sourceTag.setAttribute('type', source.getAttribute('type'));
         /* eslint-disable-next-line unicorn/prefer-node-append */
-        this.overlayVideo.appendChild(sourceTag);
+        mediaElement.appendChild(sourceTag);
 
         return sourceTag;
       });
@@ -240,18 +247,34 @@ export class Gallery {
         trackTag.setAttribute('srclang', track.getAttribute('srcLang'));
         trackTag.setAttribute('label', track.getAttribute('label'));
         /* eslint-disable-next-line unicorn/prefer-node-append */
-        this.overlayVideo.appendChild(trackTag);
+        mediaElement.appendChild(trackTag);
 
         return trackTag;
       });
 
-      this.overlayVideo.load();
+      mediaElement.load();
     } else {
       // Media is an image
-      this.overlayImage.style.display = '';
-      this.overlayVideo.style.display = 'none';
+      const image = queryOne('img', selectedItem);
 
-      this.overlayImage.setAttribute('src', selectedItem.getAttribute('href'));
+      mediaElement = document.createElement('img');
+      mediaElement.setAttribute('src', image.getAttribute('src'));
+      mediaElement.setAttribute('alt', image.getAttribute('alt'));
+      mediaElement.classList.add('ecl-gallery__slider-image');
+
+      if (this.overlayMedia) {
+        this.overlayMedia.innerHTML = '';
+        /* eslint-disable-next-line unicorn/prefer-node-append */
+        this.overlayMedia.appendChild(mediaElement);
+      }
+
+      // DEPRECATED
+      if (this.overlayImage) {
+        this.overlayImage.setAttribute(
+          'src',
+          selectedItem.getAttribute('href')
+        );
+      }
     }
 
     // Limit image height (fix for FF and IE)
@@ -259,12 +282,18 @@ export class Gallery {
       this.overlay.clientHeight -
       this.overlayHeader.clientHeight -
       this.overlayFooter.clientHeight;
-    Object.assign(this.overlayImage.style, {
-      maxHeight: `${maxHeight}px`,
-    });
-    Object.assign(this.overlayVideo.style, {
-      maxHeight: `${maxHeight}px`,
-    });
+    if (this.overlayMedia) {
+      Object.assign(mediaElement.style, {
+        maxHeight: `${maxHeight}px`,
+      });
+    }
+
+    // DEPRECATED
+    if (this.overlayImage) {
+      Object.assign(this.overlayImage.style, {
+        maxHeight: `${maxHeight}px`,
+      });
+    }
 
     // Update counter
     this.overlayCounterCurrent.innerHTML =
@@ -302,7 +331,8 @@ export class Gallery {
     }
 
     // Stop video
-    this.overlayVideo.pause();
+    const video = queryOne('video', this.selectedItem);
+    if (video) video.pause();
 
     // Untrap focus
     this.focusTrap.deactivate();
@@ -352,7 +382,8 @@ export class Gallery {
     if (previousId < 0) previousId = this.galleryItems.length - 1;
 
     // Stop video
-    this.overlayVideo.pause();
+    const video = queryOne('video', this.selectedItem);
+    if (video) video.pause();
 
     // Update overlay
     this.updateOverlay(this.galleryItems[previousId]);
@@ -372,7 +403,8 @@ export class Gallery {
     if (nextId >= this.galleryItems.length) nextId = 0;
 
     // Stop video
-    this.overlayVideo.pause();
+    const video = queryOne('video', this.selectedItem);
+    if (video) video.pause();
 
     // Update overlay
     this.updateOverlay(this.galleryItems[nextId]);
