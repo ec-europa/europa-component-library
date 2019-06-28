@@ -65,10 +65,15 @@
     margin-top: $ecl-spacing-m;
   }
 
+  /* DEPRECATED */
   .ecl-page-banner__link {
     font-weight: $ecl-font-weight-bold;
     margin-top: $ecl-spacing-m;
     padding: $ecl-spacing-m $ecl-spacing-s;
+  }
+
+  .ecl-page-banner__link-cta {
+    margin-top: $ecl-spacing-m;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -156,6 +161,7 @@
       color: $baseline-color-primary;
     }
 
+    /* DEPRECATED */
     .ecl-page-banner__link,
     .ecl-page-banner__link:hover,
     .ecl-page-banner__link:focus {
@@ -242,6 +248,7 @@
         color: $baseline-color-image-shade;
       }
 
+      /* DEPRECATED */
       /* stylelint-disable-next-line no-descending-specificity */
       .ecl-page-banner__link,
       .ecl-page-banner__link:hover,

@@ -35,13 +35,7 @@ const HeroBanner = ({
           {description && (
             <p className="ecl-hero-banner__description">{description}</p>
           )}
-          {link && link.label && (
-            <Link
-              {...link}
-              variant="standalone"
-              className="ecl-hero-banner__link"
-            />
-          )}
+          {link && link.label && <Link {...link} variant="cta" />}
           {/* DEPRECATED */}
           {button && button.label && (
             <Button {...button} className="ecl-hero-banner__button" />

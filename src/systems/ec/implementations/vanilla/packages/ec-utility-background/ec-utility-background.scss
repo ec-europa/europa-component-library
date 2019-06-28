@@ -8,7 +8,7 @@
 @mixin ecl-utility-background() {
   @each $key, $value in $ecl-colors-bg {
     .ecl-u-bg-#{$key} {
-      background-color: $value;
+      background-color: $value !important;
     }
   }
 }

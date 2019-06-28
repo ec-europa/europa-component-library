@@ -7,8 +7,10 @@
 @import '@ecl/ec-base/ec-base';
 
 @mixin ecl-utility-clearfix() {
-  .ecl-u-clearfix {
-    @include ecl-clearfix();
+  .ecl-u-clearfix::after {
+    clear: both !important;
+    content: '' !important;
+    display: block !important;
   }
 }
 
