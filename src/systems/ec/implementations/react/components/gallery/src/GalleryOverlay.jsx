@@ -34,6 +34,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
 
         <Button
           {...overlay.previous}
+          type="button"
           className={classnames(
             overlay.previous.className,
             'ecl-gallery__slider-previous'
@@ -43,6 +44,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
 
         <Button
           {...overlay.next}
+          type="button"
           className={classnames(
             overlay.next.className,
             'ecl-gallery__slider-next'
