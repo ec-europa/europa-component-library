@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Link from '@ecl/eu-react-component-link/Link';
+import Link from '@ecl/eu-react-component-link';
 
 const MenuItem = ({ label, href, isCurrent, children }) => {
   const classNames = classnames('ecl-menu__item', {
@@ -19,9 +19,10 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
       });
 
       return (
-        <li className={subClassNames} key={child.label}>
+        <li className={subClassNames} key={child.label} data-ecl-menu-subitem>
           <Link
             {...child}
+            variant="standalone"
             className="ecl-menu__sublink"
             data-ecl-menu-sublink
           />
@@ -39,6 +40,7 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
     <li
       className={classNames}
       data-ecl-has-children={subItemsMarkup ? 'true' : 'false'}
+      data-ecl-menu-item
     >
       <Link
         label={label}
@@ -46,14 +48,14 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
         variant="standalone"
         className="ecl-menu__link"
         data-ecl-menu-link
-        {...subItemsMarkup && {
+        {...(subItemsMarkup && {
           icon: {
             shape: 'ui--corner-arrow',
             size: 'xs',
             transform: 'rotate-180',
             className: 'ecl-menu__link-icon',
           },
-        }}
+        })}
       />
 
       {subItemsMarkup}

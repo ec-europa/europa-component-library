@@ -10,36 +10,64 @@
 @include check-imports(('eu-style-typography-list'));
 
 @mixin ecl-menu(
-  $background-toggle: $ecl-color-grey-15,
-  $color-toggle: $ecl-color-blue-100,
-  $background-item: $ecl-color-grey-10,
-  $border-item: $ecl-color-grey-15,
-  $background-subitem: $ecl-color-grey-5
+  $menu-background: $ecl-color-blue,
+  $toggle-background: $ecl-color-blue,
+  $toggle-color: $ecl-color-white,
+  $toggle-color-hover: $ecl-color-white,
+  $item-background-mobile: $ecl-color-white,
+  $item-background-desktop: $ecl-color-blue,
+  $item-background-selected-mobile: $ecl-color-white,
+  $item-background-selected-desktop: $ecl-color-grey-10,
+  $item-color-mobile: $ecl-color-grey,
+  $item-color-hover-mobile: $ecl-color-blue,
+  $item-color-desktop: $ecl-color-white,
+  $item-color-hover-desktop: $ecl-color-white,
+  $item-border: $ecl-color-grey-15,
+  $subitem-background-mobile: $ecl-color-white,
+  $subitem-background-desktop: $ecl-color-grey-10,
+  $subitem-color-mobile: $ecl-color-grey-75,
+  $subitem-color-hover-mobile: $ecl-color-blue,
+  $subitem-color-desktop: $ecl-color-blue,
+  $subitem-color-hover-desktop: $ecl-color-grey
 ) {
   .ecl-menu {
     margin: 0;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-menu {
+      background-color: $menu-background;
+    }
   }
 
   /*
    * Menu toggle
    */
   .ecl-menu__toggle {
-    color: $color-toggle;
+    color: $toggle-color;
     cursor: pointer;
     display: block;
     padding: $ecl-spacing-m 0;
     position: relative;
     width: 100%;
-  }
-  .ecl-menu__toggle::before {
-    background-color: $background-toggle;
-    content: '';
-    height: 100%;
-    left: 50%;
-    position: absolute;
-    top: 0;
-    transform: translateX(-50%);
-    width: 100vw;
+
+    &::before {
+      background-color: $toggle-background;
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: 100vw;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $toggle-color-hover;
+    }
   }
 
   .ecl-menu__toggle-container {
@@ -54,23 +82,34 @@
     display: inline-block;
     margin-right: $ecl-spacing-m;
   }
+
   .ecl-menu__hamburger--bar1,
   .ecl-menu__hamburger--bar2,
   .ecl-menu__hamburger--bar3 {
-    background-color: $color-toggle;
+    background-color: $toggle-color;
     height: 5px;
     margin: 6px 0;
     transition: 0.4s;
     width: 35px;
   }
+
   .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar1 {
     transform: rotate(-45deg) translate(-9px, 6px);
   }
+
   .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar2 {
     opacity: 0;
   }
+
   .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar3 {
     transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-menu__toggle {
+      display: none;
+    }
   }
 
   /*
@@ -90,27 +129,30 @@
       display: flex;
     }
   }
+
   .ecl-menu[aria-expanded='true'] .ecl-menu__list {
     display: flex;
   }
 
   .ecl-menu__item {
     position: relative;
-  }
-  .ecl-menu__item::before {
-    background-color: $background-item;
-    border-bottom: 1px solid $background-item;
-    content: '';
-    height: 100%;
-    left: 50%;
-    position: absolute;
-    top: 0;
-    transform: translateX(-50%);
-    width: 100vw;
+
+    &::before {
+      background-color: $item-background-mobile;
+      border-bottom: 1px solid $item-background-mobile;
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: 100vw;
+    }
   }
 
   .ecl-menu__link {
-    border-bottom: 1px solid $border-item;
+    border-bottom: 1px solid $item-border;
+    color: $item-color-mobile;
     display: flex;
     font: $ecl-font-prolonged-s;
     font-weight: $ecl-font-weight-bold;
@@ -118,12 +160,55 @@
     padding-bottom: $ecl-spacing-s;
     padding-top: $ecl-spacing-s;
     position: relative;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $item-color-hover-mobile;
+    }
   }
+
+  .ecl-menu__link:last-child {
+    border-bottom-width: 0;
+  }
+
+  .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
+    background-color: $item-background-selected-mobile;
+  }
+
   .ecl-menu__item[aria-expanded='true'] .ecl-menu__link-icon {
     transform: rotate(0);
   }
-  .ecl-menu__link:last-child {
-    border-bottom-width: 0;
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-menu__list {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .ecl-menu__item {
+      position: initial;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .ecl-menu__link {
+      color: $item-color-desktop;
+      padding: $ecl-spacing-m $ecl-spacing-s;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $item-color-hover-desktop;
+      }
+    }
+
+    .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
+      background-color: $item-background-selected-desktop;
+    }
   }
 
   /*
@@ -142,30 +227,62 @@
       display: flex;
     }
   }
+
   .ecl-menu__item[aria-expanded='true'] .ecl-menu__sublist {
     display: flex;
   }
 
   .ecl-menu__subitem {
     position: relative;
-  }
-  .ecl-menu__subitem::before {
-    background-color: $background-subitem;
-    content: '';
-    height: 100%;
-    left: 50%;
-    position: absolute;
-    top: 0;
-    transform: translateX(-50%);
-    width: 100vw;
+
+    &::before {
+      background-color: $subitem-background-mobile;
+      content: '';
+      height: 100%;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: 100vw;
+    }
   }
 
   .ecl-menu__sublink {
+    color: $subitem-color-mobile;
     display: block;
     font: $ecl-font-prolonged-s;
     padding-bottom: $ecl-spacing-s;
     padding-top: $ecl-spacing-s;
     position: relative;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $subitem-color-hover-mobile;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up('md') {
+    .ecl-menu__sublist {
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    .ecl-menu__sublink {
+      color: $subitem-color-desktop;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $subitem-color-hover-desktop;
+      }
+    }
+
+    .ecl-menu__subitem::before {
+      background-color: $subitem-background-desktop;
+    }
   }
 }
 

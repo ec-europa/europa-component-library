@@ -6,6 +6,7 @@ class Menu {
     {
       hamburgerButtonSelector: hamburgerButtonSelector = '[data-ecl-menu-hamburger-button]',
       menuListSelector: menuListSelector = '[data-ecl-menu-list]',
+      menuItemSelector: menuItemSelector = '[data-ecl-menu-item]',
       menuLinkSelector: menuLinkSelector = '[data-ecl-menu-link]',
       menuSubListSelector: menuSubListSelector = '[data-ecl-menu-sublist]',
       attachClickListener: attachClickListener = true,
@@ -23,6 +24,7 @@ class Menu {
     // Options
     this.hamburgerButtonSelector = hamburgerButtonSelector;
     this.menuListSelector = menuListSelector;
+    this.menuItemSelector = menuItemSelector;
     this.menuLinkSelector = menuLinkSelector;
     this.menuSubListSelector = menuSubListSelector;
     this.attachClickListener = attachClickListener;
@@ -30,6 +32,7 @@ class Menu {
     // Private variables
     this.hamburgerButton = null;
     this.menuList = null;
+    this.menuItems = null;
     this.menuLinks = null;
 
     // Bind `this` for use in callbacks
@@ -41,6 +44,7 @@ class Menu {
     // Query elements
     this.hamburgerButton = queryOne(this.hamburgerButtonSelector, this.element);
     this.menuList = queryOne(this.menuListSelector, this.element);
+    this.menuItems = queryAll(this.menuItemSelector, this.element);
     this.menuLinks = queryAll(this.menuLinkSelector, this.element);
 
     // Bind click event on hamburger
@@ -103,11 +107,24 @@ class Menu {
 
     const menuItem = e.target.closest('[data-ecl-has-children]');
 
+    // Close other items
+    this.menuItems.forEach(item => {
+      if (item !== menuItem) {
+        item.setAttribute('aria-expanded', false);
+        const subMenu = queryOne(this.menuSubListSelector, item);
+        if (subMenu) {
+          subMenu.setAttribute('aria-hidden', true);
+        }
+      }
+    });
+
+    // Toggle current item
     menuItem.setAttribute(
       'aria-expanded',
       menuItem.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
     );
 
+    // Toggle sub items
     const menuSubList = queryOne(this.menuSubListSelector, menuItem);
 
     if (menuSubList) {

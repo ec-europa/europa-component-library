@@ -79,9 +79,11 @@ Menu.propTypes = {
       ),
     })
   ),
+  className: PropTypes.string,
 };
 
 Menu.defaultProps = {
   label: '',
   items: [],
+  className: '',
 };

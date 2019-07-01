@@ -7,6 +7,6 @@ import demoContent from '@ecl/eu-specs-menu/demo/data';
 
 import Menu from '../src/Menu';
 
-storiesOf('Navigation/Menu', module)
+storiesOf('Components|Navigation/Menu', module)
   .addDecorator(withKnobs)
   .add('default', () => <Menu {...demoContent} />);
