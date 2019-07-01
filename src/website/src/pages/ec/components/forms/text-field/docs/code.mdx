@@ -1,0 +1,61 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import TextInput from '@ecl/ec-react-component-text-input';
+
+import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    helperText="Help message"
+  />
+</Playground>
+
+## Disabled
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id-2"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    helperText="Help message"
+    disabled
+  />
+</Playground>
+
+## With error
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id-3"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    helperText="Help message"
+    invalid
+    invalidText="Error message"
+  />
+</Playground>

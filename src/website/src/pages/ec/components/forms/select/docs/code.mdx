@@ -1,0 +1,58 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import Select from '@ecl/ec-react-component-select';
+
+import demoContent from '@ecl/ec-specs-select/demo/data';
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="Help message"
+  />
+</Playground>
+
+## Disabled
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id-2"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="Help message"
+    disabled
+  />
+</Playground>
+
+## With error
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-select"
+  selectedStory="default"
+>
+  <Select
+    id="select-id-3"
+    name="select-name"
+    label={demoContent.label}
+    options={demoContent.options}
+    helperText="Help message"
+    invalid
+    invalidText="Error message"
+  />
+</Playground>

@@ -3,8 +3,8 @@ title: Showcase
 order: 2
 ---
 
-import Playground from '@ecl/website-components/Playground'
-import Button from '@ecl/ec-react-component-button/Button'
+import Playground from '@ecl/website-components/Playground';
+import Button from '@ecl/ec-react-component-button';
 
 import demoContentPrimary from '@ecl/ec-specs-button/demo/data--primary';
 import demoContentSecondary from '@ecl/ec-specs-button/demo/data--secondary';
@@ -16,7 +16,7 @@ import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
 
 <Playground
   system="ec"
-  selectedKind="Button"
+  selectedKind="components-button"
   selectedStory="primary"
 >
   <Button {...demoContentPrimary} />
@@ -26,7 +26,7 @@ import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
 
 <Playground
   system="ec"
-  selectedKind="Button"
+  selectedKind="components-button"
   selectedStory="secondary"
 >
   <Button {...demoContentSecondary} />
@@ -36,28 +36,20 @@ import demoContentSearch from '@ecl/ec-specs-button/demo/data--search';
 
 <Playground
   system="ec"
-  selectedKind="Button"
-  selectedStory="call to action"
+  selectedKind="components-button"
+  selectedStory="call-to-action"
 >
   <Button {...demoContentCall} />
 </Playground>
 
-## Ghost
+## Text
 
-<Playground
-  system="ec"
-  selectedKind="Button"
-  selectedStory="ghost"
->
+<Playground system="ec" selectedKind="components-button" selectedStory="text">
   <Button {...demoContentGhost} />
 </Playground>
 
 ## Search
 
-<Playground
-  system="ec"
-  selectedKind="Button"
-  selectedStory="search"
->
+<Playground system="ec" selectedKind="components-button" selectedStory="search">
   <Button {...demoContentSearch} />
 </Playground>

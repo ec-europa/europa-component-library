@@ -12,10 +12,15 @@ class Iframe extends PureComponent {
   }
 
   componentDidMount() {
-    const options = {
-      autoResize: true,
-    };
-    this.iframeResizer = iframeResizer(options, this.frameRef.current);
+    const { iframeOptions, disableAutoResize } = this.props;
+
+    if (!disableAutoResize) {
+      const options = {
+        autoResize: true,
+        ...iframeOptions,
+      };
+      this.iframeResizer = iframeResizer(options, this.frameRef.current);
+    }
   }
 
   componentWillUnmount() {
@@ -46,11 +51,15 @@ class Iframe extends PureComponent {
 Iframe.propTypes = {
   defaultHeight: PropTypes.string,
   url: PropTypes.string,
+  iframeOptions: PropTypes.shape(),
+  disableAutoResize: PropTypes.bool,
 };
 
 Iframe.defaultProps = {
   defaultHeight: '200px',
   url: '',
+  iframeOptions: {},
+  disableAutoResize: false,
 };
 
 export default Iframe;

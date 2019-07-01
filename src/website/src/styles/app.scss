@@ -4,7 +4,7 @@
 
 :global {
   body {
-    background-color: #fafafa;
+    background-color: #fff;
     margin: 0;
   }
 
@@ -27,5 +27,49 @@
 
   main:focus {
     outline: none;
+  }
+
+  .demo-container {
+    box-sizing: border-box;
+    border: 2px solid #444;
+  }
+
+  .demo-container--small {
+    width: 14rem;
+  }
+
+  .demo-container--default-height-small {
+    height: 6rem;
+  }
+
+  .demo-container--default-height-long {
+    height: 12rem;
+  }
+
+  .demo-container--resizable {
+    max-width: 100%;
+    overflow: auto;
+    resize: both;
+  }
+
+  * + .demo-container {
+    margin-top: 1rem;
+  }
+
+  .demo-box {
+    box-sizing: border-box;
+    border: 1px solid #777;
+    background-color: #eee;
+    padding: 0.5rem;
+  }
+
+  .demo-item {
+    box-sizing: border-box;
+    background-color: #eee;
+    padding: 0.5rem;
+  }
+
+  .demo-item + .demo-item {
+    margin-top: 1rem;
   }
 }

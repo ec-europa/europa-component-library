@@ -6,7 +6,14 @@ import LinkList from './LinkList';
 import styles from './Navigation.scss';
 
 const Navigation = React.memo(
-  ({ sidebarOpen, onToggleSidebar, pages, prefix, forceRefresh }) => (
+  ({
+    sidebarOpen,
+    onToggleSidebar,
+    pages,
+    prefix,
+    forceRefresh,
+    isLoading,
+  }) => (
     <Fragment>
       <button
         type="button"
@@ -29,12 +36,13 @@ const Navigation = React.memo(
           sidebarOpen ? '' : ` ${styles['nav--closed']}`
         }${forceRefresh ? ' ' : ''}`}
       >
-        <div className={styles.header}>
+        <header className={styles.header}>
+          <span className={styles.version}>v{process.env.ECL_VERSION}</span>
           <Link to="/" className={styles.logo} title="European Commission">
             <span className={styles['logo-sr']}>European Commission</span>
           </Link>
           <h2 className={styles.title}>Europa Component Library</h2>
-        </div>
+        </header>
         <ul className={styles['system-list']}>
           <li className={styles['system-list-item']}>
             <NavLink
@@ -57,7 +65,11 @@ const Navigation = React.memo(
             </NavLink>
           </li>
         </ul>
-        <LinkList pages={pages} level={0} parentSection={prefix} />
+        {isLoading ? (
+          <p className={styles.loading}>Loading...</p>
+        ) : (
+          <LinkList pages={pages} level={0} parentSection={prefix} />
+        )}
       </nav>
     </Fragment>
   )
@@ -69,12 +81,14 @@ Navigation.propTypes = {
   pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   prefix: PropTypes.string.isRequired,
   forceRefresh: PropTypes.bool,
+  isLoading: PropTypes.bool,
 };
 
 Navigation.defaultProps = {
   sidebarOpen: true,
   onToggleSidebar: () => {},
   forceRefresh: false,
+  isLoading: false,
 };
 
 // Use withRouter to update links when they become active

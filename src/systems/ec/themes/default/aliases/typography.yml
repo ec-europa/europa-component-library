@@ -12,6 +12,9 @@ aliases:
   _FONT_2XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_2XL}/{!LINE_HEIGHT_2XL} {!FONT_FAMILY}'
   _FONT_3XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_3XL}/{!LINE_HEIGHT_3XL} {!FONT_FAMILY}'
   _FONT_4XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_4XL}/{!LINE_HEIGHT_4XL} {!FONT_FAMILY}'
+  _FONT_5XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_5XL}/{!LINE_HEIGHT_5XL} {!FONT_FAMILY}'
+  _FONT_6XL: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_6XL}/{!LINE_HEIGHT_6XL} {!FONT_FAMILY}'
+  _FONT_PROLONGED_XS: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_XS}/{!LINE_HEIGHT_PROLONGED_XS} {!FONT_FAMILY}'
   _FONT_PROLONGED_S: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_S}/{!LINE_HEIGHT_PROLONGED_S} {!FONT_FAMILY}'
   _FONT_PROLONGED_M: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_M}/{!LINE_HEIGHT_PROLONGED_M} {!FONT_FAMILY}'
   _FONT_PROLONGED_L: 'normal normal {!FONT_WEIGHT_REGULAR} {!FONT_SIZE_L}/{!LINE_HEIGHT_PROLONGED_L} {!FONT_FAMILY}'
@@ -19,6 +22,25 @@ aliases:
   _FONT_WEIGHT_REGULAR: '{!FONT_WEIGHT_REGULAR}'
   _FONT_WEIGHT_BOLD: '{!FONT_WEIGHT_BOLD}'
   _FONT_FAMILY: '{!FONT_FAMILY}'
+
+  _FONT_PRINT_XS: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_XS}/{!LINE_HEIGHT_PRINT_XS} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_S: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_S}/{!LINE_HEIGHT_PRINT_S} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_M: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_M}/{!LINE_HEIGHT_PRINT_M} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_L: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_L}/{!LINE_HEIGHT_PRINT_L} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_XL: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_XL}/{!LINE_HEIGHT_PRINT_XL} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_2XL: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_2XL}/{!LINE_HEIGHT_PRINT_2XL} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_3XL: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_3XL}/{!LINE_HEIGHT_PRINT_3XL} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_4XL: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_4XL}/{!LINE_HEIGHT_PRINT_4XL} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_5XL: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_5XL}/{!LINE_HEIGHT_PRINT_5XL} {!FONT_FAMILY_PRINT}'
+  _FONT_PRINT_6XL: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_6XL}/{!LINE_HEIGHT_PRINT_6XL} {!FONT_FAMILY_PRINT}'
+  _FONT_PROLONGED_PRINT_XS: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_XS}/{!LINE_HEIGHT_PROLONGED_PRINT_XS} {!FONT_FAMILY_PRINT}'
+  _FONT_PROLONGED_PRINT_S: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_S}/{!LINE_HEIGHT_PROLONGED_PRINT_S} {!FONT_FAMILY_PRINT}'
+  _FONT_PROLONGED_PRINT_M: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_M}/{!LINE_HEIGHT_PROLONGED_PRINT_M} {!FONT_FAMILY_PRINT}'
+  _FONT_PROLONGED_PRINT_L: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_L}/{!LINE_HEIGHT_PROLONGED_PRINT_L} {!FONT_FAMILY_PRINT}'
+  _FONT_PROLONGED_PRINT_XL: 'normal normal {!FONT_WEIGHT_PRINT_REGULAR} {!FONT_SIZE_PRINT_XL}/{!LINE_HEIGHT_PROLONGED_PRINT_XL} {!FONT_FAMILY_PRINT}'
+  _FONT_WEIGHT_PRINT_REGULAR: '{!FONT_WEIGHT_PRINT_REGULAR}'
+  _FONT_WEIGHT_PRINT_BOLD: '{!FONT_WEIGHT_PRINT_BOLD}'
+  _FONT_FAMILY_PRINT: '{!FONT_FAMILY_PRINT}'
 
 # Export properties
 props:
@@ -60,6 +82,21 @@ props:
   - name: FONT_4XL
     value: '{!_FONT_4XL}'
     comment: Font 4XL
+    type: font
+    category: font
+  - name: FONT_5XL
+    value: '{!_FONT_5XL}'
+    comment: Font 5XL
+    type: font
+    category: font
+  - name: FONT_6XL
+    value: '{!_FONT_6XL}'
+    comment: Font 6XL
+    type: font
+    category: font
+  - name: FONT_PROLONGED_XS
+    value: '{!_FONT_PROLONGED_XS}'
+    comment: Font prolonged XS
     type: font
     category: font
   - name: FONT_PROLONGED_S
@@ -137,6 +174,16 @@ props:
     comment: Font size 4XL
     type: font
     category: font
+  - name: FONT_SIZE_5XL
+    value: '{!FONT_SIZE_5XL}'
+    comment: Font size 5XL
+    type: font
+    category: font
+  - name: FONT_SIZE_6XL
+    value: '{!FONT_SIZE_6XL}'
+    comment: Font size 6XL
+    type: font
+    category: font
   - name: LINE_HEIGHT_S
     value: '{!LINE_HEIGHT_S}'
     comment: Line height S
@@ -145,5 +192,156 @@ props:
   - name: LINE_HEIGHT_PROLONGED_M
     value: '{!LINE_HEIGHT_PROLONGED_M}'
     comment: Line height prolonged M
+    type: font
+    category: font
+
+  - name: FONT_PRINT_XS
+    value: '{!_FONT_PRINT_XS}'
+    comment: Font print XS
+    type: font
+    category: font
+  - name: FONT_PRINT_S
+    value: '{!_FONT_PRINT_S}'
+    comment: Font print S
+    type: font
+    category: font
+  - name: FONT_PRINT_M
+    value: '{!_FONT_PRINT_M}'
+    comment: Font print M
+    type: font
+    category: font
+  - name: FONT_PRINT_L
+    value: '{!_FONT_PRINT_L}'
+    comment: Font print L
+    type: font
+    category: font
+  - name: FONT_PRINT_XL
+    value: '{!_FONT_PRINT_XL}'
+    comment: Font print XL
+    type: font
+    category: font
+  - name: FONT_PRINT_2XL
+    value: '{!_FONT_PRINT_2XL}'
+    comment: Font print 2XL
+    type: font
+    category: font
+  - name: FONT_PRINT_3XL
+    value: '{!_FONT_PRINT_3XL}'
+    comment: Font print 3XL
+    type: font
+    category: font
+  - name: FONT_PRINT_4XL
+    value: '{!_FONT_PRINT_4XL}'
+    comment: Font print 4XL
+    type: font
+    category: font
+  - name: FONT_PRINT_5XL
+    value: '{!_FONT_PRINT_5XL}'
+    comment: Font print 5XL
+    type: font
+    category: font
+  - name: FONT_PRINT_6XL
+    value: '{!_FONT_PRINT_6XL}'
+    comment: Font print 6XL
+    type: font
+    category: font
+  - name: FONT_PROLONGED_PRINT_XS
+    value: '{!_FONT_PROLONGED_PRINT_XS}'
+    comment: Font prolonged print XS
+    type: font
+    category: font
+  - name: FONT_PROLONGED_PRINT_S
+    value: '{!_FONT_PROLONGED_PRINT_S}'
+    comment: Font prolonged print S
+    type: font
+    category: font
+  - name: FONT_PROLONGED_PRINT_M
+    value: '{!_FONT_PROLONGED_PRINT_M}'
+    comment: Font prolonged print M
+    type: font
+    category: font
+  - name: FONT_PROLONGED_PRINT_L
+    value: '{!_FONT_PROLONGED_PRINT_L}'
+    comment: Font prolonged print L
+    type: font
+    category: font
+  - name: FONT_PROLONGED_PRINT_XL
+    value: '{!_FONT_PROLONGED_PRINT_XL}'
+    comment: Font prolonged print XL
+    type: font
+    category: font
+  - name: FONT_WEIGHT_PRINT_REGULAR
+    value: '{!_FONT_WEIGHT_PRINT_REGULAR}'
+    comment: Font weight print regular
+    type: font
+    category: font
+  - name: FONT_WEIGHT_PRINT_BOLD
+    value: '{!_FONT_WEIGHT_PRINT_BOLD}'
+    comment: Font weight print bold
+    type: font
+    category: font
+  - name: FONT_FAMILY_PRINT
+    value: '{!_FONT_FAMILY_PRINT}'
+    comment: Font family print
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_XS
+    value: '{!FONT_SIZE_PRINT_XS}'
+    comment: Font size print XS
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_S
+    value: '{!FONT_SIZE_PRINT_S}'
+    comment: Font size print S
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_M
+    value: '{!FONT_SIZE_PRINT_M}'
+    comment: Font size print M
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_L
+    value: '{!FONT_SIZE_PRINT_L}'
+    comment: Font size print L
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_XL
+    value: '{!FONT_SIZE_PRINT_XL}'
+    comment: Font size print XL
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_2XL
+    value: '{!FONT_SIZE_PRINT_2XL}'
+    comment: Font size print 2XL
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_3XL
+    value: '{!FONT_SIZE_PRINT_3XL}'
+    comment: Font size print 3XL
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_4XL
+    value: '{!FONT_SIZE_PRINT_4XL}'
+    comment: Font size print 4XL
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_5XL
+    value: '{!FONT_SIZE_PRINT_5XL}'
+    comment: Font size print 5XL
+    type: font
+    category: font
+  - name: FONT_SIZE_PRINT_6XL
+    value: '{!FONT_SIZE_PRINT_6XL}'
+    comment: Font size print 6XL
+    type: font
+    category: font
+  - name: LINE_HEIGHT_PRINT_S
+    value: '{!LINE_HEIGHT_PRINT_S}'
+    comment: Line height print S
+    type: font
+    category: font
+  - name: LINE_HEIGHT_PROLONGED_PRINT_M
+    value: '{!LINE_HEIGHT_PROLONGED_PRINT_M}'
+    comment: Line height prolonged print M
     type: font
     category: font

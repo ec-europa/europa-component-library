@@ -18,7 +18,11 @@ class IconList extends PureComponent {
       <ul className={styles.icons}>
         {ecIcons
           .keys()
-          .filter(icon => !set || icon.indexOf(`./${set}`) === 0)
+          .filter(
+            icon =>
+              icon.indexOf('/_') === -1 && // eslint-disable-line unicorn/prefer-includes
+              (!set || icon.indexOf(`./${set}`) === 0)
+          )
           .map(icon => (
             <IconCard
               name={
@@ -27,7 +31,7 @@ class IconList extends PureComponent {
                   .pop()
                   .split('.svg')[0]
               }
-              svg={ecIcons(icon)}
+              svg={ecIcons(icon).default}
               key={icon}
             />
           ))}

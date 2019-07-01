@@ -14,11 +14,12 @@
 }
 
 .h2 {
+  border-bottom: 2px solid $ecl-color-grey-75;
   color: $ecl-color-grey-100;
   font: $ecl-font-2-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
-  padding: 0;
+  padding: 0 0 $ecl-spacing-m 0;
 
   @media screen and (min-width: 768px) {
     font: $ecl-font-3-xl;
@@ -27,11 +28,12 @@
 }
 
 .h3 {
+  border-bottom: 2px solid $ecl-color-grey-15;
   color: $ecl-color-grey-100;
   font: $ecl-font-xl;
   font-weight: $ecl-font-weight-bold;
   margin: 0;
-  padding: 0;
+  padding: 0 0 $ecl-spacing-m 0;
 
   @media screen and (min-width: 768px) {
     font: $ecl-font-2-xl;
@@ -41,22 +43,16 @@
 
 .h4 {
   color: $ecl-color-grey-100;
-  font: $ecl-font-xl;
-  font-weight: $ecl-font-weight-bold;
+  font: $ecl-font-l;
   margin: 0;
   padding: 0;
-
-  @media screen and (min-width: 768px) {
-    font: $ecl-font-xl;
-    font-weight: $ecl-font-weight-bold;
-  }
 }
 
 .p {
-  color: $ecl-color-grey-75;
+  color: $ecl-color-grey-100;
   font: $ecl-font-prolonged-m;
   margin: 0;
-  max-width: 38em;
+  max-width: 80ch;
   padding: 0;
 }
 
@@ -80,13 +76,19 @@
   max-width: 100%;
   margin: 0;
   padding: 0;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* link around an image */
+.imgA {
+  display: block;
 }
 
 .ul {
   box-sizing: border-box;
-  color: $ecl-color-grey-75;
+  color: $ecl-color-grey-100;
   font: $ecl-font-prolonged-m;
-  max-width: 38em;
+  max-width: 80ch;
   margin: 0;
 }
 
@@ -94,7 +96,7 @@
   box-sizing: border-box;
   color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-m;
-  max-width: 38em;
+  max-width: 80ch;
   margin: 0;
 }
 
@@ -105,31 +107,32 @@
   width: 100%;
 }
 
-.thead {
-  border-bottom: 1px solid $ecl-color-grey-75;
+.thead .tr {
+  border-bottom: 2px solid $ecl-color-grey-50;
+}
+
+.tbody .tr {
+  border-bottom: 1px solid $ecl-color-grey-50;
 }
 
 .th {
   background-color: transparent;
-  color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-m;
   font-weight: $ecl-font-weight-bold;
-  margin: 0;
-  padding: $ecl-spacing-m $ecl-spacing-l $ecl-spacing-s;
   text-align: left;
 }
 
 .td {
-  color: $ecl-color-grey-75;
   font: $ecl-font-prolonged-m;
-  margin: 0;
-  padding: $ecl-spacing-s $ecl-spacing-l;
 }
 
 .td,
 .th {
+  color: $ecl-color-grey-100;
   display: table-cell;
+  padding: $ecl-spacing-s;
   vertical-align: middle;
+  margin: 0;
 }
 
 .hr {
@@ -154,17 +157,13 @@
 
 * + .h3 {
   margin-top: $ecl-spacing-xl;
-
-  @media screen and (min-width: 768px) {
-    margin-top: $ecl-spacing-2-xl;
-  }
 }
 
 * + .h4 {
-  margin-top: $ecl-spacing-xl;
+  margin-top: $ecl-spacing-m;
 
   @media screen and (min-width: 768px) {
-    margin-top: $ecl-spacing-2-xl;
+    margin-top: $ecl-spacing-l;
   }
 }
 
@@ -184,6 +183,18 @@
   margin-top: $ecl-spacing-m;
 }
 
+.h2 + .p,
+.h2 + .img,
+.h2 + .ul,
+.h2 + .ol,
+.h2 + .table {
+  margin-top: $ecl-spacing-m;
+}
+
 * + .hr {
-  margin-top: $ecl-spacing-s;
+  margin-top: $ecl-spacing-m;
+}
+
+* + .imgA {
+  margin-top: $ecl-spacing-m;
 }

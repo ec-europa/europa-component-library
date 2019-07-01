@@ -1,14 +1,16 @@
 /* eslint "import/no-extraneous-dependencies": ["error", { "devDependencies": true } ] */
-const siteHeaderContent = require('@ecl/ec-specs-site-header/demo/data');
+const siteHeaderContent = require('@ecl/ec-specs-site-header/demo/data--en');
 const heroBannerContent = require('@ecl/ec-specs-hero-banner/demo/data--image');
+const languageListContent = require('@ecl/ec-specs-language-list/demo/data--overlay');
 const mediaContainerContent = require('@ecl/ec-specs-media-container/demo/data--video');
 const cardContent = require('@ecl/ec-specs-card/demo/data--card-event');
 const blockquoteContent = require('@ecl/ec-specs-blockquote/demo/data');
-const footerContent = require('@ecl/ec-specs-footer/demo/data');
+const footerContent = require('@ecl/ec-specs-footer/demo/data--custom');
 
 module.exports = {
   siteHeader: siteHeaderContent,
   heroBanner: heroBannerContent,
+  languageList: languageListContent,
   mediaContainer: mediaContainerContent,
   card: cardContent,
   blockquote: blockquoteContent,

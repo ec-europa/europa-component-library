@@ -11,3 +11,6 @@ if (typeof Promise === 'undefined') {
 // Object.assign() is commonly used with React.
 // It will use the native implementation if it's present and isn't buggy.
 Object.assign = require('object-assign');
+
+// Support iterable spread (...Set, ...Map)
+require('core-js/features/array/from');

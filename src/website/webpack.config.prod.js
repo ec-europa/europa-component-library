@@ -1,28 +1,39 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
-const cssnano = require('cssnano');
 const frontmatter = require('remark-frontmatter');
+const emoji = require('remark-emoji');
 
 const babelConfig = require('./config/babel.config');
+const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
-const publicPath = '/';
-const publicUrl = publicPath.slice(0, -1);
+const publicUrl = process.env.PUBLIC_URL || '';
+const publicPath = `${publicUrl}/`;
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
+
+let eclVersion = lernaJson.version;
+if (
+  process.env.NETLIFY === 'true' &&
+  process.env.PULL_REQUEST === 'true' &&
+  process.env.REVIEW_ID
+) {
+  eclVersion += ` - PR ${process.env.REVIEW_ID}`;
+}
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
@@ -124,7 +135,6 @@ module.exports = {
                 loader: 'css-loader',
                 options: {
                   importLoaders: 2,
-                  minimize: true,
                   modules: true,
                   sourceMap: shouldUseSourceMap,
                 },
@@ -179,12 +189,13 @@ module.exports = {
               {
                 loader: '@mdx-js/loader',
                 options: {
-                  mdPlugins: [
+                  remarkPlugins: [
                     [
                       // Removes front-matter from Markdown output
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
                     ],
+                    emoji,
                   ],
                 },
               },
@@ -210,47 +221,46 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
+      new TerserPlugin({
+        terserOptions: {
+          parse: {
+            ecma: 8,
+          },
           compress: {
-            // Disabled because of an issue with Uglify breaking seemingly valid code:
-            // https://github.com/facebook/create-react-app/issues/2376
-            // Pending further investigation:
-            // https://github.com/mishoo/UglifyJS2/issues/2011
+            ecma: 5,
+            warnings: false,
             comparisons: false,
+            inline: 2,
+          },
+          mangle: {
+            safari10: true,
           },
           output: {
+            ecma: 5,
             comments: false,
-            // Turned on because emoji and regex is not minified properly using default
-            // https://github.com/facebook/create-react-app/issues/2488
             ascii_only: true,
           },
         },
-        // Use multi-process parallel running to improve the build speed
-        // Default number of concurrent runs: os.cpus().length - 1
         parallel: true,
-        // Enable file caching
         cache: true,
         sourceMap: shouldUseSourceMap,
       }),
-      // Waiting for a new release of https://github.com/NMFR/optimize-css-assets-webpack-plugin
       new OptimizeCSSAssetsPlugin({
-        cssProcessor: cssnano,
-        cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }],
-          map: {
-            // `inline: false` forces the sourcemap to be output into a
-            // separate file
-            inline: false,
-            // `annotation: true` appends the sourceMappingURL to the end of
-            // the css file, helping the browser find the sourcemap
-            annotation: true,
-          },
+        cssProcessorOptions: {
+          parser: safePostCssParser,
+          map: shouldUseSourceMap
+            ? {
+                // `inline: false` forces the sourcemap to be output into a
+                // separate file
+                inline: false,
+                // `annotation: true` appends the sourceMappingURL to the end of
+                // the css file, helping the browser find the sourcemap
+                annotation: true,
+              }
+            : false,
         },
-        canPrint: true,
       }),
     ],
-
     // Automatically split vendor and commons
     // https://twitter.com/wSokra/status/969633336732905474
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
@@ -264,7 +274,6 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([path.resolve(__dirname, 'public')], {}),
-    // new InterpolateHtmlPlugin(process.env),
     new HtmlWebPackPlugin({
       inject: true,
       template: path.resolve(__dirname, 'public/index.html'),
@@ -281,9 +290,13 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
+      PUBLIC_URL: publicUrl,
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
+      'process.env.ECL_VERSION': JSON.stringify(eclVersion),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

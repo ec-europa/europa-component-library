@@ -1,6 +1,6 @@
 ---
 title: Resources
-order: 8
+order: 9
 ---
 
-(work in progress)
+Various resources that complement the usage and understanding of the ECL.

@@ -27,21 +27,23 @@ Webtools components are embeddable with Unified Embed Code (UEC). It is a specif
 The UEC is rendered by the Webtools smartloader. A reference to `//europa.eu/webtools/load.js` is the sole dependency for the components to work.
 
 ```html
-<!DOCTYPE ... >
+<!DOCTYPE ...>
 <html>
-<head>
-  ...
-  <!-- To be IE compliant -->
-  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-  ...
-  <script src="//europa.eu/webtools/load.js" type="text/javascript"/>
-</head>
-<body>
-  <script type="application/json">{
-    "service" : "[SERVICE_NAME]", // define the component that you want to use
-    [PARAMETERS] // define the component's specific parameters for customizing.
-  }</script>
-</body>
+  <head>
+    ...
+    <!-- To be IE compliant -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    ...
+    <script src="//europa.eu/webtools/load.js" type="text/javascript" />
+  </head>
+  <body>
+    <script type="application/json">
+      {
+          "service" : "[SERVICE_NAME]", // define the component that you want to use
+          [PARAMETERS] // define the component's specific parameters for customizing.
+        }
+    </script>
+  </body>
 </html>
 ```
 
