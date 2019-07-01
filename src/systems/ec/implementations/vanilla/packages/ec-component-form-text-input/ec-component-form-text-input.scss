@@ -7,9 +7,9 @@
 @import '@ecl/ec-base/ec-base';
 
 @mixin ecl-text-input(
-  $border-color: $ecl-color-grey-100,
+  $border-color: $ecl-color-grey-75,
   $border-width: 1px,
-  $border-color-focus: $ecl-color-secondary,
+  $border-color-focus: $ecl-color-yellow-100,
   $border-width-focus: 3px,
   $max-width: 31.25rem,
   $min-width: 15rem,
@@ -31,6 +31,12 @@
       calc(#{$padding-horizontal} - #{$border-width});
     width: 100%;
 
+    &:hover {
+      outline: 1px solid $ecl-color-blue-100;
+      outline-offset: -1px;
+    }
+
+    &:active,
     &:focus {
       outline: $border-width-focus solid $border-color-focus;
       outline-offset: -3px;
@@ -41,11 +47,11 @@
   .ecl-text-input--disabled,
   .ecl-text-input[readonly],
   .ecl-text-input--readonly {
-    background-color: $ecl-color-grey-10;
+    background-color: $ecl-color-grey-5;
+    border-color: $ecl-color-grey-50;
     cursor: not-allowed;
   }
 
-  .ecl-text-input:invalid,
   .ecl-text-input--invalid {
     border-color: $ecl-color-error;
     box-shadow: none;

@@ -9,10 +9,13 @@ const TextInput = ({
   invalid,
   invalidIconLabel,
   invalidText,
+  optionalText,
   label,
   hideLabel,
   name,
   placeholder,
+  required,
+  requiredText,
   type,
   className,
   ...props
@@ -27,12 +30,30 @@ const TextInput = ({
         <label
           className={classnames('ecl-form-label', {
             'ecl-form-label--invalid': invalid,
+            'ecl-form-label--disabled': disabled,
             'ecl-form-label--hidden': hideLabel,
           })}
           htmlFor={id}
         >
           {label}
+          {required ? (
+            <span className="ecl-form-label__required">{requiredText}</span>
+          ) : (
+            <span className="ecl-form-label__optional">{optionalText}</span>
+          )}
         </label>
+      )}
+      {helperText && (
+        <div
+          className={classnames('ecl-help-block', {
+            'ecl-help-block--disabled': disabled,
+          })}
+        >
+          {helperText}
+        </div>
+      )}
+      {invalid && invalidText && (
+        <div className="ecl-feedback-message">{invalidText}</div>
       )}
       <input
         {...props}
@@ -43,11 +64,8 @@ const TextInput = ({
         className={classNames}
         disabled={disabled}
         {...props}
+        required={required}
       />
-      {invalid && invalidText && (
-        <div className="ecl-feedback-message">{invalidText}</div>
-      )}
-      {helperText && <div className="ecl-help-block">{helperText}</div>}
     </div>
   );
 };
@@ -59,10 +77,13 @@ TextInput.propTypes = {
   invalid: PropTypes.bool,
   invalidIconLabel: PropTypes.string,
   invalidText: PropTypes.node,
+  optionalText: PropTypes.node,
   name: PropTypes.string,
   label: PropTypes.node,
   hideLabel: PropTypes.bool,
   placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  requiredText: PropTypes.string,
   type: PropTypes.string,
   className: PropTypes.string,
 };
@@ -73,10 +94,13 @@ TextInput.defaultProps = {
   invalid: false,
   invalidIconLabel: 'Error',
   invalidText: '',
+  optionalText: ' (optional)',
   name: '',
   label: '',
   hideLabel: false,
   placeholder: '',
+  required: true,
+  requiredText: '*',
   type: 'text',
   className: '',
 };

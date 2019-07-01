@@ -9,15 +9,26 @@ import TextInput from '../src/TextInput';
 
 storiesOf('Components|Forms/Text field', module)
   .addDecorator(withKnobs)
-  .add('default', () => (
-    <TextInput
-      id="example"
-      hideLabel={boolean('Hide label', false)}
-      label={text('Label', demoContentDefault.label)}
-      placeholder={text('Placeholder', demoContentDefault.placeholder)}
-      helperText={text('Helper text', 'Help message')}
-      invalid={boolean('Invalid', false)}
-      invalidText={text('Invalid text', 'Error')}
-      disabled={boolean('Disabled', false)}
-    />
-  ));
+  .add(
+    'default',
+    () => (
+      <TextInput
+        id="example"
+        hideLabel={boolean('Hide label', false)}
+        label={text('Label', demoContentDefault.label)}
+        placeholder={text('Placeholder', demoContentDefault.placeholder)}
+        helperText={text('Helper text', "This is the input's helper text.")}
+        invalid={boolean('Invalid', false)}
+        invalidText={text('Invalid text', 'This is the error message')}
+        disabled={boolean('Disabled', false)}
+        required={boolean('Required', true)}
+        requiredText={text('Required text', '*')}
+        optionalText={text('Optional text', ' (optional)')}
+      />
+    ),
+    {
+      knobs: {
+        escapeHTML: false,
+      },
+    }
+  );

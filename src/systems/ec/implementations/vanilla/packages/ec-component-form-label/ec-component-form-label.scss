@@ -17,8 +17,8 @@
     padding: 0;
   }
 
-  .ecl-form-label--invalid {
-    color: $ecl-color-error;
+  .ecl-form-label--disabled {
+    color: $ecl-color-grey-50;
   }
 
   .ecl-form-label--hidden {
@@ -32,6 +32,17 @@
     visibility: visible;
     white-space: nowrap;
     width: 1px;
+  }
+
+  .ecl-form-label__required {
+    color: $ecl-color-red;
+    font: $ecl-font-xl;
+    font-weight: $ecl-font-weight-bold;
+  }
+
+  .ecl-form-label__optional {
+    font: $ecl-font-s;
+    font-weight: $ecl-font-weight-regular;
   }
 }
 
