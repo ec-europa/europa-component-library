@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button';
-import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
 
 const GalleryOverlay = ({ overlay, item, className, ...props }) => {
@@ -102,26 +101,8 @@ GalleryOverlay.propTypes = {
     share: PropTypes.shape(Link.propTypes),
   }),
   item: PropTypes.shape({
-    src: PropTypes.string,
-    alt: PropTypes.string,
-    image: PropTypes.string,
-    sources: PropTypes.arrayOf(
-      PropTypes.shape({
-        src: PropTypes.string,
-        type: PropTypes.string,
-      })
-    ),
-    tracks: PropTypes.arrayOf(
-      PropTypes.shape({
-        src: PropTypes.string,
-        kind: PropTypes.string,
-        srcLang: PropTypes.string,
-        label: PropTypes.string,
-      })
-    ),
     description: PropTypes.string,
     meta: PropTypes.string,
-    icon: PropTypes.shape(Icon.propTypes),
   }),
   className: PropTypes.string,
 };

@@ -228,19 +228,17 @@ export class Gallery {
 
       // Get sources
       const sources = queryAll('source', video);
-      sources.map(source => {
+      sources.forEach(source => {
         const sourceTag = document.createElement('source');
         sourceTag.setAttribute('src', source.getAttribute('src'));
         sourceTag.setAttribute('type', source.getAttribute('type'));
         /* eslint-disable-next-line unicorn/prefer-node-append */
         mediaElement.appendChild(sourceTag);
-
-        return sourceTag;
       });
 
       // Get tracks
       const tracks = queryAll('track', video);
-      tracks.map(track => {
+      tracks.forEach(track => {
         const trackTag = document.createElement('track');
         trackTag.setAttribute('src', track.getAttribute('src'));
         trackTag.setAttribute('kind', track.getAttribute('kind'));
@@ -248,8 +246,6 @@ export class Gallery {
         trackTag.setAttribute('label', track.getAttribute('label'));
         /* eslint-disable-next-line unicorn/prefer-node-append */
         mediaElement.appendChild(trackTag);
-
-        return trackTag;
       });
 
       mediaElement.load();
@@ -269,7 +265,7 @@ export class Gallery {
       }
 
       // DEPRECATED
-      if (this.overlayImage) {
+      else if (this.overlayImage) {
         this.overlayImage.setAttribute(
           'src',
           selectedItem.getAttribute('href')
@@ -289,7 +285,7 @@ export class Gallery {
     }
 
     // DEPRECATED
-    if (this.overlayImage) {
+    else if (this.overlayImage) {
       Object.assign(this.overlayImage.style, {
         maxHeight: `${maxHeight}px`,
       });

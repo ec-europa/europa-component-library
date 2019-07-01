@@ -17,7 +17,7 @@ const GalleryItem = ({ item, className, ...props }) => {
       <a
         href={mediaHref}
         className="ecl-gallery__item-link"
-        aria-label={item.alt}
+        aria-label={item.image ? item.image.alt : item.alt || undefined}
         data-ecl-gallery-item
         data-ecl-gallery-item-share={item.shareHref}
       >
