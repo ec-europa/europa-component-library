@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import Button from '@ecl/ec-react-component-button';
-import Icon from '@ecl/ec-react-component-icon';
 import Link from '@ecl/ec-react-component-link';
 
 const GalleryOverlay = ({ overlay, item, className, ...props }) => {
@@ -27,17 +26,14 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
       </header>
 
       <section className="ecl-gallery__slider">
-        <div className="ecl-gallery__slider-image-container">
-          <img
-            src={item.src}
-            alt={item.alt}
-            className="ecl-gallery__slider-image"
-            data-ecl-gallery-overlay-image
-          />
-        </div>
+        <div
+          className="ecl-gallery__slider-media-container"
+          data-ecl-gallery-overlay-media
+        />
 
         <Button
           {...overlay.previous}
+          type="button"
           className={classnames(
             overlay.previous.className,
             'ecl-gallery__slider-previous'
@@ -47,6 +43,7 @@ const GalleryOverlay = ({ overlay, item, className, ...props }) => {
 
         <Button
           {...overlay.next}
+          type="button"
           className={classnames(
             overlay.next.className,
             'ecl-gallery__slider-next'
@@ -104,11 +101,8 @@ GalleryOverlay.propTypes = {
     share: PropTypes.shape(Link.propTypes),
   }),
   item: PropTypes.shape({
-    src: PropTypes.string,
-    alt: PropTypes.string,
     description: PropTypes.string,
     meta: PropTypes.string,
-    icon: PropTypes.shape(Icon.propTypes),
   }),
   className: PropTypes.string,
 };

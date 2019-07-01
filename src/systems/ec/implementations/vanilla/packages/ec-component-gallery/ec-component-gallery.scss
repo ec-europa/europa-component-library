@@ -49,7 +49,7 @@
 
   @supports (object-fit: cover) {
     .ecl-gallery__image-container {
-      background-color: transparent;
+      background-color: $description-background;
     }
   }
 
@@ -213,7 +213,8 @@
     position: relative;
   }
 
-  .ecl-gallery__slider-image-container {
+  .ecl-gallery__slider-image-container, // DEPRECATED
+  .ecl-gallery__slider-media-container {
     align-items: center;
     align-self: stretch;
     display: flex;
@@ -221,7 +222,8 @@
     justify-content: center;
   }
 
-  .ecl-gallery__slider-image {
+  .ecl-gallery__slider-image,
+  .ecl-gallery__slider-video {
     display: flex;
     flex-basis: auto;
     flex-grow: 0;
@@ -305,7 +307,8 @@
       justify-content: space-between;
     }
 
-    .ecl-gallery__slider-image-container {
+    .ecl-gallery__slider-image-container, // DEPRECATED
+    .ecl-gallery__slider-media-container {
       flex-grow: 0;
     }
 
