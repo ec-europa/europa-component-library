@@ -6,6 +6,7 @@
   body {
     background-color: #fff;
     margin: 0;
+    overflow-wrap: break-word;
   }
 
   /**
@@ -71,5 +72,10 @@
 
   .demo-item + .demo-item {
     margin-top: 1rem;
+  }
+
+  #root {
+    min-height: 100vh;
+    position: relative;
   }
 }
