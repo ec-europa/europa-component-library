@@ -11,9 +11,9 @@
   $border-width: 1px,
   $border-color-focus: $ecl-color-yellow-100,
   $border-width-focus: 3px,
-  $max-width: 31.25rem,
-  $min-width: 15rem,
-  $padding-vertical: $ecl-spacing-s,
+  // $max-width: 31.25rem,
+    // $min-width: 15rem,
+    $padding-vertical: $ecl-spacing-s,
   $padding-horizontal: $ecl-spacing-s
 ) {
   .ecl-text-input {
@@ -25,8 +25,8 @@
     display: block;
     font: $ecl-font-m;
     margin: 0;
-    max-width: $max-width;
-    min-width: $min-width;
+    // max-width: $max-width;
+    // min-width: $min-width;
     padding: calc(#{$padding-vertical} - #{$border-width})
       calc(#{$padding-horizontal} - #{$border-width});
     width: 100%;
