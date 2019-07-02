@@ -1,13 +1,13 @@
 /**
- * EU menus
-
+ * Menu component
+ * @define menu
  */
 
 // Import base
-@import '@ecl/eu-base/eu-base';
+@import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('eu-style-typography-list'));
+@include check-imports(('ec-component-link', 'ec-component-button'));
 
 @mixin ecl-menu(
   $menu-background: $ecl-color-blue,
@@ -16,13 +16,15 @@
   $toggle-color-hover: $ecl-color-white,
   $item-background-mobile: $ecl-color-white,
   $item-background-desktop: $ecl-color-blue,
-  $item-background-selected-mobile: $ecl-color-white,
-  $item-background-selected-desktop: $ecl-color-grey-10,
   $item-color-mobile: $ecl-color-grey,
   $item-color-hover-mobile: $ecl-color-blue,
   $item-color-desktop: $ecl-color-white,
   $item-color-hover-desktop: $ecl-color-white,
   $item-border: $ecl-color-grey-15,
+  $item-selected-background-mobile: $ecl-color-white,
+  $item-selected-background-desktop: $ecl-color-grey-10,
+  $item-selected-color-mobile: $ecl-color-grey,
+  $item-selected-color-desktop: $ecl-color-blue,
   $subitem-background-mobile: $ecl-color-white,
   $subitem-background-desktop: $ecl-color-grey-10,
   $subitem-color-mobile: $ecl-color-grey-75,
@@ -173,11 +175,20 @@
   }
 
   .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
-    background-color: $item-background-selected-mobile;
+    background-color: $item-selected-background-mobile;
+    color: $item-selected-color-mobile;
+  }
+
+  .ecl-menu__link-icon {
+    transition: none;
   }
 
   .ecl-menu__item[aria-expanded='true'] .ecl-menu__link-icon {
     transform: rotate(0);
+  }
+
+  .ecl-menu__link--current {
+    font-weight: $ecl-font-weight-bold;
   }
 
   /* stylelint-disable-next-line order/order */
@@ -196,6 +207,7 @@
     }
 
     .ecl-menu__link {
+      border-bottom-width: 0;
       color: $item-color-desktop;
       padding: $ecl-spacing-m $ecl-spacing-s;
 
@@ -207,7 +219,8 @@
     }
 
     .ecl-menu__item[aria-expanded='true'] .ecl-menu__link {
-      background-color: $item-background-selected-desktop;
+      background-color: $item-selected-background-desktop;
+      color: $item-selected-color-desktop;
     }
   }
 
@@ -262,6 +275,10 @@
     }
   }
 
+  .ecl-menu__sublink--current {
+    font-weight: $ecl-font-weight-bold;
+  }
+
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up('md') {
     .ecl-menu__sublist {
@@ -286,6 +303,6 @@
   }
 }
 
-@include exports('eu-component-menu') {
+@include exports('ec-component-menu') {
   @include ecl-menu();
 }

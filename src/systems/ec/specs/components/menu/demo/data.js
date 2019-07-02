@@ -31,8 +31,6 @@ module.exports = {
         { label: 'Item 3.6', href: '/example#menu3-6' },
         { label: 'Item 3.7', href: '/example#menu3-7' },
         { label: 'Item 3.8', href: '/example#menu3-8' },
-        { label: 'Item 3.9', href: '/example#menu3-9' },
-        { label: 'Item 3.10', href: '/example#menu3-10' },
       ],
     },
     {
@@ -49,6 +47,8 @@ module.exports = {
         { label: 'Item 4.8', href: '/example#menu4-8' },
         { label: 'Item 4.9', href: '/example#menu4-9' },
         { label: 'Item 4.10', href: '/example#menu4-10' },
+        { label: 'Item 4.11', href: '/example#menu4-11' },
+        { label: 'Item 4.12', href: '/example#menu4-12' },
       ],
     },
     {
@@ -61,10 +61,6 @@ module.exports = {
         { label: 'Item 5.4', href: '/example#menu5-4' },
         { label: 'Item 5.5', href: '/example#menu5-5' },
         { label: 'Item 5.6', href: '/example#menu5-6' },
-        { label: 'Item 5.7', href: '/example#menu5-7' },
-        { label: 'Item 5.8', href: '/example#menu5-8' },
-        { label: 'Item 5.9', href: '/example#menu5-9' },
-        { label: 'Item 5.10', href: '/example#menu5-10' },
       ],
     },
     {
