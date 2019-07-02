@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -7,11 +7,10 @@ const TextInput = ({
   disabled,
   helperText,
   invalid,
-  invalidIconLabel,
   invalidText,
   optionalText,
   label,
-  hideLabel,
+  labelClassName,
   name,
   placeholder,
   required,
@@ -28,18 +27,25 @@ const TextInput = ({
     <div className="ecl-form-group ecl-form-group--text-input">
       {label && (
         <label
-          className={classnames('ecl-form-label', {
+          className={classnames(labelClassName, 'ecl-form-label', {
             'ecl-form-label--invalid': invalid,
             'ecl-form-label--disabled': disabled,
-            'ecl-form-label--hidden': hideLabel,
           })}
           htmlFor={id}
         >
           {label}
           {required ? (
-            <span className="ecl-form-label__required">{requiredText}</span>
+            <Fragment>
+              {requiredText && (
+                <span className="ecl-form-label__required">{requiredText}</span>
+              )}
+            </Fragment>
           ) : (
-            <span className="ecl-form-label__optional">{optionalText}</span>
+            <Fragment>
+              {optionalText && (
+                <span className="ecl-form-label__optional">{optionalText}</span>
+              )}
+            </Fragment>
           )}
         </label>
       )}
@@ -75,12 +81,11 @@ TextInput.propTypes = {
   disabled: PropTypes.bool,
   helperText: PropTypes.node,
   invalid: PropTypes.bool,
-  invalidIconLabel: PropTypes.string,
   invalidText: PropTypes.node,
   optionalText: PropTypes.node,
   name: PropTypes.string,
   label: PropTypes.node,
-  hideLabel: PropTypes.bool,
+  labelClassName: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
@@ -92,15 +97,14 @@ TextInput.defaultProps = {
   disabled: false,
   helperText: '',
   invalid: false,
-  invalidIconLabel: 'Error',
   invalidText: '',
-  optionalText: ' (optional)',
+  optionalText: '',
   name: '',
   label: '',
-  hideLabel: false,
+  labelClassName: '',
   placeholder: '',
   required: true,
-  requiredText: '*',
+  requiredText: '',
   type: 'text',
   className: '',
 };

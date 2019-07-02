@@ -13,6 +13,10 @@
     margin: 0;
 
     > *:not(.ecl-form-label--hidden) + * {
+      margin-top: $ecl-spacing-xs;
+    }
+
+    > *:not(.ecl-form-label--hidden) + .ecl-text-input {
       margin-top: $ecl-spacing-s;
     }
 

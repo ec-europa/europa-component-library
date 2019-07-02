@@ -14,7 +14,6 @@ storiesOf('Components|Forms/Text field', module)
     () => (
       <TextInput
         id="example"
-        hideLabel={boolean('Hide label', false)}
         label={text('Label', demoContentDefault.label)}
         placeholder={text('Placeholder', demoContentDefault.placeholder)}
         helperText={text('Helper text', "This is the input's helper text.")}
