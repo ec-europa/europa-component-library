@@ -1,0 +1,18 @@
+/*
+ * Menu (Legacy) component
+ * @define menu
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-menu-legacy-print() {
+  .ecl-menu {
+    display: none;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-menu-legacy-print') {
+  @include ecl-menu-legacy-print();
+}
