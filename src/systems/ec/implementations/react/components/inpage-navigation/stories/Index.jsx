@@ -38,9 +38,9 @@ storiesOf('Components|Navigation/In page navigation', module)
       btnMainElement.append(btnMainTag);
     };
     const btnIdHandler = () => {
-      const numParagraphs = document.querySelectorAll('.ecl-col-md-9 p').length;
+      const numParagraphs = document.querySelectorAll('.ecl-col-lg-9 p').length;
       const position = Math.floor(Math.random() * Math.floor(numParagraphs));
-      const btnIdElement = document.querySelectorAll('.ecl-col-md-9 p')[
+      const btnIdElement = document.querySelectorAll('.ecl-col-lg-9 p')[
         position
       ];
       const demoId = Math.random()
@@ -57,9 +57,9 @@ storiesOf('Components|Navigation/In page navigation', module)
       btnIdElement.insertAdjacentHTML('afterend', btnIdTag.outerHTML);
     };
     const btnIdRemoveHandler = () => {
-      const numH2s = document.querySelectorAll('.ecl-col-md-9 h2[id]').length;
+      const numH2s = document.querySelectorAll('.ecl-col-lg-9 h2[id]').length;
       const position = Math.floor(Math.random() * Math.floor(numH2s));
-      const randomH2 = document.querySelectorAll('.ecl-col-md-9 h2[id]')[
+      const randomH2 = document.querySelectorAll('.ecl-col-lg-9 h2[id]')[
         position
       ];
       randomH2.nextSibling.outerHTML = '';
