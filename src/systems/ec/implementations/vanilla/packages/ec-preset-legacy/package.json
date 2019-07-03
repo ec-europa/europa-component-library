@@ -1,0 +1,43 @@
+{
+  "name": "@ecl/ec-preset-legacy",
+  "author": "European Commission",
+  "license": "EUPL-1.1",
+  "version": "2.7.0",
+  "description": "ECL EC Legacy preset",
+  "main": "dist/scripts/ecl-ec-preset-legacy.js",
+  "style": "dist/styles/ecl-ec-preset-legacy.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build:copy": "ecl-builder copy",
+    "build:scripts": "ecl-builder scripts",
+    "build:styles": "ecl-builder styles",
+    "build": "rimraf build && run-p build:* -ln",
+    "clean": "rimraf build dist",
+    "dist": "npm run clean && cross-env NODE_ENV=production run-p build:* -ln",
+    "prepublish": "npm run dist"
+  },
+  "dependencies": {
+    "@ecl/ec-component-menu-legacy": "^2.7.0"
+  },
+  "devDependencies": {
+    "@ecl/builder": "^2.7.0",
+    "@ecl/ec-preset-dev": "^2.7.0",
+    "@ecl/ec-resources-icons": "^2.7.0",
+    "@ecl/ec-resources-logo": "^2.7.0",
+    "@ecl/ec-theme-default": "^2.7.0",
+    "cross-env": "5.2.0",
+    "npm-run-all": "4.1.5",
+    "rimraf": "2.6.3"
+  },
+  "keywords": [
+    "ecl",
+    "europa-component-library",
+    "design-system"
+  ],
+  "homepage": "https://github.com/ec-europa/europa-component-library",
+  "bugs": {
+    "url": "https://github.com/ec-europa/europa-component-library/issues"
+  }
+}
