@@ -115,12 +115,12 @@ storiesOf('Components|Navigation/In page navigation', module)
 
         <div className="ecl-container">
           <div className="ecl-row ecl-u-mt-l">
-            <div className="ecl-col-md-3">
+            <div className="ecl-col-lg-3">
               <div className="inPageDemoSidebar" />
               <InpageNavigation {...inpageProps} />
             </div>
 
-            <div className="ecl-col-md-9">
+            <div className="ecl-col-lg-9">
               <div className="inPageDemoContent" />
               <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
                 Heading 1
