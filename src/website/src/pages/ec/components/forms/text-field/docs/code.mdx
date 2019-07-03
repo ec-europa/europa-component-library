@@ -19,7 +19,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     type="text"
     label={demoContentDefault.label}
     placeholder={demoContentDefault.placeholder}
-    helperText="Help message"
+    helperText="This is the input's helper text."
   />
 </Playground>
 
@@ -36,7 +36,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     type="text"
     label={demoContentDefault.label}
     placeholder={demoContentDefault.placeholder}
-    helperText="Help message"
+    helperText="This is the input's helper text."
     disabled
   />
 </Playground>
@@ -54,8 +54,45 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     type="text"
     label={demoContentDefault.label}
     placeholder={demoContentDefault.placeholder}
-    helperText="Help message"
+    helperText="This is the input's helper text."
     invalid
-    invalidText="Error message"
+    invalidText="This is the error message"
+  />
+</Playground>
+
+## Required
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id-3"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    helperText="This is the input's helper text."
+    required
+    requiredText="*"
+  />
+</Playground>
+
+## Optional
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id-3"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    helperText="This is the input's helper text."
+    optionalText=" (optional)"
   />
 </Playground>

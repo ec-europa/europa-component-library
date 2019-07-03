@@ -18,7 +18,7 @@ import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
     label={demoContentDefault.label}
     placeholder={demoContentDefault.placeholder}
     rows={4}
-    helperText="Help message"
+    helperText="This is the input's helper text."
   />
 </Playground>
 
@@ -34,7 +34,7 @@ import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
     label={demoContentDefault.label}
     placeholder={demoContentDefault.placeholder}
     rows={4}
-    helperText="Help message"
+    helperText="This is the input's helper text."
     disabled
   />
 </Playground>
@@ -51,8 +51,43 @@ import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
     label={demoContentDefault.label}
     placeholder={demoContentDefault.placeholder}
     rows={4}
-    helperText="Help message"
+    helperText="This is the input's helper text."
     invalid
-    invalidText="Error message"
+    invalidText="This is the error message"
+  />
+</Playground>
+
+## Required
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
+  <TextArea
+    id="example3"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    rows={4}
+    helperText="This is the input's helper text."
+    required
+    requiredText="*"
+  />
+</Playground>
+
+## Optional
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
+  <TextArea
+    id="example3"
+    label={demoContentDefault.label}
+    placeholder={demoContentDefault.placeholder}
+    rows={4}
+    helperText="This is the input's helper text."
+    optionalText=" (optional)"
   />
 </Playground>

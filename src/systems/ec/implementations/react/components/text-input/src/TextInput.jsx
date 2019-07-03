@@ -103,7 +103,7 @@ TextInput.defaultProps = {
   label: '',
   labelClassName: '',
   placeholder: '',
-  required: true,
+  required: false,
   requiredText: '',
   type: 'text',
   className: '',

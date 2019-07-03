@@ -102,7 +102,7 @@ TextArea.defaultProps = {
   name: '',
   optionalText: '',
   placeholder: '',
-  required: true,
+  required: false,
   requiredText: '',
   rows: 4,
   className: '',
