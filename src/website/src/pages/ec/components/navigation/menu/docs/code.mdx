@@ -5,10 +5,14 @@ order: 2
 
 import Playground from '@ecl/website-components/Playground';
 
-import Menu from '@ecl/ec-react-component-menu';
+import Menu from '@ecl/ec-react-component-menu-legacy';
 
-import demoContent from '@ecl/ec-specs-menu/demo/data';
+import demoContent from '@ecl/ec-specs-menu-legacy/demo/data';
 
-<Playground system="ec" selectedKind="Navigation/Menu" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="Navigation/Menu (Legacy)"
+  selectedStory="default"
+>
   <Menu {...demoContent} />
 </Playground>

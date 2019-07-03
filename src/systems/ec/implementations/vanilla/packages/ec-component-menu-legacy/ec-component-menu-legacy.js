@@ -1,5 +1,20 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
+// Polyfill for closest (support for IE11)
+if (!Element.prototype.matches)
+  Element.prototype.matches = Element.prototype.msMatchesSelector;
+if (!Element.prototype.closest)
+  Element.prototype.closest = function poly(selector) {
+    let el = this;
+    while (el) {
+      if (el.matches(selector)) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  };
+
 class Menu {
   constructor(
     element,
@@ -8,7 +23,7 @@ class Menu {
       menuListSelector: menuListSelector = '[data-ecl-menu-list]',
       menuItemSelector: menuItemSelector = '[data-ecl-menu-item]',
       menuLinkSelector: menuLinkSelector = '[data-ecl-menu-link]',
-      menuSubListSelector: menuSubListSelector = '[data-ecl-menu-sublist]',
+      menuMegaSelector: menuMegaSelector = '[data-ecl-menu-mega]',
       attachClickListener: attachClickListener = true,
     } = {}
   ) {
@@ -26,7 +41,7 @@ class Menu {
     this.menuListSelector = menuListSelector;
     this.menuItemSelector = menuItemSelector;
     this.menuLinkSelector = menuLinkSelector;
-    this.menuSubListSelector = menuSubListSelector;
+    this.menuMegaSelector = menuMegaSelector;
     this.attachClickListener = attachClickListener;
 
     // Private variables
@@ -111,7 +126,7 @@ class Menu {
     this.menuItems.forEach(item => {
       if (item !== menuItem) {
         item.setAttribute('aria-expanded', false);
-        const subMenu = queryOne(this.menuSubListSelector, item);
+        const subMenu = queryOne(this.menuMegaSelector, item);
         if (subMenu) {
           subMenu.setAttribute('aria-hidden', true);
         }
@@ -125,12 +140,12 @@ class Menu {
     );
 
     // Toggle sub items
-    const menuSubList = queryOne(this.menuSubListSelector, menuItem);
+    const menuMega = queryOne(this.menuMegaSelector, menuItem);
 
-    if (menuSubList) {
-      menuSubList.setAttribute(
+    if (menuMega) {
+      menuMega.setAttribute(
         'aria-hidden',
-        menuSubList.getAttribute('aria-hidden') === 'false' ? 'true' : 'false'
+        menuMega.getAttribute('aria-hidden') === 'false' ? 'true' : 'false'
       );
     }
 
