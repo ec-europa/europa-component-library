@@ -1,5 +1,5 @@
 ---
-title: Menu
+title: Menu (Legacy)
 defaultTab: usage
 status: ready
 ---
