@@ -104,7 +104,7 @@
   }
 
   .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar1 {
-    transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-8px, 6px);
   }
 
   .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar2 {
@@ -112,7 +112,7 @@
   }
 
   .ecl-menu[aria-expanded='true'] .ecl-menu__hamburger--bar3 {
-    transform: rotate(45deg) translate(-9px, -7px);
+    transform: rotate(45deg) translate(-9px, -8px);
   }
 
   /* stylelint-disable-next-line order/order */
@@ -360,6 +360,11 @@
 
     .ecl-menu__subitem::before {
       display: none;
+    }
+
+    .ecl-menu__subitem {
+      box-sizing: border-box;
+      padding-right: $ecl-spacing-m;
     }
 
     .ecl-menu__sublink {
