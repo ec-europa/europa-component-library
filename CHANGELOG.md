@@ -1,5 +1,42 @@
 # Changelog
 
+## 2.8.0 (2019-07-04)
+
+#### :rocket: New Feature
+
+- [#946](https://github.com/ec-europa/europa-component-library/pull/946) feat: add menu component - INNO-1603 ([@emeryro](https://github.com/emeryro))
+- [#1176](https://github.com/ec-europa/europa-component-library/pull/1176) feat(links): add CTA variant - INNO-1580 ([@yhuard](https://github.com/yhuard))
+
+#### :bug: Bug Fix
+
+- [#1186](https://github.com/ec-europa/europa-component-library/pull/1186) fix(inpage-nav): fix styles - INNO-1609 ([@yhuard](https://github.com/yhuard))
+- [#1185](https://github.com/ec-europa/europa-component-library/pull/1185) fix(preset-dev): add missing dependencies - INNO-1608 ([@yhuard](https://github.com/yhuard))
+- [#1182](https://github.com/ec-europa/europa-component-library/pull/1182) fix(language-list): fix close button color - INNO-1591 ([@emeryro](https://github.com/emeryro))
+
+#### :nail_care: Enhancement
+
+- [#1172](https://github.com/ec-europa/europa-component-library/pull/1172) feat(gallery): add video management - INNO-1552 ([@emeryro](https://github.com/emeryro))
+- [#1181](https://github.com/ec-europa/europa-component-library/pull/1181) refactor(utilities): use !important - INNO-1044 ([@emeryro](https://github.com/emeryro))
+- [#1175](https://github.com/ec-europa/europa-component-library/pull/1175) refactor(file): allow different download links - INNO-1582 ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#1179](https://github.com/ec-europa/europa-component-library/pull/1179) docs(text-field): provide usage guidelines - INNO-1587 ([@yhuard](https://github.com/yhuard))
+- [#1177](https://github.com/ec-europa/europa-component-library/pull/1177) docs(select): provide usage guidelines - INNO-1586 ([@yhuard](https://github.com/yhuard))
+- [#1174](https://github.com/ec-europa/europa-component-library/pull/1174) docs: add link to GitHub releases ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1178](https://github.com/ec-europa/europa-component-library/pull/1178) chore: automate the deployment of ECL website - FPFISSUPP-4104 ([@gervasek](https://github.com/gervasek))
+- [#1184](https://github.com/ec-europa/europa-component-library/pull/1184) chore: integrate CCK into the website - INNO-1607 ([@yhuard](https://github.com/yhuard))
+- [#1173](https://github.com/ec-europa/europa-component-library/pull/1173) chore: update dependencies - INNO-1566 ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 3
+
+- Romain Emery ([@emeryro](https://github.com/emeryro))
+- Yannick Huard ([@yhuard](https://github.com/yhuard))
+- [@gervasek](https://github.com/gervasek)
+
 ## 2.7.0 (2019-06-19)
 
 #### :rocket: New Feature
