@@ -7,25 +7,25 @@ import StoryWrapper from '@ecl/story-wrapper';
 
 import demoContent from '@ecl/ec-specs-menu-legacy/demo/data';
 
-import VanillaMenu from '@ecl/ec-component-menu-legacy';
+import VanillaMenuLegacy from '@ecl/ec-component-menu-legacy';
 
-import Menu from '../src/Menu';
+import MenuLegacy from '../src/MenuLegacy';
 
 storiesOf('Components|Navigation/Menu (legacy)', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper
       afterMount={() => {
-        const element = document.querySelector('[data-ecl-menu]');
-        const vanillaMenu = new VanillaMenu(element);
-        vanillaMenu.init();
+        const element = document.querySelector('[data-ecl-menu-legacy]');
+        const vanillaMenuLegacy = new VanillaMenuLegacy(element);
+        vanillaMenuLegacy.init();
 
         // Return new context
-        return { vanillaMenu };
+        return { vanillaMenuLegacy };
       }}
       beforeUnmount={context => {
-        if (context.vanillaMenu) {
-          context.vanillaMenu.destroy();
+        if (context.vanillaMenuLegacy) {
+          context.vanillaMenuLegacy.destroy();
         }
       }}
     >
@@ -66,4 +66,4 @@ storiesOf('Components|Navigation/Menu (legacy)', module)
       },
     ],
   })
-  .add('default', () => <Menu {...demoContent} />);
+  .add('default', () => <MenuLegacy {...demoContent} />);

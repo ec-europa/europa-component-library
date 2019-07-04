@@ -19,11 +19,11 @@ class Menu {
   constructor(
     element,
     {
-      hamburgerButtonSelector: hamburgerButtonSelector = '[data-ecl-menu-hamburger-button]',
-      menuListSelector: menuListSelector = '[data-ecl-menu-list]',
-      menuItemSelector: menuItemSelector = '[data-ecl-menu-item]',
-      menuLinkSelector: menuLinkSelector = '[data-ecl-menu-link]',
-      menuMegaSelector: menuMegaSelector = '[data-ecl-menu-mega]',
+      hamburgerButtonSelector: hamburgerButtonSelector = '[data-ecl-menu-legacy-hamburger-button]',
+      menuListSelector: menuListSelector = '[data-ecl-menu-legacy-list]',
+      menuItemSelector: menuItemSelector = '[data-ecl-menu-legacy-item]',
+      menuLinkSelector: menuLinkSelector = '[data-ecl-menu-legacy-link]',
+      menuMegaSelector: menuMegaSelector = '[data-ecl-menu-legacy-mega]',
       attachClickListener: attachClickListener = true,
     } = {}
   ) {

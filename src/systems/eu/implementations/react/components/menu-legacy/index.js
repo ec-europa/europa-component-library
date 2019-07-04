@@ -1,2 +1,2 @@
-export default from './src/Menu';
-export MenuItem from './src/MenuItem';
+export default from './src/MenuLegacy';
+export MenuLegacyItem from './src/MenuLegacyItem';

@@ -5,9 +5,9 @@ import classnames from 'classnames';
 
 import Link from '@ecl/eu-react-component-link';
 
-const MenuItem = ({ label, href, isCurrent, children }) => {
-  const classNames = classnames('ecl-menu__item', {
-    'ecl-menu__item--current': isCurrent,
+const MenuLegacyItem = ({ label, href, isCurrent, children }) => {
+  const classNames = classnames('ecl-menu-legacy__item', {
+    'ecl-menu-legacy__item--current': isCurrent,
   });
 
   // Sub items
@@ -17,24 +17,24 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
       let subItemsMarkup = '';
       if (child.items && child.items.length > 0) {
         const subItemsArray = child.items.map(item => {
-          const subClassNames = classnames('ecl-menu__subitem', {
-            'ecl-menu__subitem--current': isCurrent,
+          const subClassNames = classnames('ecl-menu-legacy__subitem', {
+            'ecl-menu-legacy__subitem--current': isCurrent,
           });
 
           return (
             <li
               className={subClassNames}
               key={item.label}
-              data-ecl-menu-subitem
+              data-ecl-menu-legacy-subitem
             >
               <Link
                 label={item.label}
                 href={item.href}
                 variant="standalone"
-                className={classnames('ecl-menu__sublink', {
-                  [`ecl-menu__sublink--current`]: item.isCurrent,
+                className={classnames('ecl-menu-legacy__sublink', {
+                  [`ecl-menu-legacy__sublink--current`]: item.isCurrent,
                 })}
-                data-ecl-menu-sublink
+                data-ecl-menu-legacy-sublink
               />
             </li>
           );
@@ -43,9 +43,12 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
         subItemsMarkup = (
           <Fragment>
             {child.title && (
-              <div className="ecl-menu__separator">{child.title}</div>
+              <div className="ecl-menu-legacy__separator">{child.title}</div>
             )}
-            <ul className="ecl-menu__sublist" data-ecl-menu-sublist>
+            <ul
+              className="ecl-menu-legacy__sublist"
+              data-ecl-menu-legacy-sublist
+            >
               {subItemsArray}
             </ul>
           </Fragment>
@@ -53,14 +56,14 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
       }
 
       return (
-        <div className="ecl-menu__column" key={child.items[0].label}>
+        <div className="ecl-menu-legacy__column" key={child.items[0].label}>
           {subItemsMarkup}
         </div>
       );
     });
 
     columnsMarkup = (
-      <div className="ecl-menu__mega" data-ecl-menu-mega>
+      <div className="ecl-menu-legacy__mega" data-ecl-menu-legacy-mega>
         {columns}
       </div>
     );
@@ -70,22 +73,22 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
     <li
       className={classNames}
       data-ecl-has-children={columnsMarkup ? 'true' : 'false'}
-      data-ecl-menu-item
+      data-ecl-menu-legacy-item
     >
       <Link
         label={label}
         href={href}
         variant="standalone"
-        className={classnames('ecl-menu__link', {
-          [`ecl-menu__link--current`]: isCurrent,
+        className={classnames('ecl-menu-legacy__link', {
+          [`ecl-menu-legacy__link--current`]: isCurrent,
         })}
-        data-ecl-menu-link
+        data-ecl-menu-legacy-link
         {...(columnsMarkup && {
           icon: {
             shape: 'ui--corner-arrow',
             size: 'xs',
             transform: 'rotate-180',
-            className: 'ecl-menu__link-icon',
+            className: 'ecl-menu-legacy__link-icon',
           },
         })}
       />
@@ -95,7 +98,7 @@ const MenuItem = ({ label, href, isCurrent, children }) => {
   );
 };
 
-MenuItem.propTypes = {
+MenuLegacyItem.propTypes = {
   label: PropTypes.string,
   href: PropTypes.string,
   isCurrent: PropTypes.bool,
@@ -108,11 +111,11 @@ MenuItem.propTypes = {
   ),
 };
 
-MenuItem.defaultProps = {
+MenuLegacyItem.defaultProps = {
   label: '',
   href: '',
   isCurrent: false,
   children: [],
 };
 
-export default MenuItem;
+export default MenuLegacyItem;
