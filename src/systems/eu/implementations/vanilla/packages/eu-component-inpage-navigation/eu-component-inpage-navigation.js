@@ -21,7 +21,7 @@ export class InpageNavigation {
       linksSelector: linksSelector = '[data-ecl-inpage-navigation-link]',
       spyActiveContainer: spyActiveContainer = 'ecl-inpage-navigation--visible',
       spyOffset: spyOffset = 20,
-      spyClass: spyClass = 'ecl-inpage-navigation__link--is-active',
+      spyClass: spyClass = 'ecl-inpage-navigation__item--active',
       spyTrigger: spyTrigger = '[data-ecl-inpage-navigation-trigger-current]',
     } = {}
   ) {
