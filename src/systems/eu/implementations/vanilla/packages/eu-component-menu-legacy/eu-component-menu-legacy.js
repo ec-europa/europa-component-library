@@ -15,7 +15,7 @@ if (!Element.prototype.closest)
     return null;
   };
 
-class Menu {
+class MenuLegacy {
   constructor(
     element,
     {
@@ -153,4 +153,4 @@ class Menu {
   }
 }
 
-export default Menu;
+export default MenuLegacy;
