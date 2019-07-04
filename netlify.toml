@@ -9,6 +9,7 @@
 # v2 branch: only redirect
 [context.v2]
   command = "echo 'Setting redirects...'"
+  publish = "src/website/public"
 
 [[redirects]]
   from = "https://v2--europa-component-library.netlify.com/*"
