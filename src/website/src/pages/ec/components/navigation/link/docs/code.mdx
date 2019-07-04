@@ -8,6 +8,8 @@ import Link from '@ecl/ec-react-component-link';
 
 import demoContentDefault from '@ecl/ec-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/ec-specs-link/demo/data--standalone';
+import demoContentCTA from '@ecl/ec-specs-link/demo/data--cta';
+import demoContentCTAIcon from '@ecl/ec-specs-link/demo/data--cta-icon';
 import demoContentIcon from '@ecl/ec-specs-link/demo/data--icon';
 
 ## Default link
@@ -44,4 +46,22 @@ import demoContentIcon from '@ecl/ec-specs-link/demo/data--icon';
     The European Commission is the executive of <Link {...demoContentIcon} />{' '}
     and promotes its general interest.
   </p>
+</Playground>
+
+## Call-to-actionl link
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="cta"
+>
+  <Link {...demoContentCTA} />
+</Playground>
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-link"
+  selectedStory="cta"
+>
+  <Link {...demoContentCTAIcon} />
 </Playground>

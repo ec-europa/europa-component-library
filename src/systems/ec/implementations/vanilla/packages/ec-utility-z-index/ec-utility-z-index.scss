@@ -8,7 +8,7 @@
 @mixin ecl-utility-z-index() {
   @each $key, $value in $ecl-z-index {
     .ecl-u-z-#{$key} {
-      z-index: $value;
+      z-index: $value !important;
     }
   }
 }

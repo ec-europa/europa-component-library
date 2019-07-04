@@ -12,7 +12,7 @@ const Gallery = ({ overlay, items, selectedItemId, className, ...props }) => {
     <section {...props} className={classNames} data-ecl-gallery>
       <ul className="ecl-gallery__list">
         {items.map(item => (
-          <GalleryItem item={item} key={item.src} />
+          <GalleryItem item={item} key={item.shareHref} />
         ))}
       </ul>
 
