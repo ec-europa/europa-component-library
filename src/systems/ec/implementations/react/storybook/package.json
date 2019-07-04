@@ -7,7 +7,7 @@
   "description": "ECL Base",
   "scripts": {
     "build": "build-storybook -c .storybook -o build",
-    "start": "start-storybook -p 6006 -s ../../vanilla/packages/ec-preset-website/dist -c .storybook"
+    "start": "start-storybook -p 6006 -s ../../vanilla/packages/ec-preset-website/dist,../../vanilla/packages/ec-preset-legacy-website/dist -c .storybook"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
