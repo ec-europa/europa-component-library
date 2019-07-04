@@ -15,7 +15,7 @@ if (!Element.prototype.closest)
     return null;
   };
 
-class MenuLegacy {
+export class MenuLegacy {
   constructor(
     element,
     {
