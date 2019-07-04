@@ -12,5 +12,11 @@
   publish = "src/website/public"
 
 [[redirects]]
+  from = "https://v2--europa-component-library.netlify.com/*"
+  to = "https://ec.europa.eu/component-library/:splat"
+  force = true
+
+[[redirects]]
   from = "https://v2--europa-component-library.netlify.com"
   to = "https://ec.europa.eu/component-library"
+  force = true
