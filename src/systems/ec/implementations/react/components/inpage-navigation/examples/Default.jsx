@@ -46,10 +46,10 @@ export default class DefaultExample extends React.Component {
         <PageHeader breadcrumb={breadcrumb} title="A demo page" />
         <div className="ecl-container">
           <div className="ecl-row ecl-u-mt-l">
-            <div className="ecl-col-md-3">
+            <div className="ecl-col-lg-3">
               <InpageNavigation {...demoContent} />
             </div>
-            <div className="ecl-col-md-9">
+            <div className="ecl-col-lg-9">
               <h2 className="ecl-u-type-heading-2" id="inline-nav-1">
                 Heading 1
               </h2>
