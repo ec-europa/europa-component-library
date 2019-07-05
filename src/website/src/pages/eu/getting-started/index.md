@@ -27,23 +27,23 @@ New components are continuously being added to the library. The team is also con
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
     <link
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.7.0/eu-preset-website/styles/ecl-eu-preset-website.css"
-      integrity="sha384-asoRnwYT9FveHUGuoUps23kDZrl3YE+dIs6B513hfvsV49eM7pMXwcTphUNXusvS sha512-7VNPz9Yx0QlAEuM5VSFFFdMiNMp/gzYGhetcFL/sN6pdOwD9NyPXSMr5VA5KYN6749QeuwNKGdsR/3LhqG+kEQ=="
-      crossorigin="anonymous"
       rel="stylesheet"
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/eu-preset-website/styles/ecl-eu-preset-website.css"
+      integrity="sha256-vN+9VIZ4CORThSio1SaABLCLVnMrnpbpZ377T+mLryQ= sha384-oRXRz1rbQ+Oqs5eHy+uCjJTwQdObWCn8qzJ5jnlbB8+CKullQFn4xBdujMymDgbV sha512-8crfdn00IoN/38FIR8gsswLwtV3mYEmQ6OMUwteLUa/DWF2c6hHMI6f2L0N6gRDhK3tkC98jmvrujF16TZI4tg=="
+      crossorigin="anonymous"
       media="screen"
     />
     <link
-      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.7.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
-      integrity="sha384-k1soyNmC9rbxhOR2D9oC5P/hC6hEyP07DWgeQDu3Dr/RV1nqCeNILQmc362LFVj1 sha512-OF9pNOdh0AedGQhx8OWXnQRPFs6C6sXSNBPk5hIX9Gu/7wd9ibxdJQcDL6jFtEZ/0uyH29mnswtumpdpl+fmTA=="
-      crossorigin="anonymous"
       rel="stylesheet"
+      href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/eu-preset-website/styles/ecl-eu-preset-website-print.css"
+      integrity="sha256-IXqDCSwEwLf3yZQM24fGy45HWeXCrrww5g0c+GVpw00= sha384-6FLMaZv+8aly0KbEssOlP+Dke7U8L+wGO6NXqBserED+YhnqsK18LXJDn/LCnHP8 sha512-6Mb0YivV0moG2DK07dUgcVbGTt3GdhYmdzgPQ4pMnrs1w4dOzdKu7eusmXzyNBv7WxvoDIRWBv36dQXXqPmDMQ=="
+      crossorigin="anonymous"
       media="print"
     />
     <script
       type="text/javascript"
-      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.7.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
-      integrity="sha384-mW4dXT6h3roi2CDnY9gopHwJKYK8q2MrnkxPxTvfDIKwBckhXfmtG6OA/qEoObms sha512-VbuGwP+7APy/eSh69IcIdFxL6pkX8cHGc+mC3kggY642TtkhSd50zNE6ysCtXKliv4qvgfz0DAfUKhSvoISIPg=="
+      src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/eu-preset-website/scripts/ecl-eu-preset-website.js"
+      integrity="sha256-cA8NDpprWjEdbTb2g18p2FJFWaAK65q10a7viq4M/r4= sha384-s17b7rOaXbcJGP6TPlTu7Q7nM5olWCeCL2aJj7jkBEYFMawnDQU8+hQrUGArTk1e sha512-R6vFpHHEBcNvOrTP+l3LcmIfRRK4mQKXJch20rUdLZicqj5kqbG8q1qPYD5AEFTjU9ZTHh5n67frCri3QnVDBw=="
       crossorigin="anonymous"
       defer
     ></script>
@@ -55,6 +55,6 @@ New components are continuously being added to the library. The team is also con
 ```
 
 - Copy the markup from the template you want and paste it in the `<body>`.
-- Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.7.0/eu-preset-website/images` folder.
+- Ensure that you are correctly loading the icons and the logo by using the right paths. You will usually find these assets under the `https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/eu-preset-website/images` folder.
 
 Note: if you want to use another ECL preset or another version, you will find all the useful information on https://github.com/ec-europa/europa-component-library/releases.
