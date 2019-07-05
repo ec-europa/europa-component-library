@@ -1,0 +1,21 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+
+import MenuLegacy from '@ecl/ec-react-component-menu-legacy';
+
+import demoContent from '@ecl/ec-specs-menu-legacy/demo/data';
+
+<Playground
+  system="ec"
+  selectedKind="components-navigation-menu-legacy"
+  selectedStory="default"
+  showFrame
+  frameHeight="350px"
+  disableAutoResize
+>
+  <MenuLegacy {...demoContent} />
+</Playground>
