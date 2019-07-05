@@ -9,6 +9,37 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.8.0 (2019-07-05)
+
+#### :rocket: New Feature
+
+- [#946](https://github.com/ec-europa/europa-component-library/pull/946) feat: add menu component - INNO-1603
+- [#1176](https://github.com/ec-europa/europa-component-library/pull/1176) feat(links): add CTA variant - INNO-1580
+
+#### :bug: Bug Fix
+
+- [#1186](https://github.com/ec-europa/europa-component-library/pull/1186) fix(inpage-nav): fix styles - INNO-1609
+- [#1185](https://github.com/ec-europa/europa-component-library/pull/1185) fix(preset-dev): add missing dependencies - INNO-1608
+- [#1182](https://github.com/ec-europa/europa-component-library/pull/1182) fix(language-list): fix close button color - INNO-1591
+
+#### :nail_care: Enhancement
+
+- [#1172](https://github.com/ec-europa/europa-component-library/pull/1172) feat(gallery): add video management - INNO-1552
+- [#1181](https://github.com/ec-europa/europa-component-library/pull/1181) refactor(utilities): use !important - INNO-1044
+- [#1175](https://github.com/ec-europa/europa-component-library/pull/1175) refactor(file): allow different download links - INNO-1582
+
+#### :memo: Documentation
+
+- [#1179](https://github.com/ec-europa/europa-component-library/pull/1179) docs(text-field): provide usage guidelines - INNO-1587
+- [#1177](https://github.com/ec-europa/europa-component-library/pull/1177) docs(select): provide usage guidelines - INNO-1586
+- [#1174](https://github.com/ec-europa/europa-component-library/pull/1174) docs: add link to GitHub releases
+
+#### :house: Internal
+
+- [#1178](https://github.com/ec-europa/europa-component-library/pull/1178) chore: automate the deployment of ECL website - FPFISSUPP-4104
+- [#1184](https://github.com/ec-europa/europa-component-library/pull/1184) chore: integrate CCK into the website - INNO-1607
+- [#1173](https://github.com/ec-europa/europa-component-library/pull/1173) chore: update dependencies - INNO-1566
+
 ## 2.7.0 (2019-06-19)
 
 #### :rocket: New Feature
