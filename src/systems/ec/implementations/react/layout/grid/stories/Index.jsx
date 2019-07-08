@@ -55,6 +55,7 @@ const Box = ({ padding, className }) => (
     <div
       style={{
         backgroundColor: '#6D9DC7',
+        border: '1px solid #fff',
         color: '#fff',
         fontFamily: 'Arial, sans-serif',
         fontSize: '1rem',
@@ -151,6 +152,21 @@ storiesOf('Layout|Grid', module)
             <Box className="ecl-col-2" />
             <Box className="ecl-col-8" />
             <Box className="ecl-col-2" />
+          </div>
+        </div>
+      </Demo>
+    );
+  })
+  .add('responsive', () => {
+    return (
+      <Demo>
+        <Background />
+        <div className="ecl-container">
+          <div className="ecl-row ecl-u-pt-m">
+            <Box className="ecl-col-12 ecl-col-md-4 ecl-col-lg-3" />
+            <Box className="ecl-col-12 ecl-col-md-8 ecl-col-lg-9" />
+            <Box className="ecl-col-12 ecl-col-sm-6 ecl-col-lg-4" />
+            <Box className="ecl-col-12 ecl-col-sm-6 ecl-col-lg-8" />
           </div>
         </div>
       </Demo>
