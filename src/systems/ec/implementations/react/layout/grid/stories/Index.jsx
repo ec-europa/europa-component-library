@@ -63,6 +63,7 @@ const Box = ({ padding, className }) => (
     >
       {className
         .split(' ')
+        .filter(str => str)
         .map(str => `.${str}`)
         .join(' ')}
     </div>
@@ -135,7 +136,7 @@ storiesOf('Layout|Grid', module)
           <div className="ecl-row ecl-u-pt-m">
             <Box className="ecl-col-3" />
             <Box className="ecl-col-3" />
-            <Box className="ecl-col-6 " />
+            <Box className="ecl-col-6" />
           </div>
         </div>
       </Demo>
