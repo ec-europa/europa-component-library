@@ -54,12 +54,14 @@ const Box = ({ padding, className }) => (
   <div className={className}>
     <div
       style={{
-        backgroundColor: '#6D9DC7',
-        border: '1px solid #fff',
-        color: '#fff',
+        backgroundColor: '#BFD0E4',
+        border: '1px solid #004494',
+        color: '#004494',
         fontFamily: 'Arial, sans-serif',
-        fontSize: '1rem',
-        padding: padding || '0.75rem',
+        fontWeight: 'bold',
+        fontSize: '1.125rem',
+        lineHeight: '1.75rem',
+        padding: padding || '1rem',
       }}
     >
       {className
