@@ -19,6 +19,7 @@ const WaitingEC = props => (
       <Skeleton
         HomePage={HomePageEC}
         prefix="/ec"
+        system="ec"
         title="EC Homepage"
         isLoading
       />
@@ -34,6 +35,7 @@ const WaitingEU = props => (
       <Skeleton
         HomePage={HomePageEU}
         prefix="/eu"
+        system="eu"
         title="EU Homepage"
         isLoading
       />

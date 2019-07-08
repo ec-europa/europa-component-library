@@ -112,16 +112,6 @@ module.exports = {
             },
           },
           {
-            // EC CSS imported to showcase components
-            test: /ec-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.ec' }),
-          },
-          {
-            // EU CSS imported to showcase components
-            test: /eu-preset-full\.css$/,
-            use: cssLoader({ fixCode: false, prefix: '.eu' }),
-          },
-          {
             test: /\.css$/,
             use: cssLoader(),
           },

@@ -1,8 +1,9 @@
+/* eslint-disable unicorn/prefer-node-append, unicorn/prefer-query-selector */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
+// import '@ecl/ec-preset-full/dist/styles/ecl-ec-preset-full.css';
 
 // Layout
 import Navigation from '../components/Navigation/Navigation';
@@ -28,18 +29,43 @@ class Skeleton extends Component {
   }
 
   componentDidMount() {
-    const { system } = this.props;
-    document.body.classList.add(system);
+    const { system, isLoading } = this.props;
+
     // Force refresh if is mounted on a real client (two-pass rendering)
     this.setState({
       forceRefresh: navigator.userAgent !== 'ReactSnap',
     });
+
+    // Inject/enable ECL stylesheet
+    if (!isLoading) {
+      const element = document.getElementById(`${system}-css`);
+
+      if (!element) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.id = `${system}-css`;
+        link.href = `${process.env.PUBLIC_URL}/playground/${system}/styles/ecl-${system}-preset-legacy-website.css`;
+        link.media = 'screen';
+
+        const head = document.head || document.getElementsByTagName('head')[0];
+        head.appendChild(link);
+      } else {
+        element.disabled = false;
+      }
+    }
   }
 
   componentWillUnmount() {
-    const { system } = this.props;
+    const { system, isLoading } = this.props;
 
-    document.body.classList.remove(system);
+    // Disable ECL stylesheet
+    if (!isLoading) {
+      const element = document.getElementById(`${system}-css`);
+      if (element) {
+        element.disabled = true;
+      }
+    }
   }
 
   toggleSidebar() {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import '@ecl/eu-preset-full/dist/styles/ecl-eu-preset-full.css';
 import merge from 'deepmerge';
 
 // Helpers
