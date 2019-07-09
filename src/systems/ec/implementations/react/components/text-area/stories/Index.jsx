@@ -16,7 +16,6 @@ storiesOf('Components|Forms/TextArea', module)
         id="example"
         label={text('Label', demoContentDefault.label)}
         rows={number('Rows', demoContentDefault.rows)}
-        placeholder={text('Placeholder', demoContentDefault.placeholder)}
         helperText={text('Helper text', "This is the input's helper text.")}
         invalid={boolean('Invalid', false)}
         invalidText={text('Invalid text', 'This is the error message')}

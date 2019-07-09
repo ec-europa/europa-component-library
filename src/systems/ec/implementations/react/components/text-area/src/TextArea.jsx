@@ -12,7 +12,6 @@ const TextArea = ({
   labelClassName,
   name,
   optionalText,
-  placeholder,
   required,
   requiredText,
   rows,
@@ -66,7 +65,6 @@ const TextArea = ({
         id={id}
         name={name || undefined}
         rows={rows}
-        placeholder={placeholder || undefined}
         disabled={disabled}
         className={classNames}
         required={required}
@@ -85,7 +83,6 @@ TextArea.propTypes = {
   labelClassName: PropTypes.string,
   name: PropTypes.string,
   optionalText: PropTypes.string,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
   rows: PropTypes.number,
@@ -101,7 +98,6 @@ TextArea.defaultProps = {
   labelClassName: '',
   name: '',
   optionalText: '',
-  placeholder: '',
   required: false,
   requiredText: '',
   rows: 4,

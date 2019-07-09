@@ -12,7 +12,6 @@ const TextInput = ({
   labelClassName,
   name,
   optionalText,
-  placeholder,
   required,
   requiredText,
   type,
@@ -66,7 +65,6 @@ const TextInput = ({
         id={id}
         name={name || undefined}
         type={type}
-        placeholder={placeholder || undefined}
         className={classNames}
         disabled={disabled}
         {...props}
@@ -86,7 +84,6 @@ TextInput.propTypes = {
   name: PropTypes.string,
   label: PropTypes.node,
   labelClassName: PropTypes.string,
-  placeholder: PropTypes.string,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
   type: PropTypes.string,
@@ -102,7 +99,6 @@ TextInput.defaultProps = {
   name: '',
   label: '',
   labelClassName: '',
-  placeholder: '',
   required: false,
   requiredText: '',
   type: 'text',
