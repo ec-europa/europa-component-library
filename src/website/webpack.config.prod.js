@@ -90,6 +90,12 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: ['.mjs', '.js', '.json', '.jsx'],
+    alias: {
+      '@ecl/website-components': path.resolve(
+        __dirname,
+        'src/website-components/'
+      ),
+    },
   },
   module: {
     // strictExportPresence makes missing exports an error instead of warning
@@ -256,8 +262,7 @@ module.exports = {
     // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
     splitChunks: {
       chunks: 'all',
-      // name: 'vendors',
-      name: false,
+      name: 'vendors',
     },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985

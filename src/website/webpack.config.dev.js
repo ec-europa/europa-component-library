@@ -65,6 +65,10 @@ module.exports = {
     extensions: ['.mjs', '.js', '.json', '.jsx'],
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      '@ecl/website-components': path.resolve(
+        __dirname,
+        'src/website-components/'
+      ),
     },
   },
   module: {

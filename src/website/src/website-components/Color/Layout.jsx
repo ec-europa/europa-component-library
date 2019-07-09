@@ -2,8 +2,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import Col from '../../../website/src/components/Grid/Col';
-import Row from '../../../website/src/components/Grid/Row';
+import Col from '../../components/Grid/Col';
+import Row from '../../components/Grid/Row';
 
 class Layout extends PureComponent {
   render() {
