@@ -3,7 +3,7 @@ import React, { Fragment, PureComponent } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import PropTypes from 'prop-types';
 import Prism from 'prismjs';
-import { html as beautifyHtml } from 'js-beautify';
+import beautifyHtml from 'js-beautify/js/src/html';
 
 import iconSprite from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Iframe from './Showcase/Iframe';
