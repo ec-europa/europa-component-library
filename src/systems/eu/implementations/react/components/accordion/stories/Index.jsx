@@ -50,7 +50,7 @@ storiesOf('Components|Accordion', module)
       },
       {
         id: 'ecl-legacy-print',
-        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-legacy-website-print.css" />`,
+        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website-print.css" />`,
         picked: false,
       },
       {
