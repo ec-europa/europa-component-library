@@ -45,7 +45,7 @@ storiesOf('Components|Accordion', module)
     cssresources: [
       {
         id: 'ecl-legacy-screen',
-        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-ec-preset-legacy-website.css" />`,
+        code: `<link rel="stylesheet" type="text/css" href="./styles/ecl-eu-preset-legacy-website.css" />`,
         picked: true,
       },
       {
