@@ -4,9 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
-import demoContent from '@ecl/ec-specs-accordion/demo/data';
+import demoContent from '@ecl/ec-specs-accordion2/demo/data';
 
-import { Accordion2 as VanillaAccordion } from '@ecl/ec-component-accordion';
+import { Accordion2 as VanillaAccordion } from '@ecl/ec-component-accordion2';
 
 import Accordion from '../src/Accordion2';
 import AccordionItem from '../src/Accordion2Item';
