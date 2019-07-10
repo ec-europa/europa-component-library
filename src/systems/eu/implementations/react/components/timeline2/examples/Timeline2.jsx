@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import parse from 'html-react-parser';
-import demoContent from '@ecl/eu-specs-timeline/demo/data';
+import demoContent from '@ecl/eu-specs-timeline2/demo/data';
 import Timeline from '../src/Timeline2';
 
 // Format data
