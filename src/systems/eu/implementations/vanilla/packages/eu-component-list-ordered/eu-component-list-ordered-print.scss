@@ -1,0 +1,23 @@
+/**
+ * Ordered List component
+ * @define ordered-list
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+/**
+ * @define ordered-list
+ */
+@mixin ecl-ordered-list-print($text-color: $ecl-color-grey-100) {
+  .ecl-ordered-list {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-m;
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-list-orderedprint') {
+  @include ecl-ordered-list-print();
+}

@@ -1,0 +1,45 @@
+/**
+ * Description List component
+ * @define description-list
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-description-list($text-color: $ecl-color-grey-100) {
+  .ecl-description-list {
+    margin: 0;
+  }
+
+  .ecl-description-list__term {
+    color: $text-color;
+    font: $ecl-font-prolonged-xl;
+    font-weight: $ecl-font-weight-bold;
+    margin-top: $ecl-spacing-l;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .ecl-description-list__term + .ecl-description-list__term {
+    margin-top: $ecl-spacing-2-xs;
+  }
+
+  .ecl-description-list__definition {
+    color: $text-color;
+    font: $ecl-font-prolonged-m;
+    margin-left: 0;
+    margin-top: $ecl-spacing-m;
+    padding-left: $ecl-spacing-s;
+  }
+
+  .ecl-description-list__definition + .ecl-description-list__definition {
+    margin-top: $ecl-spacing-xs;
+  }
+}
+
+// Use mixin
+@include exports('eu-component-list-description') {
+  @include ecl-description-list();
+}

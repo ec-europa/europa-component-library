@@ -1,0 +1,26 @@
+/**
+ * List component
+ * @define unordered-list
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-unordered-list-print($text-color: $ecl-color-grey-100) {
+  .ecl-unordered-list {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-m;
+    margin: 0;
+  }
+
+  .ecl-unordered-list--no-bullet,
+  .ecl-unordered-list--divider {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-list-unordered-print') {
+  @include ecl-unordered-list-print();
+}
