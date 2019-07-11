@@ -1,0 +1,32 @@
+/**
+ * Description List component
+ * @define description-list
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+/**
+ * @define description-list
+ */
+@mixin ecl-description-list-print($text-color: $ecl-color-grey-100) {
+  .ecl-description-list {
+    margin: 0;
+  }
+
+  .ecl-description-list__term {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-xl;
+    font-weight: $ecl-font-weight-print-bold;
+  }
+
+  .ecl-description-list__definition {
+    color: $text-color;
+    font: $ecl-font-prolonged-print-m;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-list-description-print') {
+  @include ecl-description-list-print();
+}
