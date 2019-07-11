@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-includes */
 /**
  * Navigation inpage related behaviors.
  */
@@ -123,9 +124,9 @@ export class InpageNavigation {
       mutationsList.forEach(mutation => {
         // Exclude the changes we perform.
         if (
-          !mutation.target.className.includes(
+          mutation.target.className.indexOf(
             'ecl-inpage-navigation__trigger-current'
-          )
+          ) === -1
         ) {
           // Added nodes.
           if (mutation.addedNodes.length > 0) {
@@ -149,7 +150,7 @@ export class InpageNavigation {
             mutation.removedNodes.forEach(removedNode => {
               if (removedNode.tagName === 'H2' && removedNode.id) {
                 currentInpage.childNodes.forEach(item => {
-                  if (item.childNodes[0].href.includes(removedNode.id)) {
+                  if (item.childNodes[0].href.indexOf(removedNode.id) !== -1) {
                     // Remove the element from the inpage.
                     currentInpage.removeChild(item);
                   }
