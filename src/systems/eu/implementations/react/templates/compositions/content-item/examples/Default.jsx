@@ -4,7 +4,7 @@ import Link from '@ecl/eu-react-component-link';
 import {
   UnorderedList,
   UnorderedListItem,
-} from '@ecl/eu-react-component-list-unordered';
+} from '@ecl/eu-react-component-unordered-list';
 
 export default () => (
   <article className="ecl-u-d-flex ecl-u-border-bottom ecl-u-border-color-grey-15 ecl-u-pv-m">

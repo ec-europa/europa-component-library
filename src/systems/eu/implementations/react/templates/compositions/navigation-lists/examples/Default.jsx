@@ -3,7 +3,7 @@ import Link from '@ecl/eu-react-component-link';
 import {
   UnorderedList,
   UnorderedListItem,
-} from '@ecl/eu-react-component-list-unordered';
+} from '@ecl/eu-react-component-unordered-list';
 
 export default () => (
   <div>
