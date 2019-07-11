@@ -124,6 +124,9 @@ export class InpageNavigation {
       mutationsList.forEach(mutation => {
         // Exclude the changes we perform.
         if (
+          mutation &&
+          mutation.target &&
+          mutation.target.classList &&
           !mutation.target.classList.contains(
             'ecl-inpage-navigation__trigger-current'
           )
