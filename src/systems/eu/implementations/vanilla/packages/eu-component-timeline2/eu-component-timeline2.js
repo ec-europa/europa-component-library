@@ -1,6 +1,6 @@
 import { queryOne } from '@ecl/eu-base/helpers/dom';
 
-export class Timeline {
+export class Timeline2 {
   constructor(
     element,
     {
@@ -84,11 +84,8 @@ export class Timeline {
       this.label.innerHTML = this.button.getAttribute(this.labelCollapsed);
     }
 
-    // Retro compatibility
-    this.element.setAttribute('aria-expanded', 'true');
-
     return this;
   }
 }
 
-export default Timeline;
+export default Timeline2;
