@@ -11,7 +11,7 @@ import TableCell from '../src/TableCell';
 
 export default () => {
   return (
-    <Table>
+    <Table zebra>
       <TableHead>
         <TableRow>
           <TableHeader>Name</TableHeader>

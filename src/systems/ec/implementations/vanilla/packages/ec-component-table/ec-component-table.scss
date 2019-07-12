@@ -27,7 +27,7 @@
     display: block;
 
     &::before {
-      content: attr(data-ecl-th);
+      content: attr(data-ecl-table-header);
       display: block;
       font-weight: $ecl-font-weight-bold;
       margin-bottom: $ecl-spacing-xs;
@@ -42,18 +42,28 @@
   /* stylelint-disable-next-line order/order */
   @include ecl-media-breakpoint-up(lg) {
     .ecl-table__head {
-      border-bottom: 2px solid $ecl-color-grey;
       display: table-header-group;
       text-align: left;
     }
 
     .ecl-table__header {
       padding: $ecl-spacing-s $ecl-spacing-m;
+      vertical-align: baseline;
     }
 
     .ecl-table__row {
       border-bottom: 1px solid $ecl-color-grey-50;
       border-top-width: 0;
+    }
+
+    .ecl-table__head .ecl-table__row:first-child {
+      border-bottom: 2px solid $ecl-color-grey;
+    }
+
+    .ecl-table__head
+      .ecl-table__row:not(:first-child)
+      .ecl-table__header:not(:empty) {
+      background-color: $ecl-color-grey-5;
     }
 
     .ecl-table__cell {
@@ -63,6 +73,13 @@
       &::before {
         display: none;
       }
+    }
+  }
+
+  // Zebra
+  .ecl-table--zebra {
+    .ecl-table__row:nth-of-type(even) {
+      background-color: $ecl-color-grey-5;
     }
   }
 }
