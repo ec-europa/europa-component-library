@@ -4,12 +4,19 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
+import Example234612 from '../examples/234612';
+import Example642 from '../examples/642';
+import Example282 from '../examples/282';
+import Example336 from '../examples/336';
+import Offset from '../examples/Offset';
+import Responsive from '../examples/Responsive';
+
 // eslint-disable-next-line react/prop-types
 const Demo = ({ children }) => (
   <div
     style={{
+      padding: '2rem 0',
       position: 'relative',
-      minHeight: '100vh',
       backgroundColor: '#FCF4FB',
     }}
   >
@@ -49,30 +56,6 @@ const Background = () => (
   </div>
 );
 
-// eslint-disable-next-line react/prop-types
-const Box = ({ padding, className }) => (
-  <div className={className}>
-    <div
-      style={{
-        backgroundColor: '#BFD0E4',
-        border: '1px solid #004494',
-        color: '#004494',
-        fontFamily: 'Arial, sans-serif',
-        fontWeight: 'bold',
-        fontSize: '1.125rem',
-        lineHeight: '1.75rem',
-        padding: padding || '1rem',
-      }}
-    >
-      {className
-        .split(' ')
-        .filter(str => str)
-        .map(str => `.${str}`)
-        .join(' ')}
-    </div>
-  </div>
-);
-
 storiesOf('Layout|Grid', module)
   .addParameters({
     viewport: {
@@ -80,40 +63,11 @@ storiesOf('Layout|Grid', module)
     },
   })
   .addDecorator(withKnobs)
-  .add('1-2-3-4-6-12', () => {
+  .add('2-3-4-6-12', () => {
     return (
       <Demo>
         <Background />
-        <div className="ecl-container">
-          <div className="ecl-row ecl-u-pt-m">
-            {new Array(12).fill().map((v, i) => (
-              <Box className="ecl-col-1" padding="0.25rem" key={`b1-${i}`} />
-            ))}
-          </div>
-          <div className="ecl-row ecl-u-mt-m">
-            {new Array(6).fill().map((v, i) => (
-              <Box className="ecl-col-2" key={`b2-${i}`} />
-            ))}
-          </div>
-          <div className="ecl-row ecl-u-mt-m">
-            {new Array(4).fill().map((v, i) => (
-              <Box className="ecl-col-3" key={`b3-${i}`} />
-            ))}
-          </div>
-          <div className="ecl-row ecl-u-mt-m">
-            {new Array(3).fill().map((v, i) => (
-              <Box className="ecl-col-4" key={`b4-${i}`} />
-            ))}
-          </div>
-          <div className="ecl-row ecl-u-mt-m">
-            {new Array(2).fill().map((v, i) => (
-              <Box className="ecl-col-6" key={`b5-${i}`} />
-            ))}
-          </div>
-          <div className="ecl-row ecl-u-mt-m">
-            <Box className="ecl-col-12" />
-          </div>
-        </div>
+        <Example234612 />
       </Demo>
     );
   })
@@ -121,27 +75,7 @@ storiesOf('Layout|Grid', module)
     return (
       <Demo>
         <Background />
-        <div className="ecl-container">
-          <div className="ecl-row ecl-u-pt-m">
-            <Box className="ecl-col-6" />
-            <Box className="ecl-col-4" />
-            <Box className="ecl-col-2" />
-          </div>
-        </div>
-      </Demo>
-    );
-  })
-  .add('3-3-6', () => {
-    return (
-      <Demo>
-        <Background />
-        <div className="ecl-container">
-          <div className="ecl-row ecl-u-pt-m">
-            <Box className="ecl-col-3" />
-            <Box className="ecl-col-3" />
-            <Box className="ecl-col-6" />
-          </div>
-        </div>
+        <Example642 />
       </Demo>
     );
   })
@@ -149,13 +83,23 @@ storiesOf('Layout|Grid', module)
     return (
       <Demo>
         <Background />
-        <div className="ecl-container">
-          <div className="ecl-row ecl-u-pt-m">
-            <Box className="ecl-col-2" />
-            <Box className="ecl-col-8" />
-            <Box className="ecl-col-2" />
-          </div>
-        </div>
+        <Example282 />
+      </Demo>
+    );
+  })
+  .add('3-3-6', () => {
+    return (
+      <Demo>
+        <Background />
+        <Example336 />
+      </Demo>
+    );
+  })
+  .add('offset', () => {
+    return (
+      <Demo>
+        <Background />
+        <Offset />
       </Demo>
     );
   })
@@ -163,14 +107,7 @@ storiesOf('Layout|Grid', module)
     return (
       <Demo>
         <Background />
-        <div className="ecl-container">
-          <div className="ecl-row ecl-u-pt-m">
-            <Box className="ecl-col-12 ecl-col-md-4 ecl-col-lg-3" />
-            <Box className="ecl-col-12 ecl-col-md-8 ecl-col-lg-9" />
-            <Box className="ecl-col-12 ecl-col-sm-6 ecl-col-lg-4" />
-            <Box className="ecl-col-12 ecl-col-sm-6 ecl-col-lg-8" />
-          </div>
-        </div>
+        <Responsive />
       </Demo>
     );
   });
