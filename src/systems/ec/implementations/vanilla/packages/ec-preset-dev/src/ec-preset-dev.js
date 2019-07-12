@@ -1,6 +1,6 @@
 // Export components
 
-export * from '@ecl/ec-component-accordion';
+export * from '@ecl/ec-component-accordion2';
 export * from '@ecl/ec-component-breadcrumb';
 // export * from '@ecl/ec-component-carousel';
 export * from '@ecl/ec-component-contextual-navigation';
@@ -16,4 +16,4 @@ export * from '@ecl/ec-component-inpage-navigation';
 // export * from '@ecl/ec-component-menu';
 // export * from '@ecl/ec-component-table';
 // export * from '@ecl/ec-component-tab';
-export * from '@ecl/ec-component-timeline';
+export * from '@ecl/ec-component-timeline2';
