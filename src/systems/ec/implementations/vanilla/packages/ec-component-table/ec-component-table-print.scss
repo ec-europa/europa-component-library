@@ -1,0 +1,20 @@
+/**
+ * Table component
+ * @define table
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-table-print() {
+  .ecl-table {
+    color: $ecl-color-grey;
+    font: $ecl-font-print-m;
+    margin: 0;
+  }
+}
+
+// Use mixin
+@include exports('ec-component-table-print') {
+  @include ecl-table-print();
+}

@@ -1,0 +1,73 @@
+/**
+ * Table component
+ * @define table
+ */
+
+// Import base
+@import '@ecl/ec-base/ec-base';
+
+@mixin ecl-table() {
+  .ecl-table {
+    border-collapse: collapse;
+    color: $ecl-color-grey;
+    font: $ecl-font-m;
+    margin: 0;
+    width: 100%;
+  }
+
+  .ecl-table__head {
+    display: none;
+  }
+
+  .ecl-table__row {
+    border-top: 1px solid $ecl-color-grey-50;
+  }
+
+  .ecl-table__cell {
+    display: block;
+
+    &::before {
+      content: attr(data-ecl-th);
+      display: block;
+      font-weight: $ecl-font-weight-bold;
+      margin-bottom: $ecl-spacing-xs;
+      margin-top: $ecl-spacing-s;
+    }
+
+    &:last-child {
+      margin-bottom: $ecl-spacing-s;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-table__head {
+      border-bottom: 2px solid $ecl-color-grey;
+      display: table-header-group;
+      text-align: left;
+    }
+
+    .ecl-table__header {
+      padding: $ecl-spacing-s $ecl-spacing-m;
+    }
+
+    .ecl-table__row {
+      border-bottom: 1px solid $ecl-color-grey-50;
+      border-top-width: 0;
+    }
+
+    .ecl-table__cell {
+      display: table-cell;
+      padding: $ecl-spacing-s $ecl-spacing-m;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+// Use mixin
+@include exports('ec-component-table') {
+  @include ecl-table();
+}
