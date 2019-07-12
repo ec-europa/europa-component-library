@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from '@ecl/eu-react-component-link';
-import { UnorderedList, UnorderedListItem } from '@ecl/eu-react-component-list';
+import {
+  UnorderedList,
+  UnorderedListItem,
+} from '@ecl/eu-react-component-unordered-list';
 
 export default () => (
   <div>
