@@ -14,8 +14,6 @@ import styles from './styles/markdown.scss';
 // Static routes
 import MainRoutes from './routes/MainRoutes';
 
-import test from './preval/get-meta';
-
 /* eslint-disable react/prop-types */
 const customComponents = {
   h1: ({ children, className, ...props }) => (
@@ -107,7 +105,6 @@ const customComponents = {
 class App extends React.Component {
   componentDidMount() {
     svg4everybody();
-    console.log('meta', test);
   }
 
   render() {
