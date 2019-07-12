@@ -16,4 +16,4 @@ export * from '@ecl/eu-component-message';
 // export * from '@ecl/eu-component-menu';
 // export * from '@ecl/eu-component-table';
 // export * from '@ecl/eu-component-tab';
-export * from '@ecl/eu-component-timeline';
+export * from '@ecl/eu-component-timeline2';

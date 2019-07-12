@@ -1,9 +1,10 @@
+/* eslint-disable unicorn/prefer-includes */
 /**
  * Navigation inpage related behaviors.
  */
 
 import Stickyfill from 'stickyfilljs';
-import Gumshoe from 'gumshoejs';
+import Gumshoe from 'gumshoejs/dist/gumshoe.polyfills';
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
 /**
@@ -117,19 +118,22 @@ export class InpageNavigation {
   initObserver() {
     const self = this;
     this.observer = new MutationObserver(function observe(mutationsList) {
-      const body = queryOne('.ecl-col-md-9');
+      const body = queryOne('.ecl-col-lg-9');
       const currentInpage = queryOne('[data-ecl-inpage-navigation-list]');
 
       mutationsList.forEach(mutation => {
         // Exclude the changes we perform.
         if (
-          !mutation.target.className.includes(
+          mutation &&
+          mutation.target &&
+          mutation.target.classList &&
+          !mutation.target.classList.contains(
             'ecl-inpage-navigation__trigger-current'
           )
         ) {
           // Added nodes.
           if (mutation.addedNodes.length > 0) {
-            mutation.addedNodes.forEach(addedNode => {
+            [].slice.call(mutation.addedNodes).forEach(addedNode => {
               if (addedNode.tagName === 'H2' && addedNode.id) {
                 const H2s = queryAll('h2[id]', body);
                 const addedNodeIndex = H2s.findIndex(
@@ -146,10 +150,10 @@ export class InpageNavigation {
           }
           // Removed nodes.
           if (mutation.removedNodes.length > 0) {
-            mutation.removedNodes.forEach(removedNode => {
+            [].slice.call(mutation.removedNodes).forEach(removedNode => {
               if (removedNode.tagName === 'H2' && removedNode.id) {
                 currentInpage.childNodes.forEach(item => {
-                  if (item.childNodes[0].href.includes(removedNode.id)) {
+                  if (item.childNodes[0].href.indexOf(removedNode.id) !== -1) {
                     // Remove the element from the inpage.
                     currentInpage.removeChild(item);
                   }
