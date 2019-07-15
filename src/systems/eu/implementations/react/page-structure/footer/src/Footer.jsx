@@ -190,6 +190,11 @@ Footer.propTypes = {
   backToTop: PropTypes.shape(Link.propTypes),
   identity: PropTypes.shape({
     title: PropTypes.string,
+    follow: PropTypes.shape({
+      label: PropTypes.string,
+      links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
+    }),
+    info: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
     links: PropTypes.arrayOf(PropTypes.shape(Link.propTypes)),
   }),
   sections: PropTypes.arrayOf(
