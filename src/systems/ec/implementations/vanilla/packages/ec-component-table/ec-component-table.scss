@@ -43,11 +43,11 @@
   @include ecl-media-breakpoint-up(lg) {
     .ecl-table__head {
       display: table-header-group;
-      text-align: left;
     }
 
     .ecl-table__header {
       padding: $ecl-spacing-s $ecl-spacing-m;
+      text-align: left;
       vertical-align: baseline;
     }
 
@@ -78,8 +78,43 @@
 
   // Zebra
   .ecl-table--zebra {
-    .ecl-table__row:nth-of-type(even) {
+    .ecl-table__body .ecl-table__row:nth-of-type(even) {
       background-color: $ecl-color-grey-5;
+    }
+  }
+
+  // Multi
+  .ecl-table__cell[data-ecl-table-header-group] {
+    // line-height + spacing down
+    padding-top: calc(1.25rem + #{$ecl-spacing-xs});
+    position: relative;
+
+    &::after {
+      content: attr(data-ecl-table-header-group);
+      display: block;
+      font-weight: $ecl-font-weight-bold;
+      left: 0;
+      position: absolute;
+      top: $ecl-spacing-s;
+    }
+  }
+
+  .ecl-table__cell--group {
+    padding-left: $ecl-spacing-s;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-table__cell[data-ecl-table-header-group] {
+      position: relative;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .ecl-table__cell--group {
+      padding-left: $ecl-spacing-m;
     }
   }
 }

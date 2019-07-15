@@ -1,7 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import Link from '@ecl/ec-react-component-link';
+import demoContentDefault from '@ecl/ec-specs-table/demo/data--default';
 
 import React from 'react';
+import parse from 'html-react-parser';
 import Table from '../src/Table';
 import TableRow from '../src/TableRow';
 import TableHead from '../src/TableHead';
@@ -13,49 +14,22 @@ export default () => {
   return (
     <Table>
       <TableHead>
-        <TableRow>
-          <TableHeader>Name</TableHeader>
-          <TableHeader>Registration date</TableHeader>
-          <TableHeader>Email address</TableHeader>
-        </TableRow>
+        {demoContentDefault.headers.map(row => (
+          <TableRow {...row}>
+            {row.map(cell => (
+              <TableHeader {...cell}>{parse(cell.label)}</TableHeader>
+            ))}
+          </TableRow>
+        ))}
       </TableHead>
       <TableBody>
-        <TableRow>
-          <TableCell data-ecl-table-header="Name">John</TableCell>
-          <TableCell data-ecl-table-header="Registration date">
-            September 14, 2013
-          </TableCell>
-          <TableCell data-ecl-table-header="Email address">
-            <Link href="/example" label="john@example.com" />
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell data-ecl-table-header="Name">Ron</TableCell>
-          <TableCell data-ecl-table-header="Registration date">
-            October 23, 2014
-          </TableCell>
-          <TableCell data-ecl-table-header="Email address">
-            <Link href="/example" label="ron@example.com" />
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell data-ecl-table-header="Name">Albert</TableCell>
-          <TableCell data-ecl-table-header="Registration date">
-            December 13, 2014
-          </TableCell>
-          <TableCell data-ecl-table-header="Email address">
-            <Link href="/example" label="albert@example.com" />
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell data-ecl-table-header="Name">Marcel</TableCell>
-          <TableCell data-ecl-table-header="Registration date">
-            January 12, 1995
-          </TableCell>
-          <TableCell data-ecl-table-header="Email address">
-            <Link href="/example" label="marcel@example.com" />
-          </TableCell>
-        </TableRow>
+        {demoContentDefault.rows.map(row => (
+          <TableRow {...row}>
+            {row.map(cell => (
+              <TableCell {...cell}>{parse(cell.label)}</TableCell>
+            ))}
+          </TableRow>
+        ))}
       </TableBody>
     </Table>
   );
