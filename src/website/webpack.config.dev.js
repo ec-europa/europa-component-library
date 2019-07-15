@@ -153,10 +153,6 @@ module.exports = {
                 options: babelConfig,
               },
               {
-                // Adds front-matter to export
-                loader: 'mdx-frontmatter-loader',
-              },
-              {
                 loader: '@mdx-js/loader',
                 options: {
                   remarkPlugins: [

@@ -179,10 +179,6 @@ module.exports = {
                 options: babelConfig,
               },
               {
-                // Adds front-matter to export
-                loader: 'mdx-frontmatter-loader',
-              },
-              {
                 loader: '@mdx-js/loader',
                 options: {
                   remarkPlugins: [
@@ -309,7 +305,7 @@ module.exports = {
     }),
     // If you want to invetigate the bundle size, uncomment the following line
     // eslint-disable-next-line global-require
-    // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
+    new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
   ],
   performance: {
     hints: 'warning',
