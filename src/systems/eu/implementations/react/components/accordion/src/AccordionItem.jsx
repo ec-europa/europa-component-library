@@ -41,6 +41,7 @@ AccordionItem.propTypes = {
   toggle: PropTypes.shape({
     label: PropTypes.string,
     iconShape: PropTypes.string,
+    className: PropTypes.string,
   }),
   level: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   children: PropTypes.node,
