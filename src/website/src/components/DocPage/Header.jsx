@@ -111,13 +111,25 @@ const Header = React.memo(({ component, history, location }) => {
   );
 });
 
-Header.propTypes = {
-  component: PropTypes.shape({
-    attributes: PropTypes.shape({
-      url: PropTypes.string,
-      title: PropTypes.string,
-    }),
+const componentType = PropTypes.shape({
+  attributes: PropTypes.shape({
+    url: PropTypes.string,
+    title: PropTypes.string,
+    isTab: PropTypes.bool,
   }),
+});
+
+const componentDefaults = {
+  attributes: {
+    url: '',
+    title: '',
+    isTab: false,
+  },
+};
+
+Header.propTypes = {
+  parent: componentType,
+  component: componentType,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
@@ -127,12 +139,8 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  component: {
-    attributes: {
-      url: '',
-      title: '',
-    },
-  },
+  parent: componentDefaults,
+  component: componentDefaults,
 };
 
 export default withRouter(Header);

@@ -31,6 +31,7 @@ SingleLink.propTypes = {
   page: PropTypes.shape({
     url: PropTypes.string,
     title: PropTypes.string,
+    status: PropTypes.string,
   }).isRequired,
   level: PropTypes.number,
 };
