@@ -8,9 +8,29 @@
 
 @mixin ecl-table-print() {
   .ecl-table {
+    border-collapse: collapse;
     color: $ecl-color-grey;
     font: $ecl-font-print-m;
     margin: 0;
+    width: 100%;
+  }
+
+  .ecl-table__header {
+    padding: $ecl-spacing-s $ecl-spacing-m;
+    text-align: left;
+    vertical-align: baseline;
+  }
+
+  .ecl-table__row {
+    border-bottom: 1px solid $ecl-color-grey-50;
+  }
+
+  .ecl-table__head .ecl-table__row:first-child {
+    border-bottom: 2px solid $ecl-color-grey;
+  }
+
+  .ecl-table__cell {
+    padding: $ecl-spacing-s $ecl-spacing-m;
   }
 }
 
