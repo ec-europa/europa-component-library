@@ -6,14 +6,14 @@ order: 1
 import { Paragraph, Anatomy } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  The dropdown select menu, also known as a select menu is a widget which
-  displays a list of selectable items from which the user can select one value.
+  The dropdown/select, also known as a select menu, is a widget which displays a
+  list of selectable items from which the user can select one value.
 </Paragraph>
 
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Select/Select.jpg"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Select/Select2.jpg"
   alt="Anatomy of select"
   legend={{
     items: [
@@ -31,31 +31,32 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
 
 ### Default
 
-| Elements         | Mandatory | Description                                                                                                                     |
-| ---------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Heading          | Yes       | Heading describes the options in the Select Menu                                                                                |
-| Helper text      | No        | Helper text information assists a user in using Select Menu                                                                     |
-| Dropdown List    | Yes       | Dropdown in the collapsed state with placeholder giving instructions for using the Dropdown Select                              |
-| Action indicator | Yes       | Varies depending on the state (collapsed/expanded). Indicates what the next action will do - **displays listed items on click** |
+| Elements         | Mandatory | Description                                                                                        |
+| ---------------- | --------- | -------------------------------------------------------------------------------------------------- |
+| Heading          | Yes       | Heading describes the options in the Select Menu                                                   |
+| Helper text      | No        | Helper text information assists a user in using Select Menu                                        |
+| Dropdown List    | Yes       | Dropdown in the collapsed state with placeholder giving instructions for using the Dropdown Select |
+| Action indicator | Yes       | **Displays listed items on click**                                                                 |
 
 ### Conditional (missing input)
 
 | Elements           | Mandatory | Description                                                             |
 | ------------------ | --------- | ----------------------------------------------------------------------- |
-| Optional indicator | Yes       | Indicator stating wether **if** input fields are **optional**           |
+| Optional indicator | Yes       | Indicator stating **if** input fields are **optional**                  |
 | Error message      | Yes       | A message informing the user **if** there is a problem with their entry |
 
 ## Do's
 
 - write short, distinct and indicative headings for the **items listed inside the dropdown**
-- indicate whether the text field is **optional**
-- **make use of helper text** if there are further directions or hints the users may need in completing their goal (example: _A password must be at least 6 characters and contain a number and a special character_)
+- **use dropdown select menu labels as click targets (clicking the label will trigger the action)**
+- indicate whether the input is **optional**
+- **make use of helper text** if there are further directions or hints the users may need in completing their goal (**example**: _you must be a current resident of this country_)
 - **write specific and clear error message texts, so users understand how to address the error**
 
 ## Don'ts
 
-- **do not use as navigation**
-- do not use when there are very few items for which radio buttons could be used
+- **don't use as navigation**
+- **don't use it for multiple select**
 
 ## When to use
 
@@ -63,4 +64,4 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
 
 ## When not to use
 
-- when the options in the select menu extend beyond the page height
+- when you want users to read all options
