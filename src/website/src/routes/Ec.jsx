@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-// import merge from 'deepmerge';
 
 import meta from '../preval/get-meta-ec';
 

@@ -8,6 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
@@ -67,10 +68,12 @@ module.exports = {
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
-  entry: [
-    path.resolve(__dirname, 'config/polyfills.js'),
-    path.resolve(__dirname, 'src/Index.jsx'),
-  ],
+  entry: {
+    main: [
+      path.resolve(__dirname, 'config/polyfills.js'),
+      path.resolve(__dirname, 'src/Index.jsx'),
+    ],
+  },
   output: {
     // The build folder.
     path: path.resolve(__dirname, 'build'),
@@ -282,6 +285,10 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new ScriptExtHtmlWebpackPlugin({
+      sync: ['main'],
+      defaultAttribute: 'defer',
+    }),
     new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
       PUBLIC_URL: publicUrl,
     }),
@@ -305,7 +312,7 @@ module.exports = {
     }),
     // If you want to invetigate the bundle size, uncomment the following line
     // eslint-disable-next-line global-require
-    new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
+    // new (require('webpack-bundle-analyzer')).BundleAnalyzerPlugin(),
   ],
   performance: {
     hints: 'warning',

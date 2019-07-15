@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import merge from 'deepmerge';
+
+import meta from '../preval/get-meta-ec';
 
 // Helpers
 import sortPages from '../utils/nav-sort';
@@ -12,39 +13,9 @@ import DocPage from '../components/DocPage/DocPage';
 
 import Skeleton from './Skeleton';
 
-const euPages = require.context('../pages/eu', true, /\.mdx?$/);
+const euPages = require.context('../pages/eu', true, /\.mdx?$/, 'lazy');
 
-const extractPageInfo = (page, key) => {
-  // Add url to pages
-  const url = `/eu/${key
-    .replace('docs', '')
-    .replace('index', '')
-    .replace('.mdx', '')
-    .replace('.md', '')
-    .replace('./', '')}/`.replace('//', '/');
-
-  return {
-    key,
-    attributes: merge.all([
-      {},
-      {
-        url,
-        isTab: key.indexOf('docs') >= 0, // eslint-disable-line unicorn/prefer-includes
-      },
-      page.attributes,
-    ]),
-    document: page.default,
-  };
-};
-
-const allPages = [
-  ...euPages.keys().map(key => {
-    const page = euPages(key);
-    return extractPageInfo(page, key);
-  }),
-];
-
-const sortedPages = sortPages(allPages);
+const sortedPages = sortPages(meta);
 
 function flatDeep(pages) {
   return pages.reduce((acc, page) => {
@@ -58,15 +29,20 @@ function flatDeep(pages) {
 }
 
 const pagesToRoutes = pages =>
-  flatDeep(pages).map(page => (
-    <Route
-      key={page.attributes.url}
-      path={page.attributes.url}
-      exact
-      strict
-      render={() => <DocPage component={page} />}
-    />
-  ));
+  flatDeep(pages).map(page => {
+    // eslint-disable-next-line no-param-reassign
+    page.document = React.lazy(() => euPages(page.key));
+
+    return (
+      <Route
+        key={page.attributes.url}
+        path={page.attributes.url}
+        exact
+        strict
+        render={() => <DocPage component={page} />}
+      />
+    );
+  });
 
 const EURoutes = () => (
   <Skeleton
