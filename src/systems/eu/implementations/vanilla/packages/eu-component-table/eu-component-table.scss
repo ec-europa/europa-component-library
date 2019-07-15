@@ -1,0 +1,125 @@
+/**
+ * Table component
+ * @define table
+ */
+
+// Import base
+@import '@ecl/eu-base/eu-base';
+
+@mixin ecl-table() {
+  .ecl-table {
+    border-collapse: collapse;
+    color: $ecl-color-grey;
+    font: $ecl-font-m;
+    margin: 0;
+    width: 100%;
+  }
+
+  .ecl-table__head {
+    display: none;
+  }
+
+  .ecl-table__row {
+    border-top: 1px solid $ecl-color-grey-50;
+  }
+
+  .ecl-table__cell {
+    display: block;
+
+    &::before {
+      content: attr(data-ecl-table-header);
+      display: block;
+      font-weight: $ecl-font-weight-bold;
+      margin-bottom: $ecl-spacing-xs;
+      margin-top: $ecl-spacing-s;
+    }
+
+    &:last-child {
+      margin-bottom: $ecl-spacing-s;
+    }
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-table__head {
+      display: table-header-group;
+    }
+
+    .ecl-table__header {
+      padding: $ecl-spacing-s $ecl-spacing-m;
+      text-align: left;
+      vertical-align: baseline;
+    }
+
+    .ecl-table__row {
+      border-bottom: 1px solid $ecl-color-grey-50;
+      border-top-width: 0;
+    }
+
+    .ecl-table__head .ecl-table__row:first-child {
+      border-bottom: 2px solid $ecl-color-grey;
+    }
+
+    .ecl-table__head
+      .ecl-table__row:not(:first-child)
+      .ecl-table__header:not(:empty) {
+      background-color: $ecl-color-grey-5;
+    }
+
+    .ecl-table__cell {
+      display: table-cell;
+      padding: $ecl-spacing-s $ecl-spacing-m;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  // Zebra
+  .ecl-table--zebra {
+    .ecl-table__body .ecl-table__row:nth-of-type(even) {
+      background-color: $ecl-color-grey-5;
+    }
+  }
+
+  // Multi
+  .ecl-table__cell[data-ecl-table-header-group] {
+    // line-height + spacing down
+    padding-top: calc(1.25rem + #{$ecl-spacing-xs});
+    position: relative;
+
+    &::after {
+      content: attr(data-ecl-table-header-group);
+      display: block;
+      font-weight: $ecl-font-weight-bold;
+      left: 0;
+      position: absolute;
+      top: $ecl-spacing-s;
+    }
+  }
+
+  .ecl-table__cell--group {
+    padding-left: $ecl-spacing-s;
+  }
+
+  /* stylelint-disable-next-line order/order */
+  @include ecl-media-breakpoint-up(lg) {
+    .ecl-table__cell[data-ecl-table-header-group] {
+      position: relative;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .ecl-table__cell--group {
+      padding-left: $ecl-spacing-m;
+    }
+  }
+}
+
+// Use mixin
+@include exports('eu-component-table') {
+  @include ecl-table();
+}
