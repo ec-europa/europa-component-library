@@ -85,7 +85,9 @@ export class PreviewWrapper extends Component {
 }
 
 PreviewWrapper.propTypes = {
-  channel: PropTypes.shape({}).isRequired,
+  channel: PropTypes.shape({
+    on: PropTypes.func,
+  }).isRequired,
   children: PropTypes.node.isRequired,
 };
 
