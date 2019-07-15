@@ -2,20 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Box = ({ padding, className }) => (
+const Box = ({ className }) => (
   <div className={className}>
-    <div
-      style={{
-        backgroundColor: '#BFD0E4',
-        border: '1px solid #004494',
-        color: '#004494',
-        fontFamily: 'Arial, sans-serif',
-        fontWeight: 'bold',
-        fontSize: '1.125rem',
-        lineHeight: '1.75rem',
-        padding,
-      }}
-    >
+    <div className="ecl-u-pa-xs ecl-u-bg-blue-25 ecl-u-border-all ecl-u-border-color-blue ecl-u-type-color-blue ecl-u-type-l ecl-u-type-bold">
       {className
         .split(' ')
         .filter(str => str)
@@ -26,12 +15,10 @@ const Box = ({ padding, className }) => (
 );
 
 Box.propTypes = {
-  padding: PropTypes.string,
   className: PropTypes.string,
 };
 
 Box.defaultProps = {
-  padding: '1rem',
   className: '',
 };
 
