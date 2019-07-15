@@ -6,7 +6,7 @@ order: 1
 import { Paragraph, Anatomy } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  When a list of items is presented on separate pages, the pagination component
+  When a list of items is presented on multiple pages, the pagination component
   is used at the bottom of the list to indicate the number of pages, the current
   page and to allow users to navigate to the different pages.
 </Paragraph>
@@ -14,8 +14,8 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination.jpg"
-  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination%20-%20Mobile.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination.jpg 734w"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination2.jpg"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination%20-%20Mobile2.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Pager/Pagination2.jpg 734w"
   alt="Anatomy of pagination"
   legend={{
     items: [
@@ -31,12 +31,12 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
   }}
 />
 
-| Elements          | Mandatory | Description                                                             |
-| ----------------- | --------- | ----------------------------------------------------------------------- |
-| Page numbers      | Yes       | Pages and their corresponding value                                     |
-| Current selection | Yes       | Represents the current page the user is on                              |
-| Next              | Yes       | Leads users to the next page; it is not displayed on the last page      |
-| Previous          | Yes       | Leads users to the previous page; it is not displayed on the first page |
+| Elements             | Mandatory desktop | Mandatory mobile | Description                                                       |
+| -------------------- | ----------------- | ---------------- | ----------------------------------------------------------------- |
+| Links to other pages | yes               | no               | Links leading to pages and their corresponding value              |
+| Active selection     | yes               | yes              | Represents the current page the user is on                        |
+| "Next" link          | yes               | yes              | Links to the next page; it is not displayed on the last page      |
+| "Previous" link      | yes               | yes              | Links to the previous page; it is not displayed on the first page |
 
 ## Do's
 
@@ -44,7 +44,7 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
 
 ## Don'ts
 
-- **don't replace** this component **with an ‘Infinite Scrolling’** feature
+- **don't replace** this component **with an ‘infinite scrolling’** feature
 
 ## When to use
 
@@ -52,7 +52,7 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
 
 ## When not to use
 
-- don't use instead of a page-to-page navigation
+- don't use to break unrelated content on different pages
 
 ## Notes
 
