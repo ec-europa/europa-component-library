@@ -9,17 +9,18 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
   The <strong>in-page navigation</strong> is a vertical menu containing
   (anchored) links to H2-headings on long content pages. It{' '}
   <strong>gives the user an overview of the page contents</strong> and has a
-  fixed position (does not move while scrolling) at the{' '}
-  <strong>left side of a page</strong>. This component helps users scan of the
-  page quickly contents and may potentially reduce vertical scrolling, allowing
-  users to easily jump straight to the segment of the page.
+  fixed position (does not move while scrolling) at either the{' '}
+  <strong>left side of a page on desktop or top-bar on mobile</strong>. This
+  component helps users scan of the page quickly contents and may potentially
+  reduce vertical scrolling, allowing users to easily jump straight to the
+  segment of the page.
 </Paragraph>
 
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation.jpg"
-  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation%20-%20Mobile.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation.jpg 733w"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation2.jpg"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation%20-%20Mobile2.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Inpage/In-page%20navigation2.jpg 733w"
   alt="Anatomy of in-page navigation"
   legend={{
     items: [
@@ -35,17 +36,17 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
   }}
 />
 
-| Elements          | Mandatory                 | Description                                                                                                                          |
-| ----------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Section heading   | Yes **(only on desktop)** | The **heading** of the in-page navigation - **Default: PAGE CONTENTS** (capitalised)                                                 |
-| Current selection | Yes                       | Indicator of the current segment of content                                                                                          |
-| Anchor link       | Yes                       | **Actionable element corresponding to the heading (H2)** of segment of content - **clicking it will scroll to the H2**               |
-| Action indicator  | Yes **(only on mobile)**  | Varies depending on the state (collapsed/expanded). **Indicates what the next action will do - displays content container on click** |
-| Content container | Yes **(only on mobile)**  | This element displays relevant content in a **container that's initially hidden**                                                    |
+| Elements          | Mandatory desktop | Mandatory mobile | Description                                                                                                                          |
+| ----------------- | ----------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Heading           | yes               | no               | The **heading** of the in-page navigation - **Default: PAGE CONTENTS** (all upper case text)                                         |
+| Active selection  | yes               | yes              | Indicator of the current segment of content                                                                                          |
+| Anchor link(s)    | yes               | yes              | **Actionable element corresponding to the heading (H2)** of segment of content - **clicking it will jump to the H2**                 |
+| Action indicator  | no                | yes              | Varies depending on the state (collapsed/expanded). **Indicates what the next action will do - displays content container on click** |
+| Content container | no                | yes              | This element displays relevant content in a **container that's initially hidden**                                                    |
 
 ## Do's
 
-- aim for **short, distinct headings (H2)** in order to improve scannability & reduce possible confusion
+- aim for **short, distinct headings (H2)** in order to improve scannability and reduce possible confusion
 - make sure to **order content logically so there is a natural progression when looking at the headings (H2) alone**
 
 ## Don'ts
