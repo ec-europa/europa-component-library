@@ -6,16 +6,17 @@ order: 1
 import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  A textarea (text area) is an input field used on a form to request information
-  from a user. Use a text area when the expectation is that a user will enter a
-  large amount of information with their keyboard.
+  A text field is an input that can be used on a form, sign-in or any place
+  where data is requested from the user. Its intent is for limited amounts of
+  information; for larger amounts of text, use a{' '}
+  <Link to="/eu/components/forms/text-area/usage/">text area</Link>.
 </Paragraph>
 
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/TextArea/Text%20Area.jpg"
-  alt="Anatomy of text area"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Text%20Input/Text%20Field2.jpg"
+  alt="Anatomy of text field"
   legend={{
     items: [
       {
@@ -32,31 +33,24 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ### Default
 
-| Elements       | Mandatory | Description                                                                       |
-| -------------- | --------- | --------------------------------------------------------------------------------- |
-| Label          | Yes       | Title of the text area                                                            |
-| Helper message | No        | Additional information the user might need, to help them provide the correct data |
-| Text area      | Yes       | The area where the user enters their response                                     |
+| Elements    | Mandatory | Description                                                                       |
+| ----------- | --------- | --------------------------------------------------------------------------------- |
+| Heading     | yes       | Title of the text input field                                                     |
+| Helper text | no        | Additional information the user might need, to help them provide the correct data |
+| Text field  | yes       | The area where the user enters their response                                     |
 
-### Conditional (invalid or missing input)
+### Conditional
 
-| Elements   | Mandatory | Description                                                             |
-| ---------- | --------- | ----------------------------------------------------------------------- |
-| Error text | Yes       | A message informing the user **if** there is a problem with their entry |
+| Elements           | Mandatory | Description                                                             |
+| ------------------ | --------- | ----------------------------------------------------------------------- |
+| Optional Indicator | Yes       | Indicator stating **if** input fields are **optional**                  |
+| Error message      | Yes       | A message informing the user **if** there is a problem with their entry |
 
 ## Do's
 
-- **minimise** the number of text fields - only ask for necessary information
-- **arrange them vertically** to improve scannability and reduce errors
-- **group** related fields together
-- **order** text fields logically, matching real-world task succession and interactions
-- always **label each text field** with a short, distinct and indicative title, **placed above the text field**
-- indicate whether the text field is **mandatory or optional** (to be determined by the number of instances (example: If there are 10 input fields with 7 optional fields, the mandatory fields must be indicated)
-- **make use of helper text** if there are further directions or hints the users may need in completing their goal (example: Must be at least 6 characters and contain a number and a special character)
 - **allow copy/paste** for ease of use
-- if character counter is necessary, place it below the text field
 - match the text field to the expected size of the input - make it wide enough for the user to see their entire entry
-- **write specific and indicative error texts so users understand how to fix the error**
+- **write specific and clear error message texts, so users understand how to address the error**
 
 ## Don'ts
 
@@ -67,21 +61,21 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ## When to use
 
-- use in any situation where the user needs **to input a large, or unknown**, amount of data
+- use in any situation where the user needs **to input limited** amount of data (name, email address, age, etc)
 
 ## When not to use
 
-- **do not use** when expected input is **short or limited** - use a <Link to="/eu/components/forms/text-field/usage/">Text field</Link> instead
-- **do not use** when the user must respond **with specific options which are known to the organisation** - use form types such as Checkboxes, <Link to="/eu/components/forms/radio/usage/">Radio Buttons</Link> or <Link to="/eu/components/forms/select/usage/">Selects</Link> instead
+- do not use where the user needs **to input a large, or unknown**, amount of data - if longer, use a <Link to="/eu/components/forms/text-area/usage/">Textarea</Link> instead
+- do not use when the user must respond with specific options which are known to the organisation - use form types such as Checkboxes, <Link to="/eu/components/forms/radio/usage/">Radio Buttons</Link> or <Link to="/eu/components/forms/select/usage/">Select</Link> instead
 
 ## Notes
 
 ### Accessibility
 
-- placeholder text in a text field is bad for accessibility - may not be read by screen reading software, and can be problematic for users with a visual impairment; use helper text is further information needs to be conveyed
+- placeholder text in a text field is bad for accessibility - may not be read by screen reading software, and can be problematic for users with a visual impairment; use helper text if further information needs to be conveyed
 
 ## Related components
 
 - <Link to="/eu/components/forms/radio/usage/">Radio button</Link>
 - <Link to="/eu/components/forms/select/usage/">Select</Link>
-- <Link to="/eu/components/forms/text-field/usage/">Text field</Link>
+- <Link to="/eu/components/forms/text-area/usage/">Text area</Link>
