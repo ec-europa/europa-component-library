@@ -14,14 +14,14 @@ import { Paragraph, Anatomy } from '@ecl/website-components';
 
 ## Anatomy
 
-There are **2 versions** of the component. One version is shown initially, when a user arrives at the site. The second version is for a user to switch their language preference.
+There are **2 versions** of the component. One version is shown initially when a user arrives at the site. The second version is for a user to switch their language preference.
 
 - **desktop is a 2 column layout** which displays the available language choices
 - **mobile design is a single column layout** which allows the user to scroll to select their language
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Language%20list.jpg"
-  alt="Anatomy of language lists"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/LanguageList/Language%20list2.jpg"
+  alt="Anatomy of language list"
   legend={{
     items: [
       {
@@ -36,11 +36,12 @@ There are **2 versions** of the component. One version is shown initially, when 
   }}
 />
 
-| Elements                               | Mandatory | Description                                                                                                          |
-| -------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
-| Official European Commission languages | Yes       | <ul><li>desktop: two columns displayed one next to the other</li><li>mobile: single column</li></ul>                 |
-| Close button                           | Yes       | <ul><li>button to close without making a selection</li><li>close (in current language preference) and icon</li></ul> |
-| CTA label                              | Yes       | generic language icon and label (in current language preference)                                                     |
+| Elements         | Mandatory | Description                                                                               |
+| ---------------- | --------- | ----------------------------------------------------------------------------------------- |
+| Icon + Heading   | yes       | Heading indicating the required action accompanied by icon (translated in every language) |
+| Language list    | yes       | List of the available languages                                                           |
+| Button           | yes       | Button to close without making a selection                                                |
+| Active selection | yes       | Current language selection                                                                |
 
 ## Do's
 
@@ -58,4 +59,4 @@ There are **2 versions** of the component. One version is shown initially, when 
 
 ## When not to use
 
-- should always be used
+- should be used on every page
