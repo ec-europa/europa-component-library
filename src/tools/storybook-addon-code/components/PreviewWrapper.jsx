@@ -56,6 +56,13 @@ export class PreviewWrapper extends Component {
     const { code, expanded } = this.state;
     const { children } = this.props;
 
+    const beautifiedCode = beautify(code, {
+      indent_size: 2,
+      max_preserve_newlines: -1,
+      preserve_newlines: false,
+      indent_scripts: 'normal',
+    });
+
     return (
       <Fragment>
         {children}
@@ -71,13 +78,27 @@ export class PreviewWrapper extends Component {
             format={false}
             language="html"
           >
-            {beautify(code, {
-              indent_size: 2,
-              max_preserve_newlines: -1,
-              preserve_newlines: false,
-              indent_scripts: 'normal',
-            })}
+            {beautifiedCode}
           </StyledSyntaxHighlighter>
+          <form
+            action="https://codepen.io/pen/define"
+            method="POST"
+            target="_blank"
+          >
+            <input
+              type="hidden"
+              name="data"
+              value={`{
+                "title": "ECL Pen",
+                "description": "Exported from ECL's playground",
+                "html": ${JSON.stringify(beautifiedCode)},
+                "css_external": "https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/styles/ecl-ec-preset-website.css",
+                "js_external": "https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.js;https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/scripts/ecl-ec-preset-website.js",
+                "js": "svg4everybody({ polyfill: true });"
+              }`}
+            />
+            <input type="submit" value="Create New Pen with Prefilled Data" />
+          </form>
         </Overlay>
       </Fragment>
     );
