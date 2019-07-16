@@ -1,12 +1,14 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { /* Route, Redirect, Switch, */ withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Prism from 'prismjs';
 
 import Header from './Header';
 import ScrollToTopOnMount from '../ScrollToTopOnMount/ScrollToTopOnMount';
 import Container from '../Grid/Container';
+
+import mdStyles from '../../styles/markdown.scss';
 
 import { getPageTitle, getSectionTitle } from './utils/title';
 
@@ -32,7 +34,13 @@ class DocPage extends Component {
         <Header component={component} />
         <main id="main-content" tabIndex="-1">
           <Container spacing="pv-l pv-md-3xl">
-            {component.document && <component.document />}
+            <Suspense
+              fallback={
+                <h2 className={mdStyles.h4}>Loading, please wait...</h2>
+              }
+            >
+              {component.document && <component.document />}
+            </Suspense>
           </Container>
         </main>
       </Fragment>
@@ -51,7 +59,7 @@ DocPage.propTypes = {
         component: PropTypes.func,
       })
     ),
-    document: PropTypes.func,
+    document: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   }),
 };
 

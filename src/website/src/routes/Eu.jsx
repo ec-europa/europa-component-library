@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import meta from '../preval/get-meta-ec';
+import meta from '../preval/get-meta-eu';
 
 // Helpers
 import sortPages from '../utils/nav-sort';

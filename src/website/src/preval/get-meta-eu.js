@@ -10,11 +10,24 @@ const files = glob.sync('**/*.@(md|mdx)', {
   cwd: resolve(__dirname, dir),
 });
 
+const getUrl = file =>
+  `/ec/${file
+    .replace('docs', '')
+    .replace('index', '')
+    .replace('.mdx', '')
+    .replace('.md', '')
+    .replace('./', '')}/`.replace('//', '/');
+
 const meta = files.map(file => {
   const front = matter.read(resolve(__dirname, dir, file));
-  return Object.assign({}, front.data, {
-    file,
-  });
+  return {
+    key: `./${file}`,
+    attributes: Object.assign({}, front.data, {
+      url: getUrl(file),
+      isTab: file.includes('docs'),
+    }),
+    document: () => null,
+  };
 });
 
 module.exports = meta;
