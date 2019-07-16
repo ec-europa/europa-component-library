@@ -8,7 +8,6 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
@@ -284,10 +283,6 @@ module.exports = {
         minifyCSS: true,
         minifyURLs: true,
       },
-    }),
-    new ScriptExtHtmlWebpackPlugin({
-      sync: ['main'],
-      defaultAttribute: 'defer',
     }),
     new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
       PUBLIC_URL: publicUrl,
