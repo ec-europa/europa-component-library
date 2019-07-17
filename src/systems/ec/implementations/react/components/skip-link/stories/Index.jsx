@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { withCssResources } from '@storybook/addon-cssresources';
@@ -45,6 +45,9 @@ storiesOf('Components|Navigation/Skip link', module)
   })
   .add('default', () => {
     return (
-      <SkipLink href={demoData.href} label={text('Label', demoData.label)} />
+      <Fragment>
+        <SkipLink href={demoData.href} label={text('Label', demoData.label)} />
+        <div id={demoData.href.replace('#', '')} />
+      </Fragment>
     );
   });
