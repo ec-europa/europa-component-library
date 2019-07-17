@@ -13,7 +13,8 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Timeline/Timeline.jpg"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Timeline/Timeline2.jpg"
+  srcset="https://inno-ecl.s3.amazonaws.com/media/images/EC/Timeline/Timeline%20-%20Mobile2.jpg 598w, https://inno-ecl.s3.amazonaws.com/media/images/EC/Timeline/Timeline2.jpg 734w"
   alt="Anatomy of timeline"
   legend={{
     items: [
@@ -31,23 +32,23 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ### Default
 
-| Elements  | Mandatory | Description                                                                                                                                 |
-| --------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| Title     | Yes       | Title of the item                                                                                                                           |
-| Timestamp | Yes       | Timestamp when the item happened (or is scheduled to)<br/><strong>Date format</strong>: DD/MM/YYYY.<br/><strong>Time format</strong>: HH:MM |
-| Details   | No        | A more detailed description. Can include text, links, media files                                                                           |
+| Elements  | Mandatory | Description                                                       |
+| --------- | --------- | ----------------------------------------------------------------- |
+| Heading   | yes       | Heading of the item                                               |
+| Timestamp | yes       | Timestamp when the item happened (or is scheduled to)             |
+| Details   | no        | A more detailed description. Can include text, links, media files |
 
 ### Conditional
 
-| Elements      | Mandatory | Description                                                                                                                                                                         |
-| ------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Expand button | Yes       | Button to display the full list of items in the timeline - to be used if there are <strong>over 12 items in the timeline</strong><br/><strong>Position</strong>: under the 3rd item |
+| Elements      | Mandatory | Description                                                                                                                                                          |
+| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Expand button | yes       | Actionable button to display the full list of items in the timeline - to be used **if** there are over 12 items in the timeline<br/>**Position**: under the 3rd item |
 
 ## Do's
 
-- **label each item** with a short, distinct and indicative title
+- **label each item** with a short, distinct and indicative heading
 - **order** items sequentially
-- **always** display the **timestamp and title** for each item
+- **always** display the **timestamp and heading** for each item
 
 ## Don'ts
 
