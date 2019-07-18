@@ -4,33 +4,49 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Checkbox from '@ecl/ec-react-component-checkbox/Checkbox';
-import demo from '@ecl/ec-specs-checkbox/demo/data';
+import CheckboxGroup from '@ecl/ec-react-component-checkbox';
 
-## Default
+import demoContentDefault from '@ecl/ec-specs-checkbox/demo/data--default';
+import demoContentInvalid from '@ecl/ec-specs-checkbox/demo/data--invalid';
+import demoContentOptInOut from '@ecl/ec-specs-checkbox/demo/data--opt-in-out';
+import demoContentOptInOutInvalid from '@ecl/ec-specs-checkbox/demo/data--opt-in-out-invalid';
 
-<Playground system="ec" selectedKind="Forms/Checkbox" selectedStory="default">
-  <Checkbox {...demo.default} />
-</Playground>
-
-## Disabled
-
-<Playground system="ec" selectedKind="Forms/Checkbox" selectedStory="disabled">
-  <Checkbox {...demo.disabled} />
-</Playground>
-
-## With errors
-
-<Playground system="ec" selectedKind="Forms/Checkbox" selectedStory="invalid">
-  <Checkbox {...demo.invalid} />
-</Playground>
-
-## With no label (hidden label)
+## Default checkbox group
 
 <Playground
   system="ec"
-  selectedKind="Forms/Checkbox"
-  selectedStory="withoutLabel"
+  selectedKind="components-forms-checkbox"
+  selectedStory="default"
 >
-  <Checkbox {...demo.withoutLabel} />
+  <CheckboxGroup {...demoContentDefault} />
+</Playground>
+
+## Invalid checkbox group
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-checkbox"
+  selectedStory="default"
+>
+  <CheckboxGroup {...demoContentInvalid} />
+</Playground>
+
+## Opt-in / Opt-out checkbox group
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-checkbox"
+  selectedStory="opt-in-out"
+>
+  <CheckboxGroup {...demoContentOptInOut} />
+</Playground>
+
+## Opt-in / Opt-out invalid checkbox group
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-checkbox"
+  selectedStory="opt-in-out"
+>
+  <CheckboxGroup {...demoContentOptInOutInvalid} />
 </Playground>

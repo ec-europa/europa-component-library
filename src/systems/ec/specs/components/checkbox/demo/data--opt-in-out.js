@@ -1,0 +1,17 @@
+module.exports = {
+  labelId: 'checkbox-opt-in-out-label',
+  label: 'Subscribe to a newsletter',
+  helperId: 'checkbox-opt-in-out-helper',
+  helperText: 'Helper text for the group',
+  invalidText: 'Error message for the group',
+  name: 'checkbox-opt-in-out',
+  optInOut: true,
+  items: [
+    {
+      id: 'checkbox-opt-in-out-1',
+      value: 'yes',
+      label: 'INNO newsletter',
+      defaultChecked: true,
+    },
+  ],
+};
