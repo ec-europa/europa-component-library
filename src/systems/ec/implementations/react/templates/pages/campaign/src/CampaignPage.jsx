@@ -10,6 +10,7 @@ import Link from '@ecl/ec-react-component-link';
 import MediaContainer from '@ecl/ec-react-component-media-container';
 import HeroBanner from '@ecl/ec-react-component-hero-banner';
 import SiteHeader from '@ecl/ec-react-component-site-header';
+import SkipLink from '@ecl/ec-react-component-skip-link';
 
 const CampaignPage = ({
   siteHeader,
@@ -21,10 +22,11 @@ const CampaignPage = ({
   blockquote,
 }) => (
   <Fragment>
+    <SkipLink href="#main" label="Skip to main content" />
     <SiteHeader {...siteHeader} id="top" />
     <LanguageListOverlay {...languageList} hidden="true" />
     <HeroBanner {...heroBanner} />
-    <main className="ecl-u-pv-xl">
+    <main className="ecl-u-pv-xl" id="main">
       <div className="ecl-container">
         <div className="ecl-row">
           <div className="ecl-col-sm-12 ecl-col-md-6">
@@ -74,7 +76,6 @@ const CampaignPage = ({
         </div>
       </div>
     </main>
-
     <Footer {...footer} />
   </Fragment>
 );

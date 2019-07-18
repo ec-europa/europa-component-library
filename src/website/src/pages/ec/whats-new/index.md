@@ -9,6 +9,52 @@ Users can still go to ECL v1 to create or upgrade their websites. In 2019, we wi
 
 We will also add new components to the ECL v2 as we continue improving the look and feel of the existing components. New releases under v2 should be published periodically under [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+## 2.9.0 (2019-07-18)
+
+#### :rocket: New Feature
+
+- [#1218](https://github.com/ec-europa/europa-component-library/pull/1218) feat: add skip link component - INNO-1653 ([@yhuard](https://github.com/yhuard))
+- [#1200](https://github.com/ec-europa/europa-component-library/pull/1200) feat(table): add table - INNO-1628 ([@emeryro](https://github.com/emeryro))
+
+#### :bug: Bug Fix
+
+- [#1196](https://github.com/ec-europa/europa-component-library/pull/1196) fix(inpage-nav): add missing polyfills for IE - INNO-1622 ([@yhuard](https://github.com/yhuard))
+
+#### :nail_care: Enhancement
+
+- [#1190](https://github.com/ec-europa/europa-component-library/pull/1190) chore: hide back to top - INNO-1611 ([@yhuard](https://github.com/yhuard))
+
+#### :memo: Documentation
+
+- [#1220](https://github.com/ec-europa/europa-component-library/pull/1220) docs(skip-link): add and hide skip link's documentation - INNO-1653 ([@yhuard](https://github.com/yhuard))
+- [#1213](https://github.com/ec-europa/europa-component-library/pull/1213) docs(text-field): update documentation of text field - INNO-1641 ([@yhuard](https://github.com/yhuard))
+- [#1216](https://github.com/ec-europa/europa-component-library/pull/1216) docs: add playground tab to many pages - INNO-1644 ([@yhuard](https://github.com/yhuard))
+- [#1215](https://github.com/ec-europa/europa-component-library/pull/1215) docs(timelines): update documentation of timeline - INNO-1643 ([@yhuard](https://github.com/yhuard))
+- [#1207](https://github.com/ec-europa/europa-component-library/pull/1207) docs(message): update documentation of messages - INNO-1635 ([@yhuard](https://github.com/yhuard))
+- [#1208](https://github.com/ec-europa/europa-component-library/pull/1208) docs(pagination): update documentation of pagination - INNO-1636 ([@yhuard](https://github.com/yhuard))
+- [#1212](https://github.com/ec-europa/europa-component-library/pull/1212) docs: add documentation about social media share - INNO-1640 ([@yhuard](https://github.com/yhuard))
+- [#1214](https://github.com/ec-europa/europa-component-library/pull/1214) docs(text-area): update documentation of text area - INNO-1642 ([@yhuard](https://github.com/yhuard))
+- [#1210](https://github.com/ec-europa/europa-component-library/pull/1210) docs: add documentation about search form - INNO-1638 ([@yhuard](https://github.com/yhuard))
+- [#1211](https://github.com/ec-europa/europa-component-library/pull/1211) docs: add documentation about social media follow - INNO-1639 ([@yhuard](https://github.com/yhuard))
+- [#1209](https://github.com/ec-europa/europa-component-library/pull/1209) docs(radio): update documentation of radio - INNO-1637 ([@yhuard](https://github.com/yhuard))
+- [#1204](https://github.com/ec-europa/europa-component-library/pull/1204) docs(file): update file download's documentation - INNO-1632 ([@yhuard](https://github.com/yhuard))
+- [#1206](https://github.com/ec-europa/europa-component-library/pull/1206) docs(language-list): update documentation of language list - INNO-1634 ([@yhuard](https://github.com/yhuard))
+- [#1189](https://github.com/ec-europa/europa-component-library/pull/1189) docs(grid): document grid and provide examples - INNO-1616 ([@yhuard](https://github.com/yhuard))
+- [#1205](https://github.com/ec-europa/europa-component-library/pull/1205) docs(inpage-nav): update inpage-nav's documentation - INNO-1633 ([@yhuard](https://github.com/yhuard))
+- [#1203](https://github.com/ec-europa/europa-component-library/pull/1203) docs(expandable): update expandable's documentation - INNO-1631 ([@yhuard](https://github.com/yhuard))
+- [#1201](https://github.com/ec-europa/europa-component-library/pull/1201) docs(select): update select's documentation - INNO-1630 ([@yhuard](https://github.com/yhuard))
+- [#1199](https://github.com/ec-europa/europa-component-library/pull/1199) docs(accordion): update accordion's doc - INNO-1629 ([@yhuard](https://github.com/yhuard))
+- [#1198](https://github.com/ec-europa/europa-component-library/pull/1198) docs: add a note about using external SVG sprite - INNO-1625 ([@yhuard](https://github.com/yhuard))
+- [#1193](https://github.com/ec-europa/europa-component-library/pull/1193) docs(accordion): update thumbnail - INNO-1610 ([@emeryro](https://github.com/emeryro))
+
+#### :house: Internal
+
+- [#1202](https://github.com/ec-europa/europa-component-library/pull/1202) chore: update dependencies - INNO-1650 ([@yhuard](https://github.com/yhuard))
+- [#1197](https://github.com/ec-europa/europa-component-library/pull/1197) refactor(list): split component - INNO-1564 ([@emeryro](https://github.com/emeryro))
+- [#1195](https://github.com/ec-europa/europa-component-library/pull/1195) refactor(timeline): split component - INNO-1563 ([@emeryro](https://github.com/emeryro))
+- [#1194](https://github.com/ec-europa/europa-component-library/pull/1194) refactor(accordion): split component - INNO-1562 ([@emeryro](https://github.com/emeryro))
+- [#1192](https://github.com/ec-europa/europa-component-library/pull/1192) refactor(preset): move deprecated into legacy - INNO-1605 ([@emeryro](https://github.com/emeryro))
+
 ## 2.8.0 (2019-07-05)
 
 #### :rocket: New Feature
