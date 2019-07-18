@@ -7,12 +7,10 @@
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-layout-grid'));
+@include check-imports(('ec-layout-grid', 'ec-component-link'));
 
 @mixin ecl-site-switcher() {
   .ecl-site-switcher {
-    @include ecl-hidden-print();
-
     background-color: $ecl-color-grey-5;
     display: block;
     font: $ecl-font-m;

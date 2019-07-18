@@ -4,11 +4,15 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import TextArea from '@ecl/ec-react-component-text-area/TextArea';
+import TextArea from '@ecl/ec-react-component-text-area';
 
 import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
 
-<Playground system="ec" selectedKind="Forms/TextArea" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
   <TextArea
     id="example1"
     label={demoContentDefault.label}
@@ -20,7 +24,11 @@ import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
 
 ## Disabled
 
-<Playground system="ec" selectedKind="Forms/TextArea" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
   <TextArea
     id="example2"
     label={demoContentDefault.label}
@@ -33,7 +41,11 @@ import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
 
 ## With error
 
-<Playground system="ec" selectedKind="Forms/TextArea" selectedStory="default">
+<Playground
+  system="ec"
+  selectedKind="components-forms-textarea"
+  selectedStory="default"
+>
   <TextArea
     id="example3"
     label={demoContentDefault.label}

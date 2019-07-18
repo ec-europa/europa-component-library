@@ -6,48 +6,15 @@ import icons from '@ecl/ec-resources-icons/dist/sprites/icons.svg';
 import Container from '../Grid/Container';
 import styles from './Header.scss';
 
-const getTitle = component => {
-  if (
-    component &&
-    component.attributes &&
-    component.attributes.level > 0 &&
-    component.attributes.title
-  ) {
-    return component.attributes.title;
-  }
-
-  return '';
-};
-
-const getPageTitle = component => {
-  if (component.attributes.isTab) {
-    if (component.parent) {
-      return getTitle(component.parent);
-    }
-
-    return '';
-  }
-
-  return getTitle(component);
-};
-
-const getSectionTitle = component => {
-  if (component.attributes.isTab) {
-    if (component.parent && component.parent.parent) {
-      return getTitle(component.parent.parent);
-    }
-
-    return '';
-  }
-
-  if (component.parent) {
-    return getTitle(component.parent);
-  }
-
-  return getTitle(component);
-};
+import { getPageTitle, getSectionTitle } from './utils/title';
 
 const navigateTab = (e, history) => {
+  // eslint-disable-next-line unicorn/prefer-includes
+  if (e.target.value.indexOf('/playground/') !== -1) {
+    window.location.href = e.target.value;
+    return;
+  }
+
   history.push(e.target.value);
 };
 
@@ -79,8 +46,30 @@ const Header = React.memo(({ component, history, location }) => {
                   </NavLink>
                 </li>
               ))}
+              {component.parent.attributes.playground && (
+                <li>
+                  <a
+                    href={`${process.env.PUBLIC_URL}/playground/${
+                      component.parent.attributes.playground.system
+                    }/${
+                      process.env.NODE_ENV === 'development' ? 'index.html' : ''
+                    }?path=${component.parent.attributes.playground.path}`}
+                    className={styles['header__tabs-item']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Playground
+                    <svg
+                      focusable="false"
+                      aria-hidden="true"
+                      className={styles['header__tabs-icon']}
+                    >
+                      <use xlinkHref={`${icons}#ui--external`} />
+                    </svg>
+                  </a>
+                </li>
+              )}
             </ul>
-
             <div className={styles.select__container}>
               <select
                 id="header-tabs"
@@ -93,6 +82,17 @@ const Header = React.memo(({ component, history, location }) => {
                     {tab.attributes.title}
                   </option>
                 ))}
+                {component.parent.attributes.playground && (
+                  <option
+                    value={`${process.env.PUBLIC_URL}/playground/${
+                      component.parent.attributes.playground.system
+                    }/${
+                      process.env.NODE_ENV === 'development' ? 'index.html' : ''
+                    }?path=${component.parent.attributes.playground.path}`}
+                  >
+                    Playground
+                  </option>
+                )}
               </select>
               <div className={styles.select__icon}>
                 <svg
@@ -111,13 +111,25 @@ const Header = React.memo(({ component, history, location }) => {
   );
 });
 
-Header.propTypes = {
-  component: PropTypes.shape({
-    attributes: PropTypes.shape({
-      url: PropTypes.string,
-      title: PropTypes.string,
-    }),
+const componentType = PropTypes.shape({
+  attributes: PropTypes.shape({
+    url: PropTypes.string,
+    title: PropTypes.string,
+    isTab: PropTypes.bool,
   }),
+});
+
+const componentDefaults = {
+  attributes: {
+    url: '',
+    title: '',
+    isTab: false,
+  },
+};
+
+Header.propTypes = {
+  parent: componentType,
+  component: componentType,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
@@ -127,12 +139,8 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  component: {
-    attributes: {
-      url: '',
-      title: '',
-    },
-  },
+  parent: componentDefaults,
+  component: componentDefaults,
 };
 
 export default withRouter(Header);

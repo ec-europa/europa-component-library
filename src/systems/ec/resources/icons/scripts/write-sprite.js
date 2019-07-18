@@ -8,6 +8,30 @@ const writeSprite = ({ cwd, files, dest, outputFile }) => {
   const spriter = new SVGSpriter({
     dest,
     shape: {
+      id: {
+        generator(name) {
+          const segments = name.split(path.sep);
+          const id = segments
+            .map(segment => {
+              let s = segment;
+              if (segment.startsWith('_')) {
+                console.log(
+                  '⚠️ Deprecated icon:',
+                  segment,
+                  'This icon will be removed in ECL v3.'
+                );
+
+                // Remove underscore
+                s = segment.replace('_', '');
+              }
+
+              return s.replace('.svg', ''); // Remove extension
+            })
+            .join('--');
+
+          return id;
+        },
+      },
       dimension: { attributes: true },
       transform: [], // no transform, SVGs have already been optimized
     },

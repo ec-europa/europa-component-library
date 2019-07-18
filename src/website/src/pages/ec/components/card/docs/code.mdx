@@ -4,7 +4,7 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Card from '@ecl/ec-react-component-card/Card';
+import Card from '@ecl/ec-react-component-card';
 
 import demoContentCardEvent from '@ecl/ec-specs-card/demo/data--card-event';
 import demoContentCardTag from '@ecl/ec-specs-card/demo/data--card-tag';
@@ -13,24 +13,24 @@ import demoContentTile from '@ecl/ec-specs-card/demo/data--tile';
 
 ## Card Event
 
-<Playground system="ec" selectedKind="Card" selectedStory="card">
+<Playground system="ec" selectedKind="components-card" selectedStory="card">
   <Card {...demoContentCardEvent} />
 </Playground>
 
 ## Card Tag
 
-<Playground system="ec" selectedKind="Card" selectedStory="card">
+<Playground system="ec" selectedKind="components-card" selectedStory="card">
   <Card {...demoContentCardTag} />
 </Playground>
 
 ## Card
 
-<Playground system="ec" selectedKind="Card" selectedStory="card">
+<Playground system="ec" selectedKind="components-card" selectedStory="card">
   <Card {...demoContentCard} />
 </Playground>
 
 ## Tile
 
-<Playground system="ec" selectedKind="Card" selectedStory="tile">
+<Playground system="ec" selectedKind="components-card" selectedStory="tile">
   <Card {...demoContentTile} />
 </Playground>

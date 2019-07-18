@@ -15,7 +15,7 @@ yarn --cwd "./src/systems/ec/implementations/react/storybook" build
 yarn --cwd "./src/systems/eu/implementations/react/storybook" build
 
 # Copy builds
-rm -rf ./dist/storybook
-mkdir -p ./dist/storybook
-cp -r ./src/systems/ec/implementations/react/storybook/build ./dist/storybook/ec
-cp -r ./src/systems/eu/implementations/react/storybook/build ./dist/storybook/eu
+rm -rf ./dist/playground
+mkdir -p ./dist/playground
+cp -r ./src/systems/ec/implementations/react/storybook/build ./dist/playground/ec
+cp -r ./src/systems/eu/implementations/react/storybook/build ./dist/playground/eu

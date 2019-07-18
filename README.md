@@ -3,6 +3,7 @@
 [![Build Status](https://drone.fpfis.eu/api/badges/ec-europa/europa-component-library/status.svg)](https://drone.fpfis.eu/ec-europa/europa-component-library)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/adff9a95-45f4-411e-a148-fef1211ac9ed/deploy-status)](https://app.netlify.com/sites/europa-component-library/deploys)
 
 The Europa Component Library (ECL) is a library of components applicable to all European Commission websites (hosted under ec.europa.eu domain). The library contains all available components which you can use to build your website.
 
@@ -16,7 +17,7 @@ All library elements are accompanied with
 
 ## Documentation
 
-Read the documentation [on GitHub](docs/README.md) or on the [website](https://ec-europa.github.io/europa-component-library/ec/docs/overview).
+Read the technical documentation [on GitHub](docs/README.md).
 
 ## Quick start
 
@@ -24,12 +25,40 @@ The ECL is bundled in various [presets](docs/06-presets.md) in order to accomoda
 
 - download [the latest release](https://github.com/ec-europa/europa-component-library/releases/latest) of the preset of your choice
 - install the preset with npm or yarn, e.g. `npm install @ecl/ec-preset-website` or `yarn add @ecl/ec-preset-website`
+- use the CDN, https://cdn{1,2,3 or 4}.fpfis.tech.ec.europa.eu/ecl/{tag}/{preset}/{path/to/the/asset}. Here's an example:
+
+  ```html
+  <link
+    rel="stylesheet"
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/styles/ecl-ec-preset-website.css"
+    integrity="sha256-z6dOAjOJqqSZ+PIO37K+3Ayllx3xXxCqyR/8E9uRDPw= sha384-jo7jGBnWqwlT+VWjtSizGP6fGUspsK9tw7J4EipSCa2B+E3TUn7JG/DmWOnau+5/ sha512-hCpCgFHGoE4IOf4Kp40t1EwIdTQL5gMnCKP8+6fmD7Fd7woiJdbnyY9AMiSG7x/cDidTsbf4CzY/IQw8WbL0QQ=="
+    crossorigin="anonymous"
+    media="screen"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/styles/ecl-ec-preset-website-print.css"
+    integrity="sha256-Zh83Gt9NTD0ubu/zxUlc7Bcfnt768p3wMKlLdsEZCEI= sha384-la5bewKH2QjykLDreUZ0lds6kItLcnybpiKJV3YYglDIyW2J9ZFE8tlZgeoOmYdz sha512-JpJ5jkM1mfpxnpt8ZBi1EoXI1J8yjuYwhs/K7vvcbRQb5AdAOMUG40CKWCANjkz4fwPF7ZbYB1vGW95sbwI7ZQ=="
+    crossorigin="anonymous"
+    media="print"
+  />
+  ```
+
+  ```html
+  <script
+    type="text/javascript"
+    src="https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/scripts/ecl-ec-preset-website.js"
+    integrity="sha256-Y6lSKSg78QaMCJ0YzUZhq+/iq6siGuElj9nwjTvPASw= sha384-haktrNf1owx3JqtntwYppg4ji9P3fdNZYySnPhmBvjiHShUjWPC85APAPVnaMZlL sha512-SXyovSU/88gayWj0adbCZYrxfKO5Nua+5vRW4VMJA2RNGHKb+RDodYF5HV6dl2its4BsF2rADQLR7bcPZrv3Vg=="
+    crossorigin="anonymous"
+    defer
+  ></script>
+  ```
 
 ## Need help?
 
 Please contact [COMM Europa Management](mailto:Europamanagement@ec.europa.eu) for support on using this resource for a European Commission website.
 
-## Previous versions
+## Previous major versions
 
-- v1.2.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.2.0) - [website](https://v1--europa-component-library.netlify.com/)
+- v1.9.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v1) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v1.9.0) - [website](https://v1--europa-component-library.netlify.com/)
 - v0.24.0: [sources](https://github.com/ec-europa/europa-component-library/tree/v0) - [release](https://github.com/ec-europa/europa-component-library/releases/tag/v0.24.0) - [website](https://v0--europa-component-library.netlify.com/)

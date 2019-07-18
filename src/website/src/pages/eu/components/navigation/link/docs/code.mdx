@@ -4,15 +4,21 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import Link from '@ecl/ec-react-component-link/Link';
+import Link from '@ecl/eu-react-component-link';
 
 import demoContentDefault from '@ecl/eu-specs-link/demo/data--default';
 import demoContentStandalone from '@ecl/eu-specs-link/demo/data--standalone';
+import demoContentCTA from '@ecl/eu-specs-link/demo/data--cta';
+import demoContentCTAIcon from '@ecl/eu-specs-link/demo/data--cta-icon';
 import demoContentIcon from '@ecl/eu-specs-link/demo/data--icon';
 
 ## Default link
 
-<Playground system="eu" selectedKind="Link" selectedStory="default">
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="default"
+>
   <p className="ecl-u-type-paragraph">
     The European Commission is the executive of <Link {...demoContentDefault} />{' '}
     and promotes its general interest.
@@ -21,15 +27,41 @@ import demoContentIcon from '@ecl/eu-specs-link/demo/data--icon';
 
 ## Standalone link
 
-<Playground system="eu" selectedKind="Link" selectedStory="standalone">
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="standalone"
+>
   <Link {...demoContentStandalone} />
 </Playground>
 
 ## Link with icon
 
-<Playground system="eu" selectedKind="Link" selectedStory="default">
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="default"
+>
   <p className="ecl-u-type-paragraph">
     The European Commission is the executive of <Link {...demoContentIcon} />{' '}
     and promotes its general interest.
   </p>
+</Playground>
+
+## Call-to-action link
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="cta"
+>
+  <Link {...demoContentCTA} />
+</Playground>
+
+<Playground
+  system="eu"
+  selectedKind="components-navigation-link"
+  selectedStory="cta"
+>
+  <Link {...demoContentCTAIcon} />
 </Playground>

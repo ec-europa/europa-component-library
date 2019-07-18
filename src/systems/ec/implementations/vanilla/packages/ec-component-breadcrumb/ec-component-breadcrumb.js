@@ -1,6 +1,6 @@
 import { queryOne, queryAll } from '@ecl/ec-base/helpers/dom';
 
-class Breadcrumb {
+export class Breadcrumb {
   constructor(
     element,
     {

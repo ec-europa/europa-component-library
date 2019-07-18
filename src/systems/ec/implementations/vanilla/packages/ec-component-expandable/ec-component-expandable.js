@@ -1,6 +1,6 @@
 import { queryOne } from '@ecl/ec-base/helpers/dom';
 
-class Expandable {
+export class Expandable {
   constructor(
     element,
     {

@@ -56,6 +56,7 @@ class Playground extends PureComponent {
       selectedKind,
       selectedStory,
       showFrame,
+      disableAutoResize,
       iframeOptions,
       hideDemo,
       children,
@@ -63,16 +64,22 @@ class Playground extends PureComponent {
 
     if (!children) return null;
 
-    const playgroundUrl =
-      playgroundLink ||
-      encodeURI(
-        `/storybook/${system}/index.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}&stories=1`
+    let playgroundUrl;
+
+    if (playgroundLink) {
+      playgroundUrl = playgroundLink;
+    } else if (system && selectedKind && selectedStory) {
+      playgroundUrl = encodeURI(
+        `${process.env.PUBLIC_URL}/playground/${system}/${
+          process.env.NODE_ENV === 'development' ? 'index.html' : ''
+        }?path=/story/${selectedKind}--${selectedStory}`
       );
+    }
 
     const fullFrameUrl =
       system && selectedKind && selectedStory
         ? encodeURI(
-            `/storybook/${system}/iframe.html?selectedKind=${selectedKind}&selectedStory=${selectedStory}`
+            `${process.env.PUBLIC_URL}/playground/${system}/iframe.html?id=${selectedKind}--${selectedStory}`
           )
         : '';
 
@@ -86,6 +93,7 @@ class Playground extends PureComponent {
                   url={fullFrameUrl}
                   defaultHeight={frameHeight}
                   iframeOptions={iframeOptions}
+                  disableAutoResize={disableAutoResize}
                 />
               ) : (
                 <div className={styles.showcase__content}>{children}</div>
@@ -154,26 +162,29 @@ class Playground extends PureComponent {
           </button>
         </div>
 
-        <p className={styles.description}>Try it yourself on the playground</p>
-
         {playgroundUrl && (
-          <a
-            href={playgroundUrl}
-            className={`${styles.link} ${styles['link--icon']} ${
-              styles['playground-link']
-            }`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className={styles.link__label}>Playground</span>
-            <svg
-              focusable="false"
-              aria-hidden="true"
-              className={styles.link__icon}
+          <Fragment>
+            <p className={styles.description}>
+              Try it yourself on the playground
+            </p>
+            <a
+              href={playgroundUrl}
+              className={`${styles.link} ${styles['link--icon']} ${
+                styles['playground-link']
+              }`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
-            </svg>
-          </a>
+              <span className={styles.link__label}>Playground</span>
+              <svg
+                focusable="false"
+                aria-hidden="true"
+                className={styles.link__icon}
+              >
+                <use xlinkHref={`${iconSprite}#ui--corner-arrow`} />
+              </svg>
+            </a>
+          </Fragment>
         )}
       </div>
     );
@@ -188,6 +199,7 @@ Playground.propTypes = {
   // iframeOptions: https://github.com/davidjbradshaw/iframe-resizer#options
   iframeOptions: PropTypes.shape(),
   hideDemo: PropTypes.bool,
+  disableAutoResize: PropTypes.bool,
   system: PropTypes.string,
   selectedKind: PropTypes.string,
   selectedStory: PropTypes.string,
@@ -199,6 +211,7 @@ Playground.defaultProps = {
   showFrame: false,
   iframeOptions: {},
   hideDemo: false,
+  disableAutoResize: false,
   system: '',
   selectedKind: '',
   selectedStory: '',

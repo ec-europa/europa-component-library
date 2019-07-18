@@ -30,7 +30,7 @@ const extractPageInfo = (page, key) => {
       {},
       {
         url,
-        isTab: key.indexOf('docs') >= 0,
+        isTab: key.indexOf('docs') >= 0, // eslint-disable-line unicorn/prefer-includes
       },
       page.attributes,
     ]),
@@ -74,6 +74,7 @@ const ECRoutes = () => (
     HomePage={HomePage}
     prefix="/ec"
     title="EC Homepage"
+    system="ec"
     pages={sortedPages[0].children}
     routes={pagesToRoutes(sortedPages)}
   />

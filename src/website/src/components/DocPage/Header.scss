@@ -45,7 +45,7 @@ $arrow-width: 2.75rem;
 .header__tabs-item {
   border-bottom: $header-tabs-border-width solid transparent;
   color: #000;
-  display: block;
+  display: flex;
   font: $ecl-font-m;
   font-weight: $ecl-font-weight-bold;
   margin-right: $ecl-spacing-xl;
@@ -60,6 +60,12 @@ $arrow-width: 2.75rem;
 
 .header__tabs-item--active {
   border-bottom: $header-tabs-border-width solid $ecl-color-yellow-100;
+}
+
+.header__tabs-icon {
+  width: 1em;
+  height: 1em;
+  margin-left: $ecl-spacing-xs;
 }
 
 .select__container {

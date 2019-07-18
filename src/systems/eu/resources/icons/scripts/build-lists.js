@@ -7,7 +7,9 @@ const writeList = require('./write-list');
 const src = path.resolve(__dirname, '../src');
 const dest = path.resolve(__dirname, '../dist/lists');
 
-const files = glob.sync('**/*.svg', { cwd: src });
+const files = glob
+  .sync('**/*.svg', { cwd: src })
+  .filter(file => !file.includes('/_')); // ignore files prepended with "_"
 
 /* Write list of all icons */
 

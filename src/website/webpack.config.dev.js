@@ -1,17 +1,21 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
+const emoji = require('remark-emoji');
+
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 const babelConfig = require('./config/babel.config');
+const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
-const publicPath = '/';
-const publicUrl = publicPath.slice(0, -1);
+const publicUrl = process.env.PUBLIC_URL || '';
+const publicPath = `${publicUrl}/`;
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   { loader: 'style-loader' },
@@ -59,6 +63,9 @@ module.exports = {
     // `web` extension prefixes have been added for better support
     // for React Native Web.
     extensions: ['.mjs', '.js', '.json', '.jsx'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
   module: {
     strictExportPresence: true,
@@ -158,12 +165,13 @@ module.exports = {
               {
                 loader: '@mdx-js/loader',
                 options: {
-                  mdPlugins: [
+                  remarkPlugins: [
                     [
                       // Removes front-matter from Markdown output
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
                     ],
+                    emoji,
                   ],
                 },
               },
@@ -193,11 +201,15 @@ module.exports = {
       template: './public/index.html',
       // filename: './index.html',
     }),
+    new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
+      PUBLIC_URL: publicUrl,
+    }),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
+      'process.env.ECL_VERSION': JSON.stringify(lernaJson.version),
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],

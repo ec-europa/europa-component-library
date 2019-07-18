@@ -1,0 +1,43 @@
+diff --git a/node_modules/react-snap/index.js b/node_modules/react-snap/index.js
+index e663275..cfd4752 100644
+--- a/node_modules/react-snap/index.js
++++ b/node_modules/react-snap/index.js
+@@ -19,6 +19,7 @@ const defaultOptions = {
+   destination: null,
+   concurrency: 4,
+   include: ["/"],
++  exclude: [],
+   userAgent: "ReactSnap",
+   // 4 params below will be refactored to one: `puppeteer: {}`
+   // https://github.com/stereobooster/react-snap/issues/120
+diff --git a/node_modules/react-snap/src/puppeteer_utils.js b/node_modules/react-snap/src/puppeteer_utils.js
+index c4b7641..fbd3f85 100644
+--- a/node_modules/react-snap/src/puppeteer_utils.js
++++ b/node_modules/react-snap/src/puppeteer_utils.js
+@@ -1,6 +1,7 @@
+ const puppeteer = require("puppeteer");
+ const _ = require("highland");
+ const url = require("url");
++const glob = require("glob-to-regexp");
+ const mapStackTrace = require("sourcemapped-stacktrace-node").default;
+ const path = require("path");
+ const fs = require("fs");
+@@ -140,6 +141,7 @@ const crawl = async opt => {
+     publicPath,
+     sourceDir
+   } = opt;
++  const exclude = options.exclude.map(g => glob(g, { extended: true, globstar: true}));
+   let shuttingDown = false;
+   let streamClosed = false;
+ 
+@@ -173,8 +175,9 @@ const crawl = async opt => {
+    * @returns {void}
+    */
+   const addToQueue = newUrl => {
+-    const { hostname, search, hash } = url.parse(newUrl);
++    const { hostname, search, hash, pathname } = url.parse(newUrl);
+     newUrl = newUrl.replace(`${search || ""}${hash || ""}`, "");
++    if (exclude.filter(regex => regex.test(pathname)).length > 0) return;
+     if (hostname === "localhost" && !uniqueUrls.has(newUrl) && !streamClosed) {
+       uniqueUrls.add(newUrl);
+       enqued++;
