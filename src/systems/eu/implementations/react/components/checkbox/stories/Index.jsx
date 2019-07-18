@@ -3,9 +3,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import demo from '@ecl/eu-specs-checkbox/demo/data';
-import Checkbox from '../Checkbox';
+import Checkbox from '../src/Checkbox';
 
-storiesOf('Forms/Checkbox', module)
+storiesOf('Components|Forms/Checkbox', module)
   .addDecorator(withKnobs)
   .add('default', () => {
     const label = text('Label', demo.default.label);
