@@ -5,17 +5,17 @@ import classnames from 'classnames';
 import Checkbox from './Checkbox';
 
 const CheckboxGroup = ({
-  labelId,
-  items,
-  name,
-  helperText,
-  label,
+  className,
   helperId,
+  helperText,
   hideLabel,
   invalid,
   invalidText,
+  items,
+  label,
+  labelId,
+  name,
   optInOut,
-  className,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-checkbox__group', {
@@ -64,31 +64,31 @@ const CheckboxGroup = ({
 };
 
 CheckboxGroup.propTypes = {
-  labelId: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(Checkbox.propTypes)),
-  name: PropTypes.string,
+  className: PropTypes.string,
   helperId: PropTypes.string,
   helperText: PropTypes.node,
-  label: PropTypes.string,
   hideLabel: PropTypes.bool,
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
+  items: PropTypes.arrayOf(PropTypes.shape(Checkbox.propTypes)),
+  label: PropTypes.string,
+  labelId: PropTypes.string,
+  name: PropTypes.string,
   optInOut: PropTypes.bool,
-  className: PropTypes.string,
 };
 
 CheckboxGroup.defaultProps = {
-  labelId: '',
-  items: [],
-  name: '',
+  className: '',
   helperId: '',
   helperText: '',
-  label: '',
   hideLabel: false,
   invalid: false,
   invalidText: '',
+  items: [],
+  label: '',
+  labelId: '',
+  name: '',
   optInOut: false,
-  className: '',
 };
 
 export default CheckboxGroup;

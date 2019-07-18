@@ -1,7 +1,7 @@
 module.exports = {
   labelId: 'checkbox-opt-in-out-invalid-label',
   label: 'Do you need help?',
-  helperId: 'checkbox-binary-opt-in-out-helper',
+  helperId: 'checkbox-opt-in-out-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
   name: '-opt-in-out-invalid-',

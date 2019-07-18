@@ -9,7 +9,7 @@ module.exports = {
   items: [
     {
       id: 'checkbox-opt-in-out-1',
-      value: 'yes',
+      value: 'inno',
       label: 'INNO newsletter',
       defaultChecked: true,
     },
