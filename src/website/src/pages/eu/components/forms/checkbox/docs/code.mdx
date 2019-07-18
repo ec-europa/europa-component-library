@@ -4,12 +4,12 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import checkboxGroup from '@ecl/eu-react-component-checkbox';
+import CheckboxGroup from '@ecl/ec-react-component-checkbox/src/CheckboxGroup';
 
 import demoContentDefault from '@ecl/eu-specs-checkbox/demo/data--default';
 import demoContentInvalid from '@ecl/eu-specs-checkbox/demo/data--invalid';
-import demoContentOptinOut from '@ecl/eu-specs-checkbox/demo/data--opt-in-out';
-import demoContentOptinOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in-out-invalid';
+import demoContentOptInOut from '@ecl/eu-specs-checkbox/demo/data--opt-in-out';
+import demoContentOptInOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in-out-invalid';
 
 ## Default checkbox group
 
@@ -18,7 +18,7 @@ import demoContentOptinOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in
   selectedKind="components-forms-checkbox"
   selectedStory="default"
 >
-  <checkboxGroup {...demoContentDefault} />
+  <CheckboxGroup {...demoContentDefault} />
 </Playground>
 
 ## Invalid checkbox group
@@ -28,7 +28,7 @@ import demoContentOptinOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in
   selectedKind="components-forms-checkbox"
   selectedStory="default"
 >
-  <checkboxGroup {...demoContentInvalid} />
+  <CheckboxGroup {...demoContentInvalid} />
 </Playground>
 
 ## Binary checkbox group
@@ -38,7 +38,7 @@ import demoContentOptinOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in
   selectedKind="components-forms-checkbox"
   selectedStory="opt-in-out"
 >
-  <checkboxGroup {...demoContentBinary} />
+  <CheckboxGroup {...demoContentOptInOut} />
 </Playground>
 
 ## Binary invalid checkbox group
@@ -48,5 +48,5 @@ import demoContentOptinOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in
   selectedKind="components-forms-checkbox"
   selectedStory="opt-in-out"
 >
-  <checkboxGroup {...demoContentBinaryInvalid} />
+  <CheckboxGroup {...demoContentOptInOutInvalid} />
 </Playground>
