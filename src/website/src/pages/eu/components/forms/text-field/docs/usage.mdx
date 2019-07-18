@@ -6,16 +6,16 @@ order: 1
 import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 <Paragraph size="lead">
-  A text field is an input field that can be used on a form, sign-in or any
-  place where data is requested from the user. Its intent is for limited amounts
-  of information; for larger amounts of text, use a{' '}
+  A text field is an input that can be used on a form, sign-in or any place
+  where data is requested from the user. Its intent is for limited amounts of
+  information; for larger amounts of text, use a{' '}
   <Link to="/eu/components/forms/text-area/usage/">text area</Link>.
 </Paragraph>
 
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Text%20Input/Text%20Field.jpg"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Text%20Input/Text%20Field2.jpg"
   alt="Anatomy of text field"
   legend={{
     items: [
@@ -35,27 +35,19 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 | Elements    | Mandatory | Description                                                                       |
 | ----------- | --------- | --------------------------------------------------------------------------------- |
-| Heading     | Yes       | Title of the input field                                                          |
-| Helper text | No        | Additional information the user might need, to help them provide the correct data |
-| Text area   | Yes       | The area where the user enters their response                                     |
+| Heading     | yes       | Title of the text input field                                                     |
+| Helper text | no        | Additional information the user might need, to help them provide the correct data |
+| Text field  | yes       | The area where the user enters their response                                     |
 
 ### Conditional
 
 | Elements           | Mandatory | Description                                                             |
 | ------------------ | --------- | ----------------------------------------------------------------------- |
-| Optional Indicator | Yes       | Indicator stating wether **if** input fields are **optional**           |
+| Optional Indicator | Yes       | Indicator stating **if** input fields are **optional**                  |
 | Error message      | Yes       | A message informing the user **if** there is a problem with their entry |
 
 ## Do's
 
-- **minimise** the number of text fields - only ask for necessary information
-- **arrange them vertically** to improve scannability and reduce errors
-- **group** related fields
-- **order** text fields logically
-- always **label each text field** with a short, distinct and indicative title, **placed above the text field**
-- indicate whether the text field is **optional**
-- **make use of helper text** if there are further directions or hints the users may need in completing their goal (example: _A password must be at least 6 characters and contain a number and a special character_)
-- if character counter is necessary, place it below the text field
 - **allow copy/paste** for ease of use
 - match the text field to the expected size of the input - make it wide enough for the user to see their entire entry
 - **write specific and clear error message texts, so users understand how to address the error**
@@ -73,17 +65,17 @@ import { Paragraph, Anatomy, Link } from '@ecl/website-components';
 
 ## When not to use
 
-- do not use where the user needs **to input a large, or unknown**, amount of data - if longer, use a <Link to="/eu/components/forms/text-area/usage/">Text area</Link> instead
+- do not use where the user needs **to input a large, or unknown**, amount of data - if longer, use a <Link to="/eu/components/forms/text-area/usage/">Textarea</Link> instead
 - do not use when the user must respond with specific options which are known to the organisation - use form types such as Checkboxes, <Link to="/eu/components/forms/radio/usage/">Radio Buttons</Link> or <Link to="/eu/components/forms/select/usage/">Select</Link> instead
 
 ## Notes
 
 ### Accessibility
 
-- placeholder text in a text field is bad for accessibility - may not be read by screen reading software, and can be problematic for users with a visual impairment; use helper text is further information needs to be conveyed
+- placeholder text in a text field is bad for accessibility - may not be read by screen reading software, and can be problematic for users with a visual impairment; use helper text if further information needs to be conveyed
 
 ## Related components
 
 - <Link to="/eu/components/forms/radio/usage/">Radio button</Link>
 - <Link to="/eu/components/forms/select/usage/">Select</Link>
-- <Link to="/eu/components/forms/text-area/usage/">Text area</Link>
+- <Link to="/eu/components/forms/text-area/usage/">Textarea</Link>

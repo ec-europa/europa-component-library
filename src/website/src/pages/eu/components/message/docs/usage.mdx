@@ -14,7 +14,7 @@ import { Paragraph, Anatomy, Do, Caution } from '@ecl/website-components';
 ## Anatomy
 
 <Anatomy
-  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Messages/Message.jpg"
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/Messages/Message2.jpg"
   alt="Anatomy of messages"
   legend={{
     items: [
@@ -30,12 +30,12 @@ import { Paragraph, Anatomy, Do, Caution } from '@ecl/website-components';
   }}
 />
 
-| Elements | Mandatory | Description                                                                                                                                     |
-| -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Icon     | Yes       | The symbol to represent the type of message                                                                                                     |
-| Title    | Yes       | Type of message                                                                                                                                 |
-| Button   | Yes       | The button to exit/dismiss the message                                                                                                          |
-| Message  | Yes       | <strong>A descriptive and concise message</strong>, indicative of the <strong>system error</strong> and <strong>how to recover from it</strong> |
+| Elements | Mandatory | Description                                                                                                                    |
+| -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Icon     | Yes       | The symbol to represent the type of message                                                                                    |
+| Heading  | Yes       | Type of message                                                                                                                |
+| Button   | Yes       | The button to exit/dismiss the message                                                                                         |
+| Message  | Yes       | **A descriptive and concise message**, indicative of the **system status** and instructing users **how to proceed or recover** |
 
 ## Do's
 
@@ -46,7 +46,7 @@ import { Paragraph, Anatomy, Do, Caution } from '@ecl/website-components';
 ## Don'ts
 
 - **don't over use messages** - users may ignore them and they can get in the way of a user completing their task
-- **don't** write error messages in a way that can appear to **blame the user**. For example, instead of **The postal code you entered is invalid**, the message should say **Please enter a valid postal code**
+- **don't write messages in a way that can appear to blame the user**. For example, instead of _The postal code you entered is invalid_, the message **should say** _Please enter a valid postal code_
 - **don't use all uppercase text**
 
 ## When to use
@@ -54,7 +54,7 @@ import { Paragraph, Anatomy, Do, Caution } from '@ecl/website-components';
 - when there is an **essential piece of information** that needs to be conveyed
 - **information** message: the user needs to know **critical information before continuing** with their task
 - **success** message: the user has performed an **action which was successfully completed**
-- **warning** message: the user needs to know about the **potential dangers of completing their task** (for example: all data will be lost if they click continue)
+- **warning** message: the user needs to know about the **potential dangers of completing their task** (for example: "you are about replace/erase your data")
 - **error** message: the user tried to perform an **action that failed because of a problem** (for example: a file could not be uploaded because it wasn't the correct type of file)
 
 ## When not to use
