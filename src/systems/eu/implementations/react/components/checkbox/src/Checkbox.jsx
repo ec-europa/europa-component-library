@@ -14,6 +14,7 @@ const Checkbox = ({
   invalid,
   invalidText,
   label,
+  mandatory,
   name,
   ...props
 }) => {
@@ -41,22 +42,30 @@ const Checkbox = ({
               'ecl-form-label--invalid': invalid,
               'ecl-checkbox__label--hidden': hideLabel,
               'ecl-form-label--hidden': hideLabel,
+              '': mandatory,
             }
           )}
           htmlFor={id}
         >
           <span className="ecl-checkbox__box">
-            <Icon className="ecl-checkbox__icon" shape="ui--check" size="xs" />
+            <Icon className="ecl-checkbox__icon" shape="ui--check" size="s" />
           </span>
           {label}
         </label>
+        {mandatory && (
+          <span className="ecl-form-label--required ecl-checkbox__required">
+            *
+          </span>
+        )}
       </div>
 
-      {invalid && invalidText && (
-        <div className="ecl-feedback-message">{invalidText}</div>
-      )}
       {helperText && (
         <div className="ecl-help-block ecl-checkbox__help">{helperText}</div>
+      )}
+      {invalid && invalidText && (
+        <div className="ecl-feedback-message ecl-checkbox__invalid">
+          {invalidText}
+        </div>
       )}
     </div>
   );
@@ -72,6 +81,7 @@ Checkbox.propTypes = {
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
   label: PropTypes.string,
+  mandatory: PropTypes.bool,
   name: PropTypes.string,
 };
 
@@ -84,6 +94,7 @@ Checkbox.defaultProps = {
   invalid: false,
   invalidText: '',
   label: '',
+  mandatory: false,
   name: '',
 };
 

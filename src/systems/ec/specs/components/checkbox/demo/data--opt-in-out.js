@@ -12,6 +12,7 @@ module.exports = {
       value: 'inno',
       label: 'INNO newsletter',
       defaultChecked: true,
+      mandatory: true,
     },
   ],
 };
