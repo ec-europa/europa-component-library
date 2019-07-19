@@ -55,7 +55,9 @@ const Checkbox = ({
       {invalid && invalidText && (
         <div className="ecl-feedback-message">{invalidText}</div>
       )}
-      {helperText && <div className="ecl-help-block">{helperText}</div>}
+      {helperText && (
+        <div className="ecl-help-block ecl-checkbox__help">{helperText}</div>
+      )}
     </div>
   );
 };
