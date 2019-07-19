@@ -4,6 +4,7 @@ import { SyntaxHighlighter } from '@storybook/components';
 import { styled } from '@storybook/theming';
 import { html as beautify } from 'js-beautify';
 import { EVENTS } from '../constants';
+import prefillPen from '../utils/codepen';
 
 const StyledSyntaxHighlighter = styled(SyntaxHighlighter)(({ theme }) => ({
   fontSize: theme.typography.size.s2 - 1,
@@ -88,14 +89,7 @@ export class PreviewWrapper extends Component {
             <input
               type="hidden"
               name="data"
-              value={`{
-                "title": "ECL Pen",
-                "description": "Exported from ECL's playground",
-                "html": ${JSON.stringify(beautifiedCode)},
-                "css_external": "https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/styles/ecl-ec-preset-website.css",
-                "js_external": "https://unpkg.com/svg4everybody@2.1.9/dist/svg4everybody.js;https://cdn1.fpfis.tech.ec.europa.eu/ecl/v2.8.0/ec-preset-website/scripts/ecl-ec-preset-website.js",
-                "js": "svg4everybody({ polyfill: true });"
-              }`}
+              value={prefillPen(beautifiedCode)}
             />
             <input type="submit" value="Create New Pen with Prefilled Data" />
           </form>
