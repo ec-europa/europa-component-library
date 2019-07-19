@@ -1,9 +1,13 @@
 module.exports = {
-  labelId: 'radio-binary-label',
-  label: 'Do you need help?',
+  label: 'Do you need help?', // DEPRECATED
+  labelId: 'radio-binary-label', // DEPRECATED
+  legend: 'Do you need help?',
+  legendId: 'legend-id',
   helperId: 'radio-binary-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
+  requiredText: '*',
+  optionalText: '(optional)',
   name: 'radio-binary',
   binary: true,
   items: [

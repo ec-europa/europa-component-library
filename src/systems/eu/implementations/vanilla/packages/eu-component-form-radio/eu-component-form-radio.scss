@@ -20,18 +20,11 @@
   $outline-width: 3px,
   $outline-color: $ecl-color-yellow-100,
   $invalid-border-color: $ecl-color-error,
-  $invalid-border-width: 2px
+  $invalid-border-width: 2px // DEPRECATED
 ) {
   .ecl-radio {
     box-sizing: border-box;
     margin-top: $ecl-spacing-m;
-  }
-
-  .ecl-radio__group {
-    border-style: solid;
-    border-width: 0;
-    margin: 0;
-    padding: 0 $ecl-spacing-l;
   }
 
   .ecl-radio__input {
@@ -65,24 +58,6 @@
     width: calc(#{$box-size} - (#{$box-border-width} * 2));
   }
 
-  .ecl-radio__help {
-    margin-top: $ecl-spacing-xs;
-  }
-
-  // Disabled
-  .ecl-radio--disabled,
-  .ecl-radio--readonly {
-    .ecl-radio__label {
-      color: $label-color-disabled;
-      cursor: not-allowed;
-    }
-
-    .ecl-radio__box {
-      background-color: $box-background-disabled;
-      border-color: $box-border-color-disabled;
-    }
-  }
-
   // Checked
   .ecl-radio__input:checked + .ecl-radio__label {
     .ecl-radio__box {
@@ -94,15 +69,21 @@
   }
 
   // Invalid
-  .ecl-radio__group--invalid {
+  .ecl-radio__box--invalid,
+  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--invalid {
     border-color: $invalid-border-color;
-    border-width: $invalid-border-width;
-    padding-bottom: $ecl-spacing-m;
-    padding-top: $ecl-spacing-m;
+  }
 
-    .ecl-radio__invalid {
-      margin-top: $ecl-spacing-xs;
-    }
+  // Disabled
+  .ecl-radio__label--disabled {
+    color: $label-color-disabled;
+    cursor: not-allowed;
+  }
+
+  .ecl-radio__box--disabled,
+  .ecl-radio__input:checked + .ecl-radio__label .ecl-radio__box--disabled {
+    background-color: $box-background-disabled;
+    border-color: $box-border-color-disabled;
   }
 
   // Focus
@@ -140,6 +121,44 @@
       margin-right: 0;
     }
   }
+
+  // DEPRECATED
+  // stylelint-disable no-descending-specificity
+  .ecl-radio__group {
+    border-style: solid;
+    border-width: 0;
+    margin: 0;
+    padding: 0 $ecl-spacing-l;
+  }
+
+  .ecl-radio__help {
+    margin-top: $ecl-spacing-xs;
+  }
+
+  .ecl-radio__group--invalid {
+    border-color: $invalid-border-color;
+    border-width: $invalid-border-width;
+    padding-bottom: $ecl-spacing-m;
+    padding-top: $ecl-spacing-m;
+
+    .ecl-radio__invalid {
+      margin-top: $ecl-spacing-xs;
+    }
+  }
+
+  .ecl-radio--disabled,
+  .ecl-radio--readonly {
+    .ecl-radio__label {
+      color: $label-color-disabled;
+      cursor: not-allowed;
+    }
+
+    .ecl-radio__box {
+      background-color: $box-background-disabled;
+      border-color: $box-border-color-disabled;
+    }
+  }
+  // stylelint-enable no-descending-specificity
 }
 
 // Use mixin

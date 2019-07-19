@@ -10,19 +10,43 @@ import RadioGroup from '../src/RadioGroup';
 
 storiesOf('Components|Forms/Radio', module)
   .addDecorator(withKnobs)
-  .add('default', () => (
-    <RadioGroup
-      {...demoContentDefault}
-      label={text('Label', demoContentDefault.label)}
-      helperText={text('Helper text', demoContentDefault.helperText)}
-      invalid={boolean('Invalid', false)}
-    />
-  ))
-  .add('binary', () => (
-    <RadioGroup
-      {...demoContentBinary}
-      label={text('Label', demoContentBinary.label)}
-      helperText={text('Helper text', demoContentBinary.helperText)}
-      invalid={boolean('Invalid', false)}
-    />
-  ));
+  .add(
+    'default',
+    () => (
+      <RadioGroup
+        {...demoContentDefault}
+        label={text('Label', demoContentDefault.label)}
+        helperText={text('Helper text', demoContentDefault.helperText)}
+        invalid={boolean('Invalid', false)}
+        invalidText={text('Invalid text', demoContentDefault.invalidText)}
+        required={boolean('Required', true)}
+        requiredText={text('Required text', demoContentDefault.requiredText)}
+        optionalText={text('Optional text', demoContentDefault.optionalText)}
+      />
+    ),
+    {
+      knobs: {
+        escapeHTML: false,
+      },
+    }
+  )
+  .add(
+    'binary',
+    () => (
+      <RadioGroup
+        {...demoContentBinary}
+        label={text('Label', demoContentDefault.label)}
+        helperText={text('Helper text', demoContentDefault.helperText)}
+        invalid={boolean('Invalid', false)}
+        invalidText={text('Invalid text', demoContentDefault.invalidText)}
+        required={boolean('Required', true)}
+        requiredText={text('Required text', demoContentDefault.requiredText)}
+        optionalText={text('Optional text', demoContentDefault.optionalText)}
+      />
+    ),
+    {
+      knobs: {
+        escapeHTML: false,
+      },
+    }
+  );
