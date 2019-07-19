@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, NavLink, withRouter } from 'react-router-dom';
 
@@ -14,7 +14,11 @@ const Navigation = React.memo(
     forceRefresh,
     isLoading,
   }) => (
-    <Fragment>
+    <nav
+      className={`${styles.nav}${
+        sidebarOpen ? '' : ` ${styles['nav--closed']}`
+      }${forceRefresh ? ' ' : ''}`}
+    >
       <button
         type="button"
         className={`${styles['button-toggle']} ${
@@ -31,47 +35,41 @@ const Navigation = React.memo(
           <span className={styles['hamburger-inner']} />
         </span>
       </button>
-      <nav
-        className={`${styles.nav}${
-          sidebarOpen ? '' : ` ${styles['nav--closed']}`
-        }${forceRefresh ? ' ' : ''}`}
-      >
-        <header className={styles.header}>
-          <span className={styles.version}>v{process.env.ECL_VERSION}</span>
-          <Link to="/" className={styles.logo} title="European Commission">
-            <span className={styles['logo-sr']}>European Commission</span>
-          </Link>
-          <h2 className={styles.title}>Europa Component Library</h2>
-        </header>
-        <ul className={styles['system-list']}>
-          <li className={styles['system-list-item']}>
-            <NavLink
-              to="/ec/"
-              strict
-              className={styles['system-list-item-link']}
-              activeClassName={styles['system-list-item-link--selected']}
-            >
-              EC
-            </NavLink>
-          </li>
-          <li className={styles['system-list-item']}>
-            <NavLink
-              to="/eu/"
-              strict
-              className={styles['system-list-item-link']}
-              activeClassName={styles['system-list-item-link--selected']}
-            >
-              EU
-            </NavLink>
-          </li>
-        </ul>
-        {isLoading ? (
-          <p className={styles.loading}>Loading...</p>
-        ) : (
-          <LinkList pages={pages} level={0} parentSection={prefix} />
-        )}
-      </nav>
-    </Fragment>
+      <header className={styles.header}>
+        <span className={styles.version}>v{process.env.ECL_VERSION}</span>
+        <Link to="/" className={styles.logo} title="European Commission">
+          <span className={styles['logo-sr']}>European Commission</span>
+        </Link>
+        <h2 className={styles.title}>Europa Component Library</h2>
+      </header>
+      <ul className={styles['system-list']}>
+        <li className={styles['system-list-item']}>
+          <NavLink
+            to="/ec/"
+            strict
+            className={styles['system-list-item-link']}
+            activeClassName={styles['system-list-item-link--selected']}
+          >
+            EC
+          </NavLink>
+        </li>
+        <li className={styles['system-list-item']}>
+          <NavLink
+            to="/eu/"
+            strict
+            className={styles['system-list-item-link']}
+            activeClassName={styles['system-list-item-link--selected']}
+          >
+            EU
+          </NavLink>
+        </li>
+      </ul>
+      {isLoading ? (
+        <p className={styles.loading}>Loading...</p>
+      ) : (
+        <LinkList pages={pages} level={0} parentSection={prefix} />
+      )}
+    </nav>
   )
 );
 
