@@ -80,18 +80,22 @@
     }
   }
 
+  .ecl-checkbox--invalid .ecl-checkbox__box {
+    border-color: $invalid-border-color;
+  }
+
   .ecl-checkbox:hover {
     .ecl-checkbox__box {
       border-color: $ecl-color-blue-100;
     }
   }
 
-  .ecl-help-block.ecl-checkbox__help {
+  .ecl-checkbox__help {
     font: $ecl-font-prolonged-s;
     margin-top: $ecl-spacing-xs !important;
   }
 
-  .ecl-feedback-message.ecl-checkbox__invalid {
+  .ecl-checkbox__invalid {
     font: $ecl-font-s;
     margin-top: $ecl-spacing-xs;
   }
@@ -139,7 +143,7 @@
   .ecl-checkbox__input:active {
     + .ecl-checkbox__label > .ecl-checkbox__box {
       outline: $outline-width solid $border-color-focus;
-      outline-offset: -3px;
+      outline-offset: -2px;
     }
   }
 

@@ -20,6 +20,7 @@ const Checkbox = ({
 }) => {
   const classNames = classnames(className, 'ecl-checkbox', {
     'ecl-checkbox--invalid': invalid,
+    'ecl-checkbox--required': mandatory,
   });
 
   return (
@@ -42,7 +43,6 @@ const Checkbox = ({
               'ecl-form-label--invalid': invalid,
               'ecl-checkbox__label--hidden': hideLabel,
               'ecl-form-label--hidden': hideLabel,
-              '': mandatory,
             }
           )}
           htmlFor={id}

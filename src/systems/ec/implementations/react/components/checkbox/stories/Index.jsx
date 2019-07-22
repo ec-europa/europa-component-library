@@ -6,6 +6,7 @@ import demoContentDefault from '@ecl/ec-specs-checkbox/demo/data--default';
 import demoContentOptInOut from '@ecl/ec-specs-checkbox/demo/data--opt-in-out';
 
 import CheckboxGroup from '../src/CheckboxGroup';
+import Checkbox from '../src/Checkbox';
 
 storiesOf('Components|Forms/Checkbox', module)
   .addDecorator(withKnobs)
@@ -23,5 +24,13 @@ storiesOf('Components|Forms/Checkbox', module)
       label={text('Label', demoContentOptInOut.label)}
       helperText={text('Helper text', demoContentOptInOut.helperText)}
       invalid={boolean('Invalid', false)}
+    />
+  ))
+  .add('invalid checkbox', () => (
+    <Checkbox
+      label={text('Label', 'An invalid checkbox')}
+      helperText={text('Helper text', 'An helper text')}
+      invalid={boolean('Invalid', true)}
+      invalidText={text('Error message', 'We are sorry, something is wrong...')}
     />
   ));
