@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '@ecl/ec-react-component-button/Button';
+import Button from '@ecl/ec-react-component-button';
 
 const TabsMore = ({ label, isVisible }) => (
   <li

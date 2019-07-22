@@ -4,13 +4,13 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import StoryWrapper from '@ecl/story-wrapper';
 
-import demoContent from '@ecl/eu-specs-tabs/demo/data';
+import demoContent from '@ecl/ec-specs-tabs/demo/data';
 
-import VanillaTabs from '@ecl/eu-component-tabs';
+import VanillaTabs from '@ecl/ec-component-tabs';
 
 import Tabs from '../src/Tabs';
 
-storiesOf('Navigation/Tabs', module)
+storiesOf('Components|Navigation/Tabs', module)
   .addDecorator(withKnobs)
   .addDecorator(story => (
     <StoryWrapper

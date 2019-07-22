@@ -88,6 +88,7 @@ class Tabs {
       this.moreItem.classList.add('ecl-tabs__more--active');
     }
 
+    /* eslint-disable-next-line unicorn/prefer-node-append */
     this.moreContent.appendChild(item);
   }
 
