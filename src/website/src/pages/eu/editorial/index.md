@@ -1,6 +1,6 @@
 ---
-title: Utilities
-order: 13
+title: Editorial
+order: 6
 ---
 
 (work in progress)
