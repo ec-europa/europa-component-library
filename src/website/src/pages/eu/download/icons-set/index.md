@@ -1,6 +1,6 @@
 ---
-title: Utilities
-order: 13
+title: Icons set
+order: 4
 ---
 
 (work in progress)

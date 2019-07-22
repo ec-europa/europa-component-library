@@ -1,6 +1,6 @@
 ---
-title: Utilities
-order: 13
+title: Search
+order: 2
 ---
 
 (work in progress)
