@@ -4,7 +4,8 @@ order: 2
 ---
 
 import Playground from '@ecl/website-components/Playground';
-import CheckboxGroup from '@ecl/ec-react-component-checkbox/src/CheckboxGroup';
+import CheckboxGroup from '@ecl/eu-react-component-checkbox/src/CheckboxGroup';
+import Checkbox from '@ecl/eu-react-component-checkbox/src/Checkbox';
 
 import demoContentDefault from '@ecl/eu-specs-checkbox/demo/data--default';
 import demoContentInvalid from '@ecl/eu-specs-checkbox/demo/data--invalid';
@@ -14,9 +15,9 @@ import demoContentOptInOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in
 ## Default checkbox group
 
 <Playground
-  system="eu"
   selectedKind="components-forms-checkbox"
   selectedStory="default"
+  system="eu"
 >
   <CheckboxGroup {...demoContentDefault} />
 </Playground>
@@ -24,29 +25,57 @@ import demoContentOptInOutInvalid from '@ecl/eu-specs-checkbox/demo/data--opt-in
 ## Invalid checkbox group
 
 <Playground
-  system="eu"
   selectedKind="components-forms-checkbox"
   selectedStory="default"
+  system="eu"
 >
   <CheckboxGroup {...demoContentInvalid} />
 </Playground>
 
-## Binary checkbox group
+## Opt-in / Opt-out checkbox group
 
 <Playground
-  system="eu"
   selectedKind="components-forms-checkbox"
   selectedStory="opt-in-out"
+  system="eu"
 >
   <CheckboxGroup {...demoContentOptInOut} />
 </Playground>
 
-## Binary invalid checkbox group
+## Opt-in / Opt-out invalid checkbox group
 
 <Playground
-  system="eu"
   selectedKind="components-forms-checkbox"
   selectedStory="opt-in-out"
+  system="eu"
 >
   <CheckboxGroup {...demoContentOptInOutInvalid} />
+</Playground>
+
+## Mandatory checkbox
+
+<Playground
+  selectedKind="components-forms-checkbox"
+  selectedStory="opt-in-out"
+  system="eu"
+>
+  <Checkbox
+    mandatory="true"
+    helperText="Please check this box."
+    label="Mandatory checkbox"
+  />
+</Playground>
+
+## Invalid checkbox
+
+<Playground
+  selectedKind="components-forms-checkbox"
+  selectedStory="invalid checkbox"
+  system="eu"
+>
+  <Checkbox
+    invalid="true"
+    invalidText="There was an error."
+    label="Invalid checkbox"
+  />
 </Playground>
