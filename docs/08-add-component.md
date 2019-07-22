@@ -17,6 +17,11 @@ The name of the component is prefixed by _{system}-component_
   - package.json
   - README.md
 
+Concerning dependencies in the `package.json` file, the following rule should be applied:
+
+- {system}-base should be put in `dependencies`
+- no need to put the specs in `devDependencies` for now
+
 ### Utilities
 
 There is a set of packages in the list of the vanilla ones which provides utility classes to be applied to the layouts when needed. Mind the fact that those utilities are not meant to be used in the component definition but only when defining layouts.
@@ -43,8 +48,6 @@ At the moment, the available presets are:
 - **{system}-preset-full**: final CSS, JS and images distributed in the `dist` folder with all the components included.
 - **{system}-preset-website**: final CSS, JS and images distributed in the `dist` folder, with extra global CSS rules ; recommended for projects using ECL.
 
-## React
-
 ## Specs
 
 This is the npm package containing the data for the component, templates and utilities demo. They can contain several data files, depending on the complexity and variants of the component.
@@ -56,6 +59,8 @@ This is the npm package containing the data for the component, templates and uti
   - demo/data--{variant}.js
   - package.json
 
+## React
+
 ### Components
 
 It's a React component defined as a npm package, so it is made in its simplest form of a JSX file defining the component and a package.json describing the package. More complex component can use multiple `.jsx` files.
@@ -64,8 +69,13 @@ It's a React component defined as a npm package, so it is made in its simplest f
 - **base_name**: {component_name}
 - **package_name**: {system}-react-component-{component_name}
 - **files**:
-  - {component_name}.jsx
+  - src/{component_name}.jsx
   - package.json
+
+Concerning dependencies in the `package.json` file, the following rule should be applied:
+
+- packages directly used by the component (via import or require) should be put in `dependencies`
+- all other packages (vanilla, specs,...) should be put in `devDependencies`
 
 #### Storybook
 

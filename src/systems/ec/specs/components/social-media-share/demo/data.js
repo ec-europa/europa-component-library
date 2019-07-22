@@ -42,6 +42,25 @@ module.exports = {
     },
     {
       href: '/example',
+      label: 'Instagram',
+      className: 'ecl-social-media-share__link--instagram',
+      variant: 'standalone',
+      iconPosition: 'before',
+      icon: [
+        {
+          shape: 'instagram',
+          size: 'xl',
+          className: '',
+        },
+        {
+          shape: 'instagram_hover',
+          size: 'xl',
+          className: 'ecl-social-media-share__icon-hover',
+        },
+      ],
+    },
+    {
+      href: '/example',
       label: 'Linkedin',
       className: 'ecl-social-media-share__link--linkedin',
       variant: 'standalone',
@@ -54,25 +73,6 @@ module.exports = {
         },
         {
           shape: 'linkedin_hover',
-          size: 'xl',
-          className: 'ecl-social-media-share__icon-hover',
-        },
-      ],
-    },
-    {
-      href: '/example',
-      label: 'Google+',
-      className: 'ecl-social-media-share__link--google',
-      variant: 'standalone',
-      iconPosition: 'before',
-      icon: [
-        {
-          shape: 'gplus',
-          size: 'xl',
-          className: '',
-        },
-        {
-          shape: 'gplus_hover',
           size: 'xl',
           className: 'ecl-social-media-share__icon-hover',
         },

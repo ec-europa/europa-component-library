@@ -1,0 +1,63 @@
+---
+title: Showcase
+order: 2
+---
+
+import Playground from '@ecl/website-components/Playground';
+import HeroBanner from '@ecl/eu-react-component-hero-banner';
+
+import demoContentImage from '@ecl/eu-specs-hero-banner/demo/data--image';
+import demoContentImageShade from '@ecl/eu-specs-hero-banner/demo/data--image-shade';
+import demoContentPrimary from '@ecl/eu-specs-hero-banner/demo/data--primary';
+import demoContentDefault from '@ecl/eu-specs-hero-banner/demo/data--default';
+import demoContentAlignLeft from '@ecl/eu-specs-hero-banner/demo/data--align-left';
+
+## Image banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banners-hero-banner"
+  selectedStory="image"
+>
+  <HeroBanner {...demoContentImage} />
+</Playground>
+
+## Shade image banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banners-hero-banner"
+  selectedStory="image-shade"
+>
+  <HeroBanner {...demoContentImageShade} />
+</Playground>
+
+## Primary banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banners-hero-banner"
+  selectedStory="primary"
+>
+  <HeroBanner {...demoContentPrimary} />
+</Playground>
+
+## Default banner
+
+<Playground
+  system="eu"
+  selectedKind="components-banners-hero-banner"
+  selectedStory="default"
+>
+  <HeroBanner {...demoContentDefault} />
+</Playground>
+
+## Align left
+
+<Playground
+  system="eu"
+  selectedKind="components-banners-hero-banner"
+  selectedStory="align-left"
+>
+  <HeroBanner {...demoContentAlignLeft} />
+</Playground>

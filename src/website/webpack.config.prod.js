@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -12,17 +12,28 @@ const autoprefixer = require('autoprefixer');
 const postcssFlexbugFixes = require('postcss-flexbugs-fixes');
 const selectorPrefixer = require('postcss-prefix-selector');
 const frontmatter = require('remark-frontmatter');
+const emoji = require('remark-emoji');
 
 const babelConfig = require('./config/babel.config');
+const lernaJson = require('../../lerna.json');
 
 const includePaths = [path.resolve(__dirname, '../../node_modules')];
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
-const publicPath = '/';
-const publicUrl = publicPath.slice(0, -1);
+const publicUrl = process.env.PUBLIC_URL || '';
+const publicPath = `${publicUrl}/`;
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
+
+let eclVersion = lernaJson.version;
+if (
+  process.env.NETLIFY === 'true' &&
+  process.env.PULL_REQUEST === 'true' &&
+  process.env.REVIEW_ID
+) {
+  eclVersion += ` - PR ${process.env.REVIEW_ID}`;
+}
 
 const cssLoader = ({ fixCode = true, prefix } = {}) => [
   {
@@ -178,12 +189,13 @@ module.exports = {
               {
                 loader: '@mdx-js/loader',
                 options: {
-                  mdPlugins: [
+                  remarkPlugins: [
                     [
                       // Removes front-matter from Markdown output
                       frontmatter,
                       { type: 'yaml', marker: '-', fence: '---' },
                     ],
+                    emoji,
                   ],
                 },
               },
@@ -262,7 +274,6 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([path.resolve(__dirname, 'public')], {}),
-    // new InterpolateHtmlPlugin(process.env),
     new HtmlWebPackPlugin({
       inject: true,
       template: path.resolve(__dirname, 'public/index.html'),
@@ -279,9 +290,13 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new InterpolateHtmlPlugin(HtmlWebPackPlugin, {
+      PUBLIC_URL: publicUrl,
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.PUBLIC_URL': JSON.stringify(publicUrl),
+      'process.env.ECL_VERSION': JSON.stringify(eclVersion),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

@@ -1,0 +1,26 @@
+diff --git a/node_modules/@storybook/ui/dist/components/preview/preview.js b/node_modules/@storybook/ui/dist/components/preview/preview.js
+index 7e4f0f3..64908e7 100644
+--- a/node_modules/@storybook/ui/dist/components/preview/preview.js
++++ b/node_modules/@storybook/ui/dist/components/preview/preview.js
+@@ -195,12 +195,6 @@ var _ref8 =
+ /*#__PURE__*/
+ _react["default"].createElement(_components.Separator, null);
+ 
+-var _ref10 =
+-/*#__PURE__*/
+-_react["default"].createElement(_components.Icons, {
+-  icon: "grid"
+-});
+-
+ var _ref11 =
+ /*#__PURE__*/
+ _react["default"].createElement(_components.Icons, {
+@@ -277,7 +271,7 @@ var getTools = (0, _memoizerific["default"])(10)(function (getElements, queryPar
+             return setGrid(!grid);
+           },
+           title: "Toggle background grid"
+-        }, _ref10);
++        }, "Grid");
+       });
+     }
+   }]);

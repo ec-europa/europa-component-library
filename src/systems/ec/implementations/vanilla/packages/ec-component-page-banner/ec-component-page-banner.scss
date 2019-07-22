@@ -7,7 +7,7 @@
 @import '@ecl/ec-base/ec-base';
 
 // Check if overridden dependencies are already loaded, if needed
-@include check-imports(('ec-component-button'));
+@include check-imports(('ec-component-button', 'ec-component-link'));
 
 @mixin ecl-page-banner(
   $background-color-default: $ecl-color-grey-5,
@@ -62,6 +62,17 @@
   }
 
   .ecl-page-banner__button {
+    margin-top: $ecl-spacing-m;
+  }
+
+  /* DEPRECATED */
+  .ecl-page-banner__link {
+    font-weight: $ecl-font-weight-bold;
+    margin-top: $ecl-spacing-m;
+    padding: $ecl-spacing-m $ecl-spacing-s;
+  }
+
+  .ecl-page-banner__link-cta {
     margin-top: $ecl-spacing-m;
   }
 
@@ -149,6 +160,13 @@
     .ecl-page-banner__baseline {
       color: $baseline-color-primary;
     }
+
+    /* DEPRECATED */
+    .ecl-page-banner__link,
+    .ecl-page-banner__link:hover,
+    .ecl-page-banner__link:focus {
+      color: $baseline-color-primary;
+    }
   }
 
   /*
@@ -227,6 +245,14 @@
       }
 
       .ecl-page-banner__baseline {
+        color: $baseline-color-image-shade;
+      }
+
+      /* DEPRECATED */
+      /* stylelint-disable-next-line no-descending-specificity */
+      .ecl-page-banner__link,
+      .ecl-page-banner__link:hover,
+      .ecl-page-banner__link:focus {
         color: $baseline-color-image-shade;
       }
     }

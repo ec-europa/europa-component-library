@@ -1,1 +1,1 @@
-# EC Icons
+# EC Social icons

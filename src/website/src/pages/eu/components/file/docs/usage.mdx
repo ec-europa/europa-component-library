@@ -1,0 +1,66 @@
+---
+title: Usage
+order: 1
+---
+
+import { Paragraph, Anatomy, Link } from '@ecl/website-components';
+
+<Paragraph size="lead">
+  The file component <strong>delivers downloadable content</strong> to users in
+  an easy to use container. When the file is available in more than one language
+  the file component makes these files accessible in an expandable sub
+  container.
+</Paragraph>
+
+## Anatomy
+
+<Anatomy
+  image="https://inno-ecl.s3.amazonaws.com/media/images/EC/File/Download2.jpg"
+  alt="Anatomy of file download"
+  legend={{
+    items: [
+      {
+        color: '#404040',
+        label: 'Mandatory',
+      },
+      {
+        color: '#004494',
+        label: 'Optional',
+      },
+    ],
+  }}
+/>
+
+### Default
+
+| Elements     | Mandatory | Description                                                          |
+| ------------ | --------- | -------------------------------------------------------------------- |
+| Heading      | Yes       | The Heading must describe the downloadable file accurately           |
+| File Details | Yes       | File Details displays the **file language, file type and file size** |
+| Link         | Yes       | The Link downloads the file when selected                            |
+
+### Conditional (translated/multiple languages)
+
+| Elements    | Mandatory | Description                                                                                                     |
+| ----------- | --------- | --------------------------------------------------------------------------------------------------------------- |
+| Button      | Yes       | The Button, when selected, displays the file in different languages available, **below the download container** |
+| Language    | Yes       | The Language of the downloaded content **acting as a heading**                                                  |
+| Helper Text | No        | Helper Text assists the user in selecting the appropriate file and language                                     |
+
+## Do's
+
+- **the heading of each item should be** short, distinct and indicative
+- always include the **file language, file type and file size**
+
+## Don'ts
+
+- **don't use without additional relevant content** on the same page
+- **don't use the same heading as the file name**
+
+## When to use
+
+- when you want to include additional relevant or supporting documents for download
+
+## When not to use
+
+- Do not use to include **important information** that should be present at all time

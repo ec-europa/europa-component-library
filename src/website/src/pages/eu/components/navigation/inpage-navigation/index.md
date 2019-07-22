@@ -1,5 +1,8 @@
 ---
 title: Inpage navigation
 defaultTab: usage
-status: planned
+status: ready
+playground:
+  system: eu
+  path: /story/components-navigation-in-page-navigation--default
 ---

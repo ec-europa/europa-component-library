@@ -1,38 +1,56 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Loadable from 'react-loadable';
 
 import HomePage from './HomePage';
 import Example from './Example';
 import PageNotFound from './404';
 
-const ECRoutes = Loadable({
-  loader: () => import('./Ec'),
-  loading: () => null,
-});
+import HomePageEC from '../pages/ec/index.md';
+import HomePageEU from '../pages/eu/index.md';
 
-const EURoutes = Loadable({
-  loader: () => import('./Eu'),
-  loading: () => null,
-});
+import Skeleton from './Skeleton';
 
-class MainRoutes extends React.Component {
-  componentDidMount() {
-    // ECRoutes.preload();
-    // EURoutes.preload();
-  }
+const ECRoutes = lazy(() => import('./Ec'));
+const EURoutes = lazy(() => import('./Eu'));
 
-  render() {
-    return (
-      <Switch>
-        <Route exact strict path="/" component={HomePage} />
-        <Route strict path="/example" component={Example} />
-        <Route path="/ec/" strict component={ECRoutes} />
-        <Route path="/eu/" strict component={EURoutes} />
-        <Route component={PageNotFound} />
-      </Switch>
-    );
-  }
-}
+const WaitingEC = props => (
+  <Suspense
+    fallback={
+      <Skeleton
+        HomePage={HomePageEC}
+        prefix="/ec"
+        title="EC Homepage"
+        isLoading
+      />
+    }
+  >
+    <ECRoutes {...props} />
+  </Suspense>
+);
+
+const WaitingEU = props => (
+  <Suspense
+    fallback={
+      <Skeleton
+        HomePage={HomePageEU}
+        prefix="/eu"
+        title="EU Homepage"
+        isLoading
+      />
+    }
+  >
+    <EURoutes {...props} />
+  </Suspense>
+);
+
+const MainRoutes = () => (
+  <Switch>
+    <Route exact strict path="/" component={HomePage} />
+    <Route strict path="/example" component={Example} />
+    <Route path="/ec/" strict component={WaitingEC} />
+    <Route path="/eu/" strict component={WaitingEU} />
+    <Route component={PageNotFound} />
+  </Switch>
+);
 
 export default MainRoutes;

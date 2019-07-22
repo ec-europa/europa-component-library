@@ -1,0 +1,18 @@
+diff --git a/node_modules/@storybook/addon-cssresources/dist/index.js b/node_modules/@storybook/addon-cssresources/dist/index.js
+index cfc21f8..6af9c02 100644
+--- a/node_modules/@storybook/addon-cssresources/dist/index.js
++++ b/node_modules/@storybook/addon-cssresources/dist/index.js
+@@ -68,10 +68,11 @@ var updateElement = function updateElement(id, code, value) {
+       element = _getElement.element,
+       created = _getElement.created;
+ 
+-  element.querySelectorAll('link').forEach(function (child) {
++
++  Array.prototype.slice.call(element.querySelectorAll('link')).forEach(function (child) {
+     return changeMediaAttribute(child, value);
+   });
+-  element.querySelectorAll('style').forEach(function (child) {
++  Array.prototype.slice.call(element.querySelectorAll('style')).forEach(function (child) {
+     return changeMediaAttribute(child, value);
+   });
+ 

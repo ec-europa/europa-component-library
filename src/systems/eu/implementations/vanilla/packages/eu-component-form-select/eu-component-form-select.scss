@@ -12,6 +12,8 @@
   $border-color-hover: $ecl-color-blue-100,
   $border-color-focus: $ecl-color-yellow-100,
   $border-width-focus: 3px,
+  $max-width: 31.25rem,
+  $min-width: 15rem,
   $arrow-width: 2.75rem
 ) {
   .ecl-select {
@@ -24,11 +26,11 @@
     display: block;
     font: $ecl-font-m;
     margin: 0;
-    max-width: 100%;
     padding: calc(#{$ecl-spacing-s} - #{$border-width})
       calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width})
       calc(#{$ecl-spacing-s} - #{$border-width})
       calc(#{$ecl-spacing-s} - #{$border-width});
+    width: 100%;
     z-index: 1;
 
     &::-ms-expand {
@@ -40,21 +42,18 @@
     }
 
     &:focus {
-      border-color: $border-color-focus;
-      border-width: $border-width-focus;
-      outline: none;
-      padding: calc(#{$ecl-spacing-s} - #{$border-width-focus})
-        calc(#{$ecl-spacing-s} + #{$arrow-width} - #{$border-width-focus})
-        calc(#{$ecl-spacing-s} - #{$border-width-focus})
-        calc(#{$ecl-spacing-s} - #{$border-width-focus});
+      outline: $border-width-focus solid $border-color-focus;
+      outline-offset: -3px;
     }
   }
 
   .ecl-select__container {
     background-color: $ecl-color-white-100;
     display: inline-flex;
-    max-width: 100%;
+    max-width: $max-width;
+    min-width: $min-width;
     position: relative;
+    width: 100%;
   }
 
   .ecl-select__icon {

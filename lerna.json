@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2-dev",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "changelog": {
@@ -15,9 +15,11 @@
     "cacheDir": ".changelog"
   },
   "command": {
+    "version": {
+      "allowBranch": "chore/release-*"
+    },
     "publish": {
-      "allowBranch": "v2",
-      "bump": "major"
+      "allowBranch": "v2-dev"
     },
     "ignoreChanges": ["**/test/**", "**/*.md"]
   }

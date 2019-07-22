@@ -9,9 +9,5 @@ module.exports = {
   download: {
     label: 'Download',
     href: '/example',
-    icon: {
-      shape: 'ui--download',
-      size: 'fluid',
-    },
   },
 };

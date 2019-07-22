@@ -1,22 +1,17 @@
-import React, { Component, Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Helmet from 'react-helmet';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import '@ecl/eu-preset-full/dist/styles/ecl-eu-preset-full.css';
 import merge from 'deepmerge';
 
 // Helpers
 import sortPages from '../utils/nav-sort';
 
-// Layout
-import Navigation from '../components/Navigation/Navigation';
-import MainContainer from '../components/MainContainer/MainContainer';
-
 // Static routes
 import HomePage from '../pages/eu/index.md';
-import PageNotFound from './404';
 
-import SimplePage from '../components/SimplePage/SimplePage';
 import DocPage from '../components/DocPage/DocPage';
+
+import Skeleton from './Skeleton';
 
 const euPages = require.context('../pages/eu', true, /\.mdx?$/);
 
@@ -35,7 +30,7 @@ const extractPageInfo = (page, key) => {
       {},
       {
         url,
-        isTab: key.indexOf('docs') >= 0,
+        isTab: key.indexOf('docs') >= 0, // eslint-disable-line unicorn/prefer-includes
       },
       page.attributes,
     ]),
@@ -74,71 +69,15 @@ const pagesToRoutes = pages =>
     />
   ));
 
-class EURoutes extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      sidebarOpen:
-        Math.max(document.documentElement.clientWidth, window.innerWidth || 0) >
-        1140,
-      forceRefresh: false,
-    };
-
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-  }
-
-  componentDidMount() {
-    document.body.classList.add('eu');
-
-    // Force refresh if is mounted on a real client (two-pass rendering)
-    this.setState({
-      forceRefresh: navigator.userAgent !== 'ReactSnap',
-    });
-  }
-
-  componentWillUnmount() {
-    document.body.classList.remove('eu');
-  }
-
-  toggleSidebar() {
-    this.setState(prevState => ({
-      sidebarOpen: !prevState.sidebarOpen,
-    }));
-  }
-
-  render() {
-    const { sidebarOpen, forceRefresh } = this.state;
-
-    return (
-      <Fragment>
-        <Navigation
-          pages={sortedPages[0].children}
-          prefix="/eu"
-          sidebarOpen={sidebarOpen}
-          onToggleSidebar={this.toggleSidebar}
-          forceRefresh={forceRefresh}
-        />
-        <MainContainer sidebarOpen={sidebarOpen} forceRefresh={forceRefresh}>
-          <Switch>
-            <Route
-              exact
-              strict
-              path="/eu/"
-              component={() => (
-                <SimplePage>
-                  <Helmet title="EU Homepage" />
-                  <HomePage />
-                </SimplePage>
-              )}
-            />
-            {pagesToRoutes(sortedPages)}
-            <Route component={PageNotFound} />
-          </Switch>
-        </MainContainer>
-      </Fragment>
-    );
-  }
-}
+const EURoutes = () => (
+  <Skeleton
+    HomePage={HomePage}
+    prefix="/eu"
+    title="EU Homepage"
+    system="eu"
+    pages={sortedPages[0].children}
+    routes={pagesToRoutes(sortedPages)}
+  />
+);
 
 export default EURoutes;

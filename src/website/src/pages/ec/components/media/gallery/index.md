@@ -1,5 +1,8 @@
 ---
 title: Gallery
 defaultTab: usage
-status: planned
+status: ready
+playground:
+  system: ec
+  path: /story/components-gallery--default
 ---

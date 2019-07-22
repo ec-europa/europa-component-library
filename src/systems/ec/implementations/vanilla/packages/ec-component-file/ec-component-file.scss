@@ -63,19 +63,9 @@
   }
 
   .ecl-file__download {
-    justify-content: space-between;
+    font-weight: $ecl-font-weight-bold;
     margin-top: $ecl-spacing-l;
     width: 100%;
-
-    &:hover,
-    &:focus {
-      color: $ecl-color-white-100;
-      text-decoration: none;
-    }
-
-    &:focus {
-      outline-offset: -3px;
-    }
   }
 
   .ecl-file__translation-container {
@@ -155,7 +145,7 @@
       display: block;
     }
 
-    .ecl-file__translation-toggle .ecl-link__icon {
+    .ecl-file__translation-toggle .ecl-button__icon {
       transform: rotate(0);
     }
   }

@@ -1,5 +1,11 @@
 @import '@ecl/ec-theme-default/index';
 
+.group-list-parent {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+}
+
 .group-list-item {
   background-color: $ecl-color-grey-5;
   border-width: 0;
@@ -23,12 +29,6 @@
   }
 }
 
-.group-list-item > span {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-}
-
 .group-list-item:hover,
 .group-list-item:focus {
   background-color: $ecl-color-grey-10;
@@ -39,7 +39,25 @@
   background-color: $ecl-color-grey-25;
 }
 
+.button {
+  appearance: none;
+  background-color: transparent;
+  border-width: 0;
+  padding: $ecl-spacing-s;
+}
+
+.button:hover,
+.button:focus {
+  background-color: $ecl-color-grey-10;
+  outline: none;
+}
+
+.button:active {
+  background-color: $ecl-color-grey-25;
+}
+
 .icon {
+  display: block;
   height: 0.875rem;
   width: 0.875rem;
   transition: transform 200ms ease-in-out;
