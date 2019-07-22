@@ -1,6 +1,6 @@
 ---
-title: Utilities
-order: 13
+title: UI patterns
+order: 9
 ---
 
 (work in progress)
