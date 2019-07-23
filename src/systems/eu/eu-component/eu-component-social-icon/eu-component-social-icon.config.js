@@ -14,19 +14,13 @@ module.exports = {
           <strong>.ecl-social-icon--${item.context.variant}</strong>
         </div>
         <div class="ecl-col">
-          <a href="#" class="ecl-link ecl-social-icon ecl-social-icon--${
-            item.context.variant
-          }">${item.label}</a>
+          <a href="#" class="ecl-link ecl-social-icon ecl-social-icon--${item.context.variant}">${item.label}</a>
         </div>
         <div class="ecl-col">
-          <span class="ecl-social-icon ecl-social-icon--${
-            item.context.variant
-          }">${item.label}</span>
+          <span class="ecl-social-icon ecl-social-icon--${item.context.variant}">${item.label}</span>
         </div>
         <div class="ecl-col">
-          <span class="ecl-social-icon ecl-social-icon--smaller ecl-social-icon--${
-            item.context.variant
-          }">${item.label}</span>
+          <span class="ecl-social-icon ecl-social-icon--smaller ecl-social-icon--${item.context.variant}">${item.label}</span>
         </div>
       </div>
       <!-- End: @${item.handle} -->\n
