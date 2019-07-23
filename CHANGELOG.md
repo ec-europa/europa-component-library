@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.10.0 (2019-07-23)
+
+#### :rocket: New Feature
+
+- [#1149](https://github.com/ec-europa/europa-component-library/pull/1149) feat(buttons): add disabled state - INNO-1506. ([@yhuard](https://github.com/yhuard))
+
+#### :bug: Bug Fix
+
+- [#1224](https://github.com/ec-europa/europa-component-library/pull/1224) fix(ecl-editor): revert changes on blockquote - INNO-1664. ([@yhuard](https://github.com/yhuard))
+
+#### :house: Internal
+
+- [#1144](https://github.com/ec-europa/europa-component-library/pull/1144) chore: update dependencies - no issue. ([@yhuard](https://github.com/yhuard))
+
+#### Committers: 1
+
+- Yannick Huard ([yhuard](https://github.com/yhuard))
+
 ## 1.9.0 (2019-04-25)
 
 #### :bug: Bug Fix
