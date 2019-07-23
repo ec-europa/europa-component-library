@@ -27,9 +27,6 @@ const baseUrl = useLocalServer
   ? 'http://localhost:3000/'
   : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env.DRONE_BUILD_NUMBER}/`;
 
-console.log('isDrone', isDrone);
-console.log('baseUrl', baseUrl);
-
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
 exports.config = {
