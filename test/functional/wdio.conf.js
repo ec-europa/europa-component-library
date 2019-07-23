@@ -26,9 +26,7 @@ const useLocalServer = !isDrone; // with drone, builds are pushed onto AWS S3
 const useSauceConnect = useLocalServer;
 const baseUrl = useLocalServer
   ? 'http://localhost:3000/'
-  : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${
-      process.env.DRONE_BUILD_NUMBER
-    }/`;
+  : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env.DRONE_BUILD_NUMBER}/`;
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 

@@ -17,9 +17,7 @@ module.exports = {
   preview: '@preview-palette',
   collated: true,
   collator(markup, item) {
-    return `<!-- Start: @${item.handle} -->\n<li class="palette palette--${
-      item.context.category
-    }">\n${markup}\n</li>\n<!-- End: @${item.handle} -->\n`;
+    return `<!-- Start: @${item.handle} -->\n<li class="palette palette--${item.context.category}">\n${markup}\n</li>\n<!-- End: @${item.handle} -->\n`;
   },
   default: 'ecl-color-primary',
   variants,

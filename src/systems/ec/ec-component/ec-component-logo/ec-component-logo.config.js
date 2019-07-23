@@ -48,9 +48,7 @@ module.exports = {
       <!-- Start: @${item.handle} -->\n
       ${
         item.context.global && item.context.global.language
-          ? `<div class="language-${
-              item.context.global.language
-            } ecl-u-mt-l">\n`
+          ? `<div class="language-${item.context.global.language} ecl-u-mt-l">\n`
           : `<div class="ecl-u-mt-l">\n`
       }
         <h3 class="ecl-heading ecl-heading--h3">${item.label}\n</h3>\n
