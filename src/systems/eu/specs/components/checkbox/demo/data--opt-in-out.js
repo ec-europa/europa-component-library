@@ -1,6 +1,6 @@
 module.exports = {
-  labelId: 'checkbox-opt-in-out-label',
-  label: 'Subscribe to a newsletter',
+  legendId: 'checkbox-opt-in-out-label',
+  legend: 'Subscribe to a newsletter',
   helperId: 'checkbox-opt-in-out-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
@@ -12,6 +12,7 @@ module.exports = {
       value: 'inno',
       label: 'INNO newsletter',
       defaultChecked: true,
+      mandatory: true,
     },
   ],
 };

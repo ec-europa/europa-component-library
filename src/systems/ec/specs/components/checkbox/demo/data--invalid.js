@@ -1,10 +1,10 @@
 module.exports = {
-  labelId: 'checkbox-invalid-label',
-  label: 'Select your preferred destinations',
-  helperId: 'checkbox-invalid-helper',
+  helperId: 'checkbox-default-helper',
   helperText: 'Helper text for the group',
-  invalidText: 'Error message for the group',
   invalid: true,
+  invalidText: 'Error message for the group',
+  label: 'Select your preferred destinations',
+  labelId: 'checkbox-default-label',
   name: 'checkbox-invalid',
   items: [
     {

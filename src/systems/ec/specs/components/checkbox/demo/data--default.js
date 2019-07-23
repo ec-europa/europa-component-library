@@ -1,9 +1,9 @@
 module.exports = {
-  labelId: 'checkbox-default-label',
-  label: 'Select your preferred destinations',
   helperId: 'checkbox-default-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
+  legend: 'Select your preferred destinations',
+  legendId: 'checkbox-default-label',
   name: 'checkbox-default',
   items: [
     {

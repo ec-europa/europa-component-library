@@ -14,6 +14,7 @@ const Checkbox = ({
   invalid,
   invalidText,
   label,
+  labelClassName,
   mandatory,
   name,
   ...props
@@ -38,6 +39,7 @@ const Checkbox = ({
 
         <label
           className={classnames(
+            labelClassName,
             'ecl-form-label ecl-form-label--inline ecl-checkbox__label',
             {
               'ecl-form-label--invalid': invalid,
@@ -81,6 +83,7 @@ Checkbox.propTypes = {
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
   label: PropTypes.string,
+  labelClassName: PropTypes.string,
   mandatory: PropTypes.bool,
   name: PropTypes.string,
 };
@@ -94,6 +97,7 @@ Checkbox.defaultProps = {
   invalid: false,
   invalidText: '',
   label: '',
+  labelClassName: '',
   mandatory: false,
   name: '',
 };
