@@ -19,7 +19,6 @@ const isDrone = 'DRONE' in process.env && 'CI' in process.env;
 const tunnelIdentifier = isDrone ? process.env.DRONE_JOB_NUMBER : '';
 
 // Either run selenium locally or use SauceLabs, Browserstack, etc.
-const localSelenium = false; // change this value manually when you want to test lcoally
 const useLocalServer = !isDrone; // with drone, builds are pushed onto AWS S3
 
 // Other properties
@@ -27,6 +26,9 @@ const useSauceConnect = useLocalServer;
 const baseUrl = useLocalServer
   ? 'http://localhost:3000/'
   : `http://inno-ecl.s3-website-eu-west-1.amazonaws.com/build/${process.env.DRONE_BUILD_NUMBER}/`;
+
+console.log('isDrone', isDrone);
+console.log('baseUrl', baseUrl);
 
 require('dotenv').config(); // eslint-disable-line import/no-extraneous-dependencies
 
@@ -103,6 +105,7 @@ exports.config = {
   // SauceLabs config
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
+  region: 'eu',
   sauceConnect: useSauceConnect,
   sauceConnectOpts: {
     tunnelIdentifier,
@@ -117,7 +120,7 @@ exports.config = {
   // Test runner services
   services: [
     ...(useLocalServer ? ['static-server'] : []),
-    ...(localSelenium ? ['selenium-standalone'] : ['sauce']),
+    'sauce',
     'visual-regression',
   ],
 

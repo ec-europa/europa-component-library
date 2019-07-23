@@ -23,12 +23,12 @@ matrix:
 
 pipeline:
   install:
-    image: node:carbon
+    image: node:dubnium
     commands:
       - yarn install --frozen-lockfile
 
   conventions:
-    image: node:carbon
+    image: node:dubnium
     commands:
       - yarn test:coding-conventions
       - yarn test:independent-sass
@@ -38,7 +38,7 @@ pipeline:
         TEST: conventions
 
   examples:
-    image: node:carbon
+    image: node:dubnium
     commands:
       - cd examples/webpack3 && yarn build --display=errors-only
       - cd ../webpack4 && yarn build --display=errors-only
@@ -49,7 +49,7 @@ pipeline:
         TEST: examples
 
   build:
-    image: node:carbon
+    image: node:dubnium
     commands:
       - if [ "${DRONE_BRANCH}" = "v1" ] || [ "${DRONE_BUILD_EVENT}" = "tag" ] || yarn updated --ignoreCache ; then
         yarn dist ;
@@ -75,7 +75,7 @@ pipeline:
         TEST: functional
 
   deploy-pages:
-    image: node:carbon
+    image: node:dubnium
     secrets: [GH_TOKEN]
     commands:
       - ./scripts/deploy.sh
@@ -101,7 +101,7 @@ pipeline:
         TEST: functional
 
   functional:
-    image: node:carbon
+    image: node:dubnium
     secrets: [SAUCE_USERNAME, SAUCE_ACCESS_KEY]
     commands:
       - if [ -d "./dist" ] ; then
