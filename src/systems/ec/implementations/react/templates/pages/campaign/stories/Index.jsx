@@ -104,7 +104,25 @@ html {
     );
   })
   .add('Campaign', () => {
-    const { heroBanner: heroBannerData, ...otherData } = defaultData;
+    const {
+      siteHeader: siteHeaderData,
+      heroBanner: heroBannerData,
+      ...otherData
+    } = defaultData;
+
+    const isMultilingual = boolean('Is multilingual?', true, 'Site header');
+
+    const displaySearchForm = boolean(
+      'Display search form?',
+      true,
+      'Site header'
+    );
+
+    const siteHeader = {
+      ...siteHeaderData,
+      languageSelector: isMultilingual ? siteHeaderData.languageSelector : null,
+      searchForm: displaySearchForm ? siteHeaderData.searchForm : null,
+    };
 
     const heroBanner = {
       ...heroBannerData,
@@ -121,5 +139,11 @@ html {
         label: text('Link label', heroBannerData.link.label, 'Hero banner'),
       },
     };
-    return <CampaignPage {...otherData} heroBanner={heroBanner} />;
+    return (
+      <CampaignPage
+        {...otherData}
+        siteHeader={siteHeader}
+        heroBanner={heroBanner}
+      />
+    );
   });
