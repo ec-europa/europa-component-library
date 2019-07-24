@@ -30,12 +30,25 @@
     max-width: 100%;
   }
 
+  .ecl-search-form__label {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    visibility: visible;
+    white-space: nowrap;
+    width: 1px;
+  }
+
   .ecl-search-form__text-input {
     border-bottom-color: $border-color;
     border-left-color: $border-color;
     border-right-width: 0;
     border-top-color: $border-color;
-    margin: 0;
+    margin-top: 0 !important;
     max-width: 100%;
   }
 
