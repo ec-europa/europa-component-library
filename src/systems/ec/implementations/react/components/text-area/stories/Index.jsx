@@ -1,7 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, number, text } from '@storybook/addon-knobs';
+import {
+  withKnobs,
+  boolean,
+  number,
+  text,
+  select,
+} from '@storybook/addon-knobs';
 
 import demoContentDefault from '@ecl/ec-specs-text-area/demo/data--default';
 
@@ -23,6 +29,14 @@ storiesOf('Components|Forms/TextArea', module)
         required={boolean('Required', true)}
         requiredText={text('Required text', '*')}
         optionalText={text('Optional text', ' (optional)')}
+        width={select(
+          'Width',
+          {
+            medium: 'md',
+            large: 'lg',
+          },
+          demoContentDefault.width
+        )}
       />
     ),
     {

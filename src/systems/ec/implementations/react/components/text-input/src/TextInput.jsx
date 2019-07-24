@@ -15,11 +15,13 @@ const TextInput = ({
   required,
   requiredText,
   type,
+  width,
   className,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-text-input', {
     'ecl-text-input--invalid': invalid,
+    [`ecl-text-input--${width}`]: width,
   });
 
   return (
@@ -87,6 +89,7 @@ TextInput.propTypes = {
   required: PropTypes.bool,
   requiredText: PropTypes.string,
   type: PropTypes.string,
+  width: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -102,6 +105,7 @@ TextInput.defaultProps = {
   required: false,
   requiredText: '',
   type: 'text',
+  width: '',
   className: '',
 };
 

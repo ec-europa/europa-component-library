@@ -15,11 +15,13 @@ const TextArea = ({
   required,
   requiredText,
   rows,
+  width,
   className,
   ...props
 }) => {
   const classNames = classnames(className, 'ecl-text-area', {
     'ecl-text-area--invalid': invalid,
+    [`ecl-text-area--${width}`]: width,
   });
 
   return (
@@ -86,6 +88,7 @@ TextArea.propTypes = {
   required: PropTypes.bool,
   requiredText: PropTypes.string,
   rows: PropTypes.number,
+  width: PropTypes.string,
   className: PropTypes.string,
 };
 
@@ -101,6 +104,7 @@ TextArea.defaultProps = {
   required: false,
   requiredText: '',
   rows: 4,
+  width: '',
   className: '',
 };
 

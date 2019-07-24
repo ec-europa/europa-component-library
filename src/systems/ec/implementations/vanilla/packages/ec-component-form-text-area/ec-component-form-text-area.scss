@@ -40,6 +40,26 @@
     }
   }
 
+  .ecl-text-area--md {
+    width: 100%;
+
+    @include ecl-media-breakpoint-up('md') {
+      width: 50%;
+    }
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: 253px;
+    }
+  }
+
+  .ecl-text-area--lg {
+    width: 100%;
+
+    @include ecl-media-breakpoint-up('lg') {
+      width: 443px;
+    }
+  }
+
   .ecl-text-area[disabled],
   .ecl-text-area--disabled,
   .ecl-text-area[readonly],
