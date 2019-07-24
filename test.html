@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link
+      rel="stylesheet"
+      href="dist/packages/ec-preset-full/styles/ecl-ec-preset-full.css"
+      media="screen"
+    />
+    <script
+      type="text/javascript"
+      src="dist/packages/ec-preset-full/scripts/ecl-ec-preset-full.js"
+    ></script>
+  </head>
+  <body>
+    <div
+      role="alert"
+      class="ecl-message ecl-message--info"
+      data-ecl-message="true"
+    >
+      <svg
+        focusable="false"
+        aria-hidden="true"
+        class="ecl-message__icon ecl-icon ecl-icon--l"
+      >
+        <use
+          xlink:href="dist/packages/ec-preset-full/images/icons/sprites/icons.svg#notifications--information"
+        ></use>
+      </svg>
+      <div class="ecl-message__content">
+        <button
+          data-ecl-message-close="true"
+          type="button"
+          class="ecl-message__close ecl-button ecl-button--ghost"
+        >
+          <span class="ecl-button__container"
+            ><span class="ecl-button__label" data-ecl-label="true">Close</span
+            ><svg
+              focusable="false"
+              aria-hidden="true"
+              data-ecl-icon="true"
+              class="ecl-button__icon ecl-button__icon--after ecl-icon ecl-icon--s"
+            >
+              <use
+                xlink:href="dist/packages/ec-preset-full/images/icons/sprites/icons.svg#ui--close"
+              ></use></svg
+          ></span>
+        </button>
+        <div class="ecl-message__title">Information message</div>
+        <p class="ecl-message__description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+          accumsan semper lorem, ac mollis lacus tincidunt eu. Duis scelerisque
+          diam eu tempus fringilla.
+        </p>
+      </div>
+    </div>
+    <script>
+      ECL.autoInit();
+    </script>
+  </body>
+</html>
