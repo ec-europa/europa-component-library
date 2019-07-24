@@ -25,9 +25,9 @@ storiesOf('Components|Forms/Text field', module)
         width={select(
           'Width',
           {
-            small: 'sm',
-            medium: 'md',
-            large: 'lg',
+            small: 's',
+            medium: 'm',
+            large: 'l',
           },
           demoContentDefault.width
         )}

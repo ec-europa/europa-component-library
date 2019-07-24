@@ -18,6 +18,7 @@
     background-color: $ecl-color-white-100;
     border: $border-width solid $border-color;
     border-radius: 0;
+    box-shadow: none;
     box-sizing: border-box;
     color: $ecl-color-text;
     display: block;
@@ -26,7 +27,6 @@
     max-width: 100%;
     padding: calc(#{$padding-vertical} - #{$border-width})
       calc(#{$padding-horizontal} - #{$border-width});
-    width: 100%;
 
     &:hover {
       outline: 1px solid $ecl-color-blue-100;
@@ -40,7 +40,7 @@
     }
   }
 
-  .ecl-text-area--md {
+  .ecl-text-area--m {
     width: 100%;
 
     @include ecl-media-breakpoint-up('md') {
@@ -52,7 +52,7 @@
     }
   }
 
-  .ecl-text-area--lg {
+  .ecl-text-area--l {
     width: 100%;
 
     @include ecl-media-breakpoint-up('lg') {

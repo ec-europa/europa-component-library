@@ -19,6 +19,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     type="text"
     label={demoContentDefault.label}
     helperText="This is the input's helper text."
+    width={demoContentDefault.width}
   />
 </Playground>
 
@@ -36,6 +37,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     label={demoContentDefault.label}
     helperText="This is the input's helper text."
     disabled
+    width={demoContentDefault.width}
   />
 </Playground>
 
@@ -54,6 +56,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     helperText="This is the input's helper text."
     invalid
     invalidText="This is the error message"
+    width={demoContentDefault.width}
   />
 </Playground>
 
@@ -72,6 +75,7 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     helperText="This is the input's helper text."
     required
     requiredText="*"
+    width={demoContentDefault.width}
   />
 </Playground>
 
@@ -89,5 +93,59 @@ import demoContentDefault from '@ecl/ec-specs-text-input/demo/data--default';
     label={demoContentDefault.label}
     helperText="This is the input's helper text."
     optionalText=" (optional)"
+    width={demoContentDefault.width}
+  />
+</Playground>
+
+## Widths
+
+### Small
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    helperText="This is the input's helper text."
+    width="s"
+  />
+</Playground>
+
+### Medium
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    helperText="This is the input's helper text."
+    width="m"
+  />
+</Playground>
+
+### Large
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-text-field"
+  selectedStory="default"
+>
+  <TextInput
+    id="text-input-id"
+    name="text-input-name"
+    type="text"
+    label={demoContentDefault.label}
+    helperText="This is the input's helper text."
+    width="l"
   />
 </Playground>

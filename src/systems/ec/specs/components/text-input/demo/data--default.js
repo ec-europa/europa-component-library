@@ -2,5 +2,5 @@
 module.exports = {
   id: 'example-input-id-1',
   label: 'Label',
-  width: 'md',
+  width: 'm',
 };

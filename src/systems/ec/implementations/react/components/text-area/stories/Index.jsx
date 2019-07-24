@@ -32,8 +32,8 @@ storiesOf('Components|Forms/TextArea', module)
         width={select(
           'Width',
           {
-            medium: 'md',
-            large: 'lg',
+            medium: 'm',
+            large: 'l',
           },
           demoContentDefault.width
         )}
