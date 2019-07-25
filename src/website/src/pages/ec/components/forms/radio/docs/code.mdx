@@ -31,6 +31,26 @@ import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-inva
   <RadioGroup {...demoContentInvalid} />
 </Playground>
 
+## Required radio group
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-radio"
+  selectedStory="default"
+>
+  <RadioGroup {...demoContentDefault} required requiredText="*" />
+</Playground>
+
+## Optional radio group
+
+<Playground
+  system="ec"
+  selectedKind="components-forms-radio"
+  selectedStory="default"
+>
+  <RadioGroup {...demoContentDefault} optionalText=" (optional)" />
+</Playground>
+
 ## Binary radio group
 
 <Playground

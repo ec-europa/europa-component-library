@@ -6,8 +6,6 @@ module.exports = {
   helperId: 'helper-id',
   helperText: "This is the group's helper text.",
   invalidText: 'This is the error message',
-  requiredText: '*',
-  optionalText: '(optional)',
   name: 'radio-default',
   items: [
     {

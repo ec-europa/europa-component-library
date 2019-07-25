@@ -6,8 +6,6 @@ module.exports = {
   helperId: 'radio-binary-invalid-helper',
   helperText: 'Helper text for the group',
   invalidText: 'Error message for the group',
-  requiredText: '*',
-  optionalText: '(optional)',
   name: 'radio-binary-invalid',
   binary: true,
   invalid: true,
