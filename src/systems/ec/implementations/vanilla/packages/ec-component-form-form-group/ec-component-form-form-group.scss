@@ -24,6 +24,10 @@
       margin-top: $ecl-spacing-s;
     }
 
+    > *:not(.ecl-form-label--hidden) + .ecl-select__container {
+      margin-top: $ecl-spacing-s;
+    }
+
     > .ecl-feedback-message + .ecl-help-block {
       margin-top: 0;
     }
