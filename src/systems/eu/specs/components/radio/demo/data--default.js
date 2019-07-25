@@ -1,12 +1,7 @@
 module.exports = {
-  label: 'Select your country', // DEPRECATED
-  labelId: 'label-id', // DEPRECATED
   legend: 'Select your country',
-  legendId: 'legend-id',
-  helperId: 'helper-id',
   helperText: "This is the group's helper text.",
   invalidText: 'This is the error message',
-  name: 'radio-default',
   items: [
     {
       id: 'radio-default-1',

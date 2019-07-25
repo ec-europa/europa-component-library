@@ -20,8 +20,8 @@ storiesOf('Components|Forms/Radio', module)
         invalid={boolean('Invalid', false)}
         invalidText={text('Invalid text', demoContentDefault.invalidText)}
         required={boolean('Required', true)}
-        requiredText={text('Required text', demoContentDefault.requiredText)}
-        optionalText={text('Optional text', demoContentDefault.optionalText)}
+        requiredText={text('Required text', '*')}
+        optionalText={text('Optional text', ' (optional)')}
       />
     ),
     {
@@ -35,13 +35,13 @@ storiesOf('Components|Forms/Radio', module)
     () => (
       <RadioGroup
         {...demoContentBinary}
-        label={text('Label', demoContentDefault.label)}
-        helperText={text('Helper text', demoContentDefault.helperText)}
+        label={text('Label', demoContentBinary.label)}
+        helperText={text('Helper text', demoContentBinary.helperText)}
         invalid={boolean('Invalid', false)}
-        invalidText={text('Invalid text', demoContentDefault.invalidText)}
+        invalidText={text('Invalid text', demoContentBinary.invalidText)}
         required={boolean('Required', true)}
-        requiredText={text('Required text', demoContentDefault.requiredText)}
-        optionalText={text('Optional text', demoContentDefault.optionalText)}
+        requiredText={text('Required text', '*')}
+        optionalText={text('Optional text', ' (optional)')}
       />
     ),
     {

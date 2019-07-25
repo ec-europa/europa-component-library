@@ -8,6 +8,8 @@ import RadioGroup from '@ecl/ec-react-component-radio';
 
 import demoContentDefault from '@ecl/ec-specs-radio/demo/data--default';
 import demoContentInvalid from '@ecl/ec-specs-radio/demo/data--invalid';
+import demoContentRequired from '@ecl/ec-specs-radio/demo/data--required';
+import demoContentOptional from '@ecl/ec-specs-radio/demo/data--optional';
 import demoContentBinary from '@ecl/ec-specs-radio/demo/data--binary';
 import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-invalid';
 
@@ -18,7 +20,12 @@ import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-inva
   selectedKind="components-forms-radio"
   selectedStory="default"
 >
-  <RadioGroup {...demoContentDefault} />
+  <RadioGroup
+    {...demoContentDefault}
+    name="radio-group-1"
+    legendId="legend-id-1"
+    helperId="helper-id-1"
+  />
 </Playground>
 
 ## Invalid radio group
@@ -28,7 +35,12 @@ import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-inva
   selectedKind="components-forms-radio"
   selectedStory="default"
 >
-  <RadioGroup {...demoContentInvalid} />
+  <RadioGroup
+    {...demoContentInvalid}
+    name="radio-group-2"
+    legendId="legend-id-2"
+    helperId="helper-id-2"
+  />
 </Playground>
 
 ## Required radio group
@@ -38,7 +50,12 @@ import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-inva
   selectedKind="components-forms-radio"
   selectedStory="default"
 >
-  <RadioGroup {...demoContentDefault} required requiredText="*" />
+  <RadioGroup
+    {...demoContentRequired}
+    name="radio-group-3"
+    legendId="legend-id-3"
+    helperId="helper-id-3"
+  />
 </Playground>
 
 ## Optional radio group
@@ -48,7 +65,12 @@ import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-inva
   selectedKind="components-forms-radio"
   selectedStory="default"
 >
-  <RadioGroup {...demoContentDefault} optionalText=" (optional)" />
+  <RadioGroup
+    {...demoContentOptional}
+    name="radio-group-4"
+    legendId="legend-id-4"
+    helperId="helper-id-4"
+  />
 </Playground>
 
 ## Binary radio group
@@ -58,7 +80,12 @@ import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-inva
   selectedKind="components-forms-radio"
   selectedStory="binary"
 >
-  <RadioGroup {...demoContentBinary} />
+  <RadioGroup
+    {...demoContentBinary}
+    name="radio-group-5"
+    legendId="legend-id-5"
+    helperId="helper-id-5"
+  />
 </Playground>
 
 ## Binary invalid radio group
@@ -68,5 +95,10 @@ import demoContentBinaryInvalid from '@ecl/ec-specs-radio/demo/data--binary-inva
   selectedKind="components-forms-radio"
   selectedStory="binary"
 >
-  <RadioGroup {...demoContentBinaryInvalid} />
+  <RadioGroup
+    {...demoContentBinaryInvalid}
+    name="radio-group-6"
+    legendId="legend-id-6"
+    helperId="helper-id-6"
+  />
 </Playground>
