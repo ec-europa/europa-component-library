@@ -5,19 +5,21 @@ import classnames from 'classnames';
 import RadioButton from './RadioButton';
 
 const RadioGroup = ({
-  legend,
-  legendId,
-  legendClassName,
-  helperText,
+  binary,
   helperId,
+  helperText,
   invalid,
   invalidText,
+  items,
+  label, // DEPRECATED
+  labelId, // DEPRECATED
+  legend,
+  legendClassName,
+  legendId,
+  name,
   optionalText,
   required,
   requiredText,
-  name,
-  items,
-  binary,
   className,
   ...props
 }) => {
@@ -32,7 +34,7 @@ const RadioGroup = ({
   return (
     <fieldset
       {...props}
-      aria-labelledby={legendId}
+      aria-labelledby={labelId || legendId}
       {...(helperId ? { 'aria-describedby': helperId } : {})}
       className={classNames}
     >
@@ -43,7 +45,7 @@ const RadioGroup = ({
           })}
           id={legendId}
         >
-          {legend}
+          {label || legend}
           {required ? (
             <Fragment>
               {requiredText && (
@@ -78,36 +80,40 @@ const RadioGroup = ({
 };
 
 RadioGroup.propTypes = {
-  legend: PropTypes.string,
-  legendId: PropTypes.string,
-  legendClassName: PropTypes.string,
-  helperText: PropTypes.node,
+  binary: PropTypes.bool,
   helperId: PropTypes.string,
+  helperText: PropTypes.node,
   invalid: PropTypes.bool,
   invalidText: PropTypes.node,
+  items: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)),
+  label: PropTypes.string, // DEPRECATED
+  labelId: PropTypes.string, // DEPRECATED
+  legend: PropTypes.string,
+  legendClassName: PropTypes.string,
+  legendId: PropTypes.string,
+  name: PropTypes.string,
   optionalText: PropTypes.string,
   required: PropTypes.bool,
   requiredText: PropTypes.string,
-  name: PropTypes.string,
-  items: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)),
-  binary: PropTypes.bool,
   className: PropTypes.string,
 };
 
 RadioGroup.defaultProps = {
+  binary: false,
+  helperId: '',
+  helperText: '',
+  invalid: false,
+  invalidText: '',
+  items: [],
+  label: '', // DEPRECATED
+  labelId: '', // DEPRECATED
   legend: '',
   legendId: '',
   legendClassName: '',
-  helperText: '',
-  helperId: '',
-  invalid: false,
-  invalidText: '',
+  name: '',
   optionalText: '',
   required: false,
   requiredText: '',
-  name: '',
-  items: [],
-  binary: false,
   className: '',
 };
 

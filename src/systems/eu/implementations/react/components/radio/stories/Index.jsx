@@ -15,7 +15,10 @@ storiesOf('Components|Forms/Radio', module)
     () => (
       <RadioGroup
         {...demoContentDefault}
-        label={text('Label', demoContentDefault.label)}
+        name="radio-group-1"
+        legendId="legend-id-1"
+        helperId="helper-id-1"
+        legend={text('Label', demoContentDefault.legend)}
         helperText={text('Helper text', demoContentDefault.helperText)}
         invalid={boolean('Invalid', false)}
         invalidText={text('Invalid text', demoContentDefault.invalidText)}
@@ -35,7 +38,10 @@ storiesOf('Components|Forms/Radio', module)
     () => (
       <RadioGroup
         {...demoContentBinary}
-        label={text('Label', demoContentBinary.label)}
+        name="radio-group-1"
+        legendId="legend-id-1"
+        helperId="helper-id-1"
+        legend={text('Label', demoContentBinary.legend)}
         helperText={text('Helper text', demoContentBinary.helperText)}
         invalid={boolean('Invalid', false)}
         invalidText={text('Invalid text', demoContentBinary.invalidText)}
